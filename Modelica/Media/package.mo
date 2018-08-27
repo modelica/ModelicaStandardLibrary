@@ -795,7 +795,7 @@ elements</p>
 
   <tr><td>Boolean</td>
       <td>hasAcentricFactor</td>
-      <td>true if Pitzer accentric factor is known</td></tr>
+      <td>true if Pitzer acentric factor is known</td></tr>
 
   <tr><td>SpecificEnthalpy</td>
       <td>HCRIT0</td>
@@ -7766,7 +7766,7 @@ Note: Reference enthalpy might have to be extended with enthalpy of formation.
         Boolean hasVapourPressureCurve=false
           "True if vapour pressure data, e.g., Antoine coefficients are known";
         Boolean hasAcentricFactor=false
-          "True if Pitzer accentric factor is known";
+          "True if Pitzer acentric factor is known";
         SpecificEnthalpy HCRIT0=0.0
           "Critical specific enthalpy of the fundamental equation";
         SpecificEntropy SCRIT0=0.0
@@ -7810,7 +7810,7 @@ Note: Reference enthalpy might have to be extended with enthalpy of formation.
         Boolean hasVapourPressureCurve=false
           "True if vapour pressure data, e.g., Antoine coefficients are known";
         Boolean hasAcentricFactor=false
-          "True if Pitzer accentric factor is known";
+          "True if Pitzer acentric factor is known";
         SpecificEnthalpy HCRIT0=0.0
           "Critical specific enthalpy of the fundamental equation";
         SpecificEntropy SCRIT0=0.0

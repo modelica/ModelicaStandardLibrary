@@ -752,7 +752,7 @@ required from medium model \"" + mediumName + "\".");
 
   redeclare function extends specificEntropy "Return specific entropy"
   protected
-    Real[nX] Y(unit="mol/mol")=massToMoleFractions(state.X, data.MM)
+    Real[nX] Y(each unit="mol/mol")=massToMoleFractions(state.X, data.MM)
       "Molar fractions";
   algorithm
   s :=  s_TX(state.T, state.X) - sum(state.X[i]*Modelica.Constants.R/MMX[i]*
@@ -1012,7 +1012,7 @@ end gasMixtureViscosity;
   Real edivk[size(y,1),size(y,1)];
   Real Mm;
   Real Mij[size(y,1),size(y,1)];
-  Real wm "Accentric factor";
+  Real wm "Acentric factor";
   Real wij[size(y,1),size(y,1)];
   Real kappam
       "Correlation for highly polar substances such as alcohols and acids";
@@ -1366,7 +1366,7 @@ end lowPressureThermalConductivity;
         "Note that this function always sees the complete mass fraction vector"
       protected
     MassFraction[nX] Xfull = if size(X,1) == nX then X else cat(1,X,{1-sum(X)});
-    Real[nX] Y(unit="mol/mol")=massToMoleFractions(if size(X,1) == nX then X else cat(1,X,{1-sum(X)}), data.MM)
+    Real[nX] Y(each unit="mol/mol")=massToMoleFractions(if size(X,1) == nX then X else cat(1,X,{1-sum(X)}), data.MM)
           "Molar fractions";
     algorithm
       y := s_TX(x,Xfull) - sum(Xfull[i]*Modelica.Constants.R/MMX[i]*

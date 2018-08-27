@@ -1733,7 +1733,7 @@ package ReferenceMoistAir
         input Modelica.SIunits.Pressure p "Pressure";
         input Modelica.SIunits.Temperature T "Temperature (K)";
         output Modelica.Media.Common.GibbsDerivs g
-          "Dimensionless Gibbs function and dervatives w.r.t. pi and tau";
+          "Dimensionless Gibbs function and derivatives w.r.t. pi and tau";
       protected
         Real tau2 "Dimensionless temperature";
         Real[55] o "Vector of auxiliary variables";
@@ -2832,7 +2832,7 @@ package ReferenceMoistAir
         input Modelica.SIunits.Temperature T "Temperature";
         output Common.AuxiliaryProperties aux "Auxiliary record";
       protected
-        Common.GibbsDerivs2 g "Gibbs function and dervatives w.r.t. p and T";
+        Common.GibbsDerivs2 g "Gibbs function and derivatives w.r.t. p and T";
       algorithm
         aux.p := p;
         aux.T := T;

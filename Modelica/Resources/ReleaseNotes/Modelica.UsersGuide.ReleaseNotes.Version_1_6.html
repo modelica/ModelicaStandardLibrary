@@ -1,88 +1,85 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 <title>Modelica.UsersGuide.ReleaseNotes.Version_1_6</title>
 </head>
 <body>
-<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>.<span class="omc-h1">Version_1_6</span></h1>
+<h1>ReleaseNotes.<span class="omc-h1">Version_1_6</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <p>Added 1 new library (Electrical.MultiPhase), 17 new components,
 improved 3 existing components in the Modelica.Electrical library
 and improved 3 types in the Modelica.SIunits library. Furthermore,
 this User's Guide has been started. The improvements in more
 detail:</p>
-<p><b>New components</b></p>
+<p><strong>New components</strong></p>
 <table border="1" cellspacing="0" cellpadding="2">
 <tr>
-<td colspan="2"><b>Modelica.Electrical.Analog.Basic.</b></td>
+<td colspan="2">
+<strong>Modelica.Electrical.Analog.Basic.</strong></td>
 </tr>
 <tr>
-<td valign="top">SaturatingInductor</td>
-<td valign="top">Simple model of an inductor with saturation</td>
+<td>SaturatingInductor</td>
+<td>Simple model of an inductor with saturation</td>
 </tr>
 <tr>
-<td valign="top">VariableResistor</td>
-<td valign="top">Ideal linear electrical resistor with variable
-resistance</td>
+<td>VariableResistor</td>
+<td>Ideal linear electrical resistor with variable resistance</td>
 </tr>
 <tr>
-<td valign="top">VariableConductor</td>
-<td valign="top">Ideal linear electrical conductor with variable
+<td>VariableConductor</td>
+<td>Ideal linear electrical conductor with variable
 conductance</td>
 </tr>
 <tr>
-<td valign="top">VariableCapacitor</td>
-<td valign="top">Ideal linear electrical capacitor with variable
+<td>VariableCapacitor</td>
+<td>Ideal linear electrical capacitor with variable
 capacitance</td>
 </tr>
 <tr>
-<td valign="top">VariableInductor</td>
-<td valign="top">Ideal linear electrical inductor with variable
-inductance</td>
+<td>VariableInductor</td>
+<td>Ideal linear electrical inductor with variable inductance</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Electrical.Analog.Semiconductors.</b></td>
+<strong>Modelica.Electrical.Analog.Semiconductors.</strong></td>
 </tr>
 <tr>
-<td valign="top">HeatingDiode</td>
-<td valign="top">Simple diode with heating port</td>
+<td>HeatingDiode</td>
+<td>Simple diode with heating port</td>
 </tr>
 <tr>
-<td valign="top">HeatingNMOS</td>
-<td valign="top">Simple MOS Transistor with heating port</td>
+<td>HeatingNMOS</td>
+<td>Simple MOS Transistor with heating port</td>
 </tr>
 <tr>
-<td valign="top">HeatingPMOS</td>
-<td valign="top">Simple PMOS Transistor with heating port</td>
+<td>HeatingPMOS</td>
+<td>Simple PMOS Transistor with heating port</td>
 </tr>
 <tr>
-<td valign="top">HeatingNPN</td>
-<td valign="top">Simple NPN BJT according to Ebers-Moll with
-heating port</td>
+<td>HeatingNPN</td>
+<td>Simple NPN BJT according to Ebers-Moll with heating port</td>
 </tr>
 <tr>
-<td valign="top">HeatingPNP</td>
-<td valign="top">Simple PNP BJT according to Ebers-Moll with
-heating port</td>
+<td>HeatingPNP</td>
+<td>Simple PNP BJT according to Ebers-Moll with heating port</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Electrical.MultiPhase</b><br />
+<td colspan="2">
+<strong>Modelica.Electrical.MultiPhase</strong><br />
 A new library for multi-phase electrical circuits</td>
 </tr>
 </table>
-<p><b>New examples</b></p>
+<p><strong>New examples</strong></p>
 <p>The following new examples have been added to
 Modelica.Electrical.Analog.Examples:</p>
 <p>CharacteristicThyristors, CharacteristicIdealDiodes,
 HeatingNPN_OrGate, HeatingMOSInverter, HeatingRectifier, Rectifier,
 ShowSaturatingInductor ShowVariableResistor</p>
-<p><b>Improved existing components</b></p>
+<p><strong>Improved existing components</strong></p>
 <p>In the library Modelica.Electrical.Analog.Ideal, a knee voltage
 has been introduced for the components IdealThyristor,
 IdealGTOThyristor, IdealDiode in order that the approximation of
@@ -92,20 +89,20 @@ effort.</p>
 made:</p>
 <table border="1" cellspacing="0" cellpadding="2">
 <tr>
-<td valign="top">Inductance</td>
-<td valign="top">min=0 removed</td>
+<td>Inductance</td>
+<td>min=0 removed</td>
 </tr>
 <tr>
-<td valign="top">SelfInductance</td>
-<td valign="top">min=0 added</td>
+<td>SelfInductance</td>
+<td>min=0 added</td>
 </tr>
 <tr>
-<td valign="top">ThermodynamicTemperature</td>
-<td valign="top">min=0 added</td>
+<td>ThermodynamicTemperature</td>
+<td>min=0 added</td>
 </tr>
 </table>
 <hr />
-Generated at 2016-07-13T15:55:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.11.0~dev-38-g67b62bf
+Generated at 2018-08-07T07:53:32Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1195-g6d891ea
 </body>
 </html>

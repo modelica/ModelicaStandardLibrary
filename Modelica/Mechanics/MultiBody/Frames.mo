@@ -2003,8 +2003,7 @@ The matrix&nbsp;T is considered to be an inverse transformation matrix.
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.to_T_inv\">Frames.to_T_inv</a>,
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_T_inv\">TransformationMatrices.to_T_inv</a>.
 </p>
-</html>
-"));
+</html>"));
     end to_T_inv;
 
     annotation (Documentation(info="<html>

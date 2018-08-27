@@ -1,22 +1,21 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 <title>Modelica.UsersGuide.ReleaseNotes.Version_3_0_1</title>
 </head>
 <body>
-<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>.<span class="omc-h1">Version_3_0_1</span></h1>
+<h1>ReleaseNotes.<span class="omc-h1">Version_3_0_1</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
-<p>This Modelica package is provided under the <a href="Modelica.UsersGuide.ModelicaLicense2.html">Modelica License
-2</a> and no longer under Modelica License 1.1. There are the
-following reasons why the Modelica Association changes from
-Modelica License 1.1 to this new license text (note, the text below
-is not a legal interpretation of the Modelica License 2. In case of
-a conflict, the language of the license shall prevail):</p>
+<p>This Modelica package is provided under the Modelica License 2
+and no longer under Modelica License 1.1. There are the following
+reasons why the Modelica Association changes from Modelica License
+1.1 to this new license text (note, the text below is not a legal
+interpretation of the Modelica License 2. In case of a conflict,
+the language of the license shall prevail):</p>
 <ol>
 <li>The rights of licensor and licensee are much more clearly
 defined. For example:
@@ -51,55 +50,54 @@ against licensors and licensees more unlikely (so the small risk is
 further reduced).</li>
 </ol>
 <p><br />
-The following <b style="color:blue">new components</b> have been
-added to <b style="color:blue">existing</b> libraries:</p>
+The following <font color="blue"><strong>new
+components</strong></font> have been added to <font color="blue"><strong>existing</strong></font> libraries:</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
-<td colspan="2"><b>Electrical.Analog.Basic.</b></td>
+<td colspan="2"><strong>Electrical.Analog.Basic.</strong></td>
 </tr>
 <tr>
-<td valign="top">M_Transformer</td>
-<td valign="top">Transformer, with the possibility to choose the
-number of inductors. The inductances and the coupled inductances
-can be chosen arbitrarily.</td>
+<td>M_Transformer</td>
+<td>Transformer, with the possibility to choose the number of
+inductors. The inductances and the coupled inductances can be
+chosen arbitrarily.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Electrical.Analog.Lines.</b></td>
+<td colspan="2"><strong>Electrical.Analog.Lines.</strong></td>
 </tr>
 <tr>
-<td valign="top">M_OLine</td>
-<td valign="top">Segmented line model that enables the use of
-multiple lines, that means, the number of segments and the number
-of single lines can be chosen by the user. The model allows to
-investigate phenomena at multiple lines like mutual magnetic or
-capacitive influence.</td>
+<td>M_OLine</td>
+<td>Segmented line model that enables the use of multiple lines,
+that means, the number of segments and the number of single lines
+can be chosen by the user. The model allows to investigate
+phenomena at multiple lines like mutual magnetic or capacitive
+influence.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Mechanics.Translational.Components.Examples.</b></td>
+<strong>Mechanics.Translational.Components.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top">Brake</td>
-<td valign="top">Demonstrates the usage of the translational brake
+<td>Brake</td>
+<td>Demonstrates the usage of the translational brake
 component.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Interfaces.PartialMedium.</b></td>
+<td colspan="2">
+<strong>Media.Interfaces.PartialMedium.</strong></td>
 </tr>
 <tr>
-<td valign="top">ThermoStates</td>
-<td valign="top">Enumeration type for independent variables to
-identify the independent variables of the medium (pT, ph, phX, pTX,
-dTX).<br />
+<td>ThermoStates</td>
+<td>Enumeration type for independent variables to identify the
+independent variables of the medium (pT, ph, phX, pTX, dTX).<br />
 An implementation of this enumeration is provided for every medium.
 (This is useful for fluid libraries that do not use the
 PartialMedium.BaseProperties model).</td>
 </tr>
 <tr>
-<td valign="top">setSmoothState</td>
-<td valign="top">Function that returns the thermodynamic state
-which smoothly approximates: if x &gt; 0 then state_a else
-state_b.<br />
+<td>setSmoothState</td>
+<td>Function that returns the thermodynamic state which smoothly
+approximates: if x &gt; 0 then state_a else state_b.<br />
 (This is useful for pressure drop components in fluid libraries
 where the upstream density and/or viscosity has to be computed and
 these properties should be smooth a zero mass flow rate)<br />
@@ -107,201 +105,203 @@ An implementation of this function is provided for every
 medium.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Common.</b></td>
+<td colspan="2"><strong>Media.Common.</strong></td>
 </tr>
 <tr>
-<td valign="top">smoothStep</td>
-<td valign="top">Approximation of a general step, such that the
-characteristic is continuous and differentiable.</td>
+<td>smoothStep</td>
+<td>Approximation of a general step, such that the characteristic
+is continuous and differentiable.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.UsersGuide.</b></td>
+<td colspan="2"><strong>Media.UsersGuide.</strong></td>
 </tr>
 <tr>
-<td valign="top">Future</td>
-<td valign="top">Short description of goals and changes of upcoming
-release of Modelica.Media.</td>
+<td>Future</td>
+<td>Short description of goals and changes of upcoming release of
+Modelica.Media.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Media.Air.MoistAir.</b></td>
+<td colspan="2"><strong>Media.Media.Air.MoistAir.</strong></td>
 </tr>
 <tr>
-<td valign="top">isentropicExponent</td>
-<td valign="top">Implemented Missing Function from interface.</td>
+<td>isentropicExponent</td>
+<td>Implemented Missing Function from interface.</td>
 </tr>
 <tr>
-<td valign="top">isentropicEnthalpyApproximation</td>
-<td valign="top">Implemented function that approximates the
-isentropic enthalpy change. This is only correct as long as there
-is no liquid in the stream.</td>
+<td>isentropicEnthalpyApproximation</td>
+<td>Implemented function that approximates the isentropic enthalpy
+change. This is only correct as long as there is no liquid in the
+stream.</td>
 </tr>
 </table>
 <p><br />
-The following <b style="color:blue">existing components</b> have
-been <b style="color:blue">changed</b> (in a <b style="color:blue">backward compatible</b> way):</p>
+The following <font color="blue"><strong>existing
+components</strong></font> have been <font color="blue"><strong>changed</strong></font> (in a <font color="blue"><strong>backward compatible</strong></font> way):</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
-<td colspan="2"><b>Mechanics.Rotational.Interfaces.</b></td>
+<td colspan="2">
+<strong>Mechanics.Rotational.Interfaces.</strong></td>
 </tr>
 <tr>
-<td valign="top">PartialFriction</td>
-<td valign="top">Improvement of friction model so that in certain
-situations the number of iterations is much smaller.</td>
+<td>PartialFriction</td>
+<td>Improvement of friction model so that in certain situations the
+number of iterations is much smaller.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Mechanics.Translational.Components.Examples.</b></td>
+<strong>Mechanics.Translational.Components.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top">Friction</td>
-<td valign="top">Added a third variant, where friction is modelled
-with the SupportFriction component.</td>
+<td>Friction</td>
+<td>Added a third variant, where friction is modelled with the
+SupportFriction component.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.Translational.Components.</b></td>
+<td colspan="2">
+<strong>Mechanics.Translational.Components.</strong></td>
 </tr>
 <tr>
-<td valign="top">MassWithStopAndFriction</td>
-<td valign="top">Improvement of friction model so that in certain
-situations the number of iterations is much smaller.</td>
+<td>MassWithStopAndFriction</td>
+<td>Improvement of friction model so that in certain situations the
+number of iterations is much smaller.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.Translational.Interfaces.</b></td>
+<td colspan="2">
+<strong>Mechanics.Translational.Interfaces.</strong></td>
 </tr>
 <tr>
-<td valign="top">PartialFriction</td>
-<td valign="top">Improvement of friction model so that in certain
-situations the number of iterations is much smaller.</td>
+<td>PartialFriction</td>
+<td>Improvement of friction model so that in certain situations the
+number of iterations is much smaller.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Examples.</b></td>
+<td colspan="2"><strong>Media.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top">SimpleLiquidWater<br />
+<td>SimpleLiquidWater<br />
 IdealGasH20<br />
 WaterIF97<br />
 MixtureGases<br />
 MoistAir</td>
-<td valign="top">Added equations to test the new setSmoothState(..)
-functions including the analytic derivatives of these
-functions.</td>
+<td>Added equations to test the new setSmoothState(..) functions
+including the analytic derivatives of these functions.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Interfaces.PartialLinearFluid.</b></td>
+<td colspan="2">
+<strong>Media.Interfaces.PartialLinearFluid.</strong></td>
 </tr>
 <tr>
-<td valign="top">setState_pTX<br />
+<td>setState_pTX<br />
 setState_phX<br />
 setState_psX<br />
 setState_dTX</td>
-<td valign="top">Rewritten function in one statement so that it is
-usually inlined.</td>
+<td>Rewritten function in one statement so that it is usually
+inlined.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Interfaces.PartialLinearFluid.</b></td>
+<td colspan="2">
+<strong>Media.Interfaces.PartialLinearFluid.</strong></td>
 </tr>
 <tr>
-<td valign="top">consistent use of reference_d instead of
-density(state</td>
-<td valign="top">Change was done to achieve consistency with
-analytic inverse functions.</td>
+<td>consistent use of reference_d instead of density(state</td>
+<td>Change was done to achieve consistency with analytic inverse
+functions.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Air.MoistAir.</b></td>
+<td colspan="2"><strong>Media.Air.MoistAir.</strong></td>
 </tr>
 <tr>
-<td valign="top">T_phX</td>
-<td valign="top">Interval of nonlinear solver to compute T from
-p,h,X changed from 200..6000 to 240 ..400 K.</td>
+<td>T_phX</td>
+<td>Interval of nonlinear solver to compute T from p,h,X changed
+from 200..6000 to 240 ..400 K.</td>
 </tr>
 </table>
 <p><br />
-The following <b style="color:red">critical errors</b> have been
-fixed (i.e., errors that can lead to wrong simulation results):</p>
+The following <font color="red"><strong>critical
+errors</strong></font> have been fixed (i.e., errors that can lead
+to wrong simulation results):</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
-<td colspan="2"><b>Mechanics.MultiBody.Forces</b></td>
+<td colspan="2"><strong>Mechanics.MultiBody.Forces</strong></td>
 </tr>
 <tr>
-<td valign="top">WorldTorque</td>
-<td valign="top">Parameter "ResolveInFrame" was not propagated and
-therefore always the default (resolved in world frame) was used,
+<td>WorldTorque</td>
+<td>Parameter "ResolveInFrame" was not propagated and therefore
+always the default (resolved in world frame) was used,
 independently of the setting of this parameter.</td>
 </tr>
 <tr>
-<td valign="top">WorldForceAndTorque</td>
-<td valign="top">Parameter "ResolveInFrame" was not propagated and
-therefore always the default (resolved in world frame) was used,
+<td>WorldForceAndTorque</td>
+<td>Parameter "ResolveInFrame" was not propagated and therefore
+always the default (resolved in world frame) was used,
 independently of the setting of this parameter.<br />
 Furthermore, internally WorldTorque was used instead of
 Internal.BasicWorldTorque and therefore the visualization of
 worldTorque was performed twice.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.MultiBody.Sensors</b></td>
+<td colspan="2"><strong>Mechanics.MultiBody.Sensors</strong></td>
 </tr>
 <tr>
-<td valign="top">AbsoluteSensor</td>
-<td valign="top">Velocity, acceleration and angular acceleration
-were computed by differentiating in the resolveInFrame frame. This
-has been corrected, by first transforming the vectors in to the
-world frame, differentiating here and then transforming into
-resolveInFrame. The parameter in the Advanced menu
-resolveInFrameAfterDifferentiation is then superfluous and was
-removed .</td>
+<td>AbsoluteSensor</td>
+<td>Velocity, acceleration and angular acceleration were computed
+by differentiating in the resolveInFrame frame. This has been
+corrected, by first transforming the vectors in to the world frame,
+differentiating here and then transforming into resolveInFrame. The
+parameter in the Advanced menu resolveInFrameAfterDifferentiation
+is then superfluous and was removed .</td>
 </tr>
 <tr>
-<td valign="top">AbsoluteVelocity</td>
-<td valign="top">The velocity was computed by differentiating in
-the resolveInFrame frame. This has been corrected, by first
+<td>AbsoluteVelocity</td>
+<td>The velocity was computed by differentiating in the
+resolveInFrame frame. This has been corrected, by first
 transforming the velocity in to the world frame, differentiating
 here and then transforming into resolveInFrame</td>
 </tr>
 <tr>
-<td valign="top">RelativeSensor</td>
-<td valign="top">If resolveInFrame &lt;&gt; frame_resolve and
+<td>RelativeSensor</td>
+<td>If resolveInFrame &lt;&gt; frame_resolve and
 resolveInFrameAfterDifferentiation = frame_resolve, a translation
 error occurred, since frame_resolve was not enabled in this
 situation. This has been corrected.</td>
 </tr>
 <tr>
-<td valign="top">RelativeVelocity</td>
-<td valign="top">The velocity has have been computed by
-differentiating in the resolveInFrame frame. This has been
-corrected, by first transforming the relative position in to
-frame_a, differentiating here and then transforming into
-resolveInFrame</td>
+<td>RelativeVelocity</td>
+<td>The velocity has have been computed by differentiating in the
+resolveInFrame frame. This has been corrected, by first
+transforming the relative position in to frame_a, differentiating
+here and then transforming into resolveInFrame</td>
 </tr>
 <tr>
-<td valign="top">TransformRelativeVector</td>
-<td valign="top">The transformation was wrong, since the parameters
-frame_r_in and frame_r_out have not been propagated to the submodel
-that performs the transformation. This has been corrected.</td>
+<td>TransformRelativeVector</td>
+<td>The transformation was wrong, since the parameters frame_r_in
+and frame_r_out have not been propagated to the submodel that
+performs the transformation. This has been corrected.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.Translational.Components.</b></td>
+<td colspan="2">
+<strong>Mechanics.Translational.Components.</strong></td>
 </tr>
 <tr>
-<td valign="top">SupportFriction<br />
+<td>SupportFriction<br />
 Brake</td>
-<td valign="top">The sign of the friction force was wrong and
-therefore friction accelerated instead of decelerated. This was
-fixed.</td>
+<td>The sign of the friction force was wrong and therefore friction
+accelerated instead of decelerated. This was fixed.</td>
 </tr>
 <tr>
-<td valign="top">SupportFriction</td>
-<td valign="top">The component was only correct for fixed support.
-This was corrected.</td>
+<td>SupportFriction</td>
+<td>The component was only correct for fixed support. This was
+corrected.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Interfaces.</b></td>
+<td colspan="2"><strong>Media.Interfaces.</strong></td>
 </tr>
 <tr>
-<td valign="top">PartialSimpleMedium<br />
+<td>PartialSimpleMedium<br />
 PartialSimpleIdealGasMedium</td>
-<td valign="top">BaseProperties.p was not defined as preferred
-state and BaseProperties.T was always defined as preferred state.
-This has been fixed by Defining p,T as preferred state if parameter
+<td>BaseProperties.p was not defined as preferred state and
+BaseProperties.T was always defined as preferred state. This has
+been fixed by Defining p,T as preferred state if parameter
 preferredMediumState = true. This error had the effect that mass m
 is selected as state instead of p and if default initialization is
 used then m=0 could give not the expected behavior. This means,
@@ -311,69 +311,67 @@ expected.</td>
 </tr>
 </table>
 <p><br />
-The following <b style="color:red">uncritical errors</b> have been
-fixed (i.e., errors that do <b style="color:red">not</b> lead to
-wrong simulation results, but, e.g., units are wrong or errors in
+The following <font color="red"><strong>uncritical
+errors</strong></font> have been fixed (i.e., errors that do
+<font color="red"><strong>not</strong></font> lead to wrong
+simulation results, but, e.g., units are wrong or errors in
 documentation):</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
-<td colspan="2"><b>Blocks.Math.</b></td>
+<td colspan="2"><strong>Blocks.Math.</strong></td>
 </tr>
 <tr>
-<td valign="top">InverseBlockConstraint</td>
-<td valign="top">Changed annotation preserveAspectRatio from true
-to false.</td>
+<td>InverseBlockConstraint</td>
+<td>Changed annotation preserveAspectRatio from true to false.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Blocks.Sources.</b></td>
+<td colspan="2"><strong>Blocks.Sources.</strong></td>
 </tr>
 <tr>
-<td valign="top">RealExpression<br />
+<td>RealExpression<br />
 IntegerExpression<br />
 BooleanExpression</td>
-<td valign="top">Changed annotation preserveAspectRatio from true
-to false.</td>
+<td>Changed annotation preserveAspectRatio from true to false.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Electrical.Analog.Basic.</b></td>
+<td colspan="2"><strong>Electrical.Analog.Basic.</strong></td>
 </tr>
 <tr>
-<td valign="top">SaturatingInductor</td>
-<td valign="top">Replaced non-standard "arctan" by "atan"
-function.</td>
+<td>SaturatingInductor</td>
+<td>Replaced non-standard "arctan" by "atan" function.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Electrical.Digital.</b></td>
+<td colspan="2"><strong>Modelica.Electrical.Digital.</strong></td>
 </tr>
 <tr>
-<td valign="top">UsersGuide</td>
-<td valign="top">Removed empty documentation placeholders and added
-the missing release comment for version 1.0.7</td>
+<td>UsersGuide</td>
+<td>Removed empty documentation placeholders and added the missing
+release comment for version 1.0.7</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Mechanics.Translational.Components.</b></td>
+<strong>Modelica.Mechanics.Translational.Components.</strong></td>
 </tr>
 <tr>
-<td valign="top">MassWithStopAndFriction</td>
-<td valign="top">Changed usage of reinit(..), in order that it
-appears only once for one variable according to the language
-specification (if a tool could simulate the model, there is no
-difference).</td>
+<td>MassWithStopAndFriction</td>
+<td>Changed usage of reinit(..), in order that it appears only once
+for one variable according to the language specification (if a tool
+could simulate the model, there is no difference).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Interfaces.PartialSimpleMedium</b></td>
+<td colspan="2">
+<strong>Media.Interfaces.PartialSimpleMedium</strong></td>
 </tr>
 <tr>
-<td valign="top">pressure<br />
+<td>pressure<br />
 temperature<br />
 density<br />
 specificEnthalpy</td>
-<td valign="top">Missing functions added.</td>
+<td>Missing functions added.</td>
 </tr>
 </table>
 <hr />
-Generated at 2016-07-13T15:55:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.11.0~dev-38-g67b62bf
+Generated at 2018-08-07T07:53:32Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1195-g6d891ea
 </body>
 </html>

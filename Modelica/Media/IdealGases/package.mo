@@ -32,7 +32,7 @@ For the other gases, such a record instance has to be provided by the user, e.g.
 the data from a commercial or public data base. A public source of the needed data is for example the <a href=\"http://webbook.nist.gov/chemistry/\"> NIST Chemistry WebBook</a></li>
 
 <li>When the data is available, and a user has an instance of a
-<a href=\"modelica://Modelica.Media.Interfaces.PartialMedium.FluidConstants\">FluidConstants</a> record filled with data, a medium package has to be written. Note that only the dipole moment, the accentric factor and critical data are necessary for the viscosity and thermal conductivity functions.</li>
+<a href=\"modelica://Modelica.Media.Interfaces.PartialMedium.FluidConstants\">FluidConstants</a> record filled with data, a medium package has to be written. Note that only the dipole moment, the acentric factor and critical data are necessary for the viscosity and thermal conductivity functions.</li>
 <li><ul>
 <li>For single components, a new package following the pattern in
 <a href=\"modelica://Modelica.Media.IdealGases.SingleGases\">IdealGases.SingleGases</a> has to be created, pointing both to a data record for cp and to a user-defined fluidConstants record.</li>

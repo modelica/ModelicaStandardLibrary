@@ -1,340 +1,334 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 <title>Modelica.UsersGuide.ReleaseNotes.Version_1_5</title>
 </head>
 <body>
-<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>.<span class="omc-h1">Version_1_5</span></h1>
+<h1>ReleaseNotes.<span class="omc-h1">Version_1_5</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <p>Added 55 new components. In particular, added new package
-<b>Thermal.HeatTransfer</b> for modeling of lumped heat transfer,
-added model <b>LossyGear</b> in Mechanics.Rotational to model gear
-efficiency and bearing friction according to a new theory in a
-robust way, added 10 new models in Electrical.Analog and added
-several other new models and improved existing models.</p>
-<p><b>New components</b></p>
+<strong>Thermal.HeatTransfer</strong> for modeling of lumped heat
+transfer, added model <strong>LossyGear</strong> in
+Mechanics.Rotational to model gear efficiency and bearing friction
+according to a new theory in a robust way, added 10 new models in
+Electrical.Analog and added several other new models and improved
+existing models.</p>
+<p><strong>New components</strong></p>
 <table border="1" cellspacing="0" cellpadding="2">
 <tr>
-<td colspan="2"><b>Modelica.Blocks.</b></td>
+<td colspan="2"><strong>Modelica.Blocks.</strong></td>
 </tr>
 <tr>
-<td valign="top">Continuous.Der</td>
-<td valign="top">Derivative of input (= analytic
-differentiations)</td>
+<td>Continuous.Der</td>
+<td>Derivative of input (= analytic differentiations)</td>
 </tr>
 <tr>
-<td valign="top"><b><i>Examples</i></b></td>
-<td valign="top">Demonstration examples of the components of this
-package</td>
+<td><strong><em>Examples</em></strong></td>
+<td>Demonstration examples of the components of this package</td>
 </tr>
 <tr>
-<td valign="top">Nonlinear.VariableLimiter</td>
-<td valign="top">Limit the range of a signal with variable
-limits</td>
+<td>Nonlinear.VariableLimiter</td>
+<td>Limit the range of a signal with variable limits</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Interfaces.</b></td>
+<td colspan="2"><strong>Modelica.Blocks.Interfaces.</strong></td>
 </tr>
 <tr>
-<td valign="top">RealPort</td>
-<td valign="top">Real port (both input/output possible)</td>
+<td>RealPort</td>
+<td>Real port (both input/output possible)</td>
 </tr>
 <tr>
-<td valign="top">IntegerPort</td>
-<td valign="top">Integer port (both input/output possible)</td>
+<td>IntegerPort</td>
+<td>Integer port (both input/output possible)</td>
 </tr>
 <tr>
-<td valign="top">BooleanPort</td>
-<td valign="top">Boolean port (both input/output possible)</td>
+<td>BooleanPort</td>
+<td>Boolean port (both input/output possible)</td>
 </tr>
 <tr>
-<td valign="top">SIMO</td>
-<td valign="top">Single Input Multiple Output continuous control
-block</td>
+<td>SIMO</td>
+<td>Single Input Multiple Output continuous control block</td>
 </tr>
 <tr>
-<td valign="top">IntegerBlockIcon</td>
-<td valign="top">Basic graphical layout of Integer block</td>
+<td>IntegerBlockIcon</td>
+<td>Basic graphical layout of Integer block</td>
 </tr>
 <tr>
-<td valign="top">IntegerMO</td>
-<td valign="top">Multiple Integer Output continuous control
-block</td>
+<td>IntegerMO</td>
+<td>Multiple Integer Output continuous control block</td>
 </tr>
 <tr>
-<td valign="top">IntegerSignalSource</td>
-<td valign="top">Base class for continuous Integer signal
-source</td>
+<td>IntegerSignalSource</td>
+<td>Base class for continuous Integer signal source</td>
 </tr>
 <tr>
-<td valign="top">IntegerMIBooleanMOs</td>
-<td valign="top">Multiple Integer Input Multiple Boolean Output
-continuous control block with same number of inputs and
-outputs</td>
+<td>IntegerMIBooleanMOs</td>
+<td>Multiple Integer Input Multiple Boolean Output continuous
+control block with same number of inputs and outputs</td>
 </tr>
 <tr>
-<td valign="top">BooleanMIMOs</td>
-<td valign="top">Multiple Input Multiple Output continuous control
-block with same number of inputs and outputs of Boolean type</td>
+<td>BooleanMIMOs</td>
+<td>Multiple Input Multiple Output continuous control block with
+same number of inputs and outputs of Boolean type</td>
 </tr>
 <tr>
-<td valign="top"><b><i>BusAdaptors</i></b></td>
-<td valign="top">Components to send signals to the bus or receive
-signals from the bus</td>
+<td><strong><em>BusAdaptors</em></strong></td>
+<td>Components to send signals to the bus or receive signals from
+the bus</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Math.</b></td>
+<td colspan="2"><strong>Modelica.Blocks.Math.</strong></td>
 </tr>
 <tr>
-<td valign="top">RealToInteger</td>
-<td valign="top">Convert real to integer signals</td>
+<td>RealToInteger</td>
+<td>Convert real to integer signals</td>
 </tr>
 <tr>
-<td valign="top">IntegerToReal</td>
-<td valign="top">Convert integer to real signals</td>
+<td>IntegerToReal</td>
+<td>Convert integer to real signals</td>
 </tr>
 <tr>
-<td valign="top">Max</td>
-<td valign="top">Pass through the largest signal</td>
+<td>Max</td>
+<td>Pass through the largest signal</td>
 </tr>
 <tr>
-<td valign="top">Min</td>
-<td valign="top">Pass through the smallest signal</td>
+<td>Min</td>
+<td>Pass through the smallest signal</td>
 </tr>
 <tr>
-<td valign="top">Edge</td>
-<td valign="top">Indicates rising edge of Boolean signal</td>
+<td>Edge</td>
+<td>Indicates rising edge of Boolean signal</td>
 </tr>
 <tr>
-<td valign="top">BooleanChange</td>
-<td valign="top">Indicates Boolean signal changing</td>
+<td>BooleanChange</td>
+<td>Indicates Boolean signal changing</td>
 </tr>
 <tr>
-<td valign="top">IntegerChange</td>
-<td valign="top">Indicates integer signal changing</td>
+<td>IntegerChange</td>
+<td>Indicates integer signal changing</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Sources.</b></td>
+<td colspan="2"><strong>Modelica.Blocks.Sources.</strong></td>
 </tr>
 <tr>
-<td valign="top">IntegerConstant</td>
-<td valign="top">Generate constant signals of type Integer</td>
+<td>IntegerConstant</td>
+<td>Generate constant signals of type Integer</td>
 </tr>
 <tr>
-<td valign="top">IntegerStep</td>
-<td valign="top">Generate step signals of type Integer</td>
-</tr>
-<tr>
-<td colspan="2"><b>Modelica.Electrical.Analog.Basic.</b></td>
-</tr>
-<tr>
-<td valign="top">HeatingResistor</td>
-<td valign="top">Temperature dependent electrical resistor</td>
-</tr>
-<tr>
-<td valign="top">OpAmp</td>
-<td valign="top">Simple nonideal model of an OpAmp with
-limitation</td>
-</tr>
-<tr>
-<td colspan="2"><b>Modelica.Electrical.Analog.Ideal.</b></td>
-</tr>
-<tr>
-<td valign="top">IdealCommutingSwitch</td>
-<td valign="top">Ideal commuting switch</td>
-</tr>
-<tr>
-<td valign="top">IdealIntermediateSwitch</td>
-<td valign="top">Ideal intermediate switch</td>
-</tr>
-<tr>
-<td valign="top">ControlledIdealCommutingSwitch</td>
-<td valign="top">Controlled ideal commuting switch</td>
-</tr>
-<tr>
-<td valign="top">ControlledIdealIntermediateSwitch</td>
-<td valign="top">Controlled ideal intermediate switch</td>
-</tr>
-<tr>
-<td valign="top">IdealOpAmpLimited</td>
-<td valign="top">Ideal operational amplifier with limitation</td>
-</tr>
-<tr>
-<td valign="top">IdealOpeningSwitch</td>
-<td valign="top">Ideal opener</td>
-</tr>
-<tr>
-<td valign="top">IdealClosingSwitch</td>
-<td valign="top">Ideal closer</td>
-</tr>
-<tr>
-<td valign="top">ControlledIdealOpeningSwitch</td>
-<td valign="top">Controlled ideal opener</td>
-</tr>
-<tr>
-<td valign="top">ControlledIdealClosingSwitch</td>
-<td valign="top">Controlled ideal closer</td>
-</tr>
-<tr>
-<td colspan="2"><b>Modelica.Electrical.Analog.Lines.</b></td>
-</tr>
-<tr>
-<td valign="top">TLine1</td>
-<td valign="top">Lossless transmission line (Z0, TD)</td>
-</tr>
-<tr>
-<td valign="top">TLine2</td>
-<td valign="top">Lossless transmission line (Z0, F, NL)</td>
-</tr>
-<tr>
-<td valign="top">TLine2</td>
-<td valign="top">Lossless transmission line (Z0, F)</td>
-</tr>
-<tr>
-<td colspan="2"><b>Modelica.Icons.</b></td>
-</tr>
-<tr>
-<td valign="top">Function</td>
-<td valign="top">Icon for a function</td>
-</tr>
-<tr>
-<td valign="top">Record</td>
-<td valign="top">Icon for a record</td>
-</tr>
-<tr>
-<td valign="top">Enumeration</td>
-<td valign="top">Icon for an enumeration</td>
-</tr>
-<tr>
-<td colspan="2"><b>Modelica.Math.</b></td>
-</tr>
-<tr>
-<td valign="top">tempInterpol2</td>
-<td valign="top">temporary routine for vectorized linear
-interpolation (will be removed)</td>
-</tr>
-<tr>
-<td colspan="2"><b>Modelica.Mechanics.Rotational.</b></td>
-</tr>
-<tr>
-<td valign="top">Examples.LossyGearDemo1</td>
-<td valign="top">Example to show that gear efficiency may lead to
-stuck motion</td>
-</tr>
-<tr>
-<td valign="top">Examples.LossyGearDemo2</td>
-<td valign="top">Example to show combination of LossyGear and
-BearingFriction</td>
-</tr>
-<tr>
-<td valign="top">LossyGear</td>
-<td valign="top">Gear with mesh efficiency and bearing friction
-(stuck/rolling possible)</td>
-</tr>
-<tr>
-<td valign="top">Gear2</td>
-<td valign="top">Realistic model of a gearbox (based on
-LossyGear)</td>
-</tr>
-<tr>
-<td colspan="2"><b>Modelica.SIunits.</b></td>
-</tr>
-<tr>
-<td valign="top"><b><i>Conversions</i></b></td>
-<td valign="top">Conversion functions to/from non SI units and type
-definitions of non SI units</td>
-</tr>
-<tr>
-<td valign="top">EnergyFlowRate</td>
-<td valign="top">Same definition as <i>Power</i></td>
-</tr>
-<tr>
-<td valign="top">EnthalpyFlowRate</td>
-<td valign="top"><code>Real (final quantity="EnthalpyFlowRate",
-final unit="W")</code></td>
-</tr>
-<tr>
-<td colspan="2"><b>Modelica.</b></td>
-</tr>
-<tr>
-<td valign="top"><b><i>Thermal.HeatTransfer</i></b></td>
-<td valign="top">1-dimensional heat transfer with lumped
-elements</td>
-</tr>
-<tr>
-<td colspan="2"><b>ModelicaAdditions.Blocks.Discrete.</b></td>
-</tr>
-<tr>
-<td valign="top">TriggeredSampler</td>
-<td valign="top">Triggered sampling of continuous signals</td>
-</tr>
-<tr>
-<td valign="top">TriggeredMax</td>
-<td valign="top">Compute maximum, absolute value of continuous
-signal at trigger instants</td>
+<td>IntegerStep</td>
+<td>Generate step signals of type Integer</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>ModelicaAdditions.Blocks.Logical.Interfaces.</b></td>
+<strong>Modelica.Electrical.Analog.Basic.</strong></td>
 </tr>
 <tr>
-<td valign="top">BooleanMIRealMOs</td>
-<td valign="top">Multiple Boolean Input Multiple Real Output
-continuous control block with same number of inputs and
-outputs</td>
+<td>HeatingResistor</td>
+<td>Temperature dependent electrical resistor</td>
 </tr>
 <tr>
-<td valign="top">RealMIBooleanMOs</td>
-<td valign="top">Multiple Real Input Multiple Boolean Output
-continuous control block with same number of inputs and
-outputs</td>
+<td>OpAmp</td>
+<td>Simple nonideal model of an OpAmp with limitation</td>
 </tr>
 <tr>
-<td colspan="2"><b>ModelicaAdditions.Blocks.Logical.</b></td>
+<td colspan="2">
+<strong>Modelica.Electrical.Analog.Ideal.</strong></td>
 </tr>
 <tr>
-<td valign="top">TriggeredTrapezoid</td>
-<td valign="top">Triggered trapezoid generator</td>
+<td>IdealCommutingSwitch</td>
+<td>Ideal commuting switch</td>
 </tr>
 <tr>
-<td valign="top">Hysteresis</td>
-<td valign="top">Transform Real to Boolean with Hysteresis</td>
+<td>IdealIntermediateSwitch</td>
+<td>Ideal intermediate switch</td>
 </tr>
 <tr>
-<td valign="top">OnOffController</td>
-<td valign="top">On-off controller</td>
+<td>ControlledIdealCommutingSwitch</td>
+<td>Controlled ideal commuting switch</td>
 </tr>
 <tr>
-<td valign="top">Compare</td>
-<td valign="top">True, if signal of inPort1 is larger than signal
-of inPort2</td>
+<td>ControlledIdealIntermediateSwitch</td>
+<td>Controlled ideal intermediate switch</td>
 </tr>
 <tr>
-<td valign="top">ZeroCrossing</td>
-<td valign="top">Trigger zero crossing of input signal</td>
+<td>IdealOpAmpLimited</td>
+<td>Ideal operational amplifier with limitation</td>
 </tr>
 <tr>
-<td colspan="2"><b>ModelicaAdditions.</b></td>
+<td>IdealOpeningSwitch</td>
+<td>Ideal opener</td>
 </tr>
 <tr>
-<td valign="top">Blocks.Multiplexer.Extractor</td>
-<td valign="top">Extract scalar signal out of signal vector
-dependent on IntegerRealInput index</td>
+<td>IdealClosingSwitch</td>
+<td>Ideal closer</td>
 </tr>
 <tr>
-<td valign="top">Tables.CombiTable1Ds</td>
-<td valign="top">Table look-up in one dimension (matrix/file) with
-only single input</td>
+<td>ControlledIdealOpeningSwitch</td>
+<td>Controlled ideal opener</td>
+</tr>
+<tr>
+<td>ControlledIdealClosingSwitch</td>
+<td>Controlled ideal closer</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Modelica.Electrical.Analog.Lines.</strong></td>
+</tr>
+<tr>
+<td>TLine1</td>
+<td>Lossless transmission line (Z0, TD)</td>
+</tr>
+<tr>
+<td>TLine2</td>
+<td>Lossless transmission line (Z0, F, NL)</td>
+</tr>
+<tr>
+<td>TLine2</td>
+<td>Lossless transmission line (Z0, F)</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Modelica.Icons.</strong></td>
+</tr>
+<tr>
+<td>Function</td>
+<td>Icon for a function</td>
+</tr>
+<tr>
+<td>Record</td>
+<td>Icon for a record</td>
+</tr>
+<tr>
+<td>Enumeration</td>
+<td>Icon for an enumeration</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Modelica.Math.</strong></td>
+</tr>
+<tr>
+<td>tempInterpol2</td>
+<td>temporary routine for vectorized linear interpolation (will be
+removed)</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Modelica.Mechanics.Rotational.</strong></td>
+</tr>
+<tr>
+<td>Examples.LossyGearDemo1</td>
+<td>Example to show that gear efficiency may lead to stuck
+motion</td>
+</tr>
+<tr>
+<td>Examples.LossyGearDemo2</td>
+<td>Example to show combination of LossyGear and
+BearingFriction</td>
+</tr>
+<tr>
+<td>LossyGear</td>
+<td>Gear with mesh efficiency and bearing friction (stuck/rolling
+possible)</td>
+</tr>
+<tr>
+<td>Gear2</td>
+<td>Realistic model of a gearbox (based on LossyGear)</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Modelica.SIunits.</strong></td>
+</tr>
+<tr>
+<td><strong><em>Conversions</em></strong></td>
+<td>Conversion functions to/from non SI units and type definitions
+of non SI units</td>
+</tr>
+<tr>
+<td>EnergyFlowRate</td>
+<td>Same definition as <em>Power</em></td>
+</tr>
+<tr>
+<td>EnthalpyFlowRate</td>
+<td><code>Real (final quantity="EnthalpyFlowRate", final
+unit="W")</code></td>
+</tr>
+<tr>
+<td colspan="2"><strong>Modelica.</strong></td>
+</tr>
+<tr>
+<td><strong><em>Thermal.HeatTransfer</em></strong></td>
+<td>1-dimensional heat transfer with lumped elements</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>ModelicaAdditions.Blocks.Discrete.</strong></td>
+</tr>
+<tr>
+<td>TriggeredSampler</td>
+<td>Triggered sampling of continuous signals</td>
+</tr>
+<tr>
+<td>TriggeredMax</td>
+<td>Compute maximum, absolute value of continuous signal at trigger
+instants</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>ModelicaAdditions.Blocks.Logical.Interfaces.</strong></td>
+</tr>
+<tr>
+<td>BooleanMIRealMOs</td>
+<td>Multiple Boolean Input Multiple Real Output continuous control
+block with same number of inputs and outputs</td>
+</tr>
+<tr>
+<td>RealMIBooleanMOs</td>
+<td>Multiple Real Input Multiple Boolean Output continuous control
+block with same number of inputs and outputs</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>ModelicaAdditions.Blocks.Logical.</strong></td>
+</tr>
+<tr>
+<td>TriggeredTrapezoid</td>
+<td>Triggered trapezoid generator</td>
+</tr>
+<tr>
+<td>Hysteresis</td>
+<td>Transform Real to Boolean with Hysteresis</td>
+</tr>
+<tr>
+<td>OnOffController</td>
+<td>On-off controller</td>
+</tr>
+<tr>
+<td>Compare</td>
+<td>True, if signal of inPort1 is larger than signal of
+inPort2</td>
+</tr>
+<tr>
+<td>ZeroCrossing</td>
+<td>Trigger zero crossing of input signal</td>
+</tr>
+<tr>
+<td colspan="2"><strong>ModelicaAdditions.</strong></td>
+</tr>
+<tr>
+<td>Blocks.Multiplexer.Extractor</td>
+<td>Extract scalar signal out of signal vector dependent on
+IntegerRealInput index</td>
+</tr>
+<tr>
+<td>Tables.CombiTable1Ds</td>
+<td>Table look-up in one dimension (matrix/file) with only single
+input</td>
 </tr>
 </table>
-<p><b>Package-specific Changes</b></p>
+<p><strong>Package-specific Changes</strong></p>
 <ul>
-<li>All example models made <b>encapsulated</b></li>
+<li>All example models made <strong>encapsulated</strong></li>
 <li>Upper case constants changed to lower case (cf.
 Modelica.Constants)</li>
 <li>Introduced Modelica.SIunits.Wavelength due to typo
@@ -347,60 +341,59 @@ class, which have not been already of block type</li>
 <li>Changed *.Interfaces.RelativeSensor to <code>partial</code>
 models</li>
 </ul>
-<p><b>Class-specific Changes</b></p>
-<p><i>Modelica.SIunits</i></p>
+<p><strong>Class-specific Changes</strong></p>
+<p><em>Modelica.SIunits</em></p>
 <p>Removed <code>final</code> from quantity attribute for
-<i>Mass</i> and <i>MassFlowRate</i>.</p>
-<p><i>Modelica.Blocks.Math.Sum</i></p>
+<em>Mass</em> and <em>MassFlowRate</em>.</p>
+<p><em>Modelica.Blocks.Math.Sum</em></p>
 <p>Implemented avoiding algorithm section, which would lead to
 expensive function calls.</p>
-<p><i>Modelica.Blocks.Sources.Step</i></p>
+<p><em>Modelica.Blocks.Sources.Step</em></p>
 <pre>
 block Step "Generate step signals of type Real"
         parameter Real height[:]={1} "Heights of steps";
-<b> // parameter Real offset[:]={0} "Offsets of output signals";
+<strong> // parameter Real offset[:]={0} "Offsets of output signals";
 // parameter SIunits.Time startTime[:]={0} "Output = offset for time &lt; startTime";
 // extends Interfaces.MO          (final nout=max([size(height, 1); size(offset, 1); size(startTime, 1)]));
-        extends Interfaces.SignalSource(final nout=max([size(height, 1); size(offset, 1); size(startTime, 1)]));</b>
+        extends Interfaces.SignalSource(final nout=max([size(height, 1); size(offset, 1); size(startTime, 1)]));</strong>
 </pre>
-<p><i>Modelica.Blocks.Sources.Exponentials</i></p>
+<p><em>Modelica.Blocks.Sources.Exponentials</em></p>
 <p>Replaced usage of built-in function <code>exp</code> by
 Modelica.Math.exp.</p>
-<p><i>Modelica.Blocks.Sources.TimeTable</i></p>
+<p><em>Modelica.Blocks.Sources.TimeTable</em></p>
 <p>Interface definition changed from</p>
 <pre>
-    parameter Real table[:, :]=[0, 0; 1, 1; 2, 4] "Table matrix (time = first column)";
+parameter Real table[:, :]=[0, 0; 1, 1; 2, 4] "Table matrix (time = first column)";
 </pre>
 <p>to</p>
 <pre>
-    parameter Real table[:, <b>2</b>]=[0, 0; 1, 1; 2, 4] "Table matrix (time = first column)";
+parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4] "Table matrix (time = first column)";
 </pre>
 <p>Did the same for subfunction
-<i>getInterpolationCoefficients</i>.</p>
-<p>Bug in <i>getInterpolationCoefficients</i> for startTime
+<em>getInterpolationCoefficients</em>.</p>
+<p>Bug in <em>getInterpolationCoefficients</em> for startTime
 &lt;&gt; 0 fixed:</p>
-<pre>
-        ...
+<pre>        ...
                 end if;
           end if;
-          <b>// Take into account startTime "a*(time - startTime) + b"
-          b := b - a*startTime;</b>
+          <strong>// Take into account startTime "a*(time - startTime) + b"
+          b := b - a*startTime;</strong>
         end getInterpolationCoefficients;
 </pre>
-<p><i>Modelica.Blocks.Sources.BooleanStep</i></p>
+<p><em>Modelica.Blocks.Sources.BooleanStep</em></p>
 <pre>
 block BooleanStep "Generate step signals of type Boolean"
         parameter SIunits.Time startTime[:]={0} "Time instants of steps";
-        <b>parameter Boolean startValue[size(startTime, 1)]=fill(false, size(startTime, 1)) "Output before startTime";</b>
+        <strong>parameter Boolean startValue[size(startTime, 1)]=fill(false, size(startTime, 1)) "Output before startTime";</strong>
         extends Interfaces.BooleanSignalSource(final nout=size(startTime, 1));
 equation
         for i in 1:nout loop
-<b>//   outPort.signal[i] = time &gt;= startTime[i];
-          outPort.signal[i] = if time &gt;= startTime[i] then not startValue[i] else startValue[i];</b>
+<strong>//   outPort.signal[i] = time &gt;= startTime[i];
+          outPort.signal[i] = if time &gt;= startTime[i] then not startValue[i] else startValue[i];</strong>
         end for;
 end BooleanStep;
 </pre>
-<p><i>Modelica.Electrical.Analog</i></p>
+<p><em>Modelica.Electrical.Analog</em></p>
 <p>Corrected table of values and default for Beta by dividing them
 by 1000 (consistent with the values used in the NAND-example
 model):</p>
@@ -422,42 +415,45 @@ trapezoids previously.</p>
 </ul>
 <p>Basic.Transformer: Replaced invalid escape characters '\ ' and
 '\[newline]' in documentation by '|'.</p>
-<p><i>Modelica.Mechanics.Rotational</i></p>
+<p><em>Modelica.Mechanics.Rotational</em></p>
 <p>Removed arrows and names documentation from flanges in diagram
 layer</p>
-<p><i>Modelica.Mechanics.Rotational.Interfaces.FrictionBase</i></p>
-<p><i>Modelica.Mechanics.Rotational.Position</i></p>
+<p>
+<em>Modelica.Mechanics.Rotational.Interfaces.FrictionBase</em></p>
+<p><em>Modelica.Mechanics.Rotational.Position</em></p>
 <p>Replaced <code>reinit</code> by <code>initial
 equation</code></p>
-<p><i>Modelica.Mechanics.Rotational.RelativeStates</i></p>
+<p><em>Modelica.Mechanics.Rotational.RelativeStates</em></p>
 <p>Bug corrected by using modifier <code>stateSelect =
 StateSelect.prefer</code> as implementation</p>
-<p><i>Modelica.Mechanics.Translational.Interfaces.flange_b</i></p>
-<p>Attribute <b>fillColor=7</b> added to Rectangle on Icon layer,
-i.e., it is now filled with white and not transparent any more.</p>
-<p><i>Modelica.Mechanics.Translational.Position</i></p>
+<p>
+<em>Modelica.Mechanics.Translational.Interfaces.flange_b</em></p>
+<p>Attribute <strong>fillColor=7</strong> added to Rectangle on
+Icon layer, i.e., it is now filled with white and not transparent
+any more.</p>
+<p><em>Modelica.Mechanics.Translational.Position</em></p>
 <p>Replaced <code>reinit</code> by <code>initial
 equation</code></p>
-<p><i>Modelica.Mechanics.Translational.RelativeStates</i></p>
+<p><em>Modelica.Mechanics.Translational.RelativeStates</em></p>
 <p>Bug corrected by using modifier <code>stateSelect =
 StateSelect.prefer</code> as implementation</p>
-<p><i>Modelica.Mechanics.Translational.Stop</i></p>
+<p><em>Modelica.Mechanics.Translational.Stop</em></p>
 <p>Use <code>stateSelect = StateSelect.prefer</code>.</p>
-<p><i>Modelica.Mechanics.Translational.Examples.PreLoad</i></p>
+<p><em>Modelica.Mechanics.Translational.Examples.PreLoad</em></p>
 <p>Improved documentation and coordinate system used for
 example.</p>
-<p><i>ModelicaAdditions.Blocks.Nonlinear.PadeDelay</i></p>
+<p><em>ModelicaAdditions.Blocks.Nonlinear.PadeDelay</em></p>
 <p>Replaced <code>reinit</code> by <code>initial
 equation</code></p>
-<p><i>ModelicaAdditions.HeatFlow1D.Interfaces</i></p>
-<p>Definition of connectors <i>Surface_a</i> and
-<i>Surface_b</i>:<br />
+<p><em>ModelicaAdditions.HeatFlow1D.Interfaces</em></p>
+<p>Definition of connectors <em>Surface_a</em> and
+<em>Surface_b</em>:<br />
 <code>flow SIunits.HeatFlux q;</code> changed to <code>flow
 SIunits.HeatFlowRate q;</code></p>
-<p><i>MultiBody.Parts.InertialSystem</i></p>
+<p><em>MultiBody.Parts.InertialSystem</em></p>
 <p>Icon corrected.</p>
 <hr />
-Generated at 2016-07-13T15:55:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.11.0~dev-38-g67b62bf
+Generated at 2018-08-07T07:53:32Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1195-g6d891ea
 </body>
 </html>

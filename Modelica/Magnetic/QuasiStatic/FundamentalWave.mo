@@ -3486,7 +3486,7 @@ to numerically stabilize the simulation.</p>
             statorCoreParameters(VRef=100),
             strayLoadParameters(IRef=100),
             brushParameters(ILinear=0.01),
-            ir(fixed=true),
+            ir(each fixed=true),
             useDamperCage=false,
             m=m,
             frictionParameters(PRef=0),
@@ -3949,7 +3949,7 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
             Rrq=smrData.Rrq,
             TrRef=smrData.TrRef,
             alpha20r(displayUnit="1/K") = smrData.alpha20r,
-            ir(fixed=true),
+            ir(each fixed=true),
             m=m,
             Rs=smrData.Rs*m/3,
             Lssigma=smrData.Lssigma*m/3,
@@ -6011,7 +6011,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
               Line(points={{0,80},{0,90}})}),
           Documentation(info="<html>
 <p>
-This salient air gap model can be used for machines with uniform airgaps and for machines with rotor saliencies. The air gap model is not symmetrical towards stator and rotor since it is assumed the saliency always refers to the rotor. The saliency of the air gap is represented by a main field inductance in the d- and q-axis.
+This salient air gap model can be used for machines with uniform air gaps and for machines with rotor saliency. The air gap model is not symmetrical towards stator and rotor since it is assumed the saliency always refers to the rotor. The saliency of the air gap is represented by a main field inductance in the d- and q-axis.
 </p>
 
 <p>

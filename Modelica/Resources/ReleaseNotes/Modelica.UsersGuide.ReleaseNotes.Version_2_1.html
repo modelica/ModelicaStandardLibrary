@@ -1,32 +1,32 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 <title>Modelica.UsersGuide.ReleaseNotes.Version_2_1</title>
 </head>
 <body>
-<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>.<span class="omc-h1">Version_2_1</span></h1>
+<h1>ReleaseNotes.<span class="omc-h1">Version_2_1</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <p>This is a major change with respect to previous versions of the
-Modelica Standard Library, because <b>many new libraries</b> and
-components are included and because the input/output blocks
-(Modelica.Blocks) have been considerably simplified:</p>
+Modelica Standard Library, because <strong>many new
+libraries</strong> and components are included and because the
+input/output blocks (Modelica.Blocks) have been considerably
+simplified:</p>
 <ul>
-<li>An input/output connector is defined <b>without</b> a hierarchy
-(this is possible due to new features of the Modelica language).
-For example, the input signal of a block "FirstOrder" was
-previously accessed as "FirstOrder.inPort.signal[1]". Now it is
+<li>An input/output connector is defined <strong>without</strong> a
+hierarchy (this is possible due to new features of the Modelica
+language). For example, the input signal of a block "FirstOrder"
+was previously accessed as "FirstOrder.inPort.signal[1]". Now it is
 accessed as "FirstOrder.u". This simplifies the understanding and
 usage especially for beginners.</li>
-<li>De-vectorized the <b>Modelica.Blocks</b> library. All blocks in
-the Modelica.Blocks library are now scalar blocks. As a result, the
-parameters of the Blocks are scalars and no vectors any more. For
-example, a parameter "amplitude" that might had a value of "{1}"
-previously, has now a value of "1". This simplifies the
+<li>De-vectorized the <strong>Modelica.Blocks</strong> library. All
+blocks in the Modelica.Blocks library are now scalar blocks. As a
+result, the parameters of the Blocks are scalars and no vectors any
+more. For example, a parameter "amplitude" that might had a value
+of "{1}" previously, has now a value of "1". This simplifies the
 understanding and usage especially for beginners.<br />
 If a vector of blocks is needed, this can be easily accomplished by
 adding a dimension to the instance. For example "Constant
@@ -35,37 +35,39 @@ advantage of the new approach is that the implementation of
 Modelica.Blocks is much simpler and is easier to understand.</li>
 </ul>
 <p>The discussed changes of Modelica.Blocks are not backward
-compatible. A script to <b>automatically</b> convert models to this
-new version is provided. There might be rare cases, where this
-script does not convert. In this case models have to be manually
-converted. In any case you should make a back-up copy of your model
-before automatic conversion is performed.</p>
-<p>The following <b>new libraries</b> have been added:</p>
+compatible. A script to <strong>automatically</strong> convert
+models to this new version is provided. There might be rare cases,
+where this script does not convert. In this case models have to be
+manually converted. In any case you should make a back-up copy of
+your model before automatic conversion is performed.</p>
+<p>The following <strong>new libraries</strong> have been
+added:</p>
 <table border="1" cellspacing="0" cellpadding="2">
 <tr>
-<td valign="top"><a href="Modelica.Electrical.Digital.html">Modelica.Electrical.Digital</a></td>
-<td valign="top">Digital electrical components based on 2-,3-,4-,
-and 9-valued logic<br />
+<td>Modelica.Electrical.Digital</td>
+<td>Digital electrical components based on 2-,3-,4-, and 9-valued
+logic<br />
 according to the VHDL standard</td>
 </tr>
 <tr>
-<td valign="top"><a href="Modelica.Electrical.Machines.html">Modelica.Electrical.Machines</a></td>
-<td valign="top">Asynchronous, synchronous and DC motor and
-generator models</td>
+<td>Modelica.Electrical.Machines</td>
+<td>Asynchronous, synchronous and DC motor and generator
+models</td>
 </tr>
 <tr>
-<td valign="top"><a href="Modelica.Math.Matrices.html">Modelica.Math.Matrices</a></td>
-<td valign="top">Functions operating on matrices such as solve()
-(A*x=b), leastSquares(),<br />
+<td>Modelica.Math.Matrices</td>
+<td>Functions operating on matrices such as solve() (A*x=b),
+leastSquares(),<br />
 norm(), LU(), QR(), eigenValues(), singularValues(), exp(),
 ...</td>
 </tr>
 <tr>
-<td valign="top"><a href="Modelica.StateGraph.html">Modelica.StateGraph</a></td>
-<td valign="top">Modeling of <b>discrete event</b> and
-<b>reactive</b> systems in a convenient way using<br />
-<b>hierarchical state machines</b> and <b>Modelica</b> as <b>action
-language</b>.<br />
+<td>Modelica.StateGraph</td>
+<td>Modeling of <strong>discrete event</strong> and
+<strong>reactive</strong> systems in a convenient way using<br />
+<strong>hierarchical state machines</strong> and
+<strong>Modelica</strong> as <strong>action
+language</strong>.<br />
 It is based on JGrafchart and Grafcet and has a similar modeling
 power as<br />
 StateCharts. It avoids deficiencies of usually used action
@@ -74,67 +76,65 @@ This library makes the ModelicaAdditions.PetriNets library
 obsolete.</td>
 </tr>
 <tr>
-<td valign="top"><a href="Modelica.Utilities.Files.html">Modelica.Utilities.Files</a></td>
-<td valign="top">Functions to operate on files and directories
-(copy, move, remove files etc.)</td>
+<td>Modelica.Utilities.Files</td>
+<td>Functions to operate on files and directories (copy, move,
+remove files etc.)</td>
 </tr>
 <tr>
-<td valign="top"><a href="Modelica.Utilities.Streams.html">Modelica.Utilities.Streams</a></td>
-<td valign="top">Read from files and write to files (print,
-readLine, readFile, error, ...)</td>
+<td>Modelica.Utilities.Streams</td>
+<td>Read from files and write to files (print, readLine, readFile,
+error, ...)</td>
 </tr>
 <tr>
-<td valign="top"><a href="Modelica.Utilities.Strings.html">Modelica.Utilities.Strings</a></td>
-<td valign="top">Operations on strings (substring, find, replace,
-sort, scanToken, ...)</td>
+<td>Modelica.Utilities.Strings</td>
+<td>Operations on strings (substring, find, replace, sort,
+scanToken, ...)</td>
 </tr>
 <tr>
-<td valign="top"><a href="Modelica.Utilities.System.html">Modelica.Utilities.System</a></td>
-<td valign="top">Get/set current directory, get/set environment
-variable, execute shell command, etc.</td>
+<td>Modelica.Utilities.System</td>
+<td>Get/set current directory, get/set environment variable,
+execute shell command, etc.</td>
 </tr>
 </table>
 <p>The following existing libraries outside of the Modelica
-standard library have been improved and added as <b>new
-libraries</b> (models using the previous libraries are
+standard library have been improved and added as <strong>new
+libraries</strong> (models using the previous libraries are
 automatically converted to the new sublibraries inside package
 Modelica):</p>
 <table border="1" cellspacing="0" cellpadding="2">
 <tr>
-<td valign="top"><a href="Modelica.Blocks.Discrete.html">Modelica.Blocks.Discrete</a></td>
-<td valign="top">Discrete input/output blocks with fixed sample
-period<br />
+<td>Modelica.Blocks.Discrete</td>
+<td>Discrete input/output blocks with fixed sample period<br />
 (from ModelicaAdditions.Blocks.Discrete)</td>
 </tr>
 <tr>
-<td valign="top"><a href="Modelica.Blocks.Logical.html">Modelica.Blocks.Logical</a></td>
-<td valign="top">Logical components with Boolean input and output
-signals<br />
+<td>Modelica.Blocks.Logical</td>
+<td>Logical components with Boolean input and output signals<br />
 (from ModelicaAdditions.Blocks.Logical)</td>
 </tr>
 <tr>
-<td valign="top"><a href="Modelica.Blocks.Nonlinear.html">Modelica.Blocks.Nonlinear</a></td>
-<td valign="top">Discontinuous or non-differentiable algebraic
-control blocks such as variable limiter,<br />
+<td>Modelica.Blocks.Nonlinear</td>
+<td>Discontinuous or non-differentiable algebraic control blocks
+such as variable limiter,<br />
 fixed, variable and Pade delay etc. (from
 ModelicaAdditions.Blocks.Nonlinear)</td>
 </tr>
 <tr>
-<td valign="top"><a href="Modelica.Blocks.Routing.html">Modelica.Blocks.Routing</a></td>
-<td valign="top">Blocks to combine and extract signals, such as
+<td>Modelica.Blocks.Routing</td>
+<td>Blocks to combine and extract signals, such as
 multiplexer<br />
 (from ModelicaAdditions.Blocks.Multiplexer)</td>
 </tr>
 <tr>
-<td valign="top"><a href="Modelica.Blocks.Tables.html">Modelica.Blocks.Tables</a></td>
-<td valign="top">One and two-dimensional interpolation in tables.
-CombiTimeTable is available<br />
+<td>Modelica.Blocks.Tables</td>
+<td>One and two-dimensional interpolation in tables. CombiTimeTable
+is available<br />
 in Modelica.Blocks.Sources (from ModelicaAdditions.Tables)</td>
 </tr>
 <tr>
-<td valign="top"><a href="Modelica.Mechanics.MultiBody.html">Modelica.Mechanics.MultiBody</a></td>
-<td valign="top">Components to model the movement of 3-dimensional
-mechanical systems. Contains<br />
+<td>Modelica.Mechanics.MultiBody</td>
+<td>Components to model the movement of 3-dimensional mechanical
+systems. Contains<br />
 body, joint, force and sensor components, analytic handling of
 kinematic loops,<br />
 force elements with mass, series/parallel connection of 3D force
@@ -147,152 +147,151 @@ makes the ModelicaAdditions.MultiBody library obsolete)</td>
 all components are either included in the Modelica library or are
 replaced by much more powerful libraries (MultiBody,
 StateGraph).</p>
-<p>The following <b>new components</b> have been added to
-<b>existing</b> libraries.</p>
+<p>The following <strong>new components</strong> have been added to
+<strong>existing</strong> libraries.</p>
 <table border="1" cellspacing="0" cellpadding="2">
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Logical.</b></td>
+<td colspan="2"><strong>Modelica.Blocks.Logical.</strong></td>
 </tr>
 <tr>
-<td valign="top">Pre</td>
-<td valign="top">y = pre(u): Breaks algebraic loops by an
-infinitesimal small<br />
+<td>Pre</td>
+<td>y = pre(u): Breaks algebraic loops by an infinitesimal
+small<br />
 time delay (event iteration continues until u = pre(u))</td>
 </tr>
 <tr>
-<td valign="top">Edge</td>
-<td valign="top">y = edge(u): Output y is true, if the input u has
-a rising edge</td>
+<td>Edge</td>
+<td>y = edge(u): Output y is true, if the input u has a rising
+edge</td>
 </tr>
 <tr>
-<td valign="top">FallingEdge</td>
-<td valign="top">y = edge(not u): Output y is true, if the input u
-has a falling edge</td>
+<td>FallingEdge</td>
+<td>y = edge(not u): Output y is true, if the input u has a falling
+edge</td>
 </tr>
 <tr>
-<td valign="top">Change</td>
-<td valign="top">y = change(u): Output y is true, if the input u
-has a rising or falling edge</td>
+<td>Change</td>
+<td>y = change(u): Output y is true, if the input u has a rising or
+falling edge</td>
 </tr>
 <tr>
-<td valign="top">GreaterEqual</td>
-<td valign="top">Output y is true, if input u1 is greater or equal
-than input u2</td>
-</tr>
-<tr>
-<td valign="top">Less</td>
-<td valign="top">Output y is true, if input u1 is less than input
+<td>GreaterEqual</td>
+<td>Output y is true, if input u1 is greater or equal than input
 u2</td>
 </tr>
 <tr>
-<td valign="top">LessEqual</td>
-<td valign="top">Output y is true, if input u1 is less or equal
-than input u2</td>
+<td>Less</td>
+<td>Output y is true, if input u1 is less than input u2</td>
 </tr>
 <tr>
-<td valign="top">Timer</td>
-<td valign="top">Timer measuring the time from the time instant
-where the<br />
+<td>LessEqual</td>
+<td>Output y is true, if input u1 is less or equal than input
+u2</td>
+</tr>
+<tr>
+<td>Timer</td>
+<td>Timer measuring the time from the time instant where the<br />
 Boolean input became true</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Math.</b></td>
+<td colspan="2"><strong>Modelica.Blocks.Math.</strong></td>
 </tr>
 <tr>
-<td valign="top">BooleanToReal</td>
-<td valign="top">Convert Boolean to Real signal</td>
+<td>BooleanToReal</td>
+<td>Convert Boolean to Real signal</td>
 </tr>
 <tr>
-<td valign="top">BooleanToInteger</td>
-<td valign="top">Convert Boolean to Integer signal</td>
+<td>BooleanToInteger</td>
+<td>Convert Boolean to Integer signal</td>
 </tr>
 <tr>
-<td valign="top">RealToBoolean</td>
-<td valign="top">Convert Real to Boolean signal</td>
+<td>RealToBoolean</td>
+<td>Convert Real to Boolean signal</td>
 </tr>
 <tr>
-<td valign="top">IntegerToBoolean</td>
-<td valign="top">Convert Integer to Boolean signal</td>
+<td>IntegerToBoolean</td>
+<td>Convert Integer to Boolean signal</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Sources.</b></td>
+<td colspan="2"><strong>Modelica.Blocks.Sources.</strong></td>
 </tr>
 <tr>
-<td valign="top">RealExpression</td>
-<td valign="top">Set output signal to a time varying Real
-expression</td>
+<td>RealExpression</td>
+<td>Set output signal to a time varying Real expression</td>
 </tr>
 <tr>
-<td valign="top">IntegerExpression</td>
-<td valign="top">Set output signal to a time varying Integer
-expression</td>
+<td>IntegerExpression</td>
+<td>Set output signal to a time varying Integer expression</td>
 </tr>
 <tr>
-<td valign="top">BooleanExpression</td>
-<td valign="top">Set output signal to a time varying Boolean
-expression</td>
+<td>BooleanExpression</td>
+<td>Set output signal to a time varying Boolean expression</td>
 </tr>
 <tr>
-<td valign="top">BooleanTable</td>
-<td valign="top">Generate a Boolean output signal based on a vector
-of time instants</td>
+<td>BooleanTable</td>
+<td>Generate a Boolean output signal based on a vector of time
+instants</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Mechanics.MultiBody.</b></td>
+<td colspan="2"><strong>Modelica.Mechanics.MultiBody.</strong></td>
 </tr>
 <tr>
-<td valign="top">Frames.from_T2</td>
-<td valign="top">Return orientation object R from transformation
-matrix T and its derivative der(T)</td>
+<td>Frames.from_T2</td>
+<td>Return orientation object R from transformation matrix T and
+its derivative der(T)</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Mechanics.Rotational.</b></td>
+<td colspan="2">
+<strong>Modelica.Mechanics.Rotational.</strong></td>
 </tr>
 <tr>
-<td valign="top">LinearSpeedDependentTorque</td>
-<td valign="top">Linear dependency of torque versus speed (acts as
-load torque)</td>
+<td>LinearSpeedDependentTorque</td>
+<td>Linear dependency of torque versus speed (acts as load
+torque)</td>
 </tr>
 <tr>
-<td valign="top">QuadraticSpeedDependentTorque</td>
-<td valign="top">Quadratic dependency of torque versus speed (acts
-as load torque)</td>
+<td>QuadraticSpeedDependentTorque</td>
+<td>Quadratic dependency of torque versus speed (acts as load
+torque)</td>
 </tr>
 <tr>
-<td valign="top">ConstantTorque</td>
-<td valign="top">Constant torque, not dependent on speed (acts as
-load torque)</td>
+<td>ConstantTorque</td>
+<td>Constant torque, not dependent on speed (acts as load
+torque)</td>
 </tr>
 <tr>
-<td valign="top">ConstantSpeed</td>
-<td valign="top">Constant speed, not dependent on torque (acts as
-load torque)</td>
+<td>ConstantSpeed</td>
+<td>Constant speed, not dependent on torque (acts as load
+torque)</td>
 </tr>
 <tr>
-<td valign="top">TorqueStep</td>
-<td valign="top">Constant torque, not dependent on speed (acts as
-load torque)</td>
+<td>TorqueStep</td>
+<td>Constant torque, not dependent on speed (acts as load
+torque)</td>
 </tr>
 </table>
-<p>The following <b>bugs</b> have been <b>corrected</b>:</p>
+<p>The following <strong>bugs</strong> have been
+<strong>corrected</strong>:</p>
 <table border="1" cellspacing="0" cellpadding="2">
 <tr>
-<td colspan="2"><b>Modelica.Mechanics.MultiBody.Forces.</b></td>
+<td colspan="2">
+<strong>Modelica.Mechanics.MultiBody.Forces.</strong></td>
 </tr>
 <tr>
-<td valign="top">LineForceWithMass<br />
+<td>LineForceWithMass<br />
 Spring</td>
-<td valign="top">If mass of the line force or spring component is
-not zero, the<br />
+<td>If mass of the line force or spring component is not zero,
+the<br />
 mass was (implicitly) treated as "mass*mass" instead of as
 "mass"</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Mechanics.Rotational.</b></td>
+<td colspan="2">
+<strong>Modelica.Mechanics.Rotational.</strong></td>
 </tr>
 <tr>
-<td valign="top">Speed</td>
-<td valign="top">If parameter exact=<b>false</b>, the filter was
+<td>Speed</td>
+<td>If parameter exact=<strong>false</strong>, the filter was
 wrong<br />
 (position was filtered and not the speed input signal)</td>
 </tr>
@@ -317,7 +316,7 @@ from blue to dark blue in order to distinguish them from electrical
 signals.</li>
 </ul>
 <hr />
-Generated at 2016-07-13T15:55:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.11.0~dev-38-g67b62bf
+Generated at 2018-08-07T07:53:32Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1195-g6d891ea
 </body>
 </html>

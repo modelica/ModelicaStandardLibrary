@@ -2184,14 +2184,266 @@ and will interpret it in the same way. Short Overview:
 </p>
 
 <ul>
-<li> About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3/ResolvedGitHubIssues.html\">394 issues (including pull requests)</a>
-     have been addressed for this release.</li>
+<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3/ResolvedGitHubIssues.html\">488 issues (including pull requests)</a>
+    have been addressed for this release.</li>
+<li><strong>94</strong> component models and blocks, <strong>34</strong> example models and <strong>9</strong> functions are newly included.</li>
+<li>The license has been changed to BSD 3-clause, visit: <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</li>
 </ul>
 
 <p>
 The exact difference between package Modelica version 3.2.3 and version 3.2.2 is
 summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3/DifferencesTo322.html\">comparison table</a>.
 </p>
+
+<p><br>
+The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2>
+<tr><td><a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes\">Modelica.Magnetic.QuasiStatic.FluxTubes</a></td>
+    <td>
+    This library provides models for the investigation of quasi static electromagnetic devices with lumped magnetic networks
+    in a comparable way as <a href=\"modelica://Modelica.Magnetic.FluxTubes\">Modelica.Magnetic.FluxTubes</a>.<br>
+    (This library was developed by Christian Kral).
+    </td></tr>
+<tr><td><a href=\"modelica://Modelica.Electrical.Machines.Examples.ControlledDCDrives\">Modelica.Electrical.Machines.Examples.ControlledDCDrives</a></td>
+    <td>
+    This library demonstrates the control of a permanent magnet dc machine: current control, speed control and position control
+    along with the necessary components in sublibrary Utilities.<br>
+    (This library was developed by Anton Haumer).
+    </td></tr>
+</table>
+
+<p><br>
+The following <font color=\"blue\"><strong>new components</strong></font> have been added
+to <font color=\"blue\"><strong>existing</strong></font> libraries:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Interfaces.Adaptors</strong></td></tr>
+<tr><td width=\"150\">FlowToPotentialAdaptor<br>PotentialToFlowAdaptor</td>
+    <td> Partial adaptors for generation of FMUs, optionally taking first and second derivative into account,
+         for consistent components in various domains.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Math</strong></td></tr>
+<tr><td width=\"150\">WrapAngle</td>
+    <td> Wraps the angle signal at the input to the interval ]-&pi;, &pi;] or [0, 2&pi;[.</td></tr>
+<tr><td width=\"150\">Pythagoras</td>
+    <td> This block determines the hypotenuse from the legs or one leg from the hypotenuse and the other leg.</td></tr>
+<tr><td width=\"150\">TotalHarmonicDistortion</td>
+    <td> This block calculates THD of the signal at the input.</td></tr>
+<tr><td width=\"150\">RealFFT</td>
+    <td> This block samples the input and calculates the FFT, writing the result to a mat file when the simulation terminates.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Tables</strong></td></tr>
+<tr><td width=\"150\">CombiTable2Dv</td>
+    <td>Variant of CombiTable2D (table look-up in two dimensions) with vector inputs and vector output</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.ComplexBlocks.Routing</strong></td></tr>
+<tr><td width=\"150\">Replicator<br>ExtractSignal<br>Extractor<br>ComplexPassThrough</td>
+    <td> Complex implementations analogous to the real implementations.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.ComplexBlocks.ComplexMath</strong></td></tr>
+<tr><td width=\"150\">Bode</td>
+    <td> Determine variables of a Bode diagram.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.ComplexBlocks.Sources</strong></td></tr>
+<tr><td width=\"150\">RampPhasor</td>
+    <td> A source of a phasor with constant angle and ramped amplitude.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Basic</strong></td></tr>
+<tr><td width=\"150\">GeneralCurrentToVoltageAdaptor<br>GeneralVoltageToCurrentAdaptor</td>
+    <td> Adaptors for the generation of FMUs, optionally taking first and second derivative into account.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Sensors</strong></td></tr>
+<tr><td width=\"150\">MultiSensor</td>
+    <td> Measures voltage, current and power simultaneously.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Sensors</strong></td></tr>
+<tr><td width=\"150\">MultiSensor</td>
+    <td> Measures voltage, current and active power for each phase as well as total power simultaneously.</td></tr>
+<tr><td width=\"150\">AronSensor</td>
+    <td> Measures active power for a threephase system by two singlephase power sensors in an Aron circuit.</td></tr>
+<tr><td width=\"150\">ReactivePowerSensor</td>
+    <td> Measures reactive power for a threephase system.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples</strong></td></tr>
+<tr><td width=\"150\">SMEE_DOL</td>
+    <td> Electrically excited synchronous machine, starting direct on line via the damper cage,
+         synchronised by increasing excitation voltage.</td></tr>
+<tr><td width=\"150\">SMR_DOL</td>
+    <td> Synchronous reluctance machine, starting direct on line via the damper cage,
+         synchronised when reaching synchronous speed.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Sensors</strong></td></tr>
+<tr><td width=\"150\">HallSensor</td>
+    <td> Simple model of a hall sensor, measuring the angle aligned with the orientation of phase 1.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.PowerConverters.DCAC.Control</strong></td></tr>
+<tr><td width=\"150\">PWM<br>SVPWM<br>IntersectivePWM</td>
+    <td> Standard three-phase pwm algorithms: space vector and intersective.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.PowerConverters.DCDC</strong></td></tr>
+<tr><td width=\"150\">ChopperStepUp</td>
+    <td> Step up chopper (boost converter) model.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.QuasiStationary.SinglePhase.Sensors</strong></td></tr>
+<tr><td width=\"150\">MultiSensor</td>
+    <td> Measures voltage, current and apparent power simultaneously.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.QuasiStationary.MultiPhase.Sensors</strong></td></tr>
+<tr><td width=\"150\">MultiSensor</td>
+    <td> Measures voltage, current and apparent power for m phases as well as total apparent power simultaneously.</td></tr>
+<tr><td width=\"150\">AronSensor</td>
+    <td> Measures active power for a threephase system by two singlephase power sensors in an Aron circuit.</td></tr>
+<tr><td width=\"150\">ReactivePowerSensor</td>
+    <td> Measures reactive power for a threephase system.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.QuasiStationary.{SinglePhase, MultiPhase}.Sources</strong></td></tr>
+<tr><td width=\"150\">FrequencySweepVoltageSource<br>FrquencySweepCurrentSource</td>
+    <td> Voltage source and current source with integrated frequency sweep.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
+<tr><td width=\"150\">Visualizers.Rectangle</td>
+    <td>A planar rectangular surface.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.Components</strong></td></tr>
+<tr><td width=\"150\">GeneralAngleToTorqueAdaptor<br>GeneralTorqueToAngleAdaptor</td>
+    <td> Adaptors for the generation of FMUs, optionally taking first and second derivative into account.<br>
+         Note: These adaptors give the same results as:<br>
+         AngleToTorqueAdaptor<br>TorqueToAngleAdaptor<br>
+         but extend from <a href=\"modelica://Modelica.Blocks.Interfaces.Adaptors\">Modelica.Blocks.Interfaces.Adaptors</a>
+         like adaptors in other domains.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.Sources</strong></td></tr>
+<tr><td width=\"150\">EddyCurrentTorque</td>
+    <td> Rotational eddy current brake.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Translational.Components</strong></td></tr>
+<tr><td width=\"150\">GeneralForceToPositionAdaptor<br>GeneralPositionToForceAdaptor</td>
+    <td> Adaptors for the generation of FMUs, optionally taking first and second derivative into account.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Translational.Sources</strong></td></tr>
+<tr><td width=\"150\">EddyCurrentForce</td>
+    <td> Translational eddy current brake.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Magnetic.FundamentalWave.Examples</strong></td></tr>
+<tr><td width=\"150\"> </td>
+    <td> A lot of new test examples for fundamental wave machines.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors</strong></td></tr>
+<tr><td width=\"150\">RotorDisplacementAngle</td>
+    <td> Measures the rotor displacement angle of a quasi-static machine.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.HeatTransfer.Components</strong></td></tr>
+<tr><td width=\"150\">GeneralHeatFlowToTemperatureAdaptor<br>GeneralTemperatureToHeatFlowAdaptor</td>
+    <td> Adaptors for the generation of FMUs, optionally taking first derivative into account.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Examples</strong></td></tr>
+<tr><td width=\"150\">WaterPump<br>TestOpenTank<br>TwoTanks<br>TestCylinder</td>
+    <td> New examples testing and demonstrating the new resp. enhanced components.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Components</strong></td></tr>
+<tr><td width=\"150\">Pipe</td>
+    <td> A pipe model with optional heatPort which replaces the isolatedPipe and the heatedPipe.</td></tr>
+<tr><td width=\"150\">OpenTank</td>
+    <td> A simple model of an open tank.</td></tr>
+<tr><td width=\"150\">Cylinder</td>
+    <td> A simple model of a piston/cylinder with translational flange.</td></tr>
+<tr><td width=\"150\">OneWayValve</td>
+    <td> A simple one way valve model (comparable to an electrical ideal diode)</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Media</strong></td></tr>
+<tr><td width=\"150\">Water_10degC<br>Water_90degC<br>Glycol20_20degC<br>Glycol50_20degC<br>MineralOil</td>
+    <td> Several new records defining media properties.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Interfaces.Partials</strong></td></tr>
+<tr><td width=\"150\">SinglePortLeft</td>
+    <td> Replaces the (now obsolete) partial model Ambient and is also used for Sources.AbsolutePressure.</td></tr>
+<tr><td width=\"150\">SinglePortBottom</td>
+    <td> Same as SinglePortLeft but with the flowPort at the bottom; used for the new Components.OpenTank model.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Constants</strong></td></tr>
+<tr><td width=\"150\">q</td>
+    <td> The elementary charge of an electron.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Icons</strong></td></tr>
+<tr><td width=\"150\">FunctionsPackage</td>
+    <td> This icon indicates a package that contains functions.</td></tr>
+<tr><td width=\"150\">RecordPackage</td>
+    <td> This icon indicates a package that contains records.</td></tr>
+</table>
+
+<p><br>
+The following <font color=\"blue\"><strong>existing components</strong></font>
+have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and will be
+<font color=\"blue\"><strong>removed</strong></font> in a future release:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Interfaces.Adaptors</strong></td></tr>
+<tr><td>SendReal<br>SendBoolean<br>SendInteger<br>ReceiveReal<br>ReceiveBoolean<br>ReceiveInteger</td>
+    <td>Use expandable connectors instead.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Digital.Converters</strong></td></tr>
+<tr><td>LogicToXO1<br>LogicToXO1Z</td>
+    <td>Use LogicToX01 or LogicToX01Z instead.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines</strong></td></tr>
+<tr><td>BasicMachines.Components.BasicTransformer</td>
+    <td>Use Interfaces.PartialBasicTransformer instead.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
+<tr><td>Examples.Loops.Utilities.GasForce</td>
+    <td>Use Examples.Loops.Utilities.GasForce2 instead.</td></tr>
+<tr><td>Sensors.TansformAbsoluteVector<br>Sensors.TansformRelativeVector</td>
+    <td>Use Sensors.TransformAbsoluteVector or Sensors.TransformRelativeVector instead.</td></tr>
+<tr><td>Visualizers.Ground</td>
+    <td>Use ground plane visualization of World or Visualizers.Rectangle instead.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Fluid.Icons</strong></td></tr>
+<tr><td>VariantLibrary<br>BaseClassLibrary</td>
+    <td>Use icons from Modelica.Icons instead.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.Examples</strong></td></tr>
+<tr><td>Tests.Components.*</td>
+    <td>Use classes from Utilities instead.</td></tr>
+<tr><td>TestOnly.*<br>Tests.MediaTestModels.*</td>
+    <td>Use test models from ModelicaTest.Media instead.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow</strong></td></tr>
+<tr><td>Components.IsolatedPipe<br>Components.HeatedPipe</td>
+    <td>Extend from the new pipe model with optional heatPort.</td></tr>
+<tr><td>Interfaces.Partials.Ambient</td>
+    <td>Extends from SinglePortLeft.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math</strong></td></tr>
+<tr><td>baseIcon1<br>baseIcon2</td>
+    <td>Use icons from Modelica.Math.Icons instead.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Icons</strong></td></tr>
+<tr><td>Library<br>Library2<br>GearIcon<br>MotorIcon<br>Info</td>
+    <td>Use (substitute) icons from Modelica.Icons, Modelica.Mechanics.Rotational.Icons or Modelica.Electrical.Machines.Icons instead.</td></tr>
+</table>
+
+<p><br>
+The following <font color=\"blue\"><strong>existing components</strong></font>
+have been <font color=\"blue\"><strong>improved</strong></font> in a
+<font color=\"blue\"><strong>backward compatible</strong></font> way:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Continuous</strong></td></tr>
+<tr><td>Integrator<br>LimIntegrator</td>
+    <td>Added optional reset and set value inputs.</td></tr>
+<tr><td>LimPID</td>
+    <td>Added an optional feed-forward input.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources</strong></td></tr>
+<tr><td>CombiTimeTable</td>
+    <td>The time events were not considered at the interval boundaries in case of linear interpolation and non-replicated sample points. This has been generalized by introduction of the new parameter <code>timeEvents</code> with the default option to always generate time events at the interval boundaries, which might lead to slower, but more accurate simulations.</td></tr>
+<tr><td>BooleanTable<br>IntegerTable</td>
+    <td>Added options to set start time, shift time and extrapolation kind, especially to set periodic extrapolation.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Tables</strong></td></tr>
+<tr><td>CombiTable1D<br>CombiTable1Ds<br>CombiTable2D</td>
+    <td>Added option to set the extrapolation kind and to optionally print a warning in case of extrapolated table input.</td></tr>
+</table>
+
+<p><br>
+The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>changed</strong></font> in a <font color=\"blue\"><strong>non-backward compatible</strong></font> way:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
+<tr><td>World</td>
+    <td>Added new parameter <code>animateGround</code> for optional ground plane visualization.<br>
+    Users that have copied the World model (of MSL 3.0, 3.0.1, 3.1, 3.2, 3.2.1, or 3.2.2) as an own World model and used it as inner world component, might have broken their models.
+    Generally, for MSL models with sub-typing (due to inner/outer), it is strongly suggested to extend from this MSL model, instead of copying it.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.Interfaces</strong></td></tr>
+<tr><td>PartialMedium</td>
+    <td>Added new constant <code>C_default</code> as default value for the trace substances of medium.<br>
+    Users that have created an own medium by inheritance from the PartialMedium package and already added the C_default constant, might have broken their models.<br>
+    Users that have copied the PartialMedium package (of MSL 3.0, 3.0.1, 3.1, 3.2, 3.2.1, or 3.2.2) as an own Medium package, might have broken their models.
+    Generally, for MSL classes with sub-typing (due to a replaceable declaration), it is strongly suggested to extend from this MSL class, instead of copying it.</td></tr>
+</table>
+
+<p><br>
+The following <font color=\"red\"><strong>critical errors</strong></font> have been fixed (i.e., errors
+that can lead to wrong simulation results):
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources</strong></td></tr>
+<tr><td>TimeTable</td>
+    <td>The derivative of the TimeTable output could no longer be determined. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.IdealGases.Common.SingleGasesData</strong></td></tr>
+<tr><td>CH2<br>CH3<br>CH3OOH<br>C2CL2<br>C2CL4<br>C2CL6<br>C2HCL<br>C2HCL3<br>CH2CO_ketene<br>O_CH_2O<br>HO_CO_2OH<br>CH2BrminusCOOH<br>C2H3CL<br>CH2CLminusCOOH<br>HO2<br>HO2minus<br>OD<br>ODminus</td>
+    <td>The coefficients for <code>blow</code>, <code>ahigh</code> and <code>bhigh</code> were wrong. This has been corrected.</td></tr>
+
+</table>
+
 </html>"));
 end Version_3_2_3;
 
@@ -2252,7 +2504,7 @@ Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction, see details b
             <li> In ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1757\">1757</a> it is (correctly) stated
                  that the example model <a href=\"modelica://Modelica.Media.Examples.PsychrometricData\">PsychrometricData</a>
                  was moved from Modelica.Media.Air.MoistAir.PsychrometricData and that this is a non-backwards compatible change.
-                 This non-backwards compatible change is accepted, because it fixes a circular depedency (a model references
+                 This non-backwards compatible change is accepted, because it fixes a circular dependency (a model references
                  a package in which it resides), for details see ticket
                  <a href=\"https://trac.modelica.org/Modelica/ticket/1679\">1679</a>.
                  Fixing this ticket is seen as of much higher priority, as the small drawback that
@@ -2435,7 +2687,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 
 <p><br>
 The following <font color=\"blue\"><strong>new components</strong></font> have been added
-to <font color=\"blue\"><strong>existing</strong></font> libraries:<br>
+to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
@@ -5585,13 +5837,13 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
           <td> Partial model for synchronous induction machine
           </td></tr>
 <tr><td> PartialAirGap </td>
-          <td> Partial airgap model
+          <td> Partial air gap model
           </td></tr>
 <tr><td> BasicDCMachine </td>
           <td> Partial model for DC machine
           </td></tr>
 <tr><td> PartialAirGapDC </td>
-          <td> Partial airgap model of a DC machine
+          <td> Partial air gap model of a DC machine
           </td></tr>
 <tr><td> BasicTransformer </td>
           <td> Partial model of threephase transformer
@@ -6950,7 +7202,7 @@ class Version_2_1 "Version 2.1 (Nov. 11, 2004)"
          the understanding and usage especially for beginners.<br>
          If a vector of blocks is needed, this can be easily
          accomplished by adding a dimension to the instance. For example
-         \"Constant const[3](k={1,2,3}\" defines three Constant blocks.
+         \"Constant const[3](k={1,2,3})\" defines three Constant blocks.
          An additional advantage of the new approach is that
          the implementation of Modelica.Blocks is much simpler and is easier to
          understand.
