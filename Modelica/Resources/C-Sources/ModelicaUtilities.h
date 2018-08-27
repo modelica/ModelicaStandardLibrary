@@ -102,19 +102,40 @@ extern "C" {
 #define MODELICA_NORETURNATTR
 #endif
 
+/*
+  The following macros handle format attributes for type-checks against a
+  format string.
+*/
+
+#if defined(__GNUC__) && __GNUC__ >= 3
+#define MODELICA_FORMATATTR_PRINTF __attribute__((format(printf, 1, 2)))
+#define MODELICA_FORMATATTR_VPRINTF __attribute__((format(printf, 1, 0)))
+#elif defined(__clang__)
+#if __has_attribute(format)
+#define MODELICA_FORMATATTR_PRINTF __attribute__((format(printf, 1, 2)))
+#define MODELICA_FORMATATTR_VPRINTF __attribute__((format(printf, 1, 0)))
+#else
+#define MODELICA_FORMATATTR_PRINTF
+#define MODELICA_FORMATATTR_VPRINTF
+#endif
+#else
+#define MODELICA_FORMATATTR_PRINTF
+#define MODELICA_FORMATATTR_VPRINTF
+#endif
+
 void ModelicaMessage(const char *string);
 /*
 Output the message string (no format control).
 */
 
 
-void ModelicaFormatMessage(const char *string, ...);
+void ModelicaFormatMessage(const char *string, ...) MODELICA_FORMATATTR_PRINTF;
 /*
 Output the message under the same format control as the C-function printf.
 */
 
 
-void ModelicaVFormatMessage(const char *string, va_list args);
+void ModelicaVFormatMessage(const char *string, va_list args) MODELICA_FORMATATTR_VPRINTF;
 /*
 Output the message under the same format control as the C-function vprintf.
 */
@@ -128,7 +149,7 @@ similarly to an assert in the Modelica code.
 */
 
 
-MODELICA_NORETURN void ModelicaFormatError(const char *string, ...) MODELICA_NORETURNATTR;
+MODELICA_NORETURN void ModelicaFormatError(const char *string, ...) MODELICA_NORETURNATTR MODELICA_FORMATATTR_PRINTF;
 /*
 Output the error message under the same format control as the C-function
 printf. This function never returns to the calling function,
@@ -136,7 +157,7 @@ but handles the error similarly to an assert in the Modelica code.
 */
 
 
-MODELICA_NORETURN void ModelicaVFormatError(const char *string, va_list args) MODELICA_NORETURNATTR;
+MODELICA_NORETURN void ModelicaVFormatError(const char *string, va_list args) MODELICA_NORETURNATTR MODELICA_FORMATATTR_VPRINTF;
 /*
 Output the error message under the same format control as the C-function
 vprintf. This function never returns to the calling function,
