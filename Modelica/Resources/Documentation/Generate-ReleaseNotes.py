@@ -108,13 +108,28 @@ def main(dir, milestone, version):
     with open(os.path.join(path, 'ResolvedGitHubIssues.html'), 'wb') as f:
         url = 'http://c.docverter.com/convert'
         title = 'MSL {0} GitHub issues'.format(version)
-        r = requests.post(url, data={'to':'html', 'from':'markdown', 'template':template, 'title':title}, files={'input_files[]': open(os.path.join(path, 'ResolvedGitHubIssues.md'), 'rb'), 'other_files[]': open(os.path.join(dir, template), 'rb')})
+        data = {'to': 'html', 'from': 'markdown', 'template': template, 'title': title}
+        files = { \
+            'input_files[]': open(os.path.join(path, 'ResolvedGitHubIssues.md'), 'rb'), \
+            'other_files[]': open(os.path.join(dir, template), 'rb') \
+        }
+        r = requests.post(url, data=data, files=files)
         f.write(r.content)
 
     # Convert Markdown -> PDF
     with open(os.path.join(path, 'ResolvedGitHubIssues.pdf'), 'wb') as f:
         url = 'http://c.docverter.com/convert'
-        r = requests.post(url, data={'to':'pdf', 'from':'markdown', 'template':template}, files={'input_files[]': open(os.path.join(path, 'ResolvedGitHubIssues.md'), 'rb'), 'other_files[]': open(os.path.join(dir, template), 'rb')})
+        css = 'docverter.css'
+        with open(css, 'w') as c:
+            pageInfo = '@page {size: A4 portrait;}'
+            c.write(pageInfo)
+        data = {'to': 'pdf', 'from': 'markdown', 'css': css, 'template': template}
+        files = [ \
+            ('input_files[]', ('ResolvedGitHubIssues.md', open(os.path.join(path, 'ResolvedGitHubIssues.md'), 'rb'), 'text/markdown')), \
+            ('other_files[]', (template, open(os.path.join(dir, template), 'rb'), 'text/html')), \
+            ('other_files[]', (css, open(os.path.join(dir, css), 'rb'), 'text/css')) \
+        ]
+        r = requests.post(url, data=data, files=files)
         f.write(r.content)
 
 if __name__ == '__main__':
