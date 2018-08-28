@@ -611,8 +611,9 @@ static int IsNumber(char* token) {
     int foundExponentSign = 0;
     int foundExponent = 0;
     int foundDec = 0;
+    int foundDigit = 0;
     int isNumber = 1;
-    int k = 0;
+    int k;
 
     if (token[0] == '-' || token[0] == '+') {
         k = 1;
@@ -623,6 +624,7 @@ static int IsNumber(char* token) {
     while (token[k] != '\0') {
         if (token[k] >= '0' && token[k] <= '9') {
             k++;
+            foundDigit++;
         }
         else if (token[k] == '.' && foundDec == 0 &&
             foundExponent == 0 && foundExponentSign == 0) {
@@ -630,8 +632,9 @@ static int IsNumber(char* token) {
             k++;
         }
         else if ((token[k] == 'e' || token[k] == 'E') &&
-            foundExponent == 0) {
+            foundExponent == 0 && foundDigit > 0) {
             foundExponent = 1;
+            foundDigit = 0;
             k++;
         }
         else if ((token[k] == '-' || token[k] == '+') &&
@@ -644,7 +647,7 @@ static int IsNumber(char* token) {
             break;
         }
     }
-    return isNumber;
+    return isNumber && foundDigit > 0;
 }
 
 static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tableName,
@@ -917,6 +920,7 @@ static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tabl
                     unsigned long lineNoPartial = lineNo;
                     int tableReadPartial = 0;
                     while (readLine(&buf, &bufLen, fp) == 0) {
+                        k = 0;
                         lineNoPartial++;
                         /* Ignore leading white space */
                         while (k < bufLen - 1) {
