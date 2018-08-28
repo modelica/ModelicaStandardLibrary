@@ -41,8 +41,8 @@
    this header file is shipped with the Modelica Standard Library.
 */
 
-#ifndef MODELICA_UTILITIES_H_
-#define MODELICA_UTILITIES_H_
+#ifndef MODELICA_UTILITIES_H
+#define MODELICA_UTILITIES_H
 
 #include <stddef.h>
 #include <stdarg.h>
