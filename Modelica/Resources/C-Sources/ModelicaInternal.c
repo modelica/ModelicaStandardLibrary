@@ -522,7 +522,7 @@ void ModelicaInternal_readDirectory(_In_z_ const char* directory, int nFiles,
              directory, iFiles, nFiles);
     }
     else if ( closedir(pdir) != 0 ) {
-        ModelicaFormatError("Not possible to get file names of \"%s\":\n",
+        ModelicaFormatError("Not possible to get file names of \"%s\":\n%s",
             directory, strerror(errno));
     }
 
@@ -907,9 +907,9 @@ void ModelicaInternal_readFile(_In_z_ const char* fileName,
         line = ModelicaAllocateStringWithErrorReturn(lineLen);
         if ( line == NULL ) {
             fclose(fp);
-            ModelicaFormatError("Not enough memory to allocate string for reading line %i from file\n"
+            ModelicaFormatError("Not enough memory to allocate string for reading line %lu from file\n"
                 "\"%s\".\n"
-                "(this file contains %i lines)\n", iLines, fileName, nLines);
+                "(this file contains %lu lines)\n", (unsigned long)iLines, fileName, (unsigned long)nLines);
         }
 
         /* Read next line */
@@ -919,14 +919,14 @@ void ModelicaInternal_readFile(_In_z_ const char* fileName,
         else {
             if ( fseek(fp, offset, SEEK_SET != 0) ) {
                 fclose(fp);
-                ModelicaFormatError("Error when reading line %i from file\n\"%s\":\n"
-                    "%s\n", iLines, fileName, strerror(errno));
+                ModelicaFormatError("Error when reading line %lu from file\n\"%s\":\n"
+                    "%s\n", (unsigned long)iLines, fileName, strerror(errno));
             }
             nc = ( iLines < nLines ? lineLen+1 : lineLen);
             if ( fread(line, sizeof(char), nc, fp) != nc ) {
                 fclose(fp);
-                ModelicaFormatError("Error when reading line %i from file\n\"%s\"\n",
-                    iLines, fileName);
+                ModelicaFormatError("Error when reading line %lu from file\n\"%s\"\n",
+                    (unsigned long)iLines, fileName);
             }
         }
         line[lineLen] = '\0';
