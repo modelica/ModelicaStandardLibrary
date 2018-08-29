@@ -2935,7 +2935,7 @@ ReadCharData(mat_t *mat,char *data,enum matio_types data_type,int len)
             break;
         }
         default:
-            Mat_Warning("ReadCharData: %d is not a supported data type for ",
+            Mat_Warning("ReadCharData: %d is not a supported data type for "
                 "character data", data_type);
             break;
     }
@@ -6882,7 +6882,7 @@ Read4(mat_t *mat,matvar_t *matvar)
                                 free(sparse->ir);
                                 free(matvar->data);
                                 matvar->data = NULL;
-                                Mat_Critical("Read4: %d is not a supported data type for ",
+                                Mat_Critical("Read4: %d is not a supported data type for "
                                     "extended sparse", data_type);
                                 return;
                         }
@@ -6959,7 +6959,7 @@ Read4(mat_t *mat,matvar_t *matvar)
                                 free(sparse->ir);
                                 free(matvar->data);
                                 matvar->data = NULL;
-                                Mat_Critical("Read4: %d is not a supported data type for ",
+                                Mat_Critical("Read4: %d is not a supported data type for "
                                     "extended sparse", data_type);
                                 return;
                         }
