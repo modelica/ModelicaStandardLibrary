@@ -5300,6 +5300,8 @@ in the User's Guide of the Rotational library.
         coordinateSystem(preserveAspectRatio=true,
           extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
+        Line(points={{-100,0},{100,0}},
+          pattern=LinePattern.Dot),
         Ellipse(lineColor={87,195,193},
           fillColor={87,195,193},
           fillPattern=FillPattern.Solid,
@@ -5307,13 +5309,10 @@ in the User's Guide of the Rotational library.
         Text(lineColor={0,0,255},
           extent={{-40.0,-40.0},{40.0,40.0}},
           textString="S"),
-        Line(points={{-92.0,0.0},{-42.0,0.0}},
-          pattern=LinePattern.Dot),
-        Line(points={{40.0,0.0},{90.0,0.0}},
-          pattern=LinePattern.Dot),
-        Text(lineColor={0,0,255},
-          extent={{-150.0,-80.0},{150.0,-40.0}},
-          textString="%name")}),
+        Text(
+          extent={{-150,90},{150,50}},
+          textString="%name",
+          lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={Ellipse(
