@@ -5300,27 +5300,30 @@ in the User's Guide of the Rotational library.
         coordinateSystem(preserveAspectRatio=true,
           extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
-        Ellipse(lineColor={87,195,193},
-          fillColor={87,195,193},
+        Ellipse(
+          lineColor={52,219,218},
+          fillColor={52,219,218},
           fillPattern=FillPattern.Solid,
           extent={{-40.0,-40.0},{40.0,40.0}}),
         Text(lineColor={0,0,255},
-          extent={{-40.0,-40.0},{40.0,40.0}},
+          extent={{-40,-40},{40,40}},
           textString="S"),
         Line(points={{-92.0,0.0},{-42.0,0.0}},
           pattern=LinePattern.Dot),
         Line(points={{40.0,0.0},{90.0,0.0}},
           pattern=LinePattern.Dot),
-        Text(lineColor={0,0,255},
-          extent={{-150.0,-80.0},{150.0,-40.0}},
-          textString="%name")}),
+        Text(
+          extent={{-150,90},{150,50}},
+          textString="%name",
+          lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={Ellipse(
-                  extent={{-40,40},{40,-40}},
-                  lineColor={0,255,255},
-                  fillColor={0,255,255},
-                  fillPattern=FillPattern.Solid),Text(
+              extent={{-40,40},{40,-40}},
+              lineColor={52,219,218},
+              fillColor={52,219,218},
+              fillPattern=FillPattern.Solid),
+                Text(
                   extent={{-40,40},{40,-40}},
                   textString="S",
                   lineColor={0,0,255}),Line(

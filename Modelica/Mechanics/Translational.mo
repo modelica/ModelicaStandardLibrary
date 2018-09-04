@@ -3856,30 +3856,40 @@ velocity of model mass1 or of model mass2 as state variables.
                 100,100}}), graphics={ Line(
                   points={{-100,0},{100,0}},
                   pattern=LinePattern.Dot,
-              color={0,127,0}),       Ellipse(
-                  extent={{-40,40},{40,-40}},
-                  lineColor={0,255,255},
-                  fillColor={0,255,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-40,40},{40,-40}},
-                  textString="S",
-                  lineColor={0,0,255}),    Text(
-                  extent={{-150,90},{150,50}},
-                  textString="%name",
-                  lineColor={0,0,255})}),
+              color={0,127,0}),
+            Ellipse(
+              extent={{-40,40},{40,-40}},
+              lineColor={52,219,218},
+              fillColor={52,219,218},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-40,40},{40,-40}},
+              textString="S",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Ellipse(
-                  extent={{-40,40},{40,-40}},
-                  lineColor={0,255,255},
-                  fillColor={0,255,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-40,40},{40,-40}},
-                  textString="S",
-                  lineColor={0,0,255}),Line(
-                  points={{40,0},{90,0}},
-                  pattern=LinePattern.Dash),Line(points={{-100,-10},{-100,-80}},
-              color={160,160,164}),Line(points={{100,-10},{100,-80}}, color={
-              160,160,164}),Polygon(
+                {100,100}}), graphics={
+            Line(
+              points={{-100,0},{100,0}},
+              pattern=LinePattern.Dash,
+              color={0,127,0}),
+            Ellipse(
+              extent={{-40,40},{40,-40}},
+              lineColor={52,219,218},
+              fillColor={52,219,218},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-40,40},{40,-40}},
+              textString="S",
+              lineColor={0,0,255}),
+            Line(points={{-100,-10},{-100,-80}},
+              color={160,160,164}),
+            Line(points={{100,-10},{100,-80}}, color={
+              160,160,164}),
+            Polygon(
                   points={{80,-65},{80,-55},{100,-60},{80,-65}},
                   lineColor={160,160,164},
                   fillColor={160,160,164},
@@ -3895,9 +3905,7 @@ velocity of model mass1 or of model mass2 as state variables.
                   fillPattern=FillPattern.Solid),Text(
                   extent={{18,87},{86,74}},
                   lineColor={128,128,128},
-                  textString="moving direction"),Line(
-                  points={{-90,0},{-40,0}},
-                  pattern=LinePattern.Dash)}));
+                  textString="moving direction")}));
     end RelativeStates;
 
     model GeneralForceToPositionAdaptor
