@@ -23,7 +23,7 @@ package Sources
             extent={{-96,15},{96,-15}},
             textString="%y"),
           Text(
-            extent={{-150,90},{140,50}},
+            extent={{-150,90},{150,50}},
             textString="%name",
             lineColor={0,0,255})}), Documentation(info="<html>
 <p>
