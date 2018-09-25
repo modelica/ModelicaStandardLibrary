@@ -50,7 +50,7 @@ different icons.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           initialScale=0.16), graphics={Text(
-            extent={{-140,-50},{140,-88}},
+            extent={{-140,-50},{140,-90}},
             textString="%name"), Rectangle(
             extent={{-12,40},{12,-40}},
             fillColor={192,192,192},
@@ -84,7 +84,7 @@ This component has a filled rectangular icon.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           initialScale=0.16), graphics={Text(
-            extent={{-140,-50},{140,-88}},
+            extent={{-140,-50},{140,-90}},
             textString="%name"), Rectangle(
             extent={{-12,40},{12,-40}},
             fillColor={255,255,255},
@@ -119,7 +119,7 @@ and the cut-torque is acting. This component has a non-filled rectangular icon.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             initialScale=0.16), graphics={Text(
-              extent={{-140,-50},{140,-88}},
+              extent={{-140,-50},{140,-90}},
               textString="%name"), Rectangle(
               extent={{-12,40},{12,-40}},
               lineColor={95,95,95},
