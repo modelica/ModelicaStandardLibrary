@@ -56,7 +56,7 @@ package RobotR3
       Text(
         string="%first",
         index=-1,
-        extent=[-6,3; -6,3]), Line(
+        extent={{-6,3},{-6,3}}), Line(
         points={{-11.9,30.1},{-11.9,29},{-9,29},{-9,10},{20,10}},
         color={255,204,51},
         thickness=0.5));
@@ -264,7 +264,7 @@ load inertia.
       Text(
         string="%first",
         index=-1,
-        extent=[-6,3; -6,3]), Line(
+        extent={{-6,3},{-6,3}}), Line(
         points={{-80.1,0.1},{-80.1,-4.5},{-79,-4.5},{-79,-7},{-68,-7},{-68,-50},{-20,-50}},
         color={255,204,51},
         thickness=0.5));
@@ -273,7 +273,7 @@ load inertia.
       Text(
         string="%first",
         index=-1,
-        extent=[-6,3; -6,3]), Line(
+        extent={{-6,3},{-6,3}}), Line(
         points={{-80.1,0.1},{-79,0.1},{-79,-5},{-64,-5},{-64,-30},{-20,-30}},
         color={255,204,51},
         thickness=0.5));
@@ -281,7 +281,7 @@ load inertia.
     connect(controlBus.axisControlBus3, axis3.axisControlBus) annotation (Text(
         string="%first",
         index=-1,
-        extent=[-6,3; -6,3]), Line(
+        extent={{-6,3},{-6,3}}), Line(
         points={{-80.1,0.1},{-77,0.1},{-77,-2.5},{-60,-2.5},{-60,-10},{-20,-10}},
         color={255,204,51},
         thickness=0.5));
@@ -289,7 +289,7 @@ load inertia.
     connect(controlBus.axisControlBus4, axis4.axisControlBus) annotation (Text(
         string="%first",
         index=-1,
-        extent=[-6,3; -6,3]), Line(
+        extent={{-6,3},{-6,3}}), Line(
         points={{-80.1,0.1},{-60,0.1},{-60,10},{-20,10}},
         color={255,204,51},
         thickness=0.5));
@@ -297,7 +297,7 @@ load inertia.
       Text(
         string="%first",
         index=-1,
-        extent=[-6,3; -6,3]), Line(
+        extent={{-6,3},{-6,3}}), Line(
         points={{-80.1,0.1},{-77,0.1},{-77,3},{-64,3},{-64,30},{-20,30}},
         color={255,204,51},
         thickness=0.5));
@@ -305,7 +305,7 @@ load inertia.
       Text(
         string="%first",
         index=-1,
-        extent=[-6,3; -6,3]), Line(
+        extent={{-6,3},{-6,3}}), Line(
         points={{-80.1,0.1},{-79,0.1},{-79,5},{-68,5},{-68,50},{-20,50}},
         color={255,204,51},
         thickness=0.5));
@@ -445,7 +445,7 @@ determined from the connections to this bus.
         Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3]), Line(
+          extent={{6,3},{6,3}}), Line(
           points={{20,0},{60,0},{60,-0.1},{100.1,-0.1}},
           color={255,204,51},
           thickness=0.5));
@@ -609,7 +609,7 @@ motion on the controlBus of the r3 robot.
         Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3]), Line(
+          extent={{6,3},{6,3}}), Line(
           points={{10,80},{80,80},{80,6},{100,6},{100,-0.1},{100.1,-0.1}},
           color={255,204,51},
           thickness=0.5));
@@ -617,21 +617,21 @@ motion on the controlBus of the r3 robot.
         Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3]), Line(
+          extent={{6,3},{6,3}}), Line(
           points={{10,50},{70,50},{70,4},{100,4},{100,-0.1},{100.1,-0.1}},
           color={255,204,51},
           thickness=0.5));
       connect(pathToAxis3.axisControlBus, controlBus.axisControlBus3) annotation (Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3]), Line(
+          extent={{6,3},{6,3}}), Line(
           points={{10,20},{60,20},{60,2},{100,2},{100,-0.1},{100.1,-0.1}},
           color={255,204,51},
           thickness=0.5));
       connect(pathToAxis4.axisControlBus, controlBus.axisControlBus4) annotation (Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3]), Line(
+          extent={{6,3},{6,3}}), Line(
           points={{10,-10},{60,-10},{60,-0.1},{100.1,-0.1}},
           color={255,204,51},
           thickness=0.5));
@@ -639,7 +639,7 @@ motion on the controlBus of the r3 robot.
         Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3]), Line(
+          extent={{6,3},{6,3}}), Line(
           points={{10,-40},{70,-40},{70,-3},{100.1,-3},{100.1,-0.1}},
           color={255,204,51},
           thickness=0.5));
@@ -647,7 +647,7 @@ motion on the controlBus of the r3 robot.
         Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3]), Line(
+          extent={{6,3},{6,3}}), Line(
           points={{10,-70},{80,-70},{80,-6},{100,-6},{100,-0.1},{100.1,-0.1}},
           color={255,204,51},
           thickness=0.5));
@@ -750,25 +750,25 @@ motion on the controlBus of the r3 robot.
         Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3]), Line(points={{-19,-60},{24,-60},{24,-8},{100,-8},{100,-0.1},{100.1,-0.1}},
+          extent={{6,3},{6,3}}), Line(points={{-19,-60},{24,-60},{24,-8},{100,-8},{100,-0.1},{100.1,-0.1}},
                                         color={255,0,255}));
       connect(qdd_axisUsed.y, axisControlBus.acceleration_ref) annotation (
         Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3]), Line(points={{-19,-20},{20,-20},{20,-4},{100,-4},{100,-0.1},{100.1,-0.1}},
+          extent={{6,3},{6,3}}), Line(points={{-19,-20},{20,-20},{20,-4},{100,-4},{100,-0.1},{100.1,-0.1}},
                                       color={0,0,127}));
       connect(qd_axisUsed.y, axisControlBus.speed_ref) annotation (
         Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3]), Line(points={{-19,20},{20,20},{20,0},{100.1,0},{100.1,-0.1}},
+          extent={{6,3},{6,3}}), Line(points={{-19,20},{20,20},{20,0},{100.1,0},{100.1,-0.1}},
                       color={0,0,127}));
       connect(q_axisUsed.y, axisControlBus.angle_ref) annotation (
         Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3]), Line(points={{-19,60},{24,60},{24,4},{100,4},{100,-0.1},{100.1,-0.1}},
+          extent={{6,3},{6,3}}), Line(points={{-19,60},{24,60},{24,4},{100,4},{100,-0.1},{100.1,-0.1}},
                       color={0,0,127}));
       annotation (defaultComponentName="pathToAxis1",
         Icon(coordinateSystem(
@@ -1159,29 +1159,29 @@ produced by the motor).
         annotation (Line(points={{-62,50},{-94,50},{-94,-34},{-6,-34},{-6,-99.9},{0.1,-99.9}}, color={0,0,127}), Text(
           string="%second",
           index=2,
-          extent=[6,3; 6,3]));
+          extent={{6,3},{6,3}}));
       connect(gain1.u, axisControlBus.angle_ref)
         annotation (Line(points={{-82,10},{-90,10},{-90,-30},{-4,-30},{-4,-99.9},{0.1,-99.9}}, color={0,0,127}), Text(
           string="%second",
           index=3,
-          extent=[6,3; 6,3]));
+          extent={{6,3},{6,3}}));
       connect(feedback1.u2, axisControlBus.motorAngle)
         annotation (Line(points={{-40,2},{-40,-26},{-2,-26},{-2,-99.9},{0.1,-99.9}}, color={0,0,127}), Text(
           string="%second",
           index=2,
-          extent=[6,3; 6,3]));
+          extent={{6,3},{6,3}}));
       connect(add3.u3, axisControlBus.motorSpeed)
         annotation (Line(points={{18,2},{10,2},{10,-26},{0,-26},{0,-99.9},{0.1,-99.9}}, color={0,0,127}), Text(
           string="%second",
           index=3,
-          extent=[6,3; 6,3]));
+          extent={{6,3},{6,3}}));
       connect(PI.y, axisControlBus.current_ref)
         annotation (Line(points={{81,10},{90,10},{90,-30},{2,-30},{2,-99.9},{0.1,-99.9}},
                                                                           color={0,0,127}),
           Text(
             string="%second",
             index=1,
-            extent=[6,3; 6,3]));
+            extent={{6,3},{6,3}}));
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -1315,25 +1315,25 @@ a model of the electrical motor and a continuous-time cascade controller.
       connect(angleSensor.phi, axisControlBus.angle) annotation (Text(
           string="%second",
           index=2,
-          extent=[6,3; 6,3]), Line(points={{19,70},{0,70},{0,52},{-102,52},{-102,0},{-99.9,0},{-99.9,-0.1}}, color={0,0,127}));
+          extent={{6,3},{6,3}}), Line(points={{19,70},{0,70},{0,52},{-102,52},{-102,0},{-99.9,0},{-99.9,-0.1}}, color={0,0,127}));
       connect(speedSensor.w, axisControlBus.speed) annotation (Text(
           string="%second",
           index=2,
-          extent=[6,3; 6,3]), Line(points={{19,50},{0,50},{0,50},{-99.9,50},{-99.9,-0.1}}, color={0,0,127}));
+          extent={{6,3},{6,3}}), Line(points={{19,50},{0,50},{0,50},{-99.9,50},{-99.9,-0.1}}, color={0,0,127}));
       connect(accSensor.a, axisControlBus.acceleration) annotation (Text(
           string="%second",
           index=2,
-          extent=[6,3; 6,3]), Line(points={{19,30},{0,30},{0,48},{-98,48},{-98,-0.1},{-99.9,-0.1}}, color={0,0,127}));
+          extent={{6,3},{6,3}}), Line(points={{19,30},{0,30},{0,48},{-98,48},{-98,-0.1},{-99.9,-0.1}}, color={0,0,127}));
       connect(axisControlBus.angle_ref, initializeFlange.phi_start) annotation (
         Text(
           string="%first",
           index=-1,
-          extent=[-6,3; -6,3]), Line(points={{-99.9,-0.1},{-99.9,0},{-98,0},{-98,-42},{-42,-42}}));
+          extent={{-6,3},{-6,3}}), Line(points={{-99.9,-0.1},{-99.9,0},{-98,0},{-98,-42},{-42,-42}}));
       connect(axisControlBus.speed_ref, initializeFlange.w_start) annotation (
         Text(
           string="%first",
           index=-1,
-          extent=[-6,3; -6,3]), Line(points={{-99.9,-0.1},{-100,-0.1},{-100,-50},{-42,-50}},
+          extent={{-6,3},{-6,3}}), Line(points={{-99.9,-0.1},{-100,-0.1},{-100,-50},{-42,-50}},
                           color={0,0,127}));
       connect(initializeFlange.flange, flange) annotation (Line(points={{-20,-50},{60,-50},{60,0},{100,0}}));
       connect(const.y, initializeFlange.a_start) annotation (Line(points={{-54.5,
