@@ -2416,6 +2416,9 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Modelica.Blocks</strong></td></tr>
+<tr><td>Interfaces.PartialNoise<br>Noise.UniformNoise<br>Noise.NormalNoise<br>Noise.TruncatedNormalNoise<br>Noise.BandLimitedWhiteNoise</td>
+    <td>As a side-effect of the corrected computation in Modelica.Math.Random.Utilities.impureRandomInteger the <code>localSeed</code> parameter is computed differently if <code>useAutomaticLocalSeed</code> is set to true.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
 <tr><td>World</td>
     <td>Added new parameter <code>animateGround</code> for optional ground plane visualization.<br>
@@ -2437,11 +2440,13 @@ that can lead to wrong simulation results):
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources</strong></td></tr>
 <tr><td>TimeTable</td>
-    <td>The derivative of the TimeTable output could no longer be determined. This has been corrected.</td></tr>
+    <td>The derivative of the <code>TimeTable</code> output could no longer be determined. This has been corrected.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Media.IdealGases.Common.SingleGasesData</strong></td></tr>
 <tr><td>CH2<br>CH3<br>CH3OOH<br>C2CL2<br>C2CL4<br>C2CL6<br>C2HCL<br>C2HCL3<br>CH2CO_ketene<br>O_CH_2O<br>HO_CO_2OH<br>CH2BrminusCOOH<br>C2H3CL<br>CH2CLminusCOOH<br>HO2<br>HO2minus<br>OD<br>ODminus</td>
     <td>The coefficients for <code>blow</code>, <code>ahigh</code> and <code>bhigh</code> were wrong. This has been corrected.</td></tr>
-
+<tr><td colspan=\"2\"><strong>Modelica.Math.Random.Utilities</strong></td></tr>
+<tr><td>impureRandomInteger</td>
+    <td>The function output <code>y</code> was not computed to yield a discrete uniform distribution for a minimum value <code>imin</code> of 1. This has been corrected.</td></tr>
 </table>
 
 </html>"));
