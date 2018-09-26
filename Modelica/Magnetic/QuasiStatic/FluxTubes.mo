@@ -130,7 +130,7 @@ Additional reference on magnetic flux tubes are listed in
     class ReleaseNotes "Release Notes"
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
-<h5>Version 3.x.x, 20xx-xx-xx</h5>
+<h5>Version 3.2.3, 2018-09-26</h5>
 <ul>
 <li>Included in the MSL 3.2.3</li>
 <li>Added some more examples according to

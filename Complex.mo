@@ -238,8 +238,8 @@ operator record Complex "Complex number with overloaded operators"
 annotation (
 version="3.2.3",
 versionBuild=1,
-versionDate="2018-08-01",
-dateModified = "2018-04-20 12:00:00Z",
+versionDate="2018-09-26",
+dateModified = "2018-09-26 12:00:00Z",
 revisionId="$Format:%h %ci$",
 conversion(
  noneFromVersion="3.2.2",
