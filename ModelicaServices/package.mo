@@ -9,7 +9,7 @@ package ModelicaServices "ModelicaServices (Default implementation) - Models and
     class ReleaseNotes "Release notes"
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
-<h4>Version 3.x.x, 20xx-xx-xx</h4>
+<h4>Version 3.2.3, 2018-09-26</h4>
 
 <ul>
 <li> New function
@@ -213,8 +213,8 @@ Specification (version &ge; 3.3).
     preferredView="info",
     version="3.2.3",
     versionBuild=1,
-    versionDate="2018-08-01",
-    dateModified = "2018-04-20 12:00:00Z",
+    versionDate="2018-09-26",
+    dateModified = "2018-09-26 12:00:00Z",
     revisionId="$Format:%h %ci$",
     uses(Modelica(version="3.2.3")),
     conversion(

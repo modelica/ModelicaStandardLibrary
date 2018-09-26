@@ -1646,7 +1646,7 @@ The authors would like to thank following persons for their support ...
       <th>Comment</th>
     </tr>
     <tr>
-      <td>3.x.x</td>
+      <td>3.2.3</td>
       <td>2017-07-04</td>
       <td>C. Kral</td>
       <td>Added comment on version number and date, see
@@ -2135,7 +2135,7 @@ There are some special guidelines for changes to the maintenance branch.
      needs to be updated.<br>
      Example:
          <pre>  annotation(version      = \"3.2.3\",
-             versionDate  = \"2018-08-01\",
+             versionDate  = \"2018-09-26\",
              versionBuild = 2,
              dateModified = \"2018-12-12 07:40:19Z\",
              revisionId   = \"$F&#8203;ormat:%h %ci$\")</pre>
@@ -2144,7 +2144,7 @@ There are some special guidelines for changes to the maintenance branch.
      <blockquote>
         Running the export command \"<code>git archive -o msl.zip v3.2.3</code>\" will
         expand the above \"revisionId\" place holder to something like:
-        <pre>revisionId = \"c04e23a0d 2018-08-01 12:00:00 +0200$\"</pre>
+        <pre>revisionId = \"c04e23a0d 2018-09-26 12:00:00 +0200$\"</pre>
      </blockquote>
      </li>
 </ul>
@@ -2170,7 +2170,7 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
-class Version_3_2_3 "Version 3.2.3 (August 1, 2018)"
+class Version_3_2_3 "Version 3.2.3 (September 26, 2018)"
   extends Modelica.Icons.ReleaseNotes;
 
  annotation (Documentation(info="<html>
@@ -8315,8 +8315,8 @@ annotation (
 preferredView="info",
 version="3.2.3",
 versionBuild=1,
-versionDate="2018-08-01",
-dateModified = "2018-08-01 12:00:00Z",
+versionDate="2018-09-26",
+dateModified = "2018-09-26 12:00:00Z",
 revisionId="$Format:%h %ci$",
 uses(Complex(version="3.2.3"), ModelicaServices(version="3.2.3")),
 conversion(
