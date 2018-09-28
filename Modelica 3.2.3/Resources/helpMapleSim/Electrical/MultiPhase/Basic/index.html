@@ -1,0 +1,551 @@
+<html><head><title>Modelica.Electrical.MultiPhase.Basic</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Basic"><h1><embed class="icon" src="../../../images/icon0672.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;Basic<br><span class="subtitle">Basic components for electrical multiphase models</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains basic analog electrical multiphase components.
+</p>
+
+<p>Extends from <code><a href="../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Capacitor"><code>Capacitor</code></a></td><td>Ideal linear electrical capacitors</td></tr>
+<tr><td><a href="#Conductor"><code>Conductor</code></a></td><td>Ideal linear electrical conductors</td></tr>
+<tr><td><a href="#Delta"><code>Delta</code></a></td><td>Delta (polygon) connection</td></tr>
+<tr><td><a href="#Inductor"><code>Inductor</code></a></td><td>Ideal linear electrical inductors</td></tr>
+<tr><td><a href="#MultiDelta"><code>MultiDelta</code></a></td><td>Delta (polygon) connection of multi phase systems consisting of multiple base systems</td></tr>
+<tr><td><a href="#MultiStar"><code>MultiStar</code></a></td><td>Star connection of multi phase systems consisting of multiple base systems</td></tr>
+<tr><td><a href="#MultiStarResistance"><code>MultiStarResistance</code></a></td><td>Resistance connection of star points</td></tr>
+<tr><td><a href="#MutualInductor"><code>MutualInductor</code></a></td><td>Linear mutual inductor</td></tr>
+<tr><td><a href="#PlugToPin_n"><code>PlugToPin_n</code></a></td><td>Connect one (negative) Pin</td></tr>
+<tr><td><a href="#PlugToPin_p"><code>PlugToPin_p</code></a></td><td>Connect one (positive) Pin</td></tr>
+<tr><td><a href="#PlugToPins_n"><code>PlugToPins_n</code></a></td><td>Connect all (negative) Pins</td></tr>
+<tr><td><a href="#PlugToPins_p"><code>PlugToPins_p</code></a></td><td>Connect all (positive) Pins</td></tr>
+<tr><td><a href="#Resistor"><code>Resistor</code></a></td><td>Ideal linear electrical resistors</td></tr>
+<tr><td><a href="#SaturatingInductor"><code>SaturatingInductor</code></a></td><td>Simple model of inductors with saturation</td></tr>
+<tr><td><a href="#Star"><code>Star</code></a></td><td>Star-connection</td></tr>
+<tr><td><a href="#Transformer"><code>Transformer</code></a></td><td>Multiphase Transformer</td></tr>
+<tr><td><a href="#VariableCapacitor"><code>VariableCapacitor</code></a></td><td>Ideal linear electrical capacitors with variable capacitance</td></tr>
+<tr><td><a href="#VariableConductor"><code>VariableConductor</code></a></td><td>Ideal linear electrical conductors with variable conductance</td></tr>
+<tr><td><a href="#VariableInductor"><code>VariableInductor</code></a></td><td>Ideal linear electrical inductors with variable inductance</td></tr>
+<tr><td><a href="#VariableResistor"><code>VariableResistor</code></a></td><td>Ideal linear electrical resistors with variable resistance</td></tr>
+<tr><td><a href="#ZeroInductor"><code>ZeroInductor</code></a></td><td>Linear zero sequence inductor</td></tr>
+</table>
+<hr><a name="Star"><h2><embed class="icon" src="../../../images/icon0673.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Star<br><span class="subtitle">Star-connection</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Connects all pins of plug_p to pin_n, thus establishing a so-called star-connection.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../Electrical/MultiPhase/Basic/index.html#Delta">Delta</a>,
+<a href="../../../Electrical/MultiPhase/Basic/index.html#MultiStar">MultiStar</a>,
+<a href="../../../Electrical/MultiPhase/Basic/index.html#MultiDelta">MultiDelta</a>
+</p>
+
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Delta"><h2><embed class="icon" src="../../../images/icon0674.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Delta<br><span class="subtitle">Delta (polygon) connection</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Connects in a cyclic way plug_n.pin[j] to plug_p.pin[j+1],
+thus establishing a so-called delta (or polygon) connection
+when used in parallel to another component.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../Electrical/MultiPhase/Basic/index.html#Star">Star</a>,
+<a href="../../../Electrical/MultiPhase/Basic/index.html#MultiStar">MultiStar</a>,
+<a href="../../../Electrical/MultiPhase/Basic/index.html#MultiDelta">MultiDelta</a>
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="MultiStar"><h2><embed class="icon" src="../../../images/icon0675.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;MultiStar<br><span class="subtitle">Star connection of multi phase systems consisting of multiple base systems</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Star (wye) connection of a multi phase circuit consisting of multiple base systems (see
+<a href="../../../Magnetic/FundamentalWave/UsersGuide/index.html#MultiPhase">multi phase guidelines</a>). The potentials at the star points are all equal.
+</p>
+<h4>See also</h4>
+<p>
+<a href="../../../Electrical/MultiPhase/Basic/index.html#Star">Star</a>,
+<a href="../../../Electrical/MultiPhase/Basic/index.html#Delta">Delta</a>,
+<a href="../../../Electrical/MultiPhase/Basic/index.html#MultiDelta">MultiDelta</a>
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mSystems</code></td><td><code>Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)</code></td><td>Number of base systems</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mBasic</code></td><td><code>integer(m / mSystems)</code></td><td>Phase number of base systems</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>starpoints</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="MultiDelta"><h2><embed class="icon" src="../../../images/icon0676.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;MultiDelta<br><span class="subtitle">Delta (polygon) connection of multi phase systems consisting of multiple base systems</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Delta (polygon) connection of a multi phase circuit consisting of multiple base systems (see
+<a href="../../../Magnetic/FundamentalWave/UsersGuide/index.html#MultiPhase">multi phase guidelines</a>).
+</p>
+<h4>See also</h4>
+<p>
+<a href="../../../Electrical/MultiPhase/Basic/index.html#Star">Star</a>,
+<a href="../../../Electrical/MultiPhase/Basic/index.html#Delta">Delta</a>,
+<a href="../../../Electrical/MultiPhase/Basic/index.html#MultiStar">MultiStar</a>
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mSystems</code></td><td><code>Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)</code></td><td>Number of base systems</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mBasic</code></td><td><code>integer(m / mSystems)</code></td><td>Phase number of base systems</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="MultiStarResistance"><h2><embed class="icon" src="../../../images/icon0677.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;MultiStarResistance<br><span class="subtitle">Resistance connection of star points</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Multi star points are connected by resistors. This model is required to operate multi phase systems with even phase numbers to avoid ideal connections of start points of base systems; see
+<a href="../../../Magnetic/FundamentalWave/UsersGuide/index.html#MultiPhase">multi phase guidelines</a>.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mBasic</code></td><td><code>Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)</code></td><td>Number of symmetric base systems</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>1000000</code></td><td>Insulation resistance between base systems</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PlugToPin_p"><h2><embed class="icon" src="../../../images/icon0678.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;PlugToPin_p<br><span class="subtitle">Connect one (positive) Pin</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Connects pin <em>k</em> of plug_p to pin_p, leaving the other pins of plug_p unconnected.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>Integer</code></td><td><code>k</code></td><td>&nbsp;</td><td>Phase index</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PlugToPin_n"><h2><embed class="icon" src="../../../images/icon0679.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;PlugToPin_n<br><span class="subtitle">Connect one (negative) Pin</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Connects pin <em>k</em> of plug_n to pin_n, leaving the other pins of plug_n unconnected.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>Integer</code></td><td><code>k</code></td><td>&nbsp;</td><td>Phase index</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PlugToPins_p"><h2><embed class="icon" src="../../../images/icon0680.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;PlugToPins_p<br><span class="subtitle">Connect all (positive) Pins</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Connects all pins of plug_p to the pin array pin_p.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p[m]</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PlugToPins_n"><h2><embed class="icon" src="../../../images/icon0681.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;PlugToPins_n<br><span class="subtitle">Connect all (negative) Pins</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Connects all pins of plug_n to the pin array pin_n.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n[m]</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Resistor"><h2><embed class="icon" src="../../../images/icon0682.svg" width="223" height="213" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Resistor<br><span class="subtitle">Ideal linear electrical resistors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
+</p>
+<p>Extends from <code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Component with one polyphase electrical port) and <code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R[m]</code></td><td>&nbsp;</td><td>Resistances R_ref at temperatures T_ref</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref[m]</code></td><td><code>fill(300.15, m)</code></td><td>Reference temperatures</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha[m]</code></td><td><code>zeros(m)</code></td><td>Temperature coefficients of resistances at reference temperatures</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mh</code></td><td><code>m</code></td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if all heat ports are enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T[mh]</code></td><td><code>T_ref</code></td><td>Fixed device temperatures if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative polyphase electrical plug with m pins</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort[mh]</code></td><td>Conditional heat ports</td></tr>
+</table>
+<hr><a name="Conductor"><h2><embed class="icon" src="../../../images/icon0682.svg" width="223" height="213" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Conductor<br><span class="subtitle">Ideal linear electrical conductors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Contains m conductors (Modelica.Electrical.Analog.Basic.Conductor)
+</p>
+<p>Extends from <code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Component with one polyphase electrical port) and <code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>G[m]</code></td><td>&nbsp;</td><td>Conductances G_ref at temperatures T_ref</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref[m]</code></td><td><code>fill(300.15, m)</code></td><td>Reference temperatures</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha[m]</code></td><td><code>zeros(m)</code></td><td>Temperature coefficients of conductances at reference temperatures</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mh</code></td><td><code>m</code></td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if all heat ports are enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T[mh]</code></td><td><code>T_ref</code></td><td>Fixed device temperatures if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative polyphase electrical plug with m pins</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort[mh]</code></td><td>Conditional heat ports</td></tr>
+</table>
+<hr><a name="Capacitor"><h2><embed class="icon" src="../../../images/icon0683.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Capacitor<br><span class="subtitle">Ideal linear electrical capacitors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Contains m capacitors (Modelica.Electrical.Analog.Basic.Capacitor)
+</p>
+<p>Extends from <code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Component with one polyphase electrical port).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>C[m]</code></td><td>&nbsp;</td><td>Capacitance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative polyphase electrical plug with m pins</td></tr>
+</table>
+<hr><a name="Inductor"><h2><embed class="icon" src="../../../images/icon0684.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Inductor<br><span class="subtitle">Ideal linear electrical inductors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Contains m inductors (Modelica.Electrical.Analog.Basic.Inductor)
+</p>
+<p>Extends from <code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Component with one polyphase electrical port).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L[m]</code></td><td>&nbsp;</td><td>Inductance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative polyphase electrical plug with m pins</td></tr>
+</table>
+<hr><a name="SaturatingInductor"><h2><embed class="icon" src="../../../images/icon0685.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;SaturatingInductor<br><span class="subtitle">Simple model of inductors with saturation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Contains m saturating inductors (Modelica.Electrical.Analog.Basic.SaturatingInductor)
+</p>
+<p>
+<strong>Attention!!!</strong><br>
+Each element of the array of saturatingInductors is only dependent on the current flowing through this element.
+</p>
+<p>Extends from <code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Component with one polyphase electrical port).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>Inom[m]</code></td><td>&nbsp;</td><td>Nominal current</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lnom[m]</code></td><td>&nbsp;</td><td>Nominal inductance at Nominal current</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lzer[m]</code></td><td>&nbsp;</td><td>Inductance near current=0</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Linf[m]</code></td><td>&nbsp;</td><td>Inductance at large currents</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative polyphase electrical plug with m pins</td></tr>
+</table>
+<hr><a name="MutualInductor"><h2><embed class="icon" src="../../../images/icon0686.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;MutualInductor<br><span class="subtitle">Linear mutual inductor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Model of a multi phase inductor providing a mutual inductance matrix model.
+</p>
+<h4>Implementation</h4>
+<pre>
+  v[1] = L[1,1]*der(i[1]) + L[1,2]*der(i[2]) + ... + L[1,m]*der(i[m])
+  v[2] = L[2,1]*der(i[1]) + L[2,2]*der(i[2]) + ... + L[2,m]*der(i[m])
+    :              :                         :                                :
+  v[m] = L[m,1]*der(i[1]) + L[m,2]*der(i[2]) + ... + L[m,m]*der(i[m])
+</pre>
+
+<p>Extends from <code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical plugs and currents from plug_p to plug_n).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>Real</code></td><td><code>epsilon</code></td><td><code>1e-9</code></td><td>Relative accuracy tolerance of matrix symmetry</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L[m,m]</code></td><td>&nbsp;</td><td>Mutual inductance matrix</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative polyphase electrical plug with m pins</td></tr>
+</table>
+<hr><a name="ZeroInductor"><h2><embed class="icon" src="../../../images/icon0687.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;ZeroInductor<br><span class="subtitle">Linear zero sequence inductor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Model of a multi phase zero sequence inductor.
+</p>
+<h4>Implementation</h4>
+<pre>
+  v = Lzero*sum(der(i)) = Lzero*der(sum(i))
+</pre>
+
+<p>Extends from <code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical plugs and currents from plug_p to plug_n).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lzero</code></td><td>&nbsp;</td><td>Zero sequence inductance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative polyphase electrical plug with m pins</td></tr>
+</table>
+<hr><a name="Transformer"><h2><embed class="icon" src="../../../images/icon0688.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Transformer<br><span class="subtitle">Multiphase Transformer</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
+</p>
+<p>Extends from <code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#FourPlug">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;FourPlug</a></code> (Component with two polyphase electrical ports).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L1[m]</code></td><td>&nbsp;</td><td>Primary inductance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L2[m]</code></td><td>&nbsp;</td><td>Secondary inductance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>M[m]</code></td><td>&nbsp;</td><td>Coupling inductance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p1</code></td><td>Positive electrical polyphase plug of port 1 with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p2</code></td><td>Positive electrical polyphase plug of port 2 with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n1</code></td><td>Negative electrical polyphase plug of port 1 with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n2</code></td><td>Negative electrical polyphase plug of port 2 with m pins</td></tr>
+</table>
+<hr><a name="VariableResistor"><h2><embed class="icon" src="../../../images/icon0689.svg" width="223" height="253" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;VariableResistor<br><span class="subtitle">Ideal linear electrical resistors with variable resistance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor)
+</p>
+<p>
+<strong>Attention!!!</strong><br>
+  It is recommended that none of the R_Port signals should not cross the zero value.
+  Otherwise depending on the surrounding circuit the probability of singularities is high.
+</p>
+<p>Extends from <code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Component with one polyphase electrical port) and <code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref[m]</code></td><td><code>fill(300.15, m)</code></td><td>Reference temperatures</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha[m]</code></td><td><code>zeros(m)</code></td><td>Temperature coefficients of resistances at reference temperatures</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mh</code></td><td><code>m</code></td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if all heat ports are enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T[mh]</code></td><td><code>T_ref</code></td><td>Fixed device temperatures if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative polyphase electrical plug with m pins</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort[mh]</code></td><td>Conditional heat ports</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>R[m]</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="VariableConductor"><h2><embed class="icon" src="../../../images/icon0689.svg" width="223" height="253" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;VariableConductor<br><span class="subtitle">Ideal linear electrical conductors with variable conductance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConductor)
+</p>
+<p>
+<strong>Attention!!!</strong><br>
+  It is recommended that none of the G_Port signals should not cross the zero value.
+  Otherwise depending on the surrounding circuit the probability of singularities is high.
+</p>
+<p>Extends from <code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Component with one polyphase electrical port) and <code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref[m]</code></td><td><code>fill(300.15, m)</code></td><td>Reference temperatures</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha[m]</code></td><td><code>zeros(m)</code></td><td>Temperature coefficients of conductances at reference temperatures</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mh</code></td><td><code>m</code></td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if all heat ports are enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T[mh]</code></td><td><code>T_ref</code></td><td>Fixed device temperatures if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative polyphase electrical plug with m pins</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort[mh]</code></td><td>Conditional heat ports</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>G[m]</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="VariableCapacitor"><h2><embed class="icon" src="../../../images/icon0690.svg" width="223" height="243" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;VariableCapacitor<br><span class="subtitle">Ideal linear electrical capacitors with variable capacitance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Contains m variable capacitors (Modelica.Electrical.Analog.Basic.VariableCapacitor)
+</p>
+<p>
+It is required that each C_Port.signal &ge; 0, otherwise an
+assertion is raised. To avoid a variable index system,<br>
+C = Cmin, if 0 &le; C_Port.signal &lt; Cmin, where
+Cmin is a parameter with default value Modelica.Constants.eps.
+</p>
+<p>Extends from <code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Component with one polyphase electrical port).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>Cmin[m]</code></td><td><code>fill(Modelica.Constants.eps, m)</code></td><td>minimum Capacitance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative polyphase electrical plug with m pins</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>C[m]</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="VariableInductor"><h2><embed class="icon" src="../../../images/icon0691.svg" width="223" height="243" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;VariableInductor<br><span class="subtitle">Ideal linear electrical inductors with variable inductance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Contains m variable inductors (Modelica.Electrical.Analog.Basic.VariableInductor)
+</p>
+<p>
+It is required that each L_Port.signal &ge; 0, otherwise an
+assertion is raised. To avoid a variable index system,<br>
+L = Lmin, if 0 &le; L_Port.signal &lt; Lmin, where
+Lmin is a parameter with default value Modelica.Constants.eps.
+</p>
+<p>Extends from <code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Component with one polyphase electrical port).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lmin[m]</code></td><td><code>fill(Modelica.Constants.eps, m)</code></td><td>minimum Inductance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative polyphase electrical plug with m pins</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>L[m]</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

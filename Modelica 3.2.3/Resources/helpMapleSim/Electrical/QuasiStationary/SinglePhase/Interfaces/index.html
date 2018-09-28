@@ -1,0 +1,247 @@
+<html><head><title>Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Interfaces"><h1><embed class="icon" src="../../../../images/icon0015.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;Interfaces<br><span class="subtitle">Interfaces for AC singlephase models</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package contains connector specifications and partial models for more complex components.</p>
+<p>Extends from <code><a href="../../../../Icons/InterfacesPackage/index.html">Modelica.&#8203;Icons.&#8203;InterfacesPackage</a></code> (Icon for packages containing interfaces).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#AbsoluteSensor"><code>AbsoluteSensor</code></a></td><td>Partial potential sensor</td></tr>
+<tr><td><a href="#NegativePin"><code>NegativePin</code></a></td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td><a href="#OnePort"><code>OnePort</code></a></td><td>Two pins, current through</td></tr>
+<tr><td><a href="#Pin"><code>Pin</code></a></td><td>Quasi-static single-phase pin</td></tr>
+<tr><td><a href="#PositivePin"><code>PositivePin</code></a></td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td><a href="#RelativeSensor"><code>RelativeSensor</code></a></td><td>Partial voltage / current sensor</td></tr>
+<tr><td><a href="#Source"><code>Source</code></a></td><td>Partial voltage / current source</td></tr>
+<tr><td><a href="#TwoPin"><code>TwoPin</code></a></td><td>Two pins</td></tr>
+</table>
+<hr><a name="Pin"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Connector <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;Pin<br><span class="subtitle">Quasi-static single-phase pin</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The potential of this connector is the complex voltage and the flow variable is the complex current.
+The <a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">positive</a> and
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">negative pin</a> are
+derived from this base connector.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#Plug">Plug</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a>
+</p>
+
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#ComplexElectricPotential">ComplexElectricPotential</a></code></td><td><code>v</code></td><td>Complex potential at the quasi-static single-phase pin</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#ComplexCurrent">ComplexCurrent</a></code></td><td><code>i</code></td><td>Complex current flowing into the quasi-static single-phase pin</td></tr>
+</table>
+<hr><a name="PositivePin"><h2><embed class="icon" src="../../../../images/icon0803.svg" width="203" height="203" />
+Connector <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PositivePin<br><span class="subtitle">Positive quasi-static single-phase pin</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+The positive pin is based on <a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#Pin">Pin</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of the quasi stationary voltage and current. The symbol is also designed such way to look different than the <a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">negative pin</a>.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#Pin">Pin</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#Plug">Plug</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#Pin">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;SinglePhase.&#8203;Interfaces.&#8203;Pin</a></code> (Quasi-static single-phase pin).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#ComplexElectricPotential">ComplexElectricPotential</a></code></td><td><code>v</code></td><td>Complex potential at the quasi-static single-phase pin</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#ComplexCurrent">ComplexCurrent</a></code></td><td><code>i</code></td><td>Complex current flowing into the quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/Types/index.html#Reference">Reference</a></code></td><td><code>reference</code></td><td>Reference</td></tr>
+</table>
+<hr><a name="NegativePin"><h2><embed class="icon" src="../../../../images/icon0804.svg" width="203" height="203" />
+Connector <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;NegativePin<br><span class="subtitle">Negative quasi-static single-phase pin</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+The negative pin is based on <a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#Pin">Pin</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of the quasi stationary voltage and current. The symbol is also designed such way to look different than the <a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">positive pin</a>.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#Pin">Pin</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#Plug">Plug</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#Pin">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;SinglePhase.&#8203;Interfaces.&#8203;Pin</a></code> (Quasi-static single-phase pin).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#ComplexElectricPotential">ComplexElectricPotential</a></code></td><td><code>v</code></td><td>Complex potential at the quasi-static single-phase pin</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#ComplexCurrent">ComplexCurrent</a></code></td><td><code>i</code></td><td>Complex current flowing into the quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/Types/index.html#Reference">Reference</a></code></td><td><code>reference</code></td><td>Reference</td></tr>
+</table>
+<hr><a name="TwoPin"><h2><embed class="icon" src="../../../../images/icon0805.svg" width="223" height="203" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;TwoPin<br><span class="subtitle">Two pins</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This partial model uses a <a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">positive</a>
+and <a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">negative pin</a> and defines the complex voltage difference as well as the complex current (into the positive pin). Additionally, the angular velocity of the quasi stationary system is explicitly defined as variable. This model is mainly intended to be used with graphical representation of user models.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#OnePort">OnePort</a>
+</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>Negative quasi-static single-phase pin</td></tr>
+</table>
+<hr><a name="OnePort"><h2><embed class="icon" src="../../../../images/icon0805.svg" width="223" height="203" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;OnePort<br><span class="subtitle">Two pins, current through</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This partial model is based on <a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#TwoPin">TwoPin</a> and
+additionally considers the complex current balance of the
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">positive</a> and the
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">negative pin</a>.
+This model is intended to be used with textual representation of user models.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#TwoPin">TwoPin</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#TwoPin">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;SinglePhase.&#8203;Interfaces.&#8203;TwoPin</a></code> (Two pins).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>Negative quasi-static single-phase pin</td></tr>
+</table>
+<hr><a name="AbsoluteSensor"><h2><embed class="icon" src="../../../../images/icon0806.svg" width="213" height="203" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;AbsoluteSensor<br><span class="subtitle">Partial potential sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The absolute sensor partial model provides a single
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">positive pin</a> to measure the complex voltage. Additionally this model contains a proper icon and a definition of the angular velocity.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#RelativeSensor">RelativeSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#PotentialSensor">PotentialSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#AbsoluteSensor">MultiPhase.Interfaces.AbsoluteSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#RelativeSensor">MultiPhase.Interfaces.RelativeSensor</a>
+</p>
+
+<p>Extends from <code><a href="../../../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin</code></td><td>Positive quasi-static single-phase pin</td></tr>
+</table>
+<hr><a name="RelativeSensor"><h2><embed class="icon" src="../../../../images/icon0807.svg" width="223" height="223" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;RelativeSensor<br><span class="subtitle">Partial voltage / current sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The relative sensor partial model relies on the
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#OnePort">OnePort</a> to measure the complex voltage, current or power. Additionally this model contains a proper icon and a definition of the angular velocity.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#AbsoluteSensor">AbsoluteSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#VoltageSensor">VoltageSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#CurrentSensor">CurrentSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#PowerSensor">PowerSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#AbsoluteSensor">MultiPhase.Interfaces.AbsoluteSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#RelativeSensor">MultiPhase.Interfaces.RelativeSensor</a>
+</p>
+
+<p>Extends from <code><a href="../../../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device) and <code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;SinglePhase.&#8203;Interfaces.&#8203;OnePort</a></code> (Two pins, current through).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Source"><h2><embed class="icon" src="../../../../images/icon0808.svg" width="223" height="203" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;Source<br><span class="subtitle">Partial voltage / current source</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The source partial model relies on the
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#OnePort">OnePort</a> and contains a proper icon.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sources/index.html#VoltageSource">VoltageSource</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sources/index.html#VariableVoltageSource">VariableVoltageSource</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sources/index.html#CurrentSource">CurrentSource</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sources/index.html#VariableCurrentSource">VariableCurrentSource</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#Source">MultiPhase.Interfaces.Source</a>.
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;SinglePhase.&#8203;Interfaces.&#8203;OnePort</a></code> (Two pins, current through).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>Negative quasi-static single-phase pin</td></tr>
+</table>
+</body></html>

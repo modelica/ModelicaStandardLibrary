@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Math.Matrices.Utilities.householderSimilarityTransformation</title>
+</head>
+<body>
+<h1><a href="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg"><img class="svgiconhead" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.Utilities.html">Utilities</a>.<span class="omc-h1">householderSimilarityTransformation</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+  As = Matrices.<strong>householderSimilarityTransformation</strong>(A,u);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function computes the Householder similarity
+transformation</p>
+<blockquote><strong>As</strong> =
+<strong>S</strong>*<strong>A</strong>*<strong>S</strong></blockquote>
+with
+<blockquote><strong>S</strong> = <strong>I</strong>
+-2*<strong>u</strong>*<strong>u</strong>'/(<strong>u</strong>'*<strong>u</strong>).</blockquote>
+<p>This transformation is widely used for transforming
+non-symmetric matrices to a Hessenberg form.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+// First step of Hessenberg decomposition
+  import   Modelica.Math.Vectors.Utilities;
+
+  Real A[4,4] = [1,2,3,4;
+                 3,4,5,6;
+                 9,8,7,6;
+                 1,2,0,0];
+  Real Ar[4,4];
+  Real u[4]={0,0,0,0};
+
+  u[2:4]=Utilities.householderVector(A[2:4,1],{1,0,0});
+  // u= = {0, 0.8107, 0.5819, 0.0647}
+
+  Ar=householderSimilarityTransformation(A,u);
+ //  Ar = [1.0,     -3.8787,    -1.2193,    3.531;
+          -9.5394, 11.3407,      6.4336,   -5.9243;
+           0.0,     3.1307,      0.7525,   -3.3670;
+           0.0,     0.8021,     -1.1656,   -1.0932]
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Matrices.Utilities.householderReflection.html">
+Matrices.Utilities.householderReflection</a>,<br />
+<a href="Modelica.Math.Vectors.Utilities.householderReflection.html">Vectors.Utilities.householderReflection</a>,<br />
+<a href="Modelica.Math.Vectors.Utilities.householderVector.html">Vectors.Utilities.householderVector</a></p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>function householderSimilarityTransformation
+  extends Modelica.Icons.Function;
+  import Modelica.Math.Vectors;
+  input Real A[:, size(A, 1)] "Square matrix A";
+  input Real u[size(A, 1)] "Householder vector";
+  output Real SAS[size(A, 1), size(A, 1)] "Transformation of matrix A";
+end householderSimilarityTransformation;</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><em>2010/04/30</em> by Marcus Baur, DLR-RM</li>
+</ul>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

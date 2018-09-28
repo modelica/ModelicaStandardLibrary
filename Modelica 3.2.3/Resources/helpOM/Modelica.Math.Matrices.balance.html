@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.balance</title>
+</head>
+<body>
+<h1><a href="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg"><img class="svgiconhead" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<span class="omc-h1">balance</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+(D,B) = Matrices.<strong>balance</strong>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function returns a vector D, such that
+B=inv(diagonal(D))*A*diagonal(D) has a better condition as matrix
+A, i.e., conditionNumber(B) ≤ conditionNumber(A). The elements of D
+are multiples of 2 which means that this function does not
+introduce round-off errors. Balancing attempts to make the norm of
+each row of B equal to the norm of the respective column.</p>
+<p>Balancing is used to minimize roundoff errors induced through
+large matrix calculations like Taylor-series approximation or
+computation of eigenvalues.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>       - A = [1, 10,  1000; 0.01,  0,  10; 0.005,  0.01,  10]
+       - Matrices.norm(A, 1);
+         = 1020.0
+       - (T,B)=Matrices.balance(A)
+       - T
+         = {256, 16, 0.5}
+       - B
+         =  [1,     0.625,   1.953125;
+             0.16,  0,       0.3125;
+             2.56,  0.32,   10.0]
+       - Matrices.norm(B, 1);
+         = 12.265625
+</pre></blockquote>
+<p>The Algorithm is taken from</p>
+<dl>
+<dt>H. D. Joos, G. Grübel:</dt>
+<dd><strong>RASP'91 Regulator Analysis and Synthesis
+Programs</strong><br />
+DLR - Control Systems Group 1991</dd>
+</dl>
+<p>which based on the <code>balance</code> function from
+EISPACK.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>function balance
+  extends Modelica.Icons.Function;
+  input Real A[:, size(A, 1)];
+  output Real D[size(A, 1)] "diagonal(D)=T is transformation matrix, such that
+            B = inv(T)*A*T has smaller condition as A";
+  output Real B[size(A, 1), size(A, 1)] "Balanced matrix (= inv(diagonal(D))*A*diagonal(D) )";
+end balance;</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<h4>Release Notes:</h4>
+<ul>
+<li><em>July 5, 2002</em> by H. D. Joos and Nico Walther<br />
+Implemented.</li>
+</ul>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

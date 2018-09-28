@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Sensors</title>
+</head>
+<body>
+<h1><a href="Icons/169cabccc4bcd2180dcb2e3dc32b0d8db30eaf70.svg"><img class="svgiconhead" src="Icons/169cabccc4bcd2180dcb2e3dc32b0d8db30eaf70.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<span class="omc-h1">Sensors</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Package <strong>Sensors</strong> consists of idealized sensor
+components that provide variables of a medium model and/or fluid
+ports as output signals. These signals can be, e.g., further
+processed with components of the Modelica.Blocks library. Also more
+realistic sensor models can be built, by further processing (e.g.,
+by attaching block Modelica.Blocks.FirstOrder to model the time
+constant of the sensor).</p>
+<p>For the thermodynamic state variables temperature, specific
+enthalpy, specific entropy and density the fluid library provides
+two different types of sensors: <strong>regular one port</strong>
+and <strong>two port</strong> sensors.</p>
+<ul>
+<li>The <strong>regular one port</strong> sensors have the
+advantage of easy introduction and removal from a model, as no
+connections have to be broken. A potential drawback is that the
+obtained value jumps as flow reverts.</li>
+<li>The <strong>two port</strong> sensors offer the advantages of
+an adjustable regularized step function around zero flow. Moreover
+the obtained result is restricted to the value flowing into port_a
+if allowFlowReversal is false.</li>
+</ul>
+<p><a href="Modelica.Fluid.Examples.Explanatory.MeasuringTemperature.html">
+Modelica.Fluid.Examples.Explanatory.MeasuringTemperature</a>
+demonstrates the differences between one- and two-port sensor at
+hand of a simple example.</p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.Pressure.html"><img class="svgiconsmall" src="Icons/143e5176af8706773a9ce5d8cf96dfab73898b09.svg" /></a>&nbsp;<a href="Modelica.Fluid.Sensors.Pressure.html">Pressure</a></td>
+<td>Ideal pressure sensor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.Density.html"><img class="svgiconsmall" src="Icons/0c9c2419b807b311fb8dfd53207ba0531ccb3d1c.svg" /></a>&nbsp;<a href="Modelica.Fluid.Sensors.Density.html">Density</a></td>
+<td>Ideal one port density sensor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.DensityTwoPort.html"><img class="svgiconsmall" src="Icons/77f4182690c0528a53782ba7a43ff0fc02664499.svg" /></a>&nbsp;<a href="Modelica.Fluid.Sensors.DensityTwoPort.html">DensityTwoPort</a></td>
+<td>Ideal two port density sensor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.Temperature.html"><img class="svgiconsmall" src="Icons/3e7a8d9bb4c1336cac4a94c4b7551c634898b01d.svg" /></a>&nbsp;<a href="Modelica.Fluid.Sensors.Temperature.html">Temperature</a></td>
+<td>Ideal one port temperature sensor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.TemperatureTwoPort.html"><img class="svgiconsmall" src="Icons/23d8979bccbd381cce8db91b6c52184cc3ac7152.svg" /></a>&nbsp;<a href="Modelica.Fluid.Sensors.TemperatureTwoPort.html">TemperatureTwoPort</a></td>
+<td>Ideal two port temperature sensor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.SpecificEnthalpy.html"><img class="svgiconsmall" src="Icons/fcc078fb356cd437dee0e89cce6b829e235e42b2.svg" /></a>&nbsp;<a href="Modelica.Fluid.Sensors.SpecificEnthalpy.html">SpecificEnthalpy</a></td>
+<td>Ideal one port specific enthalpy sensor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.SpecificEnthalpyTwoPort.html"><img class="svgiconsmall" src="Icons/8cb3efebb4196e2d688375efb2d519e0b2a3bae5.svg" /></a>&nbsp;<a href="Modelica.Fluid.Sensors.SpecificEnthalpyTwoPort.html">SpecificEnthalpyTwoPort</a></td>
+<td>Ideal two port sensor for the specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.SpecificEntropy.html"><img class="svgiconsmall" src="Icons/9481452b2b7f4cb43117b422e12a3983aec47ea1.svg" /></a>&nbsp;<a href="Modelica.Fluid.Sensors.SpecificEntropy.html">SpecificEntropy</a></td>
+<td>Ideal one port specific entropy sensor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.SpecificEntropyTwoPort.html"><img class="svgiconsmall" src="Icons/dd61e4f6a8c6793780f70627b05c18389b942e5e.svg" /></a>&nbsp;<a href="Modelica.Fluid.Sensors.SpecificEntropyTwoPort.html">SpecificEntropyTwoPort</a></td>
+<td>Ideal two port sensor for the specific entropy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.MassFractions.html"><img class="svgiconsmall" src="Icons/bdc4b96c9a9ccf00fef02e721fde0381f67ede26.svg" /></a>&nbsp;<a href="Modelica.Fluid.Sensors.MassFractions.html">MassFractions</a></td>
+<td>Ideal one port mass fraction sensor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.MassFractionsTwoPort.html"><img class="svgiconsmall" src="Icons/54473ab8c6566faf29f14e37d5403a0113b29892.svg" /></a>&nbsp;<a href="Modelica.Fluid.Sensors.MassFractionsTwoPort.html">MassFractionsTwoPort</a></td>
+<td>Ideal two port sensor for mass fraction</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.TraceSubstances.html"><img class="svgiconsmall" src="Icons/31d9f64261959fddc35307c960ace1e955da2809.svg" /></a>&nbsp;<a href="Modelica.Fluid.Sensors.TraceSubstances.html">TraceSubstances</a></td>
+<td>Ideal one port trace substances sensor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.TraceSubstancesTwoPort.html"><img class="svgiconsmall" src="Icons/c2b55d1cecce318bf54b119cbf5f04dc39d71398.svg" /></a>&nbsp;<a href="Modelica.Fluid.Sensors.TraceSubstancesTwoPort.html">TraceSubstancesTwoPort</a></td>
+<td>Ideal two port sensor for trace substance</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.MassFlowRate.html"><img class="svgiconsmall" src="Icons/8f419c2c489af09c2e9de3b55719fa86b866e09a.svg" /></a>&nbsp;<a href="Modelica.Fluid.Sensors.MassFlowRate.html">MassFlowRate</a></td>
+<td>Ideal sensor for mass flow rate</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.VolumeFlowRate.html"><img class="svgiconsmall" src="Icons/bc19e9521ea59d60feb03ff49b540b58101d3ed6.svg" /></a>&nbsp;<a href="Modelica.Fluid.Sensors.VolumeFlowRate.html">VolumeFlowRate</a></td>
+<td>Ideal sensor for volume flow rate</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.RelativePressure.html"><img class="svgiconsmall" src="Icons/294aa946ba47ac38fdddf03a150b675e8cabfb39.svg" /></a>&nbsp;<a href="Modelica.Fluid.Sensors.RelativePressure.html">RelativePressure</a></td>
+<td>Ideal relative pressure sensor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.RelativeTemperature.html"><img class="svgiconsmall" src="Icons/986f9843d80efeb462c328008c7e2c04a9ae335e.svg" /></a>&nbsp;<a href="Modelica.Fluid.Sensors.RelativeTemperature.html">RelativeTemperature</a></td>
+<td>Ideal relative temperature sensor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.BaseClasses.html"><img class="svgiconsmall" src="Icons/559d492bd269441f8aef74c32970ed0c83ba36a5.svg" /></a>&nbsp;<a href="Modelica.Fluid.Sensors.BaseClasses.html">BaseClasses</a></td>
+<td>Base classes used in the Sensors package (only of interest to
+build new component models)</td>
+</tr>
+</table>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><em>22 Dec 2008</em> by R;uumldiger Franke<br />
+<ul>
+<li>flow sensors based on Interfaces.PartialTwoPort</li>
+<li>adapted docu to stream connectors, i.e., less need for two port
+sensors</li>
+</ul>
+</li>
+<li><em>4 Dec 2008</em> by Michael Wetter<br />
+included sensors for trace substance</li>
+<li><em>31 Oct 2007</em> by Carsten Heinrich<br />
+updated sensor models, included one and two port sensors for
+thermodynamic state variables</li>
+</ul>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

@@ -1,0 +1,283 @@
+<html><head><title>Modelica.Electrical.Spice3.Internal.Diode</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Diode"><h1><embed class="icon" src="../../../../images/icon0034.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;Diode<br><span class="subtitle">Records and functions for diode model</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package Diode contains functions and record with data of the semiconductor diode model.</p>
+<p>Extends from <code><a href="../../../../Icons/InternalPackage/index.html">Modelica.&#8203;Icons.&#8203;InternalPackage</a></code> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#CurrentsCapacitances"><code>CurrentsCapacitances</code></a></td><td>Diode variables</td></tr>
+<tr><td><a href="#DiodeCalc"><code>DiodeCalc</code></a></td><td>Diode variables</td></tr>
+<tr><td><a href="#diodeCalcAdditionalValues"><code>diodeCalcAdditionalValues</code></a></td><td>Calculation of additional values</td></tr>
+<tr><td><a href="#diodeCalcTempDependencies"><code>diodeCalcTempDependencies</code></a></td><td>Temperature dependency calculation</td></tr>
+<tr><td><a href="#diodeInitEquations"><code>diodeInitEquations</code></a></td><td>Initial calculation</td></tr>
+<tr><td><a href="#diodeModelLineInitEquations"><code>diodeModelLineInitEquations</code></a></td><td>Initial precalculation of model line parameters</td></tr>
+<tr><td><a href="#DiodeModelLineParams"><code>DiodeModelLineParams</code></a></td><td>Record for Diode model line parameters</td></tr>
+<tr><td><a href="#DiodeModelLineVariables"><code>DiodeModelLineVariables</code></a></td><td>Record for Diode model line variables</td></tr>
+<tr><td><a href="#diodeNoBypassCode"><code>diodeNoBypassCode</code></a></td><td>Calculation of currents</td></tr>
+<tr><td><a href="#DiodeParams"><code>DiodeParams</code></a></td><td>Record for Diode device parameters</td></tr>
+<tr><td><a href="#diodeRenameParameters"><code>diodeRenameParameters</code></a></td><td>Technology parameter renaming</td></tr>
+<tr><td><a href="#diodeRenameParametersDev"><code>diodeRenameParametersDev</code></a></td><td>Temperature calculation</td></tr>
+<tr><td><a href="#diodeRenameParametersDevTemp"><code>diodeRenameParametersDevTemp</code></a></td><td>Temperature calculation</td></tr>
+<tr><td><a href="#DiodeVariables"><code>DiodeVariables</code></a></td><td>Variables for the diode model</td></tr>
+</table>
+<hr><a name="DiodeModelLineParams"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Diode</a>.&#8203;DiodeModelLineParams<br><span class="subtitle">Record for Diode model line parameters</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This record contains the model line (also called model card) parameters that are used for the diode model  in SPICE3.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_satCur</code></td><td>IS, Saturation current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>m_resist</code></td><td>RS, Ohmic resistance</td></tr>
+<tr><td><code>Real</code></td><td><code>m_emissionCoeff</code></td><td>N, Emission Coefficient</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>m_transitTime</code></td><td>TT, Transit Time</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_junctionCap</code></td><td>CJO, Junction capacitance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_junctionPot</code></td><td>VJ, Junction potential</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>m_gradingCoeff</code></td><td>M, Grading coefficient</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#ActivationEnergy">ActivationEnergy</a></code></td><td><code>m_activationEnergy</code></td><td>EG, Activation energy</td></tr>
+<tr><td><code>Real</code></td><td><code>m_saturationCurrentExp</code></td><td>XTI, Saturation current temperature exp.</td></tr>
+<tr><td><code>Real</code></td><td><code>m_depletionCapCoeff</code></td><td>FC, Forward bias junction fit parameter</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_breakdownVoltage</code></td><td>BV, Reverse breakdown voltage</td></tr>
+<tr><td><code>Real</code></td><td><code>m_pBvIsGiven</code></td><td>BV is given value</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_breakdownCurrent</code></td><td>IBV, Current at reverse breakdown voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>m_nomTemp</code></td><td>TNOM, Parameter measurement temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>m_fNcoef</code></td><td>KF, flicker noise coefficient</td></tr>
+<tr><td><code>Real</code></td><td><code>m_fNexp</code></td><td>AF, flicker noise exponent</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>m_conductance</code></td><td>G, Ohmic conductance</td></tr>
+</table>
+<hr><a name="DiodeModelLineVariables"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Diode</a>.&#8203;DiodeModelLineVariables<br><span class="subtitle">Record for Diode model line variables</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This record contains the model line (also called model card) variables  that are used for the diode model in SPICE3.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>m_gradingCoeff</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_activationEnergy</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_depletionCapCoeff</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>m_conductance</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="DiodeParams"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Diode</a>.&#8203;DiodeParams<br><span class="subtitle">Record for Diode device parameters</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This record contains the device parameters that are used for the diode model in SPICE3.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>m_area</code></td><td>AREA, Area factor</td></tr>
+<tr><td><code>Boolean</code></td><td><code>m_bOff</code></td><td>OFF, Initially off</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_dIC</code></td><td>IC, Initial device voltage</td></tr>
+<tr><td><code>Real</code></td><td><code>m_pIcIsGiven</code></td><td>IC is given value</td></tr>
+<tr><td><code>Boolean</code></td><td><code>m_bSensArea</code></td><td>SENS_AREA, flag to request sensitivity WRT area</td></tr>
+</table>
+<hr><a name="DiodeVariables"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Diode</a>.&#8203;DiodeVariables<br><span class="subtitle">Variables for the diode model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This record contains the model  variables that are used for the diode model in SPICE3.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>m_pBvIsGiven</code></td><td>Additional BV is given variable</td></tr>
+</table>
+<hr><a name="DiodeCalc"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Diode</a>.&#8203;DiodeCalc<br><span class="subtitle">Diode variables</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This record contains the model variables that are used for the diode model in SPICE3.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_tJctPot</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_tJctCap</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_tF1</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_f2</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_f3</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_tSatCur</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_tVcrit</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_dVte</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_tBrkdwnV</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="CurrentsCapacitances"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Diode</a>.&#8203;CurrentsCapacitances<br><span class="subtitle">Diode variables</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This record contains the model variables that are used for the diode model in SPICE3.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_dCurrent</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="diodeModelLineInitEquations"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Diode</a>.&#8203;diodeModelLineInitEquations<br><span class="subtitle">Initial precalculation of model line parameters</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Within this function some parameters are initially precalculated from model line parameters.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Diode/index.html#DiodeModelLineParams">DiodeModelLineParams</a></code></td><td><code>in_p</code></td><td>Input record with diode model line parameters</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Diode/index.html#DiodeModelLineVariables">DiodeModelLineVariables</a></code></td><td><code>out_v</code></td><td>Output record with diode model line variables</td></tr>
+</table>
+<hr><a name="diodeInitEquations"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Diode</a>.&#8203;diodeInitEquations<br><span class="subtitle">Initial calculation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>In this function some initial calculations for the diode model are done, especially concerning the handling of the breakthrough voltage.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Diode/index.html#DiodeModelLineParams">DiodeModelLineParams</a></code></td><td><code>in_p</code></td><td>Input record with diode model line parameters</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Diode/index.html#DiodeVariables">DiodeVariables</a></code></td><td><code>out_v</code></td><td>Output record with diode variables</td></tr>
+</table>
+<hr><a name="diodeCalcTempDependencies"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Diode</a>.&#8203;diodeCalcTempDependencies<br><span class="subtitle">Temperature dependency calculation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>In this function for the diode model temperature dependencies are calculated using temperature treating functions from the equation package.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Diode/index.html#DiodeModelLineParams">DiodeModelLineParams</a></code></td><td><code>in_p</code></td><td>Input record diode model line parameters</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Diode/index.html#DiodeParams">DiodeParams</a></code></td><td><code>in_dp</code></td><td>Input record diode parameters</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Model/index.html#Model">Model</a></code></td><td><code>in_m</code></td><td>Input record Model</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Diode/index.html#DiodeVariables">DiodeVariables</a></code></td><td><code>in_v</code></td><td>Input record diode variables</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Diode/index.html#DiodeCalc">DiodeCalc</a></code></td><td><code>out_c</code></td><td>Output record with calculated values</td></tr>
+</table>
+<hr><a name="diodeNoBypassCode"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Diode</a>.&#8203;diodeNoBypassCode<br><span class="subtitle">Calculation of currents</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function NoBypassCode calculates the currents (and the capacitances) that are necessary for the currents to be used in the top-level model.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Diode/index.html#DiodeModelLineParams">DiodeModelLineParams</a></code></td><td><code>in_p</code></td><td>Input record model line parameters for diode</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Diode/index.html#DiodeParams">DiodeParams</a></code></td><td><code>in_dp</code></td><td>Input record with parameters for diode</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Diode/index.html#DiodeCalc">DiodeCalc</a></code></td><td><code>in_c</code></td><td>Input record DiodeCalc</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Model/index.html#Model">Model</a></code></td><td><code>in_m</code></td><td>Input record model</td></tr>
+<tr><td><code>Boolean</code></td><td><code>in_m_mbInit</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>in_m_pVoltageValues[2]</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Diode/index.html#CurrentsCapacitances">CurrentsCapacitances</a></code></td><td><code>out_cc</code></td><td>Output record with calculated currents and capacitances</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_dCap</code></td><td>Output capacitance</td></tr>
+</table>
+<hr><a name="diodeCalcAdditionalValues"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Diode</a>.&#8203;diodeCalcAdditionalValues<br><span class="subtitle">Calculation of additional values</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function is prepared for additional calculations but it is plain (inputs are written to the outputs) in the actual version of this library.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Diode/index.html#DiodeVariables">DiodeVariables</a></code></td><td><code>in_v</code></td><td>Input record with diode variables</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Diode/index.html#DiodeModelLineParams">DiodeModelLineParams</a></code></td><td><code>in_p</code></td><td>Input record with diode model line parameters</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Diode/index.html#DiodeParams">DiodeParams</a></code></td><td><code>in_dp</code></td><td>Input record with diode parameters</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>in_m_pVoltageValues[2]</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Diode/index.html#DiodeVariables">DiodeVariables</a></code></td><td><code>out_v</code></td><td>Output record with diode variables</td></tr>
+</table>
+<hr><a name="diodeRenameParameters"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Diode</a>.&#8203;diodeRenameParameters<br><span class="subtitle">Technology parameter renaming</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function assigns the external (given by the user, e.g., IS) technology parameters
+to the internal parameters (e.g., m_satCur). It also does the analysis of the IsGiven values.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/index.html#ModelcardDIODE">ModelcardDIODE</a></code></td><td><code>ex</code></td><td>Modelcard with technology parameters</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/index.html#SpiceConstants">SpiceConstants</a></code></td><td><code>con</code></td><td>Spice constants</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Diode/index.html#DiodeModelLineParams">DiodeModelLineParams</a></code></td><td><code>intern</code></td><td>Output record diode model line parameters</td></tr>
+</table>
+<hr><a name="diodeRenameParametersDev"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Diode</a>.&#8203;diodeRenameParametersDev<br><span class="subtitle">Temperature calculation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function assigns the external (given by the user, e.g., AREA) device parameters
+to the internal parameters (e.g., m_area). It also does the analysis of the IsGiven values.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>TEMP</code></td><td>Temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>AREA</code></td><td>Area factor</td></tr>
+<tr><td><code>Real</code></td><td><code>IC</code></td><td>Initial condition value (VD, not implemented yet</td></tr>
+<tr><td><code>Boolean</code></td><td><code>OFF</code></td><td>Optional initial condition: false - IC not used, true - IC used, not implemented yet</td></tr>
+<tr><td><code>Boolean</code></td><td><code>SENS_AREA</code></td><td>Flag to request sensitivity WRT area, not implemented yet</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Diode/index.html#DiodeParams">DiodeParams</a></code></td><td><code>dev</code></td><td>Output record with calculated diode parameters</td></tr>
+</table>
+<hr><a name="diodeRenameParametersDevTemp"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Diode</a>.&#8203;diodeRenameParametersDevTemp<br><span class="subtitle">Temperature calculation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function calculates device parameters which are temperature dependent.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>TEMP</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Model/index.html#Model">Model</a></code></td><td><code>dev_temp</code></td><td>Input record Model</td></tr>
+</table>
+</body></html>

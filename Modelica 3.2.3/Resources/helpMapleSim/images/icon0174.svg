@@ -1,0 +1,17 @@
+<svg width="263" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Blocks.Math.Atan" class="component">
+		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="141.5,11.5 133.5,33.5 149.5,33.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="141.5,181.5 141.5,33.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="61.5,181.5 75.2,179.1 79.5,178.3 83.6,177.5 87.3,176.6 90.7,175.7 93.7,174.9 96.4,174.0 96.4,174.0 98.9,173.0 101.3,172.0 103.5,171.0 105.6,170.0 107.5,169.0 109.4,167.8 109.4,167.8 111.4,166.5 113.3,165.1 115.1,163.6 116.7,162.1 118.2,160.6 118.2,160.6 119.6,159.0 121.0,157.4 122.2,155.6 123.4,153.8 124.6,152.0 124.6,152.0 125.7,150.1 126.7,148.2 127.7,146.4 128.6,144.5 129.4,142.6 129.4,142.6 130.4,140.2 131.4,137.5 132.4,134.7 133.4,131.6 133.4,131.6 134.8,127.1 136.3,121.9 137.9,116.0 137.9,116.0 140.5,105.7 143.5,93.5 143.5,93.5 145.5,85.6 147.3,79.0 148.7,74.0 148.7,74.0 149.7,70.8 150.8,67.8 151.8,65.0 152.8,62.4 152.8,62.4 153.8,59.9 154.9,57.5 156.0,55.2 157.2,53.0 157.2,53.0 158.4,50.8 159.8,48.7 161.2,46.6 162.8,44.6 162.8,44.6 164.1,43.1 165.6,41.6 167.1,40.1 168.7,38.7 170.4,37.3 170.4,37.3 172.3,36.0 174.4,34.6 176.6,33.4 179.1,32.1 181.7,30.9 181.7,30.9 183.7,30.1 185.9,29.2 188.3,28.4 190.9,27.6 193.7,26.9 196.6,26.1 199.8,25.4 199.8,25.4 205.0,24.3 209.5,23.4 213.2,22.7 216.2,22.2 221.5,21.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="51.5,101.5 209.5,101.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="231.5,101.5 209.5,93.5 209.5,109.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="91.5" y="71.5" text-anchor="middle" fill="#C0C0C0" font-size="38.2px" font-family="sans-serif">atan</text>
+		<g id="u" class="port">
+			<polygon points="1.5,81.5 41.5,101.5 1.5,121.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="y" class="port">
+			<polygon points="241.5,91.5 261.5,101.5 241.5,111.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

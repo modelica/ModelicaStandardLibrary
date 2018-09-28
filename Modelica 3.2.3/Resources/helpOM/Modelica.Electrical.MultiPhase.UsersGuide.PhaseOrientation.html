@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.MultiPhase.UsersGuide.PhaseOrientation</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.MultiPhase.html">MultiPhase</a>.<a class="omc-h1-a" href="Modelica.Electrical.MultiPhase.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">PhaseOrientation</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p><strong>In multiphase systems, the angular displacement of
+voltages and currents of the phases as well as the spatial
+displacement of machine windings have to follow the same rules,
+i.e., they are based on the same <a href="Modelica.Electrical.MultiPhase.Functions.symmetricOrientation.html">
+orientation function</a>.</strong></p>
+<h4>Symmetrical three phase system</h4>
+<p>A symmetrical three phases system consists of three sinusoidal
+sine waves with an angular displacement of 2 π / 3.</p>
+<h4>Symmetrical multi phase system</h4>
+<p>In symmetrical multi phase systems odd and even phase numbers
+have to be distinguished.</p>
+<h5>Odd number of phases</h5>
+<p>For a symmetrical multi phase system with m phases the
+displacement of the sine waves is 2 π / m.</p>
+<table border="0" cellspacing="0" cellpadding="2">
+<caption align="bottom"><strong>Fig. 1:</strong> Symmetrical (a)
+three phase and (b) five phase current system</caption>
+<tr>
+<td><img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/phase35.png" alt="phase35.png" /></td>
+</tr>
+</table>
+<h5>Even number of phases</h5>
+<p>In case of an even number of phases the aligned orientation does
+not add any information. Instead the m phases are divided into two
+or more different groups (the base systems).</p>
+<p>The number of phases m can be divided by 2 recursively until the
+result is either an odd number or 2. The result of this division is
+called m<sub>Base</sub>, the number of phases of the base system.
+The number of base systems n<sub>Base</sub> is defined by the
+number of divisions, i.e., m = n<sub>Base</sub> *
+m<sub>Base</sub>.</p>
+<p>For a base system with m<sub>Base</sub> phases the displacement
+of the sine waves belonging to that base system is 2 π /
+m<sub>Base</sub>.</p>
+<table border="0" cellspacing="0" cellpadding="2">
+<caption align="bottom"><strong>Fig. 2:</strong> Symmetrical (a)
+six and (b) ten phase current system</caption>
+<tr>
+<td><img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/phase610.png" alt="phase610.png" /></td>
+</tr>
+</table>
+<p>The displacement of the base systems is defined as π /
+n<sub>Base</sub>.</p>
+<h4>Note</h4>
+<p>In array or matrices, the base systems are stored one after
+another.</p>
+<h4>Symmetrical components</h4>
+<p>For each base system of time phasors, symmetrical components can
+be calculated according to the idea of Charles L. Fortescue.</p>
+<p>The first symmetrical component is the direct component with
+positive sequence.<br />
+In case of m<sub>Base</sub> = 2, the second component is the
+inverse component with negative sequence.<br />
+In case of m<sub>Base</sub> &gt; 2, the components
+[2..m<sub>Base</sub> - 1] are components with non-positive
+sequence,<br />
+and the last component [m<sub>Base</sub>] is the zero sequence
+component.</p>
+<p>This set of symmetrical components is repeated for each of the
+n<sub>Base</sub> base systems.</p>
+<h4>See also</h4>
+<p><a href="Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase.html">
+User's guide</a> on multi phase winding.</p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

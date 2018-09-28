@@ -1,0 +1,2142 @@
+<html><head><title>ModelicaReference</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="ModelicaReference"><h1><embed class="icon" src="images/icon0001.svg" width="203" height="203" />
+Package ModelicaReference<br><span class="subtitle">Modelica Reference</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package is a reference to Modelica keywords,
+<a href="Operators/index.html">Modelica builtin operators</a>
+, and the <a href="/index.html#ModelicaGrammar">Modelica grammar</a>.
+It is based on the
+<a href="https://www.modelica.org/documents/ModelicaSpec32Revision2.pdf">Modelica Language Specification version 3.2 Revision 2</a> from 30th July 2013. Currently, not the whole Modelica language is documented in ModelicaReference (but a large subset).
+</p>
+
+<p>
+<strong>Copyright &copy; 2003-2018, Modelica Association, DLR, Dietmar Winkler, and Maplesoft.</strong>
+</p>
+<p>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href="https://modelica.org/licenses/modelica-3-clause-bsd">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+</p>
+<p>This document describes version 3.2.3 of the ModelicaReference library.</p>
+<p>Extends from <code><a href="Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#'encapsulated'"><code>'encapsulated'</code></a></td><td>encapsulated</td></tr>
+<tr><td><a href="#'extends'"><code>'extends'</code></a></td><td>extends</td></tr>
+<tr><td><a href="#'flow'"><code>'flow'</code></a></td><td>flow</td></tr>
+<tr><td><a href="#'for'"><code>'for'</code></a></td><td>for</td></tr>
+<tr><td><a href="#'if'"><code>'if'</code></a></td><td>if</td></tr>
+<tr><td><a href="#'import'"><code>'import'</code></a></td><td>import</td></tr>
+<tr><td><a href="#'input'"><code>'input'</code></a></td><td>input</td></tr>
+<tr><td><a href="#'output'"><code>'output'</code></a></td><td>output</td></tr>
+<tr><td><a href="#'partial'"><code>'partial'</code></a></td><td>partial</td></tr>
+<tr><td><a href="#'stream'"><code>'stream'</code></a></td><td>stream</td></tr>
+<tr><td><a href="#'time'"><code>'time'</code></a></td><td>time</td></tr>
+<tr><td><a href="#'when'"><code>'when'</code></a></td><td>when</td></tr>
+<tr><td><a href="#'while'"><code>'while'</code></a></td><td>while</td></tr>
+<tr><td><a href="Annotations/index.html"><code>Annotations</code></a> &hellip;</td><td>Annotations</td></tr>
+<tr><td><a href="#BalancedModel"><code>BalancedModel</code></a></td><td>Balanced model</td></tr>
+<tr><td><a href="Classes/index.html"><code>Classes</code></a> &hellip;</td><td>Classes (model, function, ...)</td></tr>
+<tr><td><a href="#Contact"><code>Contact</code></a></td><td>Contact</td></tr>
+<tr><td><a href="Icons/index.html"><code>Icons</code></a> &hellip;</td><td>Library of icons</td></tr>
+<tr><td><a href="#ModelicaGrammar"><code>ModelicaGrammar</code></a></td><td>Modelica Grammar</td></tr>
+<tr><td><a href="Operators/index.html"><code>Operators</code></a> &hellip;</td><td>Operators (+, der, size, ...)</td></tr>
+</table>
+<hr><a name="ModelicaGrammar"><h2><embed class="icon" src="images/icon0001.svg" width="203" height="203" />
+Class <a href="index.html">ModelicaReference</a>.&#8203;ModelicaGrammar<br><span class="subtitle">Modelica Grammar</span></h2></a>
+<h3>Information</h3>
+<p>
+<head><title>Modelica 3.2 Revision 2 Grammar</title>
+<style type="text/css">
+A.HREF { text-decoration:none; color:#003399 }
+</style>
+</head>
+<body><h4>Modelica 3.2 Revision 2 Grammar</h4>
+<p>This is the grammar of Modelica 3.2 Revision 2 in EBNF form. Each
+non-terminal appearing on the right hand side of a production is a link to the
+production for that non-terminal. This grammar is identical to that in the
+Modelica 3.2 Revision 2 specification except for removal of some unnecessary
+parentheses, grouping of some common terms, and reformatting for easier
+readability. The following typographic conventions are used:
+<ul>
+<li>Keywords are set in <strong>boldface</strong>.</li>
+<li>Literals other than keywords are <font color="green">"</font><tt>quoted-monospaced</tt><font color="green">"</font> text.</li>
+<li>Non-terminals are set in <em>italics</em>, with <font color="#003399"><em>blue italics</em></font> used for links.</li>
+<li>EBNF meta-characters are <font color="green">green</font>.</li>
+</ul>
+<h5>Stored Definition</h5>
+<p><a name="stored_definition" class=NAME><em>stored_definition:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>within</strong><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#name" class=HREF><em>name</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green>"</font><tt>;</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>final</strong><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><a href="#class_definition" class=HREF><em>class_definition</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>;</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<h5>Class Definition</h5>
+<p><a name="class_definition" class=NAME><em>class_definition:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>encapsulated</strong><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><a href="#class_prefixes" class=HREF><em>class_prefixes</em></a><tt>&nbsp;</tt><a href="#class_specifier" class=HREF><em>class_specifier</em></a>
+<p><a name="class_prefixes" class=NAME><em>class_prefixes:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>partial</strong><tt>&nbsp;</tt><font color=green size="+1">]</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">(</font><tt>&nbsp;</tt><strong>class</strong><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>model</strong><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>record</strong><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>block</strong><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>expandable</strong><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><strong>connector</strong>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>type</strong><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>package</strong><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>function</strong><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>operator</strong><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>function</strong><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>record</strong><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green size="+1">)</font>
+<p><a name="class_specifier" class=NAME><em>class_specifier:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#long_class_specifier" class=HREF><em>long_class_specifier</em></a><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#short_class_specifier" class=HREF><em>short_class_specifier</em></a><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#der_class_specifier" class=HREF><em>der_class_specifier</em></a>
+<p><a name="long_class_specifier" class=NAME><em>long_class_specifier:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><a href="#string_comment" class=HREF><em>string_comment</em></a><tt>&nbsp;</tt><a href="#composition" class=HREF><em>composition</em></a><tt>&nbsp;</tt><strong>end</strong><tt>&nbsp;</tt><em>IDENT</em>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>extends</strong><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#class_modification" class=HREF><em>class_modification</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><a href="#string_comment" class=HREF><em>string_comment</em></a><tt>&nbsp;</tt><a href="#composition" class=HREF><em>composition</em></a><tt>&nbsp;</tt><strong>end</strong><tt>&nbsp;</tt><em>IDENT</em>
+<p><a name="short_class_specifier" class=NAME><em>short_class_specifier:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green>"</font><tt>=</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#base_prefix" class=HREF><em>base_prefix</em></a><tt>&nbsp;</tt><a href="#name" class=HREF><em>name</em></a><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#array_subscripts" class=HREF><em>array_subscripts</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#class_modification" class=HREF><em>class_modification</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><a href="#comment" class=HREF><em>comment</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green>"</font><tt>=</tt><font color=green>"</font><tt>&nbsp;</tt><strong>enumeration</strong><tt>&nbsp;</tt><font color=green>"</font><tt>(</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">(</font><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#enum_list" class=HREF><em>enum_list</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><font color=green>"</font><tt>:</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">)</font><tt>&nbsp;</tt><font color=green>"</font><tt>)</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#comment" class=HREF><em>comment</em></a>
+<p><a name="der_class_specifier" class=NAME><em>der_class_specifier:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green>"</font><tt>=</tt><font color=green>"</font><tt>&nbsp;</tt><strong>der</strong><tt>&nbsp;</tt><font color=green>"</font><tt>(</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#name" class=HREF><em>name</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>,</tt><font color=green>"</font><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><font color=green>"</font><tt>,</tt><font color=green>"</font><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size="+1">}</font><tt>&nbsp;</tt><font color=green>"</font><tt>)</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#comment" class=HREF><em>comment</em></a>
+<p><a name="base_prefix" class=NAME><em>base_prefix:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#type_prefix" class=HREF><em>type_prefix</em></a>
+<p><a name="enum_list" class=NAME><em>enum_list:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#enumeration_literal" class=HREF><em>enumeration_literal</em></a><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><font color=green>"</font><tt>,</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#enumeration_literal" class=HREF><em>enumeration_literal</em></a><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<p><a name="enumeration_literal" class=NAME><em>enumeration_literal:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><a href="#comment" class=HREF><em>comment</em></a>
+<p><a name="composition" class=NAME><em>composition:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#element_list" class=HREF><em>element_list</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><strong>public</strong><tt>&nbsp;</tt><a href="#element_list" class=HREF><em>element_list</em></a><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>protected</strong><tt>&nbsp;</tt><a href="#element_list" class=HREF><em>element_list</em></a><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#equation_section" class=HREF><em>equation_section</em></a><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#algorithm_section" class=HREF><em>algorithm_section</em></a><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>external</strong><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#language_specification" class=HREF><em>language_specification</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#external_function_call" class=HREF><em>external_function_call</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#annotation" class=HREF><em>annotation</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green>"</font><tt>;</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">]</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#annotation" class=HREF><em>annotation</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>;</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">]</font>
+<p><a name="language_specification" class=NAME><em>language_specification:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>STRING</em>
+<p><a name="external_function_call" class=NAME><em>external_function_call:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#component_reference" class=HREF><em>component_reference</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>=</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green>"</font><tt>(</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#expression_list" class=HREF><em>expression_list</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green>"</font><tt>)</tt><font color=green>"</font>
+<p><a name="element_list" class=NAME><em>element_list:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><a href="#element" class=HREF><em>element</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>;</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<p><a name="element" class=NAME><em>element:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#import_clause" class=HREF><em>import_clause</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#extends_clause" class=HREF><em>extends_clause</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>redeclare</strong><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>final</strong><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>inner</strong><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>outer</strong><tt>&nbsp;</tt><font color=green size="+1">]</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">(</font><tt>&nbsp;</tt><a href="#class_definition" class=HREF><em>class_definition</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#component_clause" class=HREF><em>component_clause</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>replaceable</strong><tt>&nbsp;</tt><font color=green size="+1">(</font><tt>&nbsp;</tt><a href="#class_definition" class=HREF><em>class_definition</em></a><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#component_clause" class=HREF><em>component_clause</em></a><tt>&nbsp;</tt><font color=green size="+1">)</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#constraining_clause" class=HREF><em>constraining_clause</em></a><tt>&nbsp;</tt><a href="#comment" class=HREF><em>comment</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green size="+1">)</font>
+<p><a name="import_clause" class=NAME><em>import_clause:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>import</strong><tt>&nbsp;</tt><font color=green size="+1">(</font><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green>"</font><tt>=</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#name" class=HREF><em>name</em></a><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#name" class=HREF><em>name</em></a><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><font color=green>"</font><tt>.</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green>"</font><tt>*</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><font color=green>"</font><tt>.*</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green size="+1">)</font><tt>&nbsp;</tt><a href="#comment" class=HREF><em>comment</em></a>
+<h5>Extends</h5>
+<p><a name="extends_clause" class=NAME><em>extends_clause:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>extends</strong><tt>&nbsp;</tt><a href="#name" class=HREF><em>name</em></a><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#class_modification" class=HREF><em>class_modification</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#annotation" class=HREF><em>annotation</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font>
+<p><a name="constraining_clause" class=NAME><em>constraining_clause:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>constrainedby</strong><tt>&nbsp;</tt><a href="#name" class=HREF><em>name</em></a><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#class_modification" class=HREF><em>class_modification</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font>
+<h5>Component Clause</h5>
+<p><a name="component_clause" class=NAME><em>component_clause:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#type_prefix" class=HREF><em>type_prefix</em></a><tt>&nbsp;</tt><a href="#type_specifier" class=HREF><em>type_specifier</em></a><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#array_subscripts" class=HREF><em>array_subscripts</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><a href="#component_list" class=HREF><em>component_list</em></a>
+<p><a name="type_prefix" class=NAME><em>type_prefix:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>flow</strong><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>stream</strong><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>discrete</strong><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>parameter</strong><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>constant</strong><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>input</strong><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>output</strong><tt>&nbsp;</tt><font color=green size="+1">]</font>
+<p><a name="type_specifier" class=NAME><em>type_specifier:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#name" class=HREF><em>name</em></a>
+<p><a name="component_list" class=NAME><em>component_list:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#component_declaration" class=HREF><em>component_declaration</em></a><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><font color=green>"</font><tt>,</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#component_declaration" class=HREF><em>component_declaration</em></a><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<p><a name="component_declaration" class=NAME><em>component_declaration:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#declaration" class=HREF><em>declaration</em></a><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#condition_attribute" class=HREF><em>condition_attribute</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><a href="#comment" class=HREF><em>comment</em></a>
+<p><a name="condition_attribute" class=NAME><em>condition_attribute:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>if</strong><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a>
+<p><a name="declaration" class=NAME><em>declaration:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#array_subscripts" class=HREF><em>array_subscripts</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#modification" class=HREF><em>modification</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font>
+<h5>Modification</h5>
+<p><a name="modification" class=NAME><em>modification:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#class_modification" class=HREF><em>class_modification</em></a><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><font color=green>"</font><tt>=</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><font color=green>"</font><tt>=</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><font color=green>"</font><tt>:=</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a>
+<p><a name="class_modification" class=NAME><em>class_modification:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green>"</font><tt>(</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#argument_list" class=HREF><em>argument_list</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green>"</font><tt>)</tt><font color=green>"</font>
+<p><a name="argument_list" class=NAME><em>argument_list:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#argument" class=HREF><em>argument</em></a><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><font color=green>"</font><tt>,</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#argument" class=HREF><em>argument</em></a><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<p><a name="argument" class=NAME><em>argument:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#element_modification_or_replaceable" class=HREF><em>element_modification_or_replaceable</em></a><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#element_redeclaration" class=HREF><em>element_redeclaration</em></a>
+<p><a name="element_modification_or_replaceable" class=NAME><em>element_modification_or_replaceable:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>each</strong><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>final</strong><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green size="+1">(</font><tt>&nbsp;</tt><a href="#element_modification" class=HREF><em>element_modification</em></a><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#element_replaceable" class=HREF><em>element_replaceable</em></a><tt>&nbsp;</tt><font color=green size="+1">)</font>
+<p><a name="element_modification" class=NAME><em>element_modification:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#name" class=HREF><em>name</em></a><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#modification" class=HREF><em>modification</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><a href="#string_comment" class=HREF><em>string_comment</em></a>
+<p><a name="element_redeclaration" class=NAME><em>element_redeclaration:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>redeclare</strong><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>each</strong><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>final</strong><tt>&nbsp;</tt><font color=green size="+1">]</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">(</font><tt>&nbsp;</tt><a href="#short_class_definition" class=HREF><em>short_class_definition</em></a><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#component_clause1" class=HREF><em>component_clause1</em></a><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#element_replaceable" class=HREF><em>element_replaceable</em></a><tt>&nbsp;</tt><font color=green size="+1">)</font>
+<p><a name="element_replaceable" class=NAME><em>element_replaceable:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>replaceable</strong><tt>&nbsp;</tt><font color=green size="+1">(</font><tt>&nbsp;</tt><a href="#short_class_definition" class=HREF><em>short_class_definition</em></a><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#component_clause1" class=HREF><em>component_clause1</em></a><tt>&nbsp;</tt><font color=green size="+1">)</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#constraining_clause" class=HREF><em>constraining_clause</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font>
+<p><a name="component_clause1" class=NAME><em>component_clause1:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#type_prefix" class=HREF><em>type_prefix</em></a><tt>&nbsp;</tt><a href="#type_specifier" class=HREF><em>type_specifier</em></a><tt>&nbsp;</tt><a href="#component_declaration1" class=HREF><em>component_declaration1</em></a>
+<p><a name="component_declaration1" class=NAME><em>component_declaration1:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#declaration" class=HREF><em>declaration</em></a><tt>&nbsp;</tt><a href="#comment" class=HREF><em>comment</em></a>
+<p><a name="short_class_definition" class=NAME><em>short_class_definition:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#class_prefixes" class=HREF><em>class_prefixes</em></a><tt>&nbsp;</tt><a href="#short_class_specifier" class=HREF><em>short_class_specifier</em></a>
+<h5>Equation</h5>
+<p><a name="equation_section" class=NAME><em>equation_section:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>initial</strong><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><strong>equation</strong><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><a href="#equation" class=HREF><em>equation</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>;</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<p><a name="algorithm_section" class=NAME><em>algorithm_section:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>initial</strong><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><strong>algorithm</strong><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><a href="#statement" class=HREF><em>statement</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>;</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<p><a name="equation" class=NAME><em>equation:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">(</font><tt>&nbsp;</tt><a href="#simple_expression" class=HREF><em>simple_expression</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>=</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#if_equation" class=HREF><em>if_equation</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#for_equation" class=HREF><em>for_equation</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#connect_clause" class=HREF><em>connect_clause</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#when_equation" class=HREF><em>when_equation</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#name" class=HREF><em>name</em></a><tt>&nbsp;</tt><a href="#function_call_args" class=HREF><em>function_call_args</em></a><tt>&nbsp;</tt><font color=green size="+1">)</font><tt>&nbsp;</tt><a href="#comment" class=HREF><em>comment</em></a>
+<p><a name="statement" class=NAME><em>statement:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">(</font><tt>&nbsp;</tt><a href="#component_reference" class=HREF><em>component_reference</em></a><tt>&nbsp;</tt><font color=green size="+1">(</font><tt>&nbsp;</tt><font color=green>"</font><tt>:=</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#function_call_args" class=HREF><em>function_call_args</em></a><tt>&nbsp;</tt><font color=green size="+1">)</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><font color=green>"</font><tt>(</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#output_expression_list" class=HREF><em>output_expression_list</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>)</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green>"</font><tt>:=</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#component_reference" class=HREF><em>component_reference</em></a><tt>&nbsp;</tt><a href="#function_call_args" class=HREF><em>function_call_args</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>break</strong>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>return</strong>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#if_statement" class=HREF><em>if_statement</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#for_statement" class=HREF><em>for_statement</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#while_statement" class=HREF><em>while_statement</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#when_statement" class=HREF><em>when_statement</em></a><tt>&nbsp;</tt><font color=green size="+1">)</font><tt>&nbsp;</tt><a href="#comment" class=HREF><em>comment</em></a>
+<p><a name="if_equation" class=NAME><em>if_equation:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>if</strong><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a><tt>&nbsp;</tt><strong>then</strong><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><a href="#equation" class=HREF><em>equation</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>;</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><strong>elseif</strong><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a><tt>&nbsp;</tt><strong>then</strong><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><a href="#equation" class=HREF><em>equation</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>;</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">}</font><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>else</strong><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><a href="#equation" class=HREF><em>equation</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>;</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">}</font><tt>&nbsp;</tt><font color=green size="+1">]</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>end</strong><tt>&nbsp;</tt><strong>if</strong>
+<p><a name="if_statement" class=NAME><em>if_statement:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>if</strong><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a><tt>&nbsp;</tt><strong>then</strong><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><a href="#statement" class=HREF><em>statement</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>;</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><strong>elseif</strong><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a><tt>&nbsp;</tt><strong>then</strong><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><a href="#statement" class=HREF><em>statement</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>;</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">}</font><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>else</strong><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><a href="#statement" class=HREF><em>statement</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>;</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">}</font><tt>&nbsp;</tt><font color=green size="+1">]</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>end</strong><tt>&nbsp;</tt><strong>if</strong>
+<p><a name="for_equation" class=NAME><em>for_equation:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>for</strong><tt>&nbsp;</tt><a href="#for_indices" class=HREF><em>for_indices</em></a><tt>&nbsp;</tt><strong>loop</strong><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><a href="#equation" class=HREF><em>equation</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>;</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">}</font><tt>&nbsp;</tt><strong>end</strong><tt>&nbsp;</tt><strong>for</strong>
+<p><a name="for_statement" class=NAME><em>for_statement:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>for</strong><tt>&nbsp;</tt><a href="#for_indices" class=HREF><em>for_indices</em></a><tt>&nbsp;</tt><strong>loop</strong><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><a href="#statement" class=HREF><em>statement</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>;</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">}</font><tt>&nbsp;</tt><strong>end</strong><tt>&nbsp;</tt><strong>for</strong>
+<p><a name="for_indices" class=NAME><em>for_indices:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#for_index" class=HREF><em>for_index</em></a><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><font color=green>"</font><tt>,</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#for_index" class=HREF><em>for_index</em></a><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<p><a name="for_index" class=NAME><em>for_index:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>in</strong><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font>
+<p><a name="while_statement" class=NAME><em>while_statement:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>while</strong><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a><tt>&nbsp;</tt><strong>loop</strong><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><a href="#statement" class=HREF><em>statement</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>;</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">}</font><tt>&nbsp;</tt><strong>end</strong><tt>&nbsp;</tt><strong>while</strong>
+<p><a name="when_equation" class=NAME><em>when_equation:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>when</strong><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a><tt>&nbsp;</tt><strong>then</strong><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><a href="#equation" class=HREF><em>equation</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>;</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><strong>elsewhen</strong><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a><tt>&nbsp;</tt><strong>then</strong><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><a href="#equation" class=HREF><em>equation</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>;</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">}</font><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>end</strong><tt>&nbsp;</tt><strong>when</strong>
+<p><a name="when_statement" class=NAME><em>when_statement:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>when</strong><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a><tt>&nbsp;</tt><strong>then</strong><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><a href="#statement" class=HREF><em>statement</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>;</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><strong>elsewhen</strong><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a><tt>&nbsp;</tt><strong>then</strong><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><a href="#statement" class=HREF><em>statement</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>;</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">}</font><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>end</strong><tt>&nbsp;</tt><strong>when</strong>
+<p><a name="connect_clause" class=NAME><em>connect_clause:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>connect</strong><tt>&nbsp;</tt><font color=green>"</font><tt>(</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#component_reference" class=HREF><em>component_reference</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>,</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#component_reference" class=HREF><em>component_reference</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>)</tt><font color=green>"</font>
+<h5>Expression</h5>
+<p><a name="expression" class=NAME><em>expression:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#simple_expression" class=HREF><em>simple_expression</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>if</strong><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a><tt>&nbsp;</tt><strong>then</strong><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><strong>elseif</strong><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a><tt>&nbsp;</tt><strong>then</strong><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>else</strong><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a>
+<p><a name="simple_expression" class=NAME><em>simple_expression:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#logical_expression" class=HREF><em>logical_expression</em></a><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><font color=green>"</font><tt>:</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#logical_expression" class=HREF><em>logical_expression</em></a><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><font color=green>"</font><tt>:</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#logical_expression" class=HREF><em>logical_expression</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green size="+1">]</font>
+<p><a name="logical_expression" class=NAME><em>logical_expression:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#logical_term" class=HREF><em>logical_term</em></a><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><strong>or</strong><tt>&nbsp;</tt><a href="#logical_term" class=HREF><em>logical_term</em></a><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<p><a name="logical_term" class=NAME><em>logical_term:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#logical_factor" class=HREF><em>logical_factor</em></a><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><strong>and</strong><tt>&nbsp;</tt><a href="#logical_factor" class=HREF><em>logical_factor</em></a><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<p><a name="logical_factor" class=NAME><em>logical_factor:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><strong>not</strong><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><a href="#relation" class=HREF><em>relation</em></a>
+<p><a name="relation" class=NAME><em>relation:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#arithmetic_expression" class=HREF><em>arithmetic_expression</em></a><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#rel_op" class=HREF><em>rel_op</em></a><tt>&nbsp;</tt><a href="#arithmetic_expression" class=HREF><em>arithmetic_expression</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font>
+<p><a name="rel_op" class=NAME><em>rel_op:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green>"</font><tt>&lt;</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><font color=green>"</font><tt>&lt;=</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><font color=green>"</font><tt>&gt;</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><font color=green>"</font><tt>&gt;=</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><font color=green>"</font><tt>==</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><font color=green>"</font><tt>&lt;&gt;</tt><font color=green>"</font>
+<p><a name="arithmetic_expression" class=NAME><em>arithmetic_expression:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#add_op" class=HREF><em>add_op</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><a href="#term" class=HREF><em>term</em></a><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><a href="#add_op" class=HREF><em>add_op</em></a><tt>&nbsp;</tt><a href="#term" class=HREF><em>term</em></a><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<p><a name="add_op" class=NAME><em>add_op:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green>"</font><tt>+</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><font color=green>"</font><tt>-</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><font color=green>"</font><tt>.+</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><font color=green>"</font><tt>.-</tt><font color=green>"</font>
+<p><a name="term" class=NAME><em>term:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#factor" class=HREF><em>factor</em></a><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><a href="#mul_op" class=HREF><em>mul_op</em></a><tt>&nbsp;</tt><a href="#factor" class=HREF><em>factor</em></a><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<p><a name="mul_op" class=NAME><em>mul_op:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green>"</font><tt>*</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><font color=green>"</font><tt>/</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><font color=green>"</font><tt>.*</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><font color=green>"</font><tt>./</tt><font color=green>"</font>
+<p><a name="factor" class=NAME><em>factor:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#primary" class=HREF><em>primary</em></a><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><font color=green size="+1">(</font><tt>&nbsp;</tt><font color=green>"</font><tt>^</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><font color=green>"</font><tt>.^</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">)</font><tt>&nbsp;</tt><a href="#primary" class=HREF><em>primary</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font>
+<p><a name="primary" class=NAME><em>primary:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>UNSIGNED_NUMBER</em>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><em>STRING</em>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>false</strong>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>true</strong>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#component_reference" class=HREF><em>component_reference</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><font color=green size="+1">(</font><tt>&nbsp;</tt><a href="#name" class=HREF><em>name</em></a><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>der</strong><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>initial</strong><tt>&nbsp;</tt><font color=green size="+1">)</font><tt>&nbsp;</tt><a href="#function_call_args" class=HREF><em>function_call_args</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><font color=green>"</font><tt>(</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#output_expression_list" class=HREF><em>output_expression_list</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>)</tt><font color=green>"</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><font color=green>"</font><tt>[</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#expression_list" class=HREF><em>expression_list</em></a><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><font color=green>"</font><tt>;</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#expression_list" class=HREF><em>expression_list</em></a><tt>&nbsp;</tt><font color=green size="+1">}</font><tt>&nbsp;</tt><font color=green>"</font><tt>]</tt><font color=green>"</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><font color=green>"</font><tt>{</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#function_arguments" class=HREF><em>function_arguments</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>}</tt><font color=green>"</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>end</strong>
+<p><a name="name" class=NAME><em>name:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><font color=green>"</font><tt>.</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><font color=green>"</font><tt>.</tt><font color=green>"</font><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<p><a name="component_reference" class=NAME><em>component_reference:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><font color=green>"</font><tt>.</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#array_subscripts" class=HREF><em>array_subscripts</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><font color=green>"</font><tt>.</tt><font color=green>"</font><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#array_subscripts" class=HREF><em>array_subscripts</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<p><a name="function_call_args" class=NAME><em>function_call_args:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green>"</font><tt>(</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#function_arguments" class=HREF><em>function_arguments</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green>"</font><tt>)</tt><font color=green>"</font>
+<p><a name="function_arguments" class=NAME><em>function_arguments:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#function_argument" class=HREF><em>function_argument</em></a><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><font color=green>"</font><tt>,</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#function_arguments" class=HREF><em>function_arguments</em></a><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><strong>for</strong><tt>&nbsp;</tt><a href="#for_indices" class=HREF><em>for_indices</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#named_arguments" class=HREF><em>named_arguments</em></a>
+<p><a name="named_arguments" class=NAME><em>named_arguments:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#named_argument" class=HREF><em>named_argument</em></a><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><font color=green>"</font><tt>,</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#named_arguments" class=HREF><em>named_arguments</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font>
+<p><a name="named_argument" class=NAME><em>named_argument:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green>"</font><tt>=</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#function_argument" class=HREF><em>function_argument</em></a>
+<p><a name="function_argument" class=NAME><em>function_argument:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>function</strong><tt>&nbsp;</tt><a href="#name" class=HREF><em>name</em></a><tt>&nbsp;</tt><font color=green>"</font><tt>(</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#named_arguments" class=HREF><em>named_arguments</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green>"</font><tt>)</tt><font color=green>"</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a>
+<p><a name="output_expression_list" class=NAME><em>output_expression_list:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><font color=green>"</font><tt>,</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<p><a name="expression_list" class=NAME><em>expression_list:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><font color=green>"</font><tt>,</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a><tt>&nbsp;</tt><font color=green size="+1">}</font>
+<p><a name="array_subscripts" class=NAME><em>array_subscripts:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green>"</font><tt>[</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#subscript" class=HREF><em>subscript</em></a><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><font color=green>"</font><tt>,</tt><font color=green>"</font><tt>&nbsp;</tt><a href="#subscript" class=HREF><em>subscript</em></a><tt>&nbsp;</tt><font color=green size="+1">}</font><tt>&nbsp;</tt><font color=green>"</font><tt>]</tt><font color=green>"</font>
+<p><a name="subscript" class=NAME><em>subscript:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green>"</font><tt>:</tt><font color=green>"</font><tt>&nbsp;</tt><font color=green size="+1">|</font><tt>&nbsp;</tt><a href="#expression" class=HREF><em>expression</em></a>
+<p><a name="comment" class=NAME><em>comment:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href="#string_comment" class=HREF><em>string_comment</em></a><tt>&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><a href="#annotation" class=HREF><em>annotation</em></a><tt>&nbsp;</tt><font color=green size="+1">]</font>
+<p><a name="string_comment" class=NAME><em>string_comment:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size="+1">[</font><tt>&nbsp;</tt><em>STRING</em><tt>&nbsp;</tt><font color=green size="+1">{</font><tt>&nbsp;</tt><font color=green>"</font><tt>+</tt><font color=green>"</font><tt>&nbsp;</tt><em>STRING</em><tt>&nbsp;</tt><font color=green size="+1">}</font><tt>&nbsp;</tt><font color=green size="+1">]</font>
+<p><a name="annotation" class=NAME><em>annotation:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>annotation</strong><tt>&nbsp;</tt><a href="#class_modification" class=HREF><em>class_modification</em></a>
+</body>
+<p>Extends from <code><a href="Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="BalancedModel"><h2><embed class="icon" src="images/icon0001.svg" width="203" height="203" />
+Class <a href="index.html">ModelicaReference</a>.&#8203;BalancedModel<br><span class="subtitle">Balanced model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The basic concept to count unknowns and equations.
+</p>
+
+<p>
+Restrictions for model and block classes are present, in order that missing
+or too many equations can be detected and localized by a Modelica
+translator before using the respective model or block class.
+</p>
+
+<h4>Examples</h4>
+
+<pre>   <strong>partial model</strong> BaseCorrelation
+     <strong>input</strong> Real x;
+     Real y;
+   <strong>end</strong> BaseCorrelation;
+
+   <strong>model</strong> SpecialCorrelation // correct in Modelica 2.2 and 3.0
+      <strong>extends</strong> BaseCorrelation(x=2);
+   <strong>equation</strong>
+       y=2/x;
+   <strong>end</strong> SpecialCorrelation;
+
+   <strong>model</strong> UseCorrelation // correct according to Modelica 2.2
+                        // not valid according to Modelica 3.0
+      <strong>replaceable model</strong> Correlation=BaseCorrelation;
+      Correlation correlation;
+   <strong>equation</strong>
+      correlation.y=time;
+   <strong>end</strong> UseCorrelation;
+
+   <strong>model</strong> Broken // after redeclaration, there is 1 equation too much in Modelica 2.2
+      UseCorrelation example(redeclare Correlation=SpecialCorrelation);
+   <strong>end</strong> Broken;
+</pre>
+
+<p>
+In this case one can argue that both UseCorrelation (adding an acausal equation) and SpecialCorrelation (adding a default to an input) are correct, but still when combined they lead to a model with too many equations - and it is not possible to determine which model is incorrect without strict rules.
+In Modelica 2.2, model Broken will work with some models. However, by just redeclaring it to model SpecialCorrelation, an error will occur and it will be very difficult in a larger model to figure out the source of this error.
+In Modelica 3.0, model UseCorrelation is no longer allowed and the translator will give an error. In fact, it is guaranteed that a redeclaration cannot lead to an unbalanced model any more.
+</p>
+
+<h4>Description</h4>
+
+<p>
+The restrictions below apply after flattening " i.e., inherited components are included " possibly modified.
+</p>
+
+<p>
+<strong>Definition 1: Local Number of Unknowns</strong>
+</p>
+
+<p>
+The local number of unknowns of a model or block class is the sum based on the components:
+</p>
+
+<ul>
+<li> For each declared component of specialized class type (Real, Integer, String, Boolean, enumeration and arrays of those, etc.) or record, not declared as outer, it is the "number of unknown variables" inside it (i.e., excluding parameters and constants and counting the elements after expanding all records and arrays to a set of scalars of primitive types).</li>
+
+<li> Each declared component  of specialized class type or record declared as outer is ignored [i.e., all variables inside the component are treated as known].</li>
+
+<li> For each declared component of specialized class connector component, it is the "number of unknown variables" inside it (i.e., excluding parameters and constants and counting the elements after expanding all records and arrays to a set of scalars of primitive types).</li>
+
+<li> For each declared component of specialized class block or model, it is the "sum of the number of inputs and flow variables" in the (top level) public connector components of these components (and counting the elements after expanding all records and arrays to a set of scalars of primitive types).</li>
+</ul>
+
+<p>
+<strong>Definition 2: Local Equation Size </strong>
+</p>
+
+<p>
+The local equation size of a model or block class is the sum of the following numbers:
+</p>
+
+<ul>
+<li>The number of equations defined locally (i.e., not in any model or block component), including binding equations, and equations generated from connect-equations. This includes the proper count for when-clauses, and algorithms, and is also used for the flat Hybrid DAE formulation.</li>
+
+<li> The number of input and flow-variables present in each (top-level) public connector component. [This represents
+the number of connection equations that will be provided when the class is used.]</li>
+
+<li> The number of (top level) public input variables that neither are connectors nor have binding equations [i.e., top-level inputs are treated as known variables. This represents the number of binding equations that will be provided when the class is used.].
+[To clarify top-level inputs without binding equation (for non-inherited inputs binding equation is identical to declaration equation, but binding equations also include the case where another model extends M and has a modifier on "u" giving the value):
+<pre>  model M
+    input Real u;
+    input Real u2=2;
+  end M;
+</pre>
+Here "u" and "u2" are top-level inputs and not connectors. The variable u2 has a binding equation, but u does not have a binding equation. In the equation count, it is assumed that an equation for u is supplied when using the model.]</li>
+</ul>
+
+<p>
+<strong>Definition 3: Locally Balanced</strong>
+</p>
+
+<p>
+A model or block class is "locally balanced" if the "local number of unknowns" is identical to the "local equation size" for all legal values of constants and parameters [respecting final bindings and min/max-restrictions. A tool shall verify the "locally balanced" property for the actual values of parameters and constants in the simulation model. It is a quality of implementation  for a tool to verify this property in general, due to arrays of (locally) undefined sizes, conditional declarations, for loops, etc.].
+</p>
+
+<p>
+<strong>Definition 4: Globally Balanced</strong>
+</p>
+
+<p>
+Similarly as locally balanced, but including all unknowns and equations from all components. The global number of unknowns is computed by expanding all unknowns (i.e., excluding parameters and constants) into a set of scalars of primitive types. This should match the global equation size defined as:
+</p>
+
+<ul>
+<li> The number of equations defined (included in any model or block component), including equations generated from connect-equations.</li>
+<li>The number of input and flow-variables present in each (top-level) public connector component.</li>
+<li> The number of (top level) public input variables that neither are connectors nor have binding equations [i.e., top-level inputs are treated as known variables].</li>
+</ul>
+
+<p>
+The following restrictions hold:
+</p>
+
+<ul>
+<li>In a non-partial model or block, all non-connector inputs of model or block components must have binding equations. [E.g., if the model contains a component, firstOrder (of specialized class model) and firstOrder has  "input Real u" then there must be a binding equation for firstOrder.u.]</li>
+<li>A component declared with the inner or outer prefix shall not be of a class having top-level public connectors containing inputs.</li>
+<li>Modifiers for components shall only contain redeclarations of replaceable elements and binding equations for parameters, constants (that do not yet have binding equations), inputs and variables having a default binding equation.</li>
+<li>All non-partial model and block classes must be locally balanced [this means that the local number of unknowns equals the local equation size].</li>
+</ul>
+
+<p>
+Based on these restrictions, the following strong guarantee can be given for simulation models and blocks:
+</p>
+
+<p>
+<strong>Proposition 1: All simulation models and blocks are globally balanced.</strong><br>
+[Therefore the number of unknowns equal to the number of equations of a simulation model or block, provided that every used non-partial model or block class is locally balanced.]
+</p>
+
+<pre>Example 1:
+
+connector Pin
+   Real v;
+   flow Real i;
+end Pin;
+
+model Capacitor
+   parameter Real C;
+   Pin  p, n;
+   Real u;
+equation
+   0 = p.i + n.i;
+   u = p.v - n.v;
+   C*der(u) = p.i;
+end Capacitor;
+</pre>
+
+<p>
+Model Capacitor is a locally balanced model according to the following analysis:
+</p>
+
+<pre>Locally unknown variables: p.i, p.v, n.i, n.v, u
+Local equations:  0 = p.i + n.i;
+                  u = p.v - n.v;
+                  C*der(u) = p.i;
+                  and 2 equations corresponding to the
+                  2 flow-variables p.i and n.i.
+</pre>
+
+<p>
+These are 5 equations in 5 unknowns (locally balanced model). A more detailed analysis would reveal that this is structurally non-singular, i.e., that the hybrid DAE will not contain a singularity independent of actual values.
+If the equation "u = p.v - n.v" would be missing in the Capacitor model, there would be 4 equations in 5 unknowns and the model would be locally unbalanced and thus simulation models in which this model is used would be usually  structurally singular and  thus not solvable.
+If the equation "u = p.v - n.v" would be replaced by the equation "u = 0" and the equation C*der(u) = p.i would be replaced by the equation "C*der(u) = 0", there would be 5 equations in 5 unknowns (locally balanced), but the equations would be singular, regardless of how the equations corresponding to the flow-variables are constructed because the information that "u" is constant is given twice in a slightly different form.
+</p>
+
+<pre>Example 2:
+
+connector Pin
+   Real v;
+   flow Real i;
+end Pin;
+
+partial model TwoPin
+   Pin p,n;
+end TwoPin;
+
+model Capacitor
+   parameter Real C;
+   extends TwoPin;
+   Real u;
+equation
+   0 = p.i + n.i;
+   u = p.v " n.v;
+   C*der(u) = p.i;
+end Capacitor;
+
+model Circuit
+   extends TwoPin;
+   replaceable TwoPin t;
+   Capacitor c(C=12);
+equation
+   connect(p, t.p);
+   connect(t.n, c.p);
+   connect(c.n, n);
+end Circuit;
+</pre>
+
+<p>
+Since t is partial we cannot check whether this is a globally balanced model, but we can check that Circuit is locally balanced.
+Counting on  model Circuit results in the following balance sheet:
+</p>
+
+<pre>Locally unknown variables (8): p.i, p.v, n.i, n.v, and 2 flow variables for t (t.p.i, t.n.i)
+                                                   and 2 flow variable for c (c.p.i, c.n.i).
+Local equations:     p.v = t.p.v;
+                       0 = p.i - t.p.i;
+                   c.p.v = load.n.v;
+                       0 = c.p.i+load.n.i;
+                     n.v = c.n.v;
+                       0 = n.i - c.n.i;
+                    and 2 equation corresponding to the
+                    flow variables p.i, n.i
+</pre>
+
+<p>
+In total we have 8 scalar unknowns and 8 scalar equations, i.e., a locally balanced model (and this feature holds for any models used for the replaceable component "t").
+Some more analysis reveals that this local set of equations and unknowns is structurally non-singular. However, this does not provide any guarantees for the global set of equations, and specific combinations of models that are "locally non-singular" may lead to a globally non-singular model.]
+</p>
+
+<pre>Example 3:
+
+import SI = Modelica.SIunits;
+partial model BaseProperties
+   "Interface of medium model for all type of media"
+   parameter Boolean preferredMediumStates=false;
+   constant  Integer nXi "Number of independent mass fractions";
+   InputAbsolutePressure     p;
+   InputSpecificEnthalpy     h;
+   InputMassFraction         Xi[nXi];
+   SI.Temperature            T;
+   SI.Density                d;
+   SI.SpecificInternalEnergy u;
+
+   connector InputAbsolutePressure = input SI.AbsolutePressure;
+   connector InputSpecificEnthalpy = input SI.SpecificEnthalpy;
+   connector InputMassFraction = input SI.MassFraction;
+end BaseProperties;
+</pre>
+
+<p>
+The use of connector here is a special design pattern. The variables p, h, Xi are marked as input to get correct equation count. Since they are connectors they should neither be given binding equations in derived classes nor when using the model. The design pattern is to give textual equations for them (as below); using connect-statements for these connectors would be possible (and would work) but is not part of the design.
+This partial model defines that T,d,u can be computed from the medium model, provided p,h,Xi are given. Every medium with one or multiple substances and one or multiple phases, including incompressible media, has the property that T,d,u can be computed from p,h,Xi. A particular medium may have different "independent variables" from which all other intrinsic thermodynamic variables can be recursively computed. For example, a simple air model could be defined as:
+</p>
+
+<pre>model SimpleAir "Medium model of simple air. Independent variables: p,T"
+   extends BaseProperties(nXi = 0,
+        p(stateSelect = if preferredMediumStates then StateSelect.prefer
+                                   else StateSelect.default),
+        T(stateSelect = if preferredMediumStates then StateSelect.prefer
+                                   else StateSelect.default));
+   constant SI.SpecificHeatCapacity R  = 287;
+   constant SI.SpecificHeatCapacity cp = 1005.45;
+   constant SI.Temperature          T0 = 298.15
+equation
+   d = p/(R*T);
+   h = cp*(T-T0);
+   u = h " p/d;
+end SimpleAir;
+</pre>
+
+<p>
+The local number of unknowns in model SimpleAir (after flattening) is:
+</p>
+
+<ul>
+<li> 3 (T, d, u: variables defined in BaseProperties and inherited in SimpleAir), plus</li>
+<li> 2+nXi (p, h, Xi: variables inside connectors defined in BaseProperties and inherited in SimpleAir)
+resulting in 5+nXi unknowns.</li>
+</ul>
+
+<p>
+The local equation size is:
+</p>
+
+<ul>
+<li> 3 (equations defined in SimpleAir), plus</li>
+<li> 2+nXi (input variables in the connectors inherited from BaseProperties)</li>
+</ul>
+
+<p>
+Therefore, the model is locally balanced.
+The generic medium model BaseProperties is used as a replaceable model in different components, like a dynamic volume or a fixed boundary condition:
+</p>
+
+<pre>import SI = Modelica.SIunits
+connector FluidPort
+  replaceable model Medium = BaseProperties;
+
+  SI.AbsolutePressure  p;
+  flow SI.MassFlowRate m_flow;
+
+  SI.SpecificEnthalpy      h;
+  flow SI.EnthalpyFlowRate H_flow;
+
+  SI.MassFraction       Xi     [Medium.nXi] "Independent mixture mass fractions";
+  flow SI.MassFlowRate mXi_flow[Medium.nXi] "Independent substance mass flow rates";
+end FluidPort;
+
+model DynamicVolume
+   parameter SI.Volume V;
+   replaceable model Medium = BaseProperties;
+   FluidPort port(redeclare model Medium = Medium);
+   Medium    medium(preferredMediumStates=true); // No modifier for p,h,Xi
+   SI.InternalEnergy U;
+   SI.Mass           M;
+   SI.Mass           MXi[medium.nXi];
+equation
+   U   = medium.u*M;
+   M   = medium.d*V;
+   MXi = medium.Xi*M;
+   der(U)   = port.H_flow;   // Energy balance
+   der(M)   = port.m_flow;   // Mass balance
+   der(MXi) = port.mXi_flow; // Substance mass balance
+
+// Equations binding to medium (inputs)
+   medium.p  = port.p;
+   medium.h  = port.h;
+   medium.Xi = port.Xi;
+end DynamicVolume;
+</pre>
+
+<p>
+The local number of unknowns of DynamicVolume is:
+</p>
+
+<ul>
+<li> 4+2*nXi (inside the port connector), plus</li>
+<li> 2+nXi (variables U, M and MXi), plus</li>
+<li> 2+nXi (the input variables in the connectors of the medium model)
+</ul>
+
+<p>
+resulting in 8+4*nXi unknowns; the local equation size is
+</p>
+
+<ul>
+<li> 6+3*nXi from the equation section, plus</li>
+<li> 2+nXi flow variables in the port connector.</li>
+</ul>
+
+<p>
+Therefore, DynamicVolume is a locally balanced model.
+Note, when the DynamicVolume is used and the Medium model is redeclared to "SimpleAir", then a tool will try to select p,T as states, since these variables have StateSelect.prefer in the SimpleAir model (this means that the default states U,M are derived quantities). If this state selection is performed, all intrinsic medium variables are computed from medium.p and medium.T, although p and h are the input arguments to the medium model. This demonstrates that in Modelica input/output does not define the computational causality. Instead, it defines that equations have to be provided here for p,h,Xi, in order that the equation count is correct. The actual computational causality can be different as it is demonstrated with the SimpleAir model.
+</p>
+
+<pre>model FixedBoundary_pTX
+   parameter SI.AbsolutePressure p "Predefined boundary pressure";
+   parameter SI.Temperature      T "Predefined boundary temperature";
+   parameter SI.MassFraction     Xi[medium.nXi]
+                                   "Predefined boundary mass fraction";
+   replaceable model Medium = BaseProperties;
+   FluidPort port(redeclare model Medium = Medium);
+   Medium medium;
+equation
+   port.p        = p;
+   port.H_flow   = semiLinear(port.m_flow, port.h , medium.h);
+   port.MXi_flow = semiLinear(port.m_flow, port.Xi, medium.Xi);
+
+// Equations binding to medium (note: T is not an input).
+   medium.p  = p;
+   medium.T  = T;
+   medium.Xi = Xi;
+end FixedBoundary_pTX;
+</pre>
+
+<p>
+The number of local variables in FixedBoundary_pTX is:
+</p>
+
+<ul>
+<li> 4+2*nXi (inside the port connector), plus</li>
+<li> 2+nXi (the input variables in the connectors of the medium model)</li>
+</ul>
+
+<p>
+resulting in 6+3*nXi unknowns, while the local equation size is
+</p>
+
+<ul>
+<li> 4+2*nXi from the equation section, plus</li>
+<li> 2+nXi flow variables in the port connector.</li>
+</ul>
+
+<p>
+Therefore, FixedBoundary_pTX is a locally balanced model. The predefined boundary variables p and Xi are provided via equations to the input arguments medium.p and medium.Xi, in addition there is an equation for T in the same way " even though T is not an input. Depending on the flow direction, either the specific enthalpy in the port (port.h) or h is used to compute the enthalpy flow rate H_flow. "h" is provided as binding equation to the medium. With the equation "medium.T = T", the specific enthalpy "h" of the reservoir is indirectly computed via the medium equations. Again, this demonstrates, that an "input" just defines the number of equations have to be provided, but that it not necessarily defines the computational causality.
+</p>
+
+<p>Extends from <code><a href="Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="'encapsulated'"><h2><embed class="icon" src="images/icon0001.svg" width="203" height="203" />
+Class <a href="index.html">ModelicaReference</a>.&#8203;'encapsulated'<br><span class="subtitle">encapsulated</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Break lookup in hierarchy
+</p>
+<h4>Examples</h4>
+
+<pre><strong>encapsulated model</strong> Test
+  <strong>import</strong> Modelica.Mechanics.Rotational;
+
+  Rotational.Components.Inertia inertia; // lookup successful
+  Modelica.Mechanics.Translational.SlidingMass slidingMass; // lookup fails
+<strong>equation</strong>
+  ...
+<strong>end</strong> Test;</pre>
+
+<h4>Syntax</h4>
+
+<pre>class_definition :
+   [ <strong>encapsulated</strong> ]
+   [ <strong>partial</strong> ]
+   ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
+     <strong>package</strong> | <strong>function</strong> )
+   IDENT class_specifier</pre>
+
+<h4>Description</h4>
+
+<p>When an element, equation or algorithm is instantiated, any name is
+looked up sequentially in each member of the ordered set of parents
+until a match is found or a parent is encapsulated. In the latter case
+the lookup stops except for the predefined types, functions and
+operators defined in this specification. For these cases the lookup
+continues in the global scope, where they are defined. <em>[E.g., abs is
+searched upwards in the hierarchy as usual. If an encapsulated boundary
+is reached, abs is searched in the global scope instead. The operator
+abs cannot be redefined in the global scope, because an existing class
+cannot be redefined at the same level.]</em></p>
+<p>Extends from <code><a href="Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="'extends'"><h2><embed class="icon" src="images/icon0001.svg" width="203" height="203" />
+Class <a href="index.html">ModelicaReference</a>.&#8203;'extends'<br><span class="subtitle">extends</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Inheritance from base class
+</p>
+<h4>Examples</h4>
+
+<pre><strong>class</strong> A
+  <strong>parameter</strong> Real a, b;
+<strong>end</strong> A;
+
+<strong>class</strong> B
+  <strong>extends</strong> A(b=2);
+<strong>end</strong> B;
+
+<strong>class</strong> C
+  <strong>extends</strong> B(a=1);
+<strong>end</strong> C;</pre>
+
+<p>From the example above we get the following instantiated
+class:</p>
+
+<pre><strong>class</strong> Cinstance
+  <strong>parameter</strong> Real a=1;
+  <strong>parameter</strong> Real b=2;
+<strong>end</strong> Cinstance;</pre>
+
+<p>The ordering of the merging rules ensures that, given
+classes A and B defined above,</p>
+
+<pre><strong>class</strong> C2
+  B bcomp(b=3);
+<strong>end</strong> C2;</pre>
+
+<p>yields an instance with <code>bcomp.b=3</code>, which overrides <code>b=2</code>.</p>
+
+<h4>Syntax</h4>
+
+<pre>class_definition :
+   [ <strong>encapsulated</strong> ]
+   [ <strong>partial</strong> ]
+   ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
+     <strong>package</strong> | <strong>function</strong> )
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <strong>end</strong> IDENT
+   | "=" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | "=" <strong>enumeration</strong> "(" ( [enum_list] | ":" ) ")" comment
+
+composition  :
+   element_list
+   { <strong>public</strong> element_list |
+     <strong>protected</strong> element_list |
+     equation_clause |
+     algorithm_clause
+   }
+   [ <strong>external</strong> [ language_specification ]
+              [ external_function_call ] [ annotation ";" ]
+              [ annotation  ";" ] ]
+
+element_list :
+   { element ";" | annotation  ";" }
+
+element :
+   import_clause |
+   extends_clause |
+   [ <strong>final</strong> ]
+   [ <strong>inner</strong> | <strong>outer</strong> ]
+   ( ( class_definition | component_clause) |
+     <strong>replaceable</strong> ( class_definition | component_clause)
+        [constraining_clause comment])
+
+extends_clause :
+   <strong>extends</strong> name [ class_modification ]</pre>
+
+<h4>Description</h4>
+
+<p>The name of the base class is looked up in the partially
+instantiated parent of the extends clause. The found base
+class is instantiated with a new environment and the
+partially instantiated parent of the extends clause. The new
+environment is the result of merging</p>
+
+<OL>
+  <LI>arguments of all parent environments that match names in the instantiated base class</LI>
+  <LI>the optional class modification of the extends clause</LI>
+</OL>
+
+<p>in that order.</p>
+
+<p>The elements of the instantiated base class become elements
+of the instantiated parent class.</p>
+
+<p>The declaration elements of the instantiated base class shall either</p>
+
+<UL>
+  <LI>not already exist in the partially instantiated parent class
+      <em>[i.e., have different names]</em>.</LI>
+  <LI>be exactly identical to any element of the instantiated parent
+      class with the same name and the same level of protection
+      (<strong>public</strong> or <strong>protected</strong>) and same contents. In this
+      case, one of the elements is ignored (since they are identical
+      it does not matter which one).</LI>
+</UL>
+
+<p>Otherwise the model is incorrect.</p>
+
+<p>Equations of the instantiated base class that are syntactically
+equivalent to equations in the instantiated parent class are discarded.
+<em>[Note: equations that are mathematically equivalent but not
+syntactically equivalent are not discarded, hence yield an
+overdetermined system of equations.]</em></p>
+
+<p>Since
+specialized classes of different
+kinds have different properties,
+only specialized classes that are "in some sense
+compatible" to
+each other can be derived from each other via inheritance. The
+following table
+shows which kind of specialized class can be used in an extends clauses
+of
+another kind of specialized class:</p>
+
+<table border="1" cellpadding="1" cellspacing="1" >
+<tr>
+  <td></td><td colspan=7 style="text-align:center"><strong>Base Class</strong></td>
+</tr>
+<tr>
+  <td><strong>Derived Class</strong></td>
+  <td>package</td>
+  <td>function</td>
+  <td>type</td>
+  <td>record</td>
+  <td>connector</td>
+  <td>block</td>
+  <td>model</td>
+</tr>
+<tr>
+  <td>package</td>
+  <td>yes</td>
+  <td></td><td></td><td></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td>function</td>
+  <td></td>
+  <td>yes</td>
+  <td></td><td></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td>type</td>
+  <td></td>
+  <td></td>
+  <td>yes</td>
+  <td></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td>record</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td>yes</td>
+  <td></td><td></td><td></td>
+</tr>
+<tr>
+  <td>connector</td>
+  <td></td>
+  <td></td>
+  <td>yes</td>
+  <td>yes</td>
+  <td>yes</td>
+  <td></td><td></td>
+</tr>
+<tr>
+  <td>block</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td>yes</td>
+  <td></td>
+  <td>yes</td>
+  <td></td>
+</tr>
+<tr>
+  <td>model</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td>yes</td>
+  <td></td>
+  <td>yes</td>
+  <td>yes</td>
+</tr>
+</table>
+
+<p>The specialized classes <code>package</code>,  <code>function</code>,  <code>type</code>, and  <code>record</code> can only be derived from their own kind <em>(e.g., a package can only be base class for packages. All other kinds of classes can use the import statement to use the contents of a package)</em>.</p>
+
+<p>Extends from <code><a href="Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="'flow'"><h2><embed class="icon" src="images/icon0001.svg" width="203" height="203" />
+Class <a href="index.html">ModelicaReference</a>.&#8203;'flow'<br><span class="subtitle">flow</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Declare flow (through) variable, which have to sum up to zero in connections
+</p>
+<h4>Examples</h4>
+
+<pre><strong>connector</strong> Pin
+  Modelica.SIunits.Voltage v;
+  <strong>flow</strong> Modelica.SIunits.Current i;
+<strong>end</strong> Pin;
+
+<strong>model</strong> A
+  Pin p;
+<strong>end</strong> A;
+
+<strong>model</strong> Composition
+  A a;
+  A b;
+  A c;
+<strong>equation
+  connect</strong>(a.p, b.p);
+  <strong>connect</strong>(a.p, c.p);
+<strong>end</strong> Composition;</pre>
+
+<p>From the connect statements in model Composition, the following connect equations are derived:</p>
+
+<pre>a.p.v = b.p.v;
+a.p.v = c.p.v;
+a.p.i + b.p.i + c.p.i = 0;</pre>
+
+<h4>Syntax</h4>
+
+<pre>class_definition :
+   [ <strong>encapsulated</strong> ]
+   [ <strong>partial</strong> ]
+   ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
+     <strong>package</strong> | <strong>function</strong> )
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <strong>end</strong> IDENT
+   | "=" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | "=" <strong>enumeration</strong> "(" ( [enum_list] | ":" ) ")" comment
+
+base_prefix :
+   type_prefix
+
+composition  :
+   element_list
+   { <strong>public</strong> element_list |
+     <strong>protected</strong> element_list |
+     equation_clause |
+     algorithm_clause
+   }
+   [ <strong>external</strong> [ language_specification ]
+              [ external_function_call ] [ annotation ";" ]
+              [ annotation  ";" ] ]
+
+element_list :
+   { element ";" | annotation  ";" }
+
+element :
+   import_clause |
+   extends_clause |
+   [ <strong>final</strong> ]
+   [ <strong>inner</strong> | <strong>outer</strong> ]
+   ( ( class_definition | component_clause) |
+     <strong>replaceable</strong> ( class_definition | component_clause)
+        [constraining_clause comment])
+
+component_clause:
+   type_prefix type_specifier [ array_subscripts ] component_list
+
+type_prefix :
+   [ <strong>flow</strong> | <strong>stream</strong> ]
+   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</pre>
+
+<h4>Description</h4>
+
+<p>The flow prefix is used in order to generate equations for through variables, which sum up to zero in connections,
+whereas variables without the flow prefix are identical in a connection.</p>
+<p>Extends from <code><a href="Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="'for'"><h2><embed class="icon" src="images/icon0001.svg" width="203" height="203" />
+Class <a href="index.html">ModelicaReference</a>.&#8203;'for'<br><span class="subtitle">for</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Repeat equations or statements a specific number of times
+</p>
+<h4>Examples</h4>
+<p>
+<strong>for</strong> clauses are mostly used in algorithm sections, such as
+</p>
+<pre>
+    <strong>parameter</strong> Integer np=10;
+    Real p[np], x, y;
+  <strong>algorithm</strong>
+     y := p[1];
+     <strong>for</strong> i <strong>in</strong> 2:np <strong>loop</strong>   // i shall not be declared
+        y := y*x + p[i];
+     <strong>end for</strong>;
+</pre>
+<p>
+Other forms of the <strong>for</strong> condition:
+</p>
+<pre>
+    <strong>for</strong> i <strong>in</strong> 1:10 <strong>loop</strong>            // i takes the values 1,2,3,...,10
+    <strong>for</strong> r <strong>in</strong> 1.0 : 1.5 : 5.5 <strong>loop</strong> // r takes the values 1.0, 2.5, 4.0, 5.5
+    <strong>for</strong> i <strong>in</strong> {1,3,6,7} <strong>loop</strong>       // i takes the values 1, 3, 6, 7
+</pre>
+<p>
+In equation sections, <strong>for</strong> clauses are expanded at translation time
+in order that symbolic transformations can be applied. Typically, a
+<strong>for</strong> clause in an equation section is used on component arrays,
+e.g., to connect elements of an array of components together:
+</p>
+<pre>
+    <strong>parameter</strong> Integer nR=10 "Number of resistances";
+    Modelica.Electrical.Analog.Basic.Resistor R[nR];
+  <strong>equation</strong>
+     <strong>for</strong> i <strong>in</strong> 1:nR-1 <strong>loop</strong>
+        <strong>connect</strong>(R[i].p R[i+1].n);   // 9 connect equations
+     <strong>end for</strong>;
+</pre>
+<h4>Syntax</h4>
+<p>
+In equation sections:
+</p>
+<pre>
+  <strong>for</strong> for_indices <strong>loop</strong>
+     { equation ";" }
+  <strong>end for</strong>;
+  for_indices : for_index {"," for_index}
+  for_index   : IDENT [ in expression ]
+</pre>
+<p>
+In algorithm sections:
+</p>
+<pre>
+  <strong>for</strong> for_indices <strong>loop</strong>
+     { algorithm ";" }
+  <strong>end for</strong>;
+  for_indices : for_index {"," for_index}
+  for_index   : IDENT [ in expression ]
+</pre>
+<h4>Description</h4>
+<p>A clause</p>
+<pre>    <strong>for</strong> IDENT <strong>in</strong> expression <strong>loop</strong></pre>
+<p>is one example of a for clause.</p>
+<p>The expression of a for clause shall be a vector expression. It is
+evaluated once for each for clause, and is evaluated in the scope
+immediately enclosing the for clause. In an equation section,
+the expression of a for clause shall be a parameter expression (in order
+that the for clause can be expanded into equations during translation).
+The loop-variable is in scope inside the loop-construct and shall not be assigned
+to.</p>
+<p><em>[Example:</em></p>
+<p><em>The loop-variable may hide other variables as in the following example.
+Using another name for the loop-variable
+is, however, strongly recommended.</em></p>
+<pre>    <strong>constant</strong> Integer j=4;
+    Real x[j];
+  <strong>equation</strong>
+    <strong>for</strong> j <strong>in</strong> 1:j <strong>loop</strong> // The loop-variable j takes the values 1,2,3,4
+      x[j]=j; // Uses the loop-variable j
+    <strong>end for</strong>;</pre>
+<p><em>]</em></p>
+<h4>Several iterators</h4>
+<p>The notation with several iterators is a shorthand notation for nested for-clauses (or reduction-expressions). For
+for-clauses it can be expanded into the usual form by replacing each "," by <code>'loop for'</code> and adding extra <code>'end
+for'</code>. For reduction-expressions it can be expanded into the usual form by replacing each ',' by <code>') for'</code> and
+prepending the reduction-expression with <code>'function-name('</code>.</p>
+<p><em>[Example:</em></p>
+<pre>    Real x[4,3];
+  <strong>equation</strong>
+    <strong>for</strong> j, i in 1:2 <strong>loop</strong>
+      // The loop-variable j takes the values 1,2,3,4 (due to use)
+      // The loop-variable i takes the values 1,2 (given range)
+      x[j,i]=j+i;
+    <strong>end for</strong>;</pre>
+<p><em>]</em></p>
+<p>Extends from <code><a href="Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="'if'"><h2><embed class="icon" src="images/icon0001.svg" width="203" height="203" />
+Class <a href="index.html">ModelicaReference</a>.&#8203;'if'<br><span class="subtitle">if</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Declare equations or execute statements conditionally
+</p>
+<h4>Examples</h4>
+<h4>If clause</h4>
+
+<pre>    <strong>parameter</strong> Boolean linear=true;
+    <strong>parameter</strong> Boolean quadratic=false;
+    Real x, y;
+  <strong>equation</strong>
+    <strong>if</strong> linear <strong>then</strong>
+      y = x + 1;
+    <strong>elseif</strong> quadratic <strong>then</strong>
+      y = x^2 + x + 1;
+    <strong>else</strong>
+      y = Modelica.Math.sin(x) + 1;
+    <strong>end if</strong>;</pre>
+
+<h4>If expression</h4>
+<pre>  Integer i;
+  Integer sign_of_i=<strong>if</strong> i&lt;0 <strong>then</strong> -1 <strong>else if</strong> i==0 <strong>then</strong> 0 <strong>else</strong> 1;</pre>
+<h4>Syntax</h4>
+<p>
+In equation sections:
+</p>
+<pre>   <strong>if</strong> expression <strong>then</strong>
+     { equation ";" }
+   { <strong>elseif </strong>expression <strong>then</strong>
+     { equation ";" }
+   }
+   [ <strong>else</strong>
+     { equation ";" }
+   ]
+   <strong>end if</strong></pre>
+<p>
+In algorithm sections:
+</p>
+<pre>   <strong>if</strong> expression <strong>then</strong>
+     { algorithm ";" }
+   { <strong>elseif </strong>expression <strong>then</strong>
+     { algorithm ";" }
+   }
+   [ <strong>else</strong>
+     { algorithm ";" }
+   ]
+   <strong>end if</strong></pre>
+<h4>Description</h4>
+<h4>If clause</h4>
+<p>
+The expression of an <strong>if</strong> and <strong>elseif</strong>-clause must be scalar Boolean expression.
+One <strong>if</strong>-clause, and zero or more <strong>elseif</strong>-clauses, and an optional <strong>else</strong>-clause
+together form a list of branches. One or zero of the bodies of these <strong>if</strong>-, <strong>elseif</strong>-
+and <strong>else</strong>-clauses is selected, by evaluating the conditions of the <strong>if</strong>- and
+<strong>elseif</strong>-clauses sequentially until a condition that evaluates to true is found. If none of
+the conditions evaluate to true the body of the <strong>else</strong>-clause is selected (if an
+<strong>else</strong>-clause exists, otherwise no body is selected). In an algorithm section, the selected
+body is then executed. In an equation section, the equations in the body are seen as equations
+that must be satisfied. The bodies that are not selected have no effect on that model evaluation.
+</p>
+<p>
+If clauses in <strong>equation </strong>sections which do not have exclusively parameter expressions as
+switching conditions shall have an <strong>else</strong> clause and each branch shall have the <em>same
+number</em> of <em>equations</em>. <em>[If this condition is violated, the single assignment rule
+would not hold, because the number of equations may change during simulation although the number
+of unknowns remains the same].</em>
+</p>
+
+<h4>If expression</h4>
+
+<p>An expression</p>
+<pre>   <strong>if</strong> expression1 <strong>then</strong> expression2 <strong>else</strong> expression3</pre>
+<p>is one example of if-expression. First expression1, which must be Boolean expression,
+is evaluated. If expression1 is true expression2 is evaluated and is the value of the
+if-expression, else expression3 is evaluated and is the value of the if-expression.
+The two expressions, expression2 and expression3, must be type compatible and give the
+type of the if-expression. If-expressions with <strong>elseif</strong> are defined by replacing
+<strong>elseif</strong> by <strong>else if</strong>.<em>[Note: elseif is added for symmetry with if-clauses.]</em>
+</p>
+<p>Extends from <code><a href="Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="'import'"><h2><embed class="icon" src="images/icon0001.svg" width="203" height="203" />
+Class <a href="index.html">ModelicaReference</a>.&#8203;'import'<br><span class="subtitle">import</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Import classes
+</p>
+<h4>Examples</h4>
+
+<pre><strong>class</strong> Lookup
+  <strong>import</strong> SI = Modelica.SIunits; // #1
+  <strong>import</strong> Modelica.Math.*; // #2 (Try to avoid wildcard imports,
+                          //     consider using #1 or #3  instead!)
+  <strong>import</strong> Modelica.Mechanics.Rotational; // #3
+
+  SI.Torque torque; // due to #1 (Modelica.SIunits.Torque)
+  Rotational.Components.Inertia inertia; // due to #3 (Modelica.Mechanics.Rotational.Components.Inertia)
+<strong>equation</strong>
+  torque = sin(<strong>time</strong>); // due to #2 (Modelica.Math.sin)
+  ...
+<strong>end</strong> Lookup;</pre>
+
+<h4>Syntax</h4>
+
+<pre>class_definition :
+   [ <strong>encapsulated</strong> ]
+   [ <strong>partial</strong> ]
+   ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
+     <strong>package</strong> | <strong>function</strong> )
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <strong>end</strong> IDENT
+   | "=" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | "=" <strong>enumeration</strong> "(" ( [enum_list] | ":" ) ")" comment
+
+composition  :
+   element_list
+   { <strong>public</strong> element_list |
+     <strong>protected</strong> element_list |
+     equation_clause |
+     algorithm_clause
+   }
+   [ <strong>external</strong> [ language_specification ]
+              [ external_function_call ] [ annotation ";" ]
+              [ annotation  ";" ] ]
+
+element_list :
+   { element ";" | annotation  ";" }
+
+element :
+   import_clause |
+   extends_clause |
+   [ <strong>final</strong> ]
+   [ <strong>inner</strong> | <strong>outer</strong> ]
+   ( ( class_definition | component_clause) |
+     <strong>replaceable</strong> ( class_definition | component_clause)
+        [constraining_clause comment])
+
+import_clause :
+   <strong>import</strong> ( IDENT "=" name | name ["." "*"] ) comment</pre>
+<h4>Description</h4>
+
+<p>Using import statements extends the static name lookup to additional import names.
+The generated import names are:</p>
+
+<ul>
+  <li><code>C</code> for <code><strong>import</strong> A.B.C;</code></li>
+  <li><code>D</code> for <code><strong>import</strong> D = A.B.C;</code></li>
+  <li><code>C</code> and all other classes in B for <code><strong>import</strong> A.B.*;</code></li>
+</ul>
+<h5>Note</h5>
+<p><em>Especially the last wildcard import statement should be avoided since it might lead to name-lookup conflicts.</em></p>
+<p>Extends from <code><a href="Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="'input'"><h2><embed class="icon" src="images/icon0001.svg" width="203" height="203" />
+Class <a href="index.html">ModelicaReference</a>.&#8203;'input'<br><span class="subtitle">input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Define causality and/or block diagram connection semantic
+(depending on context)
+</p>
+<h4>Examples</h4>
+
+<pre><strong>connector</strong> RealInput = <strong>input</strong> Real;
+<strong>connector</strong> RealOutput = <strong>output</strong> Real;
+
+<strong>block</strong> Integrator
+  RealInput  u;
+  RealOutput y;
+<strong>protected</strong>
+  Real x;
+<strong>equation</strong>
+  <strong>der</strong>(x) = u;
+  y = x;
+<strong>end</strong> Integrator;</pre>
+
+<h4>Syntax</h4>
+
+<pre>class_definition :
+   [ <strong>encapsulated</strong> ]
+   [ <strong>partial</strong> ]
+   ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
+     <strong>package</strong> | <strong>function</strong> )
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <strong>end</strong> IDENT
+   | "=" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | "=" <strong>enumeration</strong> "(" ( [enum_list] | ":" ) ")" comment
+
+base_prefix :
+   type_prefix
+
+composition  :
+   element_list
+   { <strong>public</strong> element_list |
+     <strong>protected</strong> element_list |
+     equation_clause |
+     algorithm_clause
+   }
+   [ <strong>external</strong> [ language_specification ]
+              [ external_function_call ] [ annotation ";" ]
+              [ annotation  ";" ] ]
+
+element_list :
+   { element ";" | annotation  ";" }
+
+element :
+   import_clause |
+   extends_clause |
+   [ <strong>final</strong> ]
+   [ <strong>inner</strong> | <strong>outer</strong> ]
+   ( ( class_definition | component_clause) |
+     <strong>replaceable</strong> ( class_definition | component_clause)
+        [constraining_clause comment])
+
+component_clause:
+   type_prefix type_specifier [ array_subscripts ] component_list
+
+type_prefix :
+   [ <strong>flow</strong> ]
+   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</pre>
+
+<h4>Description</h4>
+
+<p>
+The prefixes <strong>input</strong> and <strong>output</strong> have a slightly different semantic meaning depending on the context where they are used:
+</p>
+
+<ul>
+<li> In functions, these prefixes define the computational causality of the
+     function body, i.e., given the variables declared as input,
+     the variables declared as output are computed in the function body.<br>&nbsp;</li>
+
+<li> In simulation models and blocks (i.e., on the top level of a model or
+     block that shall be simulated), these prefixes define the interaction
+     with the environment where the simulation model or block is used.
+     Especially, the input prefix defines that values for such a variable
+     have to be provided from the simulation environment and the output
+     prefix defines that the values of the corresponding variable
+     can be directly utilized in the simulation environment.<br>&nbsp;</li>
+
+<li> In component models and blocks, the input prefix defines that a
+     binding equation has to be provided for the corresponding variable
+     when the component is utilized in order to guarantee a locally
+     balanced model (i.e., the number of local equations is identical
+     to the local number of unknowns). Example:
+<pre>  <strong>block</strong> FirstOrder
+     <strong>input</strong> Real u;
+       ...
+  <strong>end</strong> FirstOrder;
+
+  <strong>model</strong> UseFirstOrder
+     FirstOrder firstOrder(u=time); // binding equation for u
+      ...
+  <strong>end</strong> UseFirstOrder;
+</pre>
+     The output prefix does not have a particular effect in a model
+     or block component and is ignored.<br>&nbsp;</li>
+
+<li> In connectors, prefixes input and output define that the
+     corresponding connectors can only be connected according
+     to block diagram semantics (e.g., a connector with an output
+     variable can only be connected to a connector where the
+     corresponding variable is declared as input). There is the
+     restriction that connectors which have at least one variable
+     declared as input must be externally connected
+     (in order to get a locally balanced model, where the number
+     of local unknowns is identical to the number of unknown equations).
+     Together with the block diagram semantics rule this means,
+     that such connectors must be connected exactly once externally.<br>&nbsp;</li>
+
+<li> In records, prefixes input and output are not allowed,
+     since otherwise a record could not be, e.g., passed as input
+     argument to a function.</li>
+</ul>
+
+<p>Extends from <code><a href="Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="'output'"><h2><embed class="icon" src="images/icon0001.svg" width="203" height="203" />
+Class <a href="index.html">ModelicaReference</a>.&#8203;'output'<br><span class="subtitle">output</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Define causality and/or block diagram connection semantic
+(depending on context)
+</p>
+
+<h4>Examples</h4>
+
+<pre><strong>connector</strong> RealInput = <strong>input</strong> Real;
+<strong>connector</strong> RealOutput = <strong>output</strong> Real;
+
+<strong>block</strong> Integrator
+  RealInput  u;
+  RealOutput y;
+<strong>protected</strong>
+  Real x;
+<strong>equation</strong>
+  <strong>der</strong>(x) = u;
+  y = x;
+<strong>end</strong> Integrator;</pre>
+
+<h4>Syntax</h4>
+
+<pre>class_definition :
+   [ <strong>encapsulated</strong> ]
+   [ <strong>partial</strong> ]
+   ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
+     <strong>package</strong> | <strong>function</strong> )
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <strong>end</strong> IDENT
+   | "=" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | "=" <strong>enumeration</strong> "(" ( [enum_list] | ":" ) ")" comment
+
+base_prefix :
+   type_prefix
+
+composition  :
+   element_list
+   { <strong>public</strong> element_list |
+     <strong>protected</strong> element_list |
+     equation_clause |
+     algorithm_clause
+   }
+   [ <strong>external</strong> [ language_specification ]
+              [ external_function_call ] [ annotation ";" ]
+              [ annotation  ";" ] ]
+
+element_list :
+   { element ";" | annotation  ";" }
+
+element :
+   import_clause |
+   extends_clause |
+   [ <strong>final</strong> ]
+   [ <strong>inner</strong> | <strong>outer</strong> ]
+   ( ( class_definition | component_clause) |
+     <strong>replaceable</strong> ( class_definition | component_clause)
+        [constraining_clause comment])
+
+component_clause:
+   type_prefix type_specifier [ array_subscripts ] component_list
+
+type_prefix :
+   [ <strong>flow</strong> ]
+   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</pre>
+
+<h4>Description</h4>
+
+<p>
+The prefixes <strong>input</strong> and <strong>output</strong> have a slightly different semantic meaning depending on the context where they are used:
+</p>
+
+<ul>
+<li> In functions, these prefixes define the computational causality of the
+     function body, i.e., given the variables declared as input,
+     the variables declared as output are computed in the function body.<br>&nbsp;</li>
+
+<li> In simulation models and blocks (i.e., on the top level of a model or
+     block that shall be simulated), these prefixes define the interaction
+     with the environment where the simulation model or block is used.
+     Especially, the input prefix defines that values for such a variable
+     have to be provided from the simulation environment and the output
+     prefix defines that the values of the corresponding variable
+     can be directly utilized in the simulation environment.<br>&nbsp;</li>
+
+<li> In component models and blocks, the input prefix defines that a
+     binding equation has to be provided for the corresponding variable
+     when the component is utilized in order to guarantee a locally
+     balanced model (i.e., the number of local equations is identical
+     to the local number of unknowns). Example:
+<pre>  <strong>block</strong> FirstOrder
+     <strong>input</strong> Real u;
+       ...
+  <strong>end</strong> FirstOrder;
+
+  <strong>model</strong> UseFirstOrder
+     FirstOrder firstOrder(u=time); // binding equation for u
+      ...
+  <strong>end</strong> UseFirstOrder;
+</pre>
+     The output prefix does not have a particular effect in a model
+     or block component and is ignored.<br>&nbsp;</li>
+
+<li> In connectors, prefixes input and output define that the
+     corresponding connectors can only be connected according
+     to block diagram semantics (e.g., a connector with an output
+     variable can only be connected to a connector where the
+     corresponding variable is declared as input). There is the
+     restriction that connectors which have at least one variable
+     declared as input must be externally connected
+     (in order to get a locally balanced model, where the number
+     of local unknowns is identical to the number of unknown equations).
+     Together with the block diagram semantics rule this means,
+     that such connectors must be connected exactly once externally.<br>&nbsp;</li>
+
+<li> In records, prefixes input and output are not allowed,
+     since otherwise a record could not be, e.g., passed as input
+     argument to a function.</li>
+</ul>
+
+<p>Extends from <code><a href="Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="'partial'"><h2><embed class="icon" src="images/icon0001.svg" width="203" height="203" />
+Class <a href="index.html">ModelicaReference</a>.&#8203;'partial'<br><span class="subtitle">partial</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Prohibit instantiation of components of the class
+</p>
+<h4>Examples</h4>
+
+<pre><strong>partial block</strong> PartialBlock
+  <strong>input</strong> Real u;
+  <strong>output</strong> Real y;
+<strong>protected</strong>
+  Real x;
+<strong>equation</strong>
+  x = y;
+<strong>end</strong> PartialBlock;
+
+<strong>block</strong> Integrator
+  <strong>extends</strong> PartialBlock;
+<strong>equation
+  der</strong>(x) = u;
+<strong>end</strong> Integrator;
+
+<strong>block</strong> Gain
+  <strong>extends</strong> PartialBlock;
+  <strong>parameter</strong> k = 1;
+<strong>equation</strong>
+  x = k*u;
+<strong>end</strong> Gain;
+
+<strong>model</strong> Composition
+  PartialBlock block1; // Illegal
+  Integrator block2; // Legal
+  Gain block3; // Legal
+<strong>end</strong> Composition;</pre>
+
+<h4>Syntax</h4>
+
+<pre>class_definition :
+   [ <strong>encapsulated</strong> ]
+   [ <strong>partial</strong> ]
+   ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
+     <strong>package</strong> | <strong>function</strong> )
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <strong>end</strong> IDENT
+   | "=" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | "=" <strong>enumeration</strong> "(" ( [enum_list] | ":" ) ")" comment</pre>
+
+<h4>Description</h4>
+
+<p>
+The keyword <strong>partial</strong> defines that a class is <strong>incomplete</strong> and
+that it cannot be instantiated. For example, defining
+</p>
+
+<pre>   PartialBlock block1;</pre>
+
+<p>
+is illegal. A partial class can only be used in an "extends" clause to inherit from it
+or in a "constrained" clause to define the constraints of a replaceable class.
+</p>
+
+<p>Extends from <code><a href="Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="'stream'"><h2><embed class="icon" src="images/icon0001.svg" width="203" height="203" />
+Class <a href="index.html">ModelicaReference</a>.&#8203;'stream'<br><span class="subtitle">stream</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Declare stream variable in a connector to describe bi-directional flow of matter
+</p>
+<h4>Examples</h4>
+
+<blockquote>
+<pre><strong>connector</strong> FluidPort
+  <strong>replaceable package</strong> Medium = Modelica.Media.Interfaces.PartialMedium;
+  Medium.AbsolutePressure        p          "Pressure in connection point";
+  <strong>flow</strong>   Medium.MassFlowRate     m_flow     "&gt; 0, if flow into component";
+  <strong>stream</strong> Medium.SpecificEnthalpy h_outflow  "h close to port if m_flow &lt; 0";
+<strong>end</strong> FluidPort;
+</pre></blockquote>
+<p>
+FluidPort is a stream connector, because a connector variable has the
+stream prefix. The Medium definition and the stream variables are associated
+with the only flow variable (m_flow) that defines a fluid stream.
+The Medium and the stream variables are transported with this flow variable.
+The stream variable h_outflow is the stream property inside the component
+close to the boundary, when fluid flows out of the component into
+the connection point. The stream properties for the other flow direction
+can be inquired with the built-in operator
+<a href="Operators/index.html#'inStream()'">'inStream()'</a>. The value of the
+stream variable corresponding to the actual flow direction can be
+inquired through the built-in operator <a href="Operators/index.html#'actualStream()'">'actualStream()'</a>.
+</p>
+
+<blockquote>
+<pre><strong>model</strong> IsenthalpicFlow "No energy storage/losses, e.g., pressure drop, valve, ..."
+  <strong>replaceable package</strong> Medium=Modelica.Media.Interfaces.PartialMedium;
+  FluidPort port_a, port_b:
+  Medium.ThermodynamicState port_a_state_inflow "State at port_a if inflowing";
+  Medium.ThermodynamicState port_b_state_inflow "State at port_b if inflowing";
+<strong>equation</strong>
+  // Medium states for inflowing fluid
+  port_a_state_inflow = Medium.setState_phX(port_a.p,
+                                            <strong>inStream</strong>(port_a.h_outflow));
+  port_b_state_inflow = Medium.setState_phX(port_b.p,
+                                            <strong>inStream</strong>(port_b.h_outflow));
+  // Mass balance
+  0 = port_a.m_flow + port_b.m_flow;
+
+  // Instantaneous propagation of enthalpy flow between the ports with
+  // isenthalpic state transformation (no storage and no loss of energy)
+  port_a.h_outflow = <strong>inStream</strong>(port_b.h_outflow);
+  port_b.h_outflow = <strong>inStream</strong>(port_a.h_outflow);
+
+  // (Regularized) Momentum balance
+  port_a.m_flow = f(port_a.p, port_b.p,
+                    Medium.density(port_a_state_inflow),
+                    Medium.density(port_b_state_inflow));
+<strong>end</strong> IsenthalpicFlow;
+</pre></blockquote>
+
+<p>When two or more FluidPort (inside) connectors are connected together, then <strong>no</strong>
+connection equations are generated for <strong>stream</strong> variables. Instead, these
+equations are constructed by the <strong>inStream</strong>(..) built-in operator
+(see example model IsenthalpicFlow) above. If two IsenthalpicFlow components
+are connected together:
+</p>
+
+<blockquote><pre>   IsenthalpicFlow dp1;
+   IsenthalpicFlow dp2;
+<strong>equation</strong>
+  <strong>connect</strong>(dp1, dp2);
+</pre></blockquote>
+
+<p>
+Then, the following connection equations are generated
+</p>
+
+<blockquote><pre>dp1.p = dp2.p;
+0 = dp1.m_flow + dp2.m_flow;
+</pre></blockquote>
+
+<p>
+Note, no equation for a stream variable is generated. However, the inStream(..)
+operators inside the components provide the "ideal mixing" equations:
+</p>
+
+<blockquote><pre>// within dp1:
+  <strong>inStream</strong>(dp1.port_b.h_outflow) := dp2.port_a.h_outflow;
+
+// within dp2:
+  <strong>inStream</strong>(dp2.port_a.h_outflow) := dp1.port_b.h_outflow;
+</pre></blockquote>
+
+<h4>Syntax</h4>
+
+<pre>class_definition :
+   [ <strong>encapsulated</strong> ]
+   [ <strong>partial</strong> ]
+   ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
+     <strong>package</strong> | <strong>function</strong> )
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <strong>end</strong> IDENT
+   | "=" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | "=" <strong>enumeration</strong> "(" ( [enum_list] | ":" ) ")" comment
+
+base_prefix :
+   type_prefix
+
+composition  :
+   element_list
+   { <strong>public</strong> element_list |
+     <strong>protected</strong> element_list |
+     equation_clause |
+     algorithm_clause
+   }
+   [ <strong>external</strong> [ language_specification ]
+              [ external_function_call ] [ annotation ";" ]
+              [ annotation  ";" ] ]
+
+element_list :
+   { element ";" | annotation  ";" }
+
+element :
+   import_clause |
+   extends_clause |
+   [ <strong>final</strong> ]
+   [ <strong>inner</strong> | <strong>outer</strong> ]
+   ( ( class_definition | component_clause) |
+     <strong>replaceable</strong> ( class_definition | component_clause)
+        [constraining_clause comment])
+
+component_clause:
+   type_prefix type_specifier [ array_subscripts ] component_list
+
+type_prefix :
+   [ <strong>flow</strong> | <strong>stream</strong> ]
+   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</pre>
+
+<h4>Description</h4>
+
+<p>
+A detailed description of the stream keyword and the inStream operator is given
+in Chapter 15 and Appendix D of the
+<a href="https://www.modelica.org/documents/ModelicaSpec32Revision1.pdf">Modelica Language Specification version 3.2 Revision 1</a>.
+An overview and a rational is provided in a
+<a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/Modelica3.2.3/Resources/Documentation/Fluid/Stream-Connectors-Overview-Rationale.pdf">slide set</a>.
+</p>
+
+<p>
+The two basic variable types in a connector <strong>potential</strong> (or across) variable
+and <strong>flow</strong> (or through) variable are not sufficient to describe in a numerically
+sound way the bi-directional flow of matter with convective transport of specific
+quantities, such as specific enthalpy and chemical composition. The values of these
+specific quantities are determined from the upstream side of the flow, i.e., they depend
+on the flow direction. When using across and through variables, the corresponding models
+would include nonlinear systems of equations with Boolean unknowns for the flow directions
+and singularities around zero flow. Such equation systems cannot be solved reliably in
+general. The model formulations can be simplified when formulating two different balance
+equations for the two possible flow directions. This is not possible with across and
+through variables though.
+</p>
+
+<p>
+This fundamental problem is addressed in Modelica 3.1 by
+introducing a third type of connector variable, called stream variable,
+declared with the prefix <strong>stream</strong>. A stream variable describes a quantity that
+is carried by a flow variable, i.e., a purely convective transport phenomenon.
+The value of the stream variable is the specific property inside the component
+close to the boundary, assuming that matter flows out of the component into the
+connection point. In other words, it is the value the carried quantity would
+have if the fluid was flowing out of the connector, irrespective of the actual flow direction.
+</p>
+
+<p>
+The basic idea is sketched at hand of an example:
+Three connectors c1, c2, c3 with the definition
+</p>
+
+<blockquote><pre>
+<strong>connector</strong> Demo
+  Real        p;  // potential variable
+  <strong>flow</strong>   Real m_flow;  // flow variable
+  <strong>stream</strong> Real h;  // stream variable
+<strong>end</strong> Demo;
+</pre></blockquote>
+
+<p>
+are connected together with
+</p>
+
+<blockquote><pre>
+<strong>connect</strong>(c1,c2);
+<strong>connect</strong>(c1,c3);
+</pre></blockquote>
+
+<p>
+then this leads to the following equations:
+</p>
+
+<blockquote><pre>
+// Potential variables are identical
+c1.p = c2.p;
+c1.p = c3.p;
+
+// The sum of the flow variables is zero
+0 = c1.m_flow + c2.m_flow + c3.m_flow;
+
+/* The sum of the product of flow variables and upstream stream variables is zero
+   (this implicit set of equations is explicitly solved when generating code;
+   the "&lt;undefined&gt;" parts are defined in such a way that
+   inStream(..) is continuous).
+*/
+0 = c1.m_flow*(<strong>if</strong> c1.m_flow > 0 <strong>then</strong> h_mix <strong>else</strong> c1.h) +
+    c2.m_flow*(<strong>if</strong> c2.m_flow > 0 <strong>then</strong> h_mix <strong>else</strong> c2.h) +
+    c3.m_flow*(<strong>if</strong> c3.m_flow > 0 <strong>then</strong> h_mix <strong>else</strong> c3.h);
+
+<strong>inStream</strong>(c1.h) = <strong>if</strong> c1.m_flow > 0 <strong>then</strong> h_mix <strong>else</strong> &lt;undefined&gt;;
+<strong>inStream</strong>(c2.h) = <strong>if</strong> c2.m_flow > 0 <strong>then</strong> h_mix <strong>else</strong> &lt;undefined&gt;;
+<strong>inStream</strong>(c3.h) = <strong>if</strong> c3.m_flow > 0 <strong>then</strong> h_mix <strong>else</strong> &lt;undefined&gt;;
+
+</pre></blockquote>
+
+<p>
+If at least one variable in a connector has the stream prefix, the connector
+is called <strong>stream connector</strong> and the corresponding variable is called
+<strong>stream variable</strong>. The following definitions hold:
+</p>
+
+<ul>
+<li> The stream prefix can only be used in a connector declaration.</li>
+<li> A stream connector must have exactly one scalar variable with the flow prefix.
+     [<em>The idea is that all stream variables of a connector are associated with
+      this flow variable</em>].</li>
+<li> For every outside connector, one equation is generated for every variable
+     with the stream prefix [<em>to describe the propagation of the stream
+     variable along a model hierarchy</em>]. For the exact definition,
+     see the end of section 15.2.</li>
+<li> For inside connectors, variables with the stream prefix do not lead to
+     connection equations.</li>
+<li> Connection equations with stream variables are generated in a
+     model when using the inStream() operator or the actualStream() operator.</li>
+</ul>
+
+<p>
+For further details, see the definition of the
+<a href="Operators/index.html#'inStream()'">'inStream()'</a> operator.
+</p>
+
+<p>Extends from <code><a href="Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="'time'"><h2><embed class="icon" src="images/icon0001.svg" width="203" height="203" />
+Class <a href="index.html">ModelicaReference</a>.&#8203;'time'<br><span class="subtitle">time</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Built-in variable time
+</p>
+<h4>Examples</h4>
+
+<pre><strong>encapsulated model</strong> SineSource
+  <strong>import</strong> Modelica.Math.sin;
+  <strong>connector</strong> OutPort=<strong>output</strong> Real;
+  OutPort y=sin(time); // Uses the built-in variable time.
+<strong>end</strong> SineSource;</pre>
+
+<h4>Syntax</h4>
+
+<pre><strong>time</strong></pre>
+
+<h4>Description</h4>
+
+<p>All declared variables are functions of the independent
+variable <strong>time</strong>. Time is a built-in variable available
+in all classes, which is treated as an input variable. It
+is implicitly defined as:</p>
+
+<pre><strong>input</strong> Real time (<strong>final</strong> quantity = "Time",
+                 <strong>final</strong> unit     = "s");</pre>
+
+<p>The value of the <strong>start</strong> attribute of time is set to
+the time instant at which the simulation is started.</p>
+
+<p>Extends from <code><a href="Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="'when'"><h2><embed class="icon" src="images/icon0001.svg" width="203" height="203" />
+Class <a href="index.html">ModelicaReference</a>.&#8203;'when'<br><span class="subtitle">when</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Activate equations or statements when condition becomes true
+</p>
+<h4>Examples</h4>
+<pre> <strong>equation
+   when</strong> x &gt; 2 <strong>then</strong>
+     y3 = 2*x +y1+y2; // Order of y1 and y3 equations does not matter
+     y1 = sin(x);
+   <strong>end when</strong>;
+   y2 = sin(y1);</pre>
+
+<h4>Syntax</h4>
+
+<p>
+In equation sections:
+</p>
+
+<pre>  <strong>when</strong> expression <strong>then</strong>
+    { equation ";" }
+  { <strong>elsewhen</strong> expression <strong>then</strong>
+    { equation ";" } }
+  <strong>end when</strong></pre>
+
+<p>
+In algorithm sections:
+</p>
+<pre>  <strong>when</strong> expression <strong>then</strong>
+    { algorithm ";" }
+  { <strong>elsewhen</strong> expression <strong>then</strong>
+    { algorithm ";" } }
+  <strong>end when</strong></pre>
+
+<h4>Description</h4>
+
+<p>The expression of a when clause shall be a discrete-time Boolean scalar
+or vector expression. The equations and algorithm statements within a when
+clause are activated when the scalar or any one of the elements of the vector
+expression becomes true. When-clauses in equation sections are allowed, provided
+the equations within the when-clause have one of the following forms:</p>
+
+<UL>
+  <LI>v = expr;</LI>
+  <LI> (out1, out2, out3, ...) = function_call(in1, in2, ...);</LI>
+  <LI>operators <strong>assert</strong>(), <strong>terminate</strong>(), <strong>reinit</strong>()</LI>
+  <LI><strong>For</strong> and <strong>if</strong>-clause if the equations within the <strong>for</strong> and <strong>if</strong>-clauses satisfy these requirements.</LI>
+  <LI>In an equation section, the different branches of when/elsewhen must have the same set of component references on the left-hand side.</LI>
+  <LI>In an equation section, the branches of an if-then-else clause inside when-clauses must have the same set of component references on the left-hand side, unless the if-then-else have exclusively parameter expressions as switching conditions.</LI>
+</UL>
+
+<p>A when clause shall not be used within a function class.</p>
+
+<p><em>[Example:</em></p>
+
+<p><em>Algorithms are activated when x becomes &gt; 2:</em></p>
+
+<pre>   <strong>when</strong> x &gt; 2 <strong>then</strong>
+     y1 := sin(x);
+     y3 := 2*x + y1 + y2;
+   <strong>end when</strong>;</pre>
+
+<p><em>Algorithms are activated when either x becomes &gt; 2 or sample(0,2) becomes true or x becomes less than 5:</em></p>
+
+<pre>   <strong>when</strong> {x &gt; 2, sample(0,2), x &lt; 5} <strong>then</strong>
+     y1 := sin(x);
+     y3 := 2*x + y1 + y2;
+   <strong>end when</strong>;</pre>
+
+<p><em>For when in equation sections the order between the equations does not matter, e.g.,</em></p>
+<pre> <strong>equation
+   when</strong> x &gt; 2 <strong>then</strong>
+     y3 = 2*x +y1+y2; // Order of y1 and y3 equations does not matter
+     y1 = sin(x);
+   <strong>end when</strong>;
+   y2 = sin(y1);</pre>
+
+<p><em>The needed restrictions on equations within a when-clause becomes apparent with the following example:</em></p>
+
+<pre>   Real x, y;
+<strong>equation</strong>
+   x + y = 5;
+   <strong>when</strong> condition <strong>then</strong>
+      2*x + y = 7;         // error: not valid Modelica
+   <strong>end when</strong>;</pre>
+
+<p><em>When the equations of the when-clause are not activated it is not clear which
+variable to hold constant, either x or y. A corrected version of this example is:</em></p>
+
+<pre>   Real x, y;
+<strong>equation</strong>
+   x + y = 5;
+   <strong>when</strong> condition <strong>then</strong>
+      y = 7 - 2*x;        // fine
+   <strong>end when</strong>;</pre>
+
+<p><em>Here, variable y is held constant when the when-clause is de-activated and x
+is computed from the first equation using the value of y from the previous event instant.</em></p>
+
+<p><em>For when in algorithm sections the order is significant and it is advisable to have only
+one assignment within the when-clause and instead use several algorithms having when-clauses
+with identical conditions, e.g.,</em></p>
+
+<pre> <strong>algorithm</strong>
+   <strong>when</strong> x &gt; 2 <strong>then</strong>
+     y1 := sin(x);
+   <strong>end when</strong>;
+ <strong>equation</strong>
+   y2 = sin(y1);
+ <strong>algorithm</strong>
+   <strong>when</strong> x &gt; 2 <strong>then</strong>
+     y3 := 2*x + y1 + y2;
+   <strong>end when</strong>;</pre>
+
+<p><em>Merging the when-clauses can lead to less efficient code and different models
+with different behaviour depending on the order of the assignment to y1 and y3 in the algorithm.]</em></p>
+
+<p>A when clause</p>
+
+<pre> <strong>algorithm
+   when</strong> {x&gt;1, <strong>..., </strong>y&gt;p} <strong>then
+     ...
+   elsewhen</strong> x &gt; y.start <strong>then
+     ...
+   end when</strong>;</pre>
+
+<p>is equivalent to the following special if-clause, where Boolean b1[N]
+and Boolean b2 are necessary because the <strong>edge</strong>() operator can only
+be applied to variables</p>
+
+<pre>   Boolean b1[N](start={x.start&gt;1,<strong> ..., </strong>y.start&gt;p});
+   Boolean b2(start=x.start&gt;y.start);
+ <strong>algorithm</strong>
+   b1:={x&gt;1, ..., y&gt;p};
+   b2:=x&gt;y.start;
+
+   <strong>if edge</strong>(b1[1]) <strong>or edge</strong>(b1[2]) <strong>or ... edge</strong>(b1[N]) <strong>then
+     ...
+   elseif edge</strong>(b2) <strong>then
+     ...
+   end if</strong>;</pre>
+
+<p>with &quot;<strong>edge</strong>(A)= A <strong>and not pre</strong>(A)&quot; and the additional
+guarantee, that the algorithms within this special if clause are only evaluated
+at event instants.</p>
+
+<p>A when-clause</p>
+
+<pre> <strong>equation
+   when</strong> x&gt;2 <strong>then</strong>
+     v1 = expr1 ;
+     v2 = expr2 ;
+   <strong>end when</strong>;</pre>
+
+<p>is equivalent to the following special if-expressions</p>
+
+<pre>   Boolean b(start=x.start&gt;2);
+ <strong>equation</strong>
+   b  = x&gt;2;
+   v1 = <strong>if edge</strong>(b) <strong>then</strong> expr1 <strong>else pre</strong>(v1);
+   v2 = <strong>if edge</strong>(b) <strong>then</strong> expr2 <strong>else pre</strong>(v2);</pre>
+
+<p>The start-values of the introduced Boolean variables are defined by
+the taking the start-value of the when-condition, as above where p is a
+parameter variable. The start-values of the special functions
+<strong>initial</strong>, <strong>terminal</strong>, and <strong>sample</strong> is false.</p>
+
+<p>When clauses cannot be nested.</p>
+
+<p><em>[Example:</em></p>
+
+<p><em>The following when clause is invalid:</em></p>
+
+<pre>   <strong>when</strong> x &gt; 2 <strong>then
+     when</strong> y1 &gt; 3 <strong>then</strong>
+       y2 = sin(x);
+     <strong>end when</strong>;
+   <strong>end when</strong>;</pre>
+
+<p><em>]</em></p>
+<p>Extends from <code><a href="Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="'while'"><h2><embed class="icon" src="images/icon0001.svg" width="203" height="203" />
+Class <a href="index.html">ModelicaReference</a>.&#8203;'while'<br><span class="subtitle">while</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Repeat statements as long as a condition is fulfilled
+</p>
+<h4>Examples</h4>
+<pre>    Integer i;
+  <strong>algorithm</strong>
+    i := 1;
+    <strong>while</strong> i &lt; 10 <strong>loop</strong>
+      i := i + 1;
+      <strong>...
+    end while</strong>;</pre>
+
+<h4>Syntax</h4>
+
+<pre>  <strong>while</strong> expression <strong>loop</strong>
+    { algorithm ";" }
+  <strong>end while</strong></pre>
+
+<h4>Description</h4>
+
+<p>The expression of a while clause shall be a scalar Boolean expression.
+The while-clause corresponds to while-statements in programming languages,
+and is formally defined as follows</p>
+
+<OL>
+  <LI>The expression of the while clause is evaluated.</LI>
+  <LI>If the expression of the while-clause is false, the execution
+      continues after the while-clause.</LI>
+  <LI>If the expression of the while-clause is true, the entire body of
+      the while clause is executed (except if a break statement or return
+      statement is executed), and then execution proceeds at step 1.</LI>
+</OL>
+
+<p>Extends from <code><a href="Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="Contact"><h2><embed class="icon" src="images/icon0002.svg" width="203" height="203" />
+Class <a href="index.html">ModelicaReference</a>.&#8203;Contact<br><span class="subtitle">Contact</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<dl>
+<dt><strong>Library Officers:</strong>
+<dd><a href="https://github.com/dietmarw">Dietmar Winkler</a> and <a href="https://github.com/HansOlsson">Hans Olsson</a></dd>
+</dl>
+<p><strong>Acknowledgements:</strong></p>
+<ul>
+<li> The initial version of ModelicaReference is from Christian Schweiger (DLR) who
+     provided it up to Modelica version 2.2.</li>
+
+<li> Martin Otter (DLR) updated ModelicaReference for Modelica 3.0.</li>
+
+<li> Dietmar Winkler (DWE) updated ModelicaReference for
+     Modelica 3.1 and 3.2</li>
+
+<li> Stefan Vorkoetter (Maplesoft) provided ModelicaReference.ModelicaGrammar
+     for Modelica 3.2.</li>
+</ul>
+
+<p>Extends from <code><a href="Icons/index.html#Contact">ModelicaReference.&#8203;Icons.&#8203;Contact</a></code> (Icon for contact information).</p>
+</body></html>

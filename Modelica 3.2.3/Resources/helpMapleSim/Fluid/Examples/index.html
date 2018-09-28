@@ -1,0 +1,248 @@
+<html><head><title>Modelica.Fluid.Examples</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Examples"><h1><embed class="icon" src="../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;Examples<br><span class="subtitle">Demonstration of the usage of the library</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates a package that contains executable examples.</p>
+<p>Extends from <code><a href="../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="../../Fluid/Examples/AST_BatchPlant/index.html"><code>AST_BatchPlant</code></a> &hellip;</td><td>Model of the experimental batch plant at Process Control Laboratory at University of Dortmund (Prof. Engell)</td></tr>
+<tr><td><a href="#BranchingDynamicPipes"><code>BranchingDynamicPipes</code></a></td><td>Multi-way connections of pipes with dynamic momentum balance, pressure wave and flow reversal</td></tr>
+<tr><td><a href="../../Fluid/Examples/ControlledTankSystem/index.html"><code>ControlledTankSystem</code></a> &hellip;</td><td>Tank system with controller, start/stop/shut operation and diagram animation</td></tr>
+<tr><td><a href="../../Fluid/Examples/DrumBoiler/index.html"><code>DrumBoiler</code></a> &hellip;</td><td>Drum boiler example, see Franke, Rode, Krueger: On-line Optimization of Drum Boiler Startup, 3rd International Modelica Conference, Linkoping, 2003</td></tr>
+<tr><td><a href="../../Fluid/Examples/Explanatory/index.html"><code>Explanatory</code></a> &hellip;</td><td>A set of examples illustrating when special attention has to be paid</td></tr>
+<tr><td><a href="../../Fluid/Examples/HeatExchanger/index.html"><code>HeatExchanger</code></a> &hellip;</td><td>Demo of a heat exchanger model</td></tr>
+<tr><td><a href="#HeatingSystem"><code>HeatingSystem</code></a></td><td>Simple model of a heating system</td></tr>
+<tr><td><a href="#IncompressibleFluidNetwork"><code>IncompressibleFluidNetwork</code></a></td><td>Multi-way connections of pipes and incompressible medium model</td></tr>
+<tr><td><a href="#InverseParameterization"><code>InverseParameterization</code></a></td><td>Demonstrates the parameterization of a pump and a pipe for given nominal values</td></tr>
+<tr><td><a href="#NonCircularPipes"><code>NonCircularPipes</code></a></td><td>Comparing a circular with a non-circular pipe</td></tr>
+<tr><td><a href="#PumpingSystem"><code>PumpingSystem</code></a></td><td>Model of a pumping system for drinking water</td></tr>
+<tr><td><a href="../../Fluid/Examples/Tanks/index.html"><code>Tanks</code></a> &hellip;</td><td>Library demonstrating the usage of the tank model</td></tr>
+<tr><td><a href="../../Fluid/Examples/TraceSubstances/index.html"><code>TraceSubstances</code></a> &hellip;</td><td>Library demonstrating the usage of trace substances</td></tr>
+</table>
+<hr><a name="PumpingSystem"><h2><embed class="icon" src="../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Examples</a>.&#8203;PumpingSystem<br><span class="subtitle">Model of a pumping system for drinking water</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Water is pumped from a source by a pump (fitted with check valves), through a pipe whose outlet is 50 m higher than the source, into a reservoir. The users are represented by an equivalent valve, connected to the reservoir.
+</p>
+<p>
+The water controller is a simple on-off controller, regulating on the gauge pressure measured at the base of the tower; the output of the controller is the rotational speed of the pump, which is represented by the output of a first-order system. A small but nonzero rotational speed is used to represent the standby state of the pumps, in order to avoid singularities in the flow characteristic.
+</p>
+<p>
+Simulate for 2000 s. When the valve is opened at time t=200, the pump starts turning on and off to keep the reservoir level around 2 meters, which roughly corresponds to a gauge pressure of 200 mbar.
+</p>
+
+<img src="../../../Images/Fluid/Examples/PumpingSystem.png" border="1"
+     alt="PumpingSystem.png">
+<p>Extends from <code><a href="../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="HeatingSystem"><h2><embed class="icon" src="../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Examples</a>.&#8203;HeatingSystem<br><span class="subtitle">Simple model of a heating system</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Simple heating system with a closed flow cycle.
+After 2000s of simulation time the valve fully opens. A simple idealized control is embedded
+into the respective components, so that the heating system can be regulated with the valve:
+the pump controls the pressure, the burner controls the temperature.
+</p>
+<p>
+One can investigate the temperatures and flows for different settings of <code>system.energyDynamics</code>
+(see Assumptions tab of the system object).</p>
+<ul>
+<li>With <code>system.energyDynamics==Types.Dynamics.FixedInitial</code> the states need to find their steady values during the simulation.</li>
+<li>With <code>system.energyDynamics==Types.Dynamics.SteadyStateInitial</code> (default setting) the simulation starts in steady-state.</li>
+<li>With <code>system.energyDynamics==Types.Dynamics.SteadyState</code> all but one dynamic states are eliminated.
+    The left state <code>tank.m</code> is to account for the closed flow cycle. It is constant as outflow and inflow are equal
+    in a steady-state simulation.</li>
+</ul>
+<p>
+Note that a closed flow cycle generally causes circular equalities for the mass flow rates and leaves the pressure undefined.
+This is why the tank.massDynamics, i.e., the tank level determining the port pressure, is modified locally to Types.Dynamics.FixedInitial.
+</p>
+<p>
+Also note that the tank is thermally isolated against its ambient. This way the temperature of the tank is also
+well defined for zero flow rate in the heating system, e.g., for valveOpening.offset=0 at the beginning of a simulation.
+The pipe however is assumed to be perfectly isolated.
+If steady-state values shall be obtained with the valve fully closed, then a thermal
+coupling between the pipe and its ambient should be defined as well.
+</p>
+<p>
+Moreover it is worth noting that the idealized direct connection between the heater and the pipe, resulting in equal port pressures,
+is treated as high-index DAE, as opposed to a nonlinear equation system for connected pressure loss correlations. A pressure loss correlation
+could be additionally introduced to model the fitting between the heater and the pipe, e.g., to adapt different diameters.
+</p>
+
+<img src="../../../Images/Fluid/Examples/HeatingSystem.png" border="1"
+     alt="HeatingSystem.png">
+<p>Extends from <code><a href="../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="IncompressibleFluidNetwork"><h2><embed class="icon" src="../../images/icon1322.svg" width="223" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Examples</a>.&#8203;IncompressibleFluidNetwork<br><span class="subtitle">Multi-way connections of pipes and incompressible medium model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example demonstrates two aspects: the treatment of multi-way connections
+and the usage of an incompressible medium model.
+</p><p>
+Eleven pipe models with nNodes=2 each introduce 22 temperature states and 22 pressure states.
+When configuring <strong>pipeModelStructure=a_v_b</strong>, the flow models at the pipe ports constitute algebraic loops for the pressures.
+A common work-around is to introduce "mixing volumes" in critical connections.
+</p><p>
+Here the problem is treated alternatively with the default <strong>pipeModelStructure=av_vb</strong> of the
+<a href="../../Fluid/Pipes/index.html#DynamicPipe">DynamicPipe</a> model.
+Each pipe exposes the states of the outer fluid segments to the respective fluid ports.
+Consequently the pressures of all connected pipe segments get lumped together into one mass balance spanning the whole connection set.
+Overall this treatment as high-index DAE results in the reduction to 9 pressure states, preventing algebraic loops in connections.
+This can be studied with a rigorous medium model like <strong>StandardWaterOnePhase</strong>.
+</p><p>
+The pressure dynamics completely disappears with an incompressible medium model, like the used <strong>Glycol47</strong>.
+It appears reasonable to assume steady-state mass balances in this case
+(see parameter systemMassDynamics used in system.massDynamics, tab Assumptions).
+</p><p>
+Note that with the stream concept in the fluid ports, the energy and substance balances of the connected pipe segments remain independent
+from each other, despite of pressures being lumped together. The following simulation results can be observed:
+</p>
+<ol>
+<li>The simulation starts with system.T_ambient as initial temperature in all pipes.
+    The temperatures upstream or bypassing pipe8 are approaching the value of 26.85 degC from the source, including also pipe9.
+    The temperatures downstream of pipe8 take a higher value, depending on the mixing with heated fluid, see e.g. pipe10.</li>
+<li>After 50s valve1 fully closes. This causes flow reversal in pipe8. Now heated fluid flows from pipe8 to pipe9.
+    Note that the temperature of the connected pipe7 remains unchanged as there is no flow into pipe7.
+    The temperature of pipe10 cools down to the source temperature.</li>
+<li>After 100s valve2 closes half way, which affects mass flow rates and temperatures.</li>
+<li>After 150s valve5 closes half way, which affects mass flow rates and temperatures.</li>
+</ol>
+<p>
+The fluid temperatures in the pipes of interest are exposed through heatPorts.
+</p>
+<img src="../../../Images/Fluid/Examples/IncompressibleFluidNetwork.png" border="1"
+     alt="IncompressibleFluidNetwork.png">
+<p>Extends from <code><a href="../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Types/index.html#ModelStructure">ModelStructure</a></code></td><td><code>pipeModelStructure</code></td><td><code>Modelica.&#8203;Fluid.&#8203;Types.&#8203;ModelStructure.&#8203;av_vb</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>systemMassDynamics</code></td><td><code>if Medium.singleState then Dynamics.SteadyState else Dynamics.SteadyStateInitial</code></td><td>&nbsp</td></tr>
+<tr><td><code>Boolean</code></td><td><code>filteredValveOpening</code></td><td><code>not Medium.singleState</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="BranchingDynamicPipes"><h2><embed class="icon" src="../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Examples</a>.&#8203;BranchingDynamicPipes<br><span class="subtitle">Multi-way connections of pipes with dynamic momentum balance, pressure wave and flow reversal</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model demonstrates the use of distributed pipe models with dynamic energy, mass and momentum balances.
+At time=2s the pressure of boundary4 jumps, which causes a pressure wave and flow reversal.
+</p>
+<p>
+Change system.momentumDynamics on the Assumptions tab of the system object from SteadyStateInitial to SteadyState,
+in order to assume a steady-state momentum balance. This is the default for all models of the library.
+</p>
+<p>
+Change the Medium from MoistAir to StandardWater, in order to investigate a medium with significantly different density.
+Note the static head caused by the elevation of the pipes.
+</p>
+<p>
+Note the appropriate use of the modelStructure of the DynamicPipe models (Advanced tab).
+The default modelStructure is av_vb, i.e. volumes with a pressure state are exposed at both ports.
+In many cases this gives good numerical performance, avoiding algebraic loops in connections,
+e.g. if a pipe is connected to a valve or to a vessel with portsData configured.
+The price to pay is a high-index DAE if two pipes are connected or if a pipe is connected to a boundary with prescribed pressure.
+In such cases one might consider changing the modelStructure.
+</p>
+<p>
+In the BranchingDynamicPipes example, {pipe1,pipe3,pipe4}.modelStructure are configured to a_v_b, while pipe2.modelStructure remains av_vb.
+This avoids a high-index DAE and overdetermined initial conditions.
+</p>
+<img src="../../../Images/Fluid/Examples/BranchingDynamicPipes.png" border="1"
+     alt="BranchingDynamicPipes.png">
+<p>Extends from <code><a href="../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="NonCircularPipes"><h2><embed class="icon" src="../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Examples</a>.&#8203;NonCircularPipes<br><span class="subtitle">Comparing a circular with a non-circular pipe</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+In this example two pipes are used to demonstrate the use of circular (default) and non-circular pipes,
+where the topmost pipe is circular with a length of 100 m and an inner diameter of 10 mm and the second pipe
+is a circular ring pipe with inner diameter of 5 mm and an outer diameter of 15 mm.
+</p>
+<p>
+Both pipes are connected to a pT source (water, 293.15 K, 10 bar) and a mass flow sink (0.1 kg/s inflow).
+</p>
+<p>
+Although the hydraulic diameter of both pipes are the same, the different cross sections lead to different
+velocities and by this different outlet pressures (7.324 bar for the circular pipe versus 9.231 bar for the
+circular ring pipe).
+</p>
+<p><img src="../../../Images/Fluid/Examples/NonCircularPipes.png" border="1"
+     alt="NonCircularPipes.png"></p>
+<p>Extends from <code><a href="../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="InverseParameterization"><h2><embed class="icon" src="../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Examples</a>.&#8203;InverseParameterization<br><span class="subtitle">Demonstrates the parameterization of a pump and a pipe for given nominal values</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+A pump, an orifice and two pipes are parameterized with simple nominal values.
+Note that pipe1 and pipe2 use the flowModel NominalTurbulentFlow and NominalLaminarFlow, respectively,
+which do not require the specification of geometry data.
+Instead pathLengths_nominal are obtained internally for given nominal pressure loss and nominal mass flow rate.
+</p>
+<p>
+The pump controls a pressure ramp from 1.9 bar to 2.1 bar.
+This causes an appropriate ramp on the mass flow rate of the orifice, which has a boundary pressure of 1 bar.
+Flow reversal occurs in the pipes, which have a boundary pressure of 2 bar.
+The Command plotResults can be used to see the pump speed N, which is controlled ideally to obtain the pressure ramp.
+Moreover the internally obtained nominal design values that fulfill the nominal operating conditions as well as
+the Reynolds number, m_flows_turbulent, and dps_fg_turbulent are plotted.
+</p>
+<p>
+Note that the large value for pipe2.flowModel.pathLengths_nominal[1] is only meaningful under the made assumption of laminar flow,
+ which is hardly possible for a real pipe.
+</p>
+<p>
+Once the geometries have been designed, the NominalTurbulentPipeFlow correlations can easily be replaced with
+TurbulentPipeFlow or DetailedPipeFlow correlations. Similarly the ControlledPump can be replaced with a PrescribedPump
+to investigate a real controller or with a Pump with rotational shaft to investigate inertia effects.
+</p>
+<p>
+The model has the parameter <strong>eps_m_flow_turbulent</strong> that
+can be used to change the flow through pipe1 from fully turbulent (eps_m_flow_turbulent=0) to fully laminar (eps_m_flow_turbulent>actual flow).
+Invoke plotResults and see pipe1.port_a.m_flow. Relating the actual flow to pipe1.flowModel.m_flows_turbulent[1],
+it can be seen that eps_m_flow_turbulent=0.1 is an appropriate choice for the given pipe diameter.
+</p>
+<img src="../../../Images/Fluid/Examples/InverseParametrization.png" border="1"
+     alt="InverseParametrization.png">
+<p>Extends from <code><a href="../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>eps_m_flow_turbulent</code></td><td><code>0.1</code></td><td>Turbulent flow |m_flow| &gt;= eps_m_flow_nominal*m_flow_nominal</td></tr>
+</table>
+</body></html>

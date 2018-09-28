@@ -1,0 +1,287 @@
+<html><head><title>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Components"><h1><embed class="icon" src="../../../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">QuasiStatic</a>.&#8203;<a href="../../index.html">FundamentalWave</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;Components<br><span class="subtitle">Components for quasi static machine models</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>Standard package icon.</p>
+<p>Extends from <code><a href="../../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#PermanentMagnet"><code>PermanentMagnet</code></a></td><td>Permanent magnet model without intrinsic reluctance, represented by magnetic potential difference</td></tr>
+<tr><td><a href="#QuasiStaticAnalogWinding"><code>QuasiStaticAnalogWinding</code></a></td><td>Quasi static single phase winding neglecting induced voltage</td></tr>
+<tr><td><a href="#RotorSaliencyAirGap"><code>RotorSaliencyAirGap</code></a></td><td>Air gap model with rotor saliency</td></tr>
+<tr><td><a href="#SaliencyCageWinding"><code>SaliencyCageWinding</code></a></td><td>Rotor cage with saliency in d- and q-axis</td></tr>
+<tr><td><a href="#SymmetricMultiPhaseCageWinding"><code>SymmetricMultiPhaseCageWinding</code></a></td><td>Symmetrical rotor cage</td></tr>
+<tr><td><a href="#SymmetricMultiPhaseWinding"><code>SymmetricMultiPhaseWinding</code></a></td><td>Symmetric winding model coupling electrical and magnetic domain</td></tr>
+</table>
+<hr><a name="SymmetricMultiPhaseWinding"><h2><embed class="icon" src="../../../../../images/icon1031.svg" width="223" height="223" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">QuasiStatic</a>.&#8203;<a href="../../index.html">FundamentalWave</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">Components</a>.&#8203;SymmetricMultiPhaseWinding<br><span class="subtitle">Symmetric winding model coupling electrical and magnetic domain</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The symmetrical multi phase winding consists of a symmetrical winding
+<a href="../../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Resistor">resistor</a>, a
+<a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/Components/index.html#Reluctance">stray reluctance</a>, a symmetrical
+<a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/Components/index.html#MultiPhaseElectroMagneticConverter">multi phase electromagnetic coupling</a> and a
+<a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/Components/index.html#EddyCurrent">core loss</a> model including
+heat <a href="../../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">port</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/BasicMachines/Components/index.html#QuasiStaticAnalogWinding">
+QuasiStaticAnalogWinding</a>,
+<a href="../../../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#SinglePhaseWinding">
+Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding</a>,
+<a href="../../../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#SymmetricMultiPhaseWinding">
+Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>Enable / disable (=fixed temperatures) thermal port</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RRef</code></td><td>&nbsp;</td><td>Winding resistance per phase at TRef</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TRef</code></td><td>&nbsp;</td><td>Reference temperature of winding</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20</code></td><td>&nbsp;</td><td>Temperature coefficient of winding at 20 degC</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alphaRef</code></td><td><code>Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20, TRef, 293.15)</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TOperational</code></td><td>&nbsp;</td><td>Operational temperature of winding</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lsigma</code></td><td>&nbsp;</td><td>Winding stray inductance per phase</td></tr>
+<tr><td><code>Real</code></td><td><code>effectiveTurns</code></td><td><code>1</code></td><td>Effective number of turns per phase</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>GcRef</code></td><td>&nbsp;</td><td>Electrical reference core loss reluctance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive plug</td></tr>
+<tr><td><code><a href="../../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative plug</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative complex magnetic port</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive complex magnetic port</td></tr>
+<tr><td><code><a href="../../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortWinding[m]</code></td><td>Heat ports of winding resistors</td></tr>
+<tr><td><code><a href="../../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortCore</code></td><td>Heat ports of winding resistor</td></tr>
+</table>
+<hr><a name="QuasiStaticAnalogWinding"><h2><embed class="icon" src="../../../../../images/icon1032.svg" width="223" height="223" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">QuasiStatic</a>.&#8203;<a href="../../index.html">FundamentalWave</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">Components</a>.&#8203;QuasiStaticAnalogWinding<br><span class="subtitle">Quasi static single phase winding neglecting induced voltage</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The single phase winding consists of a
+<a href="../../../../../Electrical/Analog/Basic/index.html#Resistor">resistor</a>,  and a
+<a href="../../../../../Magnetic/FundamentalWave/Components/index.html#SinglePhaseElectroMagneticConverter">single phase electromagnetic coupling</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/BasicMachines/Components/index.html#SymmetricMultiPhaseWinding">
+SymmetricMultiPhaseWinding</a>,
+<a href="../../../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#SinglePhaseWinding">
+Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding</a>,
+<a href="../../../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#SymmetricMultiPhaseWinding">
+Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>Enable / disable (=fixed temperatures) thermal port</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RRef</code></td><td>&nbsp;</td><td>Winding resistance per phase at TRef</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TRef</code></td><td>&nbsp;</td><td>Reference temperature of winding</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20</code></td><td>&nbsp;</td><td>Temperature coefficient of winding at 20 degC</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alphaRef</code></td><td><code>Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20, TRef, 293.15)</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TOperational</code></td><td>&nbsp;</td><td>Operational temperature of winding</td></tr>
+<tr><td><code>Real</code></td><td><code>effectiveTurns</code></td><td><code>1</code></td><td>Effective number of turns per phase</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>Positive pin</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>Negative pin</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative complex magnetic port</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive complex magnetic port</td></tr>
+<tr><td><code><a href="../../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortWinding</code></td><td>Heat ports of winding resistor</td></tr>
+</table>
+<hr><a name="RotorSaliencyAirGap"><h2><embed class="icon" src="../../../../../images/icon1033.svg" width="223" height="223" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">QuasiStatic</a>.&#8203;<a href="../../index.html">FundamentalWave</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">Components</a>.&#8203;RotorSaliencyAirGap<br><span class="subtitle">Air gap model with rotor saliency</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This salient air gap model can be used for machines with uniform air gaps and for machines with rotor saliency. The air gap model is not symmetrical towards stator and rotor since it is assumed the saliency always refers to the rotor. The saliency of the air gap is represented by a main field inductance in the d- and q-axis.
+</p>
+
+<p>
+For the mechanical interaction of the air gap model with the stator and the rotor is equipped with two
+<a href="../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">rotational connectors</a>. The torques acting on both connectors have the same absolute values but different signs. The stator and the rotor reference angles,
+<img src="../../../../../../Images/Magnetic/QuasiStatic/FundamentalWave/gamma_s.png"> and
+<img src="../../../../../../Images/Magnetic/QuasiStatic/FundamentalWave/gamma_r.png"> are related by
+<img src="../../../../../../Images/Magnetic/QuasiStatic/FundamentalWave/gamma_relationship.png">
+where
+<img src="../../../../../../Images/Magnetic/QuasiStatic/FundamentalWave/gamma.png">
+is the electrical angle between stator and rotor.
+</p>
+
+<p>
+The air gap model has two magnetic stator and two magnetic rotor
+<a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#MagneticPort">ports</a>. The magnetic potential difference and the magnetic flux of the stator and rotor are equal complex quantities, respectively, but the reference angles are different; see <a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/UsersGuide/index.html#Concept">Concept</a>. The d and q axis components with respect to the rotor fixed reference frame (superscript r) are determined from the stator (superscript s) and rotor (superscript r) reference quantities, by
+</p>
+
+<p>
+&nbsp;&nbsp;<img src="../../../../../../Images/Magnetic/QuasiStatic/FundamentalWave/V_m_transformation.png">.
+</p>
+
+<p>
+The d and q axis magnetic potential difference components and flux components are related with the flux by:
+</p>
+
+<p>
+&nbsp;&nbsp;<img src="../../../../../../Images/Magnetic/FundamentalWave/Machines/Components/airgap.png">
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#RotorSaliencyAirGap">
+Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
+</p>
+
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>p</code></td><td>&nbsp;</td><td>Number of pole pairs</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/FundamentalWave/Types/index.html#SalientInductance">SalientInductance</a></code></td><td><code>L0</code></td><td>&nbsp;</td><td>Salient inductance of a single unchorded coil w.r.t. the fundamental wave</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/FundamentalWave/Types/index.html#SalientReluctance">SalientReluctance</a></code></td><td><code>R_m</code></td><td>&nbsp;</td><td>Reluctance of the air gap model</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_sp</code></td><td>Positive complex magnetic stator port</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_sn</code></td><td>Negative complex magnetic stator port</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_rp</code></td><td>Positive complex magnetic rotor port</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_rn</code></td><td>Negative complex magnetic rotor port</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>Flange of the rotor</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>support</code></td><td>Support at which the reaction torque is acting</td></tr>
+</table>
+<hr><a name="SymmetricMultiPhaseCageWinding"><h2><embed class="icon" src="../../../../../images/icon1034.svg" width="223" height="213" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">QuasiStatic</a>.&#8203;<a href="../../index.html">FundamentalWave</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">Components</a>.&#8203;SymmetricMultiPhaseCageWinding<br><span class="subtitle">Symmetrical rotor cage</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+<img src="../../../../../../Images/Magnetic/FundamentalWave/Machines/Components/rotorcage.png">
+</p>
+
+<p>
+The symmetric rotor cage model of this library does not consist of rotor bars and end rings. Instead the symmetric cage is modeled by an equivalent symmetrical winding. The rotor cage model consists of
+<img src="../../../../../../Images/Magnetic/FundamentalWave/m.png"> phases. If the cage is modeled by equivalent stator winding parameters, the number of effective turns,
+<img src="../../../../../../Images/Magnetic/FundamentalWave/effectiveTurns.png">, has to be chosen equivalent to the effective number of stator turns.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/BasicMachines/Components/index.html#SaliencyCageWinding">
+SaliencyCageWinding</a>,
+<a href="../../../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#SymmetricMultiPhaseCageWinding">
+Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding</a>
+<a href="../../../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#RotorSaliencyAirGap">
+Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
+</p>
+<p>Extends from <code><a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PartialTwoPortExtended">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FundamentalWave.&#8203;Interfaces.&#8203;PartialTwoPortExtended</a></code> (Partial two port for graphical programming with additional variables).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>Enable / disable (=fixed temperatures) thermal port</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RRef</code></td><td>&nbsp;</td><td>Winding resistance per phase at TRef</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TRef</code></td><td>&nbsp;</td><td>Reference temperature of winding</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20</code></td><td>&nbsp;</td><td>Temperature coefficient of winding at 20 degC</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alphaRef</code></td><td><code>Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20, TRef, 293.15)</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TOperational</code></td><td>&nbsp;</td><td>Operational temperature of winding</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lsigma</code></td><td>&nbsp;</td><td>Cage stray inductance</td></tr>
+<tr><td><code>Real</code></td><td><code>effectiveTurns</code></td><td><code>1</code></td><td>Effective number of turns</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nBase</code></td><td><code>Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)</code></td><td>Number of base systems</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><a href="../../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortWinding</code></td><td>Heat ports of winding resistor</td></tr>
+</table>
+<hr><a name="SaliencyCageWinding"><h2><embed class="icon" src="../../../../../images/icon1035.svg" width="223" height="213" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">QuasiStatic</a>.&#8203;<a href="../../index.html">FundamentalWave</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">Components</a>.&#8203;SaliencyCageWinding<br><span class="subtitle">Rotor cage with saliency in d- and q-axis</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+The salient cage model is a two axis model with two phases. The electromagnetic coupling therefore is also two phase coupling model. The angles of the two orientations are 0 and <img src="../../../../../../Images/Magnetic/FundamentalWave/pi_over_2.png">. This way an asymmetrical rotor cage with different resistances and stray inductances in d- and q-axis can be modeled.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/BasicMachines/Components/index.html#SymmetricMultiPhaseCageWinding">
+SymmetricMultiPhaseWinding</a>,
+<a href="../../../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#SymmetricMultiPhaseCageWinding">
+Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding</a>
+<a href="../../../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#RotorSaliencyAirGap">
+Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
+</p>
+<p>Extends from <code><a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PartialTwoPortExtended">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FundamentalWave.&#8203;Interfaces.&#8203;PartialTwoPortExtended</a></code> (Partial two port for graphical programming with additional variables).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>Enable / disable (=fixed temperatures) thermal port</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/FundamentalWave/Types/index.html#SalientResistance">SalientResistance</a></code></td><td><code>RRef</code></td><td>&nbsp;</td><td>Salient cage resistance</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TRef</code></td><td>&nbsp;</td><td>Reference temperature of winding</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20</code></td><td>&nbsp;</td><td>Temperature coefficient of winding at 20 degC</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alphaRef</code></td><td><code>Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20, TRef, 293.15)</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TOperational</code></td><td>&nbsp;</td><td>Operational temperature of winding</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/FundamentalWave/Types/index.html#SalientInductance">SalientInductance</a></code></td><td><code>Lsigma</code></td><td>&nbsp;</td><td>Salient cage stray inductance</td></tr>
+<tr><td><code>Real</code></td><td><code>effectiveTurns</code></td><td><code>1</code></td><td>Effective number of turns</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>i[2]</code></td><td>Cage currents</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>lossPower</code></td><td>Damper losses</td></tr>
+<tr><td><code><a href="../../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortWinding</code></td><td>Heat ports of winding resistor</td></tr>
+</table>
+<hr><a name="PermanentMagnet"><h2><embed class="icon" src="../../../../../images/icon1036.svg" width="223" height="233" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">QuasiStatic</a>.&#8203;<a href="../../index.html">FundamentalWave</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">Components</a>.&#8203;PermanentMagnet<br><span class="subtitle">Permanent magnet model without intrinsic reluctance, represented by magnetic potential difference</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Permanent magnet model with magnetic, mechanical and thermal connector including losses. The PM model is source  of constant magnetic potential difference. The PM loss is calculated by
+<a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/Losses/index.html#PermanentMagnetLosses">PermanentMagnetLosses</a>.
+</p>
+<p>Extends from <code><a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/Losses/index.html#PermanentMagnetLosses">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FundamentalWave.&#8203;Losses.&#8203;PermanentMagnetLosses</a></code> (Model of permanent magnet losses dependent on current and speed) and <code><a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PartialTwoPort">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FundamentalWave.&#8203;Interfaces.&#8203;PartialTwoPort</a></code> (Partial two port for graphical programming).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Losses/index.html#PermanentMagnetLossParameters">PermanentMagnetLossParameters</a></code></td><td><code>permanentMagnetLossParameters</code></td><td>&nbsp;</td><td>Permanent magnet loss parameters</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#ComplexMagneticPotentialDifference">ComplexMagneticPotentialDifference</a></code></td><td><code>V_m</code></td><td><code>Complex(re = 1, im = 0)</code></td><td>Complex magnetic potential difference w.r.t. the rotor fixed reference frame</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>Shaft end</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>support</code></td><td>Housing and support</td></tr>
+<tr><td><code><a href="../../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port of fundamental wave machines</td></tr>
+</table>
+</body></html>

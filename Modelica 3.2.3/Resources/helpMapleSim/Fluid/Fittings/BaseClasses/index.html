@@ -1,0 +1,63 @@
+<html><head><title>Modelica.Fluid.Fittings.BaseClasses</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="BaseClasses"><h1><embed class="icon" src="../../../images/icon1037.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Fittings</a>.&#8203;BaseClasses<br><span class="subtitle">Base classes used in the Fittings package (only of interest to build new component models)</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon shall be used for a package/library that contains base models and classes, respectively.</p>
+<p>Extends from <code><a href="../../../Icons/BasesPackage/index.html">Modelica.&#8203;Icons.&#8203;BasesPackage</a></code> (Icon for packages containing base classes).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="../../../Fluid/Fittings/BaseClasses/Bends/index.html"><code>Bends</code></a> &hellip;</td><td>Pressure loss functions for bends</td></tr>
+<tr><td><a href="../../../Fluid/Fittings/BaseClasses/GenericResistances/index.html"><code>GenericResistances</code></a> &hellip;</td><td>Pressure loss functions for generic, geometry independent flow resistances</td></tr>
+<tr><td><a href="#lossConstant_D_zeta"><code>lossConstant_D_zeta</code></a></td><td>Return the loss constant 8*zeta/(pi^2*D^4)</td></tr>
+<tr><td><a href="../../../Fluid/Fittings/BaseClasses/Orifices/index.html"><code>Orifices</code></a> &hellip;</td><td>Pressure loss functions for orifices</td></tr>
+<tr><td><a href="#PartialTeeJunction"><code>PartialTeeJunction</code></a></td><td>Base class for a splitting/joining component with three ports</td></tr>
+<tr><td><a href="../../../Fluid/Fittings/BaseClasses/QuadraticTurbulent/index.html"><code>QuadraticTurbulent</code></a> &hellip;</td><td>Pressure loss components that are mainly defined by a quadratic turbulent regime with constant loss factor data</td></tr>
+</table>
+<hr><a name="lossConstant_D_zeta"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Fittings</a>.&#8203;<a href="index.html">BaseClasses</a>.&#8203;lossConstant_D_zeta<br><span class="subtitle">Return the loss constant 8*zeta/(pi^2*D^4)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Diameter">Diameter</a></code></td><td><code>D</code></td><td>Diameter at port_a or port_b</td></tr>
+<tr><td><code>Real</code></td><td><code>zeta</code></td><td>Constant pressure loss factor with respect to D (i.e., either port_a or port_b)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>k</code></td><td>Loss constant (= 8*zeta/(pi^2*D^4))</td></tr>
+</table>
+<hr><a name="PartialTeeJunction"><h2><embed class="icon" src="../../../images/icon1365.svg" width="223" height="213" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Fittings</a>.&#8203;<a href="index.html">BaseClasses</a>.&#8203;PartialTeeJunction<br><span class="subtitle">Base class for a splitting/joining component with three ports</span></h2></a>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_1</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_2</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_3</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

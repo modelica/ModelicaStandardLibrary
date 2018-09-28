@@ -1,0 +1,213 @@
+<html><head><title>Modelica.Electrical.PowerConverters.ACDC.Control</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Control"><h1><embed class="icon" src="../../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">PowerConverters</a>.&#8203;<a href="../index.html">ACDC</a>.&#8203;Control<br><span class="subtitle">Control components for rectifiers</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+A generic controller with signal input and <code>2*m</code> firing signals is provided in
+<a href="../../../../Electrical/PowerConverters/ACDC/Control/index.html#Signal2mPulse">Signal2mPulse</a>,
+where <code>m</code> is the arbitrary number of phases.
+Additional topology specific controllers with electrical connectors are also included.
+</p>
+
+<h4>Filters</h4>
+
+<p>
+Each controller is equipped with an optional
+<a href="../../../../Electrical/PowerConverters/ACDC/Control/index.html#Filter">filter</a>
+to filter the input voltages. By default the filter is enabled.
+</p>
+
+<p>
+Such filter is needed if the electrical grid includes a significant voltage drop across the grid impedance
+distorting the input voltage wave form of the rectifier. The filter included in the PowerConverters library is first order filter with additional compensation of the filter specific phase lag.
+However, it important to note that the transients of the filters may cause some initial effects which deteriorate after
+certain periods.
+</p>
+
+<h4>Enable</h4>
+
+<p>
+The topology specific controllers allow enabling and disabling of the firing signals. The internal enabling signal of the controllers is either derived from the parameter <code>constantEnable</code>,
+if <code>useConstantEnable = true</code>. For if <code>useConstantEnable = false</code> the internal
+enabling signal is taken from the optional signal input <code>enable</code>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Filter"><code>Filter</code></a></td><td>PT1 + all-pass filter</td></tr>
+<tr><td><a href="#Signal2mPulse"><code>Signal2mPulse</code></a></td><td>Generic control of 2*m pulse rectifiers</td></tr>
+<tr><td><a href="#VoltageBridge2mPulse"><code>VoltageBridge2mPulse</code></a></td><td>Control of 2*m pulse bridge rectifier</td></tr>
+<tr><td><a href="#VoltageBridge2Pulse"><code>VoltageBridge2Pulse</code></a></td><td>Control of 2 pulse bridge rectifier</td></tr>
+<tr><td><a href="#VoltageCenterTap2mPulse"><code>VoltageCenterTap2mPulse</code></a></td><td>Control of 2*m pulse center tap rectifier</td></tr>
+</table>
+<hr><a name="Signal2mPulse"><h2><embed class="icon" src="../../../../images/icon0730.svg" width="243" height="263" />
+Block <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">PowerConverters</a>.&#8203;<a href="../index.html">ACDC</a>.&#8203;<a href="index.html">Control</a>.&#8203;Signal2mPulse<br><span class="subtitle">Generic control of 2*m pulse rectifiers</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+General information about controllers is summarized in
+<a href="../../../../Electrical/PowerConverters/ACDC/Control/index.html">Control</a>.
+</p>
+<p>Extends from <code><a href="../../../../Electrical/PowerConverters/Icons/index.html#Control">Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Icons.&#8203;Control</a></code> (Control icon).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useConstantFiringAngle</code></td><td><code>true</code></td><td>Use constant firing angle instead of signal input</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>constantFiringAngle</code></td><td><code>0</code></td><td>Firing angle</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useFilter</code></td><td><code>true</code></td><td>Enable use of filter</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Frequency</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fCut</code></td><td><code>2 * f</code></td><td>Cut off frequency of filter</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>vStart[m]</code></td><td><code>zeros(m)</code></td><td>Start voltage of filter output</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>firingAngleMax</code></td><td><code>Modelica.&#8203;Constants.&#8203;pi</code></td><td>Maximum firing angle</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>firingAngle</code></td><td>Firing angle (rad)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>fire_p[m]</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>fire_n[m]</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>v[m]</code></td><td>Voltages</td></tr>
+</table>
+<hr><a name="VoltageBridge2Pulse"><h2><embed class="icon" src="../../../../images/icon0731.svg" width="213" height="263" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">PowerConverters</a>.&#8203;<a href="../index.html">ACDC</a>.&#8203;<a href="index.html">Control</a>.&#8203;VoltageBridge2Pulse<br><span class="subtitle">Control of 2 pulse bridge rectifier</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+General information about controllers is summarized in
+<a href="../../../../Electrical/PowerConverters/ACDC/Control/index.html">Control</a>.
+</p>
+
+<p>
+This model provides two firing signal for Graetz bridge thyristor and half bridge rectifiers. The boolean
+signal <code>fire_p</code> is assigned to the thyristors connected with the positive DC output pin.
+The boolean
+signal <code>fire_n</code> is assigned to the thyristors connected with the negative DC output pin.
+</p>
+<p>Extends from <code><a href="../../../../Electrical/PowerConverters/Icons/index.html#Control">Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Icons.&#8203;Control</a></code> (Control icon).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Frequency</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useConstantFiringAngle</code></td><td><code>true</code></td><td>Use constant firing angle instead of signal input</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>constantFiringAngle</code></td><td><code>0</code></td><td>Firing angle</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>firingAngleMax</code></td><td><code>Modelica.&#8203;Constants.&#8203;pi</code></td><td>Maximum firing angle</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useFilter</code></td><td><code>true</code></td><td>Enable use of filter</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fCut</code></td><td><code>2 * f</code></td><td>Cut off frequency of filter</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>vStart</code></td><td><code>0</code></td><td>Start voltage of filter output</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>firingAngle</code></td><td>Firing angle (rad)</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>ac_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>ac_n</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>fire_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>fire_n</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="VoltageBridge2mPulse"><h2><embed class="icon" src="../../../../images/icon0732.svg" width="213" height="263" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">PowerConverters</a>.&#8203;<a href="../index.html">ACDC</a>.&#8203;<a href="index.html">Control</a>.&#8203;VoltageBridge2mPulse<br><span class="subtitle">Control of 2*m pulse bridge rectifier</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+General information about controllers is summarized in
+<a href="../../../../Electrical/PowerConverters/ACDC/Control/index.html">Control</a>.
+</p>
+
+<p>
+Half of the semiconductors of the <code>2*m</code> pulse bridge rectifier are connected with the positive DC output pin (firing signal <code>fire_p</code>). The other half of the semiconductors is connected with the negative DC output pin (firing signal <code>fire_n</code>). Parameter <code>m</code> indicates the number of phases.
+</p>
+<p>Extends from <code><a href="../../../../Electrical/PowerConverters/Icons/index.html#Control">Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Icons.&#8203;Control</a></code> (Control icon).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Frequency</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useConstantFiringAngle</code></td><td><code>true</code></td><td>Use constant firing angle instead of signal input</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>constantFiringAngle</code></td><td><code>0</code></td><td>Firing angle</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>firingAngleMax</code></td><td><code>Modelica.&#8203;Constants.&#8203;pi</code></td><td>Maximum firing angle</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useFilter</code></td><td><code>true</code></td><td>Enable use of filter</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fCut</code></td><td><code>2 * f</code></td><td>Cut off frequency of filter</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>vStart[m]</code></td><td><code>zeros(m)</code></td><td>Start voltage of filter output</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>firingAngle</code></td><td>Firing angle (rad)</td></tr>
+<tr><td><code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>ac</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>fire_p[m]</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>fire_n[m]</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="VoltageCenterTap2mPulse"><h2><embed class="icon" src="../../../../images/icon0732.svg" width="213" height="263" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">PowerConverters</a>.&#8203;<a href="../index.html">ACDC</a>.&#8203;<a href="index.html">Control</a>.&#8203;VoltageCenterTap2mPulse<br><span class="subtitle">Control of 2*m pulse center tap rectifier</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+General information about controllers is summarized in
+<a href="../../../../Electrical/PowerConverters/ACDC/Control/index.html">Control</a>.
+</p>
+<p>Extends from <code><a href="../../../../Electrical/PowerConverters/Icons/index.html#Control">Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Icons.&#8203;Control</a></code> (Control icon).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Frequency</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useConstantFiringAngle</code></td><td><code>true</code></td><td>Use constant firing angle instead of signal input</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>constantFiringAngle</code></td><td><code>0</code></td><td>Firing angle</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>firingAngleMax</code></td><td><code>Modelica.&#8203;Constants.&#8203;pi</code></td><td>Maximum firing angle</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useFilter</code></td><td><code>true</code></td><td>Enable use of filter</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fCut</code></td><td><code>2 * f</code></td><td>Cut off frequency of filter</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>vStart[m]</code></td><td><code>zeros(m)</code></td><td>Start voltage of filter output</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>firingAngle</code></td><td>Firing angle (rad)</td></tr>
+<tr><td><code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>ac</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>fire_p[m]</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>fire_n[m]</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Filter"><h2><embed class="icon" src="../../../../images/icon0733.svg" width="263" height="203" />
+Block <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">PowerConverters</a>.&#8203;<a href="../index.html">ACDC</a>.&#8203;<a href="index.html">Control</a>.&#8203;Filter<br><span class="subtitle">PT1 + all-pass filter</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>First order filter with cut-off frequency <code>fCut</code>. The phase shift of the filter is compensated by a series of two first order all-pass filters tuned on supply frequency <code>f</code>.</p>
+<p>Extends from <code><a href="../../../../Blocks/Interfaces/index.html#SISO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;SISO</a></code> (Single Input Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Mains Frequency</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fCut</code></td><td><code>2 * f</code></td><td>Cut off frequency</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>na</code></td><td><code>2</code></td><td>Count of 1st order all-pass</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fa</code></td><td><code>f / tan(pi / na - atan(f / fCut) / (2 * na))</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>yStart</code></td><td><code>0</code></td><td>Start value of output</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+</body></html>

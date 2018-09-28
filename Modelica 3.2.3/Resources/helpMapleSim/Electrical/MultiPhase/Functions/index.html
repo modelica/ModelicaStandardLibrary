@@ -1,0 +1,266 @@
+<html><head><title>Modelica.Electrical.MultiPhase.Functions</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Functions"><h1><embed class="icon" src="../../../images/icon0092.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;Functions<br><span class="subtitle">Functions for multi phase systems</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>Standard package icon.</p>
+<p>Extends from <code><a href="../../../Icons/FunctionsPackage/index.html">Modelica.&#8203;Icons.&#8203;FunctionsPackage</a></code> (Icon for packages containing functions).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#activePower"><code>activePower</code></a></td><td>Calculate active power of voltage and current input</td></tr>
+<tr><td><a href="#factorY2D"><code>factorY2D</code></a></td><td>Calculates factor Y voltage to polygon (delta) voltage</td></tr>
+<tr><td><a href="#factorY2DC"><code>factorY2DC</code></a></td><td>Calculates factor of DC-voltage from RMS Y-voltage</td></tr>
+<tr><td><a href="#indexNonPositiveSequence"><code>indexNonPositiveSequence</code></a></td><td>Determines the indices of all non positive sequences</td></tr>
+<tr><td><a href="#indexPositiveSequence"><code>indexPositiveSequence</code></a></td><td>Determines the indices of the all positive sequences</td></tr>
+<tr><td><a href="#numberOfSymmetricBaseSystems"><code>numberOfSymmetricBaseSystems</code></a></td><td>Determines the number of symmetric base systems of m phase symmetric system</td></tr>
+<tr><td><a href="#quasiRMS"><code>quasiRMS</code></a></td><td>Calculate continuous quasi RMS value of input</td></tr>
+<tr><td><a href="#symmetricBackTransformationMatrix"><code>symmetricBackTransformationMatrix</code></a></td><td>Back transformation matrix for symmetrical components</td></tr>
+<tr><td><a href="#symmetricOrientation"><code>symmetricOrientation</code></a></td><td>Orientations of the resulting fundamental wave field phasors</td></tr>
+<tr><td><a href="#symmetricOrientationMatrix"><code>symmetricOrientationMatrix</code></a></td><td>Matrix symmetric orientation angles for creating the symmetric transformation matrix</td></tr>
+<tr><td><a href="#symmetricTransformationMatrix"><code>symmetricTransformationMatrix</code></a></td><td>Transformation matrix for symmetrical components</td></tr>
+</table>
+<hr><a name="quasiRMS"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Functions</a>.&#8203;quasiRMS<br><span class="subtitle">Calculate continuous quasi RMS value of input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function determines the continuous quasi <a href="../../../Blocks/Math/index.html#RootMeanSquare">RMS</a> value of a multi phase system, representing an equivalent RMS vector or phasor. If the waveform of the input deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
+</p>
+<pre>
+ y = sqrt(sum(u[k]^2 for k in 1:m)/m)
+</pre>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>x[:]</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="activePower"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Functions</a>.&#8203;activePower<br><span class="subtitle">Calculate active power of voltage and current input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Calculates instantaneous power from multiphase voltages and currents.
+In quasistationary operation, instantaneous power equals active power;
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>v[:]</code></td><td>Phase voltages</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>i[size(v, 1)]</code></td><td>Phase currents</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Power">Power</a></code></td><td><code>p</code></td><td>Active power</td></tr>
+</table>
+<hr><a name="symmetricOrientation"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Functions</a>.&#8203;symmetricOrientation<br><span class="subtitle">Orientations of the resulting fundamental wave field phasors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function determines the orientation angles of the symmetrical winding with m phases.
+</p>
+<h4>See also</h4>
+<p>
+<a href="../../../Electrical/MultiPhase/UsersGuide/index.html#PhaseOrientation">User's guide</a> on symmetrical components and orientation.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>orientation[m]</code></td><td>Orientation of the resulting fundamental wave field phasors</td></tr>
+</table>
+<hr><a name="symmetricOrientationMatrix"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Functions</a>.&#8203;symmetricOrientationMatrix<br><span class="subtitle">Matrix symmetric orientation angles for creating the symmetric transformation matrix</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function determines the orientation matrix of the symmetrical winding with m phases.
+</p>
+<h4>See also</h4>
+<p>
+<a href="../../../Electrical/MultiPhase/UsersGuide/index.html#PhaseOrientation">User's guide</a> on symmetrical components and orientation.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>oM[m,m]</code></td><td>Angles of symmetric transformation matrix</td></tr>
+</table>
+<hr><a name="symmetricTransformationMatrix"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Functions</a>.&#8203;symmetricTransformationMatrix<br><span class="subtitle">Transformation matrix for symmetrical components</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function determines the transformation matrix of the symmetrical winding with m phases.
+</p>
+<p>
+The transformation matrix can be used to determine the symmetrical components from time phasors.
+</p>
+<h4>See also</h4>
+<p>
+<a href="../../../Electrical/MultiPhase/UsersGuide/index.html#PhaseOrientation">User's guide</a> on symmetrical components and orientation.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>tM[m,m]</code></td><td>Transformation matrix for m phase symmetrical components</td></tr>
+</table>
+<hr><a name="symmetricBackTransformationMatrix"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Functions</a>.&#8203;symmetricBackTransformationMatrix<br><span class="subtitle">Back transformation matrix for symmetrical components</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function determines the back transformation matrix of the symmetrical winding with m phases.
+</p>
+<p>
+The back transformation matrix can be used to determine the time phasors from the symmetrical components.
+</p>
+<h4>See also</h4>
+<p>
+<a href="../../../Electrical/MultiPhase/UsersGuide/index.html#PhaseOrientation">User's guide</a> on symmetrical components and orientation.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>bTM[m,m]</code></td><td>Back transformation matrix for m phase symmetrical components</td></tr>
+</table>
+<hr><a name="numberOfSymmetricBaseSystems"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Functions</a>.&#8203;numberOfSymmetricBaseSystems<br><span class="subtitle">Determines the number of symmetric base systems of m phase symmetric system</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function determines the number of base systems of the symmetrical winding with m phases.
+</p>
+<h4>See also</h4>
+<p>
+<a href="../../../Electrical/MultiPhase/UsersGuide/index.html#PhaseOrientation">User's guide</a> on symmetrical components and orientation.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td>Number of symmetric base systems</td></tr>
+</table>
+<hr><a name="factorY2D"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Functions</a>.&#8203;factorY2D<br><span class="subtitle">Calculates factor Y voltage to polygon (delta) voltage</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>Factor Y to D</td></tr>
+</table>
+<hr><a name="factorY2DC"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Functions</a>.&#8203;factorY2DC<br><span class="subtitle">Calculates factor of DC-voltage from RMS Y-voltage</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>Factor Yrms to DC</td></tr>
+</table>
+<hr><a name="indexPositiveSequence"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Functions</a>.&#8203;indexPositiveSequence<br><span class="subtitle">Determines the indices of the all positive sequences</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function determines the indices of positive sequence of the symmetrical winding with m phases.
+</p>
+<h4>See also</h4>
+<p>
+<a href="../../../Electrical/MultiPhase/UsersGuide/index.html#PhaseOrientation">User's guide</a> on symmetrical components and orientation.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>ind[numberOfSymmetricBaseSystems(m)]</code></td><td>Number of symmetric base systems</td></tr>
+</table>
+<hr><a name="indexNonPositiveSequence"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Functions</a>.&#8203;indexNonPositiveSequence<br><span class="subtitle">Determines the indices of all non positive sequences</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function determines the indices of non-positive sequence of the symmetrical winding with m phases.
+</p>
+<h4>See also</h4>
+<p>
+<a href="../../../Electrical/MultiPhase/UsersGuide/index.html#PhaseOrientation">User's guide</a> on symmetrical components and orientation.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>ind[numberOfSymmetricBaseSystems(m) * (integer(m / numberOfSymmetricBaseSystems(m)) - 1)]</code></td><td>Indices of non positive sequences</td></tr>
+</table>
+</body></html>

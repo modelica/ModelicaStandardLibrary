@@ -1,0 +1,666 @@
+<html><head><title>Modelica.Electrical.QuasiStationary.SinglePhase.Basic</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Basic"><h1><embed class="icon" src="../../../../images/icon0772.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;Basic<br><span class="subtitle">Basic components for AC singlephase models</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package hosts basic models for quasi stationary single phase circuits.
+Quasi stationary theory for single phase circuits can be found in the
+<a href="../../../../Electrical/QuasiStationary/UsersGuide/index.html#References">references</a>.
+</p>
+<h4>See also</h4>
+
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html">MultiPhase.Basic</a>
+
+<p>Extends from <code><a href="../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Admittance"><code>Admittance</code></a></td><td>Single phase linear admittance</td></tr>
+<tr><td><a href="#Capacitor"><code>Capacitor</code></a></td><td>Single phase linear capacitor</td></tr>
+<tr><td><a href="#Conductor"><code>Conductor</code></a></td><td>Single phase linear conductor</td></tr>
+<tr><td><a href="#Ground"><code>Ground</code></a></td><td>Electrical ground</td></tr>
+<tr><td><a href="#Impedance"><code>Impedance</code></a></td><td>Single phase linear impedance</td></tr>
+<tr><td><a href="#Inductor"><code>Inductor</code></a></td><td>Single phase linear inductor</td></tr>
+<tr><td><a href="#Resistor"><code>Resistor</code></a></td><td>Single phase linear resistor</td></tr>
+<tr><td><a href="#VariableAdmittance"><code>VariableAdmittance</code></a></td><td>Single phase variable admittance</td></tr>
+<tr><td><a href="#VariableCapacitor"><code>VariableCapacitor</code></a></td><td>Single phase variable capacitor</td></tr>
+<tr><td><a href="#VariableConductor"><code>VariableConductor</code></a></td><td>Single phase variable conductor</td></tr>
+<tr><td><a href="#VariableImpedance"><code>VariableImpedance</code></a></td><td>Single phase variable impedance</td></tr>
+<tr><td><a href="#VariableInductor"><code>VariableInductor</code></a></td><td>Single phase variable inductor</td></tr>
+<tr><td><a href="#VariableResistor"><code>VariableResistor</code></a></td><td>Single phase variable resistor</td></tr>
+</table>
+<hr><a name="Ground"><h2><embed class="icon" src="../../../../images/icon0773.svg" width="203" height="213" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Ground<br><span class="subtitle">Electrical ground</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Ground of a single phase circuit. The potential at the ground node is zero.
+Every electrical circuit, e.g., a series resonance
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Examples/index.html#SeriesResonance">
+          example</a>, has to contain at least one ground object.
+</p>
+
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Resistor"><h2><embed class="icon" src="../../../../images/icon0774.svg" width="223" height="213" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Resistor<br><span class="subtitle">Single phase linear resistor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The linear resistor connects the complex voltage <code><u>v</u></code> with the complex
+current <code><u>i</u></code> by <code><u>i</u>*R = <u>v</u></code>.
+The resistance <code>R</code> is allowed to be positive, zero, or negative.
+</p>
+
+<p>
+The resistor model also has an optional
+<a href="../../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">conditional heat port</a>.
+A linear temperature dependency of the resistance is also taken into account.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Conductor">Conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Capacitor">Capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Inductor">Inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Impedance">Impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Admittance">Admittance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableResistor">Variable resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableConductor">Variable conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableCapacitor">Variable capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableInductor">Variable inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableImpedance">Variable impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableAdmittance">Variable admittance</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;SinglePhase.&#8203;Interfaces.&#8203;OnePort</a></code> (Two pins, current through) and <code><a href="../../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R_ref</code></td><td>&nbsp;</td><td>Reference resistance at T_ref</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td><code>293.15</code></td><td>Reference temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_ref</code></td><td><code>0</code></td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>T_ref</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+</table>
+<hr><a name="Conductor"><h2><embed class="icon" src="../../../../images/icon0774.svg" width="223" height="213" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Conductor<br><span class="subtitle">Single phase linear conductor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+The linear conductor connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by <code><u>i</u> = <u>v</u>*G</code>.
+The conductance <code>G</code> is allowed to be positive, zero, or negative.
+</p>
+
+<p>
+The conductor model also has an optional
+<a href="../../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">conditional heat port</a>.
+A linear temperature dependency of the conductance is also taken into account.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Resistor">Resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Capacitor">Capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Inductor">Inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Impedance">Impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Admittance">Admittance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableResistor">Variable resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableConductor">Variable conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableCapacitor">Variable capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableInductor">Variable inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableImpedance">Variable impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableAdmittance">Variable admittance</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;SinglePhase.&#8203;Interfaces.&#8203;OnePort</a></code> (Two pins, current through) and <code><a href="../../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>G_ref</code></td><td>&nbsp;</td><td>Reference conductance at T_ref</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td><code>293.15</code></td><td>Reference temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_ref</code></td><td><code>0</code></td><td>Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>T_ref</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+</table>
+<hr><a name="Capacitor"><h2><embed class="icon" src="../../../../images/icon0775.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Capacitor<br><span class="subtitle">Single phase linear capacitor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+The linear capacitor connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by <code><u>i</u> = j*&omega;*C*<u>v</u></code>.
+The capacitance <code>C</code> is allowed to be positive, zero, or negative.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Resistor">Resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Conductor">Conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Inductor">Inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Impedance">Impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Admittance">Admittance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableResistor">Variable resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableConductor">Variable conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableCapacitor">Variable capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableInductor">Variable inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableImpedance">Variable impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableAdmittance">Variable admittance</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;SinglePhase.&#8203;Interfaces.&#8203;OnePort</a></code> (Two pins, current through).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>C</code></td><td>&nbsp;</td><td>Capacitance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>Negative quasi-static single-phase pin</td></tr>
+</table>
+<hr><a name="Inductor"><h2><embed class="icon" src="../../../../images/icon0776.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Inductor<br><span class="subtitle">Single phase linear inductor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+The linear inductor connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by  <code><u>v</u> = j*&omega;*L*<u>i</u></code>.
+The Inductance <code>L</code> is allowed to be positive, zero, or negative.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Resistor">Resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Conductor">Conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Capacitor">Capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Impedance">Impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Admittance">Admittance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableResistor">Variable resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableConductor">Variable conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableCapacitor">Variable capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableInductor">Variable inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableImpedance">Variable impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableAdmittance">Variable admittance</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;SinglePhase.&#8203;Interfaces.&#8203;OnePort</a></code> (Two pins, current through).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L</code></td><td>&nbsp;</td><td>Inductance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>Negative quasi-static single-phase pin</td></tr>
+</table>
+<hr><a name="Impedance"><h2><embed class="icon" src="../../../../images/icon0777.svg" width="223" height="213" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Impedance<br><span class="subtitle">Single phase linear impedance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>The impedance model represents a <strong>series</strong> connection of a resistor and either an inductor or capacitor.<br>
+<img src="../../../../../Images/Electrical/QuasiStationary/SinglePhase/Basic/RX_impedance.png"></p>
+
+<p>
+The linear impedance connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by  <code><u>v</u> = <u>Z</u>*<u>i</u></code>. The resistive
+component is modeled temperature dependent, so the real part <code>R_actual = real(<u>Z</u>)</code> is determined from
+the actual operating temperature and the reference input resistance <code>real(Z_ref)</code>.
+A <a href="../../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">conditional heat port</a> is considered.
+The reactive component <code>X_actual = imag(<u>Z</u>)</code>
+is equal to <code>imag(Z_ref)</code> if <code>frequencyDependent = false</code>.
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+</p>
+
+<dl>
+<dt>(a) <code>imag(Z_ref) &gt; 0</code>: inductive case</dt>
+<dd>The actual reactance <code>X_actual</code> is proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Z_ref) &lt; 0</code>: capacitive case</dt>
+<dd>The actual reactance <code>X_actual</code> is proportional to <code>f_ref/f</code></dd>
+</dl>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Resistor">Resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Conductor">Conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Capacitor">Capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Admittance">Admittance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableResistor">Variable resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableConductor">Variable conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableCapacitor">Variable capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableInductor">Variable inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableImpedance">Variable impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableAdmittance">Variable admittance</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;SinglePhase.&#8203;Interfaces.&#8203;OnePort</a></code> (Two pins, current through) and <code><a href="../../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#ComplexImpedance">ComplexImpedance</a></code></td><td><code>Z_ref</code></td><td>&nbsp;</td><td>Complex impedance R_ref + j*X_ref</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td><code>293.15</code></td><td>Reference temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_ref</code></td><td><code>0</code></td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>T_ref</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+<tr><td><code>Boolean</code></td><td><code>frequencyDependent</code></td><td><code>false</code></td><td>Consider frequency dependency, if true</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f_ref</code></td><td><code>1</code></td><td>Reference frequency, if frequency dependency is considered</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R_ref</code></td><td><code>real(Z_ref)</code></td><td>Resistive component of impedance, resistance</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Reactance">Reactance</a></code></td><td><code>X_ref</code></td><td><code>imag(Z_ref)</code></td><td>Reactive component of impedance, reactance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+</table>
+<hr><a name="Admittance"><h2><embed class="icon" src="../../../../images/icon0777.svg" width="223" height="213" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Admittance<br><span class="subtitle">Single phase linear admittance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>The admittance model represents a <strong>parallel</strong> connection of a conductor and either a capacitor or inductor.<br>
+<img src="../../../../../Images/Electrical/QuasiStationary/SinglePhase/Basic/GB_admittance.png"></p>
+
+<p>
+The linear admittance connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by  <code><u>i</u> = <u>Y</u>*<u>v</u></code>. The resistive
+component is modeled temperature dependent, so the real part <code>G_actual = real(<u>Y</u>)</code> is determined from
+the actual operating temperature and the reference input conductance <code>real(Y_ref)</code>.
+A <a href="../../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">conditional heat port</a> is considered.
+The reactive component <code>B_actual = imag(<u>Y</u>)</code>
+is equal to <code>imag(Y_ref)</code> if <code>frequencyDependent = false</code>.
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+</p>
+
+<dl>
+<dt>(a) <code>imag(Y_ref) &gt; 0</code>: capacitive case</dt>
+<dd>The actual susceptance <code>B_actual</code> is proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Y_ref) &lt; 0</code>: inductive case</dt>
+<dd>The actual susceptance <code>B_actual</code> is proportional to <code>f_ref/f</code></dd>
+</dl>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Resistor">Resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Conductor">Conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Capacitor">Capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Impedance">Impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableResistor">Variable resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableConductor">Variable conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableCapacitor">Variable capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableInductor">Variable inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableImpedance">Variable impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableAdmittance">Variable admittance</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;SinglePhase.&#8203;Interfaces.&#8203;OnePort</a></code> (Two pins, current through) and <code><a href="../../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#ComplexAdmittance">ComplexAdmittance</a></code></td><td><code>Y_ref</code></td><td>&nbsp;</td><td>Complex admittance G_ref + j*B_ref</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td><code>293.15</code></td><td>Reference temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_ref</code></td><td><code>0</code></td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>T_ref</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+<tr><td><code>Boolean</code></td><td><code>frequencyDependent</code></td><td><code>false</code></td><td>Consider frequency dependency, if true</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f_ref</code></td><td><code>1</code></td><td>Reference frequency, if frequency dependency is considered</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>G_ref</code></td><td><code>real(Y_ref)</code></td><td>Resistive component of conductance</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Susceptance">Susceptance</a></code></td><td><code>B_ref</code></td><td><code>imag(Y_ref)</code></td><td>Reactive component of susceptance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+</table>
+<hr><a name="VariableResistor"><h2><embed class="icon" src="../../../../images/icon0778.svg" width="223" height="253" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;VariableResistor<br><span class="subtitle">Single phase variable resistor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+The linear resistor connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by <code><u>i</u>*R = <u>v</u></code>.
+The resistance <code>R</code> is given as input signal.
+</p>
+
+<p>
+The variable resistor model also has an optional
+<a href="../../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">conditional heat port</a>.
+A linear temperature dependency of the resistance is also taken into account.
+</p>
+
+<h4>Note</h4>
+<p>
+A zero crossing of the R signal could cause singularities due to the actual structure of the connected network.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Resistor">Resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Conductor">Conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Capacitor">Capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Inductor">Inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Impedance">Impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Admittance">Admittance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableConductor">Variable conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableCapacitor">Variable capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableInductor">Variable inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableImpedance">Variable impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableAdmittance">Variable admittance</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;SinglePhase.&#8203;Interfaces.&#8203;OnePort</a></code> (Two pins, current through) and <code><a href="../../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td><code>293.15</code></td><td>Reference temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_ref</code></td><td><code>0</code></td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>T_ref</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>R_ref</code></td><td>Variable resistance</td></tr>
+</table>
+<hr><a name="VariableConductor"><h2><embed class="icon" src="../../../../images/icon0778.svg" width="223" height="253" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;VariableConductor<br><span class="subtitle">Single phase variable conductor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+The linear conductor connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by <code><u>i</u> = G*<u>v</u></code>.
+The conductance <code>G</code> is given as input signal.
+</p>
+
+<p>
+The variable conductor model also has an optional
+<a href="../../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">conditional heat port</a>.
+A linear temperature dependency of the conductance is also taken into account.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Resistor">Resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Conductor">Conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Capacitor">Capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Inductor">Inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Impedance">Impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Admittance">Admittance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableResistor">Variable resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableCapacitor">Variable capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableInductor">Variable inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableImpedance">Variable impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableAdmittance">Variable admittance</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;SinglePhase.&#8203;Interfaces.&#8203;OnePort</a></code> (Two pins, current through) and <code><a href="../../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td><code>293.15</code></td><td>Reference temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_ref</code></td><td><code>0</code></td><td>Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>T_ref</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>G_ref</code></td><td>Variable conductance</td></tr>
+</table>
+<hr><a name="VariableCapacitor"><h2><embed class="icon" src="../../../../images/icon0779.svg" width="223" height="243" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;VariableCapacitor<br><span class="subtitle">Single phase variable capacitor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+The linear capacitor connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by <code><u>i</u> = j*&omega;*C*<u>v</u></code>.
+The capacitance <code>C</code> is given as input signal.
+</p>
+
+<h4>Note</h4>
+<p>
+The abstraction of a variable capacitor at quasi stationary operation assumes:
+</p>
+
+<p>
+<img src="../../../../../Images/Electrical/QuasiStationary/SinglePhase/Basic/dc_dt.png"
+     alt="dc_dt.png">.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Resistor">Resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Conductor">Conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Capacitor">Capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Inductor">Inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Impedance">Impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Admittance">Admittance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableResistor">Variable resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableConductor">Variable conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableInductor">Variable inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableImpedance">Variable impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableAdmittance">Variable admittance</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;SinglePhase.&#8203;Interfaces.&#8203;OnePort</a></code> (Two pins, current through).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>C</code></td><td>Variable capacitances</td></tr>
+</table>
+<hr><a name="VariableInductor"><h2><embed class="icon" src="../../../../images/icon0780.svg" width="223" height="243" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;VariableInductor<br><span class="subtitle">Single phase variable inductor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+The linear inductor connects the branch voltage <code><u>v</u></code> with the
+branch current <code><u>i</u></code> by <code><u>v</u> = j*&omega;*L*<u>i</u></code>. The inductance <code>L</code> is given as input signal.
+</p>
+
+<h4>Note</h4>
+<p>
+The abstraction of a variable inductor at quasi stationary operation assumes:
+</p>
+
+<p>
+<img src="../../../../../Images/Electrical/QuasiStationary/SinglePhase/Basic/dl_dt.png"
+     alt="dl_dt.png">
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Resistor">Resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Conductor">Conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Capacitor">Capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Inductor">Inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Impedance">Impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Admittance">Admittance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableResistor">Variable resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableConductor">Variable conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableCapacitor">Variable capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableImpedance">Variable impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableAdmittance">Variable admittance</a>,
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;SinglePhase.&#8203;Interfaces.&#8203;OnePort</a></code> (Two pins, current through).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>L</code></td><td>Variable inductances</td></tr>
+</table>
+<hr><a name="VariableImpedance"><h2><embed class="icon" src="../../../../images/icon0781.svg" width="223" height="253" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;VariableImpedance<br><span class="subtitle">Single phase variable impedance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>The impedance model represents a <strong>series</strong> connection of a resistor and either an inductor or capacitor.<br>
+<img src="../../../../../Images/Electrical/QuasiStationary/SinglePhase/Basic/RX_impedance.png"></p>
+
+<p>
+The linear impedance connects the complex voltage <code><u>v</u></code> with the
+complex current <code><u>i</u></code> by <code><u>i</u>*<u>Z</u> = <u>v</u></code>.
+The impedance <code>Z_ref = R_ref + j*X_ref</code> is given as complex input signal, representing the
+resistive and reactive component of the input impedance. The resistive
+component is modeled temperature dependent, so the real part <code>R_actual = real(<u>Z</u>)</code> is determined from
+the actual operating temperature and the reference input resistance <code>real(Z_ref)</code>.
+The reactive component <code>X_actual = imag(<u>Z</u>)</code>
+is equal to <code>imag(Z_ref)</code> if <code>frequencyDependent = false</code>.
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+</p>
+
+<dl>
+<dt>(a) <code>imag(Z_ref) &gt; 0</code>: inductive case</dt>
+<dd>The actual reactance <code>X_actual</code> is proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Z_ref) &lt; 0</code>: capacitive case</dt>
+<dd>The actual reactance <code>X_actual</code> is proportional to <code>f_ref/f</code></dd>
+</dl>
+
+<h4>Note</h4>
+<p>
+A zero crossing of the real or imaginary part of the impedance signal <code>Z_ref</code> could cause
+singularities due to the actual structure of the connected network.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Resistor">Resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Conductor">Conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Capacitor">Capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Inductor">Inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Impedance">Impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Admittance">Admittance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableResistor">Variable resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableConductor">Variable conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableCapacitor">Variable capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableInductor">Variable inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableAdmittance">Variable admittance</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;SinglePhase.&#8203;Interfaces.&#8203;OnePort</a></code> (Two pins, current through) and <code><a href="../../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td><code>293.15</code></td><td>Reference temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_ref</code></td><td><code>0</code></td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>T_ref</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+<tr><td><code>Boolean</code></td><td><code>frequencyDependent</code></td><td><code>false</code></td><td>Consider frequency dependency, if true</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f_ref</code></td><td><code>1</code></td><td>Reference frequency, if frequency dependency is considered</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>Z_ref</code></td><td>Variable complex impedance</td></tr>
+</table>
+<hr><a name="VariableAdmittance"><h2><embed class="icon" src="../../../../images/icon0781.svg" width="223" height="253" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;VariableAdmittance<br><span class="subtitle">Single phase variable admittance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>The admittance model represents a <strong>parallel</strong> connection of a conductor and either a capacitor or inductor.<br>
+<img src="../../../../../Images/Electrical/QuasiStationary/SinglePhase/Basic/GB_admittance.png"></p>
+
+<p>
+The linear admittance connects the complex voltage <code><u>v</u></code> with the
+complex current <code><u>i</u></code> by <code><u>v</u>*<u>Y</u> = <u>i</u></code>.
+The admittance <code>Y_ref = G_ref + j*B_ref</code> is given as complex input signal, representing the
+resistive and reactive component of the input admittance. The resistive
+component is modeled temperature dependent, so the real part <code>G_actual = real(<u>Y</u>)</code> is determined from
+the actual operating temperature and the reference input conductance <code>real(Y_ref)</code>.
+The reactive component <code>B_actual = imag(<u>Y</u>)</code>
+is equal to <code>imag(Y_ref)</code> if <code>frequencyDependent = false</code>.
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+</p>
+
+<dl>
+<dt>(a) <code>imag(Y_ref) &gt; 0</code>: capacitive case</dt>
+<dd>The actual susceptance <code>B_actual</code> is proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Y_ref) &lt; 0</code>: inductive case</dt>
+<dd>The actual susceptance <code>B_actual</code> is proportional to <code>f_ref/f</code></dd>
+</dl>
+
+<h4>Note</h4>
+<p>
+A zero crossing of the real or imaginary part of the admittance signal <code>Y_ref</code> could cause
+singularities due to the actual structure of the connected network.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Resistor">Resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Conductor">Conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Capacitor">Capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Inductor">Inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Impedance">Impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Admittance">Admittance</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableResistor">Variable resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableConductor">Variable conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableCapacitor">Variable capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableInductor">Variable inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableImpedance">Variable impedance</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;SinglePhase.&#8203;Interfaces.&#8203;OnePort</a></code> (Two pins, current through) and <code><a href="../../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td><code>293.15</code></td><td>Reference temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_ref</code></td><td><code>0</code></td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>T_ref</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+<tr><td><code>Boolean</code></td><td><code>frequencyDependent</code></td><td><code>false</code></td><td>Consider frequency dependency, if true</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f_ref</code></td><td><code>1</code></td><td>Reference frequency, if frequency dependency is considered</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>Y_ref</code></td><td>Variable complex admittance</td></tr>
+</table>
+</body></html>

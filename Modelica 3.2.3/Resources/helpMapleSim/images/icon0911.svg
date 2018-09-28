@@ -1,0 +1,14 @@
+<svg width="223" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="p1" class="port">
+		<polygon points="1.5,61.5 21.5,61.5 21.5,41.5 1.5,41.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="n1" class="port">
+			<polygon points="21.5,161.5 1.5,161.5 1.5,141.5 21.5,141.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="p2" class="port">
+			<polygon points="221.5,61.5 201.5,61.5 201.5,41.5 221.5,41.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="n2" class="port">
+			<polygon points="201.5,161.5 221.5,161.5 221.5,141.5 201.5,141.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

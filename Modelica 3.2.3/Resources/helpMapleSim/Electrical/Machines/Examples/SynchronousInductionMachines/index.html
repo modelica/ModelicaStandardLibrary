@@ -1,0 +1,352 @@
+<html><head><title>Modelica.Electrical.Machines.Examples.SynchronousInductionMachines</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="SynchronousInductionMachines"><h1><embed class="icon" src="../../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;SynchronousInductionMachines<br><span class="subtitle">Test examples of synchronous induction machines</span></h1></a>
+<h3>Information</h3>
+<p>
+
+This package contains test examples of synchronous induction machines.
+<p>Extends from <code><a href="../../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#SMEE_DOL"><code>SMEE_DOL</code></a></td><td>Test example: ElectricalExcitedSynchronousInductionMachine starting direct on line</td></tr>
+<tr><td><a href="#SMEE_Generator"><code>SMEE_Generator</code></a></td><td>Test example: ElectricalExcitedSynchronousInductionMachine as Generator</td></tr>
+<tr><td><a href="#SMEE_LoadDump"><code>SMEE_LoadDump</code></a></td><td>Test example: ElectricalExcitedSynchronousInductionMachine with voltage controller</td></tr>
+<tr><td><a href="#SMEE_Rectifier"><code>SMEE_Rectifier</code></a></td><td>Test example: ElectricalExcitedSynchronousInductionMachine with rectifier</td></tr>
+<tr><td><a href="#SMPM_Braking"><code>SMPM_Braking</code></a></td><td>Test example: PermanentMagnetSynchronousInductionMachine acting as brake</td></tr>
+<tr><td><a href="#SMPM_CurrentSource"><code>SMPM_CurrentSource</code></a></td><td>Test example: PermanentMagnetSynchronousInductionMachine fed by current source</td></tr>
+<tr><td><a href="#SMPM_Inverter"><code>SMPM_Inverter</code></a></td><td>Test example: PermanentMagnetSynchronousInductionMachine with inverter</td></tr>
+<tr><td><a href="#SMPM_NoLoad"><code>SMPM_NoLoad</code></a></td><td>SMPM at no-load</td></tr>
+<tr><td><a href="#SMPM_VoltageSource"><code>SMPM_VoltageSource</code></a></td><td>Test example: PermanentMagnetSynchronousInductionMachine fed by FOC</td></tr>
+<tr><td><a href="#SMR_DOL"><code>SMR_DOL</code></a></td><td>Test example: SynchronousInductionMachineReluctanceRotor direct-on-line</td></tr>
+<tr><td><a href="#SMR_Inverter"><code>SMR_Inverter</code></a></td><td>Test example: SynchronousInductionMachineReluctanceRotor with inverter</td></tr>
+</table>
+<hr><a name="SMR_DOL"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">SynchronousInductionMachines</a>.&#8203;SMR_DOL<br><span class="subtitle">Test example: SynchronousInductionMachineReluctanceRotor direct-on-line</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<strong>Test example: Synchronous induction machine with reluctance rotor direct on line</strong><br>
+A synchronous machine with reluctance rotor starts direct on line, utilizing the damper cage.<br>
+After reaching synchronous speed, at time tStep a load step is applied.<br>
+Simulate for 2.5 seconds and plot (versus time):
+<ul>
+<li>currentQuasiRMSSensor.I: stator current RMS</li>
+<li>smr.wMechanical: motor's speed</li>
+<li>smr.tauElectrical: motor's torque</li>
+<li>rotorDisplacementAngle.rotorDisplacementAngle: rotor displacement angle</li>
+</ul>
+Default machine parameters of model <em>SM_ReluctanceRotor</em> are used.
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VNominal</code></td><td><code>100</code></td><td>Nominal RMS voltage per phase</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fNominal</code></td><td><code>50</code></td><td>Nominal frequency</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Actual frequency</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tStart1</code></td><td><code>0.1</code></td><td>Switch-on time</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>TLoad</code></td><td><code>20</code></td><td>Nominal load torque</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tStep</code></td><td><code>1.5</code></td><td>Time of load torque step</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>JLoad</code></td><td><code>0.29</code></td><td>Load's moment of inertia</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#SM_ReluctanceRotorData">SM_ReluctanceRotorData</a></code></td><td><code>smrData</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+<hr><a name="SMR_Inverter"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">SynchronousInductionMachines</a>.&#8203;SMR_Inverter<br><span class="subtitle">Test example: SynchronousInductionMachineReluctanceRotor with inverter</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.
+Frequency is raised by a ramp, causing the reluctance machine to start,
+and accelerating inertias. At time tStep a load step is applied.</p>
+
+<p>Simulate for 1.5 seconds and plot (versus time):</p>
+
+<ul>
+<li>currentQuasiRMSSensor.I: stator current RMS</li>
+<li>smr.wMechanical: motor's speed</li>
+<li>smr.tauElectrical: motor's torque</li>
+<li>rotorDisplacementAngle.rotorDisplacementAngle: rotor displacement angle</li>
+</ul>
+
+<p>Default machine parameters are used.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VNominal</code></td><td><code>100</code></td><td>Nominal RMS voltage per phase</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fNominal</code></td><td><code>50</code></td><td>Nominal frequency</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Actual frequency</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tRamp</code></td><td><code>1</code></td><td>Frequency ramp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>TLoad</code></td><td><code>46</code></td><td>Nominal load torque</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tStep</code></td><td><code>1.2</code></td><td>Time of load torque step</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>JLoad</code></td><td><code>0.29</code></td><td>Load's moment of inertia</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#SM_ReluctanceRotorData">SM_ReluctanceRotorData</a></code></td><td><code>smrData</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+<hr><a name="SMPM_NoLoad"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">SynchronousInductionMachines</a>.&#8203;SMPM_NoLoad<br><span class="subtitle">SMPM at no-load</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Synchronous machine with permanent magnets at no-load, driven with constant nominal speed.
+</p>
+<p>
+You may check the terminal voltage = VsOpenCircuit (shown by the length of the space phasor) and the frequency = fsNominal.
+</p>
+<p>
+Additionally, you may check the phase shift of the stator voltages with respect to the mechanical shaft angle:
+</p>
+<ul>
+<li>If the shaft angle starts at (pi + 0*pi/3)/p, the flux linkage through phase 1 is at the maximum and therefore this phase voltage starts at 0.</li>
+<li>If the shaft angle starts at (pi + 2*pi/3)/p, the flux linkage through phase 2 is at the maximum and therefore this phase voltage starts at 0.</li>
+<li>If the shaft angle starts at (pi + 4*pi/3)/p, the flux linkage through phase 3 is at the maximum and therefore this phase voltage starts at 0.</li>
+</ul>
+<p>Note that the angle of the voltage space phasor is pi/2 behind the angle of the hall sensor,
+i.e. after a rotation of the shaft by pi/2/p the flux linkage of phase 1 is zero and the induced voltage a maximum.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#SM_PermanentMagnetData">SM_PermanentMagnetData</a></code></td><td><code>smpmData</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+<hr><a name="SMPM_Inverter"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">SynchronousInductionMachines</a>.&#8203;SMPM_Inverter<br><span class="subtitle">Test example: PermanentMagnetSynchronousInductionMachine with inverter</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.
+Frequency is raised by a ramp, causing the permanent magnet synchronous induction machine to start,
+and accelerating inertias. At time tStep a load step is applied.</p>
+
+<p>Simulate for 1.5 seconds and plot (versus time):</p>
+
+<ul>
+<li>currentQuasiRMSSensor.I: stator current RMS</li>
+<li>smpm.wMechanical: motor's speed</li>
+<li>smpm.tauElectrical: motor's torque</li>
+<li>rotorDisplacementAngle.rotorDisplacementAngle: rotor displacement angle</li>
+</ul>
+
+<p>Default machine parameters are used.</p>
+
+<p>
+In practice it is nearly impossible to drive a PMSMD without current controller.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VNominal</code></td><td><code>100</code></td><td>Nominal RMS voltage per phase</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fNominal</code></td><td><code>50</code></td><td>Nominal frequency</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Actual frequency</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tRamp</code></td><td><code>1</code></td><td>Frequency ramp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>TLoad</code></td><td><code>181.4</code></td><td>Nominal load torque</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tStep</code></td><td><code>1.2</code></td><td>Time of load torque step</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>JLoad</code></td><td><code>0.29</code></td><td>Load's moment of inertia</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#SM_PermanentMagnetData">SM_PermanentMagnetData</a></code></td><td><code>smpmData</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+<hr><a name="SMPM_CurrentSource"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">SynchronousInductionMachines</a>.&#8203;SMPM_CurrentSource<br><span class="subtitle">Test example: PermanentMagnetSynchronousInductionMachine fed by current source</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>A synchronous induction machine with permanent magnets accelerates a quadratic speed dependent load from standstill.
+The rms values of d- and q-current in rotor fixed coordinate system are converted to three-phase currents,
+and fed to the machine. The result shows that the torque is influenced by the q-current,
+whereas the stator voltage is influenced by the d-current.</p>
+
+<p>Default machine parameters are used.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>Idq[2]</code></td><td><code>{-53.5, 84.6}</code></td><td>Desired d- and q-current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wNominal</code></td><td><code>2 * pi * smpmData.fsNominal / smpmData.p</code></td><td>Nominal speed</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>TLoad</code></td><td><code>181.4</code></td><td>Nominal load torque</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>JLoad</code></td><td><code>0.29</code></td><td>Load's moment of inertia</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#SM_PermanentMagnetData">SM_PermanentMagnetData</a></code></td><td><code>smpmData</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+<hr><a name="SMPM_VoltageSource"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">SynchronousInductionMachines</a>.&#8203;SMPM_VoltageSource<br><span class="subtitle">Test example: PermanentMagnetSynchronousInductionMachine fed by FOC</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+A synchronous induction machine with permanent magnets accelerates a quadratic speed dependent load from standstill.
+The rms values of d- and q-current in rotor fixed coordinate system are controlled by the voltageController,
+and the output voltages fed to the machine. The result shows that the torque is influenced by the q-current,
+whereas the stator voltage is influenced by the d-current.</p>
+
+<p>Default machine parameters are used.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>Idq[2]</code></td><td><code>{-53.5, 84.6}</code></td><td>Desired d- and q-current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wNominal</code></td><td><code>2 * pi * smpmData.fsNominal / smpmData.p</code></td><td>Nominal speed</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>TLoad</code></td><td><code>181.4</code></td><td>Nominal load torque</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>JLoad</code></td><td><code>0.29</code></td><td>Load's moment of inertia</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#SM_PermanentMagnetData">SM_PermanentMagnetData</a></code></td><td><code>smpmData</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+<hr><a name="SMPM_Braking"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">SynchronousInductionMachines</a>.&#8203;SMPM_Braking<br><span class="subtitle">Test example: PermanentMagnetSynchronousInductionMachine acting as brake</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+A synchronous induction machine with permanent magnets starts braking from nominal speed by feeding a diode bridge,
+which in turn feeds a braking resistor.
+Since induced voltage is reduced proportional to falling speed, the braking resistance is set proportional to speed to
+achieve constant current and torque.</p>
+
+<p>Default machine parameters are used.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>1</code></td><td>Nominal braking resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wNominal</code></td><td><code>2 * pi * smpmData.fsNominal / smpmData.p</code></td><td>Nominal speed</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>JLoad</code></td><td><code>0.29</code></td><td>Load's moment of inertia</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#SM_PermanentMagnetData">SM_PermanentMagnetData</a></code></td><td><code>smpmData</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+<hr><a name="SMEE_DOL"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">SynchronousInductionMachines</a>.&#8203;SMEE_DOL<br><span class="subtitle">Test example: ElectricalExcitedSynchronousInductionMachine starting direct on line</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>An electrically excited synchronous generator is started direct on line utilizing the damper cage
+(and the shorted excitation winding) at 0 seconds.</p>
+<p>At t = 0.5 seconds, the excitation voltage is raised to achieve the no-load excitation current.
+Note, that reactive power of the stator goes to zero.</p>
+<p>At t = 2 second, a driving torque step is applied to the shaft (i.e. the turbine is activated).
+Note, that active and reactive power of the stator changes.
+To drive at higher torque, i.e., produce more electric power, excitation has to be adapted.
+</p>
+
+<p>Simulate for 3 seconds and plot:</p>
+
+<ul>
+<li><code>smee.tauElectrical</code></li>
+<li><code>smee.wMechanical</code></li>
+<li><code>smee.ie</code></li>
+<li><code>rotorDisplacementAngle.rotorDisplacementAngle</code></li>
+<li><code>currentQuasiRMSSensor.I</code></li>
+<li><code>electricalPowerSensor.P</code></li>
+<li><code>electricalPowerSensor.Q</code></li>
+<li><code>mechanicalMultiSensor.power</code></li>
+</ul>
+
+<p>Default machine parameters are used.</p>
+
+<h5>Note</h5>
+<p>The mains switch is closed at time = 0 in order to avoid non physical noise calculated by the <code>rotorDisplacementAngle</code>.
+This noise is caused by the interaction of the high resistance of the switch and the machine, see
+<a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2388">#2388</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VNominal</code></td><td><code>100</code></td><td>Nominal RMS voltage per phase</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fNominal</code></td><td><code>50</code></td><td>Nominal frequency</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Ve</code></td><td><code>smeeData.Re * smeeData.IeOpenCircuit</code></td><td>Excitation current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>gamma0</code></td><td><code>0</code></td><td>Initial rotor displacement angle</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Utilities/index.html#SynchronousMachineData">SynchronousMachineData</a></code></td><td><code>smeeData</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+<hr><a name="SMEE_Generator"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">SynchronousInductionMachines</a>.&#8203;SMEE_Generator<br><span class="subtitle">Test example: ElectricalExcitedSynchronousInductionMachine as Generator</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>An electrically excited synchronous generator is connected to the grid and driven with constant speed.
+Since speed is slightly smaller than synchronous speed corresponding to mains frequency,
+rotor angle is very slowly increased. This allows to see several characteristics dependent on rotor angle.</p>
+
+<p>Simulate for 30 seconds and plot (versus rotorDisplacementAngle.rotorDisplacementAngle):</p>
+
+<ul>
+<li>smee.tauElectrical</li>
+<li>currentQuasiRMSSensor.I</li>
+<li>electricalPowerSensor.P</li>
+<li>electricalPowerSensor.Q</li>
+<li>mechanicalPowerSensor.P</li>
+</ul>
+
+<p>Default machine parameters are used.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VNominal</code></td><td><code>100</code></td><td>Nominal RMS voltage per phase</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fNominal</code></td><td><code>50</code></td><td>Nominal frequency</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wActual</code></td><td><code>0.016666666666667 * (2998 * Modelica.Constants.pi)</code></td><td>Actual speed</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>Ie</code></td><td><code>19</code></td><td>Excitation current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>Ie0</code></td><td><code>10</code></td><td>Initial excitation current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>gamma0</code></td><td><code>0</code></td><td>Initial rotor displacement angle</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Utilities/index.html#SynchronousMachineData">SynchronousMachineData</a></code></td><td><code>smeeData</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+<hr><a name="SMEE_LoadDump"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">SynchronousInductionMachines</a>.&#8203;SMEE_LoadDump<br><span class="subtitle">Test example: ElectricalExcitedSynchronousInductionMachine with voltage controller</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+An electrically excited synchronous generator is started with a speed ramp, then driven with constant speed.
+Voltage is controlled, the set point depends on speed. After start-up the generator is loaded, the load is rejected.</p>
+
+<p>Simulate for 10 seconds and plot:</p>
+
+<ul>
+<li>voltageQuasiRMSSensor.V</li>
+<li>smee.tauElectrical</li>
+<li>smee.ie</li>
+</ul>
+
+<p>Default machine parameters are used.</p>
+
+<p>One could try to optimize the controller parameters.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wNominal</code></td><td><code>2 * pi * smeeData.fsNominal / smee.p</code></td><td>Nominal speed</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Impedance">Impedance</a></code></td><td><code>ZNominal</code></td><td><code>3 * smeeData.VsNominal ^ 2 / smeeData.SNominal</code></td><td>Nominal load impedance</td></tr>
+<tr><td><code>Real</code></td><td><code>powerFactor</code></td><td><code>0.8</code></td><td>Load power factor</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RLoad</code></td><td><code>ZNominal * powerFactor</code></td><td>Load resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>LLoad</code></td><td><code>ZNominal * sqrt(1 - powerFactor ^ 2) / (2 * pi * smeeData.fsNominal)</code></td><td>Load inductance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Ve0</code></td><td><code>smee.IeOpenCircuit * Machines.Thermal.convertResistance(smee.Re, smee.TeRef, smee.alpha20e, smee.TeOperational)</code></td><td>No load excitation voltage</td></tr>
+<tr><td><code>Real</code></td><td><code>k</code></td><td><code>2 * Ve0 / smeeData.VsNominal</code></td><td>Voltage controller: gain</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Ti</code></td><td><code>0.5 * smeeData.Td0Transient</code></td><td>Voltage controller: integral time constant</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Utilities/index.html#SynchronousMachineData">SynchronousMachineData</a></code></td><td><code>smeeData</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+<hr><a name="SMEE_Rectifier"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">SynchronousInductionMachines</a>.&#8203;SMEE_Rectifier<br><span class="subtitle">Test example: ElectricalExcitedSynchronousInductionMachine with rectifier</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>An electrically excited synchronous generator is driven with constant speed. Voltage is controlled,
+the set point depends on speed. The generator is loaded with a rectifier.</p>
+
+<p>Default machine parameters are used.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wNominal</code></td><td><code>2 * pi * smeeData.fsNominal / smee.p</code></td><td>Nominal speed</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VDC0</code></td><td><code>sqrt(6) * smeeData.VsNominal</code></td><td>No-load DC voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RLoad</code></td><td><code>VDC0 ^ 2 / smeeData.SNominal</code></td><td>Load resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Ve0</code></td><td><code>smee.IeOpenCircuit * Machines.Thermal.convertResistance(smee.Re, smee.TeRef, smee.alpha20e, smee.TeOperational)</code></td><td>No load excitation voltage</td></tr>
+<tr><td><code>Real</code></td><td><code>k</code></td><td><code>2 * Ve0 / smeeData.VsNominal</code></td><td>Voltage controller: gain</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Ti</code></td><td><code>0.5 * smeeData.Td0Transient</code></td><td>Voltage controller: integral time constant</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Utilities/index.html#SynchronousMachineData">SynchronousMachineData</a></code></td><td><code>smeeData</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+</body></html>

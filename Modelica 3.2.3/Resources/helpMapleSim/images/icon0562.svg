@@ -1,0 +1,20 @@
+<svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.Digital.Memories.DLATROM" class="component">
+		<polygon points="41.5,181.5 161.5,181.5 161.5,21.5 41.5,21.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="17.5,41.5 41.5,41.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="161.5,81.5 185.5,81.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="17.5,121.5 41.5,121.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="41.5,111.5 55.5,121.5 41.5,131.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="69.0" y="127.7" text-anchor="middle" fill="#7F216B" font-size="17.6px" font-family="sans-serif">RE</text>
+		<text x="101.5" y="61.1" text-anchor="middle" fill="#7F216B" font-size="25.9px" font-family="sans-serif">DLATROM</text>
+		<g id="RE" class="port">
+			<polygon points="1.5,131.5 17.5,131.5 17.5,115.5 1.5,115.5" fill="#7F007F" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="addr" class="port">
+			<polygon points="1.5,51.5 21.5,51.5 21.5,31.5 1.5,31.5" fill="#7F007F" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="dataOut" class="port">
+			<polygon points="181.5,71.5 201.5,81.5 181.5,91.5" fill="#FFFFFF" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

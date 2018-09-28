@@ -1,0 +1,447 @@
+<html><head><title>Modelica.ComplexMath</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="ComplexMath"><h1><embed class="icon" src="../images/icon1533.svg" width="203" height="203" />
+Package <a href="../index.html">Modelica</a>.&#8203;ComplexMath<br><span class="subtitle">Library of complex mathematical functions (e.g., sin, cos) and of functions operating on complex vectors and matrices</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains <strong>basic mathematical functions</strong>
+operating on complex numbers (such as sin(..)),
+as well as functions operating on vectors of complex numbers.
+</p>
+
+<p>Extends from <code><a href="../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#'abs'"><code>'abs'</code></a></td><td>Absolute value of complex number</td></tr>
+<tr><td><a href="#'max'"><code>'max'</code></a></td><td>Return maximum element of complex vector</td></tr>
+<tr><td><a href="#'min'"><code>'min'</code></a></td><td>Return minimum element of complex vector</td></tr>
+<tr><td><a href="#'product'"><code>'product'</code></a></td><td>Return product of complex vector</td></tr>
+<tr><td><a href="#'sqrt'"><code>'sqrt'</code></a></td><td>Square root of complex number</td></tr>
+<tr><td><a href="#'sum'"><code>'sum'</code></a></td><td>Return sum of complex vector</td></tr>
+<tr><td><a href="#acos"><code>acos</code></a></td><td>Arc-cosine of complex number</td></tr>
+<tr><td><a href="#acosh"><code>acosh</code></a></td><td>Area-hyperbolic-cosine of complex number</td></tr>
+<tr><td><a href="#arg"><code>arg</code></a></td><td>Phase angle of complex number</td></tr>
+<tr><td><a href="#asin"><code>asin</code></a></td><td>Arc-sine of complex number</td></tr>
+<tr><td><a href="#asinh"><code>asinh</code></a></td><td>Area-hyperbolic-sine of complex number</td></tr>
+<tr><td><a href="#atan"><code>atan</code></a></td><td>Arc-tangent of complex number</td></tr>
+<tr><td><a href="#atanh"><code>atanh</code></a></td><td>Area-hyperbolic-tangent of complex number</td></tr>
+<tr><td><a href="#conj"><code>conj</code></a></td><td>Conjugate of complex number</td></tr>
+<tr><td><a href="#cos"><code>cos</code></a></td><td>Cosine of complex number</td></tr>
+<tr><td><a href="#cosh"><code>cosh</code></a></td><td>Hyperbolic-cosine of complex number</td></tr>
+<tr><td><a href="#exp"><code>exp</code></a></td><td>Exponential of complex number</td></tr>
+<tr><td><a href="#fromPolar"><code>fromPolar</code></a></td><td>Complex from polar representation</td></tr>
+<tr><td><a href="#imag"><code>imag</code></a></td><td>Imaginary part of complex number</td></tr>
+<tr><td><a href="#log"><code>log</code></a></td><td>Logarithm of complex number</td></tr>
+<tr><td><a href="#real"><code>real</code></a></td><td>Real part of complex number</td></tr>
+<tr><td><a href="#sin"><code>sin</code></a></td><td>Sine of complex number</td></tr>
+<tr><td><a href="#sinh"><code>sinh</code></a></td><td>Hyperbolic-sine of complex number</td></tr>
+<tr><td><a href="#tan"><code>tan</code></a></td><td>Tangent of complex number</td></tr>
+<tr><td><a href="#tanh"><code>tanh</code></a></td><td>Hyperbolic-tangent of complex number</td></tr>
+<tr><td><a href="../ComplexMath/Vectors/index.html"><code>Vectors</code></a> &hellip;</td><td>Library of functions operating on complex vectors</td></tr>
+</table>
+<h3>Package Constants</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Value</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Complex</code></td><td><code>j</code></td><td><code>Complex(0, 1)</code></td><td>Imaginary unit</td></tr>
+</table>
+<hr><a name="sin"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;sin<br><span class="subtitle">Sine of complex number</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the Complex sine of the Complex input.</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c1</code></td><td>Complex number</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c2</code></td><td>sin(c1)</td></tr>
+</table>
+<hr><a name="cos"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;cos<br><span class="subtitle">Cosine of complex number</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the Complex cosine of the Complex input.</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c1</code></td><td>Complex number</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c2</code></td><td>= cos(c1)</td></tr>
+</table>
+<hr><a name="tan"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;tan<br><span class="subtitle">Tangent of complex number</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the Complex tangent of the Complex input.</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c1</code></td><td>Complex number</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c2</code></td><td>= tan(c1)</td></tr>
+</table>
+<hr><a name="asin"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;asin<br><span class="subtitle">Arc-sine of complex number</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the inverse Complex sine of the Complex input.</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c1</code></td><td>Complex number</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c2</code></td><td>arc_sin(c1)</td></tr>
+</table>
+<hr><a name="acos"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;acos<br><span class="subtitle">Arc-cosine of complex number</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the inverse Complex cosine of the Complex input.</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c1</code></td><td>Complex number</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c2</code></td><td>= arc_cos(c1)</td></tr>
+</table>
+<hr><a name="atan"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;atan<br><span class="subtitle">Arc-tangent of complex number</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the inverse Complex tangent of the Complex input.</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c1</code></td><td>Complex number</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c2</code></td><td>= arc_tan(c1)</td></tr>
+</table>
+<hr><a name="sinh"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;sinh<br><span class="subtitle">Hyperbolic-sine of complex number</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the Complex hyperbolic sine of the Complex input.</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c1</code></td><td>Complex number</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c2</code></td><td>sinh(c1)</td></tr>
+</table>
+<hr><a name="cosh"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;cosh<br><span class="subtitle">Hyperbolic-cosine of complex number</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the Complex hyperbolic cosine of the Complex input.</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c1</code></td><td>Complex number</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c2</code></td><td>= cosh(c1)</td></tr>
+</table>
+<hr><a name="tanh"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;tanh<br><span class="subtitle">Hyperbolic-tangent of complex number</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the Complex hyperbolic tangent of the Complex input.</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c1</code></td><td>Complex number</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c2</code></td><td>= tanh(c1)</td></tr>
+</table>
+<hr><a name="asinh"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;asinh<br><span class="subtitle">Area-hyperbolic-sine of complex number</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the inverse Complex hyperbolic sine of the Complex input.</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c1</code></td><td>Complex number</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c2</code></td><td>ar_sinh(c1)</td></tr>
+</table>
+<hr><a name="acosh"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;acosh<br><span class="subtitle">Area-hyperbolic-cosine of complex number</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the inverse Complex hyperbolic cosine of the Complex input.</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c1</code></td><td>Complex number</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c2</code></td><td>= ar_cosh(c1)</td></tr>
+</table>
+<hr><a name="atanh"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;atanh<br><span class="subtitle">Area-hyperbolic-tangent of complex number</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the inverse Complex hyperbolic tangent of the Complex input.</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c1</code></td><td>Complex number</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c2</code></td><td>= ar_tanh(c1)</td></tr>
+</table>
+<hr><a name="exp"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;exp<br><span class="subtitle">Exponential of complex number</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the Complex natural exponential of the Complex input.</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c1</code></td><td>Complex number</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c2</code></td><td>= exp(c1)</td></tr>
+</table>
+<hr><a name="log"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;log<br><span class="subtitle">Logarithm of complex number</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the Complex natural logarithm of the Complex input.</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c1</code></td><td>Complex number</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c2</code></td><td>= log(c1)</td></tr>
+</table>
+<hr><a name="'abs'"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;'abs'<br><span class="subtitle">Absolute value of complex number</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the Real absolute of the Complex input, i.e., its length.</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c</code></td><td>Complex number</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>result</code></td><td>= abs(c)</td></tr>
+</table>
+<hr><a name="arg"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;arg<br><span class="subtitle">Phase angle of complex number</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the Real argument of the Complex input, i.e., its angle.</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c</code></td><td>Complex number</td></tr>
+<tr><td><code><a href="../SIunits/index.html#Angle">Angle</a></code></td><td><code>phi0</code></td><td>Phase angle phi shall be in the range: -pi &lt; phi-phi0 &lt; pi</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../SIunits/index.html#Angle">Angle</a></code></td><td><code>phi</code></td><td>= phase angle of c</td></tr>
+</table>
+<hr><a name="conj"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;conj<br><span class="subtitle">Conjugate of complex number</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the Complex conjugate of the Complex input.</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c1</code></td><td>Complex number</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c2</code></td><td>= c1.re - j*c1.im</td></tr>
+</table>
+<hr><a name="real"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;real<br><span class="subtitle">Real part of complex number</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the real part of the Complex input.</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c</code></td><td>Complex number</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>r</code></td><td>= c.re</td></tr>
+</table>
+<hr><a name="imag"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;imag<br><span class="subtitle">Imaginary part of complex number</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the imaginary part of the Complex input.</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c</code></td><td>Complex number</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>r</code></td><td>= c.im</td></tr>
+</table>
+<hr><a name="fromPolar"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;fromPolar<br><span class="subtitle">Complex from polar representation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function constructs a Complex number from its length (absolute) and angle (argument).</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>len</code></td><td>abs of complex</td></tr>
+<tr><td><code><a href="../SIunits/index.html#Angle">Angle</a></code></td><td><code>phi</code></td><td>arg of complex</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c</code></td><td>= len*cos(phi) + j*len*sin(phi)</td></tr>
+</table>
+<hr><a name="'sqrt'"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;'sqrt'<br><span class="subtitle">Square root of complex number</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the Complex square root (principal square root) of the Complex input.</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c1</code></td><td>Complex number</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>c2</code></td><td>= sqrt(c1)</td></tr>
+</table>
+<hr><a name="'max'"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;'max'<br><span class="subtitle">Return maximum element of complex vector</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the largest element of the Complex input vector, defined by the Complex absolute.</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>v[:]</code></td><td>Vector</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>result</code></td><td>Element of v with largest absolute value</td></tr>
+<tr><td><code>Integer</code></td><td><code>index</code></td><td>v[index] has the largest absolute value</td></tr>
+</table>
+<hr><a name="'min'"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;'min'<br><span class="subtitle">Return minimum element of complex vector</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the smallest element of the Complex input vector, defined by the Complex absolute.</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>v[:]</code></td><td>Vector</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>result</code></td><td>Element of v with smallest absolute value</td></tr>
+<tr><td><code>Integer</code></td><td><code>index</code></td><td>v[index] has the smallest absolute value</td></tr>
+</table>
+<hr><a name="'sum'"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;'sum'<br><span class="subtitle">Return sum of complex vector</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the Complex sum of the Complex input vector</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>v[:]</code></td><td>Vector</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>result</code></td><td>Complex sum of vector elements</td></tr>
+</table>
+<hr><a name="'product'"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;'product'<br><span class="subtitle">Return product of complex vector</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function returns the Complex product of the Complex input vector</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>v[:]</code></td><td>Vector</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>result</code></td><td>Complex product of vector elements</td></tr>
+</table>
+</body></html>

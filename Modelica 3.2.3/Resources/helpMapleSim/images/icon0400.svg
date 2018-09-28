@@ -1,0 +1,17 @@
+<svg width="223" height="243" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.Analog.Basic.VariableCapacitor" class="component">
+		<polyline points="21.5,141.5 105.5,141.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="117.5,141.5 201.5,141.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="105.5,113.5 105.5,169.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="117.5,113.5 117.5,169.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="p" class="port">
+			<polygon points="1.5,151.5 21.5,151.5 21.5,131.5 1.5,131.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="n" class="port">
+			<polygon points="221.5,151.5 201.5,151.5 201.5,131.5 221.5,131.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="C" class="port">
+			<polygon points="131.5,1.5 111.5,41.5 91.5,1.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,103 @@
+<html><head><title>Modelica.Math.FastFourierTransform.Examples</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Examples"><h1><embed class="icon" src="../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Math</a>.&#8203;<a href="../index.html">FastFourierTransform</a>.&#8203;Examples<br><span class="subtitle">Examples demonstrating the usage of the Math.FastFourierTransform functions</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates a package that contains executable examples.</p>
+<p>Extends from <code><a href="../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#RealFFT1"><code>RealFFT1</code></a></td><td>Example demonstrating the use of an FFT calculation during simulation (and storing both amplitudes and phases on file)</td></tr>
+<tr><td><a href="#RealFFT2"><code>RealFFT2</code></a></td><td>Example demonstrating the use of an FFT calculation during simulation (and storing only amplitudes on file)</td></tr>
+</table>
+<hr><a name="RealFFT1"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Math</a>.&#8203;<a href="../index.html">FastFourierTransform</a>.&#8203;<a href="index.html">Examples</a>.&#8203;RealFFT1<br><span class="subtitle">Example demonstrating the use of an FFT calculation during simulation (and storing both amplitudes and phases on file)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+In this example the signal y
+</p>
+
+<pre>
+   y = 5 + 3*sin(2*pi*f1) + 1.5*cos(2*pi*f2)
+</pre>
+
+<p>
+is sampled and an FFT is computed from the sampled signal (default: f1 = 2 Hz, f2 = 3 Hz).
+In the public part the FFT is stored up to f_max (internally in the protected part the FFT is stored up to 5*f_max).
+With the default values for f_max (= 4 Hz) and f_resolution (= 0.2 Hz), the following results are achieved:
+</p>
+
+<pre>   fi[0]  = 0,  Ai[0]  = 5;   // mean value of signal
+   fi[11] = 2,  Ai[11] = 3;   // frequency/amplitude of sine
+   fi[16] = 3,  Ai[16] = 1.5; // frequency/amplitude of cosine
+</pre>
+
+<p>
+A plot of the resulting FFT is shown in the next image:
+</p>
+
+<blockquote>
+<img src="../../../../Images/Math/FFT1.png">
+</blockquote>
+
+<p>
+Note, phases of small amplitudes (= smaller as 0.0001*maximalAmplitude) are explicitly set to zero, since the corresponding
+"phase" is numerical noise (and would just be confusing).
+Furthermore, note that the FFT phases are with respect to a cos(..) signal.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f_max</code></td><td><code>4</code></td><td>Maximum frequency of interest</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f_resolution</code></td><td><code>0.2</code></td><td>Frequency resolution</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f1</code></td><td><code>2</code></td><td>Frequency of sine</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f2</code></td><td><code>3</code></td><td>Frequency of cosine</td></tr>
+<tr><td><code>String</code></td><td><code>FFT_resultFileName</code></td><td><code>"RealFFT1_resultFFT.mat"</code></td><td>File where FFT will be stored as [f,A,Phi], with f in {Hz] and A the amplitudes and Phi the phases in [rad]</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nfi</code></td><td><code>max(1, min(integer(ceil(f_max / f_resolution)) + 1, nf))</code></td><td>Number of frequency points of the interested frequency range (only up to f_max)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fi[nfi]</code></td><td>&nbsp;</td><td>FFT frequencies of interested frequency points</td></tr>
+</table>
+<hr><a name="RealFFT2"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Math</a>.&#8203;<a href="../index.html">FastFourierTransform</a>.&#8203;<a href="index.html">Examples</a>.&#8203;RealFFT2<br><span class="subtitle">Example demonstrating the use of an FFT calculation during simulation (and storing only amplitudes on file)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is the same example as <a href="../../../Math/FastFourierTransform/Examples/index.html#RealFFT1">Examples.RealFFT1</a>
+with the only difference that just the amplitudes of the FFT are stored on file (but not the phases).
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f_max</code></td><td><code>4</code></td><td>Maximum frequency of interest</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f_resolution</code></td><td><code>0.2</code></td><td>Frequency resolution</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f1</code></td><td><code>2</code></td><td>Frequency of sine</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f2</code></td><td><code>3</code></td><td>Frequency of cosine</td></tr>
+<tr><td><code>String</code></td><td><code>FFT_resultFileName</code></td><td><code>"RealFFT2_resultFFT.mat"</code></td><td>File where FFT will be stored as [f,A,Phi], with f in {Hz] and A the amplitues and Phi the phases in [rad]</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nfi</code></td><td><code>max(1, min(integer(ceil(f_max / f_resolution)) + 1, nf))</code></td><td>Number of frequency points of the interested frequency range (only up to f_max)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fi[nfi]</code></td><td>&nbsp;</td><td>FFT frequencies of interested frequency points</td></tr>
+</table>
+</body></html>

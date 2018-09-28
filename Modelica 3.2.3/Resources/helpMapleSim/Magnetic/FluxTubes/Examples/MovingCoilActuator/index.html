@@ -1,0 +1,104 @@
+<html><head><title>Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="MovingCoilActuator"><h1><embed class="icon" src="../../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;MovingCoilActuator<br><span class="subtitle">Two translatory electrodynamic actuator models of different modelling depth and their comparison</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Moving coil actuators are often called electrodynamic actuators and a proportional behaviour between force and current is expressed by a converter constant (see <a href="../../../../Magnetic/FluxTubes/Examples/MovingCoilActuator/Components/index.html#ConstantActuator">ConstantActuator</a>). However, in a simple moving coil actuator as presented in this example there is an additional non-linear force component that is due to the increase of the inductance when the armature coil moves into the ferromagnetic stator. A simple <a href="../../../../Magnetic/FluxTubes/Examples/MovingCoilActuator/Components/index.html#PermeanceActuator">PermeanceActuator</a> can be used to describe this non-linear force component.
+</p>
+<p>Extends from <code><a href="../../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#ArmatureStroke"><code>ArmatureStroke</code></a></td><td>Armature stroke of both moving coil actuator models after a voltage step at time t=0</td></tr>
+<tr><td><a href="../../../../Magnetic/FluxTubes/Examples/MovingCoilActuator/Components/index.html"><code>Components</code></a> &hellip;</td><td>Components to be used in examples</td></tr>
+<tr><td><a href="#ForceCurrentBehaviour"><code>ForceCurrentBehaviour</code></a></td><td>Comparison of the force-current characteristics of both converter models with armature blocked at mid-position</td></tr>
+<tr><td><a href="#ForceStrokeBehaviour"><code>ForceStrokeBehaviour</code></a></td><td>Force-stroke characteristic of the permeance model at constant current</td></tr>
+</table>
+<hr><a name="ForceCurrentBehaviour"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">MovingCoilActuator</a>.&#8203;ForceCurrentBehaviour<br><span class="subtitle">Comparison of the force-current characteristics of both converter models with armature blocked at mid-position</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Have a look at <a href="../../../../Magnetic/FluxTubes/Examples/MovingCoilActuator/Components/index.html#ConstantActuator">ConstantActuator</a> and at <a href="../../../../Magnetic/FluxTubes/Examples/MovingCoilActuator/Components/index.html#PermeanceActuator">PermeanceActuator</a> for an explanation of both converter models.<br>
+</p>
+<p>
+Simulation of the force-current characteristics of both converter models with the armature blocked at mid-position x=0 reveals the difference between the two models. In the <a href="../../../../Magnetic/FluxTubes/Examples/MovingCoilActuator/Components/index.html#ConstantActuator">ConstantActuator</a>, force is proportional to current. In the simple <a href="../../../../Magnetic/FluxTubes/Examples/MovingCoilActuator/Components/index.html#PermeanceActuator">PermeanceActuator</a> there is an additional non-linear force component that is due to the dependency of the inductance on the armature position. Comparison with FEA results validates the higher accuracy of the <a href="../../../../Magnetic/FluxTubes/Examples/MovingCoilActuator/Components/index.html#PermeanceActuator">PermeanceActuator</a>. In the FEA model, the relative permeability of the stator iron was set to mu_rFe=const.=1000 in order to avoid additional non-linear force components due to saturation. <strong>Simulate for 6 s</strong> and <strong>plot vs. current (e.g., iSensor.i)</strong></p>
+<pre>
+    pmFixedPos.flange_b.f       // force of permeance model
+    cFixedPos.flange_b.f        // force of converter constant model
+    comparisonWithFEA.y[1]      // force of FEA model for comparison
+</pre>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="ForceStrokeBehaviour"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">MovingCoilActuator</a>.&#8203;ForceStrokeBehaviour<br><span class="subtitle">Force-stroke characteristic of the permeance model at constant current</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Have a look at <a href="../../../../Magnetic/FluxTubes/Examples/MovingCoilActuator/Components/index.html#ConstantActuator">ConstantActuator</a> and at <a href="../../../../Magnetic/FluxTubes/Examples/MovingCoilActuator/Components/index.html#PermeanceActuator">PermeanceActuator</a> for an explanation of both converter models.<br>
+</p>
+<p>
+Simulation of the force-stroke characteristic of the <a href="../../../../Magnetic/FluxTubes/Examples/MovingCoilActuator/Components/index.html#PermeanceActuator">PermeanceActuator</a> with a constant current I=3A and a forced armature movement (similar to measurements in reality) shows the dependency of both force-generating permeances G_ma and G_mb as well as inductance L on armature position x. <strong>Simulate for 8 s</strong> and <strong>plot vs.</strong> armature position <strong>feedX.flange_b.s</strong> (same physical quantities together in a common diagram for comparison):</p>
+<pre>
+    feedX.flange_b.f            // force of permeance model (permeance of stator iron neglected in this model)
+    comparisonWithFEA.y[1]      // force of FEA model with non-linear stator iron 1.0718
+    comparisonWithFEA.y[2]      // force of FEA model with mu_rFe=const.=1000
+    actuator.g_ma.G_m           // permeance G_ma
+    actuator.g_mb.G_m           // permeance G_mb
+    actuator.L                  // inductance of permeance model
+    comparisonWithFEA.y[3]      // inductance of FEA model for comparison (mu_rFe=const.=1000).
+</pre>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="ArmatureStroke"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">MovingCoilActuator</a>.&#8203;ArmatureStroke<br><span class="subtitle">Armature stroke of both moving coil actuator models after a voltage step at time t=0</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Have a look at <a href="../../../../Magnetic/FluxTubes/Examples/MovingCoilActuator/Components/index.html#ConstantActuator">ConstantActuator</a> and at <a href="../../../../Magnetic/FluxTubes/Examples/MovingCoilActuator/Components/index.html#PermeanceActuator">PermeanceActuator</a>
+for an explanation of both actuator models.</p>
+
+<p>
+A voltage step at time t=0 is applied to both actuator models. In each model, the armature and an attached load mass perform a stroke between the two stoppers included in cActuator.armature and pmActuator.armature respectively. <strong>Simulate for 0.05 s</strong> and plot vs. time (same physical quantities together in a common diagram for comparison):
+</p>
+<pre>
+    cActuator.p.i                     // input current to converter constant model
+    pmActuator.p.i                    // input current to permeance model
+    cActuator.armature.flange_a.f     // actuator force of converter constant model
+    pmActuator.armature.flange_a.f    // actuator force of permeance model
+    cActuator.x                       // armature position of converter constant model
+    pmActuator.x                      // armature position of permeance model
+    cActuator.L                       // inductance of converter constant model
+    pmActuator.L                      // inductance of permeance model
+</pre>
+<p>
+The initial current rise in both actuator models is due to the inductance of the actuator coil. After acceleration of the armature and the load, the current decreases due to the motion-induced back-emf. Bouncing occurs when the armatures of both models arrive at the stopper at maximum armature position. The bouncing is rather intense due to the absence of any kind of external friction in this simple example (apart from the nonlinear damping in the stopper elements). After decay of the bouncing, both actuators operate under conditions valid for a blocked armature.
+</p>
+<p>
+Whereas the steady state current is the same in both models, the steady state actuator force is not due to the neglect of the non-linear force component in the converter constant model. Differences in the current rise of both models are due to the neglect of the coil inductance variation in the converter constant model.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+</body></html>

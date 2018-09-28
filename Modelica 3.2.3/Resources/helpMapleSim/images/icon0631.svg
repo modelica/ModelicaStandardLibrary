@@ -1,0 +1,27 @@
+<svg width="243" height="254" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMEE" class="component">
+		<defs>
+			<pattern id="pat2" patternUnits="userSpaceOnUse" width="14" height="14">
+				<rect width="14" height="14" fill="#9F9FDF" />
+				<path d="M-1,13 l2,2 M0,0 l14,14 M13,-1 l2,2" stroke="#000000" stroke-width="1" />
+			</pattern>
+		</defs>
+		<polygon points="21.5,212.5 221.5,212.5 221.5,12.5 21.5,12.5" fill="url(#pat2)" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="121.5,132.5 121.5,64.5" fill-opacity="0" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="141.5,64.5 101.5,64.5 121.5,24.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="121.5" y="191.1" text-anchor="middle" fill="#000000" font-size="79.7px" font-family="sans-serif">SMEE</text>
+		<g id="thermalPort" class="port">
+			<polygon points="110.5,23.5 132.5,23.5 132.5,1.5 110.5,1.5" fill="#5F5F5F" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="129.5,12.5 129.5,11.8 129.4,11.1 129.2,10.5 129.0,9.8 128.8,9.2 128.5,8.5 128.1,8.0 127.7,7.4 127.2,6.9 126.7,6.4 126.2,6.0 125.6,5.6 125.0,5.3 124.4,5.0 123.7,4.8 123.0,4.6 122.4,4.5 121.7,4.5 121.0,4.5 120.3,4.6 119.6,4.7 119.0,4.9 118.3,5.2 117.7,5.5 117.1,5.8 116.6,6.2 116.0,6.7 115.5,7.2 115.1,7.7 114.7,8.3 114.4,8.9 114.1,9.5 113.9,10.1 113.7,10.8 113.6,11.5 113.5,12.2 113.5,12.8 113.6,13.5 113.7,14.2 113.9,14.9 114.1,15.5 114.4,16.1 114.7,16.7 115.1,17.3 115.5,17.8 116.0,18.3 116.6,18.8 117.1,19.2 117.7,19.5 118.3,19.8 119.0,20.1 119.6,20.3 120.3,20.4 121.0,20.5 121.7,20.5 122.4,20.5 123.0,20.4 123.7,20.2 124.4,20.0 125.0,19.7 125.6,19.4 126.2,19.0 126.7,18.6 127.2,18.1 127.7,17.6 128.1,17.0 128.5,16.5 128.8,15.8 129.0,15.2 129.2,14.5 129.4,13.9 129.5,13.2" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="TStatorWinding" class="port">
+			<polygon points="1.5,252.5 21.5,212.5 41.5,252.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="TRotorWinding" class="port">
+			<polygon points="201.5,252.5 221.5,212.5 241.5,252.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="TExcitation" class="port">
+			<polygon points="101.5,252.5 121.5,212.5 141.5,252.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,285 @@
+<html><head><title>Modelica.Fluid.Vessels.BaseClasses</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="BaseClasses"><h1><embed class="icon" src="../../../images/icon1037.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Vessels</a>.&#8203;BaseClasses<br><span class="subtitle">Base classes used in the Vessels package (only of interest to build new component models)</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon shall be used for a package/library that contains base models and classes, respectively.</p>
+<p>Extends from <code><a href="../../../Icons/BasesPackage/index.html">Modelica.&#8203;Icons.&#8203;BasesPackage</a></code> (Icon for packages containing base classes).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="../../../Fluid/Vessels/BaseClasses/HeatTransfer/index.html"><code>HeatTransfer</code></a> &hellip;</td><td>HeatTransfer models for vessels</td></tr>
+<tr><td><a href="#PartialLumpedVessel"><code>PartialLumpedVessel</code></a></td><td>Lumped volume with a vector of fluid ports and replaceable heat transfer model</td></tr>
+<tr><td><a href="#VesselFluidPorts_a"><code>VesselFluidPorts_a</code></a></td><td>Fluid connector with filled, large icon to be used for horizontally aligned vectors of FluidPorts (vector dimensions must be added after dragging)</td></tr>
+<tr><td><a href="#VesselFluidPorts_b"><code>VesselFluidPorts_b</code></a></td><td>Fluid connector with outlined, large icon to be used for horizontally aligned vectors of FluidPorts (vector dimensions must be added after dragging)</td></tr>
+<tr><td><a href="#VesselPortsData"><code>VesselPortsData</code></a></td><td>Data to describe inlet/outlet ports at vessels:
+    diameter -- Inner (hydraulic) diameter of inlet/outlet port
+    height -- Height over the bottom of the vessel
+    zeta_out -- Hydraulic resistance out of vessel, default 0.5 for small diameter mounted flush with the wall
+    zeta_in -- Hydraulic resistance into vessel, default 1.04 for small diameter mounted flush with the wall</td></tr>
+</table>
+<hr><a name="PartialLumpedVessel"><h2><embed class="icon" src="../../../images/icon1328.svg" width="213" height="213" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Vessels</a>.&#8203;<a href="index.html">BaseClasses</a>.&#8203;PartialLumpedVessel<br><span class="subtitle">Lumped volume with a vector of fluid ports and replaceable heat transfer model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This base class extends PartialLumpedVolume with a vector of fluid ports and a replaceable wall HeatTransfer model.
+</p>
+<p>
+The following modeling assumption are made:</p>
+<ul>
+<li>homogeneous medium, i.e., phase separation is not taken into account,</li>
+<li>no kinetic energy in the fluid, i.e., kinetic energy dissipates into the internal energy,</li>
+<li>pressure loss definitions at vessel ports assume incompressible fluid,</li>
+<li>outflow of ambient media is prevented at each port assuming check valve behavior.
+    If <code>fluidlevel &lt; portsData_height[i]</code> and <code>ports[i].p &lt; vessel_ps_static[i]</code> mass flow at the port is set to 0.</li>
+</ul>
+<p>
+Each port has a (hydraulic) diameter and a height above the bottom of the vessel, which can be configured using the <strong><code>portsData</code></strong> record.
+Alternatively the impact of port geometries can be neglected with <code>use_portsData=false</code>. This might be useful for early
+design studies. Note that this means to assume an infinite port diameter at the bottom of the vessel.
+Pressure drops and heights of the ports as well as kinetic and potential energy fluid entering or leaving the vessel are neglected then.
+</p>
+<p>
+The following variables need to be defined by an extending model:
+</p>
+<ul>
+<li><code>input fluidVolume</code>, the volume of the fluid in the vessel,</li>
+<li><code>vessel_ps_static[nPorts]</code>, the static pressures inside the vessel at the height of the corresponding ports, at zero flow velocity, and</li>
+<li><code>Wb_flow</code>, work term of the energy balance, e.g., p*der(V) if the volume is not constant or stirrer power.</li>
+</ul>
+<p>
+An extending model should define:
+</p>
+<ul>
+<li><code>parameter vesselArea</code> (default: Modelica.Constants.inf m2), the area of the vessel, to be related to cross flow areas of the ports for the consideration of dynamic pressure effects.</li>
+</ul>
+<p>
+Optionally the fluid level may vary in the vessel, which effects the flow through the ports at configurable <code>portsData_height[nPorts]</code>.
+This is why an extending model with varying fluid level needs to define:
+</p>
+<ul>
+<li><code>input fluidLevel (default: 0m)</code>, the level the fluid in the vessel, and</li>
+<li><code>parameter fluidLevel_max (default: 1m)</code>, the maximum level that must not be exceeded. Ports at or above fluidLevel_max can only receive inflow.</li>
+</ul>
+<p>
+An extending model should not access the <code>portsData</code> record defined in the configuration dialog,
+as an access to <code>portsData</code> may fail for <code>use_portsData=false</code> or <code>nPorts=0</code>.
+</p>
+<p>
+Instead the predefined variables
+</p>
+<ul>
+<li><code>portsData_diameter[nPorts]</code>,</li>
+<li><code>portsData_height[nPorts]</code>,</li>
+<li><code>portsData_zeta_in[nPorts]</code>, and</li>
+<li><code>portsData_zeta_out[nPorts]</code></li>
+</ul>
+<p>
+should be used if these values are needed.
+</p>
+<p>Extends from <code><a href="../../../Fluid/Interfaces/index.html#PartialLumpedVolume">Modelica.&#8203;Fluid.&#8203;Interfaces.&#8203;PartialLumpedVolume</a></code> (Lumped volume with mass and energy balance).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>energyDynamics</code></td><td><code>system.&#8203;energyDynamics</code></td><td>Formulation of energy balance</td></tr>
+<tr><td><code><a href="../../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>massDynamics</code></td><td><code>system.&#8203;massDynamics</code></td><td>Formulation of mass balance</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>substanceDynamics</code></td><td><code>massDynamics</code></td><td>Formulation of substance balance</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>traceDynamics</code></td><td><code>massDynamics</code></td><td>Formulation of trace substance balance</td></tr>
+<tr><td><code><a href="../../../Fluid/Vessels/BaseClasses/PartialLumpedVessel/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_start</code></td><td><code>system.&#8203;p_start</code></td><td>Start value of pressure</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_T_start</code></td><td><code>true</code></td><td>= true, use T_start, otherwise h_start</td></tr>
+<tr><td><code><a href="../../../Fluid/Vessels/BaseClasses/PartialLumpedVessel/Medium/index.html#Temperature">Temperature</a></code></td><td><code>T_start</code></td><td><code>if use_T_start then system.T_start else Medium.temperature_phX(p_start, h_start, X_start)</code></td><td>Start value of temperature</td></tr>
+<tr><td><code><a href="../../../Fluid/Vessels/BaseClasses/PartialLumpedVessel/Medium/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_start</code></td><td><code>if use_T_start then Medium.specificEnthalpy_pTX(p_start, T_start, X_start) else Medium.h_default</code></td><td>Start value of specific enthalpy</td></tr>
+<tr><td><code><a href="../../../Fluid/Vessels/BaseClasses/PartialLumpedVessel/Medium/index.html#MassFraction">MassFraction</a></code></td><td><code>X_start[Medium.nX]</code></td><td><code>Medium.&#8203;X_default</code></td><td>Start value of mass fractions m_i/m</td></tr>
+<tr><td><code><a href="../../../Fluid/Vessels/BaseClasses/PartialLumpedVessel/Medium/index.html#ExtraProperty">ExtraProperty</a></code></td><td><code>C_start[Medium.nC]</code></td><td><code>Medium.&#8203;C_default</code></td><td>Start value of trace substances</td></tr>
+<tr><td><code>Integer</code></td><td><code>nPorts</code></td><td><code>0</code></td><td>Number of ports</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_portsData</code></td><td><code>true</code></td><td>= false to neglect pressure loss and kinetic energy</td></tr>
+<tr><td><code><a href="../../../Fluid/Vessels/BaseClasses/index.html#VesselPortsData">VesselPortsData</a></code></td><td><code>portsData[if use_portsData then nPorts else 0]</code></td><td>&nbsp;</td><td>Data of inlet/outlet ports</td></tr>
+<tr><td><code><a href="../../../Fluid/Vessels/BaseClasses/PartialLumpedVessel/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nominal</code></td><td><code>if system.use_eps_Re then system.m_flow_nominal else 100 * system.m_flow_small</code></td><td>Nominal value for mass flow rates in ports</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * m_flow_nominal else system.m_flow_small</code></td><td>Regularization range at zero mass flow rate</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_Re</code></td><td><code>system.&#8203;use_eps_Re</code></td><td>= true, if turbulent region is defined by Re, otherwise by m_flow_small</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_HeatTransfer</code></td><td><code>false</code></td><td>= true to use the HeatTransfer model</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Fluid/Vessels/BaseClasses/index.html#VesselFluidPorts_b">VesselFluidPorts_b</a></code></td><td><code>ports[nPorts]</code></td><td>Fluid inlets and outlets</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="VesselPortsData"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Vessels</a>.&#8203;<a href="index.html">BaseClasses</a>.&#8203;VesselPortsData<br><span class="subtitle">Data to describe inlet/outlet ports at vessels:
+    diameter -- Inner (hydraulic) diameter of inlet/outlet port
+    height -- Height over the bottom of the vessel
+    zeta_out -- Hydraulic resistance out of vessel, default 0.5 for small diameter mounted flush with the wall
+    zeta_in -- Hydraulic resistance into vessel, default 1.04 for small diameter mounted flush with the wall</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Vessel Port Data</h4>
+<p>
+This record describes the <strong>ports</strong> of a <strong>vessel</strong>. The variables in it are mostly self-explanatory (see list below); only the &zeta;
+loss factors are discussed further. All data is quoted from Idelchik (1994).
+</p>
+
+<h4>Outlet Coefficients</h4>
+
+<p>
+If a <strong>straight pipe with constant cross section is mounted flush with the wall</strong>, its outlet pressure loss coefficient will be <code>&zeta; = 0.5</code> (Idelchik, p. 160, Diagram 3-1, paragraph 2).
+</p>
+<p>
+If a <strong>straight pipe with constant cross section is mounted into a vessel such that the entrance into it is at a distance</strong> <code>b</code> from the wall (inside) the following table can be used. Herein, &delta; is the tube wall thickness (Idelchik, p. 160, Diagram 3-1, paragraph 1).
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+  <caption align="bottom">Pressure loss coefficients for outlets, entrance at a distance from wall</caption>
+  <tr>
+    <td></td> <td>   </td><th colspan="5" align="center"> b / D_hyd  </th>
+  </tr>
+  <tr>
+    <td></td> <td>   </td><th> 0.000 </th><th> 0.005 </th><th> 0.020 </th><th> 0.100 </th><th> 0.500-&#8734; </th>
+  </tr>
+  <tr>
+     <th rowspan="5" valign="middle">&delta; / D_hyd</th> <th> 0.000 </th><td> 0.50 </td><td> 0.63  </td><td> 0.73  </td><td> 0.86  </td><td>      1.00     </td>
+  </tr>
+  <tr>
+              <th> 0.008 </th><td> 0.50 </td><td> 0.55  </td><td> 0.62  </td><td> 0.74  </td><td>      0.88     </td>
+  </tr>
+  <tr>
+              <th> 0.016 </th><td> 0.50 </td><td> 0.51  </td><td> 0.55  </td><td> 0.64  </td><td>      0.77     </td>
+  </tr>
+  <tr>
+              <th> 0.024 </th><td> 0.50 </td><td> 0.50  </td><td> 0.52  </td><td> 0.58  </td><td>      0.68     </td>
+  </tr>
+  <tr>
+              <th> 0.040 </th><td> 0.50 </td><td> 0.50  </td><td> 0.51  </td><td> 0.51  </td><td>      0.54     </td>
+  </tr>
+</table>
+
+<p>
+If a <strong>straight pipe with a circular bellmouth inlet (collector) without baffle is mounted flush with the wall</strong> then its pressure loss coefficient can be established from the following table. Herein, r is the radius of the bellmouth inlet surface (Idelchik, p. 164 f., Diagram 3-4, paragraph b)
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+  <caption align="bottom">Pressure loss coefficients for outlets, bellmouth flush with wall</caption>
+  <tr>
+    <td></td> <th colspan="6" align="center"> r / D_hyd  </th>
+  </tr>
+  <tr>
+    <td></td> <th> 0.01 </th><th> 0.03 </th><th> 0.05 </th><th> 0.08 </th><th> 0.16 </th><th>&ge;0.20</th>
+  </tr>
+  <tr>
+     <th>&zeta;</th> <td> 0.44 </td><td> 0.31 </td><td> 0.22  </td><td> 0.15  </td><td> 0.06  </td><td>      0.03     </td>
+  </tr>
+</table>
+
+<p>
+If a <strong>straight pipe with a circular bellmouth inlet (collector) without baffle is mounted at a distance from a wall</strong> then its pressure loss coefficient can be established from the following table. Herein, r is the radius of the bellmouth inlet surface (Idelchik, p. 164 f., Diagram 3-4, paragraph a)
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+  <caption align="bottom">Pressure loss coefficients for outlets, bellmouth at a distance of wall</caption>
+  <tr>
+    <td></td> <th colspan="6" align="center"> r / D_hyd  </th>
+  </tr>
+  <tr>
+    <td></td> <th> 0.01 </th><th> 0.03 </th><th> 0.05 </th><th> 0.08 </th><th> 0.16 </th><th>&ge;0.20</th>
+  </tr>
+  <tr>
+     <th>&zeta;</th> <td> 0.87 </td><td> 0.61 </td><td> 0.40  </td><td> 0.20  </td><td> 0.06  </td><td>      0.03     </td>
+  </tr>
+</table>
+
+<h4>Inlet Coefficients</h4>
+
+<p>
+If a <strong>straight pipe with constant circular cross section is mounted flush with the wall</strong>, its vessel inlet pressure loss coefficient will be according to the following table (Idelchik, p. 209 f., Diagram 4-2 with <code>A_port/A_vessel = 0</code> and Idelchik, p. 640, Diagram 11-1, graph a). According to the text, <code>m = 9</code> is appropriate for fully developed turbulent flow.
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+  <caption align="bottom">Pressure loss coefficients for inlets, circular tube flush with wall</caption>
+  <tr>
+    <td></td> <th colspan="6" align="center"> m  </th>
+  </tr>
+  <tr>
+    <td></td> <th> 1.0 </th><th> 2.0 </th><th> 3.0 </th><th> 4.0 </th><th> 7.0 </th><th>9.0</th>
+  </tr>
+  <tr>
+     <th>&zeta;</th> <td> 2.70 </td><td> 1.50 </td><td> 1.25  </td><td> 1.15  </td><td> 1.06  </td><td>      1.04     </td>
+  </tr>
+</table>
+
+<p>
+For larger port diameters, relative to the area of the vessel, the inlet pressure loss coefficient will be according to the following table (Idelchik, p. 209 f., Diagram 4-2 with <code>m = 7</code>).
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+  <caption align="bottom">Pressure loss coefficients for inlets, circular tube flush with wall</caption>
+  <tr>
+    <td></td> <th colspan="6" align="center"> A_port / A_vessel  </th>
+  </tr>
+  <tr>
+    <td></td> <th> 0.0 </th><th> 0.1 </th><th> 0.2 </th><th> 0.4 </th><th> 0.6 </th><th>0.8</th>
+  </tr>
+  <tr>
+     <th>&zeta;</th> <td> 1.04 </td><td> 0.84 </td><td> 0.67  </td><td> 0.39  </td><td> 0.18  </td><td>      0.06     </td>
+  </tr>
+</table>
+
+<h4>References</h4>
+
+<dl><dt>Idelchik I.E. (1994):</dt>
+    <dd><a href="http://www.bookfinder.com/dir/i/Handbook_of_Hydraulic_Resistance/0849399084/"><strong>Handbook
+        of Hydraulic Resistance</strong></a>. 3rd edition, Begell House, ISBN
+        0-8493-9908-4</dd>
+</dl>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../SIunits/index.html#Diameter">Diameter</a></code></td><td><code>diameter</code></td><td>Inner (hydraulic) diameter of inlet/outlet port</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Height">Height</a></code></td><td><code>height</code></td><td>Height over the bottom of the vessel</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>zeta_out</code></td><td>Hydraulic resistance out of vessel, default 0.5 for small diameter mounted flush with the wall</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>zeta_in</code></td><td>Hydraulic resistance into vessel, default 1.04 for small diameter mounted flush with the wall</td></tr>
+</table>
+<hr><a name="VesselFluidPorts_a"><h2><embed class="icon" src="../../../images/icon1332.svg" width="103" height="403" />
+Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Vessels</a>.&#8203;<a href="index.html">BaseClasses</a>.&#8203;VesselFluidPorts_a<br><span class="subtitle">Fluid connector with filled, large icon to be used for horizontally aligned vectors of FluidPorts (vector dimensions must be added after dragging)</span></h2></a>
+<p>Extends from <code><a href="../../../Fluid/Interfaces/index.html#FluidPort">Modelica.&#8203;Fluid.&#8203;Interfaces.&#8203;FluidPort</a></code> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../Fluid/Vessels/BaseClasses/VesselFluidPorts_a/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate from the connection point into the component</td></tr>
+<tr><td><code><a href="../../../Fluid/Vessels/BaseClasses/VesselFluidPorts_a/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Thermodynamic pressure in the connection point</td></tr>
+<tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../../Fluid/Vessels/BaseClasses/VesselFluidPorts_a/Medium/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_outflow</code></td><td>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0</td></tr>
+<tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../../Fluid/Vessels/BaseClasses/VesselFluidPorts_a/Medium/index.html#MassFraction">MassFraction</a></code></td><td><code>Xi_outflow[Medium.nXi]</code></td><td>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0</td></tr>
+<tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../../Fluid/Vessels/BaseClasses/VesselFluidPorts_a/Medium/index.html#ExtraProperty">ExtraProperty</a></code></td><td><code>C_outflow[Medium.nC]</code></td><td>Properties c_i/m close to the connection point if m_flow &lt; 0</td></tr>
+</table>
+<hr><a name="VesselFluidPorts_b"><h2><embed class="icon" src="../../../images/icon1333.svg" width="103" height="403" />
+Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Vessels</a>.&#8203;<a href="index.html">BaseClasses</a>.&#8203;VesselFluidPorts_b<br><span class="subtitle">Fluid connector with outlined, large icon to be used for horizontally aligned vectors of FluidPorts (vector dimensions must be added after dragging)</span></h2></a>
+<p>Extends from <code><a href="../../../Fluid/Interfaces/index.html#FluidPort">Modelica.&#8203;Fluid.&#8203;Interfaces.&#8203;FluidPort</a></code> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../Fluid/Vessels/BaseClasses/VesselFluidPorts_b/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate from the connection point into the component</td></tr>
+<tr><td><code><a href="../../../Fluid/Vessels/BaseClasses/VesselFluidPorts_b/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Thermodynamic pressure in the connection point</td></tr>
+<tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../../Fluid/Vessels/BaseClasses/VesselFluidPorts_b/Medium/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_outflow</code></td><td>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0</td></tr>
+<tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../../Fluid/Vessels/BaseClasses/VesselFluidPorts_b/Medium/index.html#MassFraction">MassFraction</a></code></td><td><code>Xi_outflow[Medium.nXi]</code></td><td>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0</td></tr>
+<tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../../Fluid/Vessels/BaseClasses/VesselFluidPorts_b/Medium/index.html#ExtraProperty">ExtraProperty</a></code></td><td><code>C_outflow[Medium.nC]</code></td><td>Properties c_i/m close to the connection point if m_flow &lt; 0</td></tr>
+</table>
+</body></html>

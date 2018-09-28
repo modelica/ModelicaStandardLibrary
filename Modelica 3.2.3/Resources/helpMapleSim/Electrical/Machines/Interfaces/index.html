@@ -1,0 +1,305 @@
+<html><head><title>Modelica.Electrical.Machines.Interfaces</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Interfaces"><h1><embed class="icon" src="../../../images/icon0015.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;Interfaces<br><span class="subtitle">SpacePhasor connector and PartialMachines</span></h1></a>
+<h3>Information</h3>
+<p>
+
+This package contains the space phasor connector and partial models for machine models.
+<p>Extends from <code><a href="../../../Icons/InterfacesPackage/index.html">Modelica.&#8203;Icons.&#8203;InterfacesPackage</a></code> (Icon for packages containing interfaces).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="../../../Electrical/Machines/Interfaces/DCMachines/index.html"><code>DCMachines</code></a> &hellip;</td><td>Thermal ports of DC machines</td></tr>
+<tr><td><a href="#FlangeSupport"><code>FlangeSupport</code></a></td><td>Shaft and support</td></tr>
+<tr><td><a href="../../../Electrical/Machines/Interfaces/InductionMachines/index.html"><code>InductionMachines</code></a> &hellip;</td><td>Interfaces and partial models for induction machines</td></tr>
+<tr><td><a href="#PartialBasicDCMachine"><code>PartialBasicDCMachine</code></a></td><td>Partial model for DC machine</td></tr>
+<tr><td><a href="#PartialBasicInductionMachine"><code>PartialBasicInductionMachine</code></a></td><td>Partial model for induction machine</td></tr>
+<tr><td><a href="#PartialBasicMachine"><code>PartialBasicMachine</code></a></td><td>Partial model for all machines</td></tr>
+<tr><td><a href="#PartialBasicTransformer"><code>PartialBasicTransformer</code></a></td><td>Partial model of three-phase transformer</td></tr>
+<tr><td><a href="#PowerBalanceTransformer"><code>PowerBalanceTransformer</code></a></td><td>Power balance of transformers</td></tr>
+<tr><td><a href="#SpacePhasor"><code>SpacePhasor</code></a></td><td>Connector for Space Phasors</td></tr>
+<tr><td><a href="#ThermalPortTransformer"><code>ThermalPortTransformer</code></a></td><td>Thermal port of transformers</td></tr>
+</table>
+<hr><a name="SpacePhasor"><h2><embed class="icon" src="../../../images/icon0638.svg" width="203" height="203" />
+Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;SpacePhasor<br><span class="subtitle">Connector for Space Phasors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Connector for Space Phasors:
+<ul>
+<li>Voltage v_[2] ... Real and Imaginary part of voltage space phasor</li>
+<li>Current i_[2] ... Real and Imaginary part of current space phasor</li>
+</ul>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>v_[2]</code></td><td>1=real, 2=imaginary part</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>i_[2]</code></td><td>1=real, 2=imaginary part</td></tr>
+</table>
+<hr><a name="PartialBasicMachine"><h2><embed class="icon" src="../../../images/icon0639.svg" width="223" height="223" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialBasicMachine<br><span class="subtitle">Partial model for all machines</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Base partial model DC machines:
+<ul>
+<li>main parts of the icon</li>
+<li>mechanical shaft</li>
+<li>mechanical support</li>
+</ul>
+Besides the mechanical connector <em>flange</em> (i.e., the shaft) the machines have a second mechanical connector <em>support</em>.<br>
+If <em>useSupport</em> = false, it is assumed that the stator is fixed.<br>
+Otherwise reaction torque (i.e., air gap torque, minus acceleration torque for stator's moment of inertia) can be measured at <em>support</em>.<br>
+One may also fix the shaft and let rotate the stator; parameter Js is only of importance when the stator is rotating.
+<p>Extends from <code><a href="../../../Electrical/Machines/Icons/index.html#TransientMachine">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Icons.&#8203;TransientMachine</a></code>.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Jr</code></td><td>&nbsp;</td><td>Rotor's moment of inertia</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useSupport</code></td><td><code>false</code></td><td>Enable / disable (=fixed stator) support</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Js</code></td><td><code>Jr</code></td><td>Stator's moment of inertia</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useThermalPort</code></td><td><code>false</code></td><td>Enable / disable (=fixed temperatures) thermal port</td></tr>
+<tr><td><code><a href="../../../Electrical/Machines/Losses/index.html#FrictionParameters">FrictionParameters</a></code></td><td><code>frictionParameters</code></td><td>&nbsp;</td><td>Friction loss parameter record</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>Shaft</td></tr>
+<tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>support</code></td><td>Support at which the reaction torque is acting</td></tr>
+</table>
+<hr><a name="PartialBasicInductionMachine"><h2><embed class="icon" src="../../../images/icon0574.svg" width="223" height="233" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialBasicInductionMachine<br><span class="subtitle">Partial model for induction machine</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Partial model for induction machine models
+<p>Extends from <code><a href="../../../Electrical/Machines/Interfaces/index.html#PartialBasicMachine">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Interfaces.&#8203;PartialBasicMachine</a></code> (Partial model for all machines).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>Integer</code></td><td><code>p</code></td><td>&nbsp;</td><td>Number of pole pairs (Integer)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fsNominal</code></td><td>&nbsp;</td><td>Nominal frequency</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TsOperational</code></td><td>&nbsp;</td><td>Operational temperature of stator resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rs</code></td><td>&nbsp;</td><td>Stator resistance per phase at TRef</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TsRef</code></td><td>&nbsp;</td><td>Reference temperature of stator resistance</td></tr>
+<tr><td><code><a href="../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20s</code></td><td>&nbsp;</td><td>Temperature coefficient of stator resistance at 20 degC</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lszero</code></td><td><code>Lssigma</code></td><td>Stator zero sequence inductance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lssigma</code></td><td>&nbsp;</td><td>Stator stray inductance per phase</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Jr</code></td><td>&nbsp;</td><td>Rotor's moment of inertia</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useSupport</code></td><td><code>false</code></td><td>Enable / disable (=fixed stator) support</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Js</code></td><td><code>Jr</code></td><td>Stator's moment of inertia</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useThermalPort</code></td><td><code>false</code></td><td>Enable / disable (=fixed temperatures) thermal port</td></tr>
+<tr><td><code><a href="../../../Electrical/Machines/Losses/index.html#FrictionParameters">FrictionParameters</a></code></td><td><code>frictionParameters</code></td><td>&nbsp;</td><td>Friction loss parameter record</td></tr>
+<tr><td><code><a href="../../../Electrical/Machines/Losses/index.html#CoreParameters">CoreParameters</a></code></td><td><code>statorCoreParameters</code></td><td>&nbsp;</td><td>Stator core loss parameter record; all parameters refer to stator side</td></tr>
+<tr><td><code><a href="../../../Electrical/Machines/Losses/index.html#StrayLoadParameters">StrayLoadParameters</a></code></td><td><code>strayLoadParameters</code></td><td>&nbsp;</td><td>Stray load loss parameter record</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>Shaft</td></tr>
+<tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>support</code></td><td>Support at which the reaction torque is acting</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_sp</code></td><td>Positive stator plug</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_sn</code></td><td>Negative stator plug</td></tr>
+<tr><td><code><a href="../../../Electrical/Machines/Interfaces/InductionMachines/index.html#PartialThermalPortInductionMachines">PartialThermalPortInductionMachines</a></code></td><td><code>thermalPort</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PartialBasicDCMachine"><h2><embed class="icon" src="../../../images/icon0646.svg" width="223" height="233" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialBasicDCMachine<br><span class="subtitle">Partial model for DC machine</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Partial model for DC machine models.
+<p>Extends from <code><a href="../../../Electrical/Machines/Interfaces/index.html#PartialBasicMachine">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Interfaces.&#8203;PartialBasicMachine</a></code> (Partial model for all machines).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TaOperational</code></td><td>&nbsp;</td><td>Operational armature temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VaNominal</code></td><td>&nbsp;</td><td>Nominal armature voltage</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>IaNominal</code></td><td>&nbsp;</td><td>Nominal armature current (&gt;0..Motor, &lt;0..Generator)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wNominal</code></td><td>&nbsp;</td><td>Nominal speed</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TaNominal</code></td><td>&nbsp;</td><td>Nominal armature temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ra</code></td><td>&nbsp;</td><td>Armature resistance at TRef</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TaRef</code></td><td>&nbsp;</td><td>Reference temperature of armature resistance</td></tr>
+<tr><td><code><a href="../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20a</code></td><td>&nbsp;</td><td>Temperature coefficient of armature resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>La</code></td><td>&nbsp;</td><td>Armature inductance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Jr</code></td><td>&nbsp;</td><td>Rotor's moment of inertia</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useSupport</code></td><td><code>false</code></td><td>Enable / disable (=fixed stator) support</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Js</code></td><td><code>Jr</code></td><td>Stator's moment of inertia</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useThermalPort</code></td><td><code>false</code></td><td>Enable / disable (=fixed temperatures) thermal port</td></tr>
+<tr><td><code><a href="../../../Electrical/Machines/Losses/index.html#FrictionParameters">FrictionParameters</a></code></td><td><code>frictionParameters</code></td><td>&nbsp;</td><td>Friction loss parameter record</td></tr>
+<tr><td><code><a href="../../../Electrical/Machines/Losses/index.html#CoreParameters">CoreParameters</a></code></td><td><code>coreParameters</code></td><td>&nbsp;</td><td>Armature core loss parameter record</td></tr>
+<tr><td><code><a href="../../../Electrical/Machines/Losses/index.html#StrayLoadParameters">StrayLoadParameters</a></code></td><td><code>strayLoadParameters</code></td><td>&nbsp;</td><td>Stray load loss parameter record</td></tr>
+<tr><td><code><a href="../../../Electrical/Machines/Losses/index.html#BrushParameters">BrushParameters</a></code></td><td><code>brushParameters</code></td><td>&nbsp;</td><td>Brush loss parameter record</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>Shaft</td></tr>
+<tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>support</code></td><td>Support at which the reaction torque is acting</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_ap</code></td><td>Positive armature pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_an</code></td><td>Negative armature pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Machines/Interfaces/DCMachines/index.html#PartialThermalPortDCMachines">PartialThermalPortDCMachines</a></code></td><td><code>thermalPort</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PartialBasicTransformer"><h2><embed class="icon" src="../../../images/icon0589.svg" width="223" height="214" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialBasicTransformer<br><span class="subtitle">Partial model of three-phase transformer</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Partial model of a three-phase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core.
+Circuit layout (vector group) of primary and secondary windings have to be defined.
+<br><strong>Default values for transformer's parameters (a realistic example) are:</strong><br>
+<table>
+<tr>
+<td>turns ratio n</td>
+<td>1</td><td> </td>
+</tr>
+<tr>
+<td>nominal frequency fNominal</td>
+<td>50</td><td>Hz</td>
+</tr>
+<tr>
+<td>nominal voltage per phase</td>
+<td>100</td><td>V RMS</td>
+</tr>
+<tr>
+<td>nominal current per phase</td>
+<td>100</td><td>A RMS</td>
+</tr>
+<tr>
+<td>nominal apparent power</td>
+<td>30</td><td>kVA</td>
+</tr>
+<tr>
+<td>primary resistance R1</td>
+<td>0.005</td><td>Ohm per phase at reference temperature</td>
+</tr>
+<tr>
+<td>reference temperature T1Ref</td>
+<td>20</td><td>&deg;C</td>
+</tr>
+<tr>
+<td>temperature coefficient alpha20_1 </td>
+<td>0</td><td>1/K</td>
+</tr>
+<tr>
+<td>primary stray inductance L1sigma</td>
+<td>78E-6</td><td>H per phase</td>
+</tr>
+<tr>
+<td>secondary resistance R2</td>
+<td>0.005</td><td>Ohm per phase at reference temperature</td>
+</tr>
+<tr>
+<td>reference temperature T2Ref</td>
+<td>20</td><td>&deg;C</td>
+</tr>
+<tr>
+<td>temperature coefficient alpha20_2 </td>
+<td>0</td><td>1/K</td>
+</tr>
+<tr>
+<td>secondary stray inductance L2sigma</td>
+<td>78E-6</td><td>H per phase</td>
+</tr>
+<tr>
+<td>operational temperature T1Operational</td>
+<td>20</td><td>&deg;C</td>
+</tr>
+<tr>
+<td>operational temperature T2Operational</td>
+<td>20</td><td>&deg;C</td>
+</tr>
+<tr>
+<td>These values give the operational parameters:</td>
+<td> </td><td> </td>
+</tr>
+<tr>
+<td>nominal voltage drop</td>
+<td>0.05</td><td>p.u.</td>
+</tr>
+<tr>
+<td>nominal copper losses</td>
+<td>300</td><td>W</td>
+</tr>
+</table>
+<p>Extends from <code><a href="../../../Electrical/Machines/Icons/index.html#TransientTransformer">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Icons.&#8203;TransientTransformer</a></code>.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>Real</code></td><td><code>n</code></td><td>&nbsp;</td><td>Ratio primary voltage (line-to-line) / secondary voltage (line-to-line)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R1</code></td><td>&nbsp;</td><td>Primary resistance per phase at TRef</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T1Ref</code></td><td>&nbsp;</td><td>Reference temperature of primary resistance</td></tr>
+<tr><td><code><a href="../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20_1</code></td><td>&nbsp;</td><td>Temperature coefficient of primary resistance at 20 degC</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L1sigma</code></td><td>&nbsp;</td><td>Primary stray inductance per phase</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R2</code></td><td>&nbsp;</td><td>Secondary resistance per phase at TRef</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T2Ref</code></td><td>&nbsp;</td><td>Reference temperature of secondary resistance</td></tr>
+<tr><td><code><a href="../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20_2</code></td><td>&nbsp;</td><td>Temperature coefficient of secondary resistance at 20 degC</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L2sigma</code></td><td>&nbsp;</td><td>Secondary stray inductance per phase</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useThermalPort</code></td><td><code>false</code></td><td>Enable / disable (=fixed temperatures) thermal port</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T1Operational</code></td><td>&nbsp;</td><td>Operational temperature of primary resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T2Operational</code></td><td>&nbsp;</td><td>Operational temperature of secondary resistance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug1</code></td><td>Primary plug</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug2</code></td><td>Secondary plug</td></tr>
+<tr><td><code><a href="../../../Electrical/Machines/Interfaces/index.html#ThermalPortTransformer">ThermalPortTransformer</a></code></td><td><code>thermalPort</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="ThermalPortTransformer"><h2><embed class="icon" src="../../../images/icon0651.svg" width="223" height="223" />
+Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;ThermalPortTransformer<br><span class="subtitle">Thermal port of transformers</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Thermal port for transformers
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Integer</code></td><td><code>m</code></td><td>number of phases</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort1[m]</code></td><td>Heat port of primary windings</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort2[m]</code></td><td>Heat port of secondary windings</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortCore</code></td><td>Heat port of (optional) core losses</td></tr>
+</table>
+<hr><a name="PowerBalanceTransformer"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PowerBalanceTransformer<br><span class="subtitle">Power balance of transformers</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Power balance of transformers.
+ 
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Power">Power</a></code></td><td><code>power1</code></td><td>Primary power</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Power">Power</a></code></td><td><code>power2</code></td><td>Secondary power</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerTotal</code></td><td>Total loss power</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPower1</code></td><td>Primary copper losses</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPower2</code></td><td>Secondary copper losses</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerCore</code></td><td>Core losses</td></tr>
+</table>
+<hr><a name="FlangeSupport"><h2><embed class="icon" src="../../../images/icon0652.svg" width="203" height="233" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;FlangeSupport<br><span class="subtitle">Shaft and support</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This partial model defines shaft and housing connector for loss models.
+Positive torque <code>tau</code> acts as braking torque.
+</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>Shaft end</td></tr>
+<tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>support</code></td><td>Housing and support</td></tr>
+</table>
+</body></html>

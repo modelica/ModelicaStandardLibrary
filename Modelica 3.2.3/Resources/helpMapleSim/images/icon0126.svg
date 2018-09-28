@@ -1,0 +1,14 @@
+<svg width="423" height="43" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Blocks.Logical.TerminateSimulation" class="component">
+		<polygon points="1.5,41.5 401.5,41.5 401.5,1.5 1.5,1.5" fill="#EBEBEB" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="4.5,40.0 400.0,40.0 400.0,4.5" fill-opacity="0" stroke="#767676" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="3.0,38.5 3.0,3.0 398.5,3.0" fill-opacity="0" stroke="#F5F5F5" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="215.5" y="36.0" text-anchor="middle" fill="#000000" font-size="39.9px" font-family="sans-serif">false</text>
+		<polygon points="7.5,35.5 33.5,35.5 33.5,7.5 7.5,7.5" fill="#A12329" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="10.5,34.0 32.0,34.0 32.0,10.5" fill-opacity="0" stroke="#501115" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="9.0,32.5 9.0,9.0 30.5,9.0" fill-opacity="0" stroke="#D09194" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="condition" class="port">
+			<polygon points="401.5,11.5 421.5,21.5 401.5,31.5" fill="#FFFFFF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,154 @@
+<html><head><title>Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Interfaces"><h1><embed class="icon" src="../../../../images/icon0015.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;Interfaces<br><span class="subtitle">Interfaces</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates packages containing interfaces.</p>
+<p>Extends from <code><a href="../../../../Icons/InterfacesPackage/index.html">Modelica.&#8203;Icons.&#8203;InterfacesPackage</a></code> (Icon for packages containing interfaces).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#MagneticPort"><code>MagneticPort</code></a></td><td>Quasi-static magnetic port of fundamental wave machines</td></tr>
+<tr><td><a href="#NegativeMagneticPort"><code>NegativeMagneticPort</code></a></td><td>Negative quasi-static magnetic port of fundamental wave machines</td></tr>
+<tr><td><a href="#PartialTwoPort"><code>PartialTwoPort</code></a></td><td>Partial two port for graphical programming</td></tr>
+<tr><td><a href="#PartialTwoPortElementary"><code>PartialTwoPortElementary</code></a></td><td>Elementary partial two port for textual programming</td></tr>
+<tr><td><a href="#PartialTwoPortExtended"><code>PartialTwoPortExtended</code></a></td><td>Partial two port for graphical programming with additional variables</td></tr>
+<tr><td><a href="#PositiveMagneticPort"><code>PositiveMagneticPort</code></a></td><td>Positive quasi-static magnetic port of fundamental wave machines</td></tr>
+</table>
+<hr><a name="MagneticPort"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Connector <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;MagneticPort<br><span class="subtitle">Quasi-static magnetic port of fundamental wave machines</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Base definition of complex quasi-static magnetic port. The potential variable is the complex magnetic potential
+<code>V_m</code> and the flow variable is the complex magnetic flux <code>Phi</code>.</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a>,
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a>
+</p>
+
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#ComplexMagneticPotential">ComplexMagneticPotential</a></code></td><td><code>V_m</code></td><td>Complex magnetic potential at the port</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#ComplexMagneticFlux">ComplexMagneticFlux</a></code></td><td><code>Phi</code></td><td>Complex magnetic flux flowing into the port</td></tr>
+</table>
+<hr><a name="PositiveMagneticPort"><h2><embed class="icon" src="../../../../images/icon1047.svg" width="203" height="203" />
+Connector <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PositiveMagneticPort<br><span class="subtitle">Positive quasi-static magnetic port of fundamental wave machines</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+The positive port is based on
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#MagneticPort">MagneticPort</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of the quasi-static voltage and current. The symbol is also designed such way to look different than the
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a>.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#MagneticPort">MagneticPort</a>,
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a>
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#MagneticPort">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FundamentalWave.&#8203;Interfaces.&#8203;MagneticPort</a></code> (Quasi-static magnetic port of fundamental wave machines).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#ComplexMagneticPotential">ComplexMagneticPotential</a></code></td><td><code>V_m</code></td><td>Complex magnetic potential at the port</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#ComplexMagneticFlux">ComplexMagneticFlux</a></code></td><td><code>Phi</code></td><td>Complex magnetic flux flowing into the port</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/Types/index.html#Reference">Reference</a></code></td><td><code>reference</code></td><td>Reference</td></tr>
+</table>
+<hr><a name="NegativeMagneticPort"><h2><embed class="icon" src="../../../../images/icon1048.svg" width="203" height="203" />
+Connector <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;NegativeMagneticPort<br><span class="subtitle">Negative quasi-static magnetic port of fundamental wave machines</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+The negative pin is based on <a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#Pin">Pin</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of the quasi-static voltage and current. The symbol is also designed such way to look different than the <a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">positive pin</a>.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#MagneticPort">MagneticPort</a>,
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a>
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#MagneticPort">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FundamentalWave.&#8203;Interfaces.&#8203;MagneticPort</a></code> (Quasi-static magnetic port of fundamental wave machines).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#ComplexMagneticPotential">ComplexMagneticPotential</a></code></td><td><code>V_m</code></td><td>Complex magnetic potential at the port</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#ComplexMagneticFlux">ComplexMagneticFlux</a></code></td><td><code>Phi</code></td><td>Complex magnetic flux flowing into the port</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/Types/index.html#Reference">Reference</a></code></td><td><code>reference</code></td><td>Reference</td></tr>
+</table>
+<hr><a name="PartialTwoPort"><h2><embed class="icon" src="../../../../images/icon1049.svg" width="223" height="203" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialTwoPort<br><span class="subtitle">Partial two port for graphical programming</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The partial two port model consists of a positive and a negative magnetic port. The reference angles of the two ports are set equal and connected through <code>Connections.branch</code>.
+</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port of fundamental wave machines</td></tr>
+</table>
+<hr><a name="PartialTwoPortExtended"><h2><embed class="icon" src="../../../../images/icon1049.svg" width="223" height="203" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialTwoPortExtended<br><span class="subtitle">Partial two port for graphical programming with additional variables</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The partial two port model consists of a positive and a negative magnetic port. The reference angles of the two ports are set equal and connected through <code>Connections.branch</code>.
+</p>
+<p>
+This interface model contains an extended set of (output) variables compared to
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PartialTwoPort">PartialTwoPort</a>.
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PartialTwoPort">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FundamentalWave.&#8203;Interfaces.&#8203;PartialTwoPort</a></code> (Partial two port for graphical programming).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port of fundamental wave machines</td></tr>
+</table>
+<hr><a name="PartialTwoPortElementary"><h2><embed class="icon" src="../../../../images/icon1049.svg" width="223" height="203" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialTwoPortElementary<br><span class="subtitle">Elementary partial two port for textual programming</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The partial two port elementary model extends from the partial two port model and adds one equation considering the balance of flow variables, <code>port_p.Phi + port_n.Phi = Complex(0,0)</code>. Additionally, a variable for magnetic potential difference of the two magnetic ports, <code>V_m</code>, and the flux into the positive port, <code>Phi</code>, are defined.
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PartialTwoPort">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FundamentalWave.&#8203;Interfaces.&#8203;PartialTwoPort</a></code> (Partial two port for graphical programming).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port of fundamental wave machines</td></tr>
+</table>
+</body></html>

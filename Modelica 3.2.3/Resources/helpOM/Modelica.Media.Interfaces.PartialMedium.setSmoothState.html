@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Media.Interfaces.PartialMedium.setSmoothState</title>
+</head>
+<body>
+<h1><a href="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg"><img class="svgiconhead" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.Interfaces.html">Interfaces</a>.<a class="omc-h1-a" href="Modelica.Media.Interfaces.PartialMedium.html">PartialMedium</a>.<span class="omc-h1">setSmoothState</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This function is used to approximate the equation</p>
+<pre>
+    state = <strong>if</strong> x &gt; 0 <strong>then</strong> state_a <strong>else</strong> state_b;
+</pre>
+<p>by a smooth characteristic, so that the expression is continuous
+and differentiable:</p>
+<pre>
+   state := <strong>smooth</strong>(1, <strong>if</strong> x &gt;  x_small <strong>then</strong> state_a <strong>else</strong>
+                      <strong>if</strong> x &lt; -x_small <strong>then</strong> state_b <strong>else</strong> f(state_a, state_b));
+</pre>
+<p>This is performed by applying function
+<strong>Media.Common.smoothStep</strong>(..) on every element of
+the thermodynamic state record.</p>
+<p>If <strong>mass fractions</strong> X[:] are approximated with
+this function then this can be performed for all
+<strong>nX</strong> mass fractions, instead of applying it for nX-1
+mass fractions and computing the last one by the mass fraction
+constraint sum(X)=1. The reason is that the approximating function
+has the property that sum(state.X) = 1, provided sum(state_a.X) =
+sum(state_b.X) = 1. This can be shown by evaluating the
+approximating function in the abs(x) &lt; x_small region (otherwise
+state.X is either state_a.X or state_b.X):</p>
+<pre>
+    X[1]  = smoothStep(x, X_a[1] , X_b[1] , x_small);
+    X[2]  = smoothStep(x, X_a[2] , X_b[2] , x_small);
+       ...
+    X[nX] = smoothStep(x, X_a[nX], X_b[nX], x_small);
+</pre>
+<p>or</p>
+<pre>
+    X[1]  = c*(X_a[1]  - X_b[1])  + (X_a[1]  + X_b[1])/2
+    X[2]  = c*(X_a[2]  - X_b[2])  + (X_a[2]  + X_b[2])/2;
+       ...
+    X[nX] = c*(X_a[nX] - X_b[nX]) + (X_a[nX] + X_b[nX])/2;
+    c     = (x/x_small)*((x/x_small)^2 - 3)/4
+</pre>
+<p>Summing all mass fractions together results in</p>
+<pre>
+    sum(X) = c*(sum(X_a) - sum(X_b)) + (sum(X_a) + sum(X_b))/2
+           = c*(1 - 1) + (1 + 1)/2
+           = 1
+</pre>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>partial function setSmoothState
+  extends Modelica.Icons.Function;
+  input Real x "m_flow or dp";
+  input ThermodynamicState state_a "Thermodynamic state if x &gt; 0";
+  input ThermodynamicState state_b "Thermodynamic state if x &lt; 0";
+  input Real x_small(min = 0) "Smooth transition in the region -x_small &lt; x &lt; x_small";
+  output ThermodynamicState state "Smooth thermodynamic state for all x (continuous and differentiable)";
+end setSmoothState;</pre></blockquote>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

@@ -1,0 +1,213 @@
+<html><head><title>Modelica.Magnetic.FluxTubes.Material.HardMagnetic</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="HardMagnetic"><h1><embed class="icon" src="../../../../images/icon0946.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Material</a>.&#8203;HardMagnetic<br><span class="subtitle">Characteristics of common permanent magnetic materials (temperature dependence considered)</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Typical values for remanence, coercivity and the temperature coefficient of remanence are provided for the common permanent magnetic materials illustrated below.</p>
+<dl>
+<dd>
+<img src="../../../../../Images/Magnetic/FluxTubes/Material/HardMagnetic/HardMagneticMaterials.png" alt="Demagnetization characteristics of included permanent magnetic materials">
+</dd>
+</dl>
+<p>
+Linear demagnetization curves are modelled. The characteristic, temperature-dependent "knee" of many permanent magnetic materials is not considered, since proper design of permanent magnetic circuits should avoid operation of permanent magnets "below" that point due to partial demagnetization. As a result, the temperature coefficient of coercivity is not considered. Only the temperature coefficient of remanence alpha_Br is accounted for, since it describes the dependence of the demagnetization curve on the temperature sufficiently for the region "above the knee-point".
+</p>
+<p>
+Additional user-specific materials can be defined as needed.
+</p>
+<p>Extends from <code><a href="../../../../Icons/MaterialPropertiesPackage/index.html">Modelica.&#8203;Icons.&#8203;MaterialPropertiesPackage</a></code> (Icon for package containing property classes).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#BaseData"><code>BaseData</code></a></td><td>Record for permanent magnetic material data</td></tr>
+<tr><td><a href="#HardFerrite"><code>HardFerrite</code></a></td><td>Hard ferrite sintered, exemplary values</td></tr>
+<tr><td><a href="#NdFeB"><code>NdFeB</code></a></td><td>NdFeB sintered; exemplary values</td></tr>
+<tr><td><a href="#PlasticHardFerrite"><code>PlasticHardFerrite</code></a></td><td>Plastic-bonded hard ferrite, exemplary values</td></tr>
+<tr><td><a href="#PlasticNdFeB"><code>PlasticNdFeB</code></a></td><td>Plastic-bonded NdFeB, exemplary values</td></tr>
+<tr><td><a href="#PlasticSmCo"><code>PlasticSmCo</code></a></td><td>Plastic-bonded Sm-Co, exemplary values</td></tr>
+<tr><td><a href="#Sm2Co17"><code>Sm2Co17</code></a></td><td>Sm2Co17 sintered, exemplary values</td></tr>
+<tr><td><a href="#SmCo5"><code>SmCo5</code></a></td><td>SmCo5 sintered, exemplary values</td></tr>
+</table>
+<hr><a name="BaseData"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Material</a>.&#8203;<a href="index.html">HardMagnetic</a>.&#8203;BaseData<br><span class="subtitle">Record for permanent magnetic material data</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Please refer to the description of  the enclosing package <a href="../../../../Magnetic/FluxTubes/Material/HardMagnetic/index.html">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFieldStrength">MagneticFieldStrength</a></code></td><td><code>H_cBRef</code></td><td>Coercivity at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFluxDensity">MagneticFluxDensity</a></code></td><td><code>B_rRef</code></td><td>Remanence at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td>Reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_Br</code></td><td>Temperature coefficient of remanence at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_op</code></td><td>Operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFluxDensity">MagneticFluxDensity</a></code></td><td><code>B_r</code></td><td>Remanence at operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFieldStrength">MagneticFieldStrength</a></code></td><td><code>H_cB</code></td><td>Coercivity at operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#RelativePermeability">RelativePermeability</a></code></td><td><code>mu_r</code></td><td>Relative permeability</td></tr>
+</table>
+<hr><a name="NdFeB"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Material</a>.&#8203;<a href="index.html">HardMagnetic</a>.&#8203;NdFeB<br><span class="subtitle">NdFeB sintered; exemplary values</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Please refer to the description of  the enclosing package <a href="../../../../Magnetic/FluxTubes/Material/HardMagnetic/index.html">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Material/HardMagnetic/index.html#BaseData">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Material.&#8203;HardMagnetic.&#8203;BaseData</a></code> (Record for permanent magnetic material data).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFieldStrength">MagneticFieldStrength</a></code></td><td><code>H_cBRef</code></td><td>Coercivity at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFluxDensity">MagneticFluxDensity</a></code></td><td><code>B_rRef</code></td><td>Remanence at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td>Reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_Br</code></td><td>Temperature coefficient of remanence at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_op</code></td><td>Operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFluxDensity">MagneticFluxDensity</a></code></td><td><code>B_r</code></td><td>Remanence at operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFieldStrength">MagneticFieldStrength</a></code></td><td><code>H_cB</code></td><td>Coercivity at operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#RelativePermeability">RelativePermeability</a></code></td><td><code>mu_r</code></td><td>Relative permeability</td></tr>
+</table>
+<hr><a name="Sm2Co17"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Material</a>.&#8203;<a href="index.html">HardMagnetic</a>.&#8203;Sm2Co17<br><span class="subtitle">Sm2Co17 sintered, exemplary values</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Please refer to the description of  the enclosing package <a href="../../../../Magnetic/FluxTubes/Material/HardMagnetic/index.html">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Material/HardMagnetic/index.html#BaseData">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Material.&#8203;HardMagnetic.&#8203;BaseData</a></code> (Record for permanent magnetic material data).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFieldStrength">MagneticFieldStrength</a></code></td><td><code>H_cBRef</code></td><td>Coercivity at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFluxDensity">MagneticFluxDensity</a></code></td><td><code>B_rRef</code></td><td>Remanence at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td>Reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_Br</code></td><td>Temperature coefficient of remanence at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_op</code></td><td>Operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFluxDensity">MagneticFluxDensity</a></code></td><td><code>B_r</code></td><td>Remanence at operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFieldStrength">MagneticFieldStrength</a></code></td><td><code>H_cB</code></td><td>Coercivity at operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#RelativePermeability">RelativePermeability</a></code></td><td><code>mu_r</code></td><td>Relative permeability</td></tr>
+</table>
+<hr><a name="SmCo5"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Material</a>.&#8203;<a href="index.html">HardMagnetic</a>.&#8203;SmCo5<br><span class="subtitle">SmCo5 sintered, exemplary values</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Please refer to the description of  the enclosing package <a href="../../../../Magnetic/FluxTubes/Material/HardMagnetic/index.html">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Material/HardMagnetic/index.html#BaseData">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Material.&#8203;HardMagnetic.&#8203;BaseData</a></code> (Record for permanent magnetic material data).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFieldStrength">MagneticFieldStrength</a></code></td><td><code>H_cBRef</code></td><td>Coercivity at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFluxDensity">MagneticFluxDensity</a></code></td><td><code>B_rRef</code></td><td>Remanence at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td>Reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_Br</code></td><td>Temperature coefficient of remanence at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_op</code></td><td>Operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFluxDensity">MagneticFluxDensity</a></code></td><td><code>B_r</code></td><td>Remanence at operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFieldStrength">MagneticFieldStrength</a></code></td><td><code>H_cB</code></td><td>Coercivity at operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#RelativePermeability">RelativePermeability</a></code></td><td><code>mu_r</code></td><td>Relative permeability</td></tr>
+</table>
+<hr><a name="PlasticNdFeB"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Material</a>.&#8203;<a href="index.html">HardMagnetic</a>.&#8203;PlasticNdFeB<br><span class="subtitle">Plastic-bonded NdFeB, exemplary values</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Please refer to the description of  the enclosing package <a href="../../../../Magnetic/FluxTubes/Material/HardMagnetic/index.html">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Material/HardMagnetic/index.html#BaseData">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Material.&#8203;HardMagnetic.&#8203;BaseData</a></code> (Record for permanent magnetic material data).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFieldStrength">MagneticFieldStrength</a></code></td><td><code>H_cBRef</code></td><td>Coercivity at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFluxDensity">MagneticFluxDensity</a></code></td><td><code>B_rRef</code></td><td>Remanence at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td>Reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_Br</code></td><td>Temperature coefficient of remanence at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_op</code></td><td>Operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFluxDensity">MagneticFluxDensity</a></code></td><td><code>B_r</code></td><td>Remanence at operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFieldStrength">MagneticFieldStrength</a></code></td><td><code>H_cB</code></td><td>Coercivity at operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#RelativePermeability">RelativePermeability</a></code></td><td><code>mu_r</code></td><td>Relative permeability</td></tr>
+</table>
+<hr><a name="PlasticSmCo"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Material</a>.&#8203;<a href="index.html">HardMagnetic</a>.&#8203;PlasticSmCo<br><span class="subtitle">Plastic-bonded Sm-Co, exemplary values</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Please refer to the description of  the enclosing package <a href="../../../../Magnetic/FluxTubes/Material/HardMagnetic/index.html">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Material/HardMagnetic/index.html#BaseData">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Material.&#8203;HardMagnetic.&#8203;BaseData</a></code> (Record for permanent magnetic material data).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFieldStrength">MagneticFieldStrength</a></code></td><td><code>H_cBRef</code></td><td>Coercivity at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFluxDensity">MagneticFluxDensity</a></code></td><td><code>B_rRef</code></td><td>Remanence at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td>Reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_Br</code></td><td>Temperature coefficient of remanence at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_op</code></td><td>Operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFluxDensity">MagneticFluxDensity</a></code></td><td><code>B_r</code></td><td>Remanence at operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFieldStrength">MagneticFieldStrength</a></code></td><td><code>H_cB</code></td><td>Coercivity at operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#RelativePermeability">RelativePermeability</a></code></td><td><code>mu_r</code></td><td>Relative permeability</td></tr>
+</table>
+<hr><a name="HardFerrite"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Material</a>.&#8203;<a href="index.html">HardMagnetic</a>.&#8203;HardFerrite<br><span class="subtitle">Hard ferrite sintered, exemplary values</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Please refer to the description of  the enclosing package <a href="../../../../Magnetic/FluxTubes/Material/HardMagnetic/index.html">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Material/HardMagnetic/index.html#BaseData">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Material.&#8203;HardMagnetic.&#8203;BaseData</a></code> (Record for permanent magnetic material data).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFieldStrength">MagneticFieldStrength</a></code></td><td><code>H_cBRef</code></td><td>Coercivity at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFluxDensity">MagneticFluxDensity</a></code></td><td><code>B_rRef</code></td><td>Remanence at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td>Reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_Br</code></td><td>Temperature coefficient of remanence at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_op</code></td><td>Operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFluxDensity">MagneticFluxDensity</a></code></td><td><code>B_r</code></td><td>Remanence at operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFieldStrength">MagneticFieldStrength</a></code></td><td><code>H_cB</code></td><td>Coercivity at operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#RelativePermeability">RelativePermeability</a></code></td><td><code>mu_r</code></td><td>Relative permeability</td></tr>
+</table>
+<hr><a name="PlasticHardFerrite"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Material</a>.&#8203;<a href="index.html">HardMagnetic</a>.&#8203;PlasticHardFerrite<br><span class="subtitle">Plastic-bonded hard ferrite, exemplary values</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Please refer to the description of  the enclosing package <a href="../../../../Magnetic/FluxTubes/Material/HardMagnetic/index.html">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Material/HardMagnetic/index.html#BaseData">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Material.&#8203;HardMagnetic.&#8203;BaseData</a></code> (Record for permanent magnetic material data).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFieldStrength">MagneticFieldStrength</a></code></td><td><code>H_cBRef</code></td><td>Coercivity at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFluxDensity">MagneticFluxDensity</a></code></td><td><code>B_rRef</code></td><td>Remanence at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td>Reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_Br</code></td><td>Temperature coefficient of remanence at reference temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_op</code></td><td>Operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFluxDensity">MagneticFluxDensity</a></code></td><td><code>B_r</code></td><td>Remanence at operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#MagneticFieldStrength">MagneticFieldStrength</a></code></td><td><code>H_cB</code></td><td>Coercivity at operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#RelativePermeability">RelativePermeability</a></code></td><td><code>mu_r</code></td><td>Relative permeability</td></tr>
+</table>
+</body></html>

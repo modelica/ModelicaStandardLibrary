@@ -1,0 +1,378 @@
+<html><head><title>Modelica.Math.FastFourierTransform</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="FastFourierTransform"><h1><embed class="icon" src="../../images/icon1511.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Math</a>.&#8203;FastFourierTransform<br><span class="subtitle">Library of functions for the Fast Fourier Transform (FFT)</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package provides functions to compute the Fast Fourier Transform (FFT).</p>
+
+<p>
+For an example see <a href="../../Math/FastFourierTransform/Examples/index.html#RealFFT1">Examples.RealFFT1</a>
+where the following signal is computed during simulation
+</p>
+
+<pre>
+   y = 5 + 3*sin(2*pi*2) + 1.5*cos(2*pi*3)
+</pre>
+
+<p>
+the continuous-time signal y is sampled and the FFT is computed with a call to realFFT(f_max=4, f_resolution=0.2),
+resulting in:
+</p>
+
+<blockquote>
+<img src="../../../Images/Math/FFT1.png">
+</blockquote>
+
+
+<h4>References</h4>
+
+<dl>
+<dt>Mark Borgerding (2010):</dt>
+<dd> <strong>KissFFT, version 1.3.0</strong>.
+     <a href="http://sourceforge.net/projects/kissfft/">http://sourceforge.net/projects/kissfft/</a>.
+     <br>&nbsp;
+     </dd>
+
+<dt>James W. Cooley, John W. Tukey (1965):</dt>
+<dd> <strong>An algorithm for the machine calculation of complex Fourier series</strong>.
+     Math. Comput. 19: 297-301. doi:10.2307/2003354.
+     <br>&nbsp;
+     </dd>
+
+<dt>Martin R. Kuhn, Martin Otter, Tim Giese (2015):</dt>
+<dd> <strong>Model Based Specifications in Aircraft Systems Design</strong>.
+     Modelica 2015 Conference, Versailles, France,
+     pp. 491-500, Sept.23-25, 2015.
+     Download from:
+     <a href="http://www.ep.liu.se/ecp/118/053/ecp15118491.pdf">http://www.ep.liu.se/ecp/118/053/ecp15118491.pdf</a>
+     </dd>
+</dl>
+<p>Extends from <code><a href="../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="../../Math/FastFourierTransform/Examples/index.html"><code>Examples</code></a> &hellip;</td><td>Examples demonstrating the usage of the Math.FastFourierTransform functions</td></tr>
+<tr><td><a href="../../Math/FastFourierTransform/Internal/index.html"><code>Internal</code></a> &hellip;</td><td>Internal library that should not be used directly by a user</td></tr>
+<tr><td><a href="#realFFT"><code>realFFT</code></a></td><td>Return amplitude and phase vectors for a real FFT</td></tr>
+<tr><td><a href="#realFFTinfo"><code>realFFTinfo</code></a></td><td>Print information about real FFT for given f_max and f_resolution</td></tr>
+<tr><td><a href="#realFFTsamplePoints"><code>realFFTsamplePoints</code></a></td><td>Return number of sample points for a real FFT</td></tr>
+<tr><td><a href="#realFFTwriteToFile"><code>realFFTwriteToFile</code></a></td><td>Write real FFT computation to file</td></tr>
+</table>
+<hr><a name="realFFTinfo"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">FastFourierTransform</a>.&#8203;realFFTinfo<br><span class="subtitle">Print information about real FFT for given f_max and f_resolution</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+
+<blockquote><p>
+<strong>realFFTinfo</strong>(f_max, f_resolution, f_max_factor=5);
+</p></blockquote>
+
+<h4>Description</h4>
+<p>
+From the maximum interested frequency f_max (in [Hz]) and the frequency resolution f_resolution (in [Hz]) the
+function computes the key FFT data as used by the FFT blocks and prints them to the output window.
+</p>
+
+<h4>Example</h4>
+<blockquote>
+realFFTinfo(f_max=170, f_resolution=0.3)
+</blockquote>
+
+<p>
+results in the following output:
+</p>
+
+<pre>
+... Real FFT properties
+ Desired:
+    f_max         = 170 Hz
+    f_resolution  = 0.3 Hz
+    f_max_factor  = 5
+ Calculated:
+    Number of sample points    = 5760 (= 2^7*3^2*5^1)
+    Sampling frequency         = 1728 Hz (= 0.3*5760)
+    Sampling period            = 0.000578704 s (= 1/1728)
+    Maximum FFT frequency      = 864 Hz (= 0.3*5760/2; f={0,0.3,0.6,...,864} Hz)
+    Number of frequency points = 2881 (= 5760/2+1)
+    Simulation time            = 3.33275 s
+</pre>
+
+<h4>See also</h4>
+<p>
+<a href="../../Math/FastFourierTransform/index.html#realFFTsamplePoints">realFFTsamplePoints</a>,
+<a href="../../Math/FastFourierTransform/index.html#realFFT">realFFT</a>,
+<a href="../../Math/FastFourierTransform/index.html#realFFTwriteToFile">realFFTwriteToFile</a>
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f_max</code></td><td>Maximum frequency</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f_resolution</code></td><td>Frequency resolution</td></tr>
+<tr><td><code>Integer</code></td><td><code>f_max_factor</code></td><td>Maximum FFT frequency &gt;= f_max*f_max_factor (sample frequency = 2*Maximum FFT Frequency)</td></tr>
+</table>
+<hr><a name="realFFTsamplePoints"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">FastFourierTransform</a>.&#8203;realFFTsamplePoints<br><span class="subtitle">Return number of sample points for a real FFT</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+
+<blockquote><p>
+ns = <strong>realFFTsamplePoints</strong>(f_max, f_resolution, f_max_factor=5);
+</p></blockquote>
+
+<h4>Description</h4>
+<p>
+From the maximum interested frequency f_max (in [Hz]) and the frequency resolution f_resolution (in [Hz]) the
+function computes the number of sample points ns that is as small as possible and fulfills the following criteria:
+</p>
+
+<ul>
+<li> Maximum FFT frequency &ge; f_max_factor*f_max (= the largest frequency value of the frequency vector).</li>
+<li> Frequency axis resolution is f_resolution.</li>
+<li> The number of sample points is expressed as 2^a*3^b*5^c
+     (and a,b,c are appropriate Integers).</li>
+<li> The number of sample points is even.</li>
+</ul>
+
+<p>
+Note, in the original publication about the efficient computation of FFT (Cooley and Tukey, 1965),
+the number of sample points must be 2^a. However, all newer FFT algorithms do not have
+this strong restriction and especially not the open source software
+<a href="http://sourceforge.net/projects/kissfft/">KissFFT</a> from Mark Borgerding
+used in this function
+</p>
+
+<h4>References</h4>
+
+<dl>
+<dt>Mark Borgerding (2010):</dt>
+<dd> <strong>KissFFT, version 1.3.0</strong>.
+     <a href="http://sourceforge.net/projects/kissfft/">http://sourceforge.net/projects/kissfft/</a>.
+     <br>&nbsp;
+     </dd>
+
+<dt>James W. Cooley, John W. Tukey (1965):</dt>
+<dd> <strong>An algorithm for the machine calculation of complex Fourier series</strong>.
+     Math. Comput. 19: 297-301. doi:10.2307/2003354.
+     <br>&nbsp;
+     </dd>
+
+<dt>Martin R. Kuhn, Martin Otter, Tim Giese (2015):</dt>
+<dd> <strong>Model Based Specifications in Aircraft Systems Design</strong>.
+     Modelica 2015 Conference, Versailles, France,
+     pp. 491-500, Sept.23-25, 2015.
+     Download from:
+     <a href="http://www.ep.liu.se/ecp/118/053/ecp15118491.pdf">http://www.ep.liu.se/ecp/118/053/ecp15118491.pdf</a>
+     </dd>
+</dl>
+
+
+<h4>Example</h4>
+<blockquote>
+ns = realFFTinfo(f_max=170, f_resolution=0.3)
+</blockquote>
+
+<p>
+results in the following output:
+</p>
+
+<pre>   ns = 5760
+</pre>
+
+<h4>See also</h4>
+<p>
+<a href="../../Math/FastFourierTransform/index.html#realFFTinfo">realFFTinfo</a>,
+<a href="../../Math/FastFourierTransform/index.html#realFFT">realFFT</a>,
+<a href="../../Math/FastFourierTransform/index.html#realFFTwriteToFile">realFFTwriteToFile</a>
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f_max</code></td><td>Maximum frequency of interest</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f_resolution</code></td><td>Frequency resolution</td></tr>
+<tr><td><code>Integer</code></td><td><code>f_max_factor</code></td><td>Maximum FFT frequency &gt;= f_max*f_max_factor (sample frequency = 2*Maximum FFT Frequency)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>ns</code></td><td>Number of sample points that can be expressed as ns = 2^i*3^j*5^k and ns is even</td></tr>
+</table>
+<hr><a name="realFFT"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">FastFourierTransform</a>.&#8203;realFFT<br><span class="subtitle">Return amplitude and phase vectors for a real FFT</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+
+<blockquote><p>
+(info, amplitudes, phases) = <strong>realFFT</strong>(u);
+</p></blockquote>
+
+<h4>Description</h4>
+<p>
+The input argument of this function is a Real vector u. size(u,1) <strong>must</strong> be even. An efficient computation
+is performed, if size(u,1) = 2^a*3^b*5^c (a,b,c Integer &ge; 0).
+An appropriate length of vector u can be computed with function
+<a href="../../Math/FastFourierTransform/index.html#realFFTsamplePoints">realFFTsamplePoints</a>.
+Function <strong>realFFT</strong> computes a real FFT (Fast Fourier Transform) of u and returns the result
+in form of the outputs amplitudes and phases. Argument info provides additional information:
+</p>
+
+<pre>   info = 0: Successful FFT computation.
+   info = 1: size(u,1) is not even.
+   info = 3: Another error.
+</pre>
+
+<p>
+Note, in the original publication about the efficient computation of FFT (Cooley and Tukey, 1965),
+the number of sample points must be 2^a. However, all newer FFT algorithms do not have
+this strong restriction and especially not the open source software
+<a href="http://sourceforge.net/projects/kissfft/">KissFFT</a> from Mark Borgerding
+used in this function.
+</p>
+
+<p>
+The function returns the FFT such that amplitudes[1] is the mean value of u (= sum(u)/size(u,1)), and
+amplitudes[i] is the amplitude of a sine-function at the i-th frequency.
+</p>
+
+<h4>References</h4>
+
+<dl>
+<dt>Mark Borgerding (2010):</dt>
+<dd> <strong>KissFFT, version 1.3.0</strong>.
+     <a href="http://sourceforge.net/projects/kissfft/">http://sourceforge.net/projects/kissfft/</a>.
+     <br>&nbsp;
+     </dd>
+
+<dt>James W. Cooley, John W. Tukey (1965):</dt>
+<dd> <strong>An algorithm for the machine calculation of complex Fourier series</strong>.
+     Math. Comput. 19: 297-301. doi:10.2307/2003354.
+     <br>&nbsp;
+     </dd>
+
+<dt>Martin R. Kuhn, Martin Otter, Tim Giese (2015):</dt>
+<dd> <strong>Model Based Specifications in Aircraft Systems Design</strong>.
+     Modelica 2015 Conference, Versailles, France,
+     pp. 491-500, Sept.23-25, 2015.
+     Download from:
+     <a href="http://www.ep.liu.se/ecp/118/053/ecp15118491.pdf">http://www.ep.liu.se/ecp/118/053/ecp15118491.pdf</a>
+     </dd>
+</dl>
+
+
+<h4>Example</h4>
+<blockquote>
+(info, A) = realFFT({0,0.1,0.2,0.4,0.5, 0.6})
+</blockquote>
+
+<p>
+See also <a href="../../Math/FastFourierTransform/Examples/index.html#RealFFT1">Examples.RealFFT1</a>
+which is a complete example where an FFT is computed during simulation and stored on file.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../Math/FastFourierTransform/index.html#realFFTinfo">realFFTinfo</a>,
+<a href="../../Math/FastFourierTransform/index.html#realFFTsamplePoints">realFFTsamplePoints</a>,
+<a href="../../Math/FastFourierTransform/index.html#realFFTwriteToFile">realFFTwriteToFile</a>
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u[:]</code></td><td>Signal for which FFT shall be computed (size(nu,1) MUST be EVEN and should be an integer multiple of 2,3,5, that is size(nu,1) = 2^a*3^b*5^c, with a,b,c Integer &gt;= 0)</td></tr>
+<tr><td><code>Integer</code></td><td><code>nfi</code></td><td>Number of frequency points that shall be returned in amplitudes and phases (typically: nfi = max(1,min(integer(ceil(f_max/f_resolution))+1,nf))); the maximal possible value is nfi=div(size(u,1),2)+1)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>info</code></td><td>Information flag (0: FFT computed, 1: nu is not even, 3: another error)</td></tr>
+<tr><td><code>Real</code></td><td><code>amplitudes[nfi]</code></td><td>Amplitudes of FFT</td></tr>
+<tr><td><code>Real</code></td><td><code>phases[nfi]</code></td><td>Phases of FFT in [deg]</td></tr>
+</table>
+<hr><a name="realFFTwriteToFile"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">FastFourierTransform</a>.&#8203;realFFTwriteToFile<br><span class="subtitle">Write real FFT computation to file</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+
+<blockquote><p>
+success = <strong>realFFTwriteToFile</strong>(t_computed, fileName, f_max, amplitudes, phases, format);
+</p></blockquote>
+
+<h4>Description</h4>
+<p>
+This functions stores the result of an FFT computation on file, so that it can
+be easily plotted. <strong>amplitudes</strong> and <strong>phases</strong> are the vectors that hold the
+amplitudes and phases values of an FFT computation. If the size of the phases vector is zero,
+no phases will be stored on file. Otherwise, phases must have the same dimension as the amplitudes
+vector. The frequency vector f is constructed within the function from the dimension of the
+amplitudes vector and the information that amplitudes[end] is at frequency <strong>f_max</strong>.
+The <strong>format</strong> argument defines the file format (for details see
+<a href="../../Utilities/Streams/index.html#writeRealMatrix">writeRealMatrix</a>).
+Argument <strong>t_computed</strong> is the actual time instant when the FFT was computed.
+It is used in the print message after the result was stored on file.
+</p>
+
+<p>
+The matrix on file has the following structure:
+</p>
+
+<ul>
+<li> First column: Equidistant frequency vector f in Hz from 0 Hz ... f_max Hz.</li>
+<li> Second column: Amplitudes[:]</li>
+<li> Optional third column: Phases[:]</li>
+</ul>
+
+<h4>Example</h4>
+
+<p>
+See detailed example model:
+<a href="../../Math/FastFourierTransform/Examples/index.html#RealFFT1">Examples.RealFFT1</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../Math/FastFourierTransform/index.html#realFFTinfo">realFFTinfo</a>,
+<a href="../../Math/FastFourierTransform/index.html#realFFTsamplePoints">realFFTsamplePoints</a>,
+<a href="../../Math/FastFourierTransform/index.html#realFFT">realFFT</a>
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>t_computed</code></td><td>Time instant at which the FFT was computed</td></tr>
+<tr><td><code>String</code></td><td><code>fileName</code></td><td>File where FFT shall be stored (if it exists, it is deleted and then re-created)</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f_max</code></td><td>Maximum frequency</td></tr>
+<tr><td><code>Real</code></td><td><code>amplitudes[:]</code></td><td>Amplitudes of FFT</td></tr>
+<tr><td><code>Real</code></td><td><code>phases[:]</code></td><td>Phases of FFT (either provide no argument, or a vector with the same length as amplitudes)</td></tr>
+<tr><td><code>String</code></td><td><code>format</code></td><td>MATLAB MAT-file version: "4" -&gt; v4, "6" -&gt; v6, "7" -&gt; v7</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>success</code></td><td>true if successful</td></tr>
+</table>
+</body></html>

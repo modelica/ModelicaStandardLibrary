@@ -1,0 +1,439 @@
+<html><head><title>Modelica.Thermal.HeatTransfer.Components</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Components"><h1><embed class="icon" src="../../../images/icon1464.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">HeatTransfer</a>.&#8203;Components<br><span class="subtitle">Lumped thermal components</span></h1></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#BodyRadiation"><code>BodyRadiation</code></a></td><td>Lumped thermal element for radiation heat transfer</td></tr>
+<tr><td><a href="#Convection"><code>Convection</code></a></td><td>Lumped thermal element for heat convection (Q_flow = Gc*dT)</td></tr>
+<tr><td><a href="#ConvectiveResistor"><code>ConvectiveResistor</code></a></td><td>Lumped thermal element for heat convection (dT = Rc*Q_flow)</td></tr>
+<tr><td><a href="#GeneralHeatFlowToTemperatureAdaptor"><code>GeneralHeatFlowToTemperatureAdaptor</code></a></td><td>Signal adaptor for a HeatTransfer port with temperature and derivative of temperature as outputs and heat flow as input (especially useful for FMUs)</td></tr>
+<tr><td><a href="#GeneralTemperatureToHeatFlowAdaptor"><code>GeneralTemperatureToHeatFlowAdaptor</code></a></td><td>Signal adaptor for a HeatTransfer port with heat flow as output and temperature and derivative of temperature as input (especially useful for FMUs)</td></tr>
+<tr><td><a href="#HeatCapacitor"><code>HeatCapacitor</code></a></td><td>Lumped thermal element storing heat</td></tr>
+<tr><td><a href="#ThermalCollector"><code>ThermalCollector</code></a></td><td>Collects m heat flows</td></tr>
+<tr><td><a href="#ThermalConductor"><code>ThermalConductor</code></a></td><td>Lumped thermal element transporting heat without storing it</td></tr>
+<tr><td><a href="#ThermalResistor"><code>ThermalResistor</code></a></td><td>Lumped thermal element transporting heat without storing it</td></tr>
+</table>
+<hr><a name="HeatCapacitor"><h2><embed class="icon" src="../../../images/icon1465.svg" width="203" height="213" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">HeatTransfer</a>.&#8203;<a href="index.html">Components</a>.&#8203;HeatCapacitor<br><span class="subtitle">Lumped thermal element storing heat</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a generic model for the heat capacity of a material.
+No specific geometry is assumed beyond a total volume with
+uniform temperature for the entire volume.
+Furthermore, it is assumed that the heat capacity
+is constant (independent of temperature).
+</p>
+<p>
+The temperature T [Kelvin] of this component is a <strong>state</strong>.
+A default of T = 25 degree Celsius (= SIunits.Conversions.from_degC(25))
+is used as start value for initialization.
+This usually means that at start of integration the temperature of this
+component is 25 degrees Celsius. You may, of course, define a different
+temperature as start value for initialization. Alternatively, it is possible
+to set parameter <strong>steadyStateStart</strong> to <strong>true</strong>. In this case
+the additional equation '<strong>der</strong>(T) = 0' is used during
+initialization, i.e., the temperature T is computed in such a way that
+the component starts in <strong>steady state</strong>. This is useful in cases,
+where one would like to start simulation in a suitable operating
+point without being forced to integrate for a long time to arrive
+at this point.
+</p>
+<p>
+Note, that parameter <strong>steadyStateStart</strong> is not available in
+the parameter menu of the simulation window, because its value
+is utilized during translation to generate quite different
+equations depending on its setting. Therefore, the value of this
+parameter can only be changed before translating the model.
+</p>
+<p>
+This component may be used for complicated geometries where
+the heat capacity C is determined my measurements. If the component
+consists mainly of one type of material, the <strong>mass m</strong> of the
+component may be measured or calculated and multiplied with the
+<strong>specific heat capacity cp</strong> of the component material to
+compute C:
+</p>
+<pre>
+   C = cp*m.
+   Typical values for cp at 20 degC in J/(kg.K):
+      aluminium   896
+      concrete    840
+      copper      383
+      iron        452
+      silver      235
+      steel       420 ... 500 (V2A)
+      wood       2500
+</pre>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#HeatCapacity">HeatCapacity</a></code></td><td><code>C</code></td><td>&nbsp;</td><td>Heat capacity of element (= cp*m)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>port</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="ThermalConductor"><h2><embed class="icon" src="../../../images/icon1466.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">HeatTransfer</a>.&#8203;<a href="index.html">Components</a>.&#8203;ThermalConductor<br><span class="subtitle">Lumped thermal element transporting heat without storing it</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a model for transport of heat without storing it; see also:
+<a href="../../../Thermal/HeatTransfer/Components/index.html#ThermalResistor">ThermalResistor</a>.
+It may be used for complicated geometries where
+the thermal conductance G (= inverse of thermal resistance)
+is determined by measurements and is assumed to be constant
+over the range of operations. If the component consists mainly of
+one type of material and a regular geometry, it may be calculated,
+e.g., with one of the following equations:
+</p>
+<ul>
+<li><p>
+    Conductance for a <strong>box</strong> geometry under the assumption
+    that heat flows along the box length:</p>
+    <pre>
+    G = k*A/L
+    k: Thermal conductivity (material constant)
+    A: Area of box
+    L: Length of box
+    </pre>
+    </li>
+<li><p>
+    Conductance for a <strong>cylindrical</strong> geometry under the assumption
+    that heat flows from the inside to the outside radius
+    of the cylinder:</p>
+    <pre>
+    G = 2*pi*k*L/log(r_out/r_in)
+    pi   : Modelica.Constants.pi
+    k    : Thermal conductivity (material constant)
+    L    : Length of cylinder
+    log  : Modelica.Math.log;
+    r_out: Outer radius of cylinder
+    r_in : Inner radius of cylinder
+    </pre>
+    </li>
+</ul>
+<pre>
+    Typical values for k at 20 degC in W/(m.K):
+      aluminium   220
+      concrete      1
+      copper      384
+      iron         74
+      silver      407
+      steel        45 .. 15 (V2A)
+      wood         0.1 ... 0.2
+</pre>
+<p>Extends from <code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#Element1D">Modelica.&#8203;Thermal.&#8203;HeatTransfer.&#8203;Interfaces.&#8203;Element1D</a></code> (Partial heat transfer element with two HeatPort connectors that does not store energy).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#ThermalConductance">ThermalConductance</a></code></td><td><code>G</code></td><td>&nbsp;</td><td>Constant thermal conductance of material</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>port_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_b">HeatPort_b</a></code></td><td><code>port_b</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="ThermalResistor"><h2><embed class="icon" src="../../../images/icon1467.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">HeatTransfer</a>.&#8203;<a href="index.html">Components</a>.&#8203;ThermalResistor<br><span class="subtitle">Lumped thermal element transporting heat without storing it</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a model for transport of heat without storing it, same as the
+<a href="../../../Thermal/HeatTransfer/Components/index.html#ThermalConductor">ThermalConductor</a>
+but using the thermal resistance instead of the thermal conductance as a parameter.
+This is advantageous for series connections of ThermalResistors,
+especially if it shall be allowed that a ThermalResistance is defined to be zero (i.e. no temperature difference).
+</p>
+<p>Extends from <code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#Element1D">Modelica.&#8203;Thermal.&#8203;HeatTransfer.&#8203;Interfaces.&#8203;Element1D</a></code> (Partial heat transfer element with two HeatPort connectors that does not store energy).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#ThermalResistance">ThermalResistance</a></code></td><td><code>R</code></td><td>&nbsp;</td><td>Constant thermal resistance of material</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>port_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_b">HeatPort_b</a></code></td><td><code>port_b</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Convection"><h2><embed class="icon" src="../../../images/icon1468.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">HeatTransfer</a>.&#8203;<a href="index.html">Components</a>.&#8203;Convection<br><span class="subtitle">Lumped thermal element for heat convection (Q_flow = Gc*dT)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a model of linear heat convection, e.g., the heat transfer between a plate and the surrounding air; see also:
+<a href="../../../Thermal/HeatTransfer/Components/index.html#ConvectiveResistor">ConvectiveResistor</a>.
+It may be used for complicated solid geometries and fluid flow over the solid by determining the
+convective thermal conductance Gc by measurements. The basic constitutive equation for convection is
+</p>
+<pre>
+   Q_flow = Gc*(solid.T - fluid.T);
+   Q_flow: Heat flow rate from connector 'solid' (e.g., a plate)
+      to connector 'fluid' (e.g., the surrounding air)
+</pre>
+<p>
+Gc = G.signal[1] is an input signal to the component, since Gc is
+nearly never constant in practice. For example, Gc may be a function
+of the speed of a cooling fan. For simple situations,
+Gc may be <em>calculated</em> according to
+</p>
+<pre>
+   Gc = A*h
+   A: Convection area (e.g., perimeter*length of a box)
+   h: Heat transfer coefficient
+</pre>
+<p>
+where the heat transfer coefficient h is calculated
+from properties of the fluid flowing over the solid. Examples:
+</p>
+<p>
+<strong>Machines cooled by air</strong> (empirical, very rough approximation according
+to R. Fischer: Elektrische Maschinen, 10th edition, Hanser-Verlag 1999,
+p. 378):
+</p>
+<pre>
+    h = 7.8*v^0.78 [W/(m2.K)] (forced convection)
+      = 12         [W/(m2.K)] (free convection)
+    where
+      v: Air velocity in [m/s]
+</pre>
+<p><strong>Laminar</strong> flow with constant velocity of a fluid along a
+<strong>flat plate</strong> where the heat flow rate from the plate
+to the fluid (= solid.Q_flow) is kept constant
+(according to J.P.Holman: Heat Transfer, 8th edition,
+McGraw-Hill, 1997, p.270):
+</p>
+<pre>
+   h  = Nu*k/x;
+   Nu = 0.453*Re^(1/2)*Pr^(1/3);
+   where
+      h  : Heat transfer coefficient
+      Nu : = h*x/k       (Nusselt number)
+      Re : = v*x*rho/mue (Reynolds number)
+      Pr : = cp*mue/k    (Prandtl number)
+      v  : Absolute velocity of fluid
+      x  : distance from leading edge of flat plate
+      rho: density of fluid (material constant
+      mue: dynamic viscosity of fluid (material constant)
+      cp : specific heat capacity of fluid (material constant)
+      k  : thermal conductivity of fluid (material constant)
+   and the equation for h holds, provided
+      Re &lt; 5e5 and 0.6 &lt; Pr &lt; 50
+</pre>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>Gc</code></td><td>Signal representing the convective thermal conductance in [W/K]</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>solid</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_b">HeatPort_b</a></code></td><td><code>fluid</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="ConvectiveResistor"><h2><embed class="icon" src="../../../images/icon1469.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">HeatTransfer</a>.&#8203;<a href="index.html">Components</a>.&#8203;ConvectiveResistor<br><span class="subtitle">Lumped thermal element for heat convection (dT = Rc*Q_flow)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a model of linear heat convection, e.g., the heat transfer between a plate and the surrounding air; same as the
+<a href="../../../Thermal/HeatTransfer/Components/index.html#Convection">Convection</a> component
+but using the convective resistance instead of the convective conductance as an input.
+This is advantageous for series connections of ConvectiveResistors,
+especially if it shall be allowed that a convective resistance is defined to be zero (i.e. no temperature difference).
+</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>Rc</code></td><td>Signal representing the convective thermal resistance in [K/W]</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>solid</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_b">HeatPort_b</a></code></td><td><code>fluid</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="BodyRadiation"><h2><embed class="icon" src="../../../images/icon1470.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">HeatTransfer</a>.&#8203;<a href="index.html">Components</a>.&#8203;BodyRadiation<br><span class="subtitle">Lumped thermal element for radiation heat transfer</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a model describing the thermal radiation, i.e., electromagnetic
+radiation emitted between two bodies as a result of their temperatures.
+The following constitutive equation is used:
+</p>
+<pre>
+    Q_flow = Gr*sigma*(port_a.T^4 - port_b.T^4);
+</pre>
+<p>
+where Gr is the radiation conductance and sigma is the Stefan-Boltzmann
+constant (= Modelica.Constants.sigma). Gr may be determined by
+measurements and is assumed to be constant over the range of operations.
+</p>
+<p>
+For simple cases, Gr may be analytically computed. The analytical
+equations use epsilon, the emission value of a body which is in the
+range 0..1. Epsilon=1, if the body absorbs all radiation (= black body).
+Epsilon=0, if the body reflects all radiation and does not absorb any.
+</p>
+<pre>
+   Typical values for epsilon:
+   aluminium, polished    0.04
+   copper, polished       0.04
+   gold, polished         0.02
+   paper                  0.09
+   rubber                 0.95
+   silver, polished       0.02
+   wood                   0.85..0.9
+</pre>
+<p><strong>Analytical Equations for Gr</strong></p>
+<p>
+<strong>Small convex object in large enclosure</strong>
+(e.g., a hot machine in a room):
+</p>
+<pre>
+    Gr = e*A
+    where
+       e: Emission value of object (0..1)
+       A: Surface area of object where radiation
+          heat transfer takes place
+</pre>
+<p><strong>Two parallel plates</strong>:</p>
+<pre>
+    Gr = A/(1/e1 + 1/e2 - 1)
+    where
+       e1: Emission value of plate1 (0..1)
+       e2: Emission value of plate2 (0..1)
+       A : Area of plate1 (= area of plate2)
+</pre>
+<p><strong>Two long cylinders in each other</strong>, where radiation takes
+place from the inner to the outer cylinder):
+</p>
+<pre>
+    Gr = 2*pi*r1*L/(1/e1 + (1/e2 - 1)*(r1/r2))
+    where
+       pi: = Modelica.Constants.pi
+       r1: Radius of inner cylinder
+       r2: Radius of outer cylinder
+       L : Length of the two cylinders
+       e1: Emission value of inner cylinder (0..1)
+       e2: Emission value of outer cylinder (0..1)
+</pre>
+<p>Extends from <code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#Element1D">Modelica.&#8203;Thermal.&#8203;HeatTransfer.&#8203;Interfaces.&#8203;Element1D</a></code> (Partial heat transfer element with two HeatPort connectors that does not store energy).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>Gr</code></td><td>&nbsp;</td><td>Net radiation conductance between two surfaces (see docu)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>port_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_b">HeatPort_b</a></code></td><td><code>port_b</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="ThermalCollector"><h2><embed class="icon" src="../../../images/icon1471.svg" width="203" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">HeatTransfer</a>.&#8203;<a href="index.html">Components</a>.&#8203;ThermalCollector<br><span class="subtitle">Collects m heat flows</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a model to collect the heat flows from <em>m</em> heatports to one single heatport.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of collected heat flows</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>port_a[m]</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_b">HeatPort_b</a></code></td><td><code>port_b</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="GeneralHeatFlowToTemperatureAdaptor"><h2><embed class="icon" src="../../../images/icon1472.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">HeatTransfer</a>.&#8203;<a href="index.html">Components</a>.&#8203;GeneralHeatFlowToTemperatureAdaptor<br><span class="subtitle">Signal adaptor for a HeatTransfer port with temperature and derivative of temperature as outputs and heat flow as input (especially useful for FMUs)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Adaptor between a heatport connector and a signal representation of the flange.
+This component is used to provide a pure signal interface around a HeatTransfer model
+and export this model in form of an input/output block,
+especially as FMU (<a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>).
+Examples of the usage of this adaptor are provided in
+<a href="../../../Thermal/HeatTransfer/Examples/index.html#GenerationOfFMUs">HeatTransfer.Examples.GenerationOfFMUs</a>.
+This adaptor has heatflow as input and temperature and derivative of temperature as output signals.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/Adaptors/index.html#FlowToPotentialAdaptor">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;Adaptors.&#8203;FlowToPotentialAdaptor</a></code> (Signal adaptor for a connector with flow, 1st derivative of flow, and 2nd derivative of flow as inputs and
+  potential, 1st derivative of potential, and 2nd derivative of potential as outputs (especially useful for FMUs)).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>use_pder</code></td><td><code>true</code></td><td>Use output for 1st derivative of potential</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Boolean</code></td><td><code>use_pder2</code></td><td><code>false</code></td><td>Use output for 2nd derivative of potential (only if 1st derivate is used, too)</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Boolean</code></td><td><code>use_fder</code></td><td><code>false</code></td><td>Use input for 1st derivative of flow</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Boolean</code></td><td><code>use_fder2</code></td><td><code>false</code></td><td>Use input for 2nd derivative of flow (only if 1st derivate is used, too)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>p</code></td><td>Output for potential</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>pder</code></td><td>Optional output for der(potential)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>pder2</code></td><td>Optional output for der2(potential)</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>f</code></td><td>Input for flow</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>fder</code></td><td>Optional input for der(flow)</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>fder2</code></td><td>Optional input for der2(flow)</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="GeneralTemperatureToHeatFlowAdaptor"><h2><embed class="icon" src="../../../images/icon1473.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">HeatTransfer</a>.&#8203;<a href="index.html">Components</a>.&#8203;GeneralTemperatureToHeatFlowAdaptor<br><span class="subtitle">Signal adaptor for a HeatTransfer port with heat flow as output and temperature and derivative of temperature as input (especially useful for FMUs)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Adaptor between a heatport connector and a signal representation of the flange.
+This component is used to provide a pure signal interface around a HeatTransfer model
+and export this model in form of an input/output block,
+especially as FMU (<a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>).
+Examples of the usage of this adaptor are provided in
+<a href="../../../Thermal/HeatTransfer/Examples/index.html#GenerationOfFMUs">HeatTransfer.Examples.GenerationOfFMUs</a>.
+This adaptor has temperature and derivative of temperature as input signals and heatflow as output signal.
+</p>
+<p>
+Note, the input signals must be consistent to each other
+(derT=der(T)).
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/Adaptors/index.html#PotentialToFlowAdaptor">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;Adaptors.&#8203;PotentialToFlowAdaptor</a></code> (Signal adaptor for a connector with potential, 1st derivative of potential, and 2nd derivative of potential as inputs and
+  flow, 1st derivative of flow, and 2nd derivative of flow as outputs (especially useful for FMUs)).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>use_pder</code></td><td><code>true</code></td><td>Use input for 1st derivative of potential</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Boolean</code></td><td><code>use_pder2</code></td><td><code>false</code></td><td>Use input for 2nd derivative of potential (only if 1st derivate is used, too)</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Boolean</code></td><td><code>use_fder</code></td><td><code>false</code></td><td>Use output for 1st derivative of flow</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Boolean</code></td><td><code>use_fder2</code></td><td><code>false</code></td><td>Use output for 2nd derivative of flow (only if 1st derivate is used, too)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>p</code></td><td>Input for potential</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>pder</code></td><td>Optional input for der(potential)</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>pder2</code></td><td>Optional input for der2(potential)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>f</code></td><td>Output for flow</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>fder</code></td><td>Optional output for der(flow)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>fder2</code></td><td>Optional output for der2(flow)</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_b">HeatPort_b</a></code></td><td><code>heatPort</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

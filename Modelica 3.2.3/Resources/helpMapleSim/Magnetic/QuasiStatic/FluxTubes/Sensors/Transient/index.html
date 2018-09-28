@@ -1,0 +1,98 @@
+<html><head><title>Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Transient"><h1><embed class="icon" src="../../../../../images/icon0460.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">QuasiStatic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Sensors</a>.&#8203;Transient<br><span class="subtitle">Transient fundamental wave sensors</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package contains sensors to be used with transient flux tubes models in order to provide information
+for quasi static parameters.</p>
+<p>Extends from <code><a href="../../../../../Icons/SensorsPackage/index.html">Modelica.&#8203;Icons.&#8203;SensorsPackage</a></code> (Icon for packages containing sensors).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#FundamentalWavePermabilitySensor"><code>FundamentalWavePermabilitySensor</code></a></td><td>Sensor of fundamental wave permeability</td></tr>
+<tr><td><a href="#Permeability"><code>Permeability</code></a></td><td>Determines permeability from flux and magnetic potential difference</td></tr>
+</table>
+<hr><a name="FundamentalWavePermabilitySensor"><h2><embed class="icon" src="../../../../../images/icon1015.svg" width="223" height="233" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">QuasiStatic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Sensors</a>.&#8203;<a href="index.html">Transient</a>.&#8203;FundamentalWavePermabilitySensor<br><span class="subtitle">Sensor of fundamental wave permeability</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This sensor is used to determined the effective fundamental wave permeability of a saturated lumped circuit reluctance. For this purpose the sensor is placed such way that the magnetic flux and the magnetic potential difference of the investigated reluctance are sensed. The area of cross section and the effective length of the investigated magnetic path have to be provided as parameters.
+</p>
+<p>See example
+<a href="../../../../../Magnetic/QuasiStatic/FluxTubes/Examples/index.html#NonLinearInductor">NonLinearInductor</a>.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td>&nbsp;</td><td>Fundamental wave frequency</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Area">Area</a></code></td><td><code>A</code></td><td>&nbsp;</td><td>Area of cross section</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>l</code></td><td>&nbsp;</td><td>Length</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Magnetic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>fluxP</code></td><td>Positive port of flux path</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>fluxN</code></td><td>Negative port of flux path</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>potentialP</code></td><td>Positive port of magnetic potential difference path</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>potentialN</code></td><td>Negative port of magnetic potential difference path</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>mu</code></td><td>Absolute permeability</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>mur</code></td><td>Relative permeability</td></tr>
+</table>
+<hr><a name="Permeability"><h2><embed class="icon" src="../../../../../images/icon1016.svg" width="263" height="203" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">QuasiStatic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Sensors</a>.&#8203;<a href="index.html">Transient</a>.&#8203;Permeability<br><span class="subtitle">Determines permeability from flux and magnetic potential difference</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This model determines the absolute and relative permeability from two real inputs:</p>
+<ul>
+<li>RMS magnetic potential difference,
+<img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/realV_m.png" alt="V_m"></li>
+<li>RMS magnetic flux,
+<img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/realPhi.png" alt="Phi"></li>
+</ul>
+<p>In order to calculate the permeabilities, the area of cross section,
+<img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/A.png" alt="l">,
+and the geometric length,
+<img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/l.png" alt="l">,
+of the flux path have to be take into account</p>
+<dl><dd>
+<img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/permeabilities.png" alt="Permeabilities">
+</dd></dl>
+<p>In case that the magnetic potential difference is close to zero, permeabilities yield:</p>
+<dl><dd>
+<img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/permeabilities-0.png" alt="Permeabilities=0">
+</dd></dl>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Area">Area</a></code></td><td><code>A</code></td><td>&nbsp;</td><td>Area of cross section penetrated by flux</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>l</code></td><td>&nbsp;</td><td>Length associated with magnetic potential difference</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>Phi</code></td><td>Magnetic flux</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>V_m</code></td><td>Magnetic potential difference</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>mu</code></td><td>Absolute permeability</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>mur</code></td><td>Relative Permeability</td></tr>
+</table>
+</body></html>

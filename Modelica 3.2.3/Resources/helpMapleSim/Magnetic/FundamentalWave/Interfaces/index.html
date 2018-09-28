@@ -1,0 +1,248 @@
+<html><head><title>Modelica.Magnetic.FundamentalWave.Interfaces</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Interfaces"><h1><embed class="icon" src="../../../images/icon0015.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;Interfaces<br><span class="subtitle">Interfaces and partial models</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains interface definitions of the magnetic ports as well as partial models.
+</p>
+<p>Extends from <code><a href="../../../Icons/InterfacesPackage/index.html">Modelica.&#8203;Icons.&#8203;InterfacesPackage</a></code> (Icon for packages containing interfaces).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#MagneticPort"><code>MagneticPort</code></a></td><td>Magnetic port of fundamental wave machines</td></tr>
+<tr><td><a href="#NegativeMagneticPort"><code>NegativeMagneticPort</code></a></td><td>Negative magnetic port of fundamental wave machines</td></tr>
+<tr><td><a href="#NegativePortInterface"><code>NegativePortInterface</code></a></td><td>Negative port interface to FluxTubes</td></tr>
+<tr><td><a href="#PartialBasicInductionMachine"><code>PartialBasicInductionMachine</code></a></td><td>Partial model for induction machine</td></tr>
+<tr><td><a href="#PartialTwoPort"><code>PartialTwoPort</code></a></td><td>Two magnetic ports for graphical modeling</td></tr>
+<tr><td><a href="#PartialTwoPortElementary"><code>PartialTwoPortElementary</code></a></td><td>Two magnetic ports for textual modeling</td></tr>
+<tr><td><a href="#PartialTwoPortExtended"><code>PartialTwoPortExtended</code></a></td><td>Two magnetic ports for graphical modeling with additional variables</td></tr>
+<tr><td><a href="#PositiveMagneticPort"><code>PositiveMagneticPort</code></a></td><td>Positive magnetic port of fundamental wave machines</td></tr>
+<tr><td><a href="#PositivePortInterface"><code>PositivePortInterface</code></a></td><td>Positive port interface to FluxTubes</td></tr>
+<tr><td><a href="#StateSelector"><code>StateSelector</code></a></td><td>Transform instantaneous values to space phasors and select states</td></tr>
+</table>
+<hr><a name="MagneticPort"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;MagneticPort<br><span class="subtitle">Magnetic port of fundamental wave machines</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The potential quantity of the magnetic port is the complex magnetic potential difference <img src="../../../../Images/Magnetic/FundamentalWave/V_m.png">. The corresponding flow quantity is the magnetic flux <img src="../../../../Images/Magnetic/FundamentalWave/Phi.png">.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a>,
+<a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a>
+</p>
+
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#ComplexMagneticPotential">ComplexMagneticPotential</a></code></td><td><code>V_m</code></td><td>Complex magnetic potential at the port</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../SIunits/index.html#ComplexMagneticFlux">ComplexMagneticFlux</a></code></td><td><code>Phi</code></td><td>Complex magnetic flux into the port</td></tr>
+</table>
+<hr><a name="NegativeMagneticPort"><h2><embed class="icon" src="../../../images/icon0986.svg" width="203" height="203" />
+Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;NegativeMagneticPort<br><span class="subtitle">Negative magnetic port of fundamental wave machines</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Negative magnetic <a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#MagneticPort">port</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#MagneticPort">MagneticPort</a>,
+<a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a>
+</p>
+<p>Extends from <code><a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#MagneticPort">Modelica.&#8203;Magnetic.&#8203;FundamentalWave.&#8203;Interfaces.&#8203;MagneticPort</a></code> (Magnetic port of fundamental wave machines).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#ComplexMagneticPotential">ComplexMagneticPotential</a></code></td><td><code>V_m</code></td><td>Complex magnetic potential at the port</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../SIunits/index.html#ComplexMagneticFlux">ComplexMagneticFlux</a></code></td><td><code>Phi</code></td><td>Complex magnetic flux into the port</td></tr>
+</table>
+<hr><a name="PositiveMagneticPort"><h2><embed class="icon" src="../../../images/icon0056.svg" width="203" height="203" />
+Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PositiveMagneticPort<br><span class="subtitle">Positive magnetic port of fundamental wave machines</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Positive magnetic <a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#MagneticPort">port</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#MagneticPort">MagneticPort</a>,
+<a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a>
+</p>
+
+<p>Extends from <code><a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#MagneticPort">Modelica.&#8203;Magnetic.&#8203;FundamentalWave.&#8203;Interfaces.&#8203;MagneticPort</a></code> (Magnetic port of fundamental wave machines).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#ComplexMagneticPotential">ComplexMagneticPotential</a></code></td><td><code>V_m</code></td><td>Complex magnetic potential at the port</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../SIunits/index.html#ComplexMagneticFlux">ComplexMagneticFlux</a></code></td><td><code>Phi</code></td><td>Complex magnetic flux into the port</td></tr>
+</table>
+<hr><a name="PartialTwoPort"><h2><embed class="icon" src="../../../images/icon0987.svg" width="223" height="203" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialTwoPort<br><span class="subtitle">Two magnetic ports for graphical modeling</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This magnetic two port element consists of a
+<a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">positive</a> and a
+<a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">negative magnetic port</a> and
+considers the flux balance of the two ports. Additionally the magnetic potential difference (of the positive and the negative port) and the magnetic flux (into the positive magnetic port) are defined. This model is mainly to used to extend from in order build more complex - graphical - models.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a>,
+<a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a>,
+<a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#PartialTwoPortExtended">PartialTwoPortExtended</a>
+<a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#PartialTwoPortElementary">PartialTwoPortElementary</a>
+</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative magnetic port of fundamental wave machines</td></tr>
+</table>
+<hr><a name="PartialTwoPortExtended"><h2><embed class="icon" src="../../../images/icon0987.svg" width="223" height="203" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialTwoPortExtended<br><span class="subtitle">Two magnetic ports for graphical modeling with additional variables</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This magnetic two port element consists of a <a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">positive</a> and a <a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">negative magnetic port</a> and some additionally variables, but no physical balance equations.</p>
+<h4>See also</h4>
+<p><a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a>, <a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a>, <a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#PartialTwoPort">PartialTwoPort</a>, <a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#PartialTwoPortElementary">PartialTwoPortElementary</a></p>
+<p>Extends from <code><a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#PartialTwoPort">Modelica.&#8203;Magnetic.&#8203;FundamentalWave.&#8203;Interfaces.&#8203;PartialTwoPort</a></code> (Two magnetic ports for graphical modeling).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative magnetic port of fundamental wave machines</td></tr>
+</table>
+<hr><a name="PartialTwoPortElementary"><h2><embed class="icon" src="../../../images/icon0987.svg" width="223" height="203" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialTwoPortElementary<br><span class="subtitle">Two magnetic ports for textual modeling</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This magnetic two port element only consists of a
+<a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">positive</a> and a
+<a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">negative magnetic port</a>.
+This model is mainly used to extend from in order build more complex - equation based - models.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a>,
+<a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a>,
+<a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#PartialTwoPort">PartialTwoPort</a>,
+<a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#PartialTwoPortExtended">PartialTwoPortExtended</a>
+</p>
+<p>Extends from <code><a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#PartialTwoPort">Modelica.&#8203;Magnetic.&#8203;FundamentalWave.&#8203;Interfaces.&#8203;PartialTwoPort</a></code> (Two magnetic ports for graphical modeling).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative magnetic port of fundamental wave machines</td></tr>
+</table>
+<hr><a name="PartialBasicInductionMachine"><h2><embed class="icon" src="../../../images/icon0966.svg" width="223" height="233" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialBasicInductionMachine<br><span class="subtitle">Partial model for induction machine</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This partial model for induction machines contains elements common in all machine models.</p>
+<p>Extends from <code><a href="../../../Electrical/Machines/Icons/index.html#FundamentalWaveMachine">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Icons.&#8203;FundamentalWaveMachine</a></code>.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of stator phases</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Jr</code></td><td>&nbsp;</td><td>Rotor inertia</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useSupport</code></td><td><code>false</code></td><td>Enable / disable (=fixed stator) support</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Js</code></td><td>&nbsp;</td><td>Stator inertia</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useThermalPort</code></td><td><code>false</code></td><td>Enable / disable (=fixed temperatures) thermal port</td></tr>
+<tr><td><code>Integer</code></td><td><code>p</code></td><td>&nbsp;</td><td>Number of pole pairs (Integer)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fsNominal</code></td><td>&nbsp;</td><td>Nominal frequency</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TsOperational</code></td><td>&nbsp;</td><td>Operational temperature of stator resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rs</code></td><td>&nbsp;</td><td>Stator resistance per phase at TRef</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TsRef</code></td><td>&nbsp;</td><td>Reference temperature of stator resistance</td></tr>
+<tr><td><code><a href="../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20s</code></td><td>&nbsp;</td><td>Temperature coefficient of stator resistance at 20 degC</td></tr>
+<tr><td><code>Real</code></td><td><code>effectiveStatorTurns</code></td><td><code>1</code></td><td>Effective number of stator turns</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lssigma</code></td><td>&nbsp;</td><td>Stator stray inductance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lszero</code></td><td><code>Lssigma</code></td><td>Stator zero inductance</td></tr>
+<tr><td><code><a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientInductance">SalientInductance</a></code></td><td><code>L0</code></td><td>&nbsp;</td><td>Salient inductance of an unchorded coil</td></tr>
+<tr><td><code><a href="../../../Electrical/Machines/Losses/index.html#FrictionParameters">FrictionParameters</a></code></td><td><code>frictionParameters</code></td><td>&nbsp;</td><td>Friction loss parameter record</td></tr>
+<tr><td><code><a href="../../../Electrical/Machines/Losses/index.html#CoreParameters">CoreParameters</a></code></td><td><code>statorCoreParameters</code></td><td>&nbsp;</td><td>Stator core loss parameter record; all parameters refer to stator side</td></tr>
+<tr><td><code><a href="../../../Electrical/Machines/Losses/index.html#StrayLoadParameters">StrayLoadParameters</a></code></td><td><code>strayLoadParameters</code></td><td>&nbsp;</td><td>Stray load loss parameter record</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>Shaft</td></tr>
+<tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>support</code></td><td>Support at which the reaction torque is acting</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_sp</code></td><td>Positive plug of stator</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_sn</code></td><td>Negative plug of stator</td></tr>
+<tr><td><code><a href="../../../Electrical/Machines/Interfaces/InductionMachines/index.html#PartialThermalPortInductionMachines">PartialThermalPortInductionMachines</a></code></td><td><code>thermalPort</code></td><td>Thermal port of induction machines</td></tr>
+<tr><td><code><a href="../../../Electrical/Machines/Interfaces/InductionMachines/index.html#PartialThermalPortInductionMachines">PartialThermalPortInductionMachines</a></code></td><td><code>internalThermalPort</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Support">Support</a></code></td><td><code>internalSupport</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="StateSelector"><h2><embed class="icon" src="../../../images/icon0988.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;StateSelector<br><span class="subtitle">Transform instantaneous values to space phasors and select states</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Transforms instantaneous values into space phasors and zero system currents,
+rotates space phasors and sets stateSelect modifiers in order to choose states w.r.t. rotating frame,
+i.e., with small derivatives.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>StateSelect</code></td><td><code>x0StateSelect</code></td><td><code>StateSelect.&#8203;prefer</code></td><td>Priority to use zero systems as states</td></tr>
+<tr><td><code>StateSelect</code></td><td><code>xrStateSelect</code></td><td><code>StateSelect.&#8203;prefer</code></td><td>Priority to use space phasors w.r.t. rotating frame as states</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>np</code></td><td><code>integer(0.5 * (m - 1))</code></td><td>Number of space phasors</td></tr>
+</table>
+<hr><a name="PositivePortInterface"><h2><embed class="icon" src="../../../images/icon0989.svg" width="223" height="221" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PositivePortInterface<br><span class="subtitle">Positive port interface to FluxTubes</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Connects a FundamentalWave port with a real and imaginary part FluxTube port.</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port</code></td><td>Magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_re</code></td><td>Magnetic port, real part</td></tr>
+<tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_im</code></td><td>Magnetic port, imaginary part</td></tr>
+</table>
+<hr><a name="NegativePortInterface"><h2><embed class="icon" src="../../../images/icon0990.svg" width="223" height="221" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;NegativePortInterface<br><span class="subtitle">Negative port interface to FluxTubes</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Connects a FundamentalWave port with a real and imaginary part FluxTube port.</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port</code></td><td>Magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_re</code></td><td>Magnetic port, real part</td></tr>
+<tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_im</code></td><td>Magnetic port, imaginary part</td></tr>
+</table>
+</body></html>

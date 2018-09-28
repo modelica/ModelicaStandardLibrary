@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Utilities.Files.removeFile</title>
+</head>
+<body>
+<h1><a href="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg"><img class="svgiconhead" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Utilities.Files.html">Files</a>.<span class="omc-h1">removeFile</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Files.<strong>removeFile</strong>(fileName);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Removes the file "fileName". If "fileName" does not exist, the
+function call is ignored. If "fileName" exists but is no regular
+file (e.g., directory, pipe, device, etc.) an error is
+triggered.</p>
+<p>This function is silent, i.e., it does not print a message.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>function removeFile
+  extends Modelica.Icons.Function;
+  input String fileName "Name of file that should be removed";
+end removeFile;</pre></blockquote>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

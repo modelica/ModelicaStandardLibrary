@@ -1,0 +1,30 @@
+<svg width="263" height="243" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Blocks.Routing.Multiplex5" class="component">
+		<polygon points="41.5,221.5 241.5,221.5 241.5,21.5 41.5,21.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="149.5,121.5 243.5,121.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="41.5,21.5 81.5,21.5 141.5,121.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="41.5,71.5 81.5,71.5 137.5,121.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="41.5,121.5 134.5,121.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="41.5,171.5 81.5,171.5 137.5,121.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="41.5,221.5 81.5,221.5 141.5,121.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="156.5,121.5 156.4,120.2 156.3,118.9 156.0,117.7 155.6,116.4 155.1,115.2 154.5,114.1 153.9,113.0 153.1,112.0 152.2,111.0 151.3,110.1 150.3,109.3 149.2,108.6 148.0,108.0 146.9,107.5 145.6,107.1 144.4,106.8 143.1,106.6 141.8,106.5 140.5,106.5 139.2,106.7 138.0,106.9 136.7,107.3 135.5,107.7 134.4,108.3 133.3,109.0 132.2,109.7 131.2,110.6 130.3,111.5 129.5,112.5 128.8,113.5 128.1,114.7 127.6,115.8 127.2,117.0 126.8,118.3 126.6,119.6 126.5,120.9 126.5,122.1 126.6,123.4 126.8,124.7 127.2,126.0 127.6,127.2 128.1,128.3 128.8,129.5 129.5,130.5 130.3,131.5 131.2,132.4 132.2,133.3 133.3,134.0 134.4,134.7 135.5,135.3 136.7,135.7 138.0,136.1 139.2,136.3 140.5,136.5 141.8,136.5 143.1,136.4 144.4,136.2 145.6,135.9 146.9,135.5 148.0,135.0 149.2,134.4 150.3,133.7 151.3,132.9 152.2,132.0 153.1,131.0 153.9,130.0 154.5,128.9 155.1,127.8 155.6,126.6 156.0,125.3 156.3,124.1 156.4,122.8" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="u1" class="port">
+			<polygon points="1.5,1.5 41.5,21.5 1.5,41.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="u2" class="port">
+			<polygon points="1.5,51.5 41.5,71.5 1.5,91.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="u3" class="port">
+			<polygon points="1.5,101.5 41.5,121.5 1.5,141.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="u4" class="port">
+			<polygon points="1.5,151.5 41.5,171.5 1.5,191.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="u5" class="port">
+			<polygon points="1.5,201.5 41.5,221.5 1.5,241.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="y" class="port">
+			<polygon points="241.5,111.5 261.5,121.5 241.5,131.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

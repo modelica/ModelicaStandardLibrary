@@ -1,0 +1,315 @@
+<html><head><title>Modelica.Electrical.Digital.Examples</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Examples"><h1><embed class="icon" src="../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;Examples<br><span class="subtitle">Examples that demonstrate the usage of the Digital electrical components</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package contains examples that demonstrate the usage of the components of the Electrical.Digital library.</p>
+<p>The examples are simple to understand. They will show a typical behavior of the components, and they will give hints to users.</p>
+<p>Extends from <code><a href="../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Adder4"><code>Adder4</code></a></td><td>4 Bit Adder Example</td></tr>
+<tr><td><a href="#BUF3S"><code>BUF3S</code></a></td><td>Functionality test of BUF3S</td></tr>
+<tr><td><a href="#Counter"><code>Counter</code></a></td><td>Generic N Bit Counter Example</td></tr>
+<tr><td><a href="#Counter3"><code>Counter3</code></a></td><td>3 Bit Counter Example</td></tr>
+<tr><td><a href="#DFFREG"><code>DFFREG</code></a></td><td>Pulse triggered D-Register-Bank, high active reset</td></tr>
+<tr><td><a href="#DFFREGL"><code>DFFREGL</code></a></td><td>Pulse triggered D-Register-Bank, low active reset</td></tr>
+<tr><td><a href="#DFFREGSRH"><code>DFFREGSRH</code></a></td><td>Pulse triggered D-Register-Bank, high active set and reset</td></tr>
+<tr><td><a href="#DFFREGSRL"><code>DFFREGSRL</code></a></td><td>Pulse triggered D-Register-Bank, low active set and reset</td></tr>
+<tr><td><a href="#DLATREG"><code>DLATREG</code></a></td><td>Level sensitive D-Register-Bank, high active reset</td></tr>
+<tr><td><a href="#DLATREGL"><code>DLATREGL</code></a></td><td>Level sensitive D-Register-Bank, low active reset</td></tr>
+<tr><td><a href="#DLATREGSRH"><code>DLATREGSRH</code></a></td><td>Level sensitive D-Register-Bank, high active set and reset</td></tr>
+<tr><td><a href="#DLATREGSRL"><code>DLATREGSRL</code></a></td><td>Level sensitive D-Register-Bank, low active set and reset</td></tr>
+<tr><td><a href="#FlipFlop"><code>FlipFlop</code></a></td><td>Pulse Triggered Master Slave Flip-Flop</td></tr>
+<tr><td><a href="#FullAdder"><code>FullAdder</code></a></td><td>Full 1 Bit Adder Example</td></tr>
+<tr><td><a href="#HalfAdder"><code>HalfAdder</code></a></td><td>Adding circuit for binary numbers without input carry bit</td></tr>
+<tr><td><a href="#INV3S"><code>INV3S</code></a></td><td>Functionality test of INV3S</td></tr>
+<tr><td><a href="#Multiplexer"><code>Multiplexer</code></a></td><td>4 to 1 Bit Multiplexer Example</td></tr>
+<tr><td><a href="#MUX2x1"><code>MUX2x1</code></a></td><td>Simple Multiplexer test</td></tr>
+<tr><td><a href="#NRXFER"><code>NRXFER</code></a></td><td>Functionality test of NRXFERGATE</td></tr>
+<tr><td><a href="#NXFER"><code>NXFER</code></a></td><td>Functionality test of NXFERGATE</td></tr>
+<tr><td><a href="#RAM"><code>RAM</code></a></td><td>Simple RAM test example</td></tr>
+<tr><td><a href="../../../Electrical/Digital/Examples/Utilities/index.html"><code>Utilities</code></a> &hellip;</td><td>Utility components used by package Examples</td></tr>
+<tr><td><a href="#VectorDelay"><code>VectorDelay</code></a></td><td>Vector delay</td></tr>
+<tr><td><a href="#WiredX"><code>WiredX</code></a></td><td>Functionality test of WiredX</td></tr>
+</table>
+<hr><a name="Multiplexer"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Examples</a>.&#8203;Multiplexer<br><span class="subtitle">4 to 1 Bit Multiplexer Example</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The multiplexer converts a parallel 4 bit signal in a sequential 1 bit stream. The multiplexer component is composed by basic gates. It can be found in the Utilities subpackage. The example is designed to test and demonstrate the basic gate components.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="FlipFlop"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Examples</a>.&#8203;FlipFlop<br><span class="subtitle">Pulse Triggered Master Slave Flip-Flop</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>A pulse-triggered master-slave flip-flop is demonstrated. The flipflop component is composed by basic gates. It can be found in the Utilities subpackage. The example is designed to test and demonstrate the basic gate components.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="HalfAdder"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Examples</a>.&#8203;HalfAdder<br><span class="subtitle">Adding circuit for binary numbers without input carry bit</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example demonstrates an adding circuit for binary numbers, which internally realizes the interconnection to
+And and to Xor in the final sum.</p>
+<br>
+<br>
+1 + 0 = 1<br>
+0 + 1 = 1<br>
+1 + 1 = 10<br>
+0 + 0 = 0
+<br>
+<br>
+<strong>a</strong> + <strong>b</strong> = <strong>s</strong>
+<br>(The carry of this adding is <strong>c</strong>.)
+<br>
+<br>and
+<br>
+<br>
+<strong>a</strong> * <strong>b</strong> = <strong>s</strong>
+<br>  (It is an interconnection to And.)
+<br>
+<br>
+<strong>a</strong> * <strong>b</strong> + <strong>a</strong> * <strong>b</strong> = <strong>a</strong> Xor <strong>b</strong> = <strong>c</strong>
+<br>(It is an interconnection to Xor.)
+<br>
+<pre>
+   <strong>a</strong>     <strong>b</strong>     <strong>c</strong>      <strong>s</strong>     <strong>t</strong>
+
+   1     0     1      0     1
+   0     1     1      0     2
+   1     1     0      1     3
+   0     0     0      0     4
+</pre>
+<p>
+<strong>t</strong> is the pick-up instant of the next bit(s) in the simulation.
+The simulation stop time should be 5 seconds.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="FullAdder"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Examples</a>.&#8203;FullAdder<br><span class="subtitle">Full 1 Bit Adder Example</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+<br>It is an adding circuit for binary numbers with input carry bit, which consists of two HalfAdders.
+<br>
+<br>
+<strong>a</strong>.y, <strong>b</strong>.y and <strong>c</strong>.y are the inputs of the FullAdder.
+<br>
+<strong>c</strong>out = <strong>Or1</strong>.y and <strong>h</strong>.s are the outputs of the FullAdder.
+<br>
+<br>
+<strong>t</strong> is the pick-up instant of the next bit(s) in the simulation.</p>
+<pre>   <strong>a</strong>.y      <strong>b</strong>.y      <strong>c</strong>.y     <strong>c</strong>out        <strong>h</strong>.s        <strong>t</strong> </pre>
+
+<pre>
+     1        0        0        0          1        1
+     0        1        0        0          1        2
+     0        0        1        0          1        3
+     1        1        0        1          0        4
+     0        1        1        1          0        5
+     1        0        1        1          0        6
+     1        1        1        1          1        7
+     0        0        0        0          0        8
+</pre>
+<p>
+The simulation stop time should be 10 seconds.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="Adder4"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Examples</a>.&#8203;Adder4<br><span class="subtitle">4 Bit Adder Example</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Four FullAdders are combined to built a four bit adder unit.
+</p>
+<br>
+<br>
+In dependence on time five additions are carried out:
+<br>
+<pre>
+at t = 0                            at t = 1
+ a       0 0 0 0                       a      1 1 1 0
+ b    +  0 0 0 0                       b   +  1 0 1 1
+ <strong>s     0 0 0 0 0</strong>                      <strong>s     1 0 0 1 0</strong>
+at t = 2                             at t = 3
+ a       0 1 1 0                       a      1 1 1 0
+ b    +  0 0 1 1                       b   +  1 0 1 0
+ <strong>s     1 0 1 0 0</strong>                      <strong>s     0 0 0 1 1</strong>
+
+at t = 4
+ a      1 1 0 0
+ b   +  1 1 1 0
+ <strong>s    0 0 1 0 1</strong>
+ </pre>
+<p>
+To show the influence of delay a large delay time of 0.1s is chosen.
+Furthermore, all signals are initialized with U, the uninitialized value.
+Please remember, that the nine logic values are coded by the numbers 1,...,9.
+The summands a and b can be found at the output signals of the taba and tabb sources.
+The result can be seen in the output signals of the FullAdders according to:</p>
+<pre>
+      a                       <strong>a4</strong>.y      <strong>a3</strong>.y      <strong>a2</strong>.y      <strong>a1</strong>.y
+      b                       <strong>b4</strong>.y      <strong>b3</strong>.y      <strong>b2</strong>.y      <strong>b1</strong>.y
+      sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s</strong>  <strong>Adder2.s</strong>  <strong>Adder1.s</strong>
+</pre>
+<p>The simulation stop time has to be 5s.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="Counter3"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Examples</a>.&#8203;Counter3<br><span class="subtitle">3 Bit Counter Example</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The three bit counter example is built up by components of the Utilities package which uses components of the Gates library.</p>
+<p>The counter counts the high-low slopes of the clock signal, if the enable signal is set to be true. Otherwise if it is set to zero the counter is not counting.</p>
+<p>Plot Counter.count (clock signal), and Counter.enable, and the output bit signals Counter.q0, Counter.q1, and Counter.q2.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="Counter"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Examples</a>.&#8203;Counter<br><span class="subtitle">Generic N Bit Counter Example</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The counter example is built up by components of the Utilities package which uses components of the Gates library. It demonstrates the generic counter model. The parameter n is the number of counting bits. In this example it is set to 4.</p>
+<p>The counter counts the high-low slopes of the clock signal, if the enable signal is set to be true. Otherwise if it is set to zero the counter is not counting.</p>
+<p>Plot Counter.count (clock signal), and Counter.enable, and the output bit signals Counter.q[0], Counter.q[1], Counter.q[2], and Counter.q[3]</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="VectorDelay"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Examples</a>.&#8203;VectorDelay<br><span class="subtitle">Vector delay</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example is a simple test of the vector valued sensitive delay component. The delay times are chosen different from each other. To examine the results plot both the input vector x and the output vector y.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="DFFREG"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Examples</a>.&#8203;DFFREG<br><span class="subtitle">Pulse triggered D-Register-Bank, high active reset</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example is a simple test of the Registers.DFFREG component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DFFREG component.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="DFFREGL"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Examples</a>.&#8203;DFFREGL<br><span class="subtitle">Pulse triggered D-Register-Bank, low active reset</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example is a simple test of the Registers.DFFREGL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DFFREGL component.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="DFFREGSRH"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Examples</a>.&#8203;DFFREGSRH<br><span class="subtitle">Pulse triggered D-Register-Bank, high active set and reset</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example is a simple test of the Registers.DFFREGSRH component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DFFREGSRH component.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="DFFREGSRL"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Examples</a>.&#8203;DFFREGSRL<br><span class="subtitle">Pulse triggered D-Register-Bank, low active set and reset</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example is a simple test of the Registers.DFFREGSRL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DFFREGSRL component.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="DLATREG"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Examples</a>.&#8203;DLATREG<br><span class="subtitle">Level sensitive D-Register-Bank, high active reset</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example is a simple test of the Registers.DLATREG component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DLATREG component.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="DLATREGL"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Examples</a>.&#8203;DLATREGL<br><span class="subtitle">Level sensitive D-Register-Bank, low active reset</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example is a simple test of the Registers.DLATREGL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DLATREGL component.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="DLATREGSRH"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Examples</a>.&#8203;DLATREGSRH<br><span class="subtitle">Level sensitive D-Register-Bank, high active set and reset</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example is a simple test of the Registers.DLATREGSRH component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DLATREGSRH component.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="DLATREGSRL"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Examples</a>.&#8203;DLATREGSRL<br><span class="subtitle">Level sensitive D-Register-Bank, low active set and reset</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example is a simple test of the Registers.DLATREGSRL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DLATREGSRL component.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="NXFER"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Examples</a>.&#8203;NXFER<br><span class="subtitle">Functionality test of NXFERGATE</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example is a simple test of the Tristates.NXFERGATE component.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="NRXFER"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Examples</a>.&#8203;NRXFER<br><span class="subtitle">Functionality test of NRXFERGATE</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example is a simple test of the Tristates.NRXFER component.  After simulation until 12 s plot x, enable, and y of the <code>nRXFERGATE </code>component. To verify the result compare to the truth table <code>NRXferTable</code>.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="BUF3S"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Examples</a>.&#8203;BUF3S<br><span class="subtitle">Functionality test of BUF3S</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example is a simple test of the Tristates.BUF3S component.  After simulation until 12 s plot x, enable, and y of the <code>bUF3S</code> component. To verify the result compare to the truth table Buf3sTable.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="INV3S"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Examples</a>.&#8203;INV3S<br><span class="subtitle">Functionality test of INV3S</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example is a simple test of the Tristates.INV3S component. After simulation until 12 s plot x, enable, and y of the <code>iNV3S</code> component. To verify the result compare to the truth table <code>T.UX01Table</code>.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="WiredX"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Examples</a>.&#8203;WiredX<br><span class="subtitle">Functionality test of WiredX</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example is a simple test of the Tristates.WiredX component. The input width is set to two. After simulation until 12 s plot x[1], x[2], and y of the WiredX component. To verify the result compare to the truth table  Tables.ResolutionTable.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="MUX2x1"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Examples</a>.&#8203;MUX2x1<br><span class="subtitle">Simple Multiplexer test</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example is a simple test of a single multiplexer component with 2 inputs prescribed by sources, one select input, and one output. After simulation until 15 s plot Mux2x1.in0, Mux2x1.in1, Mux2x1.sel, and Mux2x1.out. Compare the output signal with the input signals. If the select signal changes, the output switches to the other input.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="RAM"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Examples</a>.&#8203;RAM<br><span class="subtitle">Simple RAM test example</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example is a simple and uncomplete test of a single DLATRAM component . After simulation until 400 s plot dLATRAM.addr[1], dLATRAM.addr[2], and dLATRAM.dataOUT[1], dLATRAM.dataOut[2]. The address inputs are  prescribed with all possible combinations of logic values. It can be checked in which cases of address values the output is 'X' or '0'.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+</body></html>

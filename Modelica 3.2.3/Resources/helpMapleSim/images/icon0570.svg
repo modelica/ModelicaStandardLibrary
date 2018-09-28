@@ -1,0 +1,44 @@
+<svg width="263" height="223" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.DcdcInverter" class="component">
+		<polygon points="41.5,211.5 241.5,211.5 241.5,11.5 41.5,11.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="141.5" y="124.5" text-anchor="middle" fill="#0000FF" font-size="35.4px" font-family="sans-serif">DcdcInverter</text>
+		<text x="141.5" y="51.4" text-anchor="middle" fill="#808080" font-size="26.6px" font-family="sans-serif">Bat</text>
+		<text x="141.5" y="191.4" text-anchor="middle" fill="#808080" font-size="26.6px" font-family="sans-serif">Mot</text>
+		<polyline points="121.5,131.5 41.5,211.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="241.5,11.5 161.5,91.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="43.5,209.5 239.5,209.5 239.5,13.5 43.5,13.5" fill-opacity="0" stroke="#D943B4" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="121.5,131.5 43.5,209.5" fill-opacity="0" stroke="#D943B4" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="239.5,13.5 161.5,91.5" fill-opacity="0" stroke="#D943B4" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="51.5" y="61.4" text-anchor="middle" fill="#808080" font-size="26.6px" font-family="sans-serif">v</text>
+		<text x="231.5" y="181.4" text-anchor="middle" fill="#808080" font-size="26.6px" font-family="sans-serif">v</text>
+		<text x="231.5" y="61.4" text-anchor="middle" fill="#808080" font-size="26.6px" font-family="sans-serif">i</text>
+		<text x="51.5" y="181.4" text-anchor="middle" fill="#808080" font-size="26.6px" font-family="sans-serif">i</text>
+		<g id="pin_pBat" class="port">
+			<polygon points="191.5,1.5 211.5,1.5 211.5,21.5 191.5,21.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="pin_nBat" class="port">
+			<polygon points="71.5,1.5 91.5,1.5 91.5,21.5 71.5,21.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="pin_pMot" class="port">
+			<polygon points="191.5,221.5 211.5,221.5 211.5,201.5 191.5,201.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="pin_nMot" class="port">
+			<polygon points="71.5,221.5 91.5,221.5 91.5,201.5 71.5,201.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="vRef" class="port">
+			<polygon points="1.5,91.5 41.5,111.5 1.5,131.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="vDC" class="port">
+			<polygon points="41.5,61.5 21.5,51.5 41.5,41.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="iDC" class="port">
+			<polygon points="241.5,61.5 261.5,51.5 241.5,41.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="vMot" class="port">
+			<polygon points="241.5,181.5 261.5,171.5 241.5,161.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="iMot" class="port">
+			<polygon points="41.5,181.5 21.5,171.5 41.5,161.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

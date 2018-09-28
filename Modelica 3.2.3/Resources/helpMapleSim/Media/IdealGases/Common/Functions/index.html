@@ -1,0 +1,304 @@
+<html><head><title>Modelica.Media.IdealGases.Common.Functions</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Functions"><h1><embed class="icon" src="../../../../images/icon0092.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">Common</a>.&#8203;Functions<br><span class="subtitle">Basic Functions for ideal gases: cp, h, s, thermal conductivity, viscosity</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>Standard package icon.</p>
+<p>Extends from <code><a href="../../../../Icons/FunctionsPackage/index.html">Modelica.&#8203;Icons.&#8203;FunctionsPackage</a></code> (Icon for packages containing functions).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#cp_T"><code>cp_T</code></a></td><td>Compute specific heat capacity at constant pressure from temperature and gas data</td></tr>
+<tr><td><a href="#cp_Tlow"><code>cp_Tlow</code></a></td><td>Compute specific heat capacity at constant pressure, low T region</td></tr>
+<tr><td><a href="#cp_Tlow_der"><code>cp_Tlow_der</code></a></td><td>Compute specific heat capacity at constant pressure, low T region</td></tr>
+<tr><td><a href="#dynamicViscosityLowPressure"><code>dynamicViscosityLowPressure</code></a></td><td>Dynamic viscosity of low pressure gases</td></tr>
+<tr><td><a href="#h_T"><code>h_T</code></a></td><td>Compute specific enthalpy from temperature and gas data; reference is decided by the
+    refChoice input, or by the referenceChoice package constant by default</td></tr>
+<tr><td><a href="#h_T_der"><code>h_T_der</code></a></td><td>Derivative function for h_T</td></tr>
+<tr><td><a href="#h_Tlow"><code>h_Tlow</code></a></td><td>Compute specific enthalpy, low T region; reference is decided by the
+    refChoice input, or by the referenceChoice package constant by default</td></tr>
+<tr><td><a href="#h_Tlow_der"><code>h_Tlow_der</code></a></td><td>Compute specific enthalpy, low T region; reference is decided by the
+    refChoice input, or by the referenceChoice package constant by default</td></tr>
+<tr><td><a href="#s0_T"><code>s0_T</code></a></td><td>Compute specific entropy from temperature and gas data</td></tr>
+<tr><td><a href="#s0_Tlow"><code>s0_Tlow</code></a></td><td>Compute specific entropy, low T region</td></tr>
+<tr><td><a href="#s0_Tlow_der"><code>s0_Tlow_der</code></a></td><td>Compute derivative of specific entropy, low T region</td></tr>
+<tr><td><a href="#thermalConductivityEstimate"><code>thermalConductivityEstimate</code></a></td><td>Thermal conductivity of polyatomic gases(Eucken and Modified Eucken correlation)</td></tr>
+</table>
+<h3>Package Constants</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Value</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>excludeEnthalpyOfFormation</code></td><td><code>true</code></td><td>If true, enthalpy of formation Hf is not included in specific enthalpy h</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Types/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_offset</code></td><td><code>0</code></td><td>User defined offset for reference enthalpy, if referenceChoice = UserDefined</td></tr>
+<tr><td><code>Integer</code></td><td><code>methodForThermalConductivity</code></td><td><code>1</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Choices/index.html#ReferenceEnthalpy">ReferenceEnthalpy</a></code></td><td><code>referenceChoice</code></td><td><code>Modelica.&#8203;Media.&#8203;Interfaces.&#8203;Choices.&#8203;ReferenceEnthalpy.&#8203;ZeroAt0K</code></td><td>Choice of reference enthalpy</td></tr>
+</table>
+<hr><a name="cp_T"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">Functions</a>.&#8203;cp_T<br><span class="subtitle">Compute specific heat capacity at constant pressure from temperature and gas data</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/Common/index.html#DataRecord">DataRecord</a></code></td><td><code>data</code></td><td>Ideal gas data</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp</code></td><td>Specific heat capacity at temperature T</td></tr>
+</table>
+<hr><a name="cp_Tlow"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">Functions</a>.&#8203;cp_Tlow<br><span class="subtitle">Compute specific heat capacity at constant pressure, low T region</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/Common/index.html#DataRecord">DataRecord</a></code></td><td><code>data</code></td><td>Ideal gas data</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp</code></td><td>Specific heat capacity at temperature T</td></tr>
+</table>
+<hr><a name="cp_Tlow_der"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">Functions</a>.&#8203;cp_Tlow_der<br><span class="subtitle">Compute specific heat capacity at constant pressure, low T region</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/Common/index.html#DataRecord">DataRecord</a></code></td><td><code>data</code></td><td>Ideal gas data</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>dT</code></td><td>Temperature derivative</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>cp_der</code></td><td>Derivative of specific heat capacity</td></tr>
+</table>
+<hr><a name="h_T"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">Functions</a>.&#8203;h_T<br><span class="subtitle">Compute specific enthalpy from temperature and gas data; reference is decided by the
+    refChoice input, or by the referenceChoice package constant by default</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/Common/index.html#DataRecord">DataRecord</a></code></td><td><code>data</code></td><td>Ideal gas data</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code>Boolean</code></td><td><code>exclEnthForm</code></td><td>If true, enthalpy of formation Hf is not included in specific enthalpy h</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Choices/index.html#ReferenceEnthalpy">ReferenceEnthalpy</a></code></td><td><code>refChoice</code></td><td>Choice of reference enthalpy</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_off</code></td><td>User defined offset for reference enthalpy, if referenceChoice = UserDefined</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy at temperature T</td></tr>
+</table>
+<hr><a name="h_T_der"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">Functions</a>.&#8203;h_T_der<br><span class="subtitle">Derivative function for h_T</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/Common/index.html#DataRecord">DataRecord</a></code></td><td><code>data</code></td><td>Ideal gas data</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code>Boolean</code></td><td><code>exclEnthForm</code></td><td>If true, enthalpy of formation Hf is not included in specific enthalpy h</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Choices/index.html#ReferenceEnthalpy">ReferenceEnthalpy</a></code></td><td><code>refChoice</code></td><td>Choice of reference enthalpy</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_off</code></td><td>User defined offset for reference enthalpy, if referenceChoice = UserDefined</td></tr>
+<tr><td><code>Real</code></td><td><code>dT</code></td><td>Temperature derivative</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>h_der</code></td><td>Specific enthalpy at temperature T</td></tr>
+</table>
+<hr><a name="h_Tlow"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">Functions</a>.&#8203;h_Tlow<br><span class="subtitle">Compute specific enthalpy, low T region; reference is decided by the
+    refChoice input, or by the referenceChoice package constant by default</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/Common/index.html#DataRecord">DataRecord</a></code></td><td><code>data</code></td><td>Ideal gas data</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code>Boolean</code></td><td><code>exclEnthForm</code></td><td>If true, enthalpy of formation Hf is not included in specific enthalpy h</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Choices/index.html#ReferenceEnthalpy">ReferenceEnthalpy</a></code></td><td><code>refChoice</code></td><td>Choice of reference enthalpy</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_off</code></td><td>User defined offset for reference enthalpy, if referenceChoice = UserDefined</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy at temperature T</td></tr>
+</table>
+<hr><a name="h_Tlow_der"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">Functions</a>.&#8203;h_Tlow_der<br><span class="subtitle">Compute specific enthalpy, low T region; reference is decided by the
+    refChoice input, or by the referenceChoice package constant by default</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/Common/index.html#DataRecord">DataRecord</a></code></td><td><code>data</code></td><td>Ideal gas data</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code>Boolean</code></td><td><code>exclEnthForm</code></td><td>If true, enthalpy of formation Hf is not included in specific enthalpy h</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Choices/index.html#ReferenceEnthalpy">ReferenceEnthalpy</a></code></td><td><code>refChoice</code></td><td>Choice of reference enthalpy</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_off</code></td><td>User defined offset for reference enthalpy, if referenceChoice = UserDefined</td></tr>
+<tr><td><code>Real</code></td><td><code>dT</code></td><td>Temperature derivative</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>h_der</code></td><td>Derivative of specific enthalpy at temperature T</td></tr>
+</table>
+<hr><a name="s0_T"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">Functions</a>.&#8203;s0_T<br><span class="subtitle">Compute specific entropy from temperature and gas data</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/Common/index.html#DataRecord">DataRecord</a></code></td><td><code>data</code></td><td>Ideal gas data</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy at temperature T</td></tr>
+</table>
+<hr><a name="s0_Tlow"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">Functions</a>.&#8203;s0_Tlow<br><span class="subtitle">Compute specific entropy, low T region</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/Common/index.html#DataRecord">DataRecord</a></code></td><td><code>data</code></td><td>Ideal gas data</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy at temperature T</td></tr>
+</table>
+<hr><a name="s0_Tlow_der"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">Functions</a>.&#8203;s0_Tlow_der<br><span class="subtitle">Compute derivative of specific entropy, low T region</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/Common/index.html#DataRecord">DataRecord</a></code></td><td><code>data</code></td><td>Ideal gas data</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>T_der</code></td><td>Temperature derivative</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy at temperature T</td></tr>
+</table>
+<hr><a name="dynamicViscosityLowPressure"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">Functions</a>.&#8203;dynamicViscosityLowPressure<br><span class="subtitle">Dynamic viscosity of low pressure gases</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The used formula are based on the method of Chung et al (1984, 1988) referred to in ref [1] chapter 9.
+The formula 9-4.10 is the one being used. The Formula is given in non-SI units, the following conversion constants were used to
+transform the formula to SI units:
+</p>
+
+<ul>
+<li> <strong>Const1_SI:</strong> The factor 10^(-9.5) =10^(-2.5)*1e-7 where the
+     factor 10^(-2.5) originates from the conversion of g/mol->kg/mol + cm^3/mol->m^3/mol
+      and the factor 1e-7 is due to conversion from microPoise->Pa.s.</li>
+<li>  <strong>Const2_SI:</strong> The factor 1/3.335641e-27 = 1e-3/3.335641e-30
+      where the factor 3.335641e-30 comes from debye->C.m and
+      1e-3 is due to conversion from cm^3/mol->m^3/mol</li>
+</ul>
+
+<h4>References:</h4>
+<p>
+[1] Bruce E. Poling, John E. Prausnitz, John P. O'Connell, "The Properties of Gases and Liquids" 5th Ed. Mc Graw Hill.
+</p>
+
+<h4>Author</h4>
+<p>T. Skoglund, Lund, Sweden, 2004-08-31</p>
+
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>T</code></td><td>Gas temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>Tc</code></td><td>Critical temperature of gas</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#MolarMass">MolarMass</a></code></td><td><code>M</code></td><td>Molar mass of gas</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#MolarVolume">MolarVolume</a></code></td><td><code>Vc</code></td><td>Critical molar volume of gas</td></tr>
+<tr><td><code>Real</code></td><td><code>w</code></td><td>Acentric factor of gas</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Types/index.html#DipoleMoment">DipoleMoment</a></code></td><td><code>mu</code></td><td>Dipole moment of gas molecule</td></tr>
+<tr><td><code>Real</code></td><td><code>k</code></td><td>Special correction for highly polar substances</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta</code></td><td>Dynamic viscosity of gas</td></tr>
+</table>
+<hr><a name="thermalConductivityEstimate"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">Functions</a>.&#8203;thermalConductivityEstimate<br><span class="subtitle">Thermal conductivity of polyatomic gases(Eucken and Modified Eucken correlation)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function provides two similar methods for estimating the
+thermal conductivity of polyatomic gases.
+The Eucken method (input method == 1) gives good results for low temperatures,
+but it tends to give an underestimated value of the thermal conductivity
+(lambda) at higher temperatures.<br>
+The Modified Eucken method (input method == 2) gives good results for
+high-temperatures, but it tends to give an overestimated value of the
+thermal conductivity (lambda) at low temperatures.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/Interfaces/Types/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>Cp</code></td><td>Constant pressure heat capacity</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Types/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta</code></td><td>Dynamic viscosity</td></tr>
+<tr><td><code>Integer</code></td><td><code>method</code></td><td>1: Eucken Method, 2: Modified Eucken Method</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/Common/index.html#DataRecord">DataRecord</a></code></td><td><code>data</code></td><td>Ideal gas data</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/Interfaces/Types/index.html#ThermalConductivity">ThermalConductivity</a></code></td><td><code>lambda</code></td><td>Thermal conductivity [W/(m.k)]</td></tr>
+</table>
+</body></html>

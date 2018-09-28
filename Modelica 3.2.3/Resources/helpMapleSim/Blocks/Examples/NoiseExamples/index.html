@@ -1,0 +1,376 @@
+<html><head><title>Modelica.Blocks.Examples.NoiseExamples</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="NoiseExamples"><h1><embed class="icon" src="../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;NoiseExamples<br><span class="subtitle">Library of examples to demonstrate the usage of package Blocks.Noise</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains various example models that demonstrates how
+to utilize the blocks from sublibrary
+<a href="../../../Blocks/Noise/index.html">Blocks.Noise</a>.
+</p>
+<p>Extends from <code><a href="../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#ActuatorWithNoise"><code>ActuatorWithNoise</code></a></td><td>Demonstrates how to model measurement noise in an actuator</td></tr>
+<tr><td><a href="#AutomaticSeed"><code>AutomaticSeed</code></a></td><td>Demonstrates noise with startTime and automatic local seed for UniformNoise</td></tr>
+<tr><td><a href="#Densities"><code>Densities</code></a></td><td>Demonstrates how to compute distribution densities (= Probability Density Function)</td></tr>
+<tr><td><a href="#Distributions"><code>Distributions</code></a></td><td>Demonstrates noise with different types of distributions</td></tr>
+<tr><td><a href="#DrydenContinuousTurbulence"><code>DrydenContinuousTurbulence</code></a></td><td>Demonstrates how to model wind turbulence for aircraft with the BandLimitedWhiteNoise block (a simple model of vertical Dryden gust speed at low altitudes &lt; 1000 ft)</td></tr>
+<tr><td><a href="#ImpureGenerator"><code>ImpureGenerator</code></a></td><td>Demonstrates the usage of the impure random number generator</td></tr>
+<tr><td><a href="#NormalNoiseProperties"><code>NormalNoiseProperties</code></a></td><td>Demonstrates the computation of properties for normally distributed noise</td></tr>
+<tr><td><a href="#UniformNoise"><code>UniformNoise</code></a></td><td>Demonstrates the most simple usage of the UniformNoise block</td></tr>
+<tr><td><a href="#UniformNoiseProperties"><code>UniformNoiseProperties</code></a></td><td>Demonstrates the computation of properties for uniformally distributed noise</td></tr>
+<tr><td><a href="../../../Blocks/Examples/NoiseExamples/Utilities/index.html"><code>Utilities</code></a> &hellip;</td><td>Library of utility models used in the examples</td></tr>
+</table>
+<hr><a name="UniformNoise"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">NoiseExamples</a>.&#8203;UniformNoise<br><span class="subtitle">Demonstrates the most simple usage of the UniformNoise block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example demonstrates the most simple usage of the
+<a href="../../../Blocks/Noise/index.html#UniformNoise">Noise.UniformNoise</a>
+block:
+</p>
+
+<ul>
+<li> <strong>globalSeed</strong> is the <a href="../../../Blocks/Noise/index.html#GlobalSeed">Noise.GlobalSeed</a>
+     block with default options (just dragged from sublibrary Noise).</li>
+<li> <strong>uniformNoise1</strong> is an instance of
+     <a href="../../../Blocks/Noise/index.html#UniformNoise">Noise.UniformNoise</a> with
+     samplePeriod = 0.02 s and a Uniform distribution with limits y_min=-1, y_max=3.</li>
+<li> <strong>uniformNoise2</strong> is identical to uniformNoise1 with the exception that
+      useAutomaticLocalSeed=false and fixedLocalSeed=10.</li>
+</ul>
+
+<p>
+At every 0.02 seconds a time event occurs and a uniform random number in the band between
+-1 ... 3 is drawn. This random number is held constant until the next sample instant.
+The result of a simulation is shown in the next diagram:
+</p>
+
+<blockquote>
+<img src="../../../../Images/Blocks/NoiseExamples/UniformNoise.png">
+</blockquote>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="AutomaticSeed"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">NoiseExamples</a>.&#8203;AutomaticSeed<br><span class="subtitle">Demonstrates noise with startTime and automatic local seed for UniformNoise</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example demonstrates manual and automatic seed selection of
+<a href="../../../Blocks/Noise/index.html#UniformNoise">UniformNoise</a> blocks, as well
+as starting the noise at startTime = 0.5 s with an output value of y = -1 before this
+time. All noise blocks in this example generate uniform noise in the
+band y_min=-1 .. y_max=3 with samplePeriod = 0.01 s.
+</p>
+
+<p>
+The blocks automaticSeed1, automaticSeed2, automaticSeed3 use the default
+option to automatically initialize the pseudo random number generators
+of the respective block. As a result, different noise is generated, see next
+diagram:
+</p>
+
+<blockquote>
+<img src="../../../../Images/Blocks/NoiseExamples/AutomaticSeed1.png">
+</blockquote>
+
+<p>
+The blocks manualSeed1, manualSeed2, manualSeed3 use manual selection of the local seed
+(useAutomaticLocalSeed = false). They use a fixedLocalSeed of 1, 2, and 3 respectively.
+Again, different noise is generated, see next diagram:
+</p>
+
+<blockquote>
+<img src="../../../../Images/Blocks/NoiseExamples/AutomaticSeed2.png">
+</blockquote>
+
+<p>
+Try to set fixedLocalSeed = 1 in block manualSeed2. As a result, the blocks manualSeed1 and
+manualSeed2 will produce exactly the same noise.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0.5</code></td><td>Start time of noise</td></tr>
+<tr><td><code>Real</code></td><td><code>y_off</code></td><td><code>-1</code></td><td>Output of block before startTime</td></tr>
+</table>
+<hr><a name="Distributions"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">NoiseExamples</a>.&#8203;Distributions<br><span class="subtitle">Demonstrates noise with different types of distributions</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example demonstrates different noise distributions methods that can be selected
+for a Noise block. Both noise blocks use samplePeriod = 0.02 s, y_min=-1, y_max=3, and have
+identical fixedLocalSeed. This means that the same random numbers are drawn for the blocks.
+However, the random numbers are differently transformed according to the selected distributions
+(uniform and truncated normal distribution), and therefore the blocks have different output values.
+Simulation results are shown in the next diagram:
+</p>
+
+<blockquote>
+<img src="../../../../Images/Blocks/NoiseExamples/Distributions.png">
+</blockquote>
+
+<p>
+As can be seen, uniform noise is distributed evenly between -1 and 3, and
+truncated normal distribution has more values centered around the mean value 1.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Period">Period</a></code></td><td><code>samplePeriod</code></td><td><code>0.02</code></td><td>Sample period of all blocks</td></tr>
+<tr><td><code>Real</code></td><td><code>y_min</code></td><td><code>-1</code></td><td>Minimum value of band for random values</td></tr>
+<tr><td><code>Real</code></td><td><code>y_max</code></td><td><code>3</code></td><td>Maximum value of band for random values</td></tr>
+</table>
+<hr><a name="UniformNoiseProperties"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">NoiseExamples</a>.&#8203;UniformNoiseProperties<br><span class="subtitle">Demonstrates the computation of properties for uniformally distributed noise</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example demonstrates statistical properties of the
+<a href="../../../Blocks/Noise/index.html#UniformNoise">Blocks.Noise.UniformNoise</a> block
+using a <strong>uniform</strong> random number distribution.
+Block &quot;noise&quot; defines a band of 0 .. 6 and from the generated noise the mean and the variance
+is computed with blocks of package <a href="../../../Blocks/Math/index.html">Blocks.Math</a>.
+Simulation results are shown in the next diagram:
+</p>
+
+<blockquote>
+<img src="../../../../Images/Blocks/NoiseExamples/UniformNoiseProperties1.png"/>
+</blockquote>
+
+<p>
+The mean value of a uniform noise in the range 0 .. 6 is 3 and its variance is
+3 as well. The simulation results above show good agreement (after a short initial phase).
+This demonstrates that the random number generator and the mapping to a uniform
+distribution have good statistical properties.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y_min</code></td><td><code>0</code></td><td>Minimum value of band</td></tr>
+<tr><td><code>Real</code></td><td><code>y_max</code></td><td><code>6</code></td><td>Maximum value of band</td></tr>
+<tr><td><code>Real</code></td><td><code>pMean</code></td><td><code>0.5 * (y_min + y_max)</code></td><td>Theoretical mean value of uniform distribution</td></tr>
+<tr><td><code>Real</code></td><td><code>var</code></td><td><code>0.083333333333333 * (y_max - y_min) ^ 2</code></td><td>Theoretical variance of uniform distribution</td></tr>
+<tr><td><code>Real</code></td><td><code>std</code></td><td><code>sqrt(var)</code></td><td>Theoretical standard deviation of uniform distribution</td></tr>
+</table>
+<hr><a name="NormalNoiseProperties"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">NoiseExamples</a>.&#8203;NormalNoiseProperties<br><span class="subtitle">Demonstrates the computation of properties for normally distributed noise</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example demonstrates statistical properties of the
+<a href="../../../Blocks/Noise/index.html#NormalNoise">Blocks.Noise.NormalNoise</a> block
+using a <strong>normal</strong> random number distribution with mu=3, sigma=1.
+From the generated noise the mean and the variance
+is computed with blocks of package <a href="../../../Blocks/Math/index.html">Blocks.Math</a>.
+Simulation results are shown in the next diagram:
+</p>
+
+<blockquote>
+<img src="../../../../Images/Blocks/NoiseExamples/NormalNoiseProperties1.png">
+</blockquote>
+
+<p>
+The mean value of a normal noise with mu=3 is 3 and the variance of normal noise
+is sigma^2, so 1. The simulation results above show good agreement (after a short initial phase).
+This demonstrates that the random number generator and the mapping to a normal
+distribution have good statistical properties.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>mu</code></td><td><code>3</code></td><td>Mean value for normal distribution</td></tr>
+<tr><td><code>Real</code></td><td><code>sigma</code></td><td><code>1</code></td><td>Standard deviation for normal distribution</td></tr>
+<tr><td><code>Real</code></td><td><code>pMean</code></td><td><code>mu</code></td><td>Theoretical mean value of normal distribution</td></tr>
+<tr><td><code>Real</code></td><td><code>var</code></td><td><code>sigma ^ 2</code></td><td>Theoretical variance of uniform distribution</td></tr>
+<tr><td><code>Real</code></td><td><code>std</code></td><td><code>sigma</code></td><td>Theoretical standard deviation of normal distribution</td></tr>
+</table>
+<hr><a name="Densities"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">NoiseExamples</a>.&#8203;Densities<br><span class="subtitle">Demonstrates how to compute distribution densities (= Probability Density Function)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example demonstrates how to compute the probability density functions (pdfs) of
+various distributions.
+In the following diagram simulations results for the uniform, normal, and Weibull distribution
+are shown. The outputs of the blocks are the pdfs that are plotted over one of the
+inputs:
+</p>
+
+<blockquote>
+<img src="../../../../Images/Blocks/NoiseExamples/Densities.png">
+</blockquote>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="ImpureGenerator"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">NoiseExamples</a>.&#8203;ImpureGenerator<br><span class="subtitle">Demonstrates the usage of the impure random number generator</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example demonstrates how to use the
+<a href="../../../Math/Random/Utilities/index.html#impureRandom">impureRandom(..)</a> function
+to generate random values at event instants. Typically, this approach is only
+used when implementing an own, specialized block that needs a random number
+generator. Simulation results are shown in the next figure:
+</p>
+
+<blockquote>
+<img src="../../../../Images/Blocks/NoiseExamples/ImpureGenerator.png">
+</blockquote>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="ActuatorWithNoise"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">NoiseExamples</a>.&#8203;ActuatorWithNoise<br><span class="subtitle">Demonstrates how to model measurement noise in an actuator</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example models an actuator with a noisy sensor (which is in the motor component):
+</p>
+
+<blockquote>
+<p>
+<img src="../../../../Images/Blocks/NoiseExamples/ActuatorNoiseDiagram.png"/>
+</p></blockquote>
+
+<p>
+The drive train consists of a synchronous motor with a current controller (= motor) and a gear box.
+The gearbox drives a rod through a linear translation model. Softly attached to the rod is
+another mass representing the actual actuator (= mass). The actuator is loaded with a constant force.
+</p>
+
+<p>
+The whole drive is steered by a rate limited speed step command through a controller model.
+In the motor the shaft angle is measured and this measurement signal is modelled by adding
+additive noise to the motor angle.
+</p>
+
+<p>
+In the following figure, the position of the actuator and the motor output torque are
+shown with and without noise. The noise is not very strong, such that it has no visible effect
+on the position of the actuator. The effect of the noise can be seen in the motor torque.
+</p>
+
+<blockquote><p>
+<img src="../../../../Images/Blocks/NoiseExamples/ActuatorNoise.png"/>
+</p></blockquote>
+
+<p>
+Note, the noise in all components can be easily switched off by setting parameter
+enableNoise = false in the globalSeed component.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="DrydenContinuousTurbulence"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">NoiseExamples</a>.&#8203;DrydenContinuousTurbulence<br><span class="subtitle">Demonstrates how to model wind turbulence for aircraft with the BandLimitedWhiteNoise block (a simple model of vertical Dryden gust speed at low altitudes &lt; 1000 ft)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example shows how to use the
+<a href="../../../Blocks/Noise/index.html#BandLimitedWhiteNoise">BandLimitedWhiteNoise</a>
+to feed a Dryden continuous turbulence model. This model is used to describe turbulent wind at low altitudes
+that varies randomly in space
+(see also <a href="https://en.wikipedia.org/wiki/Continuous_gusts">wikipedia</a>).
+</p>
+
+<h4>
+Turbulence model for vertical gust speed at low altitudes
+</h4>
+
+<p>
+The turbulence model of the Dryden form is defined by the power spectral density of the vertical turbulent velocity:
+</p>
+
+<blockquote><p>
+<img src="../../../../Images/Blocks/NoiseExamples/equation-erVWhiWU.png" alt="Phi_w(Omega)=sigma^2*L_w/pi*((1+3*(L_w*Omega)^2)/(1+(L_w*Omega)^2)^2)"/>
+</p></blockquote>
+
+<p>
+The spectrum is parametrized with the following parameters:
+</p>
+
+<ul>
+<li> Lw is the turbulence scale.<br>In low altitudes, it is equal to the flight altitude.</li>
+<li> sigma is the turbulence intensity.<br>In low altitudes, it is equal to 1/10 of the
+     wind speed at 20 ft altitude, which is 30 kts for medium turbulence.</li>
+<li> Omega is the spatial frequency.<br> The turbulence model is thus defined in space and the aircraft experiences turbulence as it flies through the defined wind field.</li>
+<li> Omega = s/V will be used to transform the spatial definition into a temporal definition, which can be realized as a state space system.</li>
+<li> V is the airspeed of the aircraft.<br>It is approximately 150 kts during the approach (i.e. at low altitudes).</li>
+</ul>
+
+<p>
+Using spectral factorization and a fixed airspeed V of the aircraft, a concrete forming filter for the vertical turbulence can be found as
+</p>
+
+<blockquote><p>
+<img src="../../../../Images/Blocks/NoiseExamples/equation-W0zl2Gay.png" alt="H_w(s) = sigma*sqrt(L_w/(pi*V)) * ((1 + sqrt(3)*L_w/V*s) / (1+L_w/V*s)^2)"/>,
+</p></blockquote>
+
+<p>
+for which V * (H_w(i Omega/V) * H_w(-i Omega/V) = Phi_w(Omega).
+</p>
+
+<h4>
+The input to the filter
+</h4>
+
+<p>
+The input to the filter is white noise with a normal distribution, zero mean, and a power spectral density of 1.
+That means, for a sampling time of 1s, it is parameterized with mean=0 and variance=1.
+However, in order to account for the change of noise power due to sampling, the noise must be scaled with sqrt(samplePeriod).
+This is done automatically in the
+<a href="../../../Blocks/Noise/index.html#BandLimitedWhiteNoise">BandLimitedWhiteNoise</a> block.
+</p>
+
+<h4>Example output</h4>
+
+<blockquote>
+<p>
+<img src="../../../../Images/Blocks/NoiseExamples/DrydenContinuousTurbulence.png"/>
+</p></blockquote>
+
+<h4>
+Reference
+</h4>
+
+<ol>
+<li>Dryden Wind Turbulence model in US military standard
+    <a href="http://everyspec.com/MIL-SPECS/MIL-SPECS-MIL-F/MIL-F-8785C_5295/">MIL-F-8785</a>.</li>
+</ol>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Velocity">Velocity</a></code></td><td><code>V</code></td><td><code>72.016</code></td><td>Airspeed of aircraft (typically 140kts during approach)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Velocity">Velocity</a></code></td><td><code>sigma</code></td><td><code>1.5432</code></td><td>Turbulence intensity (=0.1 * wind at 20 ft, typically 30 kt)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>L</code></td><td><code>182.88</code></td><td>Scale length (= flight altitude)</td></tr>
+</table>
+</body></html>

@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Examples.Loops</title>
+</head>
+<body>
+<h1><a href="Icons/ed64af07e87d570ce7126538bd50680280004c73.svg"><img class="svgiconhead" src="Icons/ed64af07e87d570ce7126538bd50680280004c73.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a>.<span class="omc-h1">Loops</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This package contains different examples to show how mechanical
+systems with kinematic loops can be modeled.</p>
+<h4>Content</h4>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th><strong><em>Model</em></strong></th>
+<th><strong><em>Description</em></strong></th>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1a.html">Engine1a</a><br />
+<a href="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b.html">Engine1b</a><br />
+<a href="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b_analytic.html">
+Engine1b_analytic</a></td>
+<td>Model of one cylinder engine (Engine1a: simple, without
+combustion; Engine1b: with combustion; Engine1b_analytic: same as
+Engine1b but analytic loop handling)<br />
+<img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/Examples/Loops/Engine.png" />
+</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6.html">EngineV6</a><br />
+<a href="Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic.html">
+EngineV6_analytic</a></td>
+<td>V6 engine with 6 cylinders, 6 planar loops and 1
+degree-of-freedom. Second version with analytic handling of
+kinematic loops and CAD data animation.<br />
+<img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6_small.png" />
+<img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6_CAD_smaller.png" />
+</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar1.html">Fourbar1</a></td>
+<td>One kinematic loop with four bars (with only revolute joints; 5
+non-linear equations)<br />
+<img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar1_small.png" />
+</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar2.html">Fourbar2</a></td>
+<td>One kinematic loop with four bars (with UniversalSpherical
+joint; 1 non-linear equation)<br />
+<img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar2_small.png" />
+</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar_analytic.html">
+Fourbar_analytic</a></td>
+<td>One kinematic loop with four bars (with JointSSP joint;
+analytic solution of non-linear algebraic loop)<br />
+<img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar_analytic_small.png" />
+</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Examples.Loops.PlanarFourbar.html">
+PlanarFourbar</a></td>
+<td>Planar four bars with one kinematic loop (with
+RevolutePlanarLoopConstraint joint)<br />
+<img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/Examples/Loops/PlanarFourbar_small.png" />
+</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic.html">
+PlanarLoops_analytic</a></td>
+<td>Mechanism with three planar kinematic loops and one
+degree-of-freedom with analytic loop handling (with JointRRR
+joints)<br />
+<img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/Examples/Loops/PlanarLoops_small.png" />
+</td>
+</tr>
+</table>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1a.html"><img class="svgiconsmall" src="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1a.html">Engine1a</a></td>
+<td>Model of one cylinder engine</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b.html"><img class="svgiconsmall" src="Icons/c24bda94364402cfc710024e6c5a12cb168cbb09.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b.html">Engine1b</a></td>
+<td>Model of one cylinder engine with gas force and preparation for
+assembly joint JointRRP</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b_analytic.html">
+<img class="svgiconsmall" src="Icons/c24bda94364402cfc710024e6c5a12cb168cbb09.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b_analytic.html">Engine1b_analytic</a></td>
+<td>Model of one cylinder engine with gas force and analytic loop
+handling</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6.html"><img class="svgiconsmall" src="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6.html">EngineV6</a></td>
+<td>V6 engine with 6 cylinders, 6 planar loops and 1
+degree-of-freedom</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic.html">
+<img class="svgiconsmall" src="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic.html">EngineV6_analytic</a></td>
+<td>V6 engine with 6 cylinders, 6 planar loops, 1 degree-of-freedom
+and analytic handling of kinematic loops</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar1.html"><img class="svgiconsmall" src="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar1.html">Fourbar1</a></td>
+<td>One kinematic loop with four bars (with only revolute joints; 5
+non-linear equations)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar2.html"><img class="svgiconsmall" src="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar2.html">Fourbar2</a></td>
+<td>One kinematic loop with four bars (with UniversalSpherical
+joint; 1 non-linear equation)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar_analytic.html">
+<img class="svgiconsmall" src="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar_analytic.html">Fourbar_analytic</a></td>
+<td>One kinematic loop with four bars (with JointSSP joint;
+analytic solution of non-linear algebraic loop)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Examples.Loops.PlanarFourbar.html"><img class="svgiconsmall" src="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Examples.Loops.PlanarFourbar.html">PlanarFourbar</a></td>
+<td>Planar four bars mechanism with one kinematic loop (with
+RevolutePlanarLoopConstraint joint)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic.html">
+<img class="svgiconsmall" src="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic.html">PlanarLoops_analytic</a></td>
+<td>Mechanism with three planar kinematic loops and one
+degree-of-freedom with analytic loop handling (with JointRRR
+joints)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.html"><img class="svgiconsmall" src="Icons/f06f3476c3faa728c4b42075b6abe01cb7a5b78f.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.html">Utilities</a></td>
+<td>Utility models for Examples.Loops</td>
+</tr>
+</table>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

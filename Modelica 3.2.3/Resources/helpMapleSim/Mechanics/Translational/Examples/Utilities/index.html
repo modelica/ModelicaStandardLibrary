@@ -1,0 +1,215 @@
+<html><head><title>Modelica.Mechanics.Translational.Examples.Utilities</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Utilities"><h1><embed class="icon" src="../../../../images/icon0009.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">Translational</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;Utilities<br><span class="subtitle">Utility classes used by translational example models</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains utility models and functions used by some
+of the example models from the translational mechanics package.
+</p>
+<p>Extends from <code><a href="../../../../Icons/UtilitiesPackage/index.html">Modelica.&#8203;Icons.&#8203;UtilitiesPackage</a></code> (Icon for utility packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#DirectMass"><code>DirectMass</code></a></td><td>Input/output block of a direct mass model</td></tr>
+<tr><td><a href="#GenerateStribeckFrictionTable"><code>GenerateStribeckFrictionTable</code></a></td><td>Generate Stribeck friction table for example Friction for the SupportFriction</td></tr>
+<tr><td><a href="#InverseMass"><code>InverseMass</code></a></td><td>Input/output block of an inverse mass model</td></tr>
+<tr><td><a href="#Spring"><code>Spring</code></a></td><td>Input/output block of a spring model</td></tr>
+<tr><td><a href="#SpringDamper"><code>SpringDamper</code></a></td><td>Input/output block of a spring/damper model</td></tr>
+<tr><td><a href="#SpringDamperNoRelativeStates"><code>SpringDamperNoRelativeStates</code></a></td><td>Linear 1D translational spring and damper in parallel (s and v are not used as states)</td></tr>
+</table>
+<hr><a name="GenerateStribeckFrictionTable"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">Translational</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;GenerateStribeckFrictionTable<br><span class="subtitle">Generate Stribeck friction table for example Friction for the SupportFriction</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Returns a table with the friction characteristic table[nTable,2] = [0, f1; ....; v_max, fn], where the first
+column is the velocity v in the range 0..v_max and the second column is the friction force
+according to the Stribeck curve:
+</p>
+<pre>
+  F_Coulomb + F_prop*v + F_Stribeck*exp(-fexp*v);
+</pre>
+
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>F_prop</code></td><td>Velocity dependent friction coefficient</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Force">Force</a></code></td><td><code>F_Coulomb</code></td><td>Constant friction: Coulomb force</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Force">Force</a></code></td><td><code>F_Stribeck</code></td><td>Stribeck effect</td></tr>
+<tr><td><code>Real</code></td><td><code>fexp</code></td><td>Exponential decay</td></tr>
+<tr><td><code>Real</code></td><td><code>v_max</code></td><td>Generate table from v=0 ... v_max</td></tr>
+<tr><td><code>Integer</code></td><td><code>nTable</code></td><td>Number of table points</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>table[nTable,2]</code></td><td>Friction table</td></tr>
+</table>
+<hr><a name="DirectMass"><h2><embed class="icon" src="../../../../images/icon1259.svg" width="283" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">Translational</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;DirectMass<br><span class="subtitle">Input/output block of a direct mass model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+A translational component with pure signal interface which can be applied for
+a FMU (<a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>)
+exchange.
+The input force <code>fDrive</code> is applied on one side of a sliding mass
+whereby the input force&nbsp;<code>f</code> is applied
+on the other side of it.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Mechanics/Translational/Examples/Utilities/index.html#InverseMass">InverseMass</a>.
+</p>
+<p>Extends from <code><a href="../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m</code></td><td><code>1</code></td><td>Mass</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>fDrive</code></td><td>Accelerating force acting at flange (= -flange.f)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>s</code></td><td>Mass moves with position s due to force f</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>v</code></td><td>Mass moves with speed v due to force f</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>a</code></td><td>Mass moves with acceleration a due to force f</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>f</code></td><td>Force to drive the mass</td></tr>
+</table>
+<hr><a name="InverseMass"><h2><embed class="icon" src="../../../../images/icon1260.svg" width="243" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">Translational</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;InverseMass<br><span class="subtitle">Input/output block of an inverse mass model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+A translational component with pure signal interface which can be applied for
+a FMU (<a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>)
+exchange.
+Based on the kinematic inputs applied on a sliding mass
+the output force&nbsp;<code>f</code> is returned.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Mechanics/Translational/Examples/Utilities/index.html#DirectMass">DirectMass</a>.
+</p>
+<p>Extends from <code><a href="../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m</code></td><td><code>1</code></td><td>Mass</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>s</code></td><td>Position to drive the mass</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>v</code></td><td>Speed to drive the mass</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>a</code></td><td>Acceleration to drive the mass</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>f</code></td><td>Force needed to drive the flange according to s, v, a</td></tr>
+</table>
+<hr><a name="SpringDamper"><h2><embed class="icon" src="../../../../images/icon1261.svg" width="283" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">Translational</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;SpringDamper<br><span class="subtitle">Input/output block of a spring/damper model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+A linear 1D translational spring and damper in parallel with pure signal
+interface which can be applied for
+a FMU (<a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>)
+exchange.
+</p>
+<p>Extends from <code><a href="../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#TranslationalSpringConstant">TranslationalSpringConstant</a></code></td><td><code>c</code></td><td><code>10000</code></td><td>Spring constant</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#TranslationalDampingConstant">TranslationalDampingConstant</a></code></td><td><code>d</code></td><td><code>1</code></td><td>Damping constant</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>s_rel0</code></td><td><code>0</code></td><td>Unstretched spring length</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>s1</code></td><td>Position of left flange of force element</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>v1</code></td><td>Speed to left flange of force element</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>f1</code></td><td>Force generated by the force element</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>s2</code></td><td>Position of right flange of force element</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>v2</code></td><td>Speed to right flange of force element</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>f2</code></td><td>Force generated by the force element</td></tr>
+</table>
+<hr><a name="Spring"><h2><embed class="icon" src="../../../../images/icon1262.svg" width="283" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">Translational</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;Spring<br><span class="subtitle">Input/output block of a spring model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+A linear 1D translational spring with pure signal
+interface which can be applied for
+a FMU (<a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>)
+exchange.
+</p>
+<p>Extends from <code><a href="../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#TranslationalSpringConstant">TranslationalSpringConstant</a></code></td><td><code>c</code></td><td><code>10000</code></td><td>Spring constant</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>s_rel0</code></td><td><code>0</code></td><td>Unstretched spring length</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>s1</code></td><td>Position of left flange of force element</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>f1</code></td><td>Force generated by the force element</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>s2</code></td><td>Position of right flange of force element</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>f2</code></td><td>Force generated by the force element</td></tr>
+</table>
+<hr><a name="SpringDamperNoRelativeStates"><h2><embed class="icon" src="../../../../images/icon1263.svg" width="223" height="213" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">Translational</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;SpringDamperNoRelativeStates<br><span class="subtitle">Linear 1D translational spring and damper in parallel (s and v are not used as states)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+A <strong>spring</strong> and <strong>damper</strong> element <strong>connected in parallel</strong>.
+The component can be
+connected either between two masses to describe the joint elasticity
+and damping, or between a mass and the housing (component Fixed),
+to describe a coupling of the element with the housing via a spring/damper.
+</p>
+
+<p>
+This is the same element as <a href="../../../../Mechanics/Translational/Components/index.html#SpringDamper">Translational.Components.SpringDamper</a>
+but with the only difference, that the relative quantities are not used as states. If the relative
+states are potentially used as states, "a_rel = der(v_rel)" is present, and then exporting this model
+as FMU requires to also have the accelerations in the flanges as inputs, which is usually not
+desired for a force element.
+</p>
+<p>Extends from <code><a href="../../../../Mechanics/Translational/Interfaces/index.html#PartialCompliant">Modelica.&#8203;Mechanics.&#8203;Translational.&#8203;Interfaces.&#8203;PartialCompliant</a></code> (Compliant connection of two translational 1D flanges) and <code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#PartialElementaryConditionalHeatPortWithoutT">Modelica.&#8203;Thermal.&#8203;HeatTransfer.&#8203;Interfaces.&#8203;PartialElementaryConditionalHeatPortWithoutT</a></code> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#TranslationalSpringConstant">TranslationalSpringConstant</a></code></td><td><code>c</code></td><td>&nbsp;</td><td>Spring constant</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#TranslationalDampingConstant">TranslationalDampingConstant</a></code></td><td><code>d</code></td><td>&nbsp;</td><td>Damping constant</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>s_rel0</code></td><td><code>0</code></td><td>Unstretched spring length</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/Translational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>Left flange of compliant 1-dim. translational component</td></tr>
+<tr><td><code><a href="../../../../Mechanics/Translational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>Right flange of compliant 1-dim. translational component</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
+</table>
+</body></html>

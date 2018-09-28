@@ -1,0 +1,150 @@
+<html><head><title>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="FixedShape"><h1><embed class="icon" src="../../../../../images/icon0573.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">QuasiStatic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Shapes</a>.&#8203;FixedShape<br><span class="subtitle">Flux tubes with fixed shape during simulation and linear or non-linear material characteristics</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package provides different reluctance models, based on different geometric data.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/VariantsPackage/index.html">Modelica.&#8203;Icons.&#8203;VariantsPackage</a></code> (Icon for package containing variants).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Cuboid"><code>Cuboid</code></a></td><td>Flux tube with rectangular cross-section; fixed shape; linear or non-linear material characteristics</td></tr>
+<tr><td><a href="#GenericFluxTube"><code>GenericFluxTube</code></a></td><td>Flux tube with fixed cross-section and length; linear or non-linear material characteristics</td></tr>
+<tr><td><a href="#HollowCylinderAxialFlux"><code>HollowCylinderAxialFlux</code></a></td><td>(Hollow) cylinder with axial flux; fixed shape; linear or non-linear material characteristics</td></tr>
+<tr><td><a href="#HollowCylinderRadialFlux"><code>HollowCylinderRadialFlux</code></a></td><td>Hollow cylinder with radial flux; fixed shape; linear or non-linear material characteristics</td></tr>
+</table>
+<hr><a name="GenericFluxTube"><h2><embed class="icon" src="../../../../../images/icon0995.svg" width="223" height="203" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">QuasiStatic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Shapes</a>.&#8203;<a href="index.html">FixedShape</a>.&#8203;GenericFluxTube<br><span class="subtitle">Flux tube with fixed cross-section and length; linear or non-linear material characteristics</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The generic flux tube models the reluctance with constant
+<code>area</code> of cross section, and length, <code>l</code>
+the magnetic reluctance by:</p>
+<dl><dd>
+<img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/R_m_generic.png">,
+</dd></dl>
+
+<p>
+<img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/GenericFluxTube_qs.png">
+</p>
+<p>Extends from <code><a href="../../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PartialFixedShape">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialFixedShape</a></code> (Base class for flux tubes with fixed shape during simulation; linear or non-linear material characteristics).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#RelativePermeability">RelativePermeability</a></code></td><td><code>mu_rConst</code></td><td><code>1</code></td><td>Constant relative permeability</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>l</code></td><td><code>0.01</code></td><td>Length in direction of flux</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#CrossSection">CrossSection</a></code></td><td><code>area</code></td><td><code>1e-4</code></td><td>Area of cross section</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<hr><a name="Cuboid"><h2><embed class="icon" src="../../../../../images/icon0995.svg" width="223" height="203" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">QuasiStatic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Shapes</a>.&#8203;<a href="index.html">FixedShape</a>.&#8203;Cuboid<br><span class="subtitle">Flux tube with rectangular cross-section; fixed shape; linear or non-linear material characteristics</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The cuboid models the reluctance with rectangular dimensions <code>a</code> and <code>b</code>, and length, <code>l</code>
+the magnetic reluctance by:</p>
+<dl><dd>
+<img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/R_m_cuboid.png">
+</dd></dl>
+
+<p>The area of cross section is determined by:</p>
+<dl><dd>
+<img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/A_cuboid.png">
+</dd></dl>
+
+<p>
+<img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/CuboidParallelFlux_qs.png">
+</p>
+<p>Extends from <code><a href="../../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PartialFixedShape">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialFixedShape</a></code> (Base class for flux tubes with fixed shape during simulation; linear or non-linear material characteristics).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#RelativePermeability">RelativePermeability</a></code></td><td><code>mu_rConst</code></td><td><code>1</code></td><td>Constant relative permeability</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>l</code></td><td><code>0.01</code></td><td>Length in direction of flux</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>a</code></td><td><code>0.01</code></td><td>Width of rectangular cross-section</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>b</code></td><td><code>0.01</code></td><td>Height of rectangular cross-section</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<hr><a name="HollowCylinderAxialFlux"><h2><embed class="icon" src="../../../../../images/icon0995.svg" width="223" height="203" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">QuasiStatic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Shapes</a>.&#8203;<a href="index.html">FixedShape</a>.&#8203;HollowCylinderAxialFlux<br><span class="subtitle">(Hollow) cylinder with axial flux; fixed shape; linear or non-linear material characteristics</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The axial cylinder models is characterized by the outer diameter, <img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/r_o.png"/>, the inner diameter, <img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/r_i.png"/>, length, <img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/l.png"/>. The magnetic reluctance is determined by:</p>
+<p><img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/R_m_cuboid.png"/></p>
+<p>The area of cross section yields:</p>
+<p><img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/A_axial.png"/></p>
+<p><img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/HollowCylinderAxialFlux_qs.png"/></p>
+<p>A hollow cylinder is depicted in the above figure left for <img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/alpha2pi.png"/>. A solid cylindric flux tube an be considered by setting the inner radius, <img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/r_i.png"/>, equal to zero.</p>
+<p>A circular sector of the area of cross section with central angle <img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/alpha.png"/> is depicted in the above figure right.</p>
+<p>Extends from <code><a href="../../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PartialFixedShape">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialFixedShape</a></code> (Base class for flux tubes with fixed shape during simulation; linear or non-linear material characteristics).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#RelativePermeability">RelativePermeability</a></code></td><td><code>mu_rConst</code></td><td><code>1</code></td><td>Constant relative permeability</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>l</code></td><td><code>0.01</code></td><td>Axial length (in direction of flux)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Radius">Radius</a></code></td><td><code>r_i</code></td><td><code>0</code></td><td>Inner radius of hollow cylinder (zero for cylinder)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Radius">Radius</a></code></td><td><code>r_o</code></td><td><code>0.01</code></td><td>Outer radius of (hollow) cylinder</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>alpha</code></td><td><code>2 * Modelica.Constants.pi</code></td><td>Central angle</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<hr><a name="HollowCylinderRadialFlux"><h2><embed class="icon" src="../../../../../images/icon0995.svg" width="223" height="203" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">QuasiStatic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Shapes</a>.&#8203;<a href="index.html">FixedShape</a>.&#8203;HollowCylinderRadialFlux<br><span class="subtitle">Hollow cylinder with radial flux; fixed shape; linear or non-linear material characteristics</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The radial cylinder model is characterized by the outer diameter, <img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/r_o.png"/>, the inner diameter, <img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/r_i.png"/>, length, <img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/l.png"/>, and the angle <img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/alpha.png"/>. The magnetic reluctance is determined by:</p>
+<p><img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/R_m_radial.png"/></p>
+<p>In this model the magnetic flux and the magnetic potential difference, respectively, are radially oriented.</p>
+<p><img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/HollowCylinderRadialFlux_qs.png"/></p>
+<p>The above figure left shows a radial flux cylinder with <img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/alpha2pi.png"/>. The figure on the right indicates the central angle <img src="../../../../../../Images/Magnetic/QuasiStatic/FluxTubes/alpha.png"/> in case a cylinder section shall be considered.</p>
+<p>Extends from <code><a href="../../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PartialFixedShape">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialFixedShape</a></code> (Base class for flux tubes with fixed shape during simulation; linear or non-linear material characteristics).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#RelativePermeability">RelativePermeability</a></code></td><td><code>mu_rConst</code></td><td><code>1</code></td><td>Constant relative permeability</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>l</code></td><td><code>0.01</code></td><td>Width (orthogonal to flux direction)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Radius">Radius</a></code></td><td><code>r_i</code></td><td><code>0.01</code></td><td>Inner radius of hollow cylinder</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Radius">Radius</a></code></td><td><code>r_o</code></td><td><code>0.02</code></td><td>Outer radius of hollow cylinder</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>alpha</code></td><td><code>2 * Modelica.Constants.pi</code></td><td>Central angle</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+</body></html>

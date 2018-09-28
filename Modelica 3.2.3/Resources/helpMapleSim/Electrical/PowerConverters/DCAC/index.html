@@ -1,0 +1,110 @@
+<html><head><title>Modelica.Electrical.PowerConverters.DCAC</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="DCAC"><h1><embed class="icon" src="../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">PowerConverters</a>.&#8203;DCAC<br><span class="subtitle">DC to AC converters</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+General information about DC/AC converters can be found at the
+<a href="../../../Electrical/PowerConverters/UsersGuide/index.html#DCACConcept">DC/AC converter concept</a>
+</p>
+<p>Extends from <code><a href="../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="../../../Electrical/PowerConverters/DCAC/Control/index.html"><code>Control</code></a> &hellip;</td><td>Control components for DC to AC converters</td></tr>
+<tr><td><a href="#MultiPhase2Level"><code>MultiPhase2Level</code></a></td><td>Multi phase DC to AC converter</td></tr>
+<tr><td><a href="#SinglePhase2Level"><code>SinglePhase2Level</code></a></td><td>Single phase DC to AC converter</td></tr>
+</table>
+<hr><a name="SinglePhase2Level"><h2><embed class="icon" src="../../../images/icon0749.svg" width="233" height="243" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">PowerConverters</a>.&#8203;<a href="index.html">DCAC</a>.&#8203;SinglePhase2Level<br><span class="subtitle">Single phase DC to AC converter</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a single phase two level inverter. The boolean signals <code>fire_p</code> and <code>fire_n</code> shall not be <code>true</code> at the same time to avoid DC bus short circuits. The inverter consists of two transistors and two anti parallel free wheeling diodes.
+</p>
+
+<p>
+An example of a single phase inverter with PWM voltage control is included in
+<a href="../../../Electrical/PowerConverters/Examples/DCAC/SinglePhaseTwoLevel/index.html">Examples.DCAC.SinglePhaseTwoLevel</a>.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block), <code><a href="../../../Electrical/PowerConverters/Interfaces/DCAC/index.html#DCtwoPin">Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Interfaces.&#8203;DCAC.&#8203;DCtwoPin</a></code> (Positive and negative DC pins), <code><a href="../../../Electrical/PowerConverters/Interfaces/DCAC/index.html#ACpin">Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Interfaces.&#8203;DCAC.&#8203;ACpin</a></code> (Single AC pin), <code><a href="../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network), and <code><a href="../../../Electrical/PowerConverters/Interfaces/Enable/index.html#Enable2">Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Interfaces.&#8203;Enable.&#8203;Enable2</a></code> (Partial model providing enable parameter and optional enable input for two firing signals).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RonTransistor</code></td><td><code>1e-5</code></td><td>Transistor closed resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>GoffTransistor</code></td><td><code>1e-5</code></td><td>Transistor opened conductance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VkneeTransistor</code></td><td><code>0</code></td><td>Transistor threshold voltage</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RonDiode</code></td><td><code>1e-5</code></td><td>Diode closed resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>GoffDiode</code></td><td><code>1e-5</code></td><td>Diode opened conductance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VkneeDiode</code></td><td><code>0</code></td><td>Diode threshold voltage</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useConstantEnable</code></td><td><code>true</code></td><td>true = disabled boolean input, use constantEnable</td></tr>
+<tr><td><code>Boolean</code></td><td><code>constantEnable</code></td><td><code>true</code></td><td>Constant enabling of firing signals</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>m</code></td><td><code>1</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>dc_p</code></td><td>Positive DC input</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>dc_n</code></td><td>Negative DC input</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>ac</code></td><td>AC output</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>enable</code></td><td>Enables fire and notFire</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>fire_p</code></td><td>Firing signal of positive potential transistor</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>fire_n</code></td><td>Firing signal of negative potential transistor</td></tr>
+</table>
+<hr><a name="MultiPhase2Level"><h2><embed class="icon" src="../../../images/icon0750.svg" width="233" height="243" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">PowerConverters</a>.&#8203;<a href="index.html">DCAC</a>.&#8203;MultiPhase2Level<br><span class="subtitle">Multi phase DC to AC converter</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a multi phase two level inverter. The boolean signals <code>fire_p[k]</code> and <code>fire_n[k]</code> for any phase <code>k</code> shall not be <code>true</code> at the same time to avoid DC bus short circuits. The inverter consists of <code>2*m</code> transistors and two anti parallel free wheeling diodes, respectively, where <code>m</code> is the number of phases.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block), <code><a href="../../../Electrical/PowerConverters/Interfaces/Enable/index.html#Enable2m">Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Interfaces.&#8203;Enable.&#8203;Enable2m</a></code> (Partial model providing enable parameter and optional enable input for 2*m firing signals), <code><a href="../../../Electrical/PowerConverters/Interfaces/DCAC/index.html#DCtwoPin">Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Interfaces.&#8203;DCAC.&#8203;DCtwoPin</a></code> (Positive and negative DC pins), <code><a href="../../../Electrical/PowerConverters/Interfaces/DCAC/index.html#ACplug">Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Interfaces.&#8203;DCAC.&#8203;ACplug</a></code> (AC multi phase plug), and <code><a href="../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConstantEnable</code></td><td><code>true</code></td><td>true = disabled boolean input, use constantEnable</td></tr>
+<tr><td><code>Boolean</code></td><td><code>constantEnable</code></td><td><code>true</code></td><td>Constant enabling of firing signals</td></tr>
+<tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RonTransistor</code></td><td><code>1e-5</code></td><td>Transistor closed resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>GoffTransistor</code></td><td><code>1e-5</code></td><td>Transistor opened conductance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VkneeTransistor</code></td><td><code>0</code></td><td>Transistor threshold voltage</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RonDiode</code></td><td><code>1e-5</code></td><td>Diode closed resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>GoffDiode</code></td><td><code>1e-5</code></td><td>Diode opened conductance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VkneeDiode</code></td><td><code>0</code></td><td>Diode threshold voltage</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>fire_p[m]</code></td><td>Firing signals of positive potential transistors</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>enable</code></td><td>Enables fire and notFire</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>fire_n[m]</code></td><td>Firing signals of negative potential transistors</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>dc_p</code></td><td>Positive DC input</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>dc_n</code></td><td>Negative DC input</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>ac</code></td><td>AC output</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+</table>
+</body></html>

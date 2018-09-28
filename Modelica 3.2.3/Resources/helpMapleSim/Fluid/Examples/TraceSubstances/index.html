@@ -1,0 +1,101 @@
+<html><head><title>Modelica.Fluid.Examples.TraceSubstances</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="TraceSubstances"><h1><embed class="icon" src="../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;TraceSubstances<br><span class="subtitle">Library demonstrating the usage of trace substances</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates a package that contains executable examples.</p>
+<p>Extends from <code><a href="../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#RoomCO2"><code>RoomCO2</code></a></td><td>Demonstrates a room volume with CO2 accumulation</td></tr>
+<tr><td><a href="#RoomCO2WithControls"><code>RoomCO2WithControls</code></a></td><td>Demonstrates a room volume with CO2 controls</td></tr>
+</table>
+<hr><a name="RoomCO2"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">TraceSubstances</a>.&#8203;RoomCO2<br><span class="subtitle">Demonstrates a room volume with CO2 accumulation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example consists of a volume with a carbon dioxide concentration that corresponds to
+1.519E-3 kg/kg, which is equal to 1000 PPM.
+There is a fresh air stream with a carbon dioxide concentration of about 300 PPM.
+The fresh air stream is such that the air exchange rate is about 5 air changes per hour.
+After 1 hour of ventilation, the volume's carbon dioxide concentration is close to the
+concentration of the fresh air.
+</p>
+<p>
+The nominal value for the trace substance is set to <code>C_nominal={1.519E-3}</code>.
+This scales the residual equations that are used by the solver to the right order
+of magnitude.
+</p>
+<p>
+<img src="../../../../Images/Fluid/Examples/RoomCO2.png" border="1"
+     alt="RoomCO2.png">
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="RoomCO2WithControls"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">TraceSubstances</a>.&#8203;RoomCO2WithControls<br><span class="subtitle">Demonstrates a room volume with CO2 controls</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example illustrates a room volume with a CO2 source and a fresh air supply with feedback
+control.
+The CO2 emission rate is proportional to the room occupancy, which is defined by a schedule.
+The fresh air flow rate is controlled such that the room CO2
+concentration does not exceed <code>1000 PPM (=1.519E-3 kg/kg)</code>.
+The fresh air has a CO2 concentration of <code>300 PPM</code> which corresponds to a typical
+CO2 concentration in the outside air.
+</p>
+
+<p>
+The CO2 emission from the occupants is implemented as a mass flow source.
+Depending on the activity and size, a person emits about <code>8.18E-6 kg/s</code> CO2. In the model,
+this value is multiplied by the number of occupants.
+Since the mass flow rate associate with the CO2 source model contributes to the volume's energy balance,
+this mass flow rate should be kept small. Thus, in the source model, we set the
+CO2 concentration to <code>C={100} kg/kg</code>, and scaled the mass flow rate using
+</p>
+
+<pre>
+  m_flow = 1/100 * nPeo * 8.18E-6 kg/(s*person)
+</pre>
+
+<p>
+where <code>nPeo</code> is the number of people in the room.
+This results in a mass flow rate that is about 5 orders of magnitudes smaller than the supply air flow rate,
+and hence its contribution to the volume's energy balance is negligible.
+</p>
+<p>
+The nominal value for the trace substance is set to <code>C_nominal={1.519E-3}</code>.
+This scales the residual equations that are used by the solver to the right order
+of magnitude.
+</p>
+<p>
+<img src="../../../../Images/Fluid/Examples/RoomCO2WithControls.png" border="1"
+     alt="RoomCO2WithControls.png">
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+</body></html>

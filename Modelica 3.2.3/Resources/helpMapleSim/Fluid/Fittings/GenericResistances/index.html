@@ -1,0 +1,97 @@
+<html><head><title>Modelica.Fluid.Fittings.GenericResistances</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="GenericResistances"><h1><embed class="icon" src="../../../images/icon0573.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Fittings</a>.&#8203;GenericResistances<br><span class="subtitle">Flow models for generic resistances</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The geometry parameters of energy devices necessary for the pressure loss
+calculations are often not exactly known. Therefore the modelling of the detailed
+pressure loss calculation has to be simplified.
+In this package components are present that provide different forms of
+such approximations.
+</p>
+<p>Extends from <code><a href="../../../Icons/VariantsPackage/index.html">Modelica.&#8203;Icons.&#8203;VariantsPackage</a></code> (Icon for package containing variants).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#VolumeFlowRate"><code>VolumeFlowRate</code></a></td><td>Flow model for generic resistance parameterized with the volume flow rate</td></tr>
+</table>
+<hr><a name="VolumeFlowRate"><h2><embed class="icon" src="../../../images/icon1360.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Fittings</a>.&#8203;<a href="index.html">GenericResistances</a>.&#8203;VolumeFlowRate<br><span class="subtitle">Flow model for generic resistance parameterized with the volume flow rate</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component models a generic resistance parameterized
+with the volume flow rate:
+</p>
+
+<pre>
+    dp     = a*V_flow^2 + b*V_flow
+    m_flow = rho*V_flow
+</pre>
+
+<p>
+with
+</p>
+
+<table>
+<tr><td><strong> a              </strong></td><td> as quadratic coefficient [Pa*s^2/m^6],</td></tr>
+<tr><td><strong> b              </strong></td><td> as linear coefficient [Pa*s/m3],</td></tr>
+<tr><td><strong> dp             </strong></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><strong> m_flow         </strong></td><td> as mass flow rate [kg/s],</td></tr>
+<tr><td><strong> rho            </strong></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><strong> V_flow         </strong></td><td> as volume flow rate [m3/s].</td></tr>
+</table>
+
+<p>
+The geometry parameters of energy devices necessary for the pressure loss calculations are often not exactly known. Therefore the modelling of the detailed pressure loss calculation has to be simplified. This components use a linear and a quadratic dependence of the pressure loss on the volume flow rate. It is assumed that neither mass nor energy is stored in this component.
+In the model basically a function is called to compute the mass flow rate as a function
+of pressure loss. Also the inverse of this function is defined, and a tool
+might use this inverse function instead, in order to avoid the solution of a nonlinear equation.
+</p>
+
+<p>
+The details of the model are described in the
+<a href="../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_volumeFlowRate">documentation of the underlying function</a>.
+</p>
+
+<p>Extends from <code><a href="../../../Fluid/Dissipation/Utilities/Icons/PressureLoss/index.html#General_i">Modelica.&#8203;Fluid.&#8203;Dissipation.&#8203;Utilities.&#8203;Icons.&#8203;PressureLoss.&#8203;General_i</a></code> (Icon for general pressure drop) and <code><a href="../../../Fluid/Interfaces/index.html#PartialTwoPortTransport">Modelica.&#8203;Fluid.&#8203;Interfaces.&#8203;PartialTwoPortTransport</a></code> (Partial element transporting fluid between two ports without storage of mass or energy).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code><a href="../../../Fluid/Fittings/GenericResistances/VolumeFlowRate/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>dp_start</code></td><td><code>0.01 * system.p_start</code></td><td>Guess value of dp = port_a.p - port_b.p</td></tr>
+<tr><td><code><a href="../../../Fluid/Fittings/GenericResistances/VolumeFlowRate/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_start</code></td><td><code>system.&#8203;m_flow_start</code></td><td>Guess value of m_flow = port_a.m_flow</td></tr>
+<tr><td><code><a href="../../../Fluid/Fittings/GenericResistances/VolumeFlowRate/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * system.m_flow_nominal else system.m_flow_small</code></td><td>Small mass flow rate for regularization of zero flow</td></tr>
+<tr><td><code>Boolean</code></td><td><code>show_T</code></td><td><code>true</code></td><td>= true, if temperatures at port_a and port_b are computed</td></tr>
+<tr><td><code>Boolean</code></td><td><code>show_V_flow</code></td><td><code>true</code></td><td>= true, if volume flow rate at inflowing port is computed</td></tr>
+<tr><td><code>Real</code></td><td><code>a</code></td><td>&nbsp;</td><td>Coefficient for quadratic term</td></tr>
+<tr><td><code>Real</code></td><td><code>b</code></td><td>&nbsp;</td><td>Coefficient for linear term</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+</table>
+</body></html>

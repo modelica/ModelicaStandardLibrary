@@ -1,0 +1,242 @@
+<html><head><title>Modelica.UsersGuide.Conventions.ModelicaCode</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="ModelicaCode"><h1><embed class="icon" src="../../../images/icon0002.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">UsersGuide</a>.&#8203;<a href="../index.html">Conventions</a>.&#8203;ModelicaCode<br><span class="subtitle">Modelica code</span></h1></a>
+<h3>Information</h3>
+<p>
+
+
+<p>In this section the
+<a href="../../../UsersGuide/Conventions/ModelicaCode/index.html#Naming">naming conventions</a> of class and instance names, parameters and variables are specified.
+Additional
+<a href="../../../UsersGuide/Conventions/ModelicaCode/index.html#Format">format</a> guidelines are provided.</p>
+
+<p>Extends from <code><a href="../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Format"><code>Format</code></a></td><td>Format</td></tr>
+<tr><td><a href="#Naming"><code>Naming</code></a></td><td>Naming convention</td></tr>
+</table>
+<hr><a name="Format"><h2><embed class="icon" src="../../../images/icon0002.svg" width="203" height="203" />
+Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">UsersGuide</a>.&#8203;<a href="../index.html">Conventions</a>.&#8203;<a href="index.html">ModelicaCode</a>.&#8203;Format<br><span class="subtitle">Format</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<h4>Comments and Annotations</h4>
+<p>
+Comments and annotations should start with a capital letter, for example:<br>
+     <code><strong>parameter</strong> Real a = 1 "Arbitrary factor";</code>.<br>
+     For Boolean parameters, the description string should start with "= true: ..", for example:<br>
+     <code><strong>parameter</strong> Boolean useHeatPort = false "= true, if heatPort is enabled";</code>.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="Naming"><h2><embed class="icon" src="../../../images/icon0002.svg" width="203" height="203" />
+Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">UsersGuide</a>.&#8203;<a href="../index.html">Conventions</a>.&#8203;<a href="index.html">ModelicaCode</a>.&#8203;Naming<br><span class="subtitle">Naming convention</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<ol>
+<li> <strong>Class and instance names</strong> are usually written in upper and lower case
+     letters, e.g., "ElectricCurrent". An underscore may be used in names.
+     However, it has to be taken into account that the last underscore in a
+     name might indicate that the following characters are rendered as a subscript.
+     Example: "pin_a" may be rendered as "pin<sub>a</sub>".</li>
+
+<li> <strong>Class names</strong> start always with an upper case letter,
+     with the exception of functions, that start with a lower case letter.</li>
+
+<li> <strong>Instance names</strong>, i.e., names of component instances and
+     of variables (with the exception of constants),
+     start usually with a lower case letter with only
+     a few exceptions if this is common sense
+     (such as <code>T</code> for a temperature variable).</li>
+
+<li> <strong>Constant names</strong>, i.e., names of variables declared with the
+     "constant" prefix, follow the usual naming conventions
+     (= upper and lower case letters) and start usually with an
+     upper case letter, e.g., UniformGravity, SteadyState.</li>
+
+<li> The two <strong>connectors</strong> of a domain that have identical declarations
+     and different icons are usually distinguished by <code>_a</code>, <code>_b</code>
+     or <code>_p</code>, <code>_n</code>, e.g., <code>Flange_a</code>, <code>Flange_b</code>,
+     <code>HeatPort_a</code>, <code>HeatPort_b</code>.</li>
+
+<li> A <strong>connector class</strong> has the instance
+     name definition in the diagram layer and not in the
+     <a href="../../../UsersGuide/Conventions/index.html#Icons">icon</a> layer.</li>
+</ol>
+
+<h4>Variable names</h4>
+<p>In the following table typical variable names are listed. This list should be completed.</p>
+
+<table border="1" cellpadding="2" cellspacing="0" >
+   <caption align="bottom">Variables and names</caption>
+   <tr>
+      <th>Variable</th>
+      <th>Quantity</th>
+    </tr>
+     <tr>
+      <td>a</td>
+      <td>acceleration</td>
+    </tr>
+    <tr>
+      <td>A</td>
+      <td>area</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>capacitance</td>
+    </tr>
+    <tr>
+      <td>d</td>
+      <td>damping, density, diameter</td>
+    </tr>
+    <tr>
+      <td>dp</td>
+      <td>pressureDrop</td>
+    </tr>
+    <tr>
+      <td>e</td>
+      <td>specificEntropy</td>
+    </tr>
+    <tr>
+      <td>E</td>
+      <td>energy, entropy</td>
+    </tr>
+    <tr>
+      <td>eta</td>
+      <td>efficiency</td>
+    </tr>
+    <tr>
+      <td>f</td>
+      <td>force, frequency</td>
+    </tr>
+    <tr>
+      <td>G</td>
+      <td>conductance</td>
+    </tr>
+    <tr>
+      <td>H</td>
+      <td>enthalpy</td>
+    </tr>
+    <tr>
+      <td>h</td>
+      <td>height, specificEnthalpy</td>
+    </tr>
+    <tr>
+      <td>HFlow</td>
+      <td>enthalpyFlow</td>
+    </tr>
+    <tr>
+      <td>i</td>
+      <td>current</td>
+    </tr>
+    <tr>
+      <td>J</td>
+      <td>inertia</td>
+    </tr>
+    <tr>
+      <td>l</td>
+      <td>length</td>
+    </tr>
+    <tr>
+      <td>L</td>
+      <td>Inductance</td>
+    </tr>
+    <tr>
+      <td>m</td>
+      <td>mass</td>
+    </tr>
+    <tr>
+      <td>M</td>
+      <td>mutualInductance</td>
+    </tr>
+    <tr>
+      <td>mFlow</td>
+      <td>massFlow</td>
+    </tr>
+    <tr>
+      <td>P</td>
+      <td>power</td>
+    </tr>
+    <tr>
+      <td>p</td>
+      <td>pressure</td>
+    </tr>
+    <tr>
+      <td>Q</td>
+      <td>heat</td>
+    </tr>
+    <tr>
+      <td>Qflow</td>
+      <td>heatFlow</td>
+    </tr>
+    <tr>
+      <td>r</td>
+      <td>radius</td>
+    </tr>
+    <tr>
+      <td>R</td>
+      <td>radius, resistance</td>
+    </tr>
+    <tr>
+      <td>t</td>
+      <td>time</td>
+    </tr>
+    <tr>
+      <td>T</td>
+      <td>temperature</td>
+    </tr>
+    <tr>
+      <td>tau</td>
+      <td>torque</td>
+    </tr>
+    <tr>
+      <td>U</td>
+      <td>internalEnergy</td>
+    </tr>
+    <tr>
+      <td>v</td>
+      <td>electricPotential, specificVolume, velocity, voltage</td>
+    </tr>
+    <tr>
+      <td>V</td>
+      <td>volume</td>
+    </tr>
+    <tr>
+      <td>w</td>
+      <td>angularVelocity</td>
+    </tr>
+    <tr>
+      <td>X</td>
+      <td>reactance</td>
+    </tr>
+    <tr>
+      <td>Z</td>
+      <td>impedance</td>
+    </tr>
+</table>
+<p>Extends from <code><a href="../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+</body></html>

@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.Rotational.Components.Clutch</title>
+</head>
+<body>
+<h1><a href="Icons/ef8b5bc7484eb573740ed4477cd7193ac11152c9.svg"><img class="svgiconhead" src="Icons/ef8b5bc7484eb573740ed4477cd7193ac11152c9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.html">Rotational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.Components.html">Components</a>.<span class="omc-h1">Clutch</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This component models a <strong>clutch</strong>, i.e., a
+component with two flanges where friction is present between the
+two flanges and these flanges are pressed together via a normal
+force. The normal force fn has to be provided as input signal
+f_normalized in a normalized form (0 ≤ f_normalized ≤ 1), fn =
+fn_max*f_normalized, where fn_max has to be provided as parameter.
+Friction in the clutch is modelled in the following way:</p>
+<p>When the relative angular velocity is not zero, the friction
+torque is a function of the velocity dependent friction coefficient
+mue(w_rel) , of the normal force "fn", and of a geometry constant
+"cgeo" which takes into account the geometry of the device and the
+assumptions on the friction distributions:</p>
+<pre>
+        frictional_torque = <strong>cgeo</strong> * <strong>mue</strong>(w_rel) * <strong>fn</strong>
+</pre>
+<p>Typical values of coefficients of friction:</p>
+<pre>
+      dry operation   :  <strong>mue</strong> = 0.2 .. 0.4
+      operating in oil:  <strong>mue</strong> = 0.05 .. 0.1
+</pre>
+<p>When plates are pressed together, where <strong>ri</strong> is
+the inner radius, <strong>ro</strong> is the outer radius and
+<strong>N</strong> is the number of friction interfaces, the
+geometry constant is calculated in the following way under the
+assumption of a uniform rate of wear at the interfaces:</p>
+<pre>
+         <strong>cgeo</strong> = <strong>N</strong>*(<strong>r0</strong> + <strong>ri</strong>)/2
+</pre>
+<p>The positive part of the friction characteristic
+<strong>mue</strong>(w_rel), w_rel &gt;= 0, is defined via table
+mue_pos (first column = w_rel, second column = mue). Currently,
+only linear interpolation in the table is supported.</p>
+<p>When the relative angular velocity becomes zero, the elements
+connected by the friction element become stuck, i.e., the relative
+angle remains constant. In this phase the friction torque is
+calculated from a torque balance due to the requirement, that the
+relative acceleration shall be zero. The elements begin to slide
+when the friction torque exceeds a threshold value, called the
+maximum static friction torque, computed via:</p>
+<pre>
+       frictional_torque = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mue</strong>(w_rel=0) * <strong>fn</strong>   (<strong>peak</strong> &gt;= 1)
+</pre>
+<p>This procedure is implemented in a "clean" way by state events
+and leads to continuous/discrete systems of equations if friction
+elements are dynamically coupled. The method is described in (see
+also a short sketch in <a href="Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction.html">
+UsersGuide.ModelingOfFriction</a>):</p>
+<dl>
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
+<dd><strong>Hybrid Modeling in Modelica based on the Synchronous
+Data Flow Principle</strong>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
+</dl>
+<p>More precise friction models take into account the elasticity of
+the material when the two elements are "stuck", as well as other
+effects, like hysteresis. This has the advantage that the friction
+element can be completely described by a differential equation
+without events. The drawback is that the system becomes stiff
+(about 10-20 times slower simulation) and that more material
+constants have to be supplied which requires more sophisticated
+identification. For more details, see the following references,
+especially (Armstrong and Canudas de Wit 1996):</p>
+<dl>
+<dt>Armstrong B. (1991):</dt>
+<dd><strong>Control of Machines with Friction</strong>. Kluwer
+Academic Press, Boston MA.<br /></dd>
+<dt>Armstrong B., and Canudas de Wit C. (1996):</dt>
+<dd><strong>Friction Modeling and Compensation.</strong> The
+Control Handbook, edited by W.S.Levine, CRC Press, pp.
+1369-1382.<br /></dd>
+<dt>Canudas de Wit C., Olsson H., Åström K.J., and Lischinsky P.
+(1995):</dt>
+<dd><strong>A new model for control of systems with
+friction.</strong> IEEE Transactions on Automatic Control, Vol. 40,
+No. 3, pp. 419-425.</dd>
+</dl>
+<p>See also the discussion <a href="Modelica.Mechanics.Rotational.UsersGuide.StateSelection.html">
+State Selection</a> in the User's Guide of the Rotational
+library.</p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

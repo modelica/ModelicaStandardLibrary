@@ -1,0 +1,297 @@
+<html><head><title>Modelica.Electrical.Analog.Examples.OpAmps</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="OpAmps"><h1><embed class="icon" src="../../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;OpAmps<br><span class="subtitle">Examples with operational amplifiers</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates a package that contains executable examples.</p>
+<p>Extends from <code><a href="../../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Comparator"><code>Comparator</code></a></td><td>Comparator</td></tr>
+<tr><td><a href="#Differentiator"><code>Differentiator</code></a></td><td>Differentiating amplifier</td></tr>
+<tr><td><a href="#HighPass"><code>HighPass</code></a></td><td>High-pass filter</td></tr>
+<tr><td><a href="#Integrator"><code>Integrator</code></a></td><td>Integrating amplifier</td></tr>
+<tr><td><a href="#InvertingAmp"><code>InvertingAmp</code></a></td><td>Inverting amplifier</td></tr>
+<tr><td><a href="#InvertingSchmittTrigger"><code>InvertingSchmittTrigger</code></a></td><td>Inverting Schmitt trigger with hysteresis</td></tr>
+<tr><td><a href="#LCOscillator"><code>LCOscillator</code></a></td><td>LC oscillator</td></tr>
+<tr><td><a href="#LowPass"><code>LowPass</code></a></td><td>Low-pass filter</td></tr>
+<tr><td><a href="#Multivibrator"><code>Multivibrator</code></a></td><td>Multivibrator with Schmitt trigger</td></tr>
+<tr><td><a href="#NonInvertingAmp"><code>NonInvertingAmp</code></a></td><td>Non-inverting amplifier</td></tr>
+<tr><td><a href="#SchmittTrigger"><code>SchmittTrigger</code></a></td><td>Schmitt trigger with hysteresis</td></tr>
+<tr><td><a href="#SignalGenerator"><code>SignalGenerator</code></a></td><td>Rectangle-Triangle generator</td></tr>
+<tr><td><a href="#VoltageFollower"><code>VoltageFollower</code></a></td><td>Reproduce input voltage</td></tr>
+</table>
+<hr><a name="InvertingAmp"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">OpAmps</a>.&#8203;InvertingAmp<br><span class="subtitle">Inverting amplifier</span></h2></a>
+<h3>Information</h3>
+<p>
+
+                        <p>This is an inverting amplifier. Resistance R1 can be chosen, R2 is defined by the desired amplification k.</p>
+                        
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vps</code></td><td><code>15</code></td><td>Positive supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vns</code></td><td><code>-15</code></td><td>Negative supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vin</code></td><td><code>5</code></td><td>Amplitude of input voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>10</code></td><td>Frequency of input voltage</td></tr>
+<tr><td><code>Real</code></td><td><code>k</code></td><td><code>2</code></td><td>Desired amplification</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R1</code></td><td><code>1000</code></td><td>Arbitrary resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R2</code></td><td><code>k * R1</code></td><td>Calculated resistance to reach desired amplification k</td></tr>
+</table>
+<hr><a name="NonInvertingAmp"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">OpAmps</a>.&#8203;NonInvertingAmp<br><span class="subtitle">Non-inverting amplifier</span></h2></a>
+<h3>Information</h3>
+<p>
+
+                         <p>This is a non inverting amplifier. Resistance R1 can be chosen, R2 is defined by the desired amplification k.</p>
+                         
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vps</code></td><td><code>15</code></td><td>Positive supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vns</code></td><td><code>-15</code></td><td>Negative supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vin</code></td><td><code>5</code></td><td>Amplitude of input voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>10</code></td><td>Frequency of input voltage</td></tr>
+<tr><td><code>Real</code></td><td><code>k</code></td><td><code>2</code></td><td>Desired amplification</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R1</code></td><td><code>1000</code></td><td>Arbitrary resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R2</code></td><td><code>(k - 1) * R1</code></td><td>Calculated resistance to reach desired amplification k</td></tr>
+</table>
+<hr><a name="VoltageFollower"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">OpAmps</a>.&#8203;VoltageFollower<br><span class="subtitle">Reproduce input voltage</span></h2></a>
+<h3>Information</h3>
+<p>
+
+    <p>This is a voltage follower. It reproduces the input voltage at the output without loading the input voltage source with a stiff output.</p>
+                         
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vps</code></td><td><code>15</code></td><td>Positive supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vns</code></td><td><code>-15</code></td><td>Negative supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vin</code></td><td><code>5</code></td><td>Amplitude of input voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>10</code></td><td>Frequency of input voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ri</code></td><td><code>1</code></td><td>Inner resistance of input voltage source</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rl</code></td><td><code>1</code></td><td>Load resistance</td></tr>
+</table>
+<hr><a name="Differentiator"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">OpAmps</a>.&#8203;Differentiator<br><span class="subtitle">Differentiating amplifier</span></h2></a>
+<h3>Information</h3>
+<p>
+
+                        <p>This is a (inverting) differentiating amplifier. Resistance R can be chosen, capacitance C is defined by the desired time constant resp. frequency.</p>
+                        
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vps</code></td><td><code>15</code></td><td>Positive supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vns</code></td><td><code>-15</code></td><td>Negative supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vin</code></td><td><code>5</code></td><td>Amplitude of input voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>10</code></td><td>Frequency of input voltage</td></tr>
+<tr><td><code>Real</code></td><td><code>k</code></td><td><code>2</code></td><td>Desired amplification</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>1000</code></td><td>Arbitrary resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>C</code></td><td><code>k / (2 * pi * f * R)</code></td><td>Calculated capacitance to reach desired amplification k</td></tr>
+</table>
+<hr><a name="Integrator"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">OpAmps</a>.&#8203;Integrator<br><span class="subtitle">Integrating amplifier</span></h2></a>
+<h3>Information</h3>
+<p>
+
+                        <p>This is an (inverting) integrating amplifier. Resistance R can be chosen, capacitance C is defined by the desired time constant resp. frequency.</p>
+                        
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vps</code></td><td><code>15</code></td><td>Positive supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vns</code></td><td><code>-15</code></td><td>Negative supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vin</code></td><td><code>5</code></td><td>Amplitude of input voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>10</code></td><td>Frequency of input voltage</td></tr>
+<tr><td><code>Real</code></td><td><code>k</code></td><td><code>2</code></td><td>Desired amplification</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>1000</code></td><td>Arbitrary resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>C</code></td><td><code>k ^ (-1) / (2 * pi * f * R)</code></td><td>Calculated capacitance to reach desired amplification k</td></tr>
+</table>
+<hr><a name="LowPass"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">OpAmps</a>.&#8203;LowPass<br><span class="subtitle">Low-pass filter</span></h2></a>
+<h3>Information</h3>
+<p>
+
+                         <p>This is a (inverting) low pass filter. Resistance R1 can be chosen, resistance R2 is defined by the desired amplification k, capacitance C is defined by the desired cut-off frequency.</p>
+                         <p>The example is taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 13.3</p>
+                         
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vps</code></td><td><code>15</code></td><td>Positive supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vns</code></td><td><code>-15</code></td><td>Negative supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vin</code></td><td><code>5</code></td><td>Amplitude of input voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>10</code></td><td>Frequency of input voltage</td></tr>
+<tr><td><code>Real</code></td><td><code>k</code></td><td><code>1</code></td><td>Desired amplification</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R1</code></td><td><code>1000</code></td><td>Arbitrary resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R2</code></td><td><code>k * R1</code></td><td>Calculated resistance to reach k</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fG</code></td><td><code>0.1 * f</code></td><td>Limiting frequency, as an example coupled to f</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>C</code></td><td><code>(2 * pi * fG * R2) ^ (-1)</code></td><td>Calculated capacitance to reach fG</td></tr>
+</table>
+<hr><a name="HighPass"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">OpAmps</a>.&#8203;HighPass<br><span class="subtitle">High-pass filter</span></h2></a>
+<h3>Information</h3>
+<p>
+
+                         <p>This is a (inverting) high pass filter. Resistance R1 can be chosen, resistance R2 is defined by the desired amplification k, capacitance C is defined by the desired cut-off frequency.</p>
+                         <p>The example is taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 13.3</p>
+                         
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vps</code></td><td><code>15</code></td><td>Positive supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vns</code></td><td><code>-15</code></td><td>Negative supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vin</code></td><td><code>5</code></td><td>Amplitude of input voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>10</code></td><td>Frequency of input voltage</td></tr>
+<tr><td><code>Real</code></td><td><code>k</code></td><td><code>1</code></td><td>Desired amplification</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R1</code></td><td><code>1000</code></td><td>Arbitrary resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R2</code></td><td><code>k * R1</code></td><td>Calculated resistance to reach k</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fG</code></td><td><code>0.1 * f</code></td><td>Limiting frequency, as an example coupled to f</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>C</code></td><td><code>(2 * pi * fG * R1) ^ (-1)</code></td><td>Calculated capacitance to reach fG</td></tr>
+</table>
+<hr><a name="Comparator"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">OpAmps</a>.&#8203;Comparator<br><span class="subtitle">Comparator</span></h2></a>
+<h3>Information</h3>
+<p>
+
+                        <p>This is a comparator. Resistance R1 can be chosen, resistance R2 is defined by the desired reference voltage Vref (between Vn and Vp). The output switches between Vn for input voltage &lt; Vref and Vp for input voltage &gt; Vref.</p>
+                        
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vps</code></td><td><code>15</code></td><td>Positive supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vns</code></td><td><code>-15</code></td><td>Negative supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vin</code></td><td><code>5</code></td><td>Amplitude of input voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>10</code></td><td>Frequency of input voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vref</code></td><td><code>0</code></td><td>Reference voltage</td></tr>
+<tr><td><code>Real</code></td><td><code>k</code></td><td><code>(Vref - Vns) / (Vps - Vns)</code></td><td>Calculated potentiometer ratio to reach Vref</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>1000</code></td><td>Resistance of potentiometer</td></tr>
+</table>
+<hr><a name="InvertingSchmittTrigger"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">OpAmps</a>.&#8203;InvertingSchmittTrigger<br><span class="subtitle">Inverting Schmitt trigger with hysteresis</span></h2></a>
+<h3>Information</h3>
+<p>
+
+                        <p>This is a (inverting) Schmitt trigger. Resistance R1 can be chosen, resistance R2 is defined by the desired hysteresis. The output gets Vn for input voltage &gt; 0 + vHys and Vp for input voltage &lt; vHys*Vns/Vps.</p>
+                        <p>The example is taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.2</p>
+                        
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vps</code></td><td><code>15</code></td><td>Positive supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vns</code></td><td><code>-15</code></td><td>Negative supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vin</code></td><td><code>5</code></td><td>Amplitude of input voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>10</code></td><td>Frequency of input voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>vHys</code></td><td><code>1</code></td><td>(positive) hysteresis voltage</td></tr>
+<tr><td><code>Real</code></td><td><code>k</code></td><td><code>vHys / Vps</code></td><td>Auxiliary calculated parameter to be used in R2 calculation</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R1</code></td><td><code>1000</code></td><td>Arbitrary resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R2</code></td><td><code>(1 - k) / k * R1</code></td><td>Calculated resistance to reach hysteresis voltage</td></tr>
+</table>
+<hr><a name="SchmittTrigger"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">OpAmps</a>.&#8203;SchmittTrigger<br><span class="subtitle">Schmitt trigger with hysteresis</span></h2></a>
+<h3>Information</h3>
+<p>
+
+                        <p>This is a (non-inverting) Schmitt trigger. Resistance R1 can be chosen, resistance R2 is defined by the desired hysteresis. The output gets Vp for input voltage &gt; vHys and Vn for input voltage &lt; vHys*Vns/Vps.</p>
+                        <p>The example is taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.2</p>
+                        
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vps</code></td><td><code>15</code></td><td>Positive supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vns</code></td><td><code>-15</code></td><td>Negative supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vin</code></td><td><code>5</code></td><td>Amplitude of input voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>10</code></td><td>Frequency of input voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>vHys</code></td><td><code>1</code></td><td>(positive) hysteresis voltage</td></tr>
+<tr><td><code>Real</code></td><td><code>k</code></td><td><code>vHys / Vps</code></td><td>Auxiliary calculated parameter to be used in R2 calculation</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R1</code></td><td><code>1000</code></td><td>Arbitrary resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R2</code></td><td><code>R1 / k</code></td><td>Calculated resistance to reach hysteresis voltage</td></tr>
+</table>
+<hr><a name="Multivibrator"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">OpAmps</a>.&#8203;Multivibrator<br><span class="subtitle">Multivibrator with Schmitt trigger</span></h2></a>
+<h3>Information</h3>
+<p>
+
+                        <p>This is a Multivibrator with Schmitt trigger according to:</p>
+                        <p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.3</p>
+                        
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vps</code></td><td><code>15</code></td><td>Positive supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vns</code></td><td><code>-15</code></td><td>Negative supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>10</code></td><td>Desired frequency</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R1</code></td><td><code>1000</code></td><td>Resistance 1 for adjusting the Schmitt trigger voltage level</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R2</code></td><td><code>1000</code></td><td>Resistance 2 for adjusting the Schmitt trigger voltage level</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>1000</code></td><td>Arbitrary resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>C</code></td><td><code>f ^ (-1) / (2 * R * log(1 + 2 * R1 / R2))</code></td><td>Calculated capacitance to reach the desired frequency f</td></tr>
+</table>
+<hr><a name="SignalGenerator"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">OpAmps</a>.&#8203;SignalGenerator<br><span class="subtitle">Rectangle-Triangle generator</span></h2></a>
+<h3>Information</h3>
+<p>
+
+                        <p>This signal generator consists of a Schmitt trigger and an integrator. The output of the Schmitt trigger part opamp (opAmp1) is a rectangular signal with the amplitude VAmp and the frequency f.
+                        The output of the integrator part opamp (opAmp2) is a triangular signal of also the amplitude Vamp and the frequency f.</p>
+                        <p>Source:</p>
+                        <p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 14.5.2</p>
+                        
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vps</code></td><td><code>15</code></td><td>Positive supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vns</code></td><td><code>-Vps</code></td><td>Negative supply</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VAmp</code></td><td><code>10</code></td><td>Desired amplitude of output</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R1</code></td><td><code>1000</code></td><td>Arbitrary resistance for Schmitt trigger part</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R2</code></td><td><code>R1 * Vps / VAmp</code></td><td>Calculated resistance for Schmitt trigger to reach VAmp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>10</code></td><td>Desired frequency</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>1000</code></td><td>Arbitrary resistance of integrator part</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>C</code></td><td><code>Vps / VAmp / (4 * f * R)</code></td><td>Calculated capacitance of integrator part to reach f</td></tr>
+</table>
+<hr><a name="LCOscillator"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">OpAmps</a>.&#8203;LCOscillator<br><span class="subtitle">LC oscillator</span></h2></a>
+<h3>Information</h3>
+<p>
+
+                       <p>This is an LC oscillator according to:</p>
+                       <p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 14.1</p>
+                       
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VAmp</code></td><td><code>10</code></td><td>Amplitude of output</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>1000</code></td><td>Desired frequency</td></tr>
+<tr><td><code>Real</code></td><td><code>A</code></td><td><code>1.001</code></td><td>Amplification constant: A &gt; 1 amplification, A = 1 pure sinusoidal oscillation, A &lt; 0 damping</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L</code></td><td><code>0.001</code></td><td>Arbitrary inductance &gt; 0</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>C</code></td><td><code>((2 * pi * f) ^ 2 * L) ^ (-1)</code></td><td>Calculated capacitance to reach frequency f</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>10000</code></td><td>Damping resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R1</code></td><td><code>10000</code></td><td>Arbitrary high resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R2</code></td><td><code>(A - 1) * R1</code></td><td>Calculated resistance to reach amplification A</td></tr>
+<tr><td><code>Real</code></td><td><code>gamma</code></td><td><code>(1 - A) / (2 * R * C)</code></td><td>Calculated characteristical parameter</td></tr>
+</table>
+</body></html>

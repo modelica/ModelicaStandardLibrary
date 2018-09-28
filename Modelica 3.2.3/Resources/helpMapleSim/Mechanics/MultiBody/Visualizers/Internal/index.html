@@ -1,0 +1,107 @@
+<html><head><title>Modelica.Mechanics.MultiBody.Visualizers.Internal</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Internal"><h1><embed class="icon" src="../../../../images/icon0034.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Visualizers</a>.&#8203;Internal<br><span class="subtitle">Visualizers that will be replaced by improved versions in the future (do not use them)</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains components to construct 3-dim. fonts
+with "cylinder" elements for the animation window.
+This is just a temporary hack until 3-dim. fonts are supported in
+Modelica tools. The components are used to construct the "x", "y",
+"z" labels of coordinates systems in the animation.
+</p>
+<p>Extends from <code><a href="../../../../Icons/InternalPackage/index.html">Modelica.&#8203;Icons.&#8203;InternalPackage</a></code> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#FixedLines"><code>FixedLines</code></a></td><td>Visualizing a set of lines as cylinders (e.g., used to display characters)</td></tr>
+<tr><td><a href="#Lines"><code>Lines</code></a></td><td>Visualizing a set of lines as cylinders with variable size, e.g., used to display characters (no Frame connector)</td></tr>
+</table>
+<hr><a name="FixedLines"><h2><embed class="icon" src="../../../../images/icon1191.svg" width="208" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Visualizers</a>.&#8203;<a href="index.html">Internal</a>.&#8203;FixedLines<br><span class="subtitle">Visualizing a set of lines as cylinders (e.g., used to display characters)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+With model <strong>FixedLines</strong> a set of lines is defined
+that are located relatively to frame_a. Every line
+is represented by a cylinder. This allows to define simple shaped
+3-dimensional characters. An example is shown in the
+following figure:<br>&nbsp;
+</p>
+<img src="../../../../../Images/Mechanics/MultiBody/FixedLines.png" alt="model Visualizers.FixedLines">
+<p>&nbsp;<br>
+The two letters "x" and "y" are constructed with 4 lines
+by providing the following data for parameter <strong>lines</strong>
+</p>
+<pre>
+   lines = {[0, 0; 1, 1],[0, 1; 1, 0],[1.5, -0.5; 2.5, 1],[1.5, 1; 2, 0.25]}
+</pre>
+<p>
+Via parameter vectors <strong>n_x</strong> and <strong>n_y</strong> a two-dimensional
+coordinate system is defined. The points defined with parameter
+<strong>lines</strong> are with respect to this coordinate system. For example
+"[0, 0; 1, 1]" defines a line that starts at {0,0} and ends at {1,1}.
+The diameter and color of all line cylinders are identical.
+</p>
+<p>Extends from <code><a href="../../../../Mechanics/MultiBody/Interfaces/index.html#PartialVisualizer">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;PartialVisualizer</a></code> (Base model for visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Coordinate system in which visualization data is resolved</td></tr>
+</table>
+<hr><a name="Lines"><h2><embed class="icon" src="../../../../images/icon1192.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Visualizers</a>.&#8203;<a href="index.html">Internal</a>.&#8203;Lines<br><span class="subtitle">Visualizing a set of lines as cylinders with variable size, e.g., used to display characters (no Frame connector)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+With model <strong>Lines</strong> a set of dynamic lines is defined
+that are located relatively to frame_a. Every line
+is represented by a cylinder. This allows, e.g., to define simple shaped
+3-dimensional characters. Note, if the lines are fixed relatively to frame_a,
+it is more convenient to use model <strong>Visualizers.FixedLines</strong>.
+An example for dynamic lines is shown in the following figure:<br>&nbsp;
+</p>
+<img src="../../../../../Images/Mechanics/MultiBody/FixedLines.png" alt="model Visualizers.FixedLines">
+<p>&nbsp;<br>
+The two letters "x" and "y" are constructed with 4 lines
+by providing the following data for input variable <strong>lines</strong>
+</p>
+<pre>
+   lines = {[0, 0; 1, 1],[0, 1; 1, 0],[1.5, -0.5; 2.5, 1],[1.5, 1; 2, 0.25]}
+</pre>
+<p>
+Via vectors <strong>n_x</strong> and <strong>n_y</strong> a two-dimensional
+coordinate system is defined. The points defined with variable
+<strong>lines</strong> are with respect to this coordinate system. For example
+"[0, 0; 1, 1]" defines a line that starts at {0,0} and ends at {1,1}.
+The diameter and color of all line cylinders are identical
+and are defined by parameters.
+</p>
+
+</body></html>

@@ -1,0 +1,205 @@
+<html><head><title>Modelica.Mechanics.MultiBody.Visualizers.Colors</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Colors"><h1><embed class="icon" src="../../../../images/icon0092.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Visualizers</a>.&#8203;Colors<br><span class="subtitle">Library of functions operating on color</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains functions to operate on colors.
+Note, a color is represented as a Real array with 3 elements where
+the elements are the red, green, blue values of the RGB color model.
+Every element must be in the range 0..255.
+The type of a color is Real and not Integer in order that a color
+can be used with less problems in a model, since in a model an Integer
+type could only be used in a when-clause. Typical declaration of a color value:
+</p>
+
+<blockquote>
+<pre>
+  Real color[3](each min=0, each max=255);
+</pre>
+</blockquote>
+
+<p>
+This definition is also available as type
+<a href="../../../../Mechanics/MultiBody/Types/index.html#RealColor">Modelica.Mechanics.MultiBody.Types.RealColor</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/FunctionsPackage/index.html">Modelica.&#8203;Icons.&#8203;FunctionsPackage</a></code> (Icon for packages containing functions).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="../../../../Mechanics/MultiBody/Visualizers/Colors/ColorMaps/index.html"><code>ColorMaps</code></a> &hellip;</td><td>Library of functions returning color maps</td></tr>
+<tr><td><a href="#colorMapToSvg"><code>colorMapToSvg</code></a></td><td>Save a color map on file in svg (scalable vector graphics) format</td></tr>
+<tr><td><a href="#scalarToColor"><code>scalarToColor</code></a></td><td>Map a scalar to a color using a color map</td></tr>
+</table>
+<hr><a name="colorMapToSvg"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Visualizers</a>.&#8203;<a href="index.html">Colors</a>.&#8203;colorMapToSvg<br><span class="subtitle">Save a color map on file in svg (scalable vector graphics) format</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Colors.<strong>colorMapToSvg</strong>(colorMap);
+Colors.<strong>colorMapToSvg</strong>(colorMap,
+                     fileName   = "colorMap.svg",
+                     width      =  10,  // [mm]
+                     height     = 100,  // [mm]
+                     x          =  20,  // [mm]
+                     y          =  10,  // [mm]
+                     T_min      =   0,
+                     T_max      = 100,
+                     nScalars   =  11,
+                     format     = ".3g",
+                     fontSize   =  11,  // [pt]
+                     textWidth  =   8,  // [mm]
+                     caption    = "",
+                     headerType = Colors.colorMapToSvg.Header.svgBeginAndEnd)
+                                                           // svgBegin
+                                                           // svgEnd
+                                                           // svgNoHeader
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function saves the color map "Real colorMap[:,3]" on file "fileName"
+in svg format. The color map has a width of "width" and a height of "height" and
+the upper left corner is placed at coordinates "(x,y)".
+Over the color map, a caption "caption" is placed.
+On the right side of the color map, a set of scalar field values T is
+displayed where "T_min" is placed at colorMap[1,:],
+"T_max" is placed at colorMap[end,:] and "nScalars" values between
+"T_min" and "T_max" (including T_min and T_max) are shown.
+The printing format of the numbers is defined with "format", see definition below.
+With argument "headerType" it is defined whether "svg" begin and end
+lines are printed. If the "begin" svg tag shall be printed, file "fileName"
+is deleted, if it already exists. Otherwise, all output is appended to the
+file "fileName".
+</p>
+
+<p>
+A "svg" file can be displayed by a web browser, such as
+<a href="http://www.mozilla.org/firefox">Firefox</a> by dragging the
+file in the browser window.
+Alternatively, a svg-file can be loaded in a graphics program,
+such as the free <a href="http://inkscape.org">Inkscape</a>,
+can be manipulated and can be exported in other graphic formats.
+The following image was generated with a call to "colorMapToSvg", the
+generated file was loaded in Inkscape and exported in "png" format:
+</p>
+
+<blockquote>
+<img src="../../../../../Images/Mechanics/MultiBody/Visualizers/Colors/jet.png">
+</blockquote>
+
+<p>
+The "format" argument defines the string formatting according to
+ANSI-C without "%" and "*" character<br>
+(e.g., ".6g", "14.5e", "+6f"). In particular:
+</p>
+
+<p>
+format = "[&lt;flags&gt;] [&lt;width&gt;] [.&lt;precision&gt;] &lt;conversion&gt;"
+with
+</p>
+
+<blockquote>
+<table>
+<tr>
+  <td>&lt;flags&gt;</td>
+  <td> zero, one or more of<br>
+       "-": left adjustment of the converted number<br>
+       "+": number will always be printed with a sign<br>
+       "0": padding to the field width with leading zeros</td></tr>
+<tr>
+  <td>&lt;width&gt;</td>
+  <td> Minimum field width. The converted number will be printed in a field at<br>
+       least this wide and wider if necessary. If the converted number has<br>
+       fewer characters it will be padded on the left (or the right depending<br>
+       on &lt;flags&gt;) with blanks or 0 (depending on &lt;flags&gt;).</td></tr>
+<tr>
+  <td>&lt;precision&gt;</td>
+  <td> The number of digits to be printed after the decimal point for<br>
+       e, E, or f conversions, or the number of significant digits for<br>
+       g or G conversions.</td></tr>
+<tr>
+  <td> &lt;conversion&gt;</td>
+  <td> = "e": Exponential notation using a  lower case e<br>
+       = "E": Exponential notation using an upper case E<br>
+       = "f": Fixed point notation<br>
+       = "g": Either "e" or "f"<br>
+       = "G": Same as "g", but with upper case E</td></tr>
+</table>
+</blockquote>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>colorMap[:,3]</code></td><td>Color map to be stored in svg format</td></tr>
+<tr><td><code>String</code></td><td><code>fileName</code></td><td>File where the svg representation shall be stored</td></tr>
+<tr><td><code>Real</code></td><td><code>width</code></td><td>Width in svg-figure</td></tr>
+<tr><td><code>Real</code></td><td><code>height</code></td><td>Height in svg-figure</td></tr>
+<tr><td><code>Real</code></td><td><code>x</code></td><td>X-Coordinate of left upper corner</td></tr>
+<tr><td><code>Real</code></td><td><code>y</code></td><td>Y-Coordinate of left upper corner</td></tr>
+<tr><td><code>Real</code></td><td><code>T_min</code></td><td>Value of scalar corresponding to colorMap[1,:]</td></tr>
+<tr><td><code>Real</code></td><td><code>T_max</code></td><td>Value of scalar corresponding to colorMap[end,:]</td></tr>
+<tr><td><code>Integer</code></td><td><code>nScalars</code></td><td>Number of scalars to be displayed at the right side</td></tr>
+<tr><td><code>String</code></td><td><code>format</code></td><td>Format of the numbers</td></tr>
+<tr><td><code>Real</code></td><td><code>fontSize</code></td><td>Font size in [pt]</td></tr>
+<tr><td><code>Real</code></td><td><code>textWidth</code></td><td>Numbers are right justified starting at x+width+textWidth</td></tr>
+<tr><td><code>String</code></td><td><code>caption</code></td><td>Caption above the map</td></tr>
+<tr><td><code><a href="../../../../Mechanics/MultiBody/Visualizers/Colors/colorMapToSvg/index.html#HeaderType">HeaderType</a></code></td><td><code>headerType</code></td><td>Type of header</td></tr>
+</table>
+<hr><a name="scalarToColor"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Visualizers</a>.&#8203;<a href="index.html">Colors</a>.&#8203;scalarToColor<br><span class="subtitle">Map a scalar to a color using a color map</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+//Real T, T_min, T_max, colorMap[:,3];
+Colors.<strong>scalarToColor</strong>(T, T_min, T_max, colorMap);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function returns an rgb color Real[3] that corresponds to the value of "T".
+The color is selected from the colorMap by interpolation so that
+"T_min" corresponds to "colorMap[1,:]" and
+"T_max" corresponds to "colorMap[end,:]".
+</p>
+
+<h4>See also</h4>
+<a href="../../../../Mechanics/MultiBody/Visualizers/Colors/ColorMaps/index.html">ColorMaps</a>,
+<a href="../../../../Mechanics/MultiBody/Visualizers/Colors/index.html#colorMapToSvg">colorMapToSvg</a>,
+<a href="../../../../Mechanics/MultiBody/Visualizers/index.html#PipeWithScalarField">PipeWithScalarField</a>.
+
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>T</code></td><td>Scalar value</td></tr>
+<tr><td><code>Real</code></td><td><code>T_min</code></td><td>T &lt;= T_min is mapped to colorMap[1,:]</td></tr>
+<tr><td><code>Real</code></td><td><code>T_max</code></td><td>T &gt;= T_max is mapped to colorMap[end,:]</td></tr>
+<tr><td><code>Real</code></td><td><code>colorMap[:,3]</code></td><td>Color map</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>color[3]</code></td><td>Color of scalar value T</td></tr>
+</table>
+</body></html>

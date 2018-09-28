@@ -1,0 +1,137 @@
+<html><head><title>Modelica.StateGraph.Interfaces</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Interfaces"><h1><embed class="icon" src="../../images/icon0015.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;Interfaces<br><span class="subtitle">Connectors and partial models</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates packages containing interfaces.</p>
+<p>Extends from <code><a href="../../Icons/InterfacesPackage/index.html">Modelica.&#8203;Icons.&#8203;InterfacesPackage</a></code> (Icon for packages containing interfaces).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#CompositeStep_resume"><code>CompositeStep_resume</code></a></td><td>Input port of a step (used for resume connector of a CompositeStep)</td></tr>
+<tr><td><a href="#CompositeStep_suspend"><code>CompositeStep_suspend</code></a></td><td>Output port of a step (used for suspend connector of a CompositeStep)</td></tr>
+<tr><td><a href="#CompositeStepState"><code>CompositeStepState</code></a></td><td>Communication channel between CompositeSteps and steps in the CompositeStep</td></tr>
+<tr><td><a href="#CompositeStepStatePort_in"><code>CompositeStepStatePort_in</code></a></td><td>Communication port between a CompositeStep and the ordinary steps within the CompositeStep (suspend/resume are inputs)</td></tr>
+<tr><td><a href="#CompositeStepStatePort_out"><code>CompositeStepStatePort_out</code></a></td><td>Communication port between a CompositeStep and the ordinary steps within the CompositeStep (suspend/resume are outputs)</td></tr>
+<tr><td><a href="#PartialStateGraphIcon"><code>PartialStateGraphIcon</code></a></td><td>Icon for a StateGraph object</td></tr>
+<tr><td><a href="#PartialStep"><code>PartialStep</code></a></td><td>Partial step with one input and one output transition port</td></tr>
+<tr><td><a href="#PartialTransition"><code>PartialTransition</code></a></td><td>Partial transition with input and output connections</td></tr>
+<tr><td><a href="#Step_in"><code>Step_in</code></a></td><td>Input port of a step</td></tr>
+<tr><td><a href="#Step_out"><code>Step_out</code></a></td><td>Output port of a step</td></tr>
+<tr><td><a href="#Transition_in"><code>Transition_in</code></a></td><td>Input port of a transition</td></tr>
+<tr><td><a href="#Transition_out"><code>Transition_out</code></a></td><td>Output port of a transition</td></tr>
+</table>
+<hr><a name="Step_in"><h2><embed class="icon" src="../../images/icon0349.svg" width="203" height="203" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;Step_in<br><span class="subtitle">Input port of a step</span></h2></a>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code>Boolean</code></td><td><code>occupied</code></td><td>true, if step is active</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code>Boolean</code></td><td><code>set</code></td><td>true, if transition fires and step is activated</td></tr>
+</table>
+<hr><a name="Step_out"><h2><embed class="icon" src="../../images/icon0350.svg" width="203" height="203" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;Step_out<br><span class="subtitle">Output port of a step</span></h2></a>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code>Boolean</code></td><td><code>available</code></td><td>true, if step is active</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code>Boolean</code></td><td><code>reset</code></td><td>true, if transition fires and step is deactivated</td></tr>
+</table>
+<hr><a name="Transition_in"><h2><embed class="icon" src="../../images/icon0349.svg" width="203" height="203" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;Transition_in<br><span class="subtitle">Input port of a transition</span></h2></a>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code>Boolean</code></td><td><code>available</code></td><td>true, if step connected to the transition input is active</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code>Boolean</code></td><td><code>reset</code></td><td>true, if transition fires and the step connected to the transition input is deactivated</td></tr>
+</table>
+<hr><a name="Transition_out"><h2><embed class="icon" src="../../images/icon0350.svg" width="203" height="203" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;Transition_out<br><span class="subtitle">Output port of a transition</span></h2></a>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code>Boolean</code></td><td><code>occupied</code></td><td>true, if step connected to the transition output is active</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code>Boolean</code></td><td><code>set</code></td><td>true, if transition fires and step connected to the transition output becomes active</td></tr>
+</table>
+<hr><a name="CompositeStep_resume"><h2><embed class="icon" src="../../images/icon0349.svg" width="203" height="203" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;CompositeStep_resume<br><span class="subtitle">Input port of a step (used for resume connector of a CompositeStep)</span></h2></a>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code>Boolean</code></td><td><code>occupied</code></td><td>true, if step is active</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code>Boolean</code></td><td><code>set</code></td><td>true, if transition fires and step is activated</td></tr>
+</table>
+<hr><a name="CompositeStep_suspend"><h2><embed class="icon" src="../../images/icon0350.svg" width="203" height="203" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;CompositeStep_suspend<br><span class="subtitle">Output port of a step (used for suspend connector of a CompositeStep)</span></h2></a>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code>Boolean</code></td><td><code>available</code></td><td>true, if step is active</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code>Boolean</code></td><td><code>reset</code></td><td>true, if transition fires and step is deactivated</td></tr>
+</table>
+<hr><a name="CompositeStepStatePort_in"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;CompositeStepStatePort_in<br><span class="subtitle">Communication port between a CompositeStep and the ordinary steps within the CompositeStep (suspend/resume are inputs)</span></h2></a>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code>Boolean</code></td><td><code>suspend</code></td><td>= true, if suspend transition of CompositeStep fires</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code>Boolean</code></td><td><code>resume</code></td><td>= true, if resume transition of CompositeStep fires</td></tr>
+<tr><td><code>Real</code></td><td><code>activeStepsDummy</code></td><td>Dummy variable in order that connector fulfills restriction of connector</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code>Real</code></td><td><code>activeSteps</code></td><td>Number of active steps in the CompositeStep</td></tr>
+</table>
+<hr><a name="CompositeStepStatePort_out"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;CompositeStepStatePort_out<br><span class="subtitle">Communication port between a CompositeStep and the ordinary steps within the CompositeStep (suspend/resume are outputs)</span></h2></a>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code>Boolean</code></td><td><code>suspend</code></td><td>= true, if suspend transition of CompositeStep fires</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code>Boolean</code></td><td><code>resume</code></td><td>= true, if resume transition of CompositeStep fires</td></tr>
+<tr><td><code>Real</code></td><td><code>activeStepsDummy</code></td><td>Dummy variable in order that connector fulfills restriction of connector</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code>Real</code></td><td><code>activeSteps</code></td><td>Number of active steps in the CompositeStep</td></tr>
+</table>
+<hr><a name="PartialStep"><h2><embed class="icon" src="../../images/icon0351.svg" width="233" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialStep<br><span class="subtitle">Partial step with one input and one output transition port</span></h2></a>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nIn</code></td><td><code>1</code></td><td>Number of input connections</td></tr>
+<tr><td><code>Integer</code></td><td><code>nOut</code></td><td><code>1</code></td><td>Number of output connections</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../StateGraph/Interfaces/index.html#Step_in">Step_in</a></code></td><td><code>inPort[nIn]</code></td><td>Vector of step input connectors</td></tr>
+<tr><td><code><a href="../../StateGraph/Interfaces/index.html#Step_out">Step_out</a></code></td><td><code>outPort[nOut]</code></td><td>Vector of step output connectors</td></tr>
+</table>
+<hr><a name="PartialTransition"><h2><embed class="icon" src="../../images/icon0352.svg" width="203" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialTransition<br><span class="subtitle">Partial transition with input and output connections</span></h2></a>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>enableTimer</code></td><td><code>false</code></td><td>= true, if timer is enabled</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>waitTime</code></td><td><code>0</code></td><td>Wait time before transition fires</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../StateGraph/Interfaces/index.html#Transition_in">Transition_in</a></code></td><td><code>inPort</code></td><td>Vector of transition input connectors</td></tr>
+<tr><td><code><a href="../../StateGraph/Interfaces/index.html#Transition_out">Transition_out</a></code></td><td><code>outPort</code></td><td>Vector of transition output connectors</td></tr>
+</table>
+<hr><a name="PartialStateGraphIcon"><h2><embed class="icon" src="../../images/icon0350.svg" width="203" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialStateGraphIcon<br><span class="subtitle">Icon for a StateGraph object</span></h2></a>
+<hr><a name="CompositeStepState"><h2><embed class="icon" src="../../images/icon0353.svg" width="203" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;CompositeStepState<br><span class="subtitle">Communication channel between CompositeSteps and steps in the CompositeStep</span></h2></a>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../StateGraph/Interfaces/index.html#CompositeStepStatePort_out">CompositeStepStatePort_out</a></code></td><td><code>subgraphStatePort</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

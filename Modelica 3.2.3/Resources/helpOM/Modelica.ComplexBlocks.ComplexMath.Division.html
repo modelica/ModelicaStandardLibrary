@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.ComplexBlocks.ComplexMath.Division</title>
+</head>
+<body>
+<h1><a href="Icons/a8dc7b6c8f72cba9ab72ff716d714568af5a6a88.svg"><img class="svgiconhead" src="Icons/a8dc7b6c8f72cba9ab72ff716d714568af5a6a88.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.ComplexBlocks.html">ComplexBlocks</a>.<a class="omc-h1-a" href="Modelica.ComplexBlocks.ComplexMath.html">ComplexMath</a>.<span class="omc-h1">Division</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This block computes the output <code>y</code> (element-wise) by
+<em>dividing</em> the corresponding elements of the two inputs
+<code>u1</code> and <code>u2</code>. Optionally, either input
+<code>u1</code> or <code>u2</code> or both inputs can be processed
+conjugate complex, when parameters <code>useConjugateInput1</code>
+and <code>useConjugateInput2</code> are <code>true</code>,
+respectively. Depending on <code>useConjugateInput1</code> and
+<code>useConjugateInput2</code> the internal signals represent
+either the original or the conjugate complex input signal.</p>
+<pre>
+    y = u1Internal / u2Internal;
+</pre>
+<p><strong>Example:</strong> If <code>useConjugateInput1 =
+true</code> and <code>useConjugateInput2 = false</code> the output
+signal <code>y = Modelica.ComplexMath.conj(u1) / u2</code>.</p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

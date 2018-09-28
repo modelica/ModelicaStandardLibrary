@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Utilities.Examples</title>
+</head>
+<body>
+<h1><a href="Icons/ed64af07e87d570ce7126538bd50680280004c73.svg"><img class="svgiconhead" src="Icons/ed64af07e87d570ce7126538bd50680280004c73.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Utilities.html">Utilities</a>.<span class="omc-h1">Examples</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This package contains quite involved examples that demonstrate
+how to use the functions of package Modelica.Utilities. In
+particular the following examples are present.</p>
+<ul>
+<li>Function <a href="Modelica.Utilities.Examples.calculator.html">calculator</a>
+is an interpreter to evaluate expressions consisting of
++,-,*,/,(),sin(), cos(), tan(), sqrt(), pi. For example:
+calculator("1.5*sin(pi/6)");<br />
+&nbsp;</li>
+<li>Function <a href="Modelica.Utilities.Examples.expression.html">expression</a>
+is the basic function used in "calculator" to evaluate an
+expression. It is useful if the expression interpreter is used in a
+larger scan operation (such as readRealParameter below).<br />
+&nbsp;</li>
+<li>Function <a href="Modelica.Utilities.Examples.readRealParameter.html">readRealParameter</a>
+reads the value of a parameter from file, given the file and the
+parameter name. The value on file is interpreted with the
+Examples.expression function and can therefore be an
+expression.<br />
+&nbsp;</li>
+<li>Model <a href="Modelica.Utilities.Examples.readRealParameterModel.html">readRealParameterModel</a>
+is a test model to demonstrate the usage of "readRealParameter".
+The model contains 3 parameters that are read from file <a href="../../../Modelica%203.2.3/Resources/Data/Utilities/Examples_readRealParameters.txt">
+Examples_readRealParameters.txt</a>.<br />
+&nbsp;</li>
+<li>Model <a href="Modelica.Utilities.Examples.WriteRealMatrixToFile.html">WriteRealMatrixToFile</a>
+demonstrates the usage of function "Streams.writeReaMatrix" to
+store a matrix in various MATLAB MAT formats on file.<br />
+&nbsp;</li>
+<li>Model <a href="Modelica.Utilities.Examples.ReadRealMatrixFromFile.html">ReadRealMatrixFromFile</a>
+demonstrates the usage of functions "Streams.readMatrixSize" and
+"Streams.readRealMatrix" to read a matrix in various MATLAB MAT
+formats from file.</li>
+</ul>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Examples.calculator.html"><img class="svgiconsmall" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a href="Modelica.Utilities.Examples.calculator.html">calculator</a></td>
+<td>Interpreter to evaluate simple expressions consisting of +, -,
+*, /, (), sin(), cos(), tan(), sqrt(), asin(), acos(), atan(),
+exp(), log(), pi</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Examples.expression.html"><img class="svgiconsmall" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a href="Modelica.Utilities.Examples.expression.html">expression</a></td>
+<td>Expression interpreter that returns with the position after the
+expression (expression may consist of +, -, *, /, (), sin(), cos(),
+tan(), sqrt(), asin(), acos(), atan(), exp(), log(), pi)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Examples.readRealParameter.html"><img class="svgiconsmall" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a href="Modelica.Utilities.Examples.readRealParameter.html">readRealParameter</a></td>
+<td>Read the value of a Real parameter from file</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Examples.readRealParameterModel.html"><img class="svgiconsmall" src="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg" /></a>&nbsp;<a href="Modelica.Utilities.Examples.readRealParameterModel.html">readRealParameterModel</a></td>
+<td>Demonstrate usage of
+Examples.readRealParameter/.expression</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Examples.WriteRealMatrixToFile.html"><img class="svgiconsmall" src="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg" /></a>&nbsp;<a href="Modelica.Utilities.Examples.WriteRealMatrixToFile.html">WriteRealMatrixToFile</a></td>
+<td>Demonstrate usage of function Streams.writeRealMatrix</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Examples.ReadRealMatrixFromFile.html"><img class="svgiconsmall" src="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg" /></a>&nbsp;<a href="Modelica.Utilities.Examples.ReadRealMatrixFromFile.html">ReadRealMatrixFromFile</a></td>
+<td>Demonstrate usage of function Streams.readRealMatrix</td>
+</tr>
+</table>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

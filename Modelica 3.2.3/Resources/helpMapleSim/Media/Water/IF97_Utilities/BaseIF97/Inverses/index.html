@@ -1,0 +1,277 @@
+<html><head><title>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Inverses"><h1><embed class="icon" src="../../../../../images/icon0092.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;Inverses<br><span class="subtitle">Efficient inverses for selected pairs of variables</span></h1></a>
+<h3>Information</h3>
+<p>
+<h4>Package description</h4>
+          <h4>Package contents</h4>
+          <ul>
+          <li>Function <strong>fixdT</strong> constrains density and temperature to allowed region</li>
+          <li>Function <strong>dofp13</strong> computes d as a function of p at boundary between regions 1 and 3</li>
+          <li>Function <strong>dofp23</strong> computes d as a function of p at boundary between regions 2 and 3</li>
+          <li>Function <strong>dofpt3</strong> iteration to compute d as a function of p and T in region 3</li>
+          <li>Function <strong>dtofph3</strong> iteration to compute d and T as a function of p and h in region 3</li>
+          <li>Function <strong>dtofps3</strong> iteration to compute d and T as a function of p and s in region 3</li>
+          <li>Function <strong>dtofpsdt3</strong> iteration to compute d and T as a function of p and s in region 3,
+          with initial guesses</li>
+          <li>Function <strong>pofdt125</strong> iteration to compute p as a function of p and T in regions 1, 2 and 5</li>
+          <li>Function <strong>tofph5</strong> iteration to compute T as a function of p and h in region 5</li>
+          <li>Function <strong>tofps5</strong> iteration to compute T as a function of p and s in region 5</li>
+          <li>Function <strong>tofpst5</strong> iteration to compute T as a function of p and s in region 5, with initial guess in T</li>
+          </ul>
+          <h4>Version Info and Revision history
+          </h4>
+          <ul>
+          <li>First implemented: <em>July, 2000</em>
+          by Hubertus Tummescheit
+          </li>
+          </ul>
+          <address>Author: Hubertus Tummescheit,<br>
+      Modelon AB<br>
+      Ideon Science Park<br>
+      SE-22370 Lund, Sweden<br>
+      email: hubertus@modelon.se
+          </address>
+          <ul>
+          <li>Initial version: July 2000</li>
+          <li>Documentation added: December 2002</li>
+          </ul>
+          
+<p>Extends from <code><a href="../../../../../Icons/FunctionsPackage/index.html">Modelica.&#8203;Icons.&#8203;FunctionsPackage</a></code> (Icon for packages containing functions).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#dofp13"><code>dofp13</code></a></td><td>Density at the boundary between regions 1 and 3</td></tr>
+<tr><td><a href="#dofp23"><code>dofp23</code></a></td><td>Density at the boundary between regions 2 and 3</td></tr>
+<tr><td><a href="#dofpt3"><code>dofpt3</code></a></td><td>Inverse iteration in region 3: (d) = f(p,T)</td></tr>
+<tr><td><a href="#dtofph3"><code>dtofph3</code></a></td><td>Inverse iteration in region 3: (d,T) = f(p,h)</td></tr>
+<tr><td><a href="#dtofps3"><code>dtofps3</code></a></td><td>Inverse iteration in region 3: (d,T) = f(p,s)</td></tr>
+<tr><td><a href="#dtofpsdt3"><code>dtofpsdt3</code></a></td><td>Inverse iteration in region 3: (d,T) = f(p,s)</td></tr>
+<tr><td><a href="#fixdT"><code>fixdT</code></a></td><td>Region limits for inverse iteration in region 3</td></tr>
+<tr><td><a href="#pofdt125"><code>pofdt125</code></a></td><td>Inverse iteration in region 1,2 and 5: p = g(d,T)</td></tr>
+<tr><td><a href="#tofph5"><code>tofph5</code></a></td><td>Inverse iteration in region 5: (p,T) = f(p,h)</td></tr>
+<tr><td><a href="#tofps5"><code>tofps5</code></a></td><td>Inverse iteration in region 5: (p,T) = f(p,s)</td></tr>
+<tr><td><a href="#tofpst5"><code>tofpst5</code></a></td><td>Inverse iteration in region 5: (p,T) = f(p,s)</td></tr>
+</table>
+<hr><a name="fixdT"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Inverses</a>.&#8203;fixdT<br><span class="subtitle">Region limits for inverse iteration in region 3</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>din</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>Tin</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>dout</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>Tout</code></td><td>Temperature</td></tr>
+</table>
+<hr><a name="dofp13"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Inverses</a>.&#8203;dofp13<br><span class="subtitle">Density at the boundary between regions 1 and 3</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+</table>
+<hr><a name="dofp23"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Inverses</a>.&#8203;dofp23<br><span class="subtitle">Density at the boundary between regions 2 and 3</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+</table>
+<hr><a name="dofpt3"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Inverses</a>.&#8203;dofpt3<br><span class="subtitle">Inverse iteration in region 3: (d) = f(p,T)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature (K)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>delp</code></td><td>Iteration converged if (p-pre(p) &lt; delp)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code>Integer</code></td><td><code>error</code></td><td>Error flag: iteration failed if different from 0</td></tr>
+</table>
+<hr><a name="dtofph3"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Inverses</a>.&#8203;dtofph3<br><span class="subtitle">Inverse iteration in region 3: (d,T) = f(p,h)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>delp</code></td><td>Iteration accuracy</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>delh</code></td><td>Iteration accuracy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature (K)</td></tr>
+<tr><td><code>Integer</code></td><td><code>error</code></td><td>Error flag: iteration failed if different from 0</td></tr>
+</table>
+<hr><a name="dtofps3"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Inverses</a>.&#8203;dtofps3<br><span class="subtitle">Inverse iteration in region 3: (d,T) = f(p,s)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>delp</code></td><td>Iteration accuracy</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>dels</code></td><td>Iteration accuracy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature (K)</td></tr>
+<tr><td><code>Integer</code></td><td><code>error</code></td><td>Error flag: iteration failed if different from 0</td></tr>
+</table>
+<hr><a name="dtofpsdt3"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Inverses</a>.&#8203;dtofpsdt3<br><span class="subtitle">Inverse iteration in region 3: (d,T) = f(p,s)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>dguess</code></td><td>Guess density, e.g., from adjacent volume</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>Tguess</code></td><td>Guess temperature, e.g., from adjacent volume</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>delp</code></td><td>Iteration accuracy</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>dels</code></td><td>Iteration accuracy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature (K)</td></tr>
+<tr><td><code>Integer</code></td><td><code>error</code></td><td>Error flag: iteration failed if different from 0</td></tr>
+</table>
+<hr><a name="pofdt125"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Inverses</a>.&#8203;pofdt125<br><span class="subtitle">Inverse iteration in region 1,2 and 5: p = g(d,T)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature (K)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>reldd</code></td><td>Relative iteration accuracy of density</td></tr>
+<tr><td><code>Integer</code></td><td><code>region</code></td><td>Region in IAPWS/IF97 in which inverse should be calculated</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code>Integer</code></td><td><code>error</code></td><td>Error flag: iteration failed if different from 0</td></tr>
+</table>
+<hr><a name="tofph5"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Inverses</a>.&#8203;tofph5<br><span class="subtitle">Inverse iteration in region 5: (p,T) = f(p,h)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>reldh</code></td><td>Iteration accuracy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature (K)</td></tr>
+<tr><td><code>Integer</code></td><td><code>error</code></td><td>Error flag: iteration failed if different from 0</td></tr>
+</table>
+<hr><a name="tofps5"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Inverses</a>.&#8203;tofps5<br><span class="subtitle">Inverse iteration in region 5: (p,T) = f(p,s)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>relds</code></td><td>Iteration accuracy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature (K)</td></tr>
+<tr><td><code>Integer</code></td><td><code>error</code></td><td>Error flag: iteration failed if different from 0</td></tr>
+</table>
+<hr><a name="tofpst5"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Inverses</a>.&#8203;tofpst5<br><span class="subtitle">Inverse iteration in region 5: (p,T) = f(p,s)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>Tguess</code></td><td>Guess temperature, e.g., from adjacent volume</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>relds</code></td><td>Iteration accuracy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature (K)</td></tr>
+<tr><td><code>Integer</code></td><td><code>error</code></td><td>Error flag: iteration failed if different from 0</td></tr>
+</table>
+</body></html>

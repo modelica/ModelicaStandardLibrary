@@ -1,0 +1,195 @@
+<html><head><title>Modelica.Mechanics.Rotational.Sensors</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Sensors"><h1><embed class="icon" src="../../../images/icon0460.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;Sensors<br><span class="subtitle">Sensors to measure variables in 1D rotational mechanical components</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains ideal sensor components that provide
+the connector variables as signals for further processing with the
+Modelica.Blocks library.
+</p>
+<p>Extends from <code><a href="../../../Icons/SensorsPackage/index.html">Modelica.&#8203;Icons.&#8203;SensorsPackage</a></code> (Icon for packages containing sensors).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#AccSensor"><code>AccSensor</code></a></td><td>Ideal sensor to measure the absolute flange angular acceleration</td></tr>
+<tr><td><a href="#AngleSensor"><code>AngleSensor</code></a></td><td>Ideal sensor to measure the absolute flange angle</td></tr>
+<tr><td><a href="#MultiSensor"><code>MultiSensor</code></a></td><td>Ideal sensor to measure the torque and power between two flanges (= flange_a.tau*der(flange_a.phi)) and the absolute angular velocity</td></tr>
+<tr><td><a href="#PowerSensor"><code>PowerSensor</code></a></td><td>Ideal sensor to measure the power between two flanges (= flange_a.tau*der(flange_a.phi))</td></tr>
+<tr><td><a href="#RelAccSensor"><code>RelAccSensor</code></a></td><td>Ideal sensor to measure the relative angular acceleration between two flanges</td></tr>
+<tr><td><a href="#RelAngleSensor"><code>RelAngleSensor</code></a></td><td>Ideal sensor to measure the relative angle between two flanges</td></tr>
+<tr><td><a href="#RelSpeedSensor"><code>RelSpeedSensor</code></a></td><td>Ideal sensor to measure the relative angular velocity between two flanges</td></tr>
+<tr><td><a href="#SpeedSensor"><code>SpeedSensor</code></a></td><td>Ideal sensor to measure the absolute flange angular velocity</td></tr>
+<tr><td><a href="#TorqueSensor"><code>TorqueSensor</code></a></td><td>Ideal sensor to measure the torque between two flanges (= flange_a.tau)</td></tr>
+</table>
+<hr><a name="AngleSensor"><h2><embed class="icon" src="../../../images/icon1228.svg" width="233" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;AngleSensor<br><span class="subtitle">Ideal sensor to measure the absolute flange angle</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Measures the <strong>absolute angle phi</strong> of a flange in an ideal
+way and provides the result as output signal <strong>phi</strong>
+(to be further processed with blocks of the Modelica.Blocks library).
+</p>
+<p>Extends from <code><a href="../../../Mechanics/Rotational/Interfaces/index.html#PartialAbsoluteSensor">Modelica.&#8203;Mechanics.&#8203;Rotational.&#8203;Interfaces.&#8203;PartialAbsoluteSensor</a></code> (Partial model to measure a single absolute flange variable).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>Flange of shaft from which sensor information shall be measured</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>phi</code></td><td>Absolute angle of flange as output signal</td></tr>
+</table>
+<hr><a name="SpeedSensor"><h2><embed class="icon" src="../../../images/icon1228.svg" width="233" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;SpeedSensor<br><span class="subtitle">Ideal sensor to measure the absolute flange angular velocity</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Measures the <strong>absolute angular velocity w</strong> of a flange in an ideal
+way and provides the result as output signal <strong>w</strong>
+(to be further processed with blocks of the Modelica.Blocks library).
+</p>
+<p>Extends from <code><a href="../../../Mechanics/Rotational/Interfaces/index.html#PartialAbsoluteSensor">Modelica.&#8203;Mechanics.&#8203;Rotational.&#8203;Interfaces.&#8203;PartialAbsoluteSensor</a></code> (Partial model to measure a single absolute flange variable).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>Flange of shaft from which sensor information shall be measured</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>w</code></td><td>Absolute angular velocity of flange as output signal</td></tr>
+</table>
+<hr><a name="AccSensor"><h2><embed class="icon" src="../../../images/icon1228.svg" width="233" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;AccSensor<br><span class="subtitle">Ideal sensor to measure the absolute flange angular acceleration</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Measures the <strong>absolute angular acceleration a</strong> of a flange in an ideal
+way and provides the result as output signal <strong>a</strong> (to be further processed with
+blocks of the Modelica.Blocks library).
+</p>
+<p>Extends from <code><a href="../../../Mechanics/Rotational/Interfaces/index.html#PartialAbsoluteSensor">Modelica.&#8203;Mechanics.&#8203;Rotational.&#8203;Interfaces.&#8203;PartialAbsoluteSensor</a></code> (Partial model to measure a single absolute flange variable).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>Flange of shaft from which sensor information shall be measured</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>a</code></td><td>Absolute angular acceleration of flange as output signal</td></tr>
+</table>
+<hr><a name="RelAngleSensor"><h2><embed class="icon" src="../../../images/icon1229.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;RelAngleSensor<br><span class="subtitle">Ideal sensor to measure the relative angle between two flanges</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Measures the <strong>relative angle phi_rel</strong> between two flanges
+in an ideal way and provides the result as output signal <strong>phi_rel</strong>
+(to be further processed with blocks of the Modelica.Blocks library).
+</p>
+<p>Extends from <code><a href="../../../Mechanics/Rotational/Interfaces/index.html#PartialRelativeSensor">Modelica.&#8203;Mechanics.&#8203;Rotational.&#8203;Interfaces.&#8203;PartialRelativeSensor</a></code> (Partial model to measure a single relative variable between two flanges).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>Left flange of shaft</td></tr>
+<tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>Right flange of shaft</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>phi_rel</code></td><td>Relative angle between two flanges (= flange_b.phi - flange_a.phi) as output signal</td></tr>
+</table>
+<hr><a name="RelSpeedSensor"><h2><embed class="icon" src="../../../images/icon1229.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;RelSpeedSensor<br><span class="subtitle">Ideal sensor to measure the relative angular velocity between two flanges</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Measures the <strong>relative angular velocity w_rel</strong> between two flanges
+in an ideal way and provides the result as output signal <strong>w_rel</strong>
+(to be further processed with blocks of the Modelica.Blocks library).
+</p>
+<p>Extends from <code><a href="../../../Mechanics/Rotational/Interfaces/index.html#PartialRelativeSensor">Modelica.&#8203;Mechanics.&#8203;Rotational.&#8203;Interfaces.&#8203;PartialRelativeSensor</a></code> (Partial model to measure a single relative variable between two flanges).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>Left flange of shaft</td></tr>
+<tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>Right flange of shaft</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>w_rel</code></td><td>Relative angular velocity between two flanges (= der(flange_b.phi) - der(flange_a.phi)) as output signal</td></tr>
+</table>
+<hr><a name="RelAccSensor"><h2><embed class="icon" src="../../../images/icon1229.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;RelAccSensor<br><span class="subtitle">Ideal sensor to measure the relative angular acceleration between two flanges</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Measures the <strong>relative angular acceleration a_rel</strong> between two flanges
+in an ideal way and provides the result as output signal <strong>a_rel</strong>
+(to be further processed with blocks of the Modelica.Blocks library).
+</p>
+<p>Extends from <code><a href="../../../Mechanics/Rotational/Interfaces/index.html#PartialRelativeSensor">Modelica.&#8203;Mechanics.&#8203;Rotational.&#8203;Interfaces.&#8203;PartialRelativeSensor</a></code> (Partial model to measure a single relative variable between two flanges).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>Left flange of shaft</td></tr>
+<tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>Right flange of shaft</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>a_rel</code></td><td>Relative angular acceleration between two flanges as output signal</td></tr>
+</table>
+<hr><a name="TorqueSensor"><h2><embed class="icon" src="../../../images/icon1230.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;TorqueSensor<br><span class="subtitle">Ideal sensor to measure the torque between two flanges (= flange_a.tau)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Measures the <strong>cut-torque between two flanges</strong> in an ideal way
+and provides the result as output signal <strong>tau</strong>
+(to be further processed with blocks of the Modelica.Blocks library).
+</p>
+<p>Extends from <code><a href="../../../Mechanics/Rotational/Interfaces/index.html#PartialRelativeSensor">Modelica.&#8203;Mechanics.&#8203;Rotational.&#8203;Interfaces.&#8203;PartialRelativeSensor</a></code> (Partial model to measure a single relative variable between two flanges).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>Left flange of shaft</td></tr>
+<tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>Right flange of shaft</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>tau</code></td><td>Torque in flange flange_a and flange_b (tau = flange_a.tau = -flange_b.tau) as output signal</td></tr>
+</table>
+<hr><a name="PowerSensor"><h2><embed class="icon" src="../../../images/icon1230.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;PowerSensor<br><span class="subtitle">Ideal sensor to measure the power between two flanges (= flange_a.tau*der(flange_a.phi))</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Measures the <strong>power between two flanges</strong> in an ideal way
+and provides the result as output signal <strong>power</strong>
+(to be further processed with blocks of the Modelica.Blocks library).
+</p>
+<p>Extends from <code><a href="../../../Mechanics/Rotational/Interfaces/index.html#PartialRelativeSensor">Modelica.&#8203;Mechanics.&#8203;Rotational.&#8203;Interfaces.&#8203;PartialRelativeSensor</a></code> (Partial model to measure a single relative variable between two flanges).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>Left flange of shaft</td></tr>
+<tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>Right flange of shaft</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>power</code></td><td>Power in flange flange_a as output signal</td></tr>
+</table>
+<hr><a name="MultiSensor"><h2><embed class="icon" src="../../../images/icon1231.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;MultiSensor<br><span class="subtitle">Ideal sensor to measure the torque and power between two flanges (= flange_a.tau*der(flange_a.phi)) and the absolute angular velocity</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Measures the <strong>absolute angular velocity</strong> of a flange_a, the <strong>cut-torque</strong> and <strong>power</strong> between two flanges in an ideal way and provides the results as output signals <strong>w</strong>, <strong>tau</strong> and <strong>power</strong>, respectively.
+</p>
+<p>Extends from <code><a href="../../../Mechanics/Rotational/Interfaces/index.html#PartialRelativeSensor">Modelica.&#8203;Mechanics.&#8203;Rotational.&#8203;Interfaces.&#8203;PartialRelativeSensor</a></code> (Partial model to measure a single relative variable between two flanges).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>Left flange of shaft</td></tr>
+<tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>Right flange of shaft</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>power</code></td><td>Power in flange flange_a as output signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>w</code></td><td>Absolute angular velocity of flange_a as output signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>tau</code></td><td>Torque in flange flange_a and flange_b (tau = flange_a.tau = -flange_b.tau) as output signal</td></tr>
+</table>
+</body></html>

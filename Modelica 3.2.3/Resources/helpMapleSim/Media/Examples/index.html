@@ -1,0 +1,189 @@
+<html><head><title>Modelica.Media.Examples</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Examples"><h1><embed class="icon" src="../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;Examples<br><span class="subtitle">Demonstrate usage of property models (currently: simple tests)</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<h4>Examples</h4>
+Physical properties for fluids are needed in so many different variants
+that a library can only provide models for the most common situations.
+With the following examples we are going to demonstrate how to use the
+existing packages and functions in Modelica.Media to customize these
+models for advanced applications. The high level functions try to
+abstract as much as possible form the fact that different media are
+based on different variables, e.g., ideal gases need pressure and
+temperature, while many refrigerants are based on Helmholtz functions
+of density and temperature, and many water properties are based on
+pressure and specific enthalpy. Medium properties are needed in control
+volumes in the dynamic state equations and in many thermodynamic state
+locations that are independent of the dynamic states of a control
+volume, e.g., at a wall temperature, an isentropic reference state or at
+a phase boundary. The general structure of the library is such that:<br>
+<ul>
+<li>Each medium has a model called BaseProperties. BaseProperties
+contains the minimum set of medium properties needed in a dynamic
+control volume model.</li>
+<li>Each instance of BaseProperties contains a "state" record that is
+an input to all the functions to compute properties. If these functions
+need further inputs, like e.g., the molarMass, these are accessible as
+constants in the package.</li>
+<li>The simplest way to compute properties at any other reference
+point is to declare an instance of ThermodynamicState and use that as
+input to arbitrary property functions.<br>
+</li>
+</ul>
+
+<p>
+A small library of generic volume, pipe, pump and ambient models
+is provided in Modelica.Media.Examples.Tests.Components to demonstrate
+how fluid components should be implemented that are using Modelica.Media
+models. This library is also used to test all media models in
+Modelica.Media.Examples.Tests.MediaTestModels.
+</p>
+<p>Extends from <code><a href="../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#IdealGasH2O"><code>IdealGasH2O</code></a></td><td>IdealGas H20 medium model</td></tr>
+<tr><td><a href="#MixtureGases"><code>MixtureGases</code></a></td><td>Test gas mixtures</td></tr>
+<tr><td><a href="#MoistAir"><code>MoistAir</code></a></td><td>Ideal gas flue gas model</td></tr>
+<tr><td><a href="#PsychrometricData"><code>PsychrometricData</code></a></td><td>Produces plot data for psychrometric charts</td></tr>
+<tr><td><a href="../../Media/Examples/R134a/index.html"><code>R134a</code></a> &hellip;</td><td>Examples for R134a</td></tr>
+<tr><td><a href="../../Media/Examples/ReferenceAir/index.html"><code>ReferenceAir</code></a> &hellip;</td><td>Examples for detailed dry air and moist air medium models</td></tr>
+<tr><td><a href="#SimpleLiquidWater"><code>SimpleLiquidWater</code></a></td><td>Example for Water.SimpleLiquidWater medium model</td></tr>
+<tr><td><a href="../../Media/Examples/SolveOneNonlinearEquation/index.html"><code>SolveOneNonlinearEquation</code></a> &hellip;</td><td>Demonstrate how to solve one non-linear algebraic equation in one unknown</td></tr>
+<tr><td><a href="../../Media/Examples/TestOnly/index.html"><code>TestOnly</code></a> &hellip;</td><td>Examples to show the testing of media</td></tr>
+<tr><td><a href="../../Media/Examples/Tests/index.html"><code>Tests</code></a> &hellip;</td><td>Library to test that all media models simulate and fulfill the expected structural properties</td></tr>
+<tr><td><a href="../../Media/Examples/TwoPhaseWater/index.html"><code>TwoPhaseWater</code></a> &hellip;</td><td>Extension of the StandardWater package</td></tr>
+<tr><td><a href="../../Media/Examples/Utilities/index.html"><code>Utilities</code></a> &hellip;</td><td>Functions, connectors and models needed for the media model tests</td></tr>
+<tr><td><a href="#WaterIF97"><code>WaterIF97</code></a></td><td>WaterIF97 medium model</td></tr>
+</table>
+<hr><a name="SimpleLiquidWater"><h2><embed class="icon" src="../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Examples</a>.&#8203;SimpleLiquidWater<br><span class="subtitle">Example for Water.SimpleLiquidWater medium model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Volume">Volume</a></code></td><td><code>V</code></td><td><code>1</code></td><td>Volume</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#EnthalpyFlowRate">EnthalpyFlowRate</a></code></td><td><code>H_flow_ext</code></td><td><code>1000000</code></td><td>Constant enthalpy flow rate into the volume</td></tr>
+</table>
+<hr><a name="IdealGasH2O"><h2><embed class="icon" src="../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Examples</a>.&#8203;IdealGasH2O<br><span class="subtitle">IdealGas H20 medium model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>An example for using ideal gas properties and how to compute
+  isentropic enthalpy changes.
+  The function that is implemented is approximate, but usually
+   very good: the second medium record medium2
+   is given to compare the approximation.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="WaterIF97"><h2><embed class="icon" src="../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Examples</a>.&#8203;WaterIF97<br><span class="subtitle">WaterIF97 medium model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#VolumeFlowRate">VolumeFlowRate</a></code></td><td><code>dV</code></td><td><code>0</code></td><td>Fixed time derivative of volume</td></tr>
+<tr><td><code><a href="../../Media/Examples/WaterIF97/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_ext</code></td><td><code>0</code></td><td>Fixed mass flow rate into volume</td></tr>
+<tr><td><code><a href="../../Media/Examples/WaterIF97/Medium/index.html#EnthalpyFlowRate">EnthalpyFlowRate</a></code></td><td><code>H_flow_ext</code></td><td><code>10000</code></td><td>Fixed enthalpy flow rate into volume</td></tr>
+</table>
+<hr><a name="MixtureGases"><h2><embed class="icon" src="../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Examples</a>.&#8203;MixtureGases<br><span class="subtitle">Test gas mixtures</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Volume">Volume</a></code></td><td><code>V</code></td><td><code>1</code></td><td>Fixed size of volume 1 and volume 2</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_ext</code></td><td><code>0.01</code></td><td>Fixed mass flow rate in to volume 1 and in to volume 2</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#EnthalpyFlowRate">EnthalpyFlowRate</a></code></td><td><code>H_flow_ext</code></td><td><code>5000</code></td><td>Fixed enthalpy flow rate in to volume and in to volume 2</td></tr>
+</table>
+<hr><a name="MoistAir"><h2><embed class="icon" src="../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Examples</a>.&#8203;MoistAir<br><span class="subtitle">Ideal gas flue gas model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>An example for using ideal gas properties and how to compute isentropic enthalpy changes.
+The function that is implemented is approximate, but usually very good: the second medium record medium2
+is given to compare the approximation.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../Media/Examples/MoistAir/Medium/index.html#MolarMass">MolarMass</a></code></td><td><code>MMx[2]</code></td><td><code>{Medium.dryair.MM, Medium.steam.MM}</code></td><td>Vector of molar masses (consisting of dry air and of steam)</td></tr>
+</table>
+<hr><a name="PsychrometricData"><h2><embed class="icon" src="../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Examples</a>.&#8203;PsychrometricData<br><span class="subtitle">Produces plot data for psychrometric charts</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This model produces psychrometric data from the moist air model in this library to be plotted in charts. The two most common chart varieties are the Mollier Diagram and the Psychrometric Chart. The first is widely used in some European countries while the second is more common in the Anglo-American world. Specific enthalpy is plotted over absolute humidity in the Mollier Diagram, it is the other way round in the Psychrometric Chart.<br>
+It must be noted that the relationship of both axis variables is not right-angled, the absolute humidity follows a slope which equals the enthalpy of vaporization at 0 &deg;C. For better reading and in order to reduce the fog region the humidity axis is rotated to obtain a right-angled plot. Both charts usually contain additional information as isochores or auxiliary scales for e.g., heat ratios. Those information are omitted in this model and the charts below. Other important features of psychrometric chart data are that all mass specific variables (like absolute humidity, specific enthalpy etc.) are expressed in terms of kg dry air and that their baseline of 0 enthalpy is found at 0 &deg;C and zero humidity.</p>
+
+<p>
+<img src="../../../Images/Media/Air/Mollier.png"><br>
+<img src="../../../Images/Media/Air/PsycroChart.png">
+</p>
+
+<p>
+<strong>Legend:</strong> blue - constant specific enthalpy, red - constant temperature, black - constant relative humidity</p>
+
+<p>The model provides data for lines of constant specific enthalpy, temperature and relative humidity in a Mollier Diagram or Psychrometric Chart as they were used for the figures above. For limitations and ranges of validity please refer to the <a href="../../Media/Air/MoistAir/index.html">MoistAir package description</a>. Absolute humidity <strong>x</strong> is increased with time in this model. The specific enthalpies adjusted for plotting are then obtained from:</p>
+<ul>
+<li><strong>y_h</strong>: constant specific enthalpy</li>
+<li><strong>y_T</strong>: constant temperature</li>
+<li><strong>y_phi</strong>: constant relative humidity</li>
+</ul>
+<p>Extends from <code><a href="../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p_const</code></td><td><code>100000</code></td><td>Pressure</td></tr>
+<tr><td><code>Integer</code></td><td><code>n_T</code></td><td><code>11</code></td><td>Number of isotherms</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_min</code></td><td><code>253.15</code></td><td>Lowest isotherm</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_step</code></td><td><code>10</code></td><td>Temperature step between two isotherms</td></tr>
+<tr><td><code>Integer</code></td><td><code>n_h</code></td><td><code>16</code></td><td>Number of lines with constant specific enthalpy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_min</code></td><td><code>-20000</code></td><td>Lowest line of constant enthalpy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_step</code></td><td><code>10000</code></td><td>Enthalpy step between two lines of constant enthalpy</td></tr>
+<tr><td><code>Integer</code></td><td><code>n_phi</code></td><td><code>10</code></td><td>Number of lines with constant relative humidity</td></tr>
+<tr><td><code>Real</code></td><td><code>phi_min</code></td><td><code>0.1</code></td><td>Lowest line of constant humidity</td></tr>
+<tr><td><code>Real</code></td><td><code>phi_step</code></td><td><code>0.1</code></td><td>Step between two lines of constant humidity</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MassFraction">MassFraction</a></code></td><td><code>x_min</code></td><td><code>0</code></td><td>Minimum diagram absolute humidity</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MassFraction">MassFraction</a></code></td><td><code>x_max</code></td><td><code>0.03</code></td><td>Maximum diagram absolute humidity</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>t</code></td><td><code>1</code></td><td>Simulation time</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_const[n_T]</code></td><td><code>{T_min - T_step + i * T_step for i in 1:n_T}</code></td><td>Constant temperatures</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_const[n_h]</code></td><td><code>{(i - 1) * h_step + h_min for i in 1:n_h}</code></td><td>Constant enthalpies</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>phi_const[n_phi]</code></td><td><code>{(i - 1) * phi_step + phi_min for i in 1:n_phi}</code></td><td>Constant relative humidities</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>diagSlope</code></td><td><code>Medium.enthalpyOfVaporization(273.15)</code></td><td>Rotation of diagram that zero degrees isotherm becomes horizontal outside the fog region</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../SIunits/index.html#MassFraction">MassFraction</a></code></td><td><code>x_start</code></td><td><code>x_min</code></td><td>Initial absolute humidity in kg water/kg dry air</td></tr>
+</table>
+</body></html>

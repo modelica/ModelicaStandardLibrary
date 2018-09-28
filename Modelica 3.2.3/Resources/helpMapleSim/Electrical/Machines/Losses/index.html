@@ -1,0 +1,197 @@
+<html><head><title>Modelica.Electrical.Machines.Losses</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Losses"><h1><embed class="icon" src="../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;Losses<br><span class="subtitle">Loss models for electric machines</span></h1></a>
+<h3>Information</h3>
+<p>
+
+This package contains loss models and their parameter records used for machine models.
+<p>Extends from <code><a href="../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#BrushParameters"><code>BrushParameters</code></a></td><td>Parameter record for brush losses</td></tr>
+<tr><td><a href="#CoreParameters"><code>CoreParameters</code></a></td><td>Parameter record for core losses</td></tr>
+<tr><td><a href="../../../Electrical/Machines/Losses/DCMachines/index.html"><code>DCMachines</code></a> &hellip;</td><td>Loss models for DC machines</td></tr>
+<tr><td><a href="#Friction"><code>Friction</code></a></td><td>Model of angular velocity dependent friction losses</td></tr>
+<tr><td><a href="#FrictionParameters"><code>FrictionParameters</code></a></td><td>Parameter record for friction losses</td></tr>
+<tr><td><a href="../../../Electrical/Machines/Losses/InductionMachines/index.html"><code>InductionMachines</code></a> &hellip;</td><td>Loss models for induction machines</td></tr>
+<tr><td><a href="#PermanentMagnetLossParameters"><code>PermanentMagnetLossParameters</code></a></td><td>Parameter record for permanent magnet losses</td></tr>
+<tr><td><a href="#StrayLoadParameters"><code>StrayLoadParameters</code></a></td><td>Parameter record for stray load losses</td></tr>
+</table>
+<hr><a name="FrictionParameters"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Losses</a>.&#8203;FrictionParameters<br><span class="subtitle">Parameter record for friction losses</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Parameter record for <a href="../../../Electrical/Machines/Losses/index.html#Friction">Friction</a> losses.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../SIunits/index.html#Power">Power</a></code></td><td><code>PRef</code></td><td>Reference friction losses at wRef</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wRef</code></td><td>Reference angular velocity that the PRef refer to</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>power_w</code></td><td>Exponent of friction torque w.r.t. angular velocity</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>tauRef</code></td><td>Reference friction torque at reference angular velocity</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>linear</code></td><td>Linear angular velocity range with respect to reference angular velocity</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wLinear</code></td><td>Linear angular velocity range</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>tauLinear</code></td><td>Torque corresponding with linear angular velocity range</td></tr>
+</table>
+<hr><a name="BrushParameters"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Losses</a>.&#8203;BrushParameters<br><span class="subtitle">Parameter record for brush losses</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Parameter record for <a href="../../../Electrical/Machines/Losses/InductionMachines/index.html#Brush">three-phase Brush</a> and
+<a href="../../../Electrical/Machines/Losses/DCMachines/index.html#Brush">DC Brush</a> losses.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>V</code></td><td>Total voltage drop of brushes for currents &gt; ILinear</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>ILinear</code></td><td>Current indicating linear voltage region of brush voltage drop</td></tr>
+</table>
+<hr><a name="StrayLoadParameters"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Losses</a>.&#8203;StrayLoadParameters<br><span class="subtitle">Parameter record for stray load losses</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Parameter record for <a href="../../../Electrical/Machines/Losses/InductionMachines/index.html#StrayLoad">three-phase</a> and
+<a href="../../../Electrical/Machines/Losses/DCMachines/index.html#StrayLoad">DC</a> stray load losses.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../SIunits/index.html#Power">Power</a></code></td><td><code>PRef</code></td><td>Reference stray load losses at IRef and wRef</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>IRef</code></td><td>Reference RMS current that PRef refers to</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wRef</code></td><td>Reference angular velocity that PRef refers to</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>power_w</code></td><td>Exponent of stray load loss torque w.r.t. angular velocity</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>tauRef</code></td><td>Reference stray load torque at reference angular velocity and reference current</td></tr>
+</table>
+<hr><a name="CoreParameters"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Losses</a>.&#8203;CoreParameters<br><span class="subtitle">Parameter record for core losses</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Parameter record for <a href="../../../Electrical/Machines/Losses/InductionMachines/index.html#Core">core losses of induction machines</a>
+and <a href="../../../Electrical/Machines/Losses/DCMachines/index.html#Core">core losses of DC machines</a>.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Integer</code></td><td><code>m</code></td><td>Number of phases (1 for DC, 3 for induction machines)</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Power">Power</a></code></td><td><code>PRef</code></td><td>Reference core losses at reference inner voltage VRef</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VRef</code></td><td>Reference inner RMS voltage that reference core losses PRef refer to</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wRef</code></td><td>Reference angular velocity that reference core losses PRef refer to</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>ratioHysteresis</code></td><td>Ratio of hysteresis losses with respect to the total core losses at VRef and fRef</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>GcRef</code></td><td>Reference conductance at reference frequency and voltage</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wMin</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PermanentMagnetLossParameters"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Losses</a>.&#8203;PermanentMagnetLossParameters<br><span class="subtitle">Parameter record for permanent magnet losses</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Parameter record for <a href="../../../Electrical/Machines/Losses/InductionMachines/index.html#PermanentMagnetLosses">permanent magnet losses</a>.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../SIunits/index.html#Power">Power</a></code></td><td><code>PRef</code></td><td>Reference permanent magnet losses at IRef and wRef</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>c</code></td><td>Part of permanent magnet losses at current = 0, i.e. independent of current</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>IRef</code></td><td>Reference stator RMS current that PRef refers to</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>power_I</code></td><td>Exponent of permanent magnet loss torque w.r.t. stator current</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wRef</code></td><td>Reference angular velocity that PRef refers to</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>power_w</code></td><td>Exponent of permanent magnet loss torque w.r.t. angular velocity</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>tauRef</code></td><td>Reference permanent magnet loss torque at reference angular velocity and reference current</td></tr>
+</table>
+<hr><a name="Friction"><h2><embed class="icon" src="../../../images/icon0618.svg" width="213" height="233" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Losses</a>.&#8203;Friction<br><span class="subtitle">Model of angular velocity dependent friction losses</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The friction losses are considered by the equations
+</p>
+<pre>
+   tau / tauRef = (+w / wRef) ^ power_w    for w &gt; +wLinear
+ - tau / tauRef = (-w / wRef) ^ power_w    for w &lt; -wLinear
+</pre>
+<p>
+with
+</p>
+<pre>
+  tauRef * wRef = PRef
+</pre>
+<p>
+being the friction torque at the reference angular velocity
+<code>wRef</code>. The exponent <code>power_w</code> is
+approximately 1.5 for axial ventilation and approximately 2.0 for radial ventilation.
+</p>
+<p>
+For stability reasons the friction torque <code>tau</code> is approximated by a linear curve
+</p>
+<pre>
+  tau / tauLinear = w / wLinear
+</pre>
+<p>
+with
+</p>
+<pre>
+  tauLinear = tauRef*(wLinear/wRef) ^ power_w
+</pre>
+<p>
+in the range <code> -wLinear &le; w &le; wLinear</code> with <code>wLinear = 0.001 * wRef</code>. The relationship of torque
+and angular velocity is depicted in Fig. 1
+</p>
+<table border=0 cellspacing=0 cellpadding=1>
+  <tr><td> <img src="../../../../Images/Electrical/Machines/frictiontorque.png"
+                alt="frictiontorque.png"> </td>
+  </tr>
+  <tr><td> <strong> Fig. 1: </strong>Friction loss torque versus angular velocity for <code>power_w = 2</code></td>
+  </tr>
+</table>
+<h4>See also</h4>
+<p>
+<a href="../../../Electrical/Machines/Losses/index.html#FrictionParameters">FrictionParameters</a>
+</p>
+<p>
+If it is desired to neglect friction losses, set <code>frictionParameters.PRef = 0</code> (this is the default).
+</p>
+<p>Extends from <code><a href="../../../Electrical/Machines/Interfaces/index.html#FlangeSupport">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Interfaces.&#8203;FlangeSupport</a></code> (Shaft and support) and <code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#PartialElementaryConditionalHeatPortWithoutT">Modelica.&#8203;Thermal.&#8203;HeatTransfer.&#8203;Interfaces.&#8203;PartialElementaryConditionalHeatPortWithoutT</a></code> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Machines/Losses/index.html#FrictionParameters">FrictionParameters</a></code></td><td><code>frictionParameters</code></td><td>&nbsp;</td><td>Friction loss parameters</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>Shaft end</td></tr>
+<tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>support</code></td><td>Housing and support</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
+</table>
+</body></html>

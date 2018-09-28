@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.inv</title>
+</head>
+<body>
+<h1><a href="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg"><img class="svgiconhead" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<span class="omc-h1">inv</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+invA = Matrices.<strong>inv</strong>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function returns the inverse of matrix A, i.e., A*inv(A) =
+identity(size(A,1)) computed by a LU decomposition with row
+pivoting. Usually, this function should not be used, because there
+are nearly always better numerical algorithms as by computing
+directly the inverse. Example:</p>
+<blockquote>Use x = <a href="Modelica.Math.Matrices.solve.html">Matrices.solve</a>(A,b)
+to solve the linear equation A*x = b, instead of computing the
+solution by x = inv(A)*b, because this is much more efficient and
+much more reliable.</blockquote>
+<h4>See also</h4>
+<a href="Modelica.Math.Matrices.solve.html">Matrices.solve</a>
+<a href="Modelica.Math.Matrices.solve2.html">Matrices.solve2</a>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>function inv
+  extends Modelica.Icons.Function;
+  input Real A[:, size(A, 1)];
+  output Real invA[size(A, 1), size(A, 2)] "Inverse of matrix A";
+end inv;</pre></blockquote>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

@@ -1,0 +1,405 @@
+<html><head><title>Modelica.Fluid.Sensors</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Sensors"><h1><embed class="icon" src="../../images/icon0460.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;Sensors<br><span class="subtitle">Ideal sensor components to extract signals from a fluid connector</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Package <strong>Sensors</strong> consists of idealized sensor components that
+provide variables of a medium model and/or fluid ports as
+output signals. These signals can be, e.g., further processed
+with components of the Modelica.Blocks library.
+Also more realistic sensor models can be built, by further
+processing (e.g., by attaching block Modelica.Blocks.FirstOrder to
+model the time constant of the sensor).
+</p>
+
+<p>For the thermodynamic state variables temperature, specific enthalpy, specific entropy and density
+the fluid library provides two different types of sensors: <strong>regular one port</strong> and <strong>two port</strong> sensors.</p>
+
+<ul>
+<li>The <strong>regular one port</strong> sensors have the advantage of easy introduction and removal from a model, as no connections have to be broken.
+A potential drawback is that the obtained value jumps as flow reverts.
+</li>
+
+<li>The <strong>two port</strong> sensors offer the advantages of an adjustable regularized step function around zero flow.
+Moreover the obtained result is restricted to the value flowing into port_a if allowFlowReversal is false.</li>
+</ul>
+
+<p>
+<a href="../../Fluid/Examples/Explanatory/index.html#MeasuringTemperature">Modelica.Fluid.Examples.Explanatory.MeasuringTemperature</a>
+demonstrates the differences between one- and two-port sensor at hand of a
+simple example.
+</p>
+<p>Extends from <code><a href="../../Icons/SensorsPackage/index.html">Modelica.&#8203;Icons.&#8203;SensorsPackage</a></code> (Icon for packages containing sensors).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="../../Fluid/Sensors/BaseClasses/index.html"><code>BaseClasses</code></a> &hellip;</td><td>Base classes used in the Sensors package (only of interest to build new component models)</td></tr>
+<tr><td><a href="#Density"><code>Density</code></a></td><td>Ideal one port density sensor</td></tr>
+<tr><td><a href="#DensityTwoPort"><code>DensityTwoPort</code></a></td><td>Ideal two port density sensor</td></tr>
+<tr><td><a href="#MassFlowRate"><code>MassFlowRate</code></a></td><td>Ideal sensor for mass flow rate</td></tr>
+<tr><td><a href="#MassFractions"><code>MassFractions</code></a></td><td>Ideal one port mass fraction sensor</td></tr>
+<tr><td><a href="#MassFractionsTwoPort"><code>MassFractionsTwoPort</code></a></td><td>Ideal two port sensor for mass fraction</td></tr>
+<tr><td><a href="#Pressure"><code>Pressure</code></a></td><td>Ideal pressure sensor</td></tr>
+<tr><td><a href="#RelativePressure"><code>RelativePressure</code></a></td><td>Ideal relative pressure sensor</td></tr>
+<tr><td><a href="#RelativeTemperature"><code>RelativeTemperature</code></a></td><td>Ideal relative temperature sensor</td></tr>
+<tr><td><a href="#SpecificEnthalpy"><code>SpecificEnthalpy</code></a></td><td>Ideal one port specific enthalpy sensor</td></tr>
+<tr><td><a href="#SpecificEnthalpyTwoPort"><code>SpecificEnthalpyTwoPort</code></a></td><td>Ideal two port sensor for the specific enthalpy</td></tr>
+<tr><td><a href="#SpecificEntropy"><code>SpecificEntropy</code></a></td><td>Ideal one port specific entropy sensor</td></tr>
+<tr><td><a href="#SpecificEntropyTwoPort"><code>SpecificEntropyTwoPort</code></a></td><td>Ideal two port sensor for the specific entropy</td></tr>
+<tr><td><a href="#Temperature"><code>Temperature</code></a></td><td>Ideal one port temperature sensor</td></tr>
+<tr><td><a href="#TemperatureTwoPort"><code>TemperatureTwoPort</code></a></td><td>Ideal two port temperature sensor</td></tr>
+<tr><td><a href="#TraceSubstances"><code>TraceSubstances</code></a></td><td>Ideal one port trace substances sensor</td></tr>
+<tr><td><a href="#TraceSubstancesTwoPort"><code>TraceSubstancesTwoPort</code></a></td><td>Ideal two port sensor for trace substance</td></tr>
+<tr><td><a href="#VolumeFlowRate"><code>VolumeFlowRate</code></a></td><td>Ideal sensor for volume flow rate</td></tr>
+</table>
+<hr><a name="Pressure"><h2><embed class="icon" src="../../images/icon1378.svg" width="223" height="213" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;Pressure<br><span class="subtitle">Ideal pressure sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component monitors the absolute pressure at its fluid port. The sensor is
+ideal, i.e., it does not influence the fluid.
+</p>
+<p>Extends from <code><a href="../../Fluid/Sensors/BaseClasses/index.html#PartialAbsoluteSensor">Modelica.&#8203;Fluid.&#8203;Sensors.&#8203;BaseClasses.&#8203;PartialAbsoluteSensor</a></code> (Partial component to model a sensor that measures a potential variable) and <code><a href="../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>p</code></td><td>Pressure at port</td></tr>
+</table>
+<hr><a name="Density"><h2><embed class="icon" src="../../images/icon1379.svg" width="223" height="213" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;Density<br><span class="subtitle">Ideal one port density sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component monitors the density of the fluid passing its port.
+The sensor is ideal, i.e., it does not influence the fluid.
+</p>
+
+<p>Extends from <code><a href="../../Fluid/Sensors/BaseClasses/index.html#PartialAbsoluteSensor">Modelica.&#8203;Fluid.&#8203;Sensors.&#8203;BaseClasses.&#8203;PartialAbsoluteSensor</a></code> (Partial component to model a sensor that measures a potential variable) and <code><a href="../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>d</code></td><td>Density in port medium</td></tr>
+</table>
+<hr><a name="DensityTwoPort"><h2><embed class="icon" src="../../images/icon1380.svg" width="223" height="223" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;DensityTwoPort<br><span class="subtitle">Ideal two port density sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component monitors the density of the fluid flowing from port_a to port_b.
+The sensor is ideal, i.e., it does not influence the fluid.
+</p>
+<p>Extends from <code><a href="../../Fluid/Sensors/BaseClasses/index.html#PartialFlowSensor">Modelica.&#8203;Fluid.&#8203;Sensors.&#8203;BaseClasses.&#8203;PartialFlowSensor</a></code> (Partial component to model sensors that measure flow properties) and <code><a href="../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Sensors/DensityTwoPort/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nominal</code></td><td><code>system.&#8203;m_flow_nominal</code></td><td>Nominal value of m_flow = port_a.m_flow</td></tr>
+<tr><td><code><a href="../../Fluid/Sensors/DensityTwoPort/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * m_flow_nominal else system.m_flow_small</code></td><td>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>d</code></td><td>Density of the passing fluid</td></tr>
+</table>
+<hr><a name="Temperature"><h2><embed class="icon" src="../../images/icon1381.svg" width="203" height="213" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;Temperature<br><span class="subtitle">Ideal one port temperature sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component monitors the temperature of the fluid passing its port.
+The sensor is ideal, i.e., it does not influence the fluid.
+</p>
+<p>Extends from <code><a href="../../Fluid/Sensors/BaseClasses/index.html#PartialAbsoluteSensor">Modelica.&#8203;Fluid.&#8203;Sensors.&#8203;BaseClasses.&#8203;PartialAbsoluteSensor</a></code> (Partial component to model a sensor that measures a potential variable).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>T</code></td><td>Temperature in port medium</td></tr>
+</table>
+<hr><a name="TemperatureTwoPort"><h2><embed class="icon" src="../../images/icon1382.svg" width="223" height="223" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;TemperatureTwoPort<br><span class="subtitle">Ideal two port temperature sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component monitors the temperature of the passing fluid.
+The sensor is ideal, i.e., it does not influence the fluid.
+</p>
+<p>Extends from <code><a href="../../Fluid/Sensors/BaseClasses/index.html#PartialFlowSensor">Modelica.&#8203;Fluid.&#8203;Sensors.&#8203;BaseClasses.&#8203;PartialFlowSensor</a></code> (Partial component to model sensors that measure flow properties).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Sensors/TemperatureTwoPort/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nominal</code></td><td><code>system.&#8203;m_flow_nominal</code></td><td>Nominal value of m_flow = port_a.m_flow</td></tr>
+<tr><td><code><a href="../../Fluid/Sensors/TemperatureTwoPort/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * m_flow_nominal else system.m_flow_small</code></td><td>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>T</code></td><td>Temperature of the passing fluid</td></tr>
+</table>
+<hr><a name="SpecificEnthalpy"><h2><embed class="icon" src="../../images/icon1379.svg" width="223" height="213" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;SpecificEnthalpy<br><span class="subtitle">Ideal one port specific enthalpy sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component monitors the specific enthalpy of the fluid passing its port.
+The sensor is ideal, i.e., it does not influence the fluid.
+</p>
+<p>Extends from <code><a href="../../Fluid/Sensors/BaseClasses/index.html#PartialAbsoluteSensor">Modelica.&#8203;Fluid.&#8203;Sensors.&#8203;BaseClasses.&#8203;PartialAbsoluteSensor</a></code> (Partial component to model a sensor that measures a potential variable) and <code><a href="../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>h_out</code></td><td>Specific enthalpy in port medium</td></tr>
+</table>
+<hr><a name="SpecificEnthalpyTwoPort"><h2><embed class="icon" src="../../images/icon1380.svg" width="223" height="223" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;SpecificEnthalpyTwoPort<br><span class="subtitle">Ideal two port sensor for the specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component monitors the specific enthalpy of a passing fluid.
+The sensor is ideal, i.e., it does not influence the fluid.
+</p>
+<p>Extends from <code><a href="../../Fluid/Sensors/BaseClasses/index.html#PartialFlowSensor">Modelica.&#8203;Fluid.&#8203;Sensors.&#8203;BaseClasses.&#8203;PartialFlowSensor</a></code> (Partial component to model sensors that measure flow properties) and <code><a href="../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Sensors/SpecificEnthalpyTwoPort/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nominal</code></td><td><code>system.&#8203;m_flow_nominal</code></td><td>Nominal value of m_flow = port_a.m_flow</td></tr>
+<tr><td><code><a href="../../Fluid/Sensors/SpecificEnthalpyTwoPort/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * m_flow_nominal else system.m_flow_small</code></td><td>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>h_out</code></td><td>Specific enthalpy of the passing fluid</td></tr>
+</table>
+<hr><a name="SpecificEntropy"><h2><embed class="icon" src="../../images/icon1379.svg" width="223" height="213" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;SpecificEntropy<br><span class="subtitle">Ideal one port specific entropy sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component monitors the specific entropy of the fluid passing its port.
+The sensor is ideal, i.e., it does not influence the fluid.
+</p>
+<p>Extends from <code><a href="../../Fluid/Sensors/BaseClasses/index.html#PartialAbsoluteSensor">Modelica.&#8203;Fluid.&#8203;Sensors.&#8203;BaseClasses.&#8203;PartialAbsoluteSensor</a></code> (Partial component to model a sensor that measures a potential variable) and <code><a href="../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>s</code></td><td>Specific entropy in port medium</td></tr>
+</table>
+<hr><a name="SpecificEntropyTwoPort"><h2><embed class="icon" src="../../images/icon1380.svg" width="223" height="223" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;SpecificEntropyTwoPort<br><span class="subtitle">Ideal two port sensor for the specific entropy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component monitors the specific entropy of the passing fluid.
+The sensor is ideal, i.e., it does not influence the fluid.
+</p>
+<p>Extends from <code><a href="../../Fluid/Sensors/BaseClasses/index.html#PartialFlowSensor">Modelica.&#8203;Fluid.&#8203;Sensors.&#8203;BaseClasses.&#8203;PartialFlowSensor</a></code> (Partial component to model sensors that measure flow properties) and <code><a href="../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Sensors/SpecificEntropyTwoPort/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nominal</code></td><td><code>system.&#8203;m_flow_nominal</code></td><td>Nominal value of m_flow = port_a.m_flow</td></tr>
+<tr><td><code><a href="../../Fluid/Sensors/SpecificEntropyTwoPort/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * m_flow_nominal else system.m_flow_small</code></td><td>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>s</code></td><td>Specific entropy of the passing fluid</td></tr>
+</table>
+<hr><a name="MassFractions"><h2><embed class="icon" src="../../images/icon1379.svg" width="223" height="213" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;MassFractions<br><span class="subtitle">Ideal one port mass fraction sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component monitors the mass fraction contained in the fluid passing its port.
+The sensor is ideal, i.e., it does not influence the fluid.
+</p>
+<p>Extends from <code><a href="../../Fluid/Sensors/BaseClasses/index.html#PartialAbsoluteSensor">Modelica.&#8203;Fluid.&#8203;Sensors.&#8203;BaseClasses.&#8203;PartialAbsoluteSensor</a></code> (Partial component to model a sensor that measures a potential variable) and <code><a href="../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>substanceName</code></td><td><code>"water"</code></td><td>Name of mass fraction</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>Xi</code></td><td>Mass fraction in port medium</td></tr>
+</table>
+<hr><a name="MassFractionsTwoPort"><h2><embed class="icon" src="../../images/icon1383.svg" width="223" height="223" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;MassFractionsTwoPort<br><span class="subtitle">Ideal two port sensor for mass fraction</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component monitors the mass fraction of the passing fluid.
+The sensor is ideal, i.e., it does not influence the fluid.
+</p> 
+<p>Extends from <code><a href="../../Fluid/Sensors/BaseClasses/index.html#PartialFlowSensor">Modelica.&#8203;Fluid.&#8203;Sensors.&#8203;BaseClasses.&#8203;PartialFlowSensor</a></code> (Partial component to model sensors that measure flow properties) and <code><a href="../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Sensors/MassFractionsTwoPort/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nominal</code></td><td><code>system.&#8203;m_flow_nominal</code></td><td>Nominal value of m_flow = port_a.m_flow</td></tr>
+<tr><td><code><a href="../../Fluid/Sensors/MassFractionsTwoPort/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * m_flow_nominal else system.m_flow_small</code></td><td>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required)</td></tr>
+<tr><td><code>String</code></td><td><code>substanceName</code></td><td><code>"water"</code></td><td>Name of mass fraction</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>Xi</code></td><td>Mass fraction in port medium</td></tr>
+</table>
+<hr><a name="TraceSubstances"><h2><embed class="icon" src="../../images/icon1379.svg" width="223" height="213" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;TraceSubstances<br><span class="subtitle">Ideal one port trace substances sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component monitors the trace substances contained in the fluid passing its port.
+The sensor is ideal, i.e., it does not influence the fluid.
+</p>
+<p>Extends from <code><a href="../../Fluid/Sensors/BaseClasses/index.html#PartialAbsoluteSensor">Modelica.&#8203;Fluid.&#8203;Sensors.&#8203;BaseClasses.&#8203;PartialAbsoluteSensor</a></code> (Partial component to model a sensor that measures a potential variable) and <code><a href="../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>substanceName</code></td><td><code>"CO2"</code></td><td>Name of trace substance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>C</code></td><td>Trace substance in port medium</td></tr>
+</table>
+<hr><a name="TraceSubstancesTwoPort"><h2><embed class="icon" src="../../images/icon1380.svg" width="223" height="223" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;TraceSubstancesTwoPort<br><span class="subtitle">Ideal two port sensor for trace substance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component monitors the trace substance of the passing fluid.
+The sensor is ideal, i.e., it does not influence the fluid.
+</p>
+<p>Extends from <code><a href="../../Fluid/Sensors/BaseClasses/index.html#PartialFlowSensor">Modelica.&#8203;Fluid.&#8203;Sensors.&#8203;BaseClasses.&#8203;PartialFlowSensor</a></code> (Partial component to model sensors that measure flow properties) and <code><a href="../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Sensors/TraceSubstancesTwoPort/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nominal</code></td><td><code>system.&#8203;m_flow_nominal</code></td><td>Nominal value of m_flow = port_a.m_flow</td></tr>
+<tr><td><code><a href="../../Fluid/Sensors/TraceSubstancesTwoPort/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * m_flow_nominal else system.m_flow_small</code></td><td>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required)</td></tr>
+<tr><td><code>String</code></td><td><code>substanceName</code></td><td><code>"CO2"</code></td><td>Name of trace substance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>C</code></td><td>Trace substance of the passing fluid</td></tr>
+</table>
+<hr><a name="MassFlowRate"><h2><embed class="icon" src="../../images/icon1384.svg" width="223" height="223" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;MassFlowRate<br><span class="subtitle">Ideal sensor for mass flow rate</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component monitors the mass flow rate flowing from port_a to port_b.
+The sensor is ideal, i.e., it does not influence the fluid.
+</p>
+<p>Extends from <code><a href="../../Fluid/Sensors/BaseClasses/index.html#PartialFlowSensor">Modelica.&#8203;Fluid.&#8203;Sensors.&#8203;BaseClasses.&#8203;PartialFlowSensor</a></code> (Partial component to model sensors that measure flow properties) and <code><a href="../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Sensors/MassFlowRate/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nominal</code></td><td><code>system.&#8203;m_flow_nominal</code></td><td>Nominal value of m_flow = port_a.m_flow</td></tr>
+<tr><td><code><a href="../../Fluid/Sensors/MassFlowRate/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * m_flow_nominal else system.m_flow_small</code></td><td>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>m_flow</code></td><td>Mass flow rate from port_a to port_b</td></tr>
+</table>
+<hr><a name="VolumeFlowRate"><h2><embed class="icon" src="../../images/icon1380.svg" width="223" height="223" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;VolumeFlowRate<br><span class="subtitle">Ideal sensor for volume flow rate</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component monitors the volume flow rate flowing from port_a to port_b.
+The sensor is ideal, i.e., it does not influence the fluid.
+</p>
+<p>Extends from <code><a href="../../Fluid/Sensors/BaseClasses/index.html#PartialFlowSensor">Modelica.&#8203;Fluid.&#8203;Sensors.&#8203;BaseClasses.&#8203;PartialFlowSensor</a></code> (Partial component to model sensors that measure flow properties) and <code><a href="../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Sensors/VolumeFlowRate/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nominal</code></td><td><code>system.&#8203;m_flow_nominal</code></td><td>Nominal value of m_flow = port_a.m_flow</td></tr>
+<tr><td><code><a href="../../Fluid/Sensors/VolumeFlowRate/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * m_flow_nominal else system.m_flow_small</code></td><td>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>V_flow</code></td><td>Volume flow rate from port_a to port_b</td></tr>
+</table>
+<hr><a name="RelativePressure"><h2><embed class="icon" src="../../images/icon1385.svg" width="223" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;RelativePressure<br><span class="subtitle">Ideal relative pressure sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The relative pressure "port_a.p - port_b.p" is determined between
+the two ports of this component and is provided as output signal. The
+sensor should be connected in parallel with other equipment, no flow
+through the sensor is allowed.
+</p>
+<p>Extends from <code><a href="../../Fluid/Sensors/BaseClasses/index.html#PartialRelativeSensor">Modelica.&#8203;Fluid.&#8203;Sensors.&#8203;BaseClasses.&#8203;PartialRelativeSensor</a></code> (Partial component to model a sensor that measures the difference between two potential variables).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>p_rel</code></td><td>Relative pressure signal</td></tr>
+</table>
+<hr><a name="RelativeTemperature"><h2><embed class="icon" src="../../images/icon1385.svg" width="223" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;RelativeTemperature<br><span class="subtitle">Ideal relative temperature sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The relative temperature "T(port_a) - T(port_b)" is determined between
+the two ports of this component and is provided as output signal. The
+sensor should be connected in parallel with other equipment, no flow
+through the sensor is allowed.
+</p>
+<p>Extends from <code><a href="../../Fluid/Sensors/BaseClasses/index.html#PartialRelativeSensor">Modelica.&#8203;Fluid.&#8203;Sensors.&#8203;BaseClasses.&#8203;PartialRelativeSensor</a></code> (Partial component to model a sensor that measures the difference between two potential variables).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>T_rel</code></td><td>Relative temperature signal</td></tr>
+</table>
+</body></html>

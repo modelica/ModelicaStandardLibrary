@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.Rotational.Interfaces.Flange_b</title>
+</head>
+<body>
+<h1><a href="Icons/f46f0e3e9803f0062708a588fd0e27d6d6a00588.svg"><img class="svgiconhead" src="Icons/f46f0e3e9803f0062708a588fd0e27d6d6a00588.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.html">Rotational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.Interfaces.html">Interfaces</a>.<span class="omc-h1">Flange_b</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This is a connector for 1-dim. rotational mechanical systems and
+models which represents a mechanical flange of a shaft. The
+following variables are defined in this connector:</p>
+<blockquote>
+<pre>
+phi: Absolute rotation angle of the shaft flange in [rad].
+tau: Cut-torque in the shaft flange in [Nm].
+</pre></blockquote>
+<p>There is a second connector for flanges: <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_a.html">Flange_a</a>.
+The connectors Flange_a and Flange_b are completely identical.
+There is only a difference in the icons, in order to easier
+identify a flange variable in a diagram. For a discussion on the
+actual direction of the cut-torque tau and of the rotation angle,
+see section <a href="Modelica.Mechanics.Rotational.UsersGuide.SignConventions.html">
+Sign Conventions</a> in the user's guide of Rotational.</p>
+<p>If needed, the absolute angular velocity w and the absolute
+angular acceleration a of the flange can be determined by
+differentiation of the flange angle phi:</p>
+<blockquote>
+<pre>
+w = der(phi);
+a = der(w);
+</pre></blockquote>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

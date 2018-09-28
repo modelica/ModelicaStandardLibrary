@@ -1,0 +1,171 @@
+<html><head><title>Modelica.Fluid.Pipes.BaseClasses</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="BaseClasses"><h1><embed class="icon" src="../../../images/icon1037.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Pipes</a>.&#8203;BaseClasses<br><span class="subtitle">Base classes used in the Pipes package (only of interest to build new component models)</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon shall be used for a package/library that contains base models and classes, respectively.</p>
+<p>Extends from <code><a href="../../../Icons/BasesPackage/index.html">Modelica.&#8203;Icons.&#8203;BasesPackage</a></code> (Icon for packages containing base classes).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="../../../Fluid/Pipes/BaseClasses/CharacteristicNumbers/index.html"><code>CharacteristicNumbers</code></a> &hellip;</td><td>Functions to compute characteristic numbers</td></tr>
+<tr><td><a href="../../../Fluid/Pipes/BaseClasses/FlowModels/index.html"><code>FlowModels</code></a> &hellip;</td><td>Flow models for pipes, including wall friction, static head and momentum flow</td></tr>
+<tr><td><a href="../../../Fluid/Pipes/BaseClasses/HeatTransfer/index.html"><code>HeatTransfer</code></a> &hellip;</td><td>Heat transfer for flow models</td></tr>
+<tr><td><a href="#PartialStraightPipe"><code>PartialStraightPipe</code></a></td><td>Base class for straight pipe models</td></tr>
+<tr><td><a href="#PartialTwoPortFlow"><code>PartialTwoPortFlow</code></a></td><td>Base class for distributed flow models</td></tr>
+<tr><td><a href="../../../Fluid/Pipes/BaseClasses/WallFriction/index.html"><code>WallFriction</code></a> &hellip;</td><td>Different variants for pressure drops due to pipe wall friction</td></tr>
+</table>
+<hr><a name="PartialStraightPipe"><h2><embed class="icon" src="../../../images/icon1334.svg" width="223" height="203" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Pipes</a>.&#8203;<a href="index.html">BaseClasses</a>.&#8203;PartialStraightPipe<br><span class="subtitle">Base class for straight pipe models</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Base class for one dimensional flow models. It specializes a PartialTwoPort with a parameter interface and icon graphics.
+</p>
+<p>Extends from <code><a href="../../../Fluid/Interfaces/index.html#PartialTwoPort">Modelica.&#8203;Fluid.&#8203;Interfaces.&#8203;PartialTwoPort</a></code> (Partial component with two ports).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code>Real</code></td><td><code>nParallel</code></td><td><code>1</code></td><td>Number of identical parallel pipes</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>length</code></td><td>&nbsp;</td><td>Length</td></tr>
+<tr><td><code>Boolean</code></td><td><code>isCircular</code></td><td><code>true</code></td><td>= true if cross sectional area is circular</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Diameter">Diameter</a></code></td><td><code>diameter</code></td><td>&nbsp;</td><td>Diameter of circular pipe</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Area">Area</a></code></td><td><code>crossArea</code></td><td><code>0.25 * (Modelica.Constants.pi * diameter * diameter)</code></td><td>Inner cross section area</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>perimeter</code></td><td><code>Modelica.Constants.pi * diameter</code></td><td>Inner perimeter</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Height">Height</a></code></td><td><code>roughness</code></td><td><code>2.5e-5</code></td><td>Average height of surface asperities (default: smooth steel pipe)</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Volume">Volume</a></code></td><td><code>V</code></td><td><code>crossArea * length * nParallel</code></td><td>volume size</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>height_ab</code></td><td><code>0</code></td><td>Height(port_b) - Height(port_a)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+</table>
+<hr><a name="PartialTwoPortFlow"><h2><embed class="icon" src="../../../images/icon1336.svg" width="223" height="203" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Pipes</a>.&#8203;<a href="index.html">BaseClasses</a>.&#8203;PartialTwoPortFlow<br><span class="subtitle">Base class for distributed flow models</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Base class for distributed flow models. The total volume is split into nNodes segments along the flow path.
+The default value is nNodes=2.
+</p>
+<h4>Mass and Energy balances</h4>
+<p>
+The mass and energy balances are inherited from <a href="../../../Fluid/Interfaces/index.html#PartialDistributedVolume">Interfaces.PartialDistributedVolume</a>.
+One total mass and one energy balance is formed across each segment according to the finite volume approach.
+Substance mass balances are added if the medium contains more than one component.
+</p>
+<p>
+An extending model needs to define the geometry and the difference in heights between the flow segments (static head).
+Moreover it needs to define two vectors of source terms for the distributed energy balance:
+</p>
+<ul>
+<li><code><strong>Qb_flows[nNodes]</strong></code>, the heat flow source terms, e.g., conductive heat flows across segment boundaries, and</li>
+<li><code><strong>Wb_flows[nNodes]</strong></code>, the work source terms.</li>
+</ul>
+
+<h4>Momentum balance</h4>
+<p>
+The momentum balance is determined by the <strong><code>FlowModel</code></strong> component, which can be replaced with any model extended from
+<a href="../../../Fluid/Pipes/BaseClasses/FlowModels/index.html#PartialStaggeredFlowModel">BaseClasses.FlowModels.PartialStaggeredFlowModel</a>.
+The default setting is <a href="../../../Fluid/Pipes/BaseClasses/FlowModels/index.html#DetailedPipeFlow">DetailedPipeFlow</a>.
+</p>
+<p>
+This considers
+</p>
+<ul>
+<li>pressure drop due to friction and other dissipative losses, and</li>
+<li>gravity effects for non-horizontal devices.</li>
+<li>variation of flow velocity along the flow path,
+which occur due to changes in the cross sectional area or the fluid density, provided that <code>flowModel.use_Ib_flows</code> is true.</li>
+</ul>
+
+<h4>Model Structure</h4>
+<p>
+The momentum balances are formulated across the segment boundaries along the flow path according to the staggered grid approach.
+The configurable <strong><code>modelStructure</code></strong> determines the formulation of the boundary conditions at <code>port_a</code> and <code>port_b</code>.
+The options include (default: av_vb):
+</p>
+<ul>
+<li><code>av_vb</code>: Symmetric setting with nNodes-1 momentum balances between nNodes flow segments.
+    The ports <code>port_a</code> and <code>port_b</code> expose the first and the last thermodynamic state, respectively.
+    Connecting two or more flow devices therefore may result in high-index DAEs for the pressures of connected flow segments.</li>
+<li><code>a_v_b</code>: Alternative symmetric setting with nNodes+1 momentum balances across nNodes flow segments.
+    Half momentum balances are placed between <code>port_a</code> and the first flow segment as well as between the last flow segment and <code>port_b</code>.
+    Connecting two or more flow devices therefore results in algebraic pressures at the ports.
+    The specification of good start values for the port pressures is essential for the solution of large nonlinear equation systems.</li>
+<li><code>av_b</code>: Asymmetric setting with nNodes momentum balances, one between nth volume and <code>port_b</code>, potential pressure state at <code>port_a</code></li>
+<li><code>a_vb</code>: Asymmetric setting with nNodes momentum balance, one between first volume and <code>port_a</code>, potential pressure state at <code>port_b</code></li>
+</ul>
+<p>
+When connecting two components, e.g., two pipes, the momentum balance across the connection point reduces to
+</p>
+<pre>pipe1.port_b.p = pipe2.port_a.p</pre>
+<p>
+This is only true if the flow velocity remains the same on each side of the connection.
+Consider using a fitting for any significant change in diameter or fluid density, if the resulting effects,
+such as change in kinetic energy, cannot be neglected.
+This also allows for taking into account friction losses with respect to the actual geometry of the connection point.
+</p>
+<p>Extends from <code><a href="../../../Fluid/Interfaces/index.html#PartialTwoPort">Modelica.&#8203;Fluid.&#8203;Interfaces.&#8203;PartialTwoPort</a></code> (Partial component with two ports) and <code><a href="../../../Fluid/Interfaces/index.html#PartialDistributedVolume">Modelica.&#8203;Fluid.&#8203;Interfaces.&#8203;PartialDistributedVolume</a></code> (Base class for distributed volume models).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>n</code></td><td><code>nNodes</code></td><td>Number of discrete volumes</td></tr>
+<tr><td><code><a href="../../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>energyDynamics</code></td><td><code>system.&#8203;energyDynamics</code></td><td>Formulation of energy balances</td></tr>
+<tr><td><code><a href="../../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>massDynamics</code></td><td><code>system.&#8203;massDynamics</code></td><td>Formulation of mass balances</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>substanceDynamics</code></td><td><code>massDynamics</code></td><td>Formulation of substance balances</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>traceDynamics</code></td><td><code>massDynamics</code></td><td>Formulation of trace substance balances</td></tr>
+<tr><td><code><a href="../../../Fluid/Pipes/BaseClasses/PartialTwoPortFlow/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_a_start</code></td><td><code>system.&#8203;p_start</code></td><td>Start value of pressure at port a</td></tr>
+<tr><td><code><a href="../../../Fluid/Pipes/BaseClasses/PartialTwoPortFlow/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_b_start</code></td><td><code>p_a_start</code></td><td>Start value of pressure at port b</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Fluid/Pipes/BaseClasses/PartialTwoPortFlow/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>ps_start[n]</code></td><td><code>if 1 &lt; n then linspace(p_a_start, p_b_start, n) else {0.5 * (p_a_start + p_b_start)}</code></td><td>Start value of pressure</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_T_start</code></td><td><code>true</code></td><td>Use T_start if true, otherwise h_start</td></tr>
+<tr><td><code><a href="../../../Fluid/Pipes/BaseClasses/PartialTwoPortFlow/Medium/index.html#Temperature">Temperature</a></code></td><td><code>T_start</code></td><td><code>if use_T_start then system.T_start else Medium.temperature_phX(0.5 * (p_a_start + p_b_start), h_start, X_start)</code></td><td>Start value of temperature</td></tr>
+<tr><td><code><a href="../../../Fluid/Pipes/BaseClasses/PartialTwoPortFlow/Medium/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_start</code></td><td><code>if use_T_start then Medium.specificEnthalpy_pTX(0.5 * (p_a_start + p_b_start), T_start, X_start) else Medium.h_default</code></td><td>Start value of specific enthalpy</td></tr>
+<tr><td><code><a href="../../../Fluid/Pipes/BaseClasses/PartialTwoPortFlow/Medium/index.html#MassFraction">MassFraction</a></code></td><td><code>X_start[Medium.nX]</code></td><td><code>Medium.&#8203;X_default</code></td><td>Start value of mass fractions m_i/m</td></tr>
+<tr><td><code><a href="../../../Fluid/Pipes/BaseClasses/PartialTwoPortFlow/Medium/index.html#ExtraProperty">ExtraProperty</a></code></td><td><code>C_start[Medium.nC]</code></td><td><code>Medium.&#8203;C_default</code></td><td>Start value of trace substances</td></tr>
+<tr><td><code>Real</code></td><td><code>nParallel</code></td><td><code>1</code></td><td>Number of identical parallel flow devices</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>lengths[n]</code></td><td>&nbsp;</td><td>lengths of flow segments</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Area">Area</a></code></td><td><code>crossAreas[n]</code></td><td>&nbsp;</td><td>cross flow areas of flow segments</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>dimensions[n]</code></td><td>&nbsp;</td><td>hydraulic diameters of flow segments</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Height">Height</a></code></td><td><code>roughnesses[n]</code></td><td>&nbsp;</td><td>Average heights of surface asperities</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>dheights[n]</code></td><td><code>zeros(n)</code></td><td>Differences in heights of flow segments</td></tr>
+<tr><td><code><a href="../../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>momentumDynamics</code></td><td><code>system.&#8203;momentumDynamics</code></td><td>Formulation of momentum balances</td></tr>
+<tr><td><code><a href="../../../Fluid/Pipes/BaseClasses/PartialTwoPortFlow/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_start</code></td><td><code>system.&#8203;m_flow_start</code></td><td>Start value for mass flow rate</td></tr>
+<tr><td><code>Integer</code></td><td><code>nNodes</code></td><td><code>2</code></td><td>Number of discrete flow volumes</td></tr>
+<tr><td><code><a href="../../../Fluid/Types/index.html#ModelStructure">ModelStructure</a></code></td><td><code>modelStructure</code></td><td><code>Types.&#8203;ModelStructure.&#8203;av_vb</code></td><td>Determines whether flow or volume models are present at the ports</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useLumpedPressure</code></td><td><code>false</code></td><td>=true to lump pressure states together</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nFM</code></td><td><code>if useLumpedPressure then nFMLumped else nFMDistributed</code></td><td>number of flow models in flowModel</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nFMDistributed</code></td><td><code>if modelStructure == Types.ModelStructure.a_v_b then n + 1 else if modelStructure == Types.ModelStructure.a_vb or modelStructure == Types.ModelStructure.av_b then n else n - 1</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nFMLumped</code></td><td><code>if modelStructure == Types.ModelStructure.a_v_b then 2 else 1</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>iLumped</code></td><td><code>integer(0.5 * n) + 1</code></td><td>Index of control volume with representative state if useLumpedPressure</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useInnerPortProperties</code></td><td><code>false</code></td><td>=true to take port properties for flow models from internal control volumes</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+</table>
+</body></html>

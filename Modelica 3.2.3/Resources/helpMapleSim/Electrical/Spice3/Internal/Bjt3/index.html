@@ -1,0 +1,444 @@
+<html><head><title>Modelica.Electrical.Spice3.Internal.Bjt3</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Bjt3"><h1><embed class="icon" src="../../../../images/icon0921.svg" width="207" height="207" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;Bjt3<br><span class="subtitle">Records and functions for bjt model, obsolete</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>The package Bjt3 is obsolete. Please use package Bjt instead.</p>
+<p>This package Bjt3 contains functions and records with data of the Bjt3 bipolar transistor models.</p>
+<p>Extends from <code><a href="../../../../Icons/InternalPackage/index.html">Modelica.&#8203;Icons.&#8203;InternalPackage</a></code> (Icon for an internal package (indicating that the package should not be directly utilized by user)) and <code><a href="../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Bjt"><code>Bjt</code></a></td><td>Record for bjt device parameters, obsolete</td></tr>
+<tr><td><a href="#Bjt3"><code>Bjt3</code></a></td><td>Record for bjt3 device parameters, obsolete</td></tr>
+<tr><td><a href="#Bjt3Calc"><code>Bjt3Calc</code></a></td><td>Bjt3 variables, obsolete</td></tr>
+<tr><td><a href="#bjt3CalcTempDependencies"><code>bjt3CalcTempDependencies</code></a></td><td>Temperature dependency calculation, obsolete</td></tr>
+<tr><td><a href="#bjt3InitEquations"><code>bjt3InitEquations</code></a></td><td>Initial calculation, obsolete</td></tr>
+<tr><td><a href="#bjt3NoBypassCode"><code>bjt3NoBypassCode</code></a></td><td>Calculation of currents, obsolete</td></tr>
+<tr><td><a href="#Bjt3Variables"><code>Bjt3Variables</code></a></td><td>Variables for the bjt3 model, obsolete</td></tr>
+<tr><td><a href="#bjtInitEquations"><code>bjtInitEquations</code></a></td><td>Initial calculation, obsolete</td></tr>
+<tr><td><a href="#bjtModelLineInitEquations"><code>bjtModelLineInitEquations</code></a></td><td>Initial calculation, obsolete</td></tr>
+<tr><td><a href="#BjtModelLineParams"><code>BjtModelLineParams</code></a></td><td>Record for bjt model line parameters, obsolete</td></tr>
+<tr><td><a href="#BjtModelLineVariables"><code>BjtModelLineVariables</code></a></td><td>Record for bjt model line variables, obsolete</td></tr>
+<tr><td><a href="#bjtNoBypassCode"><code>bjtNoBypassCode</code></a></td><td>Calculation of currents, obsolete</td></tr>
+<tr><td><a href="#bjtRenameParameters"><code>bjtRenameParameters</code></a></td><td>Technology parameter renaming, obsolete</td></tr>
+<tr><td><a href="#bjtRenameParametersDev"><code>bjtRenameParametersDev</code></a></td><td>Temperature calculation, obsolete</td></tr>
+<tr><td><a href="#bjtRenameParametersDevTemp"><code>bjtRenameParametersDevTemp</code></a></td><td>Temperature calculation, obsolete</td></tr>
+<tr><td><a href="#bjtRenameParametersType"><code>bjtRenameParametersType</code></a></td><td>Type, obsolete</td></tr>
+<tr><td><a href="#BjtVariables"><code>BjtVariables</code></a></td><td>Variables for the bjt model, obsolete</td></tr>
+<tr><td><a href="#CurrentsCapacitances"><code>CurrentsCapacitances</code></a></td><td>Bjt3 variables, obsolete</td></tr>
+</table>
+<hr><a name="BjtModelLineParams"><h2><embed class="icon" src="../../../../images/icon0918.svg" width="207" height="207" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Bjt3</a>.&#8203;BjtModelLineParams<br><span class="subtitle">Record for bjt model line parameters, obsolete</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This record contains the model line (also called model card) parameters that are used for the bipolar transistor model in SPICE3.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records) and <code><a href="../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>m_type</code></td><td>device type : 1 = n,  -1 = p</td></tr>
+<tr><td><code>Boolean</code></td><td><code>m_bNPN</code></td><td>NPN type device</td></tr>
+<tr><td><code>Boolean</code></td><td><code>m_bPNP</code></td><td>PNP type device</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>m_tnom</code></td><td>TNOM, Parameter measurement temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_satCur</code></td><td>IS, Saturation Current</td></tr>
+<tr><td><code>Real</code></td><td><code>m_betaF</code></td><td>BF, Ideal forward beta</td></tr>
+<tr><td><code>Real</code></td><td><code>m_emissionCoeffF</code></td><td>NF, Forward emission coefficient</td></tr>
+<tr><td><code>Real</code></td><td><code>m_leakBEemissionCoeff</code></td><td>NE, B-E leakage emission coefficient</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_leakBEcurrent</code></td><td>ISE, B-E leakage saturation current</td></tr>
+<tr><td><code>Real</code></td><td><code>m_c2</code></td><td>C2, Obsolete parameter name</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_leakBCcurrent</code></td><td>ISC, B-C leakage saturation current</td></tr>
+<tr><td><code>Real</code></td><td><code>m_c4</code></td><td>C4, Obsolete parameter name</td></tr>
+<tr><td><code>Real</code></td><td><code>m_leakBEcurrentIsGiven</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_c2IsGiven</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_leakBCcurrentIsGiven</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_c4IsGiven</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_betaR</code></td><td>BR, Ideal reverse beta</td></tr>
+<tr><td><code>Real</code></td><td><code>m_emissionCoeffR</code></td><td>NR, Reverse emission coefficient</td></tr>
+<tr><td><code>Real</code></td><td><code>m_leakBCemissionCoeff</code></td><td>NC, B-C leakage emission coefficient</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_earlyVoltF</code></td><td>VAF, Forward Early voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_rollOffF</code></td><td>IKF, Forward beta roll-off corner current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_earlyVoltR</code></td><td>VAR, Reverse Early voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_rollOffR</code></td><td>IKR, reverse beta roll-off corner current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>m_emitterResist</code></td><td>RE, Emitter resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>m_collectorResist</code></td><td>RC, Collector resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_baseCurrentHalfResist</code></td><td>IRB, Current for base resistance=(rb+rbm)/2</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>m_baseResist</code></td><td>RB, Zero bias base resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>m_minBaseResist</code></td><td>RBM, Minimum base resistance</td></tr>
+<tr><td><code>Real</code></td><td><code>m_minBaseResistIsGiven</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_depletionCapBE</code></td><td>CJE, Zero bias B-E depletion capacitance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_potentialBE</code></td><td>VJE, B-E built in potential</td></tr>
+<tr><td><code>Real</code></td><td><code>m_junctionExpBE</code></td><td>MJE, B-E built in potential</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>m_transitTimeF</code></td><td>TF, Ideal forward transit time</td></tr>
+<tr><td><code>Real</code></td><td><code>m_transitTimeBiasCoeffF</code></td><td>XTF, Coefficient for bias dependence of TF</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_transitTimeHighCurrentF</code></td><td>ITF, High current dependence of TF</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_transitTimeFVBC</code></td><td>VTF, Voltage giving VBC dependence of TF</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>m_excessPhase</code></td><td>PTF, Excess phase</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_depletionCapBC</code></td><td>CJC, Zero bias B-C depletion capacitance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_potentialBC</code></td><td>VJC, B-C built in potential</td></tr>
+<tr><td><code>Real</code></td><td><code>m_junctionExpBC</code></td><td>MJC, B-C junction grading coefficient</td></tr>
+<tr><td><code>Real</code></td><td><code>m_baseFractionBCcap</code></td><td>XCJC, Fraction of B-C cap to internal base</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>m_transitTimeR</code></td><td>TR, Ideal reverse transit time</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_capCS</code></td><td>CJS, Zero bias C-S capacitance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_potentialSubstrate</code></td><td>VJS, Zero bias C-S capacitance</td></tr>
+<tr><td><code>Real</code></td><td><code>m_exponentialSubstrate</code></td><td>MJS, Substrate junction grading coefficient</td></tr>
+<tr><td><code>Real</code></td><td><code>m_betaExp</code></td><td>XTB, Forward and reverse beta temp. exp.</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#GapEnergy">GapEnergy</a></code></td><td><code>m_energyGap</code></td><td>EG, Energy gap for IS temp. dependency</td></tr>
+<tr><td><code>Real</code></td><td><code>m_tempExpIS</code></td><td>XTI,Temp. exponent for IS</td></tr>
+<tr><td><code>Real</code></td><td><code>m_fNcoef</code></td><td>KF, Flicker Noise Coefficient</td></tr>
+<tr><td><code>Real</code></td><td><code>m_fNexp</code></td><td>AF, Flicker Noise Exponent</td></tr>
+<tr><td><code>Real</code></td><td><code>m_depletionCapCoeff</code></td><td>FC, Forward bias junction fit parameter</td></tr>
+<tr><td><code>Real</code></td><td><code>m_collectorConduct</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_emitterConduct</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_transitTimeVBCFactor</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_excessPhaseFactor</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_invEarlyVoltF</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Types/index.html#InverseElectricCurrent">InverseElectricCurrent</a></code></td><td><code>m_invRollOffF</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_invEarlyVoltR</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Types/index.html#InverseElectricCurrent">InverseElectricCurrent</a></code></td><td><code>m_invRollOffR</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="BjtModelLineVariables"><h2><embed class="icon" src="../../../../images/icon0918.svg" width="207" height="207" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Bjt3</a>.&#8203;BjtModelLineVariables<br><span class="subtitle">Record for bjt model line variables, obsolete</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This record contains the model line (also called model card) variables that are used for the bipolar transistor model in SPICE3.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records) and <code><a href="../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_leakBEcurrent</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_leakBCcurrent</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>m_minBaseResist</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_invEarlyVoltF</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_invRollOffF</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_invEarlyVoltR</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_invRollOffR</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>m_collectorConduct</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>m_emitterConduct</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_transitTimeVBCFactor</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_excessPhaseFactor</code></td><td>&nbsp</td></tr>
+<tr><td><code>Integer</code></td><td><code>m_type</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="bjtModelLineInitEquations"><h2><embed class="icon" src="../../../../images/icon0920.svg" width="207" height="207" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Bjt3</a>.&#8203;bjtModelLineInitEquations<br><span class="subtitle">Initial calculation, obsolete</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Within this function some parameters are initially precalculated from model line parameters.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions) and <code><a href="../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#BjtModelLineParams">BjtModelLineParams</a></code></td><td><code>in_p</code></td><td>Input record with Bjt model line parameters</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#BjtModelLineVariables">BjtModelLineVariables</a></code></td><td><code>out_v</code></td><td>Output record with Bjt model line variables</td></tr>
+</table>
+<hr><a name="Bjt3"><h2><embed class="icon" src="../../../../images/icon0918.svg" width="207" height="207" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Bjt3</a>.&#8203;Bjt3<br><span class="subtitle">Record for bjt3 device parameters, obsolete</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This record contains the device parameters that are used for the bipolar transistor bjt3 model in SPICE3.</p>
+<p>Extends from <code><a href="../../../../Electrical/Spice3/Internal/Model/index.html#Model">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;Model.&#8203;Model</a></code> (Device Temperature), <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records), and <code><a href="../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>m_dTemp</code></td><td>TEMP, Device Temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>m_area</code></td><td>AREA</td></tr>
+<tr><td><code>Boolean</code></td><td><code>m_bOff</code></td><td>OFF</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_dICvbe</code></td><td>IC_VBE</td></tr>
+<tr><td><code>Real</code></td><td><code>m_bICvbeIsGiven</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_dICvce</code></td><td>IC_VCE</td></tr>
+<tr><td><code>Real</code></td><td><code>m_bICvceIsGiven</code></td><td>&nbsp</td></tr>
+<tr><td><code>Boolean</code></td><td><code>m_bSensArea</code></td><td>SENS_AREA</td></tr>
+<tr><td><code>Real</code></td><td><code>m_transitTimeHighCurrentF</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Types/index.html#InverseElectricCurrent">InverseElectricCurrent</a></code></td><td><code>m_invRollOffF</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Types/index.html#InverseElectricCurrent">InverseElectricCurrent</a></code></td><td><code>m_invRollOffR</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Bjt3Variables"><h2><embed class="icon" src="../../../../images/icon0918.svg" width="207" height="207" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Bjt3</a>.&#8203;Bjt3Variables<br><span class="subtitle">Variables for the bjt3 model, obsolete</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This record contains the model variables that are used for the bipolar transistor bjt3 model in SPICE3.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records) and <code><a href="../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_transitTimeHighCurrentF</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_invRollOffF</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_invRollOffR</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Bjt3Calc"><h2><embed class="icon" src="../../../../images/icon0918.svg" width="207" height="207" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Bjt3</a>.&#8203;Bjt3Calc<br><span class="subtitle">Bjt3 variables, obsolete</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This record contains the model variables that are used for the bipolar transistor model in SPICE3.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records) and <code><a href="../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_tSatCur</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_tBetaF</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_tBetaR</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_tBEleakCur</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_tBCleakCur</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_tBEcap</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_tBEpot</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_tBCcap</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_tBCpot</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_tDepCapBE</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_tDepCapBC</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_tVcrit</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_dVt</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_tF1c</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_f2c</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_f3c</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_tF1e</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_f2e</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_f3e</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="CurrentsCapacitances"><h2><embed class="icon" src="../../../../images/icon0918.svg" width="207" height="207" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Bjt3</a>.&#8203;CurrentsCapacitances<br><span class="subtitle">Bjt3 variables, obsolete</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This record contains the model variables that are used for the bipolar transistor model in SPICE3.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records) and <code><a href="../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>iBE</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>iBEN</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>iBC</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>iBCN</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>iCC</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>capbc</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>capbe</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>capbx</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>iXX</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>capcs</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="bjt3InitEquations"><h2><embed class="icon" src="../../../../images/icon0920.svg" width="207" height="207" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Bjt3</a>.&#8203;bjt3InitEquations<br><span class="subtitle">Initial calculation, obsolete</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Within this function some parameters are initially precalculated from model line parameters.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions) and <code><a href="../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#Bjt3">Bjt3</a></code></td><td><code>in_p</code></td><td>Input record Bjt3</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#BjtModelLineParams">BjtModelLineParams</a></code></td><td><code>in_pml</code></td><td>Input record with Bjt model line parameters</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#BjtModelLineVariables">BjtModelLineVariables</a></code></td><td><code>in_vl</code></td><td>Input record with Bjt model line variables</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#Bjt3Variables">Bjt3Variables</a></code></td><td><code>out_v</code></td><td>Output record with Bjt variables</td></tr>
+</table>
+<hr><a name="bjt3CalcTempDependencies"><h2><embed class="icon" src="../../../../images/icon0920.svg" width="207" height="207" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Bjt3</a>.&#8203;bjt3CalcTempDependencies<br><span class="subtitle">Temperature dependency calculation, obsolete</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>In this function for the bipolar transistor model temperature dependencies are calculated using temperature treating functions from the equation package.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions) and <code><a href="../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#Bjt3">Bjt3</a></code></td><td><code>in_p3</code></td><td>Input record Bjt3</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#BjtModelLineParams">BjtModelLineParams</a></code></td><td><code>in_p</code></td><td>Input record with Bjt model line parameters</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Model/index.html#Model">Model</a></code></td><td><code>m</code></td><td>Input record model</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#BjtModelLineVariables">BjtModelLineVariables</a></code></td><td><code>in_vl</code></td><td>Input record with Bjt model line variables</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#Bjt3Calc">Bjt3Calc</a></code></td><td><code>out_c</code></td><td>Output record Bjt3Calc</td></tr>
+</table>
+<hr><a name="bjt3NoBypassCode"><h2><embed class="icon" src="../../../../images/icon0920.svg" width="207" height="207" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Bjt3</a>.&#8203;bjt3NoBypassCode<br><span class="subtitle">Calculation of currents, obsolete</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function NoBypassCode calculates the currents (and the capacitances) that are necessary for the currents to be used in the top-level model.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions) and <code><a href="../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Model/index.html#Model">Model</a></code></td><td><code>in_m</code></td><td>Input record model</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#Bjt">Bjt</a></code></td><td><code>in_p3</code></td><td>Input record Bjt3</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#BjtModelLineParams">BjtModelLineParams</a></code></td><td><code>in_p</code></td><td>Input record with Bjt model line parameters</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#Bjt3Calc">Bjt3Calc</a></code></td><td><code>in_c</code></td><td>Input record Bjt3Calc</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#BjtModelLineVariables">BjtModelLineVariables</a></code></td><td><code>in_vl</code></td><td>Input record with Bjt model line variables</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>in_m_pVoltageValues[6]</code></td><td>&nbsp</td></tr>
+<tr><td><code>Boolean</code></td><td><code>in_m_bInit</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#CurrentsCapacitances">CurrentsCapacitances</a></code></td><td><code>out_cc</code></td><td>Output record with calculated currents and capacitances</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>capbe</code></td><td>Capacitance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>capbc</code></td><td>Capacitance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>capbx</code></td><td>Capacitance</td></tr>
+</table>
+<hr><a name="Bjt"><h2><embed class="icon" src="../../../../images/icon0918.svg" width="207" height="207" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Bjt3</a>.&#8203;Bjt<br><span class="subtitle">Record for bjt device parameters, obsolete</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This record contains the device parameters that are used for the bipolar transistor bjt model in SPICE3.</p>
+<p>Extends from <code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#Bjt3">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;Bjt3.&#8203;Bjt3</a></code> (Record for bjt3 device parameters, obsolete).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>m_dTemp</code></td><td>TEMP, Device Temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>m_area</code></td><td>AREA</td></tr>
+<tr><td><code>Boolean</code></td><td><code>m_bOff</code></td><td>OFF</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_dICvbe</code></td><td>IC_VBE</td></tr>
+<tr><td><code>Real</code></td><td><code>m_bICvbeIsGiven</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_dICvce</code></td><td>IC_VCE</td></tr>
+<tr><td><code>Real</code></td><td><code>m_bICvceIsGiven</code></td><td>&nbsp</td></tr>
+<tr><td><code>Boolean</code></td><td><code>m_bSensArea</code></td><td>SENS_AREA</td></tr>
+<tr><td><code>Real</code></td><td><code>m_transitTimeHighCurrentF</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Types/index.html#InverseElectricCurrent">InverseElectricCurrent</a></code></td><td><code>m_invRollOffF</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Types/index.html#InverseElectricCurrent">InverseElectricCurrent</a></code></td><td><code>m_invRollOffR</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="BjtVariables"><h2><embed class="icon" src="../../../../images/icon0918.svg" width="207" height="207" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Bjt3</a>.&#8203;BjtVariables<br><span class="subtitle">Variables for the bjt model, obsolete</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This record contains the model variables that are used for the bipolar transistor bjt model in SPICE3.</p>
+<p>Extends from <code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#Bjt3Variables">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;Bjt3.&#8203;Bjt3Variables</a></code> (Variables for the bjt3 model, obsolete).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_transitTimeHighCurrentF</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_invRollOffF</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_invRollOffR</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_CScap</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="bjtInitEquations"><h2><embed class="icon" src="../../../../images/icon0920.svg" width="207" height="207" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Bjt3</a>.&#8203;bjtInitEquations<br><span class="subtitle">Initial calculation, obsolete</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Within this function some parameters are initially precalculated from model line parameters.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions) and <code><a href="../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#Bjt">Bjt</a></code></td><td><code>in_p</code></td><td>Input record Bjt</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#BjtModelLineParams">BjtModelLineParams</a></code></td><td><code>in_pml</code></td><td>Input record with Bjt model line parameters</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#BjtModelLineVariables">BjtModelLineVariables</a></code></td><td><code>in_vl</code></td><td>Input record with Bjt model line variables</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#BjtVariables">BjtVariables</a></code></td><td><code>out_v</code></td><td>Output record with Bjt variables</td></tr>
+</table>
+<hr><a name="bjtNoBypassCode"><h2><embed class="icon" src="../../../../images/icon0920.svg" width="207" height="207" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Bjt3</a>.&#8203;bjtNoBypassCode<br><span class="subtitle">Calculation of currents, obsolete</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function NoBypassCode calculates the currents (and the capacitances) that are necessary for the currents to be used in the top-level model.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions) and <code><a href="../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Model/index.html#Model">Model</a></code></td><td><code>in_m</code></td><td>Input record model</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#Bjt3">Bjt3</a></code></td><td><code>in_p3</code></td><td>Input record Bjt3</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#BjtModelLineParams">BjtModelLineParams</a></code></td><td><code>in_p</code></td><td>Input record with Bjt model line parameters</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#Bjt3Calc">Bjt3Calc</a></code></td><td><code>in_c</code></td><td>Input record Bjt3Calc</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#BjtVariables">BjtVariables</a></code></td><td><code>in_v</code></td><td>Input record with Bjt variables</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#BjtModelLineVariables">BjtModelLineVariables</a></code></td><td><code>in_vl</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>in_m_pVoltageValues[6]</code></td><td>&nbsp</td></tr>
+<tr><td><code>Boolean</code></td><td><code>in_m_bInit</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#CurrentsCapacitances">CurrentsCapacitances</a></code></td><td><code>out_cc</code></td><td>Output record with calculated currents and capacitances</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>capbe</code></td><td>Capacitance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>capbc</code></td><td>Capacitance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>capbx</code></td><td>Capacitance</td></tr>
+</table>
+<hr><a name="bjtRenameParameters"><h2><embed class="icon" src="../../../../images/icon0920.svg" width="207" height="207" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Bjt3</a>.&#8203;bjtRenameParameters<br><span class="subtitle">Technology parameter renaming, obsolete</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function assigns the external (given by the user, e.g., IS) technology parameters
+to the internal parameters (e.g., m_satCur). It also does the analysis of the IsGiven values.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions) and <code><a href="../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/index.html#ModelcardBJT">ModelcardBJT</a></code></td><td><code>ex</code></td><td>Modelcard with technology parameters</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/index.html#SpiceConstants">SpiceConstants</a></code></td><td><code>con</code></td><td>Spice constants</td></tr>
+<tr><td><code>Real</code></td><td><code>TBJT</code></td><td>Type</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#BjtModelLineParams">BjtModelLineParams</a></code></td><td><code>intern</code></td><td>Output record with Bjt model line parameters</td></tr>
+</table>
+<hr><a name="bjtRenameParametersDev"><h2><embed class="icon" src="../../../../images/icon0920.svg" width="207" height="207" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Bjt3</a>.&#8203;bjtRenameParametersDev<br><span class="subtitle">Temperature calculation, obsolete</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function assigns the external (given by the user, e.g., AREA) device parameters to the internal parameters (e.g., m_area). It also does the analysis of the IsGiven values.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions) and <code><a href="../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>AREA</code></td><td>Area factor</td></tr>
+<tr><td><code>Boolean</code></td><td><code>OFF</code></td><td>Optional initial condition: false - IC not used, true - IC used, not implemented yet</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC_VBE</code></td><td>Initial condition value, not yet implemented</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC_VCE</code></td><td>Initial condition value, not yet implemented</td></tr>
+<tr><td><code>Boolean</code></td><td><code>SENS_AREA</code></td><td>Flag for sensitivity analysis, not yet implemented</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#Bjt3">Bjt3</a></code></td><td><code>dev</code></td><td>Output record Bjt3</td></tr>
+</table>
+<hr><a name="bjtRenameParametersDevTemp"><h2><embed class="icon" src="../../../../images/icon0920.svg" width="207" height="207" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Bjt3</a>.&#8203;bjtRenameParametersDevTemp<br><span class="subtitle">Temperature calculation, obsolete</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function calculates device parameters which are temperature dependent.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions) and <code><a href="../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>TEMP</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Model/index.html#Model">Model</a></code></td><td><code>m</code></td><td>Output record model</td></tr>
+</table>
+<hr><a name="bjtRenameParametersType"><h2><embed class="icon" src="../../../../images/icon0920.svg" width="207" height="207" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Bjt3</a>.&#8203;bjtRenameParametersType<br><span class="subtitle">Type, obsolete</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function assigns the external (given by the user, e.g. AREA) device parameters to the internal parameters (e.g. m_area). It also does the analysis of the IsGiven values.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions) and <code><a href="../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>TBJT</code></td><td>Type</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Bjt3/index.html#BjtModelLineParams">BjtModelLineParams</a></code></td><td><code>dev_type</code></td><td>Output record Bjt3</td></tr>
+</table>
+</body></html>

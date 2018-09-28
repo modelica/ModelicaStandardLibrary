@@ -1,0 +1,142 @@
+<html><head><title>Modelica.StateGraph.Temporary</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Temporary"><h1><embed class="icon" src="../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;Temporary<br><span class="subtitle">Components that will be provided by other libraries in the future</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This library is just temporarily present. The components of
+this library will be present in the future in the Modelica
+standard library (with the new block connectors) and in the
+UserInteraction library that is currently under development.
+</p>
+<p>Extends from <code><a href="../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#allTrue"><code>allTrue</code></a></td><td>Returns true, if all elements of the Boolean input vector are true</td></tr>
+<tr><td><a href="#anyTrue"><code>anyTrue</code></a></td><td>Returns true, if at least on element of the Boolean input vector is true</td></tr>
+<tr><td><a href="#IndicatorLamp"><code>IndicatorLamp</code></a></td><td>Dynamically show Boolean input signal (false/true = white/green color)</td></tr>
+<tr><td><a href="#NumericValue"><code>NumericValue</code></a></td><td>Show value of Real input signal dynamically</td></tr>
+<tr><td><a href="#RadioButton"><code>RadioButton</code></a></td><td>Button that sets its output to true when pressed and is reset when an element of 'reset' becomes true</td></tr>
+<tr><td><a href="#SetRealParameter"><code>SetRealParameter</code></a></td><td>Define Real parameter (GUI not yet satisfactory)</td></tr>
+</table>
+<hr><a name="SetRealParameter"><h2><embed class="icon" src="../../images/icon0363.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Temporary</a>.&#8203;SetRealParameter<br><span class="subtitle">Define Real parameter (GUI not yet satisfactory)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is an <strong>experimental component</strong> to define a
+<strong>Real parameter</strong>
+in the <strong>diagram layer</strong>. The idea is to drag the icon from the
+package browser into the diagram layer. Then a window pops
+up in which the properties of this parameter can be defined
+(such as the default value). The name and default value of the
+parameter are displayed in the icon of this component. Whenever
+clicking on it, the dialog to change parameter settings pops-up.
+</p>
+<p>
+In Dymola, the described property is not fully available.
+Currently, when dragging this component in the diagram layer,
+a dialog pops up in which the properties of the parameter
+can be defined. However, afterwards, the parameter is not
+visible in the diagram layer. Making it visible requires to
+go into the text layer and add an annotation with the
+component size, resulting for example in:
+</p>
+<pre>
+  <strong>parameter</strong> StateGraph.Temporary.SetRealParameter name = 2
+                       <strong>annotation</strong>(Placement(transformation(extent={{-10,-10},{10,10}})));
+</pre>
+<p>
+This change makes the parameter icon visible in the
+diagram layer. However, clicking on this icon has no
+effect. Changing parameter properties, such as the default
+value, still requires to go in to the text layer.
+</p>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="anyTrue"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Temporary</a>.&#8203;anyTrue<br><span class="subtitle">Returns true, if at least on element of the Boolean input vector is true</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>b[:]</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>result</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="allTrue"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Temporary</a>.&#8203;allTrue<br><span class="subtitle">Returns true, if all elements of the Boolean input vector are true</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>b[:]</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>result</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="RadioButton"><h2><embed class="icon" src="../../images/icon0364.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Temporary</a>.&#8203;RadioButton<br><span class="subtitle">Button that sets its output to true when pressed and is reset when an element of 'reset' becomes true</span></h2></a>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>buttonTimeTable[:]</code></td><td><code>{0}</code></td><td>Time instants where button is pressed and released</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>on</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="NumericValue"><h2><embed class="icon" src="../../images/icon0365.svg" width="243" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Temporary</a>.&#8203;NumericValue<br><span class="subtitle">Show value of Real input signal dynamically</span></h2></a>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>precision</code></td><td><code>3</code></td><td>Number of significant digits to be shown</td></tr>
+<tr><td><code>Boolean</code></td><td><code>hideConnector</code></td><td><code>false</code></td><td>= true, if connector is not shown in the dynamic object diagram</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>Value</code></td><td>Real value to be shown in icon</td></tr>
+</table>
+<hr><a name="IndicatorLamp"><h2><embed class="icon" src="../../images/icon0366.svg" width="243" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Temporary</a>.&#8203;IndicatorLamp<br><span class="subtitle">Dynamically show Boolean input signal (false/true = white/green color)</span></h2></a>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

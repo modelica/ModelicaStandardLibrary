@@ -1,0 +1,159 @@
+<html><head><title>Modelica.Utilities.Internal.FileSystem</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="FileSystem"><h1><embed class="icon" src="../../../images/icon0034.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;FileSystem<br><span class="subtitle">Internal package with external functions as interface to the file system</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Package <strong>Internal.FileSystem</strong> is an internal package that contains
+low level functions as interface to the file system.
+These functions should not be called directly in a scripting
+environment since more convenient functions are provided
+in packages Files and Systems.
+</p>
+<p>
+Note, the functions in this package are direct interfaces to
+functions of POSIX and of the standard C library. Errors
+occurring in these functions are treated by triggering
+a Modelica assert. Therefore, the functions in this package
+return only for a successful operation. Furthermore, the
+representation of a string is hidden by this interface,
+especially if the operating system supports Unicode characters.
+</p>
+<p>Extends from <code><a href="../../../Icons/InternalPackage/index.html">Modelica.&#8203;Icons.&#8203;InternalPackage</a></code> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#copyFile"><code>copyFile</code></a></td><td>Copy existing file (C functions 'fopen', 'getc', 'putc', 'fclose')</td></tr>
+<tr><td><a href="#getNumberOfFiles"><code>getNumberOfFiles</code></a></td><td>Get number of files and directories in a directory (POSIX functions opendir, readdir, closedir)</td></tr>
+<tr><td><a href="#mkdir"><code>mkdir</code></a></td><td>Make directory (POSIX: 'mkdir')</td></tr>
+<tr><td><a href="#readDirectory"><code>readDirectory</code></a></td><td>Read names of a directory (POSIX functions opendir, readdir, closedir)</td></tr>
+<tr><td><a href="#removeFile"><code>removeFile</code></a></td><td>Remove existing file (C function 'remove')</td></tr>
+<tr><td><a href="#rename"><code>rename</code></a></td><td>Rename existing file or directory (C function 'rename')</td></tr>
+<tr><td><a href="#rmdir"><code>rmdir</code></a></td><td>Remove empty directory (POSIX function 'rmdir')</td></tr>
+<tr><td><a href="#stat"><code>stat</code></a></td><td>Inquire file information (POSIX function 'stat')</td></tr>
+</table>
+<hr><a name="mkdir"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">FileSystem</a>.&#8203;mkdir<br><span class="subtitle">Make directory (POSIX: 'mkdir')</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>directoryName</code></td><td>Make a new directory</td></tr>
+</table>
+<hr><a name="rmdir"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">FileSystem</a>.&#8203;rmdir<br><span class="subtitle">Remove empty directory (POSIX function 'rmdir')</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>directoryName</code></td><td>Empty directory to be removed</td></tr>
+</table>
+<hr><a name="stat"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">FileSystem</a>.&#8203;stat<br><span class="subtitle">Inquire file information (POSIX function 'stat')</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>name</code></td><td>Name of file, directory, pipe etc.</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Utilities/Types/index.html#FileType">FileType</a></code></td><td><code>fileType</code></td><td>Type of file</td></tr>
+</table>
+<hr><a name="rename"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">FileSystem</a>.&#8203;rename<br><span class="subtitle">Rename existing file or directory (C function 'rename')</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>oldName</code></td><td>Current name</td></tr>
+<tr><td><code>String</code></td><td><code>newName</code></td><td>New name</td></tr>
+</table>
+<hr><a name="removeFile"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">FileSystem</a>.&#8203;removeFile<br><span class="subtitle">Remove existing file (C function 'remove')</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>fileName</code></td><td>File to be removed</td></tr>
+</table>
+<hr><a name="copyFile"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">FileSystem</a>.&#8203;copyFile<br><span class="subtitle">Copy existing file (C functions 'fopen', 'getc', 'putc', 'fclose')</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>fromName</code></td><td>Name of file to be copied</td></tr>
+<tr><td><code>String</code></td><td><code>toName</code></td><td>Name of copy of file</td></tr>
+</table>
+<hr><a name="readDirectory"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">FileSystem</a>.&#8203;readDirectory<br><span class="subtitle">Read names of a directory (POSIX functions opendir, readdir, closedir)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>directory</code></td><td>Name of the directory from which information is desired</td></tr>
+<tr><td><code>Integer</code></td><td><code>nNames</code></td><td>Number of names that are returned (inquire with getNumberOfFiles)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>names[nNames]</code></td><td>All file and directory names in any order from the desired directory</td></tr>
+</table>
+<hr><a name="getNumberOfFiles"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">FileSystem</a>.&#8203;getNumberOfFiles<br><span class="subtitle">Get number of files and directories in a directory (POSIX functions opendir, readdir, closedir)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>directory</code></td><td>Directory name</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>result</code></td><td>Number of files and directories present in 'directory'</td></tr>
+</table>
+</body></html>

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator</title>
+</head>
+<body>
+<h1><a href="Icons/571420b9cfd39799048c042d4521eb6f57b7864a.svg"><img class="svgiconhead" src="Icons/571420b9cfd39799048c042d4521eb6f57b7864a.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Magnetic.html">Magnetic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.html">MovingCoilActuator</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.html">Components</a>.<span class="omc-h1">ConstantActuator</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Similar to rotational DC-Motors, the electro-mechanical energy
+conversion of translatory electrodynamic actuators and generators
+of moving coil and moving magnet type can be described with the
+following two converter equations:</p>
+<pre>
+      F = c * i
+    V_i = c * v
+</pre>
+<p>with electrodynamic or <em>Lorentz</em> force F, converter
+constant c, current i, induced back-emf V_i and armature velocity
+v. The model is very similar to the well-known behavioural model of
+a rotational one-phase DC-Machine, except that it is for
+translatory motion. For a moving coil actuator with a coil inside
+an air gap with flux density B and a total wire length l inside the
+magnetic field, the converter constant becomes</p>
+<pre>
+    c = B * l.
+</pre>
+<p>The converter constant c as well as coil resistance R and
+inductance L are assumed to be known, e.g., from measurements or
+catalogue data. Hence this model is well-suited for system
+simulation together with neighbouring subsystems, but not for
+actuator design, where the motor constant is to be found on base of
+the magnetic circuit's geometry, material properties and winding
+data. See <a href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator.html">
+PermeanceActuator</a> for a more accurate model of this actuator
+that is based on a magnetic network. Due to identical connectors,
+both models can be used in system simulation, e.g. to simulate a
+stroke as demonstrated in <a href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ArmatureStroke.html">
+ArmatureStroke</a>.</p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

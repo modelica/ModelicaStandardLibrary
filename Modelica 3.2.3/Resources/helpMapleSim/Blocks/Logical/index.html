@@ -1,0 +1,616 @@
+<html><head><title>Modelica.Blocks.Logical</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Logical"><h1><embed class="icon" src="../../images/icon0099.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;Logical<br><span class="subtitle">Library of components with Boolean input and output signals</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package provides blocks with Boolean input and output signals
+to describe logical networks. A typical example for a logical
+network built with package Logical is shown in the next figure:
+</p>
+
+<p>
+<img src="../../../Images/Blocks/LogicalNetwork1.png"
+     alt="LogicalNetwork1.png">
+</p>
+
+<p>
+The actual value of Boolean input and/or output signals is displayed
+in the respective block icon as "circle", where "white" color means
+value <strong>false</strong> and "green" color means value <strong>true</strong>. These
+values are visualized in a diagram animation.
+</p>
+<p>Extends from <code><a href="../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#And"><code>And</code></a></td><td>Logical 'and': y = u1 and u2</td></tr>
+<tr><td><a href="#Change"><code>Change</code></a></td><td>Output y is true, if the input u has a rising or falling edge (y = change(u))</td></tr>
+<tr><td><a href="#Edge"><code>Edge</code></a></td><td>Output y is true, if the input u has a rising edge (y = edge(u))</td></tr>
+<tr><td><a href="#FallingEdge"><code>FallingEdge</code></a></td><td>Output y is true, if the input u has a falling edge (y = edge(not u))</td></tr>
+<tr><td><a href="#Greater"><code>Greater</code></a></td><td>Output y is true, if input u1 is greater than input u2</td></tr>
+<tr><td><a href="#GreaterEqual"><code>GreaterEqual</code></a></td><td>Output y is true, if input u1 is greater or equal than input u2</td></tr>
+<tr><td><a href="#GreaterEqualThreshold"><code>GreaterEqualThreshold</code></a></td><td>Output y is true, if input u is greater or equal than threshold</td></tr>
+<tr><td><a href="#GreaterThreshold"><code>GreaterThreshold</code></a></td><td>Output y is true, if input u is greater than threshold</td></tr>
+<tr><td><a href="#Hysteresis"><code>Hysteresis</code></a></td><td>Transform Real to Boolean signal with Hysteresis</td></tr>
+<tr><td><a href="#Less"><code>Less</code></a></td><td>Output y is true, if input u1 is less than input u2</td></tr>
+<tr><td><a href="#LessEqual"><code>LessEqual</code></a></td><td>Output y is true, if input u1 is less or equal than input u2</td></tr>
+<tr><td><a href="#LessEqualThreshold"><code>LessEqualThreshold</code></a></td><td>Output y is true, if input u is less or equal than threshold</td></tr>
+<tr><td><a href="#LessThreshold"><code>LessThreshold</code></a></td><td>Output y is true, if input u is less than threshold</td></tr>
+<tr><td><a href="#LogicalSwitch"><code>LogicalSwitch</code></a></td><td>Logical Switch</td></tr>
+<tr><td><a href="#Nand"><code>Nand</code></a></td><td>Logical 'nand': y = not (u1 and u2)</td></tr>
+<tr><td><a href="#Nor"><code>Nor</code></a></td><td>Logical 'nor': y = not (u1 or u2)</td></tr>
+<tr><td><a href="#Not"><code>Not</code></a></td><td>Logical 'not': y = not u</td></tr>
+<tr><td><a href="#OnOffController"><code>OnOffController</code></a></td><td>On-off controller</td></tr>
+<tr><td><a href="#Or"><code>Or</code></a></td><td>Logical 'or': y = u1 or u2</td></tr>
+<tr><td><a href="#Pre"><code>Pre</code></a></td><td>Breaks algebraic loops by an infinitesimal small time delay (y = pre(u): event iteration continues until u = pre(u))</td></tr>
+<tr><td><a href="#RSFlipFlop"><code>RSFlipFlop</code></a></td><td>A basic RS Flip Flop</td></tr>
+<tr><td><a href="#Switch"><code>Switch</code></a></td><td>Switch between two Real signals</td></tr>
+<tr><td><a href="#TerminateSimulation"><code>TerminateSimulation</code></a></td><td>Terminate simulation if condition is fulfilled</td></tr>
+<tr><td><a href="#Timer"><code>Timer</code></a></td><td>Timer measuring the time from the time instant where the Boolean input became true</td></tr>
+<tr><td><a href="#TriggeredTrapezoid"><code>TriggeredTrapezoid</code></a></td><td>Triggered trapezoid generator</td></tr>
+<tr><td><a href="#Xor"><code>Xor</code></a></td><td>Logical 'xor': y = u1 xor u2</td></tr>
+<tr><td><a href="#ZeroCrossing"><code>ZeroCrossing</code></a></td><td>Trigger zero crossing of input u</td></tr>
+</table>
+<hr><a name="And"><h2><embed class="icon" src="../../images/icon0100.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;And<br><span class="subtitle">Logical 'and': y = u1 and u2</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output is <strong>true</strong> if all inputs are <strong>true</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanSI2SO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanSI2SO</a></code> (Partial block with 2 input and 1 output Boolean signal).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u1</code></td><td>Connector of first Boolean input signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u2</code></td><td>Connector of second Boolean input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="Or"><h2><embed class="icon" src="../../images/icon0101.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;Or<br><span class="subtitle">Logical 'or': y = u1 or u2</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output is <strong>true</strong> if at least one input is <strong>true</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanSI2SO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanSI2SO</a></code> (Partial block with 2 input and 1 output Boolean signal).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u1</code></td><td>Connector of first Boolean input signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u2</code></td><td>Connector of second Boolean input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="Xor"><h2><embed class="icon" src="../../images/icon0102.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;Xor<br><span class="subtitle">Logical 'xor': y = u1 xor u2</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output is <strong>true</strong> if exactly one input is <strong>true</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanSI2SO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanSI2SO</a></code> (Partial block with 2 input and 1 output Boolean signal).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u1</code></td><td>Connector of first Boolean input signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u2</code></td><td>Connector of second Boolean input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="Nor"><h2><embed class="icon" src="../../images/icon0103.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;Nor<br><span class="subtitle">Logical 'nor': y = not (u1 or u2)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output is <strong>true</strong> if none of the inputs is <strong>true</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanSI2SO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanSI2SO</a></code> (Partial block with 2 input and 1 output Boolean signal).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u1</code></td><td>Connector of first Boolean input signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u2</code></td><td>Connector of second Boolean input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="Nand"><h2><embed class="icon" src="../../images/icon0104.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;Nand<br><span class="subtitle">Logical 'nand': y = not (u1 and u2)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output is <strong>true</strong> if at least one input is <strong>false</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanSI2SO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanSI2SO</a></code> (Partial block with 2 input and 1 output Boolean signal).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u1</code></td><td>Connector of first Boolean input signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u2</code></td><td>Connector of second Boolean input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="Not"><h2><embed class="icon" src="../../images/icon0105.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;Not<br><span class="subtitle">Logical 'not': y = not u</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output is <strong>true</strong> if the input is <strong>false</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanSISO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanSISO</a></code> (Partial block with 1 input and 1 output Boolean signal).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u</code></td><td>Connector of Boolean input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="Pre"><h2><embed class="icon" src="../../images/icon0106.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;Pre<br><span class="subtitle">Breaks algebraic loops by an infinitesimal small time delay (y = pre(u): event iteration continues until u = pre(u))</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block delays the Boolean input by an infinitesimal small time delay and
+therefore breaks algebraic loops. In a network of logical blocks, in every
+"closed connection loop" at least one logical block must have a delay,
+since algebraic systems of Boolean equations are not solvable.
+</p>
+
+<p>
+The "Pre" block returns the value of the "input" signal from the
+last "event iteration". The "event iteration" stops, once both
+values are identical (u = pre(u)).
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanSISO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanSISO</a></code> (Partial block with 1 input and 1 output Boolean signal).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>pre_u_start</code></td><td><code>false</code></td><td>Start value of pre(u) at initial time</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u</code></td><td>Connector of Boolean input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="Edge"><h2><embed class="icon" src="../../images/icon0107.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;Edge<br><span class="subtitle">Output y is true, if the input u has a rising edge (y = edge(u))</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output is <strong>true</strong> if the Boolean input has a rising edge
+from <strong>false</strong> to <strong>true</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanSISO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanSISO</a></code> (Partial block with 1 input and 1 output Boolean signal).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>pre_u_start</code></td><td><code>false</code></td><td>Start value of pre(u) at initial time</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u</code></td><td>Connector of Boolean input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="FallingEdge"><h2><embed class="icon" src="../../images/icon0108.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;FallingEdge<br><span class="subtitle">Output y is true, if the input u has a falling edge (y = edge(not u))</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output is <strong>true</strong> if the Boolean input has a falling edge
+from <strong>true</strong> to <strong>false</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanSISO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanSISO</a></code> (Partial block with 1 input and 1 output Boolean signal).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>pre_u_start</code></td><td><code>false</code></td><td>Start value of pre(u) at initial time</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u</code></td><td>Connector of Boolean input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="Change"><h2><embed class="icon" src="../../images/icon0109.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;Change<br><span class="subtitle">Output y is true, if the input u has a rising or falling edge (y = change(u))</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output is <strong>true</strong> if the Boolean input has either a rising edge
+from <strong>false</strong> to <strong>true</strong> or a falling edge from
+<strong>true</strong> to <strong>false</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanSISO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanSISO</a></code> (Partial block with 1 input and 1 output Boolean signal).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>pre_u_start</code></td><td><code>false</code></td><td>Start value of pre(u) at initial time</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u</code></td><td>Connector of Boolean input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="GreaterThreshold"><h2><embed class="icon" src="../../images/icon0110.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;GreaterThreshold<br><span class="subtitle">Output y is true, if input u is greater than threshold</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output is <strong>true</strong> if the Real input is greater than
+parameter <strong>threshold</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanThresholdComparison">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanThresholdComparison</a></code> (Partial block to compare the Real input u with a threshold and provide the result as 1 Boolean output signal).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>threshold</code></td><td><code>0</code></td><td>Comparison with respect to threshold</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="GreaterEqualThreshold"><h2><embed class="icon" src="../../images/icon0111.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;GreaterEqualThreshold<br><span class="subtitle">Output y is true, if input u is greater or equal than threshold</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output is <strong>true</strong> if the Real input is greater than or equal to
+parameter <strong>threshold</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanThresholdComparison">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanThresholdComparison</a></code> (Partial block to compare the Real input u with a threshold and provide the result as 1 Boolean output signal).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>threshold</code></td><td><code>0</code></td><td>Comparison with respect to threshold</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="LessThreshold"><h2><embed class="icon" src="../../images/icon0112.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;LessThreshold<br><span class="subtitle">Output y is true, if input u is less than threshold</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output is <strong>true</strong> if the Real input is less than
+parameter <strong>threshold</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanThresholdComparison">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanThresholdComparison</a></code> (Partial block to compare the Real input u with a threshold and provide the result as 1 Boolean output signal).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>threshold</code></td><td><code>0</code></td><td>Comparison with respect to threshold</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="LessEqualThreshold"><h2><embed class="icon" src="../../images/icon0113.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;LessEqualThreshold<br><span class="subtitle">Output y is true, if input u is less or equal than threshold</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output is <strong>true</strong> if the Real input is less than or equal to
+parameter <strong>threshold</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanThresholdComparison">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanThresholdComparison</a></code> (Partial block to compare the Real input u with a threshold and provide the result as 1 Boolean output signal).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>threshold</code></td><td><code>0</code></td><td>Comparison with respect to threshold</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="Greater"><h2><embed class="icon" src="../../images/icon0114.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;Greater<br><span class="subtitle">Output y is true, if input u1 is greater than input u2</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output is <strong>true</strong> if Real input u1 is greater than
+Real input u2, otherwise the output is <strong>false</strong>.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanComparison">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanComparison</a></code> (Partial block with 2 Real input and 1 Boolean output signal (the result of a comparison of the two Real inputs)).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u1</code></td><td>Connector of first Real input signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u2</code></td><td>Connector of second Real input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="GreaterEqual"><h2><embed class="icon" src="../../images/icon0115.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;GreaterEqual<br><span class="subtitle">Output y is true, if input u1 is greater or equal than input u2</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output is <strong>true</strong> if Real input u1 is greater than or equal to
+Real input u2, otherwise the output is <strong>false</strong>.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanComparison">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanComparison</a></code> (Partial block with 2 Real input and 1 Boolean output signal (the result of a comparison of the two Real inputs)).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u1</code></td><td>Connector of first Real input signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u2</code></td><td>Connector of second Real input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="Less"><h2><embed class="icon" src="../../images/icon0116.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;Less<br><span class="subtitle">Output y is true, if input u1 is less than input u2</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output is <strong>true</strong> if Real input u1 is less than
+Real input u2, otherwise the output is <strong>false</strong>.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanComparison">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanComparison</a></code> (Partial block with 2 Real input and 1 Boolean output signal (the result of a comparison of the two Real inputs)).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u1</code></td><td>Connector of first Real input signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u2</code></td><td>Connector of second Real input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="LessEqual"><h2><embed class="icon" src="../../images/icon0117.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;LessEqual<br><span class="subtitle">Output y is true, if input u1 is less or equal than input u2</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output is <strong>true</strong> if Real input u1 is less than or equal to
+Real input u2, otherwise the output is <strong>false</strong>.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanComparison">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanComparison</a></code> (Partial block with 2 Real input and 1 Boolean output signal (the result of a comparison of the two Real inputs)).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u1</code></td><td>Connector of first Real input signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u2</code></td><td>Connector of second Real input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="ZeroCrossing"><h2><embed class="icon" src="../../images/icon0118.svg" width="263" height="243" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;ZeroCrossing<br><span class="subtitle">Trigger zero crossing of input u</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output "y" is <strong>true</strong> at the
+time instant when the input "u" becomes
+zero, provided the input "enable" is
+<strong>true</strong>. At all other time instants, the output "y" is <strong>false</strong>.
+If the input "u" is zero at a time instant when the "enable"
+input changes its value, then the output y is <strong>false</strong>.
+</p>
+<p>
+Note, that in the plot window of a Modelica simulator, the output of
+this block is usually identically to <strong>false</strong>, because the output
+may only be <strong>true</strong> at an event instant, but not during
+continuous integration. In order to check that this component is
+actually working as expected, one should connect its output to, e.g.,
+component <em><a href="../../Blocks/Discrete/index.html#TriggeredSampler">Modelica.Blocks.Discrete.TriggeredSampler</a></em>.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanSO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanSO</a></code> (Partial block with 1 output Boolean signal).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>enable</code></td><td>Zero input crossing is triggered if the enable input signal is true</td></tr>
+</table>
+<hr><a name="LogicalSwitch"><h2><embed class="icon" src="../../images/icon0119.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;LogicalSwitch<br><span class="subtitle">Logical Switch</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The LogicalSwitch switches, depending on the
+Boolean u2 connector (the middle connector),
+between the two possible input signals
+u1 (upper connector) and u3 (lower connector).</p>
+<p>If u2 is true, connector y is set equal to
+u1, else it is set equal to u3.</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanSI3SO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanSI3SO</a></code> (Partial block with 3 input and 1 output Boolean signal).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u1</code></td><td>Connector of first Boolean input signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u2</code></td><td>Connector of second Boolean input signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u3</code></td><td>Connector of third Boolean input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="Switch"><h2><embed class="icon" src="../../images/icon0120.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;Switch<br><span class="subtitle">Switch between two Real signals</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The Logical.Switch switches, depending on the
+logical connector u2 (the middle connector)
+between the two possible input signals
+u1 (upper connector) and u3 (lower connector).</p>
+<p>If u2 is <strong>true</strong>, the output signal y is set equal to
+u1, else it is set equal to u3.</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#PartialBooleanBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;PartialBooleanBlock</a></code> (Basic graphical layout of logical block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u1</code></td><td>Connector of first Real input signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u2</code></td><td>Connector of Boolean input signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u3</code></td><td>Connector of second Real input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="Hysteresis"><h2><embed class="icon" src="../../images/icon0121.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;Hysteresis<br><span class="subtitle">Transform Real to Boolean signal with Hysteresis</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block transforms a <strong>Real</strong> input signal into a <strong>Boolean</strong>
+output signal:
+</p>
+<ul>
+<li> When the output was <strong>false</strong> and the input becomes
+     <strong>greater</strong> than parameter <strong>uHigh</strong>, the output
+     switches to <strong>true</strong>.</li>
+<li> When the output was <strong>true</strong> and the input becomes
+     <strong>less</strong> than parameter <strong>uLow</strong>, the output
+     switches to <strong>false</strong>.</li>
+</ul>
+<p>
+The start value of the output is defined via parameter
+<strong>pre_y_start</strong> (= value of pre(y) at initial time).
+The default value of this parameter is <strong>false</strong>.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#PartialBooleanBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;PartialBooleanBlock</a></code> (Basic graphical layout of logical block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>uLow</code></td><td>&nbsp;</td><td>if y=true and u&lt;=uLow, switch to y=false</td></tr>
+<tr><td><code>Real</code></td><td><code>uHigh</code></td><td>&nbsp;</td><td>if y=false and u&gt;=uHigh, switch to y=true</td></tr>
+<tr><td><code>Boolean</code></td><td><code>pre_y_start</code></td><td><code>false</code></td><td>Value of pre(y) at initial time</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="OnOffController"><h2><embed class="icon" src="../../images/icon0122.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;OnOffController<br><span class="subtitle">On-off controller</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The block OnOffController sets the output signal <strong>y</strong> to <strong>true</strong> when
+the input signal <strong>u</strong> falls below the <strong>reference</strong> signal minus half of
+the bandwidth and sets the output signal <strong>y</strong> to <strong>false</strong> when the input
+signal <strong>u</strong> exceeds the <strong>reference</strong> signal plus half of the bandwidth.</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#PartialBooleanBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;PartialBooleanBlock</a></code> (Basic graphical layout of logical block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>bandwidth</code></td><td>&nbsp;</td><td>Bandwidth around reference signal</td></tr>
+<tr><td><code>Boolean</code></td><td><code>pre_y_start</code></td><td><code>false</code></td><td>Value of pre(y) at initial time</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>reference</code></td><td>Connector of Real input signal used as reference signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal used as measurement signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal used as actuator signal</td></tr>
+</table>
+<hr><a name="TriggeredTrapezoid"><h2><embed class="icon" src="../../images/icon0123.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;TriggeredTrapezoid<br><span class="subtitle">Triggered trapezoid generator</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The block TriggeredTrapezoid has a Boolean input and a real
+output signal and requires the parameters <em>amplitude</em>,
+<em>rising</em>, <em>falling</em> and <em>offset</em>. The
+output signal <strong>y</strong> represents a trapezoidal signal dependent on the
+input signal <strong>u</strong>.
+</p>
+<p>The behaviour is as follows: Assume the initial input to be false. In this
+case, the output will be <em>offset</em>. After a rising edge (i.e., the input
+changes from false to true), the output is rising during <em>rising</em> to the
+sum of <em>offset</em> and <em>amplitude</em>. In contrast, after a falling
+edge (i.e., the input changes from true to false), the output is falling
+during <em>falling</em> to a value of <em>offset</em>.
+</p>
+<p>Note, that the case of edges before expiration of rising or falling is
+handled properly.</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#PartialBooleanBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;PartialBooleanBlock</a></code> (Basic graphical layout of logical block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>amplitude</code></td><td><code>1</code></td><td>Amplitude of trapezoid</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>rising</code></td><td><code>0</code></td><td>Rising duration of trapezoid</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>falling</code></td><td><code>rising</code></td><td>Falling duration of trapezoid</td></tr>
+<tr><td><code>Real</code></td><td><code>offset</code></td><td><code>0</code></td><td>Offset of output signal</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u</code></td><td>Connector of Boolean input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="Timer"><h2><embed class="icon" src="../../images/icon0124.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;Timer<br><span class="subtitle">Timer measuring the time from the time instant where the Boolean input became true</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>When the Boolean input "u" becomes <strong>true</strong>, the timer starts
+and the output "y" is the time that has elapsed since "u" became <strong>true</strong>.
+When the input becomes <strong>false</strong>, the timer stops and the output is reset to zero.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#PartialBooleanBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;PartialBooleanBlock</a></code> (Basic graphical layout of logical block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u</code></td><td>Connector of Boolean input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="RSFlipFlop"><h2><embed class="icon" src="../../images/icon0125.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;RSFlipFlop<br><span class="subtitle">A basic RS Flip Flop</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output <code>Q</code> is set by the input <code>S</code>, is reset by the input <code>R</code>, and keeps its value in between. <code>QI</code> is the inverse of <code>Q</code>.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#PartialBooleanBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;PartialBooleanBlock</a></code> (Basic graphical layout of logical block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>Qini</code></td><td><code>false</code></td><td>Start value of Q at initial time</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>Q</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>QI</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>S</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>R</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="TerminateSimulation"><h2><embed class="icon" src="../../images/icon0126.svg" width="423" height="43" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Logical</a>.&#8203;TerminateSimulation<br><span class="subtitle">Terminate simulation if condition is fulfilled</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+In the parameter menu, a <strong>time varying</strong> expression can be defined
+via variable <strong>condition</strong>, for example "condition = x &lt; 0",
+where "x" is a variable that is declared in the model in which the
+"TerminateSimulation" block is present.
+If this expression becomes <strong>true</strong>,
+the simulation is (successfully) terminated. A termination message
+explaining the reason for the termination can be given via
+parameter "terminationText".
+</p>
+
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>terminationText</code></td><td><code>"... End condition reached"</code></td><td>Text that will be displayed when simulation is terminated</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>condition</code></td><td>Terminate simulation when condition becomes true</td></tr>
+</table>
+</body></html>

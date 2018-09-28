@@ -1,0 +1,16 @@
+<svg width="213" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.Digital.Gates.NandGate" class="component">
+		<polygon points="51.5,201.5 151.5,201.5 151.5,1.5 51.5,1.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="151.5,101.5 191.5,101.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="51.5,201.5 151.5,201.5 151.5,1.5 51.5,1.5" fill="#D5AAFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="101.5" y="60.7" text-anchor="middle" fill="#000000" font-size="53.1px" font-family="sans-serif">&amp;</text>
+		<text x="101.5" y="187.3" text-anchor="middle" fill="#000000" font-size="29.2px" font-family="sans-serif">Gate</text>
+		<polygon points="163.5,101.5 163.5,101.0 163.4,100.5 163.3,100.0 163.1,99.5 163.0,99.0 162.7,98.5 162.4,98.1 162.1,97.7 161.8,97.3 161.4,97.0 161.0,96.6 160.6,96.3 160.1,96.1 159.6,95.9 159.2,95.7 158.7,95.6 158.1,95.5 157.6,95.5 157.1,95.5 156.6,95.6 156.1,95.7 155.6,95.8 155.1,96.0 154.7,96.2 154.2,96.5 153.8,96.8 153.4,97.1 153.0,97.5 152.7,97.9 152.4,98.3 152.2,98.8 151.9,99.2 151.8,99.7 151.6,100.2 151.5,100.7 151.5,101.2 151.5,101.8 151.5,102.3 151.6,102.8 151.8,103.3 151.9,103.8 152.2,104.2 152.4,104.7 152.7,105.1 153.0,105.5 153.4,105.9 153.8,106.2 154.2,106.5 154.7,106.8 155.1,107.0 155.6,107.2 156.1,107.3 156.6,107.4 157.1,107.5 157.6,107.5 158.1,107.5 158.7,107.4 159.2,107.3 159.6,107.1 160.1,106.9 160.6,106.7 161.0,106.4 161.4,106.0 161.8,105.7 162.1,105.3 162.4,104.9 162.7,104.5 163.0,104.0 163.1,103.5 163.3,103.0 163.4,102.5 163.5,102.0" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="x" class="port">
+			<polygon points="31.5,181.5 51.5,181.5 51.5,21.5 31.5,21.5" fill="#7F007F" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="y" class="port">
+			<polygon points="191.5,91.5 211.5,101.5 191.5,111.5" fill="#FFFFFF" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,301 @@
+<html><head><title>Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Isentropic"><h1><embed class="icon" src="../../../../../images/icon0092.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;Isentropic<br><span class="subtitle">Functions for calculating the isentropic enthalpy from pressure p and specific entropy s</span></h1></a>
+<h3>Information</h3>
+<p>
+<h4>Package description</h4>
+          <h4>Package contents</h4>
+          <ul>
+          <li>Function <strong>hofpT1</strong> computes h(p,T) in region 1.</li>
+          <li>Function <strong>handsofpT1</strong> computes (s,h)=f(p,T) in region 1, needed for two-phase properties.</li>
+          <li>Function <strong>hofps1</strong> computes h(p,s) in region 1.</li>
+          <li>Function <strong>hofpT2</strong> computes h(p,T) in region 2.</li>
+          <li>Function <strong>handsofpT2</strong> computes (s,h)=f(p,T) in region 2, needed for two-phase properties.</li>
+          <li>Function <strong>hofps2</strong> computes h(p,s) in region 2.</li>
+          <li>Function <strong>hofdT3</strong> computes h(d,T) in region 3.</li>
+          <li>Function <strong>hofpsdt3</strong> computes h(p,s,dguess,Tguess) in region 3, where dguess and Tguess are initial guess
+          values for the density and temperature consistent with p and s.</li>
+          <li>Function <strong>hofps4</strong> computes h(p,s) in region 4.</li>
+          <li>Function <strong>hofpT5</strong> computes h(p,T) in region 5.</li>
+          <li>Function <strong>water_hisentropic</strong> computes h(p,s,phase) in all regions.
+          The phase input is needed due to discontinuous derivatives at the phase boundary.</li>
+          <li>Function <strong>water_hisentropic_dyn</strong> computes h(p,s,dguess,Tguess,phase) in all regions.
+          The phase input is needed due to discontinuous derivatives at the phase boundary. Tguess and dguess are initial guess
+          values for the density and temperature consistent with p and s. This function should be preferred in
+          dynamic simulations where good guesses are often available.</li>
+          </ul>
+          <h4>Version Info and Revision history
+          </h4>
+          <ul>
+          <li>First implemented: <em>July, 2000</em>
+          by Hubertus Tummescheit
+          </li>
+          </ul>
+          <address>Author: Hubertus Tummescheit,<br>
+      Modelon AB<br>
+      Ideon Science Park<br>
+      SE-22370 Lund, Sweden<br>
+      email: hubertus@modelon.se
+          </address>
+          <ul>
+          <li>Initial version: July 2000</li>
+          <li>Documentation added: December 2002</li>
+          </ul>
+          
+<p>Extends from <code><a href="../../../../../Icons/FunctionsPackage/index.html">Modelica.&#8203;Icons.&#8203;FunctionsPackage</a></code> (Icon for packages containing functions).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#handsofpT1"><code>handsofpT1</code></a></td><td>Special function for specific enthalpy and specific entropy in region 1</td></tr>
+<tr><td><a href="#handsofpT2"><code>handsofpT2</code></a></td><td>Function for isentropic specific enthalpy and specific entropy in region 2</td></tr>
+<tr><td><a href="#hofdT3"><code>hofdT3</code></a></td><td>Function for isentropic specific enthalpy in region 3</td></tr>
+<tr><td><a href="#hofps1"><code>hofps1</code></a></td><td>Function for isentropic specific enthalpy in region 1</td></tr>
+<tr><td><a href="#hofps2"><code>hofps2</code></a></td><td>Function for isentropic specific enthalpy in region 2</td></tr>
+<tr><td><a href="#hofps3"><code>hofps3</code></a></td><td>Isentropic specific enthalpy in region 3 h(p,s)</td></tr>
+<tr><td><a href="#hofps4"><code>hofps4</code></a></td><td>Isentropic specific enthalpy in region 4 h(p,s)</td></tr>
+<tr><td><a href="#hofpsdt3"><code>hofpsdt3</code></a></td><td>Isentropic specific enthalpy in region 3 h(p,s) with given good guess in d and T</td></tr>
+<tr><td><a href="#hofpT1"><code>hofpT1</code></a></td><td>Intermediate function for isentropic specific enthalpy in region 1</td></tr>
+<tr><td><a href="#hofpT2"><code>hofpT2</code></a></td><td>Intermediate function for isentropic specific enthalpy in region 2</td></tr>
+<tr><td><a href="#hofpT5"><code>hofpT5</code></a></td><td>Specific enthalpy in region 5 h(p,T)</td></tr>
+<tr><td><a href="#water_hisentropic"><code>water_hisentropic</code></a></td><td>Isentropic specific enthalpy from p,s (preferably use water_hisentropic_dyn in dynamic simulation!)</td></tr>
+<tr><td><a href="#water_hisentropic_dyn"><code>water_hisentropic_dyn</code></a></td><td>Isentropic specific enthalpy from p,s and good guesses of d and T</td></tr>
+</table>
+<hr><a name="hofpT1"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Isentropic</a>.&#8203;hofpT1<br><span class="subtitle">Intermediate function for isentropic specific enthalpy in region 1</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature (K)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<hr><a name="handsofpT1"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Isentropic</a>.&#8203;handsofpT1<br><span class="subtitle">Special function for specific enthalpy and specific entropy in region 1</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature (K)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+</table>
+<hr><a name="hofps1"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Isentropic</a>.&#8203;hofps1<br><span class="subtitle">Function for isentropic specific enthalpy in region 1</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<hr><a name="hofpT2"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Isentropic</a>.&#8203;hofpT2<br><span class="subtitle">Intermediate function for isentropic specific enthalpy in region 2</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature (K)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<hr><a name="handsofpT2"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Isentropic</a>.&#8203;handsofpT2<br><span class="subtitle">Function for isentropic specific enthalpy and specific entropy in region 2</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature (K)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+</table>
+<hr><a name="hofps2"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Isentropic</a>.&#8203;hofps2<br><span class="subtitle">Function for isentropic specific enthalpy in region 2</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<hr><a name="hofdT3"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Isentropic</a>.&#8203;hofdT3<br><span class="subtitle">Function for isentropic specific enthalpy in region 3</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature (K)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<hr><a name="hofps3"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Isentropic</a>.&#8203;hofps3<br><span class="subtitle">Isentropic specific enthalpy in region 3 h(p,s)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<hr><a name="hofpsdt3"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Isentropic</a>.&#8203;hofpsdt3<br><span class="subtitle">Isentropic specific enthalpy in region 3 h(p,s) with given good guess in d and T</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>dguess</code></td><td>Good guess density, e.g., from adjacent volume</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>Tguess</code></td><td>Good guess temperature, e.g., from adjacent volume</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>delp</code></td><td>Relative error in p</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>dels</code></td><td>Relative error in s</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<hr><a name="hofps4"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Isentropic</a>.&#8203;hofps4<br><span class="subtitle">Isentropic specific enthalpy in region 4 h(p,s)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<hr><a name="hofpT5"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Isentropic</a>.&#8203;hofpT5<br><span class="subtitle">Specific enthalpy in region 5 h(p,T)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature (K)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<hr><a name="water_hisentropic"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Isentropic</a>.&#8203;water_hisentropic<br><span class="subtitle">Isentropic specific enthalpy from p,s (preferably use water_hisentropic_dyn in dynamic simulation!)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code>Integer</code></td><td><code>phase</code></td><td>Phase: 2 for two-phase, 1 for one phase, 0 if unknown</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<hr><a name="water_hisentropic_dyn"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Isentropic</a>.&#8203;water_hisentropic_dyn<br><span class="subtitle">Isentropic specific enthalpy from p,s and good guesses of d and T</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>dguess</code></td><td>Good guess density, e.g., from adjacent volume</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>Tguess</code></td><td>Good guess temperature, e.g., from adjacent volume</td></tr>
+<tr><td><code>Integer</code></td><td><code>phase</code></td><td>1 for one phase, 2 for two phase</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+</body></html>

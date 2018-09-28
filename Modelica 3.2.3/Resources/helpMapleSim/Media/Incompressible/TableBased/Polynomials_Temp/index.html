@@ -1,0 +1,271 @@
+<html><head><title>Modelica.Media.Incompressible.TableBased.Polynomials_Temp</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Polynomials_Temp"><h1><embed class="icon" src="../../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Incompressible</a>.&#8203;<a href="../index.html">TableBased</a>.&#8203;Polynomials_Temp<br><span class="subtitle">Temporary Functions operating on polynomials (including polynomial fitting); only to be used in Modelica.Media.Incompressible.TableBased</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains functions to operate on polynomials,
+in particular to determine the derivative and the integral
+of a polynomial and to use a polynomial to fit a given set
+of data points.
+</p>
+
+<p><strong>Copyright &copy; 2004-2018, Modelica Association and DLR.</strong></p>
+
+<p><em>
+This package is <strong>free</strong> software. It can be redistributed and/or modified
+under the terms of the <strong>Modelica license</strong>, see the license conditions
+and the accompanying <strong>disclaimer</strong> in the documentation of package
+Modelica in file "Modelica/package.mo".
+</em>
+</p>
+
+<p>Extends from <code><a href="../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#derivative"><code>derivative</code></a></td><td>Derivative of polynomial</td></tr>
+<tr><td><a href="#derivativeValue"><code>derivativeValue</code></a></td><td>Value of derivative of polynomial at abscissa value u</td></tr>
+<tr><td><a href="#derivativeValue_der"><code>derivativeValue_der</code></a></td><td>Time derivative of derivative of polynomial</td></tr>
+<tr><td><a href="#evaluate"><code>evaluate</code></a></td><td>Evaluate polynomial at a given abscissa value</td></tr>
+<tr><td><a href="#evaluate_der"><code>evaluate_der</code></a></td><td>Evaluate derivative of polynomial at a given abscissa value</td></tr>
+<tr><td><a href="#evaluateWithRange"><code>evaluateWithRange</code></a></td><td>Evaluate polynomial at a given abscissa value with linear extrapolation outside of the defined range</td></tr>
+<tr><td><a href="#evaluateWithRange_der"><code>evaluateWithRange_der</code></a></td><td>Evaluate derivative of polynomial at a given abscissa value with extrapolation outside of the defined range</td></tr>
+<tr><td><a href="#fitting"><code>fitting</code></a></td><td>Computes the coefficients of a polynomial that fits a set of data points in a least-squares sense</td></tr>
+<tr><td><a href="#integral"><code>integral</code></a></td><td>Indefinite integral of polynomial p(u)</td></tr>
+<tr><td><a href="#integralValue"><code>integralValue</code></a></td><td>Integral of polynomial p(u) from u_low to u_high</td></tr>
+<tr><td><a href="#integralValue_der"><code>integralValue_der</code></a></td><td>Time derivative of integral of polynomial p(u) from u_low to u_high, assuming only u_high as time-dependent (Leibniz rule)</td></tr>
+<tr><td><a href="#secondDerivativeValue"><code>secondDerivativeValue</code></a></td><td>Value of 2nd derivative of polynomial at abscissa value u</td></tr>
+</table>
+<hr><a name="evaluate"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Incompressible</a>.&#8203;<a href="../index.html">TableBased</a>.&#8203;<a href="index.html">Polynomials_Temp</a>.&#8203;evaluate<br><span class="subtitle">Evaluate polynomial at a given abscissa value</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>p[:]</code></td><td>Polynomial coefficients (p[1] is coefficient of highest power)</td></tr>
+<tr><td><code>Real</code></td><td><code>u</code></td><td>Abscissa value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>Value of polynomial at u</td></tr>
+</table>
+<hr><a name="evaluateWithRange"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Incompressible</a>.&#8203;<a href="../index.html">TableBased</a>.&#8203;<a href="index.html">Polynomials_Temp</a>.&#8203;evaluateWithRange<br><span class="subtitle">Evaluate polynomial at a given abscissa value with linear extrapolation outside of the defined range</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>p[:]</code></td><td>Polynomial coefficients (p[1] is coefficient of highest power)</td></tr>
+<tr><td><code>Real</code></td><td><code>uMin</code></td><td>Polynomial valid in the range uMin .. uMax</td></tr>
+<tr><td><code>Real</code></td><td><code>uMax</code></td><td>Polynomial valid in the range uMin .. uMax</td></tr>
+<tr><td><code>Real</code></td><td><code>u</code></td><td>Abscissa value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>Value of polynomial at u. Outside of uMin,uMax, linear extrapolation is used</td></tr>
+</table>
+<hr><a name="derivative"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Incompressible</a>.&#8203;<a href="../index.html">TableBased</a>.&#8203;<a href="index.html">Polynomials_Temp</a>.&#8203;derivative<br><span class="subtitle">Derivative of polynomial</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>p1[:]</code></td><td>Polynomial coefficients (p1[1] is coefficient of highest power)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>p2[size(p1, 1) - 1]</code></td><td>Derivative of polynomial p1</td></tr>
+</table>
+<hr><a name="derivativeValue"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Incompressible</a>.&#8203;<a href="../index.html">TableBased</a>.&#8203;<a href="index.html">Polynomials_Temp</a>.&#8203;derivativeValue<br><span class="subtitle">Value of derivative of polynomial at abscissa value u</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>p[:]</code></td><td>Polynomial coefficients (p[1] is coefficient of highest power)</td></tr>
+<tr><td><code>Real</code></td><td><code>u</code></td><td>Abscissa value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>Value of derivative of polynomial at u</td></tr>
+</table>
+<hr><a name="secondDerivativeValue"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Incompressible</a>.&#8203;<a href="../index.html">TableBased</a>.&#8203;<a href="index.html">Polynomials_Temp</a>.&#8203;secondDerivativeValue<br><span class="subtitle">Value of 2nd derivative of polynomial at abscissa value u</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>p[:]</code></td><td>Polynomial coefficients (p[1] is coefficient of highest power)</td></tr>
+<tr><td><code>Real</code></td><td><code>u</code></td><td>Abscissa value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>Value of 2nd derivative of polynomial at u</td></tr>
+</table>
+<hr><a name="integral"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Incompressible</a>.&#8203;<a href="../index.html">TableBased</a>.&#8203;<a href="index.html">Polynomials_Temp</a>.&#8203;integral<br><span class="subtitle">Indefinite integral of polynomial p(u)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>p1[:]</code></td><td>Polynomial coefficients (p1[1] is coefficient of highest power)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>p2[size(p1, 1) + 1]</code></td><td>Polynomial coefficients of indefinite integral of polynomial p1 (polynomial p2 + C is the indefinite integral of p1, where C is an arbitrary constant)</td></tr>
+</table>
+<hr><a name="integralValue"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Incompressible</a>.&#8203;<a href="../index.html">TableBased</a>.&#8203;<a href="index.html">Polynomials_Temp</a>.&#8203;integralValue<br><span class="subtitle">Integral of polynomial p(u) from u_low to u_high</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>p[:]</code></td><td>Polynomial coefficients</td></tr>
+<tr><td><code>Real</code></td><td><code>u_high</code></td><td>High integrand value</td></tr>
+<tr><td><code>Real</code></td><td><code>u_low</code></td><td>Low integrand value, default 0</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>integral</code></td><td>Integral of polynomial p from u_low to u_high</td></tr>
+</table>
+<hr><a name="fitting"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Incompressible</a>.&#8203;<a href="../index.html">TableBased</a>.&#8203;<a href="index.html">Polynomials_Temp</a>.&#8203;fitting<br><span class="subtitle">Computes the coefficients of a polynomial that fits a set of data points in a least-squares sense</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Polynomials.fitting(u,y,n) computes the coefficients of a polynomial
+p(u) of degree "n" that fits the data "p(u[i]) - y[i]"
+in a least squares sense. The polynomial is
+returned as a vector p[n+1] that has the following definition:
+</p>
+<pre>
+  p(u) = p[1]*u^n + p[2]*u^(n-1) + ... + p[n]*u + p[n+1];
+</pre>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u[:]</code></td><td>Abscissa data values</td></tr>
+<tr><td><code>Real</code></td><td><code>y[size(u, 1)]</code></td><td>Ordinate data values</td></tr>
+<tr><td><code>Integer</code></td><td><code>n</code></td><td>Order of desired polynomial that fits the data points (u,y)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>p[n + 1]</code></td><td>Polynomial coefficients of polynomial that fits the date points</td></tr>
+</table>
+<hr><a name="evaluate_der"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Incompressible</a>.&#8203;<a href="../index.html">TableBased</a>.&#8203;<a href="index.html">Polynomials_Temp</a>.&#8203;evaluate_der<br><span class="subtitle">Evaluate derivative of polynomial at a given abscissa value</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>p[:]</code></td><td>Polynomial coefficients (p[1] is coefficient of highest power)</td></tr>
+<tr><td><code>Real</code></td><td><code>u</code></td><td>Abscissa value</td></tr>
+<tr><td><code>Real</code></td><td><code>du</code></td><td>Delta of abscissa value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>dy</code></td><td>Value of derivative of polynomial at u</td></tr>
+</table>
+<hr><a name="evaluateWithRange_der"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Incompressible</a>.&#8203;<a href="../index.html">TableBased</a>.&#8203;<a href="index.html">Polynomials_Temp</a>.&#8203;evaluateWithRange_der<br><span class="subtitle">Evaluate derivative of polynomial at a given abscissa value with extrapolation outside of the defined range</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>p[:]</code></td><td>Polynomial coefficients (p[1] is coefficient of highest power)</td></tr>
+<tr><td><code>Real</code></td><td><code>uMin</code></td><td>Polynomial valid in the range uMin .. uMax</td></tr>
+<tr><td><code>Real</code></td><td><code>uMax</code></td><td>Polynomial valid in the range uMin .. uMax</td></tr>
+<tr><td><code>Real</code></td><td><code>u</code></td><td>Abscissa value</td></tr>
+<tr><td><code>Real</code></td><td><code>du</code></td><td>Delta of abscissa value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>dy</code></td><td>Value of derivative of polynomial at u</td></tr>
+</table>
+<hr><a name="integralValue_der"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Incompressible</a>.&#8203;<a href="../index.html">TableBased</a>.&#8203;<a href="index.html">Polynomials_Temp</a>.&#8203;integralValue_der<br><span class="subtitle">Time derivative of integral of polynomial p(u) from u_low to u_high, assuming only u_high as time-dependent (Leibniz rule)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>p[:]</code></td><td>Polynomial coefficients</td></tr>
+<tr><td><code>Real</code></td><td><code>u_high</code></td><td>High integrand value</td></tr>
+<tr><td><code>Real</code></td><td><code>u_low</code></td><td>Low integrand value, default 0</td></tr>
+<tr><td><code>Real</code></td><td><code>du_high</code></td><td>High integrand value</td></tr>
+<tr><td><code>Real</code></td><td><code>du_low</code></td><td>Low integrand value, default 0</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>dintegral</code></td><td>Integral of polynomial p from u_low to u_high</td></tr>
+</table>
+<hr><a name="derivativeValue_der"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Incompressible</a>.&#8203;<a href="../index.html">TableBased</a>.&#8203;<a href="index.html">Polynomials_Temp</a>.&#8203;derivativeValue_der<br><span class="subtitle">Time derivative of derivative of polynomial</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>p[:]</code></td><td>Polynomial coefficients (p[1] is coefficient of highest power)</td></tr>
+<tr><td><code>Real</code></td><td><code>u</code></td><td>Abscissa value</td></tr>
+<tr><td><code>Real</code></td><td><code>du</code></td><td>Delta of abscissa value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>dy</code></td><td>Time-derivative of derivative of polynomial w.r.t. input variable at u</td></tr>
+</table>
+</body></html>

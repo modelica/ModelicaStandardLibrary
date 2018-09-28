@@ -1,0 +1,1381 @@
+<html><head><title>Modelica.Media.Air.ReferenceAir.Air_Utilities</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Air_Utilities"><h1><embed class="icon" src="../../../../images/icon0009.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;Air_Utilities<br><span class="subtitle">Low level and utility computation for high accuracy dry air properties</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates a package containing utility classes.</p>
+<p>Extends from <code><a href="../../../../Icons/UtilitiesPackage/index.html">Modelica.&#8203;Icons.&#8203;UtilitiesPackage</a></code> (Icon for utility packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#airBaseProp_dT"><code>airBaseProp_dT</code></a></td><td>Intermediate property record for air (d and T preferred states)</td></tr>
+<tr><td><a href="#airBaseProp_ph"><code>airBaseProp_ph</code></a></td><td>Intermediate property record for air</td></tr>
+<tr><td><a href="#airBaseProp_ps"><code>airBaseProp_ps</code></a></td><td>Intermediate property record for air</td></tr>
+<tr><td><a href="#airBaseProp_pT"><code>airBaseProp_pT</code></a></td><td>Intermediate property record for air (p and T preferred states)</td></tr>
+<tr><td><a href="../../../../Media/Air/ReferenceAir/Air_Utilities/Basic/index.html"><code>Basic</code></a> &hellip;</td><td>Fundamental equation of state</td></tr>
+<tr><td><a href="#beta_dT"><code>beta_dT</code></a></td><td>Isobaric expansion coefficient as function of density and temperature</td></tr>
+<tr><td><a href="#beta_ph"><code>beta_ph</code></a></td><td>Isobaric expansion coefficient as function of pressure and specific enthalpy</td></tr>
+<tr><td><a href="#beta_props_dT"><code>beta_props_dT</code></a></td><td>Isobaric expansion coefficient as function of density and temperature</td></tr>
+<tr><td><a href="#beta_props_ph"><code>beta_props_ph</code></a></td><td>Isobaric expansion coefficient as function of pressure and specific enthalpy</td></tr>
+<tr><td><a href="#beta_props_pT"><code>beta_props_pT</code></a></td><td>Isobaric expansion coefficient as function of pressure and temperature</td></tr>
+<tr><td><a href="#beta_pT"><code>beta_pT</code></a></td><td>Isobaric expansion coefficient as function of pressure and temperature</td></tr>
+<tr><td><a href="#cp_dT"><code>cp_dT</code></a></td><td>Specific heat capacity at constant pressure as function of density and temperature</td></tr>
+<tr><td><a href="#cp_ph"><code>cp_ph</code></a></td><td>Specific heat capacity at constant pressure as function of pressure and specific enthalpy</td></tr>
+<tr><td><a href="#cp_props_dT"><code>cp_props_dT</code></a></td><td>Specific heat capacity at constant pressure as function of density and temperature</td></tr>
+<tr><td><a href="#cp_props_ph"><code>cp_props_ph</code></a></td><td>Specific heat capacity at constant pressure as function of pressure and specific enthalpy</td></tr>
+<tr><td><a href="#cp_props_pT"><code>cp_props_pT</code></a></td><td>Specific heat capacity at constant pressure as function of pressure and temperature</td></tr>
+<tr><td><a href="#cp_pT"><code>cp_pT</code></a></td><td>Specific heat capacity at constant pressure as function of pressure and temperature</td></tr>
+<tr><td><a href="#cv_dT"><code>cv_dT</code></a></td><td>Specific heat capacity at constant volume as function of density and temperature</td></tr>
+<tr><td><a href="#cv_ph"><code>cv_ph</code></a></td><td>Specific heat capacity at constant volume as function of pressure and specific enthalpy</td></tr>
+<tr><td><a href="#cv_props_dT"><code>cv_props_dT</code></a></td><td>Specific heat capacity at constant volume as function of density and temperature</td></tr>
+<tr><td><a href="#cv_props_ph"><code>cv_props_ph</code></a></td><td>Specific heat capacity at constant volume as function of pressure and specific enthalpy</td></tr>
+<tr><td><a href="#cv_props_pT"><code>cv_props_pT</code></a></td><td>Specific heat capacity at constant volume as function of pressure and temperature</td></tr>
+<tr><td><a href="#cv_pT"><code>cv_pT</code></a></td><td>Specific heat capacity at constant volume as function of pressure and temperature</td></tr>
+<tr><td><a href="#ddhp"><code>ddhp</code></a></td><td>Density derivative by specific enthalpy</td></tr>
+<tr><td><a href="#ddhp_props"><code>ddhp_props</code></a></td><td>Density derivative by specific enthalpy</td></tr>
+<tr><td><a href="#ddph"><code>ddph</code></a></td><td>Density derivative by pressure</td></tr>
+<tr><td><a href="#ddph_props"><code>ddph_props</code></a></td><td>Density derivative by pressure</td></tr>
+<tr><td><a href="#h_dT"><code>h_dT</code></a></td><td>Specific enthalpy as function of density and temperature</td></tr>
+<tr><td><a href="#h_dT_der"><code>h_dT_der</code></a></td><td>Derivative function of h_dT</td></tr>
+<tr><td><a href="#h_props_dT"><code>h_props_dT</code></a></td><td>Specific enthalpy as function of density and temperature</td></tr>
+<tr><td><a href="#h_props_ps"><code>h_props_ps</code></a></td><td>Specific enthalpy as function or pressure and temperature</td></tr>
+<tr><td><a href="#h_props_pT"><code>h_props_pT</code></a></td><td>Specific enthalpy as function or pressure and temperature</td></tr>
+<tr><td><a href="#h_ps"><code>h_ps</code></a></td><td>Specific enthalpy as function or pressure and temperature</td></tr>
+<tr><td><a href="#h_pT"><code>h_pT</code></a></td><td>Specific enthalpy as function or pressure and temperature</td></tr>
+<tr><td><a href="#h_pT_der"><code>h_pT_der</code></a></td><td>Derivative function of h_pT</td></tr>
+<tr><td><a href="../../../../Media/Air/ReferenceAir/Air_Utilities/Inverses/index.html"><code>Inverses</code></a> &hellip;</td><td>Inverse function</td></tr>
+<tr><td><a href="#isentropicExponent_dT"><code>isentropicExponent_dT</code></a></td><td>Isentropic exponent as function of density and temperature</td></tr>
+<tr><td><a href="#isentropicExponent_ph"><code>isentropicExponent_ph</code></a></td><td>Isentropic exponent as function of pressure and specific enthalpy</td></tr>
+<tr><td><a href="#isentropicExponent_props_dT"><code>isentropicExponent_props_dT</code></a></td><td>Isentropic exponent as function of density and temperature</td></tr>
+<tr><td><a href="#isentropicExponent_props_ph"><code>isentropicExponent_props_ph</code></a></td><td>Isentropic exponent as function of pressure and specific enthalpy</td></tr>
+<tr><td><a href="#isentropicExponent_props_pT"><code>isentropicExponent_props_pT</code></a></td><td>Isentropic exponent as function of pressure and temperature</td></tr>
+<tr><td><a href="#isentropicExponent_pT"><code>isentropicExponent_pT</code></a></td><td>Isentropic exponent as function of pressure and temperature</td></tr>
+<tr><td><a href="#iter"><code>iter</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#kappa_dT"><code>kappa_dT</code></a></td><td>Isothermal compressibility factor as function of density and temperature</td></tr>
+<tr><td><a href="#kappa_ph"><code>kappa_ph</code></a></td><td>Isothermal compressibility factor as function of pressure and specific enthalpy</td></tr>
+<tr><td><a href="#kappa_props_dT"><code>kappa_props_dT</code></a></td><td>Isothermal compressibility factor as function of density and temperature</td></tr>
+<tr><td><a href="#kappa_props_ph"><code>kappa_props_ph</code></a></td><td>Isothermal compressibility factor as function of pressure and specific enthalpy</td></tr>
+<tr><td><a href="#kappa_props_pT"><code>kappa_props_pT</code></a></td><td>Isothermal compressibility factor as function of pressure and temperature</td></tr>
+<tr><td><a href="#kappa_pT"><code>kappa_pT</code></a></td><td>Isothermal compressibility factor as function of pressure and temperature</td></tr>
+<tr><td><a href="#p_dT"><code>p_dT</code></a></td><td>Pressure as function of density and temperature</td></tr>
+<tr><td><a href="#p_dT_der"><code>p_dT_der</code></a></td><td>Derivative function of p_dT</td></tr>
+<tr><td><a href="#p_props_dT"><code>p_props_dT</code></a></td><td>Pressure as function of density and temperature</td></tr>
+<tr><td><a href="#rho_ph"><code>rho_ph</code></a></td><td>Density as function of pressure and specific enthalpy</td></tr>
+<tr><td><a href="#rho_ph_der"><code>rho_ph_der</code></a></td><td>Derivative function of rho_ph</td></tr>
+<tr><td><a href="#rho_props_ph"><code>rho_props_ph</code></a></td><td>Density as function of pressure and specific enthalpy</td></tr>
+<tr><td><a href="#rho_props_ps"><code>rho_props_ps</code></a></td><td>Density as function of pressure and specific entropy</td></tr>
+<tr><td><a href="#rho_props_pT"><code>rho_props_pT</code></a></td><td>Density as function or pressure and temperature</td></tr>
+<tr><td><a href="#rho_ps"><code>rho_ps</code></a></td><td>Density as function of pressure and specific entropy</td></tr>
+<tr><td><a href="#rho_pT"><code>rho_pT</code></a></td><td>Density as function or pressure and temperature</td></tr>
+<tr><td><a href="#rho_pT_der"><code>rho_pT_der</code></a></td><td>Derivative function of rho_pT</td></tr>
+<tr><td><a href="#s_dT"><code>s_dT</code></a></td><td>Temperature as function of density and temperature</td></tr>
+<tr><td><a href="#s_ph"><code>s_ph</code></a></td><td>Specific entropy as function of pressure and specific enthalpy</td></tr>
+<tr><td><a href="#s_ph_der"><code>s_ph_der</code></a></td><td>Specific entropy as function of pressure and specific enthalpy</td></tr>
+<tr><td><a href="#s_props_dT"><code>s_props_dT</code></a></td><td>Specific entropy as function of density and temperature</td></tr>
+<tr><td><a href="#s_props_ph"><code>s_props_ph</code></a></td><td>Specific entropy as function of pressure and specific enthalpy</td></tr>
+<tr><td><a href="#s_props_pT"><code>s_props_pT</code></a></td><td>Specific entropy as function of pressure and temperature</td></tr>
+<tr><td><a href="#s_pT"><code>s_pT</code></a></td><td>Temperature as function of pressure and temperature</td></tr>
+<tr><td><a href="#T_ph"><code>T_ph</code></a></td><td>Temperature as function of pressure and specific enthalpy</td></tr>
+<tr><td><a href="#T_ph_der"><code>T_ph_der</code></a></td><td>Derivative function of T_ph</td></tr>
+<tr><td><a href="#T_props_ph"><code>T_props_ph</code></a></td><td>Temperature as function of pressure and specific enthalpy</td></tr>
+<tr><td><a href="#T_props_ps"><code>T_props_ps</code></a></td><td>Temperature as function of pressure and specific entropy</td></tr>
+<tr><td><a href="#T_ps"><code>T_ps</code></a></td><td>Temperature as function of pressure and specific entropy</td></tr>
+<tr><td><a href="../../../../Media/Air/ReferenceAir/Air_Utilities/ThermoFluidSpecial/index.html"><code>ThermoFluidSpecial</code></a> &hellip;</td><td>&nbsp</td></tr>
+<tr><td><a href="../../../../Media/Air/ReferenceAir/Air_Utilities/Transport/index.html"><code>Transport</code></a> &hellip;</td><td>Transport properties for air</td></tr>
+<tr><td><a href="#velocityOfSound_dT"><code>velocityOfSound_dT</code></a></td><td>Speed of sound as function of density and temperature</td></tr>
+<tr><td><a href="#velocityOfSound_ph"><code>velocityOfSound_ph</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#velocityOfSound_props_dT"><code>velocityOfSound_props_dT</code></a></td><td>Speed of sound as function of density and temperature</td></tr>
+<tr><td><a href="#velocityOfSound_props_ph"><code>velocityOfSound_props_ph</code></a></td><td>Speed of sound as function of pressure and specific enthalpy</td></tr>
+<tr><td><a href="#velocityOfSound_props_pT"><code>velocityOfSound_props_pT</code></a></td><td>Speed of sound as function of pressure and temperature</td></tr>
+<tr><td><a href="#velocityOfSound_pT"><code>velocityOfSound_pT</code></a></td><td>Speed of sound as function of pressure and temperature</td></tr>
+</table>
+<hr><a name="iter"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;iter<br><span class="subtitle">Accuracy of the iterations</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../../Media/Air/ReferenceAir/Air_Utilities/Inverses/index.html#accuracy">Modelica.&#8203;Media.&#8203;Air.&#8203;ReferenceAir.&#8203;Air_Utilities.&#8203;Inverses.&#8203;accuracy</a></code> (Accuracy of the iterations).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>constant <code>Real</code></td><td><code>delp</code></td><td>Accuracy of p</td></tr>
+<tr><td>constant <code>Real</code></td><td><code>delh</code></td><td>Accuracy of h</td></tr>
+<tr><td>constant <code>Real</code></td><td><code>dels</code></td><td>Accuracy of s</td></tr>
+</table>
+<hr><a name="airBaseProp_ps"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;airBaseProp_ps<br><span class="subtitle">Intermediate property record for air</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<hr><a name="rho_props_ps"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;rho_props_ps<br><span class="subtitle">Density as function of pressure and specific entropy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho</code></td><td>Density</td></tr>
+</table>
+<hr><a name="rho_ps"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;rho_ps<br><span class="subtitle">Density as function of pressure and specific entropy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho</code></td><td>Density</td></tr>
+</table>
+<hr><a name="T_props_ps"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;T_props_ps<br><span class="subtitle">Temperature as function of pressure and specific entropy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<hr><a name="T_ps"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;T_ps<br><span class="subtitle">Temperature as function of pressure and specific entropy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<hr><a name="h_props_ps"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;h_props_ps<br><span class="subtitle">Specific enthalpy as function or pressure and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<hr><a name="h_ps"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;h_ps<br><span class="subtitle">Specific enthalpy as function or pressure and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<hr><a name="airBaseProp_ph"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;airBaseProp_ph<br><span class="subtitle">Intermediate property record for air</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<hr><a name="rho_props_ph"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;rho_props_ph<br><span class="subtitle">Density as function of pressure and specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho</code></td><td>Density</td></tr>
+</table>
+<hr><a name="rho_ph"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;rho_ph<br><span class="subtitle">Density as function of pressure and specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho</code></td><td>Density</td></tr>
+</table>
+<hr><a name="rho_ph_der"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;rho_ph_der<br><span class="subtitle">Derivative function of rho_ph</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+<tr><td><code>Real</code></td><td><code>p_der</code></td><td>Derivative of pressure</td></tr>
+<tr><td><code>Real</code></td><td><code>h_der</code></td><td>Derivative of specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>rho_der</code></td><td>Derivative of density</td></tr>
+</table>
+<hr><a name="T_props_ph"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;T_props_ph<br><span class="subtitle">Temperature as function of pressure and specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<hr><a name="T_ph"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;T_ph<br><span class="subtitle">Temperature as function of pressure and specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<hr><a name="T_ph_der"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;T_ph_der<br><span class="subtitle">Derivative function of T_ph</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+<tr><td><code>Real</code></td><td><code>p_der</code></td><td>Derivative of pressure</td></tr>
+<tr><td><code>Real</code></td><td><code>h_der</code></td><td>Derivative of specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>T_der</code></td><td>Derivative of temperature</td></tr>
+</table>
+<hr><a name="s_props_ph"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;s_props_ph<br><span class="subtitle">Specific entropy as function of pressure and specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+</table>
+<hr><a name="s_ph"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;s_ph<br><span class="subtitle">Specific entropy as function of pressure and specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+</table>
+<hr><a name="s_ph_der"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;s_ph_der<br><span class="subtitle">Specific entropy as function of pressure and specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+<tr><td><code>Real</code></td><td><code>p_der</code></td><td>Derivative of pressure</td></tr>
+<tr><td><code>Real</code></td><td><code>h_der</code></td><td>Derivative of specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>s_der</code></td><td>Derivative of entropy</td></tr>
+</table>
+<hr><a name="cv_props_ph"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;cv_props_ph<br><span class="subtitle">Specific heat capacity at constant volume as function of pressure and specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cv</code></td><td>Specific heat capacity</td></tr>
+</table>
+<hr><a name="cv_ph"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;cv_ph<br><span class="subtitle">Specific heat capacity at constant volume as function of pressure and specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cv</code></td><td>Specific heat capacity</td></tr>
+</table>
+<hr><a name="cp_props_ph"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;cp_props_ph<br><span class="subtitle">Specific heat capacity at constant pressure as function of pressure and specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp</code></td><td>Specific heat capacity</td></tr>
+</table>
+<hr><a name="cp_ph"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;cp_ph<br><span class="subtitle">Specific heat capacity at constant pressure as function of pressure and specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp</code></td><td>Specific heat capacity</td></tr>
+</table>
+<hr><a name="beta_props_ph"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;beta_props_ph<br><span class="subtitle">Isobaric expansion coefficient as function of pressure and specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#RelativePressureCoefficient">RelativePressureCoefficient</a></code></td><td><code>beta</code></td><td>Isobaric expansion coefficient</td></tr>
+</table>
+<hr><a name="beta_ph"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;beta_ph<br><span class="subtitle">Isobaric expansion coefficient as function of pressure and specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#RelativePressureCoefficient">RelativePressureCoefficient</a></code></td><td><code>beta</code></td><td>Isobaric expansion coefficient</td></tr>
+</table>
+<hr><a name="kappa_props_ph"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;kappa_props_ph<br><span class="subtitle">Isothermal compressibility factor as function of pressure and specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#IsothermalCompressibility">IsothermalCompressibility</a></code></td><td><code>kappa</code></td><td>Isothermal compressibility factor</td></tr>
+</table>
+<hr><a name="kappa_ph"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;kappa_ph<br><span class="subtitle">Isothermal compressibility factor as function of pressure and specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#IsothermalCompressibility">IsothermalCompressibility</a></code></td><td><code>kappa</code></td><td>Isothermal compressibility factor</td></tr>
+</table>
+<hr><a name="velocityOfSound_props_ph"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;velocityOfSound_props_ph<br><span class="subtitle">Speed of sound as function of pressure and specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Velocity">Velocity</a></code></td><td><code>a</code></td><td>Speed of sound</td></tr>
+</table>
+<hr><a name="velocityOfSound_ph"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;velocityOfSound_ph<br><span class="subtitle">Icon for functions</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Velocity">Velocity</a></code></td><td><code>a</code></td><td>Speed of sound</td></tr>
+</table>
+<hr><a name="isentropicExponent_props_ph"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;isentropicExponent_props_ph<br><span class="subtitle">Isentropic exponent as function of pressure and specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>gamma</code></td><td>Isentropic exponent</td></tr>
+</table>
+<hr><a name="isentropicExponent_ph"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;isentropicExponent_ph<br><span class="subtitle">Isentropic exponent as function of pressure and specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>gamma</code></td><td>Isentropic exponent</td></tr>
+</table>
+<hr><a name="ddph_props"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;ddph_props<br><span class="subtitle">Density derivative by pressure</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#DerDensityByPressure">DerDensityByPressure</a></code></td><td><code>ddph</code></td><td>Density derivative by pressure</td></tr>
+</table>
+<hr><a name="ddph"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;ddph<br><span class="subtitle">Density derivative by pressure</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#DerDensityByPressure">DerDensityByPressure</a></code></td><td><code>ddph</code></td><td>Density derivative by pressure</td></tr>
+</table>
+<hr><a name="ddhp_props"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;ddhp_props<br><span class="subtitle">Density derivative by specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#DerDensityByEnthalpy">DerDensityByEnthalpy</a></code></td><td><code>ddhp</code></td><td>Density derivative by specific enthalpy</td></tr>
+</table>
+<hr><a name="ddhp"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;ddhp<br><span class="subtitle">Density derivative by specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#DerDensityByEnthalpy">DerDensityByEnthalpy</a></code></td><td><code>ddhp</code></td><td>Density derivative by specific enthalpy</td></tr>
+</table>
+<hr><a name="airBaseProp_pT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;airBaseProp_pT<br><span class="subtitle">Intermediate property record for air (p and T preferred states)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<hr><a name="rho_props_pT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;rho_props_pT<br><span class="subtitle">Density as function or pressure and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho</code></td><td>Density</td></tr>
+</table>
+<hr><a name="rho_pT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;rho_pT<br><span class="subtitle">Density as function or pressure and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho</code></td><td>Density</td></tr>
+</table>
+<hr><a name="rho_pT_der"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;rho_pT_der<br><span class="subtitle">Derivative function of rho_pT</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+<tr><td><code>Real</code></td><td><code>p_der</code></td><td>Derivative of pressure</td></tr>
+<tr><td><code>Real</code></td><td><code>T_der</code></td><td>Derivative of temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>rho_der</code></td><td>Derivative of density</td></tr>
+</table>
+<hr><a name="h_props_pT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;h_props_pT<br><span class="subtitle">Specific enthalpy as function or pressure and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<hr><a name="h_pT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;h_pT<br><span class="subtitle">Specific enthalpy as function or pressure and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<hr><a name="h_pT_der"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;h_pT_der<br><span class="subtitle">Derivative function of h_pT</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+<tr><td><code>Real</code></td><td><code>p_der</code></td><td>Derivative of pressure</td></tr>
+<tr><td><code>Real</code></td><td><code>T_der</code></td><td>Derivative of temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>h_der</code></td><td>Derivative of specific enthalpy</td></tr>
+</table>
+<hr><a name="s_props_pT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;s_props_pT<br><span class="subtitle">Specific entropy as function of pressure and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+</table>
+<hr><a name="s_pT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;s_pT<br><span class="subtitle">Temperature as function of pressure and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+</table>
+<hr><a name="cv_props_pT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;cv_props_pT<br><span class="subtitle">Specific heat capacity at constant volume as function of pressure and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cv</code></td><td>Specific heat capacity</td></tr>
+</table>
+<hr><a name="cv_pT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;cv_pT<br><span class="subtitle">Specific heat capacity at constant volume as function of pressure and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cv</code></td><td>Specific heat capacity</td></tr>
+</table>
+<hr><a name="cp_props_pT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;cp_props_pT<br><span class="subtitle">Specific heat capacity at constant pressure as function of pressure and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp</code></td><td>Specific heat capacity</td></tr>
+</table>
+<hr><a name="cp_pT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;cp_pT<br><span class="subtitle">Specific heat capacity at constant pressure as function of pressure and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp</code></td><td>Specific heat capacity</td></tr>
+</table>
+<hr><a name="beta_props_pT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;beta_props_pT<br><span class="subtitle">Isobaric expansion coefficient as function of pressure and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#RelativePressureCoefficient">RelativePressureCoefficient</a></code></td><td><code>beta</code></td><td>Isobaric expansion coefficient</td></tr>
+</table>
+<hr><a name="beta_pT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;beta_pT<br><span class="subtitle">Isobaric expansion coefficient as function of pressure and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#RelativePressureCoefficient">RelativePressureCoefficient</a></code></td><td><code>beta</code></td><td>Isobaric expansion coefficient</td></tr>
+</table>
+<hr><a name="kappa_props_pT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;kappa_props_pT<br><span class="subtitle">Isothermal compressibility factor as function of pressure and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#IsothermalCompressibility">IsothermalCompressibility</a></code></td><td><code>kappa</code></td><td>Isothermal compressibility factor</td></tr>
+</table>
+<hr><a name="kappa_pT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;kappa_pT<br><span class="subtitle">Isothermal compressibility factor as function of pressure and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#IsothermalCompressibility">IsothermalCompressibility</a></code></td><td><code>kappa</code></td><td>Isothermal compressibility factor</td></tr>
+</table>
+<hr><a name="velocityOfSound_props_pT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;velocityOfSound_props_pT<br><span class="subtitle">Speed of sound as function of pressure and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Velocity">Velocity</a></code></td><td><code>a</code></td><td>Speed of sound</td></tr>
+</table>
+<hr><a name="velocityOfSound_pT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;velocityOfSound_pT<br><span class="subtitle">Speed of sound as function of pressure and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Velocity">Velocity</a></code></td><td><code>a</code></td><td>Speed of sound</td></tr>
+</table>
+<hr><a name="isentropicExponent_props_pT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;isentropicExponent_props_pT<br><span class="subtitle">Isentropic exponent as function of pressure and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>gamma</code></td><td>Isentropic exponent</td></tr>
+</table>
+<hr><a name="isentropicExponent_pT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;isentropicExponent_pT<br><span class="subtitle">Isentropic exponent as function of pressure and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>gamma</code></td><td>Isentropic exponent</td></tr>
+</table>
+<hr><a name="airBaseProp_dT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;airBaseProp_dT<br><span class="subtitle">Intermediate property record for air (d and T preferred states)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<hr><a name="h_props_dT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;h_props_dT<br><span class="subtitle">Specific enthalpy as function of density and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<hr><a name="h_dT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;h_dT<br><span class="subtitle">Specific enthalpy as function of density and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<hr><a name="h_dT_der"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;h_dT_der<br><span class="subtitle">Derivative function of h_dT</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+<tr><td><code>Real</code></td><td><code>d_der</code></td><td>Derivative of density</td></tr>
+<tr><td><code>Real</code></td><td><code>T_der</code></td><td>Derivative of temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>h_der</code></td><td>Derivative of specific enthalpy</td></tr>
+</table>
+<hr><a name="p_props_dT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;p_props_dT<br><span class="subtitle">Pressure as function of density and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+</table>
+<hr><a name="p_dT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;p_dT<br><span class="subtitle">Pressure as function of density and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+</table>
+<hr><a name="p_dT_der"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;p_dT_der<br><span class="subtitle">Derivative function of p_dT</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+<tr><td><code>Real</code></td><td><code>d_der</code></td><td>Derivative of density</td></tr>
+<tr><td><code>Real</code></td><td><code>T_der</code></td><td>Derivative of temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>p_der</code></td><td>Derivative of pressure</td></tr>
+</table>
+<hr><a name="s_props_dT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;s_props_dT<br><span class="subtitle">Specific entropy as function of density and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+</table>
+<hr><a name="s_dT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;s_dT<br><span class="subtitle">Temperature as function of density and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+</table>
+<hr><a name="cv_props_dT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;cv_props_dT<br><span class="subtitle">Specific heat capacity at constant volume as function of density and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cv</code></td><td>Specific heat capacity</td></tr>
+</table>
+<hr><a name="cv_dT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;cv_dT<br><span class="subtitle">Specific heat capacity at constant volume as function of density and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cv</code></td><td>Specific heat capacity</td></tr>
+</table>
+<hr><a name="cp_props_dT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;cp_props_dT<br><span class="subtitle">Specific heat capacity at constant pressure as function of density and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp</code></td><td>Specific heat capacity</td></tr>
+</table>
+<hr><a name="cp_dT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;cp_dT<br><span class="subtitle">Specific heat capacity at constant pressure as function of density and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp</code></td><td>Specific heat capacity</td></tr>
+</table>
+<hr><a name="beta_props_dT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;beta_props_dT<br><span class="subtitle">Isobaric expansion coefficient as function of density and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#RelativePressureCoefficient">RelativePressureCoefficient</a></code></td><td><code>beta</code></td><td>Isobaric expansion coefficient</td></tr>
+</table>
+<hr><a name="beta_dT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;beta_dT<br><span class="subtitle">Isobaric expansion coefficient as function of density and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#RelativePressureCoefficient">RelativePressureCoefficient</a></code></td><td><code>beta</code></td><td>Isobaric expansion coefficient</td></tr>
+</table>
+<hr><a name="kappa_props_dT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;kappa_props_dT<br><span class="subtitle">Isothermal compressibility factor as function of density and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#IsothermalCompressibility">IsothermalCompressibility</a></code></td><td><code>kappa</code></td><td>Isothermal compressibility factor</td></tr>
+</table>
+<hr><a name="kappa_dT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;kappa_dT<br><span class="subtitle">Isothermal compressibility factor as function of density and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#IsothermalCompressibility">IsothermalCompressibility</a></code></td><td><code>kappa</code></td><td>Isothermal compressibility factor</td></tr>
+</table>
+<hr><a name="velocityOfSound_props_dT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;velocityOfSound_props_dT<br><span class="subtitle">Speed of sound as function of density and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Velocity">Velocity</a></code></td><td><code>a</code></td><td>Speed of sound</td></tr>
+</table>
+<hr><a name="velocityOfSound_dT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;velocityOfSound_dT<br><span class="subtitle">Speed of sound as function of density and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Velocity">Velocity</a></code></td><td><code>a</code></td><td>Speed of sound</td></tr>
+</table>
+<hr><a name="isentropicExponent_props_dT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;isentropicExponent_props_dT<br><span class="subtitle">Isentropic exponent as function of density and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/Common/index.html#AuxiliaryProperties">AuxiliaryProperties</a></code></td><td><code>aux</code></td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>gamma</code></td><td>Isentropic exponent</td></tr>
+</table>
+<hr><a name="isentropicExponent_dT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">Air</a>.&#8203;<a href="../index.html">ReferenceAir</a>.&#8203;<a href="index.html">Air_Utilities</a>.&#8203;isentropicExponent_dT<br><span class="subtitle">Isentropic exponent as function of density and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>gamma</code></td><td>Isentropic exponent</td></tr>
+</table>
+</body></html>

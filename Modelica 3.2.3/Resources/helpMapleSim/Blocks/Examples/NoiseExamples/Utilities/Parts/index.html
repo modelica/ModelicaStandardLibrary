@@ -1,0 +1,101 @@
+<html><head><title>Modelica.Blocks.Examples.NoiseExamples.Utilities.Parts</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Parts"><h1><embed class="icon" src="../../../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Blocks</a>.&#8203;<a href="../../../index.html">Examples</a>.&#8203;<a href="../../index.html">NoiseExamples</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;Parts<br><span class="subtitle">Parts for use in the ActuatorWithNoise examples</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Parts used in the
+<a href="../../../../../Blocks/Examples/NoiseExamples/index.html#ActuatorWithNoise">Examples.NoiseExamples.ActuatorWithNoise</a>
+actuator example
+</p>
+<p>Extends from <code><a href="../../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Controller"><code>Controller</code></a></td><td>Simple position controller for actuator</td></tr>
+<tr><td><a href="#MotorWithCurrentControl"><code>MotorWithCurrentControl</code></a></td><td>Synchronous induction machine with current controller and measurement noise</td></tr>
+</table>
+<hr><a name="MotorWithCurrentControl"><h2><embed class="icon" src="../../../../../images/icon0013.svg" width="253" height="203" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Blocks</a>.&#8203;<a href="../../../index.html">Examples</a>.&#8203;<a href="../../index.html">NoiseExamples</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Parts</a>.&#8203;MotorWithCurrentControl<br><span class="subtitle">Synchronous induction machine with current controller and measurement noise</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+A synchronous induction machine with permanent magnets, current controller and
+measurement noise of &plusmn;0.01 rad accelerates a quadratic speed dependent load from standstill.
+The rms values of d- and q-current in rotor fixed coordinate system are converted to three-phase currents,
+and fed to the machine. The result shows that the torque is influenced by the q-current,
+whereas the stator voltage is influenced by the d-current.
+</p>
+
+<p>
+Default machine parameters of model
+<a href="../../../../../Electrical/Machines/BasicMachines/SynchronousInductionMachines/index.html#SM_PermanentMagnet">SM_PermanentMagnet</a>
+are used.
+</p>
+
+<p>
+This motor is used in the
+<a href="../../../../../Blocks/Examples/NoiseExamples/index.html#ActuatorWithNoise">Examples.NoiseExamples.ActuatorWithNoise</a>
+actuator example
+</p>
+<p>Extends from <code><a href="../../../../../Electrical/Machines/Icons/index.html#TransientMachine">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Icons.&#8203;TransientMachine</a></code>.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VNominal</code></td><td><code>100</code></td><td>Nominal RMS voltage per phase</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fNominal</code></td><td><code>50</code></td><td>Nominal frequency</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Actual frequency</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tRamp</code></td><td><code>1</code></td><td>Frequency ramp</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>TLoad</code></td><td><code>181.4</code></td><td>Nominal load torque</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tStep</code></td><td><code>1.2</code></td><td>Time of load torque step</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>JLoad</code></td><td><code>0.29</code></td><td>Load's moment of inertia</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#SM_PermanentMagnetData">SM_PermanentMagnetData</a></code></td><td><code>smpmData</code></td><td>&nbsp;</td><td>Data for motor</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>iq_rms1</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange</code></td><td>Right flange of shaft</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>phi</code></td><td>Absolute angle of flange as output signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>phi_motor</code></td><td>Rotational position</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>w</code></td><td>Rotational speed</td></tr>
+</table>
+<hr><a name="Controller"><h2><embed class="icon" src="../../../../../images/icon0014.svg" width="263" height="203" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Blocks</a>.&#8203;<a href="../../../index.html">Examples</a>.&#8203;<a href="../../index.html">NoiseExamples</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Parts</a>.&#8203;Controller<br><span class="subtitle">Simple position controller for actuator</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+A simple position controller for a drive system.
+This controller is used in the
+<a href="../../../../../Blocks/Examples/NoiseExamples/index.html#ActuatorWithNoise">Examples.NoiseExamples.ActuatorWithNoise</a>
+actuator example
+</p>
+<p>Extends from <code><a href="../../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>positionMeasured</code></td><td>Position signal of motor</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>positionReference</code></td><td>Reference position</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y1</code></td><td>Connector of Real output signal</td></tr>
+</table>
+</body></html>

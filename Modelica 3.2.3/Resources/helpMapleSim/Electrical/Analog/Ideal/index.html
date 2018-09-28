@@ -1,0 +1,816 @@
+<html><head><title>Modelica.Electrical.Analog.Ideal</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Ideal"><h1><embed class="icon" src="../../../images/icon0405.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;Ideal<br><span class="subtitle">Ideal electrical elements such as switches, diode, transformer, operational amplifier</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package contains electrical components with idealized behaviour. To enable more realistic applications than it is possible with pure realistic behavior some components are improved by additional features. E.g. the switches have resistances for the open or close case which can be parametrized.</p>
+<p>Extends from <code><a href="../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#AD_Converter"><code>AD_Converter</code></a></td><td>Simple n-bit analog to digital converter</td></tr>
+<tr><td><a href="#CloserWithArc"><code>CloserWithArc</code></a></td><td>Ideal closing switch with simple arc model</td></tr>
+<tr><td><a href="#ControlledCloserWithArc"><code>ControlledCloserWithArc</code></a></td><td>Controlled ideal electrical closer with simple arc model</td></tr>
+<tr><td><a href="#ControlledIdealClosingSwitch"><code>ControlledIdealClosingSwitch</code></a></td><td>Controlled ideal electrical closer</td></tr>
+<tr><td><a href="#ControlledIdealCommutingSwitch"><code>ControlledIdealCommutingSwitch</code></a></td><td>Controlled ideal commuting switch</td></tr>
+<tr><td><a href="#ControlledIdealIntermediateSwitch"><code>ControlledIdealIntermediateSwitch</code></a></td><td>Controlled ideal intermediate switch</td></tr>
+<tr><td><a href="#ControlledIdealOpeningSwitch"><code>ControlledIdealOpeningSwitch</code></a></td><td>Controlled ideal electrical opener</td></tr>
+<tr><td><a href="#ControlledOpenerWithArc"><code>ControlledOpenerWithArc</code></a></td><td>Controlled ideal electrical opener with simple arc model</td></tr>
+<tr><td><a href="#DA_Converter"><code>DA_Converter</code></a></td><td>Simple digital to analog converter</td></tr>
+<tr><td><a href="#IdealClosingSwitch"><code>IdealClosingSwitch</code></a></td><td>Ideal electrical closer</td></tr>
+<tr><td><a href="#IdealCommutingSwitch"><code>IdealCommutingSwitch</code></a></td><td>Ideal commuting switch</td></tr>
+<tr><td><a href="#IdealDiode"><code>IdealDiode</code></a></td><td>Ideal diode</td></tr>
+<tr><td><a href="#IdealGTOThyristor"><code>IdealGTOThyristor</code></a></td><td>Ideal GTO thyristor</td></tr>
+<tr><td><a href="#IdealGyrator"><code>IdealGyrator</code></a></td><td>Ideal gyrator</td></tr>
+<tr><td><a href="#IdealIntermediateSwitch"><code>IdealIntermediateSwitch</code></a></td><td>Ideal intermediate switch</td></tr>
+<tr><td><a href="#IdealizedOpAmpLimted"><code>IdealizedOpAmpLimted</code></a></td><td>Idealized operational amplifier with limitation</td></tr>
+<tr><td><a href="#IdealOpAmp"><code>IdealOpAmp</code></a></td><td>Ideal operational amplifier (norator-nullator pair)</td></tr>
+<tr><td><a href="#IdealOpAmp3Pin"><code>IdealOpAmp3Pin</code></a></td><td>Ideal operational amplifier (norator-nullator pair), but 3 pins</td></tr>
+<tr><td><a href="#IdealOpAmpLimited"><code>IdealOpAmpLimited</code></a></td><td>Ideal operational amplifier with limitation</td></tr>
+<tr><td><a href="#IdealOpeningSwitch"><code>IdealOpeningSwitch</code></a></td><td>Ideal electrical opener</td></tr>
+<tr><td><a href="#IdealThyristor"><code>IdealThyristor</code></a></td><td>Ideal thyristor</td></tr>
+<tr><td><a href="#IdealTransformer"><code>IdealTransformer</code></a></td><td>Ideal transformer core with or without magnetization</td></tr>
+<tr><td><a href="#IdealTriac"><code>IdealTriac</code></a></td><td>Ideal triac, based on ideal thyristors</td></tr>
+<tr><td><a href="#Idle"><code>Idle</code></a></td><td>Idle branch</td></tr>
+<tr><td><a href="#OpenerWithArc"><code>OpenerWithArc</code></a></td><td>Ideal opening switch with simple arc model</td></tr>
+<tr><td><a href="#Short"><code>Short</code></a></td><td>Short cut branch</td></tr>
+</table>
+<hr><a name="IdealDiode"><h2><embed class="icon" src="../../../images/icon0406.svg" width="223" height="213" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;IdealDiode<br><span class="subtitle">Ideal diode</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is an ideal diode, for details see partial model <a href="../../../Electrical/Analog/Interfaces/index.html#IdealSemiconductor">IdealSemiconductor</a><br>
+The diode is conducting if voltage &gt; Vknee.<br>
+The diode is locking if current &lt; Vknee/Goff.
+</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#IdealSemiconductor">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;IdealSemiconductor</a></code> (Ideal semiconductor).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron</code></td><td><code>1e-5</code></td><td>Forward state-on differential resistance (closed resistance)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff</code></td><td><code>1e-5</code></td><td>Backward state-off conductance (opened conductance)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vknee</code></td><td><code>0</code></td><td>Forward threshold voltage</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+</table>
+<hr><a name="IdealThyristor"><h2><embed class="icon" src="../../../images/icon0407.svg" width="233" height="253" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;IdealThyristor<br><span class="subtitle">Ideal thyristor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is an ideal thyristor, for details see partial model <a href="../../../Electrical/Analog/Interfaces/index.html#IdealSemiconductor">IdealSemiconductor</a><br>
+The thyristor is conducting if voltage &gt; Vknee AND fire = true.<br>
+If fire gets false, the current has to fall below Vknee*Goff, then the thyristor gets locking.</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#IdealSemiconductor">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;IdealSemiconductor</a></code> (Ideal semiconductor).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron</code></td><td><code>1e-5</code></td><td>Forward state-on differential resistance (closed resistance)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff</code></td><td><code>1e-5</code></td><td>Backward state-off conductance (opened conductance)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vknee</code></td><td><code>0</code></td><td>Forward threshold voltage</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>fire</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="IdealGTOThyristor"><h2><embed class="icon" src="../../../images/icon0408.svg" width="233" height="253" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;IdealGTOThyristor<br><span class="subtitle">Ideal GTO thyristor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is an ideal GTO thyristor or switching transistor, for details see partial model <a href="../../../Electrical/Analog/Interfaces/index.html#IdealSemiconductor">IdealSemiconductor</a><br>
+The GTO thyristor is conducting if voltage &gt; Vknee AND fire = true.<br>
+Otherwise, the GTO thyristor is locking.
+</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#IdealSemiconductor">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;IdealSemiconductor</a></code> (Ideal semiconductor).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron</code></td><td><code>1e-5</code></td><td>Forward state-on differential resistance (closed resistance)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff</code></td><td><code>1e-5</code></td><td>Backward state-off conductance (opened conductance)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vknee</code></td><td><code>0</code></td><td>Forward threshold voltage</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>fire</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="IdealCommutingSwitch"><h2><embed class="icon" src="../../../images/icon0409.svg" width="223" height="253" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;IdealCommutingSwitch<br><span class="subtitle">Ideal commuting switch</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The commuting switch has a positive pin p and two negative pins n1 and n2.
+The switching behaviour is controlled
+by the input signal control. If control is true, the pin p is connected
+with the negative pin n2. Otherwise, the pin p is connected to the negative pin n1.
+</p>
+<p>
+In order to prevent singularities during switching, the opened
+switch has a (very low) conductance Goff
+and the closed switch has a (very low) resistance Ron.
+The limiting case is also allowed, i.e., the resistance Ron of the
+closed switch could be exactly zero and the conductance Goff of the
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
+<br><br>
+<strong>Please note:</strong>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
+</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron</code></td><td><code>1e-5</code></td><td>Closed switch resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff</code></td><td><code>1e-5</code></td><td>Opened switch conductance</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n2</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n1</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>control</code></td><td>true =&gt; p--n2 connected, false =&gt; p--n1 connected</td></tr>
+</table>
+<hr><a name="IdealIntermediateSwitch"><h2><embed class="icon" src="../../../images/icon0410.svg" width="223" height="253" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;IdealIntermediateSwitch<br><span class="subtitle">Ideal intermediate switch</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The intermediate switch has four switching contact pins p1, p2, n1, and n2. The switching behaviour is controlled by the input signal control. If control is true, the pin p1 is connected to the pin n2, and the pin p2 is connected to the pin n1. Otherwise,if control is false, the pin p1 is connected to n1, and the pin p2 is connected to n2.</p>
+
+<p>
+<img src="../../../../Images/Electrical/Analog/IdealIntermediateSwitch1.png"
+     alt="IdealIntermediateSwitch1.png">
+</p>
+
+<p>In order to prevent singularities during switching, the opened switch has a (very low) conductance Goff and the closed switch has a (very low) resistance Ron.</p>
+
+<p>
+<img src="../../../../Images/Electrical/Analog/IdealIntermediateSwitch2.png"
+     alt="IdealIntermediateSwitch2.png">
+</p>
+
+<p>The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible.</p>
+<p><strong>Please note:</strong> In case of useHeatPort=true the temperature dependence of the electrical behavior is <strong>not </strong>modelled. The parameters are not temperature dependent.</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron</code></td><td><code>1e-5</code></td><td>Closed switch resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff</code></td><td><code>1e-5</code></td><td>Opened switch conductance</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p1</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p2</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n1</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n2</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>control</code></td><td>true =&gt; p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected</td></tr>
+</table>
+<hr><a name="ControlledIdealCommutingSwitch"><h2><embed class="icon" src="../../../images/icon0411.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;ControlledIdealCommutingSwitch<br><span class="subtitle">Controlled ideal commuting switch</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The commuting switch has a positive pin p and two negative pins n1 and n2.
+The switching behaviour is controlled
+by the control pin. If its voltage exceeds the value of the parameter level,
+the pin p is connected with the negative pin n2. Otherwise, the pin p is
+connected the negative pin n1.
+</p>
+<p>
+In order to prevent singularities during switching, the opened
+switch has a (very low) conductance Goff
+and the closed switch has a (very low) resistance Ron.
+The limiting case is also allowed, i.e., the resistance Ron of the
+closed switch could be exactly zero and the conductance Goff of the
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
+<br><br>
+<strong>Please note:</strong>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
+</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>level</code></td><td><code>0.5</code></td><td>Switch level</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron</code></td><td><code>1e-5</code></td><td>Closed switch resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff</code></td><td><code>1e-5</code></td><td>Opened switch conductance</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n2</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n1</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#Pin">Pin</a></code></td><td><code>control</code></td><td>Control pin: if control.v &gt; level p--n2 connected, otherwise p--n1 connected</td></tr>
+</table>
+<hr><a name="ControlledIdealIntermediateSwitch"><h2><embed class="icon" src="../../../images/icon0412.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;ControlledIdealIntermediateSwitch<br><span class="subtitle">Controlled ideal intermediate switch</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The intermediate switch has four switching contact pins p1, p2, n1, and n2. The switching behaviour is controlled by the control pin. If its voltage exceeds the value of the parameter level, the pin p1 is connected to pin n2, and the pin p2 is connected to the pin n1. Otherwise, the pin p1 is connected to the pin n1, and the pin p2 is connected to the pin n2.
+</p>
+
+<p>
+<img src="../../../../Images/Electrical/Analog/ControlledIdealIntermediateSwitch1.png"
+     alt="ControlledIdealIntermediateSwitch1.png">
+</p>
+
+<p>
+In order to prevent singularities during switching, the opened switch has a (very low) conductance Goff and the closed switch has a (very low) resistance Ron.
+</p>
+
+<p>
+<img src="../../../../Images/Electrical/Analog/ControlledIdealIntermediateSwitch2.png"
+     alt="ControlledIdealIntermediateSwitch2.png">
+</p>
+
+<p>
+The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible.</p>
+<p><br><strong>Please note:</strong> In case of useHeatPort=true the temperature dependence of the electrical behavior is <strong>not </strong>modelled. The parameters are not temperature dependent.</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>level</code></td><td><code>0.5</code></td><td>Switch level</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron</code></td><td><code>1e-5</code></td><td>Closed switch resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff</code></td><td><code>1e-5</code></td><td>Opened switch conductance</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p1</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p2</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n1</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n2</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#Pin">Pin</a></code></td><td><code>control</code></td><td>Control pin: if control.v &gt; level p1--n2, p2--n1 connected,
+         otherwise p1--n1, p2--n2  connected</td></tr>
+</table>
+<hr><a name="IdealOpAmp"><h2><embed class="icon" src="../../../images/icon0413.svg" width="223" height="213" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;IdealOpAmp<br><span class="subtitle">Ideal operational amplifier (norator-nullator pair)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The ideal OpAmp is a two-port. The left port is fixed to <em>v1=0</em> and <em>i1=0</em>
+(nullator). At the right port both any voltage <em>v2</em> and any current <em>i2</em>
+are possible (norator).
+</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p1</code></td><td>Positive pin of the left port</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n1</code></td><td>Negative pin of the left port</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p2</code></td><td>Positive pin of the right port</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n2</code></td><td>Negative pin of the right port</td></tr>
+</table>
+<hr><a name="IdealOpAmp3Pin"><h2><embed class="icon" src="../../../images/icon0414.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;IdealOpAmp3Pin<br><span class="subtitle">Ideal operational amplifier (norator-nullator pair), but 3 pins</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The ideal OpAmp with three pins is of exactly the same behaviour as the ideal
+OpAmp with four pins. Only the negative output pin is left out.
+Both the input voltage and current are fixed to zero (nullator).
+At the output pin both any voltage <em>v2</em> and any current <em>i2</em>
+are possible.
+</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>in_p</code></td><td>Positive pin of the input port</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>in_n</code></td><td>Negative pin of the input port</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>out</code></td><td>Output pin</td></tr>
+</table>
+<hr><a name="IdealOpAmpLimited"><h2><embed class="icon" src="../../../images/icon0415.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;IdealOpAmpLimited<br><span class="subtitle">Ideal operational amplifier with limitation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The ideal OpAmp with limitation behaves like an ideal OpAmp without limitation,
+if the output voltage is within the limits VMin and VMax. In this case
+the input voltage vin = in_p.v - in_n.v is zero.
+If the input voltage vin less than 0, the output voltage is out.v = VMin.
+If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
+</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>in_p</code></td><td>Positive pin of the input port</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>in_n</code></td><td>Negative pin of the input port</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>out</code></td><td>Output pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>VMax</code></td><td>Positive output voltage limitation</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>VMin</code></td><td>Negative output voltage limitation</td></tr>
+</table>
+<hr><a name="IdealizedOpAmpLimted"><h2><embed class="icon" src="../../../images/icon0416.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;IdealizedOpAmpLimted<br><span class="subtitle">Idealized operational amplifier with limitation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+                                      <p>Idealized operational amplifier with saturation: </p>
+                                      <ul>
+                                      <li>Input currents are zero. </li>
+                                      <li>No-load amplification is high (but not infinite). </li>
+                                      <li>Output voltage is limited between positive and negative supply. </li>
+                                      </ul>
+                                      <p>Supply voltage is either defined by parameter Vps and Vpn or by (optional) pins s_p and s_n. </p>
+                                      <p>In the first case the necessary power is drawn from an implicit internal supply, in the second case from the external supply.</p>
+                                      
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>V0</code></td><td><code>15000</code></td><td>No-load amplification</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useSupply</code></td><td><code>false</code></td><td>Use supply pins (otherwise constant supply</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vps</code></td><td><code>15</code></td><td>Positive supply voltage</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vns</code></td><td><code>-15</code></td><td>Negative supply voltage</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>in_p</code></td><td>Positive pin of the input port</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>in_n</code></td><td>Negative pin of the input port</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>out</code></td><td>Pin of the output port</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>s_p</code></td><td>Optional positive supply pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>s_n</code></td><td>Optional negative supply pin</td></tr>
+</table>
+<hr><a name="IdealTransformer"><h2><embed class="icon" src="../../../images/icon0417.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;IdealTransformer<br><span class="subtitle">Ideal transformer core with or without magnetization</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The ideal transformer is a two-port circuit element;
+in case of Boolean parameter <code>considerMagnetization = false</code> it is characterized by the following equations:
+</p>
+<pre> i2 = -i1*n;
+ v2 =  v1/n;
+</pre>
+<p>
+where <code>n</code> is a real number called the turns ratio.
+Due to this equations, also DC voltages and currents are transformed - which is not the case for technical transformers.
+</p>
+<p>
+In case of Boolean parameter <code>considerMagnetization = true</code> it is characterized by the following equations:
+</p>
+<pre>
+ im1  = i1 + i2/n "Magnetizing current w.r.t. primary side";
+ psim1= Lm1*im1   "Magnetic flux w.r.t. primary side";
+ v1 = der(psim1)  "Primary voltage";
+ v2 = v1/n        "Secondary voltage";
+</pre>
+<p>
+where <code>Lm</code> denotes the magnetizing inductance.
+Due to this equations, the DC offset of secondary voltages and currents decrement according to the time constant defined by the connected circuit.
+</p>
+<p>
+Taking primary <code>L1sigma</code> and secondary <code>L2ssigma</code> leakage inductances into account,
+compared with the <a href="../../../Electrical/Analog/Basic/index.html#Transformer">basic transformer</a>
+the following parameter conversion can be applied (which leads to identical results):
+</p>
+<pre>
+ L1 = L1sigma + M*n "Primary inductance at secondary no-load";
+ L2 = L2sigma + M/n "Secondary inductance at primary no-load";
+  M  = Lm1/n         "Mutual inductance";
+</pre>
+<p>
+For the backward conversion, one has to decide about the partitioning of the leakage to primary and secondary side.
+</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#TwoPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;TwoPort</a></code> (Component with two electrical ports, including current).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>n</code></td><td>&nbsp;</td><td>Turns ratio primary:secondary voltage</td></tr>
+<tr><td><code>Boolean</code></td><td><code>considerMagnetization</code></td><td><code>false</code></td><td>Choice of considering magnetization</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lm1</code></td><td>&nbsp;</td><td>Magnetization inductance w.r.t. primary side</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p1</code></td><td>Positive electrical pin of port 1</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n1</code></td><td>Negative electrical pin of port 1</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p2</code></td><td>Positive electrical pin of port 2</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n2</code></td><td>Negative electrical pin of port 2</td></tr>
+</table>
+<hr><a name="IdealGyrator"><h2><embed class="icon" src="../../../images/icon0418.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;IdealGyrator<br><span class="subtitle">Ideal gyrator</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+A gyrator is an ideal two-port element defined by the following equations:
+<br><br>
+<code>
+    i1 =  G * v2<br>
+    i2 = -G * v1<br>
+</code>
+<br>
+where the constant <em>G</em> is called the gyration conductance.
+</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#TwoPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;TwoPort</a></code> (Component with two electrical ports, including current).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>G</code></td><td>&nbsp;</td><td>Gyration conductance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p1</code></td><td>Positive electrical pin of port 1</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n1</code></td><td>Negative electrical pin of port 1</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p2</code></td><td>Positive electrical pin of port 2</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n2</code></td><td>Negative electrical pin of port 2</td></tr>
+</table>
+<hr><a name="Idle"><h2><embed class="icon" src="../../../images/icon0419.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;Idle<br><span class="subtitle">Idle branch</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The model Idle is a simple idle running branch. That means between both pins no current is running. This ideal device is of no influence on the circuit. Therefore, it can be neglected in each case. For purposes of completeness this component is part of the MSL, as an opposite of the short cut.</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical pins p and n and current i from p to n).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+</table>
+<hr><a name="Short"><h2><embed class="icon" src="../../../images/icon0420.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;Short<br><span class="subtitle">Short cut branch</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The model Short is a simple short cut branch. That means the voltage drop between both pins is zero. This device could be neglected if both pins are combined to one node. Besides connecting the nodes of both pins this device has no further function.</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical pins p and n and current i from p to n).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+</table>
+<hr><a name="IdealOpeningSwitch"><h2><embed class="icon" src="../../../images/icon0421.svg" width="223" height="253" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;IdealOpeningSwitch<br><span class="subtitle">Ideal electrical opener</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The switching behaviour of the ideal opening switch is controlled by the input signal control: off = control.<br>
+For further details, see partial model <a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitch">IdealSwitch</a>.
+</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitch">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;IdealSwitch</a></code> (Ideal electrical switch).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron</code></td><td><code>1e-5</code></td><td>Closed switch resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff</code></td><td><code>1e-5</code></td><td>Opened switch conductance</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>control</code></td><td>true =&gt; switch open, false =&gt; p--n connected</td></tr>
+</table>
+<hr><a name="IdealClosingSwitch"><h2><embed class="icon" src="../../../images/icon0422.svg" width="223" height="253" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;IdealClosingSwitch<br><span class="subtitle">Ideal electrical closer</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The switching behaviour of the ideal closing switch is controlled by the input signal control: off = not control.<br>
+For further details, see partial model <a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitch">IdealSwitch</a>.
+</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitch">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;IdealSwitch</a></code> (Ideal electrical switch).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron</code></td><td><code>1e-5</code></td><td>Closed switch resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff</code></td><td><code>1e-5</code></td><td>Opened switch conductance</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>control</code></td><td>true =&gt; p--n connected, false =&gt; switch open</td></tr>
+</table>
+<hr><a name="ControlledIdealOpeningSwitch"><h2><embed class="icon" src="../../../images/icon0423.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;ControlledIdealOpeningSwitch<br><span class="subtitle">Controlled ideal electrical opener</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The switching behaviour of the controlled  ideal opening switch is controlled by the control pin: off = control.v &gt; level<br>
+For further details, see partial model <a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitch">IdealSwitch</a>.
+</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitch">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;IdealSwitch</a></code> (Ideal electrical switch).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>level</code></td><td><code>0.5</code></td><td>Switch level</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron</code></td><td><code>1e-5</code></td><td>Closed switch resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff</code></td><td><code>1e-5</code></td><td>Opened switch conductance</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#Pin">Pin</a></code></td><td><code>control</code></td><td>Control pin: control.v &gt; level switch open, otherwise p--n connected</td></tr>
+</table>
+<hr><a name="ControlledIdealClosingSwitch"><h2><embed class="icon" src="../../../images/icon0424.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;ControlledIdealClosingSwitch<br><span class="subtitle">Controlled ideal electrical closer</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The switching behaviour of the controlled ideal closing switch is controlled by the control pin: off = control.v &lt; level<br>
+For further details, see partial model <a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitch">IdealSwitch</a>.
+</p>
+
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitch">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;IdealSwitch</a></code> (Ideal electrical switch).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>level</code></td><td><code>0.5</code></td><td>Switch level</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron</code></td><td><code>1e-5</code></td><td>Closed switch resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff</code></td><td><code>1e-5</code></td><td>Opened switch conductance</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#Pin">Pin</a></code></td><td><code>control</code></td><td>Control pin: control.v &gt; level switch closed, otherwise switch open</td></tr>
+</table>
+<hr><a name="OpenerWithArc"><h2><embed class="icon" src="../../../images/icon0425.svg" width="223" height="233" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;OpenerWithArc<br><span class="subtitle">Ideal opening switch with simple arc model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model is an extension to the <a href="../../../Electrical/Analog/Ideal/index.html#IdealOpeningSwitch">IdealOpeningSwitch</a>.
+</p>
+<p>
+For details of the arc effect, see partial model <a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitchWithArc">IdealSwitchWithArc</a>.
+</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitchWithArc">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;IdealSwitchWithArc</a></code> (Ideal switch with simple arc model).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron</code></td><td><code>1e-5</code></td><td>Closed switch resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff</code></td><td><code>1e-5</code></td><td>Opened switch conductance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>V0</code></td><td>&nbsp;</td><td>Initial arc voltage</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#VoltageSlope">VoltageSlope</a></code></td><td><code>dVdt</code></td><td>&nbsp;</td><td>Arc voltage slope</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vmax</code></td><td>&nbsp;</td><td>Max. arc voltage</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>control</code></td><td>false =&gt; p--n connected, true =&gt; switch open</td></tr>
+</table>
+<hr><a name="CloserWithArc"><h2><embed class="icon" src="../../../images/icon0426.svg" width="223" height="233" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;CloserWithArc<br><span class="subtitle">Ideal closing switch with simple arc model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model is an extension to the <a href="../../../Electrical/Analog/Ideal/index.html#IdealClosingSwitch">IdealClosingSwitch</a>.
+</p>
+<p>
+For details of the arc effect, see partial model <a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitchWithArc">IdealSwitchWithArc</a>.
+</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitchWithArc">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;IdealSwitchWithArc</a></code> (Ideal switch with simple arc model).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron</code></td><td><code>1e-5</code></td><td>Closed switch resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff</code></td><td><code>1e-5</code></td><td>Opened switch conductance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>V0</code></td><td>&nbsp;</td><td>Initial arc voltage</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#VoltageSlope">VoltageSlope</a></code></td><td><code>dVdt</code></td><td>&nbsp;</td><td>Arc voltage slope</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vmax</code></td><td>&nbsp;</td><td>Max. arc voltage</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>control</code></td><td>true =&gt; p--n connected, false =&gt; switch open</td></tr>
+</table>
+<hr><a name="ControlledOpenerWithArc"><h2><embed class="icon" src="../../../images/icon0427.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;ControlledOpenerWithArc<br><span class="subtitle">Controlled ideal electrical opener with simple arc model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model is an extension to the <a href="../../../Electrical/Analog/Ideal/index.html#ControlledIdealOpeningSwitch">ControlledIdealOpeningSwitch</a>.
+</p>
+<p>
+For details of the arc effect, see partial model <a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitchWithArc">IdealSwitchWithArc</a>.
+</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitchWithArc">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;IdealSwitchWithArc</a></code> (Ideal switch with simple arc model).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>level</code></td><td><code>0.5</code></td><td>Switch level</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron</code></td><td><code>1e-5</code></td><td>Closed switch resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff</code></td><td><code>1e-5</code></td><td>Opened switch conductance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>V0</code></td><td>&nbsp;</td><td>Initial arc voltage</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#VoltageSlope">VoltageSlope</a></code></td><td><code>dVdt</code></td><td>&nbsp;</td><td>Arc voltage slope</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vmax</code></td><td>&nbsp;</td><td>Max. arc voltage</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#Pin">Pin</a></code></td><td><code>control</code></td><td>Control pin: control.v &gt; level switch open, otherwise p--n connected</td></tr>
+</table>
+<hr><a name="ControlledCloserWithArc"><h2><embed class="icon" src="../../../images/icon0428.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;ControlledCloserWithArc<br><span class="subtitle">Controlled ideal electrical closer with simple arc model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model is an extension to the <a href="../../../Electrical/Analog/Ideal/index.html#ControlledIdealClosingSwitch">ControlledIdealClosingSwitch</a>.
+</p>
+<p>
+For details of the arc effect, see partial model <a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitchWithArc">IdealSwitchWithArc</a>.
+</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitchWithArc">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;IdealSwitchWithArc</a></code> (Ideal switch with simple arc model).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>level</code></td><td><code>0.5</code></td><td>Switch level</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron</code></td><td><code>1e-5</code></td><td>Closed switch resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff</code></td><td><code>1e-5</code></td><td>Opened switch conductance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>V0</code></td><td>&nbsp;</td><td>Initial arc voltage</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#VoltageSlope">VoltageSlope</a></code></td><td><code>dVdt</code></td><td>&nbsp;</td><td>Arc voltage slope</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vmax</code></td><td>&nbsp;</td><td>Max. arc voltage</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#Pin">Pin</a></code></td><td><code>control</code></td><td>Control pin: control.v &gt; level switch closed, otherwise switch open</td></tr>
+</table>
+<hr><a name="IdealTriac"><h2><embed class="icon" src="../../../images/icon0429.svg" width="231" height="231" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;IdealTriac<br><span class="subtitle">Ideal triac, based on ideal thyristors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This is an ideal triac model based on an ideal thyristor model.</p>
+
+<p>Two ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor) are contrarily connected in parallel and additionally eliminated interference with a resistor (Rdis=100) and a capacitor (Cdis=0.005), which are connected in series.</p>
+
+<p>The electrical component triac (TRIode Alternating Current switch) is, due to whose complex structure, a multifunctional applicable construction unit. The application area of this element is the manipulation of alternating current signals in frequency, voltage and/or current and also general blocking or filtering. However, compared to a thyristor the triac is only applied for substantial lesser currents, what is justified by whose sensitive structure. Generally one is limited to maximal voltages from 800 volt and currents from 40 ampere. For comparison maximal voltages of a thyristor are 8.000 volt and currents 5.000 ampere.</p>
+
+<p>Structure and functionality:</p>
+
+<p>Functionality of a triac is in principle the same like functionality of a thyristor, even connecting through of current starting from a certain voltage (knee voltage), but only if the current at anode and cathode is caused by a impulse current in the gate electrode. In case of the triac this process is also possible with reverse polarity, wherefore it is possible to control both half-waves of alternating currents. By means of gate electrodes, which are connected in a triac and why only one gate electrode is necessary, the point of time can be determined, at which the triac lets the alternating current signal pass. Thereby it is possible to affect the phase, at which the alternating current signal is cut. One speaks also of phase-angle control. Also depending on doping and specific structure knee voltage and maximal current carrying are alterable.</p>
+
+<p>Characteristics:</p>
+<ul>
+<li>high switching times between on-state and off state up to activation of the reverse current phase</li>
+<li>gate electrode are activated with (positive) impulse (called thyristor/triac firing), after firing thyristor path holds itself in state of low resistance or conductive state up to holding voltage is fallen below, it follows change to off state and next thyristor path can fire</li>
+<li>in particular by switching of inductive components triacs generate harmonic waves, whose frequency ranges into broadcast sector and could there cause transmission disturbances; therefore triacs have to eliminate interference by inductors and capacitors</li>
+</ul>
+<p>Applications:</p>
+<ul>
+<li>any stepless exposure (dimmer)</li>
+<li>engine speed adjustment of electric motors</li>
+<li>further applications of phase-angle control (power electronics)</li>
+<li>power packs</li>
+</ul>
+<p>As an additional information: this model is based on the Modelica.Electrical.Analog.Ideal.IdealThyristor.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron</code></td><td><code>1e-5</code></td><td>Closed triac resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff</code></td><td><code>1e-5</code></td><td>Opened triac conductance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vknee</code></td><td><code>0.8</code></td><td>Threshold voltage for positive and negative phase</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rdis</code></td><td><code>100</code></td><td>Resistance of disturbance elimination</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>Cdis</code></td><td><code>0.005</code></td><td>Capacity of disturbance elimination</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>fire1</code></td><td>Gate</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Cathode</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Anode</td></tr>
+</table>
+<hr><a name="AD_Converter"><h2><embed class="icon" src="../../../images/icon0430.svg" width="233" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;AD_Converter<br><span class="subtitle">Simple n-bit analog to digital converter</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Simple analog to digital converter with a variable resolution of n bits.
+It converts the input voltage <code>ppin.v-npin.v</code> to an n-vector of type Logic
+(9-valued logic according to IEEE 1164 STD_ULOGIC). The input resistance between positive and negative pin is determined by <code>Rin</code>.
+Further effects (like input capacities) have to be modeled outside the converter, since this should be a general model.</p>
+
+<p>
+The input signal range (VRefLo,VRefHi) is divided into 2^n-1 equally spaced stages of length Vlsb:=(VRefHi-VRefLo)/(2^n-1).
+The output signal is the binary code of <code> k </code> as long as the input voltage takes values in the k-th stage, namely in the range from
+<code>Vlsb*(k-0.5)</code> to <code>m*(k+0.5)</code>. This is called mid-tread operation. Additionally the output can only change
+its value if the trigger signal <code>trig</code> of type Logic changes to '1' (forced or weak).
+</p>
+
+<p>
+The output vector is a 'little-endian'. i.e., that the first bit y[1] is the least significant one (LSB).
+</p>
+
+<p>
+This is an abstract model of an ADC. Therefore, it can not cover the dynamic behaviour of the converter.
+Hence the output will change instantaneously when the trigger signal rises.
+</p>
+
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>N</code></td><td>&nbsp;</td><td>Resolution in bits - output signal width</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VRefHigh</code></td><td>&nbsp;</td><td>High reference voltage</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VRefLow</code></td><td>&nbsp;</td><td>Low reference voltage</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rin</code></td><td>&nbsp;</td><td>Input resistance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin (input)</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin (input)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y[N]</code></td><td>Digital output</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>trig</code></td><td>Trigger input</td></tr>
+</table>
+<hr><a name="DA_Converter"><h2><embed class="icon" src="../../../images/icon0431.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;DA_Converter<br><span class="subtitle">Simple digital to analog converter</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Simple digital to analog converter with a variable input signal width of N bits. The input signal is an N-vector of type Logic (9-valued logic according to IEEE 1164 STD_ULOGIC). The output voltage of value <code>y</code> is generated by an ideal voltage source. The output can only change if the trigger signal <code>trig</code> of type Logic changes to &#39;1&#39; (forced or weak). In this case, the output voltage is calculated in the following way:
+</p>
+<pre>       N
+  y = SUM ( x[i]*2^(i-1) )*Vref/(2^N-1),
+      i=1
+</pre>
+<p>where x[i], i=1,...,N is 1 or 0. and Vref is the reference value. Therefore, the first bit in the input vector x[1] is the least significant one (LSB) and x[N] is the most significant bit (MSB).</p>
+<p>This is an abstract model of a DAC. Hence, it can not cover the dynamic behaviour of the converter. Therefore the output will change instantaneously when the trigger signal rises.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>N</code></td><td>&nbsp;</td><td>Resolution - input signal width</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vref</code></td><td>&nbsp;</td><td>Reference voltage</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>trig</code></td><td>Trigger input</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>x[N]</code></td><td>Digital input</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin (output)</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin (output)</td></tr>
+</table>
+</body></html>

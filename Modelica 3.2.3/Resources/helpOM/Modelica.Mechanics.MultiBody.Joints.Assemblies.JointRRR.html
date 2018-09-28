@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR</title>
+</head>
+<body>
+<h1><a href="Icons/2865bcfb4036fe02d5e663ed443690a9589f23e2.svg"><img class="svgiconhead" src="Icons/2865bcfb4036fe02d5e663ed443690a9589f23e2.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Joints.Assemblies.html">Assemblies</a>.<span class="omc-h1">JointRRR</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This component consists of <strong>3 revolute</strong> joints
+with parallel axes of rotation that are connected together by two
+rods, see the default animation in the following figure (the axes
+vectors are not part of the default animation):</p>
+<p><img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/Joints/JointRRR.png" alt="model Joints.Assemblies.JointRRR" /></p>
+<p>This joint aggregation introduces neither constraints nor state
+variables and should therefore be used in kinematic loops whenever
+possible to avoid non-linear systems of equations. It is only
+meaningful to use this component in <strong>planar loops</strong>.
+Basically, the position and orientation of the 3 revolute joints as
+well as of frame_ia, frame_ib, and frame_im are calculated by
+solving analytically a non-linear equation, given the position and
+orientation at frame_a and at frame_b.</p>
+<p>Connector <strong>frame_a</strong> is the "left" side of the
+first revolute joint whereas <strong>frame_ia</strong> is the
+"right side of this revolute joint, fixed in rod 1. Connector
+<strong>frame_b</strong> is the "right" side of the third revolute
+joint whereas <strong>frame_ib</strong> is the "left" side of this
+revolute joint, fixed in rod 2. Finally, connector
+<strong>frame_im</strong> is the connector at the "right" side of
+the revolute joint in the middle, fixed in rod 2.</p>
+<p>The easiest way to define the parameters of this joint is by
+moving the MultiBody system in a <strong>reference
+configuration</strong> where <strong>all frames</strong> of all
+components are <strong>parallel</strong> to each other
+(alternatively, at least frame_a, frame_ia, frame_im, frame_ib,
+frame_b of the JointRRR joint should be parallel to each other when
+defining an instance of this component).</p>
+<p>Basically, the JointRRR model consists internally of a universal
+- spherical - revolute joint aggregation (= JointUSR). In a planar
+loop this will behave as if 3 revolute joints with parallel axes
+are connected by rigid rods.</p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

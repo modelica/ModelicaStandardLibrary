@@ -1,0 +1,207 @@
+<html><head><title>Modelica.Thermal.FluidHeatFlow.Interfaces.Partials</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Partials"><h1><embed class="icon" src="../../../../images/icon1037.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Thermal</a>.&#8203;<a href="../../index.html">FluidHeatFlow</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;Partials<br><span class="subtitle">Partial models</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Package containing partial models from which all components (except Sources.AbsolutePressure) extend
+instantiating the medium and containing the thermodynamic equation(s) with semiLinear.
+</p>
+<p>Extends from <code><a href="../../../../Icons/BasesPackage/index.html">Modelica.&#8203;Icons.&#8203;BasesPackage</a></code> (Icon for packages containing base classes).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#AbsoluteSensor"><code>AbsoluteSensor</code></a></td><td>Partial model of absolute sensor</td></tr>
+<tr><td><a href="#Ambient"><code>Ambient</code></a></td><td>Partial model of ambient</td></tr>
+<tr><td><a href="#FlowSensor"><code>FlowSensor</code></a></td><td>Partial model of flow sensor</td></tr>
+<tr><td><a href="#RelativeSensor"><code>RelativeSensor</code></a></td><td>Partial model of relative sensor</td></tr>
+<tr><td><a href="#SimpleFriction"><code>SimpleFriction</code></a></td><td>Simple friction model</td></tr>
+<tr><td><a href="#SinglePortBottom"><code>SinglePortBottom</code></a></td><td>Partial model of a single port at the bottom</td></tr>
+<tr><td><a href="#SinglePortLeft"><code>SinglePortLeft</code></a></td><td>Partial model of a single port at the left</td></tr>
+<tr><td><a href="#TwoPort"><code>TwoPort</code></a></td><td>Partial model of two port</td></tr>
+</table>
+<hr><a name="SimpleFriction"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Thermal</a>.&#8203;<a href="../../index.html">FluidHeatFlow</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">Partials</a>.&#8203;SimpleFriction<br><span class="subtitle">Simple friction model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Definition of relationship between pressure drop and volume flow rate:
+</p>
+<ul>
+<li>-V_flowLaminar &lt; VolumeFlow &lt; +V_flowLaminar: laminar, i.e., linear dependency of pressure drop on volume flow.</li>
+<li>-V_flowLaminar &gt; VolumeFlow or VolumeFlow &lt; +V_flowLaminar: turbulent, i.e., quadratic dependency of pressure drop on volume flow.</li>
+</ul>
+<p>
+Linear and quadratic dependency are coupled smoothly at V_flowLaminar / dpLaminar.
+Quadratic dependency is defined by nominal volume flow and pressure drop (V_flowNominal / dpNominal).
+See also sketch at diagram layer.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#VolumeFlowRate">VolumeFlowRate</a></code></td><td><code>V_flowLaminar</code></td><td>&nbsp;</td><td>Laminar volume flow</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>dpLaminar</code></td><td>&nbsp;</td><td>Laminar pressure drop</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#VolumeFlowRate">VolumeFlowRate</a></code></td><td><code>V_flowNominal</code></td><td>&nbsp;</td><td>Nominal volume flow</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>dpNominal</code></td><td>&nbsp;</td><td>Nominal pressure drop</td></tr>
+<tr><td><code>Real</code></td><td><code>frictionLoss</code></td><td><code>0</code></td><td>Part of friction losses fed to medium</td></tr>
+</table>
+<hr><a name="TwoPort"><h2><embed class="icon" src="../../../../images/icon1454.svg" width="223" height="203" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Thermal</a>.&#8203;<a href="../../index.html">FluidHeatFlow</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">Partials</a>.&#8203;TwoPort<br><span class="subtitle">Partial model of two port</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Partial model with two flowPorts.</p>
+<p>Possible heat exchange with the ambient is defined by Q_flow; setting this = 0 means no energy exchange.</p>
+<p>
+Setting parameter m (mass of medium within pipe) to zero
+leads to neglect of temperature transient cv*m*der(T).</p>
+<p>Mixing rule is applied.</p>
+<p>Parameter 0 &lt; tapT &lt; 1 defines temperature of heatPort between medium's inlet and outlet temperature.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/FluidHeatFlow/Media/index.html#Medium">Medium</a></code></td><td><code>medium</code></td><td><code>Modelica.Thermal.FluidHeatFlow.Media.Medium()</code></td><td>Medium in the component</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m</code></td><td>&nbsp;</td><td>Mass of medium</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T0</code></td><td>&nbsp;</td><td>Initial temperature of medium</td></tr>
+<tr><td><code>Boolean</code></td><td><code>T0fixed</code></td><td><code>false</code></td><td>Initial temperature guess value or fixed</td></tr>
+<tr><td><code>Real</code></td><td><code>tapT</code></td><td><code>1</code></td><td>Defines temperature of heatPort between inlet and outlet temperature</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_a">FlowPort_a</a></code></td><td><code>flowPort_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_b">FlowPort_b</a></code></td><td><code>flowPort_b</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="SinglePortLeft"><h2><embed class="icon" src="../../../../images/icon1455.svg" width="213" height="203" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Thermal</a>.&#8203;<a href="../../index.html">FluidHeatFlow</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">Partials</a>.&#8203;SinglePortLeft<br><span class="subtitle">Partial model of a single port at the left</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Partial model of single port at the left, defining the medium and the temperature at the port.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/FluidHeatFlow/Media/index.html#Medium">Medium</a></code></td><td><code>medium</code></td><td><code>Modelica.Thermal.FluidHeatFlow.Media.Medium()</code></td><td>Medium</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T0</code></td><td>&nbsp;</td><td>Initial temperature of medium</td></tr>
+<tr><td><code>Boolean</code></td><td><code>T0fixed</code></td><td><code>false</code></td><td>Initial temperature guess value or fixed</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_a">FlowPort_a</a></code></td><td><code>flowPort</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Ambient"><h2><embed class="icon" src="../../../../images/icon1456.svg" width="215" height="207" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Thermal</a>.&#8203;<a href="../../index.html">FluidHeatFlow</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">Partials</a>.&#8203;Ambient<br><span class="subtitle">Partial model of ambient</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model simply extends from the <a href="../../../../Thermal/FluidHeatFlow/Interfaces/Partials/index.html#SinglePortLeft">SinglePortLeft</a> model,
+only adding an icon, and is kept for compatibility reasons. In the future, it will be removed.
+</p>
+<p>Extends from <code><a href="../../../../Thermal/FluidHeatFlow/Interfaces/Partials/index.html#SinglePortLeft">Modelica.&#8203;Thermal.&#8203;FluidHeatFlow.&#8203;Interfaces.&#8203;Partials.&#8203;SinglePortLeft</a></code> (Partial model of a single port at the left) and <code><a href="../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/FluidHeatFlow/Media/index.html#Medium">Medium</a></code></td><td><code>medium</code></td><td><code>Modelica.Thermal.FluidHeatFlow.Media.Medium()</code></td><td>Medium</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T0</code></td><td><code>293.15</code></td><td>Initial temperature of medium</td></tr>
+<tr><td><code>Boolean</code></td><td><code>T0fixed</code></td><td><code>false</code></td><td>Initial temperature guess value or fixed</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_a">FlowPort_a</a></code></td><td><code>flowPort</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="SinglePortBottom"><h2><embed class="icon" src="../../../../images/icon1457.svg" width="203" height="213" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Thermal</a>.&#8203;<a href="../../index.html">FluidHeatFlow</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">Partials</a>.&#8203;SinglePortBottom<br><span class="subtitle">Partial model of a single port at the bottom</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Partial model of single port at the bottom, defining the medium and the temperature at the port.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/FluidHeatFlow/Media/index.html#Medium">Medium</a></code></td><td><code>medium</code></td><td><code>Modelica.Thermal.FluidHeatFlow.Media.Medium()</code></td><td>Medium</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T0</code></td><td>&nbsp;</td><td>Initial temperature of medium</td></tr>
+<tr><td><code>Boolean</code></td><td><code>T0fixed</code></td><td><code>false</code></td><td>Initial temperature guess value or fixed</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_a">FlowPort_a</a></code></td><td><code>flowPort</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="AbsoluteSensor"><h2><embed class="icon" src="../../../../images/icon1458.svg" width="233" height="203" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Thermal</a>.&#8203;<a href="../../index.html">FluidHeatFlow</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">Partials</a>.&#8203;AbsoluteSensor<br><span class="subtitle">Partial model of absolute sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Partial model for an absolute sensor (pressure/temperature).</p>
+<p>Pressure, mass flow, temperature and enthalpy flow of medium are not affected.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/FluidHeatFlow/Media/index.html#Medium">Medium</a></code></td><td><code>medium</code></td><td><code>FluidHeatFlow.Media.Medium()</code></td><td>Sensor's medium</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_a">FlowPort_a</a></code></td><td><code>flowPort</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="RelativeSensor"><h2><embed class="icon" src="../../../../images/icon1459.svg" width="223" height="223" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Thermal</a>.&#8203;<a href="../../index.html">FluidHeatFlow</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">Partials</a>.&#8203;RelativeSensor<br><span class="subtitle">Partial model of relative sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Partial model for a relative sensor (pressure drop/temperature difference).</p>
+<p>Pressure, mass flow, temperature and enthalpy flow of medium are not affected.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/FluidHeatFlow/Media/index.html#Medium">Medium</a></code></td><td><code>medium</code></td><td><code>FluidHeatFlow.Media.Medium()</code></td><td>Sensor's medium</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_a">FlowPort_a</a></code></td><td><code>flowPort_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_b">FlowPort_b</a></code></td><td><code>flowPort_b</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="FlowSensor"><h2><embed class="icon" src="../../../../images/icon1459.svg" width="223" height="223" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Thermal</a>.&#8203;<a href="../../index.html">FluidHeatFlow</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">Partials</a>.&#8203;FlowSensor<br><span class="subtitle">Partial model of flow sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Partial model for a flow sensor (mass flow/heat flow).</p>
+<p>Pressure, mass flow, temperature and enthalpy flow of medium are not affected, but mixing rule is applied.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device) and <code><a href="../../../../Thermal/FluidHeatFlow/Interfaces/Partials/index.html#TwoPort">Modelica.&#8203;Thermal.&#8203;FluidHeatFlow.&#8203;Interfaces.&#8203;Partials.&#8203;TwoPort</a></code> (Partial model of two port).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/FluidHeatFlow/Media/index.html#Medium">Medium</a></code></td><td><code>medium</code></td><td><code>Modelica.Thermal.FluidHeatFlow.Media.Medium()</code></td><td>Medium in the component</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m</code></td><td><code>0</code></td><td>Mass of medium</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T0</code></td><td><code>293.15</code></td><td>Initial temperature of medium</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Boolean</code></td><td><code>T0fixed</code></td><td><code>false</code></td><td>Initial temperature guess value or fixed</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>tapT</code></td><td><code>1</code></td><td>Defines temperature of heatPort between inlet and outlet temperature</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_a">FlowPort_a</a></code></td><td><code>flowPort_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_b">FlowPort_b</a></code></td><td><code>flowPort_b</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

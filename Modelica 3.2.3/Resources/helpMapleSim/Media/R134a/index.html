@@ -1,0 +1,93 @@
+<html><head><title>Modelica.Media.R134a</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="R134a"><h1><embed class="icon" src="../../images/icon0573.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;R134a<br><span class="subtitle">R134a: Medium model for R134a</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Calculation of fluid properties for Tetrafluoroethane (R134a) in the fluid region of 0.0039 bar (Triple pressure) to 700 bar and 169.85 Kelvin (Triple temperature) to 455 Kelvin.
+</p>
+<h4>Restriction</h4>
+<p>
+The functions provided by this package shall be used inside of the restricted limits according to the referenced literature.
+</p>
+<ul>
+ <li>
+      <strong> 0.0039 bar &le; p &le; 700 bar </strong>
+ </li>
+ <li>
+      <strong> 169.85 Kelvin &le; T &le; 455 Kelvin  </strong>
+ </li>
+ <li>
+      <strong> explicit for pressure and specific enthalpy </strong>
+ </li>
+</ul>
+
+<p><strong>References</strong></p>
+<dl><dt>Baehr, H.D. and Tillner-Roth, R.: </dt>
+<dd><strong>Thermodynamic Properties of Environmentally Acceptable Refrigerants -
+Equations of State and Tables for Ammonia, R22, R134a, R152a, and R123</strong>. Springer-Verlag, Berlin (Germany), 1994.</dd>
+</dl>
+<dl><dt>Klein, McLinden and Laesecke: </dt>
+<dd><strong>An improved extended corresponding states method for estimation of viscosity of pure refrigerants and mixtures</strong>.
+Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
+</dl>
+<dl><dt>McLinden, Klein. and Perkins: </dt>
+<dd><strong>An extended corresponding states model for the thermal conductivity
+of refrigerants and refrigerant mixtures</strong>.
+Int. J. Refrig., 23 (2000) 43-63.</dd>
+</dl>
+<dl><dt>Okada and Higashi: </dt>
+<dd><strong>Surface tension correlation of HFC-134a and HCFC-123</strong>.
+Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, Italy, pp. 541-548, 1994.</dd>
+</dl>
+
+<h4>Verification</h4>
+<p>
+The verification report for the development of this library is provided
+<a href="../../../Documentation/Media/MoMoLib_VerificationResults_XRG.pdf">here</a>.
+</p>
+
+<h4>Acknowledgment</h4>
+<p>
+This library was developed by XRG Simulation GmbH as part of the <a href="http://www.cleansky.eu/">Clean Sky</a> JTI project (Project title: MoMoLib-Modelica Model Library Development for Media, Magnetic Systems and Wavelets; Project number: 296369; Theme: JTI-CS-2011-1-SGO-02-026: Modelica Model Library Development Part I). The partial financial support for the development of this library by the European Union is highly appreciated.
+</p>
+
+<p>
+Some parts of this library refer to the ThermoFluid library developed at Lund University (<a href="http://thermofluid.sourceforge.net/">http://thermofluid.sourceforge.net</a>).
+</p>
+
+<h4>Disclaimer</h4>
+<p>
+In no event will XRG Simulation GmbH be liable for any direct, indirect, incidental, special, exemplary, or consequential damages, arising in any way out of the use of this software, even if advised of the possibility of such damage.
+</p>
+<h4> Copyright &copy; 2013-2018, XRG Simulation GmbH </h4>
+<p>Extends from <code><a href="../../Icons/VariantsPackage/index.html">Modelica.&#8203;Icons.&#8203;VariantsPackage</a></code> (Icon for package containing variants).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="../../Media/R134a/Common/index.html"><code>Common</code></a> &hellip;</td><td>&nbsp</td></tr>
+<tr><td><a href="../../Media/R134a/R134a_ph/index.html"><code>R134a_ph</code></a> &hellip;</td><td>Medium model for R134a and p,h as states</td></tr>
+<tr><td><a href="../../Media/R134a/R134aData/index.html"><code>R134aData</code></a> &hellip;</td><td>R134a data required by package R134a_ph</td></tr>
+</table>
+</body></html>

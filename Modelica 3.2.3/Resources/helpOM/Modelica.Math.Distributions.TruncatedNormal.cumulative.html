@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Math.Distributions.TruncatedNormal.cumulative</title>
+</head>
+<body>
+<h1><a href="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg"><img class="svgiconhead" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Distributions.html">Distributions</a>.<a class="omc-h1-a" href="Modelica.Math.Distributions.TruncatedNormal.html">TruncatedNormal</a>.<span class="omc-h1">cumulative</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Normal.<strong>cumulative</strong>(u, u_min=0, u_max=1, mu=0, sigma=1);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function computes the cumulative distribution function
+according to a <strong>truncated normal</strong> distribution with
+minimum value <strong>u_min</strong>, maximum value
+<strong>u_max</strong>, mean value of original distribution
+<strong>mu</strong> and standard deviation of original distribution
+<strong>sigma</strong> (variance = sigma<sup>2</sup>). The returned
+value y is in the range:</p>
+<blockquote>0 ≤ y ≤ 1</blockquote>
+<p>Plot of the function:</p>
+<blockquote><img src="../../../Modelica%203.2.3/Resources/Images/Math/Distributions/TruncatedNormal.cumulative.png" /></blockquote>
+<p>For more details<br />
+of the normal distribution, see <a href="http://en.wikipedia.org/wiki/Normal_distribution">Wikipedia</a>,<br />
+
+of truncated distributions, see <a href="http://en.wikipedia.org/wiki/Truncated_distribution">Wikipedia</a>.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  cumulative(0.5)                 // = 0.5
+  cumulative(0.5,-1.5,1.5,1,0.9)  // = 0.4046868865634537
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Distributions.Normal.density.html">TruncatedNormal.density</a>,
+<a href="Modelica.Math.Distributions.Normal.quantile.html">TruncatedNormal.quantile</a>.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>function cumulative
+  import Modelica.Math.Distributions.Normal;
+  extends Modelica.Math.Distributions.Interfaces.partialTruncatedCumulative;
+  input Real mu = (u_max + u_min) / 2 "Expectation (mean) value of the normal distribution" annotation(
+    Dialog);
+  input Real sigma = (u_max - u_min) / 6 "Standard deviation of the normal distribution" annotation(
+    Dialog);
+end cumulative;</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th>Date</th>
+<th align="left">Description</th>
+</tr>
+<tr>
+<td>June 22, 2015</td>
+<td>
+<table border="0">
+<tr>
+<td><img src="../../../Modelica%203.2.3/Resources/Images/Logos/dlr_logo.png" /></td>
+<td valign="bottom">Initial version implemented by A. Klöckner, F.
+v.d. Linden, D. Zimmer, M. Otter.<br />
+<a href="http://www.dlr.de/rmc/sr/en">DLR Institute of System
+Dynamics and Control</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

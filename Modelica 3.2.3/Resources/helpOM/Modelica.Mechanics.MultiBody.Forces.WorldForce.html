@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Forces.WorldForce</title>
+</head>
+<body>
+<h1><a href="Icons/0c689db445caff3bda9cf4dda844f0c2c91d2d24.svg"><img class="svgiconhead" src="Icons/0c689db445caff3bda9cf4dda844f0c2c91d2d24.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Forces.html">Forces</a>.<span class="omc-h1">WorldForce</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The <strong>3</strong> signals of the <strong>force</strong>
+connector are interpreted as the x-, y- and z-coordinates of a
+<strong>force</strong> acting at the frame connector to which
+frame_b of this component is attached. Via parameter
+<strong>resolveInFrame</strong> it is defined, in which frame these
+coordinates shall be resolved:</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th><strong>Types.ResolveInFrameB.</strong></th>
+<th><strong>Meaning</strong></th>
+</tr>
+<tr>
+<td>world</td>
+<td>Resolve input force in world frame (= default)</td>
+</tr>
+<tr>
+<td>frame_b</td>
+<td>Resolve input force in frame_b</td>
+</tr>
+<tr>
+<td>frame_resolve</td>
+<td>Resolve input force in frame_resolve (frame_resolve must be
+connected)</td>
+</tr>
+</table>
+<p>If resolveInFrame = Types.ResolveInFrameB.frame_resolve, the
+force coordinates are with respect to the frame, that is connected
+to <strong>frame_resolve</strong>.</p>
+<p>If force={100,0,0}, and for all parameters the default setting
+is used, then the interpretation is that a force of 100 N is acting
+along the positive x-axis of frame_b.</p>
+<p>Note, the cut-torque in frame_b (frame_b.t) is always set to
+zero. Conceptually, a force and torque acts on the world frame in
+such a way that the force and torque balance between world.frame_b
+and frame_b is fulfilled. For efficiency reasons, this reaction
+torque is, however, not computed.</p>
+<p>This force component is by default visualized as an arrow acting
+at the connector to which it is connected. The diameter and color
+of the arrow can be defined via variables <strong>diameter</strong>
+and <strong>color</strong>. The arrow points in the direction
+defined by the force signal. The length of the arrow is
+proportional to the length of the force vector using parameter
+<strong>N_to_m</strong> as scaling factor. For example, if N_to_m =
+100 N/m, then a force of 350 N is displayed as an arrow of length
+3.5 m.</p>
+<p>An example how to use this model is given in the following
+figure:</p>
+<p><img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/Forces/WorldForce1.png" /></p>
+<p>This leads to the following animation</p>
+<p><img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/Forces/WorldForce2.png" /></p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

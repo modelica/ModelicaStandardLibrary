@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Joints.Internal.RollingConstraintVerticalWheel</title>
+</head>
+<body>
+<h1><a href="Icons/d9d90ccb27301b4ec6229355d776b78dab1966cd.svg"><img class="svgiconhead" src="Icons/d9d90ccb27301b4ec6229355d776b78dab1966cd.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Joints.Internal.html">Internal</a>.<span class="omc-h1">RollingConstraintVerticalWheel</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Joint for a wheel rolling on the x-y plane of the world frame
+intended for an idealized wheelset. To meet this objective, the
+wheel always runs upright and enables no slip in the longitudinal
+direction of the wheel/ground contact.</p>
+<p>On the contrary, the wheel can optionally slip in the lateral
+direction which is reasonable for the wheelset where just one of
+the wheels should be laterally constrained.</p>
+<p>The frame frame_a is placed in the intersection of the wheel
+spin axis with the wheel middle plane and rotates with the wheel
+itself. A wheel body collecting the mass and inertia should be
+connected to this frame.</p>
+<h4>Note</h4>
+<p>To work properly, the gravity acceleration vector g of the world
+must point in the negative z-axis, i.e.</p>
+<blockquote>
+<pre>
+<span style="font-family:'Courier New',courier; color:#0000ff;">inner</span> <span style="font-family:'Courier New',courier; color:#ff0000;">Modelica.Mechanics.MultiBody.World</span> world(n={0,0,-1});
+</pre></blockquote>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

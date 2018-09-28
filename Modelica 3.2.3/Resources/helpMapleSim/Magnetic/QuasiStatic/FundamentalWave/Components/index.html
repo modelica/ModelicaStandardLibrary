@@ -1,0 +1,364 @@
+<html><head><title>Modelica.Magnetic.QuasiStatic.FundamentalWave.Components</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Components"><h1><embed class="icon" src="../../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;Components<br><span class="subtitle">Basic fundamental wave components</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>Basic components of the FundamentalWave library for modeling magnetic circuits. Machine specific components are
+located at <a href="../../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html">Machines.Components</a>.</p>
+<p>Extends from <code><a href="../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Crossing"><code>Crossing</code></a></td><td>Crossing of connections</td></tr>
+<tr><td><a href="#EddyCurrent"><code>EddyCurrent</code></a></td><td>Constant loss model under sinusoidal magnetic conditions</td></tr>
+<tr><td><a href="#Ground"><code>Ground</code></a></td><td>Magnetic ground</td></tr>
+<tr><td><a href="#Idle"><code>Idle</code></a></td><td>Idle running branch</td></tr>
+<tr><td><a href="#MultiPhaseElectroMagneticConverter"><code>MultiPhaseElectroMagneticConverter</code></a></td><td>Multi phase electro magnetic converter</td></tr>
+<tr><td><a href="#Permeance"><code>Permeance</code></a></td><td>Salient Permeance</td></tr>
+<tr><td><a href="#QuasiStaticAnalogElectroMagneticConverter"><code>QuasiStaticAnalogElectroMagneticConverter</code></a></td><td>Electro magnetic converter to only (!) quasi static analog, neglecting induced voltage</td></tr>
+<tr><td><a href="#Reluctance"><code>Reluctance</code></a></td><td>Salient reluctance</td></tr>
+<tr><td><a href="#Short"><code>Short</code></a></td><td>Short connection</td></tr>
+</table>
+<hr><a name="Ground"><h2><embed class="icon" src="../../../../images/icon1018.svg" width="203" height="213" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Components</a>.&#8203;Ground<br><span class="subtitle">Magnetic ground</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+Grounding of the complex magnetic potential. Each magnetic circuit has to be grounded at least one point of the circuit.
+</p>
+
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Complex magnetic port</td></tr>
+</table>
+<hr><a name="Reluctance"><h2><embed class="icon" src="../../../../images/icon1019.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Components</a>.&#8203;Reluctance<br><span class="subtitle">Salient reluctance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The salient reluctance models the relationship between the complex magnetic potential difference
+<img src="../../../../../Images/Magnetic/FundamentalWave/V_m.png"> and the complex magnetic flux <img src="../../../../../Images/Magnetic/FundamentalWave/Phi.png">,
+</p>
+
+<p>
+&nbsp;&nbsp;<img src="../../../../../Images/Magnetic/FundamentalWave/Components/reluctance.png">
+</p>
+
+<p>which can also be expressed in terms complex phasors:</p>
+
+<p>
+&nbsp;&nbsp;<img src="../../../../../Images/Magnetic/FundamentalWave/Components/reluctance_alt.png">
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PartialTwoPortElementary">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FundamentalWave.&#8203;Interfaces.&#8203;PartialTwoPortElementary</a></code> (Elementary partial two port for textual programming).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/FundamentalWave/Types/index.html#SalientReluctance">SalientReluctance</a></code></td><td><code>R_m</code></td><td>&nbsp;</td><td>Magnetic reluctance in d=re and q=im axis</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port of fundamental wave machines</td></tr>
+</table>
+<hr><a name="Permeance"><h2><embed class="icon" src="../../../../images/icon1019.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Components</a>.&#8203;Permeance<br><span class="subtitle">Salient Permeance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The salient permeance models the relationship between the complex magnetic potential difference
+<img src="../../../../../Images/Magnetic/FundamentalWave/V_m.png" alt="V_m.png"> and the complex magnetic flux <img src="../../../../../Images/Magnetic/FundamentalWave/Phi.png">:
+</p>
+
+<blockquote>
+<img src="../../../../../Images/Magnetic/FundamentalWave/Components/permeance.png"
+      alt="reluctance.png">
+</blockquote>
+
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PartialTwoPortElementary">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FundamentalWave.&#8203;Interfaces.&#8203;PartialTwoPortElementary</a></code> (Elementary partial two port for textual programming).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/FundamentalWave/Types/index.html#SalientPermeance">SalientPermeance</a></code></td><td><code>G_m</code></td><td>&nbsp;</td><td>Magnetic permeance in d=re and q=im axis</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port of fundamental wave machines</td></tr>
+</table>
+<hr><a name="EddyCurrent"><h2><embed class="icon" src="../../../../images/icon1020.svg" width="223" height="213" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Components</a>.&#8203;EddyCurrent<br><span class="subtitle">Constant loss model under sinusoidal magnetic conditions</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The eddy current loss model with respect to fundamental wave effects is designed in accordance to
+<a href="../../../../Magnetic/FluxTubes/Basic/index.html#EddyCurrent">FluxTubes.Basic.EddyCurrent</a> and
+<a href="../../../../Magnetic/FundamentalWave/Components/index.html#EddyCurrent">FundamentalWave.Components.EddyCurrent</a>.
+</p>
+
+<p>
+&nbsp;&nbsp;<img src="../../../../../Images/Magnetic/FundamentalWave/Components/eddycurrent.png">.
+</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <caption align="bottom">Fig. 1: equivalent models of eddy current losses</caption>
+  <tr>
+    <td>
+      <img src="../../../../../Images/Magnetic/FundamentalWave/Components/eddycurrent_electric.png">
+    </td>
+  </tr>
+</table>
+
+<p>Due to the nature of eddy current losses, which can be represented by symmetric
+conductors in an equivalent electric circuit (Fig. 1), the respective
+number of phases <img src="../../../../../Images/Magnetic/FundamentalWave/m.png"> has to be taken into account.
+Assume that the <img src="../../../../../Images/Magnetic/FundamentalWave/m.png"> conductances
+of the equivalent circuit are <img src="../../../../../Images/Magnetic/FundamentalWave/Components/Gc.png">,
+the conductance for the eddy current loss model is determined by</p>
+
+<p>
+&nbsp;&nbsp;<img src="../../../../../Images/Magnetic/FundamentalWave/Components/GGc.png">
+</p>
+
+<p>
+where <img src="../../../../../Images/Magnetic/FundamentalWave/N.png"> is the number of turns of the symmetric electro magnetic coupling.
+</p>
+
+<p>For such an <img src="../../../../../Images/Magnetic/FundamentalWave/m.png"> phase system
+the relationship between the voltage and current <a href="https://www.haumer.at/refimg/SpacePhasors.pdf">space phasors</a>
+and the magnetic flux and magnetic potential difference phasor is
+</p>
+
+<p>
+&nbsp;&nbsp;<img src="../../../../../Images/Magnetic/FundamentalWave/Components/vPhi.png">,<br>
+&nbsp;&nbsp;<img src="../../../../../Images/Magnetic/FundamentalWave/Components/iV_m.png">,
+</p>
+
+<p>
+where <img src="../../../../../Images/Magnetic/FundamentalWave/v_k.png">
+and <img src="../../../../../Images/Magnetic/FundamentalWave/i_k.png">
+are the phase voltages and currents, respectively.
+</p>
+
+<p>
+The dissipated loss power
+</p>
+<p>
+&nbsp;&nbsp;<img src="../../../../../Images/Magnetic/FundamentalWave/Components/lossPower.png">
+</p>
+<p>
+can be determined for the <a href="https://www.haumer.at/refimg/SpacePhasors.pdf">space phasor</a>
+relationship of the voltage and current space phasor.
+</p>
+<h4>See also</h4>
+
+<p><a href="../../../../Magnetic/FluxTubes/Basic/index.html#EddyCurrent">FluxTubes.Basic.EddyCurrent</a></p>
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PartialTwoPortElementary">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FundamentalWave.&#8203;Interfaces.&#8203;PartialTwoPortElementary</a></code> (Elementary partial two port for textual programming) and <code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#PartialElementaryConditionalHeatPort">Modelica.&#8203;Thermal.&#8203;HeatTransfer.&#8203;Interfaces.&#8203;PartialElementaryConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>G</code></td><td>&nbsp;</td><td>Equivalent symmetric loss conductance</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>273.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
+</table>
+<hr><a name="MultiPhaseElectroMagneticConverter"><h2><embed class="icon" src="../../../../images/icon1021.svg" width="223" height="223" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Components</a>.&#8203;MultiPhaseElectroMagneticConverter<br><span class="subtitle">Multi phase electro magnetic converter</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+Each phase <img src="../../../../../Images/Magnetic/FundamentalWave/k.png"> of an <img src="../../../../../Images/Magnetic/FundamentalWave/m.png"> phase winding has an effective number of turns, <img src="../../../../../Images/Magnetic/FundamentalWave/effectiveTurns_k.png"> and an respective winging angle <img src="../../../../../Images/Magnetic/FundamentalWave/orientation_k.png"> and a phase current <img src="../../../../../Images/Magnetic/FundamentalWave/i_k.png">.
+</p>
+
+<p>
+The total complex magnetic potential difference of the multi phase winding is determined by:
+</p>
+
+<p>
+&nbsp;&nbsp;<img src="../../../../../Images/Magnetic/QuasiStatic/FundamentalWave/Components/multiphaseconverter_vm.png">
+</p>
+
+<p>
+In this equation
+<img src="../../../../../Images/Magnetic/QuasiStatic/FundamentalWave/i_sc1.png">
+is the positive symmetrical component of the currents.
+</p>
+
+<p>
+The positive sequence of the voltages
+<img src="../../../../../Images/Magnetic/QuasiStatic/FundamentalWave/v_sc1.png">
+induced in each winding is directly proportional to the complex magnetic flux and the number of turns. This relationship can be modeled by means of</p>
+
+<p>
+&nbsp;&nbsp;<img src="../../../../../Images/Magnetic/QuasiStatic/FundamentalWave/Components/multiphaseconverter_phi.png">.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Magnetic/FundamentalWave/Components/index.html#SinglePhaseElectroMagneticConverter">
+Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter</a>,
+<a href="../../../../Magnetic/FundamentalWave/Components/index.html#MultiPhaseElectroMagneticConverter">
+Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter</a>,
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Components/index.html#QuasiStaticAnalogElectroMagneticConverter">
+QuasiStaticAnalogElectroMagneticConverter</a>
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>Real</code></td><td><code>effectiveTurns</code></td><td>&nbsp;</td><td>Effective number of turns</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Complex</code></td><td><code>N</code></td><td><code>effectiveTurns * Modelica.ComplexMath.exp(Complex(0, orientation))</code></td><td>Complex effective number of turns</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative plug</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive complex magnetic port</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative complex magnetic port</td></tr>
+</table>
+<hr><a name="QuasiStaticAnalogElectroMagneticConverter"><h2><embed class="icon" src="../../../../images/icon1022.svg" width="223" height="223" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Components</a>.&#8203;QuasiStaticAnalogElectroMagneticConverter<br><span class="subtitle">Electro magnetic converter to only (!) quasi static analog, neglecting induced voltage</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The analog single phase winding has an effective number of turns, <img src="../../../../../Images/Magnetic/FundamentalWave/effectiveTurns.png"> and a respective orientation of the winding, <img src="../../../../../Images/Magnetic/FundamentalWave/orientation.png">. The current in the winding is <img src="../../../../../Images/Magnetic/FundamentalWave/i.png">.
+</p>
+
+<p>
+The total complex magnetic potential difference of the single phase winding is determined by:
+</p>
+
+<p>
+&nbsp;&nbsp;<img src="../../../../../Images/Magnetic/QuasiStatic/FundamentalWave/Components/singlephaseconverter_vm.png">
+</p>
+
+<p>
+where
+<img src="../../../../../Images/Magnetic/QuasiStatic/FundamentalWave/gamma.png">
+is the reference angle of the electrical and magnetic system, respectively. The induced voltage <img src="../../../../../Images/Magnetic/FundamentalWave/v.png"> is identical to zero.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Magnetic/FundamentalWave/Components/index.html#SinglePhaseElectroMagneticConverter">
+Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter</a>,
+<a href="../../../../Magnetic/FundamentalWave/Components/index.html#MultiPhaseElectroMagneticConverter">
+Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter</a>,
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Components/index.html#MultiPhaseElectroMagneticConverter">
+MultiPhaseElectroMagneticConverter</a>
+</p>
+
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>effectiveTurns</code></td><td>&nbsp;</td><td>Effective number of turns</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>Positive pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>Negative pin</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive complex magnetic port</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative complex magnetic port</td></tr>
+</table>
+<hr><a name="Idle"><h2><embed class="icon" src="../../../../images/icon1023.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Components</a>.&#8203;Idle<br><span class="subtitle">Idle running branch</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a simple idle running branch.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Components/index.html#Short">Short</a>
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Components/index.html#Crossing">Crossing</a>,
+<a href="../../../../Magnetic/FundamentalWave/Components/index.html#Idle">Magnetic.FundamentalWave.Components.Idle</a>,
+<a href="../../../../Magnetic/FundamentalWave/Components/index.html#Short">Magnetic.FundamentalWave.Components.Short</a>,
+<a href="../../../../Magnetic/FundamentalWave/Components/index.html#Crossing">Magnetic.FundamentalWave.Components.Crossing</a>
+</p>
+
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PartialTwoPortElementary">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FundamentalWave.&#8203;Interfaces.&#8203;PartialTwoPortElementary</a></code> (Elementary partial two port for textual programming).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port of fundamental wave machines</td></tr>
+</table>
+<hr><a name="Short"><h2><embed class="icon" src="../../../../images/icon1024.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Components</a>.&#8203;Short<br><span class="subtitle">Short connection</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a simple short cut branch.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Components/index.html#Idle">Idle</a>
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Components/index.html#Crossing">Crossing</a>,
+<a href="../../../../Magnetic/FundamentalWave/Components/index.html#Idle">Magnetic.FundamentalWave.Components.Idle</a>,
+<a href="../../../../Magnetic/FundamentalWave/Components/index.html#Short">Magnetic.FundamentalWave.Components.Short</a>,
+<a href="../../../../Magnetic/FundamentalWave/Components/index.html#Crossing">Magnetic.FundamentalWave.Components.Crossing</a>
+</p>
+
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PartialTwoPort">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FundamentalWave.&#8203;Interfaces.&#8203;PartialTwoPort</a></code> (Partial two port for graphical programming).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port of fundamental wave machines</td></tr>
+</table>
+<hr><a name="Crossing"><h2><embed class="icon" src="../../../../images/icon1025.svg" width="223" height="223" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Components</a>.&#8203;Crossing<br><span class="subtitle">Crossing of connections</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a simple short cut branch.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Components/index.html#Idle">Idle</a>
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Components/index.html#Short">Short</a>
+<a href="../../../../Magnetic/FundamentalWave/Components/index.html#Idle">Magnetic.FundamentalWave.Components.Idle</a>,
+<a href="../../../../Magnetic/FundamentalWave/Components/index.html#Short">Magnetic.FundamentalWave.Components.Short</a>,
+<a href="../../../../Magnetic/FundamentalWave/Components/index.html#Crossing">Magnetic.FundamentalWave.Components.Crossing</a>
+</p>
+
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p1</code></td><td>Connected with port_p2</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n1</code></td><td>Connected with port_n2</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p2</code></td><td>Connected with port_p1</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n2</code></td><td>Connected with port_n1</td></tr>
+</table>
+</body></html>

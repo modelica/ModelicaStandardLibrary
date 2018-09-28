@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Vectors.relNodePositions</title>
+</head>
+<body>
+<h1><a href="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg"><img class="svgiconhead" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Vectors.html">Vectors</a>.<span class="omc-h1">relNodePositions</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Vectors.<strong>relNodePositions</strong>(nNodes);
+</pre></blockquote>
+<h4>Description</h4>
+<p>The function call "<code>relNodePositions(nNodes)</code>"
+returns a vector with the relative positions of the nodes of a
+discretized pipe with nNodes nodes (including the node at the left
+and at the right side of the pipe), see next figure:</p>
+<blockquote>
+<p><img src="../../../Modelica%203.2.3/Resources/Images/Math/Vectors/relNodePositions.png" /></p>
+</blockquote>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  Real xsi[7];
+<strong>algorithm</strong>
+  xsi = relNodePositions(7);  // xsi = {0, 0.1, 0.3, 0.5, 0.7, 0.9, 1}
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField.html">
+MultiBody.Visualizers.PipeWithScalarField</a></p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>function relNodePositions
+  extends Modelica.Icons.Function;
+  input Integer nNodes "Number of nodes (including node at left and right position)";
+  output Real xsi[nNodes] "Relative node positions";
+end relNodePositions;</pre></blockquote>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

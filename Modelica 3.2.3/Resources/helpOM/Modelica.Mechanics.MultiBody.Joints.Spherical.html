@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Joints.Spherical</title>
+</head>
+<body>
+<h1><a href="Icons/ac757169cf91dce96ddfc59c413da5e3a8b787b2.svg"><img class="svgiconhead" src="Icons/ac757169cf91dce96ddfc59c413da5e3a8b787b2.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a>.<span class="omc-h1">Spherical</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Joint with <strong>3 constraints</strong> that define that the
+origin of frame_a and the origin of frame_b coincide. By default
+this joint defines only the 3 constraints without any potential
+states. If parameter <strong>enforceStates</strong> is set to
+<strong>true</strong> in the "Advanced" menu, three states are
+introduced. Depending on parameter <strong>useQuaternions</strong>
+these are either quaternions and the relative angular velocity or 3
+angles and the angle derivatives. In the latter case the
+orientation of frame_b is computed by rotating frame_a along the
+axes defined in parameter vector "sequence_angleStates" (default =
+{1,2,3}, i.e., the Cardan angle sequence) around the angles used as
+states. For example, the default is to rotate the x-axis of frame_a
+around angles[1], the new y-axis around angles[2] and the new
+z-axis around angles[3], arriving at frame_b. If angles are used as
+states there is the slight disadvantage that a singular
+configuration is present leading to a division by zero.</p>
+<p>If this joint is used in a <strong>chain</strong> structure, a
+Modelica translator has to select orientation coordinates of a body
+as states, if the default setting is used. It is usually better to
+use relative coordinates in the spherical joint as states, and
+therefore in this situation parameter enforceStates might be set to
+<strong>true</strong>.</p>
+<p>If this joint is used in a <strong>loop</strong> structure, the
+default setting results in a <strong>cut-joint</strong> that breaks
+the loop in independent kinematic pieces, hold together by the
+constraints of this joint. As a result, a Modelica translator will
+first try to select 3 generalized coordinates in the joints of the
+remaining parts of the loop and their first derivative as states
+and if this is not possible, e.g., because there are only spherical
+joints in the loop, will select coordinates from a body of the loop
+as states.</p>
+<p>In the following figure the animation of a spherical joint is
+shown. The light blue coordinate system is frame_a and the dark
+blue coordinate system is frame_b of the joint. (here: angles_start
+= {45, 45, 45}<sup>o</sup>).</p>
+<p><img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/Joints/Spherical.png" /></p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

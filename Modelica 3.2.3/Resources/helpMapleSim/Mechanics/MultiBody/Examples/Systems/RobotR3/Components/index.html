@@ -1,0 +1,434 @@
+<html><head><title>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Components"><h1><embed class="icon" src="../../../../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Mechanics</a>.&#8203;<a href="../../../../index.html">MultiBody</a>.&#8203;<a href="../../../index.html">Examples</a>.&#8203;<a href="../../index.html">Systems</a>.&#8203;<a href="../index.html">RobotR3</a>.&#8203;Components<br><span class="subtitle">Library of components of the robot</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This library contains the different components
+of the r3 robot. Usually, there is no need to
+use this library directly.
+</p>
+<p>Extends from <code><a href="../../../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#AxisControlBus"><code>AxisControlBus</code></a></td><td>Data bus for one robot axis</td></tr>
+<tr><td><a href="#AxisType1"><code>AxisType1</code></a></td><td>Axis model of the r3 joints 1,2,3</td></tr>
+<tr><td><a href="#AxisType2"><code>AxisType2</code></a></td><td>Axis model of the r3 joints 4,5,6</td></tr>
+<tr><td><a href="#ControlBus"><code>ControlBus</code></a></td><td>Data bus for all axes of robot</td></tr>
+<tr><td><a href="#Controller"><code>Controller</code></a></td><td>P-PI cascade controller for one axis</td></tr>
+<tr><td><a href="#GearType1"><code>GearType1</code></a></td><td>Motor inertia and gearbox model for r3 joints 1,2,3</td></tr>
+<tr><td><a href="#GearType2"><code>GearType2</code></a></td><td>Motor inertia and gearbox model for r3 joints 4,5,6</td></tr>
+<tr><td><a href="#MechanicalStructure"><code>MechanicalStructure</code></a></td><td>Model of the mechanical part of the r3 robot (without animation)</td></tr>
+<tr><td><a href="#Motor"><code>Motor</code></a></td><td>Motor model including current controller of r3 motors</td></tr>
+<tr><td><a href="#PathPlanning1"><code>PathPlanning1</code></a></td><td>Generate reference angles for fastest kinematic movement</td></tr>
+<tr><td><a href="#PathPlanning6"><code>PathPlanning6</code></a></td><td>Generate reference angles for fastest kinematic movement</td></tr>
+<tr><td><a href="#PathToAxisControlBus"><code>PathToAxisControlBus</code></a></td><td>Map path planning to one axis control bus</td></tr>
+</table>
+<hr><a name="AxisControlBus"><h2><embed class="icon" src="../../../../../../images/icon1065.svg" width="203" height="203" />
+Expandable Connector <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Mechanics</a>.&#8203;<a href="../../../../index.html">MultiBody</a>.&#8203;<a href="../../../index.html">Examples</a>.&#8203;<a href="../../index.html">Systems</a>.&#8203;<a href="../index.html">RobotR3</a>.&#8203;<a href="index.html">Components</a>.&#8203;AxisControlBus<br><span class="subtitle">Data bus for one robot axis</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Signal bus that is used to communicate all signals for <strong>one</strong> axis.
+This is an expandable connector which has a "default" set of
+signals. Note, the input/output causalities of the signals are
+determined from the connections to this bus.
+</p>
+
+<p>Extends from <code><a href="../../../../../../Icons/index.html#SignalSubBus">Modelica.&#8203;Icons.&#8203;SignalSubBus</a></code> (Icon for signal sub-bus).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>motion_ref</code></td><td>= true, if reference motion is not in rest</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>angle_ref</code></td><td>Reference angle of axis flange</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>angle</code></td><td>Angle of axis flange</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>speed_ref</code></td><td>Reference speed of axis flange</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>speed</code></td><td>Speed of axis flange</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#AngularAcceleration">AngularAcceleration</a></code></td><td><code>acceleration_ref</code></td><td>Reference acceleration of axis flange</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#AngularAcceleration">AngularAcceleration</a></code></td><td><code>acceleration</code></td><td>Acceleration of axis flange</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Current">Current</a></code></td><td><code>current_ref</code></td><td>Reference current of motor</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Current">Current</a></code></td><td><code>current</code></td><td>Current of motor</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>motorAngle</code></td><td>Angle of motor flange</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>motorSpeed</code></td><td>Speed of motor flange</td></tr>
+</table>
+<hr><a name="ControlBus"><h2><embed class="icon" src="../../../../../../images/icon1066.svg" width="203" height="203" />
+Expandable Connector <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Mechanics</a>.&#8203;<a href="../../../../index.html">MultiBody</a>.&#8203;<a href="../../../index.html">Examples</a>.&#8203;<a href="../../index.html">Systems</a>.&#8203;<a href="../index.html">RobotR3</a>.&#8203;<a href="index.html">Components</a>.&#8203;ControlBus<br><span class="subtitle">Data bus for all axes of robot</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Signal bus that is used to communicate <strong>all signals</strong> of the robot.
+This is an expandable connector which has a "default" set of
+signals. Note, the input/output causalities of the signals are
+determined from the connections to this bus.
+</p>
+<p>Extends from <code><a href="../../../../../../Icons/index.html#SignalBus">Modelica.&#8203;Icons.&#8203;SignalBus</a></code> (Icon for signal bus).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../Mechanics/MultiBody/Examples/Systems/RobotR3/Components/index.html#AxisControlBus">AxisControlBus</a></code></td><td><code>axisControlBus1</code></td><td>Bus of axis 1</td></tr>
+<tr><td><code><a href="../../../../../../Mechanics/MultiBody/Examples/Systems/RobotR3/Components/index.html#AxisControlBus">AxisControlBus</a></code></td><td><code>axisControlBus2</code></td><td>Bus of axis 2</td></tr>
+<tr><td><code><a href="../../../../../../Mechanics/MultiBody/Examples/Systems/RobotR3/Components/index.html#AxisControlBus">AxisControlBus</a></code></td><td><code>axisControlBus3</code></td><td>Bus of axis 3</td></tr>
+<tr><td><code><a href="../../../../../../Mechanics/MultiBody/Examples/Systems/RobotR3/Components/index.html#AxisControlBus">AxisControlBus</a></code></td><td><code>axisControlBus4</code></td><td>Bus of axis 4</td></tr>
+<tr><td><code><a href="../../../../../../Mechanics/MultiBody/Examples/Systems/RobotR3/Components/index.html#AxisControlBus">AxisControlBus</a></code></td><td><code>axisControlBus5</code></td><td>Bus of axis 5</td></tr>
+<tr><td><code><a href="../../../../../../Mechanics/MultiBody/Examples/Systems/RobotR3/Components/index.html#AxisControlBus">AxisControlBus</a></code></td><td><code>axisControlBus6</code></td><td>Bus of axis 6</td></tr>
+</table>
+<hr><a name="PathPlanning1"><h2><embed class="icon" src="../../../../../../images/icon1067.svg" width="213" height="203" />
+Model <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Mechanics</a>.&#8203;<a href="../../../../index.html">MultiBody</a>.&#8203;<a href="../../../index.html">Examples</a>.&#8203;<a href="../../index.html">Systems</a>.&#8203;<a href="../index.html">RobotR3</a>.&#8203;<a href="index.html">Components</a>.&#8203;PathPlanning1<br><span class="subtitle">Generate reference angles for fastest kinematic movement</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Given
+</p>
+<ul>
+<li> start and end angle of an axis</li>
+<li> maximum speed of the axis</li>
+<li> maximum acceleration of the axis</li>
+</ul>
+
+<p>
+this component computes the fastest movement under the
+given constraints. This means, that:
+</p>
+
+<ol>
+<li> The axis accelerates with the maximum acceleration
+     until the maximum speed is reached.</li>
+<li> Drives with the maximum speed as long as possible.</li>
+<li> Decelerates with the negative of the maximum acceleration
+     until rest.</li>
+</ol>
+
+<p>
+The acceleration, constant velocity and deceleration
+phase are determined in such a way that the movement
+starts form the start angles and ends at the end angles.
+The output of this block are the computed angles, angular velocities
+and angular acceleration and this information is stored as reference
+motion on the controlBus of the r3 robot.
+</p>
+
+<p>Extends from <code><a href="../../../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>angleBegDeg</code></td><td><code>0</code></td><td>Start angle</td></tr>
+<tr><td><code>Real</code></td><td><code>angleEndDeg</code></td><td><code>1</code></td><td>End angle</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>speedMax</code></td><td><code>3</code></td><td>Maximum axis speed</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#AngularAcceleration">AngularAcceleration</a></code></td><td><code>accMax</code></td><td><code>2.5</code></td><td>Maximum axis acceleration</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Start time of movement</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>swingTime</code></td><td><code>0.5</code></td><td>Additional time after reference motion is in rest before simulation is stopped</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>angleBeg</code></td><td><code>Cv.from_deg(angleBegDeg)</code></td><td>Start angles</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>angleEnd</code></td><td><code>Cv.from_deg(angleEndDeg)</code></td><td>End angles</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../Mechanics/MultiBody/Examples/Systems/RobotR3/Components/index.html#ControlBus">ControlBus</a></code></td><td><code>controlBus</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PathPlanning6"><h2><embed class="icon" src="../../../../../../images/icon1068.svg" width="213" height="203" />
+Model <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Mechanics</a>.&#8203;<a href="../../../../index.html">MultiBody</a>.&#8203;<a href="../../../index.html">Examples</a>.&#8203;<a href="../../index.html">Systems</a>.&#8203;<a href="../index.html">RobotR3</a>.&#8203;<a href="index.html">Components</a>.&#8203;PathPlanning6<br><span class="subtitle">Generate reference angles for fastest kinematic movement</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Given
+</p>
+<ul>
+<li> start and end angles of every axis</li>
+<li> maximum speed of every axis</li>
+<li> maximum acceleration of every axis</li>
+</ul>
+
+<p>
+this component computes the fastest movement under the
+given constraints. This means, that:
+</p>
+
+<ol>
+<li> Every axis accelerates with the maximum acceleration
+     until the maximum speed is reached.</li>
+<li> Drives with the maximum speed as long as possible.</li>
+<li> Decelerates with the negative of the maximum acceleration
+     until rest.</li>
+</ol>
+
+<p>
+The acceleration, constant velocity and deceleration
+phase are determined in such a way that the movement
+starts form the start angles and ends at the end angles.
+The output of this block are the computed angles, angular velocities
+and angular acceleration and this information is stored as reference
+motion on the controlBus of the r3 robot.
+</p>
+
+<p>Extends from <code><a href="../../../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>naxis</code></td><td><code>6</code></td><td>Number of driven axis</td></tr>
+<tr><td><code>Real</code></td><td><code>angleBegDeg[naxis]</code></td><td><code>zeros(naxis)</code></td><td>Start angles</td></tr>
+<tr><td><code>Real</code></td><td><code>angleEndDeg[naxis]</code></td><td><code>ones(naxis)</code></td><td>End angles</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>speedMax[naxis]</code></td><td><code>fill(3, naxis)</code></td><td>Maximum axis speed</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#AngularAcceleration">AngularAcceleration</a></code></td><td><code>accMax[naxis]</code></td><td><code>fill(2.5, naxis)</code></td><td>Maximum axis acceleration</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Start time of movement</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>swingTime</code></td><td><code>0.5</code></td><td>Additional time after reference motion is in rest before simulation is stopped</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>angleBeg[:]</code></td><td><code>Cv.from_deg(angleBegDeg)</code></td><td>Start angles</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>angleEnd[:]</code></td><td><code>Cv.from_deg(angleEndDeg)</code></td><td>End angles</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../Mechanics/MultiBody/Examples/Systems/RobotR3/Components/index.html#ControlBus">ControlBus</a></code></td><td><code>controlBus</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PathToAxisControlBus"><h2><embed class="icon" src="../../../../../../images/icon1069.svg" width="253" height="203" />
+Model <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Mechanics</a>.&#8203;<a href="../../../../index.html">MultiBody</a>.&#8203;<a href="../../../index.html">Examples</a>.&#8203;<a href="../../index.html">Systems</a>.&#8203;<a href="../index.html">RobotR3</a>.&#8203;<a href="index.html">Components</a>.&#8203;PathToAxisControlBus<br><span class="subtitle">Map path planning to one axis control bus</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model stores the 4 reference variables q, qd, qdd, moving from the path planning on the axis control bus.
+</p>
+<p>Extends from <code><a href="../../../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nAxis</code></td><td><code>6</code></td><td>Number of driven axis</td></tr>
+<tr><td><code>Integer</code></td><td><code>axisUsed</code></td><td><code>1</code></td><td>Map path planning of axisUsed to axisControlBus</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>q[nAxis]</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>qd[nAxis]</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>qdd[nAxis]</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../../Mechanics/MultiBody/Examples/Systems/RobotR3/Components/index.html#AxisControlBus">AxisControlBus</a></code></td><td><code>axisControlBus</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>moving[nAxis]</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="GearType1"><h2><embed class="icon" src="../../../../../../images/icon1070.svg" width="223" height="203" />
+Model <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Mechanics</a>.&#8203;<a href="../../../../index.html">MultiBody</a>.&#8203;<a href="../../../index.html">Examples</a>.&#8203;<a href="../../index.html">Systems</a>.&#8203;<a href="../index.html">RobotR3</a>.&#8203;<a href="index.html">Components</a>.&#8203;GearType1<br><span class="subtitle">Motor inertia and gearbox model for r3 joints 1,2,3</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Models the gearbox used in the first three joints with all its effects,
+like elasticity and friction.
+Coulomb friction is approximated by a friction element acting
+at the "motor"-side. In reality, bearing friction should be
+also incorporated at the driven side of the gearbox. However,
+this would require considerable more effort for the measurement
+of the friction parameters.
+Default values for all parameters are given for joint 1.
+Model relativeStates is used to define the relative angle
+and relative angular velocity across the spring (=gear elasticity)
+as state variables. The reason is, that a default initial
+value of zero of these states makes always sense.
+If the absolute angle and the absolute angular velocity of model
+Jmotor would be used as states, and the load angle (= joint angle of
+robot) is NOT zero, one has always to ensure that the initial values
+of the motor angle and of the joint angle are modified correspondingly.
+Otherwise, the spring has an unrealistic deflection at initial time.
+Since relative quantities are used as state variables, this simplifies
+the definition of initial values considerably.
+</p>
+<p>Extends from <code><a href="../../../../../../Mechanics/Rotational/Icons/index.html#Gearbox">Modelica.&#8203;Mechanics.&#8203;Rotational.&#8203;Icons.&#8203;Gearbox</a></code> (Icon of a gear box) and <code><a href="../../../../../../Mechanics/Rotational/Interfaces/index.html#PartialTwoFlanges">Modelica.&#8203;Mechanics.&#8203;Rotational.&#8203;Interfaces.&#8203;PartialTwoFlanges</a></code> (Partial model for a component with two rotational 1-dim. shaft flanges).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>i</code></td><td><code>-105</code></td><td>Gear ratio</td></tr>
+<tr><td><code>Real</code></td><td><code>c</code></td><td><code>43</code></td><td>Spring constant</td></tr>
+<tr><td><code>Real</code></td><td><code>d</code></td><td><code>0.005</code></td><td>Damper constant</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>Rv0</code></td><td><code>0.4</code></td><td>Viscous friction torque at zero velocity</td></tr>
+<tr><td><code>Real</code></td><td><code>Rv1</code></td><td><code>8.125e-4</code></td><td>Viscous friction coefficient (R=Rv0+Rv1*abs(qd))</td></tr>
+<tr><td><code>Real</code></td><td><code>peak</code></td><td><code>1</code></td><td>Maximum static friction torque is peak*Rv0 (peak &gt;= 1)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>Flange of left shaft</td></tr>
+<tr><td><code><a href="../../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>Flange of right shaft</td></tr>
+</table>
+<hr><a name="GearType2"><h2><embed class="icon" src="../../../../../../images/icon1071.svg" width="223" height="203" />
+Model <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Mechanics</a>.&#8203;<a href="../../../../index.html">MultiBody</a>.&#8203;<a href="../../../index.html">Examples</a>.&#8203;<a href="../../index.html">Systems</a>.&#8203;<a href="../index.html">RobotR3</a>.&#8203;<a href="index.html">Components</a>.&#8203;GearType2<br><span class="subtitle">Motor inertia and gearbox model for r3 joints 4,5,6</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The elasticity and damping in the gearboxes of the outermost
+three joints of the robot is neglected.
+Default values for all parameters are given for joint 4.
+</p>
+<p>Extends from <code><a href="../../../../../../Mechanics/Rotational/Icons/index.html#Gearbox">Modelica.&#8203;Mechanics.&#8203;Rotational.&#8203;Icons.&#8203;Gearbox</a></code> (Icon of a gear box) and <code><a href="../../../../../../Mechanics/Rotational/Interfaces/index.html#PartialTwoFlanges">Modelica.&#8203;Mechanics.&#8203;Rotational.&#8203;Interfaces.&#8203;PartialTwoFlanges</a></code> (Partial model for a component with two rotational 1-dim. shaft flanges).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>i</code></td><td><code>-99</code></td><td>Gear ratio</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>Rv0</code></td><td><code>21.8</code></td><td>Viscous friction torque at zero velocity</td></tr>
+<tr><td><code>Real</code></td><td><code>Rv1</code></td><td><code>9.8</code></td><td>Viscous friction coefficient in [Nms/rad] (R=Rv0+Rv1*abs(qd))</td></tr>
+<tr><td><code>Real</code></td><td><code>peak</code></td><td><code>1.224770642201835</code></td><td>Maximum static friction torque is peak*Rv0 (peak &gt;= 1)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>Flange of left shaft</td></tr>
+<tr><td><code><a href="../../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>Flange of right shaft</td></tr>
+</table>
+<hr><a name="Motor"><h2><embed class="icon" src="../../../../../../images/icon1072.svg" width="213" height="213" />
+Model <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Mechanics</a>.&#8203;<a href="../../../../index.html">MultiBody</a>.&#8203;<a href="../../../index.html">Examples</a>.&#8203;<a href="../../index.html">Systems</a>.&#8203;<a href="../index.html">RobotR3</a>.&#8203;<a href="index.html">Components</a>.&#8203;Motor<br><span class="subtitle">Motor model including current controller of r3 motors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Default values are given for the motor of joint 1.
+The input of the motor is the desired current
+(the actual current is proportional to the torque
+produced by the motor).
+</p>
+<p>Extends from <code><a href="../../../../../../Electrical/Machines/Icons/index.html#Machine">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Icons.&#8203;Machine</a></code> (Generic icon of an electric machine).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>J</code></td><td><code>0.0013</code></td><td>Moment of inertia of motor</td></tr>
+<tr><td><code>Real</code></td><td><code>k</code></td><td><code>1.1616</code></td><td>Gain of motor</td></tr>
+<tr><td><code>Real</code></td><td><code>w</code></td><td><code>4590</code></td><td>Time constant of motor</td></tr>
+<tr><td><code>Real</code></td><td><code>D</code></td><td><code>0.6</code></td><td>Damping constant of motor</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>w_max</code></td><td><code>315</code></td><td>Maximum speed of motor</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Current">Current</a></code></td><td><code>i_max</code></td><td><code>9</code></td><td>Maximum current of motor</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_motor</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../../Mechanics/MultiBody/Examples/Systems/RobotR3/Components/index.html#AxisControlBus">AxisControlBus</a></code></td><td><code>axisControlBus</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Controller"><h2><embed class="icon" src="../../../../../../images/icon1073.svg" width="203" height="213" />
+Model <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Mechanics</a>.&#8203;<a href="../../../../index.html">MultiBody</a>.&#8203;<a href="../../../index.html">Examples</a>.&#8203;<a href="../../index.html">Systems</a>.&#8203;<a href="../index.html">RobotR3</a>.&#8203;<a href="index.html">Components</a>.&#8203;Controller<br><span class="subtitle">P-PI cascade controller for one axis</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This controller has an inner PI-controller to control the motor speed,
+and an outer P-controller to control the motor position of one axis.
+The reference signals are with respect to the gear-output, and the
+gear ratio is used in the controller to determine the motor
+reference signals. All signals are communicated via the
+"axisControlBus".
+</p>
+<p>Extends from <code><a href="../../../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>kp</code></td><td><code>10</code></td><td>Gain of position controller</td></tr>
+<tr><td><code>Real</code></td><td><code>ks</code></td><td><code>1</code></td><td>Gain of speed controller</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Ts</code></td><td><code>0.01</code></td><td>Time constant of integrator of speed controller</td></tr>
+<tr><td><code>Real</code></td><td><code>ratio</code></td><td><code>1</code></td><td>Gear ratio of gearbox</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../Mechanics/MultiBody/Examples/Systems/RobotR3/Components/index.html#AxisControlBus">AxisControlBus</a></code></td><td><code>axisControlBus</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="AxisType1"><h2><embed class="icon" src="../../../../../../images/icon1074.svg" width="223" height="203" />
+Model <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Mechanics</a>.&#8203;<a href="../../../../index.html">MultiBody</a>.&#8203;<a href="../../../index.html">Examples</a>.&#8203;<a href="../../index.html">Systems</a>.&#8203;<a href="../index.html">RobotR3</a>.&#8203;<a href="index.html">Components</a>.&#8203;AxisType1<br><span class="subtitle">Axis model of the r3 joints 1,2,3</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Model of axis 1, 2, 3 of the robot r3. An axis consists of a gearbox with modelled gear elasticity and bearing friction,
+a model of the electrical motor and a continuous-time cascade controller.
+</p>
+<p>Extends from <code><a href="../../../../../../Mechanics/MultiBody/Examples/Systems/RobotR3/Components/index.html#AxisType2">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Examples.&#8203;Systems.&#8203;RobotR3.&#8203;Components.&#8203;AxisType2</a></code> (Axis model of the r3 joints 4,5,6).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>kp</code></td><td><code>10</code></td><td>Gain of position controller</td></tr>
+<tr><td><code>Real</code></td><td><code>ks</code></td><td><code>1</code></td><td>Gain of speed controller</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Ts</code></td><td><code>0.01</code></td><td>Time constant of integrator of speed controller</td></tr>
+<tr><td><code>Real</code></td><td><code>k</code></td><td><code>1.1616</code></td><td>Gain of motor</td></tr>
+<tr><td><code>Real</code></td><td><code>w</code></td><td><code>4590</code></td><td>Time constant of motor</td></tr>
+<tr><td><code>Real</code></td><td><code>D</code></td><td><code>0.6</code></td><td>Damping constant of motor</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>J</code></td><td><code>0.0013</code></td><td>Moment of inertia of motor</td></tr>
+<tr><td><code>Real</code></td><td><code>ratio</code></td><td><code>-105</code></td><td>Gear ratio</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>Rv0</code></td><td><code>0.4</code></td><td>Viscous friction torque at zero velocity in [Nm]</td></tr>
+<tr><td><code>Real</code></td><td><code>Rv1</code></td><td><code>8.125e-4</code></td><td>Viscous friction coefficient in [Nms/rad]</td></tr>
+<tr><td><code>Real</code></td><td><code>peak</code></td><td><code>1</code></td><td>Maximum static friction torque is peak*Rv0 (peak &gt;= 1)</td></tr>
+<tr><td><code>Real</code></td><td><code>c</code></td><td><code>43</code></td><td>Spring constant</td></tr>
+<tr><td><code>Real</code></td><td><code>cd</code></td><td><code>0.005</code></td><td>Damper constant</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../../Mechanics/MultiBody/Examples/Systems/RobotR3/Components/index.html#AxisControlBus">AxisControlBus</a></code></td><td><code>axisControlBus</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="AxisType2"><h2><embed class="icon" src="../../../../../../images/icon1074.svg" width="223" height="203" />
+Model <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Mechanics</a>.&#8203;<a href="../../../../index.html">MultiBody</a>.&#8203;<a href="../../../index.html">Examples</a>.&#8203;<a href="../../index.html">Systems</a>.&#8203;<a href="../index.html">RobotR3</a>.&#8203;<a href="index.html">Components</a>.&#8203;AxisType2<br><span class="subtitle">Axis model of the r3 joints 4,5,6</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The axis model consists of the <strong>controller</strong>, the <strong>motor</strong> including current
+controller and the <strong>gearbox</strong> including gear elasticity and bearing friction.
+The only difference to the axis model of joints 4,5,6 (= model axisType2) is
+that elasticity and damping in the gear boxes are not neglected.
+</p>
+<p>
+The input signals of this component are the desired angle and desired angular
+velocity of the joint. The reference signals have to be "smooth" (position
+has to be differentiable at least 2 times). Otherwise, the gear elasticity
+leads to significant oscillations.
+</p>
+<p>
+Default values of the parameters are given for the axis of joint 1.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>kp</code></td><td><code>10</code></td><td>Gain of position controller</td></tr>
+<tr><td><code>Real</code></td><td><code>ks</code></td><td><code>1</code></td><td>Gain of speed controller</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Ts</code></td><td><code>0.01</code></td><td>Time constant of integrator of speed controller</td></tr>
+<tr><td><code>Real</code></td><td><code>k</code></td><td><code>1.1616</code></td><td>Gain of motor</td></tr>
+<tr><td><code>Real</code></td><td><code>w</code></td><td><code>4590</code></td><td>Time constant of motor</td></tr>
+<tr><td><code>Real</code></td><td><code>D</code></td><td><code>0.6</code></td><td>Damping constant of motor</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>J</code></td><td><code>0.0013</code></td><td>Moment of inertia of motor</td></tr>
+<tr><td><code>Real</code></td><td><code>ratio</code></td><td><code>-105</code></td><td>Gear ratio</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>Rv0</code></td><td><code>0.4</code></td><td>Viscous friction torque at zero velocity in [Nm]</td></tr>
+<tr><td><code>Real</code></td><td><code>Rv1</code></td><td><code>8.125e-4</code></td><td>Viscous friction coefficient in [Nms/rad]</td></tr>
+<tr><td><code>Real</code></td><td><code>peak</code></td><td><code>1</code></td><td>Maximum static friction torque is peak*Rv0 (peak &gt;= 1)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../../Mechanics/MultiBody/Examples/Systems/RobotR3/Components/index.html#AxisControlBus">AxisControlBus</a></code></td><td><code>axisControlBus</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="MechanicalStructure"><h2><embed class="icon" src="../../../../../../images/icon1075.svg" width="413" height="403" />
+Model <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Mechanics</a>.&#8203;<a href="../../../../index.html">MultiBody</a>.&#8203;<a href="../../../index.html">Examples</a>.&#8203;<a href="../../index.html">Systems</a>.&#8203;<a href="../index.html">RobotR3</a>.&#8203;<a href="index.html">Components</a>.&#8203;MechanicalStructure<br><span class="subtitle">Model of the mechanical part of the r3 robot (without animation)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model contains the mechanical components of the r3 robot
+(multibody system).
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>mLoad</code></td><td><code>15</code></td><td>Mass of load</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>rLoad[3]</code></td><td><code>{0, 0.25, 0}</code></td><td>Distance from last flange to load mass&gt;</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Acceleration">Acceleration</a></code></td><td><code>g</code></td><td><code>9.81</code></td><td>Gravity acceleration</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>axis1</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>axis2</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>axis3</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>axis4</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>axis5</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>axis6</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

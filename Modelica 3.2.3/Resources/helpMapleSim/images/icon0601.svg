@@ -1,0 +1,25 @@
+<svg width="223" height="223" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.Machines.BasicMachines.Components.CompoundDCExcitation" class="component">
+		<polygon points="51.5,151.5 71.5,151.5 111.5,107.5 151.5,151.5 171.5,151.5 121.5,91.5 121.5,51.5 131.5,51.5 111.5,31.5 91.5,51.5 101.5,51.5 101.5,91.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="51.5" y="190.7" text-anchor="middle" fill="#0000FF" font-size="53.1px" font-family="sans-serif">S</text>
+		<text x="171.5" y="190.7" text-anchor="middle" fill="#0000FF" font-size="53.1px" font-family="sans-serif">E</text>
+		<g id="pin_p" class="port">
+			<polygon points="201.5,1.5 221.5,1.5 221.5,21.5 201.5,21.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="pin_n" class="port">
+			<polygon points="1.5,1.5 21.5,1.5 21.5,21.5 1.5,21.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="pin_ep" class="port">
+			<polygon points="201.5,219.5 221.5,219.5 221.5,199.5 201.5,199.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="pin_en" class="port">
+			<polygon points="121.5,221.5 141.5,221.5 141.5,201.5 121.5,201.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="pin_sep" class="port">
+			<polygon points="81.5,221.5 101.5,221.5 101.5,201.5 81.5,201.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="pin_sen" class="port">
+			<polygon points="1.5,221.5 21.5,221.5 21.5,201.5 1.5,201.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

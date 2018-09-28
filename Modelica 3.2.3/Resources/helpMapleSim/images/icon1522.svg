@@ -1,0 +1,11 @@
+<svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Math.sinh" class="component">
+		<polygon points="1.5,201.5 201.5,201.5 201.5,1.5 1.5,1.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="101.5,181.5 101.5,33.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="101.5,11.5 93.5,33.5 109.5,33.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="11.5,101.5 169.5,101.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="191.5,101.5 169.5,93.5 169.5,109.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="21.5,181.5 25.5,166.9 30.3,152.9 36.0,140.3 42.4,129.6 50.4,120.2 60.1,112.9 73.8,107.0 97.1,102.2 126.0,96.9 140.5,91.4 150.9,84.3 159.0,75.6 165.4,65.7 171.0,54.1 175.9,41.1 179.9,27.7 181.5,21.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="49.5" y="60.6" text-anchor="middle" fill="#C0C0C0" font-size="41.4px" font-family="sans-serif">sinh</text>
+	</g>
+</svg>

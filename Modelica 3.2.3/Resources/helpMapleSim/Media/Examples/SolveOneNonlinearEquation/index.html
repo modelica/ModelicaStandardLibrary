@@ -1,0 +1,124 @@
+<html><head><title>Modelica.Media.Examples.SolveOneNonlinearEquation</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="SolveOneNonlinearEquation"><h1><embed class="icon" src="../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;SolveOneNonlinearEquation<br><span class="subtitle">Demonstrate how to solve one non-linear algebraic equation in one unknown</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package demonstrates how to solve one non-linear algebraic
+equation in one unknown with function
+Modelica.Media.Common.OneNonLinearEquation.
+</p>
+
+<p>Extends from <code><a href="../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Inverse_sh_T"><code>Inverse_sh_T</code></a></td><td>Solve h = h_T(T), s = s_T(T) for T, if h or s is given for ideal gas NASA</td></tr>
+<tr><td><a href="#Inverse_sh_TX"><code>Inverse_sh_TX</code></a></td><td>Solve h = h_TX(TX) for T, if h is given for ideal gas NASA</td></tr>
+<tr><td><a href="#Inverse_sine"><code>Inverse_sine</code></a></td><td>Solve y = A*sin(w*x) for x, given y</td></tr>
+<tr><td><a href="#InverseIncompressible_sh_T"><code>InverseIncompressible_sh_T</code></a></td><td>Inverse computation for incompressible media</td></tr>
+</table>
+<hr><a name="Inverse_sine"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">SolveOneNonlinearEquation</a>.&#8203;Inverse_sine<br><span class="subtitle">Solve y = A*sin(w*x) for x, given y</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This models solves the following non-linear equation
+</p>
+
+<pre>
+   y = A*sin(w*x); -> determine x for given y
+</pre>
+
+<p>
+Translate model "Inverse_sine"
+and simulate for 0 sec. The result is printed to the
+output window.
+</p>
+
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y_zero</code></td><td><code>0.5</code></td><td>Desired value of A*sin(w*x)</td></tr>
+<tr><td><code>Real</code></td><td><code>x_min</code></td><td><code>-1.7</code></td><td>Minimum value of x_zero</td></tr>
+<tr><td><code>Real</code></td><td><code>x_max</code></td><td><code>1.7</code></td><td>Maximum value of x_zero</td></tr>
+<tr><td><code>Real</code></td><td><code>A</code></td><td><code>1</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>w</code></td><td><code>1</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Media/Examples/SolveOneNonlinearEquation/Inverse_sine/Inverse_sine_definition/index.html#f_nonlinear_Data">f_nonlinear_Data</a></code></td><td><code>data</code></td><td><code>Inverse_sine_definition.f_nonlinear_Data(A = A, w = w)</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Inverse_sh_T"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">SolveOneNonlinearEquation</a>.&#8203;Inverse_sh_T<br><span class="subtitle">Solve h = h_T(T), s = s_T(T) for T, if h or s is given for ideal gas NASA</span></h2></a>
+<h3>Information</h3>
+<p>
+
+                               
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_min</code></td><td><code>300</code></td><td>Vary temperature linearly from T_min (time=0) up to T_max (time=1)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_max</code></td><td><code>500</code></td><td>Vary temperature linearly from T_min (time=0) up to T_max (time=1)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td><code>100000</code></td><td>Fixed pressure in model</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_min</code></td><td><code>Medium.specificEnthalpy(Medium.setState_pT(p, T_min))</code></td><td>Specific enthalpy at T_min</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_max</code></td><td><code>Medium.specificEnthalpy(Medium.setState_pT(p, T_max))</code></td><td>Specific enthalpy at T_max</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s_min</code></td><td><code>Medium.specificEntropy(Medium.setState_pT(p, T_min))</code></td><td>Specific entropy at T_min</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s_max</code></td><td><code>Medium.specificEntropy(Medium.setState_pT(p, T_max))</code></td><td>Specific entropy at T_max</td></tr>
+</table>
+<hr><a name="InverseIncompressible_sh_T"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">SolveOneNonlinearEquation</a>.&#8203;InverseIncompressible_sh_T<br><span class="subtitle">Inverse computation for incompressible media</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+                               
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_min</code></td><td><code>Medium.&#8203;T_min</code></td><td>Vary temperature linearly from T_min (time=0) up to T_max (time=1)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_max</code></td><td><code>Medium.&#8203;T_max</code></td><td>Vary temperature linearly from T_min (time=0) up to T_max (time=1)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td><code>100000</code></td><td>Fixed pressure in model</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_min</code></td><td><code>Medium.h_T(Medium.T_min)</code></td><td>Specific enthalpy at T_min</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_max</code></td><td><code>Medium.h_T(Medium.T_max)</code></td><td>Specific enthalpy at T_max</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s_min</code></td><td><code>Medium.specificEntropy(Medium.setState_pT(p, T_min))</code></td><td>Specific entropy at T_min</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s_max</code></td><td><code>Medium.specificEntropy(Medium.setState_pT(p, T_max))</code></td><td>Specific entropy at T_max</td></tr>
+</table>
+<hr><a name="Inverse_sh_TX"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">SolveOneNonlinearEquation</a>.&#8203;Inverse_sh_TX<br><span class="subtitle">Solve h = h_TX(TX) for T, if h is given for ideal gas NASA</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_min</code></td><td><code>300</code></td><td>Vary temperature linearly from T_min (time=0) up to T_max (time=1)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_max</code></td><td><code>500</code></td><td>Vary temperature linearly from T_min (time=0) up to T_max (time=1)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td><code>100000</code></td><td>Fixed pressure in model</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_min</code></td><td><code>Medium.h_TX(T_min, X)</code></td><td>Specific enthalpy at T_min</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_max</code></td><td><code>Medium.h_TX(T_max, X)</code></td><td>Specific enthalpy at T_max</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s_min</code></td><td><code>Medium.specificEntropy(Medium.setState_pTX(p, T_min, Medium.reference_X))</code></td><td>Specific entropy at T_min</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s_max</code></td><td><code>Medium.specificEntropy(Medium.setState_pTX(p, T_max, Medium.reference_X))</code></td><td>Specific entropy at T_max</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#MassFraction">MassFraction</a></code></td><td><code>X[4]</code></td><td><code>Medium.&#8203;reference_X</code></td><td>Mass fraction vector</td></tr>
+</table>
+</body></html>

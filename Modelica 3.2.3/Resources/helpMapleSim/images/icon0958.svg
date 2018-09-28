@@ -1,0 +1,11 @@
+<svg width="203" height="213" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Magnetic.FundamentalWave.Components.Ground" class="component">
+		<polyline points="101.5,11.5 101.5,61.5" fill-opacity="0" stroke="#FF8000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="41.5,61.5 161.5,61.5" fill-opacity="0" stroke="#FF8000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="61.5,81.5 141.5,81.5" fill-opacity="0" stroke="#FF8000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="81.5,101.5 121.5,101.5" fill-opacity="0" stroke="#FF8000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="port_p" class="port">
+			<polygon points="111.5,11.5 111.5,10.6 111.4,9.8 111.2,8.9 110.9,8.1 110.6,7.3 110.2,6.6 109.7,5.8 109.2,5.1 108.6,4.5 108.0,3.9 107.3,3.4 106.6,2.9 105.9,2.5 105.1,2.2 104.3,1.9 103.4,1.7 102.6,1.6 101.7,1.5 100.9,1.5 100.0,1.6 99.2,1.8 98.3,2.0 97.5,2.3 96.8,2.7 96.0,3.1 95.3,3.6 94.7,4.2 94.1,4.8 93.5,5.5 93.0,6.2 92.6,6.9 92.2,7.7 92.0,8.5 91.7,9.4 91.6,10.2 91.5,11.1 91.5,11.9 91.6,12.8 91.7,13.6 92.0,14.5 92.2,15.3 92.6,16.1 93.0,16.8 93.5,17.5 94.1,18.2 94.7,18.8 95.3,19.4 96.0,19.9 96.8,20.3 97.5,20.7 98.3,21.0 99.2,21.2 100.0,21.4 100.9,21.5 101.7,21.5 102.6,21.4 103.4,21.3 104.3,21.1 105.1,20.8 105.9,20.5 106.6,20.1 107.3,19.6 108.0,19.1 108.6,18.5 109.2,17.9 109.7,17.2 110.2,16.4 110.6,15.7 110.9,14.9 111.2,14.1 111.4,13.2 111.5,12.4" fill="#FF8000" stroke="#FF8000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

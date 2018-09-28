@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Utilities.Streams.readRealMatrix</title>
+</head>
+<body>
+<h1><a href="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg"><img class="svgiconhead" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Utilities.Streams.html">Streams</a>.<span class="omc-h1">readRealMatrix</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+matrix = Streams.<strong>readRealMatrix</strong>(fileName, matrixName, nrow, ncol, verboseRead)
+</pre></blockquote>
+<h4>Description</h4>
+<p>Function <strong>readRealMatrix</strong>(..) opens the given
+MATLAB MAT file (in format v4, v6, v7, and if HDF is supported in
+the Modelica tool, also v7.3), and reads the given matrix from this
+file. The dimensions of this matrix must first be inquired with
+function <a href="Modelica.Utilities.Streams.readMatrixSize.html">readMatrixSize</a>
+and passed via arguments nrow and ncol to this function.</p>
+<h4>Example</h4>
+<p>See <a href="Modelica.Utilities.Examples.ReadRealMatrixFromFile.html">Examples.ReadRealMatrixFromFile</a>.</p>
+<h4>See also</h4>
+<p><a href="Modelica.Utilities.Streams.readMatrixSize.html">readMatrixSize</a>,
+<a href="Modelica.Utilities.Streams.writeRealMatrix.html">writeRealMatrix</a></p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>function readRealMatrix
+  extends Modelica.Icons.Function;
+  input String fileName "File where external data is stored" annotation(
+    Dialog(loadSelector(filter = "MATLAB MAT files (*.mat)", caption = "Open MATLAB MAT file")));
+  input String matrixName "Name / identifier of the 2D Real array on the file";
+  input Integer nrow "Number of rows of the 2D Real array";
+  input Integer ncol "Number of columns of the 2D Real array";
+  input Boolean verboseRead = true "= true: Print info message; = false: No info message";
+  output Real matrix[nrow, ncol] "2D Real array";
+end readRealMatrix;</pre></blockquote>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

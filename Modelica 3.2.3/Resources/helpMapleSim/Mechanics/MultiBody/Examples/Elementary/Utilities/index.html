@@ -1,0 +1,91 @@
+<html><head><title>Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Utilities"><h1><embed class="icon" src="../../../../../images/icon0009.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Mechanics</a>.&#8203;<a href="../../../index.html">MultiBody</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">Elementary</a>.&#8203;Utilities<br><span class="subtitle">Utility classes used by elementary multi-body example models</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains utility models and functions used by some
+of the elementary example models from the multi-body package.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/UtilitiesPackage/index.html">Modelica.&#8203;Icons.&#8203;UtilitiesPackage</a></code> (Icon for utility packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#sineSurface"><code>sineSurface</code></a></td><td>Function defining the characteristic of a moving sine in three dimensions</td></tr>
+<tr><td><a href="#theoreticalNormalGravityWGS84"><code>theoreticalNormalGravityWGS84</code></a></td><td>WGS84 normal gravity over earth ellipsoid in negative y-direction</td></tr>
+</table>
+<hr><a name="theoreticalNormalGravityWGS84"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Mechanics</a>.&#8203;<a href="../../../index.html">MultiBody</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">Elementary</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;theoreticalNormalGravityWGS84<br><span class="subtitle">WGS84 normal gravity over earth ellipsoid in negative y-direction</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Function that computes the theoretical gravity of the
+<a href="http://earth-info.nga.mil/GandG/publications/tr8350.2/wgs84fin.pdf">WGS84 ellipsoid earth model</a> at and close to the earth ellipsoid surface, for the
+given "geodeticLatitude" and the given "height=r[2]" over the
+ellipsoid surface.
+</p>
+
+<p>Extends from <code><a href="../../../../../Mechanics/MultiBody/Interfaces/index.html#partialGravityAcceleration">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;partialGravityAcceleration</a></code> (Interface for the gravity function used in the World object).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>r[3]</code></td><td>Position vector from world frame to actual point, resolved in world frame</td></tr>
+<tr><td><code><a href="../../../../../SIunits/Conversions/NonSIunits/index.html#Angle_deg">Angle_deg</a></code></td><td><code>phi</code></td><td>Geodetic latitude</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Acceleration">Acceleration</a></code></td><td><code>gravity[3]</code></td><td>Gravity acceleration at position r, resolved in world frame</td></tr>
+</table>
+<hr><a name="sineSurface"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Mechanics</a>.&#8203;<a href="../../../index.html">MultiBody</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">Elementary</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;sineSurface<br><span class="subtitle">Function defining the characteristic of a moving sine in three dimensions</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Function defining the characteristics of a moving sine in three dimensions.
+This function is used in example
+<a href="../../../../../Mechanics/MultiBody/Examples/Elementary/index.html#Surfaces">Elementary.Surfaces</a>.
+</p>
+<p>Extends from <code><a href="../../../../../Mechanics/MultiBody/Interfaces/index.html#partialSurfaceCharacteristic">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;partialSurfaceCharacteristic</a></code> (Interface for a function returning surface characteristics).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nu</code></td><td>Number of points in u-Dimension</td></tr>
+<tr><td><code>Integer</code></td><td><code>nv</code></td><td>Number of points in v-Dimension</td></tr>
+<tr><td><code>Boolean</code></td><td><code>multiColoredSurface</code></td><td>= true: Color is defined for each surface point</td></tr>
+<tr><td><code>Real</code></td><td><code>x_min</code></td><td>Minimum value of x</td></tr>
+<tr><td><code>Real</code></td><td><code>x_max</code></td><td>Maximum value of x</td></tr>
+<tr><td><code>Real</code></td><td><code>y_min</code></td><td>Minimum value of y</td></tr>
+<tr><td><code>Real</code></td><td><code>y_max</code></td><td>Maximum value of y</td></tr>
+<tr><td><code>Real</code></td><td><code>z_min</code></td><td>Minimum value of z</td></tr>
+<tr><td><code>Real</code></td><td><code>z_max</code></td><td>Maximum value of z</td></tr>
+<tr><td><code>Real</code></td><td><code>wz</code></td><td>Factor for angular frequency</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>X[nu,nv]</code></td><td>[nu,nv] positions of points in x-Direction resolved in surface frame</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>Y[nu,nv]</code></td><td>[nu,nv] positions of points in y-Direction resolved in surface frame</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>Z[nu,nv]</code></td><td>[nu,nv] positions of points in z-Direction resolved in surface frame</td></tr>
+<tr><td><code>Real</code></td><td><code>C[if multiColoredSurface then nu else 0,if multiColoredSurface then nv else 0,3]</code></td><td>[nu,nv,3] Color array, defining the color for each surface point</td></tr>
+</table>
+</body></html>

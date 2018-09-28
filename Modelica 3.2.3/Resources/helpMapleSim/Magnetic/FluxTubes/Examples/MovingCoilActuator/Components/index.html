@@ -1,0 +1,121 @@
+<html><head><title>Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Components"><h1><embed class="icon" src="../../../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">FluxTubes</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">MovingCoilActuator</a>.&#8203;Components<br><span class="subtitle">Components to be used in examples</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>Standard package icon.</p>
+<p>Extends from <code><a href="../../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#ConstantActuator"><code>ConstantActuator</code></a></td><td>Simple behavioural actuator model for system simulation</td></tr>
+<tr><td><a href="#PermeanceActuator"><code>PermeanceActuator</code></a></td><td>Detailed actuator model for rough magnetic design of actuator and system simulation</td></tr>
+</table>
+<hr><a name="PermeanceActuator"><h2><embed class="icon" src="../../../../../images/icon0923.svg" width="223" height="223" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">FluxTubes</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">MovingCoilActuator</a>.&#8203;<a href="index.html">Components</a>.&#8203;PermeanceActuator<br><span class="subtitle">Detailed actuator model for rough magnetic design of actuator and system simulation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+In the <a href="../../../../../Magnetic/FluxTubes/Examples/MovingCoilActuator/Components/index.html#ConstantActuator">ConstantActuator</a> model the force F is strictly proportional to the current i as indicated by the converter constant c. However, there is an additional non-linear force component in such an actuator that is due to the dependency of the coil inductance L on the armature position x. The inductance increases as the armature moves into the stator. The total force is
+</p>
+
+<pre>
+        1  2 dL
+    F = - i  --  + c i
+        2    dx
+</pre>
+
+<p>
+Both force components are properly considered with a simple permeance model as shown in the figures below. Figure (a) illustrates the dimensions of the axis-symmetric moving coil actuator that are needed in the permeance model. Figure (b) shows partitioning into flux tubes and the permanent magnetic field without current. G_ma and G_mb both are the permeances resulting from a series connection of the permanent magnet and air gap sections. The field plot of the coil-imposed mmf is shown in figure (c) without the permanent magnetic mmf (H_cB=0). The placement of the magnetic network components in figure (d) retains the geometric structure of the actuator. In figure (e), the permeance model is restructured and thus simplified.
+</p>
+
+<p>
+<img src="../../../../../../Images/Magnetic/FluxTubes/Examples/MovingCoilActuator/MovingCoilActuator_PermeanceModel.png" alt="Structure, assigned flux tubes and field plots of the moving coil actuator">
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>N</code></td><td><code>140</code></td><td>Number of turns</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>2.86</code></td><td>Coil resistance</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Radius">Radius</a></code></td><td><code>r_core</code></td><td><code>0.0125</code></td><td>Radius of ferromagnetic stator core</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>l_PM</code></td><td><code>0.0035</code></td><td>Radial thickness of permanent magnet ring</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>t</code></td><td><code>0.02</code></td><td>Axial length of permanent magnet ring and air gap respectively</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>l_air</code></td><td><code>0.003</code></td><td>Total radial length of armature air gap</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>l_FeOut</code></td><td><code>0.004</code></td><td>Radial thickness of outer back iron (for estimation of leakage permeance)</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/FluxTubes/Material/HardMagnetic/index.html#BaseData">BaseData</a></code></td><td><code>material</code></td><td><code>Material.HardMagnetic.BaseData()</code></td><td>Ferromagnetic material characteristics</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m_a</code></td><td><code>0.012</code></td><td>Mass of armature</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#TranslationalSpringConstant">TranslationalSpringConstant</a></code></td><td><code>c</code></td><td><code>1e+11</code></td><td>Spring stiffness between impact partners</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#TranslationalDampingConstant">TranslationalDampingConstant</a></code></td><td><code>d</code></td><td><code>400</code></td><td>Damping coefficient between impact partners</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>x_min</code></td><td><code>-0.004</code></td><td>Position of stopper at minimum armature position</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>x_max</code></td><td><code>0.004</code></td><td>Position of stopper at maximum armature position</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Electrical connector</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Electrical connector</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/Translational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange</code></td><td>Flange of component</td></tr>
+</table>
+<hr><a name="ConstantActuator"><h2><embed class="icon" src="../../../../../images/icon0924.svg" width="223" height="223" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">FluxTubes</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">MovingCoilActuator</a>.&#8203;<a href="index.html">Components</a>.&#8203;ConstantActuator<br><span class="subtitle">Simple behavioural actuator model for system simulation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Similar to rotational DC-Motors, the electro-mechanical energy conversion of translatory electrodynamic actuators and generators of moving coil and moving magnet type can be described with the following two converter equations:
+</p>
+
+<pre>
+      F = c * i
+    V_i = c * v
+</pre>
+
+<p>
+with electrodynamic or <em>Lorentz</em> force F, converter constant c, current i, induced back-emf V_i and armature velocity v. The model is very similar to the well-known behavioural model of a rotational one-phase DC-Machine, except that it is for translatory motion. For a moving coil actuator with a coil inside an air gap with flux density B and a total wire length l inside the magnetic field, the converter constant becomes
+</p>
+
+<pre>
+    c = B * l.
+</pre>
+
+<p>
+The converter constant c as well as coil resistance R and inductance L are assumed to be known, e.g., from measurements or catalogue data. Hence this model is well-suited for system simulation together with neighbouring subsystems, but not for actuator design, where the motor constant is to be found on base of the magnetic circuit's geometry, material properties and winding data. See <a href="../../../../../Magnetic/FluxTubes/Examples/MovingCoilActuator/Components/index.html#PermeanceActuator">PermeanceActuator</a> for a more accurate model of this actuator that is based on a magnetic network. Due to identical connectors, both models can be used in system simulation, e.g. to simulate a stroke as demonstrated in <a href="../../../../../Magnetic/FluxTubes/Examples/MovingCoilActuator/index.html#ArmatureStroke">ArmatureStroke</a>.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#ElectricalForceConstant">ElectricalForceConstant</a></code></td><td><code>k</code></td><td><code>3.88</code></td><td>Converter constant</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>2.86</code></td><td>Coil resistance</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L</code></td><td><code>0.0051</code></td><td>Coil inductance at mid-stroke</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m_a</code></td><td><code>0.012</code></td><td>Armature mass</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#TranslationalSpringConstant">TranslationalSpringConstant</a></code></td><td><code>c</code></td><td><code>1e+11</code></td><td>Spring stiffness between impact partners</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#TranslationalDampingConstant">TranslationalDampingConstant</a></code></td><td><code>d</code></td><td><code>400</code></td><td>Damping coefficient between impact partners</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>x_min</code></td><td><code>-0.004</code></td><td>Minimum armature position</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>x_max</code></td><td><code>0.004</code></td><td>Maximum armature position</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Electrical connector</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Electrical connector</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/Translational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange</code></td><td>Flange of component</td></tr>
+</table>
+</body></html>

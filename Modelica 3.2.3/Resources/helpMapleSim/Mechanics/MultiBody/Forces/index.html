@@ -1,0 +1,941 @@
+<html><head><title>Modelica.Mechanics.MultiBody.Forces</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Forces"><h1><embed class="icon" src="../../../images/icon0259.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;Forces<br><span class="subtitle">Components that exert forces and/or torques between frames</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains components that exert forces and torques
+between two frame connectors, e.g., between two parts.
+</p>
+<h4>Content</h4>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><strong><em>Model</em></strong></th><th><strong><em>Description</em></strong></th></tr>
+  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#WorldForce">WorldForce</a></td>
+      <td> External force acting at the frame to which this component
+           is connected and defined by 3 input signals,
+           that are interpreted as one vector resolved in frame world, frame_b or frame_resolve.<br>
+           <img src="../../../../Images/Mechanics/MultiBody/Forces/ArrowForce.png"></td>
+  </tr>
+  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#WorldTorque">WorldTorque</a></td>
+      <td> External torque acting at the frame to which this component
+           is connected and defined by 3 input signals,
+           that are interpreted as one vector resolved in frame world, frame_b or frame_resolve.<br>
+           <img src="../../../../Images/Mechanics/MultiBody/Forces/ArrowTorque.png"></td>
+  </tr>
+  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#WorldForceAndTorque">WorldForceAndTorque</a></td>
+      <td> External force and external torque acting at the frame
+           to which this component
+           is connected and defined by 3+3 input signals,
+           that are interpreted as a force and as a torque vector
+           resolved in frame world, frame_b or frame_resolve.<br>
+           <img src="../../../../Images/Mechanics/MultiBody/Forces/ArrowForce.png"><br>
+           <img src="../../../../Images/Mechanics/MultiBody/Forces/ArrowTorque.png">
+      </td>
+  </tr>
+  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#Force">Force</a></td>
+      <td> Force acting between two frames defined by 3 input signals
+           resolved in frame world, frame_a, frame_b or in frame_resolve.<br>
+           <img src="../../../../Images/Mechanics/MultiBody/Forces/ArrowForce2.png"></td>
+  </tr>
+  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#Torque">Torque</a></td>
+      <td> Torque acting between two frames defined by 3 input signals
+           resolved in frame world, frame_a, frame_b or in frame_resolve.<br>
+           <img src="../../../../Images/Mechanics/MultiBody/Forces/ArrowTorque2.png"></td>
+  </tr>
+  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#ForceAndTorque">ForceAndTorque</a></td>
+      <td> Force and torque acting between two frames defined by 3+3 input signals
+           resolved in frame world, frame_a, frame_b or in frame_resolve.<br>
+           <img src="../../../../Images/Mechanics/MultiBody/Forces/ArrowForce2.png"><br>
+           <img src="../../../../Images/Mechanics/MultiBody/Forces/ArrowTorque2.png"></td>
+  </tr>
+  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#LineForceWithMass">LineForceWithMass</a></td>
+      <td>  General line force component with an optional point mass
+            on the connection line. The force law can be defined by a
+            component of Modelica.Mechanics.Translational<br>
+           <img src="../../../../Images/Mechanics/MultiBody/Forces/LineForceWithMass.png"></td>
+  </tr>
+  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#LineForceWithTwoMasses">LineForceWithTwoMasses</a></td>
+      <td>  General line force component with two optional point masses
+            on the connection line. The force law can be defined by a
+            component of Modelica.Mechanics.Translational<br>
+           <img src="../../../../Images/Mechanics/MultiBody/Forces/LineForceWithTwoMasses.png"></td>
+  </tr>
+  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#Spring">Spring</a></td>
+      <td> Linear translational spring with optional mass<br>
+           <img src="../../../../Images/Mechanics/MultiBody/Forces/Spring2.png"></td>
+  </tr>
+  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#Damper">Damper</a></td>
+      <td> Linear (velocity dependent) damper<br>
+           <img src="../../../../Images/Mechanics/MultiBody/Forces/Damper2.png"></td>
+  </tr>
+  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#SpringDamperParallel">SpringDamperParallel</a></td>
+      <td> Linear spring and damper in parallel connection </td>
+  </tr>
+  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#SpringDamperSeries">SpringDamperSeries</a></td>
+      <td> Linear spring and damper in series connection </td>
+  </tr>
+</table>
+<p>Extends from <code><a href="../../../Icons/SourcesPackage/index.html">Modelica.&#8203;Icons.&#8203;SourcesPackage</a></code> (Icon for packages containing sources).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Damper"><code>Damper</code></a></td><td>Linear (velocity dependent) damper</td></tr>
+<tr><td><a href="#Force"><code>Force</code></a></td><td>Force acting between two frames, defined by 3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve</td></tr>
+<tr><td><a href="#ForceAndTorque"><code>ForceAndTorque</code></a></td><td>Force and torque acting between two frames, defined by 3+3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve</td></tr>
+<tr><td><a href="../../../Mechanics/MultiBody/Forces/Internal/index.html"><code>Internal</code></a> &hellip;</td><td>Internal package, should not be used by user</td></tr>
+<tr><td><a href="#LineForceWithMass"><code>LineForceWithMass</code></a></td><td>General line force component with an optional point mass on the connection line</td></tr>
+<tr><td><a href="#LineForceWithTwoMasses"><code>LineForceWithTwoMasses</code></a></td><td>General line force component with two optional point masses on the connection line</td></tr>
+<tr><td><a href="#Spring"><code>Spring</code></a></td><td>Linear translational spring with optional mass</td></tr>
+<tr><td><a href="#SpringDamperParallel"><code>SpringDamperParallel</code></a></td><td>Linear spring and linear damper in parallel</td></tr>
+<tr><td><a href="#SpringDamperSeries"><code>SpringDamperSeries</code></a></td><td>Linear spring and linear damper in series connection</td></tr>
+<tr><td><a href="#Torque"><code>Torque</code></a></td><td>Torque acting between two frames, defined by 3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve</td></tr>
+<tr><td><a href="#WorldForce"><code>WorldForce</code></a></td><td>External force acting at frame_b, defined by 3 input signals and resolved in frame world, frame_b or frame_resolve</td></tr>
+<tr><td><a href="#WorldForceAndTorque"><code>WorldForceAndTorque</code></a></td><td>External force and torque acting at frame_b, defined by 3+3 input signals and resolved in frame world, frame_b or in frame_resolve</td></tr>
+<tr><td><a href="#WorldTorque"><code>WorldTorque</code></a></td><td>External torque acting at frame_b, defined by 3 input signals and resolved in frame world, frame_b or frame_resolve</td></tr>
+</table>
+<hr><a name="WorldForce"><h2><embed class="icon" src="../../../images/icon1076.svg" width="248" height="208" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Forces</a>.&#8203;WorldForce<br><span class="subtitle">External force acting at frame_b, defined by 3 input signals and resolved in frame world, frame_b or frame_resolve</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+The <strong>3</strong> signals of the <strong>force</strong> connector are interpreted
+as the x-, y- and z-coordinates of a <strong>force</strong> acting at the frame
+connector to which frame_b of this component is attached.
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame these
+coordinates shall be resolved:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve input force in world frame (= default)</td></tr>
+
+<tr><td>frame_b</td>
+    <td>Resolve input force in frame_b</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve input force in frame_resolve (frame_resolve must be connected)</td></tr>
+</table>
+
+<p>
+If resolveInFrame = Types.ResolveInFrameB.frame_resolve, the force coordinates
+are with respect to the frame, that is connected to <strong>frame_resolve</strong>.
+</p>
+
+<p>
+If force={100,0,0}, and for all parameters the default setting is used,
+then the interpretation is that a force of 100 N is acting along the positive
+x-axis of frame_b.
+</p>
+
+<p>
+Note, the cut-torque in frame_b (frame_b.t) is always set to zero.
+Conceptually, a force and torque acts on the world frame in such a way that
+the force and torque balance between world.frame_b and frame_b is fulfilled.
+For efficiency reasons, this reaction torque is, however, not computed.
+</p>
+
+<p>
+This force component is by default visualized as an arrow
+acting at the connector to which it is connected. The diameter
+and color of the arrow can be defined via
+variables <strong>diameter</strong> and <strong>color</strong>. The arrow
+points in the direction defined by the
+force signal. The length of the arrow is proportional
+to the length of the force vector using parameter
+<strong>N_to_m</strong> as scaling factor. For example, if N_to_m = 100 N/m,
+then a force of 350 N is displayed as an arrow of length 3.5 m.
+</p>
+<p>
+An example how to use this model is given in the
+following figure:
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/Forces/WorldForce1.png">
+</p>
+
+<p>
+This leads to the following animation
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/Forces/WorldForce2.png">
+</p>
+
+<p>Extends from <code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#PartialOneFrame_b">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;PartialOneFrame_b</a></code> (Base model for components providing one frame_b connector + outer world + assert to guarantee that the component is connected).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#ResolveInFrameB">ResolveInFrameB</a></code></td><td><code>resolveInFrame</code></td><td><code>Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Types.&#8203;ResolveInFrameB.&#8203;world</code></td><td>Frame in which input force is resolved (1: world, 2: frame_b, 3: frame_resolve)</td></tr>
+<tr><td><code>Real</code></td><td><code>N_to_m</code></td><td><code>world.&#8203;defaultN_to_m</code></td><td>Force arrow scaling (length = force/N_to_m)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_resolve">Frame_resolve</a></code></td><td><code>frame_resolve</code></td><td>The input signals are optionally resolved in this frame</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>force[3]</code></td><td>x-, y-, z-coordinates of force resolved in frame defined by resolveInFrame</td></tr>
+</table>
+<hr><a name="WorldTorque"><h2><embed class="icon" src="../../../images/icon1077.svg" width="248" height="208" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Forces</a>.&#8203;WorldTorque<br><span class="subtitle">External torque acting at frame_b, defined by 3 input signals and resolved in frame world, frame_b or frame_resolve</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+The <strong>3</strong> signals of the <strong>torque</strong> connector are interpreted
+as the x-, y- and z-coordinates of a <strong>torque</strong> acting at the frame
+connector to which frame_b of this component is attached.
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame these
+coordinates shall be resolved:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve input torque in world frame (= default)</td></tr>
+
+<tr><td>frame_b</td>
+    <td>Resolve input torque in frame_b</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve input torque in frame_resolve (frame_resolve must be connected)</td></tr>
+</table>
+
+<p>
+If resolveInFrame = Types.ResolveInFrameB.frame_resolve, the torque coordinates
+are with respect to the frame, that is connected to <strong>frame_resolve</strong>.
+</p>
+
+<p>
+If torque={100,0,0}, and for all parameters the default setting is used,
+then the interpretation is that a torque of 100 N is acting along the positive
+x-axis of frame_b.
+</p>
+
+<p>
+Note, the cut-force in frame_b (frame_b.f) is always set to zero.
+Conceptually, a force and torque acts on the world frame in such a way that
+the force and torque balance between world.frame_b and frame_b is fulfilled.
+For efficiency reasons, this reaction torque is, however, not computed.
+</p>
+
+<p>
+This torque component is by default visualized as a <strong>double arrow</strong>
+acting at the connector to which it is connected. The diameter
+and color of the arrow can be defined via
+variables <strong>diameter</strong> and <strong>color</strong>. The double arrow points
+in the direction defined by the
+torque vector. The length of the double arrow is proportional
+to the length of the torque vector using parameter
+<strong>Nm_to_m</strong> as scaling factor. For example, if Nm_to_m = 100 Nm/m,
+then a torque of 350 Nm is displayed as an arrow of length 3.5 m.
+</p>
+<p>
+An example how to use this model is given in the
+following figure:
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/Forces/WorldTorque1.png">
+</p>
+
+<p>
+This leads to the following animation
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/Forces/WorldTorque2.png">
+</p>
+
+<p>Extends from <code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#PartialOneFrame_b">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;PartialOneFrame_b</a></code> (Base model for components providing one frame_b connector + outer world + assert to guarantee that the component is connected).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#ResolveInFrameB">ResolveInFrameB</a></code></td><td><code>resolveInFrame</code></td><td><code>Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Types.&#8203;ResolveInFrameB.&#8203;world</code></td><td>Frame in which input torque is resolved (1: world, 2: frame_b, 3: frame_resolve)</td></tr>
+<tr><td><code>Real</code></td><td><code>Nm_to_m</code></td><td><code>world.&#8203;defaultNm_to_m</code></td><td>Torque arrow scaling (length = torque/Nm_to_m)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_resolve">Frame_resolve</a></code></td><td><code>frame_resolve</code></td><td>The input signals are optionally resolved in this frame</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>torque[3]</code></td><td>x-, y-, z-coordinates of torque resolved in frame defined by resolveInFrame</td></tr>
+</table>
+<hr><a name="WorldForceAndTorque"><h2><embed class="icon" src="../../../images/icon1078.svg" width="248" height="208" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Forces</a>.&#8203;WorldForceAndTorque<br><span class="subtitle">External force and torque acting at frame_b, defined by 3+3 input signals and resolved in frame world, frame_b or in frame_resolve</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The <strong>3</strong> signals of the <strong>force</strong> and <strong>torque</strong>
+connector are interpreted
+as the x-, y- and z-coordinates of a <strong>force</strong> and
+<strong>torque</strong> acting at the frame
+connector to which frame_b of this component is attached.
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame these
+coordinates shall be resolved:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve input force and torque in world frame (= default)</td></tr>
+
+<tr><td>frame_b</td>
+    <td>Resolve input force and torque in frame_b</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve input force and torque in frame_resolve
+                    (frame_resolve must be connected)</td></tr>
+</table>
+
+<p>
+If resolveInFrame = Types.ResolveInFrameB.frame_resolve, the force and
+torque coordinates
+are with respect to the frame, that is connected to <strong>frame_resolve</strong>.
+</p>
+
+<p>
+If force={100,0,0}, and for all parameters the default setting is used,
+then the interpretation is that a force of 100 N is acting along the positive
+x-axis of frame_b.
+</p>
+
+<p>
+Conceptually, a force and torque acts on the world frame in such a way that
+the force and torque balance between world.frame_b and frame_b is fulfilled.
+For efficiency reasons, this reaction torque is, however, not computed.
+</p>
+
+<p>
+The force and torque are by default visualized as an arrow (force)
+and as a double arrow (torque) acting at the connector to which
+they are connected. The diameters
+and colors of the arrows can be defined via
+variables <strong>forceDiameter</strong>, <strong>torqueDiameter</strong>,
+<strong>forceColor</strong> and <strong>torqueColor</strong>. The arrows
+point in the directions defined by the
+force and torque vectors. The lengths of the arrows are proportional
+to the length of the force and torque vectors, respectively, using parameters
+<strong>N_to_m</strong> and <strong>Nm_to_m</strong> as scaling factors. For example, if N_to_m = 100 N/m,
+then a force of 350 N is displayed as an arrow of length 3.5 m.
+</p>
+<p>
+An example how to use this model is given in the
+following figure:
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/Forces/WorldForceAndTorque1.png">
+</p>
+
+<p>
+This leads to the following animation
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/Forces/WorldForceAndTorque2.png">
+</p>
+
+<p>Extends from <code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#PartialOneFrame_b">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;PartialOneFrame_b</a></code> (Base model for components providing one frame_b connector + outer world + assert to guarantee that the component is connected).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#ResolveInFrameB">ResolveInFrameB</a></code></td><td><code>resolveInFrame</code></td><td><code>Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Types.&#8203;ResolveInFrameB.&#8203;world</code></td><td>Frame in which input force and torque are resolved (1: world, 2: frame_b, 3: frame_resolve)</td></tr>
+<tr><td><code>Real</code></td><td><code>N_to_m</code></td><td><code>world.&#8203;defaultN_to_m</code></td><td>Force arrow scaling (length = force/N_to_m)</td></tr>
+<tr><td><code>Real</code></td><td><code>Nm_to_m</code></td><td><code>world.&#8203;defaultNm_to_m</code></td><td>Torque arrow scaling (length = torque/Nm_to_m)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_resolve">Frame_resolve</a></code></td><td><code>frame_resolve</code></td><td>The input signals are optionally resolved in this frame</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>force[3]</code></td><td>x-, y-, z-coordinates of force resolved in frame defined by resolveInFrame</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>torque[3]</code></td><td>x-, y-, z-coordinates of torque resolved in frame defined by resolveInFrame</td></tr>
+</table>
+<hr><a name="Force"><h2><embed class="icon" src="../../../images/icon1079.svg" width="213" height="243" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Forces</a>.&#8203;Force<br><span class="subtitle">Force acting between two frames, defined by 3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The <strong>3</strong> signals of the <strong>force</strong> connector are interpreted
+as the x-, y- and z-coordinates of a <strong>force</strong> acting at the frame
+connector to which frame_b of this component is attached.
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame these
+coordinates shall be resolved:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve input force in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve input force in frame_a</td></tr>
+
+<tr><td>frame_b</td>
+    <td>Resolve input force in frame_b (= default)</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve input force in frame_resolve (frame_resolve must be connected)</td></tr>
+</table>
+
+<p>
+If resolveInFrame = ResolveInFrameAB.frame_resolve, the force coordinates
+are with respect to the frame, that is connected to <strong>frame_resolve</strong>.
+</p>
+
+<p>
+If force={100,0,0}, and for all parameters the default setting is used,
+then the interpretation is that a force of 100 N is acting along the positive
+x-axis of frame_b.
+</p>
+
+<p>
+Note, the cut-torque in frame_b (frame_b.t) is always set to zero.
+Additionally, a force and torque acts on frame_a in such a way that
+the force and torque balance between frame_a and frame_b is fulfilled.
+</p>
+
+<p>
+An example how to use this model is given in the
+following figure:
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/Forces/Force1.png">
+</p>
+
+<p>
+This leads to the following animation (the yellow cylinder
+characterizes the line between frame_a and frame_b of the
+Force component, i.e., the force acts with negative sign
+also on the opposite side of this cylinder, but for
+clarity this is not shown in the animation):
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/Forces/Force2.png">
+</p>
+
+<p>Extends from <code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#PartialTwoFrames">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;PartialTwoFrames</a></code> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#ResolveInFrameAB">ResolveInFrameAB</a></code></td><td><code>resolveInFrame</code></td><td><code>Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Types.&#8203;ResolveInFrameAB.&#8203;frame_b</code></td><td>Frame in which input force is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)</td></tr>
+<tr><td><code>Real</code></td><td><code>N_to_m</code></td><td><code>world.&#8203;defaultN_to_m</code></td><td>Force arrow scaling (length = force/N_to_m)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_resolve">Frame_resolve</a></code></td><td><code>frame_resolve</code></td><td>The input signals are optionally resolved in this frame</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>force[3]</code></td><td>x-, y-, z-coordinates of force resolved in frame defined by resolveInFrame</td></tr>
+</table>
+<hr><a name="Torque"><h2><embed class="icon" src="../../../images/icon1080.svg" width="213" height="243" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Forces</a>.&#8203;Torque<br><span class="subtitle">Torque acting between two frames, defined by 3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The <strong>3</strong> signals of the <strong>torque</strong> connector are interpreted
+as the x-, y- and z-coordinates of a <strong>torque</strong> acting at the frame
+connector to which frame_b of this component is attached.
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame these
+coordinates shall be resolved:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve input torque in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve input torque in frame_a</td></tr>
+
+<tr><td>frame_b</td>
+    <td>Resolve input torque in frame_b (= default)</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve input torque in frame_resolve (frame_resolve must be connected)</td></tr>
+</table>
+
+<p>
+If resolveInFrame = ResolveInFrameAB.frame_resolve, the torque coordinates
+are with respect to the frame, that is connected to <strong>frame_resolve</strong>.
+</p>
+
+<p>
+If torque={100,0,0}, and for all parameters the default setting is used,
+then the interpretation is that a torque of 100 N.m is acting along the positive
+x-axis of frame_b.
+</p>
+
+<p>
+Note, the cut-forces in frame_a and frame_b (frame_a.f, frame_b.f) are
+always set to zero and the cut-torque at frame_a (frame_a.t) is the same
+as the cut-torque at frame_b (frame_b.t) but with opposite sign.
+</p>
+
+<p>
+An example how to use this model is given in the
+following figure:
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/Forces/Torque1.png">
+</p>
+
+<p>
+This leads to the following animation (the yellow cylinder
+characterizes the line between frame_a and frame_b of the
+Torque component, i.e., the torque acts with negative sign
+also on the opposite side of this cylinder, but for
+clarity this is not shown in the animation):
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/Forces/Torque2.png">
+</p>
+
+<p>Extends from <code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#PartialTwoFrames">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;PartialTwoFrames</a></code> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#ResolveInFrameAB">ResolveInFrameAB</a></code></td><td><code>resolveInFrame</code></td><td><code>Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Types.&#8203;ResolveInFrameAB.&#8203;frame_b</code></td><td>Frame in which input force is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)</td></tr>
+<tr><td><code>Real</code></td><td><code>Nm_to_m</code></td><td><code>world.&#8203;defaultNm_to_m</code></td><td>Torque arrow scaling (length = torque/Nm_to_m)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_resolve">Frame_resolve</a></code></td><td><code>frame_resolve</code></td><td>The input signals are optionally resolved in this frame</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>torque[3]</code></td><td>x-, y-, z-coordinates of torque resolved in frame defined by resolveInFrame</td></tr>
+</table>
+<hr><a name="ForceAndTorque"><h2><embed class="icon" src="../../../images/icon1081.svg" width="213" height="243" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Forces</a>.&#8203;ForceAndTorque<br><span class="subtitle">Force and torque acting between two frames, defined by 3+3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The <strong>3</strong> signals of the <strong>force</strong> connector and the
+<strong>3</strong> signals of the <strong>torque</strong> connector
+are interpreted
+as the x-, y- and z-coordinates of a <strong>force</strong> and of a
+<strong>torque</strong> acting at the frame
+connector to which frame_b of this component is attached.
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame these
+coordinates shall be resolved:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve input force/torque in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve input force/torque in frame_a</td></tr>
+
+<tr><td>frame_b</td>
+    <td>Resolve input force/torque in frame_b (= default)</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve input force/torque in frame_resolve (frame_resolve must be connected)</td></tr>
+</table>
+
+<p>
+If resolveInFrame = ResolveInFrameAB.frame_resolve, the force and torque coordinates
+are with respect to the frame, that is connected to <strong>frame_resolve</strong>.
+</p>
+
+<p>
+If force={100,0,0}, and for all parameters the default setting is used,
+then the interpretation is that a force of 100 N is acting along the positive
+x-axis of frame_b.
+</p>
+
+<p>
+Note, a force and torque acts on frame_a in such a way that
+the force and torque balance between frame_a and frame_b is fulfilled.
+</p>
+
+<p>
+An example how to use this model is given in the
+following figure:
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/Forces/ForceAndTorque1.png">
+</p>
+
+<p>
+This leads to the following animation (the yellow cylinder
+characterizes the line between frame_a and frame_b of the
+ForceAndTorque component, i.e., the force and torque acts with
+negative sign
+also on the opposite side of this cylinder, but for
+clarity this is not shown in the animation):
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/Forces/ForceAndTorque2.png">
+</p>
+
+<p>Extends from <code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#PartialTwoFrames">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;PartialTwoFrames</a></code> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#ResolveInFrameAB">ResolveInFrameAB</a></code></td><td><code>resolveInFrame</code></td><td><code>Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Types.&#8203;ResolveInFrameAB.&#8203;frame_b</code></td><td>Frame in which input force and torque are resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)</td></tr>
+<tr><td><code>Real</code></td><td><code>N_to_m</code></td><td><code>world.&#8203;defaultN_to_m</code></td><td>Force arrow scaling (length = force/N_to_m)</td></tr>
+<tr><td><code>Real</code></td><td><code>Nm_to_m</code></td><td><code>world.&#8203;defaultNm_to_m</code></td><td>Torque arrow scaling (length = torque/Nm_to_m)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>force[3]</code></td><td>x-, y-, z-coordinates of force resolved in frame defined by resolveInFrame</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>torque[3]</code></td><td>x-, y-, z-coordinates of torque resolved in frame defined by resolveInFrame</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_resolve">Frame_resolve</a></code></td><td><code>frame_resolve</code></td><td>The input signals are optionally resolved in this frame</td></tr>
+</table>
+<hr><a name="LineForceWithMass"><h2><embed class="icon" src="../../../images/icon1082.svg" width="213" height="213" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Forces</a>.&#8203;LineForceWithMass<br><span class="subtitle">General line force component with an optional point mass on the connection line</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component is used to exert a <strong>line force</strong>
+between the origin of frame_a and the origin of frame_b
+by attaching components of the <strong>1-dimensional translational</strong>
+mechanical library of Modelica (Modelica.Mechanics.Translational)
+between the two flange connectors <strong>flange_a</strong> and
+<strong>flange_b</strong>. Optionally, there is a <strong>point mass</strong> on the line
+connecting the origin of frame_a and the origin of frame_b.
+This point mass approximates the <strong>mass</strong> of the <strong>force element</strong>.
+The distance of the point mass from frame_a as a fraction of the
+distance between frame_a and frame_b is defined via
+parameter <strong>lengthFraction</strong> (default is 0.5, i.e., the point
+mass is in the middle of the line).
+</p>
+<p>
+In the translational library there is the implicit assumption that
+forces of components that have only one flange connector act with
+opposite sign on the bearings of the component. This assumption
+is also used in the LineForceWithMass component: If a connection
+is present to only one of the flange connectors, then the force
+in this flange connector acts implicitly with opposite sign also
+in the other flange connector.
+</p>
+<p>Extends from <code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#LineForceBase">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;LineForceBase</a></code> (Base model for line force elements).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>s_small</code></td><td><code>1e-10</code></td><td>Prevent zero-division if distance between frame_a and frame_b is zero</td></tr>
+<tr><td><code>Boolean</code></td><td><code>fixedRotationAtFrame_a</code></td><td><code>false</code></td><td>=true, if rotation frame_a.R is fixed (to directly connect line forces)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>fixedRotationAtFrame_b</code></td><td><code>false</code></td><td>=true, if rotation frame_b.R is fixed (to directly connect line forces)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>animateLine</code></td><td><code>true</code></td><td>= true, if a line shape between frame_a and frame_b shall be visualized</td></tr>
+<tr><td><code>Boolean</code></td><td><code>animateMass</code></td><td><code>true</code></td><td>= true, if point mass shall be visualized as sphere provided m &gt; 0</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m</code></td><td><code>0</code></td><td>Mass of point mass on the connection line between the origin of frame_a and the origin of frame_b</td></tr>
+<tr><td><code>Real</code></td><td><code>lengthFraction</code></td><td><code>0.5</code></td><td>Location of point mass with respect to frame_a as a fraction of the distance from frame_a to frame_b</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#ShapeType">ShapeType</a></code></td><td><code>lineShapeType</code></td><td><code>"cylinder"</code></td><td>Type of shape visualizing the line from frame_a to frame_b</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#ShapeExtra">ShapeExtra</a></code></td><td><code>lineShapeExtra</code></td><td><code>0</code></td><td>Extra parameter for shape</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_b</code></td><td>1-dim. translational flange (connect force of Translational library between flange_a and flange_b)</td></tr>
+<tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_a</code></td><td>1-dim. translational flange (connect force of Translational library between flange_a and flange_b)</td></tr>
+</table>
+<hr><a name="LineForceWithTwoMasses"><h2><embed class="icon" src="../../../images/icon1083.svg" width="213" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Forces</a>.&#8203;LineForceWithTwoMasses<br><span class="subtitle">General line force component with two optional point masses on the connection line</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component is used to exert a <strong>line force</strong>
+between the origin of frame_a and the origin of frame_b
+by attaching components of the <strong>1-dimensional translational</strong>
+mechanical library of Modelica (Modelica.Mechanics.Translational)
+between the two flange connectors <strong>flange_a</strong> and
+<strong>flange_b</strong>. Optionally, there are <strong>two point masses</strong> on the line
+connecting the origin of frame_a and the origin of frame_b.
+These point masses approximate the <strong>masses</strong> of the <strong>force element</strong>.
+The locations of the two point masses are defined by their
+(fixed) distances of L_a relative to frame_a and of L_b relative
+to frame_b, respectively.
+</p>
+<p>
+In example
+<a href="../../../Mechanics/MultiBody/Examples/Elementary/index.html#LineForceWithTwoMasses">
+MultiBody.Examples.Elementary.LineForceWithTwoMasses</a> the usage of this
+line force element is shown and is compared with an alternative
+implementation using a
+<a href="../../../Mechanics/MultiBody/Joints/Assemblies/index.html#JointUPS">
+MultiBody.Joints.Assemblies.JointUPS</a> component.
+The composition diagram of this example
+is displayed in the figure below.
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/Examples/Elementary/LineForceWithTwoMasses1.png">
+</p>
+
+<p>
+The animation view at time = 0 is shown in the next figure.
+The system on the left side in the front is the animation with
+the LineForceWithTwoMasses component whereas the system on the right
+side in the back is the animation with the JointUPS component.
+Both implementations yield the same result. However, the implementation
+with the LineForceWithTwoMasses component is simpler.
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/Examples/Elementary/LineForceWithTwoMasses2.png">
+</p>
+
+<p>
+In the translational library there is the implicit assumption that
+forces of components that have only one flange connector act with
+opposite sign on the bearings of the component. This assumption
+is also used in the LineForceWithTwoMasses component: If a connection
+is present to only one of the flange connectors, then the force
+in this flange connector acts implicitly with opposite sign also
+in the other flange connector.
+</p>
+<p>Extends from <code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#LineForceBase">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;LineForceBase</a></code> (Base model for line force elements).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>s_small</code></td><td><code>1e-10</code></td><td>Prevent zero-division if distance between frame_a and frame_b is zero</td></tr>
+<tr><td><code>Boolean</code></td><td><code>fixedRotationAtFrame_a</code></td><td><code>false</code></td><td>=true, if rotation frame_a.R is fixed (to directly connect line forces)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>fixedRotationAtFrame_b</code></td><td><code>false</code></td><td>=true, if rotation frame_b.R is fixed (to directly connect line forces)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>animate</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code>Boolean</code></td><td><code>animateMasses</code></td><td><code>true</code></td><td>= true, if point masses shall be visualized provided animate=true and m_a, m_b &gt; 0</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m_a</code></td><td><code>0</code></td><td>Mass of point mass a on the connection line between the origin of frame_a and the origin of frame_b</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m_b</code></td><td><code>0</code></td><td>Mass of point mass b on the connection line between the origin of frame_a and the origin of frame_b</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Position">Position</a></code></td><td><code>L_a</code></td><td><code>0</code></td><td>Distance between point mass a and frame_a (positive, if in direction of frame_b)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Position">Position</a></code></td><td><code>L_b</code></td><td><code>L_a</code></td><td>Distance between point mass b and frame_b (positive, if in direction of frame_a)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>cylinderLength_a</code></td><td><code>2 * L_a</code></td><td>Length of cylinder at frame_a</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>cylinderLength_b</code></td><td><code>2 * L_b</code></td><td>Length of cylinder at frame_b</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_b</code></td><td>1-dim. translational flange (connect force of Translational library between flange_a and flange_b)</td></tr>
+<tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_a</code></td><td>1-dim. translational flange (connect force of Translational library between flange_a and flange_b)</td></tr>
+</table>
+<hr><a name="Spring"><h2><embed class="icon" src="../../../images/icon1084.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Forces</a>.&#8203;Spring<br><span class="subtitle">Linear translational spring with optional mass</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+<strong>Linear spring</strong> acting as line force between frame_a and frame_b.
+A <strong>force f</strong> is exerted on the origin of frame_b and with opposite sign
+on the origin of frame_a along the line from the origin of frame_a to the origin
+of frame_b according to the equation:
+</p>
+<pre>
+   f = c*(s - s_unstretched);
+</pre>
+<p>
+where "c" and "s_unstretched" are parameters and "s" is the
+distance between the origin of frame_a and the origin of frame_b.
+</p>
+<p>
+Optionally, the mass of the spring is taken into account by a
+point mass located on the line between frame_a and frame_b
+(default: middle of the line). If the spring mass is zero, the
+additional equations to handle the mass are removed.
+</p>
+<p>
+In the following figure a typical animation of the
+spring is shown. The blue sphere in the middle of the
+spring characterizes the location of the point mass.
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/Examples/Elementary/SpringWithMass.png"
+alt="model Examples.Elementary.SpringWithMass">
+</p>
+
+<p>Extends from <code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#PartialTwoFrames">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;PartialTwoFrames</a></code> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code>Boolean</code></td><td><code>showMass</code></td><td><code>true</code></td><td>= true, if point mass shall be visualized as sphere if animation=true and m&gt;0</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#TranslationalSpringConstant">TranslationalSpringConstant</a></code></td><td><code>c</code></td><td>&nbsp;</td><td>Spring constant</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>s_unstretched</code></td><td><code>0</code></td><td>Unstretched spring length</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m</code></td><td><code>0</code></td><td>Spring mass located on the connection line between the origin of frame_a and the origin of frame_b</td></tr>
+<tr><td><code>Real</code></td><td><code>lengthFraction</code></td><td><code>0.5</code></td><td>Location of spring mass with respect to frame_a as a fraction of the distance from frame_a to frame_b (=0: at frame_a; =1: at frame_b)</td></tr>
+<tr><td><code>Integer</code></td><td><code>numberOfWindings</code></td><td><code>5</code></td><td>Number of spring windings</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>s_small</code></td><td><code>1e-10</code></td><td>Prevent zero-division if distance between frame_a and frame_b is zero</td></tr>
+<tr><td><code>Boolean</code></td><td><code>fixedRotationAtFrame_a</code></td><td><code>false</code></td><td>=true, if rotation frame_a.R is fixed (to directly connect line forces)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>fixedRotationAtFrame_b</code></td><td><code>false</code></td><td>=true, if rotation frame_b.R is fixed (to directly connect line forces)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+</table>
+<hr><a name="Damper"><h2><embed class="icon" src="../../../images/icon1085.svg" width="218" height="213" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Forces</a>.&#8203;Damper<br><span class="subtitle">Linear (velocity dependent) damper</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+<strong>Linear damper</strong> acting as line force between frame_a and frame_b.
+A <strong>force f</strong> is exerted on the origin of frame_b and with opposite sign
+on the origin of frame_a along the line from the origin of frame_a to the origin
+of frame_b according to the equation:
+</p>
+<pre>
+   f = d*<strong>der</strong>(s);
+</pre>
+<p>
+where "d" is a parameter, "s" is the
+distance between the origin of frame_a and the origin of frame_b
+and der(s) is the time derivative of "s".
+</p>
+<p>
+In the following figure a typical animation is shown
+where a mass is hanging on a damper.
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/Forces/Damper.png">
+</p>
+
+<p>Extends from <code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#PartialLineForce">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;PartialLineForce</a></code> (Base model for massless line force elements) and <code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#PartialElementaryConditionalHeatPort">Modelica.&#8203;Thermal.&#8203;HeatTransfer.&#8203;Interfaces.&#8203;PartialElementaryConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#TranslationalDampingConstant">TranslationalDampingConstant</a></code></td><td><code>d</code></td><td>&nbsp;</td><td>Damping constant</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>length_a</code></td><td><code>world.&#8203;defaultForceLength</code></td><td>Length of cylinder at frame_a side</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>s_small</code></td><td><code>1e-10</code></td><td>Prevent zero-division if distance between frame_a and frame_b is zero</td></tr>
+<tr><td><code>Boolean</code></td><td><code>fixedRotationAtFrame_a</code></td><td><code>false</code></td><td>=true, if rotation frame_a.R is fixed (to directly connect line forces)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>fixedRotationAtFrame_b</code></td><td><code>false</code></td><td>=true, if rotation frame_b.R is fixed (to directly connect line forces)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
+</table>
+<hr><a name="SpringDamperParallel"><h2><embed class="icon" src="../../../images/icon1086.svg" width="218" height="213" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Forces</a>.&#8203;SpringDamperParallel<br><span class="subtitle">Linear spring and linear damper in parallel</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+<strong>Linear spring</strong> and <strong>linear damper</strong>
+in parallel acting as line force between frame_a and frame_b.
+A <strong>force f</strong> is exerted on the origin of frame_b and with opposite sign
+on the origin of frame_a along the line from the origin of frame_a to the origin
+of frame_b according to the equation:
+</p>
+<pre>
+   f = c*(s - s_unstretched) + d*<strong>der</strong>(s);
+</pre>
+<p>
+where "c", "s_unstretched" and "d" are parameters, "s" is the
+distance between the origin of frame_a and the origin of frame_b
+and der(s) is the time derivative of s.
+</p>
+<p>Extends from <code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#PartialLineForce">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;PartialLineForce</a></code> (Base model for massless line force elements) and <code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#PartialElementaryConditionalHeatPort">Modelica.&#8203;Thermal.&#8203;HeatTransfer.&#8203;Interfaces.&#8203;PartialElementaryConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#TranslationalSpringConstant">TranslationalSpringConstant</a></code></td><td><code>c</code></td><td>&nbsp;</td><td>Spring constant</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>s_unstretched</code></td><td><code>0</code></td><td>Unstretched spring length</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#TranslationalDampingConstant">TranslationalDampingConstant</a></code></td><td><code>d</code></td><td><code>0</code></td><td>Damping constant</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>length_a</code></td><td><code>world.&#8203;defaultForceLength</code></td><td>Length of damper cylinder at frame_a side</td></tr>
+<tr><td><code>Integer</code></td><td><code>numberOfWindings</code></td><td><code>5</code></td><td>Number of spring windings</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>s_small</code></td><td><code>1e-10</code></td><td>Prevent zero-division if distance between frame_a and frame_b is zero</td></tr>
+<tr><td><code>Boolean</code></td><td><code>fixedRotationAtFrame_a</code></td><td><code>false</code></td><td>=true, if rotation frame_a.R is fixed (to directly connect line forces)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>fixedRotationAtFrame_b</code></td><td><code>false</code></td><td>=true, if rotation frame_b.R is fixed (to directly connect line forces)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
+</table>
+<hr><a name="SpringDamperSeries"><h2><embed class="icon" src="../../../images/icon1087.svg" width="218" height="213" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Forces</a>.&#8203;SpringDamperSeries<br><span class="subtitle">Linear spring and linear damper in series connection</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+<strong>Linear spring</strong> and <strong>linear damper</strong> in series connection
+acting as line force between frame_a and frame_b:
+</p>
+<pre>
+  frame_a --> damper ----> spring --> frame_b
+          |              |
+          |-- s_damper --|  (s_damper is the state variable of this system)
+</pre>
+<p>
+A <strong>force f</strong> is exerted on the origin of frame_b and with opposite sign
+on the origin of frame_a along the line from the origin of frame_a to the origin
+of frame_b according to the equations:
+</p>
+<pre>
+   f = c*(s - s_unstretched - s_damper);
+   f = d*der(s_damper);
+</pre>
+<p>
+where "c", "s_unstretched" and "d" are parameters, "s" is the
+distance between the origin of frame_a and the origin of frame_b.
+"s_damper" is the length of the damper (= an internal state of this
+force element) and der(s_damper) is the time derivative of s_damper.
+</p>
+<p>Extends from <code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#PartialLineForce">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;PartialLineForce</a></code> (Base model for massless line force elements) and <code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#PartialElementaryConditionalHeatPort">Modelica.&#8203;Thermal.&#8203;HeatTransfer.&#8203;Interfaces.&#8203;PartialElementaryConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#TranslationalSpringConstant">TranslationalSpringConstant</a></code></td><td><code>c</code></td><td>&nbsp;</td><td>Spring constant</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>s_unstretched</code></td><td><code>0</code></td><td>Unstretched spring length</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#TranslationalDampingConstant">TranslationalDampingConstant</a></code></td><td><code>d</code></td><td><code>0</code></td><td>Damping constant</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>s_damper_start</code></td><td><code>0</code></td><td>Initial length of damper</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>length_a</code></td><td><code>world.&#8203;defaultForceLength</code></td><td>Length of damper cylinder at frame_a side</td></tr>
+<tr><td><code>Integer</code></td><td><code>numberOfWindings</code></td><td><code>5</code></td><td>Number of spring windings</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>s_small</code></td><td><code>1e-10</code></td><td>Prevent zero-division if distance between frame_a and frame_b is zero</td></tr>
+<tr><td><code>Boolean</code></td><td><code>fixedRotationAtFrame_a</code></td><td><code>false</code></td><td>=true, if rotation frame_a.R is fixed (to directly connect line forces)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>fixedRotationAtFrame_b</code></td><td><code>false</code></td><td>=true, if rotation frame_b.R is fixed (to directly connect line forces)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
+</table>
+</body></html>

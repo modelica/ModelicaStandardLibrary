@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_nxz</title>
+</head>
+<body>
+<h1><a href="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg"><img class="svgiconhead" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.html">TransformationMatrices</a>.<span class="omc-h1">from_nxz</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+T = TransformationMatrices.<strong>from_nxz</strong>(n_x, n_z);
+</pre></blockquote>
+<h4>Description</h4>
+<p>It is assumed that the two input vectors n_x and n_z are
+resolved in frame&nbsp;1 and are directed along the&nbsp;x
+and&nbsp;z axis of frame&nbsp;2 (i.e., n_x and n_z are orthogonal
+to each other) The function returns the orientation object&nbsp;T
+to rotate from frame&nbsp;1 to frame&nbsp;2.</p>
+<p>The function is robust in the sense that it returns always an
+orientation object&nbsp;T, even if n_z is not orthogonal to n_x.
+This is performed in the following way:<br />
+If n_x and n_z are not orthogonal to each other, first a unit
+vector e_z is determined that is orthogonal to n_x and is lying in
+the plane spanned by n_x and n_z. If n_x and n_z are parallel or
+nearly parallel to each other, a vector e_z is selected arbitrarily
+such that n_x and e_z are orthogonal to each other.</p>
+<h4>See also</h4>
+<p><a href="Modelica.Mechanics.MultiBody.Frames.from_nxz.html">Frames.from_nxz</a>.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>function from_nxz
+  extends Modelica.Icons.Function;
+  import Modelica.Math.Vectors.length;
+  import Modelica.Math.Vectors.normalize;
+  input Real n_x[3](each final unit = "1") "Vector in direction of x-axis of frame 2, resolved in frame 1";
+  input Real n_z[3](each final unit = "1") "Vector in direction of z-axis of frame 2, resolved in frame 1";
+  output TransformationMatrices.Orientation T "Orientation object to rotate frame 1 into frame 2";
+end from_nxz;</pre></blockquote>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

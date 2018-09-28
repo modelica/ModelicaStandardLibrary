@@ -1,0 +1,203 @@
+<html><head><title>Modelica.Media.R134a.Common</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Common"><h1><embed class="icon" src="../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">R134a</a>.&#8203;Common<br><span class="subtitle">Icon for standard packages</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>Standard package icon.</p>
+<p>Extends from <code><a href="../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#CubicSplineDerEval"><code>CubicSplineDerEval</code></a></td><td>Derivative of cubic spline</td></tr>
+<tr><td><a href="#CubicSplineEval"><code>CubicSplineEval</code></a></td><td>Cubic spline</td></tr>
+<tr><td><a href="#cv2Phase"><code>cv2Phase</code></a></td><td>Compute isochoric specific heat capacity inside the two-phase region</td></tr>
+<tr><td><a href="#EOSIdealCoeff"><code>EOSIdealCoeff</code></a></td><td>Record for coefficients of ideal term of Helmholtz equation of state</td></tr>
+<tr><td><a href="#EOSResidualCoeff"><code>EOSResidualCoeff</code></a></td><td>Record for coefficients of residual term of Helmholtz equation of state</td></tr>
+<tr><td><a href="#FindInterval"><code>FindInterval</code></a></td><td>Half-interval search algorithm</td></tr>
+<tr><td><a href="#helmholtzToBoundaryProps"><code>helmholtzToBoundaryProps</code></a></td><td>Calculate phase boundary property record from dimensionless Helmholtz function</td></tr>
+<tr><td><a href="#InverseDerivatives_rhoT"><code>InverseDerivatives_rhoT</code></a></td><td>Derivatives required for inversion of density and temperature functions w.r.t. pressure and enthalpy states</td></tr>
+<tr><td><a href="#PhaseBoundaryProperties"><code>PhaseBoundaryProperties</code></a></td><td>Thermodynamic base properties on the phase boundary</td></tr>
+</table>
+<hr><a name="PhaseBoundaryProperties"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">R134a</a>.&#8203;<a href="index.html">Common</a>.&#8203;PhaseBoundaryProperties<br><span class="subtitle">Thermodynamic base properties on the phase boundary</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Enthalpy</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnergy">SpecificEnergy</a></code></td><td><code>u</code></td><td>Inner energy</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Entropy</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp</code></td><td>Heat capacity at constant pressure</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cv</code></td><td>Heat capacity at constant volume</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#IsothermalCompressibility">IsothermalCompressibility</a></code></td><td><code>kappa</code></td><td>Isentropic exponent</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Velocity">Velocity</a></code></td><td><code>a</code></td><td>Velocity of sound</td></tr>
+<tr><td><code><a href="../../../Media/Interfaces/Types/index.html#IsobaricExpansionCoefficient">IsobaricExpansionCoefficient</a></code></td><td><code>beta</code></td><td>Isobaric expansion coefficient</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#IsentropicExponent">IsentropicExponent</a></code></td><td><code>gamma</code></td><td>Isentropic exponent</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#DerPressureByTemperature">DerPressureByTemperature</a></code></td><td><code>pt</code></td><td>Derivative of pressure wrt temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#DerPressureByDensity">DerPressureByDensity</a></code></td><td><code>pd</code></td><td>Derivative of pressure wrt density</td></tr>
+</table>
+<hr><a name="InverseDerivatives_rhoT"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">R134a</a>.&#8203;<a href="index.html">Common</a>.&#8203;InverseDerivatives_rhoT<br><span class="subtitle">Derivatives required for inversion of density and temperature functions w.r.t. pressure and enthalpy states</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>phase</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Kelvin-temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cv</code></td><td>Specific heat capacity at constant volume</td></tr>
+<tr><td><code>Real</code></td><td><code>pt</code></td><td>Derivative of pressure wrt temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>pd</code></td><td>Derivative of pressure wrt density</td></tr>
+<tr><td><code>Real</code></td><td><code>dpT</code></td><td>dp/dT derivative of saturation curve</td></tr>
+</table>
+<hr><a name="EOSIdealCoeff"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">R134a</a>.&#8203;<a href="index.html">Common</a>.&#8203;EOSIdealCoeff<br><span class="subtitle">Record for coefficients of ideal term of Helmholtz equation of state</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Integer</code></td><td><code>nc</code></td><td>No. of coefficients in a</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>a[nc]</code></td><td>Coefficients of ideal term of Helmholtz equation of state</td></tr>
+</table>
+<hr><a name="EOSResidualCoeff"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">R134a</a>.&#8203;<a href="index.html">Common</a>.&#8203;EOSResidualCoeff<br><span class="subtitle">Record for coefficients of residual term of Helmholtz equation of state</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Integer</code></td><td><code>nc</code></td><td>No. of coefficients in c, d, t, n</td></tr>
+<tr><td>parameter <code>Integer</code></td><td><code>ns1</code></td><td>No. of zero coefficients in c</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>c[nc]</code></td><td>Coefficients of residual term of Helmholtz equation of state</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>d[nc]</code></td><td>Coefficients of residual term of Helmholtz equation of state</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>t[nc]</code></td><td>Coefficients of residual term of Helmholtz equation of state</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>n[nc]</code></td><td>Coefficients of residual term of Helmholtz equation of state</td></tr>
+</table>
+<hr><a name="CubicSplineDerEval"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">R134a</a>.&#8203;<a href="index.html">Common</a>.&#8203;CubicSplineDerEval<br><span class="subtitle">Derivative of cubic spline</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>x</code></td><td>Input</td></tr>
+<tr><td><code>Real</code></td><td><code>coefs[4]</code></td><td>Spline coefficients</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>yder</code></td><td>Spline derivative</td></tr>
+</table>
+<hr><a name="CubicSplineEval"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">R134a</a>.&#8203;<a href="index.html">Common</a>.&#8203;CubicSplineEval<br><span class="subtitle">Cubic spline</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>x</code></td><td>Input</td></tr>
+<tr><td><code>Real</code></td><td><code>coefs[4]</code></td><td>Spline coefficients</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>Output</td></tr>
+</table>
+<hr><a name="cv2Phase"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">R134a</a>.&#8203;<a href="index.html">Common</a>.&#8203;cv2Phase<br><span class="subtitle">Compute isochoric specific heat capacity inside the two-phase region</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/R134a/Common/index.html#PhaseBoundaryProperties">PhaseBoundaryProperties</a></code></td><td><code>liq</code></td><td>Properties on the boiling curve</td></tr>
+<tr><td><code><a href="../../../Media/R134a/Common/index.html#PhaseBoundaryProperties">PhaseBoundaryProperties</a></code></td><td><code>vap</code></td><td>Properties on the condensation curve</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#MassFraction">MassFraction</a></code></td><td><code>x</code></td><td>Vapour mass fraction</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cv</code></td><td>Isochoric specific heat capacity</td></tr>
+<tr><td><code>Real</code></td><td><code>dpT</code></td><td>Derivative of pressure w.r.t. temperature</td></tr>
+</table>
+<hr><a name="FindInterval"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">R134a</a>.&#8203;<a href="index.html">Common</a>.&#8203;FindInterval<br><span class="subtitle">Half-interval search algorithm</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>x</code></td><td>Input</td></tr>
+<tr><td><code>Real</code></td><td><code>breaks[:]</code></td><td>Grid points defining the intervals</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>i</code></td><td>Found interval number</td></tr>
+<tr><td><code>Integer</code></td><td><code>error</code></td><td>1=did not find interval</td></tr>
+</table>
+<hr><a name="helmholtzToBoundaryProps"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">R134a</a>.&#8203;<a href="index.html">Common</a>.&#8203;helmholtzToBoundaryProps<br><span class="subtitle">Calculate phase boundary property record from dimensionless Helmholtz function</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Common/index.html#HelmholtzDerivs">HelmholtzDerivs</a></code></td><td><code>f</code></td><td>Dimensionless derivatives of Helmholtz function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/R134a/Common/index.html#PhaseBoundaryProperties">PhaseBoundaryProperties</a></code></td><td><code>sat</code></td><td>Phase boundary property record</td></tr>
+</table>
+</body></html>

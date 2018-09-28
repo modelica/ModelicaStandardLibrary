@@ -1,0 +1,67 @@
+<html><head><title>Modelica.Fluid.Fittings.Orifices</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Orifices"><h1><embed class="icon" src="../../../images/icon0573.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Fittings</a>.&#8203;Orifices<br><span class="subtitle">Flow models for orifices</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon shall be used for a package/library that contains several variants of one component.</p>
+<p>Extends from <code><a href="../../../Icons/VariantsPackage/index.html">Modelica.&#8203;Icons.&#8203;VariantsPackage</a></code> (Icon for package containing variants).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#ThickEdgedOrifice"><code>ThickEdgedOrifice</code></a></td><td>Thicked edged orifice flow model</td></tr>
+</table>
+<hr><a name="ThickEdgedOrifice"><h2><embed class="icon" src="../../../images/icon1359.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Fittings</a>.&#8203;<a href="index.html">Orifices</a>.&#8203;ThickEdgedOrifice<br><span class="subtitle">Thicked edged orifice flow model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component models a <strong>thick edged orifice</strong> with sharp corners in the overall flow regime for incompressible and single-phase fluid flow through an arbitrary shaped cross sectional area (square, circular, etc.) considering  influence of surface roughness. It is expected that also compressible fluid flow can be handled up to about Ma = 0.3. It is assumed that neither mass nor energy is stored in this component.
+In the model basically a function is called to compute the mass flow rate as a function
+of pressure loss for a thick edged orifice. Also the inverse of this function is defined, and a tool
+might use this inverse function instead, in order to avoid the solution of a nonlinear equation.
+</p>
+
+<p>
+The details of the model are described in the
+<a href="../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/Orifice/index.html#dp_thickEdgedOverall">documentation of the underlying function</a>.
+</p>
+
+<p>Extends from <code><a href="../../../Fluid/Dissipation/Utilities/Icons/PressureLoss/index.html#Orifice_i">Modelica.&#8203;Fluid.&#8203;Dissipation.&#8203;Utilities.&#8203;Icons.&#8203;PressureLoss.&#8203;Orifice_i</a></code> (Icon for orifice) and <code><a href="../../../Fluid/Interfaces/index.html#PartialPressureLoss">Modelica.&#8203;Fluid.&#8203;Interfaces.&#8203;PartialPressureLoss</a></code> (Base flow model for pressure loss functions with the same area at port_a and at port_b).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code><a href="../../../Fluid/Fittings/Orifices/ThickEdgedOrifice/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>dp_start</code></td><td><code>0.01 * system.p_start</code></td><td>Guess value of dp = port_a.p - port_b.p</td></tr>
+<tr><td><code><a href="../../../Fluid/Fittings/Orifices/ThickEdgedOrifice/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_start</code></td><td><code>system.&#8203;m_flow_start</code></td><td>Guess value of m_flow = port_a.m_flow</td></tr>
+<tr><td><code><a href="../../../Fluid/Fittings/Orifices/ThickEdgedOrifice/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * system.m_flow_nominal else system.m_flow_small</code></td><td>Small mass flow rate for regularization of zero flow</td></tr>
+<tr><td><code>Boolean</code></td><td><code>show_T</code></td><td><code>true</code></td><td>= true, if temperatures at port_a and port_b are computed</td></tr>
+<tr><td><code>Boolean</code></td><td><code>show_V_flow</code></td><td><code>true</code></td><td>= true, if volume flow rate at inflowing port is computed</td></tr>
+<tr><td><code><a href="../../../Fluid/Fittings/BaseClasses/Orifices/ThickEdgedOrifice/index.html#Geometry">Geometry</a></code></td><td><code>geometry</code></td><td>&nbsp;</td><td>Geometry of thick edged orifice</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+</table>
+</body></html>

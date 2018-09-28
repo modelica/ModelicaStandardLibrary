@@ -1,0 +1,219 @@
+<html><head><title>Modelica.Math.Nonlinear.Examples.UtilityFunctions</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="UtilityFunctions"><h1><embed class="icon" src="../../../../images/icon0009.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Math</a>.&#8203;<a href="../../index.html">Nonlinear</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;UtilityFunctions<br><span class="subtitle">Utility functions that are used as function arguments to the examples</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package provides utility functions that are used as input
+arguments to the example functions.
+</p>
+
+<p>Extends from <code><a href="../../../../Icons/UtilitiesPackage/index.html">Modelica.&#8203;Icons.&#8203;UtilitiesPackage</a></code> (Icon for utility packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#fun1"><code>fun1</code></a></td><td>y = u^2 - 1</td></tr>
+<tr><td><a href="#fun2"><code>fun2</code></a></td><td>y = 3*u - sin(w*u) - 1</td></tr>
+<tr><td><a href="#fun3"><code>fun3</code></a></td><td>y = p[1] + log(p[2]*u) - m*u</td></tr>
+<tr><td><a href="#fun4"><code>fun4</code></a></td><td>y = sin(u)</td></tr>
+<tr><td><a href="#fun5"><code>fun5</code></a></td><td>y = sin(w*u)</td></tr>
+<tr><td><a href="#fun6"><code>fun6</code></a></td><td>y = sqrt(1/(1 - k^2*sin(u)^2))</td></tr>
+<tr><td><a href="#fun7"><code>fun7</code></a></td><td>y = A*sin(w*u)*q(t)</td></tr>
+</table>
+<hr><a name="fun1"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Math</a>.&#8203;<a href="../../index.html">Nonlinear</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">UtilityFunctions</a>.&#8203;fun1<br><span class="subtitle">y = u^2 - 1</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This partial function defines the interface of a function with
+one input and one output Real signal. The scalar functions
+of <a href="../../../../Math/Nonlinear/index.html">Modelica.Math.Nonlinear</a>
+are derived from this base type by inheritance.
+This allows to use these functions directly as function arguments
+to a function, see, .e.g.,
+<a href="../../../../Math/Nonlinear/Examples/index.html">Math.Nonlinear.Examples</a>.
+</p>
+
+<p>Extends from <code><a href="../../../../Math/Nonlinear/Interfaces/index.html#partialScalarFunction">Modelica.&#8203;Math.&#8203;Nonlinear.&#8203;Interfaces.&#8203;partialScalarFunction</a></code> (Interface for a function with one input and one output Real signal).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>Independent variable</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>Dependent variable y=f(u)</td></tr>
+</table>
+<hr><a name="fun2"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Math</a>.&#8203;<a href="../../index.html">Nonlinear</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">UtilityFunctions</a>.&#8203;fun2<br><span class="subtitle">y = 3*u - sin(w*u) - 1</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This partial function defines the interface of a function with
+one input and one output Real signal. The scalar functions
+of <a href="../../../../Math/Nonlinear/index.html">Modelica.Math.Nonlinear</a>
+are derived from this base type by inheritance.
+This allows to use these functions directly as function arguments
+to a function, see, .e.g.,
+<a href="../../../../Math/Nonlinear/Examples/index.html">Math.Nonlinear.Examples</a>.
+</p>
+
+<p>Extends from <code><a href="../../../../Math/Nonlinear/Interfaces/index.html#partialScalarFunction">Modelica.&#8203;Math.&#8203;Nonlinear.&#8203;Interfaces.&#8203;partialScalarFunction</a></code> (Interface for a function with one input and one output Real signal).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>Independent variable</td></tr>
+<tr><td><code>Real</code></td><td><code>w</code></td><td>Angular velocity</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>Dependent variable y=f(u)</td></tr>
+</table>
+<hr><a name="fun3"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Math</a>.&#8203;<a href="../../index.html">Nonlinear</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">UtilityFunctions</a>.&#8203;fun3<br><span class="subtitle">y = p[1] + log(p[2]*u) - m*u</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This partial function defines the interface of a function with
+one input and one output Real signal. The scalar functions
+of <a href="../../../../Math/Nonlinear/index.html">Modelica.Math.Nonlinear</a>
+are derived from this base type by inheritance.
+This allows to use these functions directly as function arguments
+to a function, see, .e.g.,
+<a href="../../../../Math/Nonlinear/Examples/index.html">Math.Nonlinear.Examples</a>.
+</p>
+
+<p>Extends from <code><a href="../../../../Math/Nonlinear/Interfaces/index.html#partialScalarFunction">Modelica.&#8203;Math.&#8203;Nonlinear.&#8203;Interfaces.&#8203;partialScalarFunction</a></code> (Interface for a function with one input and one output Real signal).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>Independent variable</td></tr>
+<tr><td><code>Real</code></td><td><code>p[2]</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>Dependent variable y=f(u)</td></tr>
+</table>
+<hr><a name="fun4"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Math</a>.&#8203;<a href="../../index.html">Nonlinear</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">UtilityFunctions</a>.&#8203;fun4<br><span class="subtitle">y = sin(u)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This partial function defines the interface of a function with
+one input and one output Real signal. The scalar functions
+of <a href="../../../../Math/Nonlinear/index.html">Modelica.Math.Nonlinear</a>
+are derived from this base type by inheritance.
+This allows to use these functions directly as function arguments
+to a function, see, .e.g.,
+<a href="../../../../Math/Nonlinear/Examples/index.html">Math.Nonlinear.Examples</a>.
+</p>
+
+<p>Extends from <code><a href="../../../../Math/Nonlinear/Interfaces/index.html#partialScalarFunction">Modelica.&#8203;Math.&#8203;Nonlinear.&#8203;Interfaces.&#8203;partialScalarFunction</a></code> (Interface for a function with one input and one output Real signal).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>Independent variable</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>Dependent variable y=f(u)</td></tr>
+</table>
+<hr><a name="fun5"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Math</a>.&#8203;<a href="../../index.html">Nonlinear</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">UtilityFunctions</a>.&#8203;fun5<br><span class="subtitle">y = sin(w*u)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This partial function defines the interface of a function with
+one input and one output Real signal. The scalar functions
+of <a href="../../../../Math/Nonlinear/index.html">Modelica.Math.Nonlinear</a>
+are derived from this base type by inheritance.
+This allows to use these functions directly as function arguments
+to a function, see, .e.g.,
+<a href="../../../../Math/Nonlinear/Examples/index.html">Math.Nonlinear.Examples</a>.
+</p>
+
+<p>Extends from <code><a href="../../../../Math/Nonlinear/Interfaces/index.html#partialScalarFunction">Modelica.&#8203;Math.&#8203;Nonlinear.&#8203;Interfaces.&#8203;partialScalarFunction</a></code> (Interface for a function with one input and one output Real signal).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>Independent variable</td></tr>
+<tr><td><code>Real</code></td><td><code>w</code></td><td>Angular velocity</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>Dependent variable y=f(u)</td></tr>
+</table>
+<hr><a name="fun6"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Math</a>.&#8203;<a href="../../index.html">Nonlinear</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">UtilityFunctions</a>.&#8203;fun6<br><span class="subtitle">y = sqrt(1/(1 - k^2*sin(u)^2))</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This partial function defines the interface of a function with
+one input and one output Real signal. The scalar functions
+of <a href="../../../../Math/Nonlinear/index.html">Modelica.Math.Nonlinear</a>
+are derived from this base type by inheritance.
+This allows to use these functions directly as function arguments
+to a function, see, .e.g.,
+<a href="../../../../Math/Nonlinear/Examples/index.html">Math.Nonlinear.Examples</a>.
+</p>
+
+<p>Extends from <code><a href="../../../../Math/Nonlinear/Interfaces/index.html#partialScalarFunction">Modelica.&#8203;Math.&#8203;Nonlinear.&#8203;Interfaces.&#8203;partialScalarFunction</a></code> (Interface for a function with one input and one output Real signal).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>Independent variable</td></tr>
+<tr><td><code>Real</code></td><td><code>k</code></td><td>Modul</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>Dependent variable y=f(u)</td></tr>
+</table>
+<hr><a name="fun7"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Math</a>.&#8203;<a href="../../index.html">Nonlinear</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">UtilityFunctions</a>.&#8203;fun7<br><span class="subtitle">y = A*sin(w*u)*q(t)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This partial function defines the interface of a function with
+one input and one output Real signal. The scalar functions
+of <a href="../../../../Math/Nonlinear/index.html">Modelica.Math.Nonlinear</a>
+are derived from this base type by inheritance.
+This allows to use these functions directly as function arguments
+to a function, see, .e.g.,
+<a href="../../../../Math/Nonlinear/Examples/index.html">Math.Nonlinear.Examples</a>.
+</p>
+
+<p>Extends from <code><a href="../../../../Math/Nonlinear/Interfaces/index.html#partialScalarFunction">Modelica.&#8203;Math.&#8203;Nonlinear.&#8203;Interfaces.&#8203;partialScalarFunction</a></code> (Interface for a function with one input and one output Real signal).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>Independent variable</td></tr>
+<tr><td><code>Real</code></td><td><code>A</code></td><td>Amplitude</td></tr>
+<tr><td><code>Real</code></td><td><code>w</code></td><td>Angular frequency</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>Dependent variable y=f(u)</td></tr>
+</table>
+</body></html>

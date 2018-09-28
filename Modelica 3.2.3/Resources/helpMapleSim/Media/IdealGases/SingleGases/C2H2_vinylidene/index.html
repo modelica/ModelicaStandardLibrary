@@ -1,0 +1,1727 @@
+<html><head><title>Modelica.Media.IdealGases.SingleGases.C2H2_vinylidene</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="C2H2_vinylidene"><h1><embed class="icon" src="../../../../images/icon0946.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;C2H2_vinylidene<br><span class="subtitle">Ideal gas "C2H2_vinylidene" from NASA Glenn coefficients</span></h1></a>
+<h3>Information</h3>
+<p>
+
+      <img src="../../../../../Images/Media/IdealGases/SingleGases/C2H2_vinylidene.png">
+<p>Extends from <code><a href="../../../../Media/IdealGases/Common/SingleGasNasa/index.html">Modelica.&#8203;Media.&#8203;IdealGases.&#8203;Common.&#8203;SingleGasNasa</a></code> (Medium model of an ideal gas based on NASA source).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#AbsolutePressure"><code>AbsolutePressure</code></a></td><td>Type for absolute pressure with medium specific attributes</td></tr>
+<tr><td><a href="#BaseProperties"><code>BaseProperties</code></a></td><td>Base properties of ideal gas medium</td></tr>
+<tr><td><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/Basic/index.html"><code>Basic</code></a> &hellip;</td><td>The most basic version of a record used in several degrees of detail</td></tr>
+<tr><td><a href="#beta"><code>beta</code></a></td><td>Alias for isobaricExpansionCoefficient for user convenience</td></tr>
+<tr><td><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/Choices/index.html"><code>Choices</code></a> &hellip;</td><td>&nbsp</td></tr>
+<tr><td><a href="#CumulativeExtraProperty"><code>CumulativeExtraProperty</code></a></td><td>Type for conserved integral of unspecified, mass specific property</td></tr>
+<tr><td><a href="#Density"><code>Density</code></a></td><td>Type for density with medium specific attributes</td></tr>
+<tr><td><a href="#density"><code>density</code></a></td><td>Return density of ideal gas</td></tr>
+<tr><td><a href="#density_derh_p"><code>density_derh_p</code></a></td><td>Return density derivative w.r.t. specific enthalpy at constant pressure</td></tr>
+<tr><td><a href="#density_derp_h"><code>density_derp_h</code></a></td><td>Return density derivative w.r.t. pressure at const specific enthalpy</td></tr>
+<tr><td><a href="#density_derp_T"><code>density_derp_T</code></a></td><td>Returns the partial derivative of density with respect to pressure at constant temperature</td></tr>
+<tr><td><a href="#density_derT_p"><code>density_derT_p</code></a></td><td>Returns the partial derivative of density with respect to temperature at constant pressure</td></tr>
+<tr><td><a href="#density_derX"><code>density_derX</code></a></td><td>Returns the partial derivative of density with respect to mass fractions at constant pressure and temperature</td></tr>
+<tr><td><a href="#density_ph"><code>density_ph</code></a></td><td>Return density from p and h</td></tr>
+<tr><td><a href="#density_phX"><code>density_phX</code></a></td><td>Return density from p, h, and X or Xi</td></tr>
+<tr><td><a href="#density_ps"><code>density_ps</code></a></td><td>Return density from p and s</td></tr>
+<tr><td><a href="#density_psX"><code>density_psX</code></a></td><td>Return density from p, s, and X or Xi</td></tr>
+<tr><td><a href="#density_pT"><code>density_pT</code></a></td><td>Return density from p and T</td></tr>
+<tr><td><a href="#density_pTX"><code>density_pTX</code></a></td><td>Return density from p, T, and X or Xi</td></tr>
+<tr><td><a href="#DerDensityByEnthalpy"><code>DerDensityByEnthalpy</code></a></td><td>Type for partial derivative of density with respect to enthalpy with medium specific attributes</td></tr>
+<tr><td><a href="#DerDensityByPressure"><code>DerDensityByPressure</code></a></td><td>Type for partial derivative of density with respect to pressure with medium specific attributes</td></tr>
+<tr><td><a href="#DerDensityByTemperature"><code>DerDensityByTemperature</code></a></td><td>Type for partial derivative of density with respect to temperature with medium specific attributes</td></tr>
+<tr><td><a href="#DerEnthalpyByPressure"><code>DerEnthalpyByPressure</code></a></td><td>Type for partial derivative of enthalpy with respect to pressure with medium specific attributes</td></tr>
+<tr><td><a href="#DerTemperatureByPressure"><code>DerTemperatureByPressure</code></a></td><td>Type for partial derivative of temperature with respect to pressure with medium specific attributes</td></tr>
+<tr><td><a href="#DipoleMoment"><code>DipoleMoment</code></a></td><td>Type for dipole moment with medium specific attributes</td></tr>
+<tr><td><a href="#DynamicViscosity"><code>DynamicViscosity</code></a></td><td>Type for dynamic viscosity with medium specific attributes</td></tr>
+<tr><td><a href="#dynamicViscosity"><code>dynamicViscosity</code></a></td><td>Dynamic viscosity</td></tr>
+<tr><td><a href="#dynamicViscosityLowPressure"><code>dynamicViscosityLowPressure</code></a></td><td>Dynamic viscosity of low pressure gases</td></tr>
+<tr><td><a href="#EnthalpyFlowRate"><code>EnthalpyFlowRate</code></a></td><td>Type for enthalpy flow rate with medium specific attributes</td></tr>
+<tr><td><a href="#ExtraProperty"><code>ExtraProperty</code></a></td><td>Type for unspecified, mass-specific property transported by flow</td></tr>
+<tr><td><a href="#ExtraPropertyFlowRate"><code>ExtraPropertyFlowRate</code></a></td><td>Type for flow rate of unspecified, mass-specific property</td></tr>
+<tr><td><a href="#FixedPhase"><code>FixedPhase</code></a></td><td>Phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g., interactive use</td></tr>
+<tr><td><a href="#FluidConstants"><code>FluidConstants</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#FluidLimits"><code>FluidLimits</code></a></td><td>Validity limits for fluid model</td></tr>
+<tr><td><a href="#heatCapacity_cp"><code>heatCapacity_cp</code></a></td><td>Alias for deprecated name</td></tr>
+<tr><td><a href="#heatCapacity_cv"><code>heatCapacity_cv</code></a></td><td>Alias for deprecated name</td></tr>
+<tr><td><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/IdealGas/index.html"><code>IdealGas</code></a> &hellip;</td><td>The ideal gas version of a record used in several degrees of detail</td></tr>
+<tr><td><a href="#isentropicEnthalpy"><code>isentropicEnthalpy</code></a></td><td>Return isentropic enthalpy</td></tr>
+<tr><td><a href="#isentropicEnthalpyApproximation"><code>isentropicEnthalpyApproximation</code></a></td><td>Approximate method of calculating h_is from upstream properties and downstream pressure</td></tr>
+<tr><td><a href="#IsentropicExponent"><code>IsentropicExponent</code></a></td><td>Type for isentropic exponent with medium specific attributes</td></tr>
+<tr><td><a href="#isentropicExponent"><code>isentropicExponent</code></a></td><td>Return isentropic exponent</td></tr>
+<tr><td><a href="#IsobaricExpansionCoefficient"><code>IsobaricExpansionCoefficient</code></a></td><td>Type for isobaric expansion coefficient with medium specific attributes</td></tr>
+<tr><td><a href="#isobaricExpansionCoefficient"><code>isobaricExpansionCoefficient</code></a></td><td>Returns overall the isobaric expansion coefficient beta</td></tr>
+<tr><td><a href="#isothermalCompressibility"><code>isothermalCompressibility</code></a></td><td>Returns overall the isothermal compressibility factor</td></tr>
+<tr><td><a href="#kappa"><code>kappa</code></a></td><td>Alias of isothermalCompressibility for user convenience</td></tr>
+<tr><td><a href="#MassFlowRate"><code>MassFlowRate</code></a></td><td>Type for mass flow rate with medium specific attributes</td></tr>
+<tr><td><a href="#MassFraction"><code>MassFraction</code></a></td><td>Type for mass fraction with medium specific attributes</td></tr>
+<tr><td><a href="#MolarMass"><code>MolarMass</code></a></td><td>Type for molar mass with medium specific attributes</td></tr>
+<tr><td><a href="#molarMass"><code>molarMass</code></a></td><td>Return the molar mass of the medium</td></tr>
+<tr><td><a href="#MolarVolume"><code>MolarVolume</code></a></td><td>Type for molar volume with medium specific attributes</td></tr>
+<tr><td><a href="#MoleFraction"><code>MoleFraction</code></a></td><td>Type for mole fraction with medium specific attributes</td></tr>
+<tr><td><a href="#PrandtlNumber"><code>PrandtlNumber</code></a></td><td>Type for Prandtl number with medium specific attributes</td></tr>
+<tr><td><a href="#prandtlNumber"><code>prandtlNumber</code></a></td><td>Return the Prandtl number</td></tr>
+<tr><td><a href="#pressure"><code>pressure</code></a></td><td>Return pressure of ideal gas</td></tr>
+<tr><td><a href="#pressure_dT"><code>pressure_dT</code></a></td><td>Return pressure from d and T</td></tr>
+<tr><td><a href="#SaturationProperties"><code>SaturationProperties</code></a></td><td>Saturation properties of two phase medium</td></tr>
+<tr><td><a href="#setSmoothState"><code>setSmoothState</code></a></td><td>Return thermodynamic state so that it smoothly approximates: if x &gt; 0 then state_a else state_b</td></tr>
+<tr><td><a href="#setState_dT"><code>setState_dT</code></a></td><td>Return thermodynamic state from d and T</td></tr>
+<tr><td><a href="#setState_dTX"><code>setState_dTX</code></a></td><td>Return thermodynamic state as function of d, T and composition X</td></tr>
+<tr><td><a href="#setState_ph"><code>setState_ph</code></a></td><td>Return thermodynamic state from p and h</td></tr>
+<tr><td><a href="#setState_phX"><code>setState_phX</code></a></td><td>Return thermodynamic state as function of p, h and composition X</td></tr>
+<tr><td><a href="#setState_ps"><code>setState_ps</code></a></td><td>Return thermodynamic state from p and s</td></tr>
+<tr><td><a href="#setState_psX"><code>setState_psX</code></a></td><td>Return thermodynamic state as function of p, s and composition X</td></tr>
+<tr><td><a href="#setState_pT"><code>setState_pT</code></a></td><td>Return thermodynamic state from p and T</td></tr>
+<tr><td><a href="#setState_pTX"><code>setState_pTX</code></a></td><td>Return thermodynamic state as function of p, T and composition X</td></tr>
+<tr><td><a href="#SpecificEnergy"><code>SpecificEnergy</code></a></td><td>Type for specific energy with medium specific attributes</td></tr>
+<tr><td><a href="#SpecificEnthalpy"><code>SpecificEnthalpy</code></a></td><td>Type for specific enthalpy with medium specific attributes</td></tr>
+<tr><td><a href="#specificEnthalpy"><code>specificEnthalpy</code></a></td><td>Return specific enthalpy</td></tr>
+<tr><td><a href="#specificEnthalpy_dT"><code>specificEnthalpy_dT</code></a></td><td>Return specific enthalpy from d and T</td></tr>
+<tr><td><a href="#specificEnthalpy_ps"><code>specificEnthalpy_ps</code></a></td><td>Return specific enthalpy from p and s</td></tr>
+<tr><td><a href="#specificEnthalpy_psX"><code>specificEnthalpy_psX</code></a></td><td>Return specific enthalpy from p, s, and X or Xi</td></tr>
+<tr><td><a href="#specificEnthalpy_pT"><code>specificEnthalpy_pT</code></a></td><td>Return specific enthalpy from p and T</td></tr>
+<tr><td><a href="#specificEnthalpy_pTX"><code>specificEnthalpy_pTX</code></a></td><td>Return specific enthalpy from p, T, and X or Xi</td></tr>
+<tr><td><a href="#SpecificEntropy"><code>SpecificEntropy</code></a></td><td>Type for specific entropy with medium specific attributes</td></tr>
+<tr><td><a href="#specificEntropy"><code>specificEntropy</code></a></td><td>Return specific entropy</td></tr>
+<tr><td><a href="#specificEntropy_pTX"><code>specificEntropy_pTX</code></a></td><td>Return specific enthalpy from p, T, and X or Xi</td></tr>
+<tr><td><a href="#specificGibbsEnergy"><code>specificGibbsEnergy</code></a></td><td>Return specific Gibbs energy</td></tr>
+<tr><td><a href="#SpecificHeatCapacity"><code>SpecificHeatCapacity</code></a></td><td>Type for specific heat capacity with medium specific attributes</td></tr>
+<tr><td><a href="#specificHeatCapacityCp"><code>specificHeatCapacityCp</code></a></td><td>Return specific heat capacity at constant pressure</td></tr>
+<tr><td><a href="#specificHeatCapacityCv"><code>specificHeatCapacityCv</code></a></td><td>Compute specific heat capacity at constant volume from temperature and gas data</td></tr>
+<tr><td><a href="#specificHelmholtzEnergy"><code>specificHelmholtzEnergy</code></a></td><td>Return specific Helmholtz energy</td></tr>
+<tr><td><a href="#SpecificInternalEnergy"><code>SpecificInternalEnergy</code></a></td><td>Type for specific internal energy with medium specific attributes</td></tr>
+<tr><td><a href="#specificInternalEnergy"><code>specificInternalEnergy</code></a></td><td>Return specific internal energy</td></tr>
+<tr><td><a href="#SurfaceTension"><code>SurfaceTension</code></a></td><td>Type for surface tension with medium specific attributes</td></tr>
+<tr><td><a href="#T_h"><code>T_h</code></a></td><td>Compute temperature from specific enthalpy</td></tr>
+<tr><td><a href="#T_ps"><code>T_ps</code></a></td><td>Compute temperature from pressure and specific entropy</td></tr>
+<tr><td><a href="#Temperature"><code>Temperature</code></a></td><td>Type for temperature with medium specific attributes</td></tr>
+<tr><td><a href="#temperature"><code>temperature</code></a></td><td>Return temperature of ideal gas</td></tr>
+<tr><td><a href="#temperature_ph"><code>temperature_ph</code></a></td><td>Return temperature from p and h</td></tr>
+<tr><td><a href="#temperature_phX"><code>temperature_phX</code></a></td><td>Return temperature from p, h, and X or Xi</td></tr>
+<tr><td><a href="#temperature_ps"><code>temperature_ps</code></a></td><td>Return temperature from p and s</td></tr>
+<tr><td><a href="#temperature_psX"><code>temperature_psX</code></a></td><td>Return temperature from p,s, and X or Xi</td></tr>
+<tr><td><a href="#ThermalConductivity"><code>ThermalConductivity</code></a></td><td>Type for thermal conductivity with medium specific attributes</td></tr>
+<tr><td><a href="#thermalConductivity"><code>thermalConductivity</code></a></td><td>Thermal conductivity of gas</td></tr>
+<tr><td><a href="#thermalConductivityEstimate"><code>thermalConductivityEstimate</code></a></td><td>Thermal conductivity of polyatomic gases(Eucken and Modified Eucken correlation)</td></tr>
+<tr><td><a href="#ThermodynamicState"><code>ThermodynamicState</code></a></td><td>Thermodynamic state variables for ideal gases</td></tr>
+<tr><td><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/TwoPhase/index.html"><code>TwoPhase</code></a> &hellip;</td><td>The two phase fluid version of a record used in several degrees of detail</td></tr>
+<tr><td><a href="#VelocityOfSound"><code>VelocityOfSound</code></a></td><td>Type for velocity of sound with medium specific attributes</td></tr>
+<tr><td><a href="#velocityOfSound"><code>velocityOfSound</code></a></td><td>Return velocity of sound</td></tr>
+</table>
+<h3>Package Constants</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Value</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ExtraProperty">ExtraProperty</a></code></td><td><code>C_default[nC]</code></td><td><code>fill(0, nC)</code></td><td>Default value for trace substances of medium (for initialization)</td></tr>
+<tr><td><code>Real</code></td><td><code>C_nominal[nC]</code></td><td><code>1e-6 * ones(nC)</code></td><td>Default for the nominal values for the extra properties</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/Common/index.html#DataRecord">DataRecord</a></code></td><td><code>data</code></td><td><code>Common.&#8203;SingleGasesData.&#8203;C2H2_vinylidene</code></td><td>Data record of ideal gas substance</td></tr>
+<tr><td><code>String</code></td><td><code>extraPropertiesNames[:]</code></td><td><code>fill("", 0)</code></td><td>Names of the additional (extra) transported properties. Set extraPropertiesNames=fill("",0) if unused</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Boolean</code></td><td><code>fixedX</code></td><td><code>true</code></td><td>= true if medium contains the equation X = reference_X</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#FluidConstants">FluidConstants</a></code></td><td><code>fluidConstants[nS]</code></td><td><code>{Common.FluidData.C2H2_vinylidene}</code></td><td>Constant data for the fluid</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_default</code></td><td><code>specificEnthalpy_pTX(p_default, T_default, X_default)</code></td><td>Default value for specific enthalpy of medium (for initialization)</td></tr>
+<tr><td><code>String</code></td><td><code>mediumName</code></td><td><code>"Acetylene"</code></td><td>Name of the medium</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nC</code></td><td><code>size(extraPropertiesNames, 1)</code></td><td>Number of extra (outside of standard mass-balance) transported properties</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nS</code></td><td><code>size(substanceNames, 1)</code></td><td>Number of substances</td></tr>
+<tr><td><code>Integer</code></td><td><code>nX</code></td><td><code>nS</code></td><td>Number of mass fractions</td></tr>
+<tr><td><code>Integer</code></td><td><code>nXi</code></td><td><code>if fixedX then 0 else if reducedX then nS - 1 else nS</code></td><td>Number of structurally independent mass fractions (see docu for details)</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_default</code></td><td><code>101325</code></td><td>Default value for pressure of medium (for initialization)</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Boolean</code></td><td><code>reducedX</code></td><td><code>true</code></td><td>= true if medium contains the equation sum(X) = 1.0; set reducedX=true if only one substance (see docu for details)</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>reference_p</code></td><td><code>101325</code></td><td>Reference pressure of Medium: default 1 atmosphere</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>reference_T</code></td><td><code>298.15</code></td><td>Reference temperature of Medium: default 25 deg Celsius</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#MassFraction">MassFraction</a></code></td><td><code>reference_X[nX]</code></td><td><code>fill(nX ^ (-1), nX)</code></td><td>Default mass fractions of medium</td></tr>
+<tr><td><code>Boolean</code></td><td><code>singleState</code></td><td><code>false</code></td><td>= true, if u and d are not a function of pressure</td></tr>
+<tr><td><code>String</code></td><td><code>substanceNames[:]</code></td><td><code>{data.name}</code></td><td>Names of the mixture substances. Set substanceNames={mediumName} if only one substance.</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>T_default</code></td><td><code>Modelica.SIunits.Conversions.from_degC(20)</code></td><td>Default value for temperature of medium (for initialization)</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Choices/index.html#IndependentVariables">IndependentVariables</a></code></td><td><code>ThermoStates</code></td><td><code>Modelica.&#8203;Media.&#8203;Interfaces.&#8203;Choices.&#8203;IndependentVariables.&#8203;pT</code></td><td>Enumeration type for independent variables</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#MassFraction">MassFraction</a></code></td><td><code>X_default[nX]</code></td><td><code>reference_X</code></td><td>Default value for mass fractions of medium (for initialization)</td></tr>
+</table>
+<hr><a name="AbsolutePressure"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;AbsolutePressure<br><span class="subtitle">Type for absolute pressure with medium specific attributes</span></h2></a>
+<p>Extends from <code><a href="../../../../SIunits/index.html#AbsolutePressure">Modelica.&#8203;SIunits.&#8203;AbsolutePressure</a></code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"Pressure"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"Pa"</code></td></tr>
+<tr><td><code>displayUnit</code></td><td><code>"bar"</code></td></tr>
+<tr><td><code>min</code></td><td><code>0</code></td></tr>
+<tr><td><code>max</code></td><td><code>1e+8</code></td></tr>
+<tr><td><code>start</code></td><td><code>1000000</code></td></tr>
+<tr><td><code>nominal</code></td><td><code>1000000</code></td></tr>
+</table>
+<hr><a name="Density"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;Density<br><span class="subtitle">Type for density with medium specific attributes</span></h2></a>
+<p>Extends from <code><a href="../../../../SIunits/index.html#Density">Modelica.&#8203;SIunits.&#8203;Density</a></code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"Density"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"kg/m3"</code></td></tr>
+<tr><td><code>displayUnit</code></td><td><code>"g/cm3"</code></td></tr>
+<tr><td><code>min</code></td><td><code>0</code></td></tr>
+<tr><td><code>max</code></td><td><code>100000</code></td></tr>
+<tr><td><code>start</code></td><td><code>10</code></td></tr>
+<tr><td><code>nominal</code></td><td><code>10</code></td></tr>
+</table>
+<hr><a name="DynamicViscosity"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;DynamicViscosity<br><span class="subtitle">Type for dynamic viscosity with medium specific attributes</span></h2></a>
+<p>Extends from <code><a href="../../../../SIunits/index.html#DynamicViscosity">Modelica.&#8203;SIunits.&#8203;DynamicViscosity</a></code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"DynamicViscosity"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"Pa.s"</code></td></tr>
+<tr><td><code>min</code></td><td><code>0</code></td></tr>
+<tr><td><code>max</code></td><td><code>1e+8</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.001</code></td></tr>
+<tr><td><code>nominal</code></td><td><code>0.001</code></td></tr>
+</table>
+<hr><a name="EnthalpyFlowRate"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;EnthalpyFlowRate<br><span class="subtitle">Type for enthalpy flow rate with medium specific attributes</span></h2></a>
+<p>Extends from <code><a href="../../../../SIunits/index.html#EnthalpyFlowRate">Modelica.&#8203;SIunits.&#8203;EnthalpyFlowRate</a></code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"EnthalpyFlowRate"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"W"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-1e+8</code></td></tr>
+<tr><td><code>max</code></td><td><code>1e+8</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+<tr><td><code>nominal</code></td><td><code>1000</code></td></tr>
+</table>
+<hr><a name="MassFraction"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;MassFraction<br><span class="subtitle">Type for mass fraction with medium specific attributes</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"MassFraction"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"kg/kg"</code></td></tr>
+<tr><td><code>min</code></td><td><code>0</code></td></tr>
+<tr><td><code>max</code></td><td><code>1</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+<tr><td><code>nominal</code></td><td><code>0.1</code></td></tr>
+</table>
+<hr><a name="MoleFraction"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;MoleFraction<br><span class="subtitle">Type for mole fraction with medium specific attributes</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"MoleFraction"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"mol/mol"</code></td></tr>
+<tr><td><code>min</code></td><td><code>0</code></td></tr>
+<tr><td><code>max</code></td><td><code>1</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+<tr><td><code>nominal</code></td><td><code>0.1</code></td></tr>
+</table>
+<hr><a name="MolarMass"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;MolarMass<br><span class="subtitle">Type for molar mass with medium specific attributes</span></h2></a>
+<p>Extends from <code><a href="../../../../SIunits/index.html#MolarMass">Modelica.&#8203;SIunits.&#8203;MolarMass</a></code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"MolarMass"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"kg/mol"</code></td></tr>
+<tr><td><code>min</code></td><td><code>0.001</code></td></tr>
+<tr><td><code>max</code></td><td><code>0.25</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+<tr><td><code>nominal</code></td><td><code>0.032</code></td></tr>
+</table>
+<hr><a name="MolarVolume"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;MolarVolume<br><span class="subtitle">Type for molar volume with medium specific attributes</span></h2></a>
+<p>Extends from <code><a href="../../../../SIunits/index.html#MolarVolume">Modelica.&#8203;SIunits.&#8203;MolarVolume</a></code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"MolarVolume"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"m3/mol"</code></td></tr>
+<tr><td><code>min</code></td><td><code>1e-6</code></td></tr>
+<tr><td><code>max</code></td><td><code>1000000</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+<tr><td><code>nominal</code></td><td><code>1</code></td></tr>
+</table>
+<hr><a name="IsentropicExponent"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;IsentropicExponent<br><span class="subtitle">Type for isentropic exponent with medium specific attributes</span></h2></a>
+<p>Extends from <code><a href="../../../../SIunits/index.html#RatioOfSpecificHeatCapacities">Modelica.&#8203;SIunits.&#8203;RatioOfSpecificHeatCapacities</a></code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"RatioOfSpecificHeatCapacities"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"1"</code></td></tr>
+<tr><td><code>min</code></td><td><code>1</code></td></tr>
+<tr><td><code>max</code></td><td><code>500000</code></td></tr>
+<tr><td><code>start</code></td><td><code>1.2</code></td></tr>
+<tr><td><code>nominal</code></td><td><code>1.2</code></td></tr>
+</table>
+<hr><a name="SpecificEnergy"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;SpecificEnergy<br><span class="subtitle">Type for specific energy with medium specific attributes</span></h2></a>
+<p>Extends from <code><a href="../../../../SIunits/index.html#SpecificEnergy">Modelica.&#8203;SIunits.&#8203;SpecificEnergy</a></code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"SpecificEnergy"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"J/kg"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-1e+8</code></td></tr>
+<tr><td><code>max</code></td><td><code>1e+8</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+<tr><td><code>nominal</code></td><td><code>1000000</code></td></tr>
+</table>
+<hr><a name="SpecificInternalEnergy"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;SpecificInternalEnergy<br><span class="subtitle">Type for specific internal energy with medium specific attributes</span></h2></a>
+<p>Extends from <code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEnergy">Modelica.&#8203;Media.&#8203;IdealGases.&#8203;SingleGases.&#8203;C2H2_vinylidene.&#8203;SpecificEnergy</a></code> (Type for specific energy with medium specific attributes).</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"SpecificEnergy"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"J/kg"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-1e+8</code></td></tr>
+<tr><td><code>max</code></td><td><code>1e+8</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+<tr><td><code>nominal</code></td><td><code>1000000</code></td></tr>
+</table>
+<hr><a name="SpecificEnthalpy"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;SpecificEnthalpy<br><span class="subtitle">Type for specific enthalpy with medium specific attributes</span></h2></a>
+<p>Extends from <code><a href="../../../../SIunits/index.html#SpecificEnthalpy">Modelica.&#8203;SIunits.&#8203;SpecificEnthalpy</a></code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"SpecificEnergy"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"J/kg"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-1e+10</code></td></tr>
+<tr><td><code>max</code></td><td><code>1e+10</code></td></tr>
+<tr><td><code>start</code></td><td><code>if Functions.referenceChoice == ReferenceEnthalpy.ZeroAt0K then data.H0 else if Functions.referenceChoice == ReferenceEnthalpy.UserDefined then Functions.h_offset else 0</code></td></tr>
+<tr><td><code>nominal</code></td><td><code>100000</code></td></tr>
+</table>
+<hr><a name="SpecificEntropy"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;SpecificEntropy<br><span class="subtitle">Type for specific entropy with medium specific attributes</span></h2></a>
+<p>Extends from <code><a href="../../../../SIunits/index.html#SpecificEntropy">Modelica.&#8203;SIunits.&#8203;SpecificEntropy</a></code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"SpecificEntropy"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"J/(kg.K)"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-1e+7</code></td></tr>
+<tr><td><code>max</code></td><td><code>1e+7</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+<tr><td><code>nominal</code></td><td><code>1000</code></td></tr>
+</table>
+<hr><a name="SpecificHeatCapacity"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;SpecificHeatCapacity<br><span class="subtitle">Type for specific heat capacity with medium specific attributes</span></h2></a>
+<p>Extends from <code><a href="../../../../SIunits/index.html#SpecificHeatCapacity">Modelica.&#8203;SIunits.&#8203;SpecificHeatCapacity</a></code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"SpecificHeatCapacity"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"J/(kg.K)"</code></td></tr>
+<tr><td><code>min</code></td><td><code>0</code></td></tr>
+<tr><td><code>max</code></td><td><code>1e+7</code></td></tr>
+<tr><td><code>start</code></td><td><code>1000</code></td></tr>
+<tr><td><code>nominal</code></td><td><code>1000</code></td></tr>
+</table>
+<hr><a name="SurfaceTension"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;SurfaceTension<br><span class="subtitle">Type for surface tension with medium specific attributes</span></h2></a>
+<p>Extends from <code><a href="../../../../SIunits/index.html#SurfaceTension">Modelica.&#8203;SIunits.&#8203;SurfaceTension</a></code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"SurfaceTension"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"N/m"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="Temperature"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;Temperature<br><span class="subtitle">Type for temperature with medium specific attributes</span></h2></a>
+<p>Extends from <code><a href="../../../../SIunits/index.html#Temperature">Modelica.&#8203;SIunits.&#8203;Temperature</a></code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"ThermodynamicTemperature"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"K"</code></td></tr>
+<tr><td><code>displayUnit</code></td><td><code>"degC"</code></td></tr>
+<tr><td><code>min</code></td><td><code>200</code></td></tr>
+<tr><td><code>max</code></td><td><code>6000</code></td></tr>
+<tr><td><code>start</code></td><td><code>500</code></td></tr>
+<tr><td><code>nominal</code></td><td><code>500</code></td></tr>
+</table>
+<hr><a name="ThermalConductivity"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;ThermalConductivity<br><span class="subtitle">Type for thermal conductivity with medium specific attributes</span></h2></a>
+<p>Extends from <code><a href="../../../../SIunits/index.html#ThermalConductivity">Modelica.&#8203;SIunits.&#8203;ThermalConductivity</a></code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"ThermalConductivity"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"W/(m.K)"</code></td></tr>
+<tr><td><code>min</code></td><td><code>0</code></td></tr>
+<tr><td><code>max</code></td><td><code>500</code></td></tr>
+<tr><td><code>start</code></td><td><code>1</code></td></tr>
+<tr><td><code>nominal</code></td><td><code>1</code></td></tr>
+</table>
+<hr><a name="PrandtlNumber"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;PrandtlNumber<br><span class="subtitle">Type for Prandtl number with medium specific attributes</span></h2></a>
+<p>Extends from <code><a href="../../../../SIunits/index.html#PrandtlNumber">Modelica.&#8203;SIunits.&#8203;PrandtlNumber</a></code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"PrandtlNumber"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"1"</code></td></tr>
+<tr><td><code>min</code></td><td><code>0.001</code></td></tr>
+<tr><td><code>max</code></td><td><code>100000</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+<tr><td><code>nominal</code></td><td><code>1</code></td></tr>
+</table>
+<hr><a name="VelocityOfSound"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;VelocityOfSound<br><span class="subtitle">Type for velocity of sound with medium specific attributes</span></h2></a>
+<p>Extends from <code><a href="../../../../SIunits/index.html#Velocity">Modelica.&#8203;SIunits.&#8203;Velocity</a></code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"Velocity"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"m/s"</code></td></tr>
+<tr><td><code>min</code></td><td><code>0</code></td></tr>
+<tr><td><code>max</code></td><td><code>100000</code></td></tr>
+<tr><td><code>start</code></td><td><code>1000</code></td></tr>
+<tr><td><code>nominal</code></td><td><code>1000</code></td></tr>
+</table>
+<hr><a name="ExtraProperty"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;ExtraProperty<br><span class="subtitle">Type for unspecified, mass-specific property transported by flow</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>min</code></td><td><code>0</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>1</code></td></tr>
+</table>
+<hr><a name="CumulativeExtraProperty"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;CumulativeExtraProperty<br><span class="subtitle">Type for conserved integral of unspecified, mass specific property</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>min</code></td><td><code>0</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>1</code></td></tr>
+</table>
+<hr><a name="ExtraPropertyFlowRate"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;ExtraPropertyFlowRate<br><span class="subtitle">Type for flow rate of unspecified, mass-specific property</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>unit</code></td><td><code>"kg/s"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="IsobaricExpansionCoefficient"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;IsobaricExpansionCoefficient<br><span class="subtitle">Type for isobaric expansion coefficient with medium specific attributes</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>unit</code></td><td><code>"1/K"</code></td></tr>
+<tr><td><code>min</code></td><td><code>0</code></td></tr>
+<tr><td><code>max</code></td><td><code>1e+8</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="DipoleMoment"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;DipoleMoment<br><span class="subtitle">Type for dipole moment with medium specific attributes</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"ElectricDipoleMoment"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"debye"</code></td></tr>
+<tr><td><code>min</code></td><td><code>0</code></td></tr>
+<tr><td><code>max</code></td><td><code>2</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="DerDensityByPressure"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;DerDensityByPressure<br><span class="subtitle">Type for partial derivative of density with respect to pressure with medium specific attributes</span></h2></a>
+<p>Extends from <code><a href="../../../../SIunits/index.html#DerDensityByPressure">Modelica.&#8203;SIunits.&#8203;DerDensityByPressure</a></code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>unit</code></td><td><code>"s2/m2"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="DerDensityByEnthalpy"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;DerDensityByEnthalpy<br><span class="subtitle">Type for partial derivative of density with respect to enthalpy with medium specific attributes</span></h2></a>
+<p>Extends from <code><a href="../../../../SIunits/index.html#DerDensityByEnthalpy">Modelica.&#8203;SIunits.&#8203;DerDensityByEnthalpy</a></code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>unit</code></td><td><code>"kg.s2/m5"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="DerEnthalpyByPressure"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;DerEnthalpyByPressure<br><span class="subtitle">Type for partial derivative of enthalpy with respect to pressure with medium specific attributes</span></h2></a>
+<p>Extends from <code><a href="../../../../SIunits/index.html#DerEnthalpyByPressure">Modelica.&#8203;SIunits.&#8203;DerEnthalpyByPressure</a></code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>unit</code></td><td><code>"J.m.s2/kg2"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="DerDensityByTemperature"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;DerDensityByTemperature<br><span class="subtitle">Type for partial derivative of density with respect to temperature with medium specific attributes</span></h2></a>
+<p>Extends from <code><a href="../../../../SIunits/index.html#DerDensityByTemperature">Modelica.&#8203;SIunits.&#8203;DerDensityByTemperature</a></code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>unit</code></td><td><code>"kg/(m3.K)"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="DerTemperatureByPressure"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;DerTemperatureByPressure<br><span class="subtitle">Type for partial derivative of temperature with respect to pressure with medium specific attributes</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>unit</code></td><td><code>"K/Pa"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="SaturationProperties"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;SaturationProperties<br><span class="subtitle">Saturation properties of two phase medium</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>psat</code></td><td>Saturation pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>Tsat</code></td><td>Saturation temperature</td></tr>
+</table>
+<hr><a name="FluidLimits"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;FluidLimits<br><span class="subtitle">Validity limits for fluid model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+          <p>The minimum pressure mostly applies to the liquid state only.
+          The minimum density is also arbitrary, but is reasonable for technical
+          applications to limit iterations in non-linear systems. The limits in
+          enthalpy and entropy are used as safeguards in inverse iterations.</p>
+          
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>TMIN</code></td><td>Minimum temperature</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>TMAX</code></td><td>Maximum temperature</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Density">Density</a></code></td><td><code>DMIN</code></td><td>Minimum density</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Density">Density</a></code></td><td><code>DMAX</code></td><td>Maximum density</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>PMIN</code></td><td>Minimum pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>PMAX</code></td><td>Maximum pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>HMIN</code></td><td>Minimum enthalpy</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>HMAX</code></td><td>Maximum enthalpy</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>SMIN</code></td><td>Minimum entropy</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>SMAX</code></td><td>Maximum entropy</td></tr>
+</table>
+<hr><a name="FixedPhase"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;FixedPhase<br><span class="subtitle">Phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g., interactive use</span></h2></a>
+<p>Extends from <code>Integer</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>min</code></td><td><code>0</code></td></tr>
+<tr><td><code>max</code></td><td><code>2</code></td></tr>
+<tr><td><code>start</code></td><td><code>0</code></td></tr>
+</table>
+<hr><a name="FluidConstants"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;FluidConstants<br><span class="subtitle">Extended fluid constants</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../../Media/Interfaces/Types/IdealGas/index.html#FluidConstants">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;Types.&#8203;IdealGas.&#8203;FluidConstants</a></code> (Extended fluid constants).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>iupacName</code></td><td>Complete IUPAC name (or common name, if non-existent)</td></tr>
+<tr><td><code>String</code></td><td><code>casRegistryNumber</code></td><td>Chemical abstracts sequencing number (if it exists)</td></tr>
+<tr><td><code>String</code></td><td><code>chemicalFormula</code></td><td>Chemical formula, (brutto, nomenclature according to Hill</td></tr>
+<tr><td><code>String</code></td><td><code>structureFormula</code></td><td>Chemical structure formula</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Types/index.html#MolarMass">MolarMass</a></code></td><td><code>molarMass</code></td><td>Molar mass</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Types/index.html#Temperature">Temperature</a></code></td><td><code>criticalTemperature</code></td><td>Critical temperature</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Types/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>criticalPressure</code></td><td>Critical pressure</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Types/index.html#MolarVolume">MolarVolume</a></code></td><td><code>criticalMolarVolume</code></td><td>Critical molar Volume</td></tr>
+<tr><td><code>Real</code></td><td><code>acentricFactor</code></td><td>Pitzer acentric factor</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Types/index.html#Temperature">Temperature</a></code></td><td><code>meltingPoint</code></td><td>Melting point at 101325 Pa</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Types/index.html#Temperature">Temperature</a></code></td><td><code>normalBoilingPoint</code></td><td>Normal boiling point (at 101325 Pa)</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Types/index.html#DipoleMoment">DipoleMoment</a></code></td><td><code>dipoleMoment</code></td><td>Dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>hasIdealGasHeatCapacity</code></td><td>True if ideal gas heat capacity is available</td></tr>
+<tr><td><code>Boolean</code></td><td><code>hasCriticalData</code></td><td>True if critical data are known</td></tr>
+<tr><td><code>Boolean</code></td><td><code>hasDipoleMoment</code></td><td>True if a dipole moment known</td></tr>
+<tr><td><code>Boolean</code></td><td><code>hasFundamentalEquation</code></td><td>True if a fundamental equation</td></tr>
+<tr><td><code>Boolean</code></td><td><code>hasLiquidHeatCapacity</code></td><td>True if liquid heat capacity is available</td></tr>
+<tr><td><code>Boolean</code></td><td><code>hasSolidHeatCapacity</code></td><td>True if solid heat capacity is available</td></tr>
+<tr><td><code>Boolean</code></td><td><code>hasAccurateViscosityData</code></td><td>True if accurate data for a viscosity function is available</td></tr>
+<tr><td><code>Boolean</code></td><td><code>hasAccurateConductivityData</code></td><td>True if accurate data for thermal conductivity is available</td></tr>
+<tr><td><code>Boolean</code></td><td><code>hasVapourPressureCurve</code></td><td>True if vapour pressure data, e.g., Antoine coefficients are known</td></tr>
+<tr><td><code>Boolean</code></td><td><code>hasAcentricFactor</code></td><td>True if Pitzer acentric factor is known</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Types/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>HCRIT0</code></td><td>Critical specific enthalpy of the fundamental equation</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Types/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>SCRIT0</code></td><td>Critical specific entropy of the fundamental equation</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Types/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>deltah</code></td><td>Difference between specific enthalpy model (h_m) and f.eq. (h_f) (h_m - h_f)</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Types/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>deltas</code></td><td>Difference between specific enthalpy model (s_m) and f.eq. (s_f) (s_m - s_f)</td></tr>
+</table>
+<hr><a name="ThermodynamicState"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;ThermodynamicState<br><span class="subtitle">Thermodynamic state variables for ideal gases</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#ThermodynamicState">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;ThermodynamicState</a></code> (Minimal variable set that is available as input argument to every medium function).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Absolute pressure of medium</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature of medium</td></tr>
+</table>
+<hr><a name="BaseProperties"><h2><embed class="icon" src="../../../../images/icon1412.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;BaseProperties<br><span class="subtitle">Base properties of ideal gas medium</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Model <strong>BaseProperties</strong> is a model within package <strong>PartialMedium</strong>
+and contains the <strong>declarations</strong> of the minimum number of
+variables that every medium model is supposed to support.
+A specific medium inherits from model <strong>BaseProperties</strong> and provides
+the equations for the basic properties.</p>
+<p>
+The BaseProperties model contains the following <strong>7+nXi variables</strong>
+(nXi is the number of independent mass fractions defined in package
+PartialMedium):
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><strong>Variable</strong></td>
+      <td><strong>Unit</strong></td>
+      <td><strong>Description</strong></td></tr>
+  <tr><td>T</td>
+      <td>K</td>
+      <td>temperature</td></tr>
+  <tr><td>p</td>
+      <td>Pa</td>
+      <td>absolute pressure</td></tr>
+  <tr><td>d</td>
+      <td>kg/m3</td>
+      <td>density</td></tr>
+  <tr><td>h</td>
+      <td>J/kg</td>
+      <td>specific enthalpy</td></tr>
+  <tr><td>u</td>
+      <td>J/kg</td>
+      <td>specific internal energy</td></tr>
+  <tr><td>Xi[nXi]</td>
+      <td>kg/kg</td>
+      <td>independent mass fractions m_i/m</td></tr>
+  <tr><td>R</td>
+      <td>J/kg.K</td>
+      <td>gas constant</td></tr>
+  <tr><td>M</td>
+      <td>kg/mol</td>
+      <td>molar mass</td></tr>
+</table>
+<p>
+In order to implement an actual medium model, one can extend from this
+base model and add <strong>5 equations</strong> that provide relations among
+these variables. Equations will also have to be added in order to
+set all the variables within the ThermodynamicState record state.</p>
+<p>
+If standardOrderComponents=true, the full composition vector X[nX]
+is determined by the equations contained in this base class, depending
+on the independent mass fraction vector Xi[nXi].</p>
+<p>Additional <strong>2 + nXi</strong> equations will have to be provided
+when using the BaseProperties model, in order to fully specify the
+thermodynamic conditions. The input connector qualifier applied to
+p, h, and nXi indirectly declares the number of missing equations,
+permitting advanced equation balance checking by Modelica tools.
+Please note that this doesn't mean that the additional equations
+should be connection equations, nor that exactly those variables
+should be supplied, in order to complete the model.
+For further information, see the Modelica.Media User's guide, and
+Section 4.7 (Balanced Models) of the Modelica 3.0 specification.</p>
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#BaseProperties">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;BaseProperties</a></code>.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>preferredMediumStates</code></td><td><code>false</code></td><td>= true if StateSelect.prefer shall be used for the independent property variables of the medium</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Boolean</code></td><td><code>standardOrderComponents</code></td><td><code>true</code></td><td>If true, and reducedX = true, the last element of X will be computed from the other ones</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/BaseProperties/index.html#InputAbsolutePressure">InputAbsolutePressure</a></code></td><td><code>p</code></td><td>Absolute pressure of medium</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/BaseProperties/index.html#InputMassFraction">InputMassFraction</a></code></td><td><code>Xi[nXi]</code></td><td>Structurally independent mass fractions</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/BaseProperties/index.html#InputSpecificEnthalpy">InputSpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy of medium</td></tr>
+</table>
+<hr><a name="setState_pTX"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;setState_pTX<br><span class="subtitle">Return thermodynamic state as function of p, T and composition X</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#MassFraction">MassFraction</a></code></td><td><code>X[:]</code></td><td>Mass fractions</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="setState_phX"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;setState_phX<br><span class="subtitle">Return thermodynamic state as function of p, h and composition X</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#MassFraction">MassFraction</a></code></td><td><code>X[:]</code></td><td>Mass fractions</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="setState_psX"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;setState_psX<br><span class="subtitle">Return thermodynamic state as function of p, s and composition X</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#MassFraction">MassFraction</a></code></td><td><code>X[:]</code></td><td>Mass fractions</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="setState_dTX"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;setState_dTX<br><span class="subtitle">Return thermodynamic state as function of d, T and composition X</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#MassFraction">MassFraction</a></code></td><td><code>X[:]</code></td><td>Mass fractions</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="setSmoothState"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;setSmoothState<br><span class="subtitle">Return thermodynamic state so that it smoothly approximates: if x &gt; 0 then state_a else state_b</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function is used to approximate the equation
+</p>
+<pre>
+    state = <strong>if</strong> x &gt; 0 <strong>then</strong> state_a <strong>else</strong> state_b;
+</pre>
+
+<p>
+by a smooth characteristic, so that the expression is continuous and differentiable:
+</p>
+
+<pre>
+   state := <strong>smooth</strong>(1, <strong>if</strong> x &gt;  x_small <strong>then</strong> state_a <strong>else</strong>
+                      <strong>if</strong> x &lt; -x_small <strong>then</strong> state_b <strong>else</strong> f(state_a, state_b));
+</pre>
+
+<p>
+This is performed by applying function <strong>Media.Common.smoothStep</strong>(..)
+on every element of the thermodynamic state record.
+</p>
+
+<p>
+If <strong>mass fractions</strong> X[:] are approximated with this function then this can be performed
+for all <strong>nX</strong> mass fractions, instead of applying it for nX-1 mass fractions and computing
+the last one by the mass fraction constraint sum(X)=1. The reason is that the approximating function has the
+property that sum(state.X) = 1, provided sum(state_a.X) = sum(state_b.X) = 1.
+This can be shown by evaluating the approximating function in the abs(x) &lt; x_small
+region (otherwise state.X is either state_a.X or state_b.X):
+</p>
+
+<pre>
+    X[1]  = smoothStep(x, X_a[1] , X_b[1] , x_small);
+    X[2]  = smoothStep(x, X_a[2] , X_b[2] , x_small);
+       ...
+    X[nX] = smoothStep(x, X_a[nX], X_b[nX], x_small);
+</pre>
+
+<p>
+or
+</p>
+
+<pre>
+    X[1]  = c*(X_a[1]  - X_b[1])  + (X_a[1]  + X_b[1])/2
+    X[2]  = c*(X_a[2]  - X_b[2])  + (X_a[2]  + X_b[2])/2;
+       ...
+    X[nX] = c*(X_a[nX] - X_b[nX]) + (X_a[nX] + X_b[nX])/2;
+    c     = (x/x_small)*((x/x_small)^2 - 3)/4
+</pre>
+
+<p>
+Summing all mass fractions together results in
+</p>
+
+<pre>
+    sum(X) = c*(sum(X_a) - sum(X_b)) + (sum(X_a) + sum(X_b))/2
+           = c*(1 - 1) + (1 + 1)/2
+           = 1
+</pre>
+
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#setSmoothState">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;setSmoothState</a></code> (Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>x</code></td><td>m_flow or dp</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state_a</code></td><td>Thermodynamic state if x &gt; 0</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state_b</code></td><td>Thermodynamic state if x &lt; 0</td></tr>
+<tr><td><code>Real</code></td><td><code>x_small</code></td><td>Smooth transition in the region -x_small &lt; x &lt; x_small</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Smooth thermodynamic state for all x (continuous and differentiable)</td></tr>
+</table>
+<hr><a name="dynamicViscosity"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;dynamicViscosity<br><span class="subtitle">Dynamic viscosity</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#dynamicViscosity">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;dynamicViscosity</a></code> (Return dynamic viscosity).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta</code></td><td>Dynamic viscosity</td></tr>
+</table>
+<hr><a name="thermalConductivity"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;thermalConductivity<br><span class="subtitle">Thermal conductivity of gas</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#thermalConductivity">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;thermalConductivity</a></code> (Return thermal conductivity).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+<tr><td><code>Integer</code></td><td><code>method</code></td><td>1: Eucken Method, 2: Modified Eucken Method</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermalConductivity">ThermalConductivity</a></code></td><td><code>lambda</code></td><td>Thermal conductivity</td></tr>
+</table>
+<hr><a name="prandtlNumber"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;prandtlNumber<br><span class="subtitle">Return the Prandtl number</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#PrandtlNumber">PrandtlNumber</a></code></td><td><code>Pr</code></td><td>Prandtl number</td></tr>
+</table>
+<hr><a name="pressure"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;pressure<br><span class="subtitle">Return pressure of ideal gas</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#pressure">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;pressure</a></code> (Return pressure).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+</table>
+<hr><a name="temperature"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;temperature<br><span class="subtitle">Return temperature of ideal gas</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#temperature">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;temperature</a></code> (Return temperature).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<hr><a name="density"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;density<br><span class="subtitle">Return density of ideal gas</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#density">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;density</a></code> (Return density).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+</table>
+<hr><a name="specificEnthalpy"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;specificEnthalpy<br><span class="subtitle">Return specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#specificEnthalpy">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;specificEnthalpy</a></code> (Return specific enthalpy) and <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<hr><a name="specificInternalEnergy"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;specificInternalEnergy<br><span class="subtitle">Return specific internal energy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#specificInternalEnergy">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;specificInternalEnergy</a></code> (Return specific internal energy) and <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEnergy">SpecificEnergy</a></code></td><td><code>u</code></td><td>Specific internal energy</td></tr>
+</table>
+<hr><a name="specificEntropy"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;specificEntropy<br><span class="subtitle">Return specific entropy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#specificEntropy">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;specificEntropy</a></code> (Return specific entropy) and <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+</table>
+<hr><a name="specificGibbsEnergy"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;specificGibbsEnergy<br><span class="subtitle">Return specific Gibbs energy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#specificGibbsEnergy">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;specificGibbsEnergy</a></code> (Return specific Gibbs energy) and <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEnergy">SpecificEnergy</a></code></td><td><code>g</code></td><td>Specific Gibbs energy</td></tr>
+</table>
+<hr><a name="specificHelmholtzEnergy"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;specificHelmholtzEnergy<br><span class="subtitle">Return specific Helmholtz energy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#specificHelmholtzEnergy">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;specificHelmholtzEnergy</a></code> (Return specific Helmholtz energy) and <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEnergy">SpecificEnergy</a></code></td><td><code>f</code></td><td>Specific Helmholtz energy</td></tr>
+</table>
+<hr><a name="specificHeatCapacityCp"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;specificHeatCapacityCp<br><span class="subtitle">Return specific heat capacity at constant pressure</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#specificHeatCapacityCp">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;specificHeatCapacityCp</a></code> (Return specific heat capacity at constant pressure).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp</code></td><td>Specific heat capacity at constant pressure</td></tr>
+</table>
+<hr><a name="heatCapacity_cp"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;heatCapacity_cp<br><span class="subtitle">Alias for deprecated name</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#specificHeatCapacityCp">Modelica.&#8203;Media.&#8203;IdealGases.&#8203;SingleGases.&#8203;C2H2_vinylidene.&#8203;specificHeatCapacityCp</a></code> (Return specific heat capacity at constant pressure).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp</code></td><td>Specific heat capacity at constant pressure</td></tr>
+</table>
+<hr><a name="specificHeatCapacityCv"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;specificHeatCapacityCv<br><span class="subtitle">Compute specific heat capacity at constant volume from temperature and gas data</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#specificHeatCapacityCv">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;specificHeatCapacityCv</a></code> (Return specific heat capacity at constant volume).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cv</code></td><td>Specific heat capacity at constant volume</td></tr>
+</table>
+<hr><a name="heatCapacity_cv"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;heatCapacity_cv<br><span class="subtitle">Alias for deprecated name</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#specificHeatCapacityCv">Modelica.&#8203;Media.&#8203;IdealGases.&#8203;SingleGases.&#8203;C2H2_vinylidene.&#8203;specificHeatCapacityCv</a></code> (Compute specific heat capacity at constant volume from temperature and gas data).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cv</code></td><td>Specific heat capacity at constant volume</td></tr>
+</table>
+<hr><a name="isentropicExponent"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;isentropicExponent<br><span class="subtitle">Return isentropic exponent</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#isentropicExponent">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;isentropicExponent</a></code> (Return isentropic exponent).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#IsentropicExponent">IsentropicExponent</a></code></td><td><code>gamma</code></td><td>Isentropic exponent</td></tr>
+</table>
+<hr><a name="isentropicEnthalpy"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;isentropicEnthalpy<br><span class="subtitle">Return isentropic enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function computes an isentropic state transformation:
+</p>
+<ol>
+<li> A medium is in a particular state, refState.</li>
+<li> The enthalpy at another state (h_is) shall be computed
+     under the assumption that the state transformation from refState to h_is
+     is performed with a change of specific entropy ds = 0 and the pressure of state h_is
+     is p_downstream and the composition X upstream and downstream is assumed to be the same.</li>
+</ol>
+
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#isentropicEnthalpy">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;isentropicEnthalpy</a></code> (Return isentropic enthalpy).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_downstream</code></td><td>Downstream pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>refState</code></td><td>Reference state for entropy</td></tr>
+<tr><td><code>Boolean</code></td><td><code>exclEnthForm</code></td><td>If true, enthalpy of formation Hf is not included in specific enthalpy h</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Choices/index.html#ReferenceEnthalpy">ReferenceEnthalpy</a></code></td><td><code>refChoice</code></td><td>Choice of reference enthalpy</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_off</code></td><td>User defined offset for reference enthalpy, if referenceChoice = UserDefined</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_is</code></td><td>Isentropic enthalpy</td></tr>
+</table>
+<hr><a name="velocityOfSound"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;velocityOfSound<br><span class="subtitle">Return velocity of sound</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#velocityOfSound">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;velocityOfSound</a></code> (Return velocity of sound) and <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#VelocityOfSound">VelocityOfSound</a></code></td><td><code>a</code></td><td>Velocity of sound</td></tr>
+</table>
+<hr><a name="isobaricExpansionCoefficient"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;isobaricExpansionCoefficient<br><span class="subtitle">Returns overall the isobaric expansion coefficient beta</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<pre>
+beta is defined as  1/v * der(v,T), with v = 1/d, at constant pressure p.
+</pre>
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#isobaricExpansionCoefficient">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;isobaricExpansionCoefficient</a></code> (Return overall the isobaric expansion coefficient beta).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#IsobaricExpansionCoefficient">IsobaricExpansionCoefficient</a></code></td><td><code>beta</code></td><td>Isobaric expansion coefficient</td></tr>
+</table>
+<hr><a name="beta"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;beta<br><span class="subtitle">Alias for isobaricExpansionCoefficient for user convenience</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<pre>
+beta is defined as  1/v * der(v,T), with v = 1/d, at constant pressure p.
+</pre>
+<p>Extends from <code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#isobaricExpansionCoefficient">Modelica.&#8203;Media.&#8203;IdealGases.&#8203;SingleGases.&#8203;C2H2_vinylidene.&#8203;isobaricExpansionCoefficient</a></code> (Returns overall the isobaric expansion coefficient beta).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#IsobaricExpansionCoefficient">IsobaricExpansionCoefficient</a></code></td><td><code>beta</code></td><td>Isobaric expansion coefficient</td></tr>
+</table>
+<hr><a name="isothermalCompressibility"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;isothermalCompressibility<br><span class="subtitle">Returns overall the isothermal compressibility factor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<pre>
+
+kappa is defined as - 1/v * der(v,p), with v = 1/d at constant temperature T.
+
+</pre>
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#isothermalCompressibility">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;isothermalCompressibility</a></code> (Return overall the isothermal compressibility factor).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#IsothermalCompressibility">IsothermalCompressibility</a></code></td><td><code>kappa</code></td><td>Isothermal compressibility</td></tr>
+</table>
+<hr><a name="kappa"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;kappa<br><span class="subtitle">Alias of isothermalCompressibility for user convenience</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<pre>
+
+kappa is defined as - 1/v * der(v,p), with v = 1/d at constant temperature T.
+
+</pre>
+<p>Extends from <code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#isothermalCompressibility">Modelica.&#8203;Media.&#8203;IdealGases.&#8203;SingleGases.&#8203;C2H2_vinylidene.&#8203;isothermalCompressibility</a></code> (Returns overall the isothermal compressibility factor).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#IsothermalCompressibility">IsothermalCompressibility</a></code></td><td><code>kappa</code></td><td>Isothermal compressibility</td></tr>
+</table>
+<hr><a name="density_derp_h"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Partial Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;density_derp_h<br><span class="subtitle">Return density derivative w.r.t. pressure at const specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#DerDensityByPressure">DerDensityByPressure</a></code></td><td><code>ddph</code></td><td>Density derivative w.r.t. pressure</td></tr>
+</table>
+<hr><a name="density_derh_p"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Partial Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;density_derh_p<br><span class="subtitle">Return density derivative w.r.t. specific enthalpy at constant pressure</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#DerDensityByEnthalpy">DerDensityByEnthalpy</a></code></td><td><code>ddhp</code></td><td>Density derivative w.r.t. specific enthalpy</td></tr>
+</table>
+<hr><a name="density_derp_T"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;density_derp_T<br><span class="subtitle">Returns the partial derivative of density with respect to pressure at constant temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#density_derp_T">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;density_derp_T</a></code> (Return density derivative w.r.t. pressure at const temperature).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#DerDensityByPressure">DerDensityByPressure</a></code></td><td><code>ddpT</code></td><td>Density derivative w.r.t. pressure</td></tr>
+</table>
+<hr><a name="density_derT_p"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;density_derT_p<br><span class="subtitle">Returns the partial derivative of density with respect to temperature at constant pressure</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#density_derT_p">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;density_derT_p</a></code> (Return density derivative w.r.t. temperature at constant pressure).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#DerDensityByTemperature">DerDensityByTemperature</a></code></td><td><code>ddTp</code></td><td>Density derivative w.r.t. temperature</td></tr>
+</table>
+<hr><a name="density_derX"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;density_derX<br><span class="subtitle">Returns the partial derivative of density with respect to mass fractions at constant pressure and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#density_derX">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;density_derX</a></code> (Return density derivative w.r.t. mass fraction).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Density">Density</a></code></td><td><code>dddX[nX]</code></td><td>Derivative of density w.r.t. mass fraction</td></tr>
+</table>
+<hr><a name="molarMass"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;molarMass<br><span class="subtitle">Return the molar mass of the medium</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Media/Interfaces/PartialPureSubstance/index.html#molarMass">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialPureSubstance.&#8203;molarMass</a></code> (Return the molar mass of the medium).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#MolarMass">MolarMass</a></code></td><td><code>MM</code></td><td>Mixture molar mass</td></tr>
+</table>
+<hr><a name="specificEnthalpy_pTX"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;specificEnthalpy_pTX<br><span class="subtitle">Return specific enthalpy from p, T, and X or Xi</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#MassFraction">MassFraction</a></code></td><td><code>X[:]</code></td><td>Mass fractions</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<hr><a name="specificEntropy_pTX"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;specificEntropy_pTX<br><span class="subtitle">Return specific enthalpy from p, T, and X or Xi</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#MassFraction">MassFraction</a></code></td><td><code>X[:]</code></td><td>Mass fractions</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+</table>
+<hr><a name="density_pTX"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;density_pTX<br><span class="subtitle">Return density from p, T, and X or Xi</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#MassFraction">MassFraction</a></code></td><td><code>X[:]</code></td><td>Mass fractions</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+</table>
+<hr><a name="temperature_phX"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;temperature_phX<br><span class="subtitle">Return temperature from p, h, and X or Xi</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#MassFraction">MassFraction</a></code></td><td><code>X[:]</code></td><td>Mass fractions</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<hr><a name="density_phX"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;density_phX<br><span class="subtitle">Return density from p, h, and X or Xi</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#MassFraction">MassFraction</a></code></td><td><code>X[:]</code></td><td>Mass fractions</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+</table>
+<hr><a name="temperature_psX"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;temperature_psX<br><span class="subtitle">Return temperature from p,s, and X or Xi</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#MassFraction">MassFraction</a></code></td><td><code>X[:]</code></td><td>Mass fractions</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<hr><a name="density_psX"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;density_psX<br><span class="subtitle">Return density from p, s, and X or Xi</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#MassFraction">MassFraction</a></code></td><td><code>X[:]</code></td><td>Mass fractions</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+</table>
+<hr><a name="specificEnthalpy_psX"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;specificEnthalpy_psX<br><span class="subtitle">Return specific enthalpy from p, s, and X or Xi</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#MassFraction">MassFraction</a></code></td><td><code>X[:]</code></td><td>Mass fractions</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<hr><a name="MassFlowRate"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;MassFlowRate<br><span class="subtitle">Type for mass flow rate with medium specific attributes</span></h2></a>
+<p>Extends from <code><a href="../../../../SIunits/index.html#MassFlowRate">Modelica.&#8203;SIunits.&#8203;MassFlowRate</a></code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"MassFlowRate." + mediumName</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"kg/s"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-100000</code></td></tr>
+<tr><td><code>max</code></td><td><code>100000</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="setState_pT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;setState_pT<br><span class="subtitle">Return thermodynamic state from p and T</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<hr><a name="setState_ph"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;setState_ph<br><span class="subtitle">Return thermodynamic state from p and h</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<hr><a name="setState_ps"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;setState_ps<br><span class="subtitle">Return thermodynamic state from p and s</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<hr><a name="setState_dT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;setState_dT<br><span class="subtitle">Return thermodynamic state from d and T</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Thermodynamic state record</td></tr>
+</table>
+<hr><a name="density_ph"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;density_ph<br><span class="subtitle">Return density from p and h</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+</table>
+<hr><a name="temperature_ph"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;temperature_ph<br><span class="subtitle">Return temperature from p and h</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<hr><a name="pressure_dT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;pressure_dT<br><span class="subtitle">Return pressure from d and T</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+</table>
+<hr><a name="specificEnthalpy_dT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;specificEnthalpy_dT<br><span class="subtitle">Return specific enthalpy from d and T</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<hr><a name="specificEnthalpy_ps"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;specificEnthalpy_ps<br><span class="subtitle">Return specific enthalpy from p and s</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<hr><a name="temperature_ps"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;temperature_ps<br><span class="subtitle">Return temperature from p and s</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<hr><a name="density_ps"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;density_ps<br><span class="subtitle">Return density from p and s</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+</table>
+<hr><a name="specificEnthalpy_pT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;specificEnthalpy_pT<br><span class="subtitle">Return specific enthalpy from p and T</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<hr><a name="density_pT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;density_pT<br><span class="subtitle">Return density from p and T</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+</table>
+<hr><a name="isentropicEnthalpyApproximation"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;isentropicEnthalpyApproximation<br><span class="subtitle">Approximate method of calculating h_is from upstream properties and downstream pressure</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p2</code></td><td>Downstream pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#ThermodynamicState">ThermodynamicState</a></code></td><td><code>state</code></td><td>Properties at upstream location</td></tr>
+<tr><td><code>Boolean</code></td><td><code>exclEnthForm</code></td><td>If true, enthalpy of formation Hf is not included in specific enthalpy h</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Choices/index.html#ReferenceEnthalpy">ReferenceEnthalpy</a></code></td><td><code>refChoice</code></td><td>Choice of reference enthalpy</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_off</code></td><td>User defined offset for reference enthalpy, if referenceChoice = UserDefined</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_is</code></td><td>Isentropic enthalpy</td></tr>
+</table>
+<hr><a name="T_h"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;T_h<br><span class="subtitle">Compute temperature from specific enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<hr><a name="T_ps"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;T_ps<br><span class="subtitle">Compute temperature from pressure and specific entropy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/IdealGases/SingleGases/C2H2_vinylidene/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<hr><a name="dynamicViscosityLowPressure"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;dynamicViscosityLowPressure<br><span class="subtitle">Dynamic viscosity of low pressure gases</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The used formula are based on the method of Chung et al (1984, 1988) referred to in ref [1] chapter 9.
+The formula 9-4.10 is the one being used. The Formula is given in non-SI units, the following conversion constants were used to
+transform the formula to SI units:
+</p>
+
+<ul>
+<li> <strong>Const1_SI:</strong> The factor 10^(-9.5) =10^(-2.5)*1e-7 where the
+     factor 10^(-2.5) originates from the conversion of g/mol->kg/mol + cm^3/mol->m^3/mol
+      and the factor 1e-7 is due to conversion from microPoise->Pa.s.</li>
+<li>  <strong>Const2_SI:</strong> The factor 1/3.335641e-27 = 1e-3/3.335641e-30
+      where the factor 3.335641e-30 comes from debye->C.m and
+      1e-3 is due to conversion from cm^3/mol->m^3/mol</li>
+</ul>
+
+<h4>References:</h4>
+<p>
+[1] Bruce E. Poling, John E. Prausnitz, John P. O'Connell, "The Properties of Gases and Liquids" 5th Ed. Mc Graw Hill.
+</p>
+
+<h4>Author</h4>
+<p>T. Skoglund, Lund, Sweden, 2004-08-31</p>
+
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>T</code></td><td>Gas temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>Tc</code></td><td>Critical temperature of gas</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#MolarMass">MolarMass</a></code></td><td><code>M</code></td><td>Molar mass of gas</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#MolarVolume">MolarVolume</a></code></td><td><code>Vc</code></td><td>Critical molar volume of gas</td></tr>
+<tr><td><code>Real</code></td><td><code>w</code></td><td>Acentric factor of gas</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Types/index.html#DipoleMoment">DipoleMoment</a></code></td><td><code>mu</code></td><td>Dipole moment of gas molecule</td></tr>
+<tr><td><code>Real</code></td><td><code>k</code></td><td>Special correction for highly polar substances</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/Interfaces/Types/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta</code></td><td>Dynamic viscosity of gas</td></tr>
+</table>
+<hr><a name="thermalConductivityEstimate"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Media</a>.&#8203;<a href="../../index.html">IdealGases</a>.&#8203;<a href="../index.html">SingleGases</a>.&#8203;<a href="index.html">C2H2_vinylidene</a>.&#8203;thermalConductivityEstimate<br><span class="subtitle">Thermal conductivity of polyatomic gases(Eucken and Modified Eucken correlation)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function provides two similar methods for estimating the
+thermal conductivity of polyatomic gases.
+The Eucken method (input method == 1) gives good results for low temperatures,
+but it tends to give an underestimated value of the thermal conductivity
+(lambda) at higher temperatures.<br>
+The Modified Eucken method (input method == 2) gives good results for
+high-temperatures, but it tends to give an overestimated value of the
+thermal conductivity (lambda) at low temperatures.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/Interfaces/Types/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>Cp</code></td><td>Constant pressure heat capacity</td></tr>
+<tr><td><code><a href="../../../../Media/Interfaces/Types/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta</code></td><td>Dynamic viscosity</td></tr>
+<tr><td><code>Integer</code></td><td><code>method</code></td><td>1: Eucken Method, 2: Modified Eucken Method</td></tr>
+<tr><td><code><a href="../../../../Media/IdealGases/Common/index.html#DataRecord">DataRecord</a></code></td><td><code>data</code></td><td>Ideal gas data</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Media/Interfaces/Types/index.html#ThermalConductivity">ThermalConductivity</a></code></td><td><code>lambda</code></td><td>Thermal conductivity [W/(m.k)]</td></tr>
+</table>
+</body></html>

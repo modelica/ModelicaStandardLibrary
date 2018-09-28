@@ -1,0 +1,402 @@
+<html><head><title>Modelica.Media.Air.ReferenceMoistAir.Utilities.ReactionIndices</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="ReactionIndices"><h1><embed class="icon" src="../../../../../images/icon1037.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Air</a>.&#8203;<a href="../../index.html">ReferenceMoistAir</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;ReactionIndices<br><span class="subtitle">Parameters and equations for determining reaction variables (dissociation VDI 4670)</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon shall be used for a package/library that contains base models and classes, respectively.</p>
+<p>Extends from <code><a href="../../../../../Icons/BasesPackage/index.html">Modelica.&#8203;Icons.&#8203;BasesPackage</a></code> (Icon for packages containing base classes).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#U2"><code>U2</code></a></td><td>Reaction index for formation of H2</td></tr>
+<tr><td><a href="#U2_der"><code>U2_der</code></a></td><td>Derivative reaction index for formation of H2</td></tr>
+<tr><td><a href="#U3"><code>U3</code></a></td><td>Reaction index for formation of OH</td></tr>
+<tr><td><a href="#U3_der"><code>U3_der</code></a></td><td>Derivative of reaction index for formation of OH</td></tr>
+<tr><td><a href="#U4"><code>U4</code></a></td><td>Reaction index for formation of H</td></tr>
+<tr><td><a href="#U4_der"><code>U4_der</code></a></td><td>Derivative of reaction index for formation of H</td></tr>
+<tr><td><a href="#U5"><code>U5</code></a></td><td>Reaction index for formation of O</td></tr>
+<tr><td><a href="#U5_der"><code>U5_der</code></a></td><td>Derivative of reaction index for formation of O</td></tr>
+<tr><td><a href="#U6"><code>U6</code></a></td><td>Reaction index for formation of NO</td></tr>
+<tr><td><a href="#U6_der"><code>U6_der</code></a></td><td>Derivative of reaction index for formation of NO</td></tr>
+<tr><td><a href="#V2"><code>V2</code></a></td><td>Energy index for formation of H2</td></tr>
+<tr><td><a href="#V2_der"><code>V2_der</code></a></td><td>Derivative of energy index for formation of H2</td></tr>
+<tr><td><a href="#V3"><code>V3</code></a></td><td>Energy index for formation of OH</td></tr>
+<tr><td><a href="#V3_der"><code>V3_der</code></a></td><td>Derivative energy index for formation of OH</td></tr>
+<tr><td><a href="#V4"><code>V4</code></a></td><td>Energy index for formation of H</td></tr>
+<tr><td><a href="#V4_der"><code>V4_der</code></a></td><td>Derivative of energy index for formation of H</td></tr>
+<tr><td><a href="#V5"><code>V5</code></a></td><td>Energy index for formation of O</td></tr>
+<tr><td><a href="#V5_der"><code>V5_der</code></a></td><td>Derivative of energy index for formation of O</td></tr>
+<tr><td><a href="#V6"><code>V6</code></a></td><td>Energy index for formation of NO</td></tr>
+<tr><td><a href="#V6_der"><code>V6_der</code></a></td><td>Derivative of energy index for formation of NO</td></tr>
+</table>
+<h3>Package Constants</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Value</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>AA[6]</code></td><td><code>{20413.2, 1075.5, 165.95, 1491.75, 3235.34, 4.5542}</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>BB[6]</code></td><td><code>{-33086.5, -30283.3, -19526.8, -27488, -30807.8, -10973.6}</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../../SIunits/index.html#MolarHeatCapacity">MolarHeatCapacity</a></code></td><td><code>CC[6]</code></td><td><code>{-19.5, -65.2, -18.7, -3.6, -21.8, -5.6}</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../../SIunits/index.html#MolarInternalEnergy">MolarInternalEnergy</a></code></td><td><code>DD[6]</code></td><td><code>{-115000, 303000, 57200, 393000, 150000, 16200}</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>EE[6]</code></td><td><code>{9.483e+9, 7.277e+9, 3.136e+9, 5.826e+9, 7.659e+9, 9.94e+8}</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p0</code></td><td><code>101325</code></td><td>Reference pressure</td></tr>
+</table>
+<hr><a name="U2"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Air</a>.&#8203;<a href="../../index.html">ReferenceMoistAir</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ReactionIndices</a>.&#8203;U2<br><span class="subtitle">Reaction index for formation of H2</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#MoleFraction">MoleFraction</a></code></td><td><code>moleFraction[4]</code></td><td>Mole fractions</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>Reaction index for H2</td></tr>
+</table>
+<hr><a name="U3"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Air</a>.&#8203;<a href="../../index.html">ReferenceMoistAir</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ReactionIndices</a>.&#8203;U3<br><span class="subtitle">Reaction index for formation of OH</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#MoleFraction">MoleFraction</a></code></td><td><code>moleFraction[4]</code></td><td>Mole fractions</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>Reaction index for OH</td></tr>
+</table>
+<hr><a name="U4"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Air</a>.&#8203;<a href="../../index.html">ReferenceMoistAir</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ReactionIndices</a>.&#8203;U4<br><span class="subtitle">Reaction index for formation of H</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#MoleFraction">MoleFraction</a></code></td><td><code>moleFraction[4]</code></td><td>Mole fractions</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>Reaction index for H</td></tr>
+</table>
+<hr><a name="U5"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Air</a>.&#8203;<a href="../../index.html">ReferenceMoistAir</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ReactionIndices</a>.&#8203;U5<br><span class="subtitle">Reaction index for formation of O</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#MoleFraction">MoleFraction</a></code></td><td><code>moleFraction[4]</code></td><td>Mole fractions</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>Reaction index for O</td></tr>
+</table>
+<hr><a name="U6"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Air</a>.&#8203;<a href="../../index.html">ReferenceMoistAir</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ReactionIndices</a>.&#8203;U6<br><span class="subtitle">Reaction index for formation of NO</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#MoleFraction">MoleFraction</a></code></td><td><code>moleFraction[4]</code></td><td>Mole fractions</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>Reaction index for NO</td></tr>
+</table>
+<hr><a name="V2"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Air</a>.&#8203;<a href="../../index.html">ReferenceMoistAir</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ReactionIndices</a>.&#8203;V2<br><span class="subtitle">Energy index for formation of H2</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#MolarHeatCapacity">MolarHeatCapacity</a></code></td><td><code>v</code></td><td>Energy index for H2</td></tr>
+</table>
+<hr><a name="V3"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Air</a>.&#8203;<a href="../../index.html">ReferenceMoistAir</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ReactionIndices</a>.&#8203;V3<br><span class="subtitle">Energy index for formation of OH</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#MolarHeatCapacity">MolarHeatCapacity</a></code></td><td><code>v</code></td><td>Energy index for OH</td></tr>
+</table>
+<hr><a name="V4"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Air</a>.&#8203;<a href="../../index.html">ReferenceMoistAir</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ReactionIndices</a>.&#8203;V4<br><span class="subtitle">Energy index for formation of H</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#MolarHeatCapacity">MolarHeatCapacity</a></code></td><td><code>v</code></td><td>Energy index for H</td></tr>
+</table>
+<hr><a name="V5"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Air</a>.&#8203;<a href="../../index.html">ReferenceMoistAir</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ReactionIndices</a>.&#8203;V5<br><span class="subtitle">Energy index for formation of O</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#MolarHeatCapacity">MolarHeatCapacity</a></code></td><td><code>v</code></td><td>Energy index for O</td></tr>
+</table>
+<hr><a name="V6"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Air</a>.&#8203;<a href="../../index.html">ReferenceMoistAir</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ReactionIndices</a>.&#8203;V6<br><span class="subtitle">Energy index for formation of NO</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#MolarHeatCapacity">MolarHeatCapacity</a></code></td><td><code>v</code></td><td>Energy index for NO</td></tr>
+</table>
+<hr><a name="U2_der"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Air</a>.&#8203;<a href="../../index.html">ReferenceMoistAir</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ReactionIndices</a>.&#8203;U2_der<br><span class="subtitle">Derivative reaction index for formation of H2</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#MoleFraction">MoleFraction</a></code></td><td><code>moleFraction[4]</code></td><td>Mole fractions</td></tr>
+<tr><td><code>Real</code></td><td><code>p_der</code></td><td>Derivative of pressure</td></tr>
+<tr><td><code>Real</code></td><td><code>T_der</code></td><td>Derivative of temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>moleFraction_der[4]</code></td><td>Derivative of mole fractions</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u_der</code></td><td>Derivative of reaction index for H2</td></tr>
+</table>
+<hr><a name="U3_der"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Air</a>.&#8203;<a href="../../index.html">ReferenceMoistAir</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ReactionIndices</a>.&#8203;U3_der<br><span class="subtitle">Derivative of reaction index for formation of OH</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#MoleFraction">MoleFraction</a></code></td><td><code>moleFraction[4]</code></td><td>Mole fractions</td></tr>
+<tr><td><code>Real</code></td><td><code>p_der</code></td><td>Derivative of pressure</td></tr>
+<tr><td><code>Real</code></td><td><code>T_der</code></td><td>Derivative of temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>moleFraction_der[4]</code></td><td>Derivative of mole fractions</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u_der</code></td><td>Derivative of reaction index for OH</td></tr>
+</table>
+<hr><a name="U4_der"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Air</a>.&#8203;<a href="../../index.html">ReferenceMoistAir</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ReactionIndices</a>.&#8203;U4_der<br><span class="subtitle">Derivative of reaction index for formation of H</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#MoleFraction">MoleFraction</a></code></td><td><code>moleFraction[4]</code></td><td>Mole fractions</td></tr>
+<tr><td><code>Real</code></td><td><code>p_der</code></td><td>Derivative of pressure</td></tr>
+<tr><td><code>Real</code></td><td><code>T_der</code></td><td>Derivative of temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>moleFraction_der[4]</code></td><td>Derivative of mole fractions</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u_der</code></td><td>Derivative of reaction index for H</td></tr>
+</table>
+<hr><a name="U5_der"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Air</a>.&#8203;<a href="../../index.html">ReferenceMoistAir</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ReactionIndices</a>.&#8203;U5_der<br><span class="subtitle">Derivative of reaction index for formation of O</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#MoleFraction">MoleFraction</a></code></td><td><code>moleFraction[4]</code></td><td>Mole fractions</td></tr>
+<tr><td><code>Real</code></td><td><code>p_der</code></td><td>Derivative of pressure</td></tr>
+<tr><td><code>Real</code></td><td><code>T_der</code></td><td>Derivative of temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>moleFraction_der[4]</code></td><td>Derivative of mole fractions</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u_der</code></td><td>Derivative of reaction index for O</td></tr>
+</table>
+<hr><a name="U6_der"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Air</a>.&#8203;<a href="../../index.html">ReferenceMoistAir</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ReactionIndices</a>.&#8203;U6_der<br><span class="subtitle">Derivative of reaction index for formation of NO</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#MoleFraction">MoleFraction</a></code></td><td><code>moleFraction[4]</code></td><td>Mole fractions</td></tr>
+<tr><td><code>Real</code></td><td><code>p_der</code></td><td>Derivative of pressure</td></tr>
+<tr><td><code>Real</code></td><td><code>T_der</code></td><td>Derivative of temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>moleFraction_der[4]</code></td><td>Derivative of mole fractions</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u_der</code></td><td>Derivative of reaction index for NO</td></tr>
+</table>
+<hr><a name="V2_der"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Air</a>.&#8203;<a href="../../index.html">ReferenceMoistAir</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ReactionIndices</a>.&#8203;V2_der<br><span class="subtitle">Derivative of energy index for formation of H2</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>T_der</code></td><td>Derivative of temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>v_der</code></td><td>Derivative energy index for H2</td></tr>
+</table>
+<hr><a name="V3_der"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Air</a>.&#8203;<a href="../../index.html">ReferenceMoistAir</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ReactionIndices</a>.&#8203;V3_der<br><span class="subtitle">Derivative energy index for formation of OH</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>T_der</code></td><td>Derivative of temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>v_der</code></td><td>Derivative energy index for OH</td></tr>
+</table>
+<hr><a name="V4_der"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Air</a>.&#8203;<a href="../../index.html">ReferenceMoistAir</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ReactionIndices</a>.&#8203;V4_der<br><span class="subtitle">Derivative of energy index for formation of H</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>T_der</code></td><td>Derivative of temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>v_der</code></td><td>Derivative energy index for H</td></tr>
+</table>
+<hr><a name="V5_der"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Air</a>.&#8203;<a href="../../index.html">ReferenceMoistAir</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ReactionIndices</a>.&#8203;V5_der<br><span class="subtitle">Derivative of energy index for formation of O</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>T_der</code></td><td>Derivative of temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>v_der</code></td><td>Derivative energy index for O</td></tr>
+</table>
+<hr><a name="V6_der"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Air</a>.&#8203;<a href="../../index.html">ReferenceMoistAir</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ReactionIndices</a>.&#8203;V6_der<br><span class="subtitle">Derivative of energy index for formation of NO</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>T_der</code></td><td>Derivative of temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>v_der</code></td><td>Derivative energy index for NO</td></tr>
+</table>
+</body></html>

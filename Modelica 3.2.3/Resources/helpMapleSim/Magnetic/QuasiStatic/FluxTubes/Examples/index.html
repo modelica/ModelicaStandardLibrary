@@ -1,0 +1,81 @@
+<html><head><title>Modelica.Magnetic.QuasiStatic.FluxTubes.Examples</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Examples"><h1><embed class="icon" src="../../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;Examples<br><span class="subtitle">Illustration of component usage with simple models of various devices</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains examples to demonstrate the usage of the quasi static flux tubes components.
+</p>
+<p>Extends from <code><a href="../../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Examples/FixedShapes/index.html"><code>FixedShapes</code></a> &hellip;</td><td>Examples of fixed shape magnetic circuits</td></tr>
+<tr><td><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Examples/Leakage/index.html"><code>Leakage</code></a> &hellip;</td><td>Examples of magnetic circuits with leakage</td></tr>
+<tr><td><a href="#LinearInductor"><code>LinearInductor</code></a></td><td>Linear inductor with ferromagnetic core</td></tr>
+<tr><td><a href="#NonLinearInductor"><code>NonLinearInductor</code></a></td><td>Non linear inductor with ferromagnetic core</td></tr>
+</table>
+<hr><a name="LinearInductor"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Examples</a>.&#8203;LinearInductor<br><span class="subtitle">Linear inductor with ferromagnetic core</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model compares a transient-linear magnetic circuit with a quasi static magnetic circuit. A sinusoidal voltage is applied to an inductor with a closed ferromagnetic core of rectangular shape.
+</p>
+
+<p>Compare the following quantities</p>
+<ul>
+<li>Sinusoidal supply voltage<br>
+    <code>source.v | sourceQS.v.re|im</code></li>
+<li>Non-linear transient current due to saturation and equivalent quasi static current<br>
+    <code>currentSensor.i | currentSensorQS.i.re|im</code></li>
+<li>Difference between RMS fundamental wave of transient current and the RMS quasi static current<br>
+    <code>feedback.y</code></li>
+<li>Relative permeability of iron core of transient and quasi static circuit<br>
+    <code>r_mFe.mu_rConst | r_mFeQS.mu_rConst</code></li>
+</ul>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="NonLinearInductor"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Examples</a>.&#8203;NonLinearInductor<br><span class="subtitle">Non linear inductor with ferromagnetic core</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model compares a transient non-linear magnetic circuit with a linearized quasi static magnetic circuit. A sinusoidal voltage is applied to an inductor with a closed ferromagnetic core of rectangular shape.
+</p>
+
+<p>Compare the following quantities</p>
+<ul>
+<li>Sinusoidal supply voltage<br>
+    <code>source.v | sourceQS.v.re|im</code></li>
+<li>Non-linear transient current due to saturation and equivalent quasi static current<br>
+    <code>currentSensor.i | currentSensorQS.i.re|im</code></li>
+<li>Difference between RMS fundamental wave of transient current and the RMS quasi static current<br>
+    <code>feedback.y</code></li>
+<li>Effective fundamental wave relative permeability of iron core of transient and quasi static circuit<br>
+    <code>fundamentalWavePermabilitySensor.mur | r_mFeQS.mu_rConst</code></li>
+</ul>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+</body></html>

@@ -1,0 +1,376 @@
+<html><head><title>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="StraightPipe"><h1><embed class="icon" src="../../../../images/icon0573.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;StraightPipe<br><span class="subtitle">Package for pressure loss calculation of straight pipes</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<h4>Straight Pipe</h4>
+<h5>Laminar flow</h5>
+<p>
+Calculation of pressure loss in a straight pipe for <strong> laminar </strong> flow regime of single-phase fluid flow only.
+<a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/StraightPipe/index.html#dp_laminar">See more information</a>.
+</p>
+
+<h5>Turbulent flow</h5>
+<p>
+Calculation of pressure loss in a straight pipe for <strong> turbulent </strong> flow regime of single-phase fluid flow only considering surface roughness.
+<a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/StraightPipe/index.html#dp_turbulent">See more information</a>.
+</p>
+
+<h5>Overall flow</h5>
+<p>
+Calculation of pressure loss in a straight pipe for <strong> laminar or turbulent </strong> flow regime of single-phase fluid flow only considering surface roughness.
+<a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/StraightPipe/index.html#dp_overall">See more information</a>.
+</p>
+
+<h5>Two phase overall flow</h5>
+<p>
+Calculation of pressure loss for <strong>two phase flow</strong> in a horizontal <strong>or</strong> vertical straight pipe for an overall flow regime considering frictional, momentum and geodetic pressure loss.
+ <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/StraightPipe/index.html#dp_twoPhaseOverall">See more information</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/VariantsPackage/index.html">Modelica.&#8203;Icons.&#8203;VariantsPackage</a></code> (Icon for package containing variants).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#dp_laminar_DP"><code>dp_laminar_DP</code></a></td><td>Pressure loss of straight pipe | calculate pressure loss| laminar flow regime (Hagen-Poiseuille)</td></tr>
+<tr><td><a href="#dp_laminar_IN_con"><code>dp_laminar_IN_con</code></a></td><td>Input record for function dp_laminar_DP and dp_laminar_MFLOW</td></tr>
+<tr><td><a href="#dp_laminar_IN_var"><code>dp_laminar_IN_var</code></a></td><td>Input record for function dp_laminar_DP and dp_laminar_MFLOW</td></tr>
+<tr><td><a href="#dp_laminar_MFLOW"><code>dp_laminar_MFLOW</code></a></td><td>Pressure loss of straight pipe | calculate mass flow rate | laminar flow regime (Hagen-Poiseuille)</td></tr>
+<tr><td><a href="#dp_overall_DP"><code>dp_overall_DP</code></a></td><td>Pressure loss of straight pipe | calculate pressure loss | overall flow regime | surface roughness</td></tr>
+<tr><td><a href="#dp_overall_IN_con"><code>dp_overall_IN_con</code></a></td><td>Input record for function dp_overall_DP and dp_overall_MFLOW</td></tr>
+<tr><td><a href="#dp_overall_IN_var"><code>dp_overall_IN_var</code></a></td><td>Input record for function dp_overall_DP and dp_overall_MFLOW</td></tr>
+<tr><td><a href="#dp_overall_MFLOW"><code>dp_overall_MFLOW</code></a></td><td>Pressure loss of straight pipe | calculate mass flow rate | overall flow regime | surface roughness</td></tr>
+<tr><td><a href="#dp_turbulent_DP"><code>dp_turbulent_DP</code></a></td><td>Pressure loss of straight pipe | calculate pressure loss | turbulent flow regime | surface roughness</td></tr>
+<tr><td><a href="#dp_turbulent_IN_con"><code>dp_turbulent_IN_con</code></a></td><td>Input record for function dp_turbulent_DP and dp_turbulent_MFLOW</td></tr>
+<tr><td><a href="#dp_turbulent_IN_var"><code>dp_turbulent_IN_var</code></a></td><td>Input record for function dp_turbulent_DP and dp_turbulent_MFLOW</td></tr>
+<tr><td><a href="#dp_turbulent_MFLOW"><code>dp_turbulent_MFLOW</code></a></td><td>Pressure loss of straight pipe | calculate mass flow rate | turbulent flow regime | surface roughness</td></tr>
+<tr><td><a href="#dp_twoPhaseOverall_DP"><code>dp_twoPhaseOverall_DP</code></a></td><td>Pressure loss of straight pipe for two phase flow | calculate (frictional, momentum, geodetic) pressure loss</td></tr>
+<tr><td><a href="#dp_twoPhaseOverall_IN_con"><code>dp_twoPhaseOverall_IN_con</code></a></td><td>Input record for function dp_twoPhaseOverall_DP</td></tr>
+<tr><td><a href="#dp_twoPhaseOverall_IN_var"><code>dp_twoPhaseOverall_IN_var</code></a></td><td>Input record for function dp_twoPhaseOverall_DP</td></tr>
+</table>
+<hr><a name="dp_laminar_DP"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">StraightPipe</a>.&#8203;dp_laminar_DP<br><span class="subtitle">Pressure loss of straight pipe | calculate pressure loss| laminar flow regime (Hagen-Poiseuille)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Calculation of pressure loss in a straight pipe for <strong> laminar </strong> flow regime of an incompressible and single-phase fluid flow only.
+</p>
+
+<p>
+Generally this  function is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_laminar_MFLOW">dp_laminar_MFLOW</a> is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/StraightPipe/index.html#dp_laminar">See more information</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_laminar_IN_con">dp_laminar_IN_con</a></code></td><td><code>IN_con</code></td><td>Input record for function dp_laminar_DP</td></tr>
+<tr><td><code><a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_laminar_IN_var">dp_laminar_IN_var</a></code></td><td><code>IN_var</code></td><td>Input record for function dp_laminar_DP</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>DP</code></td><td>Output for function dp_laminar_DP</td></tr>
+</table>
+<hr><a name="dp_laminar_MFLOW"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">StraightPipe</a>.&#8203;dp_laminar_MFLOW<br><span class="subtitle">Pressure loss of straight pipe | calculate mass flow rate | laminar flow regime (Hagen-Poiseuille)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Calculation of pressure loss in a straight pipe for <strong> laminar </strong> flow regime of an incompressible and single-phase fluid flow only.
+</p>
+
+<p>
+Generally this  function is numerically best used for the <strong> compressible case </strong>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_laminar_DP">dp_laminar_DP</a> is numerically best used for the <strong> incompressible case </strong> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.   <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/StraightPipe/index.html#dp_laminar">See more information</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_laminar_IN_con">dp_laminar_IN_con</a></code></td><td><code>IN_con</code></td><td>Input record for function dp_laminar_MFLOW</td></tr>
+<tr><td><code><a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_laminar_IN_var">dp_laminar_IN_var</a></code></td><td><code>IN_var</code></td><td>Input record for function dp_laminar_MFLOW</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>dp</code></td><td>Pressure loss</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>M_FLOW</code></td><td>Output for function dp_laminar_MFLOW</td></tr>
+</table>
+<hr><a name="dp_laminar_IN_con"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">StraightPipe</a>.&#8203;dp_laminar_IN_con<br><span class="subtitle">Input record for function dp_laminar_DP and dp_laminar_MFLOW</span></h2></a>
+<h3>Information</h3>
+<p>
+
+This record is used as <strong> input record </strong> for the pressure loss function
+<a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_laminar_DP"> dp_laminar_DP</a> and
+<a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_laminar_MFLOW"> dp_laminar_MFLOW</a>.
+<p>Extends from <code><a href="../../../../Fluid/Dissipation/Utilities/Records/PressureLoss/index.html#StraightPipe">Modelica.&#8203;Fluid.&#8203;Dissipation.&#8203;Utilities.&#8203;Records.&#8203;PressureLoss.&#8203;StraightPipe</a></code> (Input for straight pipe).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Diameter">Diameter</a></code></td><td><code>d_hyd</code></td><td>Hydraulic diameter</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>L</code></td><td>Length</td></tr>
+</table>
+<hr><a name="dp_laminar_IN_var"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">StraightPipe</a>.&#8203;dp_laminar_IN_var<br><span class="subtitle">Input record for function dp_laminar_DP and dp_laminar_MFLOW</span></h2></a>
+<h3>Information</h3>
+<p>
+
+This record is used as <strong> input record </strong> for the pressure loss function
+<a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_laminar_DP"> dp_laminar_DP</a> and
+<a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_laminar_MFLOW"> dp_laminar_MFLOW</a>.
+<p>Extends from <code><a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_overall_IN_var">Modelica.&#8203;Fluid.&#8203;Dissipation.&#8203;PressureLoss.&#8203;StraightPipe.&#8203;dp_overall_IN_var</a></code> (Input record for function dp_overall_DP and dp_overall_MFLOW).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta</code></td><td>Dynamic viscosity of fluid</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho</code></td><td>Density of fluid</td></tr>
+</table>
+<hr><a name="dp_overall_DP"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">StraightPipe</a>.&#8203;dp_overall_DP<br><span class="subtitle">Pressure loss of straight pipe | calculate pressure loss | overall flow regime | surface roughness</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Calculation of pressure loss in a straight pipe for <strong> overall </strong> flow regime of an incompressible and single-phase fluid flow only considering surface roughness.
+</p>
+
+<p>
+Generally this  function is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_overall_MFLOW">dp_overall_MFLOW</a> is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/StraightPipe/index.html#dp_overall">See more information</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_overall_IN_con">dp_overall_IN_con</a></code></td><td><code>IN_con</code></td><td>Input record for function dp_overall_DP</td></tr>
+<tr><td><code><a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_overall_IN_var">dp_overall_IN_var</a></code></td><td><code>IN_var</code></td><td>Input record for function dp_overall_DP</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>DP</code></td><td>Output for function dp_overall_DP</td></tr>
+</table>
+<hr><a name="dp_overall_MFLOW"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">StraightPipe</a>.&#8203;dp_overall_MFLOW<br><span class="subtitle">Pressure loss of straight pipe | calculate mass flow rate | overall flow regime | surface roughness</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Calculation of pressure loss in a straight pipe for <strong> overall </strong> flow regime of an incompressible and single-phase fluid flow only considering surface roughness.
+</p>
+
+<p>
+Generally this  function is numerically best used for the <strong> compressible case </strong>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_overall_DP">dp_overall_DP</a> is numerically best used for the <strong> incompressible case </strong> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.   <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/StraightPipe/index.html#dp_overall">See more information</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_overall_IN_con">dp_overall_IN_con</a></code></td><td><code>IN_con</code></td><td>Input record for function dp_overall_MFLOW</td></tr>
+<tr><td><code><a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_overall_IN_var">dp_overall_IN_var</a></code></td><td><code>IN_var</code></td><td>Input record for function dp_overall_MFLOW</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>dp</code></td><td>Pressure loss</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>M_FLOW</code></td><td>Output of function dp_overall_MFLOW</td></tr>
+</table>
+<hr><a name="dp_overall_IN_con"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">StraightPipe</a>.&#8203;dp_overall_IN_con<br><span class="subtitle">Input record for function dp_overall_DP and dp_overall_MFLOW</span></h2></a>
+<h3>Information</h3>
+<p>
+
+This record is used as <strong> input record </strong> for the pressure loss function
+<a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_overall_DP"> dp_overall_DP</a> and
+<a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_overall_MFLOW"> dp_overall_MFLOW</a>.
+<p>Extends from <code><a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_turbulent_IN_con">Modelica.&#8203;Fluid.&#8203;Dissipation.&#8203;PressureLoss.&#8203;StraightPipe.&#8203;dp_turbulent_IN_con</a></code> (Input record for function dp_turbulent_DP and dp_turbulent_MFLOW).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Dissipation/Utilities/Types/index.html#Roughness">Roughness</a></code></td><td><code>roughness</code></td><td>Choice of considering surface roughness</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Diameter">Diameter</a></code></td><td><code>d_hyd</code></td><td>Hydraulic diameter</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>L</code></td><td>Length</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>K</code></td><td>Roughness (average height of surface asperities)</td></tr>
+</table>
+<hr><a name="dp_overall_IN_var"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">StraightPipe</a>.&#8203;dp_overall_IN_var<br><span class="subtitle">Input record for function dp_overall_DP and dp_overall_MFLOW</span></h2></a>
+<h3>Information</h3>
+<p>
+
+This record is used as <strong> input record </strong> for the pressure loss function
+<a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_overall_DP"> dp_overall_DP</a> and
+<a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_overall_MFLOW"> dp_overall_MFLOW</a>.
+<p>Extends from <code><a href="../../../../Fluid/Dissipation/Utilities/Records/General/index.html#PressureLoss">Modelica.&#8203;Fluid.&#8203;Dissipation.&#8203;Utilities.&#8203;Records.&#8203;General.&#8203;PressureLoss</a></code> (Base record for fluid properties for pressure loss).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta</code></td><td>Dynamic viscosity of fluid</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho</code></td><td>Density of fluid</td></tr>
+</table>
+<hr><a name="dp_turbulent_DP"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">StraightPipe</a>.&#8203;dp_turbulent_DP<br><span class="subtitle">Pressure loss of straight pipe | calculate pressure loss | turbulent flow regime | surface roughness</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Calculation of pressure loss in a straight pipe for <strong> turbulent </strong> flow regime of an incompressible and single-phase fluid flow only considering surface roughness.
+</p>
+
+<p>
+Generally this  function is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_turbulent_MFLOW">dp_turbulent_MFLOW</a> is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/StraightPipe/index.html#dp_turbulent">See more information</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_turbulent_IN_con">dp_turbulent_IN_con</a></code></td><td><code>IN_con</code></td><td>Input record for function dp_turbulent_DP</td></tr>
+<tr><td><code><a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_turbulent_IN_var">dp_turbulent_IN_var</a></code></td><td><code>IN_var</code></td><td>Input record for function dp_turbulent_DP</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>DP</code></td><td>Output for function dp_turbulent_DP</td></tr>
+</table>
+<hr><a name="dp_turbulent_MFLOW"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">StraightPipe</a>.&#8203;dp_turbulent_MFLOW<br><span class="subtitle">Pressure loss of straight pipe | calculate mass flow rate | turbulent flow regime | surface roughness</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Calculation of pressure loss in a straight pipe for <strong> turbulent </strong> flow regime of an incompressible and single-phase fluid flow only considering surface roughness.
+</p>
+
+<p>
+Generally this function is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_turbulent_DP">dp_turbulent_DP</a> is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.   <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/StraightPipe/index.html#dp_turbulent">See more information</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_turbulent_IN_con">dp_turbulent_IN_con</a></code></td><td><code>IN_con</code></td><td>Input record for function dp_turbulent_MFLOW</td></tr>
+<tr><td><code><a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_turbulent_IN_var">dp_turbulent_IN_var</a></code></td><td><code>IN_var</code></td><td>Input record for function dp_turbulent_MFLOW</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>dp</code></td><td>Pressure loss</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>M_FLOW</code></td><td>Mass flow rate</td></tr>
+</table>
+<hr><a name="dp_turbulent_IN_con"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">StraightPipe</a>.&#8203;dp_turbulent_IN_con<br><span class="subtitle">Input record for function dp_turbulent_DP and dp_turbulent_MFLOW</span></h2></a>
+<h3>Information</h3>
+<p>
+
+This record is used as <strong> input record </strong> for the pressure loss function
+<a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_turbulent_DP"> dp_turbulent_DP</a> and
+<a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_turbulent_MFLOW"> dp_turbulent_MFLOW</a>.
+<p>Extends from <code><a href="../../../../Fluid/Dissipation/Utilities/Records/PressureLoss/index.html#StraightPipe">Modelica.&#8203;Fluid.&#8203;Dissipation.&#8203;Utilities.&#8203;Records.&#8203;PressureLoss.&#8203;StraightPipe</a></code> (Input for straight pipe).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Dissipation/Utilities/Types/index.html#Roughness">Roughness</a></code></td><td><code>roughness</code></td><td>Choice of considering surface roughness</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Diameter">Diameter</a></code></td><td><code>d_hyd</code></td><td>Hydraulic diameter</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>L</code></td><td>Length</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>K</code></td><td>Roughness (average height of surface asperities)</td></tr>
+</table>
+<hr><a name="dp_turbulent_IN_var"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">StraightPipe</a>.&#8203;dp_turbulent_IN_var<br><span class="subtitle">Input record for function dp_turbulent_DP and dp_turbulent_MFLOW</span></h2></a>
+<h3>Information</h3>
+<p>
+
+This record is used as <strong> input record </strong> for the pressure loss function
+<a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_turbulent_DP"> dp_turbulent_DP</a> and
+<a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_turbulent_MFLOW"> dp_turbulent_MFLOW</a>.
+<p>Extends from <code><a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_overall_IN_var">Modelica.&#8203;Fluid.&#8203;Dissipation.&#8203;PressureLoss.&#8203;StraightPipe.&#8203;dp_overall_IN_var</a></code> (Input record for function dp_overall_DP and dp_overall_MFLOW).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta</code></td><td>Dynamic viscosity of fluid</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho</code></td><td>Density of fluid</td></tr>
+</table>
+<hr><a name="dp_twoPhaseOverall_DP"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">StraightPipe</a>.&#8203;dp_twoPhaseOverall_DP<br><span class="subtitle">Pressure loss of straight pipe for two phase flow | calculate (frictional, momentum, geodetic) pressure loss</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Calculation of pressure loss for <strong>two phase flow</strong> in a horizontal <strong>or</strong> vertical straight pipe for an overall flow regime considering frictional, momentum and geodetic pressure loss.
+</p>
+
+<p>
+Generally the pressure loss for two phase flow in a horizontal or a vertical straight pipe can be calculated for the following fluid flow regimes:
+</p>
+<p>
+<strong>Horizontal fluid flow</strong> [(a) bubble flow, (b) stratified flow, (c) wavy flow, (d) slug flow, (e) annular flow]:
+</p>
+
+<p>
+<img src="../../../../../Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_twoPhaseFlowRegimes_horizontal.png" alt="pic_twoPhaseFlowRegimes_horizontal"/>
+</p>
+
+<p>
+<strong>Vertical fluid flow</strong> [(a) bubble flow, (b) plug slug flow, (c) foam flow, (d) annular streak flow, (e) annular flow]:
+</p>
+
+<p>
+<img src="../../../../../Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_twoPhaseFlowRegimes_vertical.png" alt="pic_twoPhaseFlowRegimes_vertical"/>
+</p>
+
+<p>
+ <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/StraightPipe/index.html#dp_twoPhaseOverall">See more information</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_twoPhaseOverall_IN_con">dp_twoPhaseOverall_IN_con</a></code></td><td><code>IN_con</code></td><td>Input record for function dp_twoPhaseOverall_DP</td></tr>
+<tr><td><code><a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_twoPhaseOverall_IN_var">dp_twoPhaseOverall_IN_var</a></code></td><td><code>IN_var</code></td><td>Input record for function dp_twoPhaseOverall_DP</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>DP</code></td><td>Two phase pressure loss</td></tr>
+</table>
+<hr><a name="dp_twoPhaseOverall_IN_con"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">StraightPipe</a>.&#8203;dp_twoPhaseOverall_IN_con<br><span class="subtitle">Input record for function dp_twoPhaseOverall_DP</span></h2></a>
+<h3>Information</h3>
+<p>
+
+This record is used as <strong> input record </strong> for the pressure loss function <a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_twoPhaseOverall_DP"> dp_twoPhaseOverall_DP</a>.
+<p>Extends from <code><a href="../../../../Fluid/Dissipation/Utilities/Records/General/index.html#TwoPhaseFlow_con">Modelica.&#8203;Fluid.&#8203;Dissipation.&#8203;Utilities.&#8203;Records.&#8203;General.&#8203;TwoPhaseFlow_con</a></code> (Base record for two phase Flow).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Dissipation/Utilities/Types/index.html#TwoPhaseFrictionalPressureLoss">TwoPhaseFrictionalPressureLoss</a></code></td><td><code>frictionalPressureLoss</code></td><td>Choice of frictional pressure loss approach</td></tr>
+<tr><td><code><a href="../../../../Fluid/Dissipation/Utilities/Types/index.html#VoidFractionApproach">VoidFractionApproach</a></code></td><td><code>voidFractionApproach</code></td><td>Choice of void fraction approach</td></tr>
+<tr><td><code>Boolean</code></td><td><code>momentumPressureLoss</code></td><td>Considering momentum pressure loss</td></tr>
+<tr><td><code>Boolean</code></td><td><code>massFlowRateCorrection</code></td><td>Consider heterogeneous mass flow rate correction</td></tr>
+<tr><td><code>Boolean</code></td><td><code>geodeticPressureLoss</code></td><td>Considering geodetic pressure loss</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Area">Area</a></code></td><td><code>A_cross</code></td><td>Cross sectional area</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>perimeter</code></td><td>Wetted perimeter</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>length</code></td><td>Length in fluid flow direction</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>phi</code></td><td>Tilt angle to horizontal</td></tr>
+</table>
+<hr><a name="dp_twoPhaseOverall_IN_var"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">StraightPipe</a>.&#8203;dp_twoPhaseOverall_IN_var<br><span class="subtitle">Input record for function dp_twoPhaseOverall_DP</span></h2></a>
+<h3>Information</h3>
+<p>
+
+This record is used as <strong> input record </strong> for the pressure loss function <a href="../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_twoPhaseOverall_DP"> dp_twoPhaseOverall_DP</a>.
+<p>Extends from <code><a href="../../../../Fluid/Dissipation/Utilities/Records/General/index.html#TwoPhaseFlow_var">Modelica.&#8203;Fluid.&#8203;Dissipation.&#8203;Utilities.&#8203;Records.&#8203;General.&#8203;TwoPhaseFlow_var</a></code> (Base record for two phase flow).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>x_flow_end</code></td><td>Mass flow rate quality at end of length</td></tr>
+<tr><td><code>Real</code></td><td><code>x_flow_sta</code></td><td>Mass flow rate quality at start of length</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_g</code></td><td>Density of gas</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_l</code></td><td>Density of liquid</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta_g</code></td><td>Dynamic viscosity of gas</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta_l</code></td><td>Dynamic viscosity of liquid</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SurfaceTension">SurfaceTension</a></code></td><td><code>sigma</code></td><td>Surface tension</td></tr>
+<tr><td><code>Real</code></td><td><code>x_flow</code></td><td>Mean mass flow rate quality over length</td></tr>
+</table>
+</body></html>

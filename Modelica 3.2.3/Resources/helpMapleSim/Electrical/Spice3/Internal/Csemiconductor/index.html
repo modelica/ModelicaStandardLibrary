@@ -1,0 +1,125 @@
+<html><head><title>Modelica.Electrical.Spice3.Internal.Csemiconductor</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Csemiconductor"><h1><embed class="icon" src="../../../../images/icon0034.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;Csemiconductor<br><span class="subtitle">Icon for an internal package (indicating that the package should not be directly utilized by user)</span></h1></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+This icon shall be used for a package that contains internal classes not to be
+directly utilized by a user.
+</p>
+<p>Extends from <code><a href="../../../../Icons/InternalPackage/index.html">Modelica.&#8203;Icons.&#8203;InternalPackage</a></code> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Capacitor"><code>Capacitor</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#capacitorInitEquations"><code>capacitorInitEquations</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#CapacitorModelLineParams"><code>CapacitorModelLineParams</code></a></td><td>Record for Capacitor model line parameters</td></tr>
+<tr><td><a href="#capacitorRenameParameters"><code>capacitorRenameParameters</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#capacitorRenameParametersDev"><code>capacitorRenameParametersDev</code></a></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Capacitor"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Csemiconductor</a>.&#8203;Capacitor<br><span class="subtitle">Device Temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The record Model includes the device temperature which has a default value of 27&deg;C.</p>
+<p>Extends from <code><a href="../../../../Electrical/Spice3/Internal/Model/index.html#Model">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;Model.&#8203;Model</a></code> (Device Temperature).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>m_dTemp</code></td><td>TEMP, Device Temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_dCapac</code></td><td>Device is a Capacitor model</td></tr>
+<tr><td><code>Real</code></td><td><code>m_dCapIsGiven</code></td><td>Capacitor is given value</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>m_dWidth</code></td><td>Width</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>m_dLength</code></td><td>Length</td></tr>
+<tr><td><code>Boolean</code></td><td><code>m_bSensCapac</code></td><td>flag to request sensitivity WRT Capacitor</td></tr>
+</table>
+<hr><a name="CapacitorModelLineParams"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Csemiconductor</a>.&#8203;CapacitorModelLineParams<br><span class="subtitle">Record for Capacitor model line parameters</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#CapacitancePerArea">CapacitancePerArea</a></code></td><td><code>m_dCj</code></td><td>Junction bottom capacitance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Permittivity">Permittivity</a></code></td><td><code>m_dCjsw</code></td><td>Junction sidewall capacitance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>m_dDefW</code></td><td>Default device width</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>m_dNarrow</code></td><td>Narrowing due to side etching</td></tr>
+</table>
+<hr><a name="capacitorInitEquations"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Csemiconductor</a>.&#8203;capacitorInitEquations<br><span class="subtitle">Icon for functions</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Csemiconductor/index.html#Capacitor">Capacitor</a></code></td><td><code>in_p</code></td><td>Input record with capacitor parameters</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Csemiconductor/index.html#CapacitorModelLineParams">CapacitorModelLineParams</a></code></td><td><code>in_p2</code></td><td>Input record with capacitor model line parameters</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Csemiconductor/index.html#Capacitor">Capacitor</a></code></td><td><code>out</code></td><td>Output record with capacitor variables</td></tr>
+</table>
+<hr><a name="capacitorRenameParameters"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Csemiconductor</a>.&#8203;capacitorRenameParameters<br><span class="subtitle">Icon for functions</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/index.html#ModelcardC">ModelcardC</a></code></td><td><code>ex</code></td><td>Modelcard with technology parameters</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Csemiconductor/index.html#CapacitorModelLineParams">CapacitorModelLineParams</a></code></td><td><code>intern</code></td><td>Output record with capacitor model line parameters</td></tr>
+</table>
+<hr><a name="capacitorRenameParametersDev"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Csemiconductor</a>.&#8203;capacitorRenameParametersDev<br><span class="subtitle">Icon for functions</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>C</code></td><td>Capacitance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>W</code></td><td>Width</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>L</code></td><td>Length</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>TEMP</code></td><td>Temperature</td></tr>
+<tr><td><code>Boolean</code></td><td><code>SENS_AREA</code></td><td>Parameter for sensitivity analyses, not implemented yet</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Csemiconductor/index.html#CapacitorModelLineParams">CapacitorModelLineParams</a></code></td><td><code>p</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Csemiconductor/index.html#Capacitor">Capacitor</a></code></td><td><code>intern</code></td><td>Output record with capacitor parameters</td></tr>
+</table>
+</body></html>

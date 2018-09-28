@@ -1,0 +1,605 @@
+<html><head><title>Modelica.Blocks.Tables</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Tables"><h1><embed class="icon" src="../../images/icon0287.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;Tables<br><span class="subtitle">Library of blocks to interpolate in one and two-dimensional tables</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package contains blocks for one- and two-dimensional interpolation in tables.</p>
+<h4>Special interest topic: Statically stored tables for real-time simulation targets</h4>
+<p>Especially for use on real-time platform targets (e.g., HIL-simulators) with <strong>no file system</strong>, it is possible to statically
+store tables using a function &quot;usertab&quot; in a file conventionally named &quot;usertab.c&quot;. This can be more efficient than providing the tables as Modelica parameter arrays.</p>
+<p>This is achieved by providing the tables in a specific structure as C-code and compiling that C-code together with the rest of the simulation model into a binary
+that can be executed on the target platform. The &quot;Resources/Data/Tables/&quot; subdirectory of the MSL installation directory contains the files
+<a href="../../../Data/Tables/usertab.c">&quot;usertab.c&quot;</a> and <a href="../../../Data/Tables/usertab.h">&quot;usertab.h&quot;</a>
+that can be used as a template for own developments. While &quot;usertab.c&quot; would be typically used unmodified, the
+&quot;usertab.h&quot; needs to adapted for the own needs.</p>
+<p>In order to work it is necessary that the compiler pulls in the &quot;usertab.c&quot; file. Different Modelica tools might provide different mechanisms to do so.
+Please consult the respective documentation/support for your Modelica tool.</p>
+<p>A possible (though a bit &quot;hackish&quot;) Modelica standard conformant approach is to pull in the required files by utilizing a &quot;dummy&quot;-function that uses the Modelica external function
+interface to pull in the required &quot;usertab.c&quot;. An example how this can be done is given below.</p>
+<pre>
+model Test25_usertab "Test utilizing the usertab.c interface"
+  extends Modelica.Icons.Example;
+public
+  Modelica.Blocks.Sources.RealExpression realExpression(y=getUsertab(t_new.y))
+    annotation (Placement(transformation(extent={{-40,-34},{-10,-14}})));
+  Modelica.Blocks.Tables.CombiTable1D t_new(tableOnFile=true, tableName="TestTable_1D_a")
+    annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
+  Modelica.Blocks.Sources.Clock clock
+    annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
+protected
+  encapsulated function getUsertab
+    input Real dummy_u[:];
+    output Real dummy_y;
+    external "C" dummy_y=  mydummyfunc(dummy_u);
+    annotation(IncludeDirectory="../../../Data/Tables",
+           Include = "#include "usertab.c"
+double mydummyfunc(double* dummy_in) {
+   return 0;
+}
+");
+  end getUsertab;
+equation
+  connect(clock.y,t_new. u[1]) annotation (Line(
+      points={{-59,10},{-42,10}}, color={0,0,127}));
+  annotation (experiment(StartTime=0, StopTime=5), uses(Modelica(version="3.2.2")));
+end Test25_usertab;
+</pre>
+<p>Extends from <code><a href="../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#CombiTable1D"><code>CombiTable1D</code></a></td><td>Table look-up in one dimension (matrix/file) with n inputs and n outputs </td></tr>
+<tr><td><a href="#CombiTable1Ds"><code>CombiTable1Ds</code></a></td><td>Table look-up in one dimension (matrix/file) with one input and n outputs</td></tr>
+<tr><td><a href="#CombiTable2D"><code>CombiTable2D</code></a></td><td>Table look-up in two dimensions (matrix/file) </td></tr>
+<tr><td><a href="#CombiTable2Dv"><code>CombiTable2Dv</code></a></td><td>Table look-up in two dimensions (matrix/file) with vector inputs and vector output of size n</td></tr>
+<tr><td><a href="../../Blocks/Tables/Internal/index.html"><code>Internal</code></a> &hellip;</td><td>Internal external object definitions for table functions that should not be directly utilized by the user</td></tr>
+</table>
+<hr><a name="CombiTable1D"><h2><embed class="icon" src="../../images/icon0288.svg" width="263" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Tables</a>.&#8203;CombiTable1D<br><span class="subtitle">Table look-up in one dimension (matrix/file) with n inputs and n outputs </span></h2></a>
+<h3>Information</h3>
+<p>
+
+                                      <p>
+                                      <b>Linear interpolation</b> in <b>one</b> dimension of a <b>table</b>.
+                                      Via parameter <b>columns</b> it can be defined how many columns of the
+                                      table are interpolated. If, e.g., columns={2,4}, it is assumed that 2 input
+                                      and 2 output signals are present and that the first output interpolates
+                                      the first input via column 2 and the second output interpolates the
+                                      second input via column 4 of the table matrix.
+                                      </p>
+                                      <p>
+                                      The grid points and function values are stored in a matrix "table[i,j]",
+                                      where the first column "table[:,1]" contains the grid points and the
+                                      other columns contain the data to be interpolated. Example:
+                                      </p>
+                                      <pre>
+                                      table = [0,  0;
+                                      1,  1;
+                                      2,  4;
+                                      4, 16]
+                                      If, e.g., the input u = 1.0, the output y =  1.0,
+                                      e.g., the input u = 1.5, the output y =  2.5,
+                                      e.g., the input u = 2.0, the output y =  4.0,
+                                      e.g., the input u =-1.0, the output y = -1.0 (i.e. extrapolation).
+                                      </pre>
+                                      <ul>
+                                      <li> The interpolation is <b>efficient</b>, because a search for a new interpolation
+                                      starts at the interval used in the last call.</li>
+                                      <li> If the table has only <b>one row</b>, the table value is returned,
+                                      independent of the value of the input signal.</li>
+                                      <li> If the input signal <b>u[i]</b> is <b>outside</b> of the defined <b>interval</b>, i.e.,
+                                      u[i] &gt; table[size(table,1),i+1] or u[i] &lt; table[1,1], the corresponding
+                                      value is also determined by linear
+                                      interpolation through the last or first two points of the table.</li>
+                                      <li> The grid values (first column) have to be <b>strict</b>
+                                      monotonically increasing.</li>
+                                      </ul>
+                                      <p>
+                                      The table matrix can be defined in the following ways:
+                                      </p>
+                                      <ol>
+                                      <li> Explicitly supplied as <b>parameter matrix</b> "table",
+                                      and the other parameters have the following values:
+                                      <pre>
+                                      tableName is "NoName" or has only blanks,
+                                      fileName  is "NoName" or has only blanks.
+                                      </pre></li>
+                                      <li> <b>Read</b> from a <b>file</b> "fileName" where the matrix is stored as
+                                      "tableName". Both ASCII and binary file format is possible.
+                                      (the ASCII format is described below).
+                                      It is most convenient to generate the binary file from Matlab
+                                      (Matlab 4 storage format), e.g., by command
+                                      <pre>
+                                      save tables.mat tab1 tab2 tab3 -V4
+                                      </pre>
+                                      when the three tables tab1, tab2, tab3 should be
+                                      used from the model.</li>
+                                      <li>  Statically stored in function "usertab" in file "usertab.c".
+                                      The matrix is identified by "tableName". Parameter
+                                      fileName = "NoName" or has only blanks.</li>
+                                      </ol>
+                                      <p>
+                                      Table definition methods (1) and (3) do <b>not</b> allocate dynamic memory,
+                                      and do not access files, whereas method (2) does. Therefore (1) and (3)
+                                      are suited for hardware-in-the-loop simulation (e.g. with dSpace hardware).
+                                      When the constant "NO_FILE" is defined in "usertab.c", all parts of the
+                                      source code of method (2) are removed by the C-preprocessor, such that
+                                      no dynamic memory allocation and no access to files takes place.
+                                      </p>
+                                      <p>
+                                      If tables are read from an ASCII-file, the file need to have the
+                                      following structure ("-----" is not part of the file content):
+                                      </p>
+                                      <pre>
+                                      -----------------------------------------------------
+                                      #1
+                                      double tab1(5,2)   # comment line
+                                      0   0
+                                      1   1
+                                      2   4
+                                      3   9
+                                      4  16
+                                      double tab2(5,2)   # another comment line
+                                      0   0
+                                      2   2
+                                      4   8
+                                      6  18
+                                      8  32
+                                      -----------------------------------------------------
+                                      </pre>
+                                      <p>
+                                      Note, that the first two characters in the file need to be
+                                      "#1". Afterwards, the corresponding matrix has to be declared
+                                      with type, name and actual dimensions. Finally, in successive
+                                      rows of the file, the elements of the matrix have to be given.
+                                      Several matrices may be defined one after another.
+                                      </p>
+                                      
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#MIMOs">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;MIMOs</a></code> (Multiple Input Multiple Output continuous control block with same number of inputs and outputs).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>tableOnFile</code></td><td><code>false</code></td><td>true, if table is defined on file or in function usertab</td></tr>
+<tr><td><code>Real</code></td><td><code>table[:,:]</code></td><td><code>fill(0, 0, 2)</code></td><td>table matrix (grid = first column; e.g., table=[0,2])</td></tr>
+<tr><td><code>String</code></td><td><code>tableName</code></td><td><code>"NoName"</code></td><td>table name on file or in function usertab (see docu)</td></tr>
+<tr><td><code>String</code></td><td><code>fileName</code></td><td><code>"NoName"</code></td><td>file where matrix is stored</td></tr>
+<tr><td><code>Integer</code></td><td><code>columns[:]</code></td><td><code>2:size(table, 2)</code></td><td>columns of table to be interpolated</td></tr>
+<tr><td><code><a href="../../Blocks/Types/index.html#Smoothness">Smoothness</a></code></td><td><code>smoothness</code></td><td><code>Types.&#8203;Smoothness.&#8203;LinearSegments</code></td><td>smoothness of table interpolation</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>n</code></td><td><code>size(columns, 1)</code></td><td>Number of inputs (= number of outputs)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[n]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[n]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+<hr><a name="CombiTable1Ds"><h2><embed class="icon" src="../../images/icon0288.svg" width="263" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Tables</a>.&#8203;CombiTable1Ds<br><span class="subtitle">Table look-up in one dimension (matrix/file) with one input and n outputs</span></h2></a>
+<h3>Information</h3>
+<p>
+
+                                      <p>
+                                      <b>Linear interpolation</b> in <b>one</b> dimension of a <b>table</b>.
+                                      Via parameter <b>columns</b> it can be defined how many columns of the
+                                      table are interpolated. If, e.g., icol={2,4}, it is assumed that one input
+                                      and 2 output signals are present and that the first output interpolates
+                                      via column 2 and the second output interpolates via column 4 of the
+                                      table matrix.
+                                      </p>
+                                      <p>
+                                      The grid points and function values are stored in a matrix "table[i,j]",
+                                      where the first column "table[:,1]" contains the grid points and the
+                                      other columns contain the data to be interpolated. Example:
+                                      </p>
+                                      <pre>
+                                      table = [0,  0;
+                                      1,  1;
+                                      2,  4;
+                                      4, 16]
+                                      If, e.g., the input u = 1.0, the output y =  1.0,
+                                      e.g., the input u = 1.5, the output y =  2.5,
+                                      e.g., the input u = 2.0, the output y =  4.0,
+                                      e.g., the input u =-1.0, the output y = -1.0 (i.e. extrapolation).
+                                      </pre>
+                                      <ul>
+                                      <li> The interpolation is <b>efficient</b>, because a search for a new interpolation
+                                      starts at the interval used in the last call.</li>
+                                      <li> If the table has only <b>one row</b>, the table value is returned,
+                                      independent of the value of the input signal.</li>
+                                      <li> If the input signal <b>u</b> is <b>outside</b> of the defined <b>interval</b>, i.e.,
+                                      u &gt; table[size(table,1),1] or u &lt; table[1,1], the corresponding
+                                      value is also determined by linear
+                                      interpolation through the last or first two points of the table.</li>
+                                      <li> The grid values (first column) have to be <b>strict</b>
+                                      monotonically increasing.</li>
+                                      </ul>
+                                      <p>
+                                      The table matrix can be defined in the following ways:
+                                      </p>
+                                      <ol>
+                                      <li> Explicitly supplied as <b>parameter matrix</b> "table",
+                                      and the other parameters have the following values:
+                                      <pre>
+                                      tableName is "NoName" or has only blanks,
+                                      fileName  is "NoName" or has only blanks.
+                                      </pre></li>
+                                      <li> <b>Read</b> from a <b>file</b> "fileName" where the matrix is stored as
+                                      "tableName". Both ASCII and binary file format is possible.
+                                      (the ASCII format is described below).
+                                      It is most convenient to generate the binary file from Matlab
+                                      (Matlab 4 storage format), e.g., by command
+                                      <pre>
+                                      save tables.mat tab1 tab2 tab3 -V4
+                                      </pre>
+                                      when the three tables tab1, tab2, tab3 should be
+                                      used from the model.</li>
+                                      <li>  Statically stored in function "usertab" in file "usertab.c".
+                                      The matrix is identified by "tableName". Parameter
+                                      fileName = "NoName" or has only blanks.</li>
+                                      </ol>
+                                      <p>
+                                      Table definition methods (1) and (3) do <b>not</b> allocate dynamic memory,
+                                      and do not access files, whereas method (2) does. Therefore (1) and (3)
+                                      are suited for hardware-in-the-loop simulation (e.g. with dSpace hardware).
+                                      When the constant "NO_FILE" is defined, all parts of the
+                                      source code of method (2) are removed by the C-preprocessor, such that
+                                      no dynamic memory allocation and no access to files takes place.
+                                      </p>
+                                      <p>
+                                      If tables are read from an ASCII-file, the file need to have the
+                                      following structure ("-----" is not part of the file content):
+                                      </p>
+                                      <pre>
+                                      -----------------------------------------------------
+                                      #1
+                                      double tab1(5,2)   # comment line
+                                      0   0
+                                      1   1
+                                      2   4
+                                      3   9
+                                      4  16
+                                      double tab2(5,2)   # another comment line
+                                      0   0
+                                      2   2
+                                      4   8
+                                      6  18
+                                      8  32
+                                      -----------------------------------------------------
+                                      </pre>
+                                      <p>
+                                      Note, that the first two characters in the file need to be
+                                      "#1". Afterwards, the corresponding matrix has to be declared
+                                      with type, name and actual dimensions. Finally, in successive
+                                      rows of the file, the elements of the matrix have to be given.
+                                      Several matrices may be defined one after another.
+                                      </p>
+                                      
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#SIMO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;SIMO</a></code> (Single Input Multiple Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>tableOnFile</code></td><td><code>false</code></td><td>true, if table is defined on file or in function usertab</td></tr>
+<tr><td><code>Real</code></td><td><code>table[:,:]</code></td><td><code>fill(0, 0, 2)</code></td><td>table matrix (grid = first column; e.g., table=[0,2])</td></tr>
+<tr><td><code>String</code></td><td><code>tableName</code></td><td><code>"NoName"</code></td><td>table name on file or in function usertab (see docu)</td></tr>
+<tr><td><code>String</code></td><td><code>fileName</code></td><td><code>"NoName"</code></td><td>file where matrix is stored</td></tr>
+<tr><td><code>Integer</code></td><td><code>columns[:]</code></td><td><code>2:size(table, 2)</code></td><td>columns of table to be interpolated</td></tr>
+<tr><td><code><a href="../../Blocks/Types/index.html#Smoothness">Smoothness</a></code></td><td><code>smoothness</code></td><td><code>Types.&#8203;Smoothness.&#8203;LinearSegments</code></td><td>smoothness of table interpolation</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nout</code></td><td><code>size(columns, 1)</code></td><td>Number of outputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[nout]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+<hr><a name="CombiTable2D"><h2><embed class="icon" src="../../images/icon0289.svg" width="263" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Tables</a>.&#8203;CombiTable2D<br><span class="subtitle">Table look-up in two dimensions (matrix/file) </span></h2></a>
+<h3>Information</h3>
+<p>
+
+                                      <p>
+                                      <b>Linear interpolation</b> in <b>two</b> dimensions of a <b>table</b>.
+                                      The grid points and function values are stored in a matrix "table[i,j]",
+                                      where:
+                                      </p>
+                                      <ul>
+                                      <li> the first column "table[2:,1]" contains the u[1] grid points,</li>
+                                      <li> the first row "table[1,2:]" contains the u[2] grid points,</li>
+                                      <li> the other rows and columns contain the data to be interpolated.</li>
+                                      </ul>
+                                      <p>
+                                      Example:
+                                      </p>
+                                      <pre>
+                                      |       |       |       |
+                                      |  1.0  |  2.0  |  3.0  |  // u2
+                                      ----*-------*-------*-------*
+                                      1.0 |  1.0  |  3.0  |  5.0  |
+                                      ----*-------*-------*-------*
+                                      2.0 |  2.0  |  4.0  |  6.0  |
+                                      ----*-------*-------*-------*
+                                      // u1
+                                      is defined as
+                                      table = [0.0,   1.0,   2.0,   3.0;
+                                      1.0,   1.0,   3.0,   5.0;
+                                      2.0,   2.0,   4.0,   6.0]
+                                      If, e.g. the input u is [1.0;1.0], the output y is 1.0,
+                                      e.g. the input u is [2.0;1.5], the output y is 3.0.
+                                      </pre>
+                                      <ul>
+                                      <li> The interpolation is <b>efficient</b>, because a search for a new interpolation
+                                      starts at the interval used in the last call.</li>
+                                      <li> If the table has only <b>one element</b>, the table value is returned,
+                                      independent of the value of the input signal.</li>
+                                      <li> If the input signal <b>u1</b> or <b>u2</b> is <b>outside</b> of the defined <b>interval</b>,
+                                      the corresponding value is also determined by linear
+                                      interpolation through the last or first two points of the table.</li>
+                                      <li> The grid values (first column and first row) have to be <b>strict</b>
+                                      monotonically increasing.</li>
+                                      </ul>
+                                      <p>
+                                      The table matrix can be defined in the following ways:
+                                      </p>
+                                      <ol>
+                                      <li> Explicitly supplied as <b>parameter matrix</b> "table",
+                                      and the other parameters have the following values:
+                                      <pre>
+                                      tableName is "NoName" or has only blanks,
+                                      fileName  is "NoName" or has only blanks.
+                                      </pre></li>
+                                      <li> <b>Read</b> from a <b>file</b> "fileName" where the matrix is stored as
+                                      "tableName". Both ASCII and binary file format is possible.
+                                      (the ASCII format is described below).
+                                      It is most convenient to generate the binary file from Matlab
+                                      (Matlab 4 storage format), e.g., by command
+                                      <pre>
+                                      save tables.mat tab1 tab2 tab3 -V4
+                                      </pre>
+                                      when the three tables tab1, tab2, tab3 should be
+                                      used from the model.</li>
+                                      <li>  Statically stored in function "usertab" in file "usertab.c".
+                                      The matrix is identified by "tableName". Parameter
+                                      fileName = "NoName" or has only blanks.</li>
+                                      </ol>
+                                      <p>
+                                      Table definition methods (1) and (3) do <b>not</b> allocate dynamic memory,
+                                      and do not access files, whereas method (2) does. Therefore (1) and (3)
+                                      are suited for hardware-in-the-loop simulation (e.g. with dSpace hardware).
+                                      When the constant "NO_FILE" is defined, all parts of the
+                                      source code of method (2) are removed by the C-preprocessor, such that
+                                      no dynamic memory allocation and no access to files takes place.
+                                      </p>
+                                      <p>
+                                      If tables are read from an ASCII-file, the file need to have the
+                                      following structure ("-----" is not part of the file content):
+                                      </p>
+                                      <pre>
+                                      -----------------------------------------------------
+                                      #1
+                                      double table2D_1(3,4)   # comment line
+                                      0.0  1.0  2.0  3.0  # u[2] grid points
+                                      1.0  1.0  3.0  5.0
+                                      2.0  2.0  4.0  6.0
+
+                                      double table2D_2(4,4)   # comment line
+                                      0.0  1.0  2.0  3.0  # u[2] grid points
+                                      1.0  1.0  3.0  5.0
+                                      2.0  2.0  4.0  6.0
+                                      3.0  3.0  5.0  7.0
+                                      -----------------------------------------------------
+                                      </pre>
+                                      <p>
+                                      Note, that the first two characters in the file need to be
+                                      "#1". Afterwards, the corresponding matrix has to be declared
+                                      with type, name and actual dimensions. Finally, in successive
+                                      rows of the file, the elements of the matrix have to be given.
+                                      Several matrices may be defined one after another.
+                                      The matrix elements are interpreted in exactly the same way
+                                      as if the matrix is given as a parameter. For example, the first
+                                      column "table2D_1[2:,1]" contains the u[1] grid points,
+                                      and the first row "table2D_1[1,2:]" contains the u[2] grid points.
+                                      </p>
+
+                                      
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#SI2SO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;SI2SO</a></code> (2 Single Input / 1 Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>tableOnFile</code></td><td><code>false</code></td><td>true, if table is defined on file or in function usertab</td></tr>
+<tr><td><code>Real</code></td><td><code>table[:,:]</code></td><td><code>fill(0, 0, 2)</code></td><td>table matrix (grid u1 = first column, grid u2 = first row; e.g. table=[0,0;0,1])</td></tr>
+<tr><td><code>String</code></td><td><code>tableName</code></td><td><code>"NoName"</code></td><td>table name on file or in function usertab (see docu)</td></tr>
+<tr><td><code>String</code></td><td><code>fileName</code></td><td><code>"NoName"</code></td><td>file where matrix is stored</td></tr>
+<tr><td><code><a href="../../Blocks/Types/index.html#Smoothness">Smoothness</a></code></td><td><code>smoothness</code></td><td><code>Types.&#8203;Smoothness.&#8203;LinearSegments</code></td><td>smoothness of table interpolation</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u1</code></td><td>Connector of Real input signal 1</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u2</code></td><td>Connector of Real input signal 2</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="CombiTable2Dv"><h2><embed class="icon" src="../../images/icon0290.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Tables</a>.&#8203;CombiTable2Dv<br><span class="subtitle">Table look-up in two dimensions (matrix/file) with vector inputs and vector output of size n</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+<strong>Bivariate constant</strong>, <strong>bilinear</strong> or <strong>bivariate
+Akima interpolation</strong> of a <strong>two-dimensional table</strong>.
+The grid points and function values are stored in a matrix "table[i,j]",
+where:
+</p>
+<ul>
+<li>the first column "table[2:,1]" contains the u1 grid points,</li>
+<li>the first row "table[1,2:]" contains the u2 grid points,</li>
+<li>the other rows and columns contain the data to be interpolated.</li>
+</ul>
+<p>
+Example:
+</p>
+<pre>
+           |       |       |       |
+           |  1.0  |  2.0  |  3.0  |  // u2
+       ----*-------*-------*-------*
+       1.0 |  1.0  |  3.0  |  5.0  |
+       ----*-------*-------*-------*
+       2.0 |  2.0  |  4.0  |  6.0  |
+       ----*-------*-------*-------*
+     // u1
+   is defined as
+      table = [0.0,   1.0,   2.0,   3.0;
+               1.0,   1.0,   3.0,   5.0;
+               2.0,   2.0,   4.0,   6.0]
+   If, e.g., the input u1 is {1.0}, input u2 is {1.0} and smoothness is LinearSegments, the output y is {1.0},
+       e.g., the input u1 is {2.0}, input u2 is {1.5} and smoothness is LinearSegments, the output y is {3.0}.
+</pre>
+<ul>
+<li>The interpolation interval is found by a binary search where the interval used in the
+    last call is used as start interval.</li>
+<li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
+<pre>
+  smoothness = 1: Bilinear interpolation
+             = 2: Bivariate Akima interpolation: Smooth interpolation by bicubic Hermite
+                  splines such that der(y) is continuous, also if extrapolated.
+             = 3: Constant segments
+             = 4: Fritsch-Butland interpolation: Not supported
+             = 5: Steffen interpolation: Not supported
+</pre></li>
+<li>Values <strong>outside</strong> of the table range, are computed by
+    extrapolation according to the setting of parameter <strong>extrapolation</strong>:
+<pre>
+  extrapolation = 1: Hold the first or last values of the table,
+                     if outside of the table scope.
+                = 2: Extrapolate by using the derivative at the first/last table
+                     points if outside of the table scope.
+                     (If smoothness is LinearSegments or ConstantSegments
+                     this means to extrapolate linearly through the first/last
+                     two table points.).
+                = 3: Periodically repeat the table data (periodical function).
+                = 4: No extrapolation, i.e. extrapolation triggers an error
+</pre></li>
+<li>If the table has only <strong>one element</strong>, the table value is returned,
+    independent of the value of the input signal.</li>
+<li>If the input signal <strong>u1</strong> or <strong>u2</strong> is <strong>outside</strong> of the defined
+    <strong>interval</strong>, the corresponding value is also determined by linear
+    interpolation through the last or first two points of the table.</li>
+<li>The grid values (first column and first row) have to be strictly
+    increasing.</li>
+</ul>
+<p>
+The table matrix can be defined in the following ways:
+</p>
+<ol>
+<li>Explicitly supplied as <strong>parameter matrix</strong> "table",
+    and the other parameters have the following values:
+<pre>
+   tableName is "NoName" or has only blanks,
+   fileName  is "NoName" or has only blanks.
+</pre></li>
+<li><strong>Read</strong> from a <strong>file</strong> "fileName" where the matrix is stored as
+    "tableName". Both text and MATLAB MAT-file format is possible.
+    (The text format is described below).
+    The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
+    The library supports at least v4, v6 and v7 whereas v7.3 is optional.
+    It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
+    by command
+<pre>
+   save tables.mat tab1 tab2 tab3
+</pre>
+    or Scilab by command
+<pre>
+   savematfile tables.mat tab1 tab2 tab3
+</pre>
+    when the three tables tab1, tab2, tab3 should be used from the model.<br>
+    Note, a fileName can be defined as URI by using the helper function
+    <a href="../../Utilities/Files/index.html#loadResource">loadResource</a>.</li>
+<li>Statically stored in function "usertab" in file "usertab.c".
+    The matrix is identified by "tableName". Parameter
+    fileName = "NoName" or has only blanks. Row-wise storage is always to be
+    preferred as otherwise the table is reallocated and transposed.
+    See the <a href="../../Blocks/Tables/index.html">Tables</a> package
+    documentation for more details.</li>
+</ol>
+<p>
+When the constant "NO_FILE_SYSTEM" is defined, all file I/O related parts of the
+source code are removed by the C-preprocessor, such that no access to files takes place.
+</p>
+<p>
+If tables are read from a text file, the file needs to have the
+following structure ("-----" is not part of the file content):
+</p>
+<pre>
+-----------------------------------------------------
+#1
+double table2D_1(3,4)   # comment line
+0.0  1.0  2.0  3.0  # u[2] grid points
+1.0  1.0  3.0  5.0
+2.0  2.0  4.0  6.0
+
+double table2D_2(4,4)   # comment line
+0.0  1.0  2.0  3.0  # u[2] grid points
+1.0  1.0  3.0  5.0
+2.0  2.0  4.0  6.0
+3.0  3.0  5.0  7.0
+-----------------------------------------------------
+</pre>
+<p>
+Note, that the first two characters in the file need to be
+"#1" (a line comment defining the version number of the file format).
+Afterwards, the corresponding matrix has to be declared
+with type (= "double" or "float"), name and actual dimensions.
+Finally, in successive rows of the file, the elements of the matrix
+have to be given. The elements have to be provided as a sequence of
+numbers in row-wise order (therefore a matrix row can span several
+lines in the file and need not start at the beginning of a line).
+Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
+Number separators are spaces, tab (\t), comma (,), or semicolon (;).
+Several matrices may be defined one after another. Line comments start
+with the hash symbol (#) and can appear everywhere.
+Text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the text file is ignored.
+Other characters, like trailing non comments, are not allowed in the file.
+The matrix elements are interpreted in exactly the same way
+as if the matrix is given as a parameter. For example, the first
+column "table2D_1[2:,1]" contains the u[1] grid points,
+and the first row "table2D_1[1,2:]" contains the u[2] grid points.
+</p>
+<p>
+MATLAB is a registered trademark of The MathWorks, Inc.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#MI2MO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;MI2MO</a></code> (2 Multiple Input / Multiple Output continuous control block) and <code><a href="../../Blocks/Tables/Internal/index.html#CombiTable2DBase">Modelica.&#8203;Blocks.&#8203;Tables.&#8203;Internal.&#8203;CombiTable2DBase</a></code> (Base class for variants of CombiTable2D).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>1</code></td><td>Dimension of input and output vectors.</td></tr>
+<tr><td><code>Boolean</code></td><td><code>tableOnFile</code></td><td><code>false</code></td><td>= true, if table is defined on file or in function usertab</td></tr>
+<tr><td><code>Real</code></td><td><code>table[:,:]</code></td><td><code>fill(0, 0, 2)</code></td><td>Table matrix (grid u1 = first column, grid u2 = first row; e.g., table=[0, 0; 0, 1])</td></tr>
+<tr><td><code>String</code></td><td><code>tableName</code></td><td><code>"NoName"</code></td><td>Table name on file or in function usertab (see docu)</td></tr>
+<tr><td><code>String</code></td><td><code>fileName</code></td><td><code>"NoName"</code></td><td>File where matrix is stored</td></tr>
+<tr><td><code>Boolean</code></td><td><code>verboseRead</code></td><td><code>true</code></td><td>= true, if info message that file is loading is to be printed</td></tr>
+<tr><td><code><a href="../../Blocks/Types/index.html#Smoothness">Smoothness</a></code></td><td><code>smoothness</code></td><td><code>Modelica.&#8203;Blocks.&#8203;Types.&#8203;Smoothness.&#8203;LinearSegments</code></td><td>Smoothness of table interpolation</td></tr>
+<tr><td><code><a href="../../Blocks/Types/index.html#Extrapolation">Extrapolation</a></code></td><td><code>extrapolation</code></td><td><code>Modelica.&#8203;Blocks.&#8203;Types.&#8203;Extrapolation.&#8203;LastTwoPoints</code></td><td>Extrapolation of data outside the definition range</td></tr>
+<tr><td><code>Boolean</code></td><td><code>verboseExtrapolation</code></td><td><code>false</code></td><td>= true, if warning messages are to be printed if table input is outside the definition range</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>u_min[2]</code></td><td><code>getTable2DAbscissaUmin(tableID)</code></td><td>Minimum abscissa value defined in table</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>u_max[2]</code></td><td><code>getTable2DAbscissaUmax(tableID)</code></td><td>Maximum abscissa value defined in table</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u1[n]</code></td><td>Connector 1 of Real input signals</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u2[n]</code></td><td>Connector 2 of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[n]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+</body></html>

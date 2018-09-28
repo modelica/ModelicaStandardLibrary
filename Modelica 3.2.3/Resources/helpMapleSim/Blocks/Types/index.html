@@ -1,0 +1,230 @@
+<html><head><title>Modelica.Blocks.Types</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Types"><h1><embed class="icon" src="../../images/icon0292.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;Types<br><span class="subtitle">Library of constants, external objects and types with choices, especially to build menus</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+In this package <strong>types</strong>, <strong>constants</strong> and <strong>external objects</strong> are defined that are used
+in library Modelica.Blocks. The types have additional annotation choices
+definitions that define the menus to be built up in the graphical
+user interface when the type is used as parameter in a declaration.
+</p>
+<p>Extends from <code><a href="../../Icons/TypesPackage/index.html">Modelica.&#8203;Icons.&#8203;TypesPackage</a></code> (Icon for packages containing type definitions).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#AnalogFilter"><code>AnalogFilter</code></a></td><td>Enumeration defining the method of filtering</td></tr>
+<tr><td><a href="#ExternalCombiTable1D"><code>ExternalCombiTable1D</code></a></td><td>External object of 1-dim. table defined by matrix</td></tr>
+<tr><td><a href="#ExternalCombiTable2D"><code>ExternalCombiTable2D</code></a></td><td>External object of 2-dim. table defined by matrix</td></tr>
+<tr><td><a href="#ExternalCombiTimeTable"><code>ExternalCombiTimeTable</code></a></td><td>External object of 1-dim. table where first column is time</td></tr>
+<tr><td><a href="#Extrapolation"><code>Extrapolation</code></a></td><td>Enumeration defining the extrapolation of table interpolation</td></tr>
+<tr><td><a href="#FilterType"><code>FilterType</code></a></td><td>Enumeration of analog filter types (low, high, band pass or band stop filter)</td></tr>
+<tr><td><a href="#Init"><code>Init</code></a></td><td>Enumeration defining initialization of a block</td></tr>
+<tr><td><a href="#InitPID"><code>InitPID</code></a></td><td>Enumeration defining initialization of PID and LimPID blocks</td></tr>
+<tr><td><a href="#LimiterHomotopy"><code>LimiterHomotopy</code></a></td><td>Enumeration defining use of homotopy in limiter components</td></tr>
+<tr><td><a href="#Regularization"><code>Regularization</code></a></td><td>Enumeration defining the regularization around zero</td></tr>
+<tr><td><a href="#SimpleController"><code>SimpleController</code></a></td><td>Enumeration defining P, PI, PD, or PID simple controller type</td></tr>
+<tr><td><a href="#Smoothness"><code>Smoothness</code></a></td><td>Enumeration defining the smoothness of table interpolation</td></tr>
+<tr><td><a href="#TimeEvents"><code>TimeEvents</code></a></td><td>Enumeration defining the time event handling of time table interpolation</td></tr>
+<tr><td><a href="#VariableLimiterHomotopy"><code>VariableLimiterHomotopy</code></a></td><td>Enumeration defining use of homotopy in variable limiter components</td></tr>
+</table>
+<hr><a name="Smoothness"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Types</a>.&#8203;Smoothness<br><span class="subtitle">Enumeration defining the smoothness of table interpolation</span></h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>LinearSegments</code></td><td>Table points are linearly interpolated</td></tr>
+<tr><td><code>ContinuousDerivative</code></td><td>Table points are interpolated (by Akima splines) such that the first derivative is continuous</td></tr>
+<tr><td><code>ConstantSegments</code></td><td>Table points are not interpolated, but the value from the previous abscissa point is returned</td></tr>
+<tr><td><code>MonotoneContinuousDerivative1</code></td><td>Table points are interpolated (by Fritsch-Butland splines) such that the monotonicity is preserved and the first derivative is continuous</td></tr>
+<tr><td><code>MonotoneContinuousDerivative2</code></td><td>Table points are interpolated (by Steffen splines) such that the monotonicity is preserved and the first derivative is continuous</td></tr>
+</table>
+<hr><a name="Extrapolation"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Types</a>.&#8203;Extrapolation<br><span class="subtitle">Enumeration defining the extrapolation of table interpolation</span></h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>HoldLastPoint</code></td><td>Hold the first/last table point outside of the table scope</td></tr>
+<tr><td><code>LastTwoPoints</code></td><td>Extrapolate by using the derivative at the first/last table points outside of the table scope</td></tr>
+<tr><td><code>Periodic</code></td><td>Repeat the table scope periodically</td></tr>
+<tr><td><code>NoExtrapolation</code></td><td>Extrapolation triggers an error</td></tr>
+</table>
+<hr><a name="TimeEvents"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Types</a>.&#8203;TimeEvents<br><span class="subtitle">Enumeration defining the time event handling of time table interpolation</span></h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>Always</code></td><td>Always generate time events at interval boundaries</td></tr>
+<tr><td><code>AtDiscontinuities</code></td><td>Generate time events at discontinuities (defined by duplicated sample points)</td></tr>
+<tr><td><code>NoTimeEvents</code></td><td>No time events at interval boundaries</td></tr>
+</table>
+<hr><a name="Init"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Types</a>.&#8203;Init<br><span class="subtitle">Enumeration defining initialization of a block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+  <p>The following initialization alternatives are available:</p>
+  <dl>
+    <dt><code><strong>NoInit</strong></code></dt>
+      <dd>No initialization (start values are used as guess values with <code>fixed=false</code>)</dd>
+    <dt><code><strong>SteadyState</strong></code></dt>
+      <dd>Steady state initialization (derivatives of states are zero)</dd>
+    <dt><code><strong>InitialState</strong></code></dt>
+      <dd>Initialization with initial states</dd>
+    <dt><code><strong>InitialOutput</strong></code></dt>
+      <dd>Initialization with initial outputs (and steady state of the states if possible)</dd>
+  </dl>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>NoInit</code></td><td>No initialization (start values are used as guess values with fixed=false)</td></tr>
+<tr><td><code>SteadyState</code></td><td>Steady state initialization (derivatives of states are zero)</td></tr>
+<tr><td><code>InitialState</code></td><td>Initialization with initial states</td></tr>
+<tr><td><code>InitialOutput</code></td><td>Initialization with initial outputs (and steady state of the states if possible)</td></tr>
+</table>
+<hr><a name="InitPID"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Types</a>.&#8203;InitPID<br><span class="subtitle">Enumeration defining initialization of PID and LimPID blocks</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This initialization type is identical to <a href="../../Blocks/Types/index.html#Init">Types.Init</a> and has just one
+additional option <strong><code>DoNotUse_InitialIntegratorState</code></strong>. This option
+is introduced in order that the default initialization for the
+<code>Continuous.PID</code> and <code>Continuous.LimPID</code> blocks are backward
+compatible. In Modelica 2.2, the integrators have been initialized
+with their given states where as the D-part has not been initialized.
+The option <strong><code>DoNotUse_InitialIntegratorState</code></strong> leads to this
+initialization definition.
+</p>
+
+ <p>The following initialization alternatives are available:</p>
+  <dl>
+    <dt><code><strong>NoInit</strong></code></dt>
+      <dd>No initialization (start values are used as guess values with <code>fixed=false</code>)</dd>
+    <dt><code><strong>SteadyState</strong></code></dt>
+      <dd>Steady state initialization (derivatives of states are zero)</dd>
+    <dt><code><strong>InitialState</strong></code></dt>
+      <dd>Initialization with initial states</dd>
+    <dt><code><strong>InitialOutput</strong></code></dt>
+      <dd>Initialization with initial outputs (and steady state of the states if possible)</dd>
+    <dt><code><strong>DoNotUse_InitialIntegratorState</strong></code></dt>
+      <dd>Do not use, only for backward compatibility (initialize only integrator state)</dd>
+  </dl>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>NoInit</code></td><td>No initialization (start values are used as guess values with fixed=false)</td></tr>
+<tr><td><code>SteadyState</code></td><td>Steady state initialization (derivatives of states are zero)</td></tr>
+<tr><td><code>InitialState</code></td><td>Initialization with initial states</td></tr>
+<tr><td><code>InitialOutput</code></td><td>Initialization with initial outputs (and steady state of the states if possible)</td></tr>
+<tr><td><code>DoNotUse_InitialIntegratorState</code></td><td>Do not use, only for backward compatibility (initialize only integrator state)</td></tr>
+</table>
+<hr><a name="SimpleController"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Types</a>.&#8203;SimpleController<br><span class="subtitle">Enumeration defining P, PI, PD, or PID simple controller type</span></h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>P</code></td><td>P controller</td></tr>
+<tr><td><code>PI</code></td><td>PI controller</td></tr>
+<tr><td><code>PD</code></td><td>PD controller</td></tr>
+<tr><td><code>PID</code></td><td>PID controller</td></tr>
+</table>
+<hr><a name="AnalogFilter"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Types</a>.&#8203;AnalogFilter<br><span class="subtitle">Enumeration defining the method of filtering</span></h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>CriticalDamping</code></td><td>Filter with critical damping</td></tr>
+<tr><td><code>Bessel</code></td><td>Bessel filter</td></tr>
+<tr><td><code>Butterworth</code></td><td>Butterworth filter</td></tr>
+<tr><td><code>ChebyshevI</code></td><td>Chebyshev I filter</td></tr>
+</table>
+<hr><a name="FilterType"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Types</a>.&#8203;FilterType<br><span class="subtitle">Enumeration of analog filter types (low, high, band pass or band stop filter)</span></h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>LowPass</code></td><td>Low pass filter</td></tr>
+<tr><td><code>HighPass</code></td><td>High pass filter</td></tr>
+<tr><td><code>BandPass</code></td><td>Band pass filter</td></tr>
+<tr><td><code>BandStop</code></td><td>Band stop / notch filter</td></tr>
+</table>
+<hr><a name="Regularization"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Types</a>.&#8203;Regularization<br><span class="subtitle">Enumeration defining the regularization around zero</span></h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>Exp</code></td><td>Exponential regularization (smooth)</td></tr>
+<tr><td><code>Sine</code></td><td>Sinusoidal regularization (smooth 1st derivative)</td></tr>
+<tr><td><code>Linear</code></td><td>Linear regularization</td></tr>
+<tr><td><code>Cosine</code></td><td>Cosine regularization</td></tr>
+</table>
+<hr><a name="LimiterHomotopy"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Types</a>.&#8203;LimiterHomotopy<br><span class="subtitle">Enumeration defining use of homotopy in limiter components</span></h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>NoHomotopy</code></td><td>Homotopy is not used</td></tr>
+<tr><td><code>Linear</code></td><td>Simplified model without limits</td></tr>
+<tr><td><code>UpperLimit</code></td><td>Simplified model fixed at upper limit</td></tr>
+<tr><td><code>LowerLimit</code></td><td>Simplified model fixed at lower limit</td></tr>
+</table>
+<hr><a name="VariableLimiterHomotopy"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Types</a>.&#8203;VariableLimiterHomotopy<br><span class="subtitle">Enumeration defining use of homotopy in variable limiter components</span></h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>NoHomotopy</code></td><td>Simplified model = actual model</td></tr>
+<tr><td><code>Linear</code></td><td>Simplified model: y = u</td></tr>
+<tr><td><code>Fixed</code></td><td>Simplified model: y = ySimplified</td></tr>
+</table>
+<hr><a name="ExternalCombiTimeTable"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+External Object <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Types</a>.&#8203;ExternalCombiTimeTable<br><span class="subtitle">External object of 1-dim. table where first column is time</span></h2></a>
+<h3>Arguments</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>tableName</code></td><td>Table name</td></tr>
+<tr><td><code>String</code></td><td><code>fileName</code></td><td>File name</td></tr>
+<tr><td><code>Real</code></td><td><code>table[:,:]</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Modelica.&#8203;SIunits.&#8203;Time</a></code></td><td><code>startTime</code></td><td>&nbsp</td></tr>
+<tr><td><code>Integer</code></td><td><code>columns[:]</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../Blocks/Types/index.html#Smoothness">Modelica.&#8203;Blocks.&#8203;Types.&#8203;Smoothness</a></code></td><td><code>smoothness</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../Blocks/Types/index.html#Extrapolation">Modelica.&#8203;Blocks.&#8203;Types.&#8203;Extrapolation</a></code></td><td><code>extrapolation</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Modelica.&#8203;SIunits.&#8203;Time</a></code></td><td><code>shiftTime</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../Blocks/Types/index.html#TimeEvents">Modelica.&#8203;Blocks.&#8203;Types.&#8203;TimeEvents</a></code></td><td><code>timeEvents</code></td><td>&nbsp</td></tr>
+<tr><td><code>Boolean</code></td><td><code>verboseRead</code></td><td>= true: Print info message; = false: No info message</td></tr>
+</table>
+<hr><a name="ExternalCombiTable1D"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+External Object <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Types</a>.&#8203;ExternalCombiTable1D<br><span class="subtitle">External object of 1-dim. table defined by matrix</span></h2></a>
+<h3>Arguments</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>tableName</code></td><td>Table name</td></tr>
+<tr><td><code>String</code></td><td><code>fileName</code></td><td>File name</td></tr>
+<tr><td><code>Real</code></td><td><code>table[:,:]</code></td><td>&nbsp</td></tr>
+<tr><td><code>Integer</code></td><td><code>columns[:]</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../Blocks/Types/index.html#Smoothness">Modelica.&#8203;Blocks.&#8203;Types.&#8203;Smoothness</a></code></td><td><code>smoothness</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../Blocks/Types/index.html#Extrapolation">Modelica.&#8203;Blocks.&#8203;Types.&#8203;Extrapolation</a></code></td><td><code>extrapolation</code></td><td>&nbsp</td></tr>
+<tr><td><code>Boolean</code></td><td><code>verboseRead</code></td><td>= true: Print info message; = false: No info message</td></tr>
+</table>
+<hr><a name="ExternalCombiTable2D"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+External Object <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Types</a>.&#8203;ExternalCombiTable2D<br><span class="subtitle">External object of 2-dim. table defined by matrix</span></h2></a>
+<h3>Arguments</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>tableName</code></td><td>Table name</td></tr>
+<tr><td><code>String</code></td><td><code>fileName</code></td><td>File name</td></tr>
+<tr><td><code>Real</code></td><td><code>table[:,:]</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../Blocks/Types/index.html#Smoothness">Modelica.&#8203;Blocks.&#8203;Types.&#8203;Smoothness</a></code></td><td><code>smoothness</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../Blocks/Types/index.html#Extrapolation">Modelica.&#8203;Blocks.&#8203;Types.&#8203;Extrapolation</a></code></td><td><code>extrapolation</code></td><td>&nbsp</td></tr>
+<tr><td><code>Boolean</code></td><td><code>verboseRead</code></td><td>= true: Print info message; = false: No info message</td></tr>
+</table>
+</body></html>

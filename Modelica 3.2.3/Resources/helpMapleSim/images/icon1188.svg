@@ -1,0 +1,8 @@
+<svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape" class="component">
+		<polygon points="1.5,201.5 181.5,201.5 181.5,41.5 1.5,41.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="1.5,41.5 21.5,1.5 201.5,1.5 181.5,41.5" fill="#C0C0C0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="201.5,1.5 201.5,161.5 181.5,201.5 181.5,41.5" fill="#A0A0A4" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="91.5" y="150.2" text-anchor="middle" fill="#000000" font-size="71.7px" font-family="sans-serif">"box"</text>
+	</g>
+</svg>

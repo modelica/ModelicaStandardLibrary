@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Utilities.Strings.Advanced.scanString</title>
+</head>
+<body>
+<h1><a href="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg"><img class="svgiconhead" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Utilities.Strings.html">Strings</a>.<a class="omc-h1-a" href="Modelica.Utilities.Strings.Advanced.html">Advanced</a>.<span class="omc-h1">scanString</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+(nextIndex, string2) = <strong>scanString</strong>(string, startIndex=1);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Starts scanning of "string" at position "startIndex". First
+skips white space and scans afterwards a string according to the
+Modelica grammar, i.e., a string enclosed in double quotes.</p>
+<p>If successful, the function returns nextIndex = index of
+character directly after the found string, as well as the string
+value in the second output argument.</p>
+<p>If not successful, on return nextIndex = startIndex and the
+second output argument is an empty string.</p>
+<h4>See also</h4>
+<a href="Modelica.Utilities.Strings.Advanced.html">Strings.Advanced</a>.
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>function scanString
+  extends Modelica.Icons.Function;
+  input String string;
+  input Integer startIndex(min = 1) = 1 "Index where scanning starts";
+  output Integer nextIndex "Index after the found token (success=true) or index at which scanning failed (success=false)";
+  output String string2 "Value of String token";
+end scanString;</pre></blockquote>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

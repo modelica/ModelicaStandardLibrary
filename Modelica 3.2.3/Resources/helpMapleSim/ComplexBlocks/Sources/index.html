@@ -1,0 +1,190 @@
+<html><head><title>Modelica.ComplexBlocks.Sources</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Sources"><h1><embed class="icon" src="../../images/icon0259.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;Sources<br><span class="subtitle">Library of signal source blocks generating Complex signals</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates a package which contains sources.</p>
+<p>Extends from <code><a href="../../Icons/SourcesPackage/index.html">Modelica.&#8203;Icons.&#8203;SourcesPackage</a></code> (Icon for packages containing sources).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#ComplexConstant"><code>ComplexConstant</code></a></td><td>Generate constant signal of type Complex</td></tr>
+<tr><td><a href="#ComplexExpression"><code>ComplexExpression</code></a></td><td>Set output signal to a time varying Complex expression</td></tr>
+<tr><td><a href="#ComplexRampPhasor"><code>ComplexRampPhasor</code></a></td><td>Generate a phasor with ramped magnitude and constant angle</td></tr>
+<tr><td><a href="#ComplexRotatingPhasor"><code>ComplexRotatingPhasor</code></a></td><td>Generate a phasor with constant magnitude and constant angular velocity of type Complex</td></tr>
+<tr><td><a href="#ComplexStep"><code>ComplexStep</code></a></td><td>Generate step signal of type Complex</td></tr>
+<tr><td><a href="#LogFrequencySweep"><code>LogFrequencySweep</code></a></td><td>Logarithmic frequency sweep</td></tr>
+</table>
+<hr><a name="ComplexExpression"><h2><embed class="icon" src="../../images/icon0334.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;ComplexExpression<br><span class="subtitle">Set output signal to a time varying Complex expression</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The (time varying) Complex output signal of this block can be defined in its
+parameter menu via variable <strong>y</strong>. The purpose is to support the
+easy definition of Complex expressions in a block diagram.
+Note, that "time" is a built-in variable that is always
+accessible and represents the "model time" and that
+Variable <strong>y</strong> is both a variable and a connector.
+</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Value of Complex output</td></tr>
+</table>
+<hr><a name="ComplexConstant"><h2><embed class="icon" src="../../images/icon0335.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;ComplexConstant<br><span class="subtitle">Generate constant signal of type Complex</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The Complex output y is a constant signal:
+</p>
+
+<p>
+<img src="../../../Images/Blocks/Sources/Constant.png"
+     alt="Constant.png">
+</p>
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSO</a></code> (Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>k</code></td><td>&nbsp;</td><td>Constant output value</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="ComplexStep"><h2><embed class="icon" src="../../images/icon0336.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;ComplexStep<br><span class="subtitle">Generate step signal of type Complex</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The Complex output y is a step signal (of real and imaginary part):
+</p>
+
+<p>
+<img src="../../../Images/Blocks/Sources/Step.png"
+     alt="Step.png">
+</p>
+
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSignalSource">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSignalSource</a></code> (Base class for continuous signal source).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>height</code></td><td><code>Complex(1)</code></td><td>Height of step</td></tr>
+<tr><td><code>Complex</code></td><td><code>offset</code></td><td><code>Complex(0)</code></td><td>Offset of output signal y</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Output y = offset for time &lt; startTime</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="ComplexRotatingPhasor"><h2><embed class="icon" src="../../images/icon0337.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;ComplexRotatingPhasor<br><span class="subtitle">Generate a phasor with constant magnitude and constant angular velocity of type Complex</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output y is a complex phasor with constant magnitude, spinning with constant angular velocity.
+</p>
+
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSO</a></code> (Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>magnitude</code></td><td><code>1</code></td><td>Magnitude of complex phasor</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>w</code></td><td><code>1</code></td><td>Constant angular velocity of complex phasor</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Angle">Angle</a></code></td><td><code>phi0</code></td><td><code>0</code></td><td>Initial angle of complex phasor at time = 0</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="ComplexRampPhasor"><h2><embed class="icon" src="../../images/icon0338.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;ComplexRampPhasor<br><span class="subtitle">Generate a phasor with ramped magnitude and constant angle</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output y is a complex phasor with constant angle and a ramped magnitude.
+</p>
+
+<p>
+In case of <code>useLogRamp == false</code> the magnitude ramp is linear:
+</p>
+<p>
+<img src="../../../Images/ComplexBlocks/Sources/ComplexRampPhasorLinear.png"
+     alt="ComplexRampPhasorLinear.png">
+</p>
+
+<p>
+In case of <code>useLogRamp == true</code> the magnitude ramp appears linear on a logarithmic scale:
+</p>
+<p>
+<img src="../../../Images/ComplexBlocks/Sources/ComplexRampPhasorLog.png"
+     alt="ComplexRampPhasorLog.png">
+</p>
+
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSO</a></code> (Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>magnitude1</code></td><td>&nbsp;</td><td>Magnitude of complex phasor at startTime</td></tr>
+<tr><td><code>Real</code></td><td><code>magnitude2</code></td><td>&nbsp;</td><td>Magnitude of complex phasor at startTime+duration</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useLogRamp</code></td><td><code>false</code></td><td>Ramp appears linear on a logarithmic scale, if true</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Angle">Angle</a></code></td><td><code>phi</code></td><td>&nbsp;</td><td>Angle of complex phasor</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Start time of frequency sweep</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>duration</code></td><td>&nbsp;</td><td>Duration of ramp (= 0.0 gives a Step)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="LogFrequencySweep"><h2><embed class="icon" src="../../images/icon0339.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;LogFrequencySweep<br><span class="subtitle">Logarithmic frequency sweep</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The output <code>y</code> performs a logarithmic frequency sweep.
+The logarithm of frequency <code>w</code> performs a linear ramp from <code>log10(wMin)</code> to <code>log10(wMax)</code>.
+The output is the decimal power of this logarithmic ramp.
+</p>
+<p>For <code>time &lt; startTime</code> the output is equal to <code>wMin</code>.</p>
+<p>For <code>time &gt; startTime+duration</code> the output is equal to <code>wMax</code>.</p>
+<p>
+<img src="../../../Images/Blocks/Sources/LogFrequencySweep.png"
+     alt="LogFrequencySweep.png">
+</p>
+
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#SO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;SO</a></code> (Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>wMin</code></td><td>&nbsp;</td><td>Start frequency</td></tr>
+<tr><td><code>Real</code></td><td><code>wMax</code></td><td>&nbsp;</td><td>End frequency</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Start time of frequency sweep</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>duration</code></td><td>&nbsp;</td><td>Duration of ramp (= 0.0 gives a Step)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+</body></html>

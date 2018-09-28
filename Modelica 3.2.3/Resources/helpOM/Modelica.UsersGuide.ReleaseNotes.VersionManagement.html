@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.UsersGuide.ReleaseNotes.VersionManagement</title>
+</head>
+<body>
+<h1><a href="Icons/7e5916c8ded3e7489f5937a6ee55f7f07d893583.svg"><img class="svgiconhead" src="Icons/7e5916c8ded3e7489f5937a6ee55f7f07d893583.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>.<span class="omc-h1">VersionManagement</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Development branches</h4>
+<p>Further development and maintenance of the Modelica Standard
+Library is performed with two branches on the public <a href="https://github.com/modelica/ModelicaStandardLibrary.git">GitHub
+repository</a> of the Modelica Association.</p>
+<h5>Main development branch</h5>
+<p>Name: "master"</p>
+<p>This branch contains the actual development version, i.e., all
+bug fixes and new features. New features must have been tested
+before including them. However, the exhaustive tests for a new
+version are (usually) not performed. This version is usually only
+be used by the developers of the Modelica Standard Library and is
+not utilized by Modelica users.</p>
+<h5>Maintenance branch</h5>
+<p>Name: "maint/3.2.3"</p>
+<p>This branch contains the released Modelica Standard Library
+version (e.g., v3.2.3) where all bug fixes since this release date
+are included (up to a new release, when becoming available; i.e.,
+after a new release, the previous maintenance versions are no
+longer changed). These bug fixes might be not yet tested with all
+test cases or with other Modelica libraries. The goal is that a
+vendor may take this version at any time for a new release of its
+software, in order to incorporate the latest bug fixes, without
+changing the version number of the Modelica Standard Library.</p>
+<h4>Contribution workflow</h4>
+<p>The general <a href="https://guides.github.com/activities/forking/">contribution
+workflow</a> is usually as follows:</p>
+<ol>
+<li>Fork the repository to your account by <a href="https://help.github.com/articles/fork-a-repo/">using the Fork
+button</a> of the GitHub repository site.</li>
+<li>Clone the forked repository to your computer. Make sure to
+checkout the maintenance branch if the bug fix is going to get
+merged to the maintenance branch.</li>
+<li>Create a new topic branch and give it a meaningful name, like,
+e.g., "issue2161-fix-formula".</li>
+<li>Do your code changes and commit them, one change per commit.
+Single commits can be copied to other branches. Multiple commits
+can be squashed into one, but splitting is difficult.</li>
+<li>Once you are done, push your topic branch to your forked
+repository.</li>
+<li>Go to the upstream <a href="https://github.com/modelica/ModelicaStandardLibrary.git">https://github.com/modelica/ModelicaStandardLibrary.git</a>
+repository and submit a <a href="https://help.github.com/articles/about-pull-requests/">Pull
+Request</a> (PR). If the PR is related to a certain issue,
+reference it by its number like this: #2161. Once a pull request is
+opened, you can discuss and <a href="https://help.github.com/articles/about-pull-request-reviews/">review</a>
+the potential changes with collaborators and add follow-up commits
+before the changes are merged into the repository.</li>
+<li>Update your branch with the requested changes. If necessary,
+merge the latest "master" branch into your topic branch and solve
+all merge conflicts in your topic branch.</li>
+</ol>
+<p>There are some special guidelines for changes to the maintenance
+branch.</p>
+<ul>
+<li>Every change to the maintenance branch has to get cherry-picked
+at the "master" branch (see above), too. One exception are pure
+changes to the "versionBuild" annotation as these have no meaning
+in the development trunk.</li>
+<li>Annotations "version" and "versionDate" must <u>not</u> be
+changed in a maintenance release.</li>
+<li>Since the version number can currently not be changed when
+releasing a new maintenance release (also known as bug fix release)
+the Modelica Standard Library utilizes the "versionBuild"
+annotation for this purpose. So should there be a new maintenance
+release in the maintenance branch then the "versionBuild" number
+needs to be incremented by one. At the same time the "dateModified"
+field needs to be updated.<br />
+Example:
+<pre>  annotation(version      = "3.2.3",
+             versionDate  = "2018-09-26",
+             versionBuild = 2,
+             dateModified = "2018-12-12 07:40:19Z",
+             revisionId   = "$F​ormat:%h %ci$")</pre>
+The "revisionId" field is a special annotation to mark a properly
+released (maintenance) version from unreleased commits.<br />
+Example:
+<blockquote>Running the export command "<code>git archive -o
+msl.zip v3.2.3</code>" will expand the above "revisionId" place
+holder to something like:
+<pre>
+revisionId = "c04e23a0d 2018-09-26 12:00:00 +0200$"</pre></blockquote>
+</li>
+</ul>
+<p>As a recommendation, a valid bug fix to the maintenance branch
+may contain one or more of the following changes.</p>
+<ul>
+<li>Correcting an equation.</li>
+<li>Correcting attributes quantity/unit/defaultUnit in a
+declaration.</li>
+<li>Improving/fixing the documentation.</li>
+<li>Introducing a new name in the public section of a class (model,
+package, ...) or in any section of a partial class is
+<strong>not</strong> allowed. Since otherwise, a user might use
+this new name and when storing its model and loading it with an
+older build-version, an error would occur.</li>
+<li>Introducing a new name in the protected section of a
+non-partial class should only be done if absolutely necessary to
+fix a bug. The problem is that this might be non-backward
+compatible, because a user might already extend from this class and
+already using the same name.</li>
+</ul>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

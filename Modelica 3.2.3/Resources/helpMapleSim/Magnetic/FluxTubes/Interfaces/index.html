@@ -1,0 +1,287 @@
+<html><head><title>Modelica.Magnetic.FluxTubes.Interfaces</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Interfaces"><h1><embed class="icon" src="../../../images/icon0015.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;Interfaces<br><span class="subtitle">Interfaces of magnetic network components</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains connectors for the magnetic domain and partial models for lumped magnetic network components.
+</p>
+
+<p>Extends from <code><a href="../../../Icons/InterfacesPackage/index.html">Modelica.&#8203;Icons.&#8203;InterfacesPackage</a></code> (Icon for packages containing interfaces).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#ConditionalHeatPort"><code>ConditionalHeatPort</code></a></td><td>Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network</td></tr>
+<tr><td><a href="#MagneticPort"><code>MagneticPort</code></a></td><td>Generic magnetic port</td></tr>
+<tr><td><a href="#NegativeMagneticPort"><code>NegativeMagneticPort</code></a></td><td>Negative magnetic port</td></tr>
+<tr><td><a href="#PartialFixedShape"><code>PartialFixedShape</code></a></td><td>Base class for flux tubes with fixed shape during simulation; linear or non-linear material characteristics</td></tr>
+<tr><td><a href="#PartialForce"><code>PartialForce</code></a></td><td>Base class for flux tubes with reluctance force generation; constant permeability</td></tr>
+<tr><td><a href="#PartialGeneric"><code>PartialGeneric</code></a></td><td>Partial Tellinen hysteresis model</td></tr>
+<tr><td><a href="#PartialGenericHysteresis"><code>PartialGenericHysteresis</code></a></td><td>Partial hysteresis model</td></tr>
+<tr><td><a href="#PartialGenericHysteresisTellinen"><code>PartialGenericHysteresisTellinen</code></a></td><td>Partial Tellinen hysteresis model</td></tr>
+<tr><td><a href="#PartialLeakage"><code>PartialLeakage</code></a></td><td>Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1</td></tr>
+<tr><td><a href="#PartialTwoPorts"><code>PartialTwoPorts</code></a></td><td>Partial component with magnetic potential difference of the two magnetic ports p and n and magnetic flux Phi from p to n</td></tr>
+<tr><td><a href="#PartialTwoPortsElementary"><code>PartialTwoPortsElementary</code></a></td><td>Partial component with two magnetic ports p and n for textual programming</td></tr>
+<tr><td><a href="#PositiveMagneticPort"><code>PositiveMagneticPort</code></a></td><td>Positive magnetic port</td></tr>
+</table>
+<hr><a name="MagneticPort"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;MagneticPort<br><span class="subtitle">Generic magnetic port</span></h2></a>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#MagneticPotential">MagneticPotential</a></code></td><td><code>V_m</code></td><td>Magnetic potential at the port</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../SIunits/index.html#MagneticFlux">MagneticFlux</a></code></td><td><code>Phi</code></td><td>Magnetic flux flowing into the port</td></tr>
+</table>
+<hr><a name="PositiveMagneticPort"><h2><embed class="icon" src="../../../images/icon0947.svg" width="203" height="203" />
+Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PositiveMagneticPort<br><span class="subtitle">Positive magnetic port</span></h2></a>
+<p>Extends from <code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#MagneticPort">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;MagneticPort</a></code> (Generic magnetic port).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#MagneticPotential">MagneticPotential</a></code></td><td><code>V_m</code></td><td>Magnetic potential at the port</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../SIunits/index.html#MagneticFlux">MagneticFlux</a></code></td><td><code>Phi</code></td><td>Magnetic flux flowing into the port</td></tr>
+</table>
+<hr><a name="NegativeMagneticPort"><h2><embed class="icon" src="../../../images/icon0297.svg" width="203" height="203" />
+Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;NegativeMagneticPort<br><span class="subtitle">Negative magnetic port</span></h2></a>
+<p>Extends from <code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#MagneticPort">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;MagneticPort</a></code> (Generic magnetic port).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#MagneticPotential">MagneticPotential</a></code></td><td><code>V_m</code></td><td>Magnetic potential at the port</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../SIunits/index.html#MagneticFlux">MagneticFlux</a></code></td><td><code>Phi</code></td><td>Magnetic flux flowing into the port</td></tr>
+</table>
+<hr><a name="PartialTwoPortsElementary"><h2><embed class="icon" src="../../../images/icon0948.svg" width="223" height="203" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialTwoPortsElementary<br><span class="subtitle">Partial component with two magnetic ports p and n for textual programming</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Partial model of a flux tube component with two magnetic ports:
+the positive port connector port_p, and the negative port
+connector port_n.
+</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive magnetic port</td></tr>
+<tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative magnetic port</td></tr>
+</table>
+<hr><a name="PartialTwoPorts"><h2><embed class="icon" src="../../../images/icon0948.svg" width="223" height="203" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialTwoPorts<br><span class="subtitle">Partial component with magnetic potential difference of the two magnetic ports p and n and magnetic flux Phi from p to n</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+It is assumed that the magnetic flux flowing into port_p is identical to the flux flowing out of port_n.
+This magnetic flux is provided explicitly as flux Phi.
+</p>
+<p>Extends from <code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PartialTwoPortsElementary">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialTwoPortsElementary</a></code> (Partial component with two magnetic ports p and n for textual programming).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive magnetic port</td></tr>
+<tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative magnetic port</td></tr>
+</table>
+<hr><a name="PartialFixedShape"><h2><embed class="icon" src="../../../images/icon0933.svg" width="223" height="203" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialFixedShape<br><span class="subtitle">Base class for flux tubes with fixed shape during simulation; linear or non-linear material characteristics</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Please refer to the description of  the sub-package <a href="../../../Magnetic/FluxTubes/Shapes/FixedShape/index.html">Shapes.FixedShape</a> for utilisation of this partial model.
+</p>
+<p>Extends from <code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PartialTwoPorts">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialTwoPorts</a></code> (Partial component with magnetic potential difference of the two magnetic ports p and n and magnetic flux Phi from p to n).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>nonLinearPermeability</code></td><td><code>true</code></td><td>= true, if non-linear rel. permeability is used, otherwise constant rel. permeability</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#RelativePermeability">RelativePermeability</a></code></td><td><code>mu_rConst</code></td><td><code>1</code></td><td>Constant relative permeability; used if nonLinearPermeability = false</td></tr>
+<tr><td><code><a href="../../../Magnetic/FluxTubes/Material/SoftMagnetic/index.html#BaseData">BaseData</a></code></td><td><code>material</code></td><td><code>Material.SoftMagnetic.BaseData()</code></td><td>Ferromagnetic material characteristics; used if nonLinearPermeability = true</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive magnetic port</td></tr>
+<tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative magnetic port</td></tr>
+</table>
+<hr><a name="PartialForce"><h2><embed class="icon" src="../../../images/icon0938.svg" width="223" height="233" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialForce<br><span class="subtitle">Base class for flux tubes with reluctance force generation; constant permeability</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Please refer to the description of  the sub-package <a href="../../../Magnetic/FluxTubes/Shapes/Force/index.html">Shapes.Force</a> for utilisation of this partial model.
+</p>
+<p>Extends from <code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PartialTwoPorts">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialTwoPorts</a></code> (Partial component with magnetic potential difference of the two magnetic ports p and n and magnetic flux Phi from p to n).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useSupport</code></td><td><code>false</code></td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#RelativePermeability">RelativePermeability</a></code></td><td><code>mu_r</code></td><td>&nbsp;</td><td>Relative magnetic permeability</td></tr>
+<tr><td><code>Integer</code></td><td><code>dlBydx</code></td><td><code>1</code></td><td>Derivative of flux tube's varying dimension with respect to armature position; set to +1 or -1</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive magnetic port</td></tr>
+<tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative magnetic port</td></tr>
+<tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange</code></td><td>Generated reluctance force at armature position</td></tr>
+<tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Support">Support</a></code></td><td><code>support</code></td><td>Support/housing of component</td></tr>
+</table>
+<hr><a name="PartialLeakage"><h2><embed class="icon" src="../../../images/icon0933.svg" width="223" height="203" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialLeakage<br><span class="subtitle">Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Please refer to the description of  the sub-package <a href="../../../Magnetic/FluxTubes/Shapes/Leakage/index.html">Shapes.Leakage</a> for utilisation of this partial model.
+</p>
+<p>Extends from <code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PartialTwoPorts">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialTwoPorts</a></code> (Partial component with magnetic potential difference of the two magnetic ports p and n and magnetic flux Phi from p to n).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive magnetic port</td></tr>
+<tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative magnetic port</td></tr>
+</table>
+<hr><a name="PartialGeneric"><h2><embed class="icon" src="../../../images/icon0949.svg" width="223" height="203" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialGeneric<br><span class="subtitle">Partial Tellinen hysteresis model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Extends from <code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PartialTwoPorts">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialTwoPorts</a></code> (Partial component with magnetic potential difference of the two magnetic ports p and n and magnetic flux Phi from p to n).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>l</code></td><td><code>0.1</code></td><td>Length in direction of flux</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Area">Area</a></code></td><td><code>A</code></td><td><code>1e-4</code></td><td>Area of cross section</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Volume">Volume</a></code></td><td><code>V</code></td><td><code>A * l</code></td><td>Volume of FluxTube</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive magnetic port</td></tr>
+<tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative magnetic port</td></tr>
+</table>
+<hr><a name="ConditionalHeatPort"><h2><embed class="icon" src="../../../images/icon0437.svg" width="203" height="213" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;ConditionalHeatPort<br><span class="subtitle">Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This partial model provides a conditional heating port for the connection to a thermal network.
+</p>
+<ul>
+<li> If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal
+     loss power flows internally to the ground. In this case, the parameter <strong>T</strong> specifies
+     the fixed device temperature (the default for T = 20<sup>o</sup>C).</li>
+<li> If <strong>useHeatPort</strong> is set to <strong>true</strong>, a heat port is available.</li>
+</ul>
+
+<p>
+If this model is used, the loss power has to be provided by an equation in the model which inherits from
+ConditionalHeatingPort model (<strong>lossPower = ...</strong>). As device temperature
+<strong>T_heatPort</strong> can be used to describe the influence of the device temperature
+on the model behaviour.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PartialGenericHysteresis"><h2><embed class="icon" src="../../../images/icon0950.svg" width="223" height="213" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialGenericHysteresis<br><span class="subtitle">Partial hysteresis model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This partial model provides a conditional heating port for the connection to a thermal network.
+</p>
+<ul>
+<li> If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal
+     loss power flows internally to the ground. In this case, the parameter <strong>T</strong> specifies
+     the fixed device temperature (the default for T = 20<sup>o</sup>C).</li>
+<li> If <strong>useHeatPort</strong> is set to <strong>true</strong>, a heat port is available.</li>
+</ul>
+
+<p>
+If this model is used, the loss power has to be provided by an equation in the model which inherits from
+ConditionalHeatingPort model (<strong>lossPower = ...</strong>). As device temperature
+<strong>T_heatPort</strong> can be used to describe the influence of the device temperature
+on the model behaviour.
+</p>
+<p>Extends from <code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PartialGeneric">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialGeneric</a></code> (Partial Tellinen hysteresis model) and <code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>l</code></td><td><code>0.1</code></td><td>Length in direction of flux</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Area">Area</a></code></td><td><code>A</code></td><td><code>1e-4</code></td><td>Area of cross section</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Volume">Volume</a></code></td><td><code>V</code></td><td><code>A * l</code></td><td>Volume of FluxTube</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+<tr><td><code>Boolean</code></td><td><code>includeEddyCurrents</code></td><td><code>false</code></td><td>=true, if eddy current losses are enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductivity">Conductivity</a></code></td><td><code>sigma</code></td><td><code>1e+7</code></td><td>Conductivity of core material</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>d</code></td><td><code>5e-4</code></td><td>Thickness of lamination</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive magnetic port</td></tr>
+<tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative magnetic port</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PartialGenericHysteresisTellinen"><h2><embed class="icon" src="../../../images/icon0950.svg" width="223" height="213" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialGenericHysteresisTellinen<br><span class="subtitle">Partial Tellinen hysteresis model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>A reluctance with the Tellinen hysteresis model. The major hysteresis loop is defined by the hyperbolic tangent function.</p>
+<h4>The Tellinen Hysteresis Model</h4>
+<p>The Tellinen hysteresis model is a simple model to describe the magnetic hysteresis behavior of ferromagnetic materials. It only uses the rising (hystR) and falling (hystF) branch of the major hysteresis loop and their derivatives der(hystR) and der(hystF). See Fig. 1 and the following equations for a short description of the Tellinen hysteresis model.</p>
+<blockquote><pre>
+diffHyst = hystF - hystR;
+dhR = hystF - b;
+dhF = b - hystR;
+</pre></blockquote>
+<p>if the magnetic field intensity increases (der(h)&gt;0)</p>
+<blockquote><pre>
+der(b) = dhR/diffHyst * der(hystR);
+</pre></blockquote>
+<p>if the magnetic field intensity decreases (der(h)&lt;0)</p>
+<blockquote><pre>
+der(b) = dhF/diffHyst * der(hystF);
+</pre></blockquote>
+<table cellspacing="0" cellpadding="2" border="0"><tr>
+<td><p><img src="../../../../Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Tellinen/TellinenDesc1.png"/></p></td>
+</tr>
+</table>
+<strong>Fig. 1:</strong> Description of the Tellinen hysteresis model.
+<p>Extends from <code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PartialGenericHysteresis">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialGenericHysteresis</a></code> (Partial hysteresis model).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>l</code></td><td><code>0.1</code></td><td>Length in direction of flux</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Area">Area</a></code></td><td><code>A</code></td><td><code>1e-4</code></td><td>Area of cross section</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Volume">Volume</a></code></td><td><code>V</code></td><td><code>A * l</code></td><td>Volume of FluxTube</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+<tr><td><code>Boolean</code></td><td><code>includeEddyCurrents</code></td><td><code>false</code></td><td>=true, if eddy current losses are enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductivity">Conductivity</a></code></td><td><code>sigma</code></td><td><code>1e+7</code></td><td>Conductivity of core material</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>d</code></td><td><code>5e-4</code></td><td>Thickness of lamination</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive magnetic port</td></tr>
+<tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative magnetic port</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

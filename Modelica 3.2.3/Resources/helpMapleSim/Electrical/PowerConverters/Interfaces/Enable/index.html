@@ -1,0 +1,134 @@
+<html><head><title>Modelica.Electrical.PowerConverters.Interfaces.Enable</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Enable"><h1><embed class="icon" src="../../../../images/icon0015.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">PowerConverters</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;Enable<br><span class="subtitle">Enabling interfaces</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates packages containing interfaces.</p>
+<p>Extends from <code><a href="../../../../Icons/InterfacesPackage/index.html">Modelica.&#8203;Icons.&#8203;InterfacesPackage</a></code> (Icon for packages containing interfaces).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Enable"><code>Enable</code></a></td><td>Partial model providing enable parameter and optional enable input</td></tr>
+<tr><td><a href="#Enable1"><code>Enable1</code></a></td><td>Partial model providing enable parameter and optional enable input for one firing signal</td></tr>
+<tr><td><a href="#Enable1m"><code>Enable1m</code></a></td><td>Partial model providing enable parameter and optional enable input for m firing signals</td></tr>
+<tr><td><a href="#Enable2"><code>Enable2</code></a></td><td>Partial model providing enable parameter and optional enable input for two firing signals</td></tr>
+<tr><td><a href="#Enable2m"><code>Enable2m</code></a></td><td>Partial model providing enable parameter and optional enable input for 2*m firing signals</td></tr>
+</table>
+<hr><a name="Enable"><h2><embed class="icon" src="../../../../images/icon0764.svg" width="223" height="243" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">PowerConverters</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">Enable</a>.&#8203;Enable<br><span class="subtitle">Partial model providing enable parameter and optional enable input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This partial model provides parameters and the conditional input signal for the enabling models:</p>
+<ul>
+<li><a href="../../../../Electrical/PowerConverters/Interfaces/Enable/index.html#Enable1">Enable1</a></li>
+<li><a href="../../../../Electrical/PowerConverters/Interfaces/Enable/index.html#Enable2">Enable2</a></li>
+<li><a href="../../../../Electrical/PowerConverters/Interfaces/Enable/index.html#Enable1m">Enable1m</a></li>
+<li><a href="../../../../Electrical/PowerConverters/Interfaces/Enable/index.html#Enable2m">Enable2m</a></li>
+</ul>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConstantEnable</code></td><td><code>true</code></td><td>true = disabled boolean input, use constantEnable</td></tr>
+<tr><td><code>Boolean</code></td><td><code>constantEnable</code></td><td><code>true</code></td><td>Constant enabling of firing signals</td></tr>
+<tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>enable</code></td><td>Enables fire and notFire</td></tr>
+</table>
+<hr><a name="Enable1"><h2><embed class="icon" src="../../../../images/icon0765.svg" width="223" height="243" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">PowerConverters</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">Enable</a>.&#8203;Enable1<br><span class="subtitle">Partial model providing enable parameter and optional enable input for one firing signal</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This partial model provides the enabling logic for one firing signal.</p>
+<p>Extends from <code><a href="../../../../Electrical/PowerConverters/Interfaces/Enable/index.html#Enable">Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Interfaces.&#8203;Enable.&#8203;Enable</a></code> (Partial model providing enable parameter and optional enable input).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConstantEnable</code></td><td><code>true</code></td><td>true = disabled boolean input, use constantEnable</td></tr>
+<tr><td><code>Boolean</code></td><td><code>constantEnable</code></td><td><code>true</code></td><td>Constant enabling of firing signals</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>m</code></td><td><code>1</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>enable</code></td><td>Enables fire and notFire</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>fire_p</code></td><td>Firing signal of positive potential transistor</td></tr>
+</table>
+<hr><a name="Enable1m"><h2><embed class="icon" src="../../../../images/icon0766.svg" width="223" height="243" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">PowerConverters</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">Enable</a>.&#8203;Enable1m<br><span class="subtitle">Partial model providing enable parameter and optional enable input for m firing signals</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This partial model provides the enabling logic for <code>m</code> firing signal.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConstantEnable</code></td><td><code>true</code></td><td>true = disabled boolean input, use constantEnable</td></tr>
+<tr><td><code>Boolean</code></td><td><code>constantEnable</code></td><td><code>true</code></td><td>Constant enabling of firing signals</td></tr>
+<tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>fire_p[m]</code></td><td>Firing signals of positive potential transistors</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>enable</code></td><td>Enables fire and notFire</td></tr>
+</table>
+<hr><a name="Enable2"><h2><embed class="icon" src="../../../../images/icon0767.svg" width="223" height="243" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">PowerConverters</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">Enable</a>.&#8203;Enable2<br><span class="subtitle">Partial model providing enable parameter and optional enable input for two firing signals</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This partial model provides the enabling logic for two firing signal.</p>
+<p>Extends from <code><a href="../../../../Electrical/PowerConverters/Interfaces/Enable/index.html#Enable1">Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Interfaces.&#8203;Enable.&#8203;Enable1</a></code> (Partial model providing enable parameter and optional enable input for one firing signal).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConstantEnable</code></td><td><code>true</code></td><td>true = disabled boolean input, use constantEnable</td></tr>
+<tr><td><code>Boolean</code></td><td><code>constantEnable</code></td><td><code>true</code></td><td>Constant enabling of firing signals</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>m</code></td><td><code>1</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>enable</code></td><td>Enables fire and notFire</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>fire_p</code></td><td>Firing signal of positive potential transistor</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>fire_n</code></td><td>Firing signal of negative potential transistor</td></tr>
+</table>
+<hr><a name="Enable2m"><h2><embed class="icon" src="../../../../images/icon0768.svg" width="223" height="243" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">PowerConverters</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">Enable</a>.&#8203;Enable2m<br><span class="subtitle">Partial model providing enable parameter and optional enable input for 2*m firing signals</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This partial model provides the enabling logic for <code>2*m</code> firing signal.</p>
+<p>Extends from <code><a href="../../../../Electrical/PowerConverters/Interfaces/Enable/index.html#Enable1m">Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Interfaces.&#8203;Enable.&#8203;Enable1m</a></code> (Partial model providing enable parameter and optional enable input for m firing signals).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConstantEnable</code></td><td><code>true</code></td><td>true = disabled boolean input, use constantEnable</td></tr>
+<tr><td><code>Boolean</code></td><td><code>constantEnable</code></td><td><code>true</code></td><td>Constant enabling of firing signals</td></tr>
+<tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>fire_p[m]</code></td><td>Firing signals of positive potential transistors</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>enable</code></td><td>Enables fire and notFire</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>fire_n[m]</code></td><td>Firing signals of negative potential transistors</td></tr>
+</table>
+</body></html>

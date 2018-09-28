@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Analog.Basic.HeatingResistor</title>
+</head>
+<body>
+<h1><a href="Icons/54572cb91f962ab915449e1de66a80f1222431cf.svg"><img class="svgiconhead" src="Icons/54572cb91f962ab915449e1de66a80f1222431cf.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.html">Analog</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.Basic.html">Basic</a>.<span class="omc-h1">HeatingResistor</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This is a model for an electrical resistor where the generated
+heat is dissipated to the environment via connector
+<strong>heatPort</strong> and where the resistance R is temperature
+dependent according to the following equation:</p>
+<pre>    R = R_ref*(1 + alpha*(heatPort.T - T_ref))</pre>
+<p><strong>alpha</strong> is the <strong>temperature coefficient of
+resistance</strong>, which is often abbreviated as
+<strong>TCR</strong>. In resistor catalogues, it is usually defined
+as <strong>X [ppm/K]</strong> (parts per million, similarly to
+percentage) meaning <strong>X*1e-6 [1/K]</strong>. Resistors are
+available for 1 .. 7000 ppm/K, i.e., alpha = 1e-6 .. 7e-3 1/K;</p>
+<p>Via parameter <strong>useHeatPort</strong> the heatPort
+connector can be enabled and disabled (default = enabled). If it is
+disabled, the generated heat is transported implicitly to an
+internal temperature source with a fixed temperature of T_ref.</p>
+<p>If the heatPort connector is enabled, it must be connected.</p>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><em>August 07, 2009</em> by Anton Haumer<br />
+temperature dependency of resistance added<br /></li>
+<li><em>March 11, 2009</em> by Christoph Clauss<br />
+conditional heat port added<br /></li>
+<li><em>2002</em> by Anton Haumer<br />
+initially implemented<br /></li>
+</ul>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

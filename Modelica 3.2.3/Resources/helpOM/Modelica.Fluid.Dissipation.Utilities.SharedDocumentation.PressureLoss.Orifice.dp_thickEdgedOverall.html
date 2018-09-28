@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_thickEdgedOverall</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.html">SharedDocumentation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.html">PressureLoss</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.html">Orifice</a>.<span class="omc-h1">dp_thickEdgedOverall</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Restriction</h4>
+<p>This function shall be used within the restricted limits
+according to the referenced literature.</p>
+<ul>
+<li><strong>Reynolds number (for vena contraction) Re &gt;
+1e3</strong> <em>[Idelchik 2006, p. 222, diag. 4-15]</em></li>
+<li><strong>Relative length of vena contraction (L/d_hyd_0) &gt;
+0.015</strong> <em>[Idelchik 2006, p. 222, diag. 4-15]</em></li>
+<li><strong>Darcy friction factor lambda_FRI = 0.02</strong>
+<em>[Idelchik 2006, p. 222, sec. 4-15]</em></li>
+</ul>
+<h4>Geometry</h4>
+<p><img src="../../../Modelica%203.2.3/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/pic_thickEdged.png" alt="pic_thickEdged" /></p>
+<h4>Calculation</h4>
+<p>The pressure loss <strong>dp</strong> for a thick edged orifice
+is determined by:</p>
+<pre>
+    dp = zeta_TOT * (rho/2) * (velocity_1)^2
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><strong>rho</strong></td>
+<td>as density of fluid [kg/m3],</td>
+</tr>
+<tr>
+<td><strong>velocity_1</strong></td>
+<td>as mean velocity in large cross sectional area [m/s],</td>
+</tr>
+<tr>
+<td><strong>zeta_TOT</strong></td>
+<td>as pressure loss coefficient [-].</td>
+</tr>
+</table>
+<p>The pressure loss coefficient <strong>zeta_TOT</strong> of a
+thick edged orifice can be calculated for different cross sectional
+areas <strong>A_0</strong> and relative length of orifice
+<strong>l_bar</strong> =L/d_hyd_0 by:</p>
+<pre>
+    zeta_TOT = (0.5*(1 - A_0/A_1)^0.75 + tau*(1 - A_0/A_1)^1.375 + (1 - A_0/A_1)^2 + lambda_FRI*l_bar)*(A_1/A_0)^2 <em>[Idelchik 2006, p. 222, diag. 4-15] </em>
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><strong>A_0</strong></td>
+<td>cross sectional area of vena contraction [m2],</td>
+</tr>
+<tr>
+<td><strong>A_1</strong></td>
+<td>large cross sectional area of orifice [m2],</td>
+</tr>
+<tr>
+<td><strong>d_hyd_0</strong></td>
+<td>hydraulic diameter of vena contraction [m],</td>
+</tr>
+<tr>
+<td><strong>lambda_FRI</strong></td>
+<td>as constant Darcy friction factor [-],</td>
+</tr>
+<tr>
+<td><strong>l_bar</strong></td>
+<td>relative length of orifice [-],</td>
+</tr>
+<tr>
+<td><strong>L</strong></td>
+<td>length of vena contraction [m],</td>
+</tr>
+<tr>
+<td><strong>tau</strong></td>
+<td>geometry parameter [-].</td>
+</tr>
+</table>
+<p>The geometry factor <strong>tau</strong> is determined by
+<em>[Idelchik 2006, p. 219, diag. 4-12]</em>:</p>
+<pre>
+    tau = (2.4 - l_bar)*10^(-phi)
+    phi = 0.25 + 0.535*l_bar^8 / (0.05 + l_bar^8) .
+</pre>
+<h4>Verification</h4>
+<p>The pressure loss coefficient <strong>zeta_TOT</strong> of a
+thick edged orifice in dependence of a relative length
+<strong>(l_bar = L /d_hyd)</strong> with different ratios of cross
+sectional areas <strong>A_0/A_1</strong> is shown in the figure
+below.</p>
+<p><img src="../../../Modelica%203.2.3/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_ZETAvsLENGTH.png" alt="fig_orifice_thickEdgedOverall_ZETAvsLENGTH" /></p>
+<p><strong>Incompressible case</strong> [Pressure loss =
+f(m_flow)]:</p>
+<p>The pressure loss <strong>DP</strong> of an thick edged orifice
+in dependence of the mass flow rate <strong>m_flow</strong> of
+water for different ratios <strong>A_0/A_1</strong> (where
+<strong>A_0</strong> = 0.001 m^2) is shown in the figure below.</p>
+<p><img src="../../../Modelica%203.2.3/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_DPvsMFLOW.png" alt="fig_orifice_thickEdgedOverall_DPvsMFLOW" /></p>
+<p><strong>And for the compressible case</strong> [Mass flow rate =
+f(dp)]:</p>
+<p><img src="../../../Modelica%203.2.3/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_MFLOWvsDP.png" alt="fig_orifice_thickEdgedOverall_MFLOWvsDP" /></p>
+<h4>References</h4>
+<dl>
+<dt>Elmqvist,H., M.Otter and S.E. Cellier:</dt>
+<dd><strong>Inline integration: A new mixed symbolic / numeric
+approach for solving differential-algebraic equation
+systems.</strong>. In Proceedings of European Simulation
+MultiConference, Praque, 1995.</dd>
+<dt>Idelchik,I.E.:</dt>
+<dd><strong>Handbook of hydraulic resistance</strong>. Jaico
+Publishing House,Mumbai, 3rd edition, 2006.</dd>
+</dl>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

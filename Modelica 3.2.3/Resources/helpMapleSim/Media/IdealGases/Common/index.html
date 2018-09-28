@@ -1,0 +1,81 @@
+<html><head><title>Modelica.Media.IdealGases.Common</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Common"><h1><embed class="icon" src="../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">IdealGases</a>.&#8203;Common<br><span class="subtitle">Common packages and data for the ideal gas models</span></h1></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#DataRecord"><code>DataRecord</code></a></td><td>Coefficient data record for properties of ideal gases based on NASA source</td></tr>
+<tr><td><a href="../../../Media/IdealGases/Common/FluidData/index.html"><code>FluidData</code></a> &hellip;</td><td>Critical data, dipole moments and related data</td></tr>
+<tr><td><a href="../../../Media/IdealGases/Common/Functions/index.html"><code>Functions</code></a> &hellip;</td><td>Basic Functions for ideal gases: cp, h, s, thermal conductivity, viscosity</td></tr>
+<tr><td><a href="../../../Media/IdealGases/Common/MixtureGasNasa/index.html"><code>MixtureGasNasa</code></a> &hellip;</td><td>Medium model of a mixture of ideal gases based on NASA source</td></tr>
+<tr><td><a href="../../../Media/IdealGases/Common/SingleGasesData/index.html"><code>SingleGasesData</code></a> &hellip;</td><td>Ideal gas data based on the NASA Glenn coefficients</td></tr>
+<tr><td><a href="../../../Media/IdealGases/Common/SingleGasNasa/index.html"><code>SingleGasNasa</code></a> &hellip;</td><td>Medium model of an ideal gas based on NASA source</td></tr>
+</table>
+<hr><a name="DataRecord"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">IdealGases</a>.&#8203;<a href="index.html">Common</a>.&#8203;DataRecord<br><span class="subtitle">Coefficient data record for properties of ideal gases based on NASA source</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This data record contains the coefficients for the
+ideal gas equations according to:
+</p>
+<blockquote>
+  <p>McBride B.J., Zehe M.J., and Gordon S. (2002): <strong>NASA Glenn Coefficients
+  for Calculating Thermodynamic Properties of Individual Species</strong>. NASA
+  report TP-2002-211556</p>
+</blockquote>
+<p>
+The equations have the following structure:
+</p>
+<img src="../../../../Images/Media/IdealGases/singleEquations.png">
+<p>
+The polynomials for h(T) and s0(T) are derived via integration from the one for cp(T)  and contain the integration constants b1, b2 that define the reference specific enthalpy and entropy. For entropy differences the reference pressure p0 is arbitrary, but not for absolute entropies. It is chosen as 1 standard atmosphere (101325 Pa).
+</p>
+<p>
+For most gases, the region of validity is from 200 K to 6000 K.
+The equations are split into two regions that are separated
+by Tlimit (usually 1000 K). In both regions the gas is described
+by the data above. The two branches are continuous and in most
+gases also differentiable at Tlimit.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>name</code></td><td>Name of ideal gas</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#MolarMass">MolarMass</a></code></td><td><code>MM</code></td><td>Molar mass</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>Hf</code></td><td>Enthalpy of formation at 298.15K</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>H0</code></td><td>H0(298.15K) - H0(0K)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>Tlimit</code></td><td>Temperature limit between low and high data sets</td></tr>
+<tr><td><code>Real</code></td><td><code>alow[7]</code></td><td>Low temperature coefficients a</td></tr>
+<tr><td><code>Real</code></td><td><code>blow[2]</code></td><td>Low temperature constants b</td></tr>
+<tr><td><code>Real</code></td><td><code>ahigh[7]</code></td><td>High temperature coefficients a</td></tr>
+<tr><td><code>Real</code></td><td><code>bhigh[2]</code></td><td>High temperature constants b</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>R</code></td><td>Gas constant</td></tr>
+</table>
+</body></html>

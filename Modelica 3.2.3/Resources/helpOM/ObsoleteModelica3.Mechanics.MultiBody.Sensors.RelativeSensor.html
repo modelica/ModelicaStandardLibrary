@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+ObsoleteModelica3.Mechanics.MultiBody.Sensors.RelativeSensor</title>
+</head>
+<body>
+<h1><a href="Icons/8692020f1b5671aca93e4632707b6682b07bd9d6.svg"><img class="svgiconhead" src="Icons/8692020f1b5671aca93e4632707b6682b07bd9d6.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ObsoleteModelica3.html">ObsoleteModelica3</a>.<a class="omc-h1-a" href="ObsoleteModelica3.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="ObsoleteModelica3.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="ObsoleteModelica3.Mechanics.MultiBody.Sensors.html">Sensors</a>.<span class="omc-h1">RelativeSensor</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Relative kinematic quantities between frame_a and frame_b are
+determined and provided at the output signal connector
+<strong>y</strong> in packed format in the order</p>
+<ol>
+<li>relative position vector (= r_rel)</li>
+<li>relative velocity vector (= v_rel)</li>
+<li>relative acceleration vector (= a_rel))</li>
+<li>3 angles to rotate frame_a into frame_b (= angles)</li>
+<li>relative angular velocity vector (= w_rel)</li>
+<li>relative angular acceleration vector (= z_rel)</li>
+</ol>
+<p>For example, if parameters <strong>get_v_rel</strong> and
+<strong>get_w_rel</strong> are <strong>true</strong> and all other
+get_XXX parameters are <strong>false</strong>, then y contains 6
+elements:</p>
+<pre>
+ y = relative velocity
+ y = relative angular velocity
+</pre>
+<p>In the following figure the animation of a RelativeSensor
+component is shown. The light blue coordinate system is frame_a,
+the dark blue coordinate system is frame_b, and the yellow arrow is
+the animated sensor.</p>
+<img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/Sensors/RelativeSensor.png" />
+<p>If parameter <strong>resolveInFrame_a</strong> =
+<strong>true</strong>, then the provided relative kinematic vectors
+of frame_b with respect to frame_a are resolved before
+differentiation in frame_a. If this parameter is
+<strong>false</strong>, the relative kinematic vectors are resolved
+before differentiation in frame_b. If
+<strong>frame_resolve</strong> is connected to another frame, then
+the kinematic vector as defined above and/or its required
+derivatives are resolved in frame_resolve. Note, derivatives of
+relative kinematic quantities are always performed with respect to
+frame_a (<strong>resolveInFrame_a</strong> = <strong>true</strong>)
+or with respect to frame_b (<strong>resolveInFrame_a</strong> =
+<strong>false</strong>). The resulting vector is then resolved in
+frame_resolve, if this connector is connected.</p>
+<p>For example, if frame_resolve is not connected and if
+resolveInFrame_a = <strong>false</strong>, and get_v =
+<strong>true</strong>, then</p>
+<pre>
+  y = v_rel
+    = <strong>der</strong>(r_rel)
+</pre>
+<p>is returned (r_rel = resolve2(frame_b.R, frame_b.r_0 -
+frame_a.r0)), i.e., the derivative of the relative distance from
+frame_a to frame_b, resolved in frame_b. If frame_resolve is
+connected, then</p>
+<pre>
+  y = v_rel
+    = resolve2(frame_resolve.R, <strong>der</strong>(r_rel))
+</pre>
+<p>is returned, i.e., the previous relative velocity vector is
+additionally resolved in frame_resolve.</p>
+<p>Note, the cut-force and the cut-torque in frame_resolve are
+always zero, whether frame_resolve is connected or not.</p>
+<p>If <strong>get_angles</strong> = <strong>true</strong>, the 3
+angles to rotate frame_a into frame_b along the axes defined by
+parameter <strong>sequence</strong> are returned. For example, if
+sequence = {3,1,2} then frame_a is rotated around angles[1] along
+the z-axis, afterwards it is rotated around angles[2] along the
+x-axis, and finally it is rotated around angles[3] along the y-axis
+and is then identical to frame_b. The 3 angles are returned in the
+range</p>
+<pre>
+    -<font face="Symbol">p</font> &lt;= angles[i] &lt;= <font face="Symbol">p</font>
+</pre>
+<p>There are <strong>two solutions</strong> for "angles[1]" in this
+range. Via parameter <strong>guessAngle1</strong> (default = 0) the
+returned solution is selected such that |angles[1] - guessAngle1|
+is minimal. The relative transformation matrix between frame_a and
+frame_b may be in a singular configuration with respect to
+"sequence", i.e., there is an infinite number of angle values
+leading to the same relative transformation matrix. In this case,
+the returned solution is selected by setting angles[1] =
+guessAngle1. Then angles[2] and angles[3] can be uniquely
+determined in the above range.</p>
+<p>Note, that parameter <strong>sequence</strong> has the
+restriction that only values 1,2,3 can be used and that sequence[1]
+≠ sequence[2] and sequence[2] ≠ sequence[3]. Often used values
+are:</p>
+<pre>
+  sequence = <strong>{1,2,3}</strong>  // Cardan angle sequence
+           = <strong>{3,1,3}</strong>  // Euler angle sequence
+           = <strong>{3,2,1}</strong>  // Tait-Bryan angle sequence
+</pre>
+<p>Exact definition of the returned quantities (r_rel_ab, R_rel_ab,
+w_rel_ab are defined below the enumeration):</p>
+<ol>
+<li>r_rel is vector r_rel_ab, resolved according to table
+below.</li>
+<li>v_rel is vector <strong>der</strong>(r_rel_ab), resolved
+according to table below.</li>
+<li>a_rel is vector
+<strong>der</strong>(<strong>der</strong>(r_rel_ab)), resolved
+according to table below.</li>
+<li>angles is a vector of 3 angles such that R_rel_ab =
+Frames.axesRotations(sequence, angles).</li>
+<li>w_rel is vector w_rel_ab, resolved according to table
+below.</li>
+<li>z_rel is vector <strong>der</strong>(w_rel_ab), resolved
+according to table below.</li>
+</ol>
+<p>using the auxiliary quantities</p>
+<ol>
+<li>r_rel_ab is vector frame_b.r_0 - frame_a.r_0, resolved either
+in frame_a or frame_b according to parameter resolveInFrame_a.</li>
+<li>R_rel_ab is orientation object
+Frames.relativeRotation(frame_a.R, frame_b.R).</li>
+<li>w_rel_ab is vector Frames.angularVelocity1(R_rel_ab,
+der(R_rel_ab)), resolved either in frame_a or frame_b according to
+parameter resolveInFrame_a.</li>
+</ol>
+<p>and resolved in the following frame</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th><strong><em>frame_resolve is</em></strong></th>
+<th><strong><em>resolveInFrame_a =</em></strong></th>
+<th><strong><em>vector is resolved in</em></strong></th>
+</tr>
+<tr>
+<td>connected</td>
+<td>true</td>
+<td><strong>frame_resolve</strong></td>
+</tr>
+<tr>
+<td>connected</td>
+<td>false</td>
+<td><strong>frame_resolve</strong></td>
+</tr>
+<tr>
+<td>not connected</td>
+<td>true</td>
+<td><strong>frame_a</strong></td>
+</tr>
+<tr>
+<td>not connected</td>
+<td>false</td>
+<td><strong>frame_b</strong></td>
+</tr>
+</table>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

@@ -1,0 +1,319 @@
+<html><head><title>Modelica.Electrical.Machines.Thermal</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Thermal"><h1><embed class="icon" src="../../../images/icon0626.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;Thermal<br><span class="subtitle">Library with models for connecting thermal models</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<h4>Thermal concept</h4>
+<p>
+Each machine model is equipped with a machine-specific conditional <code>thermalPort</code>.
+If <code>useThermalPort == false</code>, a machine-specific thermal ambient prescribing constant temperatures is used inside the machine.
+If <code>useThermalPort == true</code>, a thermal model or machine-specific thermal ambient prescribing the temperatures has to be connected from outside.
+On the other hand, all losses are dissipated to this internal or external thermal ambient.
+</p>
+<p>
+The machine specific thermal connector contains <a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">heatPort</a>s
+for all relevant loss sources of the machine type, although some of the loss sources are not yet implemented;
+these heatPorts are left unconnected inside the machine, i.e., the HeatFlowRate is zero,
+but they have to be connected to a constant temperature source in the internal or external thermal ambient.
+Simple machine-specific thermal ambients for constant temperatures (<code>useTemperatureInputs == false</code>)
+or temperatures prescribed via signal inputs (<code>useTemperatureInputs == true</code>) are provided in this package.
+</p>
+<h4>Loss sources</h4>
+<p>
+Up to now, only Ohmic losses in stator and rotor windings are implemented.
+They are modeled as <a href="../../../Electrical/Analog/Basic/index.html#Resistor">linearly temperature dependent resistors</a>:
+</p>
+<pre>
+   ROperational = RRef * (1 + alphaRef * (TOperational - TRef))
+</pre>
+<h5>Parameters:</h5>
+<ul>
+<li>Resistance <code>RRef</code> at reference temperature</li>
+<li>Reference temperature <code>TRef</code></li>
+<li>Linear temperature coefficient <code>alpha20</code> at 20&deg;C</li>
+<li>Operational temperature <code>TOperational</code>
+(if <code>useThermalPort == false</code>; otherwise, the operational temperature is provided via the heatPort)</li>
+<li>Nominal temperature <code>TNominal</code>
+(required for DC machines to calculate the turns ratio)</li>
+</ul>
+<p>
+The linear temperature coefficient <code>alpha20</code> at 20&deg;C = 293.15 K has to be converted to reference temperature <code>TRef</code>:
+</p>
+<pre>
+                        alpha20
+  alphaRef = -------------------------------
+              1 + alpha20 * (TRef - 293.15)
+</pre>
+<p>
+For this reason, the function <a href="../../../Electrical/Machines/Thermal/index.html#convertAlpha">convertAlpha</a> is provided.
+In sub-package <a href="../../../Electrical/Machines/Thermal/Constants/index.html">Constants</a> linear temperature coefficients at 20&deg;C for commonly used materials are defined.
+</p>
+<h4>Backwards compatibility</h4>
+<ul>
+<li>The default / start values of all resistances are left unchanged.</li>
+<li>The default / start values of all reference temperatures are set to 20&deg;C.</li>
+<li>The default / start values of all linear temperature coefficients are set to 0.</li>
+<li>The default / start values of all operational temperatures are set to 20&deg;C.</li>
+<li>The default / start values of all nominal temperatures are set to 20&deg;C.</li>
+</ul>
+<h4>Machine specific thermalPorts</h4>
+<h5><a href="../../../Electrical/Machines/BasicMachines/AsynchronousInductionMachines/index.html#AIM_SquirrelCage">Asynchronous induction machine with squirrel cage</a></h5>
+<ul>
+<li><code>heatPortStatorWinding[m]</code>: m=3 heatPorts for the m=3 stator phases</li>
+<li><code>heatPortRotorWinding</code>: heatPort for the rotor cage</li>
+<li><code>heatPortStatorCore</code>: stator core losses (not yet fully implemented)</li>
+<li><code>heatPortRotorCore</code>: rotor core losses (not yet connected/implemented)</li>
+<li><code>heatPortStrayLoad</code>: stray load losses</li>
+<li><code>heatPortFriction</code>: friction losses</li>
+</ul>
+<h5><a href="../../../Electrical/Machines/BasicMachines/AsynchronousInductionMachines/index.html#AIM_SlipRing">Asynchronous induction machine with slipring rotor</a></h5>
+<ul>
+<li><code>heatPortStatorWinding[m]</code>: m=3 heatPorts for the m=3 stator phases</li>
+<li><code>heatPortRotorWinding[m]</code>: m=3 heatPorts for the m=3 rotor phases</li>
+<li><code>heatPortBrush</code>: brush losses (not yet connected/implemented)</li>
+<li><code>heatPortStatorCore</code>: stator core losses (not yet fully implemented)</li>
+<li><code>heatPortRotorCore</code>: rotor core losses (not yet fully implemented)</li>
+<li><code>heatPortStrayLoad</code>: stray load losses</li>
+<li><code>heatPortFriction</code>: friction losses</li>
+</ul>
+<h5><a href="../../../Electrical/Machines/BasicMachines/SynchronousInductionMachines/index.html#SM_PermanentMagnet">Synchronous induction machine with permanent magnets</a></h5>
+<ul>
+<li><code>heatPortStatorWinding[m]</code>: m=3 heatPorts for the m=3 stator phases</li>
+<li><code>heatPortRotorWinding</code>: conditional (<code>useDamperCage=true/false</code>) heatPort for the damper cage</li>
+<li><code>heatPortPermanentMagnet</code>: permanent magnet losses (not yet connected/implemented)</li>
+<li><code>heatPortStatorCore</code>: stator core losses (not yet fully implemented)</li>
+<li><code>heatPortRotorCore</code>: rotor core losses (not yet connected/implemented)</li>
+<li><code>heatPortStrayLoad</code>: stray load losses</li>
+<li><code>heatPortFriction</code>: friction losses</li>
+</ul>
+<h5><a href="../../../Electrical/Machines/BasicMachines/SynchronousInductionMachines/index.html#SM_ElectricalExcited">Synchronous induction machine with electrical excitation</a></h5>
+<ul>
+<li><code>heatPortStatorWinding[m]</code>: m=3 heatPorts for the m=3 stator phases</li>
+<li><code>heatPortRotorWinding</code>: conditional (<code>useDamperCage=true/false</code>) heatPort for the damper cage</li>
+<li><code>heatPortExcitation</code>: electrical excitation</li>
+<li><code>heatPortBrush</code>: brush losses</li>
+<li><code>heatPortStatorCore</code>: stator core losses (not yet fully implemented)</li>
+<li><code>heatPortRotorCore</code>: rotor core losses (not yet connected/implemented)</li>
+<li><code>heatPortStrayLoad</code>: stray load losses</li>
+<li><code>heatPortFriction</code>: friction losses</li>
+</ul>
+<h5><a href="../../../Electrical/Machines/BasicMachines/SynchronousInductionMachines/index.html#SM_ReluctanceRotor">Synchronous induction machine with reluctance rotor</a></h5>
+<ul>
+<li><code>heatPortStatorWinding[m]</code>: m=3 heatPorts for the m=3 stator phases</li>
+<li><code>heatPortRotorWinding</code>: conditional (<code>useDamperCage=true/false</code>) heatPort for the damper cage</li>
+<li><code>heatPortStatorCore</code>: stator core losses (not yet fully implemented)</li>
+<li><code>heatPortRotorCore</code>: rotor core losses (not yet connected/implemented)</li>
+<li><code>heatPortStrayLoad</code>: stray load losses</li>
+<li><code>heatPortFriction</code>: friction losses</li>
+</ul>
+<h5><a href="../../../Electrical/Machines/BasicMachines/DCMachines/index.html#DC_PermanentMagnet">DC machine with permanent magnets</a></h5>
+<ul>
+<li><code>heatPortArmature</code>: armature losses</li>
+<li><code>heatPortPermanentMagnet</code>: permanent magnet losses (not yet connected/implemented)</li>
+<li><code>heatPortBrush</code>: brush losses</li>
+<li><code>heatPortCore</code>: armature core losses</li>
+<li><code>heatPortStrayLoad</code>: stray load losses</li>
+<li><code>heatPortFriction</code>: friction losses</li>
+</ul>
+<h5><a href="../../../Electrical/Machines/BasicMachines/DCMachines/index.html#DC_ElectricalExcited">DC machine with electrical (shunt) excitation</a></h5>
+<ul>
+<li><code>heatPortArmature</code>: armature losses</li>
+<li><code>heatPortExcitation</code>: electrical (shunt) excitation</li>
+<li><code>heatPortBrush</code>: brush losses</li>
+<li><code>heatPortCore</code>: armature core losses</li>
+<li><code>heatPortStrayLoad</code>: stray load losses</li>
+<li><code>heatPortFriction</code>: friction losses</li>
+</ul>
+<h5><a href="../../../Electrical/Machines/BasicMachines/DCMachines/index.html#DC_SeriesExcited">DC machine with serial excitation</a></h5>
+<ul>
+<li><code>heatPortArmature</code>: armature losses</li>
+<li><code>heatPortSeriesExcitation</code>: electrical series excitation</li>
+<li><code>heatPortBrush</code>: brush losses</li>
+<li><code>heatPortCore</code>: armature core losses</li>
+<li><code>heatPortStrayLoad</code>: stray load losses</li>
+<li><code>heatPortFriction</code>: friction losses</li>
+</ul>
+<h5><!--<a href="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_Compound">-->DC machine with compound excitation (not yet implemented)<!--</a>--></h5>
+<ul>
+<li><code>heatPortArmature</code>: armature losses</li>
+<li><code>heatPortShuntExcitation</code>: electrical (shunt) excitation</li>
+<li><code>heatPortSeriesExcitation</code>: electrical series excitation</li>
+<li><code>heatPortBrush</code>: brush losses</li>
+<li><code>heatPortCore</code>: armature core losses</li>
+<li><code>heatPortStrayLoad</code>: stray load losses</li>
+<li><code>heatPortFriction</code>: friction losses</li>
+</ul>
+<h5><a href="../../../Electrical/Machines/BasicMachines/Transformers/index.html">Transformers</a></h5>
+<ul>
+<li><code>heatPort1[m]</code>: m=3 heatPorts for the m=3 primary phases</li>
+<li><code>heatPort2[m]</code>: m=3 heatPorts for the m=3 secondary phases</li>
+<li><code>heatPortCore</code>: iron core losses (not yet connected/implemented)</li>
+</ul>
+<p>Extends from <code><a href="../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="../../../Electrical/Machines/Thermal/AsynchronousInductionMachines/index.html"><code>AsynchronousInductionMachines</code></a> &hellip;</td><td>Thermal parts of asynchronous induction machines</td></tr>
+<tr><td><a href="../../../Electrical/Machines/Thermal/Constants/index.html"><code>Constants</code></a> &hellip;</td><td>Material Constants</td></tr>
+<tr><td><a href="#convertAlpha"><code>convertAlpha</code></a></td><td>Converts alpha from temperature 1 (default 20 degC) to temperature 2</td></tr>
+<tr><td><a href="#convertResistance"><code>convertResistance</code></a></td><td>Converts resistance from reference temperature to an actual temperature</td></tr>
+<tr><td><a href="../../../Electrical/Machines/Thermal/DCMachines/index.html"><code>DCMachines</code></a> &hellip;</td><td>Thermal parts of DC machines</td></tr>
+<tr><td><a href="#LinearTemperatureCoefficient20"><code>LinearTemperatureCoefficient20</code></a></td><td>Linear temperature coefficient with choices</td></tr>
+<tr><td><a href="#linearTemperatureDependency"><code>linearTemperatureDependency</code></a></td><td>Converts a value (e.g. resistance) from reference temperature to an actual temperature</td></tr>
+<tr><td><a href="../../../Electrical/Machines/Thermal/SynchronousInductionMachines/index.html"><code>SynchronousInductionMachines</code></a> &hellip;</td><td>Thermal parts of synchronous induction machines</td></tr>
+<tr><td><a href="#ThermalAmbientTransformer"><code>ThermalAmbientTransformer</code></a></td><td>Thermal ambient for transformers</td></tr>
+</table>
+<hr><a name="LinearTemperatureCoefficient20"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Thermal</a>.&#8203;LinearTemperatureCoefficient20<br><span class="subtitle">Linear temperature coefficient with choices</span></h2></a>
+<p>Extends from <code><a href="../../../SIunits/index.html#LinearTemperatureCoefficient">Modelica.&#8203;SIunits.&#8203;LinearTemperatureCoefficient</a></code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"LinearTemperatureCoefficient"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"1/K"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="convertAlpha"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Thermal</a>.&#8203;convertAlpha<br><span class="subtitle">Converts alpha from temperature 1 (default 20 degC) to temperature 2</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+From the temperature coefficient <code>alpha1</code> at temperature <code>T1</code> (default 20 degC = 293.15 K)
+the temperature coefficient <code>alpha2</code> at temperature <code>T2</code> is calculated:
+</p>
+<pre>
+                alpha1
+  alpha2 = ------------------------
+            1 + alpha1 * (T2 - T1)
+</pre>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha1</code></td><td>Temperature coefficient at temperature 1 (default: 20 degC)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T2</code></td><td>Temperature 2</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T1</code></td><td>Temperature 1 (default: 20 degC)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha2</code></td><td>Temperature coefficient at TRef</td></tr>
+</table>
+<hr><a name="convertResistance"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Thermal</a>.&#8203;convertResistance<br><span class="subtitle">Converts resistance from reference temperature to an actual temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+From the temperature coefficient <code>alpha20</code> at 20 degC (equals to 293.15 K) the parameter <code>alphaRef</code> at <code>TRef</code>
+</p>
+<pre>
+                        alpha20
+  alphaRef = -------------------------------
+              1 + alpha20 * (TRef - 293.15)
+</pre>
+<p>
+is determined; using this value, actual resistance <code>R</code> with respect to the actual temperature <code>T</code> is calculated by
+</p>
+<pre>
+   R
+  ------ = 1 + alphaRef * (T - TRef)
+   RRef
+</pre>
+<p>
+where <code>RRef</code> is the resistance at the reference temperature <code>TRef</code>.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RRef</code></td><td>Resistance at TRef</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TRef</code></td><td>Reference temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha20</code></td><td>Temperature coefficient at 20 degC</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Actual temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td>Actual resistance at T</td></tr>
+</table>
+<hr><a name="linearTemperatureDependency"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Thermal</a>.&#8203;linearTemperatureDependency<br><span class="subtitle">Converts a value (e.g. resistance) from reference temperature to an actual temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is the same function as Modelica.Electrical.Machines.Thermal.convertResistance but without physical units for input RRef and result R.
+This avoids problems if the function is used to calculate linear temperature dependency for other values than resistances.
+</p>
+<p>
+From the temperature coefficient <code>alpha20</code> at 20 degC (equals to 293.15 K) the parameter <code>alphaRef</code> at <code>TRef</code>
+</p>
+<pre>
+                        alpha20
+  alphaRef = -------------------------------
+              1 + alpha20 * (TRef - 293.15)
+</pre>
+<p>
+is determined; using this value, actual value (e.g. resistance <code>R</code>) with respect to the actual temperature <code>T</code> is calculated by
+</p>
+<pre>
+   R
+  ------ = 1 + alphaRef * (T - TRef)
+   RRef
+</pre>
+<p>
+where <code>RRef</code> is the value (e.g. resistance) at the reference temperature <code>TRef</code>.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>RRef</code></td><td>Value at TRef</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TRef</code></td><td>Reference temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha20</code></td><td>Temperature coefficient at 20 degC</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Actual temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>R</code></td><td>Actual value at T</td></tr>
+</table>
+<hr><a name="ThermalAmbientTransformer"><h2><embed class="icon" src="../../../images/icon0637.svg" width="243" height="254" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Thermal</a>.&#8203;ThermalAmbientTransformer<br><span class="subtitle">Thermal ambient for transformers</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Thermal ambient for transformers to prescribe winding temperatures either constant or via signal connectors.
+Additionally, all losses = heat flows are recorded.
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useTemperatureInputs</code></td><td><code>false</code></td><td>If true, temperature inputs are used; else, temperatures are constant</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T1</code></td><td>&nbsp;</td><td>Temperature of primary windings</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T2</code></td><td>&nbsp;</td><td>Temperature of secondary windings</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Machines/Interfaces/index.html#ThermalPortTransformer">ThermalPortTransformer</a></code></td><td><code>thermalPort</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>TPrimary</code></td><td>Temperature of primary windings</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>TSecondary</code></td><td>Temperature of secondary windings</td></tr>
+</table>
+</body></html>

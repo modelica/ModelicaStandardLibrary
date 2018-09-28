@@ -1,0 +1,197 @@
+<html><head><title>Modelica.Electrical.Machines.Losses.DCMachines</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="DCMachines"><h1><embed class="icon" src="../../../../images/icon0573.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Losses</a>.&#8203;DCMachines<br><span class="subtitle">Loss models for DC machines</span></h1></a>
+<h3>Information</h3>
+<p>
+
+This package contains loss models used for DC machine models.
+<p>Extends from <code><a href="../../../../Icons/VariantsPackage/index.html">Modelica.&#8203;Icons.&#8203;VariantsPackage</a></code> (Icon for package containing variants).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Brush"><code>Brush</code></a></td><td>Model considering voltage drop of carbon brushes</td></tr>
+<tr><td><a href="#brushVoltageDrop"><code>brushVoltageDrop</code></a></td><td>Voltage drop of carbon brushes</td></tr>
+<tr><td><a href="#Core"><code>Core</code></a></td><td>Model of core losses</td></tr>
+<tr><td><a href="#StrayLoad"><code>StrayLoad</code></a></td><td>Model of stray load losses dependent on current and speed</td></tr>
+</table>
+<hr><a name="Brush"><h2><embed class="icon" src="../../../../images/icon0623.svg" width="223" height="213" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Losses</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;Brush<br><span class="subtitle">Model considering voltage drop of carbon brushes</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Model of voltage drop and losses of carbon brushes. For currents between <code>-ILinear</code> and <code>ILinear</code>
+ the voltage drop shows a linear behavior as depicted in Fig. 1.
+ For positive currents greater or equal than <code>ILinear</code> the voltage drop equals <code>V</code>.
+ For negative currents less or equal than <code>-ILinear</code> the voltage drop equals <code>-V</code>.
+</p>
+
+<table border=0 cellspacing=0 cellpadding=1>
+  <tr><td> <img src="../../../../../Images/Electrical/Machines/brush.png"
+                alt="brush.png"> </td> </tr>
+  <tr><td> <strong> Fig. 1: </strong>Model of voltage drop of carbon brushes</td> </tr>
+</table>
+<h4>Note:</h4>
+<p>
+The voltage drop <code>v</code> is the total voltage drop of all series connected brushes.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Electrical/Machines/Losses/index.html#BrushParameters">BrushParameters</a>
+</p>
+<p>
+If it is desired to neglect brush losses, set <code>brushParameters.V = 0</code> (this is the default).
+</p>
+<p>Extends from <code><a href="../../../../Electrical/Analog/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical pins p and n and current i from p to n) and <code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#PartialElementaryConditionalHeatPortWithoutT">Modelica.&#8203;Thermal.&#8203;HeatTransfer.&#8203;Interfaces.&#8203;PartialElementaryConditionalHeatPortWithoutT</a></code> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Machines/Losses/index.html#BrushParameters">BrushParameters</a></code></td><td><code>brushParameters</code></td><td>&nbsp;</td><td>Brush loss parameters</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
+</table>
+<hr><a name="brushVoltageDrop"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Losses</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;brushVoltageDrop<br><span class="subtitle">Voltage drop of carbon brushes</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Calculates the voltage drop of carbon brushes, according to
+<a href="../../../../Electrical/Machines/Losses/DCMachines/index.html#Brush">Brush</a> losses,
+e.g., used for initial equations.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Machines/Losses/index.html#BrushParameters">BrushParameters</a></code></td><td><code>brushParameters</code></td><td>Brush loss parameters</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>i</code></td><td>Actual current</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>v</code></td><td>Voltage drop</td></tr>
+</table>
+<hr><a name="StrayLoad"><h2><embed class="icon" src="../../../../images/icon0624.svg" width="223" height="233" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Losses</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;StrayLoad<br><span class="subtitle">Model of stray load losses dependent on current and speed</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The stray load loss torque is
+</p>
+<pre>
+  tau = PRef/wRef * (i/IRef)^2 * (w/wRef)^power_w
+</pre>
+<p>
+where <code>i</code> is the current of the machine and <code>w</code> is the actual angular velocity.
+The dependency of the stray load torque on the angular velocity is modeled by the exponent <code>power_w</code>.
+</p>
+<p>
+The stray load losses are modeled such way that they do not cause a voltage drop in the electric circuit.
+Instead, the dissipated losses are considered through an equivalent braking torque at the shaft.
+</p>
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/Machines/Losses/index.html#StrayLoadParameters">StrayLoad parameters</a>
+</p>
+<p>
+If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRef = 0</code> (this is the default).
+</p>
+<p>Extends from <code><a href="../../../../Electrical/Analog/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical pins p and n and current i from p to n), <code><a href="../../../../Electrical/Machines/Interfaces/index.html#FlangeSupport">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Interfaces.&#8203;FlangeSupport</a></code> (Shaft and support), and <code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#PartialElementaryConditionalHeatPortWithoutT">Modelica.&#8203;Thermal.&#8203;HeatTransfer.&#8203;Interfaces.&#8203;PartialElementaryConditionalHeatPortWithoutT</a></code> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Machines/Losses/index.html#StrayLoadParameters">StrayLoadParameters</a></code></td><td><code>strayLoadParameters</code></td><td>&nbsp;</td><td>Stray load loss parameters</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>Shaft end</td></tr>
+<tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>support</code></td><td>Housing and support</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
+</table>
+<hr><a name="Core"><h2><embed class="icon" src="../../../../images/icon0625.svg" width="223" height="213" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Losses</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;Core<br><span class="subtitle">Model of core losses</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Core losses can be separated into <em>eddy current</em> and <em>hysteresis</em> losses. The total core losses
+can thus be expressed as
+</p>
+<pre>
+  p = PRef * (ratioHysteresis * (wRef / w) + 1 - ratioHysteresis) * (v / VRef)^2
+</pre>
+<p>
+where <code>w</code> is the actual angular velocity and <code>v</code> is the actual voltage. The term <code>ratioHysteresis</code> is the ratio
+of the hysteresis losses with respect to the total core losses for reference inner voltage and reference angular velocity.
+</p>
+
+<p>
+For the voltage and angular velocity range with respect to Fig.&nbsp;1,
+the dependency of total core losses on the parameter <code>ratioHysteresis</code> is depicted in Fig.&nbsp;2.
+</p>
+
+<table border=0 cellspacing=0 cellpadding=1>
+  <tr><td> <img src="../../../../../Images/Electrical/Machines/corelossesVw.png"
+                alt="corelossesVw.png"> </td>
+  </tr>
+  <tr><td> <strong> Fig. 1: </strong>Voltage versus angular velocity</td>
+  </tr>
+</table>
+
+<table border=0 cellspacing=0 cellpadding=1>
+  <tr><td> <img src="../../../../../Images/Electrical/Machines/corelossesPcw.png"
+                alt="corelossesPcw.png"> </td>
+  </tr>
+  <tr><td> <strong> Fig. 2: </strong>Core losses versus angular velocity with parameter <code>ratioHysteresis</code></td>
+  </tr>
+</table>
+
+<h4>Note</h4>
+<p>In the current implementation it is assumed that <code>ratioHysteresis = 0</code>. This parameter cannot be changed due to compatibility reasons.</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/Machines/Losses/index.html#CoreParameters">Core loss parameters</a>
+</p>
+
+<p>Extends from <code><a href="../../../../Electrical/Analog/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical pins p and n and current i from p to n) and <code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#PartialElementaryConditionalHeatPortWithoutT">Modelica.&#8203;Thermal.&#8203;HeatTransfer.&#8203;Interfaces.&#8203;PartialElementaryConditionalHeatPortWithoutT</a></code> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Machines/Losses/index.html#CoreParameters">CoreParameters</a></code></td><td><code>coreParameters</code></td><td>&nbsp;</td><td>Armature core losses</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
+</table>
+</body></html>

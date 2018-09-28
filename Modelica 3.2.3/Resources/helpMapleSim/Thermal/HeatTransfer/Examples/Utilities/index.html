@@ -1,0 +1,104 @@
+<html><head><title>Modelica.Thermal.HeatTransfer.Examples.Utilities</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Utilities"><h1><embed class="icon" src="../../../../images/icon0009.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Thermal</a>.&#8203;<a href="../../index.html">HeatTransfer</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;Utilities<br><span class="subtitle">Utility classes used by the Example models</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>Utility models and functions used in the Examples</p>
+<p>Extends from <code><a href="../../../../Icons/UtilitiesPackage/index.html">Modelica.&#8203;Icons.&#8203;UtilitiesPackage</a></code> (Icon for utility packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Conduction"><code>Conduction</code></a></td><td>Input/output block of a conduction model</td></tr>
+<tr><td><a href="#DirectCapacity"><code>DirectCapacity</code></a></td><td>Input/output block of a direct heatCapacity model</td></tr>
+<tr><td><a href="#InverseCapacity"><code>InverseCapacity</code></a></td><td>Input/output block of an inverse heatCapacity model</td></tr>
+</table>
+<hr><a name="DirectCapacity"><h2><embed class="icon" src="../../../../images/icon1461.svg" width="283" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Thermal</a>.&#8203;<a href="../../index.html">HeatTransfer</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;DirectCapacity<br><span class="subtitle">Input/output block of a direct heatCapacity model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block that has only the basic icon for an input/output
+block (no declarations, no equations). Most blocks
+of package Modelica.Blocks inherit directly or indirectly
+from this block.
+</p>
+<p>Extends from <code><a href="../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#HeatCapacity">HeatCapacity</a></code></td><td><code>C</code></td><td><code>1</code></td><td>HeatCapacity</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>Q_flowDrive</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>T</code></td><td>Heat capacity changes temperature T due to heat flow Q_flow</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>derT</code></td><td>Heat capacity changes temperature T due to heat flow Q_flow</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>Q_flow</code></td><td>Heat flow to the heat capacity</td></tr>
+</table>
+<hr><a name="InverseCapacity"><h2><embed class="icon" src="../../../../images/icon1462.svg" width="243" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Thermal</a>.&#8203;<a href="../../index.html">HeatTransfer</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;InverseCapacity<br><span class="subtitle">Input/output block of an inverse heatCapacity model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block that has only the basic icon for an input/output
+block (no declarations, no equations). Most blocks
+of package Modelica.Blocks inherit directly or indirectly
+from this block.
+</p>
+<p>Extends from <code><a href="../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#HeatCapacity">HeatCapacity</a></code></td><td><code>C</code></td><td><code>1</code></td><td>HeatCapacity</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>T</code></td><td>Temperature to drive the heatCapacity</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>derT</code></td><td>Temperature to drive the heatCapacity</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>Q_flow</code></td><td>Heat flow needed to drive the heatPort according to T, derT</td></tr>
+</table>
+<hr><a name="Conduction"><h2><embed class="icon" src="../../../../images/icon1463.svg" width="283" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Thermal</a>.&#8203;<a href="../../index.html">HeatTransfer</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;Conduction<br><span class="subtitle">Input/output block of a conduction model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block that has only the basic icon for an input/output
+block (no declarations, no equations). Most blocks
+of package Modelica.Blocks inherit directly or indirectly
+from this block.
+</p>
+<p>Extends from <code><a href="../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#ThermalConductance">ThermalConductance</a></code></td><td><code>G</code></td><td><code>1</code></td><td>Thermal conductance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>T1</code></td><td>Temperature of left heatPort of conduction element</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>Q_flow1</code></td><td>Heat flow generated by the conduction element</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>T2</code></td><td>Temperature of right heatPort of conduction element</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>Q_flow2</code></td><td>Heat flow generated by the conduction element</td></tr>
+</table>
+</body></html>

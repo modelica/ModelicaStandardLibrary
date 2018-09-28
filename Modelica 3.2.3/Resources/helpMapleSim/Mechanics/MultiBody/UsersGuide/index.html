@@ -1,0 +1,266 @@
+<html><head><title>Modelica.Mechanics.MultiBody.UsersGuide</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="UsersGuide"><h1><embed class="icon" src="../../../images/icon0002.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;UsersGuide<br><span class="subtitle">User's Guide of MultiBody Library</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Library <strong>MultiBody</strong> is a <strong>free</strong> Modelica package providing
+3-dimensional mechanical components to model in a convenient way
+<strong>mechanical systems</strong>, such as robots, mechanisms, vehicles.
+This package contains the User's Guide for the MultiBody library.
+</p>
+<ol>
+<li> <a href="../../../Mechanics/MultiBody/UsersGuide/Tutorial/index.html">Tutorial</a>
+gives an introduction into the most important aspects of the library.
+</li>
+<li> <a href="../../../Mechanics/MultiBody/UsersGuide/index.html#Upgrade">Upgrade</a> describes
+  how to upgrade from former versions, especially from the "old"
+  ModelicaAdditions.MultiBody library.
+</li>
+<li> <a href="../../../Mechanics/MultiBody/UsersGuide/index.html#Literature">Literature</a> provides
+  references that have been used to design and implement this library.
+</li>
+<li> <a href="../../../Mechanics/MultiBody/UsersGuide/index.html#Contact">Contact</a> provides
+  information about the author of the library as well as
+  acknowledgments.
+</li>
+</ol>
+<p>Extends from <code><a href="../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Contact"><code>Contact</code></a></td><td>Contact</td></tr>
+<tr><td><a href="#Literature"><code>Literature</code></a></td><td>Literature</td></tr>
+<tr><td><a href="../../../Mechanics/MultiBody/UsersGuide/Tutorial/index.html"><code>Tutorial</code></a> &hellip;</td><td>Tutorial</td></tr>
+<tr><td><a href="#Upgrade"><code>Upgrade</code></a></td><td>Upgrade from Former Versions</td></tr>
+</table>
+<hr><a name="Upgrade"><h2><embed class="icon" src="../../../images/icon0002.svg" width="203" height="203" />
+Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;Upgrade<br><span class="subtitle">Upgrade from Former Versions</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+If different versions of the MultiBody library are not
+compatible to each other, corresponding conversion scripts are
+provided. As a result, models build with an older version
+of the MultiBody library are automatically converted to the
+new version when the model is loaded. The user is prompted
+whether automatic conversion shall take place or not.
+Problems are not to be expected. Still one should first make
+a copy of such a model as backup before the conversion
+is performed.
+</p>
+<p>
+<strong>Upgrade from ModelicaAdditions.MultiBody</strong>
+</p>
+<p>
+There is now also a conversion script from the "old"
+<strong>ModelicaAdditions.MultiBody</strong> library to the
+"new" Modelica.Mechanics.MultiBody library. This script is also
+automatically invoked. Since the differences between the "old" and the
+"new" MultiBody library are so large, not everything is
+converted and it might be that some pieces have to
+be adapted manually. Still, this script is useful, since
+many class names, parameters and modifiers are
+automatically converted.
+</p>
+<p>
+Components from the following sublibraries
+are automatically converted
+to the Modelica.Mechanics.MultiBody library:
+</p>
+<ul>
+<li> ModelicaAdditions.MultiBody.Parts</li>
+<li> ModelicaAdditions.MultiBody.Joints</li>
+<li> ModelicaAdditions.MultiBody.Forces</li>
+<li> Part of ModelicaAdditions.MultiBody.Interfaces</li>
+</ul>
+<p>
+Models using the ModelicaAdditions.MultiBody library
+that are programmed with <strong>equations</strong> are only partly converted:
+The Frame connectors will be converted to the "new"
+Frame connectors of the MultiBody library, but the equations
+that reference variables of the Frame connectors will
+<strong>not</strong> be converted. For a manual conversion, the following
+table might be helpful showing how the <strong>variables</strong> of the
+"old" and the "new" <strong>Frame connectors</strong> are
+related to each other (resolve2 and angularVelocity2 are
+functions from library Modelica.Mechanics.MultiBody.Frames):
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>ModelicaAdditions.MultiBody.<br>
+           Interfaces.Frame_a</strong></th>
+    <th><strong>MultiBody.Interfaces.Frame_a</strong></th></tr>
+<tr>
+  <td>frame_a.<strong>r0</strong></td>
+  <td>= frame_a.r_0 (is converted)</td>
+</tr>
+<tr>
+  <td>frame_a.<strong>S</strong></td>
+  <td>= transpose(frame_a.R)</td>
+</tr>
+<tr>
+  <td>frame_a.<strong>v</strong></td>
+  <td>= resolve2(frame_a.R, <strong>der</strong>(frame_a.r_0))</td>
+</tr>
+<tr>
+  <td>frame_a.<strong>w</strong></td>
+  <td>= angularVelocity2(frame_a.R)</td>
+</tr>
+<tr>
+  <td>frame_a.<strong>a</strong></td>
+  <td>= resolve2(frame_a.R, <strong>der</strong>(v_0)); v_0 = der(r_0)</td>
+</tr>
+<tr>
+  <td>frame_a.<strong>z</strong></td>
+  <td>= <strong>der</strong>(w);  w = angulaVelocity2(frame_a.R)</td>
+</tr>
+<tr>
+  <td>frame_a.<strong>f</strong></td>
+  <td>= frame_a.f (no conversion needed)</td>
+</tr>
+<tr>
+  <td>frame_a.<strong>t</strong></td>
+  <td>= frame_a.t (no conversion needed)</td>
+</tr>
+</table>
+<p>
+<strong>Upgrade from MultiBody 0.99 (and earlier) to 1.0 (and later)</strong>
+</p>
+<p>
+The conversion from MultiBody 0.99 to 1.0 does not work in some rare
+cases, where own components are implemented using functions of the
+MultiBody.Frames package. In this case, the conversion has to be
+performed manually. The changes in 1.0 with regards to 0.99 are:
+</p>
+<p>
+The definition of the Modelica.Mechanics.MultiBody.Frames.Orientation object has changed.
+In 0.99 this was just an alias type for a transformation matrix
+(now Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation).
+In 1.0 the orientation object is a record holding the
+transformation matrix from frame 1 to frame 2 and the angular
+velocity of the transformation matrix resolved in frame 2.
+The reason is that this allows to compute the angular velocity
+in many cases by standard recursive formulas and not by
+differentiation of the transformation matrix. This is usually
+much more efficient. As a consequence, the following
+calls in 0.99 should be changed:
+</p>
+<pre>
+   Frames.angularVelocity1(T,der(T)) -> Frames.angularVelocity1(T)
+   Frames.angularVelocity2(T,der(T)) -> Frames.angularVelocity2(T)
+   Frames.from_T(T)                  -> Frames.from_T2(T,der(T))
+</pre>
+<p>Extends from <code><a href="../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="Literature"><h2><embed class="icon" src="../../../images/icon0003.svg" width="203" height="203" />
+Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;Literature<br><span class="subtitle">Literature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<ul>
+<li>Technical details of this library are described in the paper:
+<dl>
+<dt>Otter M., Elmqvist H., and Mattsson S.E.:</dt>
+<dd> <strong>The New Modelica MultiBody Library</strong>.
+     Modelica 2003 Conference, Link&ouml;ping, Sweden,
+     pp. 311-330, Nov. 3-4, 2003.
+     Download from:
+     <a href="https://www.modelica.org/events/Conference2003/papers/h37_Otter_multibody.pdf">https://www.modelica.org/events/Conference2003/papers/h37_Otter_multibody.pdf</a>
+     </dd>
+</dl>
+</li>
+<li>The method how to describe drive trains with 1-dimensional mechanics
+and to mount them on 3-dimensional components without neglecting
+dynamical effects is described in:
+<dl>
+<dt>Schweiger C., and Otter M.:</dt>
+<dd> <strong>Modelling 3-dim. Mechanical Effects of 1-dim. Powertrains</strong>.
+     Modelica 2003 Conference, Link&ouml;ping, Sweden,
+     pp. 149-158, Nov. 3-4, 2003.
+     Download from:
+<a href="https://www.modelica.org/events/Conference2003/papers/h06_Schweiger_powertrains_v5.pdf">https://www.modelica.org/events/Conference2003/papers/h06_Schweiger_powertrains_v5.pdf</a>
+     </dd>
+</dl>
+</li>
+<li> The method to solve a certain class of kinematic loops
+     analytically is based on:
+<dl>
+<dt>Woernle C.:</dt>
+<dd><strong>Ein systematisches Verfahren zur Aufstellung der geometrischen
+    Schliessbedingungen in kinematischen Schleifen mit Anwendung
+    bei der R&uuml;ckw&auml;rtstransformation f&uuml;r
+    Industrieroboter.</strong><br>
+    Fortschritt-Berichte VDI, Reihe 18, Nr. 59, Duesseldorf: VDI-Verlag 1988,
+    ISBN 3-18-145918-6.<br>&nbsp;</dd>
+<dt>Hiller M., and Woernle C.:</dt>
+<dd><strong>A Systematic Approach for Solving the Inverse Kinematic
+    Problem of Robot Manipulators</strong>.<br>
+    Proceedings 7th World Congress Th. Mach. Mech., Sevilla 1987. </dd>
+</dl>
+</li>
+</ul>
+<p>Extends from <code><a href="../../../Icons/index.html#References">Modelica.&#8203;Icons.&#8203;References</a></code> (Icon for external references).</p>
+<hr><a name="Contact"><h2><embed class="icon" src="../../../images/icon0004.svg" width="203" height="203" />
+Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;Contact<br><span class="subtitle">Contact</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Library officers</h4>
+
+<p>
+<strong>Jakub Tobolar</strong> and <a href="http://www.robotic.dlr.de/Martin.Otter/"><strong>Martin Otter</strong></a><br>
+Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e.V. (DLR)<br>
+Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)<br>
+Forschungszentrum Oberpfaffenhofen<br>
+D-82234 Wessling<br>
+Germany
+</p>
+
+<h4>Acknowledgements</h4>
+
+<ul>
+<li> The central idea to handle a certain class of overdetermined, consistent
+     set of differential algebraic equations (i.e., there are more equations than
+     unknowns) with symbolic transformation algorithms was developed together
+     with Hilding Elmqvist and Sven Erik Mattsson, previously at Dassault Syst&egrave;mes AB, Lund, Sweden.
+     The MultiBody library is heavily relying on this feature which is a
+     prerequisite for a truly "object-oriented" multi-body systems library,
+     where components can be connected together in any meaningful way.</li>
+<li> The Examples.Loops.EngineV6 demo of a six cylinder V6 engine with
+     6 planar loops and 1 degree of freedom is from Hilding Elmqvist and
+     Sven Erik Mattsson.</li>
+<li> Modelica.Mechanics.MultiBody.Forces.LineForceWithMass is based on model
+     "RelativeDistance" from the Modelica VehicleDynamics library of
+     Johan Andreasson from Royal Institute of Technology, Stockholm, Sweden.</li>
+<li> The 1-dim. components (Parts.Rotor1D, Parts.BevelGear1D, Mounting1D) and
+     Joints.GearConstraints are from Christian Schweiger.</li>
+<li> The design of this library is based on work carried out
+     in the EU RealSim project (Real-time Simulation for Design of
+     Multi-physics Systems) funded by the European Commission within
+     the Information Societies Technology (IST) programme under
+     contract number IST 1999-11979.
+     </li>
+</ul>
+<p>Extends from <code><a href="../../../Icons/index.html#Contact">Modelica.&#8203;Icons.&#8203;Contact</a></code> (Icon for contact information).</p>
+</body></html>

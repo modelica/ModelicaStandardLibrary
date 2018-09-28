@@ -1,0 +1,8 @@
+<svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Mechanics.Translational.Interfaces.InternalSupport" class="component">
+		<polygon points="81.5,121.5 121.5,121.5 121.5,81.5 81.5,81.5" fill="#AFBEAF" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="flange" class="port">
+			<polygon points="91.5,111.5 111.5,111.5 111.5,91.5 91.5,91.5" fill="#007F00" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

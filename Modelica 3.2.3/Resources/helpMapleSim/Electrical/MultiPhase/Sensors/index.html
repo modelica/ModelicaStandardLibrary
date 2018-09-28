@@ -1,0 +1,240 @@
+<html><head><title>Modelica.Electrical.MultiPhase.Sensors</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Sensors"><h1><embed class="icon" src="../../../images/icon0460.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;Sensors<br><span class="subtitle">Multiphase potential, voltage and current Sensors</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains multiphase potential, voltage, and current sensors.
+</p>
+
+<p>Extends from <code><a href="../../../Icons/SensorsPackage/index.html">Modelica.&#8203;Icons.&#8203;SensorsPackage</a></code> (Icon for packages containing sensors).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#AronSensor"><code>AronSensor</code></a></td><td>threephase Aron sensor for active power</td></tr>
+<tr><td><a href="#CurrentQuasiRMSSensor"><code>CurrentQuasiRMSSensor</code></a></td><td>Continuous quasi current RMS sensor for multi phase system</td></tr>
+<tr><td><a href="#CurrentSensor"><code>CurrentSensor</code></a></td><td>Multiphase current sensor</td></tr>
+<tr><td><a href="#MultiSensor"><code>MultiSensor</code></a></td><td>Multiphase sensor to measure current, voltage and power</td></tr>
+<tr><td><a href="#PotentialSensor"><code>PotentialSensor</code></a></td><td>Multiphase potential sensor</td></tr>
+<tr><td><a href="#PowerSensor"><code>PowerSensor</code></a></td><td>Multiphase instantaneous power sensor</td></tr>
+<tr><td><a href="#ReactivePowerSensor"><code>ReactivePowerSensor</code></a></td><td>threephase sensor for reactive power</td></tr>
+<tr><td><a href="#VoltageQuasiRMSSensor"><code>VoltageQuasiRMSSensor</code></a></td><td>Continuous quasi voltage RMS sensor for multi phase system</td></tr>
+<tr><td><a href="#VoltageSensor"><code>VoltageSensor</code></a></td><td>Multiphase voltage sensor</td></tr>
+</table>
+<hr><a name="PotentialSensor"><h2><embed class="icon" src="../../../images/icon0706.svg" width="233" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;PotentialSensor<br><span class="subtitle">Multiphase potential sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Contains m potential sensors (Modelica.Electrical.Analog.Sensors.PotentialSensor),
+thus measuring the m potentials <em>phi[m]</em> of the m pins of plug_p.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>phi[m]</code></td><td>Absolute voltage potential as output signal</td></tr>
+</table>
+<hr><a name="VoltageSensor"><h2><embed class="icon" src="../../../images/icon0707.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;VoltageSensor<br><span class="subtitle">Multiphase voltage sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Contains m voltage sensors (Modelica.Electrical.Analog.Sensors.VoltageSensor),
+thus measuring the m potential differences <em>v[m]</em> between the m pins of plug_p and plug_n.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>v[m]</code></td><td>Voltage between pin p and n (= p.v - n.v) as output signal</td></tr>
+</table>
+<hr><a name="VoltageQuasiRMSSensor"><h2><embed class="icon" src="../../../images/icon0708.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;VoltageQuasiRMSSensor<br><span class="subtitle">Continuous quasi voltage RMS sensor for multi phase system</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This sensor determines the continuous quasi <a href="../../../Blocks/Math/index.html#RootMeanSquare">RMS</a> value of a multi phase voltage system, representing an equivalent RMS voltage <code>V</code> vector or phasor. If the voltage waveform deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
+</p>
+<pre>
+ V = sqrt(sum(v[k]^2 for k in 1:m)/m)
+</pre>
+<p>Extends from <code><a href="../../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device) and <code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Component with one polyphase electrical port).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative polyphase electrical plug with m pins</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>V</code></td><td>Continuous quasi RMS of voltage</td></tr>
+</table>
+<hr><a name="CurrentSensor"><h2><embed class="icon" src="../../../images/icon0709.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;CurrentSensor<br><span class="subtitle">Multiphase current sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Contains m current sensors (Modelica.Electrical.Analog.Sensors.CurrentSensor),
+thus measuring the m currents <em>i[m]</em> flowing from the m pins of plug_p to the m pins of plug_n.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>i[m]</code></td><td>current in the branch from p to n as output signal</td></tr>
+</table>
+<hr><a name="CurrentQuasiRMSSensor"><h2><embed class="icon" src="../../../images/icon0710.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;CurrentQuasiRMSSensor<br><span class="subtitle">Continuous quasi current RMS sensor for multi phase system</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This sensor determines the continuous quasi <a href="../../../Blocks/Math/index.html#RootMeanSquare">RMS</a> value of a multi phase current system, representing an equivalent RMS current vector <code>I</code> or phasor. If the current waveform deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
+</p>
+<pre>
+ I = sqrt(sum(i[k]^2 for k in 1:m)/m)
+</pre>
+<p>Extends from <code><a href="../../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device) and <code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Component with one polyphase electrical port).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative polyphase electrical plug with m pins</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>I</code></td><td>Continuous quasi average RMS of current</td></tr>
+</table>
+<hr><a name="PowerSensor"><h2><embed class="icon" src="../../../images/icon0711.svg" width="223" height="233" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;PowerSensor<br><span class="subtitle">Multiphase instantaneous power sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+<p>
+This power sensor measures instantaneous electrical power of a multiphase system and has a separated voltage and current path. The plugs of the voltage path are <code>pv</code> and <code>nv</code>, the plugs of the current path are <code>pc</code> and <code>nc</code>. The internal resistance of each current path is zero, the internal resistance of each voltage path is infinite.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>pc</code></td><td>Positive plug, current path</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>nc</code></td><td>Negative plug, current path</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>pv</code></td><td>Positive plug, voltage path</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>nv</code></td><td>Negative plug, voltage path</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>power</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="MultiSensor"><h2><embed class="icon" src="../../../images/icon0712.svg" width="243" height="233" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;MultiSensor<br><span class="subtitle">Multiphase sensor to measure current, voltage and power</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This multi sensor measures currents, voltages and instantaneous electrical power of a multiphase system and has separated voltage and current paths.
+The plugs of the voltage paths are pv and nv, the plugs of the current paths are pc and nc.
+The internal resistance of each current path is zero, the internal resistance of each voltage path is infinite.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>pc</code></td><td>Positive plug, current path</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>nc</code></td><td>Negative plug, current path</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>pv</code></td><td>Positive plug, voltage path</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>nv</code></td><td>Negative plug, voltage path</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>i[m]</code></td><td>Current as output signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>v[m]</code></td><td>Voltage as output signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>power[m]</code></td><td>Instantaneous power as output signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>powerTotal</code></td><td>Sum of instantaneous power as output signal</td></tr>
+</table>
+<hr><a name="AronSensor"><h2><embed class="icon" src="../../../images/icon0713.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;AronSensor<br><span class="subtitle">threephase Aron sensor for active power</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Contains 2 power meters (Modelica.Electrical.Analog.Sensors.PowerSensor) to measure total active power in a threephase system.
+</p>
+<p>
+This device works only for sinusoidal voltages and currents in threephase systems without neutral.
+</p>
+<p>
+Elmar Schr&uuml;fer, Leonhard Reindl, Bernhard Zagar: Elektrische Messtechnik. Carl Hanser Verlag.<br>
+Reinhard Lerch: Elektrische Messtechnik. Springer Vieweg.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>power</code></td><td>active power</td></tr>
+</table>
+<hr><a name="ReactivePowerSensor"><h2><embed class="icon" src="../../../images/icon0714.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;ReactivePowerSensor<br><span class="subtitle">threephase sensor for reactive power</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Contains 3 power meters (Modelica.Electrical.Analog.Sensors.PowerSensor) to measure total reactive power in a threephase system.
+</p>
+<p>
+Thomas M&uuml;hl: Elektrische Messtechnik. Springer Vieweg.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>reactivePower</code></td><td>reactive power</td></tr>
+</table>
+</body></html>

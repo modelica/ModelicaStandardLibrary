@@ -1,0 +1,19 @@
+<svg width="223" height="213" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystPreisachEverett" class="component">
+		<polyline points="41.5,101.5 11.5,101.5" fill-opacity="0" stroke="#FF8000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="41.5,131.5 181.5,131.5 181.5,71.5 41.5,71.5" fill="#FFFFFF" stroke="#FF8000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="181.5,101.5 211.5,101.5" fill-opacity="0" stroke="#FF8000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="81.5,121.5 89.5,121.5 92.5,121.4 95.3,121.2 97.7,120.8 99.7,120.2 101.5,119.5 101.5,119.5 102.8,118.7 104.2,117.5 105.5,116.0 106.8,114.2 108.2,112.0 109.5,109.5 109.5,109.5 113.5,101.5 117.5,93.5 117.5,93.5 118.8,91.0 120.2,88.8 121.5,87.0 122.8,85.5 124.2,84.3 125.5,83.5 125.5,83.5 127.5,82.6 129.5,82.0 131.5,81.6 133.5,81.5 137.5,81.5" fill-opacity="0" stroke="#FF8000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="137.5,81.5 129.5,81.5 126.5,81.6 123.7,81.8 121.3,82.2 119.3,82.8 117.5,83.5 117.5,83.5 115.9,84.5 114.3,86.1 112.7,88.1 111.1,90.5 109.5,93.5 109.5,93.5 105.5,101.5 101.5,109.5 101.5,109.5 100.2,112.0 98.8,114.2 97.5,116.0 96.2,117.5 94.8,118.7 93.5,119.5 93.5,119.5 91.5,120.4 89.5,121.0 87.5,121.4 85.5,121.5 81.5,121.5" fill-opacity="0" stroke="#FF8000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="151.5" y="131.0" text-anchor="middle" fill="#FF8000" font-size="39.9px" font-family="sans-serif">PE</text>
+		<g id="port_p" class="port">
+			<polygon points="1.5,111.5 21.5,111.5 21.5,91.5 1.5,91.5" fill="#FF7F00" stroke="#FF7F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="port_n" class="port">
+			<polygon points="201.5,111.5 221.5,111.5 221.5,91.5 201.5,91.5" fill="#FFFFFF" stroke="#FF7F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="heatPort" class="port">
+			<polygon points="101.5,211.5 121.5,211.5 121.5,191.5 101.5,191.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

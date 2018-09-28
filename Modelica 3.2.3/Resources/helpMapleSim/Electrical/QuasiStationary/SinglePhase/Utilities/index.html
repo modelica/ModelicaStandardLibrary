@@ -1,0 +1,84 @@
+<html><head><title>Modelica.Electrical.QuasiStationary.SinglePhase.Utilities</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Utilities"><h1><embed class="icon" src="../../../../images/icon0009.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;Utilities<br><span class="subtitle">Library with auxiliary models for testing</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package hosts utilities for test examples of quasi stationary single phase circuits.
+Quasi stationary theory for single phase circuits can be found in the
+<a href="../../../../Electrical/QuasiStationary/UsersGuide/index.html#References">references</a>.
+</p>
+<h4>See also</h4>
+
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Examples/index.html">Examples</a>
+
+<p>Extends from <code><a href="../../../../Icons/UtilitiesPackage/index.html">Modelica.&#8203;Icons.&#8203;UtilitiesPackage</a></code> (Icon for utility packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#GraetzRectifier"><code>GraetzRectifier</code></a></td><td>Graetz rectifier bridge</td></tr>
+<tr><td><a href="#IdealACDCConverter"><code>IdealACDCConverter</code></a></td><td>Ideal AC DC converter</td></tr>
+</table>
+<hr><a name="IdealACDCConverter"><h2><embed class="icon" src="../../../../images/icon0809.svg" width="223" height="223" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;IdealACDCConverter<br><span class="subtitle">Ideal AC DC converter</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is an ideal AC DC converter, based on a power balance between QS circuit and DC side.
+The parameter <em>conversionFactor</em> defines the ratio between averaged DC voltage and QS rms voltage.
+Furthermore, reactive power at the QS side is set to 0.
+</p>
+<h4>Note:</h4>
+<p>
+Of course no voltage or current ripple is present, neither at the QS side nor at the DC side.
+At the QS side, only base harmonics of voltage and current are taken into account.
+At the DC side, only the mean of voltage and current are taken into account.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>conversionFactor</code></td><td>&nbsp;</td><td>Ratio of DC voltage / QS rms voltage</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_pQS</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_nQS</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_pDC</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_nDC</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="GraetzRectifier"><h2><embed class="icon" src="../../../../images/icon0810.svg" width="223" height="223" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;GraetzRectifier<br><span class="subtitle">Graetz rectifier bridge</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a so called Graetz-bridge, a single phase rectifier built from 4 diodes.
+</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_pAC</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_nAC</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_pDC</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_nDC</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

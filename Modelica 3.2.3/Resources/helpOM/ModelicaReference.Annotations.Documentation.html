@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Annotations.Documentation</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Annotations.html">Annotations</a>.<span class="omc-h1">Documentation</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Annotations for documentation</p>
+<h4>Syntax</h4>
+<pre>
+documentation_annotation:
+   <strong>annotation</strong>"(" Documentation "(" "info" "=" STRING
+                            ["," "revisions" "=" STRING ] ")" ")"
+</pre>
+<h4>Description</h4>
+<p>The "Documentation" annotation can contain the "info" annotation
+giving a textual description, the "revisions" annotation giving a
+list of revisions and other annotations defined by a tool [The
+"revisions" documentation may be omitted in printed documentation].
+How the tool interprets the information in "Documentation" is
+unspecified. Within a string of the "Documentation" annotation, the
+tags &lt;HTML&gt; and &lt;/HTML&gt; or &lt;html&gt; and
+&lt;/html&gt; define the start and end of content that is HTML
+encoded. Links to Modelica classes may be defined with the HTML
+link command using scheme "Modelica", e.g.,</p>
+<pre>
+    &lt;a href="modelica://MultiBody.Tutorial"&gt;MultiBody.Tutorial&lt;/a&gt;
+</pre>
+<p>Together with scheme "Modelica" the (URI) fragment specifiers
+#diagram, #info, #text, #icon may be used to reference different
+layers. Example:</p>
+<pre>
+   &lt;a href="modelica://MultiBody.Joints.Revolute#info"&gt;Revolute&lt;/a&gt;
+</pre>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

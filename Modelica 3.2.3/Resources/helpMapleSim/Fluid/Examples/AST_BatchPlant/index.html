@@ -1,0 +1,84 @@
+<html><head><title>Modelica.Fluid.Examples.AST_BatchPlant</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="AST_BatchPlant"><h1><embed class="icon" src="../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;AST_BatchPlant<br><span class="subtitle">Model of the experimental batch plant at Process Control Laboratory at University of Dortmund (Prof. Engell)</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The process under consideration is an evaporation plant for a
+student lab at the Process Control Laboratory (AST) of the
+University of Dortmund that evaporates a water sodium chloride
+mixture so that a higher concentrated solution is produced.
+The task of the students is to learn how to program the process
+control system. A picture of the batch plant is shown in the figure
+below.
+</p>
+
+<p>
+<img src="../../../../Images/Fluid/Examples/AST_BatchPlant1.jpg" border="1"
+     alt="AST_BatchPlant1.jpg">
+</p>
+
+<p>
+The flow sheet diagram is shown in the next figure.
+</p>
+
+<p>
+<img src="../../../../Images/Fluid/Examples/AST_BatchPlant2.png" border="1"
+     alt="AST_BatchPlant2.png">
+</p>
+
+<p>
+Pure water from tank B1 and concentrated sodium chloride
+solution from tank B2 are mixed in a mixing tank B3.
+After buffering in tank B4 the mixture flows to the
+evaporator B5. Here the water sodium chloride mixture
+is evaporated until the desired concentration is reached.
+The steam is condensed in the condenser K1 and cooled
+afterwards in the cooling tank B6. The concentrated
+ solution is also led to a cooling tank B7. The cooled
+fluids are pumped back to the charging vessels by the
+pumps P1 and P2. Be-tween the tanks several valves are
+present that are regulated by a central control system.
+</p>
+<p>Extends from <code><a href="../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="../../../Fluid/Examples/AST_BatchPlant/BaseClasses/index.html"><code>BaseClasses</code></a> &hellip;</td><td>&nbsp</td></tr>
+<tr><td><a href="#BatchPlant_StandardWater"><code>BatchPlant_StandardWater</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="../../../Fluid/Examples/AST_BatchPlant/Test/index.html"><code>Test</code></a> &hellip;</td><td>Test of used tank models</td></tr>
+</table>
+<hr><a name="BatchPlant_StandardWater"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">AST_BatchPlant</a>.&#8203;BatchPlant_StandardWater<br><span class="subtitle">Icon for runnable examples</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<img src="../../../../Images/Fluid/Examples/BatchPlant_StandardWater.png" border="1"
+     alt="BatchPlant_StandardWater.png">
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>pipeDiameter</code></td><td><code>0.01</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

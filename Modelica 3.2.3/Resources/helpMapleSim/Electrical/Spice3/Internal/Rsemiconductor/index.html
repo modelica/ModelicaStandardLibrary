@@ -1,0 +1,143 @@
+<html><head><title>Modelica.Electrical.Spice3.Internal.Rsemiconductor</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Rsemiconductor"><h1><embed class="icon" src="../../../../images/icon0034.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;Rsemiconductor<br><span class="subtitle">Records and functions for semiconductor resistor model</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package Rsemiconductor contains functions and records with data of the semiconductor resistor model.</p>
+<p>Extends from <code><a href="../../../../Icons/InternalPackage/index.html">Modelica.&#8203;Icons.&#8203;InternalPackage</a></code> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#resistorInitEquations"><code>resistorInitEquations</code></a></td><td>Initial calculation</td></tr>
+<tr><td><a href="#ResistorModelLineParams"><code>ResistorModelLineParams</code></a></td><td>Record for resistor model line parameters</td></tr>
+<tr><td><a href="#ResistorParams"><code>ResistorParams</code></a></td><td>Resistor device parameters</td></tr>
+<tr><td><a href="#resistorRenameParameters"><code>resistorRenameParameters</code></a></td><td>Technology parameter renaming</td></tr>
+<tr><td><a href="#resistorRenameParametersDev"><code>resistorRenameParametersDev</code></a></td><td>Device parameter renaming</td></tr>
+<tr><td><a href="#ResistorVariables"><code>ResistorVariables</code></a></td><td>Variables for the resistor model</td></tr>
+</table>
+<hr><a name="ResistorParams"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Rsemiconductor</a>.&#8203;ResistorParams<br><span class="subtitle">Resistor device parameters</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This record contains the device parameters that are used for the resistor model in SPICE3.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>m_dResist</code></td><td>Device is a resistor model</td></tr>
+<tr><td><code>Real</code></td><td><code>m_dResIsGiven</code></td><td>Resistance is given value</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>m_dWidth</code></td><td>Width</td></tr>
+<tr><td><code>Real</code></td><td><code>m_dWidthIsGiven</code></td><td>Width is given value</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>m_dLength</code></td><td>Length</td></tr>
+<tr><td><code>Real</code></td><td><code>m_dLengthIsGiven</code></td><td>Length is given value</td></tr>
+<tr><td><code>Boolean</code></td><td><code>m_bSensResist</code></td><td>flag to request sensitivity WRT resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>m_dTemp</code></td><td>Resistor device temperature</td></tr>
+</table>
+<hr><a name="ResistorModelLineParams"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Rsemiconductor</a>.&#8203;ResistorModelLineParams<br><span class="subtitle">Record for resistor model line parameters</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This record contains the model line (also called model card) parameters that are used for the resistor model in SPICE3.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficientResistance">LinearTemperatureCoefficientResistance</a></code></td><td><code>m_dTC1</code></td><td>First order temperature coefficient</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#QuadraticTemperatureCoefficientResistance">QuadraticTemperatureCoefficientResistance</a></code></td><td><code>m_dTC2</code></td><td>Second order temperature coefficient</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>m_dRsh</code></td><td>Sheet resistance</td></tr>
+<tr><td><code>Real</code></td><td><code>m_dRshIsGiven</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>m_dDefW</code></td><td>Default device width</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>m_dNarrow</code></td><td>Narrowing of resistor</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>m_dTnom</code></td><td>Parameter measurement temperature</td></tr>
+</table>
+<hr><a name="ResistorVariables"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Rsemiconductor</a>.&#8203;ResistorVariables<br><span class="subtitle">Variables for the resistor model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This record contains the model variables that are used for the resistor model in SPICE3.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>m_dWidth</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>m_dLength</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>m_dResist</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>m_dConduct</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>m_dCond_dTemp</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="resistorRenameParameters"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Rsemiconductor</a>.&#8203;resistorRenameParameters<br><span class="subtitle">Technology parameter renaming</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function assigns the external (given by the user, e.g., N) technology parameters
+to the internal parameters (e.g., m_emissionCoeff). It also does the analysis of the IsGiven values.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/index.html#ModelcardR">ModelcardR</a></code></td><td><code>ex</code></td><td>Modelcard with technology parameters</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/index.html#SpiceConstants">SpiceConstants</a></code></td><td><code>con</code></td><td>Spice constants</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Rsemiconductor/index.html#ResistorModelLineParams">ResistorModelLineParams</a></code></td><td><code>intern</code></td><td>Output record with resistor model line parameters</td></tr>
+</table>
+<hr><a name="resistorRenameParametersDev"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Rsemiconductor</a>.&#8203;resistorRenameParametersDev<br><span class="subtitle">Device parameter renaming</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function assigns the external (given by the user, e.g., AREA) device parameters
+to the internal parameters (e.g., m_area). It also does the analysis of the IsGiven values.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td>Resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>W</code></td><td>Width</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>L</code></td><td>Length</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>TEMP</code></td><td>Temperature</td></tr>
+<tr><td><code>Boolean</code></td><td><code>SENS_AREA</code></td><td>Parameter for sensitivity analyses, not implemented yet</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/index.html#SpiceConstants">SpiceConstants</a></code></td><td><code>con</code></td><td>Spice constants</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Rsemiconductor/index.html#ResistorParams">ResistorParams</a></code></td><td><code>intern</code></td><td>Output record with resistor parameters</td></tr>
+</table>
+<hr><a name="resistorInitEquations"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Rsemiconductor</a>.&#8203;resistorInitEquations<br><span class="subtitle">Initial calculation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>In this function some initial calculations for the resistor model are done, especially concerning the handling of the breakthrough voltage.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Rsemiconductor/index.html#ResistorParams">ResistorParams</a></code></td><td><code>in_p</code></td><td>Input record with resistor parameters</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Rsemiconductor/index.html#ResistorModelLineParams">ResistorModelLineParams</a></code></td><td><code>in_p2</code></td><td>Input record with resistor model line parameters</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Rsemiconductor/index.html#ResistorVariables">ResistorVariables</a></code></td><td><code>out</code></td><td>Output record with resistor variables</td></tr>
+</table>
+</body></html>

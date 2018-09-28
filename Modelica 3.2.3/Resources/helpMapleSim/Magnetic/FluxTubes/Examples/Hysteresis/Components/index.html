@@ -1,0 +1,164 @@
+<html><head><title>Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Components"><h1><embed class="icon" src="../../../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">FluxTubes</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">Hysteresis</a>.&#8203;Components<br><span class="subtitle">Components to be used in examples</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>Standard package icon.</p>
+<p>Extends from <code><a href="../../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Transformer1PhaseWithHysteresis"><code>Transformer1PhaseWithHysteresis</code></a></td><td>Single Phase transformer with ferromagnetic core and hysteresis</td></tr>
+<tr><td><a href="#Transformer3PhaseYyWithHysteresis"><code>Transformer3PhaseYyWithHysteresis</code></a></td><td>Three phase transformer in Yy configuration</td></tr>
+</table>
+<hr><a name="Transformer1PhaseWithHysteresis"><h2><embed class="icon" src="../../../../../images/icon0927.svg" width="223" height="223" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">FluxTubes</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">Hysteresis</a>.&#8203;<a href="index.html">Components</a>.&#8203;Transformer1PhaseWithHysteresis<br><span class="subtitle">Single Phase transformer with ferromagnetic core and hysteresis</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Simple model of a single phase transformer with a primary and a secondary winding and a magnetic core. The core is modeled with <a href="../../../../../Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/index.html#GenericHystTellinenEverett">GenericHystTellinenEverett</a> flux tube elements. Thus, this element considers static and dynamic hysteresis.
+</p>
+
+<table cellspacing="0" cellpadding="2" border="0">
+  <caption align="bottom"><strong>Fig. 1:</strong> Sketch of the modelled transformer with magnetic core, primary and secondary winding</caption>
+  <tr>
+    <td>
+      <img src="../../../../../../Images/Magnetic/FluxTubes/Examples/Hysteresis/Components/Transformer1PhaseWithHysteresis/Core_SinglePhase.png">
+   </td>
+  </tr>
+</table>
+
+<p>Extends from <code><a href="../../../../../Magnetic/FluxTubes/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>N1</code></td><td><code>10</code></td><td>Primary turns</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>L1</code></td><td><code>2.4 * (a + b)</code></td><td>Mean primary turn length</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>d1</code></td><td><code>5e-4</code></td><td>Wire diameter of primary turns</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistivity">Resistivity</a></code></td><td><code>rho1</code></td><td><code>1.678e-8</code></td><td>Resistivity of primary winding (at 20degC)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha1</code></td><td><code>0</code></td><td>Temperature coefficient of primary turns</td></tr>
+<tr><td><code>Integer</code></td><td><code>N2</code></td><td><code>10</code></td><td>Secondary turns</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>L2</code></td><td><code>L1</code></td><td>Mean secondary turn length</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>d2</code></td><td><code>d1</code></td><td>Wire diameter of secondary turns</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistivity">Resistivity</a></code></td><td><code>rho2</code></td><td><code>rho1</code></td><td>Resistivity of secondary winding (at 20degC)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha2</code></td><td><code>alpha1</code></td><td>Temperature coefficient of secondary turns</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>l1</code></td><td><code>0.04</code></td><td>Mean Length l1 of core</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>l2</code></td><td><code>0.06</code></td><td>Mean Length l2 of core</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>a</code></td><td><code>0.015</code></td><td>Height of core</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>b</code></td><td><code>0.01</code></td><td>Width of core</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/FluxTubes/Material/HysteresisEverettParameter/index.html#BaseData">BaseData</a></code></td><td><code>mat</code></td><td><code>FluxTubes.Material.HysteresisEverettParameter.BaseData()</code></td><td>Parameter set of ferromagnetic Hysteresis</td></tr>
+<tr><td><code>Real</code></td><td><code>MagRelStart</code></td><td><code>0</code></td><td>Initial magnetization of Core (-1..1)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>MagRelFixed</code></td><td><code>false</code></td><td>Fixed</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#MagneticFieldStrength">MagneticFieldStrength</a></code></td><td><code>HStart</code></td><td><code>0</code></td><td>Initial magnetic field strength of Core</td></tr>
+<tr><td><code>Boolean</code></td><td><code>HFixed</code></td><td><code>false</code></td><td>Fixed</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#ElectricCurrent">ElectricCurrent</a></code></td><td><code>I1Start</code></td><td><code>0</code></td><td>Initial primary current through winding</td></tr>
+<tr><td><code>Boolean</code></td><td><code>I1Fixed</code></td><td><code>false</code></td><td>Fixed</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+<tr><td><code>Boolean</code></td><td><code>EddyCurrents</code></td><td><code>false</code></td><td>Enable eddy currents</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Conductivity">Conductivity</a></code></td><td><code>sigma</code></td><td><code>mat.&#8203;sigma</code></td><td>Conductivity of core material</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>t</code></td><td><code>5e-4</code></td><td>Thickness of lamination</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>L_l1</code></td><td><code>0.01</code></td><td>Length of leakage of primary Winding</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Area">Area</a></code></td><td><code>A_l1</code></td><td><code>1e-5</code></td><td>Cross section of leakage of primary Winding</td></tr>
+<tr><td><code>Real</code></td><td><code>mu_rel1</code></td><td><code>1</code></td><td>Constant relative permeability of primary leakage (&gt;0 required)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>L_l2</code></td><td><code>0.01</code></td><td>Length of leakage of secondary Winding</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Area">Area</a></code></td><td><code>A_l2</code></td><td><code>1e-5</code></td><td>Cross section of leakage of secondary Winding</td></tr>
+<tr><td><code>Real</code></td><td><code>mu_rel2</code></td><td><code>1</code></td><td>Constant relative permeability of secondary leakage (&gt;0 required)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n1</code></td><td>Negative pin of primary winding</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p1</code></td><td>Positive pin of primary winding</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n2</code></td><td>Negative pin of secondary winding</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p2</code></td><td>Positive pin of secondary winding</td></tr>
+<tr><td><code><a href="../../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Transformer3PhaseYyWithHysteresis"><h2><embed class="icon" src="../../../../../images/icon0928.svg" width="223" height="213" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">FluxTubes</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">Hysteresis</a>.&#8203;<a href="index.html">Components</a>.&#8203;Transformer3PhaseYyWithHysteresis<br><span class="subtitle">Three phase transformer in Yy configuration</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Simple model of a three phase transformer with primary and a secondary windings and a magnetic E-I shaped core. The core is modeled with <a href="../../../../../Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/index.html#GenericHystTellinenEverett">GenericHystTellinenEverett</a> flux tube elements. Thus, this model considers static and dynamic hysteresis as well as initial flux.
+</p>
+
+<table cellspacing="0" cellpadding="2" border="0">
+  <caption align="bottom"><strong>Fig. 1:</strong> Sketch of the modelled transformer with magnetic core, primary and secondary winding</caption>
+  <tr>
+    <td>
+      <img src="../../../../../../Images/Magnetic/FluxTubes/Examples/Hysteresis/Components/Transformer3PhaseYyWithHysteresis/Core_ThreePhase1.png">
+   </td>
+  </tr>
+</table>
+<p>Extends from <code><a href="../../../../../Magnetic/FluxTubes/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>N1</code></td><td><code>10</code></td><td>Primary turns</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>L1</code></td><td><code>2.4 * (a + b)</code></td><td>Mean primary turn length</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>d1</code></td><td><code>5e-4</code></td><td>Wire diameter of primary turns</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistivity">Resistivity</a></code></td><td><code>rho1</code></td><td><code>1.678e-8</code></td><td>Resistivity of primary winding (at 20degC)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha1</code></td><td><code>0</code></td><td>Temperature coefficient of primary turns</td></tr>
+<tr><td><code>Integer</code></td><td><code>N2</code></td><td><code>10</code></td><td>Secondary turns</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>L2</code></td><td><code>L1</code></td><td>Mean secondary turn length</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>d2</code></td><td><code>d1</code></td><td>Wire diameter of secondary turns</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistivity">Resistivity</a></code></td><td><code>rho2</code></td><td><code>rho1</code></td><td>Resistivity of secondary winding (at 20degC)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha2</code></td><td><code>alpha1</code></td><td>Temperature coefficient of secondary turns</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>l1</code></td><td><code>0.04</code></td><td>Mean length l1 of core</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>l2</code></td><td><code>0.06</code></td><td>Mean length l2 of core</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>a</code></td><td><code>0.015</code></td><td>Height of core</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>b</code></td><td><code>0.01</code></td><td>Width of core</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/FluxTubes/Material/HysteresisEverettParameter/index.html#BaseData">BaseData</a></code></td><td><code>mat</code></td><td><code>FluxTubes.Material.HysteresisEverettParameter.BaseData()</code></td><td>Core Material</td></tr>
+<tr><td><code>Real</code></td><td><code>MagRelStart[3]</code></td><td><code>{0, 0, 0}</code></td><td>Initial magnetization of Core (-1..1)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>MagRelFixed[3]</code></td><td><code>{false, false, false}</code></td><td>Fixed</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#MagneticFieldStrength">MagneticFieldStrength</a></code></td><td><code>HStart[3]</code></td><td><code>{0, 0, 0}</code></td><td>Initial magnetic field strength of Core</td></tr>
+<tr><td><code>Boolean</code></td><td><code>HFixed[3]</code></td><td><code>{false, false, false}</code></td><td>Fixed</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#ElectricCurrent">ElectricCurrent</a></code></td><td><code>I1Start[3]</code></td><td><code>{0, 0, 0}</code></td><td>Initial current of primary Windings</td></tr>
+<tr><td><code>Boolean</code></td><td><code>I1Fixed[3]</code></td><td><code>{false, false, false}</code></td><td>Fixed</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#ElectricCurrent">ElectricCurrent</a></code></td><td><code>I2Start[3]</code></td><td><code>{0, 0, 0}</code></td><td>Initial current of secondary Windings</td></tr>
+<tr><td><code>Boolean</code></td><td><code>I2Fixed[3]</code></td><td><code>{false, false, false}</code></td><td>Fixed</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+<tr><td><code>Boolean</code></td><td><code>EddyCurrents</code></td><td><code>false</code></td><td>Enable eddy currents</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Conductivity">Conductivity</a></code></td><td><code>sigma</code></td><td><code>mat.&#8203;sigma</code></td><td>Conductivity of core material</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>t</code></td><td><code>5e-4</code></td><td>Thickness of lamination</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>L_l1</code></td><td><code>0.01</code></td><td>Length of leakage of primary Winding</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Area">Area</a></code></td><td><code>A_l1</code></td><td><code>1e-5</code></td><td>Cross section of leakage of primary Winding</td></tr>
+<tr><td><code>Real</code></td><td><code>mu_rel1</code></td><td><code>1</code></td><td>Constant relative permeability of primary leakage (&gt;0 required)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>L_l2</code></td><td><code>0.01</code></td><td>Cross section of leakage of secondary Winding</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Area">Area</a></code></td><td><code>A_l2</code></td><td><code>1e-5</code></td><td>Length of leakage of secondary Winding</td></tr>
+<tr><td><code>Real</code></td><td><code>mu_rel2</code></td><td><code>1</code></td><td>Constant relative permeability of secondary leakage (&gt;0 required)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p1</code></td><td>Primary winding 1</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p2</code></td><td>Primary winding 2</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p3</code></td><td>Primary winding 3</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n1</code></td><td>Secondary winding 1</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n2</code></td><td>Secondary winding 2</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n3</code></td><td>Secondary winding 3</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>starPoint2</code></td><td>Star point of secondary windings</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>starPoint1</code></td><td>Star point of primary windings</td></tr>
+</table>
+</body></html>

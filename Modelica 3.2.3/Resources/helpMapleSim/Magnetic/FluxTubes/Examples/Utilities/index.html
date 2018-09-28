@@ -1,0 +1,102 @@
+<html><head><title>Modelica.Magnetic.FluxTubes.Examples.Utilities</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Utilities"><h1><embed class="icon" src="../../../../images/icon0009.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;Utilities<br><span class="subtitle">Utilities to be used in examples</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates a package containing utility classes.</p>
+<p>Extends from <code><a href="../../../../Icons/UtilitiesPackage/index.html">Modelica.&#8203;Icons.&#8203;UtilitiesPackage</a></code> (Icon for utility packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#CoilDesign"><code>CoilDesign</code></a></td><td>Calculation of winding parameters (wire diameter, number of turns et al.) and recalculation with optionally chosen parameters; to be adapted to particular design tasks</td></tr>
+<tr><td><a href="#TranslatoryArmatureAndStopper"><code>TranslatoryArmatureAndStopper</code></a></td><td>Mass with free travel between two stoppers</td></tr>
+</table>
+<hr><a name="TranslatoryArmatureAndStopper"><h2><embed class="icon" src="../../../../images/icon0929.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;TranslatoryArmatureAndStopper<br><span class="subtitle">Mass with free travel between two stoppers</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+In translatory actuators with limited stroke, the armature with its inertia can travel between two stoppers.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>L</code></td><td>&nbsp;</td><td>Length of component from left flange to right flange (= flange_b.s - flange_a.s)</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m</code></td><td>&nbsp;</td><td>Armature mass</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#TranslationalSpringConstant">TranslationalSpringConstant</a></code></td><td><code>c</code></td><td>&nbsp;</td><td>Spring stiffness between impact partners</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#TranslationalDampingConstant">TranslationalDampingConstant</a></code></td><td><code>d</code></td><td>&nbsp;</td><td>Damping coefficient between impact partners</td></tr>
+<tr><td><code>Real</code></td><td><code>n</code></td><td><code>2</code></td><td>Exponent of spring forces (f_c = c*|s_rel|^n)</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Position">Position</a></code></td><td><code>x_max</code></td><td>&nbsp;</td><td>Position of stopper at maximum armature position</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Position">Position</a></code></td><td><code>x_min</code></td><td>&nbsp;</td><td>Position of stopper at minimum armature position</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/Translational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Mechanics/Translational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="CoilDesign"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;CoilDesign<br><span class="subtitle">Calculation of winding parameters (wire diameter, number of turns et al.) and recalculation with optionally chosen parameters; to be adapted to particular design tasks</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model example shows dimensioning of a winding (wire diameter, number of turns) based on desired operating conditions (voltage, temperature, current density, conductor filling factor) for a given cross-section area of the winding. It can be modified according to the parameters given and sought after for a particular design project.
+</p>
+
+<p>
+The calculated winding resistance and number of turns can be used as input parameters to the electrical subsystem
+of a device to be modelled. Operating voltage V_op can be minimum, nominal and maximum voltage respectively as specified for a particular design project. In conjunction with the setting of the operating temperature T_op, this enables for analysis of the device under worst-case conditions (e.g., minimum required magnetomotive force, maximum allowed ohmic losses, minimum and maximum force respectively).
+</p>
+
+<p>
+For manufacturing of a winding, the obtained wire diameter d_wireCalculated must be rounded to that of an available wire. In order to analyse the influence of this rounding, one can enter the chosen wire diameter d_wireChosen and number of turns N_chosen as optional input. Calculation of the resulting winding parameters enables for comparison with the ones obtained otherwise.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistivity">Resistivity</a></code></td><td><code>rho_20</code></td><td>Resistivity of conductor material at 20 degC (default: Copper)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_20</code></td><td>Temperature coefficient of conductor material's resistivity at 20 degC (default: Copper)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_op</code></td><td>Operating temperature of winding</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistivity">Resistivity</a></code></td><td><code>rho</code></td><td>Resistivity at operating temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>h_w</code></td><td>Height of winding cross-section</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>b_w</code></td><td>Width of winding cross-section</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Area">Area</a></code></td><td><code>A_w</code></td><td>Cross-section area of winding</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>l_avg</code></td><td>Average length of one turn</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>V_op</code></td><td>Operating voltage (nominal/ minimum/ maximum voltage depending on design objective)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#CurrentDensity">CurrentDensity</a></code></td><td><code>J_desired</code></td><td>DESIRED current density at operating temperature and voltage resp.</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>c_condFillChosen</code></td><td>CHOSEN conductor filling factor = total conductor area without insulation/ total winding area</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>N_calculated</code></td><td>CALCULATED number of turns</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Diameter">Diameter</a></code></td><td><code>d_wireCalculated</code></td><td>CALCULATED wire diameter (without insulation)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Area">Area</a></code></td><td><code>A_wireCalculated</code></td><td>Calculated wire cross-section area</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R_calculated</code></td><td>Winding resistance at operating temperature and voltage resp. with CALCULATED number of turns and wire diameter</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>P_calculated</code></td><td>Winding's ohmic losses at operating temperature and voltage resp. with CALCULATED number of turns and wire diameter</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Diameter">Diameter</a></code></td><td><code>d_wireChosen</code></td><td>CHOSEN available wire diameter (without insulation)</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>N_chosen</code></td><td>CHOSEN number of turns</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Area">Area</a></code></td><td><code>A_wireChosen</code></td><td>Wire cross-section area resulting from CHOSEN wire diameter</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R_actual</code></td><td>Winding resistance at operating temperature and voltage resp. resulting from CHOSEN number of turns and wire diameter</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>P_actual</code></td><td>Winding's ohmic losses at operating temperature and voltage resp. resulting from CHOSEN number of turns and wire diameter</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#CurrentDensity">CurrentDensity</a></code></td><td><code>J_actual</code></td><td>Current density at operating temperature and voltage resp. resulting from CHOSEN number of turns and wire diameter</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>c_condFillActual</code></td><td>Conductor filling factor resulting from CHOSEN number of turns and wire diameter</td></tr>
+</table>
+</body></html>

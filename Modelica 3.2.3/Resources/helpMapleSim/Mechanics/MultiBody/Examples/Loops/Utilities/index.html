@@ -1,0 +1,256 @@
+<html><head><title>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Utilities"><h1><embed class="icon" src="../../../../../images/icon0009.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Mechanics</a>.&#8203;<a href="../../../index.html">MultiBody</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">Loops</a>.&#8203;Utilities<br><span class="subtitle">Utility models for Examples.Loops</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains utility functions used by some of the Loops example models.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/UtilitiesPackage/index.html">Modelica.&#8203;Icons.&#8203;UtilitiesPackage</a></code> (Icon for utility packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Cylinder"><code>Cylinder</code></a></td><td>Cylinder with rod and crank of a combustion engine</td></tr>
+<tr><td><a href="#Cylinder_analytic_CAD"><code>Cylinder_analytic_CAD</code></a></td><td>One cylinder with analytic handling of kinematic loop and CAD visualization</td></tr>
+<tr><td><a href="#CylinderBase"><code>CylinderBase</code></a></td><td>One cylinder with analytic handling of kinematic loop</td></tr>
+<tr><td><a href="#Engine1bBase"><code>Engine1bBase</code></a></td><td>Model of one cylinder engine with gas force</td></tr>
+<tr><td><a href="#EngineV6_analytic"><code>EngineV6_analytic</code></a></td><td>V6 engine with analytic loop handling</td></tr>
+<tr><td><a href="#GasForce"><code>GasForce</code></a></td><td>Simple gas force computation for combustion engine</td></tr>
+<tr><td><a href="#GasForce2"><code>GasForce2</code></a></td><td>Rough approximation of gas force in a combustion engine's cylinder</td></tr>
+</table>
+<hr><a name="Cylinder"><h2><embed class="icon" src="../../../../../images/icon1060.svg" width="213" height="259" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Mechanics</a>.&#8203;<a href="../../../index.html">MultiBody</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">Loops</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;Cylinder<br><span class="subtitle">Cylinder with rod and crank of a combustion engine</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Cylinder with rod and crank of a combustion engine.
+Used as submodel in <a href="../../../../../Mechanics/MultiBody/Examples/Loops/index.html#EngineV6">Loops.EngineV6</a>.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>cylinderTopPosition</code></td><td><code>0.42</code></td><td>Length from crank shaft to end of cylinder.</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>pistonLength</code></td><td><code>0.1</code></td><td>Length of cylinder</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>rodLength</code></td><td><code>0.2</code></td><td>Length of rod</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>crankLength</code></td><td><code>0.2</code></td><td>Length of crank shaft in x direction</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>crankPinOffset</code></td><td><code>0.1</code></td><td>Offset of crank pin from center axis</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>crankPinLength</code></td><td><code>0.1</code></td><td>Offset of crank pin from center axis</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>cylinderInclination</code></td><td><code>0</code></td><td>Inclination of cylinder</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>crankAngleOffset</code></td><td><code>0</code></td><td>Offset for crank angle</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>cylinderLength</code></td><td><code>cylinderTopPosition - (pistonLength + rodLength - crankPinOffset)</code></td><td>Maximum length of cylinder volume</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>cylinder_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>cylinder_b</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>crank_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>crank_b</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="GasForce"><h2><embed class="icon" src="../../../../../images/icon1061.svg" width="223" height="207" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Mechanics</a>.&#8203;<a href="../../../index.html">MultiBody</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">Loops</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;GasForce<br><span class="subtitle">Simple gas force computation for combustion engine</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Very simple analytic model of the force generated by the combustion in an engine cylinder.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions) and <code><a href="../../../../../Mechanics/Translational/Interfaces/index.html#PartialCompliant">Modelica.&#8203;Mechanics.&#8203;Translational.&#8203;Interfaces.&#8203;PartialCompliant</a></code> (Compliant connection of two translational 1D flanges).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>L</code></td><td>&nbsp;</td><td>Length of cylinder</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Diameter">Diameter</a></code></td><td><code>d</code></td><td>&nbsp;</td><td>Diameter of cylinder</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Volume">Volume</a></code></td><td><code>k0</code></td><td><code>0.01</code></td><td>Volume V = k0 + k1*(1-x), with x = 1 + s_rel/L</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Volume">Volume</a></code></td><td><code>k1</code></td><td><code>1</code></td><td>Volume V = k0 + k1*(1-x), with x = 1 + s_rel/L</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#HeatCapacity">HeatCapacity</a></code></td><td><code>k</code></td><td><code>1</code></td><td>Gas constant (p*V = k*T)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Mechanics/Translational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>Left flange of compliant 1-dim. translational component</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/Translational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>Right flange of compliant 1-dim. translational component</td></tr>
+</table>
+<hr><a name="GasForce2"><h2><embed class="icon" src="../../../../../images/icon1062.svg" width="223" height="213" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Mechanics</a>.&#8203;<a href="../../../index.html">MultiBody</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">Loops</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;GasForce2<br><span class="subtitle">Rough approximation of gas force in a combustion engine's cylinder</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The gas force in a cylinder of a combustion engine is computed as function of the relative
+distance of the two flanges. It is required that s_rel&nbsp;=&nbsp;flange_b.s&nbsp;-&nbsp;flange_a.s
+is in the range
+</p>
+<blockquote><pre>
+0 &le; s_rel &le; L,
+</pre></blockquote>
+<p>
+where the parameter&nbsp;L is the length of the cylinder.
+If this assumption is not fulfilled, an error occurs.
+The resulting approximation of the gas pressure is shown in
+the following figure and depends on both s_rel and
+the relative velocity v_rel&nbsp;=&nbsp;der(s_rel).
+</p>
+
+<blockquote>
+<img src="../../../../../../Images/Mechanics/MultiBody/Examples/Loops/gasForceCycle.png"
+alt="model Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce">
+</blockquote>
+<p>Extends from <code><a href="../../../../../Mechanics/Translational/Interfaces/index.html#PartialCompliant">Modelica.&#8203;Mechanics.&#8203;Translational.&#8203;Interfaces.&#8203;PartialCompliant</a></code> (Compliant connection of two translational 1D flanges).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>L</code></td><td>&nbsp;</td><td>Length of cylinder</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>d</code></td><td>&nbsp;</td><td>Diameter of cylinder</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Volume">Volume</a></code></td><td><code>k0</code></td><td><code>0.01</code></td><td>Volume V = k0 + k1*(1-x), with x = 1 - s_rel/L</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Volume">Volume</a></code></td><td><code>k1</code></td><td><code>1</code></td><td>Volume V = k0 + k1*(1-x), with x = 1 - s_rel/L</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#HeatCapacity">HeatCapacity</a></code></td><td><code>k</code></td><td><code>1</code></td><td>Gas constant (p*V = k*T)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Mechanics/Translational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>Left flange of compliant 1-dim. translational component</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/Translational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>Right flange of compliant 1-dim. translational component</td></tr>
+</table>
+<hr><a name="CylinderBase"><h2><embed class="icon" src="../../../../../images/icon1063.svg" width="213" height="259" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Mechanics</a>.&#8203;<a href="../../../index.html">MultiBody</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">Loops</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;CylinderBase<br><span class="subtitle">One cylinder with analytic handling of kinematic loop</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Slider-crank mechanism with analytic handling of kinematic loop to model one cylinder in an engine.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>cylinderTopPosition</code></td><td><code>0.42</code></td><td>Length from crank shaft to end of cylinder.</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>crankLength</code></td><td><code>0.14</code></td><td>Length of crank shaft in x direction</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>crankPinOffset</code></td><td><code>0.05</code></td><td>Offset of crank pin from center axis</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>crankPinLength</code></td><td><code>0.1</code></td><td>Offset of crank pin from center axis</td></tr>
+<tr><td><code><a href="../../../../../SIunits/Conversions/NonSIunits/index.html#Angle_deg">Angle_deg</a></code></td><td><code>cylinderInclination</code></td><td><code>0</code></td><td>Inclination of cylinder</td></tr>
+<tr><td><code><a href="../../../../../SIunits/Conversions/NonSIunits/index.html#Angle_deg">Angle_deg</a></code></td><td><code>crankAngleOffset</code></td><td><code>0</code></td><td>Offset for crank angle</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>pistonLength</code></td><td><code>0.1</code></td><td>Length of cylinder</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>pistonCenterOfMass</code></td><td><code>0.5 * pistonLength</code></td><td>Distance from frame_a to center of mass of piston</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>pistonMass</code></td><td><code>6</code></td><td>Mass of piston</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>pistonInertia_11</code></td><td><code>0.0088</code></td><td>Inertia 11 of piston with respect to center of mass frame, parallel to frame_a</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>pistonInertia_22</code></td><td><code>0.0076</code></td><td>Inertia 22 of piston with respect to center of mass frame, parallel to frame_a</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>pistonInertia_33</code></td><td><code>0.0088</code></td><td>Inertia 33 of piston with respect to center of mass frame, parallel to frame_a</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>rodLength</code></td><td><code>0.175</code></td><td>Length of rod</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>rodCenterOfMass</code></td><td><code>0.5 * rodLength</code></td><td>Distance from frame_a to center of mass of piston</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>rodMass</code></td><td><code>1</code></td><td>Mass of rod</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>rodInertia_11</code></td><td><code>0.006</code></td><td>Inertia 11 of rod with respect to center of mass frame, parallel to frame_a</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>rodInertia_22</code></td><td><code>5e-4</code></td><td>Inertia 22 of rod with respect to center of mass frame, parallel to frame_a</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>rodInertia_33</code></td><td><code>0.006</code></td><td>Inertia 33 of rod with respect to center of mass frame, parallel to frame_a</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>cylinderLength</code></td><td><code>cylinderTopPosition - (pistonLength + rodLength - crankPinOffset)</code></td><td>Maximum length of cylinder volume</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>cylinder_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>cylinder_b</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>crank_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>crank_b</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Cylinder_analytic_CAD"><h2><embed class="icon" src="../../../../../images/icon1063.svg" width="213" height="259" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Mechanics</a>.&#8203;<a href="../../../index.html">MultiBody</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">Loops</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;Cylinder_analytic_CAD<br><span class="subtitle">One cylinder with analytic handling of kinematic loop and CAD visualization</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Slider-crank mechanism with analytic handling of kinematic loop to model one cylinder in an engine.
+</p>
+<p>Extends from <code><a href="../../../../../Mechanics/MultiBody/Examples/Loops/Utilities/index.html#CylinderBase">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Examples.&#8203;Loops.&#8203;Utilities.&#8203;CylinderBase</a></code> (One cylinder with analytic handling of kinematic loop).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>cylinderTopPosition</code></td><td><code>0.42</code></td><td>Length from crank shaft to end of cylinder.</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>crankLength</code></td><td><code>0.14</code></td><td>Length of crank shaft in x direction</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>crankPinOffset</code></td><td><code>0.05</code></td><td>Offset of crank pin from center axis</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>crankPinLength</code></td><td><code>0.1</code></td><td>Offset of crank pin from center axis</td></tr>
+<tr><td><code><a href="../../../../../SIunits/Conversions/NonSIunits/index.html#Angle_deg">Angle_deg</a></code></td><td><code>cylinderInclination</code></td><td><code>0</code></td><td>Inclination of cylinder</td></tr>
+<tr><td><code><a href="../../../../../SIunits/Conversions/NonSIunits/index.html#Angle_deg">Angle_deg</a></code></td><td><code>crankAngleOffset</code></td><td><code>0</code></td><td>Offset for crank angle</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>pistonLength</code></td><td><code>0.1</code></td><td>Length of cylinder</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>pistonCenterOfMass</code></td><td><code>0.5 * pistonLength</code></td><td>Distance from frame_a to center of mass of piston</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>pistonMass</code></td><td><code>6</code></td><td>Mass of piston</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>pistonInertia_11</code></td><td><code>0.0088</code></td><td>Inertia 11 of piston with respect to center of mass frame, parallel to frame_a</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>pistonInertia_22</code></td><td><code>0.0076</code></td><td>Inertia 22 of piston with respect to center of mass frame, parallel to frame_a</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>pistonInertia_33</code></td><td><code>0.0088</code></td><td>Inertia 33 of piston with respect to center of mass frame, parallel to frame_a</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>rodLength</code></td><td><code>0.175</code></td><td>Length of rod</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>rodCenterOfMass</code></td><td><code>0.5 * rodLength</code></td><td>Distance from frame_a to center of mass of piston</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>rodMass</code></td><td><code>1</code></td><td>Mass of rod</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>rodInertia_11</code></td><td><code>0.006</code></td><td>Inertia 11 of rod with respect to center of mass frame, parallel to frame_a</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>rodInertia_22</code></td><td><code>5e-4</code></td><td>Inertia 22 of rod with respect to center of mass frame, parallel to frame_a</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>rodInertia_33</code></td><td><code>0.006</code></td><td>Inertia 33 of rod with respect to center of mass frame, parallel to frame_a</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>cylinderLength</code></td><td><code>cylinderTopPosition - (pistonLength + rodLength - crankPinOffset)</code></td><td>Maximum length of cylinder volume</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>cylinder_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>cylinder_b</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>crank_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>crank_b</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="EngineV6_analytic"><h2><embed class="icon" src="../../../../../images/icon1064.svg" width="223" height="209" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Mechanics</a>.&#8203;<a href="../../../index.html">MultiBody</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">Loops</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;EngineV6_analytic<br><span class="subtitle">V6 engine with analytic loop handling</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Model of an engine with 6 cylinders where the algebraic loops of the slider crank mechanisms are
+solved analytically.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Engine1bBase"><h2><embed class="icon" src="../../../../../images/icon0293.svg" width="203" height="203" />
+Partial Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Mechanics</a>.&#8203;<a href="../../../index.html">MultiBody</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">Loops</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;Engine1bBase<br><span class="subtitle">Model of one cylinder engine with gas force</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a model of the mechanical part of one cylinder of an engine.
+The combustion is not modelled. The "inertia" component at the lower
+left part is the output inertia of the engine driving the gearbox.
+The angular velocity of the output inertia has a start value of 10 rad/s
+in order to demonstrate the movement of the engine.
+</p>
+<p>
+The engine is modeled solely by revolute and prismatic joints.
+Since this results in a <strong>planar</strong> loop there is the well known
+difficulty that the cut-forces perpendicular to the loop cannot be
+uniquely computed, as well as the cut-torques within the plane.
+This ambiguity is resolved by using the option <strong>planarCutJoint</strong>
+in the <strong>Advanced</strong> menu of one revolute joint in every planar loop
+(here: joint B1). This option sets the cut-force in direction of the
+axis of rotation, as well as the cut-torques perpendicular to the axis
+of rotation at this joint to zero and makes the problem mathematically
+well-formed.
+</p>
+<p>
+An animation of this example is shown in the figure below.
+</p>
+
+<img src="../../../../../../Images/Mechanics/MultiBody/Examples/Loops/Engine.png" alt="model Examples.Loops.Engine">
+</body></html>

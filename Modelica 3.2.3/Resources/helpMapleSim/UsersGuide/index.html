@@ -1,0 +1,1143 @@
+<html><head><title>Modelica.UsersGuide</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="UsersGuide"><h1><embed class="icon" src="../images/icon0002.svg" width="203" height="203" />
+Package <a href="../index.html">Modelica</a>.&#8203;UsersGuide<br><span class="subtitle">User's Guide</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Package <strong>Modelica</strong> is a <strong>standardized</strong> and <strong>pre-defined</strong> package
+that is developed together with the Modelica language from the
+Modelica Association, see
+<a href="https://www.Modelica.org">https://www.Modelica.org</a>.
+It is also called <strong>Modelica Standard Library</strong>.
+It provides constants, types, connectors, partial models and model
+components in various disciplines.
+</p>
+<p>
+This is a short <strong>User's Guide</strong> for
+the overall library. Some of the main sublibraries have their own
+User's Guides that can be accessed by the following links:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr>
+  <td><a href="../ComplexBlocks/UsersGuide/index.html">ComplexBlocks</a></td>
+  <td>Library of basic input/output control blocks with Complex signals</td>
+</tr>
+
+<tr><td><a href="../Electrical/Digital/UsersGuide/index.html">Digital</a>
+   </td>
+   <td>Library for digital electrical components based on the VHDL standard
+   (2-,3-,4-,9-valued logic)</td>
+</tr>
+
+<tr>
+  <td><a href="../Fluid/Dissipation/UsersGuide/index.html">Dissipation</a></td>
+  <td>Library of functions for convective heat transfer and pressure loss characteristics</td>
+</tr>
+
+<tr><td><a href="../Fluid/UsersGuide/index.html">Fluid</a></td>
+    <td>Library of 1-dim. thermo-fluid flow models using the Modelica.Media media description</td>
+</tr>
+
+<tr>
+  <td><a href="../Thermal/FluidHeatFlow/UsersGuide/index.html">FluidHeatFlow</a></td>
+  <td>Library of simple components for 1-dimensional incompressible thermo-fluid flow models</td>
+</tr>
+
+<tr><td><a href="../Magnetic/FluxTubes/UsersGuide/index.html">FluxTubes</a>
+    </td>
+   <td>Library for modelling of electromagnetic devices with lumped magnetic networks</td>
+</tr>
+
+<tr>
+  <td><a href="../Magnetic/FundamentalWave/UsersGuide/index.html">FundamentalWave</a></td>
+  <td>Library for magnetic fundamental wave effects in electric machines</td>
+</tr>
+
+<tr>
+  <td><a href="../Magnetic/QuasiStatic/FundamentalWave/UsersGuide/index.html">FundamentalWave</a></td>
+  <td>Library for quasi static fundamental wave electric machines</td>
+</tr>
+
+<tr>
+  <td><a href="../Electrical/Machines/UsersGuide/index.html">Machines</a></td>
+  <td>Library for electric machines</td>
+</tr>
+
+<tr><td><a href="../Media/UsersGuide/index.html">Media</a>
+    </td>
+   <td>Library of media property models</td>
+</tr>
+
+<tr><td><a href="../Mechanics/MultiBody/UsersGuide/index.html">MultiBody</a>
+    </td>
+   <td>Library to model 3-dimensional mechanical systems</td>
+</tr>
+
+<tr>
+  <td><a href="../Electrical/MultiPhase/UsersGuide/index.html">MultiPhase</a></td>
+  <td>Library for electrical components of one or more phases</td>
+</tr>
+
+<tr>
+  <td><a href="../Electrical/PowerConverters/UsersGuide/index.html">PowerConverters</a></td>
+  <td>Library for rectifiers, inverters and DC/DC converters</td>
+</tr>
+
+<tr>
+  <td><a href="../Electrical/QuasiStationary/UsersGuide/index.html">QuasiStationary</a></td>
+  <td>Library for quasi-stationary electrical singlephase and multiphase AC simulation</td>
+</tr>
+
+<tr><td><a href="../Mechanics/Rotational/UsersGuide/index.html">Rotational</a>
+    </td>
+   <td>Library to model 1-dimensional, rotational mechanical systems</td>
+</tr>
+
+<tr><td><a href="../SIunits/UsersGuide/index.html">SIunits</a> </td>
+   <td>Library of type definitions based on SI units according to ISO 31-1992</td>
+</tr>
+
+<tr>
+  <td><a href="../Electrical/Spice3/UsersGuide/index.html">Spice3</a></td>
+  <td>Library for components of the Berkeley SPICE3 simulator</td>
+</tr>
+
+<tr><td><a href="../StateGraph/UsersGuide/index.html">StateGraph</a>
+    </td>
+   <td>Library to model discrete event and reactive systems by hierarchical state machines</td>
+</tr>
+
+<tr><td><a href="../Mechanics/Translational/UsersGuide/index.html">Translational</a>
+    </td>
+   <td>Library to model 1-dimensional, translational mechanical systems</td>
+</tr>
+
+<tr><td><a href="../Utilities/UsersGuide/index.html">Utilities</a>
+    </td>
+   <td>Library of utility functions especially for scripting (Files, Streams, Strings, System)</td>
+</tr>
+</table>
+
+<p>Extends from <code><a href="../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Connectors"><code>Connectors</code></a></td><td>Connectors</td></tr>
+<tr><td><a href="#Contact"><code>Contact</code></a></td><td>Contact</td></tr>
+<tr><td><a href="../UsersGuide/Conventions/index.html"><code>Conventions</code></a> &hellip;</td><td>Conventions</td></tr>
+<tr><td><a href="#Overview"><code>Overview</code></a></td><td>Overview of Modelica Library</td></tr>
+<tr><td><a href="#ParameterDefaults"><code>ParameterDefaults</code></a></td><td>Parameter defaults</td></tr>
+<tr><td><a href="../UsersGuide/ReleaseNotes/index.html"><code>ReleaseNotes</code></a> &hellip;</td><td>Release notes</td></tr>
+</table>
+<hr><a name="Overview"><h2><embed class="icon" src="../images/icon0002.svg" width="203" height="203" />
+Class <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;Overview<br><span class="subtitle">Overview of Modelica Library</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The Modelica Standard Library consists of the following
+main sub-libraries:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Library Components</th> <th>Description</th></tr>
+
+<tr><td>
+ <img src="../../Images/UsersGuide/Lib-Electrical.png">
+ </td>
+ <td>
+ <a href="../Electrical/Analog/index.html">Analog</a><br>
+ Analog electric and electronic components, such as
+ resistor, capacitor, transformers, diodes, transistors,
+ transmission lines, switches, sources, sensors.
+ </td>
+</tr>
+
+<tr><td>
+ <img src="../../Images/UsersGuide/Lib-Digital.png">
+ </td>
+ <td>
+ <a href="../Electrical/Digital/index.html">Digital</a><br>
+ Digital electrical components based on the VHDL standard,
+ like basic logic blocks with 9-value logic, delays, gates,
+ sources, converters between 2-, 3-, 4-, and 9-valued logic.
+ </td>
+</tr>
+
+<tr><td>
+ <img src="../../Images/UsersGuide/Lib-Machines.png">
+ </td>
+ <td>
+ <a href="../Electrical/Machines/index.html">Machines</a><br>
+            Electrical asynchronous-, synchronous-, and DC-machines
+ (motors and generators) as well as 3-phase transformers.
+ </td>
+</tr>
+
+<tr><td>
+ <img src="../../Images/UsersGuide/Lib-FluxTubes.png">
+ </td>
+ <td>
+ <a href="../Magnetic/FluxTubes/index.html">FluxTubes</a><br>
+Based on magnetic flux tubes concepts. Especially to model electro-magnetic actuators. Nonlinear shape, force, leakage, and material models. Material data for steel, electric sheet, pure iron, Cobalt iron, Nickel iron, NdFeB, Sm2Co17, and more.
+ </td>
+</tr>
+
+<tr><td>
+ <img src="../../Images/UsersGuide/Lib-Translational.png">
+ </td>
+ <td>
+ <a href="../Mechanics/Translational/index.html">Translational</a><br>
+ 1-dim. mechanical, translational systems, e.g.,
+ sliding mass, mass with stops, spring, damper.
+ </td>
+</tr>
+
+<tr><td>
+ <img src="../../Images/UsersGuide/Lib-Rotational.png">
+ </td>
+ <td>
+ <a href="../Mechanics/Rotational/index.html">Rotational</a><br>
+ 1-dim. mechanical, rotational systems, e.g., inertias, gears,
+ planetary gears, convenient definition of speed/torque dependent friction
+ (clutches, brakes, bearings, ..)
+ </td>
+</tr>
+
+<tr><td width=100>
+ <img src="../../Images/UsersGuide/Lib-MultiBody1.png"><br>
+ <img src="../../Images/UsersGuide/Lib-MultiBody2.png">
+ </td>
+ <td>
+ <a href="../Mechanics/MultiBody/index.html">MultiBody</a>
+ 3-dim. mechanical systems consisting of joints, bodies, force and
+ sensor elements. Joints can be driven by drive trains defined by
+ 1-dim. mechanical system library (Rotational).
+ Every component has a default animation.
+ Components can be arbitrarily connected together.
+ </td>
+</tr>
+
+<tr><td>
+ <img src="../../Images/UsersGuide/Lib-Fluid.png">
+ </td>
+ <td>
+ <a href="../Fluid/index.html">Fluid</a><br>
+        1-dim. thermo-fluid flow in networks of vessels, pipes,
+        fluid machines, valves and fittings. All media from the
+        Modelica.Media library can be used (so incompressible or compressible,
+        single or multiple substance, one or two phase medium).
+ </td>
+</tr>
+
+<tr><td>
+ <img src="../../Images/UsersGuide/Lib-Media.png">
+ </td>
+ <td>
+ <a href="../Media/index.html">Media</a><br>
+ Large media library providing models and functions
+ to compute media properties, such as h = h(p,T), d = d(p,T),
+ for the following media:
+ <ul>
+ <li> 1240 gases and mixtures between these gases.</li>
+ <li> incompressible, table based liquids (h = h(T), etc.).</li>
+ <li> compressible liquids</li>
+ <li> dry and moist air</li>
+ <li> high precision model for water (IF97).</li>
+ </ul>
+ </td>
+</tr>
+
+<tr><td>
+ <img src="../../Images/UsersGuide/Lib-Thermal.png">
+ </td>
+ <td>
+ <a href="../Thermal/FluidHeatFlow/index.html">FluidHeatFlow</a>,
+ <a href="../Thermal/HeatTransfer/index.html">HeatTransfer</a>
+ Simple thermo-fluid pipe flow, especially to model cooling of machines
+ with air or water (pipes, pumps, valves, ambient, sensors, sources) and
+ lumped heat transfer with heat capacitors, thermal conductors, convection,
+ body radiation, sources and sensors.
+ </td>
+</tr>
+
+<tr><td>
+ <img src="../../Images/UsersGuide/Lib-Blocks1.png"><br>
+ <img src="../../Images/UsersGuide/Lib-Blocks2.png">
+ </td>
+ <td>
+ <a href="../Blocks/index.html">Blocks</a><br>
+ Input/output blocks to model block diagrams and logical networks, e.g.,
+ integrator, PI, PID, transfer function, linear state space system,
+ sampler, unit delay, discrete transfer function, and/or blocks,
+ timer, hysteresis, nonlinear and routing blocks, sources, tables.
+ </td>
+</tr>
+
+<tr><td>
+ <img src="../../Images/UsersGuide/Lib-StateGraph.png">
+ </td>
+ <td>
+ <a href="../StateGraph/index.html">StateGraph</a><br>
+ Hierarchical state machines with a similar modeling power as Statecharts.
+ Modelica is used as synchronous action language, i.e., deterministic
+ behavior is guaranteed
+ </td>
+</tr>
+
+<tr><td>
+ <pre>
+ A = [1,2,3;
+   3,4,5;
+   2,1,4];
+ b = {10,22,12};
+ x = Matrices.solve(A,b);
+ Matrices.eigenValues(A);
+ </pre>
+ </td>
+ <td>
+ <a href="../Math/index.html">Math</a>,
+ <a href="../Utilities/index.html">Utilities</a><br>
+ Functions operating on vectors and matrices, such as for solving
+ linear systems, eigen and singular values etc.,  and
+ functions operating on strings, streams, files, e.g.,
+ to copy and remove a file or sort a vector of strings.
+ </td>
+</tr>
+
+</table>
+
+<p>Extends from <code><a href="../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="Connectors"><h2><embed class="icon" src="../images/icon0002.svg" width="203" height="203" />
+Class <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;Connectors<br><span class="subtitle">Connectors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+The Modelica standard library defines the most important
+<strong>elementary connectors</strong> in various domains. If any possible,
+a user should utilize these connectors in order that components
+from the Modelica Standard Library and from other libraries
+can be combined without problems.
+The following elementary connectors are defined
+(the meaning of potential, flow, and stream
+variables is explained in section "Connector Equations" below):
+</p>
+
+<table border=1 cellspacing=0 cellpadding=1>
+<tr><td><strong>domain</strong></td>
+   <td><strong>potential<br>variables</strong></td>
+   <td><strong>flow<br>variables</strong></td>
+   <td><strong>stream<br>variables</strong></td>
+   <td><strong>connector definition</strong></td>
+   <td><strong>icons</strong></td></tr>
+
+<tr><td><strong>electrical<br>analog</strong></td>
+   <td>electrical potential</td>
+   <td>electrical current</td>
+   <td></td>
+   <td><a href="../Electrical/Analog/Interfaces/index.html">Modelica.Electrical.Analog.Interfaces</a>
+     <br>Pin, PositivePin, NegativePin</td>
+   <td><img src="../../Images/UsersGuide/ElectricalPins.png"></td></tr>
+
+<tr><td><strong>electrical<br>multi-phase</strong></td>
+   <td colspan="3">vector of electrical pins</td>
+   <td><a href="../Electrical/MultiPhase/Interfaces/index.html">Modelica.Electrical.MultiPhase.Interfaces</a>
+     <br>Plug, PositivePlug, NegativePlug</td>
+   <td><img src="../../Images/UsersGuide/ElectricalPlugs.png"></td></tr>
+
+<tr><td><strong>electrical<br>space phasor</strong></td>
+   <td>2 electrical potentials</td>
+   <td>2 electrical currents</td>
+   <td></td>
+   <td><a href="../Electrical/Machines/Interfaces/index.html">Modelica.Electrical.Machines.Interfaces</a>
+     <br>SpacePhasor</td>
+   <td><img src="../../Images/UsersGuide/SpacePhasor.png"></td></tr>
+
+<tr><td><strong>quasi<br>stationary<br>single phase</strong></td>
+   <td>complex electrical potential</td>
+   <td>complex electrical current</td>
+   <td></td>
+   <td><a href="../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html">
+                                       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces</a>
+     <br>Pin, PositivePin, NegativePin</td>
+   <td><img src="../../Images/UsersGuide/QuasiStationarySinglePhasePins.png"></td></tr>
+
+<tr><td><strong>quasi<br>stationary<br>multi-phase</strong></td>
+   <td colspan="3">vector of quasi stationary single phase pins</td>
+   <td><a href="../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html">Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</a>
+     <br>Plug, PositivePlug, NegativePlug</td>
+   <td><img src="../../Images/UsersGuide/QuasiStationaryMultiPhasePlugs.png"></td></tr>
+
+<tr><td><strong>electrical<br>digital</strong></td>
+   <td>Integer (1..9)</td>
+   <td></td>
+   <td></td>
+   <td><a href="../Electrical/Digital/Interfaces/index.html">Modelica.Electrical.Digital.Interfaces</a>
+     <br>DigitalSignal, DigitalInput, DigitalOutput</td>
+   <td><img src="../../Images/UsersGuide/Digital.png"></td></tr>
+
+<tr><td><strong>magnetic<br>flux tubes</strong></td>
+   <td>magnetic potential</td>
+   <td>magnetic flux</td>
+   <td></td>
+   <td>
+<a href="../Magnetic/FluxTubes/Interfaces/index.html">Modelica.Magnetic.FluxTubes.Interfaces</a>
+     <br>MagneticPort, PositiveMagneticPort,<br>NegativeMagneticPort</td>
+   <td><img src="../../Images/UsersGuide/MagneticPorts.png"></td></tr>
+
+<tr><td><strong>magnetic<br>fundamental<br>wave</strong></td>
+   <td>complex magnetic potential</td>
+   <td>complex magnetic flux</td>
+   <td></td>
+   <td>
+<a href="../Magnetic/FundamentalWave/Interfaces/index.html">Modelica.Magnetic.FundamentalWave.Interfaces</a>
+     <br>MagneticPort, PositiveMagneticPort,<br>NegativeMagneticPort</td>
+   <td><img src="../../Images/UsersGuide/FundamentalWavePorts.png"></td></tr>
+
+<tr><td><strong>translational</strong></td>
+   <td>distance</td>
+   <td>cut-force</td>
+   <td></td>
+   <td><a href="../Mechanics/Translational/Interfaces/index.html">Modelica.Mechanics.Translational.Interfaces</a>
+     <br>Flange_a, Flange_b</td>
+   <td><img src="../../Images/UsersGuide/TranslationalFlanges.png"></td></tr>
+
+<tr><td><strong>rotational</strong></td>
+   <td>angle</td>
+   <td>cut-torque</td>
+   <td></td>
+   <td><a href="../Mechanics/Rotational/Interfaces/index.html">Modelica.Mechanics.Rotational.Interfaces</a>
+     <br>Flange_a, Flange_b</td>
+   <td><img src="../../Images/UsersGuide/RotationalFlanges.png"></td></tr>
+
+<tr><td><strong>3-dim.<br>mechanics</strong></td>
+   <td>position vector<br>
+    orientation object</td>
+   <td>cut-force vector<br>
+    cut-torque vector</td>
+   <td></td>
+   <td><a href="../Mechanics/MultiBody/Interfaces/index.html">Modelica.Mechanics.MultiBody.Interfaces</a>
+     <br>Frame, Frame_a, Frame_b, Frame_resolve</td>
+   <td><img src="../../Images/UsersGuide/MultiBodyFrames.png"></td></tr>
+
+<tr><td><strong>simple<br>fluid flow</strong></td>
+   <td>pressure<br>
+    specific enthalpy</td>
+   <td>mass flow rate<br>
+    enthalpy flow rate</td>
+   <td></td>
+   <td><a href="../Thermal/FluidHeatFlow/Interfaces/index.html">Modelica.Thermal.FluidHeatFlow.Interfaces</a>
+     <br>FlowPort, FlowPort_a, FlowPort_b</td>
+   <td><img src="../../Images/UsersGuide/FluidHeatFlowPorts.png"></td></tr>
+
+<tr><td><strong>thermo<br>fluid flow</strong></td>
+   <td>pressure</td>
+   <td>mass flow rate</td>
+   <td>specific enthalpy<br>mass fractions</td>
+   <td>
+<a href="../Fluid/Interfaces/index.html">Modelica.Fluid.Interfaces</a>
+     <br>FluidPort, FluidPort_a, FluidPort_b</td>
+   <td><img src="../../Images/UsersGuide/FluidPorts.png"></td></tr>
+
+<tr><td><strong>heat<br>transfer</strong></td>
+   <td>temperature</td>
+   <td>heat flow rate</td>
+   <td></td>
+   <td><a href="../Thermal/HeatTransfer/Interfaces/index.html">Modelica.Thermal.HeatTransfer.Interfaces</a>
+     <br>HeatPort, HeatPort_a, HeatPort_b</td>
+   <td><img src="../../Images/UsersGuide/ThermalHeatPorts.png"></td></tr>
+
+<tr><td><strong>blocks</strong></td>
+   <td>
+    Real variable<br>
+    Integer variable<br>
+    Boolean variable</td>
+   <td></td>
+   <td></td>
+   <td><a href="../Blocks/Interfaces/index.html">Modelica.Blocks.Interfaces</a>
+     <br>
+      RealSignal, RealInput, RealOutput<br>
+      IntegerSignal, IntegerInput, IntegerOutput<br>
+      BooleanSignal, BooleanInput, BooleanOutput</td>
+   <td><img src="../../Images/UsersGuide/Signals.png"></td></tr>
+
+<tr><td><strong>complex<br>blocks</strong></td>
+   <td>
+    Complex variable</td>
+   <td></td>
+   <td></td>
+   <td><a href="../ComplexBlocks/Interfaces/index.html">Modelica.ComplexBlocks.Interfaces</a>
+     <br>ComplexSignal, ComplexInput, ComplexOutput</td>
+   <td><img src="../../Images/UsersGuide/ComplexSignals.png"></td></tr>
+
+<tr><td><strong>state<br>machine</strong></td>
+   <td>Boolean variables<br>
+    (occupied, set,<br>
+     available, reset)</td>
+   <td></td>
+   <td></td>
+   <td><a href="../StateGraph/Interfaces/index.html">Modelica.StateGraph.Interfaces</a>
+     <br>Step_in, Step_out, Transition_in, Transition_out</td>
+   <td><img src="../../Images/UsersGuide/StateGraphPorts.png"></td></tr>
+</table>
+
+<p>
+In all domains, usually 2 connectors are defined. The variable declarations
+are <strong>identical</strong>, only the icons are different in order that it is easy
+to distinguish connectors of the same domain that are attached at the same
+component.
+</p>
+
+<h4>Hierarchical Connectors </h4>
+<p>
+Modelica supports also hierarchical connectors, in a similar way as hierarchical models.
+As a result, it is, e.g., possible, to collect elementary connectors together.
+For example, an electrical plug consisting of two electrical pins can be defined as:
+</p>
+
+<blockquote>
+<pre>
+<strong>connector</strong> Plug
+   <strong>import</strong> Modelica.Electrical.Analog.Interfaces;
+   Interfaces.PositivePin phase;
+   Interfaces.NegativePin ground;
+<strong>end</strong> Plug;
+</pre>
+</blockquote>
+
+<p>
+With one connect(..) equation, either two plugs can be connected
+(and therefore implicitly also the phase and ground pins) or a
+Pin connector can be directly connected to the phase or ground of
+a Plug connector, such as "connect(resistor.p, plug.phase)".
+</p>
+
+<h4 id="ConnectorEquations">Connector Equations</h4>
+
+<p>
+The connector variables listed above have been basically determined
+with the following strategy:
+</p>
+
+<ol>
+<li> State the relevant balance equations and boundary
+     conditions of a volume for the particular physical domain.</li>
+<li> Simplify the balance equations and boundary conditions
+     of (1) by taking the
+     limit of an infinitesimal small volume
+     (e.g., thermal domain:
+      temperatures are identical and heat flow rates
+      sum up to zero).
+</li>
+<li> Use the variables needed for the balance equations
+     and boundary conditions of (2)
+     in the connector and select appropriate Modelica
+     <strong>prefixes</strong>, so that these equations
+     are generated by the Modelica connection semantics.
+</li>
+</ol>
+
+<p>
+The Modelica connection semantics is sketched at hand
+of an example: Three connectors c1, c2, c3 with the definition
+</p>
+
+<pre>
+<strong>connector</strong> Demo
+  Real        p;  // potential variable
+  <strong>flow</strong>   Real f;  // flow variable
+  <strong>stream</strong> Real s;  // stream variable
+<strong>end</strong> Demo;
+</pre>
+
+<p>
+are connected together with
+</p>
+
+<pre>
+   <strong>connect</strong>(c1,c2);
+   <strong>connect</strong>(c1,c3);
+</pre>
+
+<p>
+then this leads to the following equations:
+</p>
+
+<pre>
+  // Potential variables are identical
+  c1.p = c2.p;
+  c1.p = c3.p;
+
+  // The sum of the flow variables is zero
+  0 = c1.f + c2.f + c3.f;
+
+  /* The sum of the product of flow variables and upstream stream variables is zero
+     (this implicit set of equations is explicitly solved when generating code;
+     the "&lt;undefined&gt;" parts are defined in such a way that
+     inStream(..) is continuous).
+  */
+  0 = c1.f*(<strong>if</strong> c1.f > 0 <strong>then</strong> s_mix <strong>else</strong> c1.s) +
+      c2.f*(<strong>if</strong> c2.f > 0 <strong>then</strong> s_mix <strong>else</strong> c2.s) +
+      c3.f*(<strong>if</strong> c3.f > 0 <strong>then</strong> s_mix <strong>else</strong> c3.s);
+
+  <strong>inStream</strong>(c1.s) = <strong>if</strong> c1.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
+  <strong>inStream</strong>(c2.s) = <strong>if</strong> c2.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
+  <strong>inStream</strong>(c3.s) = <strong>if</strong> c3.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
+</pre>
+
+<p>Extends from <code><a href="../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="ParameterDefaults"><h2><embed class="icon" src="../images/icon0002.svg" width="203" height="203" />
+Class <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;ParameterDefaults<br><span class="subtitle">Parameter defaults</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+In this section the convention is summarized how default parameters are
+handled in the Modelica Standard Library (since version 3.0).
+</p>
+
+<p>
+Many models in this library have parameter declarations to define
+constants of a model that might be changed before simulation starts.
+Example:
+</p>
+
+<blockquote>
+<pre>
+<strong>model</strong> SpringDamper
+<strong>parameter</strong> Real c(final unit="N.m/rad")    = 1e5 "Spring constant";
+<strong>parameter</strong> Real d(final unit="N.m.s/rad")  = 0   "Damping constant";
+<strong>parameter</strong> Modelica.SIunits.Angle phi_rel0 = 0   "Unstretched spring angle";
+...
+<strong>end</strong> SpringDamper;
+</pre>
+</blockquote>
+
+<p>
+In Modelica it is possible to define a default value of a parameter in
+the parameter declaration. In the example above, this is performed for
+all parameters. Providing default values for all parameters can lead to
+errors that are difficult to detect, since a modeler may have forgotten
+to provide a meaningful value (the model simulates but gives wrong
+results due to wrong parameter values). In general the following basic
+situations are present:
+</p>
+
+<ol>
+<li> The parameter value could be anything (e.g., a spring constant or
+  a resistance value) and therefore the user should provide a value in
+  all cases. A Modelica translator should warn, if no value is provided.
+</li>
+
+<li> The parameter value is not changed in &gt; 95 % of the cases
+  (e.g., initialization or visualization parameters, or parameter phi_rel0
+  in the example above). In this case a default parameter value should be
+  provided, in order that the model or function can be conveniently
+  used by a modeler.
+</li>
+
+<li> A modeler would like to quickly utilize a model, e.g.,
+  <ul>
+  <li> to automatically check that the model still translates and/or simulates
+    (after some changes in the library),</li>
+  <li> to make a quick demo of a library by drag-and-drop of components,</li>
+  <li> to implement a simple test model in order to get a better understanding
+    of the desired component.</li>
+  </ul>
+  In all these cases, it would be not practical, if the modeler would
+  have to provide explicit values for all parameters first.
+  </li>
+</ol>
+
+<p>
+To handle the conflicting goals of (1) and (3), the Modelica Standard Library
+uses two approaches to define default parameters, as demonstrated with the
+following example:
+</p>
+
+<blockquote>
+<pre>
+<strong>model</strong> SpringDamper
+<strong>parameter</strong> Real c(final unit="N.m/rad"  , start=1e5) "Spring constant";
+<strong>parameter</strong> Real d(final unit="N.m.s/rad", start=  0) "Damping constant";
+<strong>parameter</strong> Modelica.SIunits.Angle phi_rel0 = 0       "Unstretched spring angle";
+...
+<strong>end</strong> SpringDamper;
+
+SpringDamper sp1;              // warning for "c" and "d"
+SpringDamper sp2(c=1e4, d=0);  // fine, no warning
+</pre>
+</blockquote>
+
+<p>
+Both definition forms, using a "start" value (for "c" and "d") and providing
+a declaration equation (for "phi_rel0"), are valid Modelica and define the value
+of the parameter. By convention, it is expected that Modelica translators will
+trigger a warning message for parameters that are <strong>not</strong> defined by a declaration
+equation, by a modifier equation or in an initial equation/algorithm section.
+A Modelica translator might have options to change this behavior, especially,
+that no messages are printed in such cases and/or that an error is triggered
+instead of a warning.
+</p>
+
+<p>Extends from <code><a href="../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="Contact"><h2><embed class="icon" src="../images/icon0004.svg" width="203" height="203" />
+Class <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;Contact<br><span class="subtitle">Contact</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<dl><dt>The Modelica Standard Library (this Modelica package) is developed by contributors from different organizations (see list below). It is licensed under the <a href="https://modelica.org/licenses/modelica-3-clause-bsd">BSD 3-Clause License</a> by:</dt>
+<dt><br /></dt>
+<dd>Modelica Association</dd>
+<dd>(Ideella F&ouml;reningar 822003-8858 in Link&ouml;ping)</dd>
+<dd>c/o PELAB, IDA, Link&ouml;pings Universitet</dd>
+<dd>S-58183 Link&ouml;ping</dd>
+<dd>Sweden</dd>
+<dd>email: <a href="mailto:Board@Modelica.org">Board@Modelica.org</a></dd>
+<dd>web: <a href="https://www.Modelica.org">https://www.Modelica.org</a></dd>
+<dd><br /></dd>
+
+<dt>The development of this Modelica package, starting with version 3.2.3, is organized by:</dt>
+<dd><a href="https://github.com/beutlich">Thomas Beutlich</a> and <a href="https://github.com/dietmarw">Dietmar Winkler</a></dd>
+<dd><br /></dd>
+
+<dt>The development of this Modelica package of version 3.2.2 was organized by:</dt>
+<dd><a href="https://www.haumer.at/eindex.htm">Anton Haumer</a></dd>
+<dd>Technical Consulting &amp; Electrical Engineering</dd>
+<dd>D-93049 Regensburg</dd>
+<dd>Germany</dd>
+<dd>email: <a href="mailto:A.Haumer@Haumer.at">A.Haumer@Haumer.at</a></dd>
+<dd><br /></dd>
+
+<dt>The development of this Modelica package up to and including version 3.2.1 was organized by:</dt>
+<dd><a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a></dd>
+<dd>German Aerospace Center (DLR)</dd>
+<dd>Robotics and Mechatronics Center (RMC)</dd>
+<dd>Institute of System Dynamics and Control (SR)</dd>
+<dd>Postfach 1116</dd>
+<dd>D-82230 Wessling</dd>
+<dd>Germany</dd>
+<dd>email: <a href="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</a></dd>
+</dl>
+<p>Since end of 2007, the development of the sublibraries of package Modelica is organized by personal and/or organizational <strong>library officers</strong> assigned by the Modelica Association. They are responsible for the maintenance and for the further organization of the development. Other persons may also contribute, but the final decision for library improvements and/or changes is performed by the responsible library officer(s). In order that a new sublibrary or a new version of a sublibrary is ready to be released, the responsible library officers report the changes to the members of the Modelica Association and the library is made available for beta testing to interested parties before a final decision. A new release of a sublibrary is formally decided by voting of the Modelica Association members.</p>
+<p>As of March 21st, 2018, the following library officers are assigned:</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><td><strong>Sublibraries</strong> </td>
+   <td><strong>Library officers</strong></td>
+</tr>
+
+<tr>
+<td align="left">Blocks</td>
+<td align="left">Martin Otter, Anton Haumer</td>
+</tr>
+<tr>
+<td align="left">ComplexBlocks</td>
+<td align="left">Anton Haumer, Christian Kral</td>
+</tr>
+<tr>
+<td align="left">Blocks.Tables</td>
+<td align="left">Thomas Beutlich, Martin Otter, Anton Haumer</td>
+</tr>
+<tr>
+<td align="left">StateGraph</td>
+<td align="left">Martin Otter, Hans Olsson</td>
+</tr>
+<tr>
+<td align="left">Electrical.Analog</td>
+<td align="left">Christoph Clauss, Kristin Majetta, Christian Kral</td>
+</tr>
+<tr>
+<td align="left">Electrical.Digital</td>
+<td align="left">Christoph Clauss, Kristin Majetta</td>
+</tr>
+<tr>
+<td align="left">Electrical.Machines</td>
+<td align="left">Anton Haumer, Christian Kral</td>
+</tr>
+<tr>
+<td align="left">Electrical.Multiphase</td>
+<td align="left">Anton Haumer, Christian Kral</td>
+</tr>
+<tr>
+<td align="left">Electrical.PowerConverters</td>
+<td align="left">Christian Kral, Anton Haumer</td>
+</tr>
+<tr>
+<td align="left">Electrical.QuasiStationary</td>
+<td align="left">Anton Haumer, Christian Kral</td>
+</tr>
+<tr>
+<td align="left">Electrical.Spice3</td>
+<td align="left">Christoph Clauss, Kristin Majetta</td>
+</tr>
+<tr>
+<td align="left">Magnetic.FluxTubes</td>
+<td align="left">Thomas B&ouml;drich, Johannes Ziske</td>
+</tr>
+<tr>
+<td align="left">Magnetic.FundamentalWave</td>
+<td align="left">Christian Kral, Anton Haumer</td>
+</tr>
+<tr>
+<td align="left">Magnetic.QuasiStatic</td>
+<td align="left">Christian Kral, Anton Haumer</td>
+</tr>
+<tr>
+<td align="left">Mechanics.MultiBody</td>
+<td align="left">Jakub Tobolar, Martin Otter</td>
+</tr>
+<tr>
+<td align="left">Mechanics.Rotational</td>
+<td align="left">Jakub Tobolar, Martin Otter, Anton Haumer, Christian Kral</td>
+</tr>
+<tr>
+<td align="left">Mechanics.Translational</td>
+<td align="left">Anton Haumer, Jakub Tobolar, Martin Otter, Christian Kral</td>
+</tr>
+<tr>
+<td align="left">Fluid</td>
+<td align="left">R&uuml;diger Franke, Francesco Casella, Hubertus Tummescheit</td>
+</tr>
+<tr>
+<td align="left">Fluid.Dissipation</td>
+<td align="left">Stefan Wischhusen, Francesco Casella</td>
+</tr>
+<tr>
+<td align="left">Media</td>
+<td align="left">Hubertus Tummescheit, Francesco Casella, R&uuml;diger Franke</td>
+</tr>
+<tr>
+<td align="left">Thermal.FluidHeatFlow</td>
+<td align="left">Anton Haumer, Christian Kral</td>
+</tr>
+<tr>
+<td align="left">Thermal.HeatTransfer</td>
+<td align="left">Anton Haumer, Christian Kral</td>
+</tr>
+<tr>
+<td align="left">Math</td>
+<td align="left">Martin Otter, Hans Olsson</td>
+</tr>
+<tr>
+<td align="left">ComplexMath</td>
+<td align="left">Anton Haumer, Martin Otter, Christian Kral</td>
+</tr>
+<tr>
+<td align="left">Utilities</td>
+<td align="left">Martin Otter, Hans Olsson, Dag Br&uuml;ck</td>
+</tr>
+<tr>
+<td align="left">Constants</td>
+<td align="left">Martin Otter, Hans Olsson</td>
+</tr>
+<tr>
+<td align="left">Icons</td>
+<td align="left">Christian Kral</td>
+</tr>
+<tr>
+<td align="left">SIunits</td>
+<td align="left">Martin Otter, Christian Kral</td>
+</tr>
+<tr>
+<td align="left">C-Sources</td>
+<td align="left">Thomas Beutlich, Hans Olsson, Martin Sj&ouml;lund</td>
+</tr>
+<tr>
+<td align="left">Reference</td>
+<td align="left">Dietmar Winkler, Hans Olsson</td>
+</tr>
+<tr>
+<td align="left">Services</td>
+<td align="left">Hans Olsson, Martin Otter</td>
+</tr>
+<tr>
+<td align="left">Complex</td>
+<td align="left">Anton Haumer, Christian Kral</td>
+</tr>
+<tr>
+<td align="left">Test</td>
+<td align="left">Leo Gall, Martin Otter</td>
+</tr>
+<tr>
+<td align="left">TestOverdetermined</td>
+<td align="left">Leo Gall, Martin Otter</td>
+</tr>
+<tr>
+<td align="left">ObsoleteModelica3</td>
+<td align="left">Hans Olsson, Martin Otter</td>
+</tr>
+</table>
+
+<p>
+The following people have directly contributed to the implementation
+of the Modelica package (many more people have contributed to the design):
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><td><strong>Marcus Baur</strong></td>
+   <td>Institute of System Dynamics and Control<br>
+     DLR, German Aerospace Center,<br>
+     Oberpfaffenhofen, Germany</td>
+   <td>Complex<br>
+                      Modelica.Math.Vectors<br>
+                      Modelica.Math.Matrices</td>
+</tr>
+
+<tr><td><strong>Peter Beater</strong></td>
+   <td>University of Paderborn, Germany</td>
+   <td>Modelica.Mechanics.Translational</td>
+</tr>
+
+<tr><td><strong>Thomas Beutlich</strong></td>
+   <td>ESI ITI GmbH, Germany</td>
+   <td>Modelica.Blocks.Sources.CombiTimeTable<br>
+                      Modelica.Blocks.Tables</td>
+</tr>
+
+<tr><td><strong>Thomas B&ouml;drich</strong></td>
+   <td>Dresden University of Technology, Germany</td>
+   <td>Modelica.Magnetic.FluxTubes</td>
+</tr>
+
+<tr><td><strong>Dag Br&uuml;ck</strong></td>
+   <td>Dassault Syst&egrave;mes AB, Lund, Sweden</td>
+   <td>Modelica.Utilities</td>
+</tr>
+
+<tr><td><strong>Francesco Casella</strong></td>
+   <td>Politecnico di Milano, Milano, Italy</td>
+   <td>Modelica.Fluid<br>
+                      Modelica.Media</td>
+</tr>
+
+<tr><td><strong>Christoph Clauss</strong></td>
+   <td>until 2016:<br>
+     Fraunhofer Institute for Integrated Circuits,<br>
+     Dresden, Germany</td>
+   <td>Modelica.Electrical.Analog<br>
+                      Modelica.Electrical.Digital<br>
+                      Modelica.Electrical.Spice3</td>
+</tr>
+
+<tr><td><strong>Jonas Eborn</strong></td>
+   <td>Modelon AB, Lund, Sweden</td>
+   <td>Modelica.Media</td>
+</tr>
+
+<tr><td><strong>Hilding Elmqvist</strong></td>
+   <td>Mogram AB, Lund, Sweden<br>
+     until 2015:<br>
+     Dassault Syst&egrave;mes AB, Lund, Sweden</td>
+   <td>Modelica.Mechanics.MultiBody<br>
+                      Modelica.Fluid<br>
+                      Modelica.Media<br>
+                      Modelica.StateGraph<br>
+                      Modelica.Utilities<br>
+                      Conversion from 1.6 to 2.0</td>
+</tr>
+
+<tr><td><strong>R&uuml;diger Franke</strong></td>
+   <td>ABB Corporate Research,<br>Ladenburg, Germany</td>
+   <td>Modelica.Fluid<br>
+                      Modelica.Media</td>
+</tr>
+
+<tr><td><strong>Manuel Gr&auml;ber</strong></td>
+   <td>Institut f&uuml;r Thermodynamik,<br>
+     Technische Universit&auml;t Braunschweig, Germany</td>
+   <td>Modelica.Fluid</td>
+</tr>
+
+<tr><td><strong>Anton Haumer</strong></td>
+   <td>Consultant, Regensburg,<br>Germany</td>
+   <td>Modelica.ComplexBlocks<br>
+                      Modelica.Electrical.Machines<br>
+                      Modelica.Electrical.Multiphase<br>
+                      Modelica.Electrical.QuasiStationary<br>
+                      Modelica.Magnetics.FundamentalWave<br>
+                      Modelica.Mechanics.Rotational<br>
+                      Modelica.Mechanics.Translational<br>
+                      Modelica.Thermal.FluidHeatFlow<br>
+                      Modelica.Thermal.HeatTransfer<br>
+                      Modelica.ComplexMath<br>
+                      Conversion from 1.6 to 2.0<br>
+                      Conversion from 2.2 to 3.0</td>
+</tr>
+
+<tr><td><strong>Hans-Dieter Joos</strong></td>
+   <td>Institute of System Dynamics and Control<br>
+     DLR, German Aerospace Center,<br>
+     Oberpfaffenhofen, Germany</td>
+   <td>Modelica.Math.Matrices</td>
+</tr>
+
+<tr><td><strong>Christian Kral</strong></td>
+   <td>Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems,<br>
+     Vienna, Austria</td>
+   <td>Modelica.ComplexBlocks<br>
+                      Modelica.Electrical.Machines<br>
+                      Modelica.Electrical.MultiPhase<br>
+                      Modelica.Electrical.QuasiStationary<br>
+                      Modelica.Magnetics.FundamentalWave<br>
+                      Modelica.Mechanics.Rotational<br>
+                      Modelica.Mechanics.Translational<br>
+                      Modelica.Thermal.FluidHeatFlow<br>
+                      Modelica.Thermal.HeatTransfer<br>
+                      Modelica.ComplexMath
+  </td>
+</tr>
+
+<tr><td><strong>Sven Erik Mattsson</strong></td>
+   <td>until 2015:<br>
+     Dassault Syst&egrave;mes AB, Lund, Sweden</td>
+   <td>Modelica.Mechanics.MultiBody</td>
+</tr>
+
+<tr><td><strong>Hans Olsson</strong></td>
+   <td>Dassault Syst&egrave;mes AB, Lund, Sweden</td>
+   <td>Modelica.Blocks<br>
+                      Modelica.Math.Matrices<br>
+                      Modelica.Utilities<br>
+                      Conversion from 1.6 to 2.0<br>
+                      Conversion from 2.2 to 3.0</td>
+</tr>
+
+<tr><td><strong>Martin Otter</strong></td>
+   <td>Institute of System Dynamics and Control<br>
+     DLR, German Aerospace Center,<br>
+     Oberpfaffenhofen, Germany</td>
+   <td>Complex<br>
+                      Modelica.Blocks<br>
+                      Modelica.Fluid<br>
+                      Modelica.Mechanics.MultiBody<br>
+                      Modelica.Mechanics.Rotational<br>
+                      Modelica.Mechanics.Translational<br>
+                      Modelica.Math<br>
+                      Modelica.ComplexMath<br>
+                      Modelica.Media<br>
+                      Modelica.SIunits<br>
+                      Modelica.StateGraph<br>
+                      Modelica.Thermal.HeatTransfer<br>
+                      Modelica.Utilities<br>
+                      ModelicaReference<br>
+                      Conversion from 1.6 to 2.0<br>
+                      Conversion from 2.2 to 3.0</td>
+</tr>
+
+<tr><td><strong>Katrin Pr&ouml;l&szlig;</strong></td>
+   <td>Modelon Deutschland GmbH, Hamburg, Germany<br>
+     until 2008:<br>
+     Department of Technical Thermodynamics,<br>
+     Technical University Hamburg-Harburg,<br>Germany</td>
+   <td>Modelica.Fluid<br>
+                            Modelica.Media</td>
+</tr>
+
+<tr><td><strong>Christoph C. Richter</strong></td>
+   <td>until 2009:<br>
+     Institut f&uuml;r Thermodynamik,<br>
+     Technische Universit&auml;t Braunschweig,<br>
+     Germany</td>
+   <td>Modelica.Fluid<br>
+                      Modelica.Media</td>
+</tr>
+
+<tr><td><strong>Andr&eacute; Schneider</strong></td>
+   <td>Fraunhofer Institute for Integrated Circuits,<br>Dresden, Germany</td>
+   <td>Modelica.Electrical.Analog<br>
+     Modelica.Electrical.Digital</td>
+</tr>
+<tr><td><strong>Christian Schweiger</strong></td>
+   <td>until 2006:<br>
+     Institute of System Dynamics and Control,<br>
+     DLR, German Aerospace Center,<br>
+     Oberpfaffenhofen, Germany</td>
+   <td>Modelica.Mechanics.Rotational<br>
+                      ModelicaReference<br>
+                      Conversion from 1.6 to 2.0</td>
+</tr>
+
+<tr><td><strong>Michael Sielemann</strong></td>
+   <td>Modelon Deutschland GmbH, Munich, Germany<br>
+     previously at:<br>
+     Institute of System Dynamics and Control<br>
+     DLR, German Aerospace Center,<br>
+     Oberpfaffenhofen, Germany</td>
+   <td>Modelica.Fluid<br>
+                      Modelica.Media</td>
+</tr>
+
+<tr><td><strong>Michael Tiller</strong></td>
+   <td>Xogeny Inc., Canton, MI, U.S.A.<br>
+     previously at:<br>
+     Emmeskay, Inc., Dearborn, MI, U.S.A.<br>
+     previously at:<br>
+     Ford Motor Company, Dearborn, MI, U.S.A.</td>
+   <td>Modelica.Media<br>
+                      Modelica.Thermal.HeatTransfer</td>
+</tr>
+
+<tr><td><strong>Hubertus Tummescheit</strong></td>
+   <td>Modelon, Inc., Hartford, CT, U.S.A.</td>
+   <td>Modelica.Media<br>
+                      Modelica.Thermal.HeatTransfer</td>
+</tr>
+
+<tr><td><strong>Thorsten Vahlenkamp</strong></td>
+   <td>until 2010:<br>
+                     XRG Simulation GmbH, Hamburg, Germany</td>
+   <td>Modelica.Fluid.Dissipation</td>
+</tr>
+
+<tr><td><strong>Nico Walter</strong></td>
+   <td>Master thesis at HTWK Leipzig<br>
+     (Prof. R. M&uuml;ller) and<br>
+     DLR Oberpfaffenhofen, Germany</td>
+   <td>Modelica.Math.Matrices</td>
+</tr>
+
+<tr><td><strong>Michael Wetter</strong></td>
+   <td>Lawrence Berkeley National Laboratory, Berkeley, CA, U.S.A.</td>
+   <td>Modelica.Fluid</td>
+</tr>
+
+<tr><td><strong>Hans-J&uuml;rg Wiesmann</strong></td>
+   <td>Switzerland</td>
+   <td>Modelica.ComplexMath</td>
+</tr>
+
+<tr><td><strong>Stefan Wischhusen</strong></td>
+   <td>XRG Simulation GmbH, Hamburg, Germany</td>
+   <td>Modelica.Fluid.Dissipation<br>
+                      Modelica.Media</td>
+</tr>
+</table>
+
+<p>Extends from <code><a href="../Icons/index.html#Contact">Modelica.&#8203;Icons.&#8203;Contact</a></code> (Icon for contact information).</p>
+</body></html>

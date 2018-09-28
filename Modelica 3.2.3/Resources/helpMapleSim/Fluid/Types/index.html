@@ -1,0 +1,403 @@
+<html><head><title>Modelica.Fluid.Types</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Types"><h1><embed class="icon" src="../../images/icon0292.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;Types<br><span class="subtitle">Common types for fluid models</span></h1></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../Icons/TypesPackage/index.html">Modelica.&#8203;Icons.&#8203;TypesPackage</a></code> (Icon for packages containing type definitions).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#CvTypes"><code>CvTypes</code></a></td><td>Enumeration to define the choice of valve flow coefficient</td></tr>
+<tr><td><a href="#Dynamics"><code>Dynamics</code></a></td><td>Enumeration to define definition of balance equations</td></tr>
+<tr><td><a href="#HydraulicConductance"><code>HydraulicConductance</code></a></td><td>Real type for hydraulic conductance</td></tr>
+<tr><td><a href="#HydraulicResistance"><code>HydraulicResistance</code></a></td><td>Real type for hydraulic resistance</td></tr>
+<tr><td><a href="#ModelStructure"><code>ModelStructure</code></a></td><td>Enumeration with choices for model structure in distributed pipe model</td></tr>
+<tr><td><a href="#PortFlowDirection"><code>PortFlowDirection</code></a></td><td>Enumeration to define whether flow reversal is allowed</td></tr>
+<tr><td><a href="#Roughness"><code>Roughness</code></a></td><td>Real type for roughness of a pipe</td></tr>
+</table>
+<hr><a name="HydraulicConductance"><h2><embed class="icon" src="../../images/icon1193.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Types</a>.&#8203;HydraulicConductance<br><span class="subtitle">Real type for hydraulic conductance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is designed for a <strong>Real</strong> type.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#TypeReal">Modelica.&#8203;Icons.&#8203;TypeReal</a></code> (Icon for Real types).</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"HydraulicConductance"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"kg/(s.Pa)"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="HydraulicResistance"><h2><embed class="icon" src="../../images/icon1193.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Types</a>.&#8203;HydraulicResistance<br><span class="subtitle">Real type for hydraulic resistance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is designed for a <strong>Real</strong> type.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#TypeReal">Modelica.&#8203;Icons.&#8203;TypeReal</a></code> (Icon for Real types).</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"HydraulicResistance"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"Pa.s/kg"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="Roughness"><h2><embed class="icon" src="../../images/icon1193.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Types</a>.&#8203;Roughness<br><span class="subtitle">Real type for roughness of a pipe</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This Real type defines the absolute roughness of the inner surface of a
+pipe or fitting, i.e., the absolute average height of surface asperities.
+It has usually to
+be estimated. In <em>[Idelchik 1994, pp. 105-109,
+Table 2-5; Miller 1990, p. 190, Table 8-1]</em> many examples are given.
+As a short summary:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td colspan="2" align="center"><strong>Type of pipe</strong></td>
+      <td align="center">Roughness</td></tr>
+
+  <tr><td><strong>Smooth pipes</strong></td>
+      <td>Drawn brass, copper, aluminium, glass, etc.</td>
+      <td> 0.0025 mm</td>
+  </tr>
+  <tr><td rowspan="3"><strong>Steel pipes</strong></td>
+      <td>New smooth pipes</td>
+      <td>0.025 mm</td>
+  </tr>
+  <tr><td>Mortar lined, average finish</td>
+      <td>0.1 mm</td>
+  </tr>
+  <tr><td>Heavy rust</td>
+      <td>1 mm</td>
+  </tr>
+  <tr><td rowspan="3"><strong>Concrete pipes</strong></td>
+      <td>Steel forms, first class workmanship</td>
+      <td>0.025 mm</td>
+  </tr>
+  <tr><td>Steel forms, average workmanship</td>
+      <td>0.1 mm</td>
+  </tr>
+  <tr><td>Block linings</td>
+      <td>1 mm</td>
+  </tr>
+</table>
+
+<h4>References</h4>
+
+<dl>
+    <dt>Idelchik I.E. (1994):</dt>
+    <dd><a href="http://www.bookfinder.com/dir/i/Handbook_of_Hydraulic_Resistance/0849399084/"><strong>Handbook
+        of Hydraulic Resistance</strong></a>. 3rd edition, Begell House, ISBN
+        0-8493-9908-4</dd>
+    <dt>Miller D. S. (1990):</dt>
+    <dd><strong>Internal flow systems</strong>.
+    2nd edition. Cranfield:BHRA(Information Services).</dd>
+</dl>
+<p>Extends from <code><a href="../../Icons/index.html#TypeReal">Modelica.&#8203;Icons.&#8203;TypeReal</a></code> (Icon for Real types).</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"Length"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"m"</code></td></tr>
+<tr><td><code>displayUnit</code></td><td><code>"mm"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="Dynamics"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Types</a>.&#8203;Dynamics<br><span class="subtitle">Enumeration to define definition of balance equations</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Enumeration to define the formulation of balance equations
+(to be selected via choices menu):
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>Dynamics.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>DynamicFreeInitial</td><td>Dynamic balance, Initial guess value</td></tr>
+
+<tr><td>FixedInitial</td><td>Dynamic balance, Initial value fixed</td></tr>
+
+<tr><td>SteadyStateInitial</td><td>Dynamic balance, Steady state initial with guess value</td></tr>
+
+<tr><td>SteadyState</td><td>Steady state balance, Initial guess value</td></tr>
+</table>
+
+<p>
+The enumeration "Dynamics" is used for the mass, energy and momentum balance equations
+respectively. The exact meaning for the three balance equations is stated in the following
+tables:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><td colspan="3"><strong>Mass balance</strong> </td></tr>
+<tr><td><strong>Dynamics.</strong></td>
+    <td><strong>Balance equation</strong></td>
+    <td><strong>Initial condition</strong></td></tr>
+
+<tr><td> DynamicFreeInitial</td>
+    <td> no restrictions </td>
+    <td> no initial conditions </td></tr>
+
+<tr><td> FixedInitial</td>
+    <td> no restrictions </td>
+    <td> <strong>if</strong> Medium.singleState <strong>then</strong><br>
+         &nbsp;&nbsp;no initial condition<br>
+         <strong>else</strong> p=p_start </td></tr>
+
+<tr><td> SteadyStateInitial</td>
+    <td> no restrictions </td>
+    <td> <strong>if</strong> Medium.singleState <strong>then</strong><br>
+         &nbsp;&nbsp;no initial condition<br>
+         <strong>else</strong> <strong>der</strong>(p)=0 </td></tr>
+
+<tr><td> SteadyState</td>
+    <td> <strong>der</strong>(m)=0  </td>
+    <td> no initial conditions </td></tr>
+</table>
+
+&nbsp;<br>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><td colspan="3"><strong>Energy balance</strong> </td></tr>
+<tr><td><strong>Dynamics.</strong></td>
+    <td><strong>Balance equation</strong></td>
+    <td><strong>Initial condition</strong></td></tr>
+
+<tr><td> DynamicFreeInitial</td>
+    <td> no restrictions </td>
+    <td> no initial conditions </td></tr>
+
+<tr><td> FixedInitial</td>
+    <td> no restrictions </td>
+    <td> T=T_start or h=h_start </td></tr>
+
+<tr><td> SteadyStateInitial</td>
+    <td> no restrictions </td>
+    <td> <strong>der</strong>(T)=0 or <strong>der</strong>(h)=0 </td></tr>
+
+<tr><td> SteadyState</td>
+    <td> <strong>der</strong>(U)=0  </td>
+    <td> no initial conditions </td></tr>
+</table>
+
+&nbsp;<br>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><td colspan="3"><strong>Momentum balance</strong> </td></tr>
+<tr><td><strong>Dynamics.</strong></td>
+    <td><strong>Balance equation</strong></td>
+    <td><strong>Initial condition</strong></td></tr>
+
+<tr><td> DynamicFreeInitial</td>
+    <td> no restrictions </td>
+    <td> no initial conditions </td></tr>
+
+<tr><td> FixedInitial</td>
+    <td> no restrictions </td>
+    <td> m_flow = m_flow_start </td></tr>
+
+<tr><td> SteadyStateInitial</td>
+    <td> no restrictions </td>
+    <td> <strong>der</strong>(m_flow)=0 </td></tr>
+
+<tr><td> SteadyState</td>
+    <td> <strong>der</strong>(m_flow)=0 </td>
+    <td> no initial conditions </td></tr>
+</table>
+
+<p>
+In the tables above, the equations are given for one-substance fluids. For multiple-substance
+fluids and for trace substances, equivalent equations hold.
+</p>
+
+<p>
+Medium.singleState is a medium property and defines whether the medium is only
+described by one state (+ the mass fractions in case of a multi-substance fluid). In such
+a case one initial condition less must be provided. For example, incompressible
+media have Medium.singleState = <strong>true</strong>.
+</p>
+
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>DynamicFreeInitial</code></td><td>DynamicFreeInitial -- Dynamic balance, Initial guess value</td></tr>
+<tr><td><code>FixedInitial</code></td><td>FixedInitial -- Dynamic balance, Initial value fixed</td></tr>
+<tr><td><code>SteadyStateInitial</code></td><td>SteadyStateInitial -- Dynamic balance, Steady state initial with guess value</td></tr>
+<tr><td><code>SteadyState</code></td><td>SteadyState -- Steady state balance, Initial guess value</td></tr>
+</table>
+<hr><a name="CvTypes"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Types</a>.&#8203;CvTypes<br><span class="subtitle">Enumeration to define the choice of valve flow coefficient</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+Enumeration to define the choice of valve flow coefficient
+(to be selected via choices menu):
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>CvTypes.</strong></th>
+    <th><strong>Meaning</strong></th></tr>
+
+<tr><td>Av</td>
+    <td>Av (metric) flow coefficient</td></tr>
+
+<tr><td>Kv</td>
+    <td>Kv (metric) flow coefficient</td></tr>
+
+<tr><td>Cv</td>
+    <td>Cv (US) flow coefficient</td></tr>
+
+<tr><td>OpPoint</td>
+    <td>Av defined by operating point</td></tr>
+
+</table>
+
+<p>
+The details of the coefficients are explained in the
+<a href="../../Fluid/UsersGuide/ComponentDefinition/index.html#ValveCharacteristics">
+   User's Guide </a>.
+</p>
+
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>Av</code></td><td>Av (metric) flow coefficient</td></tr>
+<tr><td><code>Kv</code></td><td>Kv (metric) flow coefficient</td></tr>
+<tr><td><code>Cv</code></td><td>Cv (US) flow coefficient</td></tr>
+<tr><td><code>OpPoint</code></td><td>Av defined by operating point</td></tr>
+</table>
+<hr><a name="PortFlowDirection"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Types</a>.&#8203;PortFlowDirection<br><span class="subtitle">Enumeration to define whether flow reversal is allowed</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+Enumeration to define the assumptions on the model for the
+direction of fluid flow at a port (to be selected via choices menu):
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>PortFlowDirection.</strong></th>
+    <th><strong>Meaning</strong></th></tr>
+
+<tr><td>Entering</td>
+    <td>Fluid flow is only entering the port from the outside</td></tr>
+
+<tr><td>Leaving</td>
+    <td>Fluid flow is only leaving the port to the outside</td></tr>
+
+<tr><td>Bidirectional</td>
+    <td>No restrictions on fluid flow (flow reversal possible)</td></tr>
+</table>
+
+<p>
+The default is "PortFlowDirection.Bidirectional". If you are completely sure that
+the flow is only in one direction, then the other settings may
+make the simulation of your model faster.
+</p>
+
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>Entering</code></td><td>Fluid flow is only entering</td></tr>
+<tr><td><code>Leaving</code></td><td>Fluid flow is only leaving</td></tr>
+<tr><td><code>Bidirectional</code></td><td>No restrictions on fluid flow (flow reversal possible)</td></tr>
+</table>
+<hr><a name="ModelStructure"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Types</a>.&#8203;ModelStructure<br><span class="subtitle">Enumeration with choices for model structure in distributed pipe model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+Enumeration to define the discretization structure of
+distributed pipe models according to the staggered grid scheme:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>ModelStructure.</strong></th>
+    <th><strong>Meaning</strong></th></tr>
+
+<tr><td>av_vb</td>
+    <td>port_a - volume - flow model - volume - port_b</td></tr>
+
+<tr><td>a_v_b</td>
+    <td>port_a - flow model - volume - flow model - port_b</td></tr>
+
+<tr><td>av_b</td>
+    <td>port_a - volume - flow model - port_b</td></tr>
+
+<tr><td>a_vb</td>
+    <td>port_a - flow model - volume - port_b</td></tr>
+</table>
+
+<p>
+The default is "ModelStructure.av_vb", i.e., the distributed pipe
+has "volumes" at its both ends. The advantage is that connections
+of the pipe to flow models (like fittings) lead to the desirable structure
+of alternating volume and flow models, which means that no non-linear
+algebraic equations occur.
+</p>
+
+<p>
+Direct connections of distributed pipes with
+this option means that two volumes are directly connected together. Due to the
+stream concept this means that the pressures of the two connected volumes
+are identical, but the temperatures are not set equal
+(this corresponds to volumes that are connected together with a very
+short distance and it needs some time until different volume temperatures
+are equilibrated). Since the pressures of the volumes are identical, the number
+of states is reduced and index reduction takes place (which means that medium
+equations depending on pressure are differentiated and the number of required
+initial conditions is reduced by one).
+</p>
+
+<p>
+The default option "av_vb" cannot be used, if the dynamic pipe is connected to a model with non-differentiable pressure, like a Sources.Boundary_pT with prescribed jumping pressure. The modelStructure can be configured as appropriate in such situations, in order to place a momentum balance between a pressure state of the pipe and a non-differentiable boundary condition
+(e.g., if the jumping pressure component is connected to port_a, use model structure
+ModelStructure.a_vb).
+</p>
+
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>av_vb</code></td><td>av_vb: port_a - volume - flow model - volume - port_b</td></tr>
+<tr><td><code>a_v_b</code></td><td>a_v_b: port_a - flow model - volume - flow model - port_b</td></tr>
+<tr><td><code>av_b</code></td><td>av_b: port_a - volume - flow model - port_b</td></tr>
+<tr><td><code>a_vb</code></td><td>a_vb: port_a - flow model - volume - port_b</td></tr>
+</table>
+</body></html>

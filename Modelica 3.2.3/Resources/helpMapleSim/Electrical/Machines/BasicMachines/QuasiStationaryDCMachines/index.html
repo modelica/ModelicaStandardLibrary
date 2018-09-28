@@ -1,0 +1,182 @@
+<html><head><title>Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="QuasiStationaryDCMachines"><h1><embed class="icon" src="../../../../images/icon0573.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;QuasiStationaryDCMachines<br><span class="subtitle">Models of quasistationary DC machines</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains quasistationary models of DC machines;
+these models are fully compatible with the
+<a href="../../../../Electrical/Machines/BasicMachines/DCMachines/index.html">transient machine models of DC machines</a>;
+the only difference is that electrical transients are neglected.
+</p>
+<h4>Please note:</h4>
+<p>
+Quasistationary DC machine models are basically different from quasistationary induction machine models:
+Quasistationary DC machine models neglect electrical transients, i.e., setting <code>der(i) = 0</code>,
+whereas quasistationary induction machine models are based on time phasor theory,
+see <a href="../../../../Electrical/QuasiStationary/index.html">QuasiStationary Library</a>,
+where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</code>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/VariantsPackage/index.html">Modelica.&#8203;Icons.&#8203;VariantsPackage</a></code> (Icon for package containing variants).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#DC_ElectricalExcited"><code>DC_ElectricalExcited</code></a></td><td>Quasistationary electrical shunt/separate excited linear DC machine</td></tr>
+<tr><td><a href="#DC_PermanentMagnet"><code>DC_PermanentMagnet</code></a></td><td>Quasistationary permanent magnet DC machine</td></tr>
+<tr><td><a href="#DC_SeriesExcited"><code>DC_SeriesExcited</code></a></td><td>Quasistationary series excited linear DC machine</td></tr>
+</table>
+<hr><a name="DC_PermanentMagnet"><h2><embed class="icon" src="../../../../images/icon0582.svg" width="253" height="233" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">QuasiStationaryDCMachines</a>.&#8203;DC_PermanentMagnet<br><span class="subtitle">Quasistationary permanent magnet DC machine</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<strong>Quasistationary model of a DC Machine with permanent magnets.</strong><br>
+This model is fully compatible with the
+<a href="../../../../Electrical/Machines/BasicMachines/DCMachines/index.html#DC_PermanentMagnet">transient machine model of a DC machine with permanent magnets</a>;
+the only difference is that electrical transients are neglected.
+<p>Extends from <code><a href="../../../../Electrical/Machines/BasicMachines/DCMachines/index.html#DC_PermanentMagnet">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;BasicMachines.&#8203;DCMachines.&#8203;DC_PermanentMagnet</a></code> (Permanent magnet DC machine) and <code><a href="../../../../Electrical/Machines/Icons/index.html#QuasiStationaryMachine">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Icons.&#8203;QuasiStationaryMachine</a></code>.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TaOperational</code></td><td>&nbsp;</td><td>Operational armature temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VaNominal</code></td><td>&nbsp;</td><td>Nominal armature voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>IaNominal</code></td><td>&nbsp;</td><td>Nominal armature current (&gt;0..Motor, &lt;0..Generator)</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wNominal</code></td><td>&nbsp;</td><td>Nominal speed</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TaNominal</code></td><td>&nbsp;</td><td>Nominal armature temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ra</code></td><td>&nbsp;</td><td>Armature resistance at TRef</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TaRef</code></td><td>&nbsp;</td><td>Reference temperature of armature resistance</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20a</code></td><td>&nbsp;</td><td>Temperature coefficient of armature resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>La</code></td><td>&nbsp;</td><td>Armature inductance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Jr</code></td><td>&nbsp;</td><td>Rotor's moment of inertia</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useSupport</code></td><td><code>false</code></td><td>Enable / disable (=fixed stator) support</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Js</code></td><td><code>Jr</code></td><td>Stator's moment of inertia</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useThermalPort</code></td><td><code>false</code></td><td>Enable / disable (=fixed temperatures) thermal port</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Losses/index.html#FrictionParameters">FrictionParameters</a></code></td><td><code>frictionParameters</code></td><td>&nbsp;</td><td>Friction loss parameter record</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Losses/index.html#CoreParameters">CoreParameters</a></code></td><td><code>coreParameters</code></td><td>&nbsp;</td><td>Armature core loss parameter record</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Losses/index.html#StrayLoadParameters">StrayLoadParameters</a></code></td><td><code>strayLoadParameters</code></td><td>&nbsp;</td><td>Stray load loss parameter record</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Losses/index.html#BrushParameters">BrushParameters</a></code></td><td><code>brushParameters</code></td><td>&nbsp;</td><td>Brush loss parameter record</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TpmOperational</code></td><td><code>293.15</code></td><td>Operational temperature of permanent magnet</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>Shaft</td></tr>
+<tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>support</code></td><td>Support at which the reaction torque is acting</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_ap</code></td><td>Positive armature pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_an</code></td><td>Negative armature pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Interfaces/DCMachines/index.html#ThermalPortDCPM">ThermalPortDCPM</a></code></td><td><code>thermalPort</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="DC_ElectricalExcited"><h2><embed class="icon" src="../../../../images/icon0583.svg" width="253" height="233" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">QuasiStationaryDCMachines</a>.&#8203;DC_ElectricalExcited<br><span class="subtitle">Quasistationary electrical shunt/separate excited linear DC machine</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<strong>Quasistationary model of a DC Machine with electrical shunt or separate excitation.</strong><br>
+This model is fully compatible with the
+<a href="../../../../Electrical/Machines/BasicMachines/DCMachines/index.html#DC_ElectricalExcited">transient machine model of a DC machine with electrical shunt or separate excitation</a>;
+the only difference is that electrical transients are neglected.
+<p>Extends from <code><a href="../../../../Electrical/Machines/BasicMachines/DCMachines/index.html#DC_ElectricalExcited">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;BasicMachines.&#8203;DCMachines.&#8203;DC_ElectricalExcited</a></code> (Electrical shunt/separate excited linear DC machine) and <code><a href="../../../../Electrical/Machines/Icons/index.html#QuasiStationaryMachine">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Icons.&#8203;QuasiStationaryMachine</a></code>.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TaOperational</code></td><td>&nbsp;</td><td>Operational armature temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VaNominal</code></td><td>&nbsp;</td><td>Nominal armature voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>IaNominal</code></td><td>&nbsp;</td><td>Nominal armature current (&gt;0..Motor, &lt;0..Generator)</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wNominal</code></td><td>&nbsp;</td><td>Nominal speed</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TaNominal</code></td><td>&nbsp;</td><td>Nominal armature temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ra</code></td><td>&nbsp;</td><td>Armature resistance at TRef</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TaRef</code></td><td>&nbsp;</td><td>Reference temperature of armature resistance</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20a</code></td><td>&nbsp;</td><td>Temperature coefficient of armature resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>La</code></td><td>&nbsp;</td><td>Armature inductance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Jr</code></td><td>&nbsp;</td><td>Rotor's moment of inertia</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useSupport</code></td><td><code>false</code></td><td>Enable / disable (=fixed stator) support</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Js</code></td><td><code>Jr</code></td><td>Stator's moment of inertia</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useThermalPort</code></td><td><code>false</code></td><td>Enable / disable (=fixed temperatures) thermal port</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Losses/index.html#FrictionParameters">FrictionParameters</a></code></td><td><code>frictionParameters</code></td><td>&nbsp;</td><td>Friction loss parameter record</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Losses/index.html#CoreParameters">CoreParameters</a></code></td><td><code>coreParameters</code></td><td>&nbsp;</td><td>Armature core loss parameter record</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Losses/index.html#StrayLoadParameters">StrayLoadParameters</a></code></td><td><code>strayLoadParameters</code></td><td>&nbsp;</td><td>Stray load loss parameter record</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Losses/index.html#BrushParameters">BrushParameters</a></code></td><td><code>brushParameters</code></td><td>&nbsp;</td><td>Brush loss parameter record</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>IeNominal</code></td><td>&nbsp;</td><td>Nominal excitation current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Re</code></td><td>&nbsp;</td><td>Field excitation resistance at TRef</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TeRef</code></td><td>&nbsp;</td><td>Reference temperature of excitation resistance</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20e</code></td><td>&nbsp;</td><td>Temperature coefficient of excitation resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Le</code></td><td>&nbsp;</td><td>Total field excitation inductance</td></tr>
+<tr><td><code>Real</code></td><td><code>sigmae</code></td><td>&nbsp;</td><td>Stray fraction of total excitation inductance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TeOperational</code></td><td>&nbsp;</td><td>Operational (shunt) excitation temperature</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>Shaft</td></tr>
+<tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>support</code></td><td>Support at which the reaction torque is acting</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_ap</code></td><td>Positive armature pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_an</code></td><td>Negative armature pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Interfaces/DCMachines/index.html#ThermalPortDCEE">ThermalPortDCEE</a></code></td><td><code>thermalPort</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_ep</code></td><td>Positive excitation pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_en</code></td><td>Negative excitation pin</td></tr>
+</table>
+<hr><a name="DC_SeriesExcited"><h2><embed class="icon" src="../../../../images/icon0584.svg" width="233" height="233" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">QuasiStationaryDCMachines</a>.&#8203;DC_SeriesExcited<br><span class="subtitle">Quasistationary series excited linear DC machine</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<strong>Quasistationary model of a DC Machine with Series excitation.</strong><br>
+This model is fully compatible with the
+<a href="../../../../Electrical/Machines/BasicMachines/DCMachines/index.html#DC_SeriesExcited">transient machine model of a DC machine with series excitation</a>;
+the only difference is that electrical transients are neglected.
+<p>Extends from <code><a href="../../../../Electrical/Machines/BasicMachines/DCMachines/index.html#DC_SeriesExcited">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;BasicMachines.&#8203;DCMachines.&#8203;DC_SeriesExcited</a></code> (Series excited linear DC machine) and <code><a href="../../../../Electrical/Machines/Icons/index.html#QuasiStationaryMachine">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Icons.&#8203;QuasiStationaryMachine</a></code>.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TaOperational</code></td><td>&nbsp;</td><td>Operational armature temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VaNominal</code></td><td>&nbsp;</td><td>Nominal armature voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>IaNominal</code></td><td>&nbsp;</td><td>Nominal armature current (&gt;0..Motor, &lt;0..Generator)</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wNominal</code></td><td>&nbsp;</td><td>Nominal speed</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TaNominal</code></td><td>&nbsp;</td><td>Nominal armature temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ra</code></td><td>&nbsp;</td><td>Armature resistance at TRef</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TaRef</code></td><td>&nbsp;</td><td>Reference temperature of armature resistance</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20a</code></td><td>&nbsp;</td><td>Temperature coefficient of armature resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>La</code></td><td>&nbsp;</td><td>Armature inductance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Jr</code></td><td>&nbsp;</td><td>Rotor's moment of inertia</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useSupport</code></td><td><code>false</code></td><td>Enable / disable (=fixed stator) support</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Js</code></td><td><code>Jr</code></td><td>Stator's moment of inertia</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useThermalPort</code></td><td><code>false</code></td><td>Enable / disable (=fixed temperatures) thermal port</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Losses/index.html#FrictionParameters">FrictionParameters</a></code></td><td><code>frictionParameters</code></td><td>&nbsp;</td><td>Friction loss parameter record</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Losses/index.html#CoreParameters">CoreParameters</a></code></td><td><code>coreParameters</code></td><td>&nbsp;</td><td>Armature core loss parameter record</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Losses/index.html#StrayLoadParameters">StrayLoadParameters</a></code></td><td><code>strayLoadParameters</code></td><td>&nbsp;</td><td>Stray load loss parameter record</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Losses/index.html#BrushParameters">BrushParameters</a></code></td><td><code>brushParameters</code></td><td>&nbsp;</td><td>Brush loss parameter record</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Re</code></td><td>&nbsp;</td><td>Series excitation resistance at TRef</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TeRef</code></td><td>&nbsp;</td><td>Reference temperature of excitation resistance</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20e</code></td><td>&nbsp;</td><td>Temperature coefficient of excitation resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Le</code></td><td>&nbsp;</td><td>Total field excitation inductance</td></tr>
+<tr><td><code>Real</code></td><td><code>sigmae</code></td><td>&nbsp;</td><td>Stray fraction of total excitation inductance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TeNominal</code></td><td>&nbsp;</td><td>Nominal series excitation temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TeOperational</code></td><td>&nbsp;</td><td>Operational series excitation temperature</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>Shaft</td></tr>
+<tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>support</code></td><td>Support at which the reaction torque is acting</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_ap</code></td><td>Positive armature pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_an</code></td><td>Negative armature pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Interfaces/DCMachines/index.html#ThermalPortDCSE">ThermalPortDCSE</a></code></td><td><code>thermalPort</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_ep</code></td><td>Positive series excitation pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_en</code></td><td>Negative series excitation pin</td></tr>
+</table>
+</body></html>

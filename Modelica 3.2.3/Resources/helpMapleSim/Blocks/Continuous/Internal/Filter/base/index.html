@@ -1,0 +1,112 @@
+<html><head><title>Modelica.Blocks.Continuous.Internal.Filter.base</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="base"><h1><embed class="icon" src="../../../../../images/icon0034.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Blocks</a>.&#8203;<a href="../../../index.html">Continuous</a>.&#8203;<a href="../../index.html">Internal</a>.&#8203;<a href="../index.html">Filter</a>.&#8203;base<br><span class="subtitle">Prototype low pass filters with cut-off frequency of 1 rad/s (other filters are derived by transformation from these base filters)</span></h1></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+This icon shall be used for a package that contains internal classes not to be
+directly utilized by a user.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/InternalPackage/index.html">Modelica.&#8203;Icons.&#8203;InternalPackage</a></code> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Bessel"><code>Bessel</code></a></td><td>Return base filter coefficients of Bessel filter (= low pass filter with w_cut = 1 rad/s)</td></tr>
+<tr><td><a href="#Butterworth"><code>Butterworth</code></a></td><td>Return base filter coefficients of Butterworth filter (= low pass filter with w_cut = 1 rad/s)</td></tr>
+<tr><td><a href="#ChebyshevI"><code>ChebyshevI</code></a></td><td>Return base filter coefficients of Chebyshev I filter (= low pass filter with w_cut = 1 rad/s)</td></tr>
+<tr><td><a href="#CriticalDamping"><code>CriticalDamping</code></a></td><td>Return base filter coefficients of CriticalDamping filter (= low pass filter with w_cut = 1 rad/s)</td></tr>
+</table>
+<hr><a name="CriticalDamping"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Blocks</a>.&#8203;<a href="../../../index.html">Continuous</a>.&#8203;<a href="../../index.html">Internal</a>.&#8203;<a href="../index.html">Filter</a>.&#8203;<a href="index.html">base</a>.&#8203;CriticalDamping<br><span class="subtitle">Return base filter coefficients of CriticalDamping filter (= low pass filter with w_cut = 1 rad/s)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>order</code></td><td>Order of filter</td></tr>
+<tr><td><code>Boolean</code></td><td><code>normalized</code></td><td>= true, if amplitude at f_cut = -3db, otherwise unmodified filter</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>cr[order]</code></td><td>Coefficients of real poles</td></tr>
+</table>
+<hr><a name="Bessel"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Blocks</a>.&#8203;<a href="../../../index.html">Continuous</a>.&#8203;<a href="../../index.html">Internal</a>.&#8203;<a href="../index.html">Filter</a>.&#8203;<a href="index.html">base</a>.&#8203;Bessel<br><span class="subtitle">Return base filter coefficients of Bessel filter (= low pass filter with w_cut = 1 rad/s)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>order</code></td><td>Order of filter</td></tr>
+<tr><td><code>Boolean</code></td><td><code>normalized</code></td><td>= true, if amplitude at f_cut = -3db, otherwise unmodified filter</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>cr[mod(order, 2)]</code></td><td>Coefficient of real pole</td></tr>
+<tr><td><code>Real</code></td><td><code>c0[integer(0.5 * order)]</code></td><td>Coefficients of s^0 term if conjugate complex pole</td></tr>
+<tr><td><code>Real</code></td><td><code>c1[integer(0.5 * order)]</code></td><td>Coefficients of s^1 term if conjugate complex pole</td></tr>
+</table>
+<hr><a name="Butterworth"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Blocks</a>.&#8203;<a href="../../../index.html">Continuous</a>.&#8203;<a href="../../index.html">Internal</a>.&#8203;<a href="../index.html">Filter</a>.&#8203;<a href="index.html">base</a>.&#8203;Butterworth<br><span class="subtitle">Return base filter coefficients of Butterworth filter (= low pass filter with w_cut = 1 rad/s)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>order</code></td><td>Order of filter</td></tr>
+<tr><td><code>Boolean</code></td><td><code>normalized</code></td><td>= true, if amplitude at f_cut = -3db, otherwise unmodified filter</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>cr[mod(order, 2)]</code></td><td>Coefficient of real pole</td></tr>
+<tr><td><code>Real</code></td><td><code>c0[integer(0.5 * order)]</code></td><td>Coefficients of s^0 term if conjugate complex pole</td></tr>
+<tr><td><code>Real</code></td><td><code>c1[integer(0.5 * order)]</code></td><td>Coefficients of s^1 term if conjugate complex pole</td></tr>
+</table>
+<hr><a name="ChebyshevI"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Blocks</a>.&#8203;<a href="../../../index.html">Continuous</a>.&#8203;<a href="../../index.html">Internal</a>.&#8203;<a href="../index.html">Filter</a>.&#8203;<a href="index.html">base</a>.&#8203;ChebyshevI<br><span class="subtitle">Return base filter coefficients of Chebyshev I filter (= low pass filter with w_cut = 1 rad/s)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>order</code></td><td>Order of filter</td></tr>
+<tr><td><code>Real</code></td><td><code>A_ripple</code></td><td>Pass band ripple in [dB]</td></tr>
+<tr><td><code>Boolean</code></td><td><code>normalized</code></td><td>= true, if amplitude at f_cut = -3db, otherwise unmodified filter</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>cr[mod(order, 2)]</code></td><td>Coefficient of real pole</td></tr>
+<tr><td><code>Real</code></td><td><code>c0[integer(0.5 * order)]</code></td><td>Coefficients of s^0 term if conjugate complex pole</td></tr>
+<tr><td><code>Real</code></td><td><code>c1[integer(0.5 * order)]</code></td><td>Coefficients of s^1 term if conjugate complex pole</td></tr>
+</table>
+</body></html>

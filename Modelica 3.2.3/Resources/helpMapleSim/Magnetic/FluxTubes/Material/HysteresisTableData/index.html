@@ -1,0 +1,251 @@
+<html><head><title>Modelica.Magnetic.FluxTubes.Material.HysteresisTableData</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="HysteresisTableData"><h1><embed class="icon" src="../../../../images/icon0946.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Material</a>.&#8203;HysteresisTableData<br><span class="subtitle">Icon for package containing property classes</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Material table data for the <a href="../../../../Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/index.html#GenericHystTellinenTable">GenericHystTellinenTable</a> flux tube element. The records contain two data tables <code>tabris</code> and <code>tabfal</code> describing the rising and the falling branch of the hysteresis envelope curve of the corresponding material. The first colum is the magnetic field strength H and has to be strictly monotonically increasing. The second collumn contains the corresponding values of the magnetic fluxdensity B. Both curves may not intersect each other.
+</p>
+
+<p>
+Fig. 1 and Fig. 2 show library entries based on own measurements of several steel sheet qualities in two different ranges of the magnetic field strength. For the measurements a 25 cm Epstein frame was used according to DIN EN 60404-2.
+</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+<caption align="bottom"><strong>Fig. 1:</strong> Static hysteresis envelope curves of several steel sheets</caption>
+  <tr>
+    <td>
+      <img src="../../../../../Images/Magnetic/FluxTubes/Material/HysteresisTableData/StaticLoops01.png">
+    </td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2">
+<caption align="bottom"><strong>Fig. 2:</strong> Static hysteresis envelope curves of several steel sheets</caption>
+  <tr>
+    <td>
+      <img src="../../../../../Images/Magnetic/FluxTubes/Material/HysteresisTableData/StaticLoops02.png">
+    </td>
+  </tr>
+</table>
+
+<p>
+Fig. 3 shows the static hysteresis loop library entries for soft magnetic cobalt-iron-alloys which were extracted from <a href="../../../../Magnetic/FluxTubes/UsersGuide/index.html#Literature">[Va01]</a>.
+</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+<caption align="bottom"><strong>Fig. 3:</strong> Soft magnetic cobalt iron library entries <a href="../../../../Magnetic/FluxTubes/UsersGuide/index.html#Literature">[Va01]</a></caption>
+  <tr>
+    <td>
+      <img src="../../../../../Images/Magnetic/FluxTubes/Material/HysteresisTableData/StaticLoops03.png">
+    </td>
+  </tr>
+</table>
+
+<p>Extends from <code><a href="../../../../Icons/MaterialPropertiesPackage/index.html">Modelica.&#8203;Icons.&#8203;MaterialPropertiesPackage</a></code> (Icon for package containing property classes).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#BaseData"><code>BaseData</code></a></td><td>Hysteresis table data</td></tr>
+<tr><td><a href="#M270_50A"><code>M270_50A</code></a></td><td>M270-50A</td></tr>
+<tr><td><a href="#M330_50A"><code>M330_50A</code></a></td><td>M330-50A</td></tr>
+<tr><td><a href="#M400_50A"><code>M400_50A</code></a></td><td>M400-50A</td></tr>
+<tr><td><a href="#M400_50AP"><code>M400_50AP</code></a></td><td>M400-50AP</td></tr>
+<tr><td><a href="#M800_65A"><code>M800_65A</code></a></td><td>M800-65A</td></tr>
+<tr><td><a href="#Vacodur50"><code>Vacodur50</code></a></td><td>Vacodur50</td></tr>
+<tr><td><a href="#Vacoflux17"><code>Vacoflux17</code></a></td><td>Vacoflux17</td></tr>
+<tr><td><a href="#Vacoflux48"><code>Vacoflux48</code></a></td><td>Vacoflux48</td></tr>
+</table>
+<hr><a name="BaseData"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Material</a>.&#8203;<a href="index.html">HysteresisTableData</a>.&#8203;BaseData<br><span class="subtitle">Hysteresis table data</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<table cellspacing="0" cellpadding="2" border="0">
+  <tr>
+    <td>
+      <img src="../../../../../Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_BaseData.png">
+   </td>
+  </tr>
+</table>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Real</code></td><td><code>tabris[:,:]</code></td><td>Table data of the rising (lower) branch of the hysteresis envelope curve (H, B)</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>tabfal[:,:]</code></td><td>Table data of the falling (upper) branch of the hysteresis envelope curve (H, B)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Conductivity">Conductivity</a></code></td><td><code>sigma</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Vacoflux17"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Material</a>.&#8203;<a href="index.html">HysteresisTableData</a>.&#8203;Vacoflux17<br><span class="subtitle">Vacoflux17</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<table cellspacing="0" cellpadding="2" border="0">
+  <tr>
+    <td>
+      <img src="../../../../../Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_Vacoflux17.png">
+   </td>
+  </tr>
+</table>
+<p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Material/HysteresisTableData/index.html#BaseData">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Material.&#8203;HysteresisTableData.&#8203;BaseData</a></code> (Hysteresis table data).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Real</code></td><td><code>tabris[:,:]</code></td><td>Table data of the rising (lower) branch of the hysteresis envelope curve (H, B)</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>tabfal[:,:]</code></td><td>Table data of the falling (upper) branch of the hysteresis envelope curve (H, B)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Conductivity">Conductivity</a></code></td><td><code>sigma</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Vacoflux48"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Material</a>.&#8203;<a href="index.html">HysteresisTableData</a>.&#8203;Vacoflux48<br><span class="subtitle">Vacoflux48</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<table cellspacing="0" cellpadding="2" border="0">
+  <tr>
+    <td>
+      <img src="../../../../../Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_Vacoflux48.png">
+   </td>
+  </tr>
+</table>
+<p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Material/HysteresisTableData/index.html#BaseData">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Material.&#8203;HysteresisTableData.&#8203;BaseData</a></code> (Hysteresis table data).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Real</code></td><td><code>tabris[:,:]</code></td><td>Table data of the rising (lower) branch of the hysteresis envelope curve (H, B)</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>tabfal[:,:]</code></td><td>Table data of the falling (upper) branch of the hysteresis envelope curve (H, B)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Conductivity">Conductivity</a></code></td><td><code>sigma</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Vacodur50"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Material</a>.&#8203;<a href="index.html">HysteresisTableData</a>.&#8203;Vacodur50<br><span class="subtitle">Vacodur50</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<table cellspacing="0" cellpadding="2" border="0">
+  <tr>
+    <td>
+      <img src="../../../../../Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_Vacodur50.png">
+   </td>
+  </tr>
+</table>
+<p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Material/HysteresisTableData/index.html#BaseData">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Material.&#8203;HysteresisTableData.&#8203;BaseData</a></code> (Hysteresis table data).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Real</code></td><td><code>tabris[:,:]</code></td><td>Table data of the rising (lower) branch of the hysteresis envelope curve (H, B)</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>tabfal[:,:]</code></td><td>Table data of the falling (upper) branch of the hysteresis envelope curve (H, B)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Conductivity">Conductivity</a></code></td><td><code>sigma</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="M270_50A"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Material</a>.&#8203;<a href="index.html">HysteresisTableData</a>.&#8203;M270_50A<br><span class="subtitle">M270-50A</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<table cellspacing="0" cellpadding="2" border="0">
+  <tr>
+    <td>
+      <img src="../../../../../Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_M270-50A.png">
+   </td>
+  </tr>
+</table>
+<p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Material/HysteresisTableData/index.html#BaseData">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Material.&#8203;HysteresisTableData.&#8203;BaseData</a></code> (Hysteresis table data).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Real</code></td><td><code>tabris[:,:]</code></td><td>Table data of the rising (lower) branch of the hysteresis envelope curve (H, B)</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>tabfal[:,:]</code></td><td>Table data of the falling (upper) branch of the hysteresis envelope curve (H, B)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Conductivity">Conductivity</a></code></td><td><code>sigma</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="M330_50A"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Material</a>.&#8203;<a href="index.html">HysteresisTableData</a>.&#8203;M330_50A<br><span class="subtitle">M330-50A</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<table cellspacing="0" cellpadding="2" border="0">
+  <tr>
+    <td>
+      <img src="../../../../../Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_M330-50A.png">
+   </td>
+  </tr>
+</table>
+<p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Material/HysteresisTableData/index.html#BaseData">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Material.&#8203;HysteresisTableData.&#8203;BaseData</a></code> (Hysteresis table data).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Real</code></td><td><code>tabris[:,:]</code></td><td>Table data of the rising (lower) branch of the hysteresis envelope curve (H, B)</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>tabfal[:,:]</code></td><td>Table data of the falling (upper) branch of the hysteresis envelope curve (H, B)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Conductivity">Conductivity</a></code></td><td><code>sigma</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="M400_50A"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Material</a>.&#8203;<a href="index.html">HysteresisTableData</a>.&#8203;M400_50A<br><span class="subtitle">M400-50A</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<table cellspacing="0" cellpadding="2" border="0">
+  <tr>
+    <td>
+      <img src="../../../../../Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_M400-50A.png">
+   </td>
+  </tr>
+</table>
+<p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Material/HysteresisTableData/index.html#BaseData">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Material.&#8203;HysteresisTableData.&#8203;BaseData</a></code> (Hysteresis table data).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Real</code></td><td><code>tabris[:,:]</code></td><td>Table data of the rising (lower) branch of the hysteresis envelope curve (H, B)</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>tabfal[:,:]</code></td><td>Table data of the falling (upper) branch of the hysteresis envelope curve (H, B)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Conductivity">Conductivity</a></code></td><td><code>sigma</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="M400_50AP"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Material</a>.&#8203;<a href="index.html">HysteresisTableData</a>.&#8203;M400_50AP<br><span class="subtitle">M400-50AP</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<table cellspacing="0" cellpadding="2" border="0">
+  <tr>
+    <td>
+      <img src="../../../../../Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_M400-50AP.png">
+   </td>
+  </tr>
+</table>
+<p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Material/HysteresisTableData/index.html#BaseData">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Material.&#8203;HysteresisTableData.&#8203;BaseData</a></code> (Hysteresis table data).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Real</code></td><td><code>tabris[:,:]</code></td><td>Table data of the rising (lower) branch of the hysteresis envelope curve (H, B)</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>tabfal[:,:]</code></td><td>Table data of the falling (upper) branch of the hysteresis envelope curve (H, B)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Conductivity">Conductivity</a></code></td><td><code>sigma</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="M800_65A"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FluxTubes</a>.&#8203;<a href="../index.html">Material</a>.&#8203;<a href="index.html">HysteresisTableData</a>.&#8203;M800_65A<br><span class="subtitle">M800-65A</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<table cellspacing="0" cellpadding="2" border="0">
+  <tr>
+    <td>
+      <img src="../../../../../Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_M800-65A.png">
+   </td>
+  </tr>
+</table>
+<p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Material/HysteresisTableData/index.html#BaseData">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Material.&#8203;HysteresisTableData.&#8203;BaseData</a></code> (Hysteresis table data).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Real</code></td><td><code>tabris[:,:]</code></td><td>Table data of the rising (lower) branch of the hysteresis envelope curve (H, B)</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>tabfal[:,:]</code></td><td>Table data of the falling (upper) branch of the hysteresis envelope curve (H, B)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Conductivity">Conductivity</a></code></td><td><code>sigma</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

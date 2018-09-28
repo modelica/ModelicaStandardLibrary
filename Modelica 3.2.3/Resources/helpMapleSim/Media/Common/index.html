@@ -1,0 +1,1187 @@
+<html><head><title>Modelica.Media.Common</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Common"><h1><embed class="icon" src="../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;Common<br><span class="subtitle">Data structures and fundamental functions for fluid properties</span></h1></a>
+<h3>Information</h3>
+<p>
+<h4>Package description</h4>
+      <p>Package Modelica.Media.Common provides records and functions shared by many of the property sub-packages.
+      High accuracy fluid property models share a lot of common structure, even if the actual models are different.
+      Common data structures and computations shared by these property models are collected in this library.
+   </p>
+
+<p>Extends from <code><a href="../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#AuxiliaryProperties"><code>AuxiliaryProperties</code></a></td><td>Intermediate property data record</td></tr>
+<tr><td><a href="#BridgmansTables"><code>BridgmansTables</code></a></td><td>Calculates all entries in Bridgmans tables if first seven variables given</td></tr>
+<tr><td><a href="#cv2Phase"><code>cv2Phase</code></a></td><td>Compute isochoric specific heat capacity inside the two-phase region</td></tr>
+<tr><td><a href="#cvdpT2Phase"><code>cvdpT2Phase</code></a></td><td>Compute isochoric specific heat capacity inside the two-phase region and derivative of pressure w.r.t. temperature</td></tr>
+<tr><td><a href="#DerDensityByEntropy"><code>DerDensityByEntropy</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#DerEnergyByMoles"><code>DerEnergyByMoles</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#DerEnergyByPressure"><code>DerEnergyByPressure</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#DerEntropyByMoles"><code>DerEntropyByMoles</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#DerEntropyByPressure"><code>DerEntropyByPressure</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#DerEntropyByTemperature"><code>DerEntropyByTemperature</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#DerPressureByDensity"><code>DerPressureByDensity</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#DerPressureBySpecificVolume"><code>DerPressureBySpecificVolume</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#DerPressureByTemperature"><code>DerPressureByTemperature</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#DerVolumeByMoles"><code>DerVolumeByMoles</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#DerVolumeByPressure"><code>DerVolumeByPressure</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#DerVolumeByTemperature"><code>DerVolumeByTemperature</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#ExtraDerivatives"><code>ExtraDerivatives</code></a></td><td>Additional thermodynamic derivatives</td></tr>
+<tr><td><a href="#FundamentalConstants"><code>FundamentalConstants</code></a></td><td>Constants of the medium</td></tr>
+<tr><td><a href="#Gibbs2_dT"><code>Gibbs2_dT</code></a></td><td>Function to calculate analytic derivatives for computing p given d and T</td></tr>
+<tr><td><a href="#Gibbs2_ph"><code>Gibbs2_ph</code></a></td><td>Function to calculate analytic derivatives for computing T given p and h</td></tr>
+<tr><td><a href="#Gibbs2_ps"><code>Gibbs2_ps</code></a></td><td>Function to calculate analytic derivatives for computing d and t given p and s</td></tr>
+<tr><td><a href="#GibbsDerivs"><code>GibbsDerivs</code></a></td><td>Derivatives of dimensionless Gibbs-function w.r.t. dimensionless pressure and temperature</td></tr>
+<tr><td><a href="#GibbsDerivs2"><code>GibbsDerivs2</code></a></td><td>Derivatives of Gibbs function w.r.t. pressure and temperature</td></tr>
+<tr><td><a href="#gibbsToBoundaryProps"><code>gibbsToBoundaryProps</code></a></td><td>Calculate phase boundary property record from dimensionless Gibbs function</td></tr>
+<tr><td><a href="#gibbsToBridgmansTables"><code>gibbsToBridgmansTables</code></a></td><td>Calculates base coefficients for Bridgman's tables from gibbs enthalpy</td></tr>
+<tr><td><a href="#gibbsToExtraDerivs"><code>gibbsToExtraDerivs</code></a></td><td>Compute additional thermodynamic derivatives from dimensionless Gibbs function</td></tr>
+<tr><td><a href="#Helmholtz_ph"><code>Helmholtz_ph</code></a></td><td>Function to calculate analytic derivatives for computing d and t given p and h</td></tr>
+<tr><td><a href="#Helmholtz_ps"><code>Helmholtz_ps</code></a></td><td>Function to calculate analytic derivatives for computing d and t given p and s</td></tr>
+<tr><td><a href="#Helmholtz_pT"><code>Helmholtz_pT</code></a></td><td>Function to calculate analytic derivatives for computing d and t given p and t</td></tr>
+<tr><td><a href="#HelmholtzDerivs"><code>HelmholtzDerivs</code></a></td><td>Derivatives of dimensionless Helmholtz-function w.r.t. dimensionless pressure, density and temperature</td></tr>
+<tr><td><a href="#helmholtzToBoundaryProps"><code>helmholtzToBoundaryProps</code></a></td><td>Calculate phase boundary property record from dimensionless Helmholtz function</td></tr>
+<tr><td><a href="#helmholtzToBridgmansTables"><code>helmholtzToBridgmansTables</code></a></td><td>Calculates base coefficients for Bridgmans tables from Helmholtz energy</td></tr>
+<tr><td><a href="#helmholtzToExtraDerivs"><code>helmholtzToExtraDerivs</code></a></td><td>Compute additional thermodynamic derivatives from dimensionless Helmholtz function</td></tr>
+<tr><td><a href="#IF97BaseTwoPhase"><code>IF97BaseTwoPhase</code></a></td><td>Intermediate property data record for IF 97</td></tr>
+<tr><td><a href="#IF97PhaseBoundaryProperties"><code>IF97PhaseBoundaryProperties</code></a></td><td>Thermodynamic base properties on the phase boundary for IF97 steam tables</td></tr>
+<tr><td><a href="#IsenthalpicExponent"><code>IsenthalpicExponent</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#IsentropicExponent"><code>IsentropicExponent</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#IsobaricVolumeExpansionCoefficient"><code>IsobaricVolumeExpansionCoefficient</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#IsochoricPressureCoefficient"><code>IsochoricPressureCoefficient</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#IsothermalCompressibility"><code>IsothermalCompressibility</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#JouleThomsonCoefficient"><code>JouleThomsonCoefficient</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#MolarEnthalpy"><code>MolarEnthalpy</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#MolarFlowRate"><code>MolarFlowRate</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#MolarReactionRate"><code>MolarReactionRate</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#NewtonDerivatives_dT"><code>NewtonDerivatives_dT</code></a></td><td>Derivatives for fast inverse calculations of Gibbs function</td></tr>
+<tr><td><a href="#NewtonDerivatives_ph"><code>NewtonDerivatives_ph</code></a></td><td>Derivatives for fast inverse calculations of Helmholtz functions: p &amp; h</td></tr>
+<tr><td><a href="#NewtonDerivatives_ps"><code>NewtonDerivatives_ps</code></a></td><td>Derivatives for fast inverse calculation of Helmholtz functions: p &amp; s</td></tr>
+<tr><td><a href="#NewtonDerivatives_pT"><code>NewtonDerivatives_pT</code></a></td><td>Derivatives for fast inverse calculations of Helmholtz functions:p &amp; T</td></tr>
+<tr><td><a href="../../Media/Common/OneNonLinearEquation/index.html"><code>OneNonLinearEquation</code></a> &hellip;</td><td>Determine solution of a non-linear algebraic equation in one unknown without derivatives in a reliable and efficient way</td></tr>
+<tr><td><a href="#PhaseBoundaryProperties"><code>PhaseBoundaryProperties</code></a></td><td>Thermodynamic base properties on the phase boundary</td></tr>
+<tr><td><a href="#Rate"><code>Rate</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#SaturationBoundaryProperties"><code>SaturationBoundaryProperties</code></a></td><td>Properties on both phase boundaries, including some derivatives</td></tr>
+<tr><td><a href="#SaturationProperties"><code>SaturationProperties</code></a></td><td>Properties in the two phase region</td></tr>
+<tr><td><a href="#smoothStep"><code>smoothStep</code></a></td><td>Approximation of a general step, such that the characteristic is continuous and differentiable</td></tr>
+<tr><td><a href="../../Media/Common/ThermoFluidSpecial/index.html"><code>ThermoFluidSpecial</code></a> &hellip;</td><td>Property records used by the ThermoFluid library</td></tr>
+<tr><td><a href="#TwoPhaseTransportProps"><code>TwoPhaseTransportProps</code></a></td><td>Defines properties on both phase boundaries, needed in the two phase region</td></tr>
+</table>
+<h3>Package Constants</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Value</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Area">Area</a></code></td><td><code>AMAX</code></td><td><code>100000</code></td><td>Maximal init area</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Area">Area</a></code></td><td><code>AMIN</code></td><td><code>MINPOS</code></td><td>Minimal init area</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Area">Area</a></code></td><td><code>ANOM</code></td><td><code>1</code></td><td>Nominal init area</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>COMPPMAX</code></td><td><code>1e+8</code></td><td>Maximal init pressure</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>COMPPMIN</code></td><td><code>-1 * MINPOS</code></td><td>Minimal init pressure</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>COMPPNOM</code></td><td><code>100000</code></td><td>Nominal init pressure</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>CPMAX</code></td><td><code>1000000</code></td><td>Maximal init specific heat capacity</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>CPMIN</code></td><td><code>MINPOS</code></td><td>Minimal init specific heat capacity</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>CPNOM</code></td><td><code>1000</code></td><td>Nominal init specific heat capacity</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Density">Density</a></code></td><td><code>DMAX</code></td><td><code>30000</code></td><td>Maximal init density</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Density">Density</a></code></td><td><code>DMIN</code></td><td><code>1e-6</code></td><td>Minimal init density</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Density">Density</a></code></td><td><code>DNOM</code></td><td><code>1</code></td><td>Nominal init density</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Energy">Energy</a></code></td><td><code>EMAX</code></td><td><code>1e+10</code></td><td>Maximal init energy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Energy">Energy</a></code></td><td><code>EMIN</code></td><td><code>-1e+10</code></td><td>Minimal init energy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Energy">Energy</a></code></td><td><code>ENOM</code></td><td><code>1000</code></td><td>Nominal init energy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>ETAMAX</code></td><td><code>1e+8</code></td><td>Maximal init dynamic viscosity</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>ETAMIN</code></td><td><code>MINPOS</code></td><td>Minimal init dynamic viscosity</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>ETANOM</code></td><td><code>100</code></td><td>Nominal init dynamic viscosity</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MomentumFlux">MomentumFlux</a></code></td><td><code>GMAX</code></td><td><code>1e+8</code></td><td>Maximal init momentum flux</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MomentumFlux">MomentumFlux</a></code></td><td><code>GMIN</code></td><td><code>-1e+8</code></td><td>Minimal init momentum flux</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MomentumFlux">MomentumFlux</a></code></td><td><code>GNOM</code></td><td><code>1</code></td><td>Nominal init momentum flux</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#RatioOfSpecificHeatCapacities">RatioOfSpecificHeatCapacities</a></code></td><td><code>KAPPAMAX</code></td><td><code>1.7</code></td><td>Maximal init isentropic exponent</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#RatioOfSpecificHeatCapacities">RatioOfSpecificHeatCapacities</a></code></td><td><code>KAPPAMIN</code></td><td><code>1</code></td><td>Minimal init isentropic exponent</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#RatioOfSpecificHeatCapacities">RatioOfSpecificHeatCapacities</a></code></td><td><code>KAPPANOM</code></td><td><code>1.2</code></td><td>Nominal init isentropic exponent</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#ThermalConductivity">ThermalConductivity</a></code></td><td><code>LAMMAX</code></td><td><code>1000</code></td><td>Maximal thermal conductivity</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#ThermalConductivity">ThermalConductivity</a></code></td><td><code>LAMMIN</code></td><td><code>MINPOS</code></td><td>Minimal thermal conductivity</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#ThermalConductivity">ThermalConductivity</a></code></td><td><code>LAMNOM</code></td><td><code>1</code></td><td>Nominal thermal conductivity</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#ThermalConductivity">ThermalConductivity</a></code></td><td><code>LMAX</code></td><td><code>500</code></td><td>Maximal init thermal conductivity</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#ThermalConductivity">ThermalConductivity</a></code></td><td><code>LMIN</code></td><td><code>MINPOS</code></td><td>Minimal init thermal conductivity</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#ThermalConductivity">ThermalConductivity</a></code></td><td><code>LNOM</code></td><td><code>1</code></td><td>Nominal init thermal conductivity</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MassFraction">MassFraction</a></code></td><td><code>MASSXMAX</code></td><td><code>1</code></td><td>Maximal init mass fraction</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MassFraction">MassFraction</a></code></td><td><code>MASSXMIN</code></td><td><code>-1 * MINPOS</code></td><td>Minimal init mass fraction</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MassFraction">MassFraction</a></code></td><td><code>MASSXNOM</code></td><td><code>0.1</code></td><td>Nominal init mass fraction</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>MDOTMAX</code></td><td><code>100000</code></td><td>Maximal init mass flow rate</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>MDOTMIN</code></td><td><code>-100000</code></td><td>Minimal init mass flow rate</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>MDOTNOM</code></td><td><code>1</code></td><td>Nominal init mass flow rate</td></tr>
+<tr><td><code>Real</code></td><td><code>MINPOS</code></td><td><code>1e-9</code></td><td>Minimal value for physical variables which are always &gt; 0.0</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Mass">Mass</a></code></td><td><code>MMAX</code></td><td><code>1e+8</code></td><td>Maximal init mass</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Mass">Mass</a></code></td><td><code>MMIN</code></td><td><code>-1 * MINPOS</code></td><td>Minimal init mass</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MolarMass">MolarMass</a></code></td><td><code>MMMAX</code></td><td><code>250</code></td><td>Maximal initial molar mass</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MolarMass">MolarMass</a></code></td><td><code>MMMIN</code></td><td><code>0.001</code></td><td>Minimal initial molar mass</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MolarMass">MolarMass</a></code></td><td><code>MMNOM</code></td><td><code>0.2</code></td><td>Nominal initial molar mass</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Mass">Mass</a></code></td><td><code>MNOM</code></td><td><code>1</code></td><td>Nominal init mass</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MoleFraction">MoleFraction</a></code></td><td><code>MOLEYMAX</code></td><td><code>1</code></td><td>Maximal init mole fraction</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MoleFraction">MoleFraction</a></code></td><td><code>MOLEYMIN</code></td><td><code>-1 * MINPOS</code></td><td>Minimal init mole fraction</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MoleFraction">MoleFraction</a></code></td><td><code>MOLEYNOM</code></td><td><code>0.1</code></td><td>Nominal init mole fraction</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#AmountOfSubstance">AmountOfSubstance</a></code></td><td><code>MOLMAX</code></td><td><code>1e+8</code></td><td>Maximal Mole Number</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#AmountOfSubstance">AmountOfSubstance</a></code></td><td><code>MOLMIN</code></td><td><code>-1 * MINPOS</code></td><td>Minimal Mole Number</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#AmountOfSubstance">AmountOfSubstance</a></code></td><td><code>MOLNOM</code></td><td><code>1</code></td><td>Nominal Mole Number</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>PMAX</code></td><td><code>1e+8</code></td><td>Maximal init pressure</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>PMIN</code></td><td><code>10000</code></td><td>Minimal init pressure</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>PNOM</code></td><td><code>100000</code></td><td>Nominal init pressure</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Power">Power</a></code></td><td><code>POWMAX</code></td><td><code>1e+8</code></td><td>Maximal init power or heat</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Power">Power</a></code></td><td><code>POWMIN</code></td><td><code>-1e+8</code></td><td>Minimal init power or heat</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Power">Power</a></code></td><td><code>POWNOM</code></td><td><code>1000</code></td><td>Nominal init power or heat</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEnergy">SpecificEnergy</a></code></td><td><code>SEMAX</code></td><td><code>1e+8</code></td><td>Maximal init specific energy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEnergy">SpecificEnergy</a></code></td><td><code>SEMIN</code></td><td><code>-1e+8</code></td><td>Minimal init specific energy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEnergy">SpecificEnergy</a></code></td><td><code>SENOM</code></td><td><code>1000000</code></td><td>Nominal init specific energy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>SHMAX</code></td><td><code>1e+8</code></td><td>Maximal init specific enthalpy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>SHMIN</code></td><td><code>-1e+8</code></td><td>Minimal init specific enthalpy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>SHNOM</code></td><td><code>1000000</code></td><td>Nominal init specific enthalpy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Entropy">Entropy</a></code></td><td><code>SMAX</code></td><td><code>1000000</code></td><td>Maximal init entropy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Entropy">Entropy</a></code></td><td><code>SMIN</code></td><td><code>-1000000</code></td><td>Minimal init entropy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Entropy">Entropy</a></code></td><td><code>SNOM</code></td><td><code>1000</code></td><td>Nominal init entropy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>SSMAX</code></td><td><code>1000000</code></td><td>Maximal init specific entropy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>SSMIN</code></td><td><code>-1000000</code></td><td>Minimal init specific entropy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>SSNOM</code></td><td><code>1000</code></td><td>Nominal init specific entropy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TMAX</code></td><td><code>6000</code></td><td>Maximal init temperature</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TMIN</code></td><td><code>1</code></td><td>Minimal init temperature</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TNOM</code></td><td><code>320</code></td><td>Nominal init temperature</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Velocity">Velocity</a></code></td><td><code>VELMAX</code></td><td><code>100000</code></td><td>Maximal init speed</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Velocity">Velocity</a></code></td><td><code>VELMIN</code></td><td><code>-100000</code></td><td>Minimal init speed</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Velocity">Velocity</a></code></td><td><code>VELNOM</code></td><td><code>1</code></td><td>Nominal init speed</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Volume">Volume</a></code></td><td><code>VMAX</code></td><td><code>100000</code></td><td>Maximal init volume</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Volume">Volume</a></code></td><td><code>VMIN</code></td><td><code>0</code></td><td>Minimal init volume</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Volume">Volume</a></code></td><td><code>VNOM</code></td><td><code>0.001</code></td><td>Nominal init volume</td></tr>
+</table>
+<hr><a name="Rate"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;Rate</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"Rate"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"s-1"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="MolarFlowRate"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;MolarFlowRate</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"MolarFlowRate"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"mol/s"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="MolarReactionRate"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;MolarReactionRate</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"MolarReactionRate"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"mol/(m3.s)"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="MolarEnthalpy"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;MolarEnthalpy</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"MolarEnthalpy"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"J/mol"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="DerDensityByEntropy"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;DerDensityByEntropy</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"DerDensityByEntropy"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"kg2.K/(m3.J)"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="DerEnergyByPressure"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;DerEnergyByPressure</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"DerEnergyByPressure"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"J/Pa"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="DerEnergyByMoles"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;DerEnergyByMoles</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"DerEnergyByMoles"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"J/mol"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="DerEntropyByTemperature"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;DerEntropyByTemperature</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"DerEntropyByTemperature"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"J/K2"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="DerEntropyByPressure"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;DerEntropyByPressure</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"DerEntropyByPressure"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"J/(K.Pa)"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="DerEntropyByMoles"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;DerEntropyByMoles</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"DerEntropyByMoles"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"J/(mol.K)"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="DerPressureByDensity"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;DerPressureByDensity</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"DerPressureByDensity"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"Pa.m3/kg"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="DerPressureBySpecificVolume"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;DerPressureBySpecificVolume</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"DerPressureBySpecificVolume"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"Pa.kg/m3"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="DerPressureByTemperature"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;DerPressureByTemperature</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"DerPressureByTemperature"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"Pa/K"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="DerVolumeByTemperature"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;DerVolumeByTemperature</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"DerVolumeByTemperature"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"m3/K"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="DerVolumeByPressure"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;DerVolumeByPressure</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"DerVolumeByPressure"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"m3/Pa"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="DerVolumeByMoles"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;DerVolumeByMoles</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"DerVolumeByMoles"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"m3/mol"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="IsenthalpicExponent"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;IsenthalpicExponent</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"IsenthalpicExponent"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"1"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="IsentropicExponent"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;IsentropicExponent</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"IsentropicExponent"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"1"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="IsobaricVolumeExpansionCoefficient"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;IsobaricVolumeExpansionCoefficient</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"IsobaricVolumeExpansionCoefficient"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"1/K"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="IsochoricPressureCoefficient"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;IsochoricPressureCoefficient</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"IsochoricPressureCoefficient"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"1/K"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="IsothermalCompressibility"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;IsothermalCompressibility</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"IsothermalCompressibility"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"1/Pa"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="JouleThomsonCoefficient"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;JouleThomsonCoefficient</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"JouleThomsonCoefficient"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"K/Pa"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="SaturationProperties"><h2><embed class="icon" src="../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;SaturationProperties<br><span class="subtitle">Properties in the two phase region</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEnergy">SpecificEnergy</a></code></td><td><code>u</code></td><td>Specific inner energy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp</code></td><td>Heat capacity at constant pressure</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cv</code></td><td>Heat capacity at constant volume</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>R</code></td><td>Gas constant</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#RatioOfSpecificHeatCapacities">RatioOfSpecificHeatCapacities</a></code></td><td><code>kappa</code></td><td>Isentropic expansion coefficient</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#PhaseBoundaryProperties">PhaseBoundaryProperties</a></code></td><td><code>liq</code></td><td>Thermodynamic base properties on the boiling curve</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#PhaseBoundaryProperties">PhaseBoundaryProperties</a></code></td><td><code>vap</code></td><td>Thermodynamic base properties on the dew curve</td></tr>
+<tr><td><code>Real</code></td><td><code>dpT</code></td><td>Derivative of saturation pressure w.r.t. temperature</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MassFraction">MassFraction</a></code></td><td><code>x</code></td><td>Vapour mass fraction</td></tr>
+</table>
+<hr><a name="SaturationBoundaryProperties"><h2><embed class="icon" src="../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;SaturationBoundaryProperties<br><span class="subtitle">Properties on both phase boundaries, including some derivatives</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>T</code></td><td>Saturation temperature</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Density">Density</a></code></td><td><code>dl</code></td><td>Liquid density</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Density">Density</a></code></td><td><code>dv</code></td><td>Vapour density</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>hl</code></td><td>Liquid specific enthalpy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>hv</code></td><td>Vapour specific enthalpy</td></tr>
+<tr><td><code>Real</code></td><td><code>dTp</code></td><td>Derivative of temperature w.r.t. saturation pressure</td></tr>
+<tr><td><code>Real</code></td><td><code>ddldp</code></td><td>Derivative of density along boiling curve</td></tr>
+<tr><td><code>Real</code></td><td><code>ddvdp</code></td><td>Derivative of density along dew curve</td></tr>
+<tr><td><code>Real</code></td><td><code>dhldp</code></td><td>Derivative of specific enthalpy along boiling curve</td></tr>
+<tr><td><code>Real</code></td><td><code>dhvdp</code></td><td>Derivative of specific enthalpy along dew curve</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MassFraction">MassFraction</a></code></td><td><code>x</code></td><td>Vapour mass fraction</td></tr>
+</table>
+<hr><a name="IF97BaseTwoPhase"><h2><embed class="icon" src="../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;IF97BaseTwoPhase<br><span class="subtitle">Intermediate property data record for IF 97</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>phase</code></td><td>Phase: 2 for two-phase, 1 for one phase, 0 if unknown</td></tr>
+<tr><td><code>Integer</code></td><td><code>region</code></td><td>IF 97 region</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>R</code></td><td>Gas constant</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp</code></td><td>Specific heat capacity</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cv</code></td><td>Specific heat capacity</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Density">Density</a></code></td><td><code>rho</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#DerPressureByTemperature">DerPressureByTemperature</a></code></td><td><code>pt</code></td><td>Derivative of pressure w.r.t. temperature</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#DerPressureByDensity">DerPressureByDensity</a></code></td><td><code>pd</code></td><td>Derivative of pressure w.r.t. density</td></tr>
+<tr><td><code>Real</code></td><td><code>vt</code></td><td>Derivative of specific volume w.r.t. temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>vp</code></td><td>Derivative of specific volume w.r.t. pressure</td></tr>
+<tr><td><code>Real</code></td><td><code>x</code></td><td>Dryness fraction</td></tr>
+<tr><td><code>Real</code></td><td><code>dpT</code></td><td>dp/dT derivative of saturation curve</td></tr>
+</table>
+<hr><a name="IF97PhaseBoundaryProperties"><h2><embed class="icon" src="../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;IF97PhaseBoundaryProperties<br><span class="subtitle">Thermodynamic base properties on the phase boundary for IF97 steam tables</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>region3boundary</code></td><td>True if boundary between 2-phase and region 3</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>R</code></td><td>Specific heat capacity</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp</code></td><td>Heat capacity at constant pressure</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cv</code></td><td>Heat capacity at constant volume</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#DerPressureByTemperature">DerPressureByTemperature</a></code></td><td><code>dpT</code></td><td>dp/dT derivative of saturation curve</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#DerPressureByTemperature">DerPressureByTemperature</a></code></td><td><code>pt</code></td><td>Derivative of pressure w.r.t. temperature</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#DerPressureByDensity">DerPressureByDensity</a></code></td><td><code>pd</code></td><td>Derivative of pressure w.r.t. density</td></tr>
+<tr><td><code>Real</code></td><td><code>vt</code></td><td>Derivative of specific volume w.r.t. temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>vp</code></td><td>Derivative of specific volume w.r.t. pressure</td></tr>
+</table>
+<hr><a name="GibbsDerivs"><h2><embed class="icon" src="../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;GibbsDerivs<br><span class="subtitle">Derivatives of dimensionless Gibbs-function w.r.t. dimensionless pressure and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>R</code></td><td>Specific heat capacity</td></tr>
+<tr><td><code>Real</code></td><td><code>pi</code></td><td>Dimensionless pressure</td></tr>
+<tr><td><code>Real</code></td><td><code>tau</code></td><td>Dimensionless temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>g</code></td><td>Dimensionless Gibbs-function</td></tr>
+<tr><td><code>Real</code></td><td><code>gpi</code></td><td>Derivative of g w.r.t. pi</td></tr>
+<tr><td><code>Real</code></td><td><code>gpipi</code></td><td>2nd derivative of g w.r.t. pi</td></tr>
+<tr><td><code>Real</code></td><td><code>gtau</code></td><td>Derivative of g w.r.t. tau</td></tr>
+<tr><td><code>Real</code></td><td><code>gtautau</code></td><td>2nd derivative of g w.r.t. tau</td></tr>
+<tr><td><code>Real</code></td><td><code>gtaupi</code></td><td>Mixed derivative of g w.r.t. pi and tau</td></tr>
+</table>
+<hr><a name="HelmholtzDerivs"><h2><embed class="icon" src="../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;HelmholtzDerivs<br><span class="subtitle">Derivatives of dimensionless Helmholtz-function w.r.t. dimensionless pressure, density and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>R</code></td><td>Specific heat capacity</td></tr>
+<tr><td><code>Real</code></td><td><code>delta</code></td><td>Dimensionless density</td></tr>
+<tr><td><code>Real</code></td><td><code>tau</code></td><td>Dimensionless temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>f</code></td><td>Dimensionless Helmholtz-function</td></tr>
+<tr><td><code>Real</code></td><td><code>fdelta</code></td><td>Derivative of f w.r.t. delta</td></tr>
+<tr><td><code>Real</code></td><td><code>fdeltadelta</code></td><td>2nd derivative of f w.r.t. delta</td></tr>
+<tr><td><code>Real</code></td><td><code>ftau</code></td><td>Derivative of f w.r.t. tau</td></tr>
+<tr><td><code>Real</code></td><td><code>ftautau</code></td><td>2nd derivative of f w.r.t. tau</td></tr>
+<tr><td><code>Real</code></td><td><code>fdeltatau</code></td><td>Mixed derivative of f w.r.t. delta and tau</td></tr>
+</table>
+<hr><a name="TwoPhaseTransportProps"><h2><embed class="icon" src="../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;TwoPhaseTransportProps<br><span class="subtitle">Defines properties on both phase boundaries, needed in the two phase region</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Density">Density</a></code></td><td><code>d_vap</code></td><td>Density on the dew line</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Density">Density</a></code></td><td><code>d_liq</code></td><td>Density on the bubble line</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta_vap</code></td><td>Dynamic viscosity on the dew line</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta_liq</code></td><td>Dynamic viscosity on the bubble line</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#ThermalConductivity">ThermalConductivity</a></code></td><td><code>lam_vap</code></td><td>Thermal conductivity on the dew line</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#ThermalConductivity">ThermalConductivity</a></code></td><td><code>lam_liq</code></td><td>Thermal conductivity on the bubble line</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp_vap</code></td><td>Cp on the dew line</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp_liq</code></td><td>Cp on the bubble line</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MassFraction">MassFraction</a></code></td><td><code>x</code></td><td>Steam quality</td></tr>
+</table>
+<hr><a name="PhaseBoundaryProperties"><h2><embed class="icon" src="../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;PhaseBoundaryProperties<br><span class="subtitle">Thermodynamic base properties on the phase boundary</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEnergy">SpecificEnergy</a></code></td><td><code>u</code></td><td>Inner energy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp</code></td><td>Heat capacity at constant pressure</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cv</code></td><td>Heat capacity at constant volume</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#DerPressureByTemperature">DerPressureByTemperature</a></code></td><td><code>pt</code></td><td>Derivative of pressure w.r.t. temperature</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#DerPressureByDensity">DerPressureByDensity</a></code></td><td><code>pd</code></td><td>Derivative of pressure w.r.t. density</td></tr>
+</table>
+<hr><a name="NewtonDerivatives_ph"><h2><embed class="icon" src="../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;NewtonDerivatives_ph<br><span class="subtitle">Derivatives for fast inverse calculations of Helmholtz functions: p &amp; h</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#DerPressureByDensity">DerPressureByDensity</a></code></td><td><code>pd</code></td><td>Derivative of pressure w.r.t. density</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#DerPressureByTemperature">DerPressureByTemperature</a></code></td><td><code>pt</code></td><td>Derivative of pressure w.r.t. temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>hd</code></td><td>Derivative of specific enthalpy w.r.t. density</td></tr>
+<tr><td><code>Real</code></td><td><code>ht</code></td><td>Derivative of specific enthalpy w.r.t. temperature</td></tr>
+</table>
+<hr><a name="NewtonDerivatives_ps"><h2><embed class="icon" src="../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;NewtonDerivatives_ps<br><span class="subtitle">Derivatives for fast inverse calculation of Helmholtz functions: p &amp; s</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#DerPressureByDensity">DerPressureByDensity</a></code></td><td><code>pd</code></td><td>Derivative of pressure w.r.t. density</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#DerPressureByTemperature">DerPressureByTemperature</a></code></td><td><code>pt</code></td><td>Derivative of pressure w.r.t. temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>sd</code></td><td>Derivative of specific entropy w.r.t. density</td></tr>
+<tr><td><code>Real</code></td><td><code>st</code></td><td>Derivative of specific entropy w.r.t. temperature</td></tr>
+</table>
+<hr><a name="NewtonDerivatives_pT"><h2><embed class="icon" src="../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;NewtonDerivatives_pT<br><span class="subtitle">Derivatives for fast inverse calculations of Helmholtz functions:p &amp; T</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#DerPressureByDensity">DerPressureByDensity</a></code></td><td><code>pd</code></td><td>Derivative of pressure w.r.t. density</td></tr>
+</table>
+<hr><a name="ExtraDerivatives"><h2><embed class="icon" src="../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;ExtraDerivatives<br><span class="subtitle">Additional thermodynamic derivatives</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#IsentropicExponent">IsentropicExponent</a></code></td><td><code>kappa</code></td><td>Isentropic expansion coefficient</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#IsenthalpicExponent">IsenthalpicExponent</a></code></td><td><code>theta</code></td><td>Isenthalpic exponent</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#IsobaricVolumeExpansionCoefficient">IsobaricVolumeExpansionCoefficient</a></code></td><td><code>alpha</code></td><td>Isobaric volume expansion coefficient</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#IsochoricPressureCoefficient">IsochoricPressureCoefficient</a></code></td><td><code>beta</code></td><td>Isochoric pressure coefficient</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#IsothermalCompressibility">IsothermalCompressibility</a></code></td><td><code>gamma</code></td><td>Isothermal compressibility</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#JouleThomsonCoefficient">JouleThomsonCoefficient</a></code></td><td><code>mu</code></td><td>Joule-Thomson coefficient</td></tr>
+</table>
+<hr><a name="BridgmansTables"><h2><embed class="icon" src="../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;BridgmansTables<br><span class="subtitle">Calculates all entries in Bridgmans tables if first seven variables given</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Important: the phase equilibrium conditions are not yet considered.
+this means that Bridgman's tables do not yet work in the two phase region.
+Some derivatives are 0 or infinity anyways.
+Idea: Do not use the values in Bridgmans table directly, all
+derivatives are calculated as the quotient of two entries in the
+table. The last letter indicates which variable is held constant in
+taking the derivative. The second letters are the two variables
+involved in the derivative and the first letter is always a d to remind
+of differentiation.
+</p>
+
+<pre>
+Example 1: Get the derivative of specific entropy s w.r.t. Temperature at
+constant specific volume (between identical to constant density)
+constant volume  --> last letter v
+Temperature      --> second letter T
+Specific entropy --> second letter s
+--> the needed value is dsv/dTv
+Known variables:
+Temperature T
+pressure p
+specific volume v
+specific inner energy u
+specific enthalpy h
+specific entropy s
+specific Helmholtz energy f
+specific gibbs enthalpy g
+Not included but useful:
+density d
+In order to convert derivatives involving density use the following
+rules:
+at constant density == at constant specific volume
+ddx/dyx = -d*d*dvx/dyx with y,x any of T,p,u,h,s,f,g
+dyx/ddx = -1/(d*d)dyx/dvx with y,x any of T,p,u,h,s,f,g
+Usage example assuming water as the medium:
+model BridgmansTablesForWater
+extends ThermoFluid.BaseClasses.MediumModels.Water.WaterSteamMedium_ph;
+Real derOfsByTAtConstantv "derivative of sp. entropy by temperature at constant sp. volume"
+ThermoFluid.BaseClasses.MediumModels.Common.ExtraDerivatives dpro;
+ThermoFluid.BaseClasses.MediumModels.Common.BridgmansTables bt;
+equation
+dpro = ThermoFluid.BaseClasses.MediumModels.SteamIF97.extraDerivs_pT(p[1],T[1]);
+bt.p = p[1];
+bt.T = T[1];
+bt.v = 1/pro[1].d;
+bt.s = pro[1].s;
+bt.cp = pro[1].cp;
+bt.alpha = dpro.alpha;
+bt.gamma = dpro.gamma;
+derOfsByTAtConstantv =  bt.dsv/bt.dTv;
+                ...
+end BridgmansTablesForWater;
+                </pre>
+
+                
+<p>Extends from <code><a href="../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#SpecificVolume">SpecificVolume</a></code></td><td><code>v</code></td><td>Specific volume</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp</code></td><td>Heat capacity at constant pressure</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#IsobaricVolumeExpansionCoefficient">IsobaricVolumeExpansionCoefficient</a></code></td><td><code>alpha</code></td><td>Isobaric volume expansion coefficient</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#IsothermalCompressibility">IsothermalCompressibility</a></code></td><td><code>gamma</code></td><td>Isothermal compressibility</td></tr>
+<tr><td><code>Real</code></td><td><code>dTp</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dpT</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dvp</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dpv</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dsp</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dps</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dup</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dpu</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dhp</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dph</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dfp</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dpf</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dgp</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dpg</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dvT</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dTv</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dsT</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dTs</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>duT</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dTu</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dhT</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dTh</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dfT</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dTf</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dgT</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dTg</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dsv</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dvs</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>duv</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dvu</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dhv</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dvh</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dfv</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dvf</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dgv</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dvg</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dus</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dsu</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dhs</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dsh</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dfs</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dsf</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dgs</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dsg</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dhu</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>duh</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dfu</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>duf</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dgu</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dug</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dfh</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dhf</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dgh</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dhg</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dfg</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+<tr><td><code>Real</code></td><td><code>dgf</code></td><td>Coefficient in Bridgmans table, see info for usage</td></tr>
+</table>
+<hr><a name="FundamentalConstants"><h2><embed class="icon" src="../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;FundamentalConstants<br><span class="subtitle">Constants of the medium</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#MolarHeatCapacity">MolarHeatCapacity</a></code></td><td><code>R_bar</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>R</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MolarMass">MolarMass</a></code></td><td><code>MM</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MolarDensity">MolarDensity</a></code></td><td><code>rhored</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>Tred</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>pred</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_off</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s_off</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="AuxiliaryProperties"><h2><embed class="icon" src="../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;AuxiliaryProperties<br><span class="subtitle">Intermediate property data record</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>R</code></td><td>Gas constant</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp</code></td><td>Specific heat capacity</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cv</code></td><td>Specific heat capacity</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Density">Density</a></code></td><td><code>rho</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#DerPressureByTemperature">DerPressureByTemperature</a></code></td><td><code>pt</code></td><td>Derivative of pressure w.r.t. temperature</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#DerPressureByDensity">DerPressureByDensity</a></code></td><td><code>pd</code></td><td>Derivative of pressure w.r.t. density</td></tr>
+<tr><td><code>Real</code></td><td><code>vt</code></td><td>Derivative of specific volume w.r.t. temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>vp</code></td><td>Derivative of specific volume w.r.t. pressure</td></tr>
+</table>
+<hr><a name="GibbsDerivs2"><h2><embed class="icon" src="../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;GibbsDerivs2<br><span class="subtitle">Derivatives of Gibbs function w.r.t. pressure and temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>R</code></td><td>Specific heat capacity</td></tr>
+<tr><td><code>Real</code></td><td><code>pi</code></td><td>Dimensionless pressure</td></tr>
+<tr><td><code>Real</code></td><td><code>theta</code></td><td>Dimensionless temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>g</code></td><td>Gibbs function</td></tr>
+<tr><td><code>Real</code></td><td><code>gp</code></td><td>Derivative of g w.r.t. p</td></tr>
+<tr><td><code>Real</code></td><td><code>gpp</code></td><td>2nd derivative of g w.r.t. p</td></tr>
+<tr><td><code>Real</code></td><td><code>gT</code></td><td>Derivative of g w.r.t. T</td></tr>
+<tr><td><code>Real</code></td><td><code>gTT</code></td><td>2nd derivative of g w.r.t. T</td></tr>
+<tr><td><code>Real</code></td><td><code>gTp</code></td><td>Mixed derivative of g w.r.t. T and p</td></tr>
+</table>
+<hr><a name="NewtonDerivatives_dT"><h2><embed class="icon" src="../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;NewtonDerivatives_dT<br><span class="subtitle">Derivatives for fast inverse calculations of Gibbs function</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#SpecificVolume">SpecificVolume</a></code></td><td><code>v</code></td><td>Specific volume</td></tr>
+<tr><td><code>Real</code></td><td><code>vp</code></td><td>Derivative of specific volume w.r.t. pressure</td></tr>
+</table>
+<hr><a name="gibbsToBridgmansTables"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;gibbsToBridgmansTables<br><span class="subtitle">Calculates base coefficients for Bridgman's tables from gibbs enthalpy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#GibbsDerivs">GibbsDerivs</a></code></td><td><code>g</code></td><td>Dimensionless derivatives of Gibbs function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#SpecificVolume">SpecificVolume</a></code></td><td><code>v</code></td><td>Specific volume</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp</code></td><td>Heat capacity at constant pressure</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#IsobaricVolumeExpansionCoefficient">IsobaricVolumeExpansionCoefficient</a></code></td><td><code>alpha</code></td><td>Isobaric volume expansion coefficient</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#IsothermalCompressibility">IsothermalCompressibility</a></code></td><td><code>gamma</code></td><td>Isothermal compressibility</td></tr>
+</table>
+<hr><a name="helmholtzToBridgmansTables"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;helmholtzToBridgmansTables<br><span class="subtitle">Calculates base coefficients for Bridgmans tables from Helmholtz energy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#HelmholtzDerivs">HelmholtzDerivs</a></code></td><td><code>f</code></td><td>Dimensionless derivatives of Helmholtz function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#SpecificVolume">SpecificVolume</a></code></td><td><code>v</code></td><td>Specific volume</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp</code></td><td>Heat capacity at constant pressure</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#IsobaricVolumeExpansionCoefficient">IsobaricVolumeExpansionCoefficient</a></code></td><td><code>alpha</code></td><td>Isobaric volume expansion coefficient</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#IsothermalCompressibility">IsothermalCompressibility</a></code></td><td><code>gamma</code></td><td>Isothermal compressibility</td></tr>
+</table>
+<hr><a name="gibbsToBoundaryProps"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;gibbsToBoundaryProps<br><span class="subtitle">Calculate phase boundary property record from dimensionless Gibbs function</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#GibbsDerivs">GibbsDerivs</a></code></td><td><code>g</code></td><td>Dimensionless derivatives of Gibbs function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#PhaseBoundaryProperties">PhaseBoundaryProperties</a></code></td><td><code>sat</code></td><td>Phase boundary properties</td></tr>
+</table>
+<hr><a name="helmholtzToBoundaryProps"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;helmholtzToBoundaryProps<br><span class="subtitle">Calculate phase boundary property record from dimensionless Helmholtz function</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#HelmholtzDerivs">HelmholtzDerivs</a></code></td><td><code>f</code></td><td>Dimensionless derivatives of Helmholtz function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#PhaseBoundaryProperties">PhaseBoundaryProperties</a></code></td><td><code>sat</code></td><td>Phase boundary property record</td></tr>
+</table>
+<hr><a name="cv2Phase"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;cv2Phase<br><span class="subtitle">Compute isochoric specific heat capacity inside the two-phase region</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#PhaseBoundaryProperties">PhaseBoundaryProperties</a></code></td><td><code>liq</code></td><td>Properties on the boiling curve</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#PhaseBoundaryProperties">PhaseBoundaryProperties</a></code></td><td><code>vap</code></td><td>Properties on the condensation curve</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MassFraction">MassFraction</a></code></td><td><code>x</code></td><td>Vapour mass fraction</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Properties</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cv</code></td><td>Isochoric specific heat capacity</td></tr>
+</table>
+<hr><a name="cvdpT2Phase"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;cvdpT2Phase<br><span class="subtitle">Compute isochoric specific heat capacity inside the two-phase region and derivative of pressure w.r.t. temperature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#PhaseBoundaryProperties">PhaseBoundaryProperties</a></code></td><td><code>liq</code></td><td>Properties on the boiling curve</td></tr>
+<tr><td><code><a href="../../Media/Common/index.html#PhaseBoundaryProperties">PhaseBoundaryProperties</a></code></td><td><code>vap</code></td><td>Properties on the condensation curve</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#MassFraction">MassFraction</a></code></td><td><code>x</code></td><td>Vapour mass fraction</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Properties</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cv</code></td><td>Isochoric specific heat capacity</td></tr>
+<tr><td><code>Real</code></td><td><code>dpT</code></td><td>Derivative of pressure w.r.t. temperature</td></tr>
+</table>
+<hr><a name="gibbsToExtraDerivs"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;gibbsToExtraDerivs<br><span class="subtitle">Compute additional thermodynamic derivatives from dimensionless Gibbs function</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#GibbsDerivs">GibbsDerivs</a></code></td><td><code>g</code></td><td>Dimensionless derivatives of Gibbs function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#ExtraDerivatives">ExtraDerivatives</a></code></td><td><code>dpro</code></td><td>Additional property derivatives</td></tr>
+</table>
+<hr><a name="helmholtzToExtraDerivs"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;helmholtzToExtraDerivs<br><span class="subtitle">Compute additional thermodynamic derivatives from dimensionless Helmholtz function</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#HelmholtzDerivs">HelmholtzDerivs</a></code></td><td><code>f</code></td><td>Dimensionless derivatives of Helmholtz function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#ExtraDerivatives">ExtraDerivatives</a></code></td><td><code>dpro</code></td><td>Additional property derivatives</td></tr>
+</table>
+<hr><a name="Helmholtz_ph"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;Helmholtz_ph<br><span class="subtitle">Function to calculate analytic derivatives for computing d and t given p and h</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#HelmholtzDerivs">HelmholtzDerivs</a></code></td><td><code>f</code></td><td>Dimensionless derivatives of Helmholtz function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#NewtonDerivatives_ph">NewtonDerivatives_ph</a></code></td><td><code>nderivs</code></td><td>Derivatives for Newton iteration to calculate d and t from p and h</td></tr>
+</table>
+<hr><a name="Helmholtz_pT"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;Helmholtz_pT<br><span class="subtitle">Function to calculate analytic derivatives for computing d and t given p and t</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#HelmholtzDerivs">HelmholtzDerivs</a></code></td><td><code>f</code></td><td>Dimensionless derivatives of Helmholtz function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#NewtonDerivatives_pT">NewtonDerivatives_pT</a></code></td><td><code>nderivs</code></td><td>Derivatives for Newton iteration to compute d and t from p and t</td></tr>
+</table>
+<hr><a name="Helmholtz_ps"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;Helmholtz_ps<br><span class="subtitle">Function to calculate analytic derivatives for computing d and t given p and s</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#HelmholtzDerivs">HelmholtzDerivs</a></code></td><td><code>f</code></td><td>Dimensionless derivatives of Helmholtz function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#NewtonDerivatives_ps">NewtonDerivatives_ps</a></code></td><td><code>nderivs</code></td><td>Derivatives for Newton iteration to compute d and t from p and s</td></tr>
+</table>
+<hr><a name="smoothStep"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;smoothStep<br><span class="subtitle">Approximation of a general step, such that the characteristic is continuous and differentiable</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function is used to approximate the equation
+</p>
+<pre>
+    y = <strong>if</strong> x &gt; 0 <strong>then</strong> y1 <strong>else</strong> y2;
+</pre>
+
+<p>
+by a smooth characteristic, so that the expression is continuous and differentiable:
+</p>
+
+<pre>
+   y = <strong>smooth</strong>(1, <strong>if</strong> x &gt;  x_small <strong>then</strong> y1 <strong>else</strong>
+                 <strong>if</strong> x &lt; -x_small <strong>then</strong> y2 <strong>else</strong> f(y1, y2));
+</pre>
+
+<p>
+In the region -x_small &lt; x &lt; x_small a 2nd order polynomial is used
+for a smooth transition from y1 to y2.
+</p>
+
+<p>
+If <strong>mass fractions</strong> X[:] are approximated with this function then this can be performed
+for all <strong>nX</strong> mass fractions, instead of applying it for nX-1 mass fractions and computing
+the last one by the mass fraction constraint sum(X)=1. The reason is that the approximating function has the
+property that sum(X) = 1, provided sum(X_a) = sum(X_b) = 1
+(and y1=X_a[i], y2=X_b[i]).
+This can be shown by evaluating the approximating function in the abs(x) &lt; x_small
+region (otherwise X is either X_a or X_b):
+</p>
+
+<pre>
+    X[1]  = smoothStep(x, X_a[1] , X_b[1] , x_small);
+    X[2]  = smoothStep(x, X_a[2] , X_b[2] , x_small);
+       ...
+    X[nX] = smoothStep(x, X_a[nX], X_b[nX], x_small);
+</pre>
+
+<p>
+or
+</p>
+
+<pre>
+    X[1]  = c*(X_a[1]  - X_b[1])  + (X_a[1]  + X_b[1])/2
+    X[2]  = c*(X_a[2]  - X_b[2])  + (X_a[2]  + X_b[2])/2;
+       ...
+    X[nX] = c*(X_a[nX] - X_b[nX]) + (X_a[nX] + X_b[nX])/2;
+    c     = (x/x_small)*((x/x_small)^2 - 3)/4
+</pre>
+
+<p>
+Summing all mass fractions together results in
+</p>
+
+<pre>
+    sum(X) = c*(sum(X_a) - sum(X_b)) + (sum(X_a) + sum(X_b))/2
+           = c*(1 - 1) + (1 + 1)/2
+           = 1
+</pre>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>x</code></td><td>Abscissa value</td></tr>
+<tr><td><code>Real</code></td><td><code>y1</code></td><td>Ordinate value for x &gt; 0</td></tr>
+<tr><td><code>Real</code></td><td><code>y2</code></td><td>Ordinate value for x &lt; 0</td></tr>
+<tr><td><code>Real</code></td><td><code>x_small</code></td><td>Approximation of step for -x_small &lt;= x &lt;= x_small; x_small &gt; 0 required</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>Ordinate value to approximate y = if x &gt; 0 then y1 else y2</td></tr>
+</table>
+<hr><a name="Gibbs2_ph"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;Gibbs2_ph<br><span class="subtitle">Function to calculate analytic derivatives for computing T given p and h</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#GibbsDerivs2">GibbsDerivs2</a></code></td><td><code>g</code></td><td>Dimensionless derivatives of Gibbs function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#NewtonDerivatives_ph">NewtonDerivatives_ph</a></code></td><td><code>nderivs</code></td><td>Derivatives for Newton iteration to calculate d and t from p and h</td></tr>
+</table>
+<hr><a name="Gibbs2_dT"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;Gibbs2_dT<br><span class="subtitle">Function to calculate analytic derivatives for computing p given d and T</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#GibbsDerivs2">GibbsDerivs2</a></code></td><td><code>g</code></td><td>Dimensionless derivatives of Gibbs function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#NewtonDerivatives_dT">NewtonDerivatives_dT</a></code></td><td><code>nderivs</code></td><td>Derivatives for Newton iteration to compute p from d and T</td></tr>
+</table>
+<hr><a name="Gibbs2_ps"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">Common</a>.&#8203;Gibbs2_ps<br><span class="subtitle">Function to calculate analytic derivatives for computing d and t given p and s</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#GibbsDerivs2">GibbsDerivs2</a></code></td><td><code>g</code></td><td>Dimensionless derivatives of Gibbs function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Media/Common/index.html#NewtonDerivatives_ps">NewtonDerivatives_ps</a></code></td><td><code>nderivs</code></td><td>Derivatives for Newton iteration to compute T from p and s</td></tr>
+</table>
+</body></html>

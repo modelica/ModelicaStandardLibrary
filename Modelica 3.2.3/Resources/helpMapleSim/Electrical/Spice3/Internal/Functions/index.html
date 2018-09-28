@@ -1,0 +1,461 @@
+<html><head><title>Modelica.Electrical.Spice3.Internal.Functions</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Functions"><h1><embed class="icon" src="../../../../images/icon0034.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;Functions<br><span class="subtitle">Equations for semiconductor calculation</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>The package Equation contains functions that are needed to model the semiconductor models. Some of these functions are used by several semiconductor models.</p>
+<p>Extends from <code><a href="../../../../Icons/InternalPackage/index.html">Modelica.&#8203;Icons.&#8203;InternalPackage</a></code> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#capDepGeom"><code>capDepGeom</code></a></td><td>Capacitance dependent from width and narrow</td></tr>
+<tr><td><a href="#energyGapDepTemp"><code>energyGapDepTemp</code></a></td><td>Temperature dependency of energy gap</td></tr>
+<tr><td><a href="#energyGapDepTemp_old"><code>energyGapDepTemp_old</code></a></td><td>Temperature dependency of energy gap</td></tr>
+<tr><td><a href="#junction2"><code>junction2</code></a></td><td>Junction current and conductance calculation</td></tr>
+<tr><td><a href="#junction2SPICE3BJT"><code>junction2SPICE3BJT</code></a></td><td>Junction current and conductance calculation</td></tr>
+<tr><td><a href="#junction2SPICE3MOSFET"><code>junction2SPICE3MOSFET</code></a></td><td>Junction current and conductance calculation, obsolete, use junction2SPICE3MOSFETRevised</td></tr>
+<tr><td><a href="#junction2SPICE3MOSFETRevised"><code>junction2SPICE3MOSFETRevised</code></a></td><td>Junction current and conductance calculation</td></tr>
+<tr><td><a href="#junction3"><code>junction3</code></a></td><td>Junction current and conductance calculation</td></tr>
+<tr><td><a href="#junctionCap"><code>junctionCap</code></a></td><td>Junction capacity, obsolete, use JunctionCapRevised</td></tr>
+<tr><td><a href="#junctionCapCoeffs"><code>junctionCapCoeffs</code></a></td><td>Coefficient calculation</td></tr>
+<tr><td><a href="#junctionCapRevised"><code>junctionCapRevised</code></a></td><td>Junction capacity</td></tr>
+<tr><td><a href="#junctionCapTransTime"><code>junctionCapTransTime</code></a></td><td>Junction capacitance transittime calculation</td></tr>
+<tr><td><a href="#junctionParamDepTempSPICE3"><code>junctionParamDepTempSPICE3</code></a></td><td>Temperature dependency of junction parameters</td></tr>
+<tr><td><a href="#junctionPotDepTemp"><code>junctionPotDepTemp</code></a></td><td>Temperature dependency of junction potential</td></tr>
+<tr><td><a href="#junctionVCrit"><code>junctionVCrit</code></a></td><td>Voltage limitation</td></tr>
+<tr><td><a href="#junctionVoltage23SPICE3"><code>junctionVoltage23SPICE3</code></a></td><td>Junction Voltage</td></tr>
+<tr><td><a href="#resDepGeom"><code>resDepGeom</code></a></td><td>Resistance dependent from width and narrow</td></tr>
+<tr><td><a href="#resDepTemp"><code>resDepTemp</code></a></td><td>Temperature dependent conductance</td></tr>
+<tr><td><a href="#saturationCurDepTempSPICE3"><code>saturationCurDepTempSPICE3</code></a></td><td>Temperature dependency of saturation current</td></tr>
+<tr><td><a href="#saturationCurDepTempSPICE3JFET"><code>saturationCurDepTempSPICE3JFET</code></a></td><td>Temperature dependency of saturation current</td></tr>
+<tr><td><a href="#saturationCurDepTempSPICE3MOSFET"><code>saturationCurDepTempSPICE3MOSFET</code></a></td><td>Temperature dependency of saturation current</td></tr>
+</table>
+<hr><a name="junctionPotDepTemp"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Functions</a>.&#8203;junctionPotDepTemp<br><span class="subtitle">Temperature dependency of junction potential</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This internal function calculates the temperature dependent junction potential based on the actual and the nominal temperature.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>phi0</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>temp</code></td><td>Device Temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>tnom</code></td><td>Nominal Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>ret</code></td><td>Output voltage</td></tr>
+</table>
+<hr><a name="saturationCurDepTempSPICE3MOSFET"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Functions</a>.&#8203;saturationCurDepTempSPICE3MOSFET<br><span class="subtitle">Temperature dependency of saturation current</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This internal function calculates the temperature dependent saturation current based on the actual and the nominal temperature.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>satcur0</code></td><td>Saturation current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>temp</code></td><td>Device Temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>tnom</code></td><td>Nominal Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>ret</code></td><td>Output current</td></tr>
+</table>
+<hr><a name="junctionVCrit"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Functions</a>.&#8203;junctionVCrit<br><span class="subtitle">Voltage limitation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This internal function limits the junction voltage. If it increases 1e10, it is hold to be constant at that value.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>temp</code></td><td>temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>ncoeff</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>satcur</code></td><td>Saturation current</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>ret</code></td><td>Output value</td></tr>
+</table>
+<hr><a name="junctionParamDepTempSPICE3"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Functions</a>.&#8203;junctionParamDepTempSPICE3<br><span class="subtitle">Temperature dependency of junction parameters</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This internal function calculates several temperature dependent junction parameters based on the actual and the nominal temperature.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>phi0</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>cap0</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>mcoeff</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>temp</code></td><td>Device temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>tnom</code></td><td>Nominal temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>junctionpot</code></td><td>Junction potential</td></tr>
+<tr><td><code>Real</code></td><td><code>jucntioncap</code></td><td>Junction capacitance</td></tr>
+</table>
+<hr><a name="junctionCapCoeffs"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Functions</a>.&#8203;junctionCapCoeffs<br><span class="subtitle">Coefficient calculation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This internal auxiliary function calculates some coefficients which are necessary for the calculation of junction capacities.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>mj</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>fc</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>phij</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>f1</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>f2</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>f3</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="junction2SPICE3MOSFETRevised"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Functions</a>.&#8203;junction2SPICE3MOSFETRevised<br><span class="subtitle">Junction current and conductance calculation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This internal function calculates both the junction current and the junction conductance dependent from the given voltage.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>voltage</code></td><td>Input voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>temp</code></td><td>Device Temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>ncoeff</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>satcur</code></td><td>Saturation current</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>out_current</code></td><td>Calculated current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>out_cond</code></td><td>Calculated conductance</td></tr>
+</table>
+<hr><a name="junction2SPICE3MOSFET"><h2><embed class="icon" src="../../../../images/icon0920.svg" width="207" height="207" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Functions</a>.&#8203;junction2SPICE3MOSFET<br><span class="subtitle">Junction current and conductance calculation, obsolete, use junction2SPICE3MOSFETRevised</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This internal function calculates both the junction current and the junction conductance dependent from the given voltage.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions) and <code><a href="../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>current</code></td><td>Input current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>cond</code></td><td>Input conductance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>voltage</code></td><td>Input voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>temp</code></td><td>Device Temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>ncoeff</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>satcur</code></td><td>Saturation current</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>out_current</code></td><td>Calculated current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>out_cond</code></td><td>Calculated conductance</td></tr>
+</table>
+<hr><a name="junctionCapRevised"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Functions</a>.&#8203;junctionCapRevised<br><span class="subtitle">Junction capacity</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This internal function calculates the charge and the capacitance of the junction capacity dependent from the given voltage.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>capin</code></td><td>Input capacitance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>voltage</code></td><td>Input voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>depcap</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>mj</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>phij</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>f1</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>f2</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>f3</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>capout</code></td><td>Output capacitance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Charge">Charge</a></code></td><td><code>charge</code></td><td>Output charge</td></tr>
+</table>
+<hr><a name="junctionCap"><h2><embed class="icon" src="../../../../images/icon0920.svg" width="207" height="207" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Functions</a>.&#8203;junctionCap<br><span class="subtitle">Junction capacity, obsolete, use JunctionCapRevised</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This internal function calculates the charge and the capacitance of the junction capacity dependent from the given voltage.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions) and <code><a href="../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>capin</code></td><td>Input capacitance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>voltage</code></td><td>Input voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>depcap</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>mj</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>phij</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>f1</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>f2</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>f3</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>capout</code></td><td>Output capacitance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Charge">Charge</a></code></td><td><code>charge</code></td><td>Output charge</td></tr>
+</table>
+<hr><a name="saturationCurDepTempSPICE3"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Functions</a>.&#8203;saturationCurDepTempSPICE3<br><span class="subtitle">Temperature dependency of saturation current</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This internal function calculates the temperature dependent saturation current based on the actual and the nominal temperature.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>satcur0</code></td><td>Saturation current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>temp</code></td><td>Device Temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>tnom</code></td><td>Nominal Temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>emissioncoeff</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>energygap</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>satcurexp</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>ret</code></td><td>Output value</td></tr>
+</table>
+<hr><a name="junctionVoltage23SPICE3"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Functions</a>.&#8203;junctionVoltage23SPICE3<br><span class="subtitle">Junction Voltage</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This internal function calculates the junction voltage based on the actual temperature, voltage and saturation current.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>vb</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>ivb</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>satcur</code></td><td>Saturation current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>temp</code></td><td>Device temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>ncoeff</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>v23</code></td><td>Output value</td></tr>
+</table>
+<hr><a name="junction3"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Functions</a>.&#8203;junction3<br><span class="subtitle">Junction current and conductance calculation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This internal function calculates both the junction current and the junction conductance dependent from the given voltage.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>voltage</code></td><td>Input voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>temp</code></td><td>Device Temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>ncoeff</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>satcur</code></td><td>Saturation current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>v23</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>current</code></td><td>Output current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>cond</code></td><td>Output conductance</td></tr>
+</table>
+<hr><a name="junctionCapTransTime"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Functions</a>.&#8203;junctionCapTransTime<br><span class="subtitle">Junction capacitance transittime calculation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This internal function calculates the capacitance and the charge dependent on the transittime.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>capin</code></td><td>Input capacitance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>voltage</code></td><td>Input voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>depcap</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>mj</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>phij</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>f1</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>f2</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>f3</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>transittime</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>conduct</code></td><td>Input conductance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>current</code></td><td>Input current</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>capout</code></td><td>Output capacitance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Charge">Charge</a></code></td><td><code>charge</code></td><td>Output charge</td></tr>
+</table>
+<hr><a name="junction2"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Functions</a>.&#8203;junction2<br><span class="subtitle">Junction current and conductance calculation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This internal function calculates both the junction current and the junction conductance dependent from the given voltage.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>voltage</code></td><td>Input Voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>temp</code></td><td>Device Temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>ncoeff</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>satcur</code></td><td>Saturation current</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>current</code></td><td>Output current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>cond</code></td><td>Output conductance</td></tr>
+</table>
+<hr><a name="resDepTemp"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Functions</a>.&#8203;resDepTemp<br><span class="subtitle">Temperature dependent conductance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This internal function calculates the conductance in dependency from the temperature.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>resist</code></td><td>Input resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>temp</code></td><td>Device temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>tnom</code></td><td>Nominal temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>tc1</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>tc2</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>conduct</code></td><td>Output conductance</td></tr>
+<tr><td><code>Real</code></td><td><code>dCond_dTemp</code></td><td>Output value</td></tr>
+</table>
+<hr><a name="resDepGeom"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Functions</a>.&#8203;resDepGeom<br><span class="subtitle">Resistance dependent from width and narrow</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This internal function calculates the resistance in dependency from the geometrical values (width, narrow) and resistivity.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>rsh</code></td><td>Input sheet resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>width</code></td><td>Input transistor width</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>length</code></td><td>Input transistor length</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>narrow</code></td><td>Input narrow</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>out</code></td><td>Output value</td></tr>
+</table>
+<hr><a name="saturationCurDepTempSPICE3JFET"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Functions</a>.&#8203;saturationCurDepTempSPICE3JFET<br><span class="subtitle">Temperature dependency of saturation current</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>satcur0</code></td><td>Saturation current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>temp</code></td><td>Device Temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>tnom</code></td><td>Nominal Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>ret</code></td><td>Output value</td></tr>
+</table>
+<hr><a name="capDepGeom"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Functions</a>.&#8203;capDepGeom<br><span class="subtitle">Capacitance dependent from width and narrow</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#CapacitancePerArea">CapacitancePerArea</a></code></td><td><code>cap0</code></td><td>Junction bottom capacitance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Permittivity">Permittivity</a></code></td><td><code>capsw0</code></td><td>Junction sidewall capacitance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>width</code></td><td>Input capacitor width</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>length</code></td><td>Input capacitor length</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>narrow</code></td><td>Input narrow</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>out</code></td><td>Output value</td></tr>
+</table>
+<hr><a name="energyGapDepTemp"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Functions</a>.&#8203;energyGapDepTemp<br><span class="subtitle">Temperature dependency of energy gap</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This internal function calculates the temperature dependent energy gap based on the actual temperature, and two coefficients given as input to the function.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>temp</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#GapEnergy">GapEnergy</a></code></td><td><code>ret</code></td><td>Output Gap Energy</td></tr>
+</table>
+<hr><a name="junction2SPICE3BJT"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Functions</a>.&#8203;junction2SPICE3BJT<br><span class="subtitle">Junction current and conductance calculation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>voltage</code></td><td>Input Voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>temp</code></td><td>Device Temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>ncoeff1</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>ncoeff2</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>satcur1</code></td><td>Saturation current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>satcur2</code></td><td>Saturation current</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>current1</code></td><td>Output current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>cond1</code></td><td>Output conductance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>current2</code></td><td>Output current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>cond2</code></td><td>Output conductance</td></tr>
+</table>
+<hr><a name="energyGapDepTemp_old"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Functions</a>.&#8203;energyGapDepTemp_old<br><span class="subtitle">Temperature dependency of energy gap</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This internal function calculates the temperature dependent energy gap based on the actual temperature, and two coefficients given as input to the function.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>temp</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>ret</code></td><td>Output voltage</td></tr>
+</table>
+</body></html>

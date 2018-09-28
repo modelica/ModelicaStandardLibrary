@@ -1,0 +1,219 @@
+<html><head><title>Modelica.Electrical.Spice3.Internal.Mosfet</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Mosfet"><h1><embed class="icon" src="../../../../images/icon0034.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;Mosfet<br><span class="subtitle">Functions and records for MOSFETs</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>The package Mosfet contains all functions and records that are used for all types of Mosfet transistors in SPICE3.</p>
+<p>Extends from <code><a href="../../../../Icons/InternalPackage/index.html">Modelica.&#8203;Icons.&#8203;InternalPackage</a></code> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#getNumberOfElectricalPins"><code>getNumberOfElectricalPins</code></a></td><td>Number of Pins</td></tr>
+<tr><td><a href="#Mosfet"><code>Mosfet</code></a></td><td>Record for Mosfet parameters</td></tr>
+<tr><td><a href="#MosfetCalc"><code>MosfetCalc</code></a></td><td>Mosfet Variables</td></tr>
+<tr><td><a href="#mosfetInitEquations"><code>mosfetInitEquations</code></a></td><td>MOSFET initial precalculations</td></tr>
+<tr><td><a href="#MosfetModelLine"><code>MosfetModelLine</code></a></td><td>Type of the transistor</td></tr>
+<tr><td><a href="#mosfetModelLineInitEquations"><code>mosfetModelLineInitEquations</code></a></td><td>Type transcription</td></tr>
+<tr><td><a href="#MosfetModelLineParams"><code>MosfetModelLineParams</code></a></td><td>Record for Mosfet model line parameters</td></tr>
+<tr><td><a href="#mosfetRenameParametersDev"><code>mosfetRenameParametersDev</code></a></td><td>Device parameter renaming to internal names</td></tr>
+</table>
+<hr><a name="Mosfet"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Mosfet</a>.&#8203;Mosfet<br><span class="subtitle">Record for Mosfet parameters</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This record Mosfet contains parameters that are used for all types of Mosfet transistors in SPICE3.</p>
+<p>Extends from <code><a href="../../../../Electrical/Spice3/Internal/Model/index.html#Model">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;Model.&#8203;Model</a></code> (Device Temperature).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>m_dTemp</code></td><td>TEMP, Device Temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>m_len</code></td><td>L, length of channel region</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>m_width</code></td><td>W, width of channel region</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Area">Area</a></code></td><td><code>m_drainArea</code></td><td>AD, area of drain diffusion</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Area">Area</a></code></td><td><code>m_sourceArea</code></td><td>AS, area of source diffusion</td></tr>
+<tr><td><code>Real</code></td><td><code>m_drainSquares</code></td><td>NRD, length of drain in squares</td></tr>
+<tr><td><code>Real</code></td><td><code>m_sourceSquares</code></td><td>NRS, length of source in squares</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>m_drainPerimeter</code></td><td>PD, Drain perimeter</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>m_sourcePerimeter</code></td><td>PS, Source perimeter</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_dICVDS</code></td><td>IC_VDS, Initial D-S voltage</td></tr>
+<tr><td><code>Real</code></td><td><code>m_dICVDSIsGiven</code></td><td>IC_VDS, IsGivenValue</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_dICVGS</code></td><td>IC_VGS, Initial G-S voltage</td></tr>
+<tr><td><code>Real</code></td><td><code>m_dICVGSIsGiven</code></td><td>IC_VGS, IsGivenValue</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_dICVBS</code></td><td>IC_VBS, Initial B-S voltage</td></tr>
+<tr><td><code>Real</code></td><td><code>m_dICVBSIsGiven</code></td><td>IC_VBS, IsGivenValue</td></tr>
+<tr><td><code>Integer</code></td><td><code>m_off</code></td><td>Device initially off, non-zero to indicate device is off for dc analysis</td></tr>
+<tr><td><code>Integer</code></td><td><code>m_bPMOS</code></td><td>P type MOSFET model</td></tr>
+<tr><td><code>Integer</code></td><td><code>m_nLevel</code></td><td>MOS model level</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>m_drainPerimiter</code></td><td>PD, Drain perimeter</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>m_sourcePerimiter</code></td><td>PS, Source perimeter</td></tr>
+<tr><td><code>Boolean</code></td><td><code>m_uic</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="MosfetModelLineParams"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Mosfet</a>.&#8203;MosfetModelLineParams<br><span class="subtitle">Record for Mosfet model line parameters</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This record MosfetModelLineParams contains the model line parameters that are used for all kinds of Mosfet transistors in SPICE3.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>m_jctSatCurDensity</code></td><td>JS, Bulk jct. sat. current density, input - use tSatCurDens</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>m_sheetResistance</code></td><td>RSH, Sheet resistance</td></tr>
+<tr><td><code>Real</code></td><td><code>m_bulkJctPotential</code></td><td>PB, Bulk junction potential, input - use tBulkPot</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>m_bulkJctBotGradingCoeff</code></td><td>MJ, Bottom grading coefficient</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>m_bulkJctSideGradingCoeff</code></td><td>MJSW, Side grading coefficient</td></tr>
+<tr><td><code>Real</code></td><td><code>m_oxideThickness</code></td><td>TOX, Oxide thickness unit: micron</td></tr>
+<tr><td><code>Real</code></td><td><code>m_oxideThicknessIsGiven</code></td><td>TOX, IsGiven value</td></tr>
+<tr><td><code>Real</code></td><td><code>m_gateSourceOverlapCapFactor</code></td><td>CGS0, Gate-source overlap cap</td></tr>
+<tr><td><code>Real</code></td><td><code>m_gateDrainOverlapCapFactor</code></td><td>CGD0, Gate-drain overlap cap</td></tr>
+<tr><td><code>Real</code></td><td><code>m_gateBulkOverlapCapFactor</code></td><td>CGB0, Gate-bulk overlap cap</td></tr>
+<tr><td><code>Real</code></td><td><code>m_fNcoef</code></td><td>KF, Flicker noise coefficient</td></tr>
+<tr><td><code>Real</code></td><td><code>m_fNexp</code></td><td>AF, Flicker noise exponent</td></tr>
+<tr><td><code>Real</code></td><td><code>m_mjswIsGiven</code></td><td>MJSW, IsGivenValue</td></tr>
+<tr><td><code>Real</code></td><td><code>m_cgsoIsGiven</code></td><td>CGSO, IsGivenValue</td></tr>
+<tr><td><code>Real</code></td><td><code>m_cgdoIsGiven</code></td><td>CGDO, IsGivenValue</td></tr>
+<tr><td><code>Real</code></td><td><code>m_cgboIsGiven</code></td><td>CGBO, IsGivenValue</td></tr>
+<tr><td><code>Real</code></td><td><code>m_pbIsGiven</code></td><td>PB, IsGivenValue</td></tr>
+</table>
+<hr><a name="MosfetModelLine"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Mosfet</a>.&#8203;MosfetModelLine<br><span class="subtitle">Type of the transistor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This record contains only one variable and it provides the information on the transistor type (PMOS or nmos).</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m_type</code></td><td>device type : 1 = n,  -1 = p</td></tr>
+</table>
+<hr><a name="MosfetCalc"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Mosfet</a>.&#8203;MosfetCalc<br><span class="subtitle">Mosfet Variables</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This record MosfetCalc contains variables that are needed for calculation within modeling the semiconductor models.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_vds</code></td><td>Vds, Drain-Source voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_vgs</code></td><td>Vgs, Gate-Source voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_vbs</code></td><td>Vbs, Bulk-Source voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_cbs</code></td><td>Ibs, B-S junction current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>m_gbs</code></td><td>Gbs, Bulk-Source conductance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_cbd</code></td><td>Ibd, B-D junction current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>m_gbd</code></td><td>Gbd, Bulk-Drain conductance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_cdrain</code></td><td>Ids</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>m_gds</code></td><td>Gds, Drain-Source conductance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Transconductance">Transconductance</a></code></td><td><code>m_gm</code></td><td>Gm, Transconductance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Transconductance">Transconductance</a></code></td><td><code>m_gmbs</code></td><td>Gmbs, Bulk-Source transconductance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_capbsb</code></td><td>Cbsb</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Charge">Charge</a></code></td><td><code>m_chargebsb</code></td><td>Qbsb</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_capbss</code></td><td>Cbss</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Charge">Charge</a></code></td><td><code>m_chargebss</code></td><td>Qbss</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_capbdb</code></td><td>Cbdb</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Charge">Charge</a></code></td><td><code>m_chargebdb</code></td><td>Qbdb</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_capbds</code></td><td>Cbds</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Charge">Charge</a></code></td><td><code>m_chargebds</code></td><td>Qbds</td></tr>
+<tr><td><code>Real</code></td><td><code>m_Beta</code></td><td>Beta</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_capGSovl</code></td><td>Cgso, Gate-source overlap cap.</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_capGDovl</code></td><td>Cgdo, Gate-drain overlap cap.</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_capGBovl</code></td><td>Cgbo, Gate-bulk overlap cap.</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_capOx</code></td><td>Cox</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_von</code></td><td>Von, Turn-on voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_vdsat</code></td><td>Vdsat</td></tr>
+<tr><td><code>Integer</code></td><td><code>m_mode</code></td><td>Mode</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>m_lEff</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>m_sourceResistance</code></td><td>Rs</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>m_drainResistance</code></td><td>Rd</td></tr>
+</table>
+<hr><a name="mosfetInitEquations"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Mosfet</a>.&#8203;mosfetInitEquations<br><span class="subtitle">MOSFET initial precalculations</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function initially precalculates some values for transistor area which can be used for all transistor models.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Mosfet/index.html#Mosfet">Mosfet</a></code></td><td><code>in_m</code></td><td>Input parameter set</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Mosfet/index.html#Mosfet">Mosfet</a></code></td><td><code>out_m</code></td><td>Changed parameter set</td></tr>
+</table>
+<hr><a name="mosfetModelLineInitEquations"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Mosfet</a>.&#8203;mosfetModelLineInitEquations<br><span class="subtitle">Type transcription</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>In this function during the initialization phase the transistor type is transcribed to another parameter for further usage.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Mosfet/index.html#Mosfet">Mosfet</a></code></td><td><code>in_m</code></td><td>Input parameter set</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Mosfet/index.html#MosfetModelLine">MosfetModelLine</a></code></td><td><code>out_ml</code></td><td>Changed parameter set</td></tr>
+</table>
+<hr><a name="getNumberOfElectricalPins"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Mosfet</a>.&#8203;getNumberOfElectricalPins<br><span class="subtitle">Number of Pins</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function getNumberOfElectricalPins identifies the number of electrical pins. At the current library version it is fixed to 4.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>ret</code></td><td>Number of pins</td></tr>
+</table>
+<hr><a name="mosfetRenameParametersDev"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Mosfet</a>.&#8203;mosfetRenameParametersDev<br><span class="subtitle">Device parameter renaming to internal names</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<pre>This function mos1RenameParametersDev assigns the external (given by the user) device parameters to the internal parameters. It also does the analysis of the IsGiven values (level 1).</pre>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>W</code></td><td>Channel Width</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>L</code></td><td>Channel Length</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Area">Area</a></code></td><td><code>AD</code></td><td>Area of the drain diffusion</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Area">Area</a></code></td><td><code>AS</code></td><td>Area of the source diffusion</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>PD</code></td><td>Perimeter of the drain junction</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>PS</code></td><td>Perimeter of the source junction</td></tr>
+<tr><td><code>Real</code></td><td><code>NRD</code></td><td>Number of squares of the drain diffusions</td></tr>
+<tr><td><code>Real</code></td><td><code>NRS</code></td><td>Number of squares of the source diffusions</td></tr>
+<tr><td><code>Integer</code></td><td><code>OFF</code></td><td>Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC_VDS</code></td><td>Initial condition value VDS, not implemented yet</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC_VGS</code></td><td>Initial condition value VGS, not implemented yet</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC_VBS</code></td><td>Initial condition value VBS, not implemented yet</td></tr>
+<tr><td><code>Boolean</code></td><td><code>UIC</code></td><td>Use initial condition, UIC</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>TEMP</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Mosfet/index.html#Mosfet">Mosfet</a></code></td><td><code>dev</code></td><td>Output record Mosfet</td></tr>
+</table>
+</body></html>

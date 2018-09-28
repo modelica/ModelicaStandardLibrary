@@ -1,0 +1,614 @@
+<html><head><title>Modelica.Math</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Math"><h1><embed class="icon" src="../images/icon1494.svg" width="203" height="203" />
+Package <a href="../index.html">Modelica</a>.&#8203;Math<br><span class="subtitle">Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains <strong>basic mathematical functions</strong> (such as sin(..)),
+as well as functions operating on
+<a href="../Math/Vectors/index.html">vectors</a>,
+<a href="../Math/Matrices/index.html">matrices</a>,
+<a href="../Math/Nonlinear/index.html">nonlinear functions</a>, and
+<a href="../Math/BooleanVectors/index.html">Boolean vectors</a>.
+</p>
+
+<h4>Main Authors</h4>
+<p><a href="http://www.robotic.dlr.de/Martin.Otter/"><strong>Martin Otter</strong></a>
+and <strong>Marcus Baur</strong><br>
+Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e.V. (DLR)<br>
+Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)<br>
+Forschungszentrum Oberpfaffenhofen<br>
+D-82234 Wessling<br>
+Germany<br>
+email: <a href="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</a>
+</p>
+
+<p>
+Copyright &copy; 1998-2018, Modelica Association and DLR.
+</p>
+<p>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href="https://modelica.org/licenses/modelica-3-clause-bsd">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+</p>
+<p>Extends from <code><a href="../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#acos"><code>acos</code></a></td><td>Inverse cosine (-1 &lt;= u &lt;= 1)</td></tr>
+<tr><td><a href="#acosh"><code>acosh</code></a></td><td>Inverse of cosh (area hyperbolic cosine)</td></tr>
+<tr><td><a href="#asin"><code>asin</code></a></td><td>Inverse sine (-1 &lt;= u &lt;= 1)</td></tr>
+<tr><td><a href="#asinh"><code>asinh</code></a></td><td>Inverse of sinh (area hyperbolic sine)</td></tr>
+<tr><td><a href="#atan"><code>atan</code></a></td><td>Inverse tangent</td></tr>
+<tr><td><a href="#atan2"><code>atan2</code></a></td><td>Four quadrant inverse tangent</td></tr>
+<tr><td><a href="#atan3"><code>atan3</code></a></td><td>Four quadrant inverse tangent (select solution that is closest to given angle y0)</td></tr>
+<tr><td><a href="#baseIcon1"><code>baseIcon1</code></a></td><td>This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisLeft instead.</td></tr>
+<tr><td><a href="#baseIcon2"><code>baseIcon2</code></a></td><td>This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisCenter instead.</td></tr>
+<tr><td><a href="../Math/BooleanVectors/index.html"><code>BooleanVectors</code></a> &hellip;</td><td>Library of functions operating on Boolean vectors</td></tr>
+<tr><td><a href="#cos"><code>cos</code></a></td><td>Cosine</td></tr>
+<tr><td><a href="#cosh"><code>cosh</code></a></td><td>Hyperbolic cosine</td></tr>
+<tr><td><a href="../Math/Distributions/index.html"><code>Distributions</code></a> &hellip;</td><td>Library of distribution functions</td></tr>
+<tr><td><a href="#exp"><code>exp</code></a></td><td>Exponential, base e</td></tr>
+<tr><td><a href="../Math/FastFourierTransform/index.html"><code>FastFourierTransform</code></a> &hellip;</td><td>Library of functions for the Fast Fourier Transform (FFT)</td></tr>
+<tr><td><a href="../Math/Icons/index.html"><code>Icons</code></a> &hellip;</td><td>Icons for Math</td></tr>
+<tr><td><a href="#isEqual"><code>isEqual</code></a></td><td>Determine if two Real scalars are numerically identical</td></tr>
+<tr><td><a href="#isPowerOf2"><code>isPowerOf2</code></a></td><td>Determine if the integer input is a power of 2</td></tr>
+<tr><td><a href="#log"><code>log</code></a></td><td>Natural (base e) logarithm (u shall be &gt; 0)</td></tr>
+<tr><td><a href="#log10"><code>log10</code></a></td><td>Base 10 logarithm (u shall be &gt; 0)</td></tr>
+<tr><td><a href="../Math/Matrices/index.html"><code>Matrices</code></a> &hellip;</td><td>Library of functions operating on matrices</td></tr>
+<tr><td><a href="../Math/Nonlinear/index.html"><code>Nonlinear</code></a> &hellip;</td><td>Library of functions operating on nonlinear equations</td></tr>
+<tr><td><a href="../Math/Random/index.html"><code>Random</code></a> &hellip;</td><td>Library of functions for generating random numbers</td></tr>
+<tr><td><a href="#sin"><code>sin</code></a></td><td>Sine</td></tr>
+<tr><td><a href="#sinh"><code>sinh</code></a></td><td>Hyperbolic sine</td></tr>
+<tr><td><a href="../Math/Special/index.html"><code>Special</code></a> &hellip;</td><td>Library of special mathematical functions</td></tr>
+<tr><td><a href="#tan"><code>tan</code></a></td><td>Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)</td></tr>
+<tr><td><a href="#tanh"><code>tanh</code></a></td><td>Hyperbolic tangent</td></tr>
+<tr><td><a href="#tempInterpol1"><code>tempInterpol1</code></a></td><td>Temporary function for linear interpolation (will be removed)</td></tr>
+<tr><td><a href="#tempInterpol2"><code>tempInterpol2</code></a></td><td>Temporary function for vectorized linear interpolation (will be removed)</td></tr>
+<tr><td><a href="../Math/Vectors/index.html"><code>Vectors</code></a> &hellip;</td><td>Library of functions operating on vectors</td></tr>
+<tr><td><a href="#wrapAngle"><code>wrapAngle</code></a></td><td>Wrap angle to interval ]-pi,pi] or [0,2*pi[</td></tr>
+</table>
+<hr><a name="isEqual"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Math</a>.&#8203;isEqual<br><span class="subtitle">Determine if two Real scalars are numerically identical</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Math.<strong>isEqual</strong>(s1, s2);
+Math.<strong>isEqual</strong>(s1, s2, eps=0);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>Math.isEqual(s1, s2)</code>" returns <strong>true</strong>,
+if the two Real scalars s1 and s2 are identical. Otherwise the function
+returns <strong>false</strong>. The equality check is performed by
+"abs(s1-s2) &le; eps", where "eps"
+can be provided as third argument of the function. Default is "eps = 0".
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  Real s1 = 2.0;
+  Real s2 = 2.0;
+  Real s3 = 2.000001;
+  Boolean result;
+<strong>algorithm</strong>
+  result := Math.isEqual(s1,s2);     // = <strong>true</strong>
+  result := Math.isEqual(s1,s3);     // = <strong>false</strong>
+  result := Math.isEqual(s1,s3,0.1); // = <strong>true</strong>
+</pre></blockquote>
+<h4>See also</h4>
+<p>
+<a href="../Math/Vectors/index.html#isEqual">Vectors.isEqual</a>,
+<a href="../Math/Matrices/index.html#isEqual">Matrices.isEqual</a>,
+<a href="../Utilities/Strings/index.html#isEqual">Strings.isEqual</a>
+</p>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>s1</code></td><td>First scalar</td></tr>
+<tr><td><code>Real</code></td><td><code>s2</code></td><td>Second scalar</td></tr>
+<tr><td><code>Real</code></td><td><code>eps</code></td><td>The two scalars are identical if abs(s1-s2) &lt;= eps</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>result</code></td><td>= true, if scalars are identical</td></tr>
+</table>
+<hr><a name="isPowerOf2"><h2><embed class="icon" src="../images/icon0035.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Math</a>.&#8203;isPowerOf2<br><span class="subtitle">Determine if the integer input is a power of 2</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Math.<strong>isPowerOf2</strong>(i);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>Math.isPowerOf2(i)</code>" returns <strong>true</strong>,
+if the Integer input i is a power of 2. Otherwise the function
+returns <strong>false</strong>. The Integer input has to be &gt;=1.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  Integer i1 = 1;
+  Integer i2 = 4;
+  Integer i3 = 9;
+  Boolean result;
+<strong>algorithm</strong>
+  result := Math.isPowerOf2(i1);     // = <strong>true</strong> 2^0
+  result := Math.isPowerOf2(i2);     // = <strong>true</strong> 2^2
+  result := Math.isPowerOf2(i3);     // = <strong>false</strong>
+</pre></blockquote>
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>i</code></td><td>Integer scalar</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>result</code></td><td>= true, if integer scalar is a power of 2</td></tr>
+</table>
+<hr><a name="sin"><h2><embed class="icon" src="../images/icon1514.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Math</a>.&#8203;sin<br><span class="subtitle">Sine</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function returns y = sin(u), with -&infin; &lt; u &lt; &infin;:
+</p>
+
+<p>
+<img src="../../Images/Math/sin.png">
+</p>
+<p>Extends from <code><a href="../Math/Icons/index.html#AxisLeft">Modelica.&#8203;Math.&#8203;Icons.&#8203;AxisLeft</a></code> (Basic icon for mathematical function with y-axis on left side).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../SIunits/index.html#Angle">Angle</a></code></td><td><code>u</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="cos"><h2><embed class="icon" src="../images/icon1515.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Math</a>.&#8203;cos<br><span class="subtitle">Cosine</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function returns y = cos(u), with -&infin; &lt; u &lt; &infin;:
+</p>
+
+<p>
+<img src="../../Images/Math/cos.png">
+</p>
+<p>Extends from <code><a href="../Math/Icons/index.html#AxisLeft">Modelica.&#8203;Math.&#8203;Icons.&#8203;AxisLeft</a></code> (Basic icon for mathematical function with y-axis on left side).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../SIunits/index.html#Angle">Angle</a></code></td><td><code>u</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="tan"><h2><embed class="icon" src="../images/icon1516.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Math</a>.&#8203;tan<br><span class="subtitle">Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function returns y = tan(u), with -&infin; &lt; u &lt; &infin;
+(if u is a multiple of (2n-1)*pi/2, y = tan(u) is +/- infinity).
+</p>
+
+<p>
+<img src="../../Images/Math/tan.png">
+</p>
+<p>Extends from <code><a href="../Math/Icons/index.html#AxisCenter">Modelica.&#8203;Math.&#8203;Icons.&#8203;AxisCenter</a></code> (Basic icon for mathematical function with y-axis in the center).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../SIunits/index.html#Angle">Angle</a></code></td><td><code>u</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="asin"><h2><embed class="icon" src="../images/icon1517.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Math</a>.&#8203;asin<br><span class="subtitle">Inverse sine (-1 &lt;= u &lt;= 1)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function returns y = asin(u), with -1 &le; u &le; +1:
+</p>
+
+<p>
+<img src="../../Images/Math/asin.png">
+</p>
+<p>Extends from <code><a href="../Math/Icons/index.html#AxisCenter">Modelica.&#8203;Math.&#8203;Icons.&#8203;AxisCenter</a></code> (Basic icon for mathematical function with y-axis in the center).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../SIunits/index.html#Angle">Angle</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="acos"><h2><embed class="icon" src="../images/icon1518.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Math</a>.&#8203;acos<br><span class="subtitle">Inverse cosine (-1 &lt;= u &lt;= 1)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function returns y = acos(u), with -1 &le; u &le; +1:
+</p>
+
+<p>
+<img src="../../Images/Math/acos.png">
+</p>
+<p>Extends from <code><a href="../Math/Icons/index.html#AxisCenter">Modelica.&#8203;Math.&#8203;Icons.&#8203;AxisCenter</a></code> (Basic icon for mathematical function with y-axis in the center).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../SIunits/index.html#Angle">Angle</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="atan"><h2><embed class="icon" src="../images/icon1519.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Math</a>.&#8203;atan<br><span class="subtitle">Inverse tangent</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function returns y = atan(u), with -&infin; &lt; u &lt; &infin;:
+</p>
+
+<p>
+<img src="../../Images/Math/atan.png">
+</p>
+<p>Extends from <code><a href="../Math/Icons/index.html#AxisCenter">Modelica.&#8203;Math.&#8203;Icons.&#8203;AxisCenter</a></code> (Basic icon for mathematical function with y-axis in the center).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../SIunits/index.html#Angle">Angle</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="atan2"><h2><embed class="icon" src="../images/icon1520.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Math</a>.&#8203;atan2<br><span class="subtitle">Four quadrant inverse tangent</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function returns y = atan2(u1,u2) such that tan(y) = u1/u2 and
+y is in the range -pi &lt; y &le; pi. u2 may be zero, provided
+u1 is not zero. Usually u1, u2 is provided in such a form that
+u1 = sin(y) and u2 = cos(y):
+</p>
+
+<p>
+<img src="../../Images/Math/atan2.png">
+</p>
+
+<p>Extends from <code><a href="../Math/Icons/index.html#AxisCenter">Modelica.&#8203;Math.&#8203;Icons.&#8203;AxisCenter</a></code> (Basic icon for mathematical function with y-axis in the center).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u1</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>u2</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../SIunits/index.html#Angle">Angle</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="atan3"><h2><embed class="icon" src="../images/icon1521.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Math</a>.&#8203;atan3<br><span class="subtitle">Four quadrant inverse tangent (select solution that is closest to given angle y0)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function returns y = <strong>atan3</strong>(u1,u2,y0) such that
+<strong>tan</strong>(y) = u1/u2 and
+y is in the range: -pi &lt; y-y0 &le; pi.<br>
+u2 may be zero, provided u1 is not zero. The difference to
+Modelica.Math.atan2(..) is the optional third argument y0 that
+allows to specify which of the infinite many solutions
+shall be returned:
+</p>
+
+<p>
+<img src="../../Images/Math/atan3.png">
+</p>
+
+<p>
+Note, for the default case (y0=0), exactly the same result as with atan2(..)
+is returned.
+</p>
+<p>Extends from <code><a href="../Math/Icons/index.html#AxisCenter">Modelica.&#8203;Math.&#8203;Icons.&#8203;AxisCenter</a></code> (Basic icon for mathematical function with y-axis in the center).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u1</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>u2</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../SIunits/index.html#Angle">Angle</a></code></td><td><code>y0</code></td><td>y shall be in the range: -pi &lt; y-y0 &lt;= pi</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../SIunits/index.html#Angle">Angle</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="sinh"><h2><embed class="icon" src="../images/icon1522.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Math</a>.&#8203;sinh<br><span class="subtitle">Hyperbolic sine</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function returns y = sinh(u), with -&infin; &lt; u &lt; &infin;:
+</p>
+
+<p>
+<img src="../../Images/Math/sinh.png">
+</p>
+<p>Extends from <code><a href="../Math/Icons/index.html#AxisCenter">Modelica.&#8203;Math.&#8203;Icons.&#8203;AxisCenter</a></code> (Basic icon for mathematical function with y-axis in the center).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="cosh"><h2><embed class="icon" src="../images/icon1523.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Math</a>.&#8203;cosh<br><span class="subtitle">Hyperbolic cosine</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function returns y = cosh(u), with -&infin; &lt; u &lt; &infin;:
+</p>
+
+<p>
+<img src="../../Images/Math/cosh.png">
+</p>
+<p>Extends from <code><a href="../Math/Icons/index.html#AxisCenter">Modelica.&#8203;Math.&#8203;Icons.&#8203;AxisCenter</a></code> (Basic icon for mathematical function with y-axis in the center).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="tanh"><h2><embed class="icon" src="../images/icon1524.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Math</a>.&#8203;tanh<br><span class="subtitle">Hyperbolic tangent</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function returns y = tanh(u), with -&infin; &lt; u &lt; &infin;:
+</p>
+
+<p>
+<img src="../../Images/Math/tanh.png">
+</p>
+<p>Extends from <code><a href="../Math/Icons/index.html#AxisCenter">Modelica.&#8203;Math.&#8203;Icons.&#8203;AxisCenter</a></code> (Basic icon for mathematical function with y-axis in the center).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="asinh"><h2><embed class="icon" src="../images/icon1525.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Math</a>.&#8203;asinh<br><span class="subtitle">Inverse of sinh (area hyperbolic sine)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The function returns the area hyperbolic sine of its
+input argument u. This inverse of sinh(..) is unique
+and there is no restriction on the input argument u of
+asinh(u) (-&infin; &lt; u &lt; &infin;):
+</p>
+
+<p>
+<img src="../../Images/Math/asinh.png">
+</p>
+<p>Extends from <code><a href="../Math/Icons/index.html#AxisCenter">Modelica.&#8203;Math.&#8203;Icons.&#8203;AxisCenter</a></code> (Basic icon for mathematical function with y-axis in the center).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="acosh"><h2><embed class="icon" src="../images/icon1526.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Math</a>.&#8203;acosh<br><span class="subtitle">Inverse of cosh (area hyperbolic cosine)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function returns the area hyperbolic cosine of its
+input argument u. The valid range of u is
+</p>
+<pre>
+  +1 &le; u &lt; +&infin;
+</pre>
+<p>
+If the function is called with u &lt; 1, an error occurs.
+The function cosh(u) has two inverse functions (the curve
+looks similar to a sqrt(..) function). acosh(..) returns
+the inverse that is positive. At u=1, the derivative dy/du is infinite.
+Therefore, this function should not be used in a model, if u
+can become close to 1:
+</p>
+
+<p>
+<img src="../../Images/Math/acosh.png">
+</p>
+<p>Extends from <code><a href="../Math/Icons/index.html#AxisLeft">Modelica.&#8203;Math.&#8203;Icons.&#8203;AxisLeft</a></code> (Basic icon for mathematical function with y-axis on left side).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="exp"><h2><embed class="icon" src="../images/icon1527.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Math</a>.&#8203;exp<br><span class="subtitle">Exponential, base e</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function returns y = exp(u), with -&infin; &lt; u &lt; &infin;:
+</p>
+
+<p>
+<img src="../../Images/Math/exp.png">
+</p>
+<p>Extends from <code><a href="../Math/Icons/index.html#AxisCenter">Modelica.&#8203;Math.&#8203;Icons.&#8203;AxisCenter</a></code> (Basic icon for mathematical function with y-axis in the center).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="log"><h2><embed class="icon" src="../images/icon1528.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Math</a>.&#8203;log<br><span class="subtitle">Natural (base e) logarithm (u shall be &gt; 0)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function returns y = log(10) (the natural logarithm of u),
+with u &gt; 0:
+</p>
+
+<p>
+<img src="../../Images/Math/log.png">
+</p>
+<p>Extends from <code><a href="../Math/Icons/index.html#AxisLeft">Modelica.&#8203;Math.&#8203;Icons.&#8203;AxisLeft</a></code> (Basic icon for mathematical function with y-axis on left side).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="log10"><h2><embed class="icon" src="../images/icon1529.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Math</a>.&#8203;log10<br><span class="subtitle">Base 10 logarithm (u shall be &gt; 0)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function returns y = log10(u),
+with u &gt; 0:
+</p>
+
+<p>
+<img src="../../Images/Math/log10.png">
+</p>
+<p>Extends from <code><a href="../Math/Icons/index.html#AxisLeft">Modelica.&#8203;Math.&#8203;Icons.&#8203;AxisLeft</a></code> (Basic icon for mathematical function with y-axis on left side).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="wrapAngle"><h2><embed class="icon" src="../images/icon1530.svg" width="203" height="203" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Math</a>.&#8203;wrapAngle<br><span class="subtitle">Wrap angle to interval ]-pi,pi] or [0,2*pi[</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This function wraps the input angle <code>u</code> to the interval ]-pi,pi], if <code>positiveRange == false</code>.
+Otherwise the input angle <code>u</code> is wrapped to the interval [0,2*pi[.
+</p>
+<p>Extends from <code><a href="../Math/Icons/index.html#AxisCenter">Modelica.&#8203;Math.&#8203;Icons.&#8203;AxisCenter</a></code> (Basic icon for mathematical function with y-axis in the center).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../SIunits/index.html#Angle">Angle</a></code></td><td><code>u</code></td><td>Input angle</td></tr>
+<tr><td><code>Boolean</code></td><td><code>positiveRange</code></td><td>Use only positive output range, if true</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../SIunits/index.html#Angle">Angle</a></code></td><td><code>y</code></td><td>Wrapped output angle</td></tr>
+</table>
+<hr><a name="baseIcon1"><h2><embed class="icon" src="../images/icon1531.svg" width="207" height="207" />
+Partial Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Math</a>.&#8203;baseIcon1<br><span class="subtitle">This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisLeft instead.</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon will be removed in future versions of the Modelica Standard Library.
+Instead the icon <a href="../Math/Icons/index.html#AxisLeft">Modelica.Math.Icons.AxisLeft</a> shall be used.
+</p>
+<p>Extends from <code><a href="../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<hr><a name="baseIcon2"><h2><embed class="icon" src="../images/icon1532.svg" width="207" height="207" />
+Partial Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Math</a>.&#8203;baseIcon2<br><span class="subtitle">This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisCenter instead.</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon will be removed in future versions of the Modelica Standard Library.
+Instead the icon <a href="../Math/Icons/index.html#AxisCenter">Modelica.Math.Icons.AxisCenter</a> shall be used.
+</p>
+<p>Extends from <code><a href="../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<hr><a name="tempInterpol1"><h2><embed class="icon" src="../images/icon0920.svg" width="207" height="207" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Math</a>.&#8203;tempInterpol1<br><span class="subtitle">Temporary function for linear interpolation (will be removed)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions) and <code><a href="../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>input value (first column of table)</td></tr>
+<tr><td><code>Real</code></td><td><code>table[:,:]</code></td><td>table to be interpolated</td></tr>
+<tr><td><code>Integer</code></td><td><code>icol</code></td><td>column of table to be interpolated</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>interpolated input value (icol column of table)</td></tr>
+</table>
+<hr><a name="tempInterpol2"><h2><embed class="icon" src="../images/icon0920.svg" width="207" height="207" />
+Function <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Math</a>.&#8203;tempInterpol2<br><span class="subtitle">Temporary function for vectorized linear interpolation (will be removed)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions) and <code><a href="../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>input value (first column of table)</td></tr>
+<tr><td><code>Real</code></td><td><code>table[:,:]</code></td><td>table to be interpolated</td></tr>
+<tr><td><code>Integer</code></td><td><code>icol[:]</code></td><td>column(s) of table to be interpolated</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y[1,size(icol, 1)]</code></td><td>interpolated input value(s) (column(s) icol of table)</td></tr>
+</table>
+</body></html>

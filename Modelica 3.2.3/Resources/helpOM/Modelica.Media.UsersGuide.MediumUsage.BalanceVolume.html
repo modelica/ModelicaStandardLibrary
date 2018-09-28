@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Media.UsersGuide.MediumUsage.BalanceVolume</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.MediumUsage.html">MediumUsage</a>.<span class="omc-h1">BalanceVolume</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Fluid libraries usually have balance volume components with one
+fluid connector port that fulfill the mass and energy balance and
+on a different grid components that fulfill the momentum balance. A
+balance volume component, called junction volume below, should be
+primarily implemented in the following way (see also the
+implementation in <a href="Modelica.Media.Examples.Utilities.PortVolume.html">Modelica.Media.Examples.Utilities.PortVolume</a>):</p>
+<pre>
+  <strong>model</strong> JunctionVolume
+    <strong>import</strong> SI=Modelica.SIunits;
+    <strong>import</strong> Modelica.Media.Examples.Utilities.FluidPort_a;
+
+    <strong>parameter</strong> SI.Volume V = 1e-6 "Fixed size of junction volume";
+    <strong>replaceable package</strong> Medium = Modelica.Media.Interfaces.PartialMedium
+                           "Medium model" <strong>annotation</strong> (choicesAllMatching = <strong>true</strong>);
+
+    FluidPort_a port(<strong>redeclare package</strong> Medium = Medium);
+    Medium.BaseProperties medium(preferredMediumStates = <strong>true</strong>);
+
+    SI.Energy U               "Internal energy of junction volume";
+    SI.Mass   M               "Mass of junction volume";
+    SI.Mass   MX[Medium.nXi] "Independent substance masses of junction volume";
+  <strong>equation</strong>
+    medium.p   = port.p;
+    medium.h   = port.h;
+    medium.Xi = port.Xi;
+
+    M  = V*medium.d;                  // mass of JunctionVolume
+    MX = M*medium.Xi;                // mass fractions in JunctionVolume
+    U  = M*medium.u;                  // internal energy in JunctionVolume
+
+    <strong>der</strong>(M)  = port.m_flow;    // mass balance
+    <strong>der</strong>(MX) = port.mX_flow;   // substance mass balance
+    <strong>der</strong>(U)  = port.H_flow;    // energy balance
+  <strong>end</strong> JunctionVolume;
+</pre>
+<p>Assume the Modelica.Media.Air.SimpleAir medium model is used
+with the JunctionVolume model above. This medium model uses
+pressure p and temperature T as independent variables. If the flag
+"preferredMediumStates" is set to <strong>true</strong> in the
+declaration of "medium", then the independent variables of this
+medium model get the attribute "stateSelect = StateSelect.prefer",
+i.e., the Modelica translator should use these variables as states,
+if this is possible. Basically, this means that constraints between
+the potential states p,T and the potential states U,M are present.
+A Modelica tool will therefore <strong>automatically</strong>
+differentiate medium equations and will use the following equations
+for code generation (note the equations related to X are removed,
+because SimpleAir consists of a single substance only):</p>
+<pre>
+    M  = V*medium.d;
+    U  = M*medium.u;
+
+    // balance equations
+    <strong>der</strong>(M)  = port.m_flow;
+    <strong>der</strong>(U)  = port.H_flow;
+
+    // abbreviations introduced to get simpler terms
+    p = medium.p;
+    T = medium.T;
+    d = medium.d;
+    u = medium.u;
+    h = medium.h;
+
+    // medium equations
+    d = fd(p,T);
+    h = fh(p,T);
+    u = h - p/d;
+
+    // equations derived <strong>automatically</strong> by a Modelica tool due to index reduction
+    <strong>der</strong>(U) = <strong>der</strong>(M)*u + M*<strong>der</strong>(u);
+    <strong>der</strong>(M) = V*<strong>der</strong>(d);
+    <strong>der</strong>(u) = <strong>der</strong>(h) - <strong>der</strong>(p)/d - p/<strong>der</strong>(d);
+    <strong>der</strong>(d) = <strong>der</strong>(fd,p)*<strong>der</strong>(p) + <strong>der</strong>(fd,T)*<strong>der</strong>(T);
+    <strong>der</strong>(h) = <strong>der</strong>(fh,p)*<strong>der</strong>(p) + <strong>der</strong>(fd,T)*<strong>der</strong>(T);
+</pre>
+<p>Note, that "der(y,x)" is an operator that characterizes in the
+example above the partial derivative of y with respect to x (this
+operator will be included in one of the next Modelica language
+releases). All media models in this library are written in such a
+way that at least the partial derivatives of the medium variables
+with respect to the independent variables are provided, either
+because the equations are directly given (= symbolic
+differentiation is possible) or because the derivative of the
+corresponding function (such as fd above) is provided. A Modelica
+tool will transform the equations above in differential equations
+with p and T as states, i.e., will generate equations to compute
+<strong>der</strong>(p) and <strong>der</strong>(T) as function of
+p and T.</p>
+<p>Note, when preferredMediumStates = <strong>false</strong>, no
+differentiation will take place and the Modelica translator will
+use the variables appearing differentiated as states, i.e., M and
+U. This has the disadvantage that for many media non-linear systems
+of equations are present to compute the intrinsic properties p, d,
+T, u, h from M and U.</p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

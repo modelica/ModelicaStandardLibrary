@@ -1,0 +1,215 @@
+<html><head><title>Modelica.Electrical.MultiPhase.UsersGuide</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="UsersGuide"><h1><embed class="icon" src="../../../images/icon0002.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;UsersGuide<br><span class="subtitle">User's Guide</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This library contains components for modelling of multiphase electrical circuits.
+The number of phases m is not restricted to three.
+The connector (named plug) contains an array of m singlephase <a href="../../../Electrical/Analog/Interfaces/index.html#Pin">pins</a>.
+Most of the components use an array of singlephase components from <a href="../../../Electrical/Analog/index.html">Modelica.Electrical.Analog</a>.
+</p>
+<h4>Note</h4>
+<p>
+For the orientation of an arbitrary number of phases m &gt; 3, see the <a href="../../../Electrical/MultiPhase/UsersGuide/index.html#PhaseOrientation">phase orientation concept</a>.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Contact"><code>Contact</code></a></td><td>Contact</td></tr>
+<tr><td><a href="#PhaseOrientation"><code>PhaseOrientation</code></a></td><td>Orientation of phases</td></tr>
+<tr><td><a href="#References"><code>References</code></a></td><td>References</td></tr>
+<tr><td><a href="#ReleaseNotes"><code>ReleaseNotes</code></a></td><td>Release Notes</td></tr>
+</table>
+<hr><a name="PhaseOrientation"><h2><embed class="icon" src="../../../images/icon0002.svg" width="203" height="203" />
+Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;PhaseOrientation<br><span class="subtitle">Orientation of phases</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+<strong>In multiphase systems, the angular displacement of voltages and currents of the phases as well as the spatial displacement of machine windings have to follow the same rules, i.e., they are based on the same
+<a href="../../../Electrical/MultiPhase/Functions/index.html#symmetricOrientation">orientation function</a>.</strong>
+</p>
+<h4>Symmetrical three phase system</h4>
+<p>
+A symmetrical three phases system consists of three sinusoidal sine waves with an angular displacement of 2 &pi; / 3.
+</p>
+<h4>Symmetrical multi phase system</h4>
+<p>
+In symmetrical multi phase systems odd and even phase numbers have to be distinguished.
+</p>
+<h5>Odd number of phases</h5>
+<p>
+For a symmetrical multi phase system with m phases the displacement of the sine waves is 2 &pi; / m.
+</p>
+<table border="0" cellspacing="0" cellpadding="2">
+  <caption align="bottom"><strong>Fig. 1: </strong>Symmetrical (a) three phase and (b) five phase current system</caption>
+  <tr>
+    <td>
+      <img src="../../../../Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/phase35.png"
+           alt="phase35.png">
+    </td>
+  </tr>
+</table>
+<h5>Even number of phases</h5>
+<p>
+In case of an even number of phases the aligned orientation does not add any information. Instead the m phases are divided into two or more different groups (the base systems).
+</p>
+<p>
+The number of phases m can be divided by 2 recursively until the result is either an odd number or 2. The result of this division is called m<sub>Base</sub>, the number of phases of the base system.
+The number of base systems n<sub>Base</sub> is defined by the number of divisions, i.e., m = n<sub>Base</sub> * m<sub>Base</sub>.
+</p>
+<p>
+For a base system with m<sub>Base</sub> phases the displacement of the sine waves belonging to that base system is 2 &pi; / m<sub>Base</sub>.
+</p>
+<table border="0" cellspacing="0" cellpadding="2">
+  <caption align="bottom"><strong>Fig. 2: </strong>Symmetrical (a) six and (b) ten phase current system</caption>
+  <tr>
+    <td>
+      <img src="../../../../Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/phase610.png"
+           alt="phase610.png">
+    </td>
+  </tr>
+</table>
+<p>
+The displacement of the base systems is defined as &pi; / n<sub>Base</sub>.
+</p>
+<h4>Note</h4>
+<p>
+In array or matrices, the base systems are stored one after another.
+</p>
+<h4>Symmetrical components</h4>
+<p>
+For each base system of time phasors, symmetrical components can be calculated according to the idea of Charles L. Fortescue.
+</p>
+<p>
+The first symmetrical component is the direct component with positive sequence.<br>
+In case of  m<sub>Base</sub> = 2, the second component is the inverse component with negative sequence.<br>
+In case of  m<sub>Base</sub> &gt; 2, the components [2..m<sub>Base</sub> - 1] are components with non-positive sequence,<br>
+and the last component [m<sub>Base</sub>] is the zero sequence component.
+</p>
+<p>
+This set of symmetrical components is repeated for each of the n<sub>Base</sub> base systems.
+</p>
+<h4>See also</h4>
+<p>
+<a href="../../../Magnetic/FundamentalWave/UsersGuide/index.html#MultiPhase">User's guide</a> on multi phase winding.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="Contact"><h2><embed class="icon" src="../../../images/icon0004.svg" width="203" height="203" />
+Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;Contact<br><span class="subtitle">Contact</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Main authors</h4>
+
+<p>
+<strong>Dr. Christian Kral</strong><br>
+Electric Machines, Drives and Systems<br>
+1060 Vienna, Austria<br>
+email: <a href="mailto:dr.christian.kral@gmail.com">dr.christian.kral@gmail.com</a><br>
+</p>
+
+<p>
+<strong>Anton Haumer</strong><br>
+<a href="https://www.haumer.at">Technical Consulting &amp; Electrical Engineering</a><br>
+D-93049 Regensburg, Germany<br>
+email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a><br>
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Contact">Modelica.&#8203;Icons.&#8203;Contact</a></code> (Icon for contact information).</p>
+<hr><a name="ReleaseNotes"><h2><embed class="icon" src="../../../images/icon0005.svg" width="203" height="203" />
+Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;ReleaseNotes<br><span class="subtitle">Release Notes</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<h5>Version 3.2.3, 2018-09-26 (Anton Haumer, Christian Kral)</h5>
+<ul>
+  <li>Shortened default component names, see
+      <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2301">#2301</a></li>
+<li>Removed redundant (and not identical) parameter m from
+    <a href="../../../Electrical/MultiPhase/Basic/index.html#MutualInductor">MutualInductor</a>,
+    see <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2202">#2202</a></li>
+<li>Changed epsilon from constant to parameter in
+    <a href="../../../Electrical/MultiPhase/Basic/index.html#MutualInductor">MutualInductor</a>,
+    see <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2200">#2200</a></li>
+<li>Added User's Guide</li>
+<li>Added blocks and functions for multiple base systems</li>
+</ul>
+
+<h5>Version 1.4.0, 2009-08-26 (Anton Haumer)</h5>
+<ul>
+<li>Added conditional HeatPorts as in Electrical.Analog</li>
+<li>Added switches with arc as in Electrical.Analog</li>
+</ul>
+
+<h5>Version 1.3.2, 2007-08-24 (Anton Haumer)</h5>
+<ul>
+<li>Removed redeclare type SignalType</li>
+</ul>
+
+<h5>Version 1.3.1, 2007-08-12 (Anton Haumer)</h5>
+<ul>
+<li>Improved documentation</li>
+</ul>
+
+<h5>Version 1.3.0, 2007-01-23 (Anton Haumer)</h5>
+<ul>
+<li>Improved some icons</li>
+</ul>
+
+<h5>Version 1.2, 2006-07-05 (Anton Haumer)</h5>
+<ul>
+<li>Removed annotation from pin of Interfaces.Plug</li>
+<li>Corrected usage of resistance/conductance</li>
+</ul>
+
+<h5>Version 1.1, 2006-01-12 (Anton Haumer)</h5>
+<ul>
+<li>Added Sensors.PowerSensor</li>
+</ul>
+
+<h5>Version 1.0, 2004-10-01 (Anton Haumer)</h5>
+<ul>
+  <li>Initial release version</li>
+</ul>
+<p>Extends from <code><a href="../../../Icons/index.html#ReleaseNotes">Modelica.&#8203;Icons.&#8203;ReleaseNotes</a></code> (Icon for release notes in documentation).</p>
+<hr><a name="References"><h2><embed class="icon" src="../../../images/icon0003.svg" width="203" height="203" />
+Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;References<br><span class="subtitle">References</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+    <tr>
+      <td>[Vaske1963]</td>
+      <td>P. Vaske,
+        &quot;&Uuml;ber die Drehfelder und Drehmomente symmetrischer Komponenten in Induktionsmaschinen,&quot;
+        (in German), <em>Archiv f&uuml;r Elektrotechnik</em>
+        vol 2, 1963, pp. 97-117.</td>
+    </tr>
+</table>
+<p>Extends from <code><a href="../../../Icons/index.html#References">Modelica.&#8203;Icons.&#8203;References</a></code> (Icon for external references).</p>
+</body></html>

@@ -1,0 +1,501 @@
+<html><head><title>Modelica.Blocks.Routing</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Routing"><h1><embed class="icon" src="../../images/icon0234.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;Routing<br><span class="subtitle">Library of blocks to combine and extract signals</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains blocks to combine and extract signals.
+</p>
+<p>Extends from <code><a href="../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#BooleanPassThrough"><code>BooleanPassThrough</code></a></td><td>Pass a Boolean signal through without modification</td></tr>
+<tr><td><a href="#BooleanReplicator"><code>BooleanReplicator</code></a></td><td>Boolean signal replicator</td></tr>
+<tr><td><a href="#DeMultiplex"><code>DeMultiplex</code></a></td><td>DeMultiplexer block for arbitrary number of output connectors</td></tr>
+<tr><td><a href="#DeMultiplex2"><code>DeMultiplex2</code></a></td><td>DeMultiplexer block for two output connectors</td></tr>
+<tr><td><a href="#DeMultiplex3"><code>DeMultiplex3</code></a></td><td>DeMultiplexer block for three output connectors</td></tr>
+<tr><td><a href="#DeMultiplex4"><code>DeMultiplex4</code></a></td><td>DeMultiplexer block for four output connectors</td></tr>
+<tr><td><a href="#DeMultiplex5"><code>DeMultiplex5</code></a></td><td>DeMultiplexer block for five output connectors</td></tr>
+<tr><td><a href="#DeMultiplex6"><code>DeMultiplex6</code></a></td><td>DeMultiplexer block for six output connectors</td></tr>
+<tr><td><a href="#Extractor"><code>Extractor</code></a></td><td>Extract scalar signal out of signal vector dependent on IntegerRealInput index</td></tr>
+<tr><td><a href="#ExtractSignal"><code>ExtractSignal</code></a></td><td>Extract signals from an input signal vector</td></tr>
+<tr><td><a href="#IntegerPassThrough"><code>IntegerPassThrough</code></a></td><td>Pass a Integer signal through without modification</td></tr>
+<tr><td><a href="#IntegerReplicator"><code>IntegerReplicator</code></a></td><td>Integer signal replicator</td></tr>
+<tr><td><a href="#Multiplex"><code>Multiplex</code></a></td><td>Multiplexer block for arbitrary number of input connectors</td></tr>
+<tr><td><a href="#Multiplex2"><code>Multiplex2</code></a></td><td>Multiplexer block for two input connectors</td></tr>
+<tr><td><a href="#Multiplex3"><code>Multiplex3</code></a></td><td>Multiplexer block for three input connectors</td></tr>
+<tr><td><a href="#Multiplex4"><code>Multiplex4</code></a></td><td>Multiplexer block for four input connectors</td></tr>
+<tr><td><a href="#Multiplex5"><code>Multiplex5</code></a></td><td>Multiplexer block for five input connectors</td></tr>
+<tr><td><a href="#Multiplex6"><code>Multiplex6</code></a></td><td>Multiplexer block for six input connectors</td></tr>
+<tr><td><a href="#RealPassThrough"><code>RealPassThrough</code></a></td><td>Pass a Real signal through without modification</td></tr>
+<tr><td><a href="#Replicator"><code>Replicator</code></a></td><td>Signal replicator</td></tr>
+</table>
+<hr><a name="Replicator"><h2><embed class="icon" src="../../images/icon0235.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Routing</a>.&#8203;Replicator<br><span class="subtitle">Signal replicator</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block replicates the input signal to an array of <code>nout</code> identical output signals.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#SIMO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;SIMO</a></code> (Single Input Multiple Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nout</code></td><td><code>1</code></td><td>Number of outputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[nout]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+<hr><a name="IntegerReplicator"><h2><embed class="icon" src="../../images/icon0236.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Routing</a>.&#8203;IntegerReplicator<br><span class="subtitle">Integer signal replicator</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block replicates the Integer input signal to an array of <code>nout</code> identical Integer output signals.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#IntegerBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;IntegerBlock</a></code> (Basic graphical layout of Integer block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nout</code></td><td><code>1</code></td><td>Number of outputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#IntegerInput">IntegerInput</a></code></td><td><code>u</code></td><td>Connector of Integer input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#IntegerOutput">IntegerOutput</a></code></td><td><code>y[nout]</code></td><td>Connector of Integer output signals</td></tr>
+</table>
+<hr><a name="BooleanReplicator"><h2><embed class="icon" src="../../images/icon0237.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Routing</a>.&#8203;BooleanReplicator<br><span class="subtitle">Boolean signal replicator</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block replicates the Boolean input signal to an array of <code>nout</code> identical Boolean output signals.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#BooleanBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;BooleanBlock</a></code> (Basic graphical layout of Boolean block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nout</code></td><td><code>1</code></td><td>Number of outputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u</code></td><td>Connector of Boolean input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y[nout]</code></td><td>Connector of Boolean output signals</td></tr>
+</table>
+<hr><a name="ExtractSignal"><h2><embed class="icon" src="../../images/icon0238.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Routing</a>.&#8203;ExtractSignal<br><span class="subtitle">Extract signals from an input signal vector</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Extract signals from the input connector and transfer them
+to the output connector.</p>
+<p>The extracting scheme is given by the integer vector 'extract'.
+This vector specifies, which input signals are taken and in which
+order they are transferred to the output vector. Note, that the
+dimension of 'extract' has to match the number of outputs.
+Additionally, the dimensions of the input connector signals and
+the output connector signals have to be explicitly defined via the
+parameters 'nin' and 'nout'.</p>
+<p>Example:</p>
+<pre>     nin = 7 "Number of inputs";
+     nout = 4 "Number of outputs";
+     extract[nout] = {6,3,3,2} "Extracting vector";
+</pre>
+<p>extracts four output signals (nout=4) from the seven elements of the
+input vector (nin=7):</p>
+<pre>   output no. 1 is set equal to input no. 6
+   output no. 2 is set equal to input no. 3
+   output no. 3 is set equal to input no. 3
+   output no. 4 is set equal to input no. 2
+</pre>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#MIMO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;MIMO</a></code> (Multiple Input Multiple Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nin</code></td><td><code>1</code></td><td>Number of inputs</td></tr>
+<tr><td><code>Integer</code></td><td><code>nout</code></td><td><code>1</code></td><td>Number of outputs</td></tr>
+<tr><td><code>Integer</code></td><td><code>extract[nout]</code></td><td><code>1:nout</code></td><td>Extracting vector</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[nin]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[nout]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+<hr><a name="Extractor"><h2><embed class="icon" src="../../images/icon0239.svg" width="263" height="243" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Routing</a>.&#8203;Extractor<br><span class="subtitle">Extract scalar signal out of signal vector dependent on IntegerRealInput index</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This block extracts a scalar output signal out the
+vector of input signals dependent on the Integer
+value of the additional u index:</p>
+<pre>    y = u [ index ] ;
+</pre>
+<p>where index is an additional Integer input signal.</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#MISO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;MISO</a></code> (Multiple Input Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nin</code></td><td><code>1</code></td><td>Number of inputs</td></tr>
+<tr><td><code>Boolean</code></td><td><code>allowOutOfRange</code></td><td><code>false</code></td><td>Index may be out of range</td></tr>
+<tr><td><code>Real</code></td><td><code>outOfRangeValue</code></td><td><code>1e+10</code></td><td>Output signal if index is out of range</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[nin]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#IntegerInput">IntegerInput</a></code></td><td><code>index</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Multiplex"><h2><embed class="icon" src="../../images/icon0240.svg" width="243" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Routing</a>.&#8203;Multiplex<br><span class="subtitle">Multiplexer block for arbitrary number of input connectors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output connector is the <strong>concatenation</strong> of the input connectors.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>0</code></td><td>Dimension of input signal connector</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealVectorInput">RealVectorInput</a></code></td><td><code>u[n]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[n + 0]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+<hr><a name="Multiplex2"><h2><embed class="icon" src="../../images/icon0241.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Routing</a>.&#8203;Multiplex2<br><span class="subtitle">Multiplexer block for two input connectors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output connector is the <strong>concatenation</strong> of the two input connectors.
+Note, that the dimensions of the input connector signals have to be
+explicitly defined via parameters n1 and n2.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n1</code></td><td><code>1</code></td><td>Dimension of input signal connector 1</td></tr>
+<tr><td><code>Integer</code></td><td><code>n2</code></td><td><code>1</code></td><td>Dimension of input signal connector 2</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u1[n1]</code></td><td>Connector of Real input signals 1</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u2[n2]</code></td><td>Connector of Real input signals 2</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[n1 + n2]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+<hr><a name="Multiplex3"><h2><embed class="icon" src="../../images/icon0242.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Routing</a>.&#8203;Multiplex3<br><span class="subtitle">Multiplexer block for three input connectors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output connector is the <strong>concatenation</strong> of the three input connectors.
+Note, that the dimensions of the input connector signals have to be
+explicitly defined via parameters n1, n2 and n3.</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n1</code></td><td><code>1</code></td><td>Dimension of input signal connector 1</td></tr>
+<tr><td><code>Integer</code></td><td><code>n2</code></td><td><code>1</code></td><td>Dimension of input signal connector 2</td></tr>
+<tr><td><code>Integer</code></td><td><code>n3</code></td><td><code>1</code></td><td>Dimension of input signal connector 3</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u1[n1]</code></td><td>Connector of Real input signals 1</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u2[n2]</code></td><td>Connector of Real input signals 2</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u3[n3]</code></td><td>Connector of Real input signals 3</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[n1 + n2 + n3]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+<hr><a name="Multiplex4"><h2><embed class="icon" src="../../images/icon0243.svg" width="263" height="223" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Routing</a>.&#8203;Multiplex4<br><span class="subtitle">Multiplexer block for four input connectors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output connector is the <strong>concatenation</strong> of the four input connectors.
+Note, that the dimensions of the input connector signals have to be
+explicitly defined via parameters n1, n2, n3 and n4.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n1</code></td><td><code>1</code></td><td>Dimension of input signal connector 1</td></tr>
+<tr><td><code>Integer</code></td><td><code>n2</code></td><td><code>1</code></td><td>Dimension of input signal connector 2</td></tr>
+<tr><td><code>Integer</code></td><td><code>n3</code></td><td><code>1</code></td><td>Dimension of input signal connector 3</td></tr>
+<tr><td><code>Integer</code></td><td><code>n4</code></td><td><code>1</code></td><td>Dimension of input signal connector 4</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u1[n1]</code></td><td>Connector of Real input signals 1</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u2[n2]</code></td><td>Connector of Real input signals 2</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u3[n3]</code></td><td>Connector of Real input signals 3</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u4[n4]</code></td><td>Connector of Real input signals 4</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[n1 + n2 + n3 + n4]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+<hr><a name="Multiplex5"><h2><embed class="icon" src="../../images/icon0244.svg" width="263" height="243" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Routing</a>.&#8203;Multiplex5<br><span class="subtitle">Multiplexer block for five input connectors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output connector is the <strong>concatenation</strong> of the five input connectors.
+Note, that the dimensions of the input connector signals have to be
+explicitly defined via parameters n1, n2, n3, n4 and n5.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n1</code></td><td><code>1</code></td><td>Dimension of input signal connector 1</td></tr>
+<tr><td><code>Integer</code></td><td><code>n2</code></td><td><code>1</code></td><td>Dimension of input signal connector 2</td></tr>
+<tr><td><code>Integer</code></td><td><code>n3</code></td><td><code>1</code></td><td>Dimension of input signal connector 3</td></tr>
+<tr><td><code>Integer</code></td><td><code>n4</code></td><td><code>1</code></td><td>Dimension of input signal connector 4</td></tr>
+<tr><td><code>Integer</code></td><td><code>n5</code></td><td><code>1</code></td><td>Dimension of input signal connector 5</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u1[n1]</code></td><td>Connector of Real input signals 1</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u2[n2]</code></td><td>Connector of Real input signals 2</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u3[n3]</code></td><td>Connector of Real input signals 3</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u4[n4]</code></td><td>Connector of Real input signals 4</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u5[n5]</code></td><td>Connector of Real input signals 5</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[n1 + n2 + n3 + n4 + n5]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+<hr><a name="Multiplex6"><h2><embed class="icon" src="../../images/icon0245.svg" width="247" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Routing</a>.&#8203;Multiplex6<br><span class="subtitle">Multiplexer block for six input connectors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The output connector is the <strong>concatenation</strong> of the six input connectors.
+Note, that the dimensions of the input connector signals have to be
+explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n1</code></td><td><code>1</code></td><td>Dimension of input signal connector 1</td></tr>
+<tr><td><code>Integer</code></td><td><code>n2</code></td><td><code>1</code></td><td>Dimension of input signal connector 2</td></tr>
+<tr><td><code>Integer</code></td><td><code>n3</code></td><td><code>1</code></td><td>Dimension of input signal connector 3</td></tr>
+<tr><td><code>Integer</code></td><td><code>n4</code></td><td><code>1</code></td><td>Dimension of input signal connector 4</td></tr>
+<tr><td><code>Integer</code></td><td><code>n5</code></td><td><code>1</code></td><td>Dimension of input signal connector 5</td></tr>
+<tr><td><code>Integer</code></td><td><code>n6</code></td><td><code>1</code></td><td>Dimension of input signal connector 6</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u1[n1]</code></td><td>Connector of Real input signals 1</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u2[n2]</code></td><td>Connector of Real input signals 2</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u3[n3]</code></td><td>Connector of Real input signals 3</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u4[n4]</code></td><td>Connector of Real input signals 4</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u5[n5]</code></td><td>Connector of Real input signals 5</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u6[n6]</code></td><td>Connector of Real input signals 6</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[n1 + n2 + n3 + n4 + n5 + n6]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+<hr><a name="DeMultiplex"><h2><embed class="icon" src="../../images/icon0246.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Routing</a>.&#8203;DeMultiplex<br><span class="subtitle">DeMultiplexer block for arbitrary number of output connectors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The input connector is <strong>split</strong> up into output connectors.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>0</code></td><td>Dimension of output signal connector</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[n + 0]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealVectorOutput">RealVectorOutput</a></code></td><td><code>y[n]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+<hr><a name="DeMultiplex2"><h2><embed class="icon" src="../../images/icon0247.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Routing</a>.&#8203;DeMultiplex2<br><span class="subtitle">DeMultiplexer block for two output connectors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The input connector is <strong>split</strong> up into two output connectors.
+Note, that the dimensions of the output connector signals have to be
+explicitly defined via parameters n1 and n2.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n1</code></td><td><code>1</code></td><td>Dimension of output signal connector 1</td></tr>
+<tr><td><code>Integer</code></td><td><code>n2</code></td><td><code>1</code></td><td>Dimension of output signal connector 2</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[n1 + n2]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y1[n1]</code></td><td>Connector of Real output signals 1</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y2[n2]</code></td><td>Connector of Real output signals 2</td></tr>
+</table>
+<hr><a name="DeMultiplex3"><h2><embed class="icon" src="../../images/icon0248.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Routing</a>.&#8203;DeMultiplex3<br><span class="subtitle">DeMultiplexer block for three output connectors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The input connector is <strong>split</strong> into three output connectors.
+Note, that the dimensions of the output connector signals have to be
+explicitly defined via parameters n1, n2 and n3.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n1</code></td><td><code>1</code></td><td>Dimension of output signal connector 1</td></tr>
+<tr><td><code>Integer</code></td><td><code>n2</code></td><td><code>1</code></td><td>Dimension of output signal connector 2</td></tr>
+<tr><td><code>Integer</code></td><td><code>n3</code></td><td><code>1</code></td><td>Dimension of output signal connector 3</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[n1 + n2 + n3]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y1[n1]</code></td><td>Connector of Real output signals 1</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y2[n2]</code></td><td>Connector of Real output signals 2</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y3[n3]</code></td><td>Connector of Real output signals 3</td></tr>
+</table>
+<hr><a name="DeMultiplex4"><h2><embed class="icon" src="../../images/icon0249.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Routing</a>.&#8203;DeMultiplex4<br><span class="subtitle">DeMultiplexer block for four output connectors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The input connector is <strong>split</strong> into four output connectors.
+Note, that the dimensions of the output connector signals have to be
+explicitly defined via parameters n1, n2, n3 and n4.</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n1</code></td><td><code>1</code></td><td>Dimension of output signal connector 1</td></tr>
+<tr><td><code>Integer</code></td><td><code>n2</code></td><td><code>1</code></td><td>Dimension of output signal connector 2</td></tr>
+<tr><td><code>Integer</code></td><td><code>n3</code></td><td><code>1</code></td><td>Dimension of output signal connector 3</td></tr>
+<tr><td><code>Integer</code></td><td><code>n4</code></td><td><code>1</code></td><td>Dimension of output signal connector 4</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[n1 + n2 + n3 + n4]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y1[n1]</code></td><td>Connector of Real output signals 1</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y2[n2]</code></td><td>Connector of Real output signals 2</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y3[n3]</code></td><td>Connector of Real output signals 3</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y4[n4]</code></td><td>Connector of Real output signals 4</td></tr>
+</table>
+<hr><a name="DeMultiplex5"><h2><embed class="icon" src="../../images/icon0250.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Routing</a>.&#8203;DeMultiplex5<br><span class="subtitle">DeMultiplexer block for five output connectors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The input connector is <strong>split</strong> into five output connectors.
+Note, that the dimensions of the output connector signals have to be
+explicitly defined via parameters n1, n2, n3, n4 and n5.</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n1</code></td><td><code>1</code></td><td>Dimension of output signal connector 1</td></tr>
+<tr><td><code>Integer</code></td><td><code>n2</code></td><td><code>1</code></td><td>Dimension of output signal connector 2</td></tr>
+<tr><td><code>Integer</code></td><td><code>n3</code></td><td><code>1</code></td><td>Dimension of output signal connector 3</td></tr>
+<tr><td><code>Integer</code></td><td><code>n4</code></td><td><code>1</code></td><td>Dimension of output signal connector 4</td></tr>
+<tr><td><code>Integer</code></td><td><code>n5</code></td><td><code>1</code></td><td>Dimension of output signal connector 5</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[n1 + n2 + n3 + n4 + n5]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y1[n1]</code></td><td>Connector of Real output signals 1</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y2[n2]</code></td><td>Connector of Real output signals 2</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y3[n3]</code></td><td>Connector of Real output signals 3</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y4[n4]</code></td><td>Connector of Real output signals 4</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y5[n5]</code></td><td>Connector of Real output signals 5</td></tr>
+</table>
+<hr><a name="DeMultiplex6"><h2><embed class="icon" src="../../images/icon0251.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Routing</a>.&#8203;DeMultiplex6<br><span class="subtitle">DeMultiplexer block for six output connectors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The input connector is <strong>split</strong> into six output connectors.
+Note, that the dimensions of the output connector signals have to be
+explicitly defined via parameters n1, n2, n3, n4, n5 and n6.</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n1</code></td><td><code>1</code></td><td>Dimension of output signal connector 1</td></tr>
+<tr><td><code>Integer</code></td><td><code>n2</code></td><td><code>1</code></td><td>Dimension of output signal connector 2</td></tr>
+<tr><td><code>Integer</code></td><td><code>n3</code></td><td><code>1</code></td><td>Dimension of output signal connector 3</td></tr>
+<tr><td><code>Integer</code></td><td><code>n4</code></td><td><code>1</code></td><td>Dimension of output signal connector 4</td></tr>
+<tr><td><code>Integer</code></td><td><code>n5</code></td><td><code>1</code></td><td>Dimension of output signal connector 5</td></tr>
+<tr><td><code>Integer</code></td><td><code>n6</code></td><td><code>1</code></td><td>Dimension of output signal connector 6</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[n1 + n2 + n3 + n4 + n5 + n6]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y1[n1]</code></td><td>Connector of Real output signals 1</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y2[n2]</code></td><td>Connector of Real output signals 2</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y3[n3]</code></td><td>Connector of Real output signals 3</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y4[n4]</code></td><td>Connector of Real output signals 4</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y5[n5]</code></td><td>Connector of Real output signals 5</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y6[n6]</code></td><td>Connector of Real output signals 6</td></tr>
+</table>
+<hr><a name="RealPassThrough"><h2><embed class="icon" src="../../images/icon0252.svg" width="263" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Routing</a>.&#8203;RealPassThrough<br><span class="subtitle">Pass a Real signal through without modification</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Passes a Real signal through without modification.  Enables signals to be read out of one bus, have their name changed and be sent back to a bus.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#SISO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;SISO</a></code> (Single Input Single Output continuous control block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="IntegerPassThrough"><h2><embed class="icon" src="../../images/icon0253.svg" width="263" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Routing</a>.&#8203;IntegerPassThrough<br><span class="subtitle">Pass a Integer signal through without modification</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Passes a Integer signal through without modification.  Enables signals to be read out of one bus, have their name changed and be sent back to a bus.</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#IntegerBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;IntegerBlock</a></code> (Basic graphical layout of Integer block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#IntegerInput">IntegerInput</a></code></td><td><code>u</code></td><td>Input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#IntegerOutput">IntegerOutput</a></code></td><td><code>y</code></td><td>Output signal</td></tr>
+</table>
+<hr><a name="BooleanPassThrough"><h2><embed class="icon" src="../../images/icon0254.svg" width="263" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Routing</a>.&#8203;BooleanPassThrough<br><span class="subtitle">Pass a Boolean signal through without modification</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Passes a Boolean signal through without modification.  Enables signals to be read out of one bus, have their name changed and be sent back to a bus.</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#BooleanSISO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;BooleanSISO</a></code> (Single Input Single Output control block with signals of type Boolean).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u</code></td><td>Connector of Boolean input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+</body></html>

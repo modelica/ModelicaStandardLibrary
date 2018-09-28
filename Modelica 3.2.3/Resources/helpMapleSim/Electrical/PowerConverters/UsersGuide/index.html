@@ -1,0 +1,255 @@
+<html><head><title>Modelica.Electrical.PowerConverters.UsersGuide</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="UsersGuide"><h1><embed class="icon" src="../../../images/icon0002.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">PowerConverters</a>.&#8203;UsersGuide<br><span class="subtitle">User's Guide</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This library provides power converters for DC and AC single and multi phase electrical systems. The PowerConverters library contains three types of converters.
+</p>
+
+<ul>
+  <li>AC/DC converters (rectifiers)</li>
+  <li>DC/AC converters (inverters)</li>
+  <li>DC/DC converters</li>
+</ul>
+
+<p>
+General types of AC/AC converters are currently not provided in this library.
+</p>
+
+<h4>Converter characteristics</h4>
+
+<ul>
+  <li>All converter models rely on existing diode, thyristor and switch models provided in the
+      <a href="../../../Electrical/Analog/Ideal/index.html">Analog.Ideal</a> and the
+      <a href="../../../Electrical/MultiPhase/Ideal/index.html">MultiPhase.Ideal</a>
+      package of the Modelica Standard Library.</li>
+  <li>Switching losses and recovery effects are not considered</li>
+  <li>Only conduction losses are taken into account</li>
+  <li>The parameters of the semiconductors include
+  <ul>
+    <li>The on state resistance <code>Ron</code></li>
+    <li>The off state conductance <code>Goff</code></li>
+    <li>The knee voltage <code>Vknee</code></li>
+  </ul></li>
+  <li>Each converter is equipped with an optional heat port which can be enabled by the parameter
+      <code>useHeatPort</code>; the heat ports of all semiconductors are connected,
+      so all temperatures of all semiconductors are equal and the heat flow of the converter heat port
+      is determined by the sum of all semiconductor heat flows</li>
+  <li>Each converter contains boolean firing inputs provides variables <code>offStart...</code>
+      to specify the initial conditions of the off state of each semiconductor</li>
+  <li>The boolean firing signals are enabled either by means of the a parameter <code>constantEnable</code> or by a conditional signal input, enabled by <code>useConstantEnable = false</code></li>
+  <li>The number of phases of multi phase converters is not restricted to three</li>
+</ul>
+
+<h4>Literature</h4>
+
+<p>
+General background knowledge on power converters and power electronics can be found in
+<a href="../../../Electrical/PowerConverters/UsersGuide/index.html#References">[Skvarenina01]</a> and
+<a href="../../../Electrical/PowerConverters/UsersGuide/index.html#References">[Luo05]</a>.
+A freely available book is available in
+<a href="../../../Electrical/PowerConverters/UsersGuide/index.html#References">[Williams2006]</a>.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#ACDCConcept"><code>ACDCConcept</code></a></td><td>AC/DC converter concept</td></tr>
+<tr><td><a href="#Contact"><code>Contact</code></a></td><td>Contact</td></tr>
+<tr><td><a href="#DCACConcept"><code>DCACConcept</code></a></td><td>DC/AC converter concept</td></tr>
+<tr><td><a href="#DCDCConcept"><code>DCDCConcept</code></a></td><td>DC/DC converter concept</td></tr>
+<tr><td><a href="#References"><code>References</code></a></td><td>References</td></tr>
+<tr><td><a href="#ReleaseNotes"><code>ReleaseNotes</code></a></td><td>Release Notes</td></tr>
+</table>
+<hr><a name="ACDCConcept"><h2><embed class="icon" src="../../../images/icon0002.svg" width="203" height="203" />
+Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">PowerConverters</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;ACDCConcept<br><span class="subtitle">AC/DC converter concept</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>AC/DC converters are also called rectifiers</p>
+
+<h4>Component classification</h4>
+
+<p>Conventional AC/DC converters contain diodes and thyristors. If thyristors are used, the output voltage of the rectifier can be controlled. If only diodes are used, the output voltages is solely dependent on the input voltage and the characteristic of applied diodes.</p>
+<ul>
+  <li>Diode rectifiers</li>
+  <li>Thyristor rectifiers</li>
+  <li>Half controlled rectifiers; half of the semiconductors are diodes and thyristors, respectively</li>
+</ul>
+
+<h4>Topology classification</h4>
+
+<p>The PowerConverters library provides bridge and center tap rectifiers for single and multi phase supply, see
+<a href="../../../Electrical/PowerConverters/ACDC/index.html">AC/DC converters</a>.</p>
+
+<h4>Control</h4>
+
+<p>For each of the provided rectifiers a
+<a href="../../../Electrical/PowerConverters/ACDC/Control/index.html">control model</a> is available.
+These control models have electrical connectors to be connected with the AC supply.
+The firing angle of thyristor rectifiers can either be set by a parameter or a signal input.
+</p>
+
+<h4>Examples</h4>
+
+<p>A variety of examples is provided at
+<a href="../../../Electrical/PowerConverters/Examples/ACDC/index.html">Examples.ACDC</a>.
+These examples include different kinds of DC loads. Even the control characteristics
+of the rectifiers can be obtained experimentally; the names of these models
+contain <code>_Characteristic</code>.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="DCACConcept"><h2><embed class="icon" src="../../../images/icon0002.svg" width="203" height="203" />
+Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">PowerConverters</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;DCACConcept<br><span class="subtitle">DC/AC converter concept</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>There are a single and multi phase DC/AC converter model provided by the PowerConverters library.</p>
+
+<h4>Control</h4>
+
+<p>There are currently no space phasor pulse width modulation (PWM) models provided. However, for operating the single
+and multi phase inverter the PWM
+<a href="../../../Electrical/PowerConverters/DCDC/Control/index.html#SignalPWM">controller</a>
+can be used.
+</p>
+
+<h4>Examples</h4>
+
+<p>Some examples are provided at
+<a href="../../../Electrical/PowerConverters/Examples/DCAC/index.html">Examples.DCAC</a>.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="DCDCConcept"><h2><embed class="icon" src="../../../images/icon0002.svg" width="203" height="203" />
+Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">PowerConverters</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;DCDCConcept<br><span class="subtitle">DC/DC converter concept</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>The following DC/DC converter topologies are currently included in the PowerConverters library.</p>
+
+<ul>
+<li>Chopper step down converter</li>
+<li>H bridge converter; four quadrant operation</li>
+</ul>
+
+<h4>Control</h4>
+
+<p>A pulse width modulation (PWM)
+<a href="../../../Electrical/PowerConverters/DCDC/Control/index.html">controller</a>
+is provided.
+</p>
+
+<h4>Examples</h4>
+
+<p>Some examples are provided at
+<a href="../../../Electrical/PowerConverters/Examples/DCDC/index.html">Examples.DCDC</a>.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr><a name="Contact"><h2><embed class="icon" src="../../../images/icon0004.svg" width="203" height="203" />
+Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">PowerConverters</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;Contact<br><span class="subtitle">Contact</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Main authors</h4>
+
+<p>
+<strong>Dr. Christian Kral</strong><br>
+<a href="https://christiankral.net/">Electric Machines, Drives and Systems</a><br>
+A-1060 Vienna, Austria<br>
+email: <a href="mailto:dr.christian.kral@gmail.com">dr.christian.kral@gmail.com</a>
+</p>
+
+<p>
+<strong>Anton Haumer</strong><br>
+<a href="https://www.haumer.at">Technical Consulting &amp; Electrical Engineering</a><br>
+D-93049 Regensburg, Germany<br>
+email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a>
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Contact">Modelica.&#8203;Icons.&#8203;Contact</a></code> (Icon for contact information).</p>
+<hr><a name="ReleaseNotes"><h2><embed class="icon" src="../../../images/icon0005.svg" width="203" height="203" />
+Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">PowerConverters</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;ReleaseNotes<br><span class="subtitle">Release Notes</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h5>Version 3.2.3, 2018-09-26</h5>
+<ul>
+<li>Added instantaneous power calculations of DC and AC interface partial models, see <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2198">#2198</a></li>
+<li>Replaced Modelica_Electrical_PowerConverters by Modelica.Electrical.PowerConverter, see <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2196">#2196</a></li>
+<li>Unified location of PowerConverter connectors in diagram layer, see <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2185">#2185</a></li>
+<li>Fixed broken hyper links</li>
+<li>Replaced pin declaration by <code>extends</code> according to <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2065">#2065</a></li>
+</ul>
+
+<h5>Version 1.2.0, 2014-04-06</h5>
+<ul>
+<li>Moved enabling signals from control to inverter models due to consistency reasons</li>
+<li>Added partial models for enabling firing signals</li>
+</ul>
+
+<h5>Version 1.1.0, 2014-03-24</h5>
+<ul>
+<li>Removed StepUp converter due to consistency reasons</li>
+</ul>
+
+<h5>Version 1.0.0, 2014-03-24</h5>
+<ul>
+<li>First tagged version</li>
+</ul>
+
+<p>Extends from <code><a href="../../../Icons/index.html#ReleaseNotes">Modelica.&#8203;Icons.&#8203;ReleaseNotes</a></code> (Icon for release notes in documentation).</p>
+<hr><a name="References"><h2><embed class="icon" src="../../../images/icon0003.svg" width="203" height="203" />
+Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">PowerConverters</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;References<br><span class="subtitle">References</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>References</h4>
+
+<table border="0" cellspacing="0" cellpadding="2">
+    <tr>
+      <td>[Skvarenina01]</td>
+      <td>Timothy L. Skvarenina,
+        <a href="http://www.crcpress.com/product/isbn/9780849373367">
+        <em>The Power Electronics Handbook</em></a>,
+        CRC Press 2001, ISBN 9780849373367</td>
+    </tr>
+
+    <tr>
+      <td>[Luo05]</td>
+      <td>Fang Lin Luo, Hong Ye and Muhammad H. Rashid,
+        <a href="http://store.elsevier.com/product.jsp?isbn=9780120887576&amp;_requestid=1725"><em>Digital Power Electronics and Applications</em></a>,
+        Elsevier Academic Press, 2005, ISBN 978-0120887576</td>
+    </tr>
+
+    <tr>
+      <td>[Williams2006]</td>
+      <td><a href="http://www.freescience.info/go.php?pagename=books&amp;id=1732">
+<em>Principles and Elements of Power Electronics: Devices, Drivers, Applications, and Passive Components</em></a>, available at <a href="http://www.freescience.info/go.php?pagename=books&amp;id=1732">FreeScience</a>, ISBN 978-0-9553384-0-3</td>
+    </tr>
+</table>
+<p>Extends from <code><a href="../../../Icons/index.html#References">Modelica.&#8203;Icons.&#8203;References</a></code> (Icon for external references).</p>
+</body></html>

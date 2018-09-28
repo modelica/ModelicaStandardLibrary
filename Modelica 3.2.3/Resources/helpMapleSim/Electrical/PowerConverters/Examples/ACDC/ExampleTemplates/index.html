@@ -1,0 +1,126 @@
+<html><head><title>Modelica.Electrical.PowerConverters.Examples.ACDC.ExampleTemplates</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="ExampleTemplates"><h1><embed class="icon" src="../../../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">PowerConverters</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ACDC</a>.&#8203;ExampleTemplates<br><span class="subtitle">Templates of examples</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package includes templates of the used examples. The templates are partial example models.</p>
+<p>Extends from <code><a href="../../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Thyristor1Pulse"><code>Thyristor1Pulse</code></a></td><td>Template of single pulse rectifier</td></tr>
+<tr><td><a href="#ThyristorBridge2mPulse"><code>ThyristorBridge2mPulse</code></a></td><td>Template of 2*m pulse bridge thyristor rectifier</td></tr>
+<tr><td><a href="#ThyristorBridge2Pulse"><code>ThyristorBridge2Pulse</code></a></td><td>Template of two pulse Graetz thyristor bridge</td></tr>
+<tr><td><a href="#ThyristorCenterTap2mPulse"><code>ThyristorCenterTap2mPulse</code></a></td><td>Template of 2*m pulse thyristor rectifier with center tap</td></tr>
+<tr><td><a href="#ThyristorCenterTap2Pulse"><code>ThyristorCenterTap2Pulse</code></a></td><td>Template of two pulse thyristor rectifier with center tap</td></tr>
+<tr><td><a href="#ThyristorCenterTapmPulse"><code>ThyristorCenterTapmPulse</code></a></td><td>Template of 2*m pulse rectifier with center tap</td></tr>
+</table>
+<hr><a name="Thyristor1Pulse"><h2><embed class="icon" src="../../../../../images/icon0729.svg" width="203" height="203" />
+Partial Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">PowerConverters</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ACDC</a>.&#8203;<a href="index.html">ExampleTemplates</a>.&#8203;Thyristor1Pulse<br><span class="subtitle">Template of single pulse rectifier</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Template of
+<a href="../../../../../Electrical/PowerConverters/Examples/ACDC/Rectifier1Pulse/index.html">
+single pulse rectifiers</a>; load is not yet included.</p>
+<p>Extends from <code><a href="../../../../../Electrical/PowerConverters/Icons/index.html#ExampleTemplate">Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Icons.&#8203;ExampleTemplate</a></code> (Example template).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vrms</code></td><td><code>110</code></td><td>RMS supply voltage</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Frequency</td></tr>
+</table>
+<hr><a name="ThyristorBridge2Pulse"><h2><embed class="icon" src="../../../../../images/icon0729.svg" width="203" height="203" />
+Partial Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">PowerConverters</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ACDC</a>.&#8203;<a href="index.html">ExampleTemplates</a>.&#8203;ThyristorBridge2Pulse<br><span class="subtitle">Template of two pulse Graetz thyristor bridge</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Template of
+<a href="../../../../../Electrical/PowerConverters/Examples/ACDC/RectifierBridge2Pulse/index.html">
+two pulse bridge rectifiers</a>; load is not yet included.</p>
+<p>Extends from <code><a href="../../../../../Electrical/PowerConverters/Icons/index.html#ExampleTemplate">Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Icons.&#8203;ExampleTemplate</a></code> (Example template).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vrms</code></td><td><code>110</code></td><td>RMS supply voltage</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Frequency</td></tr>
+</table>
+<hr><a name="ThyristorCenterTap2Pulse"><h2><embed class="icon" src="../../../../../images/icon0729.svg" width="203" height="203" />
+Partial Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">PowerConverters</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ACDC</a>.&#8203;<a href="index.html">ExampleTemplates</a>.&#8203;ThyristorCenterTap2Pulse<br><span class="subtitle">Template of two pulse thyristor rectifier with center tap</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Template of
+<a href="../../../../../Electrical/PowerConverters/Examples/ACDC/RectifierCenterTap2Pulse/index.html">
+center tap two pulse rectifiers</a>; load is not yet included.</p>
+<p>Extends from <code><a href="../../../../../Electrical/PowerConverters/Icons/index.html#ExampleTemplate">Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Icons.&#8203;ExampleTemplate</a></code> (Example template).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vrms</code></td><td><code>110</code></td><td>RMS supply voltage</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Frequency</td></tr>
+</table>
+<hr><a name="ThyristorCenterTapmPulse"><h2><embed class="icon" src="../../../../../images/icon0729.svg" width="203" height="203" />
+Partial Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">PowerConverters</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ACDC</a>.&#8203;<a href="index.html">ExampleTemplates</a>.&#8203;ThyristorCenterTapmPulse<br><span class="subtitle">Template of 2*m pulse rectifier with center tap</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Template of
+<a href="../../../../../Electrical/PowerConverters/Examples/ACDC/RectifierCenterTapmPulse/index.html">
+center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the number of phases; load is not yet included.</p>
+<p>Extends from <code><a href="../../../../../Electrical/PowerConverters/Icons/index.html#ExampleTemplate">Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Icons.&#8203;ExampleTemplate</a></code> (Example template).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vrms</code></td><td><code>110</code></td><td>RMS supply voltage</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Frequency</td></tr>
+</table>
+<hr><a name="ThyristorBridge2mPulse"><h2><embed class="icon" src="../../../../../images/icon0729.svg" width="203" height="203" />
+Partial Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">PowerConverters</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ACDC</a>.&#8203;<a href="index.html">ExampleTemplates</a>.&#8203;ThyristorBridge2mPulse<br><span class="subtitle">Template of 2*m pulse bridge thyristor rectifier</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Template of
+<a href="../../../../../Electrical/PowerConverters/Examples/ACDC/RectifierBridge2mPulse/index.html">
+<code>2*m</code> pulse bridge rectifiers</a>, where <code>m</code> is the number of phases; load is not yet included.</p>
+<p>Extends from <code><a href="../../../../../Electrical/PowerConverters/Icons/index.html#ExampleTemplate">Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Icons.&#8203;ExampleTemplate</a></code> (Example template).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vrms</code></td><td><code>110</code></td><td>RMS supply voltage</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Frequency</td></tr>
+</table>
+<hr><a name="ThyristorCenterTap2mPulse"><h2><embed class="icon" src="../../../../../images/icon0729.svg" width="203" height="203" />
+Partial Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">PowerConverters</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ACDC</a>.&#8203;<a href="index.html">ExampleTemplates</a>.&#8203;ThyristorCenterTap2mPulse<br><span class="subtitle">Template of 2*m pulse thyristor rectifier with center tap</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Template of
+<a href="../../../../../Electrical/PowerConverters/Examples/ACDC/RectifierCenterTap2mPulse/index.html">
+center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the number of phases; load is not yet included.</p>
+<p>Extends from <code><a href="../../../../../Electrical/PowerConverters/Icons/index.html#ExampleTemplate">Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Icons.&#8203;ExampleTemplate</a></code> (Example template).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vrms</code></td><td><code>110</code></td><td>RMS supply voltage</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Frequency</td></tr>
+</table>
+</body></html>

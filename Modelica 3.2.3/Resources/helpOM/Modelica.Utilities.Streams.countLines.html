@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Utilities.Streams.countLines</title>
+</head>
+<body>
+<h1><a href="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg"><img class="svgiconhead" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Utilities.Streams.html">Streams</a>.<span class="omc-h1">countLines</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+numberOfLines = Streams.<strong>countLines</strong>(fileName)
+</pre></blockquote>
+<h4>Description</h4>
+<p>Function <strong>countLines</strong>(..) opens the given file,
+reads the complete content, closes the file and returns the number
+of lines. Lines are separated by LF or CR-LF.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>function countLines
+  extends Modelica.Icons.Function;
+  input String fileName "Name of the file that shall be read" annotation(
+    Dialog(loadSelector(filter = "Text files (*.txt)", caption = "Open text file for counting lines")));
+  output Integer numberOfLines "Number of lines in file";
+end countLines;</pre></blockquote>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</title>
+</head>
+<body>
+<h1><a href="Icons/5d10174f426d2be120cefbffc9caa1867106a763.svg"><img class="svgiconhead" src="Icons/5d10174f426d2be120cefbffc9caa1867106a763.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Magnetic.html">Magnetic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.QuasiStatic.html">QuasiStatic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.QuasiStatic.FundamentalWave.html">FundamentalWave</a>.<a class="omc-h1-a" href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.html">BasicMachines</a>.<a class="omc-h1-a" href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.html">Components</a>.<span class="omc-h1">RotorSaliencyAirGap</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This salient air gap model can be used for machines with uniform
+air gaps and for machines with rotor saliency. The air gap model is
+not symmetrical towards stator and rotor since it is assumed the
+saliency always refers to the rotor. The saliency of the air gap is
+represented by a main field inductance in the d- and q-axis.</p>
+<p>For the mechanical interaction of the air gap model with the
+stator and the rotor is equipped with two <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_a.html">rotational
+connectors</a>. The torques acting on both connectors have the same
+absolute values but different signs. The stator and the rotor
+reference angles, <img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_s.png" />
+ and <img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_r.png" />
+ are related by <img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_relationship.png" />
+ where <img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma.png" />
+ is the electrical angle between stator and rotor.</p>
+<p>The air gap model has two magnetic stator and two magnetic rotor
+<a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.MagneticPort.html">
+ports</a>. The magnetic potential difference and the magnetic flux
+of the stator and rotor are equal complex quantities, respectively,
+but the reference angles are different; see <a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept.html">
+Concept</a>. The d and q axis components with respect to the rotor
+fixed reference frame (superscript r) are determined from the
+stator (superscript s) and rotor (superscript r) reference
+quantities, by</p>
+<p>&nbsp;&nbsp;<img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/V_m_transformation.png" />.</p>
+<p>The d and q axis magnetic potential difference components and
+flux components are related with the flux by:</p>
+<p>&nbsp;&nbsp;<img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FundamentalWave/Machines/Components/airgap.png" /></p>
+<h4>See also</h4>
+<p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap.html">
+Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a></p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

@@ -1,0 +1,20 @@
+<svg width="223" height="223" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Mechanics.Translational.Interfaces.PartialTwoFlangesAndSupport" class="component">
+		<polyline points="61.5,221.5 81.5,201.5" fill-opacity="0" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="81.5,221.5 101.5,201.5" fill-opacity="0" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="101.5,221.5 121.5,201.5" fill-opacity="0" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="121.5,221.5 141.5,201.5" fill-opacity="0" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="81.5,201.5 141.5,201.5" fill-opacity="0" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="flange_a" class="port">
+			<polygon points="1.5,111.5 21.5,111.5 21.5,91.5 1.5,91.5" fill="#007F00" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="flange_b" class="port">
+			<polygon points="201.5,111.5 221.5,111.5 221.5,91.5 201.5,91.5" fill="#FFFFFF" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="support" class="port">
+			<polygon points="102.5,210.5 120.5,210.5 120.5,192.5 102.5,192.5" fill="#AFAFAF" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="96.5,216.5 126.5,216.5 126.5,186.5 96.5,186.5" fill="#AFBEAF" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="102.5,210.5 120.5,210.5 120.5,192.5 102.5,192.5" fill="#007F00" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

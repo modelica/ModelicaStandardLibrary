@@ -1,0 +1,352 @@
+<html><head><title>Modelica.Blocks.Continuous.Internal.Filter.roots</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="roots"><h1><embed class="icon" src="../../../../../images/icon0034.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Blocks</a>.&#8203;<a href="../../../index.html">Continuous</a>.&#8203;<a href="../../index.html">Internal</a>.&#8203;<a href="../index.html">Filter</a>.&#8203;roots<br><span class="subtitle">Filter roots and gain as needed for block implementations</span></h1></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+This icon shall be used for a package that contains internal classes not to be
+directly utilized by a user.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/InternalPackage/index.html">Modelica.&#8203;Icons.&#8203;InternalPackage</a></code> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#bandPass"><code>bandPass</code></a></td><td>Return band pass filter roots as needed for block for given cut-off frequency</td></tr>
+<tr><td><a href="#bandStop"><code>bandStop</code></a></td><td>Return band stop filter roots as needed for block for given cut-off frequency</td></tr>
+<tr><td><a href="#highPass"><code>highPass</code></a></td><td>Return high pass filter roots as needed for block for given cut-off frequency</td></tr>
+<tr><td><a href="#lowPass"><code>lowPass</code></a></td><td>Return low pass filter roots as needed for block for given cut-off frequency</td></tr>
+</table>
+<hr><a name="lowPass"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Blocks</a>.&#8203;<a href="../../../index.html">Continuous</a>.&#8203;<a href="../../index.html">Internal</a>.&#8203;<a href="../index.html">Filter</a>.&#8203;<a href="index.html">roots</a>.&#8203;lowPass<br><span class="subtitle">Return low pass filter roots as needed for block for given cut-off frequency</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+The goal is to implement the filter in the following form:
+</p>
+
+<pre>
+  // real pole:
+   der(x) = r*x - r*u
+       y  = x
+
+  // complex conjugate poles:
+  der(x1) = a*x1 - b*x2 + ku*u;
+  der(x2) = b*x1 + a*x2;
+       y  = x2;
+
+            ku = (a^2 + b^2)/b
+</pre>
+<p>
+This representation has the following transfer function:
+</p>
+<pre>
+// real pole:
+    s*y = r*y - r*u
+  or
+    (s-r)*y = -r*u
+  or
+    y = -r/(s-r)*u
+
+  comparing coefficients with
+    y = cr/(s + cr)*u  ->  r = -cr      // r is the real eigenvalue
+
+// complex conjugate poles
+    s*x2 =  a*x2 + b*x1
+    s*x1 = -b*x2 + a*x1 + ku*u
+  or
+    (s-a)*x2               = b*x1  ->  x2 = b/(s-a)*x1
+    (s + b^2/(s-a) - a)*x1 = ku*u  ->  (s(s-a) + b^2 - a*(s-a))*x1  = ku*(s-a)*u
+                                   ->  (s^2 - 2*a*s + a^2 + b^2)*x1 = ku*(s-a)*u
+  or
+    x1 = ku*(s-a)/(s^2 - 2*a*s + a^2 + b^2)*u
+    x2 = b/(s-a)*ku*(s-a)/(s^2 - 2*a*s + a^2 + b^2)*u
+       = b*ku/(s^2 - 2*a*s + a^2 + b^2)*u
+    y  = x2
+
+  comparing coefficients with
+    y = c0/(s^2 + c1*s + c0)*u  ->  a  = -c1/2
+                                    b  = sqrt(c0 - a^2)
+                                    ku = c0/b
+                                       = (a^2 + b^2)/b
+
+  comparing with eigenvalue representation:
+    (s - (a+jb))*(s - (a-jb)) = s^2 -2*a*s + a^2 + b^2
+  shows that:
+    a: real part of eigenvalue
+    b: imaginary part of eigenvalue
+
+  time -> infinity:
+    y(s=0) = x2(s=0) = 1
+             x1(s=0) = -ku*a/(a^2 + b^2)*u
+                     = -(a/b)*u
+</pre>
+
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>cr_in[:]</code></td><td>Coefficients of real poles of base filter</td></tr>
+<tr><td><code>Real</code></td><td><code>c0_in[:]</code></td><td>Coefficients of s^0 term of base filter if conjugate complex pole</td></tr>
+<tr><td><code>Real</code></td><td><code>c1_in[size(c0_in, 1)]</code></td><td>Coefficients of s^1 term of base filter if conjugate complex pole</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f_cut</code></td><td>Cut-off frequency</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>r[size(cr_in, 1)]</code></td><td>Real eigenvalues</td></tr>
+<tr><td><code>Real</code></td><td><code>a[size(c0_in, 1)]</code></td><td>Real parts of complex conjugate eigenvalues</td></tr>
+<tr><td><code>Real</code></td><td><code>b[size(c0_in, 1)]</code></td><td>Imaginary parts of complex conjugate eigenvalues</td></tr>
+<tr><td><code>Real</code></td><td><code>ku[size(c0_in, 1)]</code></td><td>Input gain</td></tr>
+</table>
+<hr><a name="highPass"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Blocks</a>.&#8203;<a href="../../../index.html">Continuous</a>.&#8203;<a href="../../index.html">Internal</a>.&#8203;<a href="../index.html">Filter</a>.&#8203;<a href="index.html">roots</a>.&#8203;highPass<br><span class="subtitle">Return high pass filter roots as needed for block for given cut-off frequency</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+The goal is to implement the filter in the following form:
+</p>
+
+<pre>
+  // real pole:
+   der(x) = r*x - r*u
+       y  = -x + u
+
+  // complex conjugate poles:
+  der(x1) = a*x1 - b*x2 + ku*u;
+  der(x2) = b*x1 + a*x2;
+       y  = k1*x1 + k2*x2 + u;
+
+            ku = (a^2 + b^2)/b
+            k1 = 2*a/ku
+            k2 = (a^2 - b^2) / (b*ku)
+               = (a^2 - b^2) / (a^2 + b^2)
+               = (1 - (b/a)^2) / (1 + (b/a)^2)
+
+</pre>
+<p>
+This representation has the following transfer function:
+</p>
+<pre>
+// real pole:
+    s*x = r*x - r*u
+  or
+    (s-r)*x = -r*u   -> x = -r/(s-r)*u
+  or
+    y = r/(s-r)*u + (s-r)/(s-r)*u
+      = (r+s-r)/(s-r)*u
+      = s/(s-r)*u
+
+  comparing coefficients with
+    y = s/(s + cr)*u  ->  r = -cr      // r is the real eigenvalue
+
+// complex conjugate poles
+    s*x2 =  a*x2 + b*x1
+    s*x1 = -b*x2 + a*x1 + ku*u
+  or
+    (s-a)*x2               = b*x1  ->  x2 = b/(s-a)*x1
+    (s + b^2/(s-a) - a)*x1 = ku*u  ->  (s(s-a) + b^2 - a*(s-a))*x1  = ku*(s-a)*u
+                                   ->  (s^2 - 2*a*s + a^2 + b^2)*x1 = ku*(s-a)*u
+  or
+    x1 = ku*(s-a)/(s^2 - 2*a*s + a^2 + b^2)*u
+    x2 = b/(s-a)*ku*(s-a)/(s^2 - 2*a*s + a^2 + b^2)*u
+       = b*ku/(s^2 - 2*a*s + a^2 + b^2)*u
+    y  = k1*x1 + k2*x2 + u
+       = (k1*ku*(s-a) + k2*b*ku +  s^2 - 2*a*s + a^2 + b^2) /
+         (s^2 - 2*a*s + a^2 + b^2)*u
+       = (s^2 + (k1*ku - 2*a)*s + k2*b*ku - k1*ku*a + a^2 + b^2) /
+         (s^2 - 2*a*s + a^2 + b^2)*u
+       = (s^2 + (2*a-2*a)*s + a^2 - b^2 - 2*a^2 + a^2 + b^2) /
+         (s^2 - 2*a*s + a^2 + b^2)*u
+       = s^2 / (s^2 - 2*a*s + a^2 + b^2)*u
+
+  comparing coefficients with
+    y = s^2/(s^2 + c1*s + c0)*u  ->  a = -c1/2
+                                     b = sqrt(c0 - a^2)
+
+  comparing with eigenvalue representation:
+    (s - (a+jb))*(s - (a-jb)) = s^2 -2*a*s + a^2 + b^2
+  shows that:
+    a: real part of eigenvalue
+    b: imaginary part of eigenvalue
+</pre>
+
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>cr_in[:]</code></td><td>Coefficients of real poles of base filter</td></tr>
+<tr><td><code>Real</code></td><td><code>c0_in[:]</code></td><td>Coefficients of s^0 term of base filter if conjugate complex pole</td></tr>
+<tr><td><code>Real</code></td><td><code>c1_in[size(c0_in, 1)]</code></td><td>Coefficients of s^1 term of base filter if conjugate complex pole</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f_cut</code></td><td>Cut-off frequency</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>r[size(cr_in, 1)]</code></td><td>Real eigenvalues</td></tr>
+<tr><td><code>Real</code></td><td><code>a[size(c0_in, 1)]</code></td><td>Real parts of complex conjugate eigenvalues</td></tr>
+<tr><td><code>Real</code></td><td><code>b[size(c0_in, 1)]</code></td><td>Imaginary parts of complex conjugate eigenvalues</td></tr>
+<tr><td><code>Real</code></td><td><code>ku[size(c0_in, 1)]</code></td><td>Gains of input terms</td></tr>
+<tr><td><code>Real</code></td><td><code>k1[size(c0_in, 1)]</code></td><td>Gains of y = k1*x1 + k2*x + u</td></tr>
+<tr><td><code>Real</code></td><td><code>k2[size(c0_in, 1)]</code></td><td>Gains of y = k1*x1 + k2*x + u</td></tr>
+</table>
+<hr><a name="bandPass"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Blocks</a>.&#8203;<a href="../../../index.html">Continuous</a>.&#8203;<a href="../../index.html">Internal</a>.&#8203;<a href="../index.html">Filter</a>.&#8203;<a href="index.html">roots</a>.&#8203;bandPass<br><span class="subtitle">Return band pass filter roots as needed for block for given cut-off frequency</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+The goal is to implement the filter in the following form:
+</p>
+
+<pre>
+  // complex conjugate poles:
+  der(x1) = a*x1 - b*x2 + ku*u;
+  der(x2) = b*x1 + a*x2;
+       y  = k1*x1 + k2*x2;
+
+            ku = (a^2 + b^2)/b
+            k1 = cn/ku
+            k2 = cn*a/(b*ku)
+</pre>
+<p>
+This representation has the following transfer function:
+</p>
+<pre>
+// complex conjugate poles
+    s*x2 =  a*x2 + b*x1
+    s*x1 = -b*x2 + a*x1 + ku*u
+  or
+    (s-a)*x2               = b*x1  ->  x2 = b/(s-a)*x1
+    (s + b^2/(s-a) - a)*x1 = ku*u  ->  (s(s-a) + b^2 - a*(s-a))*x1  = ku*(s-a)*u
+                                   ->  (s^2 - 2*a*s + a^2 + b^2)*x1 = ku*(s-a)*u
+  or
+    x1 = ku*(s-a)/(s^2 - 2*a*s + a^2 + b^2)*u
+    x2 = b/(s-a)*ku*(s-a)/(s^2 - 2*a*s + a^2 + b^2)*u
+       = b*ku/(s^2 - 2*a*s + a^2 + b^2)*u
+    y  = k1*x1 + k2*x2
+       = (k1*ku*(s-a) + k2*b*ku) / (s^2 - 2*a*s + a^2 + b^2)*u
+       = (k1*ku*s + k2*b*ku - k1*ku*a) / (s^2 - 2*a*s + a^2 + b^2)*u
+       = (cn*s + cn*a - cn*a) / (s^2 - 2*a*s + a^2 + b^2)*u
+       = cn*s / (s^2 - 2*a*s + a^2 + b^2)*u
+
+  comparing coefficients with
+    y = cn*s / (s^2 + c1*s + c0)*u  ->  a = -c1/2
+                                        b = sqrt(c0 - a^2)
+
+  comparing with eigenvalue representation:
+    (s - (a+jb))*(s - (a-jb)) = s^2 -2*a*s + a^2 + b^2
+  shows that:
+    a: real part of eigenvalue
+    b: imaginary part of eigenvalue
+</pre>
+
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>cr_in[:]</code></td><td>Coefficients of real poles of base filter</td></tr>
+<tr><td><code>Real</code></td><td><code>c0_in[:]</code></td><td>Coefficients of s^0 term of base filter if conjugate complex pole</td></tr>
+<tr><td><code>Real</code></td><td><code>c1_in[size(c0_in, 1)]</code></td><td>Coefficients of s^1 term of base filter if conjugate complex pole</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f_min</code></td><td>Band of band pass filter is f_min (A=-3db) .. f_max (A=-3db)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f_max</code></td><td>Upper band frequency</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>a[size(cr_in, 1) + 2 * size(c0_in, 1)]</code></td><td>Real parts of complex conjugate eigenvalues</td></tr>
+<tr><td><code>Real</code></td><td><code>b[size(cr_in, 1) + 2 * size(c0_in, 1)]</code></td><td>Imaginary parts of complex conjugate eigenvalues</td></tr>
+<tr><td><code>Real</code></td><td><code>ku[size(cr_in, 1) + 2 * size(c0_in, 1)]</code></td><td>Gains of input terms</td></tr>
+<tr><td><code>Real</code></td><td><code>k1[size(cr_in, 1) + 2 * size(c0_in, 1)]</code></td><td>Gains of y = k1*x1 + k2*x</td></tr>
+<tr><td><code>Real</code></td><td><code>k2[size(cr_in, 1) + 2 * size(c0_in, 1)]</code></td><td>Gains of y = k1*x1 + k2*x</td></tr>
+</table>
+<hr><a name="bandStop"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Blocks</a>.&#8203;<a href="../../../index.html">Continuous</a>.&#8203;<a href="../../index.html">Internal</a>.&#8203;<a href="../index.html">Filter</a>.&#8203;<a href="index.html">roots</a>.&#8203;bandStop<br><span class="subtitle">Return band stop filter roots as needed for block for given cut-off frequency</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+The goal is to implement the filter in the following form:
+</p>
+
+<pre>
+  // complex conjugate poles:
+  der(x1) = a*x1 - b*x2 + ku*u;
+  der(x2) = b*x1 + a*x2;
+       y  = k1*x1 + k2*x2 + u;
+
+            ku = (a^2 + b^2)/b
+            k1 = 2*a/ku
+            k2 = (c0 + a^2 - b^2)/(b*ku)
+</pre>
+<p>
+This representation has the following transfer function:
+</p>
+<pre>
+// complex conjugate poles
+    s*x2 =  a*x2 + b*x1
+    s*x1 = -b*x2 + a*x1 + ku*u
+  or
+    (s-a)*x2               = b*x1  ->  x2 = b/(s-a)*x1
+    (s + b^2/(s-a) - a)*x1 = ku*u  ->  (s(s-a) + b^2 - a*(s-a))*x1  = ku*(s-a)*u
+                                   ->  (s^2 - 2*a*s + a^2 + b^2)*x1 = ku*(s-a)*u
+  or
+    x1 = ku*(s-a)/(s^2 - 2*a*s + a^2 + b^2)*u
+    x2 = b/(s-a)*ku*(s-a)/(s^2 - 2*a*s + a^2 + b^2)*u
+       = b*ku/(s^2 - 2*a*s + a^2 + b^2)*u
+    y  = k1*x1 + k2*x2 + u
+       = (k1*ku*(s-a) + k2*b*ku + s^2 - 2*a*s + a^2 + b^2) / (s^2 - 2*a*s + a^2 + b^2)*u
+       = (s^2 + (k1*ku-2*a)*s + k2*b*ku - k1*ku*a + a^2 + b^2) / (s^2 - 2*a*s + a^2 + b^2)*u
+       = (s^2 + c0 + a^2 - b^2 - 2*a^2 + a^2 + b^2) / (s^2 - 2*a*s + a^2 + b^2)*u
+       = (s^2 + c0) / (s^2 - 2*a*s + a^2 + b^2)*u
+
+  comparing coefficients with
+    y = (s^2 + c0) / (s^2 + c1*s + c0)*u  ->  a = -c1/2
+                                              b = sqrt(c0 - a^2)
+
+  comparing with eigenvalue representation:
+    (s - (a+jb))*(s - (a-jb)) = s^2 -2*a*s + a^2 + b^2
+  shows that:
+    a: real part of eigenvalue
+    b: imaginary part of eigenvalue
+</pre>
+
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>cr_in[:]</code></td><td>Coefficients of real poles of base filter</td></tr>
+<tr><td><code>Real</code></td><td><code>c0_in[:]</code></td><td>Coefficients of s^0 term of base filter if conjugate complex pole</td></tr>
+<tr><td><code>Real</code></td><td><code>c1_in[size(c0_in, 1)]</code></td><td>Coefficients of s^1 term of base filter if conjugate complex pole</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f_min</code></td><td>Band of band stop filter is f_min (A=-3db) .. f_max (A=-3db)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f_max</code></td><td>Upper band frequency</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>a[size(cr_in, 1) + 2 * size(c0_in, 1)]</code></td><td>Real parts of complex conjugate eigenvalues</td></tr>
+<tr><td><code>Real</code></td><td><code>b[size(cr_in, 1) + 2 * size(c0_in, 1)]</code></td><td>Imaginary parts of complex conjugate eigenvalues</td></tr>
+<tr><td><code>Real</code></td><td><code>ku[size(cr_in, 1) + 2 * size(c0_in, 1)]</code></td><td>Gains of input terms</td></tr>
+<tr><td><code>Real</code></td><td><code>k1[size(cr_in, 1) + 2 * size(c0_in, 1)]</code></td><td>Gains of y = k1*x1 + k2*x</td></tr>
+<tr><td><code>Real</code></td><td><code>k2[size(cr_in, 1) + 2 * size(c0_in, 1)]</code></td><td>Gains of y = k1*x1 + k2*x</td></tr>
+</table>
+</body></html>

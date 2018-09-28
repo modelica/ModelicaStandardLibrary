@@ -1,0 +1,341 @@
+<html><head><title>Modelica.Electrical.Analog.Interfaces</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Interfaces"><h1><embed class="icon" src="../../../images/icon0015.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;Interfaces<br><span class="subtitle">Connectors and partial models for Analog electrical components</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package contains connectors and interfaces (partial models) for analog electrical components. The partial models contain typical combinations of pins, and internal variables which are often used. Furthermore, the thermal heat port is in this package which can be included by inheritance.</p>
+<p>Extends from <code><a href="../../../Icons/InterfacesPackage/index.html">Modelica.&#8203;Icons.&#8203;InterfacesPackage</a></code> (Icon for packages containing interfaces).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#AbsoluteSensor"><code>AbsoluteSensor</code></a></td><td>Base class to measure the absolute value of a pin variable</td></tr>
+<tr><td><a href="#ConditionalHeatPort"><code>ConditionalHeatPort</code></a></td><td>Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network</td></tr>
+<tr><td><a href="#CurrentSource"><code>CurrentSource</code></a></td><td>Interface for current sources</td></tr>
+<tr><td><a href="#IdealSemiconductor"><code>IdealSemiconductor</code></a></td><td>Ideal semiconductor</td></tr>
+<tr><td><a href="#IdealSwitch"><code>IdealSwitch</code></a></td><td>Ideal electrical switch</td></tr>
+<tr><td><a href="#IdealSwitchWithArc"><code>IdealSwitchWithArc</code></a></td><td>Ideal switch with simple arc model</td></tr>
+<tr><td><a href="#NegativePin"><code>NegativePin</code></a></td><td>Negative pin of an electrical component</td></tr>
+<tr><td><a href="#OnePort"><code>OnePort</code></a></td><td>Component with two electrical pins p and n and current i from p to n</td></tr>
+<tr><td><a href="#Pin"><code>Pin</code></a></td><td>Pin of an electrical component</td></tr>
+<tr><td><a href="#PositivePin"><code>PositivePin</code></a></td><td>Positive pin of an electrical component</td></tr>
+<tr><td><a href="#RelativeSensor"><code>RelativeSensor</code></a></td><td>Base class to measure a relative variable between two pins</td></tr>
+<tr><td><a href="#TwoPin"><code>TwoPin</code></a></td><td>Component with two electrical pins</td></tr>
+<tr><td><a href="#TwoPort"><code>TwoPort</code></a></td><td>Component with two electrical ports, including current</td></tr>
+<tr><td><a href="#VoltageSource"><code>VoltageSource</code></a></td><td>Interface for voltage sources</td></tr>
+</table>
+<hr><a name="Pin"><h2><embed class="icon" src="../../../images/icon0432.svg" width="203" height="203" />
+Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;Pin<br><span class="subtitle">Pin of an electrical component</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Pin is the basic electric connector. It includes the voltage which consists between the pin and the ground node. The ground node is the node of (any) ground device (Modelica.Electrical.Basic.Ground). Furthermore, the pin includes the current, which is considered to be <strong>positive</strong> if it is flowing at the pin <strong>into the device</strong>.</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#ElectricPotential">ElectricPotential</a></code></td><td><code>v</code></td><td>Potential at the pin</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>i</code></td><td>Current flowing into the pin</td></tr>
+</table>
+<hr><a name="PositivePin"><h2><embed class="icon" src="../../../images/icon0432.svg" width="203" height="203" />
+Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PositivePin<br><span class="subtitle">Positive pin of an electrical component</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Connectors PositivePin and NegativePin are nearly identical. The only difference is that the icons are different in order to identify more easily the pins of a component. Usually, connector PositivePin is used for the positive and connector NegativePin for the negative pin of an electrical component.</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#ElectricPotential">ElectricPotential</a></code></td><td><code>v</code></td><td>Potential at the pin</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>i</code></td><td>Current flowing into the pin</td></tr>
+</table>
+<hr><a name="NegativePin"><h2><embed class="icon" src="../../../images/icon0433.svg" width="203" height="203" />
+Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;NegativePin<br><span class="subtitle">Negative pin of an electrical component</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Connectors PositivePin and NegativePin are nearly identical. The only difference is that the icons are different in order to identify more easily the pins of a component. Usually, connector PositivePin is used for the positive and connector NegativePin for the negative pin of an electrical component.</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#ElectricPotential">ElectricPotential</a></code></td><td><code>v</code></td><td>Potential at the pin</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>i</code></td><td>Current flowing into the pin</td></tr>
+</table>
+<hr><a name="TwoPin"><h2><embed class="icon" src="../../../images/icon0434.svg" width="223" height="203" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;TwoPin<br><span class="subtitle">Component with two electrical pins</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>TwoPin is a partial model with two pins and one internal variable for the voltage over the two pins. Internal currents are not defined. It is intended to be used in cases where the model which inherits TwoPin is composed by combining other components graphically, not by equations.</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+</table>
+<hr><a name="OnePort"><h2><embed class="icon" src="../../../images/icon0435.svg" width="223" height="203" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;OnePort<br><span class="subtitle">Component with two electrical pins p and n and current i from p to n</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Superclass of elements which have <strong>two</strong> electrical pins: the positive pin connector <em>p</em>, and the negative pin connector <em>n</em>. It is assumed that the current flowing into pin p is identical to the current flowing out of pin n. This current is provided explicitly as current i.</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+</table>
+<hr><a name="TwoPort"><h2><embed class="icon" src="../../../images/icon0436.svg" width="223" height="223" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;TwoPort<br><span class="subtitle">Component with two electrical ports, including current</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>TwoPort is a partial model that consists of two ports. Like OnePort each port has two pins. It is assumed that the current flowing into the positive  pin   is identical to the current flowing out of pin n. This currents of each port are  provided explicitly as currents i1 and i2, the voltages respectively as v1 and v2.</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p1</code></td><td>Positive electrical pin of port 1</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n1</code></td><td>Negative electrical pin of port 1</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p2</code></td><td>Positive electrical pin of port 2</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n2</code></td><td>Negative electrical pin of port 2</td></tr>
+</table>
+<hr><a name="ConditionalHeatPort"><h2><embed class="icon" src="../../../images/icon0437.svg" width="203" height="213" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;ConditionalHeatPort<br><span class="subtitle">Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This partial model provides a conditional heating port for the connection to a thermal network.
+</p>
+<ul>
+<li> If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal
+     loss power flows internally to the ground. In this case, the parameter <strong>T</strong> specifies
+     the fixed device temperature (the default for T = 20<sup>o</sup>C).</li>
+<li> If <strong>useHeatPort</strong> is set to <strong>true</strong>, a heat port is available.</li>
+</ul>
+
+<p>
+If this model is used, the loss power has to be provided by an equation in the model which inherits from
+ConditionalHeatingPort model (<strong>lossPower = ...</strong>). As device temperature
+<strong>T_heatPort</strong> can be used to describe the influence of the device temperature
+on the model behaviour.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+</table>
+<hr><a name="AbsoluteSensor"><h2><embed class="icon" src="../../../images/icon0438.svg" width="233" height="203" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;AbsoluteSensor<br><span class="subtitle">Base class to measure the absolute value of a pin variable</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The AbsoluteSensor is a partial model for converting values that can be calculated from one pin connector into a real valued signal. The special calculation has to be described in the model which inherits the AbsoluteSensor.  It is often used in sensor devices. To be a true sensor the modeller has to take care that the sensor model does not influence the electrical behavior to be measured.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Measured quantity as Real output signal</td></tr>
+</table>
+<hr><a name="RelativeSensor"><h2><embed class="icon" src="../../../images/icon0439.svg" width="223" height="213" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;RelativeSensor<br><span class="subtitle">Base class to measure a relative variable between two pins</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The RelaticeSensor is a partial model for converting values that can be calculated from two pin connectors into a real valued signal. The special calculation has to be described in the model which inherits the RelativeSensor.  It is often used in sensor devices. To be a true sensor the modeller has to take care that the sensor model does not influence the electrical behavior to be measured.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Measured quantity as Real output signal</td></tr>
+</table>
+<hr><a name="VoltageSource"><h2><embed class="icon" src="../../../images/icon0440.svg" width="223" height="203" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;VoltageSource<br><span class="subtitle">Interface for voltage sources</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The VoltageSource partial model prepares voltage sources by providing the pins, and the offset and startTime parameters, which are the same at all voltage sources. The source behavior is taken from Modelica.Blocks signal sources by inheritance and usage of the replaceable possibilities.</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical pins p and n and current i from p to n).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>offset</code></td><td><code>0</code></td><td>Voltage offset</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Time offset</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+</table>
+<hr><a name="CurrentSource"><h2><embed class="icon" src="../../../images/icon0441.svg" width="223" height="203" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;CurrentSource<br><span class="subtitle">Interface for current sources</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The CurrentSource partial model prepares current sources by providing the pins, and the offset and startTime parameters, which are the same at all current sources. The source behavior is taken from Modelica.Blocks signal sources by inheritance and usage of the replaceable possibilities.</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical pins p and n and current i from p to n).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>offset</code></td><td><code>0</code></td><td>Current offset</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Time offset</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+</table>
+<hr><a name="IdealSemiconductor"><h2><embed class="icon" src="../../../images/icon0406.svg" width="223" height="213" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;IdealSemiconductor<br><span class="subtitle">Ideal semiconductor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is an ideal semiconductor which is<br><br>
+<strong>open </strong>(off), if it is reversed biased (voltage drop less than 0)<br>
+<strong>closed</strong> (on), if it is conducting (current > 0).<br>
+<br/>
+This is the behaviour if all parameters are exactly zero.<br><br>
+Note, there are circuits, where this ideal description
+with zero resistance and zero conductance is not possible.
+In order to prevent singularities during switching, the opened
+semiconductor has a small conductance <em>Gon</em>
+and the closed semiconductor has a low resistance <em>Roff</em> which is default.
+</p>
+<p>
+The parameter <em>Vknee</em> which is the forward threshold voltage, allows to displace
+the knee point<br> along  the <em>Gon</em>-characteristic until <em>v = Vknee</em>.
+<br><br>
+<strong>Please note:</strong>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <strong>not</strong> modelled.
+</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical pins p and n and current i from p to n) and <code><a href="../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron</code></td><td><code>1e-5</code></td><td>Forward state-on differential resistance (closed resistance)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff</code></td><td><code>1e-5</code></td><td>Backward state-off conductance (opened conductance)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vknee</code></td><td><code>0</code></td><td>Forward threshold voltage</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+</table>
+<hr><a name="IdealSwitch"><h2><embed class="icon" src="../../../images/icon0442.svg" width="223" height="213" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;IdealSwitch<br><span class="subtitle">Ideal electrical switch</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The ideal switch has a positive pin p and a negative pin n.
+The switching behaviour is controlled by the boolean signal off.
+If off is true, pin p is not connected with negative pin n.
+Otherwise, pin p is connected with negative pin n.<br><br>
+In order to prevent singularities during switching, the opened
+switch has a (very low) conductance Goff
+and the closed switch has a (very low) resistance Ron.
+The limiting case is also allowed, i.e., the resistance Ron of the
+closed switch could be exactly zero and the conductance Goff of the
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
+<br><br>
+<strong>Please note:</strong>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
+</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical pins p and n and current i from p to n) and <code><a href="../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron</code></td><td><code>1e-5</code></td><td>Closed switch resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff</code></td><td><code>1e-5</code></td><td>Opened switch conductance</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+</table>
+<hr><a name="IdealSwitchWithArc"><h2><embed class="icon" src="../../../images/icon0442.svg" width="223" height="213" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;IdealSwitchWithArc<br><span class="subtitle">Ideal switch with simple arc model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model is an extension to the <a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitch">IdealSwitch</a>.
+</p>
+<p>
+The basic model interrupts the current through the switch in an infinitesimal time span.
+If an inductive circuit is connected, the voltage across the switch is limited only by numerics.
+In order to give a better idea for the voltage across the switch, a simple arc model is added:
+</p>
+<p>
+When the Boolean variable <code>off</code> signals to open the switch, a voltage across the opened switch is impressed.
+This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code>
+(simulating the rising voltage of an extending arc) until a maximum voltage <code>Vmax</code> is reached.
+</p>
+<pre>
+     | voltage
+Vmax |      +-----
+     |     /
+     |    /
+V0   |   +
+     |   |
+     +---+-------- time
+</pre>
+<p>
+This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched.
+Once the arc is quenched, i.e., the current flowing through the switch gets zero, the equation for the off-state is activated
+<code>i=Goff*v</code>.
+</p>
+<p>
+When the Boolean variable <code>off</code> signals to close the switch again, the switch is closed immediately,
+i.e., the equation for the on-state is activated <code>v=Ron*i</code>.
+</p>
+<p>
+Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
+In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
+<br><br>
+<strong>Please note:</strong>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
+</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical pins p and n and current i from p to n) and <code><a href="../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron</code></td><td><code>1e-5</code></td><td>Closed switch resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff</code></td><td><code>1e-5</code></td><td>Opened switch conductance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>V0</code></td><td>&nbsp;</td><td>Initial arc voltage</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#VoltageSlope">VoltageSlope</a></code></td><td><code>dVdt</code></td><td>&nbsp;</td><td>Arc voltage slope</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vmax</code></td><td>&nbsp;</td><td>Max. arc voltage</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>293.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+</table>
+</body></html>

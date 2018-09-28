@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance</title>
+</head>
+<body>
+<h1><a href="Icons/b39d06b3f8353462b4cf8b2344b579d7f2605ab1.svg"><img class="svgiconhead" src="Icons/b39d06b3f8353462b4cf8b2344b579d7f2605ab1.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.QuasiStationary.html">QuasiStationary</a>.<a class="omc-h1-a" href="Modelica.Electrical.QuasiStationary.MultiPhase.html">MultiPhase</a>.<a class="omc-h1-a" href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.html">Basic</a>.<span class="omc-h1">Impedance</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The impedance model represents a <strong>series</strong>
+connection of a resistor and either an inductor or capacitor in
+each phase.<br />
+<img src="../../../Modelica%203.2.3/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/RX_impedance.png" />
+</p>
+<p>The linear impedance connects the voltage <code><u>v</u></code>
+with the current <code><u>i</u></code> by <code><u>v</u> =
+<u>Z</u>*<u>i</u></code> in each phase, using <code>m</code>
+<a href="Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance.html">
+singlephase impedances</a>. The resistive components are modeled
+temperature dependent, so the real parts <code>R_actual =
+real(<u>Z</u>)</code> are determined from the actual operating
+temperatures and the reference input resistances
+<code>real(Z_ref)</code>. <a href="Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort.html">
+Conditional heat ports</a> are considered. The reactive components
+<code>X_actual = imag(<u>Z</u>)</code> are equal to
+<code>imag(Z_ref)</code> if <code>frequencyDependent =
+false</code>. Frequency dependency is considered by
+<code>frequencyDependent = true</code>, distinguishing two
+cases:</p>
+<dl>
+<dt>(a) <code>imag(Z_ref) &gt; 0</code>: inductive case</dt>
+<dd>The actual reactances <code>X_actual</code> are proportional to
+<code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Z_ref) &lt; 0</code>: capacitive case</dt>
+<dd>The actual reactances <code>X_actual</code> are proportional to
+<code>f_ref/f</code></dd>
+</dl>
+<h4>See also</h4>
+<p><a href="Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance.html">
+Impedance</a>, <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor.html">
+Resistor</a>, <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor.html">
+Conductor</a>, <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor.html">
+Capacitor</a>, <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor.html">
+Inductor</a>, <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance.html">
+Admittance</a>, <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor.html">
+Variable resistor</a>, <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor.html">
+Variable conductor</a>, <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor.html">
+Variable capacitor</a>, <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor.html">
+Variable inductor</a>, <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance.html">
+Variable impedance</a>, <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance.html">
+Variable admittance</a></p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

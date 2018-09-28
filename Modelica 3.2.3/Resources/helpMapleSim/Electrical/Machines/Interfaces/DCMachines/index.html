@@ -1,0 +1,253 @@
+<html><head><title>Modelica.Electrical.Machines.Interfaces.DCMachines</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="DCMachines"><h1><embed class="icon" src="../../../../images/icon0573.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;DCMachines<br><span class="subtitle">Thermal ports of DC machines</span></h1></a>
+<h3>Information</h3>
+<p>
+
+Thermal ports for DC machines
+<p>Extends from <code><a href="../../../../Icons/VariantsPackage/index.html">Modelica.&#8203;Icons.&#8203;VariantsPackage</a></code> (Icon for package containing variants).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#PartialPowerBalanceDCMachines"><code>PartialPowerBalanceDCMachines</code></a></td><td>Partial power balance of DC machines</td></tr>
+<tr><td><a href="#PartialThermalAmbientDCMachines"><code>PartialThermalAmbientDCMachines</code></a></td><td>Partial thermal ambient for DC machines</td></tr>
+<tr><td><a href="#PartialThermalPortDCMachines"><code>PartialThermalPortDCMachines</code></a></td><td>Partial thermal port of DC machines</td></tr>
+<tr><td><a href="#PowerBalanceDCCE"><code>PowerBalanceDCCE</code></a></td><td>Power balance of DC machines with compound excitation</td></tr>
+<tr><td><a href="#PowerBalanceDCEE"><code>PowerBalanceDCEE</code></a></td><td>Power balance of DC machines with electrical excitation</td></tr>
+<tr><td><a href="#PowerBalanceDCPM"><code>PowerBalanceDCPM</code></a></td><td>Power balance of DC machines with permanent magnet</td></tr>
+<tr><td><a href="#PowerBalanceDCSE"><code>PowerBalanceDCSE</code></a></td><td>Power balance of DC machines with series excitation</td></tr>
+<tr><td><a href="#ThermalPortDCCE"><code>ThermalPortDCCE</code></a></td><td>Thermal port of DC machine with compound excitation</td></tr>
+<tr><td><a href="#ThermalPortDCEE"><code>ThermalPortDCEE</code></a></td><td>Thermal port of DC machine with electrical excitation</td></tr>
+<tr><td><a href="#ThermalPortDCPM"><code>ThermalPortDCPM</code></a></td><td>Thermal port of DC machine with permanent magnets</td></tr>
+<tr><td><a href="#ThermalPortDCSE"><code>ThermalPortDCSE</code></a></td><td>Thermal port of DC machine with series excitation</td></tr>
+</table>
+<hr><a name="PartialThermalPortDCMachines"><h2><embed class="icon" src="../../../../images/icon0647.svg" width="223" height="223" />
+Connector <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;PartialThermalPortDCMachines<br><span class="subtitle">Partial thermal port of DC machines</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Partial thermal port for DC machines
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortArmature</code></td><td>Heat port of armature</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortCore</code></td><td>Heat port of (optional) core losses</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortStrayLoad</code></td><td>Heat port of (optional) stray losses</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortFriction</code></td><td>Heat port of (optional) friction losses</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortBrush</code></td><td>Heat port of (optional) brush losses</td></tr>
+</table>
+<hr><a name="PartialThermalAmbientDCMachines"><h2><embed class="icon" src="../../../../images/icon0641.svg" width="223" height="254" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;PartialThermalAmbientDCMachines<br><span class="subtitle">Partial thermal ambient for DC machines</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Partial thermal ambient for induction machines
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useTemperatureInputs</code></td><td><code>false</code></td><td>If true, temperature inputs are used; else, temperatures are constant</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>Ta</code></td><td>&nbsp;</td><td>Temperature of armature</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Machines/Interfaces/DCMachines/index.html#PartialThermalPortDCMachines">PartialThermalPortDCMachines</a></code></td><td><code>thermalPort</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>TArmature</code></td><td>Temperature of armature</td></tr>
+</table>
+<hr><a name="PartialPowerBalanceDCMachines"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;PartialPowerBalanceDCMachines<br><span class="subtitle">Partial power balance of DC machines</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Partial power balance of DC machines.
+ 
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerArmature</code></td><td>Electrical armature power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerMechanical</code></td><td>Mechanical power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerInertiaStator</code></td><td>Stator inertia power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerInertiaRotor</code></td><td>Rotor inertia power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerTotal</code></td><td>Total loss power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerArmature</code></td><td>Armature copper losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerCore</code></td><td>Core losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerStrayLoad</code></td><td>Stray load losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerFriction</code></td><td>Friction losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerBrush</code></td><td>Brush losses</td></tr>
+</table>
+<hr><a name="ThermalPortDCPM"><h2><embed class="icon" src="../../../../images/icon0648.svg" width="223" height="223" />
+Connector <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;ThermalPortDCPM<br><span class="subtitle">Thermal port of DC machine with permanent magnets</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Thermal port for DC machine with permanent magnets
+<p>Extends from <code><a href="../../../../Electrical/Machines/Interfaces/DCMachines/index.html#PartialThermalPortDCMachines">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Interfaces.&#8203;DCMachines.&#8203;PartialThermalPortDCMachines</a></code> (Partial thermal port of DC machines).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortArmature</code></td><td>Heat port of armature</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortCore</code></td><td>Heat port of (optional) core losses</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortStrayLoad</code></td><td>Heat port of (optional) stray losses</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortFriction</code></td><td>Heat port of (optional) friction losses</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortBrush</code></td><td>Heat port of (optional) brush losses</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortPermanentMagnet</code></td><td>Heat port of permanent magnets</td></tr>
+</table>
+<hr><a name="PowerBalanceDCPM"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;PowerBalanceDCPM<br><span class="subtitle">Power balance of DC machines with permanent magnet</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Power balance of DC machines with permanent magnet.
+ 
+<p>Extends from <code><a href="../../../../Electrical/Machines/Interfaces/DCMachines/index.html#PartialPowerBalanceDCMachines">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Interfaces.&#8203;DCMachines.&#8203;PartialPowerBalanceDCMachines</a></code> (Partial power balance of DC machines).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerArmature</code></td><td>Electrical armature power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerMechanical</code></td><td>Mechanical power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerInertiaStator</code></td><td>Stator inertia power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerInertiaRotor</code></td><td>Rotor inertia power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerTotal</code></td><td>Total loss power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerArmature</code></td><td>Armature copper losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerCore</code></td><td>Core losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerStrayLoad</code></td><td>Stray load losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerFriction</code></td><td>Friction losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerBrush</code></td><td>Brush losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerPermanentMagnet</code></td><td>Permanent magnet losses</td></tr>
+</table>
+<hr><a name="ThermalPortDCEE"><h2><embed class="icon" src="../../../../images/icon0648.svg" width="223" height="223" />
+Connector <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;ThermalPortDCEE<br><span class="subtitle">Thermal port of DC machine with electrical excitation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Thermal port for DC machine with electrical (shunt) excitation
+<p>Extends from <code><a href="../../../../Electrical/Machines/Interfaces/DCMachines/index.html#PartialThermalPortDCMachines">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Interfaces.&#8203;DCMachines.&#8203;PartialThermalPortDCMachines</a></code> (Partial thermal port of DC machines).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortArmature</code></td><td>Heat port of armature</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortCore</code></td><td>Heat port of (optional) core losses</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortStrayLoad</code></td><td>Heat port of (optional) stray losses</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortFriction</code></td><td>Heat port of (optional) friction losses</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortBrush</code></td><td>Heat port of (optional) brush losses</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortExcitation</code></td><td>Heat port of (shunt) excitation</td></tr>
+</table>
+<hr><a name="PowerBalanceDCEE"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;PowerBalanceDCEE<br><span class="subtitle">Power balance of DC machines with electrical excitation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Power balance of DC machines with electrical excitation.
+ 
+<p>Extends from <code><a href="../../../../Electrical/Machines/Interfaces/DCMachines/index.html#PartialPowerBalanceDCMachines">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Interfaces.&#8203;DCMachines.&#8203;PartialPowerBalanceDCMachines</a></code> (Partial power balance of DC machines).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerArmature</code></td><td>Electrical armature power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerMechanical</code></td><td>Mechanical power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerInertiaStator</code></td><td>Stator inertia power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerInertiaRotor</code></td><td>Rotor inertia power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerTotal</code></td><td>Total loss power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerArmature</code></td><td>Armature copper losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerCore</code></td><td>Core losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerStrayLoad</code></td><td>Stray load losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerFriction</code></td><td>Friction losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerBrush</code></td><td>Brush losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerExcitation</code></td><td>Electrical (shunt) excitation power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerExcitation</code></td><td>Excitation losses</td></tr>
+</table>
+<hr><a name="ThermalPortDCSE"><h2><embed class="icon" src="../../../../images/icon0649.svg" width="223" height="223" />
+Connector <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;ThermalPortDCSE<br><span class="subtitle">Thermal port of DC machine with series excitation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Thermal port for DC machine with serial excitation
+<p>Extends from <code><a href="../../../../Electrical/Machines/Interfaces/DCMachines/index.html#PartialThermalPortDCMachines">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Interfaces.&#8203;DCMachines.&#8203;PartialThermalPortDCMachines</a></code> (Partial thermal port of DC machines).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortArmature</code></td><td>Heat port of armature</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortCore</code></td><td>Heat port of (optional) core losses</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortStrayLoad</code></td><td>Heat port of (optional) stray losses</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortFriction</code></td><td>Heat port of (optional) friction losses</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortBrush</code></td><td>Heat port of (optional) brush losses</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortSeriesExcitation</code></td><td>Heat port of series excitation</td></tr>
+</table>
+<hr><a name="PowerBalanceDCSE"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;PowerBalanceDCSE<br><span class="subtitle">Power balance of DC machines with series excitation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Power balance of DC machines with series excitation.
+ 
+<p>Extends from <code><a href="../../../../Electrical/Machines/Interfaces/DCMachines/index.html#PartialPowerBalanceDCMachines">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Interfaces.&#8203;DCMachines.&#8203;PartialPowerBalanceDCMachines</a></code> (Partial power balance of DC machines).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerArmature</code></td><td>Electrical armature power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerMechanical</code></td><td>Mechanical power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerInertiaStator</code></td><td>Stator inertia power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerInertiaRotor</code></td><td>Rotor inertia power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerTotal</code></td><td>Total loss power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerArmature</code></td><td>Armature copper losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerCore</code></td><td>Core losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerStrayLoad</code></td><td>Stray load losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerFriction</code></td><td>Friction losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerBrush</code></td><td>Brush losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerSeriesExcitation</code></td><td>Electrical series excitation power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerSeriesExcitation</code></td><td>Series excitation losses</td></tr>
+</table>
+<hr><a name="ThermalPortDCCE"><h2><embed class="icon" src="../../../../images/icon0650.svg" width="223" height="223" />
+Connector <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;ThermalPortDCCE<br><span class="subtitle">Thermal port of DC machine with compound excitation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Thermal port for DC machine with compound excitation
+<p>Extends from <code><a href="../../../../Electrical/Machines/Interfaces/DCMachines/index.html#PartialThermalPortDCMachines">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Interfaces.&#8203;DCMachines.&#8203;PartialThermalPortDCMachines</a></code> (Partial thermal port of DC machines).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortArmature</code></td><td>Heat port of armature</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortCore</code></td><td>Heat port of (optional) core losses</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortStrayLoad</code></td><td>Heat port of (optional) stray losses</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortFriction</code></td><td>Heat port of (optional) friction losses</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortBrush</code></td><td>Heat port of (optional) brush losses</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortShuntExcitation</code></td><td>Heat port of (shunt) excitation</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPortSeriesExcitation</code></td><td>Heat port of series excitation</td></tr>
+</table>
+<hr><a name="PowerBalanceDCCE"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;PowerBalanceDCCE<br><span class="subtitle">Power balance of DC machines with compound excitation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Power balance of DC machines with compound excitation.
+ 
+<p>Extends from <code><a href="../../../../Electrical/Machines/Interfaces/DCMachines/index.html#PartialPowerBalanceDCMachines">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Interfaces.&#8203;DCMachines.&#8203;PartialPowerBalanceDCMachines</a></code> (Partial power balance of DC machines).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerArmature</code></td><td>Electrical armature power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerMechanical</code></td><td>Mechanical power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerInertiaStator</code></td><td>Stator inertia power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerInertiaRotor</code></td><td>Rotor inertia power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerTotal</code></td><td>Total loss power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerArmature</code></td><td>Armature copper losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerCore</code></td><td>Core losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerStrayLoad</code></td><td>Stray load losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerFriction</code></td><td>Friction losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerBrush</code></td><td>Brush losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerShuntExcitation</code></td><td>Electrical (shunt) excitation power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>powerSeriesExcitation</code></td><td>Electrical series excitation power</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerShuntExcitation</code></td><td>(Shunt) excitation losses</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>lossPowerSeriesExcitation</code></td><td>Series excitation losses</td></tr>
+</table>
+</body></html>

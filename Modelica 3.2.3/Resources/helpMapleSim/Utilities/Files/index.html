@@ -1,0 +1,472 @@
+<html><head><title>Modelica.Utilities.Files</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Files"><h1><embed class="icon" src="../../images/icon0092.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;Files<br><span class="subtitle">Functions to work with files and directories</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains functions to work with files and directories.
+As a general convention of this package, '/' is used as directory
+separator both for input and output arguments of all functions.
+For example:
+</p>
+<pre>
+   exist("Modelica/Mechanics/Rotational.mo");
+</pre>
+<p>
+The functions provide the mapping to the directory separator of the
+underlying operating system. Note, that on Windows system the usage
+of '\' as directory separator would be inconvenient, because this
+character is also the escape character in Modelica and C Strings.
+</p>
+<p>
+In the table below an example call to every function is given:
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>
+  <tr><td><a href="../../Utilities/Files/index.html#list">list</a>(name)</td>
+      <td> List content of file or of directory.</td>
+  </tr>
+  <tr><td><a href="../../Utilities/Files/index.html#copy">copy</a>(oldName, newName)<br>
+          <a href="../../Utilities/Files/index.html#copy">copy</a>(oldName, newName, replace=false)</td>
+      <td> Generate a copy of a file or of a directory.</td>
+  </tr>
+  <tr><td><a href="../../Utilities/Files/index.html#move">move</a>(oldName, newName)<br>
+          <a href="../../Utilities/Files/index.html#move">move</a>(oldName, newName, replace=false)</td>
+      <td> Move a file or a directory to another place.</td>
+  </tr>
+  <tr><td><a href="../../Utilities/Files/index.html#remove">remove</a>(name)</td>
+      <td> Remove file or directory (ignore call, if it does not exist).</td>
+  </tr>
+  <tr><td><a href="../../Utilities/Files/index.html#removeFile">removeFile</a>(name)</td>
+      <td> Remove file (ignore call, if it does not exist)</td>
+  </tr>
+  <tr><td><a href="../../Utilities/Files/index.html#createDirectory">createDirectory</a>(name)</td>
+      <td> Create directory (if directory already exists, ignore call).</td>
+  </tr>
+  <tr><td>result = <a href="../../Utilities/Files/index.html#exist">exist</a>(name)</td>
+      <td> Inquire whether file or directory exists.</td>
+  </tr>
+  <tr><td><a href="../../Utilities/Files/index.html#assertNew">assertNew</a>(name,message)</td>
+      <td> Trigger an assert, if a file or directory exists.</td>
+  </tr>
+  <tr><td>fullName = <a href="../../Utilities/Files/index.html#fullPathName">fullPathName</a>(name)</td>
+      <td> Get full path name of file or directory name.</td>
+  </tr>
+  <tr><td>(directory, name, extension) = <a href="../../Utilities/Files/index.html#splitPathName">splitPathName</a>(name)</td>
+      <td> Split path name in directory, file name kernel, file name extension.</td>
+  </tr>
+  <tr><td>fileName = <a href="../../Utilities/Files/index.html#temporaryFileName">temporaryFileName</a>()</td>
+      <td> Return arbitrary name of a file that does not exist<br>
+           and is in a directory where access rights allow to<br>
+           write to this file (useful for temporary output of files).</td>
+  </tr>
+  <tr><td>fileReference = <a href="../../Utilities/Files/index.html#loadResource">loadResource</a>(uri)</td>
+      <td>Return the absolute path name of a URI or local file name.</td>
+  </tr>
+</table>
+<p>Extends from <code><a href="../../Icons/FunctionsPackage/index.html">Modelica.&#8203;Icons.&#8203;FunctionsPackage</a></code> (Icon for packages containing functions).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#assertNew"><code>assertNew</code></a></td><td>Trigger an assert, if a file or directory exists</td></tr>
+<tr><td><a href="#copy"><code>copy</code></a></td><td>Generate a copy of a file or of a directory</td></tr>
+<tr><td><a href="#createDirectory"><code>createDirectory</code></a></td><td>Create directory (if directory already exists, ignore call)</td></tr>
+<tr><td><a href="#exist"><code>exist</code></a></td><td>Inquire whether file or directory exists</td></tr>
+<tr><td><a href="#fullPathName"><code>fullPathName</code></a></td><td>Get full path name of file or directory name</td></tr>
+<tr><td><a href="#list"><code>list</code></a></td><td>List content of file or directory</td></tr>
+<tr><td><a href="#loadResource"><code>loadResource</code></a></td><td>Return the absolute path name of a URI or local file name</td></tr>
+<tr><td><a href="#move"><code>move</code></a></td><td>Move a file or a directory to another place</td></tr>
+<tr><td><a href="#remove"><code>remove</code></a></td><td>Remove file or directory (ignore call, if it does not exist)</td></tr>
+<tr><td><a href="#removeFile"><code>removeFile</code></a></td><td>Remove file (ignore call, if it does not exist)</td></tr>
+<tr><td><a href="#splitPathName"><code>splitPathName</code></a></td><td>Split path name in directory, file name kernel, file name extension</td></tr>
+<tr><td><a href="#temporaryFileName"><code>temporaryFileName</code></a></td><td>Return arbitrary name of a file that does not exist and is in a directory where access rights allow to write to this file (useful for temporary output of files)</td></tr>
+</table>
+<hr><a name="list"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Files</a>.&#8203;list<br><span class="subtitle">List content of file or directory</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Files.<strong>list</strong>(name);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+If "name" is a regular file, the content of the
+file is printed.
+</p>
+<p>
+If "name" is a directory, the directory and file names
+in the "name" directory are printed in sorted order.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>name</code></td><td>If name is a directory, list directory content. If it is a file, list the file content</td></tr>
+</table>
+<hr><a name="copy"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Files</a>.&#8203;copy<br><span class="subtitle">Generate a copy of a file or of a directory</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Files.<strong>copy</strong>(oldName, newName);
+Files.<strong>copy</strong>(oldName, newName, replace = true);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <strong>copy</strong>(..) copies a file or a directory
+to a new location. Via the optional argument <strong>replace</strong>
+it can be defined whether an already existing file may
+be replaced by the required copy.
+</p>
+<p>
+If oldName/newName are directories, then the newName
+directory may exist. In such a case the content of oldName
+is copied into directory newName. If replace = <strong>false</strong>
+it is required that the existing files
+in newName are different from the existing files in
+oldName.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  copy("C:/test1/directory1", "C:/test2/directory2");
+     -> the content of directory1 is copied into directory2
+        if "C:/test2/directory2" does not exist, it is newly
+        created. If "replace=true", files in directory2
+        may be overwritten by their copy
+  copy("test1.txt", "test2.txt")
+     -> make a copy of file "test1.txt" with the name "test2.txt"
+        in the current directory
+</pre></blockquote>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>oldName</code></td><td>Name of file or directory to be copied</td></tr>
+<tr><td><code>String</code></td><td><code>newName</code></td><td>Name of copy of the file or of the directory</td></tr>
+<tr><td><code>Boolean</code></td><td><code>replace</code></td><td>= true, if an existing file may be replaced by the required copy</td></tr>
+</table>
+<hr><a name="move"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Files</a>.&#8203;move<br><span class="subtitle">Move a file or a directory to another place</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Files.<strong>move</strong>(oldName, newName);
+Files.<strong>move</strong>(oldName, newName, replace = true);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <strong>move</strong>(..) moves a file or a directory
+to a new location. Via the optional argument <strong>replace</strong>
+it can be defined whether an already existing file may
+be replaced.
+</p>
+<p>
+If oldName/newName are directories, then the newName
+directory may exist. In such a case the content of oldName
+is moved into directory newName. If replace = <strong>false</strong>
+it is required that the existing files
+in newName are different from the existing files in
+oldName.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  move("C:/test1/directory1", "C:/test2/directory2");
+     -> the content of directory1 is moved into directory2.
+        Afterwards directory1 is deleted.
+        if "C:/test2/directory2" does not exist, it is newly
+        created. If "replace=true", files in directory2
+        may be overwritten
+   move("test1.txt", "test2.txt")
+     -> rename file "test1.txt" into "test2.txt"
+        within the current directory
+</pre></blockquote>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>oldName</code></td><td>Name of file or directory to be moved</td></tr>
+<tr><td><code>String</code></td><td><code>newName</code></td><td>New name of the moved file or directory</td></tr>
+<tr><td><code>Boolean</code></td><td><code>replace</code></td><td>= true, if an existing file or directory may be replaced</td></tr>
+</table>
+<hr><a name="remove"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Files</a>.&#8203;remove<br><span class="subtitle">Remove file or directory (ignore call, if it does not exist)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Files.<strong>remove</strong>(name);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Removes the file or directory "name". If "name" does not exist,
+the function call is ignored. If "name" is a directory, first
+the content of the directory is removed and afterwards
+the directory itself.
+</p>
+<p>
+This function is silent, i.e., it does not print a message.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>name</code></td><td>Name of file or directory to be removed</td></tr>
+</table>
+<hr><a name="removeFile"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Files</a>.&#8203;removeFile<br><span class="subtitle">Remove file (ignore call, if it does not exist)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Files.<strong>removeFile</strong>(fileName);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Removes the file "fileName". If "fileName" does not exist,
+the function call is ignored. If "fileName" exists but is
+no regular file (e.g., directory, pipe, device, etc.) an
+error is triggered.
+</p>
+<p>
+This function is silent, i.e., it does not print a message.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>fileName</code></td><td>Name of file that should be removed</td></tr>
+</table>
+<hr><a name="createDirectory"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Files</a>.&#8203;createDirectory<br><span class="subtitle">Create directory (if directory already exists, ignore call)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Files.<strong>createDirectory</strong>(directoryName);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Creates directory "directoryName". If this directory already exists,
+the function call is ignored. If several directories in "directoryName"
+do not exist, all of them are created. For example, assume
+that directory "E:/test1" exists and that directory
+"E:/test1/test2/test3" shall be created. In this case
+the directories "test2" in "test1" and "test3" in "test2"
+are created.
+</p>
+<p>
+This function is silent, i.e., it does not print a message.
+In case of error (e.g., "directoryName" is an existing regular
+file), an assert is triggered.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>directoryName</code></td><td>Name of directory to be created (if present, ignore call)</td></tr>
+</table>
+<hr><a name="exist"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Files</a>.&#8203;exist<br><span class="subtitle">Inquire whether file or directory exists</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+result = Files.<strong>exist</strong>(name);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns true, if "name" is an existing file or directory.
+If this is not the case, the function returns false.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>name</code></td><td>Name of file or directory</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>result</code></td><td>= true, if file or directory exists</td></tr>
+</table>
+<hr><a name="assertNew"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Files</a>.&#8203;assertNew<br><span class="subtitle">Trigger an assert, if a file or directory exists</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Files.<strong>assertNew</strong>(name);
+Files.<strong>assertNew</strong>(name, message="This is not allowed");
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Triggers an assert, if "name" is an existing file or
+directory. The error message has the following structure:
+</p>
+<pre>
+  File "&lt;name&gt;" already exists.
+  &lt;message&gt;
+</pre>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>name</code></td><td>Name of file or directory</td></tr>
+<tr><td><code>String</code></td><td><code>message</code></td><td>Message that should be printed after the default message in a new line</td></tr>
+</table>
+<hr><a name="fullPathName"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Files</a>.&#8203;fullPathName<br><span class="subtitle">Get full path name of file or directory name</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+fullName = Files.<strong>fullPathName</strong>(name);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns the full path name of a file or directory "name".
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>name</code></td><td>Absolute or relative file or directory name</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>fullName</code></td><td>Full path of 'name'</td></tr>
+</table>
+<hr><a name="splitPathName"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Files</a>.&#8203;splitPathName<br><span class="subtitle">Split path name in directory, file name kernel, file name extension</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+(directory, name, extension) = Files.<strong>splitPathName</strong>(pathName);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <strong>splitPathName</strong>(..) splits a path name into its parts.
+</p>
+<h4>Example</h4>
+<pre>
+  (directory, name, extension) = Files.splitPathName("C:/user/test/input.txt")
+
+  -> directory = "C:/user/test/"
+     name      = "input"
+     extension = ".txt"
+</pre>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>pathName</code></td><td>Absolute or relative file or directory name</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>directory</code></td><td>Name of the directory including a trailing '/'</td></tr>
+<tr><td><code>String</code></td><td><code>name</code></td><td>Name of the file without the extension</td></tr>
+<tr><td><code>String</code></td><td><code>extension</code></td><td>Extension of the file name. Starts with '.'</td></tr>
+</table>
+<hr><a name="temporaryFileName"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Files</a>.&#8203;temporaryFileName<br><span class="subtitle">Return arbitrary name of a file that does not exist and is in a directory where access rights allow to write to this file (useful for temporary output of files)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+fileName = Files.<strong>temporaryFileName</strong>();
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Return arbitrary name of a file that does not exist
+and is in a directory where access rights allow to
+write to this file (useful for temporary output of files).
+</p>
+<p>
+The created temporary file is not automatically deleted when closed, but needs to be explicitly deleted, e.g. by <strong><a href="../../Utilities/Files/index.html#removeFile">removeFile</a></strong>(fileName).
+</p>
+<p>
+<strong>Warning:</strong>
+The underlying C implementation of <strong>ModelicaInternal_temporaryFileName</strong> calls the standard C function <strong>tmpnam</strong>, which has a race condition security problem in the case another process creates a file with the same fileName just after <strong>tmpnam</strong> generated the full path name.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  fileName = Files.temporaryFileName();
+     -> fileName is the absolute path name of the temporary file
+  Streams.print(String(System.getPid()), fileName);
+     -> Create the temporary file
+        Warning: Possible race condition on file access
+  Files.removeFile(fileName);
+     -> Explicitly delete the temporary file (after use)
+</pre></blockquote>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>fileName</code></td><td>Full path name of temporary file</td></tr>
+</table>
+<hr><a name="loadResource"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Files</a>.&#8203;loadResource<br><span class="subtitle">Return the absolute path name of a URI or local file name</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+fileReference = Files.<strong>loadResource</strong>(uri);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>Files.<strong>loadResource</strong>(uri)</code>" returns the
+<strong>absolute path name</strong> of the file that is either defined by an URI or by a local
+path name. With the returned file name it is possible to
+access the file with function calls of the C standard library.
+If the data or file is stored in a data-base,
+this might require copying the resource to a temporary folder and referencing that.
+</p>
+
+<p>
+The implementation of this function is tool specific. However, at least Modelica URIs
+(see "chapter 13.2.3 External Resources" of the Modelica Specification),
+as well as absolute local file path names are supported.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  file1 = loadResource("../../../Data/Utilities/Examples_readRealParameters.txt")
+          // file1 is the absolute path name of the file
+  file2 = loadResource("C:\\data\\readParameters.txt")
+          file2 = "C:/data/readParameters.txt"
+</pre></blockquote>
+<p>Extends from <code><a href="../../Utilities/Internal/PartialModelicaServices/ExternalReferences/index.html#PartialLoadResource">Modelica.&#8203;Utilities.&#8203;Internal.&#8203;PartialModelicaServices.&#8203;ExternalReferences.&#8203;PartialLoadResource</a></code> (Interface for tool specific function to return the absolute path name of a URI or local file name) and <code>ModelicaServices.&#8203;ExternalReferences.&#8203;loadResource</code> (Return the absolute path name of a URI or local file name (in this default implementation URIs are not supported, but only local file names)).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>uri</code></td><td>URI or local file name</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>fileReference</code></td><td>Absolute path name of file</td></tr>
+</table>
+</body></html>

@@ -1,0 +1,919 @@
+<html><head><title>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Basic"><h1><embed class="icon" src="../../../../images/icon0772.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;Basic<br><span class="subtitle">Basic components for AC multiphase models</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package hosts basic models for quasi stationary multiphase circuits.
+Quasi stationary theory can be found in the
+<a href="../../../../Electrical/QuasiStationary/UsersGuide/index.html#References">references</a>.
+</p>
+<h4>See also</h4>
+
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html">SinglePhase.Basic</a>
+
+<p>Extends from <code><a href="../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Admittance"><code>Admittance</code></a></td><td>Multiphase linear admittance</td></tr>
+<tr><td><a href="#Capacitor"><code>Capacitor</code></a></td><td>Multiphase linear capacitor</td></tr>
+<tr><td><a href="#Conductor"><code>Conductor</code></a></td><td>Multiphase linear conductor</td></tr>
+<tr><td><a href="#Delta"><code>Delta</code></a></td><td>Delta (polygon) connection</td></tr>
+<tr><td><a href="#Impedance"><code>Impedance</code></a></td><td>Multiphase linear impedance</td></tr>
+<tr><td><a href="#Inductor"><code>Inductor</code></a></td><td>Multiphase linear inductor</td></tr>
+<tr><td><a href="#MultiDelta"><code>MultiDelta</code></a></td><td>Delta (polygon) connection of multi phase systems consisting of multiple base systems</td></tr>
+<tr><td><a href="#MultiStar"><code>MultiStar</code></a></td><td>Star connection of multi phase systems consisting of multiple base systems</td></tr>
+<tr><td><a href="#MultiStarResistance"><code>MultiStarResistance</code></a></td><td>Resistance connection of star points</td></tr>
+<tr><td><a href="#MutualInductor"><code>MutualInductor</code></a></td><td>Linear mutual inductor</td></tr>
+<tr><td><a href="#PlugToPin_n"><code>PlugToPin_n</code></a></td><td>Connect one (negative) pin</td></tr>
+<tr><td><a href="#PlugToPin_p"><code>PlugToPin_p</code></a></td><td>Connect one (positive) pin</td></tr>
+<tr><td><a href="#PlugToPins_n"><code>PlugToPins_n</code></a></td><td>Connect all (negative) pins</td></tr>
+<tr><td><a href="#PlugToPins_p"><code>PlugToPins_p</code></a></td><td>Connect all (positive) pins</td></tr>
+<tr><td><a href="#Resistor"><code>Resistor</code></a></td><td>Multiphase linear resistor</td></tr>
+<tr><td><a href="#Star"><code>Star</code></a></td><td>Star connection</td></tr>
+<tr><td><a href="#VariableAdmittance"><code>VariableAdmittance</code></a></td><td>Multiphase variable admittance</td></tr>
+<tr><td><a href="#VariableCapacitor"><code>VariableCapacitor</code></a></td><td>Multiphase variable capacitor</td></tr>
+<tr><td><a href="#VariableConductor"><code>VariableConductor</code></a></td><td>Multiphase variable conductor</td></tr>
+<tr><td><a href="#VariableImpedance"><code>VariableImpedance</code></a></td><td>Multiphase variable impedance</td></tr>
+<tr><td><a href="#VariableInductor"><code>VariableInductor</code></a></td><td>Multiphase variable inductor</td></tr>
+<tr><td><a href="#VariableResistor"><code>VariableResistor</code></a></td><td>Multiphase variable resistor</td></tr>
+</table>
+<hr><a name="Star"><h2><embed class="icon" src="../../../../images/icon0821.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Star<br><span class="subtitle">Star connection</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Star (wye) connection of a multi phase circuit. The potentials at the star points are the same.
+</p>
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Delta">Delta</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#MultiStar">MultiStar</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#MultiDelta">MultiDelta</a>
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Delta"><h2><embed class="icon" src="../../../../images/icon0822.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Delta<br><span class="subtitle">Delta (polygon) connection</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Delta (polygon) connection of a multi phase circuit.
+</p>
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Star">Star</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#MultiStar">MultiStar</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#MultiDelta">MultiDelta</a>
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="MultiStar"><h2><embed class="icon" src="../../../../images/icon0823.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;MultiStar<br><span class="subtitle">Star connection of multi phase systems consisting of multiple base systems</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Star (wye) connection of a multi phase circuit consisting of multiple base systems (see
+<a href="../../../../Magnetic/FundamentalWave/UsersGuide/index.html#MultiPhase">multi phase guidelines</a>). The potentials at the star points are all equal.
+</p>
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Star">Star</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Delta">Delta</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#MultiDelta">MultiDelta</a>
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mSystems</code></td><td><code>Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)</code></td><td>Number of base systems</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mBasic</code></td><td><code>integer(m / mSystems)</code></td><td>Phase number of base systems</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>starpoints</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="MultiDelta"><h2><embed class="icon" src="../../../../images/icon0824.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;MultiDelta<br><span class="subtitle">Delta (polygon) connection of multi phase systems consisting of multiple base systems</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Delta (polygon) connection of a multi phase circuit consisting of multiple base systems (see
+<a href="../../../../Magnetic/FundamentalWave/UsersGuide/index.html#MultiPhase">multi phase guidelines</a>).
+</p>
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Star">Star</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Delta">Delta</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#MultiStar">MultiStar</a>
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mSystems</code></td><td><code>Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)</code></td><td>Number of base systems</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mBasic</code></td><td><code>integer(m / mSystems)</code></td><td>Phase number of base systems</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="MultiStarResistance"><h2><embed class="icon" src="../../../../images/icon0825.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;MultiStarResistance<br><span class="subtitle">Resistance connection of star points</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Multi star points are connected by resistors. This model is required to operate multi phase systems with even phase numbers to avoid ideal connections of start points of base systems; see
+<a href="../../../../Magnetic/FundamentalWave/UsersGuide/index.html#MultiPhase">multi phase guidelines</a>.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mBasic</code></td><td><code>Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)</code></td><td>Number of symmetric base systems</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>1000000</code></td><td>Insulation resistance between base systems</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PlugToPin_p"><h2><embed class="icon" src="../../../../images/icon0826.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;PlugToPin_p<br><span class="subtitle">Connect one (positive) pin</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Connects the single phase (positive) pin <code>k</code> of the multi phase (positive) plug to a single phase (positive) pin.
+</p>
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#PlugToPin_n">PlugToPin_n</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#PlugToPins_p">PlutToPins_p</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#PlugToPins_n">PlugToPins_n</a>
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>Integer</code></td><td><code>k</code></td><td><code>1</code></td><td>Phase index</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PlugToPin_n"><h2><embed class="icon" src="../../../../images/icon0827.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;PlugToPin_n<br><span class="subtitle">Connect one (negative) pin</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Connects the single phase (negative) pin <code>k</code> of the multi phase (negative) plug to a single phase (negative) pin.
+</p>
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#PlugToPin_p">PlugToPin_p</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#PlugToPins_p">PlutToPins_p</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#PlugToPins_n">PlugToPins_n</a>
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>Integer</code></td><td><code>k</code></td><td><code>1</code></td><td>Phase index</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PlugToPins_p"><h2><embed class="icon" src="../../../../images/icon0828.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;PlugToPins_p<br><span class="subtitle">Connect all (positive) pins</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Connects all <code>m</code> single phase (positive) pins of the multi phase (positive) plug to an array of <code>m</code> single phase (positive) pins.
+</p>
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#PlugToPin_p">PlugToPin_p</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#PlugToPin_n">PlugToPin_n</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#PlugToPins_n">PlugToPins_n</a>
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p[m]</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PlugToPins_n"><h2><embed class="icon" src="../../../../images/icon0829.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;PlugToPins_n<br><span class="subtitle">Connect all (negative) pins</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Connects all <code>m</code> single phase (negative) pins of the multi phase (negative) plug to an array of <code>m</code> single phase (negative) pins.
+</p>
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#PlugToPin_p">PlugToPin_p</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#PlugToPin_n">PlugToPin_n</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#PlugToPins_p">PlugToPins_p</a>
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n[m]</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Resistor"><h2><embed class="icon" src="../../../../images/icon0830.svg" width="223" height="213" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Resistor<br><span class="subtitle">Multiphase linear resistor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The linear resistor connects the complex voltages <code><u>v</u></code> with the complex
+currents <code><u>i</u></code> by <code><u>i</u>*R = <u>v</u></code>,
+using <code>m</code> <a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Resistor">single phase Resistors</a>.
+</p>
+
+<p>
+The resistor model also has <code>m</code> optional
+<a href="../../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">conditional heat ports</a>.
+A linear temperature dependency of the resistances for enabled heat ports is also taken into account.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Resistor">Resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Conductor">Conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Capacitor">Capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Inductor">Inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Impedance">Impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Admittance">Admittance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableResistor">Variable resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableConductor">Variable conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableCapacitor">Variable capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableInductor">Variable inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableImpedance">Variable impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableAdmittance">Variable admittance</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Two plugs with pin-adapter) and <code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R_ref[m]</code></td><td>&nbsp;</td><td>Reference resistances at T_ref</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref[m]</code></td><td><code>fill(293.15, m)</code></td><td>Reference temperatures</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_ref[m]</code></td><td><code>zeros(m)</code></td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mh</code></td><td><code>m</code></td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if all heat ports are enabled</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T[mh]</code></td><td><code>T_ref</code></td><td>Fixed device temperatures if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort[mh]</code></td><td>Conditional heat ports</td></tr>
+</table>
+<hr><a name="Conductor"><h2><embed class="icon" src="../../../../images/icon0830.svg" width="223" height="213" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Conductor<br><span class="subtitle">Multiphase linear conductor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The linear resistor connects the complex currents <code><u>i</u></code> with the complex
+voltages <code><u>v</u></code> by <code><u>v</u>*G = <u>i</u></code>,
+using <code>m</code> <a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Conductor">single phase Conductors</a>.
+</p>
+
+<p>
+The conductor model also has <code>m</code> optional
+<a href="../../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">conditional heat ports</a>.
+A linear temperature dependency of the conductances for enabled heat ports is also taken into account.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Conductor">Conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Resistor">Resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Capacitor">Capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Inductor">Inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Impedance">Impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Admittance">Admittance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableResistor">Variable resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableConductor">Variable conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableCapacitor">Variable capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableInductor">Variable inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableImpedance">Variable impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableAdmittance">Variable admittance</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Two plugs with pin-adapter) and <code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>G_ref[m]</code></td><td>&nbsp;</td><td>Reference conductances at T_ref</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref[m]</code></td><td><code>fill(293.15, m)</code></td><td>Reference temperatures</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_ref[m]</code></td><td><code>zeros(m)</code></td><td>Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mh</code></td><td><code>m</code></td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if all heat ports are enabled</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T[mh]</code></td><td><code>T_ref</code></td><td>Fixed device temperatures if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort[mh]</code></td><td>Conditional heat ports</td></tr>
+</table>
+<hr><a name="Capacitor"><h2><embed class="icon" src="../../../../images/icon0831.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Capacitor<br><span class="subtitle">Multiphase linear capacitor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The linear capacitor connects the complex currents <code><u>i</u></code> with the complex
+voltages <code><u>v</u></code> by <code><u>v</u>*j*&omega;*C = <u>i</u></code>,
+using <code>m</code> <a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Capacitor">single phase Capacitors</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Capacitor">Capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Resistor">Resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Conductor">Conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Inductor">Inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Impedance">Impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Admittance">Admittance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableResistor">Variable resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableConductor">Variable conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableCapacitor">Variable capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableInductor">Variable inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableImpedance">Variable impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableAdmittance">Variable admittance</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Two plugs with pin-adapter).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>C[m]</code></td><td>&nbsp;</td><td>Capacitances</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+</table>
+<hr><a name="Inductor"><h2><embed class="icon" src="../../../../images/icon0832.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Inductor<br><span class="subtitle">Multiphase linear inductor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The linear inductor connects the complex voltages <code><u>v</u></code> with the complex
+currents <code><u>i</u></code> by <code><u>i</u>*j*&omega;*L = <u>v</u></code>,
+using <code>m</code> <a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Inductor">single phase Inductors</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Inductor">Inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Resistor">Resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Conductor">Conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Capacitor">Capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Impedance">Impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Admittance">Admittance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableResistor">Variable resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableConductor">Variable conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableCapacitor">Variable capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableInductor">Variable inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableImpedance">Variable impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableAdmittance">Variable admittance</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Two plugs with pin-adapter).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L[m]</code></td><td>&nbsp;</td><td>Inductances</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+</table>
+<hr><a name="MutualInductor"><h2><embed class="icon" src="../../../../images/icon0833.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;MutualInductor<br><span class="subtitle">Linear mutual inductor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Model of a multi phase inductor providing a mutual inductance matrix model.
+</p>
+<h4>Implementation</h4>
+<pre>
+  v[1] = j*omega*L[1,1]*i[1] + j*omega*L[1,2]*i[2] + ... + j*omega*L[1,m]*i[m]
+  v[2] = j*omega*L[2,1]*i[1] + j*omega*L[2,2]*i[2] + ... + j*omega*L[2,m]*i[m]
+     :              :                     :                           :
+  v[m] = j*omega*L[m,1]*i[1] + j*omega*L[m,2]*i[2] + ... + j*omega*L[m,m]*i[m]
+</pre>
+
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;OnePort</a></code>.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>Real</code></td><td><code>epsilon</code></td><td><code>1e-9</code></td><td>Relative accuracy tolerance of matrix symmetry</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L[m,m]</code></td><td>&nbsp;</td><td>Mutual inductance matrix</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+</table>
+<hr><a name="Impedance"><h2><embed class="icon" src="../../../../images/icon0834.svg" width="223" height="213" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Impedance<br><span class="subtitle">Multiphase linear impedance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The impedance model represents a <strong>series</strong> connection of a resistor and either an inductor or capacitor
+in each phase.<br>
+<img src="../../../../../Images/Electrical/QuasiStationary/SinglePhase/Basic/RX_impedance.png"></p>
+
+<p>
+The linear impedance connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by  <code><u>v</u> = <u>Z</u>*<u>i</u></code> in each phase, using <code>m</code>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Impedance">singlephase impedances</a>.
+The resistive
+components are modeled temperature dependent, so the real parts <code>R_actual = real(<u>Z</u>)</code> are determined from
+the actual operating temperatures and the reference input resistances <code>real(Z_ref)</code>.
+<a href="../../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">Conditional heat ports</a> are considered.
+The reactive components <code>X_actual = imag(<u>Z</u>)</code>
+are equal to <code>imag(Z_ref)</code> if <code>frequencyDependent = false</code>.
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+</p>
+
+<dl>
+<dt>(a) <code>imag(Z_ref) &gt; 0</code>: inductive case</dt>
+<dd>The actual reactances <code>X_actual</code> are proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Z_ref) &lt; 0</code>: capacitive case</dt>
+<dd>The actual reactances <code>X_actual</code> are proportional to <code>f_ref/f</code></dd>
+</dl>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Impedance">Impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Resistor">Resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Conductor">Conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Capacitor">Capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Inductor">Inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Admittance">Admittance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableResistor">Variable resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableConductor">Variable conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableCapacitor">Variable capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableInductor">Variable inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableImpedance">Variable impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableAdmittance">Variable admittance</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Two plugs with pin-adapter) and <code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#ComplexImpedance">ComplexImpedance</a></code></td><td><code>Z_ref[m]</code></td><td>&nbsp;</td><td>Complex impedances R_ref + j*X_ref</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref[m]</code></td><td><code>fill(293.15, m)</code></td><td>Reference temperatures</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_ref[m]</code></td><td><code>zeros(m)</code></td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mh</code></td><td><code>m</code></td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if all heat ports are enabled</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T[mh]</code></td><td><code>T_ref</code></td><td>Fixed device temperatures if useHeatPort = false</td></tr>
+<tr><td><code>Boolean</code></td><td><code>frequencyDependent</code></td><td><code>false</code></td><td>Consider frequency dependency, if true</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f_ref</code></td><td><code>1</code></td><td>Reference frequency, if frequency dependency is considered</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort[mh]</code></td><td>Conditional heat ports</td></tr>
+</table>
+<hr><a name="Admittance"><h2><embed class="icon" src="../../../../images/icon0834.svg" width="223" height="213" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Admittance<br><span class="subtitle">Multiphase linear admittance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>The admittance model represents a <strong>parallel</strong> connection of a resistor and either a capacitor or inductor
+in each phase.<br>
+<img src="../../../../../Images/Electrical/QuasiStationary/SinglePhase/Basic/GB_admittance.png"></p>
+
+<p>
+The linear admittance connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by  <code><u>i</u> = <u>Y</u>*<u>v</u></code> in each phase, using <code>m</code>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Admittance">singlephase admittances</a>.
+The resistive
+components are modeled temperature dependent, so the real parts <code>G_actual = real(<u>Y</u>)</code> are determined from
+the actual operating temperatures and the reference input conductances <code>real(Y_ref)</code>.
+<a href="../../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">Conditional heat ports</a> are considered.
+The reactive components
+<code>B_actual = imag(<u>Y</u>)</code>
+are equal to <code>imag(Y_ref)</code> if <code>frequencyDependent = false</code>.
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+</p>
+
+<dl>
+<dt>(a) <code>imag(Y_ref) &gt; 0</code>: capacitive case</dt>
+<dd>The actual susceptances <code>B_actual</code> are proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Y_ref) &lt; 0</code>: inductive case</dt>
+<dd>The actual susceptances <code>B_actual</code> are proportional to <code>f_ref/f</code></dd>
+</dl>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Admittance">Admittance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Resistor">Resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Conductor">Conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Capacitor">Capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Impedance">Impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableResistor">Variable resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableConductor">Variable conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableCapacitor">Variable capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableInductor">Variable inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableImpedance">Variable impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableAdmittance">Variable admittance</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Two plugs with pin-adapter) and <code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#ComplexAdmittance">ComplexAdmittance</a></code></td><td><code>Y_ref[m]</code></td><td>&nbsp;</td><td>Complex admittances G_ref + j*B_ref</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref[m]</code></td><td><code>fill(293.15, m)</code></td><td>Reference temperatures</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_ref[m]</code></td><td><code>zeros(m)</code></td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mh</code></td><td><code>m</code></td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if all heat ports are enabled</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T[mh]</code></td><td><code>T_ref</code></td><td>Fixed device temperatures if useHeatPort = false</td></tr>
+<tr><td><code>Boolean</code></td><td><code>frequencyDependent</code></td><td><code>false</code></td><td>Consider frequency dependency, if true</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f_ref</code></td><td><code>1</code></td><td>Reference frequency, if frequency dependency is considered</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort[mh]</code></td><td>Conditional heat ports</td></tr>
+</table>
+<hr><a name="VariableResistor"><h2><embed class="icon" src="../../../../images/icon0835.svg" width="223" height="253" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;VariableResistor<br><span class="subtitle">Multiphase variable resistor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The linear resistors connect the complex voltages <code><u>v</u></code> with the complex
+currents <code><u>i</u></code> by <code><u>i</u>*R = <u>v</u></code>,
+using <code>m</code> <a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableResistor">single phase variable Resistors</a>.
+The resistances <code>R</code> are given as <code>m</code> input signals.
+</p>
+
+<p>
+The resistor model also has <code>m</code> optional
+<a href="../../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">conditional heat ports</a>.
+A linear temperature dependency of the resistances is also taken into account.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableResistor">VariableResistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Resistor">Resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Conductor">Conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Capacitor">Capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Inductor">Inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Impedance">Impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Admittance">Admittance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableConductor">Variable conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableCapacitor">Variable capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableInductor">Variable inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableImpedance">Variable impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableAdmittance">Variable admittance</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Two plugs with pin-adapter) and <code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref[m]</code></td><td><code>fill(293.15, m)</code></td><td>Reference temperatures</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_ref[m]</code></td><td><code>zeros(m)</code></td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mh</code></td><td><code>m</code></td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if all heat ports are enabled</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T[mh]</code></td><td><code>T_ref</code></td><td>Fixed device temperatures if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort[mh]</code></td><td>Conditional heat ports</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>R_ref[m]</code></td><td>Variable resistance</td></tr>
+</table>
+<hr><a name="VariableConductor"><h2><embed class="icon" src="../../../../images/icon0835.svg" width="223" height="253" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;VariableConductor<br><span class="subtitle">Multiphase variable conductor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The linear resistors connect the complex currents <code><u>i</u></code> with the complex
+voltages <code><u>v</u></code> by <code><u>v</u>*G = <u>i</u></code>,
+using <code>m</code> <a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableConductor">single phase variable Conductors</a>.
+The conductances <code>G</code> are given as <code>m</code> input signals.
+</p>
+
+<p>
+The conductor model also has <code>m</code> optional
+<a href="../../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">conditional heat ports</a>.
+A linear temperature dependency of the conductances is also taken into account.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableConductor">VariableConductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Resistor">Resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Conductor">Conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Capacitor">Capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Inductor">Inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Impedance">Impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Admittance">Admittance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableResistor">Variable resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableCapacitor">Variable capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableInductor">Variable inductor</a>
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableImpedance">Variable impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableAdmittance">Variable admittance</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Two plugs with pin-adapter) and <code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref[m]</code></td><td><code>fill(293.15, m)</code></td><td>Reference temperatures</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_ref[m]</code></td><td><code>zeros(m)</code></td><td>Temperature coefficient of resistance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mh</code></td><td><code>m</code></td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if all heat ports are enabled</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T[mh]</code></td><td><code>T_ref</code></td><td>Fixed device temperatures if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort[mh]</code></td><td>Conditional heat ports</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>G_ref[m]</code></td><td>Variable conductance</td></tr>
+</table>
+<hr><a name="VariableCapacitor"><h2><embed class="icon" src="../../../../images/icon0836.svg" width="223" height="243" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;VariableCapacitor<br><span class="subtitle">Multiphase variable capacitor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The linear capacitors connect the complex currents <code><u>i</u></code> with the complex
+voltages <code><u>v</u></code> by <code><u>v</u>*j*&omega;*C = <u>i</u></code>,
+using <code>m</code> <a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableCapacitor">single phase variable Capacitors</a>.
+The capacitances <code>C</code> are given as <code>m</code> input signals.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableCapacitor">VariableCapacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Resistor">Resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Conductor">Conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Capacitor">Capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Inductor">Inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Impedance">Impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Admittance">Admittance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableResistor">Variable resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableConductor">Variable conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableInductor">Variable inductor</a>
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableImpedance">Variable impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableAdmittance">Variable admittance</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Two plugs with pin-adapter).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>C[m]</code></td><td>Variable capacitance</td></tr>
+</table>
+<hr><a name="VariableInductor"><h2><embed class="icon" src="../../../../images/icon0837.svg" width="223" height="243" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;VariableInductor<br><span class="subtitle">Multiphase variable inductor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The linear inductors connect the complex voltages <code><u>v</u></code> with the complex
+currents <code><u>i</u></code> by <code><u>i</u>*j*&omega;*L = <u>v</u></code>,
+using <code>m</code> <a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableInductor">single phase variable Inductors</a>.
+The inductances <code>L</code> are given as <code>m</code> input signals.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#Inductor">Inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Resistor">Resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Conductor">Conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Capacitor">Capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Inductor">Inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Impedance">Impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Admittance">Admittance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableResistor">Variable resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableConductor">Variable conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableCapacitor">Variable capacitor</a>
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableImpedance">Variable impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableAdmittance">Variable admittance</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Two plugs with pin-adapter).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>L[m]</code></td><td>Variable inductance</td></tr>
+</table>
+<hr><a name="VariableImpedance"><h2><embed class="icon" src="../../../../images/icon0838.svg" width="223" height="253" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;VariableImpedance<br><span class="subtitle">Multiphase variable impedance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The impedance model represents a <strong>series</strong> connection of a resistor and either an inductor or capacitor
+in each phase.<br>
+<img src="../../../../../Images/Electrical/QuasiStationary/SinglePhase/Basic/RX_impedance.png"></p>
+
+<p>
+The linear impedance connects the complex voltage <code><u>v</u></code> with the
+complex current <code><u>i</u></code> by <code><u>i</u>*<u>Z</u> = <u>v</u></code> in each phase,
+using <code>m</code>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableImpedance">
+variable singlephase impedances</a>.
+The impedances <code>Z_ref = R_ref + j*X_ref</code> are given as complex input signals, representing the
+resistive and reactive components of the input impedances. The resistive
+components are modeled temperature dependent, so the real part <code>R_actual = real(<u>Z</u>)</code> are determined from
+the actual operating temperatures and the reference input resistances <code>real(Z_ref)</code>.
+<a href="../../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">Conditional heat ports</a> are considered.
+The reactive components <code>X_actual = imag(<u>Z</u>)</code>
+are equal to <code>imag(Z_ref)</code> if <code>frequencyDependent = false</code>.
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+</p>
+
+<dl>
+<dt>(a) <code>imag(Z_ref) &gt; 0</code>: inductive case</dt>
+<dd>The actual reactances <code>X_actual</code> are proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Z_ref) &lt; 0</code>: capacitive case</dt>
+<dd>The actual reactances <code>X_actual</code> are proportional to <code>f_ref/f</code></dd>
+</dl>
+
+<h4>Note</h4>
+<p>
+Zero crossings of the real or imaginary parts of the impedance signals <code>Z_ref</code> could cause
+singularities due to the actual structure of the connected network.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableResistor">VariableResistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Resistor">Resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Conductor">Conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Capacitor">Capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Inductor">Inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Impedance">Impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Admittance">Admittance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableConductor">Variable conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableCapacitor">Variable capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableInductor">Variable inductor</a>
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableAdmittance">Variable admittance</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Two plugs with pin-adapter) and <code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref[m]</code></td><td><code>fill(293.15, m)</code></td><td>Reference temperatures</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_ref[m]</code></td><td><code>zeros(m)</code></td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mh</code></td><td><code>m</code></td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if all heat ports are enabled</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T[mh]</code></td><td><code>T_ref</code></td><td>Fixed device temperatures if useHeatPort = false</td></tr>
+<tr><td><code>Boolean</code></td><td><code>frequencyDependent</code></td><td><code>false</code></td><td>Consider frequency dependency, if true</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f_ref</code></td><td><code>1</code></td><td>Reference frequency, if frequency dependency is considered</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort[mh]</code></td><td>Conditional heat ports</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>Z_ref[m]</code></td><td>Variable complex impedances</td></tr>
+</table>
+<hr><a name="VariableAdmittance"><h2><embed class="icon" src="../../../../images/icon0838.svg" width="223" height="253" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Basic</a>.&#8203;VariableAdmittance<br><span class="subtitle">Multiphase variable admittance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The admittance model represents a <strong>parallel</strong> connection of a resistor and either a capacitor or inductor
+in each phase.<br>
+<img src="../../../../../Images/Electrical/QuasiStationary/SinglePhase/Basic/GB_admittance.png"></p>
+
+<p>
+The linear admittance connects the complex voltage <code><u>v</u></code> with the
+complex current <code><u>i</u></code> by <code><u>v</u>*<u>Y</u> = <u>i</u></code> in each phase,
+using <code>m</code>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableAdmittance">
+variable singlephase admittances</a>.
+The admittances <code>Y_ref = G_ref + j*B_ref</code> are given as complex input signals, representing the
+resistive and reactive components of the input admittances. The resistive
+components are modeled temperature dependent, so the real part <code>G_actual = real(<u>Y</u>)</code> are determined from
+the actual operating temperatures and the reference input conductances <code>real(Y_ref)</code>.
+<a href="../../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">Conditional heat ports</a> are considered.
+The reactive components <code>B_actual = imag(<u>Y</u>)</code>
+are equal to <code>imag(Y_ref)</code> if <code>frequencyDependent = false</code>.
+Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:
+</p>
+
+<dl>
+<dt>(a) <code>imag(Y_ref) &gt; 0</code>: capacitive case</dt>
+<dd>The actual susceptances <code>B_actual</code> are proportional to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Y_ref) &lt; 0</code>: inductive case</dt>
+<dd>The actual susceptances <code>B_actual</code> are proportional to <code>f_ref/f</code></dd>
+</dl>
+
+<h4>Note</h4>
+<p>
+Zero crossings of the real or imaginary parts of the admittance signals <code>Y_ref</code> could cause
+singularities due to the actual structure of the connected network.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Basic/index.html#VariableResistor">VariableResistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Resistor">Resistor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Conductor">Conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Capacitor">Capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Inductor">Inductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Impedance">Impedance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#Admittance">Admittance</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableConductor">Variable conductor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableCapacitor">Variable capacitor</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableInductor">Variable inductor</a>
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Basic/index.html#VariableImpedance">Variable impedance</a>,
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Two plugs with pin-adapter) and <code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref[m]</code></td><td><code>fill(293.15, m)</code></td><td>Reference temperatures</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha_ref[m]</code></td><td><code>zeros(m)</code></td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mh</code></td><td><code>m</code></td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if all heat ports are enabled</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T[mh]</code></td><td><code>T_ref</code></td><td>Fixed device temperatures if useHeatPort = false</td></tr>
+<tr><td><code>Boolean</code></td><td><code>frequencyDependent</code></td><td><code>false</code></td><td>Consider frequency dependency, if true</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f_ref</code></td><td><code>1</code></td><td>Reference frequency, if frequency dependency is considered</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort[mh]</code></td><td>Conditional heat ports</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>Y_ref[m]</code></td><td>Variable complex admittances</td></tr>
+</table>
+</body></html>

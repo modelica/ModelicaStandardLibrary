@@ -1,0 +1,380 @@
+<html><head><title>Modelica.Electrical.Machines.Utilities</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Utilities"><h1><embed class="icon" src="../../../images/icon0009.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;Utilities<br><span class="subtitle">Library with auxiliary models for testing</span></h1></a>
+<h3>Information</h3>
+<p>
+
+This package contains utility components for testing examples.
+<p>Extends from <code><a href="../../../Icons/UtilitiesPackage/index.html">Modelica.&#8203;Icons.&#8203;UtilitiesPackage</a></code> (Icon for utility packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#CurrentController"><code>CurrentController</code></a></td><td>Current controller</td></tr>
+<tr><td><a href="#FromDQ"><code>FromDQ</code></a></td><td>Transform rotor fixed space phasor to instantaneous stator quantities</td></tr>
+<tr><td><a href="#MultiTerminalBox"><code>MultiTerminalBox</code></a></td><td>Terminal box Y/D-connection</td></tr>
+<tr><td><a href="../../../Electrical/Machines/Utilities/ParameterRecords/index.html"><code>ParameterRecords</code></a> &hellip;</td><td>Parameter records</td></tr>
+<tr><td><a href="#RampedRheostat"><code>RampedRheostat</code></a></td><td>Rheostat with linearly decreasing resistance</td></tr>
+<tr><td><a href="#SwitchedRheostat"><code>SwitchedRheostat</code></a></td><td>Rheostat which is shortened after a given time</td></tr>
+<tr><td><a href="#SwitchYD"><code>SwitchYD</code></a></td><td>Y-D-switch</td></tr>
+<tr><td><a href="#SynchronousMachineData"><code>SynchronousMachineData</code></a></td><td>Computes machine parameter from usual datasheet</td></tr>
+<tr><td><a href="#TerminalBox"><code>TerminalBox</code></a></td><td>Terminal box Y/D-connection</td></tr>
+<tr><td><a href="#ToDQ"><code>ToDQ</code></a></td><td>Transform instantaneous stator inputs to rotor fixed space phasor</td></tr>
+<tr><td><a href="#TransformerData"><code>TransformerData</code></a></td><td>Calculates Impedances from nominal values</td></tr>
+<tr><td><a href="#VfController"><code>VfController</code></a></td><td>Voltage-Frequency-Controller</td></tr>
+<tr><td><a href="#VoltageController"><code>VoltageController</code></a></td><td>Voltage controller</td></tr>
+</table>
+<hr><a name="VfController"><h2><embed class="icon" src="../../../images/icon0662.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;VfController<br><span class="subtitle">Voltage-Frequency-Controller</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Simple Voltage-Frequency-Controller.<br>
+Amplitude of voltage is linear dependent (VNominal/fNominal) on frequency (input signal "u"), but limited by VNominal (nominal RMS voltage per phase).<br>
+m sine-waves with amplitudes as described above are provided as output signal "y".<br>
+By setting parameter EconomyMode=true, Voltage rises quadratically with frequency which means flux,torque and loss reduction for fan and pump drives.<br>
+The sine-waves are intended to feed a m-phase SignalVoltage.<br>
+Phase shifts between sine-waves may be chosen by the user; default values are <em>(k-1)/m*pi for k in 1:m</em>.
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#SIMO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;SIMO</a></code> (Single Input Multiple Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nout</code></td><td><code>m</code></td><td>Number of outputs</td></tr>
+<tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>orientation[m]</code></td><td><code>-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)</code></td><td>Orientation of phases</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VNominal</code></td><td>&nbsp;</td><td>Nominal RMS voltage per phase</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fNominal</code></td><td>&nbsp;</td><td>Nominal frequency</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>BasePhase</code></td><td><code>0</code></td><td>Common phase shift</td></tr>
+<tr><td><code>Boolean</code></td><td><code>EconomyMode</code></td><td><code>false</code></td><td>Economy mode: voltage quadratic dependent on frquency</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[nout]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+<hr><a name="ToDQ"><h2><embed class="icon" src="../../../images/icon0663.svg" width="263" height="243" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;ToDQ<br><span class="subtitle">Transform instantaneous stator inputs to rotor fixed space phasor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The multi phase input values <code>u[m]</code> are transformed to the corresponding space phasor which is rotated to the rotor fixed reference system,
+using the provided mechanical rotor angle phi. The output are the resulting d and q components of the space phasor arranged in one vector <code>y[2]</code>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../Electrical/Machines/Utilities/index.html#FromDQ">FromDQ</a>
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#MIMO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;MIMO</a></code> (Multiple Input Multiple Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nin</code></td><td><code>m</code></td><td>Number of inputs</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nout</code></td><td><code>2</code></td><td>Number of outputs</td></tr>
+<tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>Integer</code></td><td><code>p</code></td><td>&nbsp;</td><td>Number of pole pairs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[nin]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[nout]</code></td><td>Connector of Real output signals</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>phi</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="FromDQ"><h2><embed class="icon" src="../../../images/icon0663.svg" width="263" height="243" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;FromDQ<br><span class="subtitle">Transform rotor fixed space phasor to instantaneous stator quantities</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The d and q components of a space phasor <code>u[2]</code> are rotated back to the stator fixed reference system,
+using the provided mechanical rotor angle phi. The output are the instantaneous multi phase values <code>y[m]</code>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../Electrical/Machines/Utilities/index.html#ToDQ">ToDQ</a>
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#MIMO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;MIMO</a></code> (Multiple Input Multiple Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nin</code></td><td><code>2</code></td><td>Number of inputs</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nout</code></td><td><code>m</code></td><td>Number of outputs</td></tr>
+<tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>Integer</code></td><td><code>p</code></td><td>&nbsp;</td><td>Number of pole pairs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[nin]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[nout]</code></td><td>Connector of Real output signals</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>phi</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="CurrentController"><h2><embed class="icon" src="../../../images/icon0664.svg" width="263" height="243" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;CurrentController<br><span class="subtitle">Current controller</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Simple Current-Controller.
+</p>
+<p>
+The desired rms values of d- and q-component of the space phasor current in rotor fixed coordinate system are given by inputs "id_rms" and "iq_rms".
+Using the given rotor position (input "phi"), the correct three-phase currents (output "y[3]") are calculated.
+They can be used to feed a current source which in turn feeds an induction machine.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#MO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;MO</a></code> (Multiple Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>Integer</code></td><td><code>p</code></td><td>&nbsp;</td><td>Number of pole pairs</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nout</code></td><td><code>m</code></td><td>Number of outputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[nout]</code></td><td>Connector of Real output signals</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>id_rms</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>iq_rms</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>phi</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="VoltageController"><h2><embed class="icon" src="../../../images/icon0665.svg" width="263" height="243" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;VoltageController<br><span class="subtitle">Voltage controller</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Simple Voltage-Controller
+</p>
+<p>
+The desired rms values of d- and q-component of the space phasor current in rotor fixed coordinate system are given by inputs "id_rms" and "iq_rms".
+Using the given rotor position (input "phi"), the actual threephase currents are measured and transformed to the d-q coordinate system.
+Two PI-controller determine the necessary d- and q- voltages, which are transformed back to threephase (output "y[3]").
+They can be used to feed a voltage source which in turn feeds a permanent magnet synchronous machine.
+</p>
+<p>
+Note: No care is taken for current or voltage limiting, as well as for field weakening.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#MO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;MO</a></code> (Multiple Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>p</code></td><td>&nbsp;</td><td>Number of pole pairs</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fsNominal</code></td><td>&nbsp;</td><td>Nominal frequency</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VsOpenCircuit</code></td><td>&nbsp;</td><td>Open circuit RMS voltage per phase @ fsNominal</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rs</code></td><td>&nbsp;</td><td>Stator resistance per phase</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Ld</code></td><td>&nbsp;</td><td>Inductance in d-axis</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lq</code></td><td>&nbsp;</td><td>Inductance in q-axis</td></tr>
+<tr><td><code>Boolean</code></td><td><code>decoupling</code></td><td><code>false</code></td><td>Use decoupling network</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#MagneticFlux">MagneticFlux</a></code></td><td><code>psiM</code></td><td><code>sqrt(2) * VsOpenCircuit / (2 * pi * fsNominal)</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nout</code></td><td><code>m</code></td><td>Number of outputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[nout]</code></td><td>Connector of Real output signals</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>id_rms</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>iq_rms</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>phi</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>iActual[m]</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="SwitchYD"><h2><embed class="icon" src="../../../images/icon0666.svg" width="243" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;SwitchYD<br><span class="subtitle">Y-D-switch</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Simple Star-Delta-switch.<br>
+If <em>control</em> is false, plug_sp and plug_sn are star connected and plug_sp connected to the supply plug.<br>
+If <em>control</em> is true, plug_sp and plug_sn are delta connected and they are connected to the supply plug.
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plugSupply</code></td><td>To grid</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_sp</code></td><td>To positive stator plug</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_sn</code></td><td>To negative stator plug</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>control[m]</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="TerminalBox"><h2><embed class="icon" src="../../../images/icon0667.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;TerminalBox<br><span class="subtitle">Terminal box Y/D-connection</span></h2></a>
+<h3>Information</h3>
+<p>
+
+TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>
+choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>String</code></td><td><code>terminalConnection</code></td><td>&nbsp;</td><td>Choose Y=star/D=delta</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_sp</code></td><td>To positive stator plug</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_sn</code></td><td>To negative stator plug</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plugSupply</code></td><td>To grid</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>starpoint</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="MultiTerminalBox"><h2><embed class="icon" src="../../../images/icon0668.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;MultiTerminalBox<br><span class="subtitle">Terminal box Y/D-connection</span></h2></a>
+<h3>Information</h3>
+<p>
+
+TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>
+choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>number of phases</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mSystems</code></td><td><code>Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mBasic</code></td><td><code>integer(m / mSystems)</code></td><td>&nbsp</td></tr>
+<tr><td><code>String</code></td><td><code>terminalConnection</code></td><td>&nbsp;</td><td>Choose Y=star/D=delta</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_sp</code></td><td>To positive stator plug</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_sn</code></td><td>To negative stator plug</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plugSupply</code></td><td>To grid</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>starpoint</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="SwitchedRheostat"><h2><embed class="icon" src="../../../images/icon0669.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;SwitchedRheostat<br><span class="subtitle">Rheostat which is shortened after a given time</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Switched rheostat, used for starting asynchronous induction motors with slipring rotor:</p>
+<p>The external rotor resistance <code>RStart</code> is shortened at time <code>tStart</code>.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RStart</code></td><td>&nbsp;</td><td>Starting resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tStart</code></td><td>&nbsp;</td><td>Duration of switching on the starting resistor</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>To positive rotor plug</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>To negative rotor plug</td></tr>
+</table>
+<hr><a name="RampedRheostat"><h2><embed class="icon" src="../../../images/icon0670.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;RampedRheostat<br><span class="subtitle">Rheostat with linearly decreasing resistance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Ramped rheostat, used for starting asynchronous induction motors with slipring rotor:</p>
+<p>The external rotor resistance <code>RStart</code> is reduced to zero,
+starting at time <code>tStart</code> with a linear ramp <code>tRamp</code>.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RStart</code></td><td>&nbsp;</td><td>Starting resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tStart</code></td><td>&nbsp;</td><td>Time instance of reducing the rheostat</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tRamp</code></td><td>&nbsp;</td><td>Duration of ramp</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>To positive rotor plug</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>To negative rotor plug</td></tr>
+</table>
+<hr><a name="SynchronousMachineData"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;SynchronousMachineData<br><span class="subtitle">Computes machine parameter from usual datasheet</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The parameters of the
+<a href="../../../Electrical/Machines/BasicMachines/SynchronousInductionMachines/index.html#SM_ElectricalExcited">
+synchronous machine model with electrical excitation (and damper)</a> are calculated from parameters
+normally given in a technical description, according to the standard EN&nbsp;60034-4:2008&nbsp;Appendix&nbsp;C.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../SIunits/index.html#ApparentPower">ApparentPower</a></code></td><td><code>SNominal</code></td><td>Nominal apparent power</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VsNominal</code></td><td>Nominal stator voltage per phase</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>IsNominal</code></td><td>Nominal stator current per phase</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Impedance">Impedance</a></code></td><td><code>ZReference</code></td><td>Reference impedance</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fsNominal</code></td><td>Nominal stator frequency</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>omega</code></td><td>Nominal angular frequency</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>IeOpenCircuit</code></td><td>Open circuit excitation current @ nominal voltage and frequency</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>effectiveStatorTurns</code></td><td>Effective number of stator turns</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>turnsRatio</code></td><td>Stator current / excitation current</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>x0</code></td><td>Stator stray inductance per phase (approximately zero impedance) [pu]</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>xd</code></td><td>Synchronous reactance per phase, d-axis [pu]</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>xq</code></td><td>Synchronous reactance per phase, q-axis [pu]</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>xdTransient</code></td><td>Transient reactance per phase, d-axis [pu]</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>xdSubtransient</code></td><td>Subtransient reactance per phase, d-axis [pu]</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>xqSubtransient</code></td><td>Subtransient reactance per phase, q-axis [pu]</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>Ta</code></td><td>Armature time constant</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>Td0Transient</code></td><td>Open circuit field time constant Td0'</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>Td0Subtransient</code></td><td>Open circuit subtransient time constant Td0'', d-axis</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>Tq0Subtransient</code></td><td>Open circuit subtransient time constant Tq0'', q-axis</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TsSpecification</code></td><td>Specification temperature of stator resistance</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TsRef</code></td><td>Reference temperature of stator resistance</td></tr>
+<tr><td>parameter <code><a href="../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20s</code></td><td>Temperature coefficient of stator resistance at 20 degC</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TrSpecification</code></td><td>Specification temperature of (optional) damper cage</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TrRef</code></td><td>Reference temperature of damper resistances in d- and q-axis</td></tr>
+<tr><td>parameter <code><a href="../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20r</code></td><td>Temperature coefficient of damper resistances in d- and q-axis</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TeSpecification</code></td><td>Specification excitation temperature</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TeRef</code></td><td>Reference temperature of excitation resistance</td></tr>
+<tr><td>parameter <code><a href="../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20e</code></td><td>Temperature coefficient of excitation resistance</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>xmd</code></td><td>Main field reactance per phase, d-axis [pu]</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>xmq</code></td><td>Main field reactance per phase, q-axis [pu]</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>xe</code></td><td>Excitation reactance [pu]</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>xrd</code></td><td>Damper reactance per phase, d-axis [pu]</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>xrq</code></td><td>Damper reactance per phase, d-axis [pu]</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>rs</code></td><td>Stator resistance per phase at specification temperature [pu]</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>rrd</code></td><td>Damper resistance per phase at specification temperature, d-axis [pu]</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>rrq</code></td><td>Damper resistance per phase at specification temperature, q-axis [pu]</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>re</code></td><td>Excitation resistance per phase at specification temperature [pu]</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rs</code></td><td>Stator resistance per phase at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lssigma</code></td><td>Stator stray inductance per phase</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lmd</code></td><td>Main field inductance per phase in d-axis</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lmq</code></td><td>Main field inductance per phase in q-axis</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lrsigmad</code></td><td>Damper stray inductance in d-axis</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lrsigmaq</code></td><td>Damper stray inductance in q-axis</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rrd</code></td><td>Damper resistance in d-axis at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rrq</code></td><td>Damper resistance in q-axis at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Re</code></td><td>Excitation resistance at TRef</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>sigmae</code></td><td>Stray fraction of total excitation inductance</td></tr>
+</table>
+<hr><a name="TransformerData"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;TransformerData<br><span class="subtitle">Calculates Impedances from nominal values</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The parameters of the transformer models are calculated from parameters normally given in a technical description.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td>Nominal frequency</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>V1</code></td><td>Primary nominal line-to-line voltage (RMS)</td></tr>
+<tr><td>parameter <code>String</code></td><td><code>C1</code></td><td>Choose primary connection</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>V2</code></td><td>Secondary open circuit line-to-line voltage (RMS) @ primary nominal voltage</td></tr>
+<tr><td>parameter <code>String</code></td><td><code>C2</code></td><td>Choose secondary connection</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#ApparentPower">ApparentPower</a></code></td><td><code>SNominal</code></td><td>Nominal apparent power</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>v_sc</code></td><td>Impedance voltage drop pu</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Power">Power</a></code></td><td><code>P_sc</code></td><td>Short-circuit (copper) losses</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>n</code></td><td>Ratio primary voltage (line-to-line) / secondary voltage (line-to-line)</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>V1ph</code></td><td>Primary phase voltage (RMS)</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>I1ph</code></td><td>Primary phase current (RMS)</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>V2ph</code></td><td>Secondary phase voltage (RMS)</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>I2ph</code></td><td>Secondary phase current (RMS)</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Impedance">Impedance</a></code></td><td><code>Z1ph</code></td><td>Primary impedance per phase</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R1</code></td><td>Warm primary resistance per phase</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L1sigma</code></td><td>Primary stray inductance per phase</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Impedance">Impedance</a></code></td><td><code>Z2ph</code></td><td>Secondary impedance per phase</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R2</code></td><td>Warm secondary resistance per phase</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L2sigma</code></td><td>Secondary stray inductance per phase</td></tr>
+</table>
+</body></html>

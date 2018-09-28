@@ -1,0 +1,17 @@
+<svg width="213" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Mechanics.MultiBody.Visualizers.FixedShape2" class="component">
+		<polygon points="6.3,51.5 40.3,39.5 106.3,55.5 206.3,31.5 186.3,51.5 96.3,73.5" fill="#A0A0A4" stroke="#FFFFFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="206.3,31.5 186.3,51.5 186.3,145.5 206.3,117.5" fill="#A0A0A4" stroke="#FFFFFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="6.3,51.5 6.3,145.5 96.3,125.5 186.3,145.5 186.3,51.5 96.3,73.5" fill="#007FFF" stroke="#D7D7D7" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="38.3" y="111.2" text-anchor="middle" fill="#000000" font-size="33.2px" font-family="sans-serif">a</text>
+		<text x="161.3" y="111.2" text-anchor="middle" fill="#000000" font-size="33.2px" font-family="sans-serif">b</text>
+		<g id="frame_a" class="port">
+			<polygon points="4.7,103.1 7.9,103.1 7.9,99.9 4.7,99.9" fill-opacity="0" stroke="#5F5F5F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="1.5,117.5 11.1,117.5 11.1,85.5 1.5,85.5" fill="#C0C0C0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="frame_b" class="port">
+			<polygon points="204.7,103.1 207.9,103.1 207.9,99.9 204.7,99.9" fill-opacity="0" stroke="#5F5F5F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="201.5,117.5 211.1,117.5 211.1,85.5 201.5,85.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

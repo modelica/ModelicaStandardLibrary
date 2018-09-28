@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.ComplexBlocks.ComplexMath.Add3</title>
+</head>
+<body>
+<h1><a href="Icons/f9c1425891fd67acc37c37ac5665cf80bcb48aa8.svg"><img class="svgiconhead" src="Icons/f9c1425891fd67acc37c37ac5665cf80bcb48aa8.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.ComplexBlocks.html">ComplexBlocks</a>.<a class="omc-h1-a" href="Modelica.ComplexBlocks.ComplexMath.html">ComplexMath</a>.<span class="omc-h1">Add3</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This blocks computes output <code>y</code> as <em>sum</em> of
+the three input signals <code>u1</code>, <code>u2</code> and
+<code>u3</code>. Optionally, inputs <code>u1</code> and
+<code>u2</code> and <code>u3</code> can be processed conjugate
+complex, when parameters <code>useConjugateInput1</code> and
+<code>useConjugateInput2</code> and <code>useConjugateInput3</code>
+are <code>true</code>, respectively.</p>
+<pre>
+  y = k1*(if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
+    + k2*(if useConjugateInput2 then Modelica.ComplexMath.conj(u2) else u2)
+    + k3*(if useConjugateInput3 then Modelica.ComplexMath.conj(u3) else u3);</pre>
+<p><strong>Example</strong> parameters:</p>
+<ul>
+<li><code>k1 = +2</code>,</li>
+<li><code>k2 = -3</code>,</li>
+<li><code>k3 = +1</code>,</li>
+<li><code>useConjugateInput1 = true</code>,</li>
+<li><code>useConjugateInput2 = false</code></li>
+<li><code>useConjugateInput3 = false</code></li>
+</ul>
+<p>result in the following equation:</p>
+<pre>
+     y = 2 * Modelica.ComplexMath.conj(u1) - 3 * u2 + u3;
+</pre>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

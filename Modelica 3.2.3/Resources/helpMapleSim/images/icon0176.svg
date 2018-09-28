@@ -1,0 +1,17 @@
+<svg width="263" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Blocks.Math.Sinh" class="component">
+		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="141.5,11.5 133.5,33.5 149.5,33.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="91.5" y="60.6" text-anchor="middle" fill="#C0C0C0" font-size="41.4px" font-family="sans-serif">sinh</text>
+		<polyline points="141.5,181.5 141.5,33.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="51.5,101.5 209.5,101.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="61.5,181.5 63.5,174.2 64.9,169.4 66.3,164.6 67.9,159.9 67.9,159.9 69.1,156.4 70.4,153.1 71.8,149.8 73.2,146.6 73.2,146.6 74.3,144.1 75.5,141.7 76.7,139.4 77.9,137.1 79.2,135.0 79.2,135.0 80.5,132.8 81.9,130.8 83.3,128.8 84.8,126.8 86.4,124.9 86.4,124.9 88.0,123.1 89.7,121.3 91.5,119.6 93.3,118.1 95.2,116.6 95.2,116.6 96.9,115.4 98.7,114.2 100.6,113.1 102.6,112.0 104.7,111.0 107.0,110.0 107.0,110.0 109.0,109.1 111.3,108.3 113.7,107.5 116.3,106.8 119.2,106.0 122.2,105.3 125.4,104.6 125.4,104.6 133.5,102.9 142.2,101.3 151.5,99.5 151.5,99.5 156.2,98.7 160.4,97.8 164.2,96.9 167.6,96.0 170.6,95.1 173.2,94.2 173.2,94.2 175.6,93.2 177.9,92.2 180.0,91.2 182.0,90.1 183.9,89.0 185.7,87.8 185.7,87.8 187.7,86.4 189.7,84.9 191.5,83.3 193.3,81.7 195.0,80.0 195.0,80.0 196.5,78.2 198.1,76.4 199.5,74.5 200.9,72.6 202.2,70.6 202.2,70.6 203.5,68.6 204.7,66.6 205.9,64.4 207.1,62.2 208.2,59.9 208.2,59.9 209.6,57.0 210.9,53.9 212.2,50.8 213.4,47.6 213.4,47.6 214.6,44.3 215.8,41.0 216.9,37.7 217.9,34.4 217.9,34.4 219.1,30.3 220.0,27.1 220.7,24.6 221.5,21.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="231.5,101.5 209.5,93.5 209.5,109.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="u" class="port">
+			<polygon points="1.5,81.5 41.5,101.5 1.5,121.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="y" class="port">
+			<polygon points="241.5,91.5 261.5,101.5 241.5,111.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

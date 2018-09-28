@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Forces.Internal.BasicWorldTorque</title>
+</head>
+<body>
+<h1><a href="Icons/2e242e8d88d0f9e98f3614d1c37eb7661b266846.svg"><img class="svgiconhead" src="Icons/2e242e8d88d0f9e98f3614d1c37eb7661b266846.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Forces.html">Forces</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Forces.Internal.html">Internal</a>.<span class="omc-h1">BasicWorldTorque</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The 3 signals of the <strong>torque</strong> connector are
+interpreted as the x-, y- and z-coordinates of a
+<strong>torque</strong> acting at the frame connector to which this
+component is attached. Via parameter
+<strong>resolveInFrame</strong> it is defined, in which frame these
+coordinates shall be resolved:</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th><strong>Types.ResolveInFrameB.</strong></th>
+<th><strong>Meaning</strong></th>
+</tr>
+<tr>
+<td>world</td>
+<td>Resolve input torque in world frame (= default)</td>
+</tr>
+<tr>
+<td>frame_b</td>
+<td>Resolve input torque in frame_b</td>
+</tr>
+<tr>
+<td>frame_resolve</td>
+<td>Resolve input torque in frame_resolve (frame_resolve must be
+connected)</td>
+</tr>
+</table>
+<p>If resolveInFrame = Types.ResolveInFrameB.frame_resolve, the
+torque coordinates are with respect to the frame, that is connected
+to <strong>frame_resolve</strong>.</p>
+<p>If resolveInFrame is not Types.ResolveInFrameB.frame_resolve,
+then the position vector and the orientation object of
+frame_resolve must be set to constant values from the outside in
+order that the model remains balanced (these constant values are
+ignored).</p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

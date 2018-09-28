@@ -1,0 +1,32 @@
+<svg width="283" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint" class="component">
+		<polygon points="111.5,141.5 241.5,141.5 241.5,71.5 111.5,71.5" fill="#C0C0C0" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="111.5,141.5 241.5,141.5 241.5,61.5 111.5,61.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="41.5,161.5 111.5,161.5 111.5,51.5 41.5,51.5" fill="#C0C0C0" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="41.5,51.5 111.5,51.5 111.5,41.5 41.5,41.5" fill="#000000" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="111.5,71.5 241.5,71.5 241.5,61.5 111.5,61.5" fill="#000000" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="41.5,161.5 111.5,161.5 111.5,41.5 41.5,41.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="241.5,141.5 241.5,161.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="231.5,61.5 241.5,61.5 241.5,21.5 231.5,21.5" fill="#C0C0C0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="frame_a" class="port">
+			<polygon points="39.9,103.1 43.1,103.1 43.1,99.9 39.9,99.9" fill-opacity="0" stroke="#5F5F5F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="36.7,117.5 46.3,117.5 46.3,85.5 36.7,85.5" fill="#C0C0C0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="frame_b" class="port">
+			<polygon points="239.9,103.1 243.1,103.1 243.1,99.9 239.9,99.9" fill-opacity="0" stroke="#5F5F5F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="236.7,117.5 246.3,117.5 246.3,85.5 236.7,85.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="axis" class="port">
+			<polygon points="211.5,21.5 231.5,21.5 231.5,41.5 211.5,41.5" fill="#007F00" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="bearing" class="port">
+			<polygon points="111.5,21.5 91.5,21.5 91.5,41.5 111.5,41.5" fill="#FFFFFF" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="position_a" class="port">
+			<polygon points="1.5,141.5 41.5,161.5 1.5,181.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="position_b" class="port">
+			<polygon points="281.5,141.5 241.5,161.5 281.5,181.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

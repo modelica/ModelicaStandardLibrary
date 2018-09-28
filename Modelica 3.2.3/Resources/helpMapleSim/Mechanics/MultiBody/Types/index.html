@@ -1,0 +1,406 @@
+<html><head><title>Modelica.Mechanics.MultiBody.Types</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Types"><h1><embed class="icon" src="../../../images/icon0292.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;Types<br><span class="subtitle">Constants and types with choices, especially to build menus</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+In this package <strong>types</strong> and <strong>constants</strong> are defined that are used in the
+MultiBody library. The types have additional annotation choices
+definitions that define the menus to be built up in the graphical
+user interface when the type is used as parameter in a declaration.
+</p>
+<p>Extends from <code><a href="../../../Icons/TypesPackage/index.html">Modelica.&#8203;Icons.&#8203;TypesPackage</a></code> (Icon for packages containing type definitions).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Axis"><code>Axis[3]</code></a></td><td>Axis vector with choices</td></tr>
+<tr><td><a href="#AxisLabel"><code>AxisLabel</code></a></td><td>Label of axis with choices</td></tr>
+<tr><td><a href="#Color"><code>Color[3]</code></a></td><td>RGB representation of color</td></tr>
+<tr><td><a href="../../../Mechanics/MultiBody/Types/Defaults/index.html"><code>Defaults</code></a> &hellip;</td><td>Default settings of the MultiBody library via constants</td></tr>
+<tr><td><a href="#GravityTypes"><code>GravityTypes</code></a></td><td>Enumeration defining the type of the gravity field</td></tr>
+<tr><td><a href="#Init"><code>Init</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#RealColor"><code>RealColor[3]</code></a></td><td>RGB representation of color as Real type</td></tr>
+<tr><td><a href="#ResolveInFrameA"><code>ResolveInFrameA</code></a></td><td>Enumeration to define the frame in which an absolute vector is resolved (world, frame_a, frame_resolve)</td></tr>
+<tr><td><a href="#ResolveInFrameAB"><code>ResolveInFrameAB</code></a></td><td>Enumeration to define the frame in which a relative vector is resolved (world, frame_a, frame_b, frame_resolve)</td></tr>
+<tr><td><a href="#ResolveInFrameB"><code>ResolveInFrameB</code></a></td><td>Enumeration to define the frame in which an absolute vector is resolved (world, frame_b, frame_resolve)</td></tr>
+<tr><td><a href="#RotationSequence"><code>RotationSequence[3]</code></a></td><td>Sequence of planar frame rotations with choices</td></tr>
+<tr><td><a href="#RotationTypes"><code>RotationTypes</code></a></td><td>Enumeration defining in which way the fixed orientation of frame_b with respect to frame_a is specified</td></tr>
+<tr><td><a href="#ShapeExtra"><code>ShapeExtra</code></a></td><td>Type of the additional data that can be defined for an elementary ShapeType</td></tr>
+<tr><td><a href="#ShapeType"><code>ShapeType</code></a></td><td>Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring, &lt;external shape&gt;)</td></tr>
+<tr><td><a href="#SpecularCoefficient"><code>SpecularCoefficient</code></a></td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+</table>
+<hr><a name="Axis"><h2><embed class="icon" src="../../../images/icon1193.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Types</a>.&#8203;Axis<br><span class="subtitle">Axis vector with choices</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Type definition of an axis vector with scroll down menu that provides
+the most often used axes vectors along the coordinate axes of a frame.
+For an example see parameter "n" in model
+<a href="../../../Mechanics/MultiBody/Joints/index.html#Revolute">Joints.Revolute</a>.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#TypeReal">Modelica.&#8203;Icons.&#8203;TypeReal</a></code> (Icon for Real types).</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>unit</code></td><td><code>"1"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="AxisLabel"><h2><embed class="icon" src="../../../images/icon1194.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Types</a>.&#8203;AxisLabel<br><span class="subtitle">Label of axis with choices</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is designed for a <strong>String</strong> type.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#TypeString">Modelica.&#8203;Icons.&#8203;TypeString</a></code> (Icon for String types).</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>start</code></td><td><code>""</code></td></tr>
+</table>
+<hr><a name="RotationSequence"><h2><embed class="icon" src="../../../images/icon1195.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Types</a>.&#8203;RotationSequence<br><span class="subtitle">Sequence of planar frame rotations with choices</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is designed for an <strong>Integer</strong> type.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#TypeInteger">Modelica.&#8203;Icons.&#8203;TypeInteger</a></code> (Icon for Integer types).</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>min</code></td><td><code>{1, 1, 1}</code></td></tr>
+<tr><td><code>max</code></td><td><code>{3, 3, 3}</code></td></tr>
+<tr><td><code>start</code></td><td><code>0</code></td></tr>
+</table>
+<hr><a name="Color"><h2><embed class="icon" src="../../../images/icon1195.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Types</a>.&#8203;Color<br><span class="subtitle">RGB representation of color</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Type <strong>Color</strong> is an Integer vector with 3 elements,
+{r, g, b}, and specifies the color of a shape.
+{r,g,b} are the "red", "green" and "blue" color parts.
+Note, r g, b are given in the range 0 .. 255.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#TypeInteger">Modelica.&#8203;Icons.&#8203;TypeInteger</a></code> (Icon for Integer types).</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>min</code></td><td><code>0</code></td></tr>
+<tr><td><code>max</code></td><td><code>255</code></td></tr>
+<tr><td><code>start</code></td><td><code>0</code></td></tr>
+</table>
+<hr><a name="RealColor"><h2><embed class="icon" src="../../../images/icon1193.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Types</a>.&#8203;RealColor<br><span class="subtitle">RGB representation of color as Real type</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Type <strong>RealColor</strong> is a Real vector with 3 elements,
+{r, g, b}, and specifies the color of a shape.
+{r,g,b} are the "red", "green" and "blue" color parts.
+Note, r g, b are given in the range 0 .. 255.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#TypeReal">Modelica.&#8203;Icons.&#8203;TypeReal</a></code> (Icon for Real types).</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>min</code></td><td><code>0</code></td></tr>
+<tr><td><code>max</code></td><td><code>255</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="SpecularCoefficient"><h2><embed class="icon" src="../../../images/icon1193.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Types</a>.&#8203;SpecularCoefficient<br><span class="subtitle">Reflection of ambient light (= 0: light is completely absorbed)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Type <strong>SpecularCoefficient</strong> defines the reflection of
+ambient light on shape surfaces. If value = 0, the light
+is completely absorbed. Often, 0.7 is a reasonable value.
+It might be that from some viewing directions, a body is no
+longer visible, if the SpecularCoefficient value is too high.
+In the following image, the different values of SpecularCoefficient
+are shown for a cylinder:
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/Visualizers/SpecularCoefficient.png"/>
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#TypeReal">Modelica.&#8203;Icons.&#8203;TypeReal</a></code> (Icon for Real types).</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>min</code></td><td><code>0</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="ShapeType"><h2><embed class="icon" src="../../../images/icon1194.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Types</a>.&#8203;ShapeType<br><span class="subtitle">Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring, &lt;external shape&gt;)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Type <strong>ShapeType</strong> is used to define the shape of the
+visual object as parameter String. Usually, "shapeType" is used
+as instance name. The following
+values for shapeType are possible, e.g., shapeType="box":
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/Shape.png" alt="model Visualizers.FixedShape">
+</p>
+
+<p>
+The dark blue arrows in the figure above are directed along
+variable <strong>lengthDirection</strong>. The light blue arrows are directed
+along variable <strong>widthDirection</strong>. The <strong>coordinate systems</strong>
+in the figure represent frame_a of the Shape component.
+</p>
+
+<p>
+Additionally, external shapes can be specified as (not all options might be supported by all tools):
+</p>
+
+<ul>
+<li> <strong>"1", "2", ...</strong><br>
+     define external shapes specified in DXF format in files "1.dxf", "2.dxf", ...
+     The DXF-files must be found either in the current directory or in the directory where
+     the Shape instance is stored that references the DXF file.
+     This (very limited) option should not be used for new models. Example:<br>
+    shapeType="1".<br></li>
+
+<li> "<strong>modelica:</strong>//&lt;Modelica-name&gt;/&lt;relative-path-file-name&gt;"<br>
+     characterizes the file that is stored under the location of the
+     &lt;Modelica-name&gt; library path with the given relative file name.
+     Example:<br> shapeType = "../../../../Data/Shapes/Engine/piston.dxf".<br></li>
+
+<li> "<strong>file:</strong>//&lt;absolute-file-name&gt;"<br>
+     characterizes an absolute file name in the file system. Example:<br>
+     shapeType="file://C:/users/myname/shapes/piston.dxf".</li>
+</ul>
+
+<p>
+The supported file formats are tool dependent. Most tools support
+at least DXF-files (a tool might support 3-dim. Face of the DXF format only),
+but may support other format as well (such as stl, obj, 3ds).
+Since visualization files contain color and other data, the corresponding
+information in the model is usually ignored.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#TypeString">Modelica.&#8203;Icons.&#8203;TypeString</a></code> (Icon for String types).</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>start</code></td><td><code>""</code></td></tr>
+</table>
+<hr><a name="ShapeExtra"><h2><embed class="icon" src="../../../images/icon1193.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Types</a>.&#8203;ShapeExtra<br><span class="subtitle">Type of the additional data that can be defined for an elementary ShapeType</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This type is used in shapes of visual objects to define
+extra data depending on the shape type. Usually, input
+variable <strong>extra</strong> is used as instance name:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>shapeType</strong></th><th>Meaning of parameter <strong>extra</strong></th></tr>
+<tr>
+  <td>"cylinder"</td>
+  <td>if extra&nbsp;&gt;&nbsp;0, a black line is included in the
+      cylinder to show the rotation of it.</td>
+</tr>
+<tr>
+  <td>"cone"</td>
+  <td>extra = diameter-left-side / diameter-right-side, i.e.,<br>
+      extra = 1: cylinder<br>
+      extra = 0: "real" cone.</td>
+</tr>
+<tr>
+  <td>"pipe"</td>
+  <td>extra = outer-diameter / inner-diameter, i.e,<br>
+      extra = 1: cylinder that is completely hollow<br>
+      extra = 0: cylinder without a hole.</td>
+</tr>
+<tr>
+  <td>"gearwheel"</td>
+  <td>extra is the number of teeth of the (external) gear.
+If extra&nbsp;&lt;&nbsp;0, an internal gear is visualized with |extra| teeth.
+The axis of the gearwheel is along "lengthDirection", and usually:
+width = height = 2*radiusOfGearWheel.</td>
+</tr>
+<tr>
+  <td>"spring"</td>
+  <td>extra is the number of windings of the spring.
+      Additionally, "height" is <strong>not</strong> the "height" but
+      2*coil-width.</td>
+</tr>
+<tr>
+  <td>external shape</td>
+  <td>extra = 0: Visualization from file is not scaled.<br>
+                     extra = 1: Visualization from file is scaled with "length", "width" and "height"
+                                of the shape</td>
+</tr>
+</table>
+<p>Extends from <code><a href="../../../Icons/index.html#TypeReal">Modelica.&#8203;Icons.&#8203;TypeReal</a></code> (Icon for Real types).</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="ResolveInFrameA"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Types</a>.&#8203;ResolveInFrameA<br><span class="subtitle">Enumeration to define the frame in which an absolute vector is resolved (world, frame_a, frame_resolve)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve (frame_resolve must be connected)</td></tr>
+</table>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>world</code></td><td>Resolve in world frame</td></tr>
+<tr><td><code>frame_a</code></td><td>Resolve in frame_a</td></tr>
+<tr><td><code>frame_resolve</code></td><td>Resolve in frame_resolve (frame_resolve must be connected)</td></tr>
+</table>
+<hr><a name="ResolveInFrameB"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Types</a>.&#8203;ResolveInFrameB<br><span class="subtitle">Enumeration to define the frame in which an absolute vector is resolved (world, frame_b, frame_resolve)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
+
+<tr><td>frame_b</td>
+    <td>Resolve vector in frame_b</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve (frame_resolve must be connected)</td></tr>
+</table>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>world</code></td><td>Resolve in world frame</td></tr>
+<tr><td><code>frame_b</code></td><td>Resolve in frame_b</td></tr>
+<tr><td><code>frame_resolve</code></td><td>Resolve in frame_resolve (frame_resolve must be connected)</td></tr>
+</table>
+<hr><a name="ResolveInFrameAB"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Types</a>.&#8203;ResolveInFrameAB<br><span class="subtitle">Enumeration to define the frame in which a relative vector is resolved (world, frame_a, frame_b, frame_resolve)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
+
+<tr><td>frame_b</td>
+    <td>Resolve vector in frame_b</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve (frame_resolve must be connected)</td></tr>
+</table>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>world</code></td><td>Resolve in world frame</td></tr>
+<tr><td><code>frame_a</code></td><td>Resolve in frame_a</td></tr>
+<tr><td><code>frame_b</code></td><td>Resolve in frame_b</td></tr>
+<tr><td><code>frame_resolve</code></td><td>Resolve in frame_resolve (frame_resolve must be connected)</td></tr>
+</table>
+<hr><a name="RotationTypes"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Types</a>.&#8203;RotationTypes<br><span class="subtitle">Enumeration defining in which way the fixed orientation of frame_b with respect to frame_a is specified</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>Types.RotationTypes.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>RotationAxis</td>
+    <td>frame_b is defined by rotating the coordinate system along
+        an axis fixed in frame_a and with a fixed angle.</td></tr>
+
+<tr><td>TwoAxesVectors</td>
+    <td>frame_b is defined by resolving two vectors of frame_b in frame_a.</td></tr>
+
+<tr><td>PlanarRotationSequence</td>
+    <td>frame_b is defined by rotating the coordinate system along
+        3 consecutive axes vectors with fixed rotation angles
+        (e.g., Cardan or Euler angle sequence rotation).</td></tr>
+</table>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>RotationAxis</code></td><td>Rotating frame_a around an angle with a fixed axis</td></tr>
+<tr><td><code>TwoAxesVectors</code></td><td>Resolve two vectors of frame_b in frame_a</td></tr>
+<tr><td><code>PlanarRotationSequence</code></td><td>Planar rotation sequence</td></tr>
+</table>
+<hr><a name="GravityTypes"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Types</a>.&#8203;GravityTypes<br><span class="subtitle">Enumeration defining the type of the gravity field</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>Types.GravityTypes.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>NoGravity</td>
+    <td>No gravity field</td></tr>
+
+<tr><td>UniformGravity</td>
+    <td>Gravity field is described by a vector of constant gravity acceleration</td></tr>
+
+<tr><td>PointGravity</td>
+    <td>Central gravity field. The gravity acceleration vector is directed to
+        the field center and the gravity is proportional to 1/r^2, where
+        r is the distance to the field center.</td></tr>
+</table>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>NoGravity</code></td><td>No gravity field</td></tr>
+<tr><td><code>UniformGravity</code></td><td>Uniform gravity field</td></tr>
+<tr><td><code>PointGravity</code></td><td>Point gravity field</td></tr>
+</table>
+<hr><a name="Init"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Types</a>.&#8203;Init</h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>Free</code></td><td>&nbsp</td></tr>
+<tr><td><code>PositionVelocity</code></td><td>&nbsp</td></tr>
+<tr><td><code>SteadyState</code></td><td>&nbsp</td></tr>
+<tr><td><code>Position</code></td><td>&nbsp</td></tr>
+<tr><td><code>Velocity</code></td><td>&nbsp</td></tr>
+<tr><td><code>VelocityAcceleration</code></td><td>&nbsp</td></tr>
+<tr><td><code>PositionVelocityAcceleration</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Vessels.ClosedVolume</title>
+</head>
+<body>
+<h1><a href="Icons/23a47dd80bf291415ffce2bc5fa76c4efc59ec2e.svg"><img class="svgiconhead" src="Icons/23a47dd80bf291415ffce2bc5fa76c4efc59ec2e.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Vessels.html">Vessels</a>.<span class="omc-h1">ClosedVolume</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Ideally mixed volume of constant size with two fluid ports and
+one medium model. The flow properties are computed from the
+upstream quantities, pressures are equal in both nodes and the
+medium model if <code>use_portsData=false</code>. Heat transfer
+through a thermal port is possible, it equals zero if the port
+remains unconnected. A spherical shape is assumed for the heat
+transfer area, with V=4/3*pi*r^3, A=4*pi*r^2. Ideal heat transfer
+is assumed per default; the thermal port temperature is equal to
+the medium temperature.</p>
+<p>If <code>use_portsData=true</code>, the port pressures represent
+the pressures just after the outlet (or just before the inlet) in
+the attached pipe. The hydraulic resistances
+<code>portsData.zeta_in</code> and <code>portsData.zeta_out</code>
+determine the dissipative pressure drop between volume and port
+depending on the direction of mass flow. See <a href="Modelica.Fluid.Vessels.BaseClasses.VesselPortsData.html">VesselPortsData</a>
+and <em>[Idelchik, Handbook of Hydraulic Resistance,
+2004]</em>.</p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

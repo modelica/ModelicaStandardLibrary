@@ -1,0 +1,413 @@
+<html><head><title>Modelica.Electrical.Spice3.Examples</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Examples"><h1><embed class="icon" src="../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;Examples<br><span class="subtitle">Example circuits</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package Example circuits contains some useful examples to demonstrate how the library is working and how the models can be used.</p>
+<p>Extends from <code><a href="../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#CascodeCircuit"><code>CascodeCircuit</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#CoupledInductors"><code>CoupledInductors</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#FourInverters"><code>FourInverters</code></a></td><td>Four inverters with MOSFET level 1, using private record as model card</td></tr>
+<tr><td><a href="#Graetz"><code>Graetz</code></a></td><td>Graetz rectifier circuit</td></tr>
+<tr><td><a href="#Inverter"><code>Inverter</code></a></td><td>Simple inverter circuit</td></tr>
+<tr><td><a href="#InvertersApartRecord"><code>InvertersApartRecord</code></a></td><td>Two inverters where transistor models use different modelcard instances</td></tr>
+<tr><td><a href="#InvertersExtendedModel"><code>InvertersExtendedModel</code></a></td><td>Two inverters with MOS models defined by inheritance</td></tr>
+<tr><td><a href="#Nand"><code>Nand</code></a></td><td>MOS Nand gate circuit</td></tr>
+<tr><td><a href="#Nor"><code>Nor</code></a></td><td>MOS NOR gate circuit</td></tr>
+<tr><td><a href="#Oscillator"><code>Oscillator</code></a></td><td>Oscillator circuit</td></tr>
+<tr><td><a href="#Spice3BenchmarkDifferentialPair"><code>Spice3BenchmarkDifferentialPair</code></a></td><td>Simple differential pair</td></tr>
+<tr><td><a href="#Spice3BenchmarkFourBitBinaryAdder"><code>Spice3BenchmarkFourBitBinaryAdder</code></a></td><td>ADDER - 4 BIT ALL-NAND-GATE BINARY ADDER</td></tr>
+<tr><td><a href="#Spice3BenchmarkMosfetCharacterization"><code>Spice3BenchmarkMosfetCharacterization</code></a></td><td>Mos output characteristics</td></tr>
+<tr><td><a href="#Spice3BenchmarkRtlInverter"><code>Spice3BenchmarkRtlInverter</code></a></td><td>Simple RTL inverter</td></tr>
+</table>
+<hr><a name="Inverter"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Examples</a>.&#8203;Inverter<br><span class="subtitle">Simple inverter circuit</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>An inverter is an electrical circuit that consists of a PMOS and a NMOS transistor. Its task is to turn the input voltage from high potential to low potential or the other way round.</p>
+<p>Simulate until 1e-11 s. Display the input voltage vin.p.v as well as the output voltage mp.S.v. It shows that the input voltage is inverted.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="InvertersApartRecord"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Examples</a>.&#8203;InvertersApartRecord<br><span class="subtitle">Two inverters where transistor models use different modelcard instances</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit <em>InverterApartModel</em> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
+<p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the output voltage of the first inverter. Simulated until t=5s.</p>
+<p>Input voltages: vin.p.v and v.p.v</p>
+<p>Output voltage of the first inverter: mn1.D.v</p>
+<p>Output voltage of the second Inverter: mn2.D.v</p>
+<p>This example shows one possibility to make the record of the technology parameters available for more than one transistor. For each transistor in the circuit a record with the technology parameters is made available as an instance of the record modelcardMOS. In this circuit we need two different records for technology parameters, one for PMOS (MPmos) and one for NMOS (MNmos). This instances of the record for the technology parameters were made available for every transistor as one of theirs parameters (Spice3.Repository.MOS mn1(mtype=0, modelcard=MNmos).</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Spice3/Semiconductors/index.html#ModelcardMOS">ModelcardMOS</a></code></td><td><code>MPmos</code></td><td>&nbsp;</td><td>Specified modelcardMOS for MPmos</td></tr>
+<tr><td><code><a href="../../../Electrical/Spice3/Semiconductors/index.html#ModelcardMOS">ModelcardMOS</a></code></td><td><code>MNmos</code></td><td>&nbsp;</td><td>Specified modelcardMOS for MNmos</td></tr>
+</table>
+<hr><a name="InvertersExtendedModel"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Examples</a>.&#8203;InvertersExtendedModel<br><span class="subtitle">Two inverters with MOS models defined by inheritance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit <em>InverterExtendedModel</em> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
+<p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the output voltage of the first inverter. Simulated until t=5s.</p>
+<p>Input voltages: vin.p.v and v.p.v</p>
+<p>Output voltage of the first inverter: mn1.D.v</p>
+<p>Output voltage of the second Inverter: mn2.D.v</p>
+<p>This example shows one possibility to make the record of the technology parameters available for more than one transistor. For each set of technology parameters an apart model has to be defined (in this example: MPmos ans MNmos). Inside the model definition the technology parameters are appointed (Spice3.Semiconductors.modelcardMOS M(GAMMA=0.37, LAMBDA=0.02)). Every model extends a transistor. In this process the required technology parameters are specified (extends Spice3.Repository.MOS(final mtype=1, modelcard=M). To make transistors available in the circuit instances of the defined models are applied (MPmos mp1; MNmos mn1; MPmos mp2; MNmos mn2;).</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="FourInverters"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Examples</a>.&#8203;FourInverters<br><span class="subtitle">Four inverters with MOSFET level 1, using private record as model card</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This circuit that contains four inverter was designed to show the functionality of the MOS transistor models. To see the behavior of the circuit the output voltages of each inverter should be displayed (mp1.S.v, mp2.S.v, mp3.S.v, mp4.S.v). The output voltages of the second an fourth inverter and the input voltage of the first inverter have the same potential. The output voltages of the first and third inverter have the opposite potential compared with inverter 2 and 4.</p>
+<p>Simulate until t=5s. The output values should be: mp1.S.v, mp2.S.v, mp3.S.v and mp4.S.v</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Spice3/Semiconductors/index.html#ModelcardMOS">ModelcardMOS</a></code></td><td><code>modp</code></td><td>&nbsp;</td><td>Private PMOS modelcard</td></tr>
+<tr><td><code><a href="../../../Electrical/Spice3/Semiconductors/index.html#ModelcardMOS">ModelcardMOS</a></code></td><td><code>modn</code></td><td>&nbsp;</td><td>Private NMOS modelcard</td></tr>
+</table>
+<hr><a name="Nand"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Examples</a>.&#8203;Nand<br><span class="subtitle">MOS Nand gate circuit</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>In nearly every electronic the basic circuit &quot;nand&quot; are used. A nand contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two input voltages have high potential, the output voltage has low potential, otherwise the output voltage has high potential.</p>
+<p>Nand truth table (1 means true, it is represented by the 5V voltage):</p>
+<table cellspacing="2" cellpadding="0" border="1"><tr>
+<td><p>input voltage vin1</p></td>
+<td><p>input voltage vin2</p></td>
+<td><p>output voltage mn1.D</p></td>
+</tr>
+<tr>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+</table>
+<p>Simulate until t=2e-7s. Display the two input voltages vin1.p.v and vin2.p.v and the output voltage mn1.D.v, which becomes zero only if both input values are high.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="Nor"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Examples</a>.&#8203;Nor<br><span class="subtitle">MOS NOR gate circuit</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>In nearly every electronic the basic circuit &quot;nor&quot; is used. A nor contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two input voltages have low potential, the output voltage has high potential, otherwise the output voltage has low potential.</p>
+<p>Nor truth table (1 means true, it is represented by the 5V voltage):</p>
+<table cellspacing="2" cellpadding="0" border="1"><tr>
+<td><p>input voltage vin1</p></td>
+<td><p>input voltage vin2</p></td>
+<td><p>output voltage mp1.S</p></td>
+</tr>
+<tr>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+</table>
+<p>Simulate until t=5s. Display the two input voltages vin1.p.v and vin2.p.v and the output voltage mp1.S.v.</p>
+<p>The output value in the example shows a behaviour &quot;near&quot; the one of the truth table, since the capacitances are huge. Therefore loading is not finished before the next input changes.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="Graetz"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Examples</a>.&#8203;Graetz<br><span class="subtitle">Graetz rectifier circuit</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The Graetz rectifier circuit is to show the behaviour of diodes.</p>
+<p>Simulator until 0.025 s. Then display the input voltage vsin.p.v. The rout.p.v voltage is the rectified voltage result, which is pulsing mostly in the positive range.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="Oscillator"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Examples</a>.&#8203;Oscillator<br><span class="subtitle">Oscillator circuit</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The oscillator circuit demonstrates the usage of BJT transistors.</p>
+<p>Simulate until 0.025 s. Display v.p.v, which is rising until 5 V. Furthermore display r4.p.v, which starts oscillating.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="CoupledInductors"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Examples</a>.&#8203;CoupledInductors<br><span class="subtitle">Icon for runnable examples</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The coupled inductor circuit demonstrates how different inductors can be coupled using the Component K_CoupledInductors from package Basic</p>
+<p>Simulate until 0.2s, and display the behaviour of the parts that are coupled via <code>K</code>, such as <code>C1.p.v</code>, and <code>C2.p.v</code>.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="CascodeCircuit"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Examples</a>.&#8203;CascodeCircuit<br><span class="subtitle">Icon for runnable examples</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This model is a simple JFET cascode circuit. The J2 gate variation (v_sin.p.v) is transformed to the J2 drain variation (J2.D.v).</p>
+<p><br/>Simulate until 0.2s, and display the mentioned voltages.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="Spice3BenchmarkDifferentialPair"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Examples</a>.&#8203;Spice3BenchmarkDifferentialPair<br><span class="subtitle">Simple differential pair</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This Differential pair model is one of the five benchmark circuits described in the SPICE3 Version e3 User&#39;s Manual (see information of package Spice3).</p>
+<p>The differential pair circuit is operating in the differential mode. This means the input voltage VIN that is only applied at one transistor
+is amplified. To comprehend this behavior the user is recommended to simulate from t=0 to t=1s and observe "VIN.p.v" which is the input voltage and "Outputvoltage" which is the
+amplified output voltage.</p>
+<p>Original SPICE3 netlist of the Differential pair:</p>
+<pre>
+SIMPLE DIFFERENTIAL PAIR<br/>
+VCC 7 0 12<br/>
+VEE 8 0 -12<br/>
+VIN 1 0 AC 1<br/>
+RS1 1 2 1K<br/>
+RS2 6 0 1K<br/>
+Q1 3 2 4 MOD1<br/>
+Q2 5 6 4 MOD1<br/>
+RC1 7 3 10K<br/>
+RC2 7 5 10K<br/>
+RE 4 8 10K<br/>
+.MODEL MOD1 NPN BF=50 VAF=50 IS=1.E-12 RB=100 CJC=.5PF TF=.6NS<br/>
+.TF V(5) VIN<br/>
+.AC DEC 10 1 100MEG<br/>
+.END
+</pre>
+<p>In the Modelica representation the tiny capacity CJC was set to 1e-9F to get a higher numerical
+robustness. In future the numerical behavior will be analysed to be able to apply the original value
+CJC=.5PF.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Spice3/Semiconductors/index.html#ModelcardBJT">ModelcardBJT</a></code></td><td><code>MOD1</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Spice3BenchmarkMosfetCharacterization"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Examples</a>.&#8203;Spice3BenchmarkMosfetCharacterization<br><span class="subtitle">Mos output characteristics</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This Mosfet Characterization model is one of the five benchmark circuits described in the SPICE3 Version e3 User&#39;s Manual (see information of package Spice3).</p>
+<p>This circuit is a very simple one than consists of an NMOS transistor level 1 that is connected to voltage sources at gate and drain node whereas the drain voltage source supplies the
+operating voltage. The user is recommended to simulate from t=0 to t=1e-7s and observe the gate node voltage ("VGS.p.v") and the transistor current ("M1.D.i").
+It can be seen that the current is increasing with increasing gate voltage which means the conductivity of the transistor is increasing. The opposite case occurs for decreasing gate voltage.</p>
+<p>Original SPICE3 netlist of the MOSFET characterization circuit:</p>
+<pre>
+MOS OUTPUT CHARACTERISTICS<br/>
+.OPTIONS NODE NOPAGE<br/>
+VDS 3 0<br/>
+VGS 2 0<br/>
+M1 1 2 0 0 MOD1 L=4U W=6U AD=10P AS=10P<br/>
+*VIDS MEASURES ID, WE COULD HAVE USED VDS, BUT IT WOULD BE NEGATIVE VIDS 3 1
+.MODEL MOD1 NMOS VTO=-2 NSUB=1.0E15 UO=550<br/>
+.DC VDS 0 10 .5 VGS 0 5 1<br/>
+.END
+</pre>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Spice3/Semiconductors/index.html#ModelcardMOS">ModelcardMOS</a></code></td><td><code>MOD1</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Spice3BenchmarkRtlInverter"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Examples</a>.&#8203;Spice3BenchmarkRtlInverter<br><span class="subtitle">Simple RTL inverter</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This RTL Inverter model is one of the five benchmark circuits described in the SPICE3 Version e3 User&#39;s Manual (see information of package Spice3).</p>
+<p>This simple RTL inverter (resistor transistor logic) circuits inverts the input voltage which means the output voltage has high potential if the input voltage
+has low potential and the other way round. To comprehend this behaviour the user is recommended to simulate from t=0 to t=1e-7s and observe the input voltage (VIN.p.v)
+and the output voltage (Q1.C.v)</p>
+<p>Original SPICE3 netlist of the RTL inverter:</p>
+<pre>
+SIMPLE RTL INVERTER<br/>
+VCC 4 0 5<br/>
+VIN 1 0 PULSE 0 5 2NS 2NS 2NS 30NS<br/>
+RB 1 2 10K<br/>
+Q1 3 2 0 Q1<br/>
+RC 3 4 1K<br/>
+.MODEL Q1 NPN BF 20 RB 100 TF .1NS CJC 2PF<br/>
+.DC VIN 0 5 0.1<br/>
+.TRAN 1NS 100NS<br/>
+.END
+</pre>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Spice3/Semiconductors/index.html#ModelcardBJT">ModelcardBJT</a></code></td><td><code>Q11</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Spice3BenchmarkFourBitBinaryAdder"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Examples</a>.&#8203;Spice3BenchmarkFourBitBinaryAdder<br><span class="subtitle">ADDER - 4 BIT ALL-NAND-GATE BINARY ADDER</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This Four Bit Binary Adder model is one of the five benchmark circuits described in the SPICE3 Version e3 User&#39;s Manual (see information of package Spice3).</p>
+<p>The model adds two 4-bit numbers (Number A and Number B). It has eight inputs where the first one is the lowest-order bit of the first number (Number A Bit0), the second is the lowest-order bit of the second number (Number B Bit0), the third one is the second-order bit of the first number (Number A Bit1) and so on. The Four Bit Binary Adder has four outputs where the first one (Sum Bit0) is the lowest-order bit, the second and the third one (Sum Bit1 and Sum Bit2) are the next two bits and the last one (Sum Bit3) is the highest-order bit. The picture illustrates the pin-assignment.</p>
+<blockquote>
+<img src="../../../../Images/Electrical/Spice3/FourBitBinaryAdder.jpg"
+     alt="segment.png">
+</blockquote>
+
+<p>Inside the model the names of the inputs refer to the names in the picture as follows:</p>
+<p>X1_p1_v --> Number A Bit0</p>
+<p>X1_p2_v --> Number B Bit0</p>
+<p>X1_p3_v --> Number A Bit1</p>
+<p>X1_p4_v --> Number B Bit1</p>
+<p>X1_p5_v --> Number A Bit2</p>
+<p>X1_p6_v --> Number B Bit2</p>
+<p>X1_p7_v --> Number A Bit3</p>
+<p>X1_p8_v --> Number B Bit3</p>
+<p>X1_p9_v --> Sum Bit0</p>
+<p>X1_p10_v --> Sum Bit1</p>
+<p>X1_p11_v --> Sum Bit2</p>
+<p>X1_p12_v --> Sum Bit3</p>
+<p>X1_p14_v --> Cout</p>
+<p>The Four Bit Binary Adder is built out of two two bit adders which respectively are built out of two one bit adders. One one bit adder is build out of nine NAND circuits.</p>
+<p>Please note, that the simulation time of the Four Bit Binary Adder can take several hours due to its immense size (e.g. 11387 equations).</p>
+<p>The user is recommended to simulate from t=0 to t=1e-6s and observe the eight inputs (X1_p1_v, ..., X1_p8_v) and the four outputs (X1_p9_v, ..., X1_p12_v) and the carryout output (X1_p14_v).</p>
+<p><strong>The timing of the single transistors of the adder causes a delay which makes it hard to recognize the adder behaviour. Since the Four Bit Binary Adder is a SPICE3 benchmark, the circuit is not changed in order to see the adder behaviour in a better way.</strong></p>
+<p>Original SPICE3 netlist of the Four Bit Binary Adder:</p>
+<pre>
+ADDER - 4 BIT ALL-NAND-GATE BINARY ADDER
+
+*** SUBCIRCUIT DEFINITIONS
+.SUBCKT NAND 1 2 3 4
+*   NODES:  INPUT(2), OUTPUT, VCC
+Q1        9  5  1 QMOD
+D1CLAMP   0  1    DMOD
+Q2        9  5  2 QMOD
+D2CLAMP   0  2    DMOD
+RB        4  5    4K
+R1        4  6    1.6K
+Q3        6  9  8 QMOD
+R2        8  0    1K
+RC        4  7    130
+Q4        7  6 10 QMOD
+DVBEDROP 10  3    DMOD
+Q5        3  8  0 QMOD
+.ENDS NAND
+
+.SUBCKT ONEBIT 1 2 3 4 5 6
+*   NODES:  INPUT(2), CARRY-IN, OUTPUT, CARRY-OUT, VCC
+X1   1  2  7  6   NAND
+X2   1  7  8  6   NAND
+X3   2  7  9  6   NAND
+X4   8  9 10  6   NAND
+X5   3 10 11  6   NAND
+X6   3 11 12  6   NAND
+X7  10 11 13  6   NAND
+X8  12 13  4  6   NAND
+X9  11  7  5  6   NAND
+.ENDS ONEBIT
+
+.SUBCKT TWOBIT 1 2 3 4 5 6 7 8 9
+*   NODES:  INPUT - BIT0(2) / BIT1(2), OUTPUT - BIT0 / BIT1,
+*           CARRY-IN, CARRY-OUT, VCC
+X1   1  2  7  5 10  9   ONEBIT
+X2   3  4 10  6  8  9   ONEBIT
+.ENDS TWOBIT
+
+.SUBCKT FOURBIT 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+*   NODES:  INPUT - BIT0(2) / BIT1(2) / BIT2(2) / BIT3(2),
+*           OUTPUT - BIT0 / BIT1 / BIT2 / BIT3, CARRY-IN, CARRY-OUT, VCC
+X1   1  2  3  4  9 10 13 16 15   TWOBIT
+X2   5  6  7  8 11 12 16 14 15   TWOBIT
+.ENDS FOURBIT
+
+*** DEFINE NOMINAL CIRCUIT
+.MODEL DMOD D
+.MODEL QMOD NPN(BF=75 RB=100 CJE=1PF CJC=3PF)
+VCC   99  0   DC 5V
+VIN1A  1  0   PULSE(0 3 0 10NS 10NS   10NS   50NS)
+VIN1B  2  0   PULSE(0 3 0 10NS 10NS   20NS  100NS)
+VIN2A  3  0   PULSE(0 3 0 10NS 10NS   40NS  200NS)
+VIN2B  4  0   PULSE(0 3 0 10NS 10NS   80NS  400NS)
+VIN3A  5  0   PULSE(0 3 0 10NS 10NS  160NS  800NS)
+VIN3B  6  0   PULSE(0 3 0 10NS 10NS  320NS 1600NS)
+VIN4A  7  0   PULSE(0 3 0 10NS 10NS  640NS 3200NS)
+VIN4B  8  0   PULSE(0 3 0 10NS 10NS 1280NS 6400NS)
+X1     1  2  3  4  5  6  7  8  9 10 11 12  0 13 99 FOURBIT
+RBIT0  9  0   1K
+RBIT1 10  0   1K
+RBIT2 11  0   1K
+RBIT3 12  0   1K
+RCOUT 13  0   1K
+
+*** (FOR THOSE WITH MONEY (AND MEMORY) TO BURN)
+.TRAN 1NS 6400NS UIC
+
+.control
+run
+set options no break
+
+*plot v(1) v(2)
+*plot v(3) v(4)
+*plot v(5) v(6)
+*plot v(7) v(8)
+*plot v(9) v(10)
+*plot v(11) v(12)
+*plot v(13)
+*print v(9) v(10)
+print v(11) v(12) v(13)
+
+.endc
+
+.END
+</pre>
+<p>The model is built out of several subcircuits which were described only ones and used several times.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Spice3/Semiconductors/index.html#ModelcardDIODE">ModelcardDIODE</a></code></td><td><code>DMOD</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/Spice3/Semiconductors/index.html#ModelcardBJT">ModelcardBJT</a></code></td><td><code>QMOD</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+</body></html>

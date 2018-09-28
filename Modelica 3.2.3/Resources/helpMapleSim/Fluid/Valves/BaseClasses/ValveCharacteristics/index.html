@@ -1,0 +1,167 @@
+<html><head><title>Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="ValveCharacteristics"><h1><embed class="icon" src="../../../../images/icon0573.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Valves</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;ValveCharacteristics<br><span class="subtitle">Functions for valve characteristics</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon shall be used for a package/library that contains several variants of one component.</p>
+<p>Extends from <code><a href="../../../../Icons/VariantsPackage/index.html">Modelica.&#8203;Icons.&#8203;VariantsPackage</a></code> (Icon for package containing variants).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#baseFun"><code>baseFun</code></a></td><td>Base class for valve characteristics</td></tr>
+<tr><td><a href="#equalPercentage"><code>equalPercentage</code></a></td><td>Equal percentage characteristic</td></tr>
+<tr><td><a href="#linear"><code>linear</code></a></td><td>Linear characteristic</td></tr>
+<tr><td><a href="#one"><code>one</code></a></td><td>Constant characteristic</td></tr>
+<tr><td><a href="#quadratic"><code>quadratic</code></a></td><td>Quadratic characteristic</td></tr>
+</table>
+<hr><a name="baseFun"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Partial Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Valves</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">ValveCharacteristics</a>.&#8203;baseFun<br><span class="subtitle">Base class for valve characteristics</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a partial function that defines the interface of valve
+characteristics. The function returns "rc = valveCharacteristic" as function of the
+opening "pos" (in the range 0..1):
+</p>
+
+<blockquote><pre>
+    dp = (zeta_TOT/2) * rho * velocity^2
+m_flow =    sqrt(2/zeta_TOT) * Av * sqrt(rho * dp)
+m_flow = valveCharacteristic * Av * sqrt(rho * dp)
+m_flow =                  rc * Av * sqrt(rho * dp)
+</pre></blockquote>
+
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>pos</code></td><td>Opening position (0: closed, 1: fully open)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>rc</code></td><td>Relative flow coefficient (per unit)</td></tr>
+</table>
+<hr><a name="linear"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Valves</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">ValveCharacteristics</a>.&#8203;linear<br><span class="subtitle">Linear characteristic</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a partial function that defines the interface of valve
+characteristics. The function returns "rc = valveCharacteristic" as function of the
+opening "pos" (in the range 0..1):
+</p>
+
+<blockquote><pre>
+    dp = (zeta_TOT/2) * rho * velocity^2
+m_flow =    sqrt(2/zeta_TOT) * Av * sqrt(rho * dp)
+m_flow = valveCharacteristic * Av * sqrt(rho * dp)
+m_flow =                  rc * Av * sqrt(rho * dp)
+</pre></blockquote>
+
+<p>Extends from <code><a href="../../../../Fluid/Valves/BaseClasses/ValveCharacteristics/index.html#baseFun">Modelica.&#8203;Fluid.&#8203;Valves.&#8203;BaseClasses.&#8203;ValveCharacteristics.&#8203;baseFun</a></code> (Base class for valve characteristics).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>pos</code></td><td>Opening position (0: closed, 1: fully open)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>rc</code></td><td>Relative flow coefficient (per unit)</td></tr>
+</table>
+<hr><a name="one"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Valves</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">ValveCharacteristics</a>.&#8203;one<br><span class="subtitle">Constant characteristic</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a partial function that defines the interface of valve
+characteristics. The function returns "rc = valveCharacteristic" as function of the
+opening "pos" (in the range 0..1):
+</p>
+
+<blockquote><pre>
+    dp = (zeta_TOT/2) * rho * velocity^2
+m_flow =    sqrt(2/zeta_TOT) * Av * sqrt(rho * dp)
+m_flow = valveCharacteristic * Av * sqrt(rho * dp)
+m_flow =                  rc * Av * sqrt(rho * dp)
+</pre></blockquote>
+
+<p>Extends from <code><a href="../../../../Fluid/Valves/BaseClasses/ValveCharacteristics/index.html#baseFun">Modelica.&#8203;Fluid.&#8203;Valves.&#8203;BaseClasses.&#8203;ValveCharacteristics.&#8203;baseFun</a></code> (Base class for valve characteristics).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>pos</code></td><td>Opening position (0: closed, 1: fully open)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>rc</code></td><td>Relative flow coefficient (per unit)</td></tr>
+</table>
+<hr><a name="quadratic"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Valves</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">ValveCharacteristics</a>.&#8203;quadratic<br><span class="subtitle">Quadratic characteristic</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a partial function that defines the interface of valve
+characteristics. The function returns "rc = valveCharacteristic" as function of the
+opening "pos" (in the range 0..1):
+</p>
+
+<blockquote><pre>
+    dp = (zeta_TOT/2) * rho * velocity^2
+m_flow =    sqrt(2/zeta_TOT) * Av * sqrt(rho * dp)
+m_flow = valveCharacteristic * Av * sqrt(rho * dp)
+m_flow =                  rc * Av * sqrt(rho * dp)
+</pre></blockquote>
+
+<p>Extends from <code><a href="../../../../Fluid/Valves/BaseClasses/ValveCharacteristics/index.html#baseFun">Modelica.&#8203;Fluid.&#8203;Valves.&#8203;BaseClasses.&#8203;ValveCharacteristics.&#8203;baseFun</a></code> (Base class for valve characteristics).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>pos</code></td><td>Opening position (0: closed, 1: fully open)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>rc</code></td><td>Relative flow coefficient (per unit)</td></tr>
+</table>
+<hr><a name="equalPercentage"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Valves</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">ValveCharacteristics</a>.&#8203;equalPercentage<br><span class="subtitle">Equal percentage characteristic</span></h2></a>
+<h3>Information</h3>
+<p>
+
+This characteristic is such that the relative change of the flow coefficient is proportional to the change in the opening position:
+<p> d(rc)/d(pos) = k d(pos).</p>
+<p> The constant k is expressed in terms of the rangeability, i.e., the ratio between the maximum and the minimum useful flow coefficient:</p>
+<p> rangeability = exp(k) = rc(1.0)/rc(0.0).</p>
+<p> The theoretical characteristic has a non-zero opening when pos = 0; the implemented characteristic is modified so that the valve closes linearly when pos &lt; delta.</p>
+<p>Extends from <code><a href="../../../../Fluid/Valves/BaseClasses/ValveCharacteristics/index.html#baseFun">Modelica.&#8203;Fluid.&#8203;Valves.&#8203;BaseClasses.&#8203;ValveCharacteristics.&#8203;baseFun</a></code> (Base class for valve characteristics).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>pos</code></td><td>Opening position (0: closed, 1: fully open)</td></tr>
+<tr><td><code>Real</code></td><td><code>rangeability</code></td><td>Rangeability</td></tr>
+<tr><td><code>Real</code></td><td><code>delta</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>rc</code></td><td>Relative flow coefficient (per unit)</td></tr>
+</table>
+</body></html>

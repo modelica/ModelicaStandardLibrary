@@ -1,0 +1,91 @@
+<html><head><title>Modelica.Media.Incompressible</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Incompressible"><h1><embed class="icon" src="../../images/icon0573.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;Incompressible<br><span class="subtitle">Medium model for T-dependent properties, defined by tables or polynomials</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<h4>Incompressible media package</h4>
+<p>
+This package provides a structure and examples of how to create simple
+medium models of incompressible fluids, meaning fluids with very little
+pressure influence on density. The medium properties is typically described
+in terms of tables, functions or polynomial coefficients.
+</p>
+<h4>Definitions</h4>
+<p>
+The common meaning of <em>incompressible</em> is that properties like density
+and enthalpy are independent of pressure. Thus properties are conveniently
+described as functions of temperature, e.g., as polynomials density(T) and cp(T).
+However, enthalpy can not be independent of pressure since h = u - p/d. For liquids
+it is anyway
+common to neglect this dependence since for constant density the neglected term
+is (p - p0)/d, which in comparison with cp is very small for most liquids. For
+water, the equivalent change of temperature to increasing pressure 1 bar is
+0.025 Kelvin.
+</p>
+<p>
+Two Boolean flags are used to choose how enthalpy and inner energy is calculated:
+</p>
+<ul>
+<li><strong>enthalpyOfT</strong>=true, means assuming that enthalpy is only a function
+of temperature, neglecting the pressure dependent term.</li>
+<li><strong>singleState</strong>=true, means also neglect the pressure influence on inner
+energy, which makes all medium properties pure functions of temperature.</li>
+</ul>
+<p>
+The default setting for both these flags is true, which enables the simulation tool
+to choose temperature as the only medium state and avoids non-linear equation
+systems, see the section about
+<a href="../../Media/UsersGuide/MediumDefinition/index.html#StaticStateSelection">Static
+state selection</a> in the Modelica.Media User's Guide.
+</p>
+
+<h4>Contents</h4>
+<p>
+Currently, the package contains the following parts:
+</p>
+<ol>
+<li> <a href="../../Media/Incompressible/TableBased/index.html">
+      Table based medium models</a></li>
+<li> <a href="../../Media/Incompressible/Examples/index.html">
+      Example medium models</a></li>
+</ol>
+
+<p>
+A few examples are given in the Examples package. The model
+<a href="../../Media/Incompressible/Examples/Glycol47/index.html">
+Examples.Glycol47</a> shows how the medium models can be used. For more
+realistic examples of how to implement volume models with medium properties
+look in the <a href="../../Media/UsersGuide/MediumUsage/index.html">Medium
+usage section</a> of the User's Guide.
+</p>
+
+<p>Extends from <code><a href="../../Icons/VariantsPackage/index.html">Modelica.&#8203;Icons.&#8203;VariantsPackage</a></code> (Icon for package containing variants).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="../../Media/Incompressible/Common/index.html"><code>Common</code></a> &hellip;</td><td>Common data structures</td></tr>
+<tr><td><a href="../../Media/Incompressible/Examples/index.html"><code>Examples</code></a> &hellip;</td><td>Examples for incompressible media</td></tr>
+<tr><td><a href="../../Media/Incompressible/TableBased/index.html"><code>TableBased</code></a> &hellip;</td><td>Incompressible medium properties based on tables</td></tr>
+</table>
+</body></html>

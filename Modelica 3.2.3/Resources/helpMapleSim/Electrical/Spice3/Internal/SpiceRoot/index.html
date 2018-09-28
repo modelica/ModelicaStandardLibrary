@@ -1,0 +1,115 @@
+<html><head><title>Modelica.Electrical.Spice3.Internal.SpiceRoot</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="SpiceRoot"><h1><embed class="icon" src="../../../../images/icon0034.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;SpiceRoot<br><span class="subtitle">Basic records and functions</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>The package SpiceRoot contains basic records and functions that are needed in SPICE3.</p>
+<p>Extends from <code><a href="../../../../Icons/InternalPackage/index.html">Modelica.&#8203;Icons.&#8203;InternalPackage</a></code> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#initJunctionVoltages"><code>initJunctionVoltages</code></a></td><td>Choice of junction voltage handling, obsolete, use initJunctionVoltagesRevised</td></tr>
+<tr><td><a href="#initJunctionVoltagesRevised"><code>initJunctionVoltagesRevised</code></a></td><td>Choice of junction voltage handling</td></tr>
+<tr><td><a href="#limitJunctionVoltage"><code>limitJunctionVoltage</code></a></td><td>Limitation of junction voltage, obsolete, use limitJunctionVoltageRevised</td></tr>
+<tr><td><a href="#limitJunctionVoltageRevised"><code>limitJunctionVoltageRevised</code></a></td><td>Limitation of junction voltage</td></tr>
+<tr><td><a href="#SpiceRoot"><code>SpiceRoot</code></a></td><td>Data for insertion to matrices</td></tr>
+<tr><td><a href="#useInitialConditions"><code>useInitialConditions</code></a></td><td>Initial condition handling</td></tr>
+</table>
+<hr><a name="SpiceRoot"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">SpiceRoot</a>.&#8203;SpiceRoot<br><span class="subtitle">Data for insertion to matrices</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This data are to collect intermediate results to be inserted into SPICE-like matrices for linear systems of equations.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_pCurrentValues[6]</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_pResJacobi[36]</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_pCapJacobi[36]</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="useInitialConditions"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">SpiceRoot</a>.&#8203;useInitialConditions<br><span class="subtitle">Initial condition handling</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function useInitialConditions appoints whether the initial conditions that are given in the description are used or not.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>ret</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="initJunctionVoltages"><h2><embed class="icon" src="../../../../images/icon0920.svg" width="207" height="207" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">SpiceRoot</a>.&#8203;initJunctionVoltages<br><span class="subtitle">Choice of junction voltage handling, obsolete, use initJunctionVoltagesRevised</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This internal function is provided to choose the junction voltage handling which is at the current library version fixed to false.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions) and <code><a href="../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>ret</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="limitJunctionVoltage"><h2><embed class="icon" src="../../../../images/icon0920.svg" width="207" height="207" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">SpiceRoot</a>.&#8203;limitJunctionVoltage<br><span class="subtitle">Limitation of junction voltage, obsolete, use limitJunctionVoltageRevised</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This internal function is provided to limit the junction voltage which is at the current library version fixed to false.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions) and <code><a href="../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>voltage</code></td><td>Input voltage</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>ret</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="limitJunctionVoltageRevised"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">SpiceRoot</a>.&#8203;limitJunctionVoltageRevised<br><span class="subtitle">Limitation of junction voltage</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This internal function is provided to limit the junction voltage which is at the current library version fixed to false.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>voltage</code></td><td>Input voltage</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>ret</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="initJunctionVoltagesRevised"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">SpiceRoot</a>.&#8203;initJunctionVoltagesRevised<br><span class="subtitle">Choice of junction voltage handling</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This internal function is provided to choose the junction voltage handling which is at the current library version fixed to false.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>ret</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

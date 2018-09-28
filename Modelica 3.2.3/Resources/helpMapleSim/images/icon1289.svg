@@ -1,0 +1,15 @@
+<svg width="223" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Mechanics.Translational.Sources.Force2" class="component">
+		<polygon points="201.5,101.5 171.5,131.5 171.5,111.5 121.5,111.5 121.5,91.5 171.5,91.5 171.5,71.5" fill="#A0D7A0" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="21.5,101.5 51.5,71.5 51.5,91.5 101.5,91.5 101.5,111.5 51.5,111.5 51.5,131.5" fill="#A0D7A0" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="flange_a" class="port">
+			<polygon points="1.5,111.5 21.5,111.5 21.5,91.5 1.5,91.5" fill="#007F00" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="flange_b" class="port">
+			<polygon points="201.5,111.5 221.5,111.5 221.5,91.5 201.5,91.5" fill="#FFFFFF" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="f" class="port">
+			<polygon points="131.5,41.5 111.5,81.5 91.5,41.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Analog.Basic.GeneralVoltageToCurrentAdaptor</title>
+</head>
+<body>
+<h1><a href="Icons/40f98cb0d947c4dfb7d585809476aa76dca7377a.svg"><img class="svgiconhead" src="Icons/40f98cb0d947c4dfb7d585809476aa76dca7377a.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.html">Analog</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.Basic.html">Basic</a>.<span class="omc-h1">GeneralVoltageToCurrentAdaptor</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Adaptor between an electrical openport and a signal
+representation of the oneport. This component is used to provide a
+pure signal interface around an Electrical model and export this
+model in form of an input/output block, especially as FMU (<a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>).
+Examples of the usage of this adaptor are provided in <a href="Modelica.Electrical.Analog.Examples.GenerationOfFMUs.html">Electrical.Analog.Examples.GenerationOfFMUs</a>.
+This adaptor has voltage and derivative of voltage as input signals
+and current and derivative of current as output signal.</p>
+<p>Note, the input signals must be consistent to each other
+(dv=der(v)).</p>
+<p>Note, the adaptor contains <strong>no ground</strong>. Bear in
+mind that separating physical components and connecting them via
+adaptor signals requires to place appropriate <a href="Modelica.Electrical.Analog.Basic.Ground.html">ground
+components</a> to define electric potential within the
+subcircuits.</p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

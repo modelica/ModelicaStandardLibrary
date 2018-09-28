@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Vectors.sort</title>
+</head>
+<body>
+<h1><a href="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg"><img class="svgiconhead" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Vectors.html">Vectors</a>.<span class="omc-h1">sort</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+           sorted_v = Vectors.<strong>sort</strong>(v);
+(sorted_v, indices) = Vectors.<strong>sort</strong>(v, ascending=true);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Function <strong>sort</strong>(..) sorts a Real vector v in
+ascending order and returns the result in sorted_v. If the optional
+argument "ascending" is <strong>false</strong>, the vector is
+sorted in descending order. In the optional second output argument
+the indices of the sorted vector with respect to the original
+vector are given, such that sorted_v = v[indices].</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  (v2, i2) := Vectors.sort({-1, 8, 3, 6, 2});
+       -&gt; v2 = {-1, 2, 3, 6, 8}
+          i2 = {1, 5, 3, 4, 2}
+</pre></blockquote>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>function sort
+  extends Modelica.Icons.Function;
+  input Real v[:] "Real vector to be sorted";
+  input Boolean ascending = true "= true if ascending order, otherwise descending order";
+  output Real sorted_v[size(v, 1)] = v "Sorted vector";
+  output Integer indices[size(v, 1)] = 1:size(v, 1) "sorted_v = v[indices]";
+end sort;</pre></blockquote>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

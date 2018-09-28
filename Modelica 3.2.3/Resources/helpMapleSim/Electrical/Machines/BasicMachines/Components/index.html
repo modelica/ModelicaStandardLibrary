@@ -1,0 +1,399 @@
+<html><head><title>Modelica.Electrical.Machines.BasicMachines.Components</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Components"><h1><embed class="icon" src="../../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;Components<br><span class="subtitle">Machine components like AirGaps</span></h1></a>
+<h3>Information</h3>
+<p>
+
+This package contains components for modeling electrical machines, specially three-phase induction machines, based on space phasor theory.
+These models use package SpacePhasors.
+<p>Extends from <code><a href="../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#AirGapDC"><code>AirGapDC</code></a></td><td>Linear airgap model of a DC machine</td></tr>
+<tr><td><a href="#AirGapR"><code>AirGapR</code></a></td><td>Airgap in rotor-fixed coordinate system</td></tr>
+<tr><td><a href="#AirGapS"><code>AirGapS</code></a></td><td>Airgap in stator-fixed coordinate system</td></tr>
+<tr><td><a href="#BasicTransformer"><code>BasicTransformer</code></a></td><td>Partial model of three-phase transformer</td></tr>
+<tr><td><a href="#CompoundDCExcitation"><code>CompoundDCExcitation</code></a></td><td>Compound excitation = shunt + series</td></tr>
+<tr><td><a href="#DamperCage"><code>DamperCage</code></a></td><td>Squirrel Cage</td></tr>
+<tr><td><a href="#ElectricalExcitation"><code>ElectricalExcitation</code></a></td><td>Electrical excitation</td></tr>
+<tr><td><a href="#IdealCore"><code>IdealCore</code></a></td><td>Ideal transformer with 3 windings</td></tr>
+<tr><td><a href="#Inductor"><code>Inductor</code></a></td><td>Space phasor inductor</td></tr>
+<tr><td><a href="#InductorDC"><code>InductorDC</code></a></td><td>Ideal linear electrical inductor for electrical DC machines</td></tr>
+<tr><td><a href="#PartialAirGap"><code>PartialAirGap</code></a></td><td>Partial airgap model</td></tr>
+<tr><td><a href="#PartialAirGapDC"><code>PartialAirGapDC</code></a></td><td>Partial airgap model of a DC machine</td></tr>
+<tr><td><a href="#PartialCore"><code>PartialCore</code></a></td><td>Partial model of transformer core with 3 windings</td></tr>
+<tr><td><a href="#PermanentMagnet"><code>PermanentMagnet</code></a></td><td>Permanent magnet excitation</td></tr>
+<tr><td><a href="#PermanentMagnetWithLosses"><code>PermanentMagnetWithLosses</code></a></td><td>Permanent magnet excitation</td></tr>
+<tr><td><a href="#SquirrelCage"><code>SquirrelCage</code></a></td><td>Squirrel Cage</td></tr>
+</table>
+<hr><a name="PartialAirGap"><h2><embed class="icon" src="../../../../images/icon0590.svg" width="223" height="223" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">Components</a>.&#8203;PartialAirGap<br><span class="subtitle">Partial airgap model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Partial model of the airgap, using only equations.
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>Integer</code></td><td><code>p</code></td><td>&nbsp;</td><td>Number of pole pairs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>support</code></td><td>Support at which the reaction torque is acting</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Interfaces/index.html#SpacePhasor">SpacePhasor</a></code></td><td><code>spacePhasor_s</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Interfaces/index.html#SpacePhasor">SpacePhasor</a></code></td><td><code>spacePhasor_r</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="AirGapS"><h2><embed class="icon" src="../../../../images/icon0591.svg" width="223" height="223" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">Components</a>.&#8203;AirGapS<br><span class="subtitle">Airgap in stator-fixed coordinate system</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Model of the airgap in stator-fixed coordinate system, using only equations.
+<p>Extends from <code><a href="../../../../Electrical/Machines/BasicMachines/Components/index.html#PartialAirGap">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;BasicMachines.&#8203;Components.&#8203;PartialAirGap</a></code> (Partial airgap model).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lm</code></td><td>&nbsp;</td><td>Main field inductance</td></tr>
+<tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>Integer</code></td><td><code>p</code></td><td>&nbsp;</td><td>Number of pole pairs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>support</code></td><td>Support at which the reaction torque is acting</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Interfaces/index.html#SpacePhasor">SpacePhasor</a></code></td><td><code>spacePhasor_s</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Interfaces/index.html#SpacePhasor">SpacePhasor</a></code></td><td><code>spacePhasor_r</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="AirGapR"><h2><embed class="icon" src="../../../../images/icon0592.svg" width="223" height="223" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">Components</a>.&#8203;AirGapR<br><span class="subtitle">Airgap in rotor-fixed coordinate system</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Model of the airgap in rotor-fixed coordinate system, using only equations.
+<p>Extends from <code><a href="../../../../Electrical/Machines/BasicMachines/Components/index.html#PartialAirGap">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;BasicMachines.&#8203;Components.&#8203;PartialAirGap</a></code> (Partial airgap model).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lmd</code></td><td>&nbsp;</td><td>Main field inductance d-axis</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lmq</code></td><td>&nbsp;</td><td>Main field inductance q-axis</td></tr>
+<tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>Integer</code></td><td><code>p</code></td><td>&nbsp;</td><td>Number of pole pairs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>support</code></td><td>Support at which the reaction torque is acting</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Interfaces/index.html#SpacePhasor">SpacePhasor</a></code></td><td><code>spacePhasor_s</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Interfaces/index.html#SpacePhasor">SpacePhasor</a></code></td><td><code>spacePhasor_r</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Inductor"><h2><embed class="icon" src="../../../../images/icon0593.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">Components</a>.&#8203;Inductor<br><span class="subtitle">Space phasor inductor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+This is a model of an inductor, described with space phasors.
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L[2]</code></td><td>&nbsp;</td><td>Inductance of both axes</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Machines/Interfaces/index.html#SpacePhasor">SpacePhasor</a></code></td><td><code>spacePhasor_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Interfaces/index.html#SpacePhasor">SpacePhasor</a></code></td><td><code>spacePhasor_b</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="SquirrelCage"><h2><embed class="icon" src="../../../../images/icon0594.svg" width="213" height="223" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">Components</a>.&#8203;SquirrelCage<br><span class="subtitle">Squirrel Cage</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Model of a squirrel cage / symmetrical damper cage in two axis.
+</p>
+<p>
+The squirrel cage has an optional (conditional) HeatPort,
+which can be enabled or disabled by the Boolean parameter useHeatPort.
+Temperatures of both axis are the same, both losses are added.
+Material properties alpha of both axis are the same.
+</p>
+<p>Extends from <code><a href="../../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lrsigma</code></td><td>&nbsp;</td><td>Rotor stray inductance per phase translated to stator</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rr</code></td><td>&nbsp;</td><td>Rotor resistance per phase translated to stator at T_ref</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td><code>293.15</code></td><td>Reference temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha</code></td><td><code>0</code></td><td>Temperature coefficient of resistance at T_ref</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>T_ref</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Interfaces/index.html#SpacePhasor">SpacePhasor</a></code></td><td><code>spacePhasor_r</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>i[2]</code></td><td>Currents out from squirrel cage</td></tr>
+</table>
+<hr><a name="DamperCage"><h2><embed class="icon" src="../../../../images/icon0595.svg" width="213" height="223" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">Components</a>.&#8203;DamperCage<br><span class="subtitle">Squirrel Cage</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Model of an asymmetrical damper cage in two axis.
+</p>
+<p>
+The damper cage has an optional (conditional) HeatPort,
+which can be enabled or disabled by the Boolean parameter useHeatPort.
+Temperatures of both axis are the same, both losses are added.
+Material properties alpha can be set differently for both d- and q-axis,
+although reference temperature for both resistances is the same.
+</p>
+<p>Extends from <code><a href="../../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lrsigmad</code></td><td>&nbsp;</td><td>Stray inductance in d-axis per phase translated to stator</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lrsigmaq</code></td><td>&nbsp;</td><td>Stray inductance in q-axis per phase translated to stator</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rrd</code></td><td>&nbsp;</td><td>Resistance in d-axis per phase translated to stator at T_ref</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rrq</code></td><td>&nbsp;</td><td>Resistance in q-axis per phase translated to stator at T_ref</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td><code>293.15</code></td><td>Reference temperature of both resistances in d- and q-axis</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha</code></td><td><code>0</code></td><td>Temperature coefficient of both resistances in d- and q-axis at T_ref</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>T_ref</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>i[2]</code></td><td>Currents out from damper</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>lossPower</code></td><td>Damper losses</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Interfaces/index.html#SpacePhasor">SpacePhasor</a></code></td><td><code>spacePhasor_r</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="ElectricalExcitation"><h2><embed class="icon" src="../../../../images/icon0596.svg" width="223" height="223" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">Components</a>.&#8203;ElectricalExcitation<br><span class="subtitle">Electrical excitation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Model of an electrical excitation, converting excitation to space phasor.
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>turnsRatio</code></td><td>&nbsp;</td><td>Ratio stator current / excitation current</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Machines/Interfaces/index.html#SpacePhasor">SpacePhasor</a></code></td><td><code>spacePhasor_r</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_ep</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_en</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PermanentMagnet"><h2><embed class="icon" src="../../../../images/icon0597.svg" width="213" height="213" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">Components</a>.&#8203;PermanentMagnet<br><span class="subtitle">Permanent magnet excitation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Model of a permanent magnet excitation, characterized by an equivalent excitation current.
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>Ie</code></td><td>&nbsp;</td><td>Equivalent excitation current</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Machines/Interfaces/index.html#SpacePhasor">SpacePhasor</a></code></td><td><code>spacePhasor_r</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PermanentMagnetWithLosses"><h2><embed class="icon" src="../../../../images/icon0598.svg" width="213" height="233" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">Components</a>.&#8203;PermanentMagnetWithLosses<br><span class="subtitle">Permanent magnet excitation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Model of a permanent magnet excitation with loss, characterized by an equivalent excitation current.
+<p>Extends from <code><a href="../../../../Electrical/Machines/BasicMachines/Components/index.html#PermanentMagnet">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;BasicMachines.&#8203;Components.&#8203;PermanentMagnet</a></code> (Permanent magnet excitation) and <code><a href="../../../../Electrical/Machines/Losses/InductionMachines/index.html#PermanentMagnetLosses">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Losses.&#8203;InductionMachines.&#8203;PermanentMagnetLosses</a></code> (Model of permanent magnet losses dependent on current and speed).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>Ie</code></td><td>&nbsp;</td><td>Equivalent excitation current</td></tr>
+<tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Losses/index.html#PermanentMagnetLossParameters">PermanentMagnetLossParameters</a></code></td><td><code>permanentMagnetLossParameters</code></td><td>&nbsp;</td><td>Permanent magnet loss parameters</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Machines/Interfaces/index.html#SpacePhasor">SpacePhasor</a></code></td><td><code>spacePhasor_r</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>Shaft end</td></tr>
+<tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>support</code></td><td>Housing and support</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
+</table>
+<hr><a name="InductorDC"><h2><embed class="icon" src="../../../../images/icon0599.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">Components</a>.&#8203;InductorDC<br><span class="subtitle">Ideal linear electrical inductor for electrical DC machines</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The linear inductor connects the branch voltage <em>v</em> with the branch current <em>i</em> by <em>v = L * di/dt</em>.
+If <code>quasiStationary == false</code>, the electrical transients are neglected, i.e., the voltage drop is zero.</p>
+<p>Extends from <code><a href="../../../../Electrical/Analog/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical pins p and n and current i from p to n).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L</code></td><td>&nbsp;</td><td>Inductance</td></tr>
+<tr><td><code>Boolean</code></td><td><code>quasiStationary</code></td><td>&nbsp;</td><td>No electrical transients if true</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+</table>
+<hr><a name="PartialAirGapDC"><h2><embed class="icon" src="../../../../images/icon0600.svg" width="223" height="223" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">Components</a>.&#8203;PartialAirGapDC<br><span class="subtitle">Partial airgap model of a DC machine</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Linear model of the airgap (without saturation effects) of a DC machine, using only equations.<br>
+Induced excitation voltage is calculated from der(flux), where flux is defined by excitation inductance times excitation current.
+If <code>quasiStationary == false</code>, the electrical transients are neglected, i.e., the induced excitation voltage is zero.<br>
+Induced armature voltage is calculated from flux times angular velocity.
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>quasiStationary</code></td><td>&nbsp;</td><td>No electrical transients if true</td></tr>
+<tr><td><code>Real</code></td><td><code>turnsRatio</code></td><td>&nbsp;</td><td>Ratio of armature turns over number of turns of the excitation winding</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>support</code></td><td>Support at which the reaction torque is acting</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_ap</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_ep</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_an</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_en</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="AirGapDC"><h2><embed class="icon" src="../../../../images/icon0600.svg" width="223" height="223" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">Components</a>.&#8203;AirGapDC<br><span class="subtitle">Linear airgap model of a DC machine</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Linear model of the airgap (without saturation effects) of a DC machine, using only equations.<br>
+Induced excitation voltage is calculated from der(flux), where flux is defined by excitation inductance times excitation current.<br>
+Induced armature voltage is calculated from flux times angular velocity.
+<p>Extends from <code><a href="../../../../Electrical/Machines/BasicMachines/Components/index.html#PartialAirGapDC">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;BasicMachines.&#8203;Components.&#8203;PartialAirGapDC</a></code> (Partial airgap model of a DC machine).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>quasiStationary</code></td><td>&nbsp;</td><td>No electrical transients if true</td></tr>
+<tr><td><code>Real</code></td><td><code>turnsRatio</code></td><td>&nbsp;</td><td>Ratio of armature turns over number of turns of the excitation winding</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Le</code></td><td>&nbsp;</td><td>Excitation inductance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>support</code></td><td>Support at which the reaction torque is acting</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_ap</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_ep</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_an</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_en</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="CompoundDCExcitation"><h2><embed class="icon" src="../../../../images/icon0601.svg" width="223" height="223" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">Components</a>.&#8203;CompoundDCExcitation<br><span class="subtitle">Compound excitation = shunt + series</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Model to compound the shunt excitation current and the series excitation current to the total excitation current w.r.t. shunt excitation.
+This model is intended to be placed between shunt and series excitation pins and the airgap;
+the connection to airgap has to be grounded at one point.
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>excitationTurnsRatio</code></td><td>&nbsp;</td><td>Ratio of series excitation turns over shunt excitation turns</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>Positive pin to airgap</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>Negative pin to airgap</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_ep</code></td><td>Positive pin to shunt excitation</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_en</code></td><td>Negative pin to shunt excitation</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_sep</code></td><td>Positive pin to series excitation</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_sen</code></td><td>Negative pin to series excitation</td></tr>
+</table>
+<hr><a name="PartialCore"><h2><embed class="icon" src="../../../../images/icon0602.svg" width="223" height="223" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">Components</a>.&#8203;PartialCore<br><span class="subtitle">Partial model of transformer core with 3 windings</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Partial model of transformer core with 3 windings; saturation function flux versus magnetizing current has to be defined.
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>Real</code></td><td><code>n12</code></td><td>&nbsp;</td><td>Turns ratio 1:2</td></tr>
+<tr><td><code>Real</code></td><td><code>n13</code></td><td>&nbsp;</td><td>Turns ratio 1:3</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p1</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n1</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p2</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n2</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p3</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n3</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="IdealCore"><h2><embed class="icon" src="../../../../images/icon0602.svg" width="223" height="223" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">Components</a>.&#8203;IdealCore<br><span class="subtitle">Ideal transformer with 3 windings</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Ideal transformer with 3 windings: no magnetizing current.
+<p>Extends from <code><a href="../../../../Electrical/Machines/BasicMachines/Components/index.html#PartialCore">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;BasicMachines.&#8203;Components.&#8203;PartialCore</a></code> (Partial model of transformer core with 3 windings).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>Real</code></td><td><code>n12</code></td><td>&nbsp;</td><td>Turns ratio 1:2</td></tr>
+<tr><td><code>Real</code></td><td><code>n13</code></td><td>&nbsp;</td><td>Turns ratio 1:3</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p1</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n1</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p2</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n2</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p3</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n3</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="BasicTransformer"><h2><embed class="icon" src="../../../../images/icon0603.svg" width="223" height="216" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">Components</a>.&#8203;BasicTransformer<br><span class="subtitle">Partial model of three-phase transformer</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Partial model of a three-phase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core.
+Circuit layout (vector group) of primary and secondary windings have to be defined.<br>
+Exactly the same as Interfaces.PartialBasicTransformer, included for compatibility reasons.
+<p>Extends from <code><a href="../../../../Electrical/Machines/Interfaces/index.html#PartialBasicTransformer">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Interfaces.&#8203;PartialBasicTransformer</a></code> (Partial model of three-phase transformer) and <code><a href="../../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>Real</code></td><td><code>n</code></td><td>&nbsp;</td><td>Ratio primary voltage (line-to-line) / secondary voltage (line-to-line)</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R1</code></td><td>&nbsp;</td><td>Primary resistance per phase at TRef</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T1Ref</code></td><td>&nbsp;</td><td>Reference temperature of primary resistance</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20_1</code></td><td>&nbsp;</td><td>Temperature coefficient of primary resistance at 20 degC</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L1sigma</code></td><td>&nbsp;</td><td>Primary stray inductance per phase</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R2</code></td><td>&nbsp;</td><td>Secondary resistance per phase at TRef</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T2Ref</code></td><td>&nbsp;</td><td>Reference temperature of secondary resistance</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20_2</code></td><td>&nbsp;</td><td>Temperature coefficient of secondary resistance at 20 degC</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L2sigma</code></td><td>&nbsp;</td><td>Secondary stray inductance per phase</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useThermalPort</code></td><td><code>false</code></td><td>Enable / disable (=fixed temperatures) thermal port</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T1Operational</code></td><td>&nbsp;</td><td>Operational temperature of primary resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T2Operational</code></td><td>&nbsp;</td><td>Operational temperature of secondary resistance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug1</code></td><td>Primary plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug2</code></td><td>Secondary plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Interfaces/index.html#ThermalPortTransformer">ThermalPortTransformer</a></code></td><td><code>thermalPort</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

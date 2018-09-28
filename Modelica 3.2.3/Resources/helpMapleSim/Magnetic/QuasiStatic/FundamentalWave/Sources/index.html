@@ -1,0 +1,149 @@
+<html><head><title>Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Sources"><h1><embed class="icon" src="../../../../images/icon0259.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;Sources<br><span class="subtitle">Sources to supply magnetic networks</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates a package which contains sources.</p>
+<p>Extends from <code><a href="../../../../Icons/SourcesPackage/index.html">Modelica.&#8203;Icons.&#8203;SourcesPackage</a></code> (Icon for packages containing sources).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#ConstantFlux"><code>ConstantFlux</code></a></td><td>Source of constant magnetic flux</td></tr>
+<tr><td><a href="#ConstantMagneticPotentialDifference"><code>ConstantMagneticPotentialDifference</code></a></td><td>Source with constant magnetic potential difference</td></tr>
+<tr><td><a href="#SignalFlux"><code>SignalFlux</code></a></td><td>Source of time varying magnetic flux</td></tr>
+<tr><td><a href="#SignalMagneticPotentialDifference"><code>SignalMagneticPotentialDifference</code></a></td><td>Source of magnetic potential difference with signal input</td></tr>
+</table>
+<hr><a name="ConstantMagneticPotentialDifference"><h2><embed class="icon" src="../../../../images/icon1039.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Sources</a>.&#8203;ConstantMagneticPotentialDifference<br><span class="subtitle">Source with constant magnetic potential difference</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Source of constant magnetomotive force.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Sources/index.html#SignalMagneticPotentialDifference">
+SignalMagneticPotentialDifference</a>,
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Sources/index.html#ConstantFlux">
+ConstantFlux</a>,
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Sources/index.html#SignalFlux">
+SignalFlux</a>
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PartialTwoPort">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FundamentalWave.&#8203;Interfaces.&#8203;PartialTwoPort</a></code> (Partial two port for graphical programming).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td>&nbsp;</td><td>Frequency of the source</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#ComplexMagneticPotentialDifference">ComplexMagneticPotentialDifference</a></code></td><td><code>V_m</code></td><td><code>Complex(re = 1, im = 0)</code></td><td>Complex magnetic potential difference</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port of fundamental wave machines</td></tr>
+</table>
+<hr><a name="SignalMagneticPotentialDifference"><h2><embed class="icon" src="../../../../images/icon1040.svg" width="223" height="223" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Sources</a>.&#8203;SignalMagneticPotentialDifference<br><span class="subtitle">Source of magnetic potential difference with signal input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Source of magnetomotive force with complex signal input.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Sources/index.html#ConstantMagneticPotentialDifference">
+ConstantMagneticPotentialDifference</a>,
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Sources/index.html#ConstantFlux">
+ConstantFlux</a>,
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Sources/index.html#SignalFlux">
+SignalFlux</a>
+</p>
+
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PartialTwoPort">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FundamentalWave.&#8203;Interfaces.&#8203;PartialTwoPort</a></code> (Partial two port for graphical programming).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>V_m</code></td><td>Complex signal input of magnetic potential difference</td></tr>
+</table>
+<hr><a name="ConstantFlux"><h2><embed class="icon" src="../../../../images/icon1041.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Sources</a>.&#8203;ConstantFlux<br><span class="subtitle">Source of constant magnetic flux</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Source of constant magnetic flux.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Sources/index.html#ConstantMagneticPotentialDifference">
+ConstantMagneticPotentialDifference</a>,
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Sources/index.html#SignalMagneticPotentialDifference">
+SignalMagneticPotentialDifference</a>,
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Sources/index.html#SignalFlux">
+SignalFlux</a>
+</p>
+
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PartialTwoPort">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FundamentalWave.&#8203;Interfaces.&#8203;PartialTwoPort</a></code> (Partial two port for graphical programming).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td>&nbsp;</td><td>Frequency of the source</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#ComplexMagneticFlux">ComplexMagneticFlux</a></code></td><td><code>Phi</code></td><td><code>Complex(re = 1, im = 0)</code></td><td>Complex magnetic flux</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port of fundamental wave machines</td></tr>
+</table>
+<hr><a name="SignalFlux"><h2><embed class="icon" src="../../../../images/icon1042.svg" width="223" height="223" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Sources</a>.&#8203;SignalFlux<br><span class="subtitle">Source of time varying magnetic flux</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Source of magnetic flux with complex signal input.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Sources/index.html#ConstantMagneticPotentialDifference">
+ConstantMagneticPotentialDifference</a>,
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Sources/index.html#SignalMagneticPotentialDifference">
+SignalMagneticPotentialDifference</a>,
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Sources/index.html#ConstantFlux">
+ConstantFlux</a>
+
+</p>
+
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PartialTwoPort">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FundamentalWave.&#8203;Interfaces.&#8203;PartialTwoPort</a></code> (Partial two port for graphical programming).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port of fundamental wave machines</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>Phi</code></td><td>Complex signal input of magnetic flux</td></tr>
+</table>
+</body></html>

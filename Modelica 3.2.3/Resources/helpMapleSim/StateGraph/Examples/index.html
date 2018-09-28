@@ -1,0 +1,146 @@
+<html><head><title>Modelica.StateGraph.Examples</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Examples"><h1><embed class="icon" src="../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;Examples<br><span class="subtitle">Examples to demonstrate the usage of the components of the StateGraph library</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates a package that contains executable examples.</p>
+<p>Extends from <code><a href="../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#ControlledTanks"><code>ControlledTanks</code></a></td><td>Demonstrating the controller of a tank filling/emptying system</td></tr>
+<tr><td><a href="#ExecutionPaths"><code>ExecutionPaths</code></a></td><td>Example to demonstrate parallel and alternative execution paths</td></tr>
+<tr><td><a href="#FirstExample"><code>FirstExample</code></a></td><td>A first simple StateGraph example</td></tr>
+<tr><td><a href="#FirstExample_Variant2"><code>FirstExample_Variant2</code></a></td><td>A variant of the first simple StateGraph example</td></tr>
+<tr><td><a href="#FirstExample_Variant3"><code>FirstExample_Variant3</code></a></td><td>A variant of the first simple StateGraph example</td></tr>
+<tr><td><a href="#ShowCompositeStep"><code>ShowCompositeStep</code></a></td><td>Example to demonstrate parallel activities described by a StateGraph</td></tr>
+<tr><td><a href="#ShowExceptions"><code>ShowExceptions</code></a></td><td>Example to demonstrate how a hierarchically structured StateGraph can suspend and resume actions on different levels</td></tr>
+<tr><td><a href="../../StateGraph/Examples/Utilities/index.html"><code>Utilities</code></a> &hellip;</td><td>Utility components for the examples</td></tr>
+</table>
+<hr><a name="FirstExample"><h2><embed class="icon" src="../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Examples</a>.&#8203;FirstExample<br><span class="subtitle">A first simple StateGraph example</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates an example. The play button suggests that the example can be executed.</p>
+<p>Extends from <code><a href="../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="FirstExample_Variant2"><h2><embed class="icon" src="../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Examples</a>.&#8203;FirstExample_Variant2<br><span class="subtitle">A variant of the first simple StateGraph example</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates an example. The play button suggests that the example can be executed.</p>
+<p>Extends from <code><a href="../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="FirstExample_Variant3"><h2><embed class="icon" src="../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Examples</a>.&#8203;FirstExample_Variant3<br><span class="subtitle">A variant of the first simple StateGraph example</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates an example. The play button suggests that the example can be executed.</p>
+<p>Extends from <code><a href="../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="ExecutionPaths"><h2><embed class="icon" src="../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Examples</a>.&#8203;ExecutionPaths<br><span class="subtitle">Example to demonstrate parallel and alternative execution paths</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is an example to demonstrate in which way <strong>parallel</strong> activities
+can be modelled by a StateGraph. When transition1 fires
+(after 1 second), two branches are executed in parallel.
+After 6 seconds the two branches are synchronized in order to arrive
+at step6.
+</p>
+<p>
+Before simulating the model, try to figure out whether which branch
+of the alternative sequence is executed. Note, that alternatives
+have priorities according to the port index (alternative.split[1]
+has a higher priority to fire as alternative.split[2]).
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="ShowCompositeStep"><h2><embed class="icon" src="../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Examples</a>.&#8203;ShowCompositeStep<br><span class="subtitle">Example to demonstrate parallel activities described by a StateGraph</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is the same example as "ExecutionPaths". The only difference
+is that the alternative paths are included in a "CompositeStep".
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="ShowExceptions"><h2><embed class="icon" src="../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Examples</a>.&#8203;ShowExceptions<br><span class="subtitle">Example to demonstrate how a hierarchically structured StateGraph can suspend and resume actions on different levels</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+CompositeStep "compositeStep" is a hierarchical StateGraph consisting of
+two other subgraphs. Whenever component "compositeStep" is suspended,
+all steps with in "compositeStep" are deactivated. By entering "compositeStep"
+via its "resume" port, all steps within "compositeStep" are activated
+according to their setting before leaving the "compositeStep" via its
+"suspend" port.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="ControlledTanks"><h2><embed class="icon" src="../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">StateGraph</a>.&#8203;<a href="index.html">Examples</a>.&#8203;ControlledTanks<br><span class="subtitle">Demonstrating the controller of a tank filling/emptying system</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+With this example the controller of a tank filling/emptying system
+is demonstrated. This example is from Dressler (2004),
+see <a href="../../StateGraph/UsersGuide/index.html#Literature">Literature</a>.
+The basic operation is to fill and empty the two tanks:
+</p>
+<ol>
+<li> Valve 1 is opened and tank 1 is filled.</li>
+<li> When tank 1 reaches its fill level limit,
+     valve 1 is closed.</li>
+<li> After a waiting time, valve 2 is
+     opened and the fluid flows from tank 1 into tank 2.</li>
+<li> When tank 1 is empty, valve 2 is closed.</li>
+<li> After a waiting time, valve 3 is opened and
+     the fluid flows out of tank 2</li>
+<li> When tank 3 is empty, valve 3 is closed</li>
+</ol>
+<p>
+The above "normal" process can be influenced by three
+buttons:
+</p>
+<ul>
+<li> Button <strong>start</strong> starts the above process.
+     When this button is pressed after a "stop" or
+     "shut" operation, the process operation continues.
+     </li>
+<li> Button <strong>stop</strong> stops the above process by
+     closing all valves. Then, the controller waits for
+     further input (either "start" or "shut" operation).</li>
+<li> Button <strong>shut</strong> is used to shutdown the process,
+     by emptying at once both tanks. When this is achieved,
+     the process goes back to its start configuration.
+     Clicking on "start", restarts the process.</li>
+</ul>
+
+<p>Extends from <code><a href="../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+</body></html>

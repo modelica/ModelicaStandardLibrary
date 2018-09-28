@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Digital.Examples.Adder4</title>
+</head>
+<body>
+<h1><a href="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg"><img class="svgiconhead" src="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Digital.html">Digital</a>.<a class="omc-h1-a" href="Modelica.Electrical.Digital.Examples.html">Examples</a>.<span class="omc-h1">Adder4</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Four FullAdders are combined to built a four bit adder unit.</p>
+<br />
+<br />
+In dependence on time five additions are carried out:<br />
+<pre>
+at t = 0                            at t = 1
+ a       0 0 0 0                       a      1 1 1 0
+ b    +  0 0 0 0                       b   +  1 0 1 1
+ <strong>s     0 0 0 0 0</strong>                      <strong>s     1 0 0 1 0</strong>
+at t = 2                             at t = 3
+ a       0 1 1 0                       a      1 1 1 0
+ b    +  0 0 1 1                       b   +  1 0 1 0
+ <strong>s     1 0 1 0 0</strong>                      <strong>s     0 0 0 1 1</strong>
+
+at t = 4
+ a      1 1 0 0
+ b   +  1 1 1 0
+ <strong>s    0 0 1 0 1</strong>
+ </pre>
+<p>To show the influence of delay a large delay time of 0.1s is
+chosen. Furthermore, all signals are initialized with U, the
+uninitialized value. Please remember, that the nine logic values
+are coded by the numbers 1,...,9. The summands a and b can be found
+at the output signals of the taba and tabb sources. The result can
+be seen in the output signals of the FullAdders according to:</p>
+<pre>
+      a                       <strong>a4</strong>.y      <strong>a3</strong>.y      <strong>a2</strong>.y      <strong>a1</strong>.y
+      b                       <strong>b4</strong>.y      <strong>b3</strong>.y      <strong>b2</strong>.y      <strong>b1</strong>.y
+      sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s</strong>  <strong>Adder2.s</strong>  <strong>Adder1.s</strong>
+</pre>
+<p>The simulation stop time has to be 5s.</p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

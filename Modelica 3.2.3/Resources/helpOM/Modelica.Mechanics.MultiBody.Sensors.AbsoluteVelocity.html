@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Sensors.AbsoluteVelocity</title>
+</head>
+<body>
+<h1><a href="Icons/90a26b4fc84dc9cc465631c6d8caa5794ec89c44.svg"><img class="svgiconhead" src="Icons/90a26b4fc84dc9cc465631c6d8caa5794ec89c44.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Sensors.html">Sensors</a>.<span class="omc-h1">AbsoluteVelocity</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The absolute velocity vector of the origin of frame_a is
+determined and provided at the output signal connector
+<strong>v</strong>.</p>
+<p>Via parameter <strong>resolveInFrame</strong> it is defined, in
+which frame the velocity vector is resolved:</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th><strong>resolveInFrame =<br />
+Types.ResolveInFrameA.</strong></th>
+<th><strong>Meaning</strong></th>
+</tr>
+<tr>
+<td>world</td>
+<td>Resolve vector in world frame</td>
+</tr>
+<tr>
+<td>frame_a</td>
+<td>Resolve vector in frame_a</td>
+</tr>
+<tr>
+<td>frame_resolve</td>
+<td>Resolve vector in frame_resolve</td>
+</tr>
+</table>
+<p>If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the
+conditional connector "frame_resolve" is enabled and v is resolved
+in the frame, to which frame_resolve is connected. Note, if this
+connector is enabled, it must be connected.</p>
+<h4>Example</h4>
+<p>If resolveInFrame = Types.ResolveInFrameA.frame_a, the output
+vector is computed as:</p>
+<blockquote>
+<pre>
+v0 = der(frame_a.r_0);
+v  = MultiBody.Frames.resolve2(frame_a.R, v0);
+</pre></blockquote>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

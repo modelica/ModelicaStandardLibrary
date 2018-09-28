@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Digital.Multiplexers.MUX2x1</title>
+</head>
+<body>
+<h1><a href="Icons/e6ef3a00a8dc0a32be851c3d5f43f8e9017479c1.svg"><img class="svgiconhead" src="Icons/e6ef3a00a8dc0a32be851c3d5f43f8e9017479c1.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Digital.html">Digital</a>.<a class="omc-h1-a" href="Modelica.Electrical.Digital.Multiplexers.html">Multiplexers</a>.<span class="omc-h1">MUX2x1</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Description in VHDL is given by <a href="http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd">
+http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a></p>
+<p>and for Multiplexer table <a href="http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd">
+http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</a></p>
+<h4>Truth Table</h4>
+<table cellspacing="0" cellpadding="2" border="1">
+<tr>
+<td>
+<h4>DataIn</h4>
+</td>
+<td>
+<h4>Select</h4>
+</td>
+<td>
+<h4>DataOut</h4>
+</td>
+</tr>
+<tr>
+<td>
+<p>*</p>
+</td>
+<td>
+<p>0</p>
+</td>
+<td>
+<p>Input0</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>*</p>
+</td>
+<td>
+<p>1</p>
+</td>
+<td>
+<p>Input1</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Inputs equal</p>
+</td>
+<td>
+<p>U</p>
+</td>
+<td>
+<p>Input</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Inputs not equal</p>
+</td>
+<td>
+<p>U</p>
+</td>
+<td>
+<p>U</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>U in Input</p>
+</td>
+<td>
+<p>X</p>
+</td>
+<td>
+<p>U</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Inputs equal</p>
+</td>
+<td>
+<p>X</p>
+</td>
+<td>
+<p>Input</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>no U in Input and Inputs not equal</p>
+</td>
+<td>
+<p>X</p>
+</td>
+<td>
+<p>X</p>
+</td>
+</tr>
+</table>
+<pre>
+
+  *  = don't care
+  0  = L.'0' or L.'L'
+  1  = L.'1' or L.'H'
+  X  = L.'X' or L.'W' or L.'Z' or L.'-'
+  U  = L.'U' </pre>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<dl>
+<dt><em>January 24, 2011</em></dt>
+<dd>created by Christian Günther</dd>
+</dl>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

@@ -1,0 +1,196 @@
+<html><head><title>Modelica.Thermal.FluidHeatFlow.Sensors</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Sensors"><h1><embed class="icon" src="../../../images/icon0460.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">FluidHeatFlow</a>.&#8203;Sensors<br><span class="subtitle">Ideal sensors to measure port properties</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package contains sensors:</p>
+<ul>
+<li>PressureSensor: absolute pressure</li>
+<li>TemperatureSensor: absolute temperature (Kelvin)</li>
+<li>RelPressureSensor: pressure drop between flowPort_a and flowPort_b</li>
+<li>RelTemperatureSensor: temperature difference between flowPort_a and flowPort_b</li>
+<li>MassFlowSensor: measures mass flow rate</li>
+<li>VolumeFlowSensor: measures volume flow rate</li>
+<li>EnthalpyFlowSensor: measures enthalpy flow rate</li>
+</ul>
+
+<p>Some of the sensors do not need access to medium properties for measuring,
+but it is necessary to define the medium in the connector (check of connections).
+Thermodynamic equations are defined in partial models (package Interfaces.Partials).
+All sensors are considered massless, they do not change mass flow or enthalpy flow.</p>
+
+<p>Extends from <code><a href="../../../Icons/SensorsPackage/index.html">Modelica.&#8203;Icons.&#8203;SensorsPackage</a></code> (Icon for packages containing sensors).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#EnthalpyFlowSensor"><code>EnthalpyFlowSensor</code></a></td><td>Enthalpy flow sensor</td></tr>
+<tr><td><a href="#MassFlowSensor"><code>MassFlowSensor</code></a></td><td>Mass flow sensor</td></tr>
+<tr><td><a href="#PressureSensor"><code>PressureSensor</code></a></td><td>Absolute pressure sensor</td></tr>
+<tr><td><a href="#RelPressureSensor"><code>RelPressureSensor</code></a></td><td>Pressure difference sensor</td></tr>
+<tr><td><a href="#RelTemperatureSensor"><code>RelTemperatureSensor</code></a></td><td>Temperature difference sensor</td></tr>
+<tr><td><a href="#TemperatureSensor"><code>TemperatureSensor</code></a></td><td>Absolute temperature sensor</td></tr>
+<tr><td><a href="#VolumeFlowSensor"><code>VolumeFlowSensor</code></a></td><td>Volume flow sensor</td></tr>
+</table>
+<hr><a name="PressureSensor"><h2><embed class="icon" src="../../../images/icon1440.svg" width="233" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">FluidHeatFlow</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;PressureSensor<br><span class="subtitle">Absolute pressure sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The PressureSensor measures the absolute pressure.</p>
+<p>Thermodynamic equations are defined by Partials.AbsoluteSensor.</p>
+<p>Extends from <code><a href="../../../Thermal/FluidHeatFlow/Interfaces/Partials/index.html#AbsoluteSensor">Modelica.&#8203;Thermal.&#8203;FluidHeatFlow.&#8203;Interfaces.&#8203;Partials.&#8203;AbsoluteSensor</a></code> (Partial model of absolute sensor).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Media/index.html#Medium">Medium</a></code></td><td><code>medium</code></td><td><code>FluidHeatFlow.Media.Medium()</code></td><td>Sensor's medium</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_a">FlowPort_a</a></code></td><td><code>flowPort</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="TemperatureSensor"><h2><embed class="icon" src="../../../images/icon1441.svg" width="233" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">FluidHeatFlow</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;TemperatureSensor<br><span class="subtitle">Absolute temperature sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The TempreatureSensor measures the absolute temperature (Kelvin).</p>
+<p>Thermodynamic equations are defined by Partials.AbsoluteSensor.</p>
+<p>Extends from <code><a href="../../../Thermal/FluidHeatFlow/Interfaces/Partials/index.html#AbsoluteSensor">Modelica.&#8203;Thermal.&#8203;FluidHeatFlow.&#8203;Interfaces.&#8203;Partials.&#8203;AbsoluteSensor</a></code> (Partial model of absolute sensor).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Media/index.html#Medium">Medium</a></code></td><td><code>medium</code></td><td><code>FluidHeatFlow.Media.Medium()</code></td><td>Sensor's medium</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_a">FlowPort_a</a></code></td><td><code>flowPort</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="RelPressureSensor"><h2><embed class="icon" src="../../../images/icon1442.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">FluidHeatFlow</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;RelPressureSensor<br><span class="subtitle">Pressure difference sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The RelPressureSensor measures the pressure drop between flowPort_a and flowPort_b.</p>
+<p>Thermodynamic equations are defined by Partials.RelativeSensor.</p>
+<p>Extends from <code><a href="../../../Thermal/FluidHeatFlow/Interfaces/Partials/index.html#RelativeSensor">Modelica.&#8203;Thermal.&#8203;FluidHeatFlow.&#8203;Interfaces.&#8203;Partials.&#8203;RelativeSensor</a></code> (Partial model of relative sensor).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Media/index.html#Medium">Medium</a></code></td><td><code>medium</code></td><td><code>FluidHeatFlow.Media.Medium()</code></td><td>Sensor's medium</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_a">FlowPort_a</a></code></td><td><code>flowPort_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_b">FlowPort_b</a></code></td><td><code>flowPort_b</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="RelTemperatureSensor"><h2><embed class="icon" src="../../../images/icon1443.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">FluidHeatFlow</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;RelTemperatureSensor<br><span class="subtitle">Temperature difference sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The RelTemperatureSensor measures the temperature difference between flowPort_a and flowPort_b.</p>
+<p>Thermodynamic equations are defined by Partials.RelativeSensor.</p>
+<p>
+<strong>Note:</strong> Connected flowPorts have the same temperature (mixing temperature)!
+Since mixing my occur, the outlet temperature of a component may be different from the connector's temperature.
+Outlet temperature is defined by variable T of the corresponding component.
+</p>
+<p>Extends from <code><a href="../../../Thermal/FluidHeatFlow/Interfaces/Partials/index.html#RelativeSensor">Modelica.&#8203;Thermal.&#8203;FluidHeatFlow.&#8203;Interfaces.&#8203;Partials.&#8203;RelativeSensor</a></code> (Partial model of relative sensor).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Media/index.html#Medium">Medium</a></code></td><td><code>medium</code></td><td><code>FluidHeatFlow.Media.Medium()</code></td><td>Sensor's medium</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_a">FlowPort_a</a></code></td><td><code>flowPort_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_b">FlowPort_b</a></code></td><td><code>flowPort_b</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="MassFlowSensor"><h2><embed class="icon" src="../../../images/icon1444.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">FluidHeatFlow</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;MassFlowSensor<br><span class="subtitle">Mass flow sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The MassFlowSensor measures the mass flow rate.</p>
+<p>Thermodynamic equations are defined by Partials.FlowSensor.</p>
+<p>Extends from <code><a href="../../../Thermal/FluidHeatFlow/Interfaces/Partials/index.html#FlowSensor">Modelica.&#8203;Thermal.&#8203;FluidHeatFlow.&#8203;Interfaces.&#8203;Partials.&#8203;FlowSensor</a></code> (Partial model of flow sensor).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Media/index.html#Medium">Medium</a></code></td><td><code>medium</code></td><td><code>Modelica.Thermal.FluidHeatFlow.Media.Medium()</code></td><td>Medium in the component</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m</code></td><td><code>0</code></td><td>Mass of medium</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T0</code></td><td><code>293.15</code></td><td>Initial temperature of medium</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Boolean</code></td><td><code>T0fixed</code></td><td><code>false</code></td><td>Initial temperature guess value or fixed</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>tapT</code></td><td><code>1</code></td><td>Defines temperature of heatPort between inlet and outlet temperature</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_a">FlowPort_a</a></code></td><td><code>flowPort_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_b">FlowPort_b</a></code></td><td><code>flowPort_b</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="VolumeFlowSensor"><h2><embed class="icon" src="../../../images/icon1445.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">FluidHeatFlow</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;VolumeFlowSensor<br><span class="subtitle">Volume flow sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The VolumeFlowSensor measures the volume flow rate.</p>
+<p>Thermodynamic equations are defined by Partials.FlowSensor.</p>
+<p>Extends from <code><a href="../../../Thermal/FluidHeatFlow/Interfaces/Partials/index.html#FlowSensor">Modelica.&#8203;Thermal.&#8203;FluidHeatFlow.&#8203;Interfaces.&#8203;Partials.&#8203;FlowSensor</a></code> (Partial model of flow sensor).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Media/index.html#Medium">Medium</a></code></td><td><code>medium</code></td><td><code>Modelica.Thermal.FluidHeatFlow.Media.Medium()</code></td><td>Medium in the component</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m</code></td><td><code>0</code></td><td>Mass of medium</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T0</code></td><td><code>293.15</code></td><td>Initial temperature of medium</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Boolean</code></td><td><code>T0fixed</code></td><td><code>false</code></td><td>Initial temperature guess value or fixed</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>tapT</code></td><td><code>1</code></td><td>Defines temperature of heatPort between inlet and outlet temperature</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_a">FlowPort_a</a></code></td><td><code>flowPort_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_b">FlowPort_b</a></code></td><td><code>flowPort_b</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="EnthalpyFlowSensor"><h2><embed class="icon" src="../../../images/icon1446.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">FluidHeatFlow</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;EnthalpyFlowSensor<br><span class="subtitle">Enthalpy flow sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The EnthalpyFlowSensor measures the enthalpy flow rate.</p>
+<p>Thermodynamic equations are defined by Partials.FlowSensor.</p>
+<p>Extends from <code><a href="../../../Thermal/FluidHeatFlow/Interfaces/Partials/index.html#FlowSensor">Modelica.&#8203;Thermal.&#8203;FluidHeatFlow.&#8203;Interfaces.&#8203;Partials.&#8203;FlowSensor</a></code> (Partial model of flow sensor).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Media/index.html#Medium">Medium</a></code></td><td><code>medium</code></td><td><code>Modelica.Thermal.FluidHeatFlow.Media.Medium()</code></td><td>Medium in the component</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m</code></td><td><code>0</code></td><td>Mass of medium</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T0</code></td><td><code>293.15</code></td><td>Initial temperature of medium</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Boolean</code></td><td><code>T0fixed</code></td><td><code>false</code></td><td>Initial temperature guess value or fixed</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>tapT</code></td><td><code>1</code></td><td>Defines temperature of heatPort between inlet and outlet temperature</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_a">FlowPort_a</a></code></td><td><code>flowPort_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_b">FlowPort_b</a></code></td><td><code>flowPort_b</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

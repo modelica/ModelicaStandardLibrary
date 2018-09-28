@@ -1,0 +1,350 @@
+<html><head><title>Modelica.Electrical.Machines.Examples.DCMachines</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="DCMachines"><h1><embed class="icon" src="../../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;DCMachines<br><span class="subtitle">Test examples of DC machines</span></h1></a>
+<h3>Information</h3>
+<p>
+
+This package contains test examples of DC machines.
+<p>Extends from <code><a href="../../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#DCEE_Start"><code>DCEE_Start</code></a></td><td>Test example: DC with electrical excitation starting with voltage ramp</td></tr>
+<tr><td><a href="#DCPM_Cooling"><code>DCPM_Cooling</code></a></td><td>Test example: Cooling of a DCPM motor</td></tr>
+<tr><td><a href="#DCPM_CurrentControlled"><code>DCPM_CurrentControlled</code></a></td><td>Test example: DC with permanent magnet starting with current controller</td></tr>
+<tr><td><a href="#DCPM_QuasiStationary"><code>DCPM_QuasiStationary</code></a></td><td>Test example: Compare DCPM motors transient - quasistationary</td></tr>
+<tr><td><a href="#DCPM_Start"><code>DCPM_Start</code></a></td><td>Test example: DC with permanent magnet starting with voltage ramp</td></tr>
+<tr><td><a href="#DCPM_Temperature"><code>DCPM_Temperature</code></a></td><td>Test example: Investigate temperature dependency of a DCPM motor</td></tr>
+<tr><td><a href="#DCPM_withLosses"><code>DCPM_withLosses</code></a></td><td>Test example: Investigate influence of losses on DCPM motor performance</td></tr>
+<tr><td><a href="#DCSE_SinglePhase"><code>DCSE_SinglePhase</code></a></td><td>Test example: DC with serial excitation starting with voltage ramp</td></tr>
+<tr><td><a href="#DCSE_Start"><code>DCSE_Start</code></a></td><td>Test example: DC with serial excitation starting with voltage ramp</td></tr>
+</table>
+<hr><a name="DCPM_Start"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;DCPM_Start<br><span class="subtitle">Test example: DC with permanent magnet starting with voltage ramp</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<strong>Test example: Permanent magnet DC machine started with an armature voltage ramp</strong><br>
+A voltage ramp is applied to the armature, causing the DC machine to start,
+and accelerating inertias.<br>At time tStep a load step is applied.<br>
+Simulate for 2 seconds and plot (versus time):
+<ul>
+<li>dcpm.ia: armature current</li>
+<li>dcpm.wMechanical: motor's speed</li>
+<li>dcpm.tauElectrical: motor's torque</li>
+</ul>
+Default machine parameters of model <em>DC_PermanentMagnet</em> are used.
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Va</code></td><td><code>100</code></td><td>Actual armature voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tStart</code></td><td><code>0.2</code></td><td>Start of armature voltage ramp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tRamp</code></td><td><code>0.8</code></td><td>Armature voltage ramp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>TLoad</code></td><td><code>63.66</code></td><td>Nominal load torque</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tStep</code></td><td><code>1.5</code></td><td>Time of load torque step</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>JLoad</code></td><td><code>0.15</code></td><td>Load's moment of inertia</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#DcPermanentMagnetData">DcPermanentMagnetData</a></code></td><td><code>dcpmData</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+<hr><a name="DCPM_CurrentControlled"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;DCPM_CurrentControlled<br><span class="subtitle">Test example: DC with permanent magnet starting with current controller</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<strong>Test example: Permanent magnet DC machine started with current controller</strong><br>
+The current controller is parameterized according to absolute optimum.
+At time 0.1 s a reference current step with height = nominal armature current is applied,
+causing the DC machine to start, and accelerating inertias.
+<br>The machine is loaded by a quadratic speed dependent load torque.<br>
+Simulate for 2 seconds and plot (versus time):
+<ul>
+<li>dcpm.ia: armature current</li>
+<li>dcpm.wMechanical: motor's speed</li>
+<li>dcpm.tauElectrical: motor's torque</li>
+</ul>
+Default machine parameters of model <em>DC_PermanentMagnet</em> are used.
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>TLoad</code></td><td><code>ViNominal * dcpmData.IaNominal / dcpmData.wNominal</code></td><td>Nominal load torque</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wLoad</code></td><td><code>dcpmData.&#8203;wNominal</code></td><td>Nominal load torque</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>JLoad</code></td><td><code>dcpmData.&#8203;Jr</code></td><td>Load's moment of inertia</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ra</code></td><td><code>Modelica.Electrical.Machines.Thermal.convertResistance(dcpmData.Ra, dcpmData.TaRef, dcpmData.alpha20a, dcpmData.TaNominal)</code></td><td>Warm armature resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>ViNominal</code></td><td><code>dcpmData.VaNominal - Ra * dcpmData.IaNominal</code></td><td>Nominal induced voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Ta</code></td><td><code>dcpmData.La / Ra</code></td><td>Armature time constant</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Ts</code></td><td><code>0.001</code></td><td>Dead time of inverter</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>k</code></td><td><code>Ra * Ta / (2 * Ts)</code></td><td>Current controller proportional gain</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Ti</code></td><td><code>Ta</code></td><td>Current controller integral time constant</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#MagneticFlux">MagneticFlux</a></code></td><td><code>kPhi</code></td><td><code>ViNominal / dcpmData.wNominal</code></td><td>Voltage constant</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#DcPermanentMagnetData">DcPermanentMagnetData</a></code></td><td><code>dcpmData</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+<hr><a name="DCEE_Start"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;DCEE_Start<br><span class="subtitle">Test example: DC with electrical excitation starting with voltage ramp</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<strong>Test example: Electrically separate excited DC machine started with an armature voltage ramp</strong><br>
+A voltage ramp is applied to the armature, causing the DC machine to start,
+and accelerating inertias.<br>At time tStep a load step is applied.<br>
+Simulate for 2 seconds and plot (versus time):
+<ul>
+<li>dcee.ia: armature current</li>
+<li>dcee.wMechanical: motor's speed</li>
+<li>dcee.tauElectrical: motor's torque</li>
+<li>dcee.ie: excitation current</li>
+</ul>
+Default machine parameters of model <em>DC_ElectricalExcited</em> are used.
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Va</code></td><td><code>100</code></td><td>Actual armature voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tStart</code></td><td><code>0.2</code></td><td>Start of armature voltage ramp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tRamp</code></td><td><code>0.8</code></td><td>Armature voltage ramp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Ve</code></td><td><code>100</code></td><td>Actual excitation voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>TLoad</code></td><td><code>63.66</code></td><td>Nominal load torque</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tStep</code></td><td><code>1.5</code></td><td>Time of load torque step</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>JLoad</code></td><td><code>0.15</code></td><td>Load's moment of inertia</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#DcElectricalExcitedData">DcElectricalExcitedData</a></code></td><td><code>dceeData</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+<hr><a name="DCSE_Start"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;DCSE_Start<br><span class="subtitle">Test example: DC with serial excitation starting with voltage ramp</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<strong>Test example: Series excited DC machine started with a series resistor</strong><br>
+At constant source voltage, a series resistor limiting the armature current, is reduced according to a ramp, causing the DC machine to start,
+and accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
+Simulate for 2 seconds and plot (versus time):
+<ul>
+<li>dcse.ia: armature current</li>
+<li>dcse.wMechanical: motor's speed</li>
+<li>dcse.tauElectrical: motor's torque</li>
+</ul>
+Default machine parameters of model <em>DC_SeriesExcited</em> are used.
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Va</code></td><td><code>100</code></td><td>Actual armature voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tStart</code></td><td><code>0.1</code></td><td>Start of resistance ramp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tRamp</code></td><td><code>0.9</code></td><td>Resistance ramp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>TLoad</code></td><td><code>63.66</code></td><td>Nominal load torque</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wLoad</code></td><td><code>0.016666666666667 * (2820 * Modelica.Constants.pi)</code></td><td>Nominal load speed</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>JLoad</code></td><td><code>0.15</code></td><td>Load's moment of inertia</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#DcSeriesExcitedData">DcSeriesExcitedData</a></code></td><td><code>dcseData</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+<hr><a name="DCSE_SinglePhase"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;DCSE_SinglePhase<br><span class="subtitle">Test example: DC with serial excitation starting with voltage ramp</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<strong>Test example: Series excited DC machine at singlephase AC voltage started with a series resistor</strong><br>
+At sinusoidal source voltage, a series resistor limiting the armature current, is reduced according to a ramp, causing the DC machine to start,
+and accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
+Simulate for 2 seconds and plot (versus time):
+<ul>
+<li>dcse.ia: armature current</li>
+<li>dcse.wMechanical: motor's speed</li>
+<li>dcse.tauElectrical: motor's torque</li>
+</ul>
+Default machine parameters of model <em>DC_SeriesExcited</em> are used.<br>
+<strong>Note:</strong><br>
+Since both the field and the armature current are sinusoidal, the waveform of the torque is the square of sine.
+Due to the additional inductive voltage drops, output of the motor is lower, compared to the same motor (DCSE_Start) at DC voltage.
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Va</code></td><td><code>100</code></td><td>Actual armature voltage RMS</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tStart</code></td><td><code>0.1</code></td><td>Start of resistance ramp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tRamp</code></td><td><code>0.9</code></td><td>Resistance ramp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>TLoad</code></td><td><code>63.66</code></td><td>Nominal load torque</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wLoad</code></td><td><code>0.016666666666667 * (2820 * Modelica.Constants.pi)</code></td><td>Nominal load speed</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>JLoad</code></td><td><code>0.15</code></td><td>Load's moment of inertia</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#DcSeriesExcitedData">DcSeriesExcitedData</a></code></td><td><code>dcseData</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+<hr><a name="DCPM_Temperature"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;DCPM_Temperature<br><span class="subtitle">Test example: Investigate temperature dependency of a DCPM motor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<strong>Test example: Investigate influence of armature temperature on a DCPM motor</strong><br>
+The motor starts at no-load speed, then a load step is applied.<br>
+Beginning with the load step, the armature temperature rises exponentially from 20 degC to 80 degC.<br>
+Simulate for 3 seconds and plot (versus time):
+<ul>
+<li>dcpm.ia: armature current</li>
+<li>dcpm.wMechanical: motor's speed</li>
+<li>dcpm.tauElectrical: motor's torque</li>
+<li>thermalAmbientDCPM.Q_flow_a: motor's armature losses</li>
+</ul>
+Default machine parameters are used, but:
+<ul>
+<li>The armature winding material is set to Copper.</li>
+<li>Armature reference temperature is set to 80 degC.</li>
+<li>Nominal armature temperature is set to 80 degC.</li>
+</ul>
+So the machine is at the beginning in cold condition, ending in warm condition
+(with the same armature resistance as the unmodified machine).
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Va</code></td><td><code>100</code></td><td>Actual armature voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Ve</code></td><td><code>100</code></td><td>Actual excitation voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>w0</code></td><td><code>Modelica.SIunits.Conversions.from_rpm(1500)</code></td><td>No-load speed</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>TLoad</code></td><td><code>63.66</code></td><td>Nominal load torque</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>JLoad</code></td><td><code>0.15</code></td><td>Load's moment of inertia</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#DcPermanentMagnetData">DcPermanentMagnetData</a></code></td><td><code>dcpmData</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+<hr><a name="DCPM_Cooling"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;DCPM_Cooling<br><span class="subtitle">Test example: Cooling of a DCPM motor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<strong>Test example: Demonstrate cooling of a DCPM motor</strong><br>
+The motor starts at no-load speed, then load pulses are applied.<br>
+The cooling circuit consists of armature's thermal capacitance,
+a thermal conductance between armature and core, core's thermal capacitance and
+a thermal conductance between core and coolant.
+The coolant flow circuit consists of inlet, volume flow, a pipe connected to the core and the outlet.<br>
+<strong>Please note:</strong>
+<ul>
+<li>All unused heat ports of the thermal port (i.e., without loss sources in the machine: brush, stray, friction, permanent magnet) have to be connected to a constant temperature source.</li>
+<li>The thermal capacitances (i.e., time constants) are unusual small to provide short simulation time!</li>
+<li>The coolant is a theoretical coolant with specific mass = 1 kg/m3 and cp = 1 J/kg.K.</li>
+<li>The thermal conductances as well as the coolant flow are parametrized such way, that:</li>
+</ul>
+<ol>
+<li>the total coolant's temperature rise is 10 K (over coolant inlet)</li>
+<li>the core's temperature rise is 27.5 K (over coolant's average temperature between inlet and outlet)</li>
+<li>the armature's temperature rise is 55 K (over coolant's average temperature between inlet and outlet)</li>
+</ol>
+Simulate for 25 seconds and plot (versus time):
+<ul>
+<li>armature.T: armature temperature</li>
+<li>core.T: core temperature</li>
+<li>cooling.T: coolant temperature at outlet</li>
+</ul>
+Therefore the armature temperature would reach nominal armature temperature at constant nominal load.<br>
+Default machine parameters are used, but:
+<ul>
+<li>The armature winding material is set to Copper.</li>
+<li>Armature reference temperature is set to 80 degC.</li>
+<li>Nominal armature temperature is set to 80 degC.</li>
+</ul>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Va</code></td><td><code>100</code></td><td>Actual armature voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Ve</code></td><td><code>100</code></td><td>Actual excitation voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>w0</code></td><td><code>Modelica.SIunits.Conversions.from_rpm(1500)</code></td><td>No-load speed</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>TLoad</code></td><td><code>63.66</code></td><td>Nominal load torque</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>JLoad</code></td><td><code>0.15</code></td><td>Load's moment of inertia</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TAmbient</code></td><td><code>293.15</code></td><td>Ambient temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#HeatCapacity">HeatCapacity</a></code></td><td><code>Ca</code></td><td><code>20</code></td><td>Armature's heat capacity</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#HeatCapacity">HeatCapacity</a></code></td><td><code>Cc</code></td><td><code>50</code></td><td>Core's heat capacity</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>Losses</code></td><td><code>dcpm.Ra * dcpm.IaNominal ^ 2</code></td><td>Nominal Losses</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T0</code></td><td><code>293.15</code></td><td>Reference temperature 20 degC</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#TemperatureDifference">TemperatureDifference</a></code></td><td><code>dTCoolant</code></td><td><code>10</code></td><td>Coolant's temperature rise</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#TemperatureDifference">TemperatureDifference</a></code></td><td><code>dTArmature</code></td><td><code>dcpm.TaNominal - T0 - 0.5 * dTCoolant</code></td><td>Armature's temperature rise over coolant</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#ThermalConductance">ThermalConductance</a></code></td><td><code>G_armature_core</code></td><td><code>2 * Losses / dTArmature</code></td><td>Heat conductance armature - core</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#ThermalConductance">ThermalConductance</a></code></td><td><code>G_core_cooling</code></td><td><code>2 * Losses / dTArmature</code></td><td>Heat conductance core - cooling</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#VolumeFlowRate">VolumeFlowRate</a></code></td><td><code>CoolantFlow</code></td><td><code>50</code></td><td>Coolant flow</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#DcPermanentMagnetData">DcPermanentMagnetData</a></code></td><td><code>dcpmData</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+<hr><a name="DCPM_QuasiStationary"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;DCPM_QuasiStationary<br><span class="subtitle">Test example: Compare DCPM motors transient - quasistationary</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<strong>Test example: Compare DCPM motors transient and quasistationary</strong><br>
+The motors start at no-load speed, then load pulses are applied.<br>
+Simulate for 2 seconds and plot (versus time):
+<ul>
+<li>dcpm1.ia: armature current of transient model</li>
+<li>dcpm1.wMechanical: motor's speed of transient model</li>
+<li>dcpm1.tauElectrical: motor's torque of transient model</li>
+<li>dcpm2.ia: armature current of quasistationary model</li>
+<li>dcpm2.wMechanical: motor's speed of quasistationary model</li>
+<li>dcpm2.tauElectrical: motor's torque of quasistationary model</li>
+</ul>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Va</code></td><td><code>100</code></td><td>Actual armature voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Ve</code></td><td><code>100</code></td><td>Actual excitation voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>w0</code></td><td><code>Modelica.SIunits.Conversions.from_rpm(1500)</code></td><td>No-load speed</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>TLoad</code></td><td><code>63.66</code></td><td>Nominal load torque</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>JLoad</code></td><td><code>0.15</code></td><td>Load's moment of inertia</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#DcPermanentMagnetData">DcPermanentMagnetData</a></code></td><td><code>dcpmData</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+<hr><a name="DCPM_withLosses"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">DCMachines</a>.&#8203;DCPM_withLosses<br><span class="subtitle">Test example: Investigate influence of losses on DCPM motor performance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<strong>Test example: Investigate influence of losses on DCPM motor performance</strong><br>
+Both motors are started with a voltage ramp applied to the armature, causing the DC machines to start,
+and accelerating inertias. Both machines are loading with a quadratic speed dependent load torque.<br>
+The first machine <code>dcpm1</code> uses default machine parameters of model <em>DC_PermanentMagnet</em>,
+the second machine <code>dcpm2</code> is parametrized with additional losses:<br>
+<table>
+<tr><td>                            </td><td>   dcpm1</td><td>   dcpm2</td><td>     </td></tr>
+<tr><td>Armature voltage            </td><td>     100</td><td>     100</td><td>    V</td></tr>
+<tr><td>Armature current            </td><td>     100</td><td>     100</td><td>    A</td></tr>
+<tr><td>Inner voltage               </td><td>    95.0</td><td>    94.5</td><td>    V</td></tr>
+<tr><td>Nominal speed               </td><td>  1425.0</td><td>  1417.5</td><td>  rpm</td></tr>
+<tr><td>Armature resistance         </td><td> 0.05000</td><td> 0.03864</td><td>  Ohm</td></tr>
+<tr><td>Temperature coefficient     </td><td>     n/a</td><td> 0.00392</td><td>  1/K</td></tr>
+<tr><td>Reference temperature       </td><td>     n/a</td><td>      20</td><td> degC</td></tr>
+<tr><td>Operation temperature       </td><td>     n/a</td><td>      95</td><td> degC</td></tr>
+<tr><td>Brush voltage drop          </td><td>     n/a</td><td>     0.5</td><td>    V</td></tr>
+<tr><td>Electrical input            </td><td>  10,000</td><td>  10,000</td><td>    W</td></tr>
+<tr><td>Armature copper losses      </td><td>     500</td><td>     500</td><td>    W</td></tr>
+<tr><td>Core losses                 </td><td>     n/a</td><td>     200</td><td>    W</td></tr>
+<tr><td>Stray load losses           </td><td>     n/a</td><td>      50</td><td>    W</td></tr>
+<tr><td>Friction losses             </td><td>     n/a</td><td>     100</td><td>    W</td></tr>
+<tr><td>Brush losses                </td><td>     n/a</td><td>      50</td><td>    W</td></tr>
+<tr><td>Mechanical output           </td><td>   9,500</td><td>   9,100</td><td>    W</td></tr>
+<tr><td>Nominal torque              </td><td>   63,66</td><td>   61,30</td><td>   Nm</td></tr>
+</table>
+<br>
+Note: The reference values (voltage, current, speed) are already propagated to the loss records,
+using the nominal operation point.<br>
+See:<br>
+Anton Haumer, Christian Kral, Hansj&ouml;rg Kapeller, Thomas B&auml;uml, Johannes V. Gragger<br>
+<a href="https://www.modelica.org/events/modelica2009/Proceedings/memorystick/pages/papers/0103/0103.pdf">
+The AdvancedMachines Library: Loss Models for Electric Machines</a><br>
+Modelica 2009, 7<sup>th</sup> International Modelica Conference
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Va</code></td><td><code>100</code></td><td>Actual armature voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tStart</code></td><td><code>0.2</code></td><td>Start of armature voltage ramp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tRamp</code></td><td><code>0.8</code></td><td>Armature voltage ramp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>TLoad1</code></td><td><code>63.66</code></td><td>Nominal load torque</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wLoad1</code></td><td><code>0.016666666666667 * (2850 * pi)</code></td><td>Nominal load speed</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>TLoad2</code></td><td><code>61.3</code></td><td>Nominal load torque</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wLoad2</code></td><td><code>0.016666666666667 * (2835 * pi)</code></td><td>Nominal load speed</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>JLoad</code></td><td><code>0.15</code></td><td>Load's moment of inertia</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#DcPermanentMagnetData">DcPermanentMagnetData</a></code></td><td><code>dcpmData1</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#DcPermanentMagnetData">DcPermanentMagnetData</a></code></td><td><code>dcpmData2</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+</body></html>

@@ -1,0 +1,852 @@
+<html><head><title>Modelica.Mechanics.MultiBody.Parts</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Parts"><h1><embed class="icon" src="../../../images/icon1134.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;Parts<br><span class="subtitle">Rigid components such as bodies with mass and inertia and massless rods</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Package <strong>Parts</strong> contains <strong>rigid components</strong> of a
+multi-body system. These components may be used to build up
+more complicated structures. For example, a part may be built up of
+a "Body" and of several "FixedTranslation" components.
+</p>
+<h4>Content</h4>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><strong><em>Model</em></strong></th><th><strong><em>Description</em></strong></th></tr>
+  <tr><td><a href="../../../Mechanics/MultiBody/Parts/index.html#Fixed">Fixed</a></td>
+      <td>Frame fixed in world frame at a given position.
+          It is visualized with a shape, see <strong>shapeType</strong> below
+         (the frames on the two
+          sides do not belong to the component):<br>&nbsp;<br>
+      <img src="../../../../Images/Mechanics/MultiBody/Fixed.png" alt="model Parts.Fixed">
+      </td>
+  </tr>
+  <tr><td><a href="../../../Mechanics/MultiBody/Parts/index.html#FixedTranslation">FixedTranslation</a></td>
+      <td>Fixed translation of frame_b with respect to frame_a.
+          It is visualized with a shape, see <strong>shapeType</strong> below
+          (the frames on the two sides do not belong to the component):<br>&nbsp;<br>
+      <img src="../../../../Images/Mechanics/MultiBody/FixedTranslation.png" alt="model Parts.FixedTranslation">
+      </td>
+  </tr>
+  <tr><td><a href="../../../Mechanics/MultiBody/Parts/index.html#FixedRotation">FixedRotation</a></td>
+      <td>Fixed translation and fixed rotation of frame_b with respect to frame_a
+          It is visualized with a shape, see <strong>shapeType</strong>  below
+          (the frames on the two sides do not belong to the component):<br>&nbsp;<br>
+      <img src="../../../../Images/Mechanics/MultiBody/FixedRotation.png" alt="model Parts.FixedRotation">
+      </td>
+  </tr>
+  <tr><td><a href="../../../Mechanics/MultiBody/Parts/index.html#Body">Body</a></td>
+      <td>Rigid body with mass, inertia tensor and one frame connector.
+          It is visualized with a cylinder and a sphere at the
+          center of mass:<br>&nbsp;<br>
+      <img src="../../../../Images/Mechanics/MultiBody/Body.png" alt="model Parts.Body">
+      </td>
+  </tr>
+  <tr><td><a href="../../../Mechanics/MultiBody/Parts/index.html#BodyShape">BodyShape</a></td>
+      <td>Rigid body with mass, inertia tensor, different shapes
+          (see <strong>shapeType</strong> below)
+          for animation, and two frame connectors:<br>&nbsp;<br>
+      <img src="../../../../Images/Mechanics/MultiBody/BodyShape.png" alt="model Parts.BodyShape">
+      </td>
+  </tr>
+  <tr><td><a href="../../../Mechanics/MultiBody/Parts/index.html#Fixed">Fixed BodyBox</a></td>
+      <td>Rigid body with box shape (mass and animation properties are computed
+          from box data and from density):<br>&nbsp;<br>
+      <img src="../../../../Images/Mechanics/MultiBody/BodyBox.png" alt="model Parts.BodyBox">
+      </td>
+  </tr>
+  <tr><td><a href="../../../Mechanics/MultiBody/Parts/index.html#BodyCylinder">BodyCylinder</a></td>
+      <td>Rigid body with cylinder shape (mass and animation properties
+          are computed from cylinder data and from density):<br>&nbsp;<br>
+      <img src="../../../../Images/Mechanics/MultiBody/BodyCylinder.png" alt="model Parts.BodyCylinder">
+      </td>
+  </tr>
+  <tr><td><a href="../../../Mechanics/MultiBody/Parts/index.html#PointMass">PointMass</a></td>
+      <td>Rigid body where inertia tensor and rotation is neglected:<br>&nbsp;<br>
+      <img src="../../../../Images/Mechanics/MultiBody/Parts/PointMass.png" alt="model Parts.PointMass">
+      </td>
+  </tr>
+  <tr><td><a href="../../../Mechanics/MultiBody/Parts/index.html#Mounting1D">Mounting1D</a></td>
+      <td> Propagate 1-dim. support torque to 3-dim. system
+      </td>
+  </tr>
+  <tr><td><a href="../../../Mechanics/MultiBody/Parts/index.html#Rotor1D">Rotor1D</a></td>
+      <td>1D inertia attachable on 3-dim. bodies (without neglecting dynamic effects)<br>
+      <img src="../../../../Images/Mechanics/MultiBody/Parts/Rotor1D.png" alt="model Parts.Rotor1D">
+      </td>
+  </tr>
+  <tr><td><a href="../../../Mechanics/MultiBody/Parts/index.html#BevelGear1D">BevelGear1D</a></td>
+      <td>1D gearbox with arbitrary shaft directions (3D bearing frame)
+      </td>
+  </tr>
+</table>
+<p>
+Components <strong>Fixed</strong>, <strong>FixedTranslation</strong>, <strong>FixedRotation</strong>
+and <strong>BodyShape</strong> are visualized according to parameter
+<strong>shapeType</strong>, that may have the following values (e.g., shapeType = "box"):<br>&nbsp;<br>
+</p>
+<img src="../../../../Images/Mechanics/MultiBody/FixedShape.png" alt="model Visualizers.FixedShape">
+<p>
+All the details of the visualization shape parameters are
+given in
+<a href="../../../Mechanics/MultiBody/Visualizers/index.html#FixedShape">Visualizers.FixedShape</a>
+</p>
+<p>
+Colors in all animation parts are defined via parameter <strong>color</strong>.
+This is an Integer vector with 3 elements, {r, g, b}, and specifies the
+color of the shape. {r,g,b} are the "red", "green" and "blue" color parts,
+given in the ranges 0 .. 255, respectively. The predefined type
+<strong>MultiBody.Types.Color</strong> contains a menu
+definition of the colors used in the MultiBody library
+(this will be replaced by a color editor).
+</p>
+<p>Extends from <code><a href="../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#BevelGear1D"><code>BevelGear1D</code></a></td><td>1D gearbox with arbitrary shaft directions and 3-dim. bearing frame (3D dynamic effects are taken into account provided world.driveTrainMechanics3D=true)</td></tr>
+<tr><td><a href="#Body"><code>Body</code></a></td><td>Rigid body with mass, inertia tensor and one frame connector (12 potential states)</td></tr>
+<tr><td><a href="#BodyBox"><code>BodyBox</code></a></td><td>Rigid body with box shape. Mass and animation properties are computed from box data and density (12 potential states)</td></tr>
+<tr><td><a href="#BodyCylinder"><code>BodyCylinder</code></a></td><td>Rigid body with cylinder shape. Mass and animation properties are computed from cylinder data and density (12 potential states)</td></tr>
+<tr><td><a href="#BodyShape"><code>BodyShape</code></a></td><td>Rigid body with mass, inertia tensor, different shapes for animation, and two frame connectors (12 potential states)</td></tr>
+<tr><td><a href="#Fixed"><code>Fixed</code></a></td><td>Frame fixed in the world frame at a given position</td></tr>
+<tr><td><a href="#FixedRotation"><code>FixedRotation</code></a></td><td>Fixed translation followed by a fixed rotation of frame_b with respect to frame_a</td></tr>
+<tr><td><a href="#FixedTranslation"><code>FixedTranslation</code></a></td><td>Fixed translation of frame_b with respect to frame_a</td></tr>
+<tr><td><a href="#Mounting1D"><code>Mounting1D</code></a></td><td>Propagate 1-dim. support torque to 3-dim. system (provided world.driveTrainMechanics3D=true)</td></tr>
+<tr><td><a href="#PointMass"><code>PointMass</code></a></td><td>Rigid body where body rotation and inertia tensor is neglected (6 potential states)</td></tr>
+<tr><td><a href="#RollingWheel"><code>RollingWheel</code></a></td><td>Ideal rolling wheel on flat surface z=0 (5 positional, 3 velocity degrees of freedom)</td></tr>
+<tr><td><a href="#RollingWheelSet"><code>RollingWheelSet</code></a></td><td>Ideal rolling wheel set consisting of two ideal rolling wheels connected together by an axis</td></tr>
+<tr><td><a href="#Rotor1D"><code>Rotor1D</code></a></td><td>1D inertia attachable on 3-dim. bodies (3D dynamic effects are taken into account if world.driveTrainMechanics3D=true)</td></tr>
+</table>
+<hr><a name="Fixed"><h2><embed class="icon" src="../../../images/icon1135.svg" width="208" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Parts</a>.&#8203;Fixed<br><span class="subtitle">Frame fixed in the world frame at a given position</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Element consisting of a frame (frame_b) that is fixed in the world
+frame at a given position defined by parameter vector <strong>r</strong>
+(vector from origin of world frame to frame_b, resolved in the
+world frame).
+</p>
+<p>
+By default, this component is visualized by a cylinder connecting the
+world frame and frame_b of this components, as shown in the figure below.
+Note, that the visualized world frame on the left side and
+Fixed.frame_b on the right side are not part of the
+component animation and that the animation may be switched off via parameter
+animation = <strong>false</strong>.
+</p>
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/Fixed.png" alt="Parts.Fixed">
+</p>
+
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Position">Position</a></code></td><td><code>r[3]</code></td><td><code>{0, 0, 0}</code></td><td>Position vector from world frame to frame_b, resolved in world frame</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#ShapeType">ShapeType</a></code></td><td><code>shapeType</code></td><td><code>"cylinder"</code></td><td>Type of shape</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Position">Position</a></code></td><td><code>r_shape[3]</code></td><td><code>{0, 0, 0}</code></td><td>Vector from world frame to shape origin, resolved in world frame</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>lengthDirection[3]</code></td><td><code>to_unit1(r - r_shape)</code></td><td>Vector in length direction of shape, resolved in world frame</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>widthDirection[3]</code></td><td><code>{0, 1, 0}</code></td><td>Vector in width direction of shape, resolved in world frame</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>length</code></td><td><code>Modelica.Math.Vectors.length(r - r_shape)</code></td><td>Length of shape</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>width</code></td><td><code>length / world.defaultWidthFraction</code></td><td>Width of shape</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>height</code></td><td><code>width</code></td><td>Height of shape</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#ShapeExtra">ShapeExtra</a></code></td><td><code>extra</code></td><td><code>0</code></td><td>Additional parameter for cone, pipe etc. (see docu of Visualizers.Advanced.Shape)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system fixed in the world frame</td></tr>
+</table>
+<hr><a name="FixedTranslation"><h2><embed class="icon" src="../../../images/icon1136.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Parts</a>.&#8203;FixedTranslation<br><span class="subtitle">Fixed translation of frame_b with respect to frame_a</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Component for a <strong>fixed translation</strong> of frame_b with respect
+to frame_a, i.e., the relationship between connectors frame_a and frame_b
+remains constant and frame_a is always <strong>parallel</strong> to frame_b.
+</p>
+<p>
+By default, this component is visualized by a cylinder connecting
+frame_a and frame_b, as shown in the figure below. Note, that the
+two visualized frames are not part of the component animation and that
+the animation may be switched off via parameter animation = <strong>false</strong>.
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/FixedTranslation.png" alt="Parts.FixedTranslation">
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Position">Position</a></code></td><td><code>r[3]</code></td><td>&nbsp;</td><td>Vector from frame_a to frame_b resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#ShapeType">ShapeType</a></code></td><td><code>shapeType</code></td><td><code>"cylinder"</code></td><td>Type of shape</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Position">Position</a></code></td><td><code>r_shape[3]</code></td><td><code>{0, 0, 0}</code></td><td>Vector from frame_a to shape origin, resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>lengthDirection[3]</code></td><td><code>to_unit1(r - r_shape)</code></td><td>Vector in length direction of shape, resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>widthDirection[3]</code></td><td><code>{0, 1, 0}</code></td><td>Vector in width direction of shape, resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>length</code></td><td><code>Modelica.Math.Vectors.length(r - r_shape)</code></td><td>Length of shape</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>width</code></td><td><code>length / world.defaultWidthFraction</code></td><td>Width of shape</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>height</code></td><td><code>width</code></td><td>Height of shape</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#ShapeExtra">ShapeExtra</a></code></td><td><code>extra</code></td><td><code>0</code></td><td>Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+</table>
+<hr><a name="FixedRotation"><h2><embed class="icon" src="../../../images/icon1137.svg" width="252" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Parts</a>.&#8203;FixedRotation<br><span class="subtitle">Fixed translation followed by a fixed rotation of frame_b with respect to frame_a</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Component for a <strong>fixed translation</strong> and <strong>fixed rotation</strong> of frame_b with respect
+to frame_a, i.e., the relationship between connectors frame_a and frame_b
+remains constant. There are several possibilities to define the
+orientation of frame_b with respect to frame_a:
+</p>
+<ul>
+<li><strong>Planar rotation</strong> along axis 'n' (that is fixed and resolved
+    in frame_a) with a fixed angle 'angle'.</li>
+<li><strong>Vectors n_x</strong> and <strong>n_y</strong> that are directed along the corresponding axes
+    direction of frame_b and are resolved in frame_a (if n_y is not
+    orthogonal to n_x, the y-axis of frame_b is selected such that it is
+    orthogonal to n_x and in the plane of n_x and n_y).</li>
+<li><strong>Sequence</strong> of <strong>three planar axes rotations</strong>.
+    For example, "sequence = {1,2,3}" and "angles = {90, 45, -90}"
+    means to rotate frame_a around the x axis with 90 degrees, around the new
+    y axis with 45 degrees and around the new z axis around -90 degrees to
+    arrive at frame_b. Note, that sequence={1,2,3}
+    is the Cardan angle sequence and sequence = {3,1,3} is the Euler angle
+    sequence.</li>
+</ul>
+<p>
+By default, this component is visualized by a cylinder connecting
+frame_a and frame_b, as shown in the figure below. In this figure
+frame_b is rotated along the z-axis of frame_a with 60 degree. Note, that the
+two visualized frames are not part of the component animation and that
+the animation may be switched off via parameter animation = <strong>false</strong>.
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/FixedRotation.png" alt="Parts.FixedRotation">
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Position">Position</a></code></td><td><code>r[3]</code></td><td><code>{0, 0, 0}</code></td><td>Vector from frame_a to frame_b resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#RotationTypes">RotationTypes</a></code></td><td><code>rotationType</code></td><td><code>Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Types.&#8203;RotationTypes.&#8203;RotationAxis</code></td><td>Type of rotation description</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>n[3]</code></td><td><code>{1, 0, 0}</code></td><td>Axis of rotation in frame_a (= same as in frame_b)</td></tr>
+<tr><td><code><a href="../../../SIunits/Conversions/NonSIunits/index.html#Angle_deg">Angle_deg</a></code></td><td><code>angle</code></td><td><code>0</code></td><td>Angle to rotate frame_a around axis n into frame_b</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>n_x[3]</code></td><td><code>{1, 0, 0}</code></td><td>Vector along x-axis of frame_b resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>n_y[3]</code></td><td><code>{0, 1, 0}</code></td><td>Vector along y-axis of frame_b resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#RotationSequence">RotationSequence</a></code></td><td><code>sequence[3]</code></td><td><code>{1, 2, 3}</code></td><td>Sequence of rotations</td></tr>
+<tr><td><code><a href="../../../SIunits/Conversions/NonSIunits/index.html#Angle_deg">Angle_deg</a></code></td><td><code>angles[3]</code></td><td><code>{0, 0, 0}</code></td><td>Rotation angles around the axes defined in 'sequence'</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#ShapeType">ShapeType</a></code></td><td><code>shapeType</code></td><td><code>"cylinder"</code></td><td>Type of shape</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Position">Position</a></code></td><td><code>r_shape[3]</code></td><td><code>{0, 0, 0}</code></td><td>Vector from frame_a to shape origin, resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>lengthDirection[3]</code></td><td><code>to_unit1(r - r_shape)</code></td><td>Vector in length direction of shape, resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>widthDirection[3]</code></td><td><code>{0, 1, 0}</code></td><td>Vector in width direction of shape, resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>length</code></td><td><code>Modelica.Math.Vectors.length(r - r_shape)</code></td><td>Length of shape</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>width</code></td><td><code>length / world.defaultWidthFraction</code></td><td>Width of shape</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>height</code></td><td><code>width</code></td><td>Height of shape</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#ShapeExtra">ShapeExtra</a></code></td><td><code>extra</code></td><td><code>0</code></td><td>Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Mechanics/MultiBody/Frames/index.html#Orientation">Orientation</a></code></td><td><code>R_rel</code></td><td><code>if rotationType == Types.RotationTypes.RotationAxis then Frames.planarRotation(Modelica.Math.Vectors.normalizeWithAssert(n), Cv.from_deg(angle), 0) else if rotationType == Types.RotationTypes.TwoAxesVectors then Frames.from_nxy(n_x, n_y) else Frames.axesRotations(sequence, Cv.from_deg(angles), zeros(3))</code></td><td>Fixed rotation object from frame_a to frame_b</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+</table>
+<hr><a name="Body"><h2><embed class="icon" src="../../../images/icon1138.svg" width="208" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Parts</a>.&#8203;Body<br><span class="subtitle">Rigid body with mass, inertia tensor and one frame connector (12 potential states)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+<strong>Rigid body</strong> with mass and inertia tensor.
+All parameter vectors have to be resolved in frame_a.
+The <strong>inertia tensor</strong> has to be defined with respect to a
+coordinate system that is parallel to frame_a with the
+origin at the center of mass of the body.
+</p>
+<p>
+By default, this component is visualized by a <strong>cylinder</strong> located
+between frame_a and the center of mass and by a <strong>sphere</strong> that has
+its center at the center of mass. If the cylinder length is smaller as
+the radius of the sphere, e.g., since frame_a is located at the
+center of mass, the cylinder is not displayed. Note, that
+the animation may be switched off via parameter animation = <strong>false</strong>.
+</p>
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/Body.png" alt="Parts.Body">
+</p>
+
+<p>
+<strong>States of Body Components</strong>
+</p>
+<p>
+Every body has potential states. If possible a tool will select
+the states of joints and not the states of bodies because this is
+usually the most efficient choice. In this case the position, orientation,
+velocity and angular velocity of frame_a of the body will be computed
+by the component that is connected to frame_a. However, if a body is moving
+freely in space, variables of the body have to be used as states. The potential
+states of the body are:
+</p>
+<ul>
+<li> The <strong>position vector</strong> frame_a.r_0 from the origin of the
+     world frame to the origin of frame_a of the body, resolved in
+     the world frame and the <strong>absolute velocity</strong> v_0 of the origin of
+     frame_a, resolved in the world frame (= der(frame_a.r_0)).
+</li>
+<li> If parameter <strong>useQuaternions</strong> in the "Advanced" menu
+     is <strong>true</strong> (this is the default), then <strong>4 quaternions</strong>
+     are potential states. Additionally, the coordinates of the
+     absolute angular velocity vector of the
+     body are 3 potential states.<br>
+     If <strong>useQuaternions</strong> in the "Advanced" menu
+     is <strong>false</strong>, then <strong>3 angles</strong> and the derivatives of
+     these angles are potential states. The orientation of frame_a
+     is computed by rotating the world frame along the axes defined
+     in parameter vector "sequence_angleStates" (default = {1,2,3}, i.e.,
+     the Cardan angle sequence) around the angles used as potential states.
+     For example, the default is to rotate the x-axis of the world frame
+     around angles[1], the new y-axis around angles[2] and the new z-axis
+     around angles[3], arriving at frame_a.
+ </li>
+</ul>
+<p>
+The quaternions have the slight disadvantage that there is a
+non-linear constraint equation between the 4 quaternions.
+Therefore, at least one non-linear equation has to be solved
+during simulation. A tool might, however, analytically solve this
+simple constraint equation. Using the 3 angles as states has the
+disadvantage that there is a singular configuration in which a
+division by zero will occur. If it is possible to determine in advance
+for an application class that this singular configuration is outside
+of the operating region, the 3 angles might be used as potential
+states by setting <strong>useQuaternions</strong> = <strong>false</strong>.
+</p>
+<p>
+In text books about 3-dimensional mechanics often 3 angles and the
+angular velocity are used as states. This is not the case here, since
+3 angles and their derivatives are used as potential states
+(if useQuaternions = false). The reason
+is that for real-time simulation the discretization formula of the
+integrator might be "inlined" and solved together with the body equations.
+By appropriate symbolic transformation the performance is
+drastically increased if angles and their
+derivatives are used as states, instead of angles and the angular
+velocity.
+</p>
+<p>
+Whether or not variables of the body are used as states is usually
+automatically selected by the Modelica translator. If parameter
+<strong>enforceStates</strong> is set to <strong>true</strong> in the "Advanced" menu,
+then body variables are forced to be used as states according
+to the setting of parameters "useQuaternions" and
+"sequence_angleStates".
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled (show cylinder and sphere)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Position">Position</a></code></td><td><code>r_CM[3]</code></td><td>&nbsp;</td><td>Vector from frame_a to center of mass, resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m</code></td><td>&nbsp;</td><td>Mass of rigid body</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>I_11</code></td><td><code>0.001</code></td><td>(1,1) element of inertia tensor</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>I_22</code></td><td><code>0.001</code></td><td>(2,2) element of inertia tensor</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>I_33</code></td><td><code>0.001</code></td><td>(3,3) element of inertia tensor</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>I_21</code></td><td><code>0</code></td><td>(2,1) element of inertia tensor</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>I_31</code></td><td><code>0</code></td><td>(3,1) element of inertia tensor</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>I_32</code></td><td><code>0</code></td><td>(3,2) element of inertia tensor</td></tr>
+<tr><td><code>Boolean</code></td><td><code>angles_fixed</code></td><td><code>false</code></td><td>= true, if angles_start are used as initial values, else as guess values</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>angles_start[3]</code></td><td><code>{0, 0, 0}</code></td><td>Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#RotationSequence">RotationSequence</a></code></td><td><code>sequence_start[3]</code></td><td><code>{1, 2, 3}</code></td><td>Sequence of rotations to rotate frame_a into frame_b at initial time</td></tr>
+<tr><td><code>Boolean</code></td><td><code>w_0_fixed</code></td><td><code>false</code></td><td>= true, if w_0_start are used as initial values, else as guess values</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>w_0_start[3]</code></td><td><code>{0, 0, 0}</code></td><td>Initial or guess values of angular velocity of frame_a resolved in world frame</td></tr>
+<tr><td><code>Boolean</code></td><td><code>z_0_fixed</code></td><td><code>false</code></td><td>= true, if z_0_start are used as initial values, else as guess values</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#AngularAcceleration">AngularAcceleration</a></code></td><td><code>z_0_start[3]</code></td><td><code>{0, 0, 0}</code></td><td>Initial values of angular acceleration z_0 = der(w_0)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Diameter">Diameter</a></code></td><td><code>sphereDiameter</code></td><td><code>world.&#8203;defaultBodyDiameter</code></td><td>Diameter of sphere</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Diameter">Diameter</a></code></td><td><code>cylinderDiameter</code></td><td><code>sphereDiameter / Types.Defaults.BodyCylinderDiameterFraction</code></td><td>Diameter of cylinder</td></tr>
+<tr><td><code>Boolean</code></td><td><code>enforceStates</code></td><td><code>false</code></td><td>= true, if absolute variables of body object shall be used as states (StateSelect.always)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useQuaternions</code></td><td><code>true</code></td><td>= true, if quaternions shall be used as potential states otherwise use 3 angles as potential states</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#RotationSequence">RotationSequence</a></code></td><td><code>sequence_angleStates[3]</code></td><td><code>{1, 2, 3}</code></td><td>Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>I[3,3]</code></td><td><code>[I_11,I_21,I_31; I_21,I_22,I_32; I_31,I_32,I_33]</code></td><td>inertia tensor</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Mechanics/MultiBody/Frames/index.html#Orientation">Orientation</a></code></td><td><code>R_start</code></td><td><code>Modelica.Mechanics.MultiBody.Frames.axesRotations(sequence_start, angles_start, zeros(3))</code></td><td>Orientation object from world frame to frame_a at initial time</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#AngularAcceleration">AngularAcceleration</a></code></td><td><code>z_a_start[3]</code></td><td><code>Frames.resolve2(R_start, z_0_start)</code></td><td>Initial values of angular acceleration z_a = der(w_a), i.e., time derivative of angular velocity resolved in frame_a</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Coordinate system fixed at body</td></tr>
+</table>
+<hr><a name="BodyShape"><h2><embed class="icon" src="../../../images/icon1139.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Parts</a>.&#8203;BodyShape<br><span class="subtitle">Rigid body with mass, inertia tensor, different shapes for animation, and two frame connectors (12 potential states)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+<strong>Rigid body</strong> with mass and inertia tensor and <strong>two frame connectors</strong>.
+All parameter vectors have to be resolved in frame_a.
+The <strong>inertia tensor</strong> has to be defined with respect to a
+coordinate system that is parallel to frame_a with the
+origin at the center of mass of the body. The coordinate system <strong>frame_b</strong>
+is always parallel to <strong>frame_a</strong>.
+</p>
+<p>
+By default, this component is visualized by any <strong>shape</strong> that can be
+defined with Modelica.Mechanics.MultiBody.Visualizers.FixedShape. This shape is placed
+between frame_a and frame_b (default: length(shape) = Frames.length(r)).
+Additionally a <strong>sphere</strong> may be visualized that has
+its center at the center of mass.
+Note, that
+the animation may be switched off via parameter animation = <strong>false</strong>.
+</p>
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/BodyShape.png" alt="Parts.BodyShape">
+</p>
+
+<p>
+The following shapes can be defined via parameter <strong>shapeType</strong>,
+e.g., shapeType="cone":
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/FixedShape.png" alt="Visualizers.FixedShape">
+</p>
+
+<p>
+A BodyShape component has potential states. For details of these
+states and of the "Advanced" menu parameters, see model
+<a href="../../../Mechanics/MultiBody/Parts/index.html#Body">MultiBody.Parts.Body</a>.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled (show shape between frame_a and frame_b and optionally a sphere at the center of mass)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>animateSphere</code></td><td><code>true</code></td><td>= true, if mass shall be animated as sphere provided animation=true</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Position">Position</a></code></td><td><code>r[3]</code></td><td>&nbsp;</td><td>Vector from frame_a to frame_b resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Position">Position</a></code></td><td><code>r_CM[3]</code></td><td>&nbsp;</td><td>Vector from frame_a to center of mass, resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m</code></td><td>&nbsp;</td><td>Mass of rigid body</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>I_11</code></td><td><code>0.001</code></td><td>(1,1) element of inertia tensor</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>I_22</code></td><td><code>0.001</code></td><td>(2,2) element of inertia tensor</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>I_33</code></td><td><code>0.001</code></td><td>(3,3) element of inertia tensor</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>I_21</code></td><td><code>0</code></td><td>(2,1) element of inertia tensor</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>I_31</code></td><td><code>0</code></td><td>(3,1) element of inertia tensor</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>I_32</code></td><td><code>0</code></td><td>(3,2) element of inertia tensor</td></tr>
+<tr><td><code>Boolean</code></td><td><code>angles_fixed</code></td><td><code>false</code></td><td>= true, if angles_start are used as initial values, else as guess values</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>angles_start[3]</code></td><td><code>{0, 0, 0}</code></td><td>Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#RotationSequence">RotationSequence</a></code></td><td><code>sequence_start[3]</code></td><td><code>{1, 2, 3}</code></td><td>Sequence of rotations to rotate frame_a into frame_b at initial time</td></tr>
+<tr><td><code>Boolean</code></td><td><code>w_0_fixed</code></td><td><code>false</code></td><td>= true, if w_0_start are used as initial values, else as guess values</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>w_0_start[3]</code></td><td><code>{0, 0, 0}</code></td><td>Initial or guess values of angular velocity of frame_a resolved in world frame</td></tr>
+<tr><td><code>Boolean</code></td><td><code>z_0_fixed</code></td><td><code>false</code></td><td>= true, if z_0_start are used as initial values, else as guess values</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#AngularAcceleration">AngularAcceleration</a></code></td><td><code>z_0_start[3]</code></td><td><code>{0, 0, 0}</code></td><td>Initial values of angular acceleration z_0 = der(w_0)</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#ShapeType">ShapeType</a></code></td><td><code>shapeType</code></td><td><code>"cylinder"</code></td><td>Type of shape</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Position">Position</a></code></td><td><code>r_shape[3]</code></td><td><code>{0, 0, 0}</code></td><td>Vector from frame_a to shape origin, resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>lengthDirection[3]</code></td><td><code>to_unit1(r - r_shape)</code></td><td>Vector in length direction of shape, resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>widthDirection[3]</code></td><td><code>{0, 1, 0}</code></td><td>Vector in width direction of shape, resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>length</code></td><td><code>Modelica.Math.Vectors.length(r - r_shape)</code></td><td>Length of shape</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>width</code></td><td><code>length / world.defaultWidthFraction</code></td><td>Width of shape</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>height</code></td><td><code>width</code></td><td>Height of shape</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#ShapeExtra">ShapeExtra</a></code></td><td><code>extra</code></td><td><code>0</code></td><td>Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Diameter">Diameter</a></code></td><td><code>sphereDiameter</code></td><td><code>2 * width</code></td><td>Diameter of sphere</td></tr>
+<tr><td><code>Boolean</code></td><td><code>enforceStates</code></td><td><code>false</code></td><td>= true, if absolute variables of body object shall be used as states (StateSelect.always)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useQuaternions</code></td><td><code>true</code></td><td>= true, if quaternions shall be used as potential states otherwise use 3 angles as potential states</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#RotationSequence">RotationSequence</a></code></td><td><code>sequence_angleStates[3]</code></td><td><code>{1, 2, 3}</code></td><td>Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+</table>
+<hr><a name="BodyBox"><h2><embed class="icon" src="../../../images/icon1140.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Parts</a>.&#8203;BodyBox<br><span class="subtitle">Rigid body with box shape. Mass and animation properties are computed from box data and density (12 potential states)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+<strong>Rigid body</strong> with <strong>box</strong> shape.
+The mass properties of the body (mass, center of mass,
+inertia tensor) are computed
+from the box data. Optionally, the box may be hollow.
+The (outer) box shape is by default used in the animation.
+The hollow part is not shown in the animation.
+The two connector frames <strong>frame_a</strong> and <strong>frame_b</strong>
+are always parallel to each other. Example of component
+animation (note, that
+the animation may be switched off via parameter animation = <strong>false</strong>):
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/BodyBox.png" alt="Parts.BodyBox">
+</p>
+
+<p>
+A BodyBox component has potential states. For details of these
+states and of the "Advanced" menu parameters, see model
+<a href="../../../Mechanics/MultiBody/Parts/index.html#Body">MultiBody.Parts.Body</a>.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled (show box between frame_a and frame_b)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Position">Position</a></code></td><td><code>r[3]</code></td><td>&nbsp;</td><td>Vector from frame_a to frame_b resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Position">Position</a></code></td><td><code>r_shape[3]</code></td><td><code>{0, 0, 0}</code></td><td>Vector from frame_a to box origin, resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>lengthDirection[3]</code></td><td><code>to_unit1(r - r_shape)</code></td><td>Vector in length direction of box, resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>widthDirection[3]</code></td><td><code>{0, 1, 0}</code></td><td>Vector in width direction of box, resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>length</code></td><td><code>Modelica.Math.Vectors.length(r - r_shape)</code></td><td>Length of box</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>width</code></td><td><code>length / world.defaultWidthFraction</code></td><td>Width of box</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>height</code></td><td><code>width</code></td><td>Height of box</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>innerWidth</code></td><td><code>0</code></td><td>Width of inner box surface (0 &lt;= innerWidth &lt;= width)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>innerHeight</code></td><td><code>innerWidth</code></td><td>Height of inner box surface (0 &lt;= innerHeight &lt;= height)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Density">Density</a></code></td><td><code>density</code></td><td><code>7700</code></td><td>Density of cylinder (e.g., steel: 7700 .. 7900, wood : 400 .. 800)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>angles_fixed</code></td><td><code>false</code></td><td>= true, if angles_start are used as initial values, else as guess values</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>angles_start[3]</code></td><td><code>{0, 0, 0}</code></td><td>Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#RotationSequence">RotationSequence</a></code></td><td><code>sequence_start[3]</code></td><td><code>{1, 2, 3}</code></td><td>Sequence of rotations to rotate frame_a into frame_b at initial time</td></tr>
+<tr><td><code>Boolean</code></td><td><code>w_0_fixed</code></td><td><code>false</code></td><td>= true, if w_0_start are used as initial values, else as guess values</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>w_0_start[3]</code></td><td><code>{0, 0, 0}</code></td><td>Initial or guess values of angular velocity of frame_a resolved in world frame</td></tr>
+<tr><td><code>Boolean</code></td><td><code>z_0_fixed</code></td><td><code>false</code></td><td>= true, if z_0_start are used as initial values, else as guess values</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#AngularAcceleration">AngularAcceleration</a></code></td><td><code>z_0_start[3]</code></td><td><code>{0, 0, 0}</code></td><td>Initial values of angular acceleration z_0 = der(w_0)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>enforceStates</code></td><td><code>false</code></td><td>= true, if absolute variables of body object shall be used as states (StateSelect.always)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useQuaternions</code></td><td><code>true</code></td><td>= true, if quaternions shall be used as potential states otherwise use 3 angles as potential states</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#RotationSequence">RotationSequence</a></code></td><td><code>sequence_angleStates[3]</code></td><td><code>{1, 2, 3}</code></td><td>Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>mo</code></td><td><code>density * length * width * height</code></td><td>Mass of box without hole</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>mi</code></td><td><code>density * length * innerWidth * innerHeight</code></td><td>Mass of hole of box</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m</code></td><td><code>mo - mi</code></td><td>Mass of box</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Mechanics/MultiBody/Frames/index.html#Orientation">Orientation</a></code></td><td><code>R</code></td><td><code>Frames.from_nxy(r, widthDirection)</code></td><td>Orientation object from frame_a to coordinates system spanned by r and widthDirection</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Position">Position</a></code></td><td><code>r_CM[3]</code></td><td><code>r_shape + 0.5 * (normalizeWithAssert(lengthDirection) * length)</code></td><td>Position vector from origin of frame_a to center of mass, resolved in frame_a</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>I[3,3]</code></td><td><code>Frames.resolveDyade1(R, diagonal(0.083333333333333 * {mo * (width * width + height * height) - mi * (innerWidth * innerWidth + innerHeight * innerHeight), mo * (length * length + height * height) - mi * (length * length + innerHeight * innerHeight), mo * (length * length + width * width) - mi * (length * length + innerWidth * innerWidth)}))</code></td><td>Inertia tensor of body box with respect to center of mass, parallel to frame_a</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+</table>
+<hr><a name="BodyCylinder"><h2><embed class="icon" src="../../../images/icon1141.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Parts</a>.&#8203;BodyCylinder<br><span class="subtitle">Rigid body with cylinder shape. Mass and animation properties are computed from cylinder data and density (12 potential states)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+<strong>Rigid body</strong> with <strong>cylinder</strong> shape.
+The mass properties of the body (mass, center of mass,
+inertia tensor) are computed
+from the cylinder data. Optionally, the cylinder may be hollow.
+The cylinder shape is by default used in the animation.
+The two connector frames <strong>frame_a</strong> and <strong>frame_b</strong>
+are always parallel to each other. Example of component
+animation (note, that
+the animation may be switched off via parameter animation = <strong>false</strong>):
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/MultiBody/BodyCylinder.png" alt="Parts.BodyCylinder">
+</p>
+
+<p>
+A BodyCylinder component has potential states. For details of these
+states and of the "Advanced" menu parameters, see model
+<a href="../../../Mechanics/MultiBody/Parts/index.html#Body">MultiBody.Parts.Body</a>.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled (show cylinder between frame_a and frame_b)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Position">Position</a></code></td><td><code>r[3]</code></td><td>&nbsp;</td><td>Vector from frame_a to frame_b, resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Position">Position</a></code></td><td><code>r_shape[3]</code></td><td><code>{0, 0, 0}</code></td><td>Vector from frame_a to cylinder origin, resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>lengthDirection[3]</code></td><td><code>to_unit1(r - r_shape)</code></td><td>Vector in length direction of cylinder, resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>length</code></td><td><code>Modelica.Math.Vectors.length(r - r_shape)</code></td><td>Length of cylinder</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>diameter</code></td><td><code>length / world.defaultWidthFraction</code></td><td>Diameter of cylinder</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>innerDiameter</code></td><td><code>0</code></td><td>Inner diameter of cylinder (0 &lt;= innerDiameter &lt;= Diameter)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Density">Density</a></code></td><td><code>density</code></td><td><code>7700</code></td><td>Density of cylinder (e.g., steel: 7700 .. 7900, wood : 400 .. 800)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>angles_fixed</code></td><td><code>false</code></td><td>= true, if angles_start are used as initial values, else as guess values</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>angles_start[3]</code></td><td><code>{0, 0, 0}</code></td><td>Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#RotationSequence">RotationSequence</a></code></td><td><code>sequence_start[3]</code></td><td><code>{1, 2, 3}</code></td><td>Sequence of rotations to rotate frame_a into frame_b at initial time</td></tr>
+<tr><td><code>Boolean</code></td><td><code>w_0_fixed</code></td><td><code>false</code></td><td>= true, if w_0_start are used as initial values, else as guess values</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>w_0_start[3]</code></td><td><code>{0, 0, 0}</code></td><td>Initial or guess values of angular velocity of frame_a resolved in world frame</td></tr>
+<tr><td><code>Boolean</code></td><td><code>z_0_fixed</code></td><td><code>false</code></td><td>= true, if z_0_start are used as initial values, else as guess values</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#AngularAcceleration">AngularAcceleration</a></code></td><td><code>z_0_start[3]</code></td><td><code>{0, 0, 0}</code></td><td>Initial values of angular acceleration z_0 = der(w_0)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>enforceStates</code></td><td><code>false</code></td><td>= true, if absolute variables of body object shall be used as states (StateSelect.always)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useQuaternions</code></td><td><code>true</code></td><td>= true, if quaternions shall be used as potential states otherwise use 3 angles as potential states</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#RotationSequence">RotationSequence</a></code></td><td><code>sequence_angleStates[3]</code></td><td><code>{1, 2, 3}</code></td><td>Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>radius</code></td><td><code>0.5 * diameter</code></td><td>Radius of cylinder</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>innerRadius</code></td><td><code>0.5 * innerDiameter</code></td><td>Inner-Radius of cylinder</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>mo</code></td><td><code>density * pi * length * radius * radius</code></td><td>Mass of cylinder without hole</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>mi</code></td><td><code>density * pi * length * innerRadius * innerRadius</code></td><td>Mass of hole of cylinder</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>I22</code></td><td><code>0.083333333333333 * (mo * (length * length + 3 * radius * radius) - mi * (length * length + 3 * innerRadius * innerRadius))</code></td><td>Inertia with respect to axis through center of mass, perpendicular to cylinder axis</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m</code></td><td><code>mo - mi</code></td><td>Mass of cylinder</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Mechanics/MultiBody/Frames/index.html#Orientation">Orientation</a></code></td><td><code>R</code></td><td><code>Frames.from_nxy(r, {0, 1, 0})</code></td><td>Orientation object from frame_a to frame spanned by cylinder axis and axis perpendicular to cylinder axis</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Position">Position</a></code></td><td><code>r_CM[3]</code></td><td><code>r_shape + 0.5 * (normalizeWithAssert(lengthDirection) * length)</code></td><td>Position vector from frame_a to center of mass, resolved in frame_a</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>I[3,3]</code></td><td><code>Frames.resolveDyade1(R, diagonal({0.5 * (mo * radius * radius - mi * innerRadius * innerRadius), I22, I22}))</code></td><td>Inertia tensor of cylinder with respect to center of mass, resolved in frame parallel to frame_a</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+</table>
+<hr><a name="PointMass"><h2><embed class="icon" src="../../../images/icon1142.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Parts</a>.&#8203;PointMass<br><span class="subtitle">Rigid body where body rotation and inertia tensor is neglected (6 potential states)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+<strong>Rigid body</strong> where the inertia tensor is neglected.
+This body is
+solely defined by its mass.
+By default, this component is visualized by a <strong>sphere</strong> that has
+its center at frame_a. Note, that
+the animation may be switched off via parameter animation = <strong>false</strong>.
+</p>
+
+<p>
+Every PointMass has potential states. If possible a tool will select
+the states of joints and not the states of PointMass because this is
+usually the most efficient choice. In this case the position and
+velocity of frame_a of the body will be computed
+by the component that is connected to frame_a. However, if a PointMass is moving
+freely in space, variables of the PointMass have to be used as states. The potential
+states are: The <strong>position vector</strong> frame_a.r_0 from the origin of the
+world frame to the origin of frame_a of the body, resolved in
+the world frame and the <strong>absolute velocity</strong> v_0 of the origin of
+frame_a, resolved in the world frame (= der(frame_a.r_0)).
+</p>
+
+<p>
+Whether or not variables of the body are used as states is usually
+automatically selected by the Modelica translator. If parameter
+<strong>enforceStates</strong> is set to <strong>true</strong> in the "Advanced" menu,
+then PointMass variables frame_a.r_0 and der(frame_a.r_0)
+are forced to be used as states.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled (show sphere)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m</code></td><td>&nbsp;</td><td>Mass of mass point</td></tr>
+<tr><td><code>StateSelect</code></td><td><code>stateSelect</code></td><td><code>StateSelect.&#8203;avoid</code></td><td>Priority to use frame_a.r_0, v_0 (= der(frame_a.r_0)) as states</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Coordinate system fixed at center of mass point</td></tr>
+</table>
+<hr><a name="Mounting1D"><h2><embed class="icon" src="../../../images/icon1143.svg" width="213" height="209" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Parts</a>.&#8203;Mounting1D<br><span class="subtitle">Propagate 1-dim. support torque to 3-dim. system (provided world.driveTrainMechanics3D=true)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This component is used to acquire support torques from a 1-dim.-rotational
+mechanical system (e.g., components from Modelica.Mechanics.Rotational)
+and to propagate them to a carrier body.</p>
+<p>The 1-dim. support torque at <code>flange_b</code> is transformed into 3-dim. space under
+consideration of the rotation axis, parameter <code>n</code>, which has to be given in the
+local coordinate system of <code>frame_a</code>.</p>
+<p>All components of a 1-dim.-rotational mechanical system that are connected to <strong>a</strong> common
+<strong>Mounting1D</strong> element need to have the same axis of rotation
+along parameter vector <code>n</code>. This means that, e.g., bevel
+gears where the axis of rotation of <code>flange_a</code> and
+<code>flange_b</code> are different cannot be described properly by
+connecting to the <strong>Mounting1D</strong> component. In this case, a combination of several
+<strong>Mounting1D</strong> components or the component <strong>BevelGear1D</strong> should be used.</p>
+<p><strong>Reference</strong><br>
+<span style="font-variant:small-caps">Schweiger</span>, Christian ;
+<span style="font-variant:small-caps">Otter</span>, Martin:
+<a href="https://www.modelica.org/events/Conference2003/papers/h06_Schweiger_powertrains_v5.pdf">Modelling
+3D Mechanical Effects of 1-dim. Powertrains</a>. In: <em>Proceedings of the 3rd International
+Modelica Conference</em>. Link&ouml;ping : The Modelica Association and Link&ouml;ping University,
+November 3-4, 2003, pp. 149-158</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>phi0</code></td><td><code>0</code></td><td>Fixed offset angle of housing</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>n[3]</code></td><td><code>{1, 0, 0}</code></td><td>Axis of rotation = axis of support torque (resolved in frame_a)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>(right) flange fixed in housing</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Frame in which housing is fixed (connector is removed, if world.driveTrainMechanics3D=false)</td></tr>
+</table>
+<hr><a name="Rotor1D"><h2><embed class="icon" src="../../../images/icon1144.svg" width="223" height="209" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Parts</a>.&#8203;Rotor1D<br><span class="subtitle">1D inertia attachable on 3-dim. bodies (3D dynamic effects are taken into account if world.driveTrainMechanics3D=true)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This component is used to model the gyroscopic torques exerted by a 1-dim.
+inertia (so called <em>rotor</em>) on its 3-dim. carrier body. Gyroscopic torques
+appear, if the vector of the carrier body's angular velocity is not parallel
+to the vector of the rotor's axis. The axis of rotation of the rotor is defined by
+the parameter <code>n</code>, which has to be given in the local coordinate system
+of <code>frame_a</code>. The default animation of this component is
+shown in the figure below.</p>
+<p>
+      <img src="../../../../Images/Mechanics/MultiBody/Parts/Rotor1D.png" alt="model Parts.Rotor1D">
+</p>
+<p>This component is a replacement for
+<a href="../../../Mechanics/Rotational/Components/index.html#Inertia">Modelica.Mechanics.Rotational.Components.Inertia</a>
+for the case, that a 1-dim.-rotational mechanical system should be attached with a 3-dim.
+carrier body.</p>
+<p>The Boolean parameter <code>exact</code> was introduced due to performance
+reasons. If <code>exact</code> is set to <strong>false</strong>, the influence of the carrier body
+motion on the angular velocity of the rotor is neglected. This influence is usually
+negligible if the 1-dim.-rotational mechanical system accelerates much faster as the base body (this is,
+e.g., the case in vehicle powertrains). The essential advantage is
+that an algebraic loop is removed since then there is only an
+action on acceleration level from the powertrain to the base body
+but not vice versa.</p>
+<p><strong>Reference</strong><br>
+<span style="font-variant:small-caps">Schweiger</span>, Christian ;
+<span style="font-variant:small-caps">Otter</span>, Martin:
+<a href="https://www.modelica.org/events/Conference2003/papers/h06_Schweiger_powertrains_v5.pdf">Modelling
+3D Mechanical Effects of 1-dim. Powertrains</a>. In: <em>Proceedings of the 3rd International
+Modelica Conference</em>. Link&ouml;ping : The Modelica Association and Link&ouml;ping University,
+November 3-4, 2003, pp. 149-158</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled (show rotor as cylinder)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>J</code></td><td>&nbsp;</td><td>Moment of inertia of rotor around its axis of rotation</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>n[3]</code></td><td><code>{1, 0, 0}</code></td><td>Axis of rotation resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Position">Position</a></code></td><td><code>r_center[3]</code></td><td><code>zeros(3)</code></td><td>Position vector from origin of frame_a to center of cylinder</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>cylinderLength</code></td><td><code>2 * world.defaultJointLength</code></td><td>Length of cylinder representing the rotor</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>cylinderDiameter</code></td><td><code>2 * world.defaultJointWidth</code></td><td>Diameter of cylinder representing the rotor</td></tr>
+<tr><td><code>StateSelect</code></td><td><code>stateSelect</code></td><td><code>StateSelect.&#8203;default</code></td><td>Priority to use rotor angle (phi) and rotor speed (w) as states</td></tr>
+<tr><td><code>Boolean</code></td><td><code>exact</code></td><td><code>true</code></td><td>= true, if exact calculations; false if influence of bearing on rotor acceleration is neglected to avoid an algebraic loop</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>(left) driving flange (flange axis directed INTO cut plane)</td></tr>
+<tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>(right) driven flange (flange axis directed OUT OF cut plane)</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Frame in which rotor housing is fixed (connector is removed, if world.driveTrainMechanics3D=false)</td></tr>
+</table>
+<hr><a name="BevelGear1D"><h2><embed class="icon" src="../../../images/icon1145.svg" width="223" height="209" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Parts</a>.&#8203;BevelGear1D<br><span class="subtitle">1D gearbox with arbitrary shaft directions and 3-dim. bearing frame (3D dynamic effects are taken into account provided world.driveTrainMechanics3D=true)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This component is used to model a 1-dim. gearbox
+with non-parallel axes (defined by parameters <code>n_a</code>, <code>n_b</code>).
+A 3-dim. <code>bearing</code> frame is necessary to reflect the
+correct support torque, as the axes of rotation of <code>flange_a</code> and
+<code>flange_b</code> and the direction of the support torque vector
+are different in general.</p>
+<p>Note: The name BevelGear1D is kept only for simplicity. Regardless,
+this component could be used to model any kind of gearbox with non-parallel axes.
+For a usage example, see <a href="../../../Mechanics/MultiBody/Examples/Rotational3DEffects/index.html#BevelGear1D">Examples.Rotational3DEffects.BevelGear1D</a>.</p>
+
+<p><strong>Reference</strong><br>
+<span style="font-variant:small-caps">Schweiger</span>, Christian ;
+<span style="font-variant:small-caps">Otter</span>, Martin:
+<a href="https://www.modelica.org/events/Conference2003/papers/h06_Schweiger_powertrains_v5.pdf">Modelling
+3D Mechanical Effects of 1-dim. Powertrains</a>. In: <em>Proceedings of the 3rd International
+Modelica Conference</em>. Link&ouml;ping : The Modelica Association and Link&ouml;ping University,
+November 3-4, 2003, pp. 149-158
+</p>
+<p>Extends from <code><a href="../../../Mechanics/Rotational/Interfaces/index.html#PartialTwoFlanges">Modelica.&#8203;Mechanics.&#8203;Rotational.&#8203;Interfaces.&#8203;PartialTwoFlanges</a></code> (Partial model for a component with two rotational 1-dim. shaft flanges).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>ratio</code></td><td>&nbsp;</td><td>Gear speed ratio</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>n_a[3]</code></td><td><code>{1, 0, 0}</code></td><td>Axis of rotation of flange_a, resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>n_b[3]</code></td><td><code>{1, 0, 0}</code></td><td>Axis of rotation of flange_b, resolved in frame_a</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>Flange of left shaft</td></tr>
+<tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>Flange of right shaft</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Bearing frame</td></tr>
+</table>
+<hr><a name="RollingWheel"><h2><embed class="icon" src="../../../images/icon1146.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Parts</a>.&#8203;RollingWheel<br><span class="subtitle">Ideal rolling wheel on flat surface z=0 (5 positional, 3 velocity degrees of freedom)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+A wheel rolling on the x-y plane of the world frame including
+wheel mass and simple visualization.
+The rolling contact is considered being ideal, i.e. there is no
+slip between the wheel and the ground.
+The wheel can not take off but it can incline toward the ground.
+The frame frame_a is placed in the wheel center point and rotates
+with the wheel itself. Therefore, a
+<a href="../../../Mechanics/MultiBody/Joints/index.html#Revolute">rotational joint</a>
+with rotation axis <code>n={0,1,0}</code> should be used to
+connect the wheel to a carrier.
+</p>
+
+<h4>Note</h4>
+<p>
+To work properly, the gravity acceleration vector g of the world must point in the negative z-axis, i.e.
+</p>
+<blockquote><pre>
+<span style="font-family:'Courier New',courier; color:#0000ff;">inner</span> <span style="font-family:'Courier New',courier; color:#ff0000;">Modelica.Mechanics.MultiBody.World</span> world(n={0,0,-1});
+</pre></blockquote>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation of wheel shall be enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Radius">Radius</a></code></td><td><code>wheelRadius</code></td><td>&nbsp;</td><td>Radius of wheel</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>wheelMass</code></td><td>&nbsp;</td><td>Mass of wheel</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>wheel_I_axis</code></td><td>&nbsp;</td><td>Inertia along the wheel axis</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>wheel_I_long</code></td><td>&nbsp;</td><td>Inertia perpendicular to the wheel axis</td></tr>
+<tr><td><code>StateSelect</code></td><td><code>stateSelect</code></td><td><code>StateSelect.&#8203;always</code></td><td>Priority to use generalized coordinates as states</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>width</code></td><td><code>0.035</code></td><td>Width of wheel</td></tr>
+<tr><td><code>Real</code></td><td><code>hollowFraction</code></td><td><code>0.8</code></td><td>1.0: Completely hollow, 0.0: rigid cylinder</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#Color">Color</a></code></td><td><code>wheelColor[3]</code></td><td><code>{30, 30, 30}</code></td><td>Color of wheel</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Frame fixed in wheel center point (y-axis: along wheel axis, z-axis: upwards)</td></tr>
+</table>
+<hr><a name="RollingWheelSet"><h2><embed class="icon" src="../../../images/icon1147.svg" width="239" height="213" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Parts</a>.&#8203;RollingWheelSet<br><span class="subtitle">Ideal rolling wheel set consisting of two ideal rolling wheels connected together by an axis</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Two wheels are connected by an axis and can rotate around this axis.
+The wheels are rolling on the x-y plane of the world frame.
+The coordinate system attached to the center of the wheel axis (frameMiddle)
+is constrained so that it is always parallel to the x-y plane.
+If all generalized coordinates are zero, frameMiddle is parallel
+to the world frame.
+</p>
+
+<h4>Note</h4>
+<p>
+To work properly, the gravity acceleration vector g of the world must point in the negative z-axis, i.e.
+</p>
+<blockquote><pre>
+<span style="font-family:'Courier New',courier; color:#0000ff;">inner</span> <span style="font-family:'Courier New',courier; color:#ff0000;">Modelica.Mechanics.MultiBody.World</span> world(n={0,0,-1});
+</pre></blockquote>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation of wheel set shall be enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Radius">Radius</a></code></td><td><code>wheelRadius</code></td><td>&nbsp;</td><td>Radius of one wheel</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>wheelMass</code></td><td>&nbsp;</td><td>Mass of one wheel</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>wheel_I_axis</code></td><td>&nbsp;</td><td>Inertia along one wheel axis</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>wheel_I_long</code></td><td>&nbsp;</td><td>Inertia perpendicular to one wheel axis</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>wheelDistance</code></td><td>&nbsp;</td><td>Distance between the two wheels</td></tr>
+<tr><td><code>StateSelect</code></td><td><code>stateSelect</code></td><td><code>StateSelect.&#8203;always</code></td><td>Priority to use the generalized coordinates as states</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>wheelWidth</code></td><td><code>0.01</code></td><td>Width of one wheel</td></tr>
+<tr><td><code>Real</code></td><td><code>hollowFraction</code></td><td><code>0.8</code></td><td>1.0: Completely hollow, 0.0: rigid cylinder</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Types/index.html#Color">Color</a></code></td><td><code>wheelColor[3]</code></td><td><code>{30, 30, 30}</code></td><td>Color of wheels</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frameMiddle</code></td><td>Frame fixed in middle of axis connecting both wheels (y-axis: along wheel axis, z-axis: upwards)</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame1</code></td><td>Frame fixed in center point of left wheel (y-axis: along wheel axis, z-axis: upwards)</td></tr>
+<tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame2</code></td><td>Frame fixed in center point of right wheel (y-axis: along wheel axis, z-axis: upwards)</td></tr>
+<tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>axis1</code></td><td>1-dim. rotational flange that drives the left wheel</td></tr>
+<tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>axis2</code></td><td>1-dim. rotational flange that drives the right wheel</td></tr>
+<tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>support</code></td><td>Support of 1D axes</td></tr>
+</table>
+</body></html>

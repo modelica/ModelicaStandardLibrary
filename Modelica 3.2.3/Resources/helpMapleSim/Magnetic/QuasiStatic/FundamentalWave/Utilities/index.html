@@ -1,0 +1,174 @@
+<html><head><title>Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Utilities"><h1><embed class="icon" src="../../../../images/icon0009.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;Utilities<br><span class="subtitle">Utilities for quasi static fundamental wave machines</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates a package containing utility classes.</p>
+<p>Extends from <code><a href="../../../../Icons/UtilitiesPackage/index.html">Modelica.&#8203;Icons.&#8203;UtilitiesPackage</a></code> (Icon for utility packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#CurrentController"><code>CurrentController</code></a></td><td>Current controller</td></tr>
+<tr><td><a href="#MultiTerminalBox"><code>MultiTerminalBox</code></a></td><td>Terminal box Y/D-connection</td></tr>
+<tr><td><a href="#SwitchedRheostat"><code>SwitchedRheostat</code></a></td><td>Rheostat which is shortened after a given time</td></tr>
+<tr><td><a href="#SwitchYD"><code>SwitchYD</code></a></td><td>Y-D-switch</td></tr>
+<tr><td><a href="#TerminalBox"><code>TerminalBox</code></a></td><td>Terminal box Y/D-connection</td></tr>
+<tr><td><a href="#VfController"><code>VfController</code></a></td><td>Voltage-Frequency-Controller</td></tr>
+</table>
+<hr><a name="VfController"><h2><embed class="icon" src="../../../../images/icon1050.svg" width="263" height="203" />
+Block <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;VfController<br><span class="subtitle">Voltage-Frequency-Controller</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a simple voltage-frequency-controller. The amplitude of the voltage is linear dependent (<code>VNominal/fNominal</code>) on the frequency (input signal <code>u</code>), but limited by <code>VNominal</code> (nominal RMS voltage per phase). An
+<code>m</code> quasi static phasor signal is provided as output signal <code>y</code>, representing complex voltages.
+The output voltages may serve as inputs for complex voltage sources with phase input. Symmetrical voltages are assumed.
+</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <caption align="bottom"><strong>Fig. 1:</strong> Voltage vs. frequency of voltage frequency controller</caption>
+  <tr>
+    <td>
+      <img src="../../../../../Images/Magnetic/QuasiStatic/FundamentalWave/Utilities/VoltageFrequencyController.png">
+    </td>
+  </tr>
+</table>
+
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>orientation[m]</code></td><td><code>-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)</code></td><td>Orientation of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VNominal</code></td><td>&nbsp;</td><td>Nominal RMS voltage per phase</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fNominal</code></td><td>&nbsp;</td><td>Nominal frequency</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>BasePhase</code></td><td><code>0</code></td><td>Common phase shift</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y[m]</code></td><td>Complex quasi static voltages (RMS)</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Frequency input (Hz)</td></tr>
+</table>
+<hr><a name="TerminalBox"><h2><embed class="icon" src="../../../../images/icon1051.svg" width="213" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;TerminalBox<br><span class="subtitle">Terminal box Y/D-connection</span></h2></a>
+<h3>Information</h3>
+<p>
+
+TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>
+choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>String</code></td><td><code>terminalConnection</code></td><td>&nbsp;</td><td>Choose Y=star/D=delta</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_sp</code></td><td>To positive stator plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_sn</code></td><td>To negative stator plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plugSupply</code></td><td>To grid</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>starpoint</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="MultiTerminalBox"><h2><embed class="icon" src="../../../../images/icon1052.svg" width="213" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;MultiTerminalBox<br><span class="subtitle">Terminal box Y/D-connection</span></h2></a>
+<h3>Information</h3>
+<p>
+
+TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>
+choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mSystems</code></td><td><code>Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mBasic</code></td><td><code>integer(m / mSystems)</code></td><td>&nbsp</td></tr>
+<tr><td><code>String</code></td><td><code>terminalConnection</code></td><td>&nbsp;</td><td>Choose Y=star/D=delta</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_sp</code></td><td>To positive stator plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_sn</code></td><td>To negative stator plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plugSupply</code></td><td>To grid</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>starpoint</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="SwitchedRheostat"><h2><embed class="icon" src="../../../../images/icon1053.svg" width="213" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;SwitchedRheostat<br><span class="subtitle">Rheostat which is shortened after a given time</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Switched rheostat, used for starting induction motors with slipring rotor:</p>
+<p>The external rotor resistance <code>RStart</code> is shortened at time <code>tStart</code>.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RStart</code></td><td>&nbsp;</td><td>Starting resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tStart</code></td><td>&nbsp;</td><td>Duration of switching on the starting resistor</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>To positive rotor plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>To negative rotor plug</td></tr>
+</table>
+<hr><a name="CurrentController"><h2><embed class="icon" src="../../../../images/icon1054.svg" width="263" height="243" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;CurrentController<br><span class="subtitle">Current controller</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a simple current controller.
+The desired RMS values of d  and q component of the quasi static space phasor current in rotor fixed coordinate system are the inputs <code>id_rms</code> and <code>iq_rms</code>.
+Using the given rotor position input <code>phi</code>, the quasi static <code>m</code> phase output currents <code>i[m]</code> are calculated.
+The model output can be used to feed a quasi static current source with phase input to supply synchronous machines.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code>Integer</code></td><td><code>p</code></td><td>&nbsp;</td><td>Number of pole pairs</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>gamma0</code></td><td><code>0</code></td><td>Offset added to electrical rotor angle</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>id_rms</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>iq_rms</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>phi</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>I[m]</code></td><td>Multi phase current phasors</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>gamma</code></td><td>Reference angle of source</td></tr>
+</table>
+<hr><a name="SwitchYD"><h2><embed class="icon" src="../../../../images/icon1055.svg" width="243" height="223" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;SwitchYD<br><span class="subtitle">Y-D-switch</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Simple Star-Delta-switch.<br>
+If <em>control</em> is false, plug_sp and plug_sn are star connected and plug_sp connected to the supply plug.<br>
+If <em>control</em> is true, plug_sp and plug_sn are delta connected and they are connected to the supply plug.
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plugSupply</code></td><td>To grid</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_sp</code></td><td>To positive stator plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_sn</code></td><td>To negative stator plug</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>control[m]</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

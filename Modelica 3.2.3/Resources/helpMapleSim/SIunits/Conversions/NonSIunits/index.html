@@ -1,0 +1,289 @@
+<html><head><title>Modelica.SIunits.Conversions.NonSIunits</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="NonSIunits"><h1><embed class="icon" src="../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">SIunits</a>.&#8203;<a href="../index.html">Conversions</a>.&#8203;NonSIunits<br><span class="subtitle">Type definitions of non SI units</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package provides predefined types, such as <strong>Angle_deg</strong> (angle in
+degree), <strong>AngularVelocity_rpm</strong> (angular velocity in revolutions per
+minute) or <strong>Temperature_degF</strong> (temperature in degree Fahrenheit),
+which are in common use but are not part of the international standard on
+units according to ISO 31-1992 "General principles concerning quantities,
+units and symbols" and ISO 1000-1992 "SI units and recommendations for
+the use of their multiples and of certain other units".</p>
+<p>If possible, the types in this package should not be used. Use instead
+types of package Modelica.SIunits. For more information on units, see also
+the book of Francois Cardarelli <strong>Scientific Unit Conversion - A
+Practical Guide to Metrication</strong> (Springer 1997).</p>
+<p>Some units, such as <strong>Temperature_degC/Temp_C</strong> are both defined in
+Modelica.SIunits and in Modelica.Conversions.NonSIunits. The reason is that these
+definitions have been placed erroneously in Modelica.SIunits although they
+are not SIunits. For backward compatibility, these type definitions are
+still kept in Modelica.SIunits.</p>
+<p>Extends from <code><a href="../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Angle_deg"><code>Angle_deg</code></a></td><td>Angle in degree</td></tr>
+<tr><td><a href="#AngularVelocity_rpm"><code>AngularVelocity_rpm</code></a></td><td>Angular velocity in revolutions per minute. Alias unit names that are outside of the SI system: rpm, r/min, rev/min</td></tr>
+<tr><td><a href="#Area_cm"><code>Area_cm</code></a></td><td>Area in cm</td></tr>
+<tr><td><a href="#Area_cmPerVoltageSecond"><code>Area_cmPerVoltageSecond</code></a></td><td>Area in cm per voltage second</td></tr>
+<tr><td><a href="#ElectricCharge_Ah"><code>ElectricCharge_Ah</code></a></td><td>Electric charge in Ampere hours</td></tr>
+<tr><td><a href="#Energy_kWh"><code>Energy_kWh</code></a></td><td>Energy in kilo watt hours</td></tr>
+<tr><td><a href="#Energy_Wh"><code>Energy_Wh</code></a></td><td>Energy in Watt hours</td></tr>
+<tr><td><a href="#FirstOrderTemperaturCoefficient"><code>FirstOrderTemperaturCoefficient</code></a></td><td>Obsolete type, use LinearTemperatureCoefficientResistance instead!</td></tr>
+<tr><td><a href="#MassFlowRate_gps"><code>MassFlowRate_gps</code></a></td><td>Mass flow rate in gram per second</td></tr>
+<tr><td><a href="#PerArea_cm"><code>PerArea_cm</code></a></td><td>Per Area in cm</td></tr>
+<tr><td><a href="#Pressure_bar"><code>Pressure_bar</code></a></td><td>Absolute pressure in bar</td></tr>
+<tr><td><a href="#SecondOrderTemperaturCoefficient"><code>SecondOrderTemperaturCoefficient</code></a></td><td>Obsolete type, use QuadraticTemperatureCoefficientResistance instead!</td></tr>
+<tr><td><a href="#Temperature_degC"><code>Temperature_degC</code></a></td><td>Absolute temperature in degree Celsius (for relative temperature use SIunits.TemperatureDifference)</td></tr>
+<tr><td><a href="#Temperature_degF"><code>Temperature_degF</code></a></td><td>Absolute temperature in degree Fahrenheit (for relative temperature use SIunits.TemperatureDifference)</td></tr>
+<tr><td><a href="#Temperature_degRk"><code>Temperature_degRk</code></a></td><td>Absolute temperature in degree Rankine (for relative temperature use SIunits.TemperatureDifference)</td></tr>
+<tr><td><a href="#Time_day"><code>Time_day</code></a></td><td>Time in days</td></tr>
+<tr><td><a href="#Time_hour"><code>Time_hour</code></a></td><td>Time in hours</td></tr>
+<tr><td><a href="#Time_minute"><code>Time_minute</code></a></td><td>Time in minutes</td></tr>
+<tr><td><a href="#Velocity_kmh"><code>Velocity_kmh</code></a></td><td>Velocity in kilometres per hour</td></tr>
+<tr><td><a href="#Volume_litre"><code>Volume_litre</code></a></td><td>Volume in litres</td></tr>
+</table>
+<hr><a name="Temperature_degC"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">SIunits</a>.&#8203;<a href="../index.html">Conversions</a>.&#8203;<a href="index.html">NonSIunits</a>.&#8203;Temperature_degC<br><span class="subtitle">Absolute temperature in degree Celsius (for relative temperature use SIunits.TemperatureDifference)</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"ThermodynamicTemperature"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"degC"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="Temperature_degF"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">SIunits</a>.&#8203;<a href="../index.html">Conversions</a>.&#8203;<a href="index.html">NonSIunits</a>.&#8203;Temperature_degF<br><span class="subtitle">Absolute temperature in degree Fahrenheit (for relative temperature use SIunits.TemperatureDifference)</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"ThermodynamicTemperature"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"degF"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="Temperature_degRk"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">SIunits</a>.&#8203;<a href="../index.html">Conversions</a>.&#8203;<a href="index.html">NonSIunits</a>.&#8203;Temperature_degRk<br><span class="subtitle">Absolute temperature in degree Rankine (for relative temperature use SIunits.TemperatureDifference)</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"ThermodynamicTemperature"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"degRk"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="Angle_deg"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">SIunits</a>.&#8203;<a href="../index.html">Conversions</a>.&#8203;<a href="index.html">NonSIunits</a>.&#8203;Angle_deg<br><span class="subtitle">Angle in degree</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"Angle"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"deg"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="AngularVelocity_rpm"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">SIunits</a>.&#8203;<a href="../index.html">Conversions</a>.&#8203;<a href="index.html">NonSIunits</a>.&#8203;AngularVelocity_rpm<br><span class="subtitle">Angular velocity in revolutions per minute. Alias unit names that are outside of the SI system: rpm, r/min, rev/min</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"AngularVelocity"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"rev/min"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="Velocity_kmh"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">SIunits</a>.&#8203;<a href="../index.html">Conversions</a>.&#8203;<a href="index.html">NonSIunits</a>.&#8203;Velocity_kmh<br><span class="subtitle">Velocity in kilometres per hour</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"Velocity"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"km/h"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="Time_day"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">SIunits</a>.&#8203;<a href="../index.html">Conversions</a>.&#8203;<a href="index.html">NonSIunits</a>.&#8203;Time_day<br><span class="subtitle">Time in days</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"Time"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"d"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="Time_hour"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">SIunits</a>.&#8203;<a href="../index.html">Conversions</a>.&#8203;<a href="index.html">NonSIunits</a>.&#8203;Time_hour<br><span class="subtitle">Time in hours</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"Time"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"h"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="Time_minute"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">SIunits</a>.&#8203;<a href="../index.html">Conversions</a>.&#8203;<a href="index.html">NonSIunits</a>.&#8203;Time_minute<br><span class="subtitle">Time in minutes</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"Time"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"min"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="Volume_litre"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">SIunits</a>.&#8203;<a href="../index.html">Conversions</a>.&#8203;<a href="index.html">NonSIunits</a>.&#8203;Volume_litre<br><span class="subtitle">Volume in litres</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"Volume"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"l"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="ElectricCharge_Ah"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">SIunits</a>.&#8203;<a href="../index.html">Conversions</a>.&#8203;<a href="index.html">NonSIunits</a>.&#8203;ElectricCharge_Ah<br><span class="subtitle">Electric charge in Ampere hours</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"ElectricCharge"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"A.h"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="Energy_Wh"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">SIunits</a>.&#8203;<a href="../index.html">Conversions</a>.&#8203;<a href="index.html">NonSIunits</a>.&#8203;Energy_Wh<br><span class="subtitle">Energy in Watt hours</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"Energy"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"W.h"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="Energy_kWh"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">SIunits</a>.&#8203;<a href="../index.html">Conversions</a>.&#8203;<a href="index.html">NonSIunits</a>.&#8203;Energy_kWh<br><span class="subtitle">Energy in kilo watt hours</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"Energy"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"kW.h"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="Pressure_bar"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">SIunits</a>.&#8203;<a href="../index.html">Conversions</a>.&#8203;<a href="index.html">NonSIunits</a>.&#8203;Pressure_bar<br><span class="subtitle">Absolute pressure in bar</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"Pressure"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"bar"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="MassFlowRate_gps"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">SIunits</a>.&#8203;<a href="../index.html">Conversions</a>.&#8203;<a href="index.html">NonSIunits</a>.&#8203;MassFlowRate_gps<br><span class="subtitle">Mass flow rate in gram per second</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"MassFlowRate"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"g/s"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="FirstOrderTemperaturCoefficient"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">SIunits</a>.&#8203;<a href="../index.html">Conversions</a>.&#8203;<a href="index.html">NonSIunits</a>.&#8203;FirstOrderTemperaturCoefficient<br><span class="subtitle">Obsolete type, use LinearTemperatureCoefficientResistance instead!</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"FirstOrderTemperatureCoefficient"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"Ohm/degC"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="SecondOrderTemperaturCoefficient"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">SIunits</a>.&#8203;<a href="../index.html">Conversions</a>.&#8203;<a href="index.html">NonSIunits</a>.&#8203;SecondOrderTemperaturCoefficient<br><span class="subtitle">Obsolete type, use QuadraticTemperatureCoefficientResistance instead!</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"SecondOrderTemperatureCoefficient"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"Ohm/degC2"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="Area_cm"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">SIunits</a>.&#8203;<a href="../index.html">Conversions</a>.&#8203;<a href="index.html">NonSIunits</a>.&#8203;Area_cm<br><span class="subtitle">Area in cm</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"Area"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"cm2"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="PerArea_cm"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">SIunits</a>.&#8203;<a href="../index.html">Conversions</a>.&#8203;<a href="index.html">NonSIunits</a>.&#8203;PerArea_cm<br><span class="subtitle">Per Area in cm</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"PerArea"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"1/cm2"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="Area_cmPerVoltageSecond"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">SIunits</a>.&#8203;<a href="../index.html">Conversions</a>.&#8203;<a href="index.html">NonSIunits</a>.&#8203;Area_cmPerVoltageSecond<br><span class="subtitle">Area in cm per voltage second</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"AreaPerVoltageSecond"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"cm2/(V.s)"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+</body></html>

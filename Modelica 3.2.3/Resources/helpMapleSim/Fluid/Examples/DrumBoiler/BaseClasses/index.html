@@ -1,0 +1,62 @@
+<html><head><title>Modelica.Fluid.Examples.DrumBoiler.BaseClasses</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="BaseClasses"><h1><embed class="icon" src="../../../../images/icon1037.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">DrumBoiler</a>.&#8203;BaseClasses<br><span class="subtitle">Additional components for drum boiler example</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon shall be used for a package/library that contains base models and classes, respectively.</p>
+<p>Extends from <code><a href="../../../../Icons/BasesPackage/index.html">Modelica.&#8203;Icons.&#8203;BasesPackage</a></code> (Icon for packages containing base classes).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#EquilibriumDrumBoiler"><code>EquilibriumDrumBoiler</code></a></td><td>Simple Evaporator with two states, see Astroem, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378</td></tr>
+</table>
+<hr><a name="EquilibriumDrumBoiler"><h2><embed class="icon" src="../../../../images/icon1311.svg" width="223" height="233" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">DrumBoiler</a>.&#8203;<a href="index.html">BaseClasses</a>.&#8203;EquilibriumDrumBoiler<br><span class="subtitle">Simple Evaporator with two states, see Astroem, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Model of a simple evaporator with two states. The model assumes two-phase equilibrium inside the component; saturated steam goes out of the steam outlet.</p>
+<p>
+References: &Aring;str&ouml;m, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378</p>
+<p>Extends from <code><a href="../../../../Fluid/Interfaces/index.html#PartialTwoPort">Modelica.&#8203;Fluid.&#8203;Interfaces.&#8203;PartialTwoPort</a></code> (Partial component with two ports).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m_D</code></td><td>&nbsp;</td><td>mass of surrounding drum metal</td></tr>
+<tr><td><code><a href="../../../../Fluid/Examples/DrumBoiler/BaseClasses/EquilibriumDrumBoiler/Medium/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp_D</code></td><td>&nbsp;</td><td>specific heat capacity of drum metal</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Volume">Volume</a></code></td><td><code>V_t</code></td><td>&nbsp;</td><td>total volume inside drum</td></tr>
+<tr><td><code><a href="../../../../Fluid/Examples/DrumBoiler/BaseClasses/EquilibriumDrumBoiler/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_start</code></td><td><code>system.&#8203;p_start</code></td><td>Start value of pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Volume">Volume</a></code></td><td><code>V_l_start</code></td><td><code>0.5 * V_t</code></td><td>Start value of liquid volumeStart value of volume</td></tr>
+<tr><td><code><a href="../../../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>energyDynamics</code></td><td><code>system.&#8203;energyDynamics</code></td><td>Formulation of energy balance</td></tr>
+<tr><td><code><a href="../../../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>massDynamics</code></td><td><code>system.&#8203;massDynamics</code></td><td>Formulation of mass balance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>V</code></td><td>liquid volume</td></tr>
+</table>
+</body></html>

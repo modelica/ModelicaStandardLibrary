@@ -1,0 +1,454 @@
+<html><head><title>Modelica.Blocks.Math.UnitConversions</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="UnitConversions"><h1><embed class="icon" src="../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;UnitConversions<br><span class="subtitle">Conversion blocks to convert between SI and non-SI unit signals</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package consists of blocks that convert an input signal
+with a specific unit to an output signal in another unit
+(e.g., conversion of an angle signal from "deg" to "rad").
+</p>
+
+<p>Extends from <code><a href="../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#From_bar"><code>From_bar</code></a></td><td>Convert from bar to Pascal</td></tr>
+<tr><td><a href="#From_day"><code>From_day</code></a></td><td>Convert from day to second</td></tr>
+<tr><td><a href="#From_deg"><code>From_deg</code></a></td><td>Convert from degree to radian</td></tr>
+<tr><td><a href="#From_degC"><code>From_degC</code></a></td><td>Convert from degCelsius to Kelvin</td></tr>
+<tr><td><a href="#From_degF"><code>From_degF</code></a></td><td>Convert from degFahrenheit to Kelvin</td></tr>
+<tr><td><a href="#From_degRk"><code>From_degRk</code></a></td><td>Convert from degRankine to Kelvin</td></tr>
+<tr><td><a href="#From_gps"><code>From_gps</code></a></td><td>Convert from gram per second to kilogram per second</td></tr>
+<tr><td><a href="#From_hour"><code>From_hour</code></a></td><td>Convert from hour to second</td></tr>
+<tr><td><a href="#From_kmh"><code>From_kmh</code></a></td><td>Convert from kilometre per hour to metre per second</td></tr>
+<tr><td><a href="#From_kWh"><code>From_kWh</code></a></td><td>Convert from kilo Watt hour to Joule</td></tr>
+<tr><td><a href="#From_litre"><code>From_litre</code></a></td><td>Convert from litre to cubic metre</td></tr>
+<tr><td><a href="#From_minute"><code>From_minute</code></a></td><td>Convert from minute to second</td></tr>
+<tr><td><a href="#From_rpm"><code>From_rpm</code></a></td><td>Convert from revolutions per minute to radian per second</td></tr>
+<tr><td><a href="#To_bar"><code>To_bar</code></a></td><td>Convert from Pascal to bar</td></tr>
+<tr><td><a href="#To_day"><code>To_day</code></a></td><td>Convert from second to day</td></tr>
+<tr><td><a href="#To_deg"><code>To_deg</code></a></td><td>Convert from radian to degree</td></tr>
+<tr><td><a href="#To_degC"><code>To_degC</code></a></td><td>Convert from Kelvin to degCelsius</td></tr>
+<tr><td><a href="#To_degF"><code>To_degF</code></a></td><td>Convert from Kelvin to degFahrenheit</td></tr>
+<tr><td><a href="#To_degRk"><code>To_degRk</code></a></td><td>Convert from Kelvin to degRankine</td></tr>
+<tr><td><a href="#To_gps"><code>To_gps</code></a></td><td>Convert from kilogram per second to gram per second</td></tr>
+<tr><td><a href="#To_hour"><code>To_hour</code></a></td><td>Convert from second to hour</td></tr>
+<tr><td><a href="#To_kmh"><code>To_kmh</code></a></td><td>Convert from metre per second to kilometre per hour</td></tr>
+<tr><td><a href="#To_kWh"><code>To_kWh</code></a></td><td>Convert from Joule to kilo Watt hour</td></tr>
+<tr><td><a href="#To_litre"><code>To_litre</code></a></td><td>Convert from cubic metre to litre</td></tr>
+<tr><td><a href="#To_minute"><code>To_minute</code></a></td><td>Convert from second to minute</td></tr>
+<tr><td><a href="#To_rpm"><code>To_rpm</code></a></td><td>Convert from radian per second to revolutions per minute</td></tr>
+</table>
+<hr><a name="To_degC"><h2><embed class="icon" src="../../../images/icon0128.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;To_degC<br><span class="subtitle">Convert from Kelvin to degCelsius</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from Kelvin to degCelsius and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="From_degC"><h2><embed class="icon" src="../../../images/icon0129.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;From_degC<br><span class="subtitle">Convert from degCelsius to Kelvin</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from degCelsius to Kelvin and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="To_degF"><h2><embed class="icon" src="../../../images/icon0130.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;To_degF<br><span class="subtitle">Convert from Kelvin to degFahrenheit</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from Kelvin to degFahrenheit and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="From_degF"><h2><embed class="icon" src="../../../images/icon0131.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;From_degF<br><span class="subtitle">Convert from degFahrenheit to Kelvin</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from degFahrenheit to Kelvin and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="To_degRk"><h2><embed class="icon" src="../../../images/icon0132.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;To_degRk<br><span class="subtitle">Convert from Kelvin to degRankine</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from Kelvin to degRankine and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="From_degRk"><h2><embed class="icon" src="../../../images/icon0133.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;From_degRk<br><span class="subtitle">Convert from degRankine to Kelvin</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from degRankine to Kelvin and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="To_deg"><h2><embed class="icon" src="../../../images/icon0134.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;To_deg<br><span class="subtitle">Convert from radian to degree</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from radian to degree and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="From_deg"><h2><embed class="icon" src="../../../images/icon0135.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;From_deg<br><span class="subtitle">Convert from degree to radian</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from degree to radian and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="To_rpm"><h2><embed class="icon" src="../../../images/icon0136.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;To_rpm<br><span class="subtitle">Convert from radian per second to revolutions per minute</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from radian per second to revolutions per minute and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="From_rpm"><h2><embed class="icon" src="../../../images/icon0137.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;From_rpm<br><span class="subtitle">Convert from revolutions per minute to radian per second</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from revolutions per minute to radian per second and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="To_kmh"><h2><embed class="icon" src="../../../images/icon0138.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;To_kmh<br><span class="subtitle">Convert from metre per second to kilometre per hour</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from metre per second to kilometre per hour and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="From_kmh"><h2><embed class="icon" src="../../../images/icon0139.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;From_kmh<br><span class="subtitle">Convert from kilometre per hour to metre per second</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from kilometre per hour to metre per second and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="To_day"><h2><embed class="icon" src="../../../images/icon0140.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;To_day<br><span class="subtitle">Convert from second to day</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from second to day and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="From_day"><h2><embed class="icon" src="../../../images/icon0141.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;From_day<br><span class="subtitle">Convert from day to second</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from day to second and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="To_hour"><h2><embed class="icon" src="../../../images/icon0142.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;To_hour<br><span class="subtitle">Convert from second to hour</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from second to hour and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="From_hour"><h2><embed class="icon" src="../../../images/icon0143.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;From_hour<br><span class="subtitle">Convert from hour to second</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from hour to second and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="To_minute"><h2><embed class="icon" src="../../../images/icon0144.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;To_minute<br><span class="subtitle">Convert from second to minute</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from second to minute and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="From_minute"><h2><embed class="icon" src="../../../images/icon0145.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;From_minute<br><span class="subtitle">Convert from minute to second</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from minute to second and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="To_litre"><h2><embed class="icon" src="../../../images/icon0146.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;To_litre<br><span class="subtitle">Convert from cubic metre to litre</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from metre to litre and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="From_litre"><h2><embed class="icon" src="../../../images/icon0147.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;From_litre<br><span class="subtitle">Convert from litre to cubic metre</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from litre to cubic metre and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="To_kWh"><h2><embed class="icon" src="../../../images/icon0148.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;To_kWh<br><span class="subtitle">Convert from Joule to kilo Watt hour</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from Joule to kilo Watt hour and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="From_kWh"><h2><embed class="icon" src="../../../images/icon0149.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;From_kWh<br><span class="subtitle">Convert from kilo Watt hour to Joule</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from kilo Watt hour to Joule and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="To_bar"><h2><embed class="icon" src="../../../images/icon0150.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;To_bar<br><span class="subtitle">Convert from Pascal to bar</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from Pascal to bar and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="From_bar"><h2><embed class="icon" src="../../../images/icon0151.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;From_bar<br><span class="subtitle">Convert from bar to Pascal</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from bar to Pascal and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="To_gps"><h2><embed class="icon" src="../../../images/icon0152.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;To_gps<br><span class="subtitle">Convert from kilogram per second to gram per second</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from kilogram per second to gram per seconds and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="From_gps"><h2><embed class="icon" src="../../../images/icon0153.svg" width="263" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">UnitConversions</a>.&#8203;From_gps<br><span class="subtitle">Convert from gram per second to kilogram per second</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block converts the input signal from gram per second to kilogram per second and returns
+the result as output signal.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/index.html#PartialConversionBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialConversionBlock</a></code> (Partial block defining the interface for conversion blocks).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+</body></html>

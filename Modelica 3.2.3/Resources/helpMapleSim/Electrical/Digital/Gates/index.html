@@ -1,0 +1,191 @@
+<html><head><title>Modelica.Electrical.Digital.Gates</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Gates"><h1><embed class="icon" src="../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;Gates<br><span class="subtitle">Logic gates including delays</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>Gates contains the basic gates according to standard logic as they are provided in the Basic package. Additionally they contain an InertialDelaySensitive component They are composed graphically, not using any equations.</p>
+<p>Extends from <code><a href="../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#AndGate"><code>AndGate</code></a></td><td>AndGate with multiple input</td></tr>
+<tr><td><a href="#BufGate"><code>BufGate</code></a></td><td>BufGate with 1 input value, composed by Not and sensitive inertial delay</td></tr>
+<tr><td><a href="#InvGate"><code>InvGate</code></a></td><td>InvGate with 1 input value, composed by Not and sensitive inertial delay</td></tr>
+<tr><td><a href="#NandGate"><code>NandGate</code></a></td><td>NandGate with multiple input</td></tr>
+<tr><td><a href="#NorGate"><code>NorGate</code></a></td><td>NorGate with multiple input</td></tr>
+<tr><td><a href="#OrGate"><code>OrGate</code></a></td><td>OrGate with multiple input</td></tr>
+<tr><td><a href="#XnorGate"><code>XnorGate</code></a></td><td>XnorGate with multiple input</td></tr>
+<tr><td><a href="#XorGate"><code>XorGate</code></a></td><td>XorGate with multiple input</td></tr>
+</table>
+<hr><a name="InvGate"><h2><embed class="icon" src="../../../images/icon0518.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Gates</a>.&#8203;InvGate<br><span class="subtitle">InvGate with 1 input value, composed by Not and sensitive inertial delay</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The InvGate model has a single valued input, and a single valued output. It is composed by a Basic Not and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
+<p>Extends from <code><a href="../../../Electrical/Digital/Delay/index.html#DelayParams">Modelica.&#8203;Electrical.&#8203;Digital.&#8203;Delay.&#8203;DelayParams</a></code> (Definition of delay parameters) and <code><a href="../../../Electrical/Digital/Interfaces/index.html#SISO">Modelica.&#8203;Electrical.&#8203;Digital.&#8203;Interfaces.&#8203;SISO</a></code> (Single input, single output).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tLH</code></td><td>&nbsp;</td><td>Rise inertial delay</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tHL</code></td><td>&nbsp;</td><td>Fall inertial delay</td></tr>
+<tr><td><code><a href="../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>y0</code></td><td><code>L.&#8203;'U'</code></td><td>Initial value of output</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>x</code></td><td>Connector of Digital input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>Connector of Digital output signal</td></tr>
+</table>
+<hr><a name="AndGate"><h2><embed class="icon" src="../../../images/icon0519.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Gates</a>.&#8203;AndGate<br><span class="subtitle">AndGate with multiple input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The AndGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic And and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
+<p>Extends from <code><a href="../../../Electrical/Digital/Interfaces/index.html#MISO">Modelica.&#8203;Electrical.&#8203;Digital.&#8203;Interfaces.&#8203;MISO</a></code> (Multiple input - single output) and <code><a href="../../../Electrical/Digital/Delay/index.html#DelayParams">Modelica.&#8203;Electrical.&#8203;Digital.&#8203;Delay.&#8203;DelayParams</a></code> (Definition of delay parameters).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>2</code></td><td>Number of inputs</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tLH</code></td><td>&nbsp;</td><td>Rise inertial delay</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tHL</code></td><td>&nbsp;</td><td>Fall inertial delay</td></tr>
+<tr><td><code><a href="../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>y0</code></td><td><code>L.&#8203;'U'</code></td><td>Initial value of output</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>x[n]</code></td><td>Connector of Digital input signal vector</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>Connector of Digital output signal</td></tr>
+</table>
+<hr><a name="NandGate"><h2><embed class="icon" src="../../../images/icon0520.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Gates</a>.&#8203;NandGate<br><span class="subtitle">NandGate with multiple input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The NandGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Nand and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
+<p>Extends from <code><a href="../../../Electrical/Digital/Delay/index.html#DelayParams">Modelica.&#8203;Electrical.&#8203;Digital.&#8203;Delay.&#8203;DelayParams</a></code> (Definition of delay parameters) and <code><a href="../../../Electrical/Digital/Interfaces/index.html#MISO">Modelica.&#8203;Electrical.&#8203;Digital.&#8203;Interfaces.&#8203;MISO</a></code> (Multiple input - single output).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tLH</code></td><td>&nbsp;</td><td>Rise inertial delay</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tHL</code></td><td>&nbsp;</td><td>Fall inertial delay</td></tr>
+<tr><td><code><a href="../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>y0</code></td><td><code>L.&#8203;'U'</code></td><td>Initial value of output</td></tr>
+<tr><td><code>Integer</code></td><td><code>n</code></td><td><code>2</code></td><td>Number of inputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>x[n]</code></td><td>Connector of Digital input signal vector</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>Connector of Digital output signal</td></tr>
+</table>
+<hr><a name="OrGate"><h2><embed class="icon" src="../../../images/icon0521.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Gates</a>.&#8203;OrGate<br><span class="subtitle">OrGate with multiple input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The OrGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Or and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
+<p>Extends from <code><a href="../../../Electrical/Digital/Delay/index.html#DelayParams">Modelica.&#8203;Electrical.&#8203;Digital.&#8203;Delay.&#8203;DelayParams</a></code> (Definition of delay parameters) and <code><a href="../../../Electrical/Digital/Interfaces/index.html#MISO">Modelica.&#8203;Electrical.&#8203;Digital.&#8203;Interfaces.&#8203;MISO</a></code> (Multiple input - single output).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tLH</code></td><td>&nbsp;</td><td>Rise inertial delay</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tHL</code></td><td>&nbsp;</td><td>Fall inertial delay</td></tr>
+<tr><td><code><a href="../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>y0</code></td><td><code>L.&#8203;'U'</code></td><td>Initial value of output</td></tr>
+<tr><td><code>Integer</code></td><td><code>n</code></td><td><code>2</code></td><td>Number of inputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>x[n]</code></td><td>Connector of Digital input signal vector</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>Connector of Digital output signal</td></tr>
+</table>
+<hr><a name="NorGate"><h2><embed class="icon" src="../../../images/icon0522.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Gates</a>.&#8203;NorGate<br><span class="subtitle">NorGate with multiple input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The NorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Nor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
+<p>Extends from <code><a href="../../../Electrical/Digital/Delay/index.html#DelayParams">Modelica.&#8203;Electrical.&#8203;Digital.&#8203;Delay.&#8203;DelayParams</a></code> (Definition of delay parameters) and <code><a href="../../../Electrical/Digital/Interfaces/index.html#MISO">Modelica.&#8203;Electrical.&#8203;Digital.&#8203;Interfaces.&#8203;MISO</a></code> (Multiple input - single output).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tLH</code></td><td>&nbsp;</td><td>Rise inertial delay</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tHL</code></td><td>&nbsp;</td><td>Fall inertial delay</td></tr>
+<tr><td><code><a href="../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>y0</code></td><td><code>L.&#8203;'U'</code></td><td>Initial value of output</td></tr>
+<tr><td><code>Integer</code></td><td><code>n</code></td><td><code>2</code></td><td>Number of inputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>x[n]</code></td><td>Connector of Digital input signal vector</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>Connector of Digital output signal</td></tr>
+</table>
+<hr><a name="XorGate"><h2><embed class="icon" src="../../../images/icon0523.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Gates</a>.&#8203;XorGate<br><span class="subtitle">XorGate with multiple input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The XorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Xor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
+<p>Extends from <code><a href="../../../Electrical/Digital/Delay/index.html#DelayParams">Modelica.&#8203;Electrical.&#8203;Digital.&#8203;Delay.&#8203;DelayParams</a></code> (Definition of delay parameters) and <code><a href="../../../Electrical/Digital/Interfaces/index.html#MISO">Modelica.&#8203;Electrical.&#8203;Digital.&#8203;Interfaces.&#8203;MISO</a></code> (Multiple input - single output).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tLH</code></td><td>&nbsp;</td><td>Rise inertial delay</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tHL</code></td><td>&nbsp;</td><td>Fall inertial delay</td></tr>
+<tr><td><code><a href="../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>y0</code></td><td><code>L.&#8203;'U'</code></td><td>Initial value of output</td></tr>
+<tr><td><code>Integer</code></td><td><code>n</code></td><td><code>2</code></td><td>Number of inputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>x[n]</code></td><td>Connector of Digital input signal vector</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>Connector of Digital output signal</td></tr>
+</table>
+<hr><a name="XnorGate"><h2><embed class="icon" src="../../../images/icon0524.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Gates</a>.&#8203;XnorGate<br><span class="subtitle">XnorGate with multiple input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The XnorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Xnor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
+<p>Extends from <code><a href="../../../Electrical/Digital/Delay/index.html#DelayParams">Modelica.&#8203;Electrical.&#8203;Digital.&#8203;Delay.&#8203;DelayParams</a></code> (Definition of delay parameters) and <code><a href="../../../Electrical/Digital/Interfaces/index.html#MISO">Modelica.&#8203;Electrical.&#8203;Digital.&#8203;Interfaces.&#8203;MISO</a></code> (Multiple input - single output).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tLH</code></td><td>&nbsp;</td><td>Rise inertial delay</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tHL</code></td><td>&nbsp;</td><td>Fall inertial delay</td></tr>
+<tr><td><code><a href="../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>y0</code></td><td><code>L.&#8203;'U'</code></td><td>Initial value of output</td></tr>
+<tr><td><code>Integer</code></td><td><code>n</code></td><td><code>2</code></td><td>Number of inputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>x[n]</code></td><td>Connector of Digital input signal vector</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>Connector of Digital output signal</td></tr>
+</table>
+<hr><a name="BufGate"><h2><embed class="icon" src="../../../images/icon0525.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Gates</a>.&#8203;BufGate<br><span class="subtitle">BufGate with 1 input value, composed by Not and sensitive inertial delay</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The BufGate model has a single valued input, and a single valued output. It consists of an InertialDelaySensitive only. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
+<p>Extends from <code><a href="../../../Electrical/Digital/Delay/index.html#DelayParams">Modelica.&#8203;Electrical.&#8203;Digital.&#8203;Delay.&#8203;DelayParams</a></code> (Definition of delay parameters) and <code><a href="../../../Electrical/Digital/Interfaces/index.html#SISO">Modelica.&#8203;Electrical.&#8203;Digital.&#8203;Interfaces.&#8203;SISO</a></code> (Single input, single output).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tLH</code></td><td>&nbsp;</td><td>Rise inertial delay</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tHL</code></td><td>&nbsp;</td><td>Fall inertial delay</td></tr>
+<tr><td><code><a href="../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>y0</code></td><td><code>L.&#8203;'U'</code></td><td>Initial value of output</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>x</code></td><td>Connector of Digital input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>Connector of Digital output signal</td></tr>
+</table>
+</body></html>

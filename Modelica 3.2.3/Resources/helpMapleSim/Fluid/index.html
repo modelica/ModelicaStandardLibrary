@@ -1,0 +1,140 @@
+<html><head><title>Modelica.Fluid</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Fluid"><h1><embed class="icon" src="../images/icon1309.svg" width="203" height="203" />
+Package <a href="../index.html">Modelica</a>.&#8203;Fluid<br><span class="subtitle">Library of 1-dim. thermo-fluid flow models using the Modelica.Media media description</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Library <strong>Modelica.Fluid</strong> is a <strong>free</strong> Modelica package providing components for
+<strong>1-dimensional thermo-fluid flow</strong> in networks of vessels, pipes, fluid machines, valves and fittings.
+A unique feature is that the component equations and the media models
+as well as pressure loss and heat transfer correlations are decoupled from each other.
+All components are implemented such that they can be used for
+media from the Modelica.Media library. This means especially that an
+incompressible or compressible medium, a single or a multiple
+substance medium with one or more phases might be used.
+</p>
+
+<p>
+In the next figure, several features of the library are demonstrated with
+a simple heating system with a closed flow cycle. By just changing one configuration parameter in the system object the equations are changed between steady-state and dynamic simulation with fixed or steady-state initial conditions.
+</p>
+
+<p>
+<img src="../../Images/Fluid/UsersGuide/HeatingSystem.png" border="1"
+     alt="HeatingSystem.png">
+</p>
+
+<p>
+With respect to previous versions, the design
+of the connectors has been changed in a non-backward compatible way,
+using the recently developed concept
+of stream connectors that results in much more reliable simulations
+(see also <a href="../../Documentation/Fluid/Stream-Connectors-Overview-Rationale.pdf">Stream-Connectors-Overview-Rationale.pdf</a>).
+This extension was included in Modelica 3.1.
+</p>
+
+<p>
+The following parts are useful, when newly starting with this library:
+</p>
+<ul>
+<li> <a href="../Fluid/UsersGuide/index.html">Modelica.Fluid.UsersGuide</a>.</li>
+<li> <a href="../Fluid/UsersGuide/index.html#ReleaseNotes">Modelica.Fluid.UsersGuide.ReleaseNotes</a>
+     summarizes the changes of the library releases.</li>
+<li> <a href="../Fluid/Examples/index.html">Modelica.Fluid.Examples</a>
+     contains examples that demonstrate the usage of this library.</li>
+</ul>
+<p>
+<strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
+Copyright &copy; 2002-2018, ABB, DLR, Dassault Syst&egrave;mes AB, Modelon, TU Braunschweig, TU Hamburg-Harburg, Politecnico di Milano.
+</p>
+<p>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href="https://modelica.org/licenses/modelica-3-clause-bsd">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+</p>
+<p>Extends from <code><a href="../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="../Fluid/Dissipation/index.html"><code>Dissipation</code></a> &hellip;</td><td>Functions for convective heat transfer and pressure loss characteristics</td></tr>
+<tr><td><a href="../Fluid/Examples/index.html"><code>Examples</code></a> &hellip;</td><td>Demonstration of the usage of the library</td></tr>
+<tr><td><a href="../Fluid/Fittings/index.html"><code>Fittings</code></a> &hellip;</td><td>Adaptors for connections of fluid components and the regulation of fluid flow</td></tr>
+<tr><td><a href="../Fluid/Icons/index.html"><code>Icons</code></a> &hellip;</td><td>&nbsp</td></tr>
+<tr><td><a href="../Fluid/Interfaces/index.html"><code>Interfaces</code></a> &hellip;</td><td>Interfaces for steady state and unsteady, mixed-phase, multi-substance, incompressible and compressible flow</td></tr>
+<tr><td><a href="../Fluid/Machines/index.html"><code>Machines</code></a> &hellip;</td><td>Devices for converting between energy held in a fluid and mechanical energy</td></tr>
+<tr><td><a href="../Fluid/Pipes/index.html"><code>Pipes</code></a> &hellip;</td><td>Devices for conveying fluid</td></tr>
+<tr><td><a href="../Fluid/Sensors/index.html"><code>Sensors</code></a> &hellip;</td><td>Ideal sensor components to extract signals from a fluid connector</td></tr>
+<tr><td><a href="../Fluid/Sources/index.html"><code>Sources</code></a> &hellip;</td><td>Define fixed or prescribed boundary conditions</td></tr>
+<tr><td><a href="#System"><code>System</code></a></td><td>System properties and default values (ambient, flow direction, initialization)</td></tr>
+<tr><td><a href="../Fluid/Types/index.html"><code>Types</code></a> &hellip;</td><td>Common types for fluid models</td></tr>
+<tr><td><a href="../Fluid/UsersGuide/index.html"><code>UsersGuide</code></a> &hellip;</td><td>User's Guide</td></tr>
+<tr><td><a href="../Fluid/Utilities/index.html"><code>Utilities</code></a> &hellip;</td><td>Utility models to construct fluid components (should not be used directly)</td></tr>
+<tr><td><a href="../Fluid/Valves/index.html"><code>Valves</code></a> &hellip;</td><td>Components for the regulation and control of fluid flow</td></tr>
+<tr><td><a href="../Fluid/Vessels/index.html"><code>Vessels</code></a> &hellip;</td><td>Devices for storing fluid</td></tr>
+</table>
+<hr><a name="System"><h2><embed class="icon" src="../images/icon1325.svg" width="203" height="203" />
+Model <a href="../index.html">Modelica</a>.&#8203;<a href="index.html">Fluid</a>.&#8203;System<br><span class="subtitle">System properties and default values (ambient, flow direction, initialization)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+ A system component is needed in each fluid model to provide system-wide settings, such as ambient conditions and overall modeling assumptions.
+ The system settings are propagated to the fluid models using the inner/outer mechanism.
+</p>
+<p>
+ A model should never directly use system parameters.
+ Instead a local parameter should be declared, which uses the global setting as default.
+ The only exceptions are:</p>
+ <ul>
+  <li>the gravity system.g,</li>
+  <li>the global system.eps_m_flow, which is used to define a local m_flow_small for the local m_flow_nominal:
+      <pre>m_flow_small = system.eps_m_flow*m_flow_nominal</pre>
+  </li>
+ </ul>
+<p>
+ The global system.m_flow_small and system.dp_small are classic parameters.
+ They do not distinguish between laminar flow and regularization of zero flow.
+ Absolute small values are error prone for models with local nominal values.
+ Moreover dp_small can generally be obtained automatically.
+ Consider using the new system.use_eps_Re = true (see Advanced tab).
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_ambient</code></td><td><code>101325</code></td><td>Default ambient pressure</td></tr>
+<tr><td><code><a href="../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ambient</code></td><td><code>293.15</code></td><td>Default ambient temperature</td></tr>
+<tr><td><code><a href="../SIunits/index.html#Acceleration">Acceleration</a></code></td><td><code>g</code></td><td><code>Modelica.&#8203;Constants.&#8203;g_n</code></td><td>Constant gravity acceleration</td></tr>
+<tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>true</code></td><td>= false to restrict to design flow direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code><a href="../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>energyDynamics</code></td><td><code>Modelica.&#8203;Fluid.&#8203;Types.&#8203;Dynamics.&#8203;DynamicFreeInitial</code></td><td>Default formulation of energy balances</td></tr>
+<tr><td><code><a href="../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>massDynamics</code></td><td><code>energyDynamics</code></td><td>Default formulation of mass balances</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>substanceDynamics</code></td><td><code>massDynamics</code></td><td>Default formulation of substance balances</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>traceDynamics</code></td><td><code>massDynamics</code></td><td>Default formulation of trace substance balances</td></tr>
+<tr><td><code><a href="../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>momentumDynamics</code></td><td><code>Modelica.&#8203;Fluid.&#8203;Types.&#8203;Dynamics.&#8203;SteadyState</code></td><td>Default formulation of momentum balances, if options available</td></tr>
+<tr><td><code><a href="../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_start</code></td><td><code>0</code></td><td>Default start value for mass flow rates</td></tr>
+<tr><td><code><a href="../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_start</code></td><td><code>p_ambient</code></td><td>Default start value for pressures</td></tr>
+<tr><td><code><a href="../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_start</code></td><td><code>T_ambient</code></td><td>Default start value for temperatures</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_eps_Re</code></td><td><code>false</code></td><td>= true to determine turbulent region automatically using Reynolds number</td></tr>
+<tr><td><code><a href="../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nominal</code></td><td><code>if use_eps_Re then 1 else 100 * m_flow_small</code></td><td>Default nominal mass flow rate</td></tr>
+<tr><td><code>Real</code></td><td><code>eps_m_flow</code></td><td><code>1e-4</code></td><td>Regularization of zero flow for |m_flow| &lt; eps_m_flow*m_flow_nominal</td></tr>
+<tr><td><code><a href="../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>dp_small</code></td><td><code>1</code></td><td>Default small pressure drop for regularization of laminar and zero flow</td></tr>
+<tr><td><code><a href="../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>0.01</code></td><td>Default small mass flow rate for regularization of laminar and zero flow</td></tr>
+</table>
+</body></html>

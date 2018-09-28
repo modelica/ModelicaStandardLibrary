@@ -1,0 +1,106 @@
+<html><head><title>Modelica.Fluid.Examples.Explanatory</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Explanatory"><h1><embed class="icon" src="../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;Explanatory<br><span class="subtitle">A set of examples illustrating when special attention has to be paid</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates a package that contains executable examples.</p>
+<p>Extends from <code><a href="../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#MeasuringTemperature"><code>MeasuringTemperature</code></a></td><td>Differences between using one port with and without explicit junction model and two port sensors for fluid temperature measuring</td></tr>
+<tr><td><a href="#MomentumBalanceFittings"><code>MomentumBalanceFittings</code></a></td><td>Illustrating a case in which kinetic terms play a major role in the momentum balance</td></tr>
+</table>
+<hr><a name="MeasuringTemperature"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Explanatory</a>.&#8203;MeasuringTemperature<br><span class="subtitle">Differences between using one port with and without explicit junction model and two port sensors for fluid temperature measuring</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model demonstrates the differences that occur when using
+one- and two-port temperature sensors with and without explicit junction models.
+As shown in the next figure, the same system is shown in 3 different variations.
+In all cases exactly the same fluid system is defined. The only difference is
+how the temperature is measured:
+</p>
+
+<blockquote>
+<img src="../../../../Images/Fluid/Examples/MeasuringTemperature1.png"
+     alt="MeasuringTemperature1.png">
+</blockquote>
+
+<p>
+A pre-defined mass flow rate is present so that fluid flows from the reservoir to the
+tanks and after 0.5 s the mass flows from the tanks to the reservoir.
+The reservoir has a temperature of 50<sup>0</sup>C whereas the tanks have an
+initial temperature of 20<sup>0</sup>C and of 80<sup>0</sup>C. The initial height of the
+tanks is made in such a form that fluid always flows out of the cold tank.
+When the fluid flows from the reservoir to the tanks, then it mixes with the
+cold tank and enters the hot tank.
+When the fluid flow from the tanks to the reservoir, then the cold and hot water
+from the two tanks first mixes and the flows to the reservoir.
+</p>
+
+<p>
+A one-port sensor measures the <em>mixing</em> temperature at a connection point.
+Therefore T_onePort.T (the blue curve in the figure below) is the
+temperature of the mixing point.
+A two-port sensor measures the temperature at the <em>upstream</em> side.
+Therefore T_twoPort.T (the red curve in the figure below which is identical
+to the green curve) shows first the temperature of the reservoir and then
+the mixing temperature when fluid flows from the tanks to the reservoir.
+The same is measured with T_junction.T (the green curve below), because
+the one-port sensor is connected between the mass flow source and the junction
+and since the mixing takes place in the junction, the same situation is
+present as for T_twoPort.T.
+</p>
+
+<blockquote>
+<img src="../../../../Images/Fluid/Examples/MeasuringTemperature2.png"
+     alt="MeasuringTemperature2.png">
+</blockquote>
+
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="MomentumBalanceFittings"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Explanatory</a>.&#8203;MomentumBalanceFittings<br><span class="subtitle">Illustrating a case in which kinetic terms play a major role in the momentum balance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example shows the use of a sudden expansion / contraction model, which is connected to two boundary conditions prescribing static pressure. Notice that the prescribed static pressure on the right boundary is higher than on the left one. Still, the fluid flows from left to right.
+</p>
+<p>
+The reason for this is that the boundary conditions model infinite reservoirs with an infinite diameter and thus zero flow velocity. The sudden expansion model does however have two ends with finite diameters, and, as explained in the <a href="../../../Fluid/UsersGuide/index.html#Overview">Overview</a> of the Users' Guide, the momentum balance is not fulfilled exactly for this type of connections. Using a simple <code>connect()</code>-statement, the difference of the kinetic terms is neglected, which is not reasonable in the present model: At the left boundary condition it is zero, and on the left side of the sudden expansion it has a non-zero value. It is not reasonable to neglect it in the shown model, because there is little friction and therefore these kinetic effects dominate. Consequently, only modelling these effects explicitly leads to the correct results.
+</p>
+<p>
+To do so, two additional sudden expansions / contractions are included in the model. The diameter is set to <code>inf</code> close to the boundaries and the proper values close to the original model. These additional components now introduce <em>exact</em> momentum balances and the results are as expected.
+</p>
+<p>
+The total pressures offer an additional perspective on the model. After setting the parameter <code>show_totalPressures</code> on the Advanced tab of the <code>AbruptAdaptor</code>s to <code>true</code>, the total pressures are included in said models and may be plotted. This allows to confirm that the <strong>total</strong> pressure <em>always</em> reduces along the flow direction, even in the upper model.
+</p>
+
+<img src="../../../../Images/Fluid/Examples/MomentumBalanceFittings.png" border="1"
+     alt="MomentumBalanceFittings.png">
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+</body></html>

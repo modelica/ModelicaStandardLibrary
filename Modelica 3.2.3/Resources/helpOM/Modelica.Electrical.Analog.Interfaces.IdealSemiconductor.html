@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Analog.Interfaces.IdealSemiconductor</title>
+</head>
+<body>
+<h1><a href="Icons/e608de899f4c1095dccfe90eb2dc80fee218458d.svg"><img class="svgiconhead" src="Icons/e608de899f4c1095dccfe90eb2dc80fee218458d.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.html">Analog</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.Interfaces.html">Interfaces</a>.<span class="omc-h1">IdealSemiconductor</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This is an ideal semiconductor which is<br />
+<br />
+<strong>open</strong> (off), if it is reversed biased (voltage drop
+less than 0)<br />
+<strong>closed</strong> (on), if it is conducting (current &gt;
+0).<br />
+<br />
+This is the behaviour if all parameters are exactly zero.<br />
+<br />
+Note, there are circuits, where this ideal description with zero
+resistance and zero conductance is not possible. In order to
+prevent singularities during switching, the opened semiconductor
+has a small conductance <em>Gon</em> and the closed semiconductor
+has a low resistance <em>Roff</em> which is default.</p>
+<p>The parameter <em>Vknee</em> which is the forward threshold
+voltage, allows to displace the knee point<br />
+along the <em>Gon</em>-characteristic until <em>v =
+Vknee</em>.<br />
+<br />
+<strong>Please note:</strong> In case of useHeatPort=true the
+temperature dependence of the electrical behavior is
+<strong>not</strong> modelled.</p>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><em>March 11, 2009</em> by Christoph Clauss<br />
+conditional heat port added<br /></li>
+<li><em>Mai 7, 2004</em> by Christoph Clauss and Anton Haumer<br />
+Vknee added<br /></li>
+<li><em>some years ago</em> by Christoph Clauss<br />
+realized<br /></li>
+</ul>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

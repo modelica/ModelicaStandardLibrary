@@ -1,0 +1,148 @@
+<html><head><title>Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="PartialWallFriction"><h1><embed class="icon" src="../../../../../images/icon0012.svg" width="203" height="203" />
+Partial Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Pipes</a>.&#8203;<a href="../../index.html">BaseClasses</a>.&#8203;<a href="../index.html">WallFriction</a>.&#8203;PartialWallFriction<br><span class="subtitle">Partial wall friction characteristic (base package of all wall friction characteristics)</span></h1></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#massFlowRate_dp"><code>massFlowRate_dp</code></a></td><td>Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction</td></tr>
+<tr><td><a href="#massFlowRate_dp_staticHead"><code>massFlowRate_dp_staticHead</code></a></td><td>Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction and static head</td></tr>
+<tr><td><a href="#pressureLoss_m_flow"><code>pressureLoss_m_flow</code></a></td><td>Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction</td></tr>
+<tr><td><a href="#pressureLoss_m_flow_staticHead"><code>pressureLoss_m_flow_staticHead</code></a></td><td>Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction and static head</td></tr>
+</table>
+<h3>Package Constants</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Value</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>dp_is_zero</code></td><td><code>false</code></td><td>= true, if no wall friction is present, i.e., dp = 0 (function massFlowRate_dp() cannot be used)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_dp_small</code></td><td><code>true</code></td><td>= true, if dp_small is used in function, otherwise value is not used</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_m_flow_small</code></td><td><code>true</code></td><td>= true, if m_flow_small is used in function, otherwise value is not used</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_mu</code></td><td><code>true</code></td><td>= true, if mu_a/mu_b are used in function, otherwise value is not used</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_Re_turbulent</code></td><td><code>true</code></td><td>= true, if Re_turbulent input is used in function, otherwise value is not used</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_roughness</code></td><td><code>true</code></td><td>= true, if roughness is used in function, otherwise value is not used</td></tr>
+</table>
+<hr><a name="massFlowRate_dp"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Partial Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Pipes</a>.&#8203;<a href="../../index.html">BaseClasses</a>.&#8203;<a href="../index.html">WallFriction</a>.&#8203;<a href="index.html">PartialWallFriction</a>.&#8203;massFlowRate_dp<br><span class="subtitle">Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>dp</code></td><td>Pressure loss (dp = port_a.p - port_b.p)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_a</code></td><td>Density at port_a</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_b</code></td><td>Density at port_b</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>mu_a</code></td><td>Dynamic viscosity at port_a (dummy if use_mu = false)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>mu_b</code></td><td>Dynamic viscosity at port_b (dummy if use_mu = false)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>length</code></td><td>Length of pipe</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Diameter">Diameter</a></code></td><td><code>diameter</code></td><td>Inner (hydraulic) diameter of pipe</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Area">Area</a></code></td><td><code>crossArea</code></td><td>Inner cross section area</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>roughness</code></td><td>Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>dp_small</code></td><td>Regularization of zero flow if |dp| &lt; dp_small (dummy if use_dp_small = false)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#ReynoldsNumber">ReynoldsNumber</a></code></td><td><code>Re_turbulent</code></td><td>Turbulent flow if Re &gt;= Re_turbulent (dummy if use_Re_turbulent = false)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate from port_a to port_b</td></tr>
+</table>
+<hr><a name="massFlowRate_dp_staticHead"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Partial Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Pipes</a>.&#8203;<a href="../../index.html">BaseClasses</a>.&#8203;<a href="../index.html">WallFriction</a>.&#8203;<a href="index.html">PartialWallFriction</a>.&#8203;massFlowRate_dp_staticHead<br><span class="subtitle">Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction and static head</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>dp</code></td><td>Pressure loss (dp = port_a.p - port_b.p)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_a</code></td><td>Density at port_a</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_b</code></td><td>Density at port_b</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>mu_a</code></td><td>Dynamic viscosity at port_a (dummy if use_mu = false)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>mu_b</code></td><td>Dynamic viscosity at port_b (dummy if use_mu = false)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>length</code></td><td>Length of pipe</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Diameter">Diameter</a></code></td><td><code>diameter</code></td><td>Inner (hydraulic) diameter of pipe</td></tr>
+<tr><td><code>Real</code></td><td><code>g_times_height_ab</code></td><td>Gravity times (Height(port_b) - Height(port_a))</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Area">Area</a></code></td><td><code>crossArea</code></td><td>Inner cross section area</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>roughness</code></td><td>Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>dp_small</code></td><td>Regularization of zero flow if |dp| &lt; dp_small (dummy if use_dp_small = false)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#ReynoldsNumber">ReynoldsNumber</a></code></td><td><code>Re_turbulent</code></td><td>Turbulent flow if Re &gt;= Re_turbulent (dummy if use_Re_turbulent = false)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate from port_a to port_b</td></tr>
+</table>
+<hr><a name="pressureLoss_m_flow"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Partial Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Pipes</a>.&#8203;<a href="../../index.html">BaseClasses</a>.&#8203;<a href="../index.html">WallFriction</a>.&#8203;<a href="index.html">PartialWallFriction</a>.&#8203;pressureLoss_m_flow<br><span class="subtitle">Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate from port_a to port_b</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_a</code></td><td>Density at port_a</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_b</code></td><td>Density at port_b</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>mu_a</code></td><td>Dynamic viscosity at port_a (dummy if use_mu = false)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>mu_b</code></td><td>Dynamic viscosity at port_b (dummy if use_mu = false)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>length</code></td><td>Length of pipe</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Diameter">Diameter</a></code></td><td><code>diameter</code></td><td>Inner (hydraulic) diameter of pipe</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Area">Area</a></code></td><td><code>crossArea</code></td><td>Inner cross section area</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>roughness</code></td><td>Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td>Regularization of zero flow if |m_flow| &lt; m_flow_small (dummy if use_m_flow_small = false)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#ReynoldsNumber">ReynoldsNumber</a></code></td><td><code>Re_turbulent</code></td><td>Turbulent flow if Re &gt;= Re_turbulent (dummy if use_Re_turbulent = false)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>dp</code></td><td>Pressure loss (dp = port_a.p - port_b.p)</td></tr>
+</table>
+<hr><a name="pressureLoss_m_flow_staticHead"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Partial Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Pipes</a>.&#8203;<a href="../../index.html">BaseClasses</a>.&#8203;<a href="../index.html">WallFriction</a>.&#8203;<a href="index.html">PartialWallFriction</a>.&#8203;pressureLoss_m_flow_staticHead<br><span class="subtitle">Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction and static head</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate from port_a to port_b</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_a</code></td><td>Density at port_a</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_b</code></td><td>Density at port_b</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>mu_a</code></td><td>Dynamic viscosity at port_a (dummy if use_mu = false)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>mu_b</code></td><td>Dynamic viscosity at port_b (dummy if use_mu = false)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>length</code></td><td>Length of pipe</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Diameter">Diameter</a></code></td><td><code>diameter</code></td><td>Inner (hydraulic) diameter of pipe</td></tr>
+<tr><td><code>Real</code></td><td><code>g_times_height_ab</code></td><td>Gravity times (Height(port_b) - Height(port_a))</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Area">Area</a></code></td><td><code>crossArea</code></td><td>Inner cross section area</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>roughness</code></td><td>Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td>Regularization of zero flow if |m_flow| &lt; m_flow_small (dummy if use_m_flow_small = false)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#ReynoldsNumber">ReynoldsNumber</a></code></td><td><code>Re_turbulent</code></td><td>Turbulent flow if Re &gt;= Re_turbulent (dummy if use_Re_turbulent = false)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>dp</code></td><td>Pressure loss (dp = port_a.p - port_b.p)</td></tr>
+</table>
+</body></html>

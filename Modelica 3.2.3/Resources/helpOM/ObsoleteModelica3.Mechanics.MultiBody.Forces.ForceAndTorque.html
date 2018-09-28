@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+ObsoleteModelica3.Mechanics.MultiBody.Forces.ForceAndTorque</title>
+</head>
+<body>
+<h1><a href="Icons/060389d3090cf1b029668af109ed9b57c0956d78.svg"><img class="svgiconhead" src="Icons/060389d3090cf1b029668af109ed9b57c0956d78.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ObsoleteModelica3.html">ObsoleteModelica3</a>.<a class="omc-h1-a" href="ObsoleteModelica3.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="ObsoleteModelica3.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="ObsoleteModelica3.Mechanics.MultiBody.Forces.html">Forces</a>.<span class="omc-h1">ForceAndTorque</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The <strong>6</strong> signals of the <strong>load</strong>
+connector are interpreted as the x-, y- and z-coordinates of a
+<strong>force</strong> and as the x-, y-, and z-coordinates of a
+<strong>torque</strong> acting at the frame connector to which
+frame_b of this component is attached. If connector
+<strong>frame_resolve</strong> is <strong>not</strong> connected,
+the force and torque coordinates are with respect to
+<strong>frame_b</strong>. If connector
+<strong>frame_resolve</strong> is connected, the force and torque
+coordinates are with respect to <strong>frame_resolve</strong>. In
+this case the force and torque in connector frame_resolve are set
+to zero, i.e., this connector is solely used to provide the
+information of the coordinate system, in which the force/torque
+coordinates are defined. The input signals are mapped to the force
+and torque in the following way:</p>
+<pre>
+   force  = load[1:3]
+   torque = load[4:6]
+</pre>
+<p>Additionally, a force and torque acts on frame_a in such a way
+that the force and torque balance between frame_a and frame_b is
+fulfilled.</p>
+<p>An example how to use this model is given in the following
+figure:</p>
+<img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque1.png" />
+<p>This leads to the following animation (the yellow cylinder
+characterizes the line between frame_a and frame_b of the
+ForceAndTorque component, i.e., the force and torque acts with
+negative sign also on the opposite side of this cylinder, but for
+clarity this is not shown in the animation):</p>
+<img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque2.png" />
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

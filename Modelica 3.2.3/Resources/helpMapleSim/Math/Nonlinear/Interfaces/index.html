@@ -1,0 +1,63 @@
+<html><head><title>Modelica.Math.Nonlinear.Interfaces</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Interfaces"><h1><embed class="icon" src="../../../images/icon0015.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Math</a>.&#8203;<a href="../index.html">Nonlinear</a>.&#8203;Interfaces<br><span class="subtitle">Interfaces for functions</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Interface definitions of functions. The main purpose is to use functions
+derived from these interface definitions as function arguments
+to a function, see, .e.g.,
+<a href="../../../Math/Nonlinear/Examples/index.html">Math.Nonlinear.Examples</a>.
+</p>
+<p>Extends from <code><a href="../../../Icons/InterfacesPackage/index.html">Modelica.&#8203;Icons.&#8203;InterfacesPackage</a></code> (Icon for packages containing interfaces).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#partialScalarFunction"><code>partialScalarFunction</code></a></td><td>Interface for a function with one input and one output Real signal</td></tr>
+</table>
+<hr><a name="partialScalarFunction"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Partial Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Math</a>.&#8203;<a href="../index.html">Nonlinear</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;partialScalarFunction<br><span class="subtitle">Interface for a function with one input and one output Real signal</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This partial function defines the interface of a function with
+one input and one output Real signal. The scalar functions
+of <a href="../../../Math/Nonlinear/index.html">Modelica.Math.Nonlinear</a>
+are derived from this base type by inheritance.
+This allows to use these functions directly as function arguments
+to a function, see, .e.g.,
+<a href="../../../Math/Nonlinear/Examples/index.html">Math.Nonlinear.Examples</a>.
+</p>
+
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>Independent variable</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>Dependent variable y=f(u)</td></tr>
+</table>
+</body></html>

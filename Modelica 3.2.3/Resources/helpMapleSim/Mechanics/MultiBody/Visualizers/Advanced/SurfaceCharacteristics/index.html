@@ -1,0 +1,181 @@
+<html><head><title>Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="SurfaceCharacteristics"><h1><embed class="icon" src="../../../../../images/icon0092.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Mechanics</a>.&#8203;<a href="../../../index.html">MultiBody</a>.&#8203;<a href="../../index.html">Visualizers</a>.&#8203;<a href="../index.html">Advanced</a>.&#8203;SurfaceCharacteristics<br><span class="subtitle">Functions returning surface descriptions</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains functions that are used to define
+parameterized surfaces for use with the
+<a href="../../../../../Mechanics/MultiBody/Visualizers/Advanced/index.html#Surface">Surface</a>
+model.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/FunctionsPackage/index.html">Modelica.&#8203;Icons.&#8203;FunctionsPackage</a></code> (Icon for packages containing functions).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#pipeWithScalarField"><code>pipeWithScalarField</code></a></td><td>Function defining the surface characteristic of a pipe where a scalar field value is displayed with color along the pipe axis</td></tr>
+<tr><td><a href="#rectangle"><code>rectangle</code></a></td><td>Function defining the surface characteristic of a planar rectangle</td></tr>
+<tr><td><a href="#torus"><code>torus</code></a></td><td>Function defining the surface characteristic of a torus</td></tr>
+</table>
+<hr><a name="torus"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Mechanics</a>.&#8203;<a href="../../../index.html">MultiBody</a>.&#8203;<a href="../../index.html">Visualizers</a>.&#8203;<a href="../index.html">Advanced</a>.&#8203;<a href="index.html">SurfaceCharacteristics</a>.&#8203;torus<br><span class="subtitle">Function defining the surface characteristic of a torus</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Function <strong>torus</strong> computes the X, Y and Z arrays to visualize a torus
+with model <a href="../../../../../Mechanics/MultiBody/Visualizers/index.html#Torus">Torus</a>.
+The left image below shows a torus with ri=0.5 m and ro = 0.2 m.
+The right images below shows the torus with the additional parameter
+settings:
+</p>
+<blockquote><pre>
+opening    =   45 degree
+startAngle = -135 degree
+stopAngle  =  135 degree
+</pre></blockquote>
+
+<blockquote>
+<img src="../../../../../../Images/Mechanics/MultiBody/Visualizers/Torus.png">
+</blockquote>
+<p>Extends from <code><a href="../../../../../Mechanics/MultiBody/Interfaces/index.html#partialSurfaceCharacteristic">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;partialSurfaceCharacteristic</a></code> (Interface for a function returning surface characteristics).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nu</code></td><td>Number of points in u-Dimension</td></tr>
+<tr><td><code>Integer</code></td><td><code>nv</code></td><td>Number of points in v-Dimension</td></tr>
+<tr><td><code>Boolean</code></td><td><code>multiColoredSurface</code></td><td>= true: Color is defined for each surface point</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Radius">Radius</a></code></td><td><code>ri</code></td><td>Inner radius of torus</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Radius">Radius</a></code></td><td><code>ro</code></td><td>Outer radius of torus (=width/2)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>opening</code></td><td>Opening angle of torus</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>startAngle</code></td><td>Start angle of torus slice</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>stopAngle</code></td><td>End angle of torus slice</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>X[nu,nv]</code></td><td>[nu,nv] positions of points in x-Direction resolved in surface frame</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>Y[nu,nv]</code></td><td>[nu,nv] positions of points in y-Direction resolved in surface frame</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>Z[nu,nv]</code></td><td>[nu,nv] positions of points in z-Direction resolved in surface frame</td></tr>
+<tr><td><code>Real</code></td><td><code>C[if multiColoredSurface then nu else 0,if multiColoredSurface then nv else 0,3]</code></td><td>[nu,nv,3] Color array, defining the color for each surface point</td></tr>
+</table>
+<hr><a name="pipeWithScalarField"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Mechanics</a>.&#8203;<a href="../../../index.html">MultiBody</a>.&#8203;<a href="../../index.html">Visualizers</a>.&#8203;<a href="../index.html">Advanced</a>.&#8203;<a href="index.html">SurfaceCharacteristics</a>.&#8203;pipeWithScalarField<br><span class="subtitle">Function defining the surface characteristic of a pipe where a scalar field value is displayed with color along the pipe axis</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Function <strong>pipeWithScalarField</strong> computes the X, Y, Z and C arrays in order to
+visualize a pipe and a scalar field along the pipe axis with model
+<a href="../../../../../Mechanics/MultiBody/Visualizers/Advanced/index.html#PipeWithScalarField">PipeWithScalarField</a>.
+The latter is shown by mapping scalar
+field to color values with a color map and utilizing this color
+at the perimeter associated with the corresponding axis location.
+Typically the scalar field value is a temperature, but might
+be also another quantity.
+Predefined color maps are available from
+<a href="../../../../../Mechanics/MultiBody/Visualizers/Colors/ColorMaps/index.html">MultiBody.Visualizers.Colors.ColorMaps</a>
+and can be selected via input argument "colorMap".
+A color map with the corresponding scalar field values can be exported
+as vector-graphics in svg-format with function
+<a href="../../../../../Mechanics/MultiBody/Visualizers/Colors/index.html#colorMapToSvg">MultiBody.Visualizers.Colors.colorMapToSvg</a>.
+An example is shown in the next figure:
+</p>
+
+<blockquote>
+<img src="../../../../../../Images/Mechanics/MultiBody/Visualizers/PipeWithScalarField.png">
+</blockquote>
+
+<p>
+The color coding is shown in the next figure. It was generated with
+<a href="../../../../../Mechanics/MultiBody/Visualizers/Colors/index.html#colorMapToSvg">Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg</a>
+using the following call:
+</p>
+
+<blockquote>
+<pre>
+colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
+              height=50, nScalars=6, T_max=100, heading="Temperature in C");
+</pre>
+</blockquote>
+
+<blockquote>
+<img src="../../../../../../Images/Mechanics/MultiBody/Visualizers/PipeWithScalarField-ColorMap.png">
+</blockquote>
+<p>Extends from <code><a href="../../../../../Mechanics/MultiBody/Interfaces/index.html#partialSurfaceCharacteristic">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;partialSurfaceCharacteristic</a></code> (Interface for a function returning surface characteristics).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nu</code></td><td>Number of points in u-Dimension</td></tr>
+<tr><td><code>Integer</code></td><td><code>nv</code></td><td>Number of points in v-Dimension</td></tr>
+<tr><td><code>Boolean</code></td><td><code>multiColoredSurface</code></td><td>= true: Color is defined for each surface point</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Radius">Radius</a></code></td><td><code>rOuter</code></td><td>Outer radius of cylinder</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>length</code></td><td>Length of cylinder</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>xsi[:]</code></td><td>Relative position along the pipe with x[1] = 0, x[end] = 1</td></tr>
+<tr><td><code>Real</code></td><td><code>T[size(xsi, 1)]</code></td><td>Scalar field value at position xsi*length</td></tr>
+<tr><td><code>Real</code></td><td><code>T_min</code></td><td>T &lt;= T_min is mapped to colorMap[1,:]</td></tr>
+<tr><td><code>Real</code></td><td><code>T_max</code></td><td>T &gt;= T_max is mapped to colorMap[end,:]</td></tr>
+<tr><td><code>Real</code></td><td><code>colorMap[:,3]</code></td><td>Color map to map scalar T to a corresponding color</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>X[nu,nv]</code></td><td>[nu,nv] positions of points in x-Direction resolved in surface frame</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>Y[nu,nv]</code></td><td>[nu,nv] positions of points in y-Direction resolved in surface frame</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>Z[nu,nv]</code></td><td>[nu,nv] positions of points in z-Direction resolved in surface frame</td></tr>
+<tr><td><code>Real</code></td><td><code>C[if multiColoredSurface then nu else 0,if multiColoredSurface then nv else 0,3]</code></td><td>[nu,nv,3] Color array, defining the color for each surface point</td></tr>
+</table>
+<hr><a name="rectangle"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Mechanics</a>.&#8203;<a href="../../../index.html">MultiBody</a>.&#8203;<a href="../../index.html">Visualizers</a>.&#8203;<a href="../index.html">Advanced</a>.&#8203;<a href="index.html">SurfaceCharacteristics</a>.&#8203;rectangle<br><span class="subtitle">Function defining the surface characteristic of a planar rectangle</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Function <strong>rectangle</strong> computes the X, Y and Z arrays to visualize a rectangle
+with model <a href="../../../../../Mechanics/MultiBody/Visualizers/index.html#Rectangle">Rectangle</a>.
+The image below shows two rectangles of
+</p>
+<blockquote><pre>
+nu = 8,
+nv = 3,
+lu = 3,
+lv = 2.
+</pre></blockquote>
+
+<blockquote>
+<img src="../../../../../../Images/Mechanics/MultiBody/Visualizers/Rectangle.png">
+</blockquote>
+<p>Extends from <code><a href="../../../../../Mechanics/MultiBody/Interfaces/index.html#partialSurfaceCharacteristic">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;partialSurfaceCharacteristic</a></code> (Interface for a function returning surface characteristics).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nu</code></td><td>Number of points in u-Dimension</td></tr>
+<tr><td><code>Integer</code></td><td><code>nv</code></td><td>Number of points in v-Dimension</td></tr>
+<tr><td><code>Boolean</code></td><td><code>multiColoredSurface</code></td><td>= true: Color is defined for each surface point</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>lu</code></td><td>Length in direction u</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>lv</code></td><td>Length in direction v</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>X[nu,nv]</code></td><td>[nu,nv] positions of points in x-Direction resolved in surface frame</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>Y[nu,nv]</code></td><td>[nu,nv] positions of points in y-Direction resolved in surface frame</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>Z[nu,nv]</code></td><td>[nu,nv] positions of points in z-Direction resolved in surface frame</td></tr>
+<tr><td><code>Real</code></td><td><code>C[if multiColoredSurface then nu else 0,if multiColoredSurface then nv else 0,3]</code></td><td>[nu,nv,3] Color array, defining the color for each surface point</td></tr>
+</table>
+</body></html>

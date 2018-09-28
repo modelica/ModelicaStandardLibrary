@@ -1,0 +1,240 @@
+<html><head><title>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="SynchronousMachines"><h1><embed class="icon" src="../../../../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Magnetic</a>.&#8203;<a href="../../../../index.html">QuasiStatic</a>.&#8203;<a href="../../../index.html">FundamentalWave</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;SynchronousMachines<br><span class="subtitle">Synchronous machine examples</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates a package that contains executable examples.</p>
+<p>Extends from <code><a href="../../../../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#SMEE_Generator"><code>SMEE_Generator</code></a></td><td>Electrical excited synchronous machine operating as generator</td></tr>
+<tr><td><a href="#SMPM_CurrentSource"><code>SMPM_CurrentSource</code></a></td><td>Test example: PermanentMagnetSynchronousMachine fed by current source</td></tr>
+<tr><td><a href="#SMPM_Mains"><code>SMPM_Mains</code></a></td><td>Permanent magnet synchronous machine operated at mains with step torque load</td></tr>
+<tr><td><a href="#SMPM_MTPA"><code>SMPM_MTPA</code></a></td><td>Test example: PermanentMagnetSynchronousMachine, investigating maximum torque per Amps</td></tr>
+<tr><td><a href="#SMPM_OpenCircuit"><code>SMPM_OpenCircuit</code></a></td><td>Test example: PermanentMagnetSynchronousMachine with inverter</td></tr>
+<tr><td><a href="#SMR_CurrentSource"><code>SMR_CurrentSource</code></a></td><td>Test example: Synchronous reluctance machine fed by current source</td></tr>
+</table>
+<hr><a name="SMPM_OpenCircuit"><h2><embed class="icon" src="../../../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Magnetic</a>.&#8203;<a href="../../../../index.html">QuasiStatic</a>.&#8203;<a href="../../../index.html">FundamentalWave</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">SynchronousMachines</a>.&#8203;SMPM_OpenCircuit<br><span class="subtitle">Test example: PermanentMagnetSynchronousMachine with inverter</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example compares a time transient and a quasi static model of a permanent magnet synchronous machine.
+The machines are operated at constant mechanical angular velocity.</p>
+
+<p>
+Simulate for 0.1 second and plot (versus time):
+</p>
+
+<ul>
+<li><code>potentialSenor.phi|potentialSensorQS.abs_y[1]</code>: potential of terminal</li>
+</ul>
+
+<h5>Note</h5>
+<p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary to numerically stabilize the simulation.</p>
+<p>Extends from <code><a href="../../../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#SM_PermanentMagnetData">SM_PermanentMagnetData</a></code></td><td><code>smpmData</code></td><td>&nbsp;</td><td>Machine data</td></tr>
+</table>
+<hr><a name="SMPM_Mains"><h2><embed class="icon" src="../../../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Magnetic</a>.&#8203;<a href="../../../../index.html">QuasiStatic</a>.&#8203;<a href="../../../index.html">FundamentalWave</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">SynchronousMachines</a>.&#8203;SMPM_Mains<br><span class="subtitle">Permanent magnet synchronous machine operated at mains with step torque load</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+This example compares a time transient and a quasi static model of a permanent magnet synchronous machine. The machines start with zero load and synchronous speed. At time <code>tStep</code> the machines are loaded with nominal torque.</p>
+
+<p>
+Simulate for 1 second and plot (versus time):
+</p>
+
+<ul>
+<li><code>currentRMSsensor.I|currentSensorQS.abs_i[1]</code>: (equivalent) RMS stator current</li>
+<li><code>smpm|smpmQS.wMechanical</code>: machine speed</li>
+<li><code>smpm|smpmQS.tauElectrical</code>: machine torque</li>
+</ul>
+<p>Extends from <code><a href="../../../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Supply frequency</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>V</code></td><td><code>112.3</code></td><td>Supply voltage</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>T_Load</code></td><td><code>181.4</code></td><td>Nominal load torque</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tStep</code></td><td><code>0.5</code></td><td>Time of load torque step</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>J_Load</code></td><td><code>0.29</code></td><td>Load inertia</td></tr>
+<tr><td><code><a href="../../../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#SM_PermanentMagnetData">SM_PermanentMagnetData</a></code></td><td><code>smpmData</code></td><td>&nbsp;</td><td>Machine data</td></tr>
+</table>
+<hr><a name="SMPM_CurrentSource"><h2><embed class="icon" src="../../../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Magnetic</a>.&#8203;<a href="../../../../index.html">QuasiStatic</a>.&#8203;<a href="../../../index.html">FundamentalWave</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">SynchronousMachines</a>.&#8203;SMPM_CurrentSource<br><span class="subtitle">Test example: PermanentMagnetSynchronousMachine fed by current source</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example compares a time transient and a quasi static model of a permanent magnet synchronous machine. The machines are fed by a current source. The current components are oriented at the magnetic field orientation and transformed to the stator fixed reference frame. This way the machines are operated at constant torque. The machines start to accelerate from standstill.</p>
+
+<p>
+Simulate for 2 seconds and plot (versus time):
+</p>
+
+<ul>
+<li><code>smpm|smpmQS.wMechanical</code>: machine speed</li>
+<li><code>smpm|smpmQS.tauElectrical</code>: machine torque</li>
+</ul>
+
+<h5>Note</h5>
+<p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary
+to numerically stabilize the simulation.</p>
+<p>Extends from <code><a href="../../../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VNominal</code></td><td><code>100</code></td><td>Nominal RMS voltage per phase</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fNominal</code></td><td><code>smpmData.&#8203;fsNominal</code></td><td>Nominal frequency</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Actual frequency</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tRamp</code></td><td><code>1</code></td><td>Frequency ramp</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>TLoad</code></td><td><code>181.4</code></td><td>Nominal load torque</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tStep</code></td><td><code>1.2</code></td><td>Time of load torque step</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>JLoad</code></td><td><code>0.29</code></td><td>Load's moment of inertia</td></tr>
+<tr><td><code><a href="../../../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#SM_PermanentMagnetData">SM_PermanentMagnetData</a></code></td><td><code>smpmData</code></td><td>&nbsp;</td><td>Machine data</td></tr>
+</table>
+<hr><a name="SMPM_MTPA"><h2><embed class="icon" src="../../../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Magnetic</a>.&#8203;<a href="../../../../index.html">QuasiStatic</a>.&#8203;<a href="../../../index.html">FundamentalWave</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">SynchronousMachines</a>.&#8203;SMPM_MTPA<br><span class="subtitle">Test example: PermanentMagnetSynchronousMachine, investigating maximum torque per Amps</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example investigates the maximum torque per amps (MTPA) of a quasi static permanent magnet synchronous machine.
+The machines is operated at constant speed. The current magnitude is kept constant and the current angle is
+rotated from 0 to 360 degrees with the simulation period of one second.</p>
+
+<p>
+In this simulation the angle is the following angles are calculated:</p>
+
+<ul>
+<li><code>phi_v</code> = angle of voltage phasor</li>
+<li><code>phi_i</code> = angle of current phasor</li>
+<li><code>phiphi_v - phi_i</code> = angle between voltage and current phasor</li>
+<li><code>theta</code> = rotor displacement angle</li>
+<li><code>epsilon = phi - theta</code> = current angle</li>
+</ul>
+
+<p>
+Simulate for 1 second and plot (versus angle epsilon):
+</p>
+
+<ul>
+<li><code>smpmQS.tauElectrical</code>: machine torque</li>
+<li><code>smpmQS.abs_vs[1]</code>: machine phase voltage magnitude</li>
+<li><code>phi</code>: phase angle between voltage and current phasor</li>
+</ul>
+
+<h5>Note</h5>
+<p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary
+to numerically stabilize the simulation.</p>
+<p>Extends from <code><a href="../../../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VNominal</code></td><td><code>100</code></td><td>Nominal RMS voltage per phase</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fNominal</code></td><td><code>50</code></td><td>Nominal frequency</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Actual frequency</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tRamp</code></td><td><code>1</code></td><td>Frequency ramp</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>TLoad</code></td><td><code>181.4</code></td><td>Nominal load torque</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tStep</code></td><td><code>1.2</code></td><td>Time of load torque step</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>JLoad</code></td><td><code>0.29</code></td><td>Load's moment of inertia</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wNominal</code></td><td><code>2 * pi * fNominal / smpmData.p</code></td><td>Nominal angular velocity</td></tr>
+<tr><td><code>Boolean</code></td><td><code>positiveRange</code></td><td><code>false</code></td><td>Use positive range of angles, if true</td></tr>
+<tr><td><code><a href="../../../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#SM_PermanentMagnetData">SM_PermanentMagnetData</a></code></td><td><code>smpmData</code></td><td>&nbsp;</td><td>Machine data</td></tr>
+</table>
+<hr><a name="SMEE_Generator"><h2><embed class="icon" src="../../../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Magnetic</a>.&#8203;<a href="../../../../index.html">QuasiStatic</a>.&#8203;<a href="../../../index.html">FundamentalWave</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">SynchronousMachines</a>.&#8203;SMEE_Generator<br><span class="subtitle">Electrical excited synchronous machine operating as generator</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example compares a time transient and a quasi static model of a electrically excited synchronous machine.
+The electrically excited synchronous generators are connected to the grid and driven with constant speed.
+Since speed is slightly smaller than synchronous speed corresponding to mains frequency,
+rotor angle is very slowly increased. This allows to see several characteristics dependent on rotor angle.
+</p>
+
+<p>
+Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDisplacementAngle</code>:
+</p>
+
+<ul>
+<li><code>smpm|smpmQS.tauElectrical</code>: machine torque</li>
+</ul>
+
+<p>Since the rotor slip is very low the transient and quasi static electro magnetic torque are practically equal.</p>
+<p>Extends from <code><a href="../../../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of stator phases</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VsNominal</code></td><td><code>100</code></td><td>Nominal RMS voltage per phase</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fsNominal</code></td><td><code>smeeData.&#8203;fsNominal</code></td><td>Nominal frequency</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>w</code></td><td><code>Modelica.SIunits.Conversions.from_rpm(1499)</code></td><td>Nominal speed</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Current">Current</a></code></td><td><code>Ie</code></td><td><code>19</code></td><td>Excitation current</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Current">Current</a></code></td><td><code>Ie0</code></td><td><code>10</code></td><td>Initial excitation current</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>gamma0</code></td><td><code>0</code></td><td>Initial rotor displacement angle</td></tr>
+<tr><td><code><a href="../../../../../../Electrical/Machines/Utilities/index.html#SynchronousMachineData">SynchronousMachineData</a></code></td><td><code>smeeData</code></td><td>&nbsp;</td><td>Machine data</td></tr>
+</table>
+<hr><a name="SMR_CurrentSource"><h2><embed class="icon" src="../../../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Magnetic</a>.&#8203;<a href="../../../../index.html">QuasiStatic</a>.&#8203;<a href="../../../index.html">FundamentalWave</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">SynchronousMachines</a>.&#8203;SMR_CurrentSource<br><span class="subtitle">Test example: Synchronous reluctance machine fed by current source</span></h2></a>
+<h3>Information</h3>
+<p>
+<html>
+<p>
+This example compares a time transient and a quasi static model of a synchronous reluctance machine.
+The machines are fed by a current source. The current components are oriented at the magnetic field
+orientation and transformed to the stator fixed reference frame. This way the machines are operated at constant torque.
+The machines start to accelerate from standstill.</p>
+
+<p>
+Simulate for 2 seconds and plot (versus time):
+</p>
+
+<ul>
+<li><code>smpm|smpmQS.wMechanical</code>: machine speed</li>
+<li><code>smpm|smpmQS.tauElectrical</code>: machine torque</li>
+</ul>
+<p>Extends from <code><a href="../../../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VNominal</code></td><td><code>100</code></td><td>Nominal RMS voltage per phase</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fNominal</code></td><td><code>smrData.&#8203;fsNominal</code></td><td>Nominal frequency</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Actual frequency</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tRamp</code></td><td><code>1</code></td><td>Frequency ramp</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>TLoad</code></td><td><code>181.4</code></td><td>Nominal load torque</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>tStep</code></td><td><code>1.2</code></td><td>Time of load torque step</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>JLoad</code></td><td><code>0.29</code></td><td>Load's moment of inertia</td></tr>
+<tr><td><code><a href="../../../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#SM_ReluctanceRotorData">SM_ReluctanceRotorData</a></code></td><td><code>smrData</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+</body></html>

@@ -1,0 +1,266 @@
+<html><head><title>Modelica.Fluid.Dissipation.Utilities.Types</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Types"><h1><embed class="icon" src="../../../../images/icon0292.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;Types<br><span class="subtitle">Package for types</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>Standard package icon.</p>
+<p>Extends from <code><a href="../../../../Icons/TypesPackage/index.html">Modelica.&#8203;Icons.&#8203;TypesPackage</a></code> (Icon for packages containing type definitions).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#DarcyFrictionFactor"><code>DarcyFrictionFactor</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#FluidFlowRegime"><code>FluidFlowRegime</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#FrictionalResistanceCoefficient"><code>FrictionalResistanceCoefficient</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#GeometryOfInternalFlow"><code>GeometryOfInternalFlow</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#HeatTransferBoundary"><code>HeatTransferBoundary</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#HTXGeometry_flatTubes"><code>HTXGeometry_flatTubes</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#HTXGeometry_roundTubes"><code>HTXGeometry_roundTubes</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#kc_evenGap"><code>kc_evenGap</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#kc_general"><code>kc_general</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#LocalResistanceCoefficient"><code>LocalResistanceCoefficient</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#MassOrVolumeFlowRate"><code>MassOrVolumeFlowRate</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#MolarMass_gpmol"><code>MolarMass_gpmol</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#OrificeGeometry"><code>OrificeGeometry</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#PressureLossCoefficient"><code>PressureLossCoefficient</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#PressureLossTarget"><code>PressureLossTarget</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#Roughness"><code>Roughness</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#TwoPhaseFrictionalPressureLoss"><code>TwoPhaseFrictionalPressureLoss</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#TwoPhaseHeatTransferTarget"><code>TwoPhaseHeatTransferTarget</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#ValveCoefficient"><code>ValveCoefficient</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#ValveGeometry"><code>ValveGeometry</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#VoidFractionApproach"><code>VoidFractionApproach</code></a></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="DarcyFrictionFactor"><h2><embed class="icon" src="../../../../images/icon1193.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Types</a>.&#8203;DarcyFrictionFactor<br><span class="subtitle">Icon for Real types</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is designed for a <strong>Real</strong> type.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#TypeReal">Modelica.&#8203;Icons.&#8203;TypeReal</a></code> (Icon for Real types).</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"Darcy friction factor | lambda_fri = zeta_fri / (length/diameter)"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"1"</code></td></tr>
+<tr><td><code>min</code></td><td><code>0</code></td></tr>
+<tr><td><code>max</code></td><td><code>1111</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="FrictionalResistanceCoefficient"><h2><embed class="icon" src="../../../../images/icon1193.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Types</a>.&#8203;FrictionalResistanceCoefficient<br><span class="subtitle">Icon for Real types</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is designed for a <strong>Real</strong> type.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#TypeReal">Modelica.&#8203;Icons.&#8203;TypeReal</a></code> (Icon for Real types).</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"Frictional resistance coefficient | zeta_fri"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"1"</code></td></tr>
+<tr><td><code>min</code></td><td><code>0</code></td></tr>
+<tr><td><code>max</code></td><td><code>1111</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="LocalResistanceCoefficient"><h2><embed class="icon" src="../../../../images/icon1193.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Types</a>.&#8203;LocalResistanceCoefficient<br><span class="subtitle">Icon for Real types</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is designed for a <strong>Real</strong> type.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#TypeReal">Modelica.&#8203;Icons.&#8203;TypeReal</a></code> (Icon for Real types).</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"Local resistance coefficient | zeta_loc"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"1"</code></td></tr>
+<tr><td><code>min</code></td><td><code>0</code></td></tr>
+<tr><td><code>max</code></td><td><code>1111</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="PressureLossCoefficient"><h2><embed class="icon" src="../../../../images/icon1193.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Types</a>.&#8203;PressureLossCoefficient<br><span class="subtitle">Icon for Real types</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is designed for a <strong>Real</strong> type.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#TypeReal">Modelica.&#8203;Icons.&#8203;TypeReal</a></code> (Icon for Real types).</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"Pressure loss coefficient | zeta_tot = zeta_loc + zeta_fri"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"1"</code></td></tr>
+<tr><td><code>min</code></td><td><code>0</code></td></tr>
+<tr><td><code>max</code></td><td><code>1111</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="TwoPhaseFrictionalPressureLoss"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Types</a>.&#8203;TwoPhaseFrictionalPressureLoss</h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>Friedel</code></td><td>Friedel correlation for frictional pressure loss</td></tr>
+<tr><td><code>Chisholm</code></td><td>Chisholm correlation for frictional pressure loss</td></tr>
+</table>
+<hr><a name="Roughness"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Types</a>.&#8203;Roughness</h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>Neglected</code></td><td>Neglect surface roughness</td></tr>
+<tr><td><code>Considered</code></td><td>Consider surface roughness</td></tr>
+</table>
+<hr><a name="TwoPhaseHeatTransferTarget"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Types</a>.&#8203;TwoPhaseHeatTransferTarget</h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>BoilHor</code></td><td>Boiling horizontal</td></tr>
+<tr><td><code>BoilVer</code></td><td>Boiling vertical</td></tr>
+<tr><td><code>CondHor</code></td><td>Condensation horizontal</td></tr>
+</table>
+<hr><a name="PressureLossTarget"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Types</a>.&#8203;PressureLossTarget</h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>PressureLoss</code></td><td>Calculate pressure loss from mass flow rate</td></tr>
+<tr><td><code>MassFlowRate</code></td><td>Calculate mass flow rate from pressure loss</td></tr>
+</table>
+<hr><a name="GeometryOfInternalFlow"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Types</a>.&#8203;GeometryOfInternalFlow</h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>Annular</code></td><td>Annular geometry</td></tr>
+<tr><td><code>Circular</code></td><td>Circular geometry</td></tr>
+<tr><td><code>Elliptical</code></td><td>Elliptical geometry</td></tr>
+<tr><td><code>Rectangular</code></td><td>Rectangular geometry</td></tr>
+<tr><td><code>Isosceles</code></td><td>Isosceles triangular geometry</td></tr>
+</table>
+<hr><a name="kc_evenGap"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Types</a>.&#8203;kc_evenGap</h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>DevOne</code></td><td>Hydrodynamically DEVELOPED laminar flow regime AND heat transfer at ONE side</td></tr>
+<tr><td><code>DevBoth</code></td><td>Hydrodynamically DEVELOPED laminar flow regime AND heat transfer at BOTH sides</td></tr>
+<tr><td><code>UndevOne</code></td><td>Hydrodynamic and thermal START of laminar flow regime AND heat transfer at ONE side</td></tr>
+<tr><td><code>UndevBoth</code></td><td>Hydrodynamic and thermal START of laminar flow regime AND heat transfer at BOTH side</td></tr>
+</table>
+<hr><a name="kc_general"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Types</a>.&#8203;kc_general</h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>Rough</code></td><td>Roughest approximation w.r.t. Dittus/Boelter (1930)</td></tr>
+<tr><td><code>Middle</code></td><td>Middle approximation w.r.t. Sieder/Tate (1936)</td></tr>
+<tr><td><code>Finest</code></td><td>Finest approximation w.r.t. Gnielinski (1976)</td></tr>
+</table>
+<hr><a name="HeatTransferBoundary"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Types</a>.&#8203;HeatTransferBoundary</h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>UWTuDFF</code></td><td>Uniform wall temperature in developed fluid flow (UWT+DFF)</td></tr>
+<tr><td><code>UHFuDFF</code></td><td>Uniform heat flux in developed fluid flow (UHF+DFF)</td></tr>
+<tr><td><code>UWTuUFF</code></td><td>Uniform wall temperature in undeveloped fluid flow (UWT+UFF)</td></tr>
+<tr><td><code>UHFuUFF</code></td><td>Uniform heat flux in undeveloped fluid flow (UHF+UFF)</td></tr>
+</table>
+<hr><a name="MassOrVolumeFlowRate"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Types</a>.&#8203;MassOrVolumeFlowRate</h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>MassFlowRate</code></td><td>Mass flow rate</td></tr>
+<tr><td><code>VolumeFlowRate</code></td><td>Volume flow rate</td></tr>
+</table>
+<hr><a name="VoidFractionApproach"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Types</a>.&#8203;VoidFractionApproach</h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>Homogeneous</code></td><td>Homogeneous approach</td></tr>
+<tr><td><code>Momentum</code></td><td>Analytical momentum flux approach (heterogeneous)</td></tr>
+<tr><td><code>Energy</code></td><td>Kinetic energy flow approach w.r.t. Zivi (heterogeneous)</td></tr>
+<tr><td><code>Chisholm</code></td><td>Empirical momentum flux approach w.r.t. Chisholm (heterogeneous)</td></tr>
+</table>
+<hr><a name="OrificeGeometry"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Types</a>.&#8203;OrificeGeometry</h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>SharpEdged</code></td><td>Sharp edged shape of orifice inlet</td></tr>
+<tr><td><code>ThickEdged</code></td><td>Thick edged shape of orifice inlet</td></tr>
+<tr><td><code>TiltedEdged</code></td><td>Tilted edged shape of orifice inlet</td></tr>
+<tr><td><code>RoundedEdged</code></td><td>Rounded edged shape of orifice inlet</td></tr>
+</table>
+<hr><a name="ValveGeometry"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Types</a>.&#8203;ValveGeometry</h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>Ball</code></td><td>Ball valve</td></tr>
+<tr><td><code>Diaphragm</code></td><td>Diaphragm valve</td></tr>
+<tr><td><code>Butterfly</code></td><td>Butterfly valve</td></tr>
+<tr><td><code>Gate</code></td><td>Gate valve</td></tr>
+<tr><td><code>Sluice</code></td><td>Sluice valve</td></tr>
+</table>
+<hr><a name="ValveCoefficient"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Types</a>.&#8203;ValveCoefficient</h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>AV</code></td><td>Av (metric) flow coefficient</td></tr>
+<tr><td><code>KV</code></td><td>Kv (metric) flow coefficient</td></tr>
+<tr><td><code>CV</code></td><td>Cv (US) flow coefficient</td></tr>
+<tr><td><code>OP</code></td><td>Av defined by operating point</td></tr>
+</table>
+<hr><a name="FluidFlowRegime"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Types</a>.&#8203;FluidFlowRegime</h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>Laminar</code></td><td>Laminar fluid flow regime</td></tr>
+<tr><td><code>Overall</code></td><td>Overall fluid flow regime</td></tr>
+<tr><td><code>Turbulent</code></td><td>Turbulent fluid flow regime</td></tr>
+</table>
+<hr><a name="HTXGeometry_flatTubes"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Types</a>.&#8203;HTXGeometry_flatTubes</h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>LouverFin</code></td><td>Louver fin</td></tr>
+<tr><td><code>RectangularFin</code></td><td>Rectangular offset strip fin</td></tr>
+</table>
+<hr><a name="HTXGeometry_roundTubes"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Enumeration <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Types</a>.&#8203;HTXGeometry_roundTubes</h2></a>
+<h3>Literals</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><code>PlainFin</code></td><td>Plain fin</td></tr>
+<tr><td><code>LouverFin</code></td><td>Louver fin</td></tr>
+<tr><td><code>SlitFin</code></td><td>Slit fin</td></tr>
+<tr><td><code>WavyFin</code></td><td>Wavy fin (Herringbone wavy fin)</td></tr>
+</table>
+<hr><a name="MolarMass_gpmol"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Types</a>.&#8203;MolarMass_gpmol</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>quantity</code></td><td><code>"Molar mass"</code></td></tr>
+<tr><td><code>unit</code></td><td><code>"g/mol"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+</body></html>

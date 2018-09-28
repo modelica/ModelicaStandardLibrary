@@ -1,0 +1,18 @@
+<svg width="263" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar" class="component">
+		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="81.5,41.5 81.5,161.5 201.5,161.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="41.5,201.5 241.5,1.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="167.5,75.5 155.5,81.5 161.5,87.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="123.5,119.5 125.5,121.5 126.8,122.9 128.2,124.6 129.5,126.5 129.5,126.5 131.5,129.5 133.5,132.5 133.5,132.5 134.5,134.1 135.5,136.0 136.5,138.1 137.5,140.5 137.5,140.5 138.4,142.9 139.2,145.2 139.9,147.4 140.5,149.5 140.5,149.5 141.1,152.2 141.4,154.8 141.5,157.5 141.5,161.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="123.5,119.5 127.5,127.5 131.5,123.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="88.5" y="104.6" text-anchor="middle" fill="#0000FF" font-size="140.8px" font-family="sans-serif">R</text>
+		<text x="194.5" y="198.6" text-anchor="middle" fill="#0000FF" font-size="140.8px" font-family="sans-serif">P</text>
+		<g id="u" class="port">
+			<polygon points="1.5,81.5 41.5,101.5 1.5,121.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="y" class="port">
+			<polygon points="241.5,91.5 261.5,101.5 241.5,111.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Sources.IntegerTable</title>
+</head>
+<body>
+<h1><a href="Icons/82a50714bbad087c7f3f348c92109d99d1f1825f.svg"><img class="svgiconhead" src="Icons/82a50714bbad087c7f3f348c92109d99d1f1825f.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Sources.html">Sources</a>.<span class="omc-h1">IntegerTable</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This block generates an Integer output signal by using a table.
+The time points and y-values are stored in a matrix
+<strong>table[i,j]</strong>, where the first column table[:,1]
+contains the Real time points and the second column contains the
+Integer value of the output y at this time point. The table
+interpolation has the following properties:</p>
+<ul>
+<li>An assert is triggered, if no table values are provided, if the
+time points are not strict monotonically increasing, or if the
+second column of the table matrix does not contain Integer
+values.</li>
+<li>Values <strong>outside</strong> of the table range, are
+computed by extrapolation according to the setting of parameter
+<strong>extrapolation</strong>:
+<pre>
+  extrapolation = 1: Hold the first or last value of the table,
+                     if outside of the table scope.
+                = 2: Extrapolate by using the derivative at the first/last table
+                     points if outside of the table scope.
+                     (This setting is not suitable and triggers an assert.)
+                = 3: Periodically repeat the table data (periodical function).
+                = 4: No extrapolation, i.e. extrapolation triggers an error
+</pre></li>
+<li>If the table has only <strong>one row</strong>, no
+interpolation is performed and the table values of this row are
+just returned.</li>
+<li>Via parameter <strong>shiftTime</strong> the curve defined by
+the table can be shifted in time. The time instants stored in the
+table are therefore <strong>relative</strong> to
+<strong>shiftTime</strong>.</li>
+<li>If time &lt; startTime, no interpolation is performed and zero
+is used as ordinate value for the output.</li>
+</ul>
+<p>Example:</p>
+<pre>
+   table = [  0, 1;
+              1, 4;
+            1.5, 5;
+              2, 6];
+</pre>
+<p>results in the following output:</p>
+<blockquote>
+<p><img src="../../../Modelica%203.2.3/Resources/Images/Blocks/Sources/IntegerTable.png" alt="IntegerTable.png" /></p>
+</blockquote>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

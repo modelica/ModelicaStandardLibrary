@@ -1,0 +1,195 @@
+<html><head><title>Modelica.Media.UsersGuide</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="UsersGuide"><h1><embed class="icon" src="../../images/icon0002.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;UsersGuide<br><span class="subtitle">User's Guide of Media Library</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Library <strong>Modelica.Media</strong> is a <strong>free</strong> Modelica package providing
+a standardized interface to fluid media models and specific
+media models based on this interface.
+A fluid medium model defines <strong>algebraic</strong> equations
+for the intensive thermodynamic variables used in the <strong>mass</strong>
+and <strong>energy</strong> balance of component models. Optionally, additional
+medium properties can be computed such as dynamic viscosity or thermal
+conductivity. Medium models are defined for <strong>single</strong> and
+<strong>multiple substance</strong> fluids with <strong>one</strong> and
+<strong>multiple phases</strong>.
+</p>
+<p>
+A large part of the library provides specific medium models
+that can be directly utilized. This library can be used in
+all types of Modelica fluid libraries that may have different connectors
+and design philosophies. It is particularly utilized
+in the Modelica_Fluid library (the Modelica_Fluid library is currently
+under development to provide 1D therm-fluid flow components for
+single and multiple substance flow with one and multiple phases).
+The Modelica.Media library has the following
+main features:
+</p>
+<ul>
+<li> Balance equations and media model equations
+     are decoupled.
+     This means that the used medium model does usually not have an
+     influence on how the balance equations are formulated.
+     For example, the same balance equations are used for media
+     that use pressure and temperature, or pressure and specific
+     enthalpy as independent variables, as well as for
+     incompressible and compressible media models.
+     A Modelica tool will have enough information to
+     generate as efficient code as a traditional
+     (coupled) definition. This feature is described in more
+     detail in section
+     <a href="../../Media/UsersGuide/MediumDefinition/index.html#StaticStateSelection">Static State Selection</a>.</li>
+<li> Optional variables, such as dynamic viscosity, are only computed if
+     needed in the corresponding component.</li>
+<li> The independent variables of a medium model do not
+     influence the definition of a fluid connector port.
+     Especially, the media models are implemented in such a way
+     that a connector may have the minimum number of independent
+     medium variables in a connector and still get the same
+     efficiency as if all medium variables are passed by the
+     connector from one component to the next one (the latter
+     approach has the restriction that a fluid port can only
+     connect two components and not more). Note, the Modelica_Fluid
+     library uses the first approach, i.e., having a set of
+     independent medium variables in a connector.</li>
+<li> The medium models are implemented with regards to
+     efficient dynamic simulation. For example, two phase
+     medium models trigger state events at phase boundaries
+     (because the medium variables are not differentiable
+     at this point).</li>
+</ul>
+<p>
+This User's Guide has the following main parts:
+</p>
+<ul>
+<li> <a href="../../Media/UsersGuide/MediumUsage/index.html">Medium usage</a>
+     describes how to use a medium model from
+     this library in a component model.</li>
+<li> <a href="../../Media/UsersGuide/MediumDefinition/index.html">Medium definition</a>
+     describes how a new fluid medium
+     model has to be implemented.</li>
+<li> <a href="../../Media/UsersGuide/index.html#ReleaseNotes">ReleaseNotes</a>
+     summarizes the changes of the library releases.</li>
+<li><a href="../../Media/UsersGuide/index.html#Contact">Contact</a>
+    provides information about the authors of the library as well as
+    acknowledgements.</li>
+</ul>
+<p>Extends from <code><a href="../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Contact"><code>Contact</code></a></td><td>Contact</td></tr>
+<tr><td><a href="../../Media/UsersGuide/MediumDefinition/index.html"><code>MediumDefinition</code></a> &hellip;</td><td>Medium definition</td></tr>
+<tr><td><a href="../../Media/UsersGuide/MediumUsage/index.html"><code>MediumUsage</code></a> &hellip;</td><td>Medium usage</td></tr>
+<tr><td><a href="#ReleaseNotes"><code>ReleaseNotes</code></a></td><td>Release notes</td></tr>
+</table>
+<hr><a name="ReleaseNotes"><h2><embed class="icon" src="../../images/icon0005.svg" width="203" height="203" />
+Class <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;ReleaseNotes<br><span class="subtitle">Release notes</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Version included in Modelica 3.0</h4>
+<p> See top-level release notes for MSL.</p>
+<h4>Version 1.0, 2005-03-01</h4>
+<p>
+Many improvements in the library, e.g., providing mixtures
+of the ideal gases, table based media, test suite for all media, improved and
+updated User's Guide.
+</p>
+<h4>Version 0.9, 2004-10-18</h4>
+<ul>
+<li> Changed the redeclaration/extends within packages from the
+     experimental feature to the language keywords introduced
+     in Modelica 2.1.</li>
+<li> Re-introduced package "Water.SaltWater" in order to test
+     substance mixtures (this medium model does not describe
+     real mixing of water and salt).</li>
+<li> Started to improve the documentation in
+     Modelica.Media.UsersGuide.MediumDefinition.BasicStructure</li>
+</ul>
+<h4>Version 0.792, 2003-10-28</h4>
+<p>
+This is the first version made available for the public
+for the Modelica'2003 conference (for evaluation).
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#ReleaseNotes">Modelica.&#8203;Icons.&#8203;ReleaseNotes</a></code> (Icon for release notes in documentation).</p>
+<hr><a name="Contact"><h2><embed class="icon" src="../../images/icon0004.svg" width="203" height="203" />
+Class <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Media</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;Contact<br><span class="subtitle">Contact</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Library officer and main author</h4>
+
+<p>
+<strong>Hubertus Tummescheit</strong><br>
+Modelon AB<br>
+Ideon Science Park<br>
+SE-22730 Lund, Sweden<br>
+email: <a href="mailto:Hubertus.Tummescheit@Modelon.se">Hubertus.Tummescheit@Modelon.se</a>
+</p>
+
+<h4>Acknowledgements</h4>
+
+<p>
+The development of this library has been a collaborative effort
+and many have contributed:
+</p>
+<ul>
+<li> The essential parts of the media models have been implemented
+     in the ThermoFluid library by Hubertus Tummescheit with
+     help from Jonas Eborn and Falko Jens Wagner. These media models
+     have been converted to the Modelica.Media interface definition
+     and have been improved by Hubertus Tummescheit.</li>
+<li> The effort for the development of the Modelica.Media library has been
+     organized by Martin Otter who also contributed to the design,
+     implemented part of the generic models, contributed to the User's Guide
+     and provided the generic test suite Modelica.Media.Examples.Tests.</li>
+<li> The basic idea for the medium model interface based on packages
+     is from Michael Tiller who also contributed to the design.</li>
+<li> The first design of the medium model interface is from
+     Hilding Elmqvist. The design and the implementation has been further
+     improved at the Modelica design meetings in<br>
+     Dearborn, Nov. 20-22, 2002<br>
+     Dearborn, Sept. 2-4, 2003<br>
+     Lund Jan. 28-30, 2004<br>
+     Munich, May 26-28, 2004<br>
+     Lund, Aug. 30-31, 2004<br>
+     Dearborn, Nov. 15-17, 2004<br>
+     Cremona Jan. 31 - Feb. 2, 2005.</li>
+<li> Hans Olsson, Sven Erik Mattsson and Hilding Elmqvist developed
+     symbolic transformation algorithms and implemented them in Dymola
+     to improve the efficiency considerably (e.g., to avoid non-linear
+        systems of equations).</li>
+<li>Katrin Pr&ouml;&szlig; implemented the moist air model</li>
+<li> R&uuml;diger Franke performed the first realistic tests of the Modelica.Media
+        and Modelica_Fluid libraries and gave valuable feedback.</li>
+<li> Francesco Casella has been the most relentless bug-hunter and tester of the
+     water and ideal gas properties. He also contributed to the User's Guide.</li>
+<li> John Batteh, Daniel Bouskela, Jonas Eborn, Andreas Idebrant, Charles Newman,
+     Gerhart Schmitz, and the users of the ThermoFluid library provided
+     many useful comments and feedback.</li>
+</ul>
+<p>Extends from <code><a href="../../Icons/index.html#Contact">Modelica.&#8203;Icons.&#8203;Contact</a></code> (Icon for contact information).</p>
+</body></html>

@@ -1,0 +1,126 @@
+<html><head><title>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="RectifierCenterTap2mPulse"><h1><embed class="icon" src="../../../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">PowerConverters</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ACDC</a>.&#8203;RectifierCenterTap2mPulse<br><span class="subtitle">2*m pulse rectifier with center tap</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package includes multi phase center tap rectifiers. The number of phases, <code>m</code>, determines the number of pulses, <code>2*m</code>. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
+<p>Extends from <code><a href="../../../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#DiodeCenterTap2mPulse"><code>DiodeCenterTap2mPulse</code></a></td><td>2*m pulse diode center tap rectifier with resistive load</td></tr>
+<tr><td><a href="#ThyristorCenterTap2mPulse_R"><code>ThyristorCenterTap2mPulse_R</code></a></td><td>2*m pulse thyristor center tap rectifier with resistive load</td></tr>
+<tr><td><a href="#ThyristorCenterTap2mPulse_RL"><code>ThyristorCenterTap2mPulse_RL</code></a></td><td>2*m pulse thyristor rectifier with R-L load</td></tr>
+<tr><td><a href="#ThyristorCenterTap2mPulse_RLV"><code>ThyristorCenterTap2mPulse_RLV</code></a></td><td>2*m pulse thyristor center tap rectifier with R-L load and voltage</td></tr>
+<tr><td><a href="#ThyristorCenterTap2mPulse_RLV_Characteristic"><code>ThyristorCenterTap2mPulse_RLV_Characteristic</code></a></td><td>Characteristic of 2*m pulse center tap thyristor rectifier with R-L load and voltage</td></tr>
+</table>
+<hr><a name="DiodeCenterTap2mPulse"><h2><embed class="icon" src="../../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">PowerConverters</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ACDC</a>.&#8203;<a href="index.html">RectifierCenterTap2mPulse</a>.&#8203;DiodeCenterTap2mPulse<br><span class="subtitle">2*m pulse diode center tap rectifier with resistive load</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example shows an uncontrolled <code>2*m</code> pulse center tap diode rectifier with resistive load, where <code>m</code> is the number of phases.</p>
+
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vrms</code></td><td><code>110</code></td><td>RMS supply voltage</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Frequency</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>20</code></td><td>Load resistance</td></tr>
+</table>
+<hr><a name="ThyristorCenterTap2mPulse_R"><h2><embed class="icon" src="../../../../../images/icon0728.svg" width="203" height="203" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">PowerConverters</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ACDC</a>.&#8203;<a href="index.html">RectifierCenterTap2mPulse</a>.&#8203;ThyristorCenterTap2mPulse_R<br><span class="subtitle">2*m pulse thyristor center tap rectifier with resistive load</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example shows a controlled <code>2*m</code> pulse center tap rectifier with resistive load, where <code>m</code> is the number of phases.</p>
+
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Extends from <code><a href="../../../../../Electrical/PowerConverters/Examples/ACDC/ExampleTemplates/index.html#ThyristorCenterTap2mPulse">Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Examples.&#8203;ACDC.&#8203;ExampleTemplates.&#8203;ThyristorCenterTap2mPulse</a></code> (Template of 2*m pulse thyristor rectifier with center tap) and <code><a href="../../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vrms</code></td><td><code>110</code></td><td>RMS supply voltage</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Frequency</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>constantFiringAngle</code></td><td><code>0.005555555555556 * (30 * pi)</code></td><td>Firing angle</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>20</code></td><td>Load resistance</td></tr>
+</table>
+<hr><a name="ThyristorCenterTap2mPulse_RL"><h2><embed class="icon" src="../../../../../images/icon0728.svg" width="203" height="203" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">PowerConverters</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ACDC</a>.&#8203;<a href="index.html">RectifierCenterTap2mPulse</a>.&#8203;ThyristorCenterTap2mPulse_RL<br><span class="subtitle">2*m pulse thyristor rectifier with R-L load</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example shows a controlled <code>2*m</code> pulse center tap rectifier with R-L load, where <code>m</code> is the number of phases.</p>
+
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Extends from <code><a href="../../../../../Electrical/PowerConverters/Examples/ACDC/ExampleTemplates/index.html#ThyristorCenterTap2mPulse">Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Examples.&#8203;ACDC.&#8203;ExampleTemplates.&#8203;ThyristorCenterTap2mPulse</a></code> (Template of 2*m pulse thyristor rectifier with center tap) and <code><a href="../../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vrms</code></td><td><code>110</code></td><td>RMS supply voltage</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Frequency</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>constantFiringAngle</code></td><td><code>0.005555555555556 * (30 * pi)</code></td><td>Firing angle</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>20</code></td><td>Load resistance</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L</code></td><td><code>1</code></td><td>Load resistance</td></tr>
+</table>
+<hr><a name="ThyristorCenterTap2mPulse_RLV"><h2><embed class="icon" src="../../../../../images/icon0728.svg" width="203" height="203" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">PowerConverters</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ACDC</a>.&#8203;<a href="index.html">RectifierCenterTap2mPulse</a>.&#8203;ThyristorCenterTap2mPulse_RLV<br><span class="subtitle">2*m pulse thyristor center tap rectifier with R-L load and voltage</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example shows a controlled <code>2*m</code> pulse center tap rectifier with R-L load including DC voltage source, where <code>m</code> is the number of phases. The additional DC voltage source in this example enables negative average load voltages.</p>
+
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Extends from <code><a href="../../../../../Electrical/PowerConverters/Examples/ACDC/ExampleTemplates/index.html#ThyristorCenterTap2mPulse">Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Examples.&#8203;ACDC.&#8203;ExampleTemplates.&#8203;ThyristorCenterTap2mPulse</a></code> (Template of 2*m pulse thyristor rectifier with center tap) and <code><a href="../../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vrms</code></td><td><code>110</code></td><td>RMS supply voltage</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Frequency</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>constantFiringAngle</code></td><td><code>0.005555555555556 * (30 * pi)</code></td><td>Firing angle</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>20</code></td><td>Load resistance</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L</code></td><td><code>1</code></td><td>Load resistance</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VDC</code></td><td><code>-260</code></td><td>DC load offset voltage</td></tr>
+</table>
+<hr><a name="ThyristorCenterTap2mPulse_RLV_Characteristic"><h2><embed class="icon" src="../../../../../images/icon0728.svg" width="203" height="203" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">PowerConverters</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ACDC</a>.&#8203;<a href="index.html">RectifierCenterTap2mPulse</a>.&#8203;ThyristorCenterTap2mPulse_RLV_Characteristic<br><span class="subtitle">Characteristic of 2*m pulse center tap thyristor rectifier with R-L load and voltage</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example shows a controlled <code>2*m</code> pulse center tap rectifier with R-L load including DC voltage source, where <code>m</code> is the number of phases. The additional DC voltage source in this example enables negative average load voltages.</p>
+
+<p>Plot average voltage <code>meanVoltage.v</code> versus firingAngle <code>pulsem.firingAngle</code> to see control characteristic of this type of rectifier with R-L load including active voltage.</p>
+<p>Extends from <code><a href="../../../../../Electrical/PowerConverters/Examples/ACDC/ExampleTemplates/index.html#ThyristorCenterTap2mPulse">Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Examples.&#8203;ACDC.&#8203;ExampleTemplates.&#8203;ThyristorCenterTap2mPulse</a></code> (Template of 2*m pulse thyristor rectifier with center tap) and <code><a href="../../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vrms</code></td><td><code>110</code></td><td>RMS supply voltage</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>Frequency</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>20</code></td><td>Load resistance</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L</code></td><td><code>1</code></td><td>Load resistance</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VDC</code></td><td><code>-260</code></td><td>DC load offset voltage</td></tr>
+</table>
+</body></html>

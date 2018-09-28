@@ -1,0 +1,17 @@
+<svg width="263" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Blocks.Continuous.Derivative" class="component">
+		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="61.5,23.5 61.5,191.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="61.5,11.5 53.5,33.5 69.5,33.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="51.5,181.5 223.5,181.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="231.5,181.5 209.5,173.5 209.5,189.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="61.5,41.5 79.5,105.5 80.8,109.8 82.1,114.1 83.6,118.1 85.1,122.1 86.7,125.8 88.4,129.5 90.2,133.0 92.1,136.4 94.0,139.6 96.1,142.7 98.2,145.7 100.4,148.5 102.7,151.2 105.0,153.8 107.5,156.2 110.0,158.5 112.6,160.6 115.3,162.6 118.1,164.5 121.0,166.2 123.9,167.8 127.0,169.2 130.1,170.5 133.3,171.7 136.5,172.7 139.9,173.6 143.4,174.4 146.9,175.0 150.5,175.5 203.5,181.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="169.5" y="86.5" text-anchor="middle" fill="#C0C0C0" font-size="61.1px" font-family="sans-serif">DT1</text>
+		<g id="u" class="port">
+			<polygon points="1.5,81.5 41.5,101.5 1.5,121.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="y" class="port">
+			<polygon points="241.5,91.5 261.5,101.5 241.5,111.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

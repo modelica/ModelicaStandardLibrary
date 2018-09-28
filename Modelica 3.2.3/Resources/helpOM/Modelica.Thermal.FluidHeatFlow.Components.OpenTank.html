@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Thermal.FluidHeatFlow.Components.OpenTank</title>
+</head>
+<body>
+<h1><a href="Icons/3bc118450fec28448ae208f646048012917eade5.svg"><img class="svgiconhead" src="Icons/3bc118450fec28448ae208f646048012917eade5.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Thermal.html">Thermal</a>.<a class="omc-h1-a" href="Modelica.Thermal.FluidHeatFlow.html">FluidHeatFlow</a>.<a class="omc-h1-a" href="Modelica.Thermal.FluidHeatFlow.Components.html">Components</a>.<span class="omc-h1">OpenTank</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This is a simple model of an open tank with volume A*h. The
+level and the temperature of the medium are measured and provided
+as output.</p>
+<p>Note: If the level of the medium reaches 0 (minimum) or h
+(maximum), an assertion is triggered.</p>
+<p>Note: The flowPort is assumed to be at the bottom. Therefore the
+pressure at the flowPort is ambient pressure + level*rho*g.</p>
+<ul>
+<li>If the mass flow rate at the port goes into the tank the level
+increases and the mixing rule is applied to obtain the temperature
+change of the medium in the tank.</li>
+<li>If the mass flow rate at the port goes out of the tank the
+level decreases, the temperature of the outflowing medium is
+defined by the the temperature of the medium in the tank.</li>
+</ul>
+<p>It is assumed that the medium in the tank has the same
+temperature over the whole volume, i.e. mixed thoroughly.</p>
+<p>Via the optional heatPort the medium in the tank can be cooled
+or heated.</p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

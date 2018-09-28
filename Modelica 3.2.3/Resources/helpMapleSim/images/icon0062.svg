@@ -1,0 +1,7 @@
+<svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Blocks.Interfaces.DiscreteBlock" class="component">
+		<polygon points="1.5,201.5 201.5,201.5 201.5,1.5 1.5,1.5" fill="#DFD3A9" stroke="#00007F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="4.5,200.0 200.0,200.0 200.0,4.5" fill-opacity="0" stroke="#706A55" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="3.0,198.5 3.0,3.0 198.5,3.0" fill-opacity="0" stroke="#EFE9D4" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" />
+	</g>
+</svg>

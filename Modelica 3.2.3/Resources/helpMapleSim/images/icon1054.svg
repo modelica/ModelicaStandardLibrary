@@ -1,0 +1,24 @@
+<svg width="263" height="243" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.CurrentController" class="component">
+		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="101.5" y="61.4" text-anchor="middle" fill="#0000FF" font-size="26.6px" font-family="sans-serif">id_rms</text>
+		<text x="101.5" y="156.8" text-anchor="middle" fill="#0000FF" font-size="20.3px" font-family="sans-serif">iq_rms</text>
+		<g id="id_rms" class="port">
+			<polygon points="1.5,21.5 41.5,41.5 1.5,61.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="iq_rms" class="port">
+			<polygon points="1.5,141.5 41.5,161.5 1.5,181.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="phi" class="port">
+			<polygon points="161.5,241.5 141.5,201.5 121.5,241.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="I" class="port">
+			<polygon points="242.2,70.8 243.0,71.3 244.0,71.5 244.0,71.5 246.4,71.5 251.5,71.5 251.5,71.5 256.6,71.5 259.0,71.5 259.0,71.5 260.0,71.3 260.8,70.8 260.8,70.8 261.3,70.0 261.5,69.0 261.5,69.0 261.5,66.6 261.5,61.5 261.5,61.5 261.5,56.4 261.5,54.0 261.5,54.0 261.3,53.0 260.8,52.2 260.8,52.2 260.0,51.7 259.0,51.5 259.0,51.5 256.6,51.5 251.5,51.5 251.5,51.5 246.4,51.5 244.0,51.5 244.0,51.5 243.0,51.7 242.2,52.2 242.2,52.2 241.7,53.0 241.5,54.0 241.5,54.0 241.5,56.4 241.5,61.5 241.5,61.5 241.5,66.6 241.5,69.0 241.5,69.0 241.7,70.0" fill="#A0A0A4" stroke="#A0A0A4" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<text x="251.5" y="66.7" text-anchor="middle" fill="#FFFFFF" font-size="13.3px" font-family="sans-serif">C</text>
+			<polygon points="241.5,51.5 261.5,61.5 241.5,71.5" fill="#FFFFFF" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="gamma" class="port">
+			<polygon points="241.5,131.5 261.5,141.5 241.5,151.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

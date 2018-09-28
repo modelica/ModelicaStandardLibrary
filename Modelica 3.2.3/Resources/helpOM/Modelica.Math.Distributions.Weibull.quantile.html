@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Distributions.Weibull.quantile</title>
+</head>
+<body>
+<h1><a href="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg"><img class="svgiconhead" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Distributions.html">Distributions</a>.<a class="omc-h1-a" href="Modelica.Math.Distributions.Weibull.html">Weibull</a>.<span class="omc-h1">quantile</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Weibull.<strong>quantile</strong>(u, lambda=1, k=1);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function computes the inverse cumulative distribution
+function (= quantile) according to a <strong>Weibull</strong>
+distribution with scale parameter <strong>lambda</strong> and shape
+parameter <strong>k</strong>. Equation:</p>
+<blockquote>
+<pre>
+y := lambda * (-log( 1-u)) ^(1/k);
+</pre></blockquote>
+<p>Input argument u must be in the range:</p>
+<blockquote>
+<p>0 ≤ u &lt; 1</p>
+</blockquote>
+<p>Plot of the function:</p>
+<blockquote><img src="../../../Modelica%203.2.3/Resources/Images/Math/Distributions/Weibull.quantile.png" /></blockquote>
+<p>For more details, see <a href="http://en.wikipedia.org/wiki/Weibull_distribution">Wikipedia</a>.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  quantile(0)         // = 0
+  quantile(0.5,1,0.5) // = 0.41627730557884884
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Distributions.Weibull.density.html">Weibull.density</a>,
+<a href="Modelica.Math.Distributions.Weibull.cumulative.html">Weibull.cumulative</a>.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>function quantile
+  extends Modelica.Math.Distributions.Interfaces.partialQuantile;
+  input Real lambda(min = 0) = 1 "Scale parameter of the Weibull distribution" annotation(
+    Dialog);
+  input Real k(min = 0) "Shape parameter of the Weibull distribution" annotation(
+    Dialog);
+end quantile;</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th>Date</th>
+<th align="left">Description</th>
+</tr>
+<tr>
+<td>June 22, 2015</td>
+<td>
+<table border="0">
+<tr>
+<td><img src="../../../Modelica%203.2.3/Resources/Images/Logos/dlr_logo.png" /></td>
+<td valign="bottom">Initial version implemented by A. Klöckner, F.
+v.d. Linden, D. Zimmer, M. Otter.<br />
+<a href="http://www.dlr.de/rmc/sr/en">DLR Institute of System
+Dynamics and Control</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

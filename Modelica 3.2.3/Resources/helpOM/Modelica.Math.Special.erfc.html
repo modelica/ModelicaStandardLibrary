@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Special.erfc</title>
+</head>
+<body>
+<h1><a href="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg"><img class="svgiconhead" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Special.html">Special</a>.<span class="omc-h1">erfc</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Special.<strong>erfc</strong>(u);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function computes the complementary error function erfc(u)
+= 1 - erf(u) with a relative precision of about 1e-15. The
+implementation utilizes the formulation of the Boost library
+(53-bit implementation of <a href="http://www.boost.org/doc/libs/1_57_0/boost/math/special_functions/erf.hpp">
+erf.hpp</a> developed by John Maddock). Plot of the function:</p>
+<blockquote><img src="../../../Modelica%203.2.3/Resources/Images/Math/Special/erfc.png" /></blockquote>
+<p>If u is large and erf(u) is subtracted from 1.0, the result is
+not accurate. It is then better to use erfc(u). For more details,
+see <a href="http://en.wikipedia.org/wiki/Error_function">Wikipedia</a>.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  erfc(0)    // = 1
+  erfc(10)   // = 0
+  erfc(0.5)  // = 0.4795001221869534
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Special.erf.html">erf</a>, <a href="Modelica.Math.Special.erfInv.html">erfInv</a>, <a href="Modelica.Math.Special.erfcInv.html">erfcInv</a>.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>function erfc
+  extends Modelica.Icons.Function;
+  input Real u "Input argument";
+  output Real y "= 1 - erf(u)";
+end erfc;</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th>Date</th>
+<th align="left">Description</th>
+</tr>
+<tr>
+<td>June 22, 2015</td>
+<td>
+<table border="0">
+<tr>
+<td><img src="../../../Modelica%203.2.3/Resources/Images/Logos/dlr_logo.png" /></td>
+<td valign="bottom">Initial version implemented by A. Klöckner, F.
+v.d. Linden, D. Zimmer, M. Otter.<br />
+<a href="http://www.dlr.de/rmc/sr/en">DLR Institute of System
+Dynamics and Control</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Sources</title>
+</head>
+<body>
+<h1><a href="Icons/a757591b5408d8b98935b8a8ec09694824df720f.svg"><img class="svgiconhead" src="Icons/a757591b5408d8b98935b8a8ec09694824df720f.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<span class="omc-h1">Sources</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This package contains <strong>source</strong> components, i.e.,
+blocks which have only output signals. These blocks are used as
+signal generators for Real, Integer and Boolean signals.</p>
+<p>All Real source signals (with the exception of the Constant
+source) have at least the following two parameters:</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td><strong>offset</strong></td>
+<td>Value which is added to the signal</td>
+</tr>
+<tr>
+<td><strong>startTime</strong></td>
+<td>Start time of signal. For time &lt; startTime, the output y is
+set to offset.</td>
+</tr>
+</table>
+<p>The <strong>offset</strong> parameter is especially useful in
+order to shift the corresponding source, such that at initial time
+the system is stationary. To determine the corresponding value of
+offset, usually requires a trimming calculation.</p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.RealExpression.html"><img class="svgiconsmall" src="Icons/76bd08427be96c50d060a71491204eb54f3a7d60.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.RealExpression.html">RealExpression</a></td>
+<td>Set output signal to a time varying Real expression</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.IntegerExpression.html"><img class="svgiconsmall" src="Icons/569a0113aa189cbfaceee6b17986c56baf772150.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.IntegerExpression.html">IntegerExpression</a></td>
+<td>Set output signal to a time varying Integer expression</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.BooleanExpression.html"><img class="svgiconsmall" src="Icons/a8b0cb868276b13e42a0b874ba4cbaa309fbe66a.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.BooleanExpression.html">BooleanExpression</a></td>
+<td>Set output signal to a time varying Boolean expression</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.Clock.html"><img class="svgiconsmall" src="Icons/ae7447e0dc4df115c858d2bf553e21c34a4de928.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.Clock.html">Clock</a></td>
+<td>Generate actual time signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.Constant.html"><img class="svgiconsmall" src="Icons/d3789baf82f687fd1a3edc288ff6ae2c9c59dcc2.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.Constant.html">Constant</a></td>
+<td>Generate constant signal of type Real</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.Step.html"><img class="svgiconsmall" src="Icons/8c6cd8ea7e31ce9a32cfd1861eabb26058c09f2c.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.Step.html">Step</a></td>
+<td>Generate step signal of type Real</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.Ramp.html"><img class="svgiconsmall" src="Icons/60479f484e8c220c30634dda3023f038d4ed4957.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.Ramp.html">Ramp</a></td>
+<td>Generate ramp signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.Sine.html"><img class="svgiconsmall" src="Icons/d7af86963818119a09e605e79e96f022de842113.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.Sine.html">Sine</a></td>
+<td>Generate sine signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.Cosine.html"><img class="svgiconsmall" src="Icons/f6c03d3f05cc020d327598f73161c76b9d16097b.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.Cosine.html">Cosine</a></td>
+<td>Generate cosine signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.ExpSine.html"><img class="svgiconsmall" src="Icons/075b02863f55c9fdb8ca067112ec3aedf0763068.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.ExpSine.html">ExpSine</a></td>
+<td>Generate exponentially damped sine signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.Exponentials.html"><img class="svgiconsmall" src="Icons/d2c09776b095051fa06918b4f15a3e27b3927e1f.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.Exponentials.html">Exponentials</a></td>
+<td>Generate a rising and falling exponential signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.Pulse.html"><img class="svgiconsmall" src="Icons/6dfb2cc16f738cf1d2f8f60714ea315cdbce8613.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.Pulse.html">Pulse</a></td>
+<td>Generate pulse signal of type Real</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.SawTooth.html"><img class="svgiconsmall" src="Icons/e30ba31450fe9fb3da64e735c68c65db4760bcbb.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.SawTooth.html">SawTooth</a></td>
+<td>Generate saw tooth signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.Trapezoid.html"><img class="svgiconsmall" src="Icons/5445289f2d61820b58c46803cdd042ce133d4483.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.Trapezoid.html">Trapezoid</a></td>
+<td>Generate trapezoidal signal of type Real</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.KinematicPTP.html"><img class="svgiconsmall" src="Icons/65830adc40b0a28fec5f16790681889a0bffbeb6.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.KinematicPTP.html">KinematicPTP</a></td>
+<td>Move as fast as possible along a distance within given
+kinematic constraints</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.KinematicPTP2.html"><img class="svgiconsmall" src="Icons/357df6ac9b20b21afb40bc3357b5f8294ff0abd2.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.KinematicPTP2.html">KinematicPTP2</a></td>
+<td>Move as fast as possible from start to end position within
+given kinematic constraints with output signals q, qd=der(q),
+qdd=der(qd)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.TimeTable.html"><img class="svgiconsmall" src="Icons/10fce25e54aa64a49d28b931f0747dab89b41e56.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.TimeTable.html">TimeTable</a></td>
+<td>Generate a (possibly discontinuous) signal by linear
+interpolation in a table</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.CombiTimeTable.html"><img class="svgiconsmall" src="Icons/34e15fc868799bcb41b3f88970da0618071dcf37.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.CombiTimeTable.html">CombiTimeTable</a></td>
+<td>Table look-up with respect to time and linear/periodic
+extrapolation methods (data from matrix/file)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.BooleanConstant.html"><img class="svgiconsmall" src="Icons/40ace943f76e702cc6a4205ec9480be2c033684c.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.BooleanConstant.html">BooleanConstant</a></td>
+<td>Generate constant signal of type Boolean</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.BooleanStep.html"><img class="svgiconsmall" src="Icons/31fac2ad2cb2e75821bd9143cacd13c48d87baef.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.BooleanStep.html">BooleanStep</a></td>
+<td>Generate step signal of type Boolean</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.BooleanPulse.html"><img class="svgiconsmall" src="Icons/0dd3a644c4c7bd561c17c91367842d76ac804e56.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.BooleanPulse.html">BooleanPulse</a></td>
+<td>Generate pulse signal of type Boolean</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.SampleTrigger.html"><img class="svgiconsmall" src="Icons/4da8ce1843efa6b2bfc020f589f8b292895d38a7.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.SampleTrigger.html">SampleTrigger</a></td>
+<td>Generate sample trigger signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.BooleanTable.html"><img class="svgiconsmall" src="Icons/fc303dc727bbd680d2de7648603fa3b2406a0b2c.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.BooleanTable.html">BooleanTable</a></td>
+<td>Generate a Boolean output signal based on a vector of time
+instants</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.RadioButtonSource.html"><img class="svgiconsmall" src="Icons/a61be11f336d665252c1002854da292c068e9918.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.RadioButtonSource.html">RadioButtonSource</a></td>
+<td>Boolean signal source that mimics a radio button</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.IntegerConstant.html"><img class="svgiconsmall" src="Icons/9eb233f005a79ad99574361c0ae4db933c3c85ce.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.IntegerConstant.html">IntegerConstant</a></td>
+<td>Generate constant signal of type Integer</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.IntegerStep.html"><img class="svgiconsmall" src="Icons/dfe8b3df3ef74fc953fa3b17dafb57245b5ce777.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.IntegerStep.html">IntegerStep</a></td>
+<td>Generate step signal of type Integer</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.IntegerTable.html"><img class="svgiconsmall" src="Icons/82a50714bbad087c7f3f348c92109d99d1f1825f.svg" /></a>&nbsp;<a href="Modelica.Blocks.Sources.IntegerTable.html">IntegerTable</a></td>
+<td>Generate an Integer output signal based on a table matrix with
+[time, yi] values</td>
+</tr>
+</table>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><em>October 21, 2002</em> by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a> and
+Christian Schweiger:<br />
+Integer sources added. Step, TimeTable and BooleanStep slightly
+changed.</li>
+<li><em>Nov. 8, 1999</em> by <a href="mailto:christoph@clauss-it.com">Christoph Clauß</a>, <a href="mailto:Andre.Schneider@eas.iis.fraunhofer.de">Andre.Schneider@eas.iis.fraunhofer.de</a>,
+<a href="http://www.robotic.dlr.de/Martin.Otter/">Martin
+Otter</a>:<br />
+New sources: Exponentials, TimeTable. Trapezoid slightly enhanced
+(nperiod=-1 is an infinite number of periods).</li>
+<li><em>Oct. 31, 1999</em> by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br />
+<a href="mailto:christoph@clauss-it.com">Christoph Clauß</a>,
+<a href="mailto:Andre.Schneider@eas.iis.fraunhofer.de">Andre.Schneider@eas.iis.fraunhofer.de</a>,
+All sources vectorized. New sources: ExpSine, Trapezoid,
+BooleanConstant, BooleanStep, BooleanPulse, SampleTrigger. Improved
+documentation, especially detailed description of signals in
+diagram layer.</li>
+<li><em>June 29, 1999</em> by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br />
+Realized a first version, based on an existing Dymola library of
+Dieter Moormann and Hilding Elmqvist.</li>
+</ul>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

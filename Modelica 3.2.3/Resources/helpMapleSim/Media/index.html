@@ -1,0 +1,86 @@
+<html><head><title>Modelica.Media</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Media"><h1><embed class="icon" src="../images/icon1411.svg" width="203" height="203" />
+Package <a href="../index.html">Modelica</a>.&#8203;Media<br><span class="subtitle">Library of media property models</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This library contains <a href="../Media/Interfaces/index.html">interface</a>
+definitions for media and the following <strong>property</strong> models for
+single and multiple substance fluids with one and multiple phases:
+</p>
+<ul>
+<li> <a href="../Media/IdealGases/index.html">Ideal gases:</a><br>
+     1241 high precision gas models based on the
+     NASA Glenn coefficients, plus ideal gas mixture models based
+     on the same data.</li>
+<li> <a href="../Media/Water/index.html">Water models:</a><br>
+     ConstantPropertyLiquidWater, WaterIF97 (high precision
+     water model according to the IAPWS/IF97 standard)</li>
+<li> <a href="../Media/Air/index.html">Air models:</a><br>
+     SimpleAir, DryAirNasa, ReferenceAir, MoistAir, ReferenceMoistAir.</li>
+<li> <a href="../Media/Incompressible/index.html">
+     Incompressible media:</a><br>
+     TableBased incompressible fluid models (properties are defined by tables rho(T),
+     HeatCapacity_cp(T), etc.)</li>
+<li> <a href="../Media/CompressibleLiquids/index.html">
+     Compressible liquids:</a><br>
+     Simple liquid models with linear compressibility</li>
+<li> <a href="../Media/R134a/index.html">Refrigerant Tetrafluoroethane (R134a)</a>.</li>
+</ul>
+<p>
+The following parts are useful, when newly starting with this library:</p>
+<ul>
+<li> <a href="../Media/UsersGuide/index.html">Modelica.Media.UsersGuide</a>.</li>
+<li> <a href="../Media/UsersGuide/MediumUsage/index.html">Modelica.Media.UsersGuide.MediumUsage</a>
+     describes how to use a medium model in a component model.</li>
+<li> <a href="../Media/UsersGuide/MediumDefinition/index.html">
+     Modelica.Media.UsersGuide.MediumDefinition</a>
+     describes how a new fluid medium model has to be implemented.</li>
+<li> <a href="../Media/UsersGuide/index.html#ReleaseNotes">Modelica.Media.UsersGuide.ReleaseNotes</a>
+     summarizes the changes of the library releases.</li>
+<li> <a href="../Media/Examples/index.html">Modelica.Media.Examples</a>
+     contains examples that demonstrate the usage of this library.</li>
+</ul>
+<p>
+Copyright &copy; 1998-2018, Modelica Association.
+</p>
+<p>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href="https://modelica.org/licenses/modelica-3-clause-bsd">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+</p>
+<p>Extends from <code><a href="../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="../Media/Air/index.html"><code>Air</code></a> &hellip;</td><td>Medium models for air</td></tr>
+<tr><td><a href="../Media/Common/index.html"><code>Common</code></a> &hellip;</td><td>Data structures and fundamental functions for fluid properties</td></tr>
+<tr><td><a href="../Media/CompressibleLiquids/index.html"><code>CompressibleLiquids</code></a> &hellip;</td><td>Compressible liquid models</td></tr>
+<tr><td><a href="../Media/Examples/index.html"><code>Examples</code></a> &hellip;</td><td>Demonstrate usage of property models (currently: simple tests)</td></tr>
+<tr><td><a href="../Media/IdealGases/index.html"><code>IdealGases</code></a> &hellip;</td><td>Data and models of ideal gases (single, fixed and dynamic mixtures) from NASA source</td></tr>
+<tr><td><a href="../Media/Incompressible/index.html"><code>Incompressible</code></a> &hellip;</td><td>Medium model for T-dependent properties, defined by tables or polynomials</td></tr>
+<tr><td><a href="../Media/Interfaces/index.html"><code>Interfaces</code></a> &hellip;</td><td>Interfaces for media models</td></tr>
+<tr><td><a href="../Media/R134a/index.html"><code>R134a</code></a> &hellip;</td><td>R134a: Medium model for R134a</td></tr>
+<tr><td><a href="../Media/UsersGuide/index.html"><code>UsersGuide</code></a> &hellip;</td><td>User's Guide of Media Library</td></tr>
+<tr><td><a href="../Media/Water/index.html"><code>Water</code></a> &hellip;</td><td>Medium models for water</td></tr>
+</table>
+</body></html>

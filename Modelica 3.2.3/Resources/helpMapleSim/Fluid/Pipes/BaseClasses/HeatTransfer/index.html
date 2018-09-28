@@ -1,0 +1,168 @@
+<html><head><title>Modelica.Fluid.Pipes.BaseClasses.HeatTransfer</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="HeatTransfer"><h1><embed class="icon" src="../../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Pipes</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;HeatTransfer<br><span class="subtitle">Heat transfer for flow models</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Heat transfer correlations for pipe models
+</p>
+<p>Extends from <code><a href="../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#ConstantFlowHeatTransfer"><code>ConstantFlowHeatTransfer</code></a></td><td>ConstantHeatTransfer: Constant heat transfer coefficient</td></tr>
+<tr><td><a href="#IdealFlowHeatTransfer"><code>IdealFlowHeatTransfer</code></a></td><td>IdealHeatTransfer: Ideal heat transfer without thermal resistance</td></tr>
+<tr><td><a href="#LocalPipeFlowHeatTransfer"><code>LocalPipeFlowHeatTransfer</code></a></td><td>LocalPipeFlowHeatTransfer: Laminar and turbulent forced convection in pipes, local coefficients</td></tr>
+<tr><td><a href="#PartialFlowHeatTransfer"><code>PartialFlowHeatTransfer</code></a></td><td>base class for any pipe heat transfer correlation</td></tr>
+<tr><td><a href="#PartialPipeFlowHeatTransfer"><code>PartialPipeFlowHeatTransfer</code></a></td><td>Base class for pipe heat transfer correlation in terms of Nusselt number heat transfer in a circular pipe for laminar and turbulent one-phase flow</td></tr>
+</table>
+<hr><a name="PartialFlowHeatTransfer"><h2><embed class="icon" src="../../../../images/icon1343.svg" width="203" height="203" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Pipes</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">HeatTransfer</a>.&#8203;PartialFlowHeatTransfer<br><span class="subtitle">base class for any pipe heat transfer correlation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Base class for heat transfer models of flow devices.
+<p>
+The geometry is specified in the interface with the <code>surfaceAreas[n]</code>, the <code>roughnesses[n]</code>
+and the lengths[n] along the flow path.
+Moreover the fluid flow is characterized for different types of devices by the characteristic <code>dimensions[n+1]</code>
+and the average velocities <code>vs[n+1]</code> of fluid flow.
+See <a href="../../../../Fluid/Pipes/BaseClasses/CharacteristicNumbers/index.html#ReynoldsNumber">Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber</a>
+for example definitions.
+</p>
+<p>Extends from <code><a href="../../../../Fluid/Interfaces/index.html#PartialHeatTransfer">Modelica.&#8203;Fluid.&#8203;Interfaces.&#8203;PartialHeatTransfer</a></code> (Common interface for heat transfer models).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>1</code></td><td>Number of heat transfer segments</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_k</code></td><td><code>false</code></td><td>= true to use k value for thermal isolation</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#CoefficientOfHeatTransfer">CoefficientOfHeatTransfer</a></code></td><td><code>k</code></td><td><code>0</code></td><td>Heat transfer coefficient to ambient</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ambient</code></td><td><code>system.&#8203;T_ambient</code></td><td>Ambient temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>nParallel</code></td><td>&nbsp;</td><td>number of identical parallel flow devices</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Interfaces/index.html#HeatPorts_a">HeatPorts_a</a></code></td><td><code>heatPorts[n]</code></td><td>Heat port to component boundary</td></tr>
+</table>
+<hr><a name="IdealFlowHeatTransfer"><h2><embed class="icon" src="../../../../images/icon1344.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Pipes</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">HeatTransfer</a>.&#8203;IdealFlowHeatTransfer<br><span class="subtitle">IdealHeatTransfer: Ideal heat transfer without thermal resistance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Ideal heat transfer without thermal resistance.
+<p>Extends from <code><a href="../../../../Fluid/Pipes/BaseClasses/HeatTransfer/index.html#PartialFlowHeatTransfer">Modelica.&#8203;Fluid.&#8203;Pipes.&#8203;BaseClasses.&#8203;HeatTransfer.&#8203;PartialFlowHeatTransfer</a></code> (base class for any pipe heat transfer correlation).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>1</code></td><td>Number of heat transfer segments</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_k</code></td><td><code>false</code></td><td>= true to use k value for thermal isolation</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#CoefficientOfHeatTransfer">CoefficientOfHeatTransfer</a></code></td><td><code>k</code></td><td><code>0</code></td><td>Heat transfer coefficient to ambient</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ambient</code></td><td><code>system.&#8203;T_ambient</code></td><td>Ambient temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>nParallel</code></td><td>&nbsp;</td><td>number of identical parallel flow devices</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Interfaces/index.html#HeatPorts_a">HeatPorts_a</a></code></td><td><code>heatPorts[n]</code></td><td>Heat port to component boundary</td></tr>
+</table>
+<hr><a name="ConstantFlowHeatTransfer"><h2><embed class="icon" src="../../../../images/icon1345.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Pipes</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">HeatTransfer</a>.&#8203;ConstantFlowHeatTransfer<br><span class="subtitle">ConstantHeatTransfer: Constant heat transfer coefficient</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Simple heat transfer correlation with constant heat transfer coefficient, used as default component in distributed pipe models.
+</p>
+<p>Extends from <code><a href="../../../../Fluid/Pipes/BaseClasses/HeatTransfer/index.html#PartialFlowHeatTransfer">Modelica.&#8203;Fluid.&#8203;Pipes.&#8203;BaseClasses.&#8203;HeatTransfer.&#8203;PartialFlowHeatTransfer</a></code> (base class for any pipe heat transfer correlation).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>1</code></td><td>Number of heat transfer segments</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_k</code></td><td><code>false</code></td><td>= true to use k value for thermal isolation</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#CoefficientOfHeatTransfer">CoefficientOfHeatTransfer</a></code></td><td><code>k</code></td><td><code>0</code></td><td>Heat transfer coefficient to ambient</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ambient</code></td><td><code>system.&#8203;T_ambient</code></td><td>Ambient temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>nParallel</code></td><td>&nbsp;</td><td>number of identical parallel flow devices</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#CoefficientOfHeatTransfer">CoefficientOfHeatTransfer</a></code></td><td><code>alpha0</code></td><td>&nbsp;</td><td>heat transfer coefficient</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Interfaces/index.html#HeatPorts_a">HeatPorts_a</a></code></td><td><code>heatPorts[n]</code></td><td>Heat port to component boundary</td></tr>
+</table>
+<hr><a name="PartialPipeFlowHeatTransfer"><h2><embed class="icon" src="../../../../images/icon1346.svg" width="203" height="203" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Pipes</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">HeatTransfer</a>.&#8203;PartialPipeFlowHeatTransfer<br><span class="subtitle">Base class for pipe heat transfer correlation in terms of Nusselt number heat transfer in a circular pipe for laminar and turbulent one-phase flow</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Base class for heat transfer models that are expressed in terms of the Nusselt number and which can be used in distributed pipe models.
+</p>
+<p>Extends from <code><a href="../../../../Fluid/Pipes/BaseClasses/HeatTransfer/index.html#PartialFlowHeatTransfer">Modelica.&#8203;Fluid.&#8203;Pipes.&#8203;BaseClasses.&#8203;HeatTransfer.&#8203;PartialFlowHeatTransfer</a></code> (base class for any pipe heat transfer correlation).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>1</code></td><td>Number of heat transfer segments</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_k</code></td><td><code>false</code></td><td>= true to use k value for thermal isolation</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#CoefficientOfHeatTransfer">CoefficientOfHeatTransfer</a></code></td><td><code>k</code></td><td><code>0</code></td><td>Heat transfer coefficient to ambient</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ambient</code></td><td><code>system.&#8203;T_ambient</code></td><td>Ambient temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>nParallel</code></td><td>&nbsp;</td><td>number of identical parallel flow devices</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#CoefficientOfHeatTransfer">CoefficientOfHeatTransfer</a></code></td><td><code>alpha0</code></td><td><code>100</code></td><td>guess value for heat transfer coefficients</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Interfaces/index.html#HeatPorts_a">HeatPorts_a</a></code></td><td><code>heatPorts[n]</code></td><td>Heat port to component boundary</td></tr>
+</table>
+<hr><a name="LocalPipeFlowHeatTransfer"><h2><embed class="icon" src="../../../../images/icon1347.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Pipes</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">HeatTransfer</a>.&#8203;LocalPipeFlowHeatTransfer<br><span class="subtitle">LocalPipeFlowHeatTransfer: Laminar and turbulent forced convection in pipes, local coefficients</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Heat transfer model for laminar and turbulent flow in pipes. Range of validity:
+</p>
+<ul>
+<li>fully developed pipe flow</li>
+<li>forced convection</li>
+<li>one phase Newtonian fluid</li>
+<li>(spatial) constant wall temperature in the laminar region</li>
+<li>0 &le; Re &le; 1e6, 0.6 &le; Pr &le; 100, d/L &le; 1</li>
+<li>The correlation holds for non-circular pipes only in the turbulent region. Use diameter=4*crossArea/perimeter as characteristic length.</li>
+</ul>
+<p>
+The correlation takes into account the spatial position along the pipe flow, which changes discontinuously at flow reversal. However, the heat transfer coefficient itself is continuous around zero flow rate, but not its derivative.
+</p>
+<h4>References</h4>
+<dl><dt>Verein Deutscher Ingenieure (1997):</dt>
+    <dd><strong>VDI W&auml;rmeatlas</strong>.
+         Springer Verlag, Ed. 8, 1997.</dd>
+</dl>
+<p>Extends from <code><a href="../../../../Fluid/Pipes/BaseClasses/HeatTransfer/index.html#PartialPipeFlowHeatTransfer">Modelica.&#8203;Fluid.&#8203;Pipes.&#8203;BaseClasses.&#8203;HeatTransfer.&#8203;PartialPipeFlowHeatTransfer</a></code> (Base class for pipe heat transfer correlation in terms of Nusselt number heat transfer in a circular pipe for laminar and turbulent one-phase flow).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>1</code></td><td>Number of heat transfer segments</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_k</code></td><td><code>false</code></td><td>= true to use k value for thermal isolation</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#CoefficientOfHeatTransfer">CoefficientOfHeatTransfer</a></code></td><td><code>k</code></td><td><code>0</code></td><td>Heat transfer coefficient to ambient</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ambient</code></td><td><code>system.&#8203;T_ambient</code></td><td>Ambient temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>nParallel</code></td><td>&nbsp;</td><td>number of identical parallel flow devices</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#CoefficientOfHeatTransfer">CoefficientOfHeatTransfer</a></code></td><td><code>alpha0</code></td><td><code>100</code></td><td>guess value for heat transfer coefficients</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Interfaces/index.html#HeatPorts_a">HeatPorts_a</a></code></td><td><code>heatPorts[n]</code></td><td>Heat port to component boundary</td></tr>
+</table>
+</body></html>

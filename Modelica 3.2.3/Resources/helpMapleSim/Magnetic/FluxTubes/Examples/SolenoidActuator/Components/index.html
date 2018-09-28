@@ -1,0 +1,124 @@
+<html><head><title>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Components"><h1><embed class="icon" src="../../../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">FluxTubes</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">SolenoidActuator</a>.&#8203;Components<br><span class="subtitle">Components to be used in examples</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>Standard package icon.</p>
+<p>Extends from <code><a href="../../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#AdvancedSolenoid"><code>AdvancedSolenoid</code></a></td><td>Advanced network model of a lifting magnet with planar armature end face, split magnetomotive force</td></tr>
+<tr><td><a href="#SimpleSolenoid"><code>SimpleSolenoid</code></a></td><td>Simple network model of a lifting magnet with planar armature end face</td></tr>
+</table>
+<hr><a name="SimpleSolenoid"><h2><embed class="icon" src="../../../../../images/icon0925.svg" width="223" height="223" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">FluxTubes</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">SolenoidActuator</a>.&#8203;<a href="index.html">Components</a>.&#8203;SimpleSolenoid<br><span class="subtitle">Simple network model of a lifting magnet with planar armature end face</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Please refer to the <strong>Parameters</strong> section for a schematic drawing of this axis-symmetric lifting magnet.
+In the half-section below, the flux tube elements of the actuator's magnetic circuit are superimposed on a field plot obtained with FEA. The magnetomotive force imposed by the coil is modelled as one lumped element. As a result, the radial leakage flux between armature and yoke that occurs especially at large working air gaps can not be considered properly. This leads to a a higher total reluctance and lower inductance respectively compared to FEA for large working air gaps (i.e., armature close to x_max). Please have a look at the comments associated with the individual model components for a short explanation of their purpose in the model.
+</p>
+
+<p>
+<img src="../../../../../../Images/Magnetic/FluxTubes/Examples/SolenoidActuator/SimpleSolenoidModel_fluxTubePartitioning.png" alt="Field lines and assigned flux tubes of the simple solenoid model">
+</p>
+
+<p>
+The coupling coefficient c_coupl in the coil is set to 1 in this example, since leakage flux is accounted for explicitly with the flux tube element G_mLeakWork. Although this leakage model is rather simple, it describes the reluctance force due to the leakage field sufficiently, especially at large air gaps. With decreasing air gap length, the influence of the leakage flux on the actuator's net reluctance force decreases due to the increasing influence of the main working air gap G_mAirWork.
+</p>
+
+<p>
+During model-based actuator design, the radii and lengths of the flux tube elements (and hence their cross-sectional areas and flux densities) should be assigned with parametric equations so that common design rules are met (e.g., allowed flux density in ferromagnetic parts, allowed current density and required cross-sectional area of winding). For simplicity, those equations are omitted in the example. Instead, the found values are assigned to the model elements directly.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>10</code></td><td>Armature coil resistance</td></tr>
+<tr><td><code>Real</code></td><td><code>N</code></td><td><code>957</code></td><td>Number of turns</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Radius">Radius</a></code></td><td><code>r_yokeOut</code></td><td><code>0.015</code></td><td>Outer yoke radius</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Radius">Radius</a></code></td><td><code>r_yokeIn</code></td><td><code>0.0135</code></td><td>Inner yoke radius</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>l_yoke</code></td><td><code>0.035</code></td><td>Axial yoke length</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>t_yokeBot</code></td><td><code>0.0035</code></td><td>Axial thickness of yoke bottom</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>l_pole</code></td><td><code>0.0065</code></td><td>Axial length of pole</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>t_poleBot</code></td><td><code>0.0035</code></td><td>Axial thickness of bottom at pole side</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>t_airPar</code></td><td><code>6.5e-4</code></td><td>Radial thickness of parasitic air gap due to slide guiding</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/FluxTubes/Material/SoftMagnetic/index.html#BaseData">BaseData</a></code></td><td><code>material</code></td><td><code>Material.SoftMagnetic.Steel.Steel_9SMnPb28()</code></td><td>Ferromagnetic material characteristics</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Radius">Radius</a></code></td><td><code>r_arm</code></td><td><code>0.005</code></td><td>Armature radius = pole radius</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>l_arm</code></td><td><code>0.026</code></td><td>Armature length</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#TranslationalSpringConstant">TranslationalSpringConstant</a></code></td><td><code>c</code></td><td><code>1e+11</code></td><td>Spring stiffness between impact partners</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#TranslationalDampingConstant">TranslationalDampingConstant</a></code></td><td><code>d</code></td><td><code>400</code></td><td>Damping coefficient between impact partners</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>x_min</code></td><td><code>2.5e-4</code></td><td>Stopper at minimum armature position</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>x_max</code></td><td><code>0.005</code></td><td>Stopper at maximum armature position</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Electrical connector</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Electrical connector</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/Translational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange</code></td><td>Flange of component</td></tr>
+</table>
+<hr><a name="AdvancedSolenoid"><h2><embed class="icon" src="../../../../../images/icon0926.svg" width="223" height="223" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">FluxTubes</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">SolenoidActuator</a>.&#8203;<a href="index.html">Components</a>.&#8203;AdvancedSolenoid<br><span class="subtitle">Advanced network model of a lifting magnet with planar armature end face, split magnetomotive force</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Please have a look at <a href="../../../../../Magnetic/FluxTubes/Examples/SolenoidActuator/Components/index.html#SimpleSolenoid">SimpleSolenoid</a> for a general description of this actuator. Unlike in that simple magnetic network model, the coil is split into two lumped elements here. This enables for more realistic modelling of the radial leakage flux between armature and yoke (leakage permeance G_mLeakRad). Especially for large air gaps, the influence of this leakage flux on the actuator's inductance and its electromagnetic force is rather strong. Please have a look at <a href="../../../../../Magnetic/FluxTubes/Examples/SolenoidActuator/index.html#ComparisonQuasiStationary">ComparisonQuasiStationary</a> for a comparison of both models with FEA-based results included as reference.
+</p>
+
+<p>
+<img src="../../../../../../Images/Magnetic/FluxTubes/Examples/SolenoidActuator/AdvancedSolenoidModel_fluxTubePartitioning.png" alt="Assigned flux tubes and field plot of the solenoid actuator">
+</p>
+
+<p>
+The parasitic capacitances c_par1 and c_par2 across both partial coils assure that the voltages across these coils are well-defined during simulation.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>N</code></td><td><code>957</code></td><td>Number of turns</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>5</code></td><td>Coil resistance</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R_par</code></td><td><code>100000</code></td><td>Resistance parallel to the coil, in series to C_par</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>C_par</code></td><td><code>1e-9</code></td><td>Capacitance parallel to the coil, in series to R_par</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Radius">Radius</a></code></td><td><code>r_yokeOut</code></td><td><code>0.015</code></td><td>Outer yoke radius</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Radius">Radius</a></code></td><td><code>r_yokeIn</code></td><td><code>0.0135</code></td><td>Inner yoke radius</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>l_yoke</code></td><td><code>0.035</code></td><td>Axial yoke length</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>t_yokeBot</code></td><td><code>0.0035</code></td><td>Axial thickness of yoke bottom</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>l_pole</code></td><td><code>0.0065</code></td><td>Axial length of pole</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>t_poleBot</code></td><td><code>0.0035</code></td><td>Axial thickness of bottom at pole side</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>t_airPar</code></td><td><code>6.5e-4</code></td><td>Radial thickness of parasitic air gap due to slide guiding</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/FluxTubes/Material/SoftMagnetic/index.html#BaseData">BaseData</a></code></td><td><code>material</code></td><td><code>Material.SoftMagnetic.Steel.Steel_9SMnPb28()</code></td><td>Ferromagnetic material characteristics</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Radius">Radius</a></code></td><td><code>r_arm</code></td><td><code>0.005</code></td><td>Armature radius = pole radius</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>l_arm</code></td><td><code>0.026</code></td><td>Armature length</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#TranslationalSpringConstant">TranslationalSpringConstant</a></code></td><td><code>c</code></td><td><code>1e+11</code></td><td>Spring stiffness between impact partners</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#TranslationalDampingConstant">TranslationalDampingConstant</a></code></td><td><code>d</code></td><td><code>400</code></td><td>Damping coefficient between impact partners</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>x_min</code></td><td><code>2.5e-4</code></td><td>Stopper at minimum armature position</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>x_max</code></td><td><code>0.005</code></td><td>Stopper at maximum armature position</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Electrical connector</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Electrical connector</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/Translational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange</code></td><td>Flange of component</td></tr>
+</table>
+</body></html>

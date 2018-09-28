@@ -1,0 +1,350 @@
+<html><head><title>Modelica.Electrical.Machines.Utilities.ParameterRecords</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="ParameterRecords"><h1><embed class="icon" src="../../../../images/icon0661.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;ParameterRecords<br><span class="subtitle">Parameter records</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates a package that contains records</p>
+<p>Extends from <code><a href="../../../../Icons/RecordsPackage/index.html">Modelica.&#8203;Icons.&#8203;RecordsPackage</a></code> (Icon for package containing records).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#AIM_SlipRingData"><code>AIM_SlipRingData</code></a></td><td>Common parameters for asynchronous induction machines with slip ring</td></tr>
+<tr><td><a href="#AIM_SquirrelCageData"><code>AIM_SquirrelCageData</code></a></td><td>Common parameters for asynchronous induction machines with squirrel cage</td></tr>
+<tr><td><a href="#DcElectricalExcitedData"><code>DcElectricalExcitedData</code></a></td><td>Common parameters for DC machines</td></tr>
+<tr><td><a href="#DcPermanentMagnetData"><code>DcPermanentMagnetData</code></a></td><td>Common parameters for DC machines</td></tr>
+<tr><td><a href="#DcSeriesExcitedData"><code>DcSeriesExcitedData</code></a></td><td>Common parameters for DC machines</td></tr>
+<tr><td><a href="#InductionMachineData"><code>InductionMachineData</code></a></td><td>Common parameters for induction machines</td></tr>
+<tr><td><a href="#SM_ElectricalExcitedData"><code>SM_ElectricalExcitedData</code></a></td><td>Common parameters for synchronous induction machines with electrical excitation</td></tr>
+<tr><td><a href="#SM_PermanentMagnetData"><code>SM_PermanentMagnetData</code></a></td><td>Common parameters for synchronous induction machines with permanent magnet</td></tr>
+<tr><td><a href="#SM_ReluctanceRotorData"><code>SM_ReluctanceRotorData</code></a></td><td>Common parameters for synchronous induction machines with reluctance rotor</td></tr>
+<tr><td><a href="#TransformerData"><code>TransformerData</code></a></td><td>Common parameters for transformers</td></tr>
+</table>
+<hr><a name="InductionMachineData"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ParameterRecords</a>.&#8203;InductionMachineData<br><span class="subtitle">Common parameters for induction machines</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Basic parameters of induction machines are predefined with default values.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Integer</code></td><td><code>m</code></td><td>Number of phases</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Jr</code></td><td>Rotor's moment of inertia</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Js</code></td><td>Stator's moment of inertia</td></tr>
+<tr><td>parameter <code>Integer</code></td><td><code>p</code></td><td>Number of pole pairs (Integer)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fsNominal</code></td><td>Nominal frequency</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rs</code></td><td>Stator resistance per phase at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TsRef</code></td><td>Reference temperature of stator resistance</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20s</code></td><td>Temperature coefficient of stator resistance at 20 degC</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>effectiveStatorTurns</code></td><td>Effective number of stator turns</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lszero</code></td><td>Stator zero sequence inductance</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lssigma</code></td><td>Stator stray inductance per phase</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#FrictionParameters">FrictionParameters</a></code></td><td><code>frictionParameters</code></td><td>Friction loss parameter record</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#CoreParameters">CoreParameters</a></code></td><td><code>statorCoreParameters</code></td><td>Stator core loss parameter record; all parameters refer to stator side</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#StrayLoadParameters">StrayLoadParameters</a></code></td><td><code>strayLoadParameters</code></td><td>Stray load losses</td></tr>
+</table>
+<hr><a name="AIM_SquirrelCageData"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ParameterRecords</a>.&#8203;AIM_SquirrelCageData<br><span class="subtitle">Common parameters for asynchronous induction machines with squirrel cage</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Basic parameters of asynchronous induction machines with squirrel cage are predefined with default values.</p>
+<p>Extends from <code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#InductionMachineData">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Utilities.&#8203;ParameterRecords.&#8203;InductionMachineData</a></code> (Common parameters for induction machines).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Integer</code></td><td><code>m</code></td><td>Number of phases</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Jr</code></td><td>Rotor's moment of inertia</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Js</code></td><td>Stator's moment of inertia</td></tr>
+<tr><td>parameter <code>Integer</code></td><td><code>p</code></td><td>Number of pole pairs (Integer)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fsNominal</code></td><td>Nominal frequency</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rs</code></td><td>Stator resistance per phase at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TsRef</code></td><td>Reference temperature of stator resistance</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20s</code></td><td>Temperature coefficient of stator resistance at 20 degC</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>effectiveStatorTurns</code></td><td>Effective number of stator turns</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lszero</code></td><td>Stator zero sequence inductance</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lssigma</code></td><td>Stator stray inductance per phase</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#FrictionParameters">FrictionParameters</a></code></td><td><code>frictionParameters</code></td><td>Friction loss parameter record</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#CoreParameters">CoreParameters</a></code></td><td><code>statorCoreParameters</code></td><td>Stator core loss parameter record; all parameters refer to stator side</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#StrayLoadParameters">StrayLoadParameters</a></code></td><td><code>strayLoadParameters</code></td><td>Stray load losses</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lm</code></td><td>Stator main field inductance per phase</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lrsigma</code></td><td>Rotor stray inductance per phase (equivalent three phase winding)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rr</code></td><td>Rotor resistance per phase (equivalent three phase winding) at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TrRef</code></td><td>Reference temperature of rotor resistance</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20r</code></td><td>Temperature coefficient of rotor resistance at 20 degC</td></tr>
+</table>
+<hr><a name="AIM_SlipRingData"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ParameterRecords</a>.&#8203;AIM_SlipRingData<br><span class="subtitle">Common parameters for asynchronous induction machines with slip ring</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Basic parameters of asynchronous induction machines with slip ring are predefined with default values.</p>
+<p>Extends from <code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#InductionMachineData">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Utilities.&#8203;ParameterRecords.&#8203;InductionMachineData</a></code> (Common parameters for induction machines).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Integer</code></td><td><code>m</code></td><td>Number of phases</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Jr</code></td><td>Rotor's moment of inertia</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Js</code></td><td>Stator's moment of inertia</td></tr>
+<tr><td>parameter <code>Integer</code></td><td><code>p</code></td><td>Number of pole pairs (Integer)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fsNominal</code></td><td>Nominal frequency</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rs</code></td><td>Stator resistance per phase at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TsRef</code></td><td>Reference temperature of stator resistance</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20s</code></td><td>Temperature coefficient of stator resistance at 20 degC</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>effectiveStatorTurns</code></td><td>Effective number of stator turns</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lszero</code></td><td>Stator zero sequence inductance</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lssigma</code></td><td>Stator stray inductance per phase</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#FrictionParameters">FrictionParameters</a></code></td><td><code>frictionParameters</code></td><td>Friction loss parameter record</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#CoreParameters">CoreParameters</a></code></td><td><code>statorCoreParameters</code></td><td>Stator core loss parameter record; all parameters refer to stator side</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#StrayLoadParameters">StrayLoadParameters</a></code></td><td><code>strayLoadParameters</code></td><td>Stray load losses</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lm</code></td><td>Stator main field inductance per phase</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lrsigma</code></td><td>Rotor stray inductance per phase w.r.t. rotor side</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lrzero</code></td><td>Rotor zero sequence inductance w.r.t. rotor side</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rr</code></td><td>Rotor resistance per phase at TRef w.r.t. rotor side</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TrRef</code></td><td>Reference temperature of rotor resistance</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20r</code></td><td>Temperature coefficient of rotor resistance at 20 degC</td></tr>
+<tr><td>parameter <code>Boolean</code></td><td><code>useTurnsRatio</code></td><td>Use turnsRatio or calculate from locked-rotor voltage?</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>turnsRatio</code></td><td>Effective number of stator turns / effective number of rotor turns</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VsNominal</code></td><td>Nominal stator voltage per phase</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VrLockedRotor</code></td><td>Locked-rotor voltage per phase</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#CoreParameters">CoreParameters</a></code></td><td><code>rotorCoreParameters</code></td><td>Rotor core loss parameter record; all parameters refer to rotor side</td></tr>
+</table>
+<hr><a name="SM_PermanentMagnetData"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ParameterRecords</a>.&#8203;SM_PermanentMagnetData<br><span class="subtitle">Common parameters for synchronous induction machines with permanent magnet</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Basic parameters of synchronous induction machines with permanent magnet are predefined with default values.</p>
+<p>Extends from <code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#SM_ReluctanceRotorData">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Utilities.&#8203;ParameterRecords.&#8203;SM_ReluctanceRotorData</a></code> (Common parameters for synchronous induction machines with reluctance rotor).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Integer</code></td><td><code>m</code></td><td>Number of phases</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Jr</code></td><td>Rotor's moment of inertia</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Js</code></td><td>Stator's moment of inertia</td></tr>
+<tr><td>parameter <code>Integer</code></td><td><code>p</code></td><td>Number of pole pairs (Integer)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fsNominal</code></td><td>Nominal frequency</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rs</code></td><td>Stator resistance per phase at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TsRef</code></td><td>Reference temperature of stator resistance</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20s</code></td><td>Temperature coefficient of stator resistance at 20 degC</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>effectiveStatorTurns</code></td><td>Effective number of stator turns</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lszero</code></td><td>Stator zero sequence inductance</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lssigma</code></td><td>Stator stray inductance per phase</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#FrictionParameters">FrictionParameters</a></code></td><td><code>frictionParameters</code></td><td>Friction loss parameter record</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#CoreParameters">CoreParameters</a></code></td><td><code>statorCoreParameters</code></td><td>Stator core loss parameter record; all parameters refer to stator side</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#StrayLoadParameters">StrayLoadParameters</a></code></td><td><code>strayLoadParameters</code></td><td>Stray load losses</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lmd</code></td><td>Stator main field inductance per phase in d-axis</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lmq</code></td><td>Stator main field inductance per phase in q-axis</td></tr>
+<tr><td>parameter <code>Boolean</code></td><td><code>useDamperCage</code></td><td>Enable / disable damper cage</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lrsigmad</code></td><td>Damper stray inductance in d-axis</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lrsigmaq</code></td><td>Damper stray inductance in q-axis</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rrd</code></td><td>Damper resistance in d-axis at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rrq</code></td><td>Damper resistance in q-axis at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TrRef</code></td><td>Reference temperature of damper resistances in d- and q-axis</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20r</code></td><td>Temperature coefficient of damper resistances in d- and q-axis</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VsOpenCircuit</code></td><td>Open circuit RMS voltage per phase @ fsNominal</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#PermanentMagnetLossParameters">PermanentMagnetLossParameters</a></code></td><td><code>permanentMagnetLossParameters</code></td><td>Permanent magnet loss parameter record</td></tr>
+</table>
+<hr><a name="SM_ElectricalExcitedData"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ParameterRecords</a>.&#8203;SM_ElectricalExcitedData<br><span class="subtitle">Common parameters for synchronous induction machines with electrical excitation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Basic parameters of synchronous induction machines with electrical excitation are predefined with default values.</p>
+<p>Extends from <code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#SM_ReluctanceRotorData">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Utilities.&#8203;ParameterRecords.&#8203;SM_ReluctanceRotorData</a></code> (Common parameters for synchronous induction machines with reluctance rotor).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Integer</code></td><td><code>m</code></td><td>Number of phases</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Jr</code></td><td>Rotor's moment of inertia</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Js</code></td><td>Stator's moment of inertia</td></tr>
+<tr><td>parameter <code>Integer</code></td><td><code>p</code></td><td>Number of pole pairs (Integer)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fsNominal</code></td><td>Nominal frequency</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rs</code></td><td>Stator resistance per phase at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TsRef</code></td><td>Reference temperature of stator resistance</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20s</code></td><td>Temperature coefficient of stator resistance at 20 degC</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>effectiveStatorTurns</code></td><td>Effective number of stator turns</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lszero</code></td><td>Stator zero sequence inductance</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lssigma</code></td><td>Stator stray inductance per phase</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#FrictionParameters">FrictionParameters</a></code></td><td><code>frictionParameters</code></td><td>Friction loss parameter record</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#CoreParameters">CoreParameters</a></code></td><td><code>statorCoreParameters</code></td><td>Stator core loss parameter record; all parameters refer to stator side</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#StrayLoadParameters">StrayLoadParameters</a></code></td><td><code>strayLoadParameters</code></td><td>Stray load losses</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lmd</code></td><td>Stator main field inductance per phase in d-axis</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lmq</code></td><td>Stator main field inductance per phase in q-axis</td></tr>
+<tr><td>parameter <code>Boolean</code></td><td><code>useDamperCage</code></td><td>Enable / disable damper cage</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lrsigmad</code></td><td>Damper stray inductance in d-axis</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lrsigmaq</code></td><td>Damper stray inductance in q-axis</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rrd</code></td><td>Damper resistance in d-axis at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rrq</code></td><td>Damper resistance in q-axis at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TrRef</code></td><td>Reference temperature of damper resistances in d- and q-axis</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20r</code></td><td>Temperature coefficient of damper resistances in d- and q-axis</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VsNominal</code></td><td>Nominal stator RMS voltage per phase</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>IeOpenCircuit</code></td><td>Open circuit excitation current @ nominal voltage and frequency</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Re</code></td><td>Excitation resistance at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TeRef</code></td><td>Reference temperature of excitation resistance</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20e</code></td><td>Temperature coefficient of excitation resistance</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>sigmae</code></td><td>Stray fraction of total excitation inductance</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#BrushParameters">BrushParameters</a></code></td><td><code>brushParameters</code></td><td>Brush loss parameter record</td></tr>
+</table>
+<hr><a name="SM_ReluctanceRotorData"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ParameterRecords</a>.&#8203;SM_ReluctanceRotorData<br><span class="subtitle">Common parameters for synchronous induction machines with reluctance rotor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Basic parameters of synchronous induction machines with reluctance rotor are predefined with default values.</p>
+<p>Extends from <code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#InductionMachineData">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Utilities.&#8203;ParameterRecords.&#8203;InductionMachineData</a></code> (Common parameters for induction machines).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Integer</code></td><td><code>m</code></td><td>Number of phases</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Jr</code></td><td>Rotor's moment of inertia</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Js</code></td><td>Stator's moment of inertia</td></tr>
+<tr><td>parameter <code>Integer</code></td><td><code>p</code></td><td>Number of pole pairs (Integer)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fsNominal</code></td><td>Nominal frequency</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rs</code></td><td>Stator resistance per phase at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TsRef</code></td><td>Reference temperature of stator resistance</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20s</code></td><td>Temperature coefficient of stator resistance at 20 degC</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>effectiveStatorTurns</code></td><td>Effective number of stator turns</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lszero</code></td><td>Stator zero sequence inductance</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lssigma</code></td><td>Stator stray inductance per phase</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#FrictionParameters">FrictionParameters</a></code></td><td><code>frictionParameters</code></td><td>Friction loss parameter record</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#CoreParameters">CoreParameters</a></code></td><td><code>statorCoreParameters</code></td><td>Stator core loss parameter record; all parameters refer to stator side</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#StrayLoadParameters">StrayLoadParameters</a></code></td><td><code>strayLoadParameters</code></td><td>Stray load losses</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lmd</code></td><td>Stator main field inductance per phase in d-axis</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lmq</code></td><td>Stator main field inductance per phase in q-axis</td></tr>
+<tr><td>parameter <code>Boolean</code></td><td><code>useDamperCage</code></td><td>Enable / disable damper cage</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lrsigmad</code></td><td>Damper stray inductance in d-axis</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lrsigmaq</code></td><td>Damper stray inductance in q-axis</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rrd</code></td><td>Damper resistance in d-axis at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rrq</code></td><td>Damper resistance in q-axis at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TrRef</code></td><td>Reference temperature of damper resistances in d- and q-axis</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20r</code></td><td>Temperature coefficient of damper resistances in d- and q-axis</td></tr>
+</table>
+<hr><a name="DcPermanentMagnetData"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ParameterRecords</a>.&#8203;DcPermanentMagnetData<br><span class="subtitle">Common parameters for DC machines</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Basic parameters of DC machines are predefined with default values.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Jr</code></td><td>Rotor's moment of inertia</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Js</code></td><td>Stator's moment of inertia</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VaNominal</code></td><td>Nominal armature voltage</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>IaNominal</code></td><td>Nominal armature current (&gt;0..Motor, &lt;0..Generator)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wNominal</code></td><td>Nominal speed</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TaNominal</code></td><td>Nominal armature temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ra</code></td><td>Armature resistance at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TaRef</code></td><td>Reference temperature of armature resistance</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20a</code></td><td>Temperature coefficient of armature resistance</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>La</code></td><td>Armature inductance</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#FrictionParameters">FrictionParameters</a></code></td><td><code>frictionParameters</code></td><td>Friction loss parameter record</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>ViNominal</code></td><td>&nbsp</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#CoreParameters">CoreParameters</a></code></td><td><code>coreParameters</code></td><td>Armature core loss parameter record</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#StrayLoadParameters">StrayLoadParameters</a></code></td><td><code>strayLoadParameters</code></td><td>Stray load losses</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#BrushParameters">BrushParameters</a></code></td><td><code>brushParameters</code></td><td>Brush loss parameter record</td></tr>
+</table>
+<hr><a name="DcElectricalExcitedData"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ParameterRecords</a>.&#8203;DcElectricalExcitedData<br><span class="subtitle">Common parameters for DC machines</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Basic parameters of DC machines are predefined with default values.</p>
+<p>Extends from <code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#DcPermanentMagnetData">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Utilities.&#8203;ParameterRecords.&#8203;DcPermanentMagnetData</a></code> (Common parameters for DC machines).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Jr</code></td><td>Rotor's moment of inertia</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Js</code></td><td>Stator's moment of inertia</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VaNominal</code></td><td>Nominal armature voltage</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>IaNominal</code></td><td>Nominal armature current (&gt;0..Motor, &lt;0..Generator)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wNominal</code></td><td>Nominal speed</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TaNominal</code></td><td>Nominal armature temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ra</code></td><td>Armature resistance at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TaRef</code></td><td>Reference temperature of armature resistance</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20a</code></td><td>Temperature coefficient of armature resistance</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>La</code></td><td>Armature inductance</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#FrictionParameters">FrictionParameters</a></code></td><td><code>frictionParameters</code></td><td>Friction loss parameter record</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>ViNominal</code></td><td>&nbsp</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#CoreParameters">CoreParameters</a></code></td><td><code>coreParameters</code></td><td>Armature core loss parameter record</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#StrayLoadParameters">StrayLoadParameters</a></code></td><td><code>strayLoadParameters</code></td><td>Stray load losses</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#BrushParameters">BrushParameters</a></code></td><td><code>brushParameters</code></td><td>Brush loss parameter record</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>IeNominal</code></td><td>Nominal excitation current</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Re</code></td><td>Field excitation resistance at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TeRef</code></td><td>Reference temperature of excitation resistance</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20e</code></td><td>Temperature coefficient of excitation resistance</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Le</code></td><td>Total field excitation inductance</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>sigmae</code></td><td>Stray fraction of total excitation inductance</td></tr>
+</table>
+<hr><a name="DcSeriesExcitedData"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ParameterRecords</a>.&#8203;DcSeriesExcitedData<br><span class="subtitle">Common parameters for DC machines</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Basic parameters of DC machines are predefined with default values.</p>
+<p>Extends from <code><a href="../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#DcPermanentMagnetData">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Utilities.&#8203;ParameterRecords.&#8203;DcPermanentMagnetData</a></code> (Common parameters for DC machines).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Jr</code></td><td>Rotor's moment of inertia</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Js</code></td><td>Stator's moment of inertia</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VaNominal</code></td><td>Nominal armature voltage</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>IaNominal</code></td><td>Nominal armature current (&gt;0..Motor, &lt;0..Generator)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wNominal</code></td><td>Nominal speed</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TaNominal</code></td><td>Nominal armature temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ra</code></td><td>Armature resistance at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TaRef</code></td><td>Reference temperature of armature resistance</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20a</code></td><td>Temperature coefficient of armature resistance</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>La</code></td><td>Armature inductance</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#FrictionParameters">FrictionParameters</a></code></td><td><code>frictionParameters</code></td><td>Friction loss parameter record</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>ViNominal</code></td><td>&nbsp</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#CoreParameters">CoreParameters</a></code></td><td><code>coreParameters</code></td><td>Armature core loss parameter record</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#StrayLoadParameters">StrayLoadParameters</a></code></td><td><code>strayLoadParameters</code></td><td>Stray load losses</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Losses/index.html#BrushParameters">BrushParameters</a></code></td><td><code>brushParameters</code></td><td>Brush loss parameter record</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Re</code></td><td>Series excitation resistance at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TeRef</code></td><td>Reference temperature of excitation resistance</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20e</code></td><td>Temperature coefficient of excitation resistance</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Le</code></td><td>Total field excitation inductance</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>sigmae</code></td><td>Stray fraction of total excitation inductance</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TeNominal</code></td><td>Nominal series excitation temperature</td></tr>
+</table>
+<hr><a name="TransformerData"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">ParameterRecords</a>.&#8203;TransformerData<br><span class="subtitle">Common parameters for transformers</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Basic parameters of transformers are predefined with default values.</p>
+<p>Note: ratio n is defined between primary / secondary line-to-line voltage;
+   therefore the user has to take into account primary and secondary connection!</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Real</code></td><td><code>n_phase</code></td><td>Ratio primary voltage per phase / secondary voltage per phase</td></tr>
+<tr><td>parameter <code>String</code></td><td><code>C1</code></td><td>Choose primary connection</td></tr>
+<tr><td>parameter <code>String</code></td><td><code>C2</code></td><td>Choose secondary connection</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>n</code></td><td>Ratio primary voltage (line-to-line) / secondary voltage (line-to-line)</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R1</code></td><td>Primary resistance per phase at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T1Ref</code></td><td>Reference temperature of primary resistance</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20_1</code></td><td>Temperature coefficient of primary resistance at 20 degC</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L1sigma</code></td><td>Primary stray inductance per phase</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R2</code></td><td>Secondary resistance per phase at TRef</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T2Ref</code></td><td>Reference temperature of secondary resistance</td></tr>
+<tr><td>parameter <code><a href="../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20_2</code></td><td>Temperature coefficient of secondary resistance at 20 degC</td></tr>
+<tr><td>parameter <code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L2sigma</code></td><td>Secondary stray inductance per phase</td></tr>
+</table>
+</body></html>

@@ -1,0 +1,497 @@
+<html><head><title>Modelica.Electrical.Analog.Examples</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Examples"><h1><embed class="icon" src="../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;Examples<br><span class="subtitle">Examples that demonstrate the usage of the Analog electrical components</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package contains examples that demonstrate the usage of the components of the Electrical.Analog library.</p>
+<p>The examples are simple to understand. They will show a typical behavior of the components, and they will give hints to users.</p>
+<p>Extends from <code><a href="../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#AD_DA_conversion"><code>AD_DA_conversion</code></a></td><td>Conversion circuit</td></tr>
+<tr><td><a href="#AmplifierWithOpAmpDetailed"><code>AmplifierWithOpAmpDetailed</code></a></td><td>Simple Amplifier circuit which uses OpAmpDetailed</td></tr>
+<tr><td><a href="#CauerLowPassAnalog"><code>CauerLowPassAnalog</code></a></td><td>Cauer low pass filter with analog components</td></tr>
+<tr><td><a href="#CauerLowPassOPV"><code>CauerLowPassOPV</code></a></td><td>Cauer low pass filter with operational amplifiers</td></tr>
+<tr><td><a href="#CauerLowPassSC"><code>CauerLowPassSC</code></a></td><td>Cauer low-pass filter with operational amplifiers and switched capacitors</td></tr>
+<tr><td><a href="#CharacteristicIdealDiodes"><code>CharacteristicIdealDiodes</code></a></td><td>Characteristic of ideal diodes</td></tr>
+<tr><td><a href="#CharacteristicThyristors"><code>CharacteristicThyristors</code></a></td><td>Characteristic of ideal thyristors</td></tr>
+<tr><td><a href="#ChuaCircuit"><code>ChuaCircuit</code></a></td><td>Chua's circuit, ns, V, A</td></tr>
+<tr><td><a href="#CompareTransformers"><code>CompareTransformers</code></a></td><td>Transformer circuit to show the magnetization facilities</td></tr>
+<tr><td><a href="#ControlledSwitchWithArc"><code>ControlledSwitchWithArc</code></a></td><td>Comparison of controlled switch models both with and without arc</td></tr>
+<tr><td><a href="#DifferenceAmplifier"><code>DifferenceAmplifier</code></a></td><td>Simple NPN transistor amplifier circuit</td></tr>
+<tr><td><a href="#GenerationOfFMUs"><code>GenerationOfFMUs</code></a></td><td>Example to demonstrate variants to generate FMUs (Functional Mock-up Units)</td></tr>
+<tr><td><a href="#HeatingMOSInverter"><code>HeatingMOSInverter</code></a></td><td>Heating MOS Inverter</td></tr>
+<tr><td><a href="#HeatingNPN_OrGate"><code>HeatingNPN_OrGate</code></a></td><td>Heating NPN Or Gate</td></tr>
+<tr><td><a href="#HeatingPNP_NORGate"><code>HeatingPNP_NORGate</code></a></td><td>Heating PNP NOR Gate</td></tr>
+<tr><td><a href="#HeatingRectifier"><code>HeatingRectifier</code></a></td><td>Heating rectifier</td></tr>
+<tr><td><a href="#HeatingResistor"><code>HeatingResistor</code></a></td><td>Heating resistor</td></tr>
+<tr><td><a href="#IdealTriacCircuit"><code>IdealTriacCircuit</code></a></td><td>Ideal triac test circuit</td></tr>
+<tr><td><a href="#InvertingAmp"><code>InvertingAmp</code></a></td><td>Inverting amplifier</td></tr>
+<tr><td><a href="#NandGate"><code>NandGate</code></a></td><td>CMOS NAND Gate (see Tietze/Schenk, page 157)</td></tr>
+<tr><td><a href="../../../Electrical/Analog/Examples/OpAmps/index.html"><code>OpAmps</code></a> &hellip;</td><td>Examples with operational amplifiers</td></tr>
+<tr><td><a href="#OvervoltageProtection"><code>OvervoltageProtection</code></a></td><td>Example for Zener diodes</td></tr>
+<tr><td><a href="#Rectifier"><code>Rectifier</code></a></td><td>B6 diode bridge</td></tr>
+<tr><td><a href="#ResonanceCircuits"><code>ResonanceCircuits</code></a></td><td>Resonance circuits: example to demonstrate generation of FMUs (Functional Mock-up Units)</td></tr>
+<tr><td><a href="#ShowSaturatingInductor"><code>ShowSaturatingInductor</code></a></td><td>Simple demo to show behaviour of SaturatingInductor component</td></tr>
+<tr><td><a href="#ShowVariableResistor"><code>ShowVariableResistor</code></a></td><td>Simple demo of a VariableResistor model</td></tr>
+<tr><td><a href="#SimpleTriacCircuit"><code>SimpleTriacCircuit</code></a></td><td>Simple triac test circuit</td></tr>
+<tr><td><a href="#SwitchWithArc"><code>SwitchWithArc</code></a></td><td>Comparison of switch models both with and without arc</td></tr>
+<tr><td><a href="#ThyristorBehaviourTest"><code>ThyristorBehaviourTest</code></a></td><td>Thyristor demonstration example</td></tr>
+<tr><td><a href="../../../Electrical/Analog/Examples/Utilities/index.html"><code>Utilities</code></a> &hellip;</td><td>Utility components used by package Examples</td></tr>
+</table>
+<hr><a name="CauerLowPassAnalog"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;CauerLowPassAnalog<br><span class="subtitle">Cauer low pass filter with analog components</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The example Cauer Filter is a low-pass-filter of the fifth order. It is realized using an analog network. The voltage source V is the input voltage (step), and the R2.p.v is the filter output voltage. The pulse response is calculated.</p>
+<p>The simulation end time should be 60. Please plot both V.p.v (input voltage) and R2.p.v (output voltage).</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>l1</code></td><td><code>1.304</code></td><td>filter coefficient I1</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>l2</code></td><td><code>0.8586</code></td><td>filter coefficient I2</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>c1</code></td><td><code>1.072</code></td><td>filter coefficient c1</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>c2</code></td><td><code>(2.906997720064 * l1) ^ (-1)</code></td><td>filter coefficient c2</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>c3</code></td><td><code>1.682</code></td><td>filter coefficient c3</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>c4</code></td><td><code>(1.392270203025 * l2) ^ (-1)</code></td><td>filter coefficient c4</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>c5</code></td><td><code>0.7262</code></td><td>filter coefficient c5</td></tr>
+</table>
+<hr><a name="CauerLowPassOPV"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;CauerLowPassOPV<br><span class="subtitle">Cauer low pass filter with operational amplifiers</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The example Cauer Filter is a low-pass-filter of the fifth order. It is realized using an analog network with operational amplifiers. The voltage source V is the input voltage (step), and the OP5.out.v is the filter output voltage. The pulse response is calculated.</p>
+<p>This model is identical to the CauerLowPassAnalog example, but inverting. To get the same response as that of the CauerLowPassAnalog example, a negative voltage step is used as input.</p>
+<p>The simulation end time should be 60. Please plot both V.v (which is the inverted input voltage) and OP5.p.v (output voltage). Compare this result with the CauerLowPassAnalog result.</p>
+<p>During translation some warnings are issued concerning resistor values (Value=-1 not in range [0,1e100]). Do not worry about it. The negative values are o.k.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>l1</code></td><td><code>1.304</code></td><td>filter coefficient i1</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>l2</code></td><td><code>0.8586</code></td><td>filter coefficient i2</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>c1</code></td><td><code>1.072</code></td><td>filter coefficient c1</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>c2</code></td><td><code>(2.906997720064 * l1) ^ (-1)</code></td><td>filter coefficient c2</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>c3</code></td><td><code>1.682</code></td><td>filter coefficient c3</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>c4</code></td><td><code>(1.392270203025 * l2) ^ (-1)</code></td><td>filter coefficient c4</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>c5</code></td><td><code>0.7262</code></td><td>filter coefficient c5</td></tr>
+</table>
+<hr><a name="CauerLowPassSC"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;CauerLowPassSC<br><span class="subtitle">Cauer low-pass filter with operational amplifiers and switched capacitors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The example CauerLowPassSC is a low-pass-filter of the fifth order. It is realized using an switched-capacitor network with operational amplifiers. The voltage source V is the input voltage (step), and the OP5.out.v is the filter output voltage. The pulse response is calculated.</p>
+<p>This model is identical to the CauerLowPassAnalog example, but inverting. To get the same response as that of the CauerLowPassAnalog example, a negative voltage step is used as input.</p>
+<p>This model is identical to the CauerLowPassOPV example. But the resistors are realized by switched capacitors (see <a href="../../../Electrical/Analog/Examples/Utilities/index.html#SwitchedCapacitor">SwitchedCapacitor</a>). There are two different types of instances, one with a value of <code>R=1</code> and one with a value of <code>R=-1</code>.</p>
+<p>The simulation end time should be 60. Please plot both V.v (which is the inverted input voltage) and OP5.out.v (output voltage). Compare this result with the CauerLowPassAnalog result.</p>
+<p>Due to the recharging of the capacitances after switching the performance of simulation is not as good as in the CauerLowPassOPV example.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>l1</code></td><td><code>1.304</code></td><td>filter coefficient i1</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>l2</code></td><td><code>0.8586</code></td><td>filter coefficient i2</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>c1</code></td><td><code>1.072</code></td><td>filter coefficient c1</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>c2</code></td><td><code>(2.906997720064 * l1) ^ (-1)</code></td><td>filter coefficient c2</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>c3</code></td><td><code>1.682</code></td><td>filter coefficient c3</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>c4</code></td><td><code>(1.392270203025 * l2) ^ (-1)</code></td><td>filter coefficient c4</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>c5</code></td><td><code>0.7262</code></td><td>filter coefficient c5</td></tr>
+</table>
+<hr><a name="CharacteristicIdealDiodes"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;CharacteristicIdealDiodes<br><span class="subtitle">Characteristic of ideal diodes</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Three examples of ideal diodes are shown:
+<br>the <strong>totally ideal diode</strong> (Ideal) with all parameters to be zero,
+the <strong>nearly ideal diode</strong> with <em>Ron=0.1</em> and <em>Goff=0.1</em>
+ and the nearly ideal but <strong>displaced diode</strong> with <em>Vknee=5</em> and <em>Ron=0.1</em> and <em>Goff=0.1</em>.
+The resistance and conductance are chosen untypically high since the slopes should be seen in the graphics.
+</p><p>Simulate until T=1 s.
+Plot in separate windows:
+Ideal.i versus Ideal.v, With_Ron_Goff.i versus With_Ron_Goff.v, With_Ron_Goff_Vknee.i versus With_Ron_Goff_Vknee.v
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="CharacteristicThyristors"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;CharacteristicThyristors<br><span class="subtitle">Characteristic of ideal thyristors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example compares the behavior of the <strong>ideal thyristor</strong> and the <strong>ideal GTO thyristor</strong> with <em>Vknee=1</em> both. The thyristors IdealThyristor1 and IdealGTOThyristor1 are controlled by an unregular Boolean fire signal. The aim is to show several cases for the fire signal in combination with the state (s&lt;0 or s&gt;0)of the thyristors. Please simulate until 6 seconds and compare IdealThyristor1.v with IdealGTOThyristor1.v, the same with IdealThyristor1.s and IdealGTOThyristor1.s (attention: s is a protected variable in each thyristor). Also compare IdealThyristor1.off and IdealGTOThyristor1.off and have a look at the fire signal (e.g. IdealThyristor1.fire). It can be seen that the IdealGTOThyristor1 reacts on switching off the fire signal whereas the IdealThyristor1 does not show this behavior.</p>
+<p>The other thyristors IdealThyristor2 and IdealGTOThyristor2 are controlled by an periodic Boolean fire signal to show a typical use case. Please compare IdealThyristor2.v with IdealGTOThyristor2.v</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="ChuaCircuit"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;ChuaCircuit<br><span class="subtitle">Chua's circuit, ns, V, A</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Chua&#39;s circuit is the most simple nonlinear circuit which shows chaotic behaviour. The circuit consists of linear basic elements (capacitors, resistor, conductor, inductor), and one nonlinear element, which is called Chua&#39;s diode. The chaotic behaviour is simulated.</p>
+<p>The simulation end time should be set to 5e4. To get the chaotic behaviour please plot C1.v. Choose C2.v as the independent variable .</p>
+<p><strong>Reference:</strong></p>
+<p>Kennedy, M.P.: Three Steps to Chaos - Part I: Evolution. IEEE Transactions on CAS I 40 (1993)10, 640-656</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="DifferenceAmplifier"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;DifferenceAmplifier<br><span class="subtitle">Simple NPN transistor amplifier circuit</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>It is a simple NPN transistor amplifier circuit. The voltage difference between R1.p and R3.n is amplified. The output signal is the voltage between R2.n and R4.n. In this example the voltage at V1 is amplified because R3.n is grounded.</p>
+<p>The simulation end time should be set to 1e- 8. Please plot the input voltage V1.v, and the output voltages R2.n.v, and R4.n.v.</p>
+<p><strong>Reference:</strong></p>
+<p>Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin Heidelberg NewYork 1980, p. 59</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="HeatingMOSInverter"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;HeatingMOSInverter<br><span class="subtitle">Heating MOS Inverter</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The heating MOS inverter shows a heat flow always if a transistor is leading.</p>
+<p>Simulate until T=5 s. Plot in separate windows:<br> Sin.p.v and Capacitor1.p.v<br>HeatCapacitor1.port.T and H_PMOS.heatPort.T and H_NMOS.heatPort.T<br>H_PMOS.heatPort.Q_flow and H_NMOS.heatPort.Q_flow</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="HeatingNPN_OrGate"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;HeatingNPN_OrGate<br><span class="subtitle">Heating NPN Or Gate</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The heating &quot;NPN or&quot; gate shows a heat flow always if a transistor is leading.</p>
+<p>Simulate until T=200 s. Plot in separate windows:
+<br>V1.v and V2.v and C2.v
+<br>HeatCapacitor1.port.T and T1.heatPort.T and T2.heatPort.T
+<br>T1.heatPort.Q_flow and T2.heatPort.Q_flow</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>CapVal</code></td><td><code>0</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tauVal</code></td><td><code>0</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="HeatingPNP_NORGate"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;HeatingPNP_NORGate<br><span class="subtitle">Heating PNP NOR Gate</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The heating &quot;PNP NOR&quot; gate shows a heat flow always if a transistor is conducting.</p>
+<p>Simulate until T=200 s. Plot V1.v and V2.v and C2.v to see the NOR-functionality. High potential is -6V which means logic &quot;true&quot;. Low potential is 0V which means logic &quot;false&quot;.</p>
+<p>To see which transistor is conducting one can have a look at the temperatures T1.heatPort.T and T2.heatPort.T and the heat flows T1.heatPort.Q_flow and T2.heatPort.Q_flow of the heatports of the transistors T1 and T2.</p>
+<p>They are different from zero if the transistor is conducting.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>CapVal</code></td><td><code>0</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tauVal</code></td><td><code>0</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="HeatingResistor"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;HeatingResistor<br><span class="subtitle">Heating resistor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This is a very simple circuit consisting of a voltage source and a resistor. The loss power in the resistor is transported to the environment via its heatPort.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="HeatingRectifier"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;HeatingRectifier<br><span class="subtitle">Heating rectifier</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The heating rectifier shows a heat flow always if the electrical capacitor is loaded.</p>
+<p>Simulate until T=5 s.Plot in separate windows:
+<br>SineVoltage1.v and Capacitor1.p.v
+<br>HeatCapacitor1.port.T and HeatingDiode1.heatPort.T
+<br>HeatingDiode1.heatPort.Q_flow
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="NandGate"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;NandGate<br><span class="subtitle">CMOS NAND Gate (see Tietze/Schenk, page 157)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The nand gate is a basic CMOS building block. It consists of four CMOS transistors. The output voltage Nand.y.v is low if and only if the two input voltages at Nand.x1.v and Nand.x2.v are both high. In this way the nand functionality is realized.</p>
+<p>The simulation end time should be set to 1e-7. Please plot the input voltages Nand.x1.v, d Nand.x2.v, and the output voltage Nand.y.v.</p>
+<p><strong>Reference:</strong></p>
+<p>Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin Heidelberg NewYork 1980, p. 157</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="OvervoltageProtection"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;OvervoltageProtection<br><span class="subtitle">Example for Zener diodes</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example is a simple circuit for overvoltage protection. If the voltage zDiode_1.n.v is too high, the Diode zDiode_2 breaks through and the voltage gets down.</p>
+<p>The simulation end time should be set to 0.4. To get the typical behaviour please plot sineVoltage.p.v, RL.p.v, zDiode_2.n.v and zDiode_1.n.i.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="Rectifier"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;Rectifier<br><span class="subtitle">B6 diode bridge</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The rectifier example shows a B6 diode bridge fed by a three phase sinusoidal voltage, loaded by a DC current.
+DC capacitors start at ideal no-load voltage, thus making easier initial transient.</p>
+<p>Simulate until T=0.1 s. Plot in separate windows:
+<br>uDC ... DC-voltage
+<br>iAC ... AC-currents 1..3
+<br>uAC ... AC-voltages 1..3 (distorted)
+<br>Try different load currents iDC = 0..approximately 500 A. You may watch losses (of the whole diode bridge) trying different diode parameters.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VAC</code></td><td><code>400</code></td><td>RMS line-to-line</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>50</code></td><td>line frequency</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>LAC</code></td><td><code>6e-5</code></td><td>line inductor</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron</code></td><td><code>0.001</code></td><td>diode forward resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff</code></td><td><code>0.001</code></td><td>diode backward conductance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vknee</code></td><td><code>2</code></td><td>diode threshold voltage</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>CDC</code></td><td><code>0.015</code></td><td>DC capacitance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>IDC</code></td><td><code>500</code></td><td>load current</td></tr>
+</table>
+<hr><a name="ShowSaturatingInductor"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;ShowSaturatingInductor<br><span class="subtitle">Simple demo to show behaviour of SaturatingInductor component</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This simple circuit uses the saturating inductor which has a changing inductivity.</p>
+<p>This circuit should be simulated until 1 s. Compare <code>SaturatingInductance1.p.i</code> with <code>Inductance1.p.i</code> to see the difference between saturating and ideal inductor.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lzer</code></td><td><code>2</code></td><td>Inductance near current=0</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lnom</code></td><td><code>1</code></td><td>Nominal inductance at Nominal current</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>Inom</code></td><td><code>1</code></td><td>Nominal current</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Linf</code></td><td><code>0.5</code></td><td>Inductance at large currents</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>U</code></td><td><code>1.25</code></td><td>Source voltage (peak)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>(2 * Modelica.Constants.pi) ^ (-1)</code></td><td>Source frequency</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>phase</code></td><td><code>0.5 * Modelica.Constants.pi</code></td><td>Source voltage phase shift</td></tr>
+</table>
+<hr><a name="ShowVariableResistor"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;ShowVariableResistor<br><span class="subtitle">Simple demo of a VariableResistor model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>It is a simple test circuit for the VariableResistor. The VariableResistor should be compared with R2.</p>
+<p>Simulate until T=1 s.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="SwitchWithArc"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;SwitchWithArc<br><span class="subtitle">Comparison of switch models both with and without arc</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example is to compare the behaviour of switch models with and without an electric arc taking into consideration.</p>
+<ul>
+<li>Simulate until T=2 s.</li>
+<li>Plot in one window:  <code>switch1.i</code> and <code>switch2.i</code></li>
+</ul>
+<p>The difference in the closing area shows that the simple arc model avoids the suddenly switching.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="ThyristorBehaviourTest"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;ThyristorBehaviourTest<br><span class="subtitle">Thyristor demonstration example</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This is a simple test circuit, to test the behavior of the thyristor model.</p><p>Interesting values to plot are Cathode.v, Gate.v and sineVoltage.p.v. and in another plot window pulseCurrent.p.i</p><p>The simulation time should be from 0 seconds to 2e-4 seconds.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="AmplifierWithOpAmpDetailed"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;AmplifierWithOpAmpDetailed<br><span class="subtitle">Simple Amplifier circuit which uses OpAmpDetailed</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>With the test circuit AmplifierWithOpAmpDetailed a time domain analysis of the example arrangement with a sinusoidal input voltage (12 V amplitude, frequency 1 kHz) using the operational amplifier model OpAmpDetailed is carried out. The working voltages are 15 V and -15 V.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="CompareTransformers"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;CompareTransformers<br><span class="subtitle">Transformer circuit to show the magnetization facilities</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example is to demonstrate the behaviour of transformer models. The Basic.Transformer, which consists of mutual coupled inductors, is compared with the ideal transformer model. If the ideal model is used with considerMagnetization=true leakage inductances are taken into account, otherwise not.
+The example is constructed in such a way that the ideal transformer circuit with considerMagnetization=true shows the same behaviour as the basic transformer.</p>
+<p>Simulate until T=50 s with both considerMagnetization=false and considerMagnetization=true of the ideal transformer.
+Plot in separate windows for comparison:
+<br>basicTransformer.p1.v and idealTransformer.p1.v
+<br>basicTransformer.p1.i and idealTransformer.p1.i
+<br>basicTransformer.p2.v and idealTransformer.p2.v
+basicTransformer.p2.i and idealTransformer.p2.i</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vdc</code></td><td><code>0.1</code></td><td>DC offset of voltage source</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vpeak</code></td><td><code>0.1</code></td><td>Peak voltage of voltage source</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>10</code></td><td>Frequency of voltage source</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>phi0</code></td><td><code>0.5 * pi</code></td><td>Phase of voltage source</td></tr>
+<tr><td><code>Real</code></td><td><code>n</code></td><td><code>2</code></td><td>Turns ratio primary:secondary voltage</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R1</code></td><td><code>0.01</code></td><td>Primary resistance w.r.t. primary side</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L1sigma</code></td><td><code>0.05 / (2 * pi * f)</code></td><td>Primary leakage inductance w.r.t. primary side</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lm1</code></td><td><code>10 / (2 * pi * f)</code></td><td>Magnetizing inductance w.r.t. primary side</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L2sigma</code></td><td><code>0.05 / (2 * pi * f) / n ^ 2</code></td><td>Secondary leakage inductance w.r.t. secondary side</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R2</code></td><td><code>0.01 / n ^ 2</code></td><td>Secondary resistance w.r.t. secondary side</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RL</code></td><td><code>(n ^ 2) ^ (-1)</code></td><td>Load resistance</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L1</code></td><td><code>L1sigma + M * n</code></td><td>Primary no-load inductance</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L2</code></td><td><code>L2sigma + M / n</code></td><td>Secondary no-load inductance</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>M</code></td><td><code>Lm1 / n</code></td><td>Mutual inductance</td></tr>
+</table>
+<hr><a name="ControlledSwitchWithArc"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;ControlledSwitchWithArc<br><span class="subtitle">Comparison of controlled switch models both with and without arc</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example is to compare the behaviour of switch models with and without an electric arc taking into consideration.</p>
+<ul>
+<li>Simulate until T=2 s.</li>
+<li>Plot in one window: <code>switch1.i</code> and <code>switch2.i</code></li>
+</ul>
+<p>The difference in the closing area shows that the simple arc model avoids the suddenly switching.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="SimpleTriacCircuit"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;SimpleTriacCircuit<br><span class="subtitle">Simple triac test circuit</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The simple TRIAC example shows how the SimpleTriac is used within an alternating current circuit.</p>
+<p>The TRIAC is not conducting until the Gate input g becomes positive. Then it becomes &quot;conducting&quot;. If the TRIAC voltage changes its direction, the TRIAC becomes blocking. Due to the antiparallel connection of the internal two thyristors the same behavior is repeated in the negative half-wave.</p>
+<p>Simulate until 0.001 seconds. Display V.p.v (input voltage), simpleTriac.g.i  (gate input), and both simplelTriac.n.v and simpleTriac.n.i, which demonstrate the TRIAC behavior.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="IdealTriacCircuit"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;IdealTriacCircuit<br><span class="subtitle">Ideal triac test circuit</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The simple ideal TRIAC example shows how a triac is used within an alternating current circuit.</p>
+<p>The TRIAC is not conducting until the Boolean input becomes true (internally coded by 1, therefore the input is called fire<strong>1</strong>). Then it becomes &quot;conducting&quot;, the knee voltage is reached. If the TRIAC voltage falls below the knee voltage, the TRIAC becomes blocking. Due to the antiparallel connection of the internal two thyristors the same behavior is repeated in the negative half-wave.</p>
+<p>Simulate until 2 seconds. Display V.p.v (input voltage), booleanPulse.y (fire1 input), and both idealTriac.n.v and idealTriac.n.i, which demonstrate the TRIAC behavior.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="AD_DA_conversion"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;AD_DA_conversion<br><span class="subtitle">Conversion circuit</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The simple converter circuit converts an analog sine signal into a N-bit (by default a 4 bit) logic signal, which is converted backward into an analog signal.</p>
+<ul>
+<li>Simulate for 0.2 s.</li>
+</ul>
+<p>Compare the input voltage (aD_Converter.p.v) with the output voltage (dA_Converter.p.v). By changing N the influence of the digital signal width can be studied. Otherwise the trigger frequency pulse.period can be changed to see its influence.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>N</code></td><td><code>7</code></td><td>Digital signal width</td></tr>
+</table>
+<hr><a name="GenerationOfFMUs"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;GenerationOfFMUs<br><span class="subtitle">Example to demonstrate variants to generate FMUs (Functional Mock-up Units)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example demonstrates how to generate an input/output block (e.g. in form of an
+FMU - <a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>) from various Electrical components.
+The goal is to export such an input/output block from Modelica and import
+it in another modeling environment. The essential issue is that before
+exporting it must be known in which way the component is utilized in the
+target environment. Depending on the target usage, different connector variables
+need to be in the interface with either input or output causality.
+Note, this example model can be used to test the FMU export/import of a Modelica tool.
+Just export the components marked in the icons as "toFMU" as FMUs and import
+them back. The models should then still work and give the same results as a
+pure Modelica model.
+</p>
+
+<p>
+<strong>Connecting two capacitors</strong><br>
+The first part (DirectCapacitor, InverseCapacitor)
+demonstrates how to export two capacitors and connect them
+together in a target system. This requires that one of the capacitors
+(here: DirectCapacitor)
+is defined to have states and the voltage and
+derivative of voltage are provided in the interface.
+The other capacitor (here: InverseCapacitor) requires current according
+to the provided input voltage and derivative of voltage.
+</p>
+
+<p>
+<strong>Connecting a resistance element between two capacitors</strong><br>
+The second part (Resistor2) demonstrates how to export a resistance element
+that needs only voltages for its resistance law and connect this
+resistance law in a target system between two capacitors.
+</p>
+
+<p>
+<strong>Connecting two inductors</strong><br>
+The third part (DirectInductor, InverseInductor)
+demonstrates how to export two inductors and connect them
+together in a target system. This requires that one of the inductors
+(here: DirectInductor)
+is defined to have states and the current and
+derivative of current are provided in the interface.
+The other inductor (here: InverseInductor) requires voltage according
+to the provided input current and derivative of current.
+</p>
+
+<p>
+<strong>Connecting a conductance element between two inductors</strong><br>
+The fourth part (Conductor4) demonstrates how to export a conductance element
+that needs only currents for its conductance law and connect this
+conductance law in a target system between two inductors.
+</p>
+<p>
+Bear in mind that separating physical components and connecting them via adaptor signals requires to place appropriate
+<a href="../../../Electrical/Analog/Basic/index.html#Ground">ground components</a> to define electric potential within the subcircuits.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="ResonanceCircuits"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;ResonanceCircuits<br><span class="subtitle">Resonance circuits: example to demonstrate generation of FMUs (Functional Mock-up Units)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example demonstrates how to couple the components of a parallel resonance circuit (upper part) and a series resonance circuit (lower part)
+not directly but using adaptors between physical connectors and input/output signals.
+Taking into account which derivatives are required, these components can be exported as input/output blocks
+(e.g. in form of an FMU - <a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>).
+Connecting these input/output blocks should give the same results as connecting the physical components directly.
+</p>
+<p>
+Bear in mind that separating physical components and connecting them via adaptor signals requires to place appropriate
+<a href="../../../Electrical/Analog/Basic/index.html#Ground">ground components</a> to define electric potential within the subcircuits.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>C</code></td><td><code>0.01</code></td><td>Capacitance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L</code></td><td><code>0.01</code></td><td>Inductance</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fRes</code></td><td><code>(2 * pi * sqrt(L * C)) ^ (-1)</code></td><td>Source frequency</td></tr>
+<tr><td><code>Real</code></td><td><code>res</code></td><td><code>1</code></td><td>f/fResonanace</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>res * fRes</code></td><td>Source frequency</td></tr>
+</table>
+<hr><a name="InvertingAmp"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Examples</a>.&#8203;InvertingAmp<br><span class="subtitle">Inverting amplifier</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This is an inverting amplifier. Resistance R1 can be chosen, R2 is defined by the desired amplification k.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vps</code></td><td><code>15</code></td><td>Positive supply</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vns</code></td><td><code>-15</code></td><td>Negative supply</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vin</code></td><td><code>5</code></td><td>Amplitude of input voltage</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>10</code></td><td>Frequency of input voltage</td></tr>
+<tr><td><code>Real</code></td><td><code>k</code></td><td><code>2</code></td><td>Desired amplification</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R1</code></td><td><code>1000</code></td><td>Arbitrary resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R2</code></td><td><code>k * R1</code></td><td>Calculated resistance to reach desired amplification k</td></tr>
+</table>
+</body></html>

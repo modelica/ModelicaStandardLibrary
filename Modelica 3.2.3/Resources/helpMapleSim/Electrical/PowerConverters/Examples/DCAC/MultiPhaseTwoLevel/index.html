@@ -1,0 +1,97 @@
+<html><head><title>Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="MultiPhaseTwoLevel"><h1><embed class="icon" src="../../../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">PowerConverters</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">DCAC</a>.&#8203;MultiPhaseTwoLevel<br><span class="subtitle">Multi phase two level inverter example</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates a package that contains executable examples.</p>
+<p>Extends from <code><a href="../../../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#MultiPhaseTwoLevel_R"><code>MultiPhaseTwoLevel_R</code></a></td><td>Multi phase DC to AC converter with R load</td></tr>
+<tr><td><a href="#MultiPhaseTwoLevel_RL"><code>MultiPhaseTwoLevel_RL</code></a></td><td>Multi phase DC to AC converter with R-L load</td></tr>
+<tr><td><a href="#ThreePhaseTwoLevel_PWM"><code>ThreePhaseTwoLevel_PWM</code></a></td><td>Test of pulse width modulation methods</td></tr>
+</table>
+<hr><a name="MultiPhaseTwoLevel_R"><h2><embed class="icon" src="../../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">PowerConverters</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">DCAC</a>.&#8203;<a href="index.html">MultiPhaseTwoLevel</a>.&#8203;MultiPhaseTwoLevel_R<br><span class="subtitle">Multi phase DC to AC converter with R load</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Plot current <code>currentSensor.i[:]</code>, harmonic current magnitude <code>fundamentalWaveCurrent[:].y_RMS</code>, harmonic voltage magnitude <code>fundamentalWaveVoltage[:].y_RMS</code>. The instantaneous voltages <code>voltageSensor.i[:]</code> and currents <code>currentSensor.i[:]</code> directly show the switching pattern of the inverter. There is not smoothing effect due to an inductance in this example; see <a href="../../../../../Electrical/PowerConverters/Examples/DCAC/MultiPhaseTwoLevel/index.html#MultiPhaseTwoLevel_RL">MultiPhaseTwoLevel_RL</a>.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>1000</code></td><td>Switching frequency</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f1</code></td><td><code>50</code></td><td>Fundamental wave AC frequency</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>100</code></td><td>Resistance</td></tr>
+</table>
+<hr><a name="MultiPhaseTwoLevel_RL"><h2><embed class="icon" src="../../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">PowerConverters</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">DCAC</a>.&#8203;<a href="index.html">MultiPhaseTwoLevel</a>.&#8203;MultiPhaseTwoLevel_RL<br><span class="subtitle">Multi phase DC to AC converter with R-L load</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Plot current <code>currentSensor.i[:]</code>, harmonic current magnitude <code>fundamentalWaveCurrent[:].y_RMS</code>, harmonic voltage magnitude <code>fundamentalWaveVoltage[:].y_RMS</code>. The instantaneous voltages <code>voltageSensor.i[:]</code> directly show the switching pattern of the inverter.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>6</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>1000</code></td><td>Switching frequency</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f1</code></td><td><code>50</code></td><td>Fundamental wave AC frequency</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>100</code></td><td>Resistance</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L</code></td><td><code>1</code></td><td>Inductance</td></tr>
+</table>
+<hr><a name="ThreePhaseTwoLevel_PWM"><h2><embed class="icon" src="../../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">PowerConverters</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">DCAC</a>.&#8203;<a href="index.html">MultiPhaseTwoLevel</a>.&#8203;ThreePhaseTwoLevel_PWM<br><span class="subtitle">Test of pulse width modulation methods</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+A reference space vector (formed by real part = cosine and imaginary part = sine) of length &radic;2*RMS and frequency 2 Hz is applied.
+The resulting switching patterns are applied to a threephase twolevel bridge with switching frequency 100 Hz, fed by DC voltage = &radic;2*&radic;3*1
+where 1 is the theoretical maximum voltage from terminal to neutral.
+The resulting voltages with reference to midpoint of the DC voltage are measured.
+</p>
+<p>
+The RMS of the first harmonic of the first of these voltages is calculated.
+Please note that the value of the first harmonic is vaild after the first period (i.e. 0.5 s).
+</p>
+<p>
+Furthermore, these three voltages are transformed to the corresponding space phasor.
+Note that the zero component is not zero, indicating the shift of the neutral with respect to the midpoint of the DC voltage.
+</p>
+<p>
+The space phasor is rotated to the coordinate system rotating with 2*&pi;*2 Hz.
+To suppress the influence of switching, real and imaginary part of the rotated phasor are filtered.
+The polar representation of this rotated and filtered phasor are calculated.
+</p>
+<p>
+Please note that the filter has a settle time depending on the filter parameters.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>RMS</code></td><td><code>1</code></td><td>Reference RMS Y</td></tr>
+</table>
+</body></html>

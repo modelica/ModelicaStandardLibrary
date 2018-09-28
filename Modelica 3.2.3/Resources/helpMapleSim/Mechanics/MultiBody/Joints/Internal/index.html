@@ -1,0 +1,288 @@
+<html><head><title>Modelica.Mechanics.MultiBody.Joints.Internal</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Internal"><h1><embed class="icon" src="../../../../images/icon0034.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Joints</a>.&#8203;Internal<br><span class="subtitle">Components used for analytic solution of kinematic loops (use only if you know what you are doing)</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The models in this package should not be used by the user.
+They are designed to build up other models in the MultiBody library
+and some of them cannot be used in an arbitrary way and require
+particular knowledge how to set the options in the parameter menu.
+Don't use the models of this package.
+</p>
+<p>Extends from <code><a href="../../../../Icons/InternalPackage/index.html">Modelica.&#8203;Icons.&#8203;InternalPackage</a></code> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#InitAngle"><code>InitAngle</code></a></td><td>Internal model to initialize the angels for Joints.FreeMotionScalarInit</td></tr>
+<tr><td><a href="#InitAngularVelocity"><code>InitAngularVelocity</code></a></td><td>Internal model to initialize w_rel_b for Joints.FreeMotionScalarInit</td></tr>
+<tr><td><a href="#InitPosition"><code>InitPosition</code></a></td><td>Internal model to initialize r_rel_a for Joints.FreeMotionScalarInit</td></tr>
+<tr><td><a href="#PrismaticWithLengthConstraint"><code>PrismaticWithLengthConstraint</code></a></td><td>Prismatic joint where the translational distance is computed from a length constraint (1 degree-of-freedom, no potential state)</td></tr>
+<tr><td><a href="#RevoluteWithLengthConstraint"><code>RevoluteWithLengthConstraint</code></a></td><td>Revolute joint where the rotation angle is computed from a length constraint (1 degree-of-freedom, no potential state)</td></tr>
+<tr><td><a href="#RollingConstraintVerticalWheel"><code>RollingConstraintVerticalWheel</code></a></td><td>Rolling constraint for wheel that is always perpendicular to x-y plane</td></tr>
+</table>
+<hr><a name="RevoluteWithLengthConstraint"><h2><embed class="icon" src="../../../../images/icon1128.svg" width="283" height="213" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Joints</a>.&#8203;<a href="index.html">Internal</a>.&#8203;RevoluteWithLengthConstraint<br><span class="subtitle">Revolute joint where the rotation angle is computed from a length constraint (1 degree-of-freedom, no potential state)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Joint where frame_b rotates around axis n which is fixed in frame_a.
+The two frames coincide when "phi + phi_offset = 0", where
+"phi_offset" is a parameter with a zero default
+and "phi" is the rotation angle.
+</p>
+<p>
+This variant of the revolute joint is designed to work together
+with a length constraint in a kinematic loop. This means that the
+angle of the revolute joint, phi, is computed such that the
+length constraint is fulfilled.
+</p>
+<p>
+<strong>Usually, this joint should not be used by a user of the MultiBody
+library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXYZ
+joints.</strong>
+</p>
+
+<p>
+In releases before version 3.0 of the Modelica Standard Library, it was possible
+to activate the torque projection equation (= cut-torque projected to the rotation
+axis must be identical to the drive torque of flange axis) via parameter
+<strong>axisTorqueBalance</strong>. This is no longer possible, since otherwise this
+model would not be "balanced" (= same number of unknowns as equations).
+Instead, when using this model in version 3.0 and later versions,
+the force in the length constraint component (Joints.SphericalSpherical or
+Joints.UniversalSpherical) must be calculated such that the driving torque
+in direction of the rotation
+axis is (RC shall be the name of the instance of RevoluteWithLengthConstraint):
+</p>
+<pre>
+    0 = RC.axis.tau + RC.e*RC.frame_b.t;
+</pre>
+<p>
+If this equation is used, usually the force in the length constraint
+and the second derivative of the revolute angle will be part of a linear
+algebraic system of equations. In some cases it is possible to solve
+this system of equations locally, i.e., provide the rod force directly
+as function of the revolute constraint torque. In any case, this projection
+equation or an equivalent one has to be provided via variable "constraintResidue" in the "Advanced"
+menu of "Joints.SphericalSpherical" or "Joints.UniversalSpherical".
+</p>
+
+<p>Extends from <code><a href="../../../../Mechanics/MultiBody/Interfaces/index.html#PartialTwoFrames">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;PartialTwoFrames</a></code> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Position">Position</a></code></td><td><code>lengthConstraint</code></td><td>&nbsp;</td><td>Fixed length of length constraint</td></tr>
+<tr><td><code><a href="../../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>n[3]</code></td><td><code>{0, 0, 1}</code></td><td>Axis of rotation resolved in frame_a (= same as in frame_b)</td></tr>
+<tr><td><code><a href="../../../../SIunits/Conversions/NonSIunits/index.html#Angle_deg">Angle_deg</a></code></td><td><code>phi_offset</code></td><td><code>0</code></td><td>Relative angle offset (angle = phi + from_deg(phi_offset))</td></tr>
+<tr><td><code><a href="../../../../SIunits/Conversions/NonSIunits/index.html#Angle_deg">Angle_deg</a></code></td><td><code>phi_guess</code></td><td><code>0</code></td><td>Select the configuration such that at initial time |phi - from_deg(phi_guess)| is minimal</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>cylinderLength</code></td><td><code>world.&#8203;defaultJointLength</code></td><td>Length of cylinder representing the joint axis</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>cylinderDiameter</code></td><td><code>world.&#8203;defaultJointWidth</code></td><td>Diameter of cylinder representing the joint axis</td></tr>
+<tr><td><code>Boolean</code></td><td><code>positiveBranch</code></td><td>&nbsp;</td><td>Based on phi_guess, selection of one of the two solutions of the non-linear constraint equation</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>e[3]</code></td><td><code>Modelica.Math.Vectors.normalizeWithAssert(n)</code></td><td>Unit vector in direction of rotation axis, resolved in frame_a</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>axis</code></td><td>1-dim. rotational flange that drives the joint</td></tr>
+<tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>bearing</code></td><td>1-dim. rotational flange of the drive bearing</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>position_a[3]</code></td><td>Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>position_b[3]</code></td><td>Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint</td></tr>
+</table>
+<hr><a name="PrismaticWithLengthConstraint"><h2><embed class="icon" src="../../../../images/icon1129.svg" width="283" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Joints</a>.&#8203;<a href="index.html">Internal</a>.&#8203;PrismaticWithLengthConstraint<br><span class="subtitle">Prismatic joint where the translational distance is computed from a length constraint (1 degree-of-freedom, no potential state)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Joint where frame_b is translated along axis n which is fixed in frame_a.
+The two frames coincide when "s + s_offset = 0", where
+"s_offset" is a parameter with a zero default
+and "s" is the relative distance.
+</p>
+<p>
+This variant of the prismatic joint is designed to work together
+with a length constraint in a kinematic loop. This means that the
+relative distance "s" of the joint is computed such that the
+length constraint is fulfilled.
+</p>
+<p>
+<strong>Usually, this joint should not be used by a user of the MultiBody
+library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXYZ
+joints.</strong>
+</p>
+
+<p>
+In releases before version 3.0 of the Modelica Standard Library, it was possible
+to activate the force projection equation (= cut-force projected to the translation
+axis must be identical to the driving force of flange axis) via parameter
+<strong>axisForceBalance</strong>. This is no longer possible, since otherwise this
+model would not be "balanced" (= same number of unknowns as equations).
+Instead, when using this model in version 3.0 and later versions,
+the force in the length constraint component (Joints.SphericalSpherical or
+Joints.UniversalSpherical) must be calculated such that the driving force
+in direction of the translation
+axis is (RC shall be the name of the instance of PrismaticWithLengthConstraint):
+</p>
+<pre>
+    0 = RC.axis.f + RC.e*RC.frame_b.f;
+</pre>
+<p>
+If this equation is used, usually the force in the length constraint
+and the second derivative of the prismatic distance will be part of a linear
+algebraic system of equations. In some cases it is possible to solve
+this system of equations locally, i.e., provide the rod force directly
+as function of the prismatic constraint force. In any case, this projection
+equation or an equivalent one has to be provided via variable "constraintResidue" in the "Advanced"
+menu of "Joints.SphericalSpherical" or "Joints.UniversalSpherical".
+</p>
+
+<p>Extends from <code><a href="../../../../Mechanics/MultiBody/Interfaces/index.html#PartialTwoFrames">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;PartialTwoFrames</a></code> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Position">Position</a></code></td><td><code>length</code></td><td>&nbsp;</td><td>Fixed length of length constraint</td></tr>
+<tr><td><code><a href="../../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>n[3]</code></td><td><code>{1, 0, 0}</code></td><td>Axis of translation resolved in frame_a (= same as in frame_b)</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Position">Position</a></code></td><td><code>s_offset</code></td><td><code>0</code></td><td>Relative distance offset (distance between frame_a and frame_b = s(t) + s_offset)</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Position">Position</a></code></td><td><code>s_guess</code></td><td><code>0</code></td><td>Select the configuration such that at initial time |s(t0)-s_guess| is minimal</td></tr>
+<tr><td><code><a href="../../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>boxWidthDirection[3]</code></td><td><code>{0, 1, 0}</code></td><td>Vector in width direction of box, resolved in frame_a</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>boxWidth</code></td><td><code>world.&#8203;defaultJointWidth</code></td><td>Width of prismatic joint box</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Distance">Distance</a></code></td><td><code>boxHeight</code></td><td><code>boxWidth</code></td><td>Height of prismatic joint box</td></tr>
+<tr><td><code>Boolean</code></td><td><code>positiveBranch</code></td><td>&nbsp;</td><td>Selection of one of the two solutions of the non-linear constraint equation</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>e[3]</code></td><td><code>Modelica.Math.Vectors.normalizeWithAssert(n)</code></td><td>Unit vector in direction of translation axis, resolved in frame_a</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><a href="../../../../Mechanics/Translational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>axis</code></td><td>1-dim. translational flange that drives the joint</td></tr>
+<tr><td><code><a href="../../../../Mechanics/Translational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>bearing</code></td><td>1-dim. translational flange of the drive bearing</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>position_a[3]</code></td><td>Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of prismatic joint</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>position_b[3]</code></td><td>Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of prismatic joint</td></tr>
+</table>
+<hr><a name="RollingConstraintVerticalWheel"><h2><embed class="icon" src="../../../../images/icon1130.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Joints</a>.&#8203;<a href="index.html">Internal</a>.&#8203;RollingConstraintVerticalWheel<br><span class="subtitle">Rolling constraint for wheel that is always perpendicular to x-y plane</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Joint for a wheel rolling on the x-y plane of the world frame
+intended for an idealized wheelset.
+To meet this objective, the wheel always runs upright and enables no
+slip in the longitudinal direction of the wheel/ground contact.
+</p>
+<p>
+On the contrary, the wheel can optionally slip in the lateral direction
+which is reasonable for the wheelset where just one of the wheels
+should be laterally constrained.
+</p>
+<p>
+The frame frame_a is placed in the intersection of the wheel spin axis
+with the wheel middle plane and rotates with the wheel itself.
+A wheel body collecting the mass and inertia should be connected to
+this frame.
+</p>
+
+<h4>Note</h4>
+<p>
+To work properly, the gravity acceleration vector g of the world must point in the negative z-axis, i.e.
+</p>
+<blockquote><pre>
+<span style="font-family:'Courier New',courier; color:#0000ff;">inner</span> <span style="font-family:'Courier New',courier; color:#ff0000;">Modelica.Mechanics.MultiBody.World</span> world(n={0,0,-1});
+</pre></blockquote>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Radius">Radius</a></code></td><td><code>radius</code></td><td>&nbsp;</td><td>Wheel radius</td></tr>
+<tr><td><code>Boolean</code></td><td><code>lateralSlidingConstraint</code></td><td><code>true</code></td><td>= true, if lateral sliding constraint taken into account, = false if lateral force = 0 (needed to avoid overconstraining if two ideal rolling wheels are connect on one axis)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Frame fixed in wheel center point. x-Axis: upwards, y-axis: along wheel axis</td></tr>
+</table>
+<hr><a name="InitPosition"><h2><embed class="icon" src="../../../../images/icon1131.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Joints</a>.&#8203;<a href="index.html">Internal</a>.&#8203;InitPosition<br><span class="subtitle">Internal model to initialize r_rel_a for Joints.FreeMotionScalarInit</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Compute relative position vector r_rel_a from a position vector r_a_0 to
+a position vector r_b_0, resolved in frame given by an
+<a href="../../../../Mechanics/MultiBody/Frames/index.html#Orientation">orientation object</a> R_a.
+</p>
+<p>Extends from <code><a href="../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>r_rel_a[3]</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="InitAngle"><h2><embed class="icon" src="../../../../images/icon1132.svg" width="213" height="223" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Joints</a>.&#8203;<a href="index.html">Internal</a>.&#8203;InitAngle<br><span class="subtitle">Internal model to initialize the angels for Joints.FreeMotionScalarInit</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Compute three rotational angles <strong>angle</strong> for a given rotational sequence
+<strong>sequence_start</strong> from a relative orientation from frame_a to frame_b.
+</p>
+<p>Extends from <code><a href="../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Types/index.html#RotationSequence">RotationSequence</a></code></td><td><code>sequence_start[3]</code></td><td><code>{1, 2, 3}</code></td><td>Sequence of angle rotations</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>angle[3]</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="InitAngularVelocity"><h2><embed class="icon" src="../../../../images/icon1133.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Joints</a>.&#8203;<a href="index.html">Internal</a>.&#8203;InitAngularVelocity<br><span class="subtitle">Internal model to initialize w_rel_b for Joints.FreeMotionScalarInit</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Compute relative angular velocity w_rel_b of an
+<a href="../../../../Mechanics/MultiBody/Frames/index.html#Orientation">orientation object</a> R_b
+relative to an
+<a href="../../../../Mechanics/MultiBody/Frames/index.html#Orientation">orientation object</a> R_a,
+resolved in orientation object R_b, i.e.
+</p>
+<blockquote><pre>
+w_b_b = w_a_b + w_rel_b,
+</pre></blockquote>
+<p>
+where
+</p>
+<blockquote><pre>
+w_b_b ...... absolute angular velocity of frame_b resolved in frame_b,
+w_a_b ...... absolute angular velocity of frame_a resolved in frame_b,
+w_rel_b .... relative angular velocity resolved in frame_b.
+</pre></blockquote>
+<p>Extends from <code><a href="../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>w_rel_b[3]</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

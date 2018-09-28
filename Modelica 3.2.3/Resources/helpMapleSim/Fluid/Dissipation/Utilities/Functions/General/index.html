@@ -1,0 +1,314 @@
+<html><head><title>Modelica.Fluid.Dissipation.Utilities.Functions.General</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="General"><h1><embed class="icon" src="../../../../../images/icon0092.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Functions</a>.&#8203;General<br><span class="subtitle">Package with utility functions</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>Standard package icon.</p>
+<p>Extends from <code><a href="../../../../../Icons/FunctionsPackage/index.html">Modelica.&#8203;Icons.&#8203;FunctionsPackage</a></code> (Icon for packages containing functions).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#CubicInterpolation_DP"><code>CubicInterpolation_DP</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#CubicInterpolation_MFLOW"><code>CubicInterpolation_MFLOW</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#LambertW"><code>LambertW</code></a></td><td>Closed approximation of Lambert's w function for solving f(x) = x exp(x) for x</td></tr>
+<tr><td><a href="#LambertWIter"><code>LambertWIter</code></a></td><td>Iterative form of Lambert's w function for solving f(x) = x exp(x) for x</td></tr>
+<tr><td><a href="#PrandtlNumber"><code>PrandtlNumber</code></a></td><td>calculation of Prandtl number</td></tr>
+<tr><td><a href="#ReynoldsNumber"><code>ReynoldsNumber</code></a></td><td>calculation of Reynolds number</td></tr>
+<tr><td><a href="#SmoothPower"><code>SmoothPower</code></a></td><td>Limiting the derivative of function y = if x&gt;=0 then x^pow else -(-x)^pow</td></tr>
+<tr><td><a href="#SmoothPower_der"><code>SmoothPower_der</code></a></td><td>The derivative of function SmoothPower</td></tr>
+<tr><td><a href="#Stepsmoother"><code>Stepsmoother</code></a></td><td>Continuous interpolation for x</td></tr>
+<tr><td><a href="#Stepsmoother_der"><code>Stepsmoother_der</code></a></td><td>Derivative of function Stepsmoother</td></tr>
+</table>
+<hr><a name="CubicInterpolation_DP"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Functions</a>.&#8203;<a href="index.html">General</a>.&#8203;CubicInterpolation_DP<br><span class="subtitle">Icon for functions</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>Re_turbulent</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#ReynoldsNumber">ReynoldsNumber</a></code></td><td><code>Re1</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#ReynoldsNumber">ReynoldsNumber</a></code></td><td><code>Re2</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>Delta</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>lambda2</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#ReynoldsNumber">ReynoldsNumber</a></code></td><td><code>Re</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="CubicInterpolation_MFLOW"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Functions</a>.&#8203;<a href="index.html">General</a>.&#8203;CubicInterpolation_MFLOW<br><span class="subtitle">Icon for functions</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#ReynoldsNumber">ReynoldsNumber</a></code></td><td><code>Re</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#ReynoldsNumber">ReynoldsNumber</a></code></td><td><code>Re1</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#ReynoldsNumber">ReynoldsNumber</a></code></td><td><code>Re2</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>Delta</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>lambda2</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="LambertW"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Functions</a>.&#8203;<a href="index.html">General</a>.&#8203;LambertW<br><span class="subtitle">Closed approximation of Lambert's w function for solving f(x) = x exp(x) for x</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+This function calculates an approximation of the <strong> inverse </strong> for
+</p>
+<pre>
+    f(x) = y = x * exp( x )
+</pre>
+
+<p>
+within &infin; > y > -1/e.  The relative deviation of this approximation for Lambert's w function <strong>x = W(y)</strong> is displayed in the following graph.
+</p>
+
+<p>
+<img src="../../../../../../Images/Fluid/Dissipation/utilities/LambertW_deviation.png" alt="LambertW_deviation"/>
+</p>
+
+<p>
+For y > 10 and higher values the relative deviation is smaller 2%.
+</p>
+
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>f(x)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>x</code></td><td>W(y)</td></tr>
+</table>
+<hr><a name="LambertWIter"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Functions</a>.&#8203;<a href="index.html">General</a>.&#8203;LambertWIter<br><span class="subtitle">Iterative form of Lambert's w function for solving f(x) = x exp(x) for x</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+This function calculates an approximation of the <strong> inverse </strong> for
+</p>
+<pre>
+    f(x) = y = x * exp( x )
+</pre>
+
+<p>
+within &infin; > y > -1/e. Please note, that for negative inputs <strong>two</strong> solutions exists. The function currently delivers the result x = -1 ... 0 for that particular range.
+</p>
+
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>f(x)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>x</code></td><td>W(y)</td></tr>
+<tr><td><code>Integer</code></td><td><code>iter</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PrandtlNumber"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Functions</a>.&#8203;<a href="index.html">General</a>.&#8203;PrandtlNumber<br><span class="subtitle">calculation of Prandtl number</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#SpecificHeatCapacityAtConstantPressure">SpecificHeatCapacityAtConstantPressure</a></code></td><td><code>cp</code></td><td>specific heat capacity of fluid at constant pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta</code></td><td>dynamic viscosity of fluid</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#ThermalConductivity">ThermalConductivity</a></code></td><td><code>lambda</code></td><td>thermal conductivity of fluid</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#PrandtlNumber">PrandtlNumber</a></code></td><td><code>Pr</code></td><td>Prandtl number</td></tr>
+</table>
+<hr><a name="ReynoldsNumber"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Functions</a>.&#8203;<a href="index.html">General</a>.&#8203;ReynoldsNumber<br><span class="subtitle">calculation of Reynolds number</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Area">Area</a></code></td><td><code>A_cross</code></td><td>Cross sectional area</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>perimeter</code></td><td>Wetted perimeter</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho</code></td><td>Density of fluid</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta</code></td><td>Dynamic viscosity of fluid</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#ReynoldsNumber">ReynoldsNumber</a></code></td><td><code>Re</code></td><td>Reynolds number</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Velocity">Velocity</a></code></td><td><code>velocity</code></td><td>Mean velocity</td></tr>
+</table>
+<hr><a name="SmoothPower"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Functions</a>.&#8203;<a href="index.html">General</a>.&#8203;SmoothPower<br><span class="subtitle">Limiting the derivative of function y = if x&gt;=0 then x^pow else -(-x)^pow</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The function is used to limit the derivative of the following function at x=0:
+</p>
+<pre>
+   y = <strong>if</strong> x &ge; 0 <strong>then</strong> x<sup><strong>pow</strong></sup> <strong>else</strong> -(-x)<sup><strong>pow</strong></sup>;  // pow &gt; 0
+</pre>
+
+<p>
+by approximating the function in the range -<strong>deltax</strong>&lt; x &lt; <strong>deltax</strong>
+with a third order polynomial that has the same derivative at <strong>abs</strong>(x)=deltax, as the
+function above.
+</p>
+
+<h4>Example </h4>
+<p>
+In the picture below the input x is increased from -1 to 1. The range of interpolation is defined by the same range. Displayed is the output of the function SmoothPower compared to
+</p>
+<pre>
+y=x*|x|
+</pre>
+<p>
+For |x| &gt; 1 both functions return identical results.
+</p>
+
+<p>
+<img src="../../../../../../Images/Fluid/Dissipation/utilities/SmoothPower.png" alt="SmoothPower"/>
+</p>
+
+<h4>References</h4>
+<dl>
+<dt>ThermoFluid Library</dt>
+    <dd><strong><a href="http://sourceforge.net/projects/thermofluid/">http://sourceforge.net/projects/thermofluid/</a></strong></dd>
+</dl>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>x</code></td><td>input variable</td></tr>
+<tr><td><code>Real</code></td><td><code>deltax</code></td><td>range for interpolation</td></tr>
+<tr><td><code>Real</code></td><td><code>pow</code></td><td>exponent for x</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>output variable</td></tr>
+</table>
+<hr><a name="SmoothPower_der"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Functions</a>.&#8203;<a href="index.html">General</a>.&#8203;SmoothPower_der<br><span class="subtitle">The derivative of function SmoothPower</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>x</code></td><td>input variable</td></tr>
+<tr><td><code>Real</code></td><td><code>deltax</code></td><td>range of interpolation</td></tr>
+<tr><td><code>Real</code></td><td><code>pow</code></td><td>exponent for x</td></tr>
+<tr><td><code>Real</code></td><td><code>dx</code></td><td>derivative of x</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>dy</code></td><td>derivative of SmoothPower</td></tr>
+</table>
+<hr><a name="Stepsmoother"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Functions</a>.&#8203;<a href="index.html">General</a>.&#8203;Stepsmoother<br><span class="subtitle">Continuous interpolation for x</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The function is used for continuous fading of variable inputs within a defined range. It allows a differentiable and smooth transition between function outputs, e.g., laminar and turbulent pressure drop or correlations for certain ranges.
+</p>
+<h4>Function</h4>
+<p>
+The tanh-function is used, since it provides an existing derivative and the derivative is zero at the borders [<strong>nofunc</strong>, <strong>func</strong>] of the interpolation domain (smooth derivative for transitions).<br>
+<br>
+In order to work correctly, the internal interpolation range in terms of the external arbitrary input <strong> x </strong> needs to be scaled such that:
+</p>
+<pre>
+f(func)   = 0.5 &pi;
+f(nofunc) = -0.5 &pi;
+</pre>
+
+<h4>Example </h4>
+<p>
+In the picture below the input x is increased from 0 to 1. The range of interpolation is defined by:
+</p>
+<ul>
+<li> func = 0.75</li>
+<li> nofunc = 0.25</li>
+</ul>
+
+<p>
+<img src="../../../../../../Images/Fluid/Dissipation/utilities/Stepsmoother.png" alt="Stepsmoother"/>
+</p>
+
+<h4>References</h4>
+<dl>
+<dt>Wischhusen, St.</dt>
+    <dd><strong>Simulation von K&auml;ltemaschinen-Prozessen mit MODELICA / DYMOLA</strong>.
+    Diploma thesis, Hamburg University of Technology, Institute of Thermofluiddynamics, 2000.</dd>
+</dl>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>func</code></td><td>input value for that result = 100%</td></tr>
+<tr><td><code>Real</code></td><td><code>nofunc</code></td><td>input value for that result = 0%</td></tr>
+<tr><td><code>Real</code></td><td><code>x</code></td><td>input variable for continuous interpolation</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>result</code></td><td>output value</td></tr>
+</table>
+<hr><a name="Stepsmoother_der"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Functions</a>.&#8203;<a href="index.html">General</a>.&#8203;Stepsmoother_der<br><span class="subtitle">Derivative of function Stepsmoother</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>func</code></td><td>input for that result = 100%</td></tr>
+<tr><td><code>Real</code></td><td><code>nofunc</code></td><td>input for that result = 0%</td></tr>
+<tr><td><code>Real</code></td><td><code>x</code></td><td>input for interpolation</td></tr>
+<tr><td><code>Real</code></td><td><code>dfunc</code></td><td>derivative of func</td></tr>
+<tr><td><code>Real</code></td><td><code>dnofunc</code></td><td>derivative of nofunc</td></tr>
+<tr><td><code>Real</code></td><td><code>dx</code></td><td>derivative of x</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>dresult</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

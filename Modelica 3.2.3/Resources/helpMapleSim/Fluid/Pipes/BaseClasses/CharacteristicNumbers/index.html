@@ -1,0 +1,118 @@
+<html><head><title>Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="CharacteristicNumbers"><h1><embed class="icon" src="../../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Pipes</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;CharacteristicNumbers<br><span class="subtitle">Functions to compute characteristic numbers</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>Standard package icon.</p>
+<p>Extends from <code><a href="../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#NusseltNumber"><code>NusseltNumber</code></a></td><td>Return Nusselt number</td></tr>
+<tr><td><a href="#ReynoldsNumber"><code>ReynoldsNumber</code></a></td><td>Return Reynolds number from v, rho, mu, D</td></tr>
+<tr><td><a href="#ReynoldsNumber_m_flow"><code>ReynoldsNumber_m_flow</code></a></td><td>Return Reynolds number from m_flow, mu, D, A</td></tr>
+</table>
+<hr><a name="ReynoldsNumber"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Pipes</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">CharacteristicNumbers</a>.&#8203;ReynoldsNumber<br><span class="subtitle">Return Reynolds number from v, rho, mu, D</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Calculation of Reynolds Number
+</p>
+<pre>
+   Re = |v|&rho;D/&mu;
+</pre>
+<p>
+a measure of the relationship between inertial forces (v&rho;) and viscous forces (D/&mu;).
+</p>
+<p>
+The following table gives examples for the characteristic dimension D and the velocity v for different fluid flow devices:
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>Device Type</strong></th><th><strong>Characteristic Dimension D</strong></th><th><strong>Velocity v</strong></th></tr>
+<tr><td>Circular Pipe</td><td>diameter</td>
+    <td>m_flow/&rho;/crossArea</td></tr>
+<tr><td>Rectangular Duct</td><td>4*crossArea/perimeter</td>
+    <td>m_flow/&rho;/crossArea</td></tr>
+<tr><td>Wide Duct</td><td>distance between narrow, parallel walls</td>
+    <td>m_flow/&rho;/crossArea</td></tr>
+<tr><td>Packed Bed</td><td>diameterOfSpericalParticles/(1-fluidFractionOfTotalVolume)</td>
+    <td>m_flow/&rho;/crossArea (without particles)</td></tr>
+<tr><td>Device with rotating agitator</td><td>diameterOfRotor</td>
+    <td>RotationalSpeed*diameterOfRotor</td></tr>
+</table>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Velocity">Velocity</a></code></td><td><code>v</code></td><td>Mean velocity of fluid flow</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho</code></td><td>Fluid density</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>mu</code></td><td>Dynamic (absolute) viscosity</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>D</code></td><td>Characteristic dimension (hydraulic diameter of pipes)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#ReynoldsNumber">ReynoldsNumber</a></code></td><td><code>Re</code></td><td>Reynolds number</td></tr>
+</table>
+<hr><a name="ReynoldsNumber_m_flow"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Pipes</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">CharacteristicNumbers</a>.&#8203;ReynoldsNumber_m_flow<br><span class="subtitle">Return Reynolds number from m_flow, mu, D, A</span></h2></a>
+<h3>Information</h3>
+<p>
+Simplified calculation of Reynolds Number for flow through pipes or orifices;
+              using the mass flow rate <code>m_flow</code> instead of the velocity <code>v</code> to express inertial forces.
+<pre>
+  Re = |m_flow|*diameter/A/&mu;
+with
+  m_flow = v*&rho;*A
+</pre>
+See also <a href="../../../../Fluid/Pipes/BaseClasses/CharacteristicNumbers/index.html#ReynoldsNumber">
+          Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber</a>.
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>mu</code></td><td>Dynamic viscosity</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>D</code></td><td>Characteristic dimension (hydraulic diameter of pipes or orifices)</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Area">Area</a></code></td><td><code>A</code></td><td>Cross sectional area of fluid flow</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#ReynoldsNumber">ReynoldsNumber</a></code></td><td><code>Re</code></td><td>Reynolds number</td></tr>
+</table>
+<hr><a name="NusseltNumber"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Pipes</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">CharacteristicNumbers</a>.&#8203;NusseltNumber<br><span class="subtitle">Return Nusselt number</span></h2></a>
+<h3>Information</h3>
+<p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#CoefficientOfHeatTransfer">CoefficientOfHeatTransfer</a></code></td><td><code>alpha</code></td><td>Coefficient of heat transfer</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>D</code></td><td>Characteristic dimension</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#ThermalConductivity">ThermalConductivity</a></code></td><td><code>lambda</code></td><td>Thermal conductivity</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#NusseltNumber">NusseltNumber</a></code></td><td><code>Nu</code></td><td>Nusselt number</td></tr>
+</table>
+</body></html>

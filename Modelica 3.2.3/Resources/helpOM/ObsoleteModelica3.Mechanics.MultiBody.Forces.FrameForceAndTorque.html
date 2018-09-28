@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+ObsoleteModelica3.Mechanics.MultiBody.Forces.FrameForceAndTorque</title>
+</head>
+<body>
+<h1><a href="Icons/f59ecf71b91ef5086cec22ae69fb5c116533ed84.svg"><img class="svgiconhead" src="Icons/f59ecf71b91ef5086cec22ae69fb5c116533ed84.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ObsoleteModelica3.html">ObsoleteModelica3</a>.<a class="omc-h1-a" href="ObsoleteModelica3.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="ObsoleteModelica3.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="ObsoleteModelica3.Mechanics.MultiBody.Forces.html">Forces</a>.<span class="omc-h1">FrameForceAndTorque</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The <strong>6</strong> signals of the <strong>load</strong>
+connector are interpreted as the x-, y- and z-coordinates of a
+<strong>force</strong> and as the x-, y-, and z-coordinates of a
+<strong>torque</strong> acting at the frame connector to which this
+component is attached. If connector <strong>frame_resolve</strong>
+is <strong>not</strong> connected, the force and torque coordinates
+are with respect to <strong>frame_b</strong>. If connector
+<strong>frame_resolve</strong> is connected, the force and torque
+coordinates are with respect to <strong>frame_resolve</strong>. In
+this case the force and torque in connector frame_resolve are set
+to zero, i.e., this connector is solely used to provide the
+information of the coordinate system, in which the force
+coordinates are defined. The input signals are mapped to the force
+and torque in the following way:</p>
+<pre>
+   force  = load[1:3]
+   torque = load[4:6]
+</pre>
+<p>The force and torque are by default visualized as an arrow
+(force) and as a double arrow (torque) acting at the connector to
+which they are connected. The diameters and colors of the arrows
+are fixed and can be defined via parameters
+<strong>forceDiameter</strong>, <strong>torqueDiameter</strong>,
+<strong>forceColor</strong> and <strong>torqueColor</strong>. The
+arrows point in the directions defined by the inPort.signal
+signals. The lengths of the arrows are proportional to the length
+of the force and torque vectors, respectively, using parameters
+<strong>N_to_m</strong> and <strong>Nm_to_m</strong> as scaling
+factors. For example, if N_to_m = 100 N/m, then a force of 350 N is
+displayed as an arrow of length 3.5 m.</p>
+<p>An example how to use this model is given in the following
+figure:</p>
+<img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/Forces/obsoleteFrameForceAndTorque1.png" />
+<p>This leads to the following animation</p>
+<img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/Forces/obsoleteFrameForceAndTorque2.png" />
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

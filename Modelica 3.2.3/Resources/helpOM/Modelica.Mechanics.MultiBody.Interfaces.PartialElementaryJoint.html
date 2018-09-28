@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Interfaces.PartialElementaryJoint</title>
+</head>
+<body>
+<h1><a href="Icons/4eca979b29367a2fae393fb3820d91bf5f3de22b.svg"><img class="svgiconhead" src="Icons/4eca979b29367a2fae393fb3820d91bf5f3de22b.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Interfaces.html">Interfaces</a>.<span class="omc-h1">PartialElementaryJoint</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>All <strong>elementary joints</strong> should inherit from this
+base model, i.e., joints that are directly defined by equations,
+provided they compute either the rotation object of frame_b from
+the rotation object of frame_a and from relative quantities (or
+vice versa), or there is a constraint equation between the rotation
+objects of the two frames. In other cases, a joint object should
+inherit from <strong>Interfaces.PartialTwoFrames</strong> (e.g.,
+joint Spherical, because there is no constraint between the
+rotation objects of frame_a and frame_b or joint Cylindrical
+because it is not an elementary joint).</p>
+<p>This partial model provides two frame connectors, a
+"Connections.branch" between frame_a and frame_b, access to the
+world object and an assert to check that both frame connectors are
+connected.</p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

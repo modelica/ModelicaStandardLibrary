@@ -1,0 +1,10 @@
+<svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Mechanics.MultiBody.Joints.Internal.RollingConstraintVerticalWheel" class="component">
+		<polygon points="1.5,181.5 201.5,181.5 201.5,161.5 1.5,161.5" fill="#AFAFAF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="101.5,161.5 101.5,97.5" fill-opacity="0" stroke="#000000" stroke-dasharray="1 2" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="frame_a" class="port">
+			<polygon points="99.9,83.1 103.1,83.1 103.1,79.9 99.9,79.9" fill-opacity="0" stroke="#5F5F5F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="96.7,97.5 106.3,97.5 106.3,65.5 96.7,65.5" fill="#C0C0C0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

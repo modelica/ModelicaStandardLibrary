@@ -1,0 +1,85 @@
+<html><head><title>Modelica.Constants</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Constants"><h1><embed class="icon" src="../images/icon0627.svg" width="203" height="203" />
+Package <a href="../index.html">Modelica</a>.&#8203;Constants<br><span class="subtitle">Library of mathematical constants and constants of nature (e.g., pi, eps, R, sigma)</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package provides often needed constants from mathematics, machine
+dependent constants and constants from nature. The latter constants
+(name, value, description) are from the following source:
+</p>
+
+<dl>
+<dt>Peter J. Mohr, David B. Newell, and Barry N. Taylor:</dt>
+<dd><strong>CODATA Recommended Values of the Fundamental Physical Constants: 2014</strong>.
+<a href= "http://dx.doi.org/10.5281/zenodo.22826">http://dx.doi.org/10.5281/zenodo.22826</a>, 2015. See also <a href=
+"http://physics.nist.gov/cuu/Constants/index.html">http://physics.nist.gov/cuu/Constants/index.html</a></dd>
+</dl>
+
+<p>CODATA is the Committee on Data for Science and Technology.</p>
+
+<dl>
+<dt><strong>Main Author:</strong></dt>
+<dd><a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a><br>
+    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e. V. (DLR)<br>
+    Oberpfaffenhofen<br>
+    Postfach 1116<br>
+    D-82230 We&szlig;ling<br>
+    email: <a href="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</a></dd>
+</dl>
+
+<p>
+Copyright &copy; 1998-2018, Modelica Association and DLR.
+</p>
+<p>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href="https://modelica.org/licenses/modelica-3-clause-bsd">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+</p>
+<p>Extends from <code><a href="../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Constants</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Value</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code><a href="../SIunits/index.html#Velocity">Velocity</a></code></td><td><code>c</code></td><td><code>2.99792458e+8</code></td><td>Speed of light in vacuum</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>D2R</code></td><td><code>0.005555555555556 * pi</code></td><td>Degree to Radian</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>e</code></td><td><code>Modelica.Math.exp(1)</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>eps</code></td><td><code>ModelicaServices.&#8203;Machine.&#8203;eps</code></td><td>Biggest number such that 1.0 + eps = 1.0</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>epsilon_0</code></td><td><code>(mue_0 * c * c) ^ (-1)</code></td><td>Electric constant</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../SIunits/index.html#FaradayConstant">FaradayConstant</a></code></td><td><code>F</code></td><td><code>96485.33289</code></td><td>Faraday constant, C/mol (previous value: 9.64853399e4)</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>G</code></td><td><code>6.67408e-11</code></td><td>Newtonian constant of gravitation (previous value: 6.6742e-11)</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../SIunits/index.html#Acceleration">Acceleration</a></code></td><td><code>g_n</code></td><td><code>9.80665</code></td><td>Standard acceleration of gravity on earth</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>gamma</code></td><td><code>0.577215664901533</code></td><td>see http://en.wikipedia.org/wiki/Euler_constant</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>h</code></td><td><code>6.62607004e-34</code></td><td>Planck constant (previous value: 6.6260693e-34)</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>inf</code></td><td><code>ModelicaServices.&#8203;Machine.&#8203;inf</code></td><td>Biggest Real number such that inf and -inf are representable on the machine</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>Integer_inf</code></td><td><code>ModelicaServices.&#8203;Machine.&#8203;Integer_inf</code></td><td>Biggest Integer number such that Integer_inf and -Integer_inf are representable on the machine</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>k</code></td><td><code>1.38064852e-23</code></td><td>Boltzmann constant (previous value: 1.3806505e-23)</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>mue_0</code></td><td><code>4 * pi * (1e-7)</code></td><td>Magnetic constant</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>N_A</code></td><td><code>6.022140857e+23</code></td><td>Avogadro constant (previous value: 6.0221415e23)</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>pi</code></td><td><code>2 * Modelica.Math.asin(1)</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../SIunits/index.html#ElectricCharge">ElectricCharge</a></code></td><td><code>q</code></td><td><code>Modelica.Constants.F / Modelica.Constants.N_A</code></td><td>Elementary charge (electron charge without sign) = 1.602177e-19 C</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>R</code></td><td><code>8.3144598</code></td><td>Molar gas constant (previous value: 8.314472)</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>R2D</code></td><td><code>180 / pi</code></td><td>Radian to Degree</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>sigma</code></td><td><code>5.670367e-8</code></td><td>Stefan-Boltzmann constant (previous value: 5.670400e-8)</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>small</code></td><td><code>ModelicaServices.&#8203;Machine.&#8203;small</code></td><td>Smallest number such that small and -small are representable on the machine</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../SIunits/Conversions/NonSIunits/index.html#Temperature_degC">Temperature_degC</a></code></td><td><code>T_zero</code></td><td><code>-273.15</code></td><td>Absolute zero temperature</td></tr>
+</table>
+</body></html>

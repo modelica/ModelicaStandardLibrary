@@ -1,0 +1,340 @@
+<html><head><title>Modelica.Math.BooleanVectors</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="BooleanVectors"><h1><embed class="icon" src="../../images/icon1496.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Math</a>.&#8203;BooleanVectors<br><span class="subtitle">Library of functions operating on Boolean vectors</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This library provides functions operating on vectors that have
+a Boolean vector as input argument.
+</p>
+<p>Extends from <code><a href="../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#allTrue"><code>allTrue</code></a></td><td>Returns true, if all elements of the Boolean input vector are true ('and')</td></tr>
+<tr><td><a href="#anyTrue"><code>anyTrue</code></a></td><td>Returns true, if at least on element of the Boolean input vector is true ('or')</td></tr>
+<tr><td><a href="#countTrue"><code>countTrue</code></a></td><td>Returns the number of true entries in a Boolean vector</td></tr>
+<tr><td><a href="#enumerate"><code>enumerate</code></a></td><td>Enumerates the true entries in a Boolean vector (0 for false entries)</td></tr>
+<tr><td><a href="#firstTrueIndex"><code>firstTrueIndex</code></a></td><td>Returns the index of the first true element of a Boolean vector</td></tr>
+<tr><td><a href="#index"><code>index</code></a></td><td>Returns the indices of the true entries of a Boolean vector</td></tr>
+<tr><td><a href="#oneTrue"><code>oneTrue</code></a></td><td>Returns true, if exactly one element of the Boolean input vector is true ("xor")</td></tr>
+</table>
+<hr><a name="allTrue"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">BooleanVectors</a>.&#8203;allTrue<br><span class="subtitle">Returns true, if all elements of the Boolean input vector are true ('and')</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>allTrue</strong>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns <strong>true</strong> if all elements of the Boolean input vector b are <strong>true</strong>.
+Otherwise the function returns <strong>false</strong>. If b is an empty vector,
+i.e., size(b,1)=0, the function returns <strong>false</strong>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  Boolean b1[3] = {true, true, true};
+  Boolean b2[3] = {false, true, false};
+  Boolean r1, r2;
+<strong>algorithm</strong>
+  r1 = allTrue(b1);  // r1 = true
+  r2 = allTrue(b2);  // r2 = false
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="../../Math/BooleanVectors/index.html#anyTrue">anyTrue</a>,
+<a href="../../Math/BooleanVectors/index.html#countTrue">countTrue</a>,
+<a href="../../Math/BooleanVectors/index.html#enumerate">enumerate</a>,
+<a href="../../Math/BooleanVectors/index.html#firstTrueIndex">firstTrueIndex</a>,
+<a href="../../Math/BooleanVectors/index.html#index">index</a>, and
+<a href="../../Math/BooleanVectors/index.html#oneTrue">oneTrue</a>.
+</p>
+
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>b[:]</code></td><td>Boolean vector</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>result</code></td><td>= true, if all elements of b are true</td></tr>
+</table>
+<hr><a name="anyTrue"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">BooleanVectors</a>.&#8203;anyTrue<br><span class="subtitle">Returns true, if at least on element of the Boolean input vector is true ('or')</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>anyTrue</strong>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns <strong>true</strong> if at least one elements of the input Boolean vector b is <strong>true</strong>.
+Otherwise the function returns <strong>false</strong>. If b is an empty vector,
+i.e., size(b,1)=0, the function returns <strong>false</strong>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  Boolean b1[3] = {false, false, false};
+  Boolean b2[3] = {false, true, false};
+  Boolean r1, r2;
+<strong>algorithm</strong>
+  r1 = anyTrue(b1);  // r1 = false
+  r2 = anyTrue(b2);  // r2 = true
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="../../Math/BooleanVectors/index.html#allTrue">allTrue</a>,
+<a href="../../Math/BooleanVectors/index.html#countTrue">countTrue</a>,
+<a href="../../Math/BooleanVectors/index.html#enumerate">enumerate</a>,
+<a href="../../Math/BooleanVectors/index.html#firstTrueIndex">firstTrueIndex</a>,
+<a href="../../Math/BooleanVectors/index.html#index">index</a>, and
+<a href="../../Math/BooleanVectors/index.html#oneTrue">oneTrue</a>.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>b[:]</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>result</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="countTrue"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">BooleanVectors</a>.&#8203;countTrue<br><span class="subtitle">Returns the number of true entries in a Boolean vector</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>countTrue</strong>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns the number of <strong>true</strong> entries in a Boolean vector b.
+</p>
+
+<h4>Example</h4>
+<p><code>countTrue({false, true, false, true})</code> returns 2.</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../Math/BooleanVectors/index.html#allTrue">allTrue</a>,
+<a href="../../Math/BooleanVectors/index.html#anyTrue">anyTrue</a>,
+<a href="../../Math/BooleanVectors/index.html#enumerate">enumerate</a>,
+<a href="../../Math/BooleanVectors/index.html#firstTrueIndex">firstTrueIndex</a>,
+<a href="../../Math/BooleanVectors/index.html#index">index</a>, and
+<a href="../../Math/BooleanVectors/index.html#oneTrue">oneTrue</a>.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>b[:]</code></td><td>Boolean vector</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td>Number of true entries</td></tr>
+</table>
+<hr><a name="enumerate"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">BooleanVectors</a>.&#8203;enumerate<br><span class="subtitle">Enumerates the true entries in a Boolean vector (0 for false entries)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>enumerate</strong>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns an integer vector that consecutively numbers
+the <strong>true</strong> entries in a Boolean vector b.  The <strong>false</strong> entries are
+indicated by 0.
+</p>
+
+<h4>Example</h4>
+<p><code>enumerate({false, true, false, true})</code> returns <code>{0,1,0,2}</code>.</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../Math/BooleanVectors/index.html#allTrue">allTrue</a>,
+<a href="../../Math/BooleanVectors/index.html#anyTrue">anyTrue</a>,
+<a href="../../Math/BooleanVectors/index.html#countTrue">countTrue</a>,
+<a href="../../Math/BooleanVectors/index.html#firstTrueIndex">firstTrueIndex</a>,
+<a href="../../Math/BooleanVectors/index.html#index">index</a>, and
+<a href="../../Math/BooleanVectors/index.html#oneTrue">oneTrue</a>.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>b[:]</code></td><td>Boolean vector</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>enumerated[size(b, 1)]</code></td><td>Indices of the true entries (increasing order; 0 for false entries)</td></tr>
+</table>
+<hr><a name="firstTrueIndex"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">BooleanVectors</a>.&#8203;firstTrueIndex<br><span class="subtitle">Returns the index of the first true element of a Boolean vector</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>firstTrueIndex</strong>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns the index of the first <strong>true</strong> element of the Boolean vector b.
+If no element is <strong>true</strong> or b is an empty vector (i.e., size(b,1)=0) the
+function returns 0.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  Boolean b1[3] = {false, false, false};
+  Boolean b2[3] = {false, true, false};
+  Boolean b3[4] = {false, true, false, true};
+  Integer r1, r2, r3;
+<strong>algorithm</strong>
+  r1 = firstTrueIndex(b1);  // r1 = 0
+  r2 = firstTrueIndex(b2);  // r2 = 2
+  r3 = firstTrueIndex(b3);  // r3 = 2
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="../../Math/BooleanVectors/index.html#allTrue">allTrue</a>,
+<a href="../../Math/BooleanVectors/index.html#anyTrue">anyTrue</a>,
+<a href="../../Math/BooleanVectors/index.html#countTrue">countTrue</a>,
+<a href="../../Math/BooleanVectors/index.html#enumerate">enumerate</a>,
+<a href="../../Math/BooleanVectors/index.html#index">index</a>, and
+<a href="../../Math/BooleanVectors/index.html#oneTrue">oneTrue</a>.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>b[:]</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>index</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="index"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">BooleanVectors</a>.&#8203;index<br><span class="subtitle">Returns the indices of the true entries of a Boolean vector</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>index</strong>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns an integer vector that contains indices to the
+<strong>true</strong> entries in a Boolean vector b.  The number of entries in
+the integer vector is the number of <strong>true</strong> entries in b.
+</p>
+
+<h4>Example</h4>
+<code>index({false, true, false, true})</code> returns <code>{2,4}</code>.
+
+  <h4>See also</h4>
+<p>
+<a href="../../Math/BooleanVectors/index.html#allTrue">allTrue</a>,
+<a href="../../Math/BooleanVectors/index.html#anyTrue">anyTrue</a>,
+<a href="../../Math/BooleanVectors/index.html#countTrue">countTrue</a>,
+<a href="../../Math/BooleanVectors/index.html#enumerate">enumerate</a>,
+<a href="../../Math/BooleanVectors/index.html#firstTrueIndex">firstTrueIndex</a>, and
+<a href="../../Math/BooleanVectors/index.html#oneTrue">oneTrue</a>.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>b[:]</code></td><td>Boolean vector</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>indices[countTrue(b)]</code></td><td>Indices of the true entries</td></tr>
+</table>
+<hr><a name="oneTrue"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">BooleanVectors</a>.&#8203;oneTrue<br><span class="subtitle">Returns true, if exactly one element of the Boolean input vector is true ("xor")</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>oneTrue</strong>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns <strong>true</strong> if exactly one element of the input Boolean vector b is <strong>true</strong>.
+Otherwise the function returns <strong>false</strong>. If b is an empty vector,
+i.e., size(b,1)=0, the function returns <strong>false</strong>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  Boolean b1[3] = {false, false, false};
+  Boolean b2[3] = {false, true, false};
+  Boolean b3[3] = {false, true, true};
+  Boolean r1, r2, r3;
+<strong>algorithm</strong>
+  r1 = oneTrue(b1);  // r1 = false
+  r2 = oneTrue(b2);  // r2 = true
+  r3 = oneTrue(b3);  // r3 = false
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="../../Math/BooleanVectors/index.html#allTrue">allTrue</a>,
+<a href="../../Math/BooleanVectors/index.html#anyTrue">anyTrue</a>,
+<a href="../../Math/BooleanVectors/index.html#countTrue">countTrue</a>,
+<a href="../../Math/BooleanVectors/index.html#enumerate">enumerate</a>,
+<a href="../../Math/BooleanVectors/index.html#firstTrueIndex">firstTrueIndex</a>, and
+<a href="../../Math/BooleanVectors/index.html#index">index</a>.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>b[:]</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>result</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

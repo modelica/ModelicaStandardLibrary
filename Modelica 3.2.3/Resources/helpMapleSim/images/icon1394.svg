@@ -1,0 +1,8 @@
+<svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="heatPorts" class="port">
+		<polygon points="81.4,41.5 121.5,41.5 121.5,21.5 81.4,21.5" fill="#FFFFFF" stroke="#7F0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="84.4,40.5 93.2,40.5 93.2,22.5 84.4,22.5" fill="#7F0000" stroke="#7F0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="97.0,40.5 105.8,40.5 105.8,22.5 97.0,22.5" fill="#7F0000" stroke="#7F0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="109.7,40.5 118.5,40.5 118.5,22.5 109.7,22.5" fill="#7F0000" stroke="#7F0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+	</g>
+</svg>

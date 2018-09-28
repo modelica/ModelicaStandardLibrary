@@ -1,0 +1,137 @@
+<html><head><title>Modelica.Thermal.HeatTransfer.Fahrenheit</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Fahrenheit"><h1><embed class="icon" src="../../../images/icon0573.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">HeatTransfer</a>.&#8203;Fahrenheit<br><span class="subtitle">Components with Fahrenheit input and/or output</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The components of this package are provided for the convenience of
+people working mostly with Fahrenheit units, since all models
+in package HeatTransfer are based on Kelvin units.
+</p>
+<p>
+Note, that in package SIunits.Conversions, functions are provided
+to convert between the units Kelvin, degree Celsius, degree Fahrenheit
+and degree Rankine. These functions allow, e.g., a direct conversion
+of units at all places where Kelvin is required as parameter.
+Example:
+</p>
+<pre>
+    <strong>import</strong> SIunits.Conversions.*;
+    Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degF(70));
+</pre>
+<p>Extends from <code><a href="../../../Icons/VariantsPackage/index.html">Modelica.&#8203;Icons.&#8203;VariantsPackage</a></code> (Icon for package containing variants).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#FixedTemperature"><code>FixedTemperature</code></a></td><td>Fixed temperature boundary condition in degFahrenheit</td></tr>
+<tr><td><a href="#FromKelvin"><code>FromKelvin</code></a></td><td>Conversion from Kelvin to degFahrenheit</td></tr>
+<tr><td><a href="#PrescribedTemperature"><code>PrescribedTemperature</code></a></td><td>Variable temperature boundary condition in degFahrenheit</td></tr>
+<tr><td><a href="#TemperatureSensor"><code>TemperatureSensor</code></a></td><td>Absolute temperature sensor in degFahrenheit</td></tr>
+<tr><td><a href="#ToKelvin"><code>ToKelvin</code></a></td><td>Conversion block from degFahrenheit to Kelvin</td></tr>
+</table>
+<hr><a name="ToKelvin"><h2><embed class="icon" src="../../../images/icon1482.svg" width="263" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">HeatTransfer</a>.&#8203;<a href="index.html">Fahrenheit</a>.&#8203;ToKelvin<br><span class="subtitle">Conversion block from degFahrenheit to Kelvin</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component converts a input signal from degree Fahrenheit to Kelvin
+and provides is as output signal.
+</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>Fahrenheit</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>Kelvin</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="FromKelvin"><h2><embed class="icon" src="../../../images/icon1483.svg" width="263" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">HeatTransfer</a>.&#8203;<a href="index.html">Fahrenheit</a>.&#8203;FromKelvin<br><span class="subtitle">Conversion from Kelvin to degFahrenheit</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component converts all input signals from Kelvin to Fahrenheit
+and provides them as output signals.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>1</code></td><td>Only kept for backwards compatibility (parameter is not used in the model and will be removed in a future version)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>Kelvin</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>Fahrenheit</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="FixedTemperature"><h2><embed class="icon" src="../../../images/icon1486.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">HeatTransfer</a>.&#8203;<a href="index.html">Fahrenheit</a>.&#8203;FixedTemperature<br><span class="subtitle">Fixed temperature boundary condition in degFahrenheit</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model defines a fixed temperature T at its port in [degF],
+i.e., it defines a fixed temperature as a boundary condition.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/Conversions/NonSIunits/index.html#Temperature_degF">Temperature_degF</a></code></td><td><code>T</code></td><td>&nbsp;</td><td>Fixed Temperature at the port</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_b">HeatPort_b</a></code></td><td><code>port</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PrescribedTemperature"><h2><embed class="icon" src="../../../images/icon1487.svg" width="253" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">HeatTransfer</a>.&#8203;<a href="index.html">Fahrenheit</a>.&#8203;PrescribedTemperature<br><span class="subtitle">Variable temperature boundary condition in degFahrenheit</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model represents a variable temperature boundary condition
+The temperature value in [degF] is given by the input signal
+to the model. The effect is that an instance of this model acts as
+an infinite reservoir able to absorb or generate as much energy
+as required to keep the temperature at the specified value.
+</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_b">HeatPort_b</a></code></td><td><code>port</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>T</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="TemperatureSensor"><h2><embed class="icon" src="../../../images/icon1474.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">HeatTransfer</a>.&#8203;<a href="index.html">Fahrenheit</a>.&#8203;TemperatureSensor<br><span class="subtitle">Absolute temperature sensor in degFahrenheit</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is an ideal absolute temperature sensor which returns
+the temperature of the connected port in Fahrenheit as an output
+signal.  The sensor itself has no thermal interaction with
+whatever it is connected to.  Furthermore, no
+thermocouple-like lags are associated with this
+sensor model.
+</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>T</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>port</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

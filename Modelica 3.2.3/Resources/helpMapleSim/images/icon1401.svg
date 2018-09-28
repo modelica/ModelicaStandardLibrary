@@ -1,0 +1,8 @@
+<svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.FlowModel" class="component">
+		<polygon points="41.5,51.5 41.5,151.5 161.5,151.5 161.5,51.5" fill="#FFFFFF" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="41.5,101.5 1.5,101.5" fill-opacity="0" stroke="#007FFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="41.5,51.5 41.5,151.5 161.5,51.5 161.5,151.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="161.5,101.5 201.5,101.5" fill-opacity="0" stroke="#007FFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+	</g>
+</svg>

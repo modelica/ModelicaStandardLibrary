@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Continuous.LimIntegrator</title>
+</head>
+<body>
+<h1><a href="Icons/97ad6e323279ca386f6896a6da071b03be23c202.svg"><img class="svgiconhead" src="Icons/97ad6e323279ca386f6896a6da071b03be23c202.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Continuous.html">Continuous</a>.<span class="omc-h1">LimIntegrator</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This blocks computes <strong>y</strong> as <em>integral</em> of
+the input <strong>u</strong> multiplied with the gain <em>k</em>.
+If the integral reaches a given upper or lower <em>limit</em> and
+the input will drive the integral outside of this bound, the
+integration is halted and only restarted if the input drives the
+integral away from the bounds.</p>
+<p>It might be difficult to initialize the integrator in steady
+state. This is discussed in the description of package <a href="Modelica.Blocks.Continuous.html#info">Continuous</a>.</p>
+<p>If parameter <strong>limitAtInit</strong> =
+<strong>false</strong>, the limits of the integrator are removed
+from the initialization problem which leads to a much simpler
+equation system. After initialization has been performed, it is
+checked via an assert whether the output is in the defined limits.
+For backward compatibility reasons <strong>limitAtInit</strong> =
+<strong>true</strong>. In most cases it is best to use
+<strong>limitAtInit</strong> = <strong>false</strong>.</p>
+<p>If the <em>reset</em> port is enabled, then the output
+<strong>y</strong> is reset to <em>set</em> or to <em>y_start</em>
+(if the <em>set</em> port is not enabled), whenever the
+<em>reset</em> port has a rising edge.</p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

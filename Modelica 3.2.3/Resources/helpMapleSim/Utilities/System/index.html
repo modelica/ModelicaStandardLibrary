@@ -1,0 +1,210 @@
+<html><head><title>Modelica.Utilities.System</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="System"><h1><embed class="icon" src="../../images/icon0092.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;System<br><span class="subtitle">Interaction with environment</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains functions to interact with the environment.
+</p>
+<p>Extends from <code><a href="../../Icons/FunctionsPackage/index.html">Modelica.&#8203;Icons.&#8203;FunctionsPackage</a></code> (Icon for packages containing functions).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#command"><code>command</code></a></td><td>Execute command in default shell</td></tr>
+<tr><td><a href="#exit"><code>exit</code></a></td><td>Terminate execution of Modelica environment</td></tr>
+<tr><td><a href="#getEnvironmentVariable"><code>getEnvironmentVariable</code></a></td><td>Get content of environment variable</td></tr>
+<tr><td><a href="#getPid"><code>getPid</code></a></td><td>Retrieve the current process id</td></tr>
+<tr><td><a href="#getTime"><code>getTime</code></a></td><td>Retrieve the local time (in the local time zone)</td></tr>
+<tr><td><a href="#getWorkDirectory"><code>getWorkDirectory</code></a></td><td>Get full path name of work directory</td></tr>
+<tr><td><a href="#setEnvironmentVariable"><code>setEnvironmentVariable</code></a></td><td>Set content of local environment variable</td></tr>
+<tr><td><a href="#setWorkDirectory"><code>setWorkDirectory</code></a></td><td>Set work directory</td></tr>
+</table>
+<hr><a name="getWorkDirectory"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">System</a>.&#8203;getWorkDirectory<br><span class="subtitle">Get full path name of work directory</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>directory</code></td><td>Full path name of work directory</td></tr>
+</table>
+<hr><a name="setWorkDirectory"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">System</a>.&#8203;setWorkDirectory<br><span class="subtitle">Set work directory</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>directory</code></td><td>New work directory</td></tr>
+</table>
+<hr><a name="getEnvironmentVariable"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">System</a>.&#8203;getEnvironmentVariable<br><span class="subtitle">Get content of environment variable</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>name</code></td><td>Name of environment variable</td></tr>
+<tr><td><code>Boolean</code></td><td><code>convertToSlash</code></td><td>True, if native directory separators in environment variable shall be changed to '/'</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>content</code></td><td>Content of environment variable (empty, if not existent)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>exist</code></td><td>= true, if environment variable exists; = false, if it does not exist</td></tr>
+</table>
+<hr><a name="setEnvironmentVariable"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">System</a>.&#8203;setEnvironmentVariable<br><span class="subtitle">Set content of local environment variable</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>name</code></td><td>Name of environment variable</td></tr>
+<tr><td><code>String</code></td><td><code>content</code></td><td>Value of the environment variable</td></tr>
+<tr><td><code>Boolean</code></td><td><code>convertFromSlash</code></td><td>True, if '/' in environment variable shall be changed to native directory separators</td></tr>
+</table>
+<hr><a name="getTime"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">System</a>.&#8203;getTime<br><span class="subtitle">Retrieve the local time (in the local time zone)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+(ms, sec, min, hour, day, mon, year) = System.<strong>getTime</strong>();
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns the local time at the time instant this function was called.
+All returned values are of type Integer and have the following meaning:
+</p>
+
+<blockquote>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Argument</th>
+    <th>Range</th>
+    <th>Description</th></tr>
+
+<tr><td>ms</td> <td>0 .. 999</td>
+    <td>Milli-seconds after seconds</td></tr>
+
+<tr><td>sec</td> <td>0 .. 59</td>
+    <td>Seconds after minute</td></tr>
+
+<tr><td>min</td> <td>0 .. 59</td>
+    <td>Minutes after hour</td></tr>
+
+<tr><td>hour</td> <td>0 .. 23</td>
+    <td>Hours after midnight</td></tr>
+
+<tr><td>day</td> <td>1 .. 31</td>
+    <td>Day of month</td></tr>
+
+<tr><td>mon</td> <td>1 .. 12</td>
+    <td>Current month</td></tr>
+
+<tr><td>year</td> <td>&ge; 2015</td>
+    <td>Current year</td></tr>
+</table>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote><pre>
+(ms, sec, min, hour, mon, year) = getTime()   // = (281, 30, 13, 10, 15, 2, 2015)
+                                              // Feb. 15, 2015 at 10:13 after 30.281 s
+</pre></blockquote>
+<h4>Note</h4>
+<p>This function is impure!</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>ms</code></td><td>Millisecond</td></tr>
+<tr><td><code>Integer</code></td><td><code>sec</code></td><td>Second</td></tr>
+<tr><td><code>Integer</code></td><td><code>min</code></td><td>Minute</td></tr>
+<tr><td><code>Integer</code></td><td><code>hour</code></td><td>Hour</td></tr>
+<tr><td><code>Integer</code></td><td><code>day</code></td><td>Day</td></tr>
+<tr><td><code>Integer</code></td><td><code>mon</code></td><td>Month</td></tr>
+<tr><td><code>Integer</code></td><td><code>year</code></td><td>Year</td></tr>
+</table>
+<hr><a name="getPid"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">System</a>.&#8203;getPid<br><span class="subtitle">Retrieve the current process id</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+pid = System.<strong>getPid</strong>();
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns the pid (process identification) of the process in which this function
+is called. This is an impure function and the returned value depends on the
+operating system.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+getPid()   // = 3044
+</pre></blockquote>
+<h4>Note</h4>
+<p>This function is impure!</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>pid</code></td><td>Process ID</td></tr>
+</table>
+<hr><a name="command"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">System</a>.&#8203;command<br><span class="subtitle">Execute command in default shell</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>string</code></td><td>String to be passed to shell</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>result</code></td><td>Return value from command (depends on environment)</td></tr>
+</table>
+<hr><a name="exit"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">System</a>.&#8203;exit<br><span class="subtitle">Terminate execution of Modelica environment</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code>ModelicaServices.&#8203;System.&#8203;exit</code> (Terminate execution of Modelica environment).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>status</code></td><td>Result to be returned by environment (0 means success)</td></tr>
+</table>
+</body></html>

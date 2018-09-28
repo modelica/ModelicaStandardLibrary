@@ -1,0 +1,389 @@
+<html><head><title>Modelica.Mechanics.Rotational.Examples</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Examples"><h1><embed class="icon" src="../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;Examples<br><span class="subtitle">Demonstration examples of the components of this package</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains example models to demonstrate the usage of the
+Modelica.Mechanics.Rotational package. Open the models and
+simulate them according to the provided description in the models.
+</p>
+
+<p>Extends from <code><a href="../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Backlash"><code>Backlash</code></a></td><td>Example to demonstrate backlash</td></tr>
+<tr><td><a href="#CoupledClutches"><code>CoupledClutches</code></a></td><td>Drive train with 3 dynamically coupled clutches</td></tr>
+<tr><td><a href="#ElasticBearing"><code>ElasticBearing</code></a></td><td>Example to show possible usage of support flange</td></tr>
+<tr><td><a href="#First"><code>First</code></a></td><td>First example: simple drive train</td></tr>
+<tr><td><a href="#FirstGrounded"><code>FirstGrounded</code></a></td><td>First example: simple drive train with grounded elements</td></tr>
+<tr><td><a href="#Friction"><code>Friction</code></a></td><td>Drive train with clutch and brake</td></tr>
+<tr><td><a href="#GenerationOfFMUs"><code>GenerationOfFMUs</code></a></td><td>Example to demonstrate variants to generate FMUs (Functional Mock-up Units)</td></tr>
+<tr><td><a href="#HeatLosses"><code>HeatLosses</code></a></td><td>Demonstrate the modeling of heat losses</td></tr>
+<tr><td><a href="#LossyGearDemo1"><code>LossyGearDemo1</code></a></td><td>Example to show that gear efficiency may lead to stuck motion</td></tr>
+<tr><td><a href="#LossyGearDemo2"><code>LossyGearDemo2</code></a></td><td>Example to show combination of LossyGear and BearingFriction</td></tr>
+<tr><td><a href="#LossyGearDemo3"><code>LossyGearDemo3</code></a></td><td>Example that failed in the previous version of the LossyGear version</td></tr>
+<tr><td><a href="#OneWayClutch"><code>OneWayClutch</code></a></td><td>Drive train with actively engaged one-way clutch</td></tr>
+<tr><td><a href="#OneWayClutchDisengaged"><code>OneWayClutchDisengaged</code></a></td><td>Drive train with disengaged one-way clutch</td></tr>
+<tr><td><a href="#RollingWheel"><code>RollingWheel</code></a></td><td>Demonstrate coupling Rotational - Translational</td></tr>
+<tr><td><a href="#SimpleGearShift"><code>SimpleGearShift</code></a></td><td>Simple Gearshift</td></tr>
+<tr><td><a href="#TestEddyCurrentBrake"><code>TestEddyCurrentBrake</code></a></td><td>Test of rotational eddy current brake</td></tr>
+<tr><td><a href="../../../Mechanics/Rotational/Examples/Utilities/index.html"><code>Utilities</code></a> &hellip;</td><td>Utility classes used by rotational example models</td></tr>
+</table>
+<hr><a name="First"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;First<br><span class="subtitle">First example: simple drive train</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The drive train consists of a motor inertia which is driven by
+a sine-wave motor torque. Via a gearbox the rotational energy is
+transmitted to a load inertia. Elasticity in the gearbox is modeled
+by a spring element. A linear damper is used to model the
+damping in the gearbox bearing.</p>
+<p>Note, that a force component (like the damper of this example)
+which is acting between a shaft and the housing has to be fixed
+in the housing on one side via component Fixed.</p>
+<p>Simulate for 1 second and plot the following variables:<br>
+   angular velocities of inertias inertia2 and 3: inertia2.w, inertia3.w</p>
+
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>amplitude</code></td><td><code>10</code></td><td>Amplitude of driving torque</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>freqHz</code></td><td><code>5</code></td><td>Frequency of driving torque</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Jmotor</code></td><td><code>0.1</code></td><td>Motor inertia</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Jload</code></td><td><code>2</code></td><td>Load inertia</td></tr>
+<tr><td><code>Real</code></td><td><code>ratio</code></td><td><code>10</code></td><td>Gear ratio</td></tr>
+<tr><td><code>Real</code></td><td><code>damping</code></td><td><code>10</code></td><td>Damping in bearing of gear</td></tr>
+</table>
+<hr><a name="FirstGrounded"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;FirstGrounded<br><span class="subtitle">First example: simple drive train with grounded elements</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The drive train consists of a motor inertia which is driven by
+a sine-wave motor torque. Via a gearbox the rotational energy is
+transmitted to a load inertia. Elasticity in the gearbox is modeled
+by a spring element. A linear damper is used to model the
+damping in the gearbox bearing.</p>
+<p>Note, that a force component (like the damper of this example)
+which is acting between a shaft and the housing has to be fixed
+in the housing on one side via component Fixed.</p>
+<p>Simulate for 1 second and plot the following variables:<br>
+   angular velocities of inertias inertia2 and 3: inertia2.w, inertia3.w</p>
+
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>amplitude</code></td><td><code>10</code></td><td>Amplitude of driving torque</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>freqHz</code></td><td><code>5</code></td><td>Frequency of driving torque</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Jmotor</code></td><td><code>0.1</code></td><td>Motor inertia</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Jload</code></td><td><code>2</code></td><td>Load inertia</td></tr>
+<tr><td><code>Real</code></td><td><code>ratio</code></td><td><code>10</code></td><td>Gear ratio</td></tr>
+<tr><td><code>Real</code></td><td><code>damping</code></td><td><code>10</code></td><td>Damping in bearing of gear</td></tr>
+</table>
+<hr><a name="Friction"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;Friction<br><span class="subtitle">Drive train with clutch and brake</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This drive train contains a frictional <strong>clutch</strong> and a <strong>brake</strong>.
+Simulate the system for 1 second using the following initial
+values (defined already in the model):</p>
+<pre>   inertia1.w =  90 (or brake.w)
+   inertia2.w =  90
+   inertia3.w = 100
+</pre>
+<p>Plot the output signals</p>
+<pre>   tMotor      Torque of motor
+   tClutch     Torque in clutch
+   tBrake      Torque in brake
+   tSpring     Torque in spring
+</pre>
+<p>as well as the absolute angular velocities of the three inertia components
+(inertia1.w, inertia2.w, inertia3.w).</p>
+
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0.5</code></td><td>Start time of step</td></tr>
+</table>
+<hr><a name="CoupledClutches"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;CoupledClutches<br><span class="subtitle">Drive train with 3 dynamically coupled clutches</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This example demonstrates how variable structure
+drive trains are handled. The drive train consists
+of 4 inertias and 3 clutches, where the clutches
+are controlled by input signals. The system has
+2^3=8 different configurations and 3^3 = 27
+different states (every clutch may be in forward
+sliding, backward sliding or locked mode when the
+relative angular velocity is zero). By invoking the
+clutches at different time instances, the switching
+of the configurations can be studied.</p>
+<p>Simulate the system for 1.2 seconds with the
+following initial values:<br>
+J1.w = 10.</p>
+<p>Plot the following variables:<br>
+angular velocities of inertias (J1.w, J2.w, J3.w,
+J4.w), frictional torques of clutches (clutchX.tau),
+frictional mode of clutches (clutchX.mode) where
+mode = -1/0/+1 means backward sliding,
+locked, forward sliding.</p>
+
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>freqHz</code></td><td><code>0.2</code></td><td>Frequency of sine function to invoke clutch1</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>T2</code></td><td><code>0.4</code></td><td>Time when clutch2 is invoked</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>T3</code></td><td><code>0.9</code></td><td>Time when clutch3 is invoked</td></tr>
+</table>
+<hr><a name="LossyGearDemo1"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;LossyGearDemo1<br><span class="subtitle">Example to show that gear efficiency may lead to stuck motion</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model contains two inertias which are connected by an ideal
+gear where the friction between the teeth of the gear is modeled in
+a physical meaningful way (friction may lead to stuck mode which
+locks the motion of the gear). The friction is defined by an
+efficiency factor (= 0.5) for forward and backward driving condition leading
+to a torque dependent friction loss. Simulate for about 0.5 seconds.
+The friction in the gear will take all modes
+(forward and backward rolling, as well as stuck).
+</p>
+<p>
+You may plot:
+</p>
+<pre>
+Inertia1.w,
+Inertia2.w : angular velocities of inertias
+powerLoss  : power lost in the gear
+gear.mode  :  1 = forward rolling
+              0 = stuck (w=0)
+             -1 = backward rolling
+</pre>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="LossyGearDemo2"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;LossyGearDemo2<br><span class="subtitle">Example to show combination of LossyGear and BearingFriction</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model contains bearing friction and gear friction (= efficiency).
+If both friction models are stuck, there is no unique solution.
+Still a reliable Modelica simulator should
+be able to handle this situation.
+</p>
+<p>
+Simulate for about 0.5 seconds. The friction elements are
+in all modes (forward and backward rolling, as well as stuck).
+</p>
+<p>
+You may plot:
+</p>
+<pre>
+Inertia1.w,
+Inertia2.w          : angular velocities of inertias
+powerLoss           : power lost in the gear
+bearingFriction.mode:  1 = forward rolling
+                       0 = stuck (w=0)
+                      -1 = backward rolling
+gear.mode           :  1 = forward rolling
+                       0 = stuck (w=0)
+                      -1 = backward rolling
+</pre>
+<p>Note: This combination of LossyGear and BearingFriction is not recommended to use,
+as component LossyGear includes the functionality of component BearingFriction
+(only <em>peak</em> not supported).</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="LossyGearDemo3"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;LossyGearDemo3<br><span class="subtitle">Example that failed in the previous version of the LossyGear version</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example demonstrates a situation where the driving side of the
+LossyGear model is not obvious.
+The version of LossyGear up to version 3.1 of package Modelica failed in this case
+(no convergence of the event iteration).
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="ElasticBearing"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;ElasticBearing<br><span class="subtitle">Example to show possible usage of support flange</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model demonstrates the usage of the bearing flange.
+The gearbox is not connected rigidly to the ground, but by
+a spring-damper-system. This allows examination of the gearbox
+housing dynamics.</p>
+<p>
+Simulate for about 10 seconds and plot the angular velocities of the inertias <code>housing.w</code>,
+<code>shaft.w</code> and <code>load.w</code>.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="Backlash"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;Backlash<br><span class="subtitle">Example to demonstrate backlash</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model demonstrates the effect of a backlash on eigenfrequency, and
+also that the damping torque does not lead to unphysical pulling torques
+(since the ElastoBacklash model takes care of it).
+Furthermore, it shows the differences of the
+<a href="../../../Mechanics/Rotational/Components/index.html#ElastoBacklash">ElastoBacklash</a> and
+<a href="../../../Mechanics/Rotational/Components/index.html#ElastoBacklash2">ElastoBacklash2</a> components
+(the ElastoBacklash2 component generates events when contact occurs and the torque changes discontinuously).
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="RollingWheel"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;RollingWheel<br><span class="subtitle">Demonstrate coupling Rotational - Translational</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model demonstrates the coupling between rotational and translational components:<br>
+A torque (step) accelerates both the inertia (of the wheel) and the mass (of the vehicle).<br>
+Du to a speed dependent force (like driving resistance), we find an equilibrium at 5 m/s after approx. 5 s.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="HeatLosses"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;HeatLosses<br><span class="subtitle">Demonstrate the modeling of heat losses</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model demonstrates how to model the dissipated power of a drive train,
+by enabling the heatPort of all components and connecting these heatPorts via
+a convection element to the environment. The total heat flow generated by the
+elements of the drive train and transported to the environment
+is present in variable convection.fluid.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="SimpleGearShift"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;SimpleGearShift<br><span class="subtitle">Simple Gearshift</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This model shows how an automatic gear shift is built up from a planetary gear, a brake and a clutch.</p>
+<ul>
+<li>In the beginning, the clutch is free and the brake fixes the ring of the planetary. Thus we obtain a gearRatio = 1/(1 + planetary.ratio).</li>
+<li>At time = 2 s, the brake frees the ring of the planetary, whereas the clutch blocks the ring and the sun. Thus we obtain a gearRatio = 1.</li>
+</ul>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="TestEddyCurrentBrake"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;TestEddyCurrentBrake<br><span class="subtitle">Test of rotational eddy current brake</span></h2></a>
+<h3>Information</h3>
+<p>
+
+A rotating inertia gets decelerated by an eddy current brake. The loss power is fed to a heat capacitor.
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="GenerationOfFMUs"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;GenerationOfFMUs<br><span class="subtitle">Example to demonstrate variants to generate FMUs (Functional Mock-up Units)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example demonstrates how to generate an input/output block (e.g. in form of an
+FMU - <a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>) from various Rotational components.
+The goal is to export such an input/output block from Modelica and import
+it in another modeling environment. The essential issue is that before
+exporting it must be known in which way the component is utilized in the
+target environment. Depending on the target usage, different flange variables
+need to be in the interface with either input or output causality.
+Note, this example model can be used to test the FMU export/import of a Modelica tool.
+Just export the components marked in the icons as "toFMU" as FMUs and import
+them back. The models should then still work and give the same results as a
+pure Modelica model.
+</p>
+
+<p>
+<strong>Connecting two inertias</strong><br>
+The upper part (DirectInertia, InverseInertia)
+demonstrates how to export two inertias and connect them
+together in a target system. This requires that one of the inertias
+(here: DirectInertia)
+is defined to have states and the angle, angular velocity and
+angular acceleration are provided in the interface.
+The other mass (here: InverseInertia) is moved according
+to the provided input angle, angular velocity and angular acceleration.
+</p>
+
+<p>
+<strong>Connecting a force element that needs angles and angular velocities</strong><br>
+The middle part (SpringDamper) demonstrates how to export a force element
+that needs both angles and angular velocities for its force law and connect this
+force law in a target system between two inertias.
+</p>
+
+<p>
+<strong>Connecting a force element that needs only angles</strong><br>
+The lower part (Spring) demonstrates how to export a force element
+that needs only angles for its force law and connect this
+force law in a target system between two inertias.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="OneWayClutch"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;OneWayClutch<br><span class="subtitle">Drive train with actively engaged one-way clutch</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The drive train consists of a one-way clutch and driving and driven inertias.
+The one-way clutch is engaged periodically thus forcing both the inertias to
+match their rotational velocity.
+When disengaged, only the freewheel functionality of the one-way clutch is
+available and is active as long as the relative angular velocity w_rel becomes zero.
+</p>
+<p>
+Simulate for 2&nbsp;seconds and compare inertias&#39; velocities <code>inertiaIn.w</code>
+and <code>inertiaOut.w</code> to each other.
+Check also the engagement of the clutch <code>oneWayClutch.f_normalized</code>
+and its lossy power <code>oneWayClutch.lossPower</code>.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="OneWayClutchDisengaged"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;OneWayClutchDisengaged<br><span class="subtitle">Drive train with disengaged one-way clutch</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The drive train consists of a one-way clutch and driving and driven inertias.
+To demonstrate the behavior of the clutch&#39;s freewheel only, the clutch stays
+disengaged for all the time.
+The sine torque is applied on the driving inertia forcing inertia&#39;s speed change.
+On the driven side there is applied constant load torque only.
+</p>
+<p>
+Simulate for 2&nbsp;seconds and compare inertias&#39; velocities <code>inertiaIn.w</code>
+and <code>inertiaOut.w</code> to each other.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+</body></html>

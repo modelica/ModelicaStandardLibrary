@@ -1,0 +1,225 @@
+<html><head><title>Modelica.Media.Examples.Utilities</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Utilities"><h1><embed class="icon" src="../../../images/icon0009.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;Utilities<br><span class="subtitle">Functions, connectors and models needed for the media model tests</span></h1></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../../Icons/UtilitiesPackage/index.html">Modelica.&#8203;Icons.&#8203;UtilitiesPackage</a></code> (Icon for utility packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#FixedAmbient"><code>FixedAmbient</code></a></td><td>Ambient pressure, temperature and mass fraction source</td></tr>
+<tr><td><a href="#FixedMassFlowRate"><code>FixedMassFlowRate</code></a></td><td>Ideal pump that produces a constant mass flow rate from a large reservoir at fixed temperature and mass fraction</td></tr>
+<tr><td><a href="#FluidPort"><code>FluidPort</code></a></td><td>Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)</td></tr>
+<tr><td><a href="#FluidPort_a"><code>FluidPort_a</code></a></td><td>Fluid connector with filled icon</td></tr>
+<tr><td><a href="#FluidPort_b"><code>FluidPort_b</code></a></td><td>Fluid connector with outlined icon</td></tr>
+<tr><td><a href="#PartialTestModel"><code>PartialTestModel</code></a></td><td>Basic test model to test a medium</td></tr>
+<tr><td><a href="#PartialTestModel2"><code>PartialTestModel2</code></a></td><td>Slightly larger test model to test a medium</td></tr>
+<tr><td><a href="#PortVolume"><code>PortVolume</code></a></td><td>Fixed volume associated with a port by the finite volume method</td></tr>
+<tr><td><a href="#ShortPipe"><code>ShortPipe</code></a></td><td>Simple pressure loss in pipe</td></tr>
+</table>
+<hr><a name="FluidPort"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;FluidPort<br><span class="subtitle">Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Examples/Utilities/FluidPort/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure in the connection point</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../Media/Examples/Utilities/FluidPort/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate from the connection point into the component</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/FluidPort/Medium/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific mixture enthalpy in the connection point</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../Media/Examples/Utilities/FluidPort/Medium/index.html#EnthalpyFlowRate">EnthalpyFlowRate</a></code></td><td><code>H_flow</code></td><td>Enthalpy flow rate into the component (if m_flow &gt; 0, H_flow = m_flow*h)</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/FluidPort/Medium/index.html#MassFraction">MassFraction</a></code></td><td><code>Xi[Medium.nXi]</code></td><td>Independent mixture mass fractions m_i/m in the connection point</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../Media/Examples/Utilities/FluidPort/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>mXi_flow[Medium.nXi]</code></td><td>Mass flow rates of the independent substances from the connection point into the component (if m_flow &gt; 0, mX_flow = m_flow*X)</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/FluidPort/Medium/index.html#ExtraProperty">ExtraProperty</a></code></td><td><code>C[Medium.nC]</code></td><td>Properties c_i/m in the connection point</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../Media/Examples/Utilities/FluidPort/Medium/index.html#ExtraPropertyFlowRate">ExtraPropertyFlowRate</a></code></td><td><code>mC_flow[Medium.nC]</code></td><td>Flow rates of auxiliary properties from the connection point into the component (if m_flow &gt; 0, mC_flow = m_flow*C)</td></tr>
+</table>
+<hr><a name="FluidPort_a"><h2><embed class="icon" src="../../../images/icon1388.svg" width="203" height="203" />
+Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;FluidPort_a<br><span class="subtitle">Fluid connector with filled icon</span></h2></a>
+<h3>Information</h3>
+<p>
+Modelica.Media.Examples.Tests.Components.FluidPort_a
+<p>Extends from <code><a href="../../../Media/Examples/Utilities/index.html#FluidPort">Modelica.&#8203;Media.&#8203;Examples.&#8203;Utilities.&#8203;FluidPort</a></code> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Examples/Utilities/FluidPort_a/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure in the connection point</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../Media/Examples/Utilities/FluidPort_a/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate from the connection point into the component</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/FluidPort_a/Medium/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific mixture enthalpy in the connection point</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../Media/Examples/Utilities/FluidPort_a/Medium/index.html#EnthalpyFlowRate">EnthalpyFlowRate</a></code></td><td><code>H_flow</code></td><td>Enthalpy flow rate into the component (if m_flow &gt; 0, H_flow = m_flow*h)</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/FluidPort_a/Medium/index.html#MassFraction">MassFraction</a></code></td><td><code>Xi[Medium.nXi]</code></td><td>Independent mixture mass fractions m_i/m in the connection point</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../Media/Examples/Utilities/FluidPort_a/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>mXi_flow[Medium.nXi]</code></td><td>Mass flow rates of the independent substances from the connection point into the component (if m_flow &gt; 0, mX_flow = m_flow*X)</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/FluidPort_a/Medium/index.html#ExtraProperty">ExtraProperty</a></code></td><td><code>C[Medium.nC]</code></td><td>Properties c_i/m in the connection point</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../Media/Examples/Utilities/FluidPort_a/Medium/index.html#ExtraPropertyFlowRate">ExtraPropertyFlowRate</a></code></td><td><code>mC_flow[Medium.nC]</code></td><td>Flow rates of auxiliary properties from the connection point into the component (if m_flow &gt; 0, mC_flow = m_flow*C)</td></tr>
+</table>
+<hr><a name="FluidPort_b"><h2><embed class="icon" src="../../../images/icon1389.svg" width="203" height="203" />
+Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;FluidPort_b<br><span class="subtitle">Fluid connector with outlined icon</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../../Media/Examples/Utilities/index.html#FluidPort">Modelica.&#8203;Media.&#8203;Examples.&#8203;Utilities.&#8203;FluidPort</a></code> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Examples/Utilities/FluidPort_b/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Pressure in the connection point</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../Media/Examples/Utilities/FluidPort_b/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate from the connection point into the component</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/FluidPort_b/Medium/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific mixture enthalpy in the connection point</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../Media/Examples/Utilities/FluidPort_b/Medium/index.html#EnthalpyFlowRate">EnthalpyFlowRate</a></code></td><td><code>H_flow</code></td><td>Enthalpy flow rate into the component (if m_flow &gt; 0, H_flow = m_flow*h)</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/FluidPort_b/Medium/index.html#MassFraction">MassFraction</a></code></td><td><code>Xi[Medium.nXi]</code></td><td>Independent mixture mass fractions m_i/m in the connection point</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../Media/Examples/Utilities/FluidPort_b/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>mXi_flow[Medium.nXi]</code></td><td>Mass flow rates of the independent substances from the connection point into the component (if m_flow &gt; 0, mX_flow = m_flow*X)</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/FluidPort_b/Medium/index.html#ExtraProperty">ExtraProperty</a></code></td><td><code>C[Medium.nC]</code></td><td>Properties c_i/m in the connection point</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../Media/Examples/Utilities/FluidPort_b/Medium/index.html#ExtraPropertyFlowRate">ExtraPropertyFlowRate</a></code></td><td><code>mC_flow[Medium.nC]</code></td><td>Flow rates of auxiliary properties from the connection point into the component (if m_flow &gt; 0, mC_flow = m_flow*C)</td></tr>
+</table>
+<hr><a name="PortVolume"><h2><embed class="icon" src="../../../images/icon1413.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;PortVolume<br><span class="subtitle">Fixed volume associated with a port by the finite volume method</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component models the <strong>volume</strong> of <strong>fixed size</strong> that is
+associated with the <strong>fluid port</strong> to which it is connected.
+This means that all medium properties inside the volume, are identical
+to the port medium properties. In particular, the specific enthalpy
+inside the volume (= medium.h) is always identical to the specific enthalpy
+in the port (port.h = medium.h). Usually, this model is used when
+discretizing a component according to the finite volume method into
+volumes in internal ports that only store energy and mass and into
+transport elements that just transport energy, mass and momentum
+between the internal ports without storing these quantities during the
+transport.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Volume">Volume</a></code></td><td><code>V</code></td><td><code>1e-6</code></td><td>Fixed size of junction volume</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_p_start</code></td><td><code>true</code></td><td>Select p_start or d_start</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/PortVolume/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_start</code></td><td><code>101325</code></td><td>Initial pressure</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/PortVolume/Medium/index.html#Density">Density</a></code></td><td><code>d_start</code></td><td><code>1</code></td><td>Initial density</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_T_start</code></td><td><code>true</code></td><td>Select T_start or h_start</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/PortVolume/Medium/index.html#Temperature">Temperature</a></code></td><td><code>T_start</code></td><td><code>Modelica.SIunits.Conversions.from_degC(20)</code></td><td>Initial temperature</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/PortVolume/Medium/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_start</code></td><td><code>10000</code></td><td>Initial specific enthalpy</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/PortVolume/Medium/index.html#MassFraction">MassFraction</a></code></td><td><code>X_start[Medium.nX]</code></td><td>&nbsp;</td><td>Initial mass fractions m_i/m</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Examples/Utilities/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="FixedMassFlowRate"><h2><embed class="icon" src="../../../images/icon1414.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;FixedMassFlowRate<br><span class="subtitle">Ideal pump that produces a constant mass flow rate from a large reservoir at fixed temperature and mass fraction</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Examples/Utilities/FixedMassFlowRate/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>&nbsp;</td><td>Fixed mass flow rate from an infinite reservoir to the fluid port</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_T_ambient</code></td><td><code>true</code></td><td>Select T_ambient or h_ambient</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/FixedMassFlowRate/Medium/index.html#Temperature">Temperature</a></code></td><td><code>T_ambient</code></td><td><code>Modelica.SIunits.Conversions.from_degC(20)</code></td><td>Ambient temperature</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/FixedMassFlowRate/Medium/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_ambient</code></td><td><code>10000</code></td><td>Ambient specific enthalpy</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/FixedMassFlowRate/Medium/index.html#MassFraction">MassFraction</a></code></td><td><code>X_ambient[Medium.nX]</code></td><td>&nbsp;</td><td>Ambient mass fractions m_i/m of reservoir</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Examples/Utilities/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="FixedAmbient"><h2><embed class="icon" src="../../../images/icon1415.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;FixedAmbient<br><span class="subtitle">Ambient pressure, temperature and mass fraction source</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Model <strong>FixedAmbient_pt</strong> defines constant values for ambient conditions:
+</p>
+<ul>
+<li> Ambient pressure.</li>
+<li> Ambient temperature.</li>
+<li> Ambient mass fractions (only for multi-substance flow).</li>
+</ul>
+<p>
+Note, that ambient temperature
+and mass fractions have only an effect if the mass flow
+is from the ambient into the port. If mass is flowing from
+the port into the ambient, the ambient definitions,
+with exception of ambient pressure, do not have an effect.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>use_p_ambient</code></td><td><code>true</code></td><td>Select p_ambient or d_ambient</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/FixedAmbient/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_ambient</code></td><td><code>101325</code></td><td>Ambient pressure</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/FixedAmbient/Medium/index.html#Density">Density</a></code></td><td><code>d_ambient</code></td><td><code>1</code></td><td>Ambient density</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_T_ambient</code></td><td><code>true</code></td><td>Select T_ambient or h_ambient</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/FixedAmbient/Medium/index.html#Temperature">Temperature</a></code></td><td><code>T_ambient</code></td><td><code>Modelica.SIunits.Conversions.from_degC(20)</code></td><td>Ambient temperature</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/FixedAmbient/Medium/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_ambient</code></td><td><code>10000</code></td><td>Ambient specific enthalpy</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/FixedAmbient/Medium/index.html#MassFraction">MassFraction</a></code></td><td><code>X_ambient[Medium.nX]</code></td><td>&nbsp;</td><td>Ambient mass fractions m_i/m</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Examples/Utilities/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="ShortPipe"><h2><embed class="icon" src="../../../images/icon1416.svg" width="243" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;ShortPipe<br><span class="subtitle">Simple pressure loss in pipe</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Model <strong>ShortPipe</strong> defines a simple pipe model
+with pressure loss due to friction. It is assumed that
+no mass or energy is stored in the pipe.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Examples/Utilities/ShortPipe/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>dp_nominal</code></td><td>&nbsp;</td><td>Nominal pressure drop</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/ShortPipe/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nominal</code></td><td>&nbsp;</td><td>Nominal mass flow rate at nominal pressure drop</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Examples/Utilities/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Media/Examples/Utilities/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PartialTestModel"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;PartialTestModel<br><span class="subtitle">Basic test model to test a medium</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_start</code></td><td><code>Medium.&#8203;p_default</code></td><td>Initial value of pressure</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_start</code></td><td><code>Medium.&#8203;T_default</code></td><td>Initial value of temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_start</code></td><td><code>Medium.&#8203;h_default</code></td><td>Initial value of specific enthalpy</td></tr>
+<tr><td><code>Real</code></td><td><code>X_start[Medium.nX]</code></td><td><code>Medium.&#8203;X_default</code></td><td>Initial value of mass fractions</td></tr>
+</table>
+<hr><a name="PartialTestModel2"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;PartialTestModel2<br><span class="subtitle">Slightly larger test model to test a medium</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_start</code></td><td><code>100000</code></td><td>Initial value of pressure</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_start</code></td><td><code>300</code></td><td>Initial value of temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_start</code></td><td><code>1</code></td><td>Initial value of specific enthalpy</td></tr>
+<tr><td><code>Real</code></td><td><code>X_start[Medium.nX]</code></td><td><code>Medium.&#8203;reference_X</code></td><td>Initial value of mass fractions</td></tr>
+</table>
+</body></html>

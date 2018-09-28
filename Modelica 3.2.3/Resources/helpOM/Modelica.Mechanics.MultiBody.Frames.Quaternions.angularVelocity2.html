@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Frames.Quaternions.angularVelocity2</title>
+</head>
+<body>
+<h1><a href="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg"><img class="svgiconhead" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Frames.Quaternions.html">Quaternions</a>.<span class="omc-h1">angularVelocity2</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+w = Quaternions.<strong>angularVelocity2</strong>(Q, der_Q);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function returns the angular velocity&nbsp;w of
+frame&nbsp;2 with respect to frame&nbsp;1, <strong>resolved in
+frame&nbsp;2</strong>, from the <a href="Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation.html">
+quaternions orientation</a>&nbsp;Q that describes the orientation
+to rotate frame&nbsp;1 into frame&nbsp;2 and from its first time
+derivative der_Q.</p>
+<h4>See also</h4>
+<p><a href="Modelica.Mechanics.MultiBody.Frames.angularVelocity2.html">Frames.angularVelocity2</a>,
+<a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.angularVelocity2.html">
+TransformationMatrices.angularVelocity2</a>.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>function angularVelocity2
+  extends Modelica.Icons.Function;
+  input Quaternions.Orientation Q "Quaternions orientation object to rotate frame 1 into frame 2";
+  input der_Orientation der_Q "Derivative of Q";
+  output Modelica.SIunits.AngularVelocity w[3] "Angular velocity of frame 2 with respect to frame 1 resolved in frame 2";
+end angularVelocity2;</pre></blockquote>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

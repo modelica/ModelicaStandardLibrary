@@ -1,0 +1,9 @@
+<svg width="223" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.StateGraph.Temporary.RadioButton" class="component">
+		<polygon points="1.5,201.5 201.5,201.5 201.5,1.5 1.5,1.5" fill="#C0C0C0" stroke="#808080" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="101.5" y="112.8" text-anchor="middle" fill="#000000" font-size="30.6px" font-family="sans-serif">RadioButton</text>
+		<g id="on" class="port">
+			<polygon points="201.5,91.5 221.5,101.5 201.5,111.5" fill="#FFFFFF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

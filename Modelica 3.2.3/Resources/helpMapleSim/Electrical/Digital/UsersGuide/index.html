@@ -1,0 +1,177 @@
+<html><head><title>Modelica.Electrical.Digital.UsersGuide</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="UsersGuide"><h1><embed class="icon" src="../../../images/icon0002.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;UsersGuide<br><span class="subtitle">User's Guide</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Library <strong>Electrical.Digital</strong> is a <strong>free</strong> Modelica package providing
+components to model <strong>digital</strong> electronic
+systems based on combinational and sequential logic in a convenient
+way. This package contains the <strong>User's Guide</strong> for
+the library and has the following content:
+</p>
+<ol>
+<li><a href="../../../Electrical/Digital/UsersGuide/index.html#ReleaseNotes">Release Notes</a>
+    summarizes the differences between different versions of this library.</li>
+<li><a href="../../../Electrical/Digital/UsersGuide/index.html#Literature">Literature</a>
+    provides references that have been used to design and implement this
+    library.</li>
+<li><a href="../../../Electrical/Digital/UsersGuide/index.html#Contact">Contact</a>
+    provides information about the authors of the library as well as
+    acknowledgments.</li>
+</ol>
+<p>Extends from <code><a href="../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Contact"><code>Contact</code></a></td><td>Contact</td></tr>
+<tr><td><a href="#Literature"><code>Literature</code></a></td><td>Literature</td></tr>
+<tr><td><a href="#ReleaseNotes"><code>ReleaseNotes</code></a></td><td>Release notes</td></tr>
+</table>
+<hr><a name="ReleaseNotes"><h2><embed class="icon" src="../../../images/icon0005.svg" width="203" height="203" />
+Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;ReleaseNotes<br><span class="subtitle">Release notes</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Version 1.0.8, 2009-10-01</h4>
+<ul>
+<li>Package Register with Flip-Flops and Latches added</li>
+<li>InertialDealySensitiveVector added</li>
+</ul>
+<h4>Version 1.0.7, 2005-07-01</h4>
+<ul>
+<li>InertialDelaySensitive improved</li>
+<li>Minor errors fixed in basic and delay models (final introduced)</li>
+<li>Sources.Pulse rewritten to avoid a warning</li>
+<li>Minor errors in default values of sources fixed</li>
+</ul>
+<h4>Version 1.0.6, 2004-10-18</h4>
+<ul>
+<li> Missing HTML tags added (problems with mismatched pre tags fixed).</li>
+<li> CVS ID string deleted.</li>
+</ul>
+<h4>Version 1.0.5, 2004-10-01</h4>
+<ul>
+<li> Wrong identifiers x0 and Tdel in HalfAdder example fixed.</li>
+<li> Experiment command in FlipFlop example deleted.</li>
+<li> Known issue: Pulse source causes a warning in Dymola. It is recommended to use Clock source.</li>
+</ul>
+<h4>Version 1.0.4, 2004-09-30</h4>
+<ul>
+<li> Documentation improved.</li>
+</ul>
+<h4>Version 1.0.3, 2004-09-21</h4>
+<ul>
+<li> Table names changed from "map" to "Table".</li>
+<li> Icons for converters modified.</li>
+<li> LogicValueType renamed to Logic. For the Electrical.Digital library
+     the type Logic has a fundamental meaning. Logic is similar to
+     Real, Integer or Boolean in other packages. Names for converters
+     are now more consistent (LogicToBoolean, RealToLogic etc.).</li>
+<li> Icons for gates and sources improved.</li>
+<li> New examples added.</li>
+<li> Internal names for signals and ports unified.</li>
+<li> Simple Clock source added in addition to Pulse source (for convenience reasons).</li>
+</ul>
+<h4>Version 1.0.2, 2004-09-13</h4>
+<ul>
+<li> First prerelease for discussions at the 40th Modelica Design Meeting.</li>
+</ul>
+<h4>Version 1.0.1, 2004-06-01</h4>
+<ul>
+<li> Packages Tables, Basic, and Gates implemented.</li>
+<li> Transport and inertial delay implemented and successfully tested.</li>
+</ul>
+<h4>Version 1.0.0, 2003-05-01</h4>
+<ul>
+<li> A first version has been implemented for case studies.</li>
+</ul>
+<p>Extends from <code><a href="../../../Icons/index.html#ReleaseNotes">Modelica.&#8203;Icons.&#8203;ReleaseNotes</a></code> (Icon for release notes in documentation).</p>
+<hr><a name="Literature"><h2><embed class="icon" src="../../../images/icon0003.svg" width="203" height="203" />
+Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;Literature<br><span class="subtitle">Literature</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The Electrical.Digital library is based on the following references:
+</p>
+<dl>
+<dt>Ashenden, P. J.:</dt>
+<dd> <strong>The Designer's Guide to VHDL.</strong> San Francisco: Morgan Kaufmann, 1995, 688 p. ISBN 1-55860-270-4.
+     <br>&nbsp;</dd>
+</dl>
+<dl>
+<dt>IEEE 1076-1993:</dt>
+<dd> <strong>IEEE Standard VHDL Language Reference Manual (ANSI).</strong> 288 p. ISBN 1-55937-376-8. IEEE Ref. SH16840-NYF.
+     <br>&nbsp;</dd>
+</dl>
+<dl>
+<dt>IEEE 1164-1993:</dt>
+<dd> <strong>IEEE Standard Multivalue Logic System for VHDL Model Interoperability (Std_logic_1164).</strong> 24 p. ISBN 1-55937-299-0. IEEE Ref. SH16097-NYF.
+     <br>&nbsp;</dd>
+</dl>
+<dl>
+<dt>Lipsett, R.; Schaefer, C.; Ussery, C.:</dt>
+<dd> <strong>VHDL: Hardware Description and Design.</strong> Boston: Kluwer, 1989, 299 p. ISBN 079239030X.
+     <br>&nbsp;</dd>
+</dl>
+<dl>
+<dt>Navabi, Z:</dt>
+<dd> <strong>VHDL: Analysis and Modeling of Digital Systems.</strong> New York: McGraw-Hill, 1993, 375 p. ISBN 0070464723.
+     <br>&nbsp;</dd>
+</dl>
+<p>Extends from <code><a href="../../../Icons/index.html#References">Modelica.&#8203;Icons.&#8203;References</a></code> (Icon for external references).</p>
+<hr><a name="Contact"><h2><embed class="icon" src="../../../images/icon0004.svg" width="203" height="203" />
+Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;Contact<br><span class="subtitle">Contact</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Main authors</h4>
+
+<dl>
+<dt><strong>Christoph Clau&szlig;</strong></dt>
+<dd>email: <a href="mailto:christoph@clauss-it.com">christoph@clauss-it.com</a></dd>
+<dt><strong>Andr&eacute; Schneider</strong></dt>
+<dd>email: <a href="mailto:Andre.Schneider@eas.iis.fraunhofer.de">Andre.Schneider@eas.iis.fraunhofer.de</a></dd>
+<dt><strong>Ulrich Donath</strong></dt>
+<dd>email: <a href="mailto:Ulrich.Donath@eas.iis.fraunhofer.de">Ulrich.Donath@eas.iis.fraunhofer.de</a></dd>
+</dl>
+
+<dl>
+<dt>Address</dt>
+<dd>Fraunhofer Institute for Integrated Circuits (IIS)<br>
+Design Automation Department (EAS)<br>
+Zeunerstra&szlig;e 38<br>
+D-01069 Dresden<br>
+Germany</dd>
+</dl>
+
+<h4>Acknowledgements</h4>
+
+<p>
+We thank our students Teresa Schlegel and Enrico Weber for implementing
+and carefully testing many models and examples.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Contact">Modelica.&#8203;Icons.&#8203;Contact</a></code> (Icon for contact information).</p>
+</body></html>

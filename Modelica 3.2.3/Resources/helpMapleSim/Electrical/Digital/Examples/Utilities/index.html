@@ -1,0 +1,320 @@
+<html><head><title>Modelica.Electrical.Digital.Examples.Utilities</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Utilities"><h1><embed class="icon" src="../../../../images/icon0009.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Digital</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;Utilities<br><span class="subtitle">Utility components used by package Examples</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package contains utility components used by package Examples. Each component is built up hierarchically by components of the Gates package. In this way the Gates components were tested, and their usage is demonstrated.</p>
+<p>Extends from <code><a href="../../../../Icons/UtilitiesPackage/index.html">Modelica.&#8203;Icons.&#8203;UtilitiesPackage</a></code> (Icon for utility packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Adder"><code>Adder</code></a></td><td>Generic N Bit Adder</td></tr>
+<tr><td><a href="#Counter"><code>Counter</code></a></td><td>Generic N Bit Counter</td></tr>
+<tr><td><a href="#Counter3"><code>Counter3</code></a></td><td>3 Bit Counter</td></tr>
+<tr><td><a href="#DFF"><code>DFF</code></a></td><td>D FlipFlop</td></tr>
+<tr><td><a href="#FullAdder"><code>FullAdder</code></a></td><td>Adding circuit for binary numbers with input carry bit</td></tr>
+<tr><td><a href="#HalfAdder"><code>HalfAdder</code></a></td><td>Half adder</td></tr>
+<tr><td><a href="#JKFF"><code>JKFF</code></a></td><td>JK FlipFlop</td></tr>
+<tr><td><a href="#MUX4"><code>MUX4</code></a></td><td>4 to 1 Bit Multiplexer</td></tr>
+<tr><td><a href="#RS"><code>RS</code></a></td><td>Unclocked RS FlipFlop</td></tr>
+<tr><td><a href="#RSFF"><code>RSFF</code></a></td><td>Unclocked RS FlipFlop</td></tr>
+</table>
+<hr><a name="MUX4"><h2><embed class="icon" src="../../../../images/icon0491.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Digital</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;MUX4<br><span class="subtitle">4 to 1 Bit Multiplexer</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>MUX4 is a four bit multiplexer which is built up by And, Not, and Or gates according to the schematic.</p>
+<p>The parameters delayTime and q0 are prepared but <strong>not</strong> yet used in the component. The MUX4 component uses standard values in its components.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>delayTime</code></td><td><code>0.001</code></td><td>Delay time</td></tr>
+<tr><td><code><a href="../../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>q0</code></td><td><code>L.&#8203;'0'</code></td><td>Initial value</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>d0</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>d1</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>d2</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>d3</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>a0</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>a1</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>d</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="RS"><h2><embed class="icon" src="../../../../images/icon0492.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Digital</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;RS<br><span class="subtitle">Unclocked RS FlipFlop</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>RS is a basic component for e.g., the RS (set-reset) flipflop, which is built up by Nor gates according to the schematic. To avoid a numerical loop a small transport delay is inserted which delay time is a parameter of the RS component. Also its initial value can be set by parameter.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>delayTime</code></td><td><code>0</code></td><td>Delay time</td></tr>
+<tr><td><code><a href="../../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>q0</code></td><td><code>L.&#8203;'U'</code></td><td>Initial value of output</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>s</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>r</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>q</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>qn</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="RSFF"><h2><embed class="icon" src="../../../../images/icon0493.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Digital</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;RSFF<br><span class="subtitle">Unclocked RS FlipFlop</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Basing on the RS component RSFF is a RS (set-reset) flipflop composed according the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>delayTime</code></td><td><code>0.01</code></td><td>Delay time</td></tr>
+<tr><td><code><a href="../../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>q0</code></td><td><code>L.&#8203;'U'</code></td><td>Initial value</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>s</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>r</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>q</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>qn</code></td><td>not Q</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>clk</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="DFF"><h2><embed class="icon" src="../../../../images/icon0494.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Digital</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;DFF<br><span class="subtitle">D FlipFlop</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Basing on the RS component DFF is a D  flipflop composed according the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Tdel</code></td><td><code>0.01</code></td><td>Delay time</td></tr>
+<tr><td><code><a href="../../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>QInit</code></td><td><code>L.&#8203;'U'</code></td><td>Initial value</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>d</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>q</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>qn</code></td><td>not Q</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>clk</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="JKFF"><h2><embed class="icon" src="../../../../images/icon0495.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Digital</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;JKFF<br><span class="subtitle">JK FlipFlop</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Basing on the RS component JKFF is a J-K-flipflop composed according the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>delayTime</code></td><td><code>0.001</code></td><td>Delay time</td></tr>
+<tr><td><code><a href="../../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>q0</code></td><td><code>L.&#8203;'0'</code></td><td>Initial value</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>j</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>q</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>qn</code></td><td>not Q</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>clk</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>k</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="HalfAdder"><h2><embed class="icon" src="../../../../images/icon0496.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Digital</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;HalfAdder<br><span class="subtitle">Half adder</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>HalfAdder is a two bit adder which is composed by Gates components.</p>
+<p>Its logic behavior is like this:</p>
+<p><strong>HalfAdder behavior</strong></p>
+<table cellspacing="0" cellpadding="2" border="1"><tr>
+<td><h4>input a</h4></td>
+<td><h4>input b</h4></td>
+<td><h4>sum s</h4></td>
+<td><h4>carry c</h4></td>
+</tr>
+<tr>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+</table>
+<p>The parameter delayTime is the delay time (tLH=tHL) of both the components.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>delayTime</code></td><td><code>0</code></td><td>Delay time</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>b</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>s</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>a</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>c</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="FullAdder"><h2><embed class="icon" src="../../../../images/icon0497.svg" width="225" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Digital</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;FullAdder<br><span class="subtitle">Adding circuit for binary numbers with input carry bit</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>FullAdder is a two bit adder with additional carry in bit which is composed by Gates components.</p>
+<p>Its logic behavior is like this:</p>
+<p><strong>FullAdder behavior</strong></p>
+<table cellspacing="0" cellpadding="2" border="1"><tr>
+<td><h4>input a</h4></td>
+<td><h4>input b</h4></td>
+<td><h4>input carry c_in</h4></td>
+<td><h4>sum s</h4></td>
+<td><h4>output carry c_out</h4></td>
+</tr>
+<tr>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>a</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>b</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>c_in</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>s</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>c_out</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Adder"><h2><embed class="icon" src="../../../../images/icon0498.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Digital</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;Adder<br><span class="subtitle">Generic N Bit Adder</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The Adder is a generic n bit adder which is composed as a chain of FullAdder components. n can be chosen by the user, a and b are the n bit input vectors, s is the sum vector, and c_out is the carry bit of the &quot;highes&quot; FullAdder.   All components are built up by Gate components.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>2</code></td><td>Number of single adders</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>a[n]</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>b[n]</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>c_in</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>s[n]</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>c_out</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Counter3"><h2><embed class="icon" src="../../../../images/icon0499.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Digital</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;Counter3<br><span class="subtitle">3 Bit Counter</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The Counter3 counts the high-low slopes of the count signal, if the enable signal is set to be true. It is composed by three JK flipflops. q0, q1, and q2 are the bits of the resulting number, where q0 is the lowest, and q2 the highest bit.</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>enable</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>q2</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>count</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>q1</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>q0</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Counter"><h2><embed class="icon" src="../../../../images/icon0500.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Digital</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;Counter<br><span class="subtitle">Generic N Bit Counter</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The Counter is a generic component, which counts the high-low slopes of the count signal, if the enable signal is set to be true. It is composed by  n JK flipflops. q is the resulting number, where q[0] is the lowest, and q[n] the highest bit.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>3</code></td><td>Number of bits</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>delayTime</code></td><td><code>0.001</code></td><td>Delay of each JKFF</td></tr>
+<tr><td><code><a href="../../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>q0</code></td><td><code>L.&#8203;'0'</code></td><td>Initial value</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>enable</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>count</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>q[n]</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

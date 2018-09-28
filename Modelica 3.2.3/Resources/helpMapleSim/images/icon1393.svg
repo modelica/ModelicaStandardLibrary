@@ -1,0 +1,8 @@
+<svg width="403" height="104" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Fluid.Interfaces.HeatPorts_b" class="component">
+		<polygon points="1.5,102.5 401.5,102.5 401.5,1.5 1.5,1.5" fill="#FFFFFF" stroke="#7F0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="31.5,97.5 119.5,97.5 119.5,7.5 31.5,7.5" fill="#FFFFFF" stroke="#7F0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="157.5,95.5 245.5,95.5 245.5,5.5 157.5,5.5" fill="#FFFFFF" stroke="#7F0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="283.5,96.5 371.5,96.5 371.5,6.5 283.5,6.5" fill="#FFFFFF" stroke="#7F0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+	</g>
+</svg>

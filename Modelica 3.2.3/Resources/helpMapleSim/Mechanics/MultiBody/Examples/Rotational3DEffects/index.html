@@ -1,0 +1,177 @@
+<html><head><title>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Rotational3DEffects"><h1><embed class="icon" src="../../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;Rotational3DEffects<br><span class="subtitle">Demonstrates the usage of 1-dim. rotational elements with all 3-dim. effects included</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package demonstrates the usage of elements of the Mechanics.Rotational library
+by taking into account all 3-dim. effects. The reason for this type of modeling is
+to speedup the simulation drastically. This is possible if moving bodies have
+rotational symmetry. A typical application area are drive trains, driving joints of
+a multi-body system.
+</p>
+<p>Extends from <code><a href="../../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#ActuatedDrive"><code>ActuatedDrive</code></a></td><td>Demonstrates usage of models Rotor1D and Mounting1D</td></tr>
+<tr><td><a href="#BevelGear1D"><code>BevelGear1D</code></a></td><td>Demonstrates the usage of a BevelGear1D model and how to calculate the power of such an element</td></tr>
+<tr><td><a href="#GearConstraint"><code>GearConstraint</code></a></td><td>Demonstrate usage of GearConstraint model</td></tr>
+<tr><td><a href="#GyroscopicEffects"><code>GyroscopicEffects</code></a></td><td>Demonstrates that a cylindrical body can be replaced by Rotor1D model</td></tr>
+<tr><td><a href="#MovingActuatedDrive"><code>MovingActuatedDrive</code></a></td><td>Demonstrates usage of model Rotor1D mounted on a moving body</td></tr>
+</table>
+<hr><a name="GyroscopicEffects"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Rotational3DEffects</a>.&#8203;GyroscopicEffects<br><span class="subtitle">Demonstrates that a cylindrical body can be replaced by Rotor1D model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example consists of a body that is attached to the world system
+with a spherical joint. On this body, a "rotor", i.e., a body with rotational
+symmetry is present. Two kinds of models are shown:
+</p>
+
+<ul>
+<li> In the upper part of the diagram layer, only multi-body components are used.</li>
+<li> In the lower part of the diagram layer, the same model is implemented,
+     but by a different modeling of the cylindrical body:
+     The cylindrical body is included, but it is rigidly attached to its mount.
+     This part takes into account the movement of the center of mass and of
+     the inertia tensor of the cylindrical body. Note, since the cylindrical body
+     has rotational symmetry, its center of mass and its inertia tensor is independent
+     of the angle of the inertia and can therefore be rigidly attached to its mount.
+     Additionally, with a "MultiBody.Parts.Rotor1D" model, a primarily 1-dim.
+     inertia is included that takes into account the additional effects when the
+     cylindrical body is moving relatively to its mounts</li>
+</ul>
+
+<p>
+The simulation reveals that both the kinematic movement and the reaction forces on the
+environment (object "world" and "fixed" respectively) are identical for both models.
+</p>
+
+<p>
+A typical usage scenario is to model a complete drive train of a vehicle, including
+the automatic gearbox, with elements of the "Mechanics.Rotational" library, but using
+the "Rotor1D" model instead of the "Rotational.Components.Inertia" component.
+This drive train model can be mounted on a 3-dim. multi-body model of the vehicle.
+Additionally, one rigid body has to be fixed to the vehicle that has the mass, center
+of mass and inertia tensor of the complete drive train. Both models together, give
+exactly the same effect, as if every part of the drive train would have been modelled
+solely with mult-body components. One benefit of this modeling is that the simulation
+is much faster.
+</p>
+
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="ActuatedDrive"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Rotational3DEffects</a>.&#8203;ActuatedDrive<br><span class="subtitle">Demonstrates usage of models Rotor1D and Mounting1D</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example demonstrates how to utilize the
+<a href="../../../../Mechanics/MultiBody/Parts/index.html#Rotor1D">Rotor1D</a>
+and <a href="../../../../Mechanics/MultiBody/Parts/index.html#Mounting1D">Mounting1D</a> models and
+compares the implementation with a standard multi-body implementation.
+Note, the solution with Rotor1D is much more efficient.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="MovingActuatedDrive"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Rotational3DEffects</a>.&#8203;MovingActuatedDrive<br><span class="subtitle">Demonstrates usage of model Rotor1D mounted on a moving body</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model demonstrates how a moving drive train modelled with 3-dim. multi-body elements
+(revolute, bodyCylinder) can alternatively be modeled with component <a href="../../../../Mechanics/MultiBody/Parts/index.html#Rotor1D">rotor1D</a> to speed up
+simulation. The movement of the two systems is identical and also the cut-torques in the
+various frames (such as: r1.frame_b.t and r2.frame_b.t).
+</p>
+
+<p>
+The driving joints (r1, r2) with rotation axis {0,1,0} are modelled to be driven by a motor torque
+along the {1,0,0} axis. Basically, this means that an idealized bevel gear is used to drive the
+axes of the revolute joints.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="GearConstraint"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Rotational3DEffects</a>.&#8203;GearConstraint<br><span class="subtitle">Demonstrate usage of GearConstraint model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model demonstrates the usage of the
+<a href="../../../../Mechanics/MultiBody/Joints/index.html#GearConstraint">GearConstraint</a>
+model to model a gearbox with multi-body elements. The formulation is compared with
+a one-dimensional model that is mounted with an
+<a href="../../../../Mechanics/MultiBody/Parts/index.html#Mounting1D">Mounting1D</a> element.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="BevelGear1D"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Rotational3DEffects</a>.&#8203;BevelGear1D<br><span class="subtitle">Demonstrates the usage of a BevelGear1D model and how to calculate the power of such an element</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model consists of a drive train with two inertias that are coupled by a bevel gear
+(with 90 degree angle between the two gear flanges).
+This drive train is mounted on a body that is rotated along three axes.
+The drive train is modeled with 1D rotational elements that take into account 3D effects.
+</p>
+
+<p>
+The bevelGear component consists of two rotational flanges (for the gear flanges) and one 3D frame
+(for the support/mounting).
+Since the bevelGear does not store energy, the power balance must hold (the total sum
+of inflowing and outflowing energy must be zero). One has to be careful, when
+computing the energy flow of hybrid 1D/3D component: The angular velocities of rotational flanges
+are with respect to the support frame (so the moving body on which the drive train
+is mounted). Therefore, when computing the energy flow, first the absolute angular velocities
+of the flanges have to be calculated. In this example model, this is performed in the following way
+(na and nb are the axes of rotations of the gear flanges, and ws is the
+angular velocity of the support frame):
+</p>
+
+<pre>
+    import Modelica.Mechanics.MultiBody.Frames;
+    import SI=Modelica.SIunits;
+    SI.Power           bevelGearPower;
+    SI.AngularVelocity ws[3] = Frames.angularVelocity2(bevelGear.frame_a.R);
+  <strong>equation</strong>
+    bevelGearPower = (ws + der(bevelGear.flange_a.phi)*na)*bevelGear.flange_a.tau*na +
+                     (ws + der(bevelGear.flange_b.phi)*nb)*bevelGear.flange_b.tau*nb +
+                     ws*bevelGear.frame_a.t;
+</pre>
+<p>
+The total energy flow bevelGearPower must be zero. If a relative tolerance of 1e-4 is used
+for simulation, bevelGearPower is in the order of 1e-8 (and smaller for a smaller relative
+tolerance).
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>na[3]</code></td><td><code>{1, 0, 0}</code></td><td>Axis of rotation of left gear axis</td></tr>
+<tr><td><code><a href="../../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>nb[3]</code></td><td><code>{0, 1, 0}</code></td><td>Axis of rotation of right gear axis</td></tr>
+</table>
+</body></html>

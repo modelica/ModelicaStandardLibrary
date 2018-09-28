@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.LimitedPI</title>
+</head>
+<body>
+<h1><a href="Icons/e119e6db65aaac051829afd024163ccb5a9e13c7.svg"><img class="svgiconhead" src="Icons/e119e6db65aaac051829afd024163ccb5a9e13c7.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.html">Machines</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.html">ControlledDCDrives</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.html">Utilities</a>.<span class="omc-h1">LimitedPI</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Proportional - Integral - controller with optional feed-forward
+and limitation at the output.</p>
+<p>The integral part can be switched off to obtain a limited
+P-controller.</p>
+<p>The feed-forward gain can either be constant or given by the
+optional input kFF.</p>
+<p>When the output is limited, the controller cannot bring the
+control error to zero and the integrator will not stop integrating.
+To avoid this <strong>WindUp</strong> - effect, an
+<strong>Anti-WindUp</strong> loop is implemented: The difference
+between unlimited and limited output is fed back to the
+integrator's input.</p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

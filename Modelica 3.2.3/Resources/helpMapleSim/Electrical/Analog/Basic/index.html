@@ -1,0 +1,671 @@
+<html><head><title>Modelica.Electrical.Analog.Basic</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Basic"><h1><embed class="icon" src="../../../images/icon0380.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;Basic<br><span class="subtitle">Basic electrical components</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package contains very basic analog electrical components such as resistor, conductor, capacitor, inductor, and the ground (which is needed in each electrical circuit description. Furthermore, controlled sources, coupling components, and some improved (but nevertheless basic) are in this package.</p>
+<p>Extends from <code><a href="../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Capacitor"><code>Capacitor</code></a></td><td>Ideal linear electrical capacitor</td></tr>
+<tr><td><a href="#CCC"><code>CCC</code></a></td><td>Linear current-controlled current source</td></tr>
+<tr><td><a href="#CCV"><code>CCV</code></a></td><td>Linear current-controlled voltage source</td></tr>
+<tr><td><a href="#Conductor"><code>Conductor</code></a></td><td>Ideal linear electrical conductor</td></tr>
+<tr><td><a href="#EMF"><code>EMF</code></a></td><td>Electromotoric force (electric/mechanic transformer)</td></tr>
+<tr><td><a href="#GeneralCurrentToVoltageAdaptor"><code>GeneralCurrentToVoltageAdaptor</code></a></td><td>Signal adaptor for an Electrical OnePort with voltage and derivative of voltage as outputs and current and derivative of current as inputs (especially useful for FMUs)</td></tr>
+<tr><td><a href="#GeneralVoltageToCurrentAdaptor"><code>GeneralVoltageToCurrentAdaptor</code></a></td><td>Signal adaptor for an Electrical OnePort with current and derivative of current as output and voltage and derivative of voltage as input (especially useful for FMUs)</td></tr>
+<tr><td><a href="#Ground"><code>Ground</code></a></td><td>Ground node</td></tr>
+<tr><td><a href="#Gyrator"><code>Gyrator</code></a></td><td>Gyrator</td></tr>
+<tr><td><a href="#HeatingResistor"><code>HeatingResistor</code></a></td><td>Temperature dependent electrical resistor</td></tr>
+<tr><td><a href="#Inductor"><code>Inductor</code></a></td><td>Ideal linear electrical inductor</td></tr>
+<tr><td><a href="#M_Transformer"><code>M_Transformer</code></a></td><td>Generic transformer with free number of inductors</td></tr>
+<tr><td><a href="#OpAmp"><code>OpAmp</code></a></td><td>Simple nonideal model of an OpAmp with limitation</td></tr>
+<tr><td><a href="#OpAmpDetailed"><code>OpAmpDetailed</code></a></td><td>Detailed model of an operational amplifier</td></tr>
+<tr><td><a href="#Potentiometer"><code>Potentiometer</code></a></td><td>Adjustable resistor</td></tr>
+<tr><td><a href="#Resistor"><code>Resistor</code></a></td><td>Ideal linear electrical resistor</td></tr>
+<tr><td><a href="#SaturatingInductor"><code>SaturatingInductor</code></a></td><td>Simple model of an inductor with saturation</td></tr>
+<tr><td><a href="#Transformer"><code>Transformer</code></a></td><td>Transformer with two ports</td></tr>
+<tr><td><a href="#TranslationalEMF"><code>TranslationalEMF</code></a></td><td>Electromotoric force (electric/mechanic transformer)</td></tr>
+<tr><td><a href="#VariableCapacitor"><code>VariableCapacitor</code></a></td><td>Ideal linear electrical capacitor with variable capacitance</td></tr>
+<tr><td><a href="#VariableConductor"><code>VariableConductor</code></a></td><td>Ideal linear electrical conductor with variable conductance</td></tr>
+<tr><td><a href="#VariableInductor"><code>VariableInductor</code></a></td><td>Ideal linear electrical inductor with variable inductance</td></tr>
+<tr><td><a href="#VariableResistor"><code>VariableResistor</code></a></td><td>Ideal linear electrical resistor with variable resistance</td></tr>
+<tr><td><a href="#VCC"><code>VCC</code></a></td><td>Linear voltage-controlled current source</td></tr>
+<tr><td><a href="#VCV"><code>VCV</code></a></td><td>Linear voltage-controlled voltage source</td></tr>
+</table>
+<hr><a name="Ground"><h2><embed class="icon" src="../../../images/icon0381.svg" width="203" height="213" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Ground<br><span class="subtitle">Ground node</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Ground of an electrical circuit. The potential at the ground node is zero. Every electrical circuit has to contain at least one ground object.</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#Pin">Pin</a></code></td><td><code>p</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Resistor"><h2><embed class="icon" src="../../../images/icon0382.svg" width="223" height="213" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Resistor<br><span class="subtitle">Ideal linear electrical resistor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The linear resistor connects the branch voltage <em>v</em> with the branch current <em>i</em> by <em>i*R = v</em>. The Resistance <em>R</em> is allowed to be positive, zero, or negative.</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical pins p and n and current i from p to n) and <code><a href="../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td>&nbsp;</td><td>Resistance at temperature T_ref</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td><code>300.15</code></td><td>Reference temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha</code></td><td><code>0</code></td><td>Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>T_ref</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+</table>
+<hr><a name="HeatingResistor"><h2><embed class="icon" src="../../../images/icon0383.svg" width="223" height="213" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;HeatingResistor<br><span class="subtitle">Temperature dependent electrical resistor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This is a model for an electrical resistor where the generated heat is dissipated to the environment via connector <strong>heatPort</strong> and where the resistance R is temperature dependent according to the following equation:</p>
+<pre>    R = R_ref*(1 + alpha*(heatPort.T - T_ref))</pre>
+<p><strong>alpha</strong> is the <strong>temperature coefficient of resistance</strong>, which is often abbreviated as <strong>TCR</strong>. In resistor catalogues, it is usually defined as <strong>X [ppm/K]</strong> (parts per million, similarly to percentage) meaning <strong>X*1e-6 [1/K]</strong>. Resistors are available for 1 .. 7000 ppm/K, i.e., alpha = 1e-6 .. 7e-3 1/K;</p>
+<p>Via parameter <strong>useHeatPort</strong> the heatPort connector can be enabled and disabled (default = enabled). If it is disabled, the generated heat is transported implicitly to an internal temperature source with a fixed temperature of T_ref.</p><p>If the heatPort connector is enabled, it must be connected.</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical pins p and n and current i from p to n) and <code><a href="../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R_ref</code></td><td>&nbsp;</td><td>Resistance at temperature T_ref</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td><code>300.15</code></td><td>Reference temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha</code></td><td><code>0</code></td><td>Temperature coefficient of resistance (R = R_ref*(1 + alpha*(heatPort.T - T_ref))</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>true</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>T_ref</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+</table>
+<hr><a name="Conductor"><h2><embed class="icon" src="../../../images/icon0384.svg" width="223" height="213" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Conductor<br><span class="subtitle">Ideal linear electrical conductor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The linear conductor connects the branch voltage <em>v</em> with the branch current <em>i</em> by <em>i = v*G</em>. The Conductance <em>G</em> is allowed to be positive, zero, or negative.</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical pins p and n and current i from p to n) and <code><a href="../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>G</code></td><td>&nbsp;</td><td>Conductance at temperature T_ref</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td><code>300.15</code></td><td>Reference temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha</code></td><td><code>0</code></td><td>Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>T_ref</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+</table>
+<hr><a name="Capacitor"><h2><embed class="icon" src="../../../images/icon0385.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Capacitor<br><span class="subtitle">Ideal linear electrical capacitor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The linear capacitor connects the branch voltage <em>v</em> with the branch current <em>i</em> by <em>i = C * dv/dt</em>. The Capacitance <em>C</em> is allowed to be positive or zero.</p>
+
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical pins p and n and current i from p to n).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>C</code></td><td>&nbsp;</td><td>Capacitance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+</table>
+<hr><a name="Inductor"><h2><embed class="icon" src="../../../images/icon0386.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Inductor<br><span class="subtitle">Ideal linear electrical inductor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The linear inductor connects the branch voltage <em>v</em> with the branch current <em>i</em> by <em>v = L * di/dt</em>. The Inductance <em>L</em> is allowed to be positive, or zero.</p>
+
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical pins p and n and current i from p to n).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L</code></td><td>&nbsp;</td><td>Inductance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+</table>
+<hr><a name="SaturatingInductor"><h2><embed class="icon" src="../../../images/icon0387.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;SaturatingInductor<br><span class="subtitle">Simple model of an inductor with saturation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This model approximates the behaviour of an inductor with the influence of saturation, i.e., the value of the inductance depends on the current flowing through the inductor. The inductance decreases as current increases.</p><p>The parameters are:</p>
+<ul>
+<li>Inom...nominal current</li>
+<li>Lnom...nominal inductance at nominal current</li>
+<li>Lzer...inductance near current = 0; Lzer has to be greater than Lnom</li>
+<li>Linf...inductance at large currents; Linf has to be less than Lnom</li>
+</ul>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical pins p and n and current i from p to n).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>Inom</code></td><td>&nbsp;</td><td>Nominal current</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lnom</code></td><td>&nbsp;</td><td>Nominal inductance at Nominal current</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lzer</code></td><td>&nbsp;</td><td>Inductance near current=0</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Linf</code></td><td>&nbsp;</td><td>Inductance at large currents</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+</table>
+<hr><a name="Transformer"><h2><embed class="icon" src="../../../images/icon0388.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Transformer<br><span class="subtitle">Transformer with two ports</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The transformer is a two port. The left port voltage <em>v1</em>, left port current <em>i1</em>, right port voltage <em>v2</em> and right port current <em>i2</em> are connected by the following relation:</p>
+<pre>         | v1 |         | L1   M  |  | i1&#39; |
+         |    |    =    |         |  |     |
+         | v2 |         | M    L2 |  | i2&#39; |</pre>
+<p><em>L1</em>, <em>L2</em>, and <em>M</em> are the primary, secondary, and coupling inductances respectively.</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#TwoPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;TwoPort</a></code> (Component with two electrical ports, including current).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L1</code></td><td>&nbsp;</td><td>Primary inductance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L2</code></td><td>&nbsp;</td><td>Secondary inductance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>M</code></td><td>&nbsp;</td><td>Coupling inductance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p1</code></td><td>Positive electrical pin of port 1</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n1</code></td><td>Negative electrical pin of port 1</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p2</code></td><td>Positive electrical pin of port 2</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n2</code></td><td>Negative electrical pin of port 2</td></tr>
+</table>
+<hr><a name="M_Transformer"><h2><embed class="icon" src="../../../images/icon0389.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;M_Transformer<br><span class="subtitle">Generic transformer with free number of inductors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The model <em>M_Transformer</em> is a model of a transformer with the possibility to choose the number of inductors. Inside the model, an inductance matrix is built based on the inductance of the inductors and the coupling inductances between the inductors given as a parameter vector from the user of the model.</p>
+
+<p>An example shows that approach:<br>
+The user chooses a model with <strong>three</strong> inductors, that means the parameter <em><strong>N</strong></em> has to be <strong>3</strong>. Then he has to specify the inductances of the three inductors and the three coupling inductances. The coupling inductances are no real existing devices, but effects that occur between two inductors. The inductances (main diagonal of the inductance matrix) and the coupling inductances have to be specified in the parameter vector <em>L</em>. The length <em>dimL</em> of the parameter vector is calculated as follows: <em><strong>dimL=(N*(N+1))/2</strong></em></p>
+
+<p>The following example shows how the parameter vector is used to fill in the inductance matrix. To specify the inductance matrix of a three inductances transformer (<em>N=3</em>):
+</p>
+
+<p>
+<img
+ src="../../../../Images/Electrical/Analog/Basic/M_Transformer-eq.png"
+ alt="L_m">
+</p>
+
+<p>
+the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N+1))/2=(3*(3+1))/2=6</em>. The parameter vector must be filled like this: <em>L=[1,0.1,0.2,2,0.3,3] </em>.</p>
+<p>Inside the model, two loops are used to fill the inductance matrix to guarantee that it is filled in a symmetric way.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>N</code></td><td><code>3</code></td><td>Number of inductors</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L[dimL]</code></td><td><code>{1, 0.1, 0.2, 2, 0.3, 3}</code></td><td>Inductances and coupling inductances</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lm[N,N]</code></td><td>&nbsp;</td><td>Complete symmetric inductance matrix, calculated internally</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p[N]</code></td><td>Positive pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n[N]</code></td><td>Negative pin</td></tr>
+</table>
+<hr><a name="Gyrator"><h2><embed class="icon" src="../../../images/icon0390.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Gyrator<br><span class="subtitle">Gyrator</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>A gyrator is a two-port element defined by the following equations:</p>
+<pre>    i1 =  G2 * v2
+    i2 = -G1 * v1</pre>
+<p>where the constants <em>G1</em>, <em>G2</em> are called the gyration conductance.</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#TwoPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;TwoPort</a></code> (Component with two electrical ports, including current).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>G1</code></td><td>&nbsp;</td><td>Gyration conductance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>G2</code></td><td>&nbsp;</td><td>Gyration conductance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p1</code></td><td>Positive electrical pin of port 1</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n1</code></td><td>Negative electrical pin of port 1</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p2</code></td><td>Positive electrical pin of port 2</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n2</code></td><td>Negative electrical pin of port 2</td></tr>
+</table>
+<hr><a name="EMF"><h2><embed class="icon" src="../../../images/icon0391.svg" width="228" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;EMF<br><span class="subtitle">Electromotoric force (electric/mechanic transformer)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>EMF transforms electrical energy into rotational mechanical energy. It is used as basic building block of an electrical motor. The mechanical connector flange can be connected to elements of the Modelica.Mechanics.Rotational library. flange.tau is the cut-torque, flange.phi is the angle at the rotational connection.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useSupport</code></td><td><code>false</code></td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#ElectricalTorqueConstant">ElectricalTorqueConstant</a></code></td><td><code>k</code></td><td>&nbsp;</td><td>Transformation coefficient</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange</code></td><td>Flange</td></tr>
+<tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Support">Support</a></code></td><td><code>support</code></td><td>Support/housing of emf shaft</td></tr>
+</table>
+<hr><a name="TranslationalEMF"><h2><embed class="icon" src="../../../images/icon0392.svg" width="228" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;TranslationalEMF<br><span class="subtitle">Electromotoric force (electric/mechanic transformer)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>EMF transforms electrical energy into translational mechanical energy. It is used as basic building block of an electrical linear motor. The mechanical connector flange can be connected to elements of the Modelica.Mechanics.Translational library. flange.f is the cut-force, flange.s is the distance at the translational connection.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useSupport</code></td><td><code>false</code></td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#ElectricalForceConstant">ElectricalForceConstant</a></code></td><td><code>k</code></td><td>&nbsp;</td><td>Transformation coefficient</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange</code></td><td>Flange</td></tr>
+<tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Support">Support</a></code></td><td><code>support</code></td><td>Support/housing</td></tr>
+</table>
+<hr><a name="VCV"><h2><embed class="icon" src="../../../images/icon0393.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;VCV<br><span class="subtitle">Linear voltage-controlled voltage source</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The linear voltage-controlled voltage source is a TwoPort. The right port voltage v2 is controlled by the left port voltage v1 via</p>
+<pre>    v2 = v1 * gain. </pre>
+<p>The left port current is zero. Any voltage gain can be chosen.</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#TwoPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;TwoPort</a></code> (Component with two electrical ports, including current).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>gain</code></td><td>&nbsp;</td><td>Voltage gain</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p1</code></td><td>Positive electrical pin of port 1</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n1</code></td><td>Negative electrical pin of port 1</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p2</code></td><td>Positive electrical pin of port 2</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n2</code></td><td>Negative electrical pin of port 2</td></tr>
+</table>
+<hr><a name="VCC"><h2><embed class="icon" src="../../../images/icon0394.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;VCC<br><span class="subtitle">Linear voltage-controlled current source</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The linear voltage-controlled current source is a TwoPort. The right port current i2 is controlled by the left port voltage v1 via</p>
+<pre>    i2 = v1 * transConductance. </pre>
+<p>The left port current is zero. Any transConductance can be chosen.</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#TwoPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;TwoPort</a></code> (Component with two electrical ports, including current).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>transConductance</code></td><td>&nbsp;</td><td>Transconductance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p1</code></td><td>Positive electrical pin of port 1</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n1</code></td><td>Negative electrical pin of port 1</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p2</code></td><td>Positive electrical pin of port 2</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n2</code></td><td>Negative electrical pin of port 2</td></tr>
+</table>
+<hr><a name="CCV"><h2><embed class="icon" src="../../../images/icon0395.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;CCV<br><span class="subtitle">Linear current-controlled voltage source</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The linear current-controlled voltage source is a TwoPort. The right port voltage v2 is controlled by the left port current i1 via</p>
+<pre>    v2 = i1 * transResistance. </pre>
+<p>The left port voltage is zero. Any transResistance can be chosen.</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#TwoPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;TwoPort</a></code> (Component with two electrical ports, including current).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>transResistance</code></td><td>&nbsp;</td><td>Transresistance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p1</code></td><td>Positive electrical pin of port 1</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n1</code></td><td>Negative electrical pin of port 1</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p2</code></td><td>Positive electrical pin of port 2</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n2</code></td><td>Negative electrical pin of port 2</td></tr>
+</table>
+<hr><a name="CCC"><h2><embed class="icon" src="../../../images/icon0396.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;CCC<br><span class="subtitle">Linear current-controlled current source</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The linear current-controlled current source is a TwoPort. The right port current i2 is controlled by the left port current i1 via</p>
+<pre>    i2 = i1 * gain. </pre>
+<p>The left port voltage is zero. Any current gain can be chosen.</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#TwoPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;TwoPort</a></code> (Component with two electrical ports, including current).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>gain</code></td><td>&nbsp;</td><td>Current gain</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p1</code></td><td>Positive electrical pin of port 1</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n1</code></td><td>Negative electrical pin of port 1</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p2</code></td><td>Positive electrical pin of port 2</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n2</code></td><td>Negative electrical pin of port 2</td></tr>
+</table>
+<hr><a name="OpAmp"><h2><embed class="icon" src="../../../images/icon0397.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;OpAmp<br><span class="subtitle">Simple nonideal model of an OpAmp with limitation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The OpAmp is a simple nonideal model with a smooth out.v = f(vin) characteristic, where &quot;vin = in_p.v - in_n.v&quot;. The characteristic is limited by VMax.v and VMin.v. Its slope at vin=0 is the parameter Slope, which must be positive. (Therefore, the absolute value of Slope is taken into calculation.)</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>Slope</code></td><td>&nbsp;</td><td>Slope of the out.v/vin characteristic at vin=0</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>in_p</code></td><td>Positive pin of the input port</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>in_n</code></td><td>Negative pin of the input port</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>out</code></td><td>Output pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>VMax</code></td><td>Positive output voltage limitation</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>VMin</code></td><td>Negative output voltage limitation</td></tr>
+</table>
+<hr><a name="OpAmpDetailed"><h2><embed class="icon" src="../../../images/icon0398.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;OpAmpDetailed<br><span class="subtitle">Detailed model of an operational amplifier</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The OpAmpDetailed model is a general operational amplifier model. The emphasis is on separating each important data sheet parameter into a sub-circuit independent of the other parameters. The model is broken down into five functional stages <strong>input</strong>, <strong>frequency response</strong>, <strong>gain</strong>, <strong>slew rate</strong> and an <strong>output</strong> stage. Each stage contains data sheet parameters to be modeled. This partitioning and the modelling of the separate submodels are based on the description in <strong>[CP92]</strong>.</p>
+<p>Using <strong>[CP92]</strong> Joachim Haase (Fraunhofer Institute for Integrated Circuits, Design Automation Division) transferred 2001 operational amplifier models into VHDL-AMS. Now one of these models, the model &quot;amp(macro)&quot; was transferred into Modelica.</p>
+<dl><dt><strong>Reference:</strong> </dt>
+<dd><strong>[CP92]</strong> Conelly, J.A.; Choi, P.: Macromodelling with SPICE. Englewood Cliffs: Prentice-Hall, 1992 </dd>
+</dl>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rdm</code></td><td><code>2e+6</code></td><td>Input resistance (differential input mode)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rcm</code></td><td><code>2e+9</code></td><td>Input resistance (common mode)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>Cin</code></td><td><code>1.4e-12</code></td><td>Input capacitance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Vos</code></td><td><code>0.001</code></td><td>Input offset voltage</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>Ib</code></td><td><code>8e-8</code></td><td>Input bias current</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>Ios</code></td><td><code>2e-8</code></td><td>Input offset current</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>vcp</code></td><td><code>0</code></td><td>Correction value for limiting by p_supply</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>vcm</code></td><td><code>0</code></td><td>Correction value for limiting by msupply</td></tr>
+<tr><td><code>Real</code></td><td><code>Avd0</code></td><td><code>106</code></td><td>Differential amplifier [dB]</td></tr>
+<tr><td><code>Real</code></td><td><code>CMRR</code></td><td><code>90</code></td><td>Common-mode rejection [dB]</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fp1</code></td><td><code>5</code></td><td>Dominant pole</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fp2</code></td><td><code>2e+6</code></td><td>Pole frequency</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fp3</code></td><td><code>2e+7</code></td><td>Pole frequency</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fp4</code></td><td><code>1e+8</code></td><td>Pole frequency</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fz</code></td><td><code>5e+6</code></td><td>Zero frequency</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#VoltageSlope">VoltageSlope</a></code></td><td><code>sr_p</code></td><td><code>500000</code></td><td>Slew rate for increase</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#VoltageSlope">VoltageSlope</a></code></td><td><code>sr_m</code></td><td><code>500000</code></td><td>Slew rate for decrease</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rout</code></td><td><code>75</code></td><td>Output resistance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>Imaxso</code></td><td><code>0.025</code></td><td>Maximal output current (source current)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>Imaxsi</code></td><td><code>0.025</code></td><td>Maximal output current (sink current)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>Ts</code></td><td><code>1.2e-6</code></td><td>Sampling time</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>vcp_abs</code></td><td><code>abs(vcp)</code></td><td>Positive correction value for limiting by p_supply</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>vcm_abs</code></td><td><code>abs(vcm)</code></td><td>Positive correction value for limiting by msupply</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>I1</code></td><td><code>Ib + 0.5 * Ios</code></td><td>Current of internal source I1</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>I2</code></td><td><code>Ib - 0.5 * Ios</code></td><td>Current of internal source I2</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>Avd0_val</code></td><td><code>10 ^ (0.05 * Avd0)</code></td><td>Differential mode gain</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>Avcm_val</code></td><td><code>0.5 * (Avd0_val / 10 ^ (0.05 * CMRR))</code></td><td>Common mode gain</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#VoltageSlope">VoltageSlope</a></code></td><td><code>sr_p_val</code></td><td><code>abs(sr_p)</code></td><td>Value of slew rate for increase</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#VoltageSlope">VoltageSlope</a></code></td><td><code>sr_m_val</code></td><td><code>-abs(sr_m)</code></td><td>Negative alue of slew rate for increase</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>Imaxso_val</code></td><td><code>abs(Imaxso)</code></td><td>Orientation out outp</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>Imaxsi_val</code></td><td><code>abs(Imaxsi)</code></td><td>Orientation into outp</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive pin of the input port</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>m</code></td><td>Negative pin of the input port</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>outp</code></td><td>Output pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p_supply</code></td><td>Positive output voltage limitation</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>m_supply</code></td><td>Negative output voltage limitation</td></tr>
+</table>
+<hr><a name="VariableResistor"><h2><embed class="icon" src="../../../images/icon0399.svg" width="223" height="253" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;VariableResistor<br><span class="subtitle">Ideal linear electrical resistor with variable resistance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The linear resistor connects the branch voltage <em>v</em> with the branch current <em>i</em> by
+<br><em><strong>i*R = v</strong></em>
+<br>The Resistance <em>R</em> is given as input signal.
+<br><br><strong>Attention!!!</strong><br>It is recommended that the R signal should not cross the zero value. Otherwise depending on the surrounding circuit the probability of singularities is high.</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical pins p and n and current i from p to n) and <code><a href="../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td><code>300.15</code></td><td>Reference temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha</code></td><td><code>0</code></td><td>Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>T_ref</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>R</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="VariableConductor"><h2><embed class="icon" src="../../../images/icon0399.svg" width="223" height="253" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;VariableConductor<br><span class="subtitle">Ideal linear electrical conductor with variable conductance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The linear conductor connects the branch voltage <em>v</em> with the branch current <em>i</em> by
+<br><em><strong>i = G*v</strong></em>
+<br>The Conductance <em>G</em> is given as input signal.
+<br><br><strong>Attention!!!</strong>
+<br>It is recommended that the G signal should not cross the zero value. Otherwise depending on the surrounding circuit the probability of singularities is high.</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical pins p and n and current i from p to n) and <code><a href="../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td><code>300.15</code></td><td>Reference temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha</code></td><td><code>0</code></td><td>Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>T_ref</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>G</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="VariableCapacitor"><h2><embed class="icon" src="../../../images/icon0400.svg" width="223" height="243" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;VariableCapacitor<br><span class="subtitle">Ideal linear electrical capacitor with variable capacitance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The linear capacitor connects the branch voltage <em>v</em> with the branch current <em>i</em> by
+<br><em><strong>i = dQ/dt</strong></em> with <em><strong>Q = C * v</strong></em>.
+<br>The capacitance <em>C</em> is given as input signal.
+It is required that C &ge; 0, otherwise an assertion is raised. To avoid a variable index system,
+C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Modelica.Constants.eps.</p>
+<p><br/>Besides the Cmin parameter the capacitor model has got the two parameters IC and UIC that belong together. With the IC parameter the user can specify an initial value of the voltage over the capacitor, which is defined from positive pin p to negative pin n (v=p.v - n.v).</p>
+<p><br/>Hence the capacitor is charged at the beginning of the simulation. The other parameter UIC is of type Boolean. If UIC is true, the simulation tool uses</p>
+<p><br/>the IC value at the initial calculation by adding the equation v= IC. If UIC is false, the IC value can be used (but it does not need to!) to calculate the initial values in order to simplify the numerical algorithms of initial calculation.</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical pins p and n and current i from p to n).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>Cmin</code></td><td><code>Modelica.&#8203;Constants.&#8203;eps</code></td><td>lower bound for variable capacitance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC</code></td><td><code>0</code></td><td>Initial Value</td></tr>
+<tr><td><code>Boolean</code></td><td><code>UIC</code></td><td><code>false</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>C</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="VariableInductor"><h2><embed class="icon" src="../../../images/icon0401.svg" width="223" height="243" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;VariableInductor<br><span class="subtitle">Ideal linear electrical inductor with variable inductance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The linear inductor connects the branch voltage <em>v</em> with the branch current <em>i</em> by
+<br><em><strong>v = d Psi/dt </strong></em>with <em><strong>Psi = L * i </strong></em>.
+<br>The inductance <em>L</em> is as input signal.
+It is required that L &ge; 0, otherwise an assertion is raised. To avoid a variable index system, L = Lmin, if 0 &le; L &lt; Lmin, where Lmin is a parameter with default value Modelica.Constants.eps.</p>
+<p>Besides the Lmin parameter the inductor model has got the two parameters IC and UIC that belong together. With the IC parameter the user can specify an initial value of the current that flows through the inductor.</p>
+<p><br/>Hence the inductor has an initial current at the beginning of the simulation. The other parameter UIC is of type Boolean. If UIC is true, the simulation tool uses</p>
+<p><br/>the IC value at the initial calculation by adding the equation i= IC. If UIC is false, the IC value can be used (but it does not need to!) to calculate the initial values in order to simplify the numerical algorithms of initial calculation.</p>
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical pins p and n and current i from p to n).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lmin</code></td><td><code>Modelica.&#8203;Constants.&#8203;eps</code></td><td>lower bound for variable inductance</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>IC</code></td><td><code>0</code></td><td>Initial Value</td></tr>
+<tr><td><code>Boolean</code></td><td><code>UIC</code></td><td><code>false</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>L</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Potentiometer"><h2><embed class="icon" src="../../../images/icon0402.svg" width="233" height="243" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Potentiometer<br><span class="subtitle">Adjustable resistor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+                       <p>This models a potentiometer where the sliding contact is placed between pin_n (r = 0) and pin_p (r = 1), dependent on either the parameter rConstant or the signal input r.</p>
+                       <p>The total resistance R is temperature dependent.</p>
+                       
+<p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td>&nbsp;</td><td>Resistance at temperature T_ref</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ref</code></td><td><code>293.15</code></td><td>Reference temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>alpha</code></td><td><code>0</code></td><td>Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>T_ref</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useRinput</code></td><td><code>false</code></td><td>use input for 0&lt;r&lt;1 (else constant)</td></tr>
+<tr><td><code>Real</code></td><td><code>rConstant</code></td><td><code>0.5</code></td><td>Contact between n (r=0) and p (r=1)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Conditional heat port</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>contact</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>r</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="GeneralCurrentToVoltageAdaptor"><h2><embed class="icon" src="../../../images/icon0403.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;GeneralCurrentToVoltageAdaptor<br><span class="subtitle">Signal adaptor for an Electrical OnePort with voltage and derivative of voltage as outputs and current and derivative of current as inputs (especially useful for FMUs)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Adaptor between an electrical oneport and a signal representation of the oneport.
+This component is used to provide a pure signal interface around an Electrical model
+and export this model in form of an input/output block,
+especially as FMU (<a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>).
+Examples of the usage of this adaptor are provided in
+<a href="../../../Electrical/Analog/Examples/index.html#GenerationOfFMUs">Electrical.Analog.Examples.GenerationOfFMUs</a>.
+This adaptor has current and derivative of current as inputs and voltage and derivative of voltage as output signals.
+</p>
+<p>
+Note, the input signals must be consistent to each other
+(di=der(i)).
+</p>
+<p>
+Note, the adaptor contains <strong>no ground</strong>.
+Bear in mind that separating physical components and connecting them via adaptor signals requires to place appropriate
+<a href="../../../Electrical/Analog/Basic/index.html#Ground">ground components</a> to define electric potential within the subcircuits.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/Adaptors/index.html#FlowToPotentialAdaptor">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;Adaptors.&#8203;FlowToPotentialAdaptor</a></code> (Signal adaptor for a connector with flow, 1st derivative of flow, and 2nd derivative of flow as inputs and
+  potential, 1st derivative of potential, and 2nd derivative of potential as outputs (especially useful for FMUs)).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>use_pder</code></td><td><code>true</code></td><td>Use output for 1st derivative of potential</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Boolean</code></td><td><code>use_pder2</code></td><td><code>false</code></td><td>Use output for 2nd derivative of potential (only if 1st derivate is used, too)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_fder</code></td><td><code>true</code></td><td>Use input for 1st derivative of flow</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Boolean</code></td><td><code>use_fder2</code></td><td><code>false</code></td><td>Use input for 2nd derivative of flow (only if 1st derivate is used, too)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>p</code></td><td>Output for potential</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>pder</code></td><td>Optional output for der(potential)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>pder2</code></td><td>Optional output for der2(potential)</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>f</code></td><td>Input for flow</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>fder</code></td><td>Optional input for der(flow)</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>fder2</code></td><td>Optional input for der2(flow)</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="GeneralVoltageToCurrentAdaptor"><h2><embed class="icon" src="../../../images/icon0404.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Analog</a>.&#8203;<a href="index.html">Basic</a>.&#8203;GeneralVoltageToCurrentAdaptor<br><span class="subtitle">Signal adaptor for an Electrical OnePort with current and derivative of current as output and voltage and derivative of voltage as input (especially useful for FMUs)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Adaptor between an electrical openport and a signal representation of the oneport.
+This component is used to provide a pure signal interface around an Electrical model
+and export this model in form of an input/output block,
+especially as FMU (<a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>).
+Examples of the usage of this adaptor are provided in
+<a href="../../../Electrical/Analog/Examples/index.html#GenerationOfFMUs">Electrical.Analog.Examples.GenerationOfFMUs</a>.
+This adaptor has voltage and derivative of voltage as input signals and current and derivative of current as output signal.
+</p>
+<p>
+Note, the input signals must be consistent to each other
+(dv=der(v)).
+</p>
+<p>
+Note, the adaptor contains <strong>no ground</strong>.
+Bear in mind that separating physical components and connecting them via adaptor signals requires to place appropriate
+<a href="../../../Electrical/Analog/Basic/index.html#Ground">ground components</a> to define electric potential within the subcircuits.
+</p>
+<p>Extends from <code><a href="../../../Blocks/Interfaces/Adaptors/index.html#PotentialToFlowAdaptor">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;Adaptors.&#8203;PotentialToFlowAdaptor</a></code> (Signal adaptor for a connector with potential, 1st derivative of potential, and 2nd derivative of potential as inputs and
+  flow, 1st derivative of flow, and 2nd derivative of flow as outputs (especially useful for FMUs)).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>use_pder</code></td><td><code>true</code></td><td>Use input for 1st derivative of potential</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Boolean</code></td><td><code>use_pder2</code></td><td><code>false</code></td><td>Use input for 2nd derivative of potential (only if 1st derivate is used, too)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_fder</code></td><td><code>true</code></td><td>Use output for 1st derivative of flow</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Boolean</code></td><td><code>use_fder2</code></td><td><code>false</code></td><td>Use output for 2nd derivative of flow (only if 1st derivate is used, too)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>p</code></td><td>Input for potential</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>pder</code></td><td>Optional input for der(potential)</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>pder2</code></td><td>Optional input for der2(potential)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>f</code></td><td>Output for flow</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>fder</code></td><td>Optional output for der(flow)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>fder2</code></td><td>Optional output for der2(flow)</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

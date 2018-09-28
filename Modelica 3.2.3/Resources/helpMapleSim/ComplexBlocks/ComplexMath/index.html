@@ -1,0 +1,779 @@
+<html><head><title>Modelica.ComplexBlocks.ComplexMath</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="ComplexMath"><h1><embed class="icon" src="../../images/icon0127.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;ComplexMath<br><span class="subtitle">Library of mathematical functions as input/output blocks</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains basic <strong>mathematical operations</strong>,
+such as summation and multiplication, and basic <strong>mathematical
+functions</strong>, such as <strong>sqrt</strong> and <strong>sin</strong>, as
+input/output blocks. All blocks of this library can be either
+connected with continuous blocks or with sampled-data blocks.
+</p>
+<p>Extends from <code><a href="../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Acos"><code>Acos</code></a></td><td>Output the arc cosine of the input</td></tr>
+<tr><td><a href="#Add"><code>Add</code></a></td><td>Output the sum of the two inputs</td></tr>
+<tr><td><a href="#Add3"><code>Add3</code></a></td><td>Output the sum of the three inputs</td></tr>
+<tr><td><a href="#Asin"><code>Asin</code></a></td><td>Output the arc sine of the input</td></tr>
+<tr><td><a href="#Atan"><code>Atan</code></a></td><td>Output the arc tangent of the input</td></tr>
+<tr><td><a href="#Bode"><code>Bode</code></a></td><td>Calculate quantities to plot Bode diagram</td></tr>
+<tr><td><a href="#ComplexToPolar"><code>ComplexToPolar</code></a></td><td>Converts complex to polar representation</td></tr>
+<tr><td><a href="#ComplexToReal"><code>ComplexToReal</code></a></td><td>Converts complex to Cartesian representation</td></tr>
+<tr><td><a href="#Conj"><code>Conj</code></a></td><td>Output is equal to the conjugate complex input signal</td></tr>
+<tr><td><a href="#Cos"><code>Cos</code></a></td><td>Output the cosine of the input</td></tr>
+<tr><td><a href="#Cosh"><code>Cosh</code></a></td><td>Output the hyperbolic cosine of the input</td></tr>
+<tr><td><a href="#Division"><code>Division</code></a></td><td>Output first input divided by second input</td></tr>
+<tr><td><a href="#Exp"><code>Exp</code></a></td><td>Output the exponential (base e) of the input</td></tr>
+<tr><td><a href="#Feedback"><code>Feedback</code></a></td><td>Output difference between commanded input 1 and feedback input 2</td></tr>
+<tr><td><a href="#Gain"><code>Gain</code></a></td><td>Output the product of a gain value with the input signal</td></tr>
+<tr><td><a href="#Log"><code>Log</code></a></td><td>Output the natural (base e) logarithm of the input (input &lt;&gt; '0' required)</td></tr>
+<tr><td><a href="#PolarToComplex"><code>PolarToComplex</code></a></td><td>Converts polar representation to complex</td></tr>
+<tr><td><a href="#Product"><code>Product</code></a></td><td>Output product of the two inputs</td></tr>
+<tr><td><a href="#RealToComplex"><code>RealToComplex</code></a></td><td>Converts Cartesian representation to complex</td></tr>
+<tr><td><a href="#Sin"><code>Sin</code></a></td><td>Output the sine of the input</td></tr>
+<tr><td><a href="#Sinh"><code>Sinh</code></a></td><td>Output the hyperbolic sine of the input</td></tr>
+<tr><td><a href="#Sqrt"><code>Sqrt</code></a></td><td>Output the square root of the input (= principal square root of complex number)</td></tr>
+<tr><td><a href="#Sum"><code>Sum</code></a></td><td>Output the sum of the elements of the input vector</td></tr>
+<tr><td><a href="#Tan"><code>Tan</code></a></td><td>Output the tangent of the input</td></tr>
+<tr><td><a href="#Tanh"><code>Tanh</code></a></td><td>Output the hyperbolic tangent of the input</td></tr>
+<tr><td><a href="#TransferFunction"><code>TransferFunction</code></a></td><td>Complex Transfer Function</td></tr>
+</table>
+<hr><a name="Conj"><h2><embed class="icon" src="../../images/icon0305.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;Conj<br><span class="subtitle">Output is equal to the conjugate complex input signal</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block computes output <code>y</code> as
+<em>conjugate complex</em> input <code>u</code>.
+</p>
+<pre>
+    y = Modelica.ComplexMath.conj(u)
+</pre>
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSISO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSISO</a></code> (Single Input Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Boolean</code></td><td><code>useConjugateInput</code></td><td><code>true</code></td><td>If true, input is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u</code></td><td>Connector of Complex input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="Gain"><h2><embed class="icon" src="../../images/icon0306.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;Gain<br><span class="subtitle">Output the product of a gain value with the input signal</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block computes output <code>y</code> as
+<em>product</em> of gain <code>k</code> with the
+input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> either the original or the conjugate complex input signal are processed.
+</p>
+<pre>
+    y = k * (if useConjugateInput then Modelica.ComplexMath.conj(u) else u);
+</pre>
+<p><strong>Example:</strong> If <code>useConjugateInput = true</code> and <code>k = 2</code> the output signal <code>y = 2 * Modelica.ComplexMath.conj(u)</code>.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>k</code></td><td>&nbsp;</td><td>Gain value multiplied with input signal</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useConjugateInput</code></td><td><code>false</code></td><td>If true, input is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u</code></td><td>Input signal connector</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Output signal connector</td></tr>
+</table>
+<hr><a name="Sum"><h2><embed class="icon" src="../../images/icon0307.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;Sum<br><span class="subtitle">Output the sum of the elements of the input vector</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This blocks computes output <code>y</code> as
+<em>sum</em> of the elements of the input signal vector
+<code>u</code>:
+</p>
+<pre>
+    <code>y</code> = <code>u</code>[1] + <code>u</code>[2] + ...;
+</pre>
+<p>
+Example:
+</p>
+<pre>
+     parameter:   nin = 3;
+
+  results in the following equations:
+
+     y = u[1] + u[2] + u[3];
+</pre>
+
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexMISO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexMISO</a></code> (Multiple Input Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nin</code></td><td><code>1</code></td><td>Number of inputs</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useConjugateInput[nin]</code></td><td><code>fill(false, nin)</code></td><td>If true, inputs are processed conjugate complex</td></tr>
+<tr><td><code>Complex</code></td><td><code>k[nin]</code></td><td><code>fill(Complex(1, 0), nin)</code></td><td>Optional: sum coefficients</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u[nin]</code></td><td>Connector of Complex input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="Feedback"><h2><embed class="icon" src="../../images/icon0308.svg" width="203" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;Feedback<br><span class="subtitle">Output difference between commanded input 1 and feedback input 2</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This blocks computes output <code>y</code> as <em>difference</em> of the
+commanded input <code>u1</code> and the feedback
+input <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</code> or both inputs can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> are <code>true</code>, respectively.
+</p>
+<pre>
+  y = (if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
+    - (if useConjugateInput1 then Modelica.ComplexMath.conj(u2) else u2);
+</pre>
+<p>
+<strong>Example</strong> parameters:
+</p>
+<ul>
+<li><code>useConjugateInput1 = true</code>,</li>
+<li><code>useConjugateInput2 = false</code></li>
+</ul>
+<p>
+result in the following equation:
+</p>
+<pre>
+     y = Modelica.ComplexMath.conj(u1) - u2
+</pre>
+
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConjugateInput1</code></td><td><code>false</code></td><td>If true, input 1 is processed conjugate complex</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useConjugateInput2</code></td><td><code>false</code></td><td>If true, input 2 is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u1</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u2</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Add"><h2><embed class="icon" src="../../images/icon0309.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;Add<br><span class="subtitle">Output the sum of the two inputs</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This blocks computes output <code>y</code> as <em>sum</em> of the
+two input signals <code>u1</code> and <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</code> or both inputs can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> are <code>true</code>, respectively.
+</p>
+<pre>
+  y = k1*u1Internal + k2*u2Internal;
+</pre>
+<p>
+<strong>Example</strong> parameters:
+</p>
+<ul>
+<li><code>k1 = +2</code>,</li>
+<li><code>k2 = -3</code>,</li>
+<li><code>useConjugateInput1 = true</code>,</li>
+<li><code>useConjugateInput2 = false</code></li>
+</ul>
+<p>
+result in the following equation:
+</p>
+<pre>
+     y = 2 * Modelica.ComplexMath.conj(u1) - 3 * u2
+</pre>
+
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSI2SO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSI2SO</a></code> (2 Single Input / 1 Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConjugateInput1</code></td><td><code>false</code></td><td>If true, input 1 is processed conjugate complex</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useConjugateInput2</code></td><td><code>false</code></td><td>If true, input 2 is processed conjugate complex</td></tr>
+<tr><td><code>Complex</code></td><td><code>k1</code></td><td><code>Complex(1, 0)</code></td><td>Gain of input 1</td></tr>
+<tr><td><code>Complex</code></td><td><code>k2</code></td><td><code>Complex(1, 0)</code></td><td>Gain of input 2</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u1</code></td><td>Connector of Complex input signal 1</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u2</code></td><td>Connector of Complex input signal 2</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="Add3"><h2><embed class="icon" src="../../images/icon0310.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;Add3<br><span class="subtitle">Output the sum of the three inputs</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This blocks computes output <code>y</code> as <em>sum</em> of the
+three input signals <code>u1</code>, <code>u2</code> and <code>u3</code>. Optionally, inputs <code>u1</code> and <code>u2</code> and <code>u3</code> can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> and <code>useConjugateInput3</code> are <code>true</code>, respectively.
+</p>
+<pre>
+  y = k1*(if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
+    + k2*(if useConjugateInput2 then Modelica.ComplexMath.conj(u2) else u2)
+    + k3*(if useConjugateInput3 then Modelica.ComplexMath.conj(u3) else u3);</pre>
+<p>
+<strong>Example</strong> parameters:
+</p>
+<ul>
+<li><code>k1 = +2</code>,</li>
+<li><code>k2 = -3</code>,</li>
+<li><code>k3 = +1</code>,</li>
+<li><code>useConjugateInput1 = true</code>,</li>
+<li><code>useConjugateInput2 = false</code></li>
+<li><code>useConjugateInput3 = false</code></li>
+</ul>
+
+<p>
+  result in the following equation:
+</p>
+<pre>
+     y = 2 * Modelica.ComplexMath.conj(u1) - 3 * u2 + u3;
+</pre>
+
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>k1</code></td><td><code>Complex(1, 0)</code></td><td>Gain of upper input</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useConjugateInput1</code></td><td><code>false</code></td><td>If true, input 1 is processed conjugate complex</td></tr>
+<tr><td><code>Complex</code></td><td><code>k2</code></td><td><code>Complex(1, 0)</code></td><td>Gain of middle input</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useConjugateInput2</code></td><td><code>false</code></td><td>If true, input 2 is processed conjugate complex</td></tr>
+<tr><td><code>Complex</code></td><td><code>k3</code></td><td><code>Complex(1, 0)</code></td><td>Gain of lower input</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useConjugateInput3</code></td><td><code>false</code></td><td>If true, input 3 is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u1</code></td><td>Connector 1 of Complex input signals</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u2</code></td><td>Connector 2 of Complex input signals</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u3</code></td><td>Connector 3 of Complex input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signals</td></tr>
+</table>
+<hr><a name="Product"><h2><embed class="icon" src="../../images/icon0311.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;Product<br><span class="subtitle">Output product of the two inputs</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This blocks computes the output <code>y</code> (element-wise)
+as <em>product</em> of the corresponding elements of
+the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</code> or both inputs can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> are <code>true</code>, respectively. Depending on <code>useConjugateInput1</code> and <code>useConjugateInput2</code> the internal signals represent either the original or the conjugate complex input signal.
+</p>
+<pre>
+  y = u1Inernal * u2Internal;
+</pre>
+
+<p><strong>Example:</strong> If <code>useConjugateInput1 = true</code> and <code>useConjugateInput2 = false</code> the output signal <code>y = Modelica.ComplexMath.conj(u1) * u2</code>.</p>
+
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSI2SO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSI2SO</a></code> (2 Single Input / 1 Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConjugateInput1</code></td><td><code>false</code></td><td>If true, input 1 is processed conjugate complex</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useConjugateInput2</code></td><td><code>false</code></td><td>If true, input 2 is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u1</code></td><td>Connector of Complex input signal 1</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u2</code></td><td>Connector of Complex input signal 2</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="Division"><h2><embed class="icon" src="../../images/icon0312.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;Division<br><span class="subtitle">Output first input divided by second input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block computes the output <code>y</code> (element-wise)
+by <em>dividing</em> the corresponding elements of
+the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</code> or both inputs can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> are <code>true</code>, respectively. Depending on <code>useConjugateInput1</code> and <code>useConjugateInput2</code> the internal signals represent either the original or the conjugate complex input signal.
+</p>
+<pre>
+    y = u1Internal / u2Internal;
+</pre>
+
+<p><strong>Example:</strong> If <code>useConjugateInput1 = true</code> and <code>useConjugateInput2 = false</code> the output signal <code>y = Modelica.ComplexMath.conj(u1) / u2</code>.</p>
+
+
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSI2SO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSI2SO</a></code> (2 Single Input / 1 Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConjugateInput1</code></td><td><code>false</code></td><td>If true, input 1 is processed conjugate complex</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useConjugateInput2</code></td><td><code>false</code></td><td>If true, input 2 is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u1</code></td><td>Connector of Complex input signal 1</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u2</code></td><td>Connector of Complex input signal 2</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="Sqrt"><h2><embed class="icon" src="../../images/icon0313.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;Sqrt<br><span class="subtitle">Output the square root of the input (= principal square root of complex number)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This blocks computes the output <code>y</code>
+as <em>square root</em> of the input <code>u</code> (= principal square root of the complex input). Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
+</p>
+<pre>
+    y = <strong>sqrt</strong>(uInternal);
+</pre>
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSISO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSISO</a></code> (Single Input Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConjugateInput</code></td><td><code>false</code></td><td>If true, input is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u</code></td><td>Connector of Complex input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="Sin"><h2><embed class="icon" src="../../images/icon0314.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;Sin<br><span class="subtitle">Output the sine of the input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This blocks computes the output <code>y</code>
+as <strong>sine</strong> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
+</p>
+<pre>
+    y = <strong>sin</strong>(uInternal);
+</pre>
+
+<p>
+<img src="../../../Images/Math/sin.png"
+     alt="sin.png">
+</p>
+
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSISO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSISO</a></code> (Single Input Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConjugateInput</code></td><td><code>false</code></td><td>If true, input is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u</code></td><td>Connector of Complex input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="Cos"><h2><embed class="icon" src="../../images/icon0315.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;Cos<br><span class="subtitle">Output the cosine of the input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This blocks computes the output <code>y</code>
+as <strong>cos</strong> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
+</p>
+<pre>
+    y = <strong>cos</strong>(uInternal);
+</pre>
+
+<p>
+<img src="../../../Images/Math/cos.png"
+     alt="cos.png">
+</p>
+
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSISO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSISO</a></code> (Single Input Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConjugateInput</code></td><td><code>false</code></td><td>If true, input is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u</code></td><td>Connector of Complex input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="Tan"><h2><embed class="icon" src="../../images/icon0316.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;Tan<br><span class="subtitle">Output the tangent of the input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This blocks computes the output <code>y</code>
+as <strong>tan</strong> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
+</p>
+<pre>
+    y = <strong>tan</strong>(uInternal);
+</pre>
+
+<p>
+<img src="../../../Images/Math/tan.png"
+     alt="tan.png">
+</p>
+
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSISO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSISO</a></code> (Single Input Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConjugateInput</code></td><td><code>false</code></td><td>If true, input is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u</code></td><td>Connector of Complex input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="Asin"><h2><embed class="icon" src="../../images/icon0317.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;Asin<br><span class="subtitle">Output the arc sine of the input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This blocks computes the output <code>y</code> as the
+<em>sine-inverse</em> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
+</p>
+<pre>
+    y = <strong>asin</strong>(uInternal);
+</pre>
+
+<p>
+<img src="../../../Images/Math/asin.png"
+     alt="asin.png">
+</p>
+
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSISO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSISO</a></code> (Single Input Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConjugateInput</code></td><td><code>false</code></td><td>If true, input is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u</code></td><td>Connector of Complex input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="Acos"><h2><embed class="icon" src="../../images/icon0318.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;Acos<br><span class="subtitle">Output the arc cosine of the input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This blocks computes the output <code>y</code> as the
+<em>cosine-inverse</em> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
+</p>
+<pre>
+    y = <strong>acos</strong>(uInternal);
+</pre>
+
+<p>
+<img src="../../../Images/Math/acos.png"
+     alt="acos.png">
+</p>
+
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSISO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSISO</a></code> (Single Input Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConjugateInput</code></td><td><code>false</code></td><td>If true, input is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u</code></td><td>Connector of Complex input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="Atan"><h2><embed class="icon" src="../../images/icon0319.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;Atan<br><span class="subtitle">Output the arc tangent of the input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This blocks computes the output <code>y</code> as the
+<em>tangent-inverse</em> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
+</p>
+<pre>
+    y= <strong>atan</strong>(uInternal);
+</pre>
+
+<p>
+<img src="../../../Images/Math/atan.png"
+     alt="atan.png">
+</p>
+
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSISO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSISO</a></code> (Single Input Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConjugateInput</code></td><td><code>false</code></td><td>If true, input is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u</code></td><td>Connector of Complex input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="Sinh"><h2><embed class="icon" src="../../images/icon0320.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;Sinh<br><span class="subtitle">Output the hyperbolic sine of the input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This blocks computes the output <code>y</code> as the
+<em>hyperbolic sine</em> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
+</p>
+<pre>
+    y = <strong>sinh</strong>(uInternal);
+</pre>
+
+<p>
+<img src="../../../Images/Math/sinh.png"
+     alt="sinh.png">
+</p>
+
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSISO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSISO</a></code> (Single Input Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConjugateInput</code></td><td><code>false</code></td><td>If true, input is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u</code></td><td>Connector of Complex input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="Cosh"><h2><embed class="icon" src="../../images/icon0321.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;Cosh<br><span class="subtitle">Output the hyperbolic cosine of the input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This blocks computes the output <code>y</code> as the
+<em>hyperbolic cosine</em> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
+</p>
+<pre>
+    y = <strong>cosh</strong>(uInternal);
+</pre>
+
+<p>
+<img src="../../../Images/Math/cosh.png"
+     alt="cosh.png">
+</p>
+
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSISO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSISO</a></code> (Single Input Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConjugateInput</code></td><td><code>false</code></td><td>If true, input is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u</code></td><td>Connector of Complex input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="Tanh"><h2><embed class="icon" src="../../images/icon0322.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;Tanh<br><span class="subtitle">Output the hyperbolic tangent of the input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This blocks computes the output <code>y</code> as the
+<em>hyperbolic tangent</em> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
+</p>
+<pre>
+    y = <strong>tanh</strong>(uInternal);
+</pre>
+
+<p>
+<img src="../../../Images/Math/tanh.png"
+     alt="tanh.png">
+</p>
+
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSISO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSISO</a></code> (Single Input Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConjugateInput</code></td><td><code>false</code></td><td>If true, input is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u</code></td><td>Connector of Complex input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="Exp"><h2><embed class="icon" src="../../images/icon0323.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;Exp<br><span class="subtitle">Output the exponential (base e) of the input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This blocks computes the output <code>y</code> as the
+<em>exponential</em> (of base e) of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
+</p>
+<pre>
+    y = <strong>exp</strong>(uInternal);
+</pre>
+
+<p>
+<img src="../../../Images/Math/exp.png"
+     alt="exp.png">
+</p>
+
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSISO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSISO</a></code> (Single Input Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConjugateInput</code></td><td><code>false</code></td><td>If true, input is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u</code></td><td>Connector of Complex input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="Log"><h2><embed class="icon" src="../../images/icon0324.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;Log<br><span class="subtitle">Output the natural (base e) logarithm of the input (input &lt;&gt; '0' required)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This blocks computes the output <code>y</code> as the
+<em>natural (base e) logarithm</em> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
+</p>
+<pre>
+    y = <strong>log</strong>(uInternal);
+</pre>
+<p>
+An error occurs if the elements of the input <code>u</code> is zero.
+</p>
+
+<p>
+<img src="../../../Images/Math/log.png"
+     alt="log.png">
+</p>
+
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSISO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSISO</a></code> (Single Input Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConjugateInput</code></td><td><code>false</code></td><td>If true, input is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u</code></td><td>Connector of Complex input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="RealToComplex"><h2><embed class="icon" src="../../images/icon0325.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;RealToComplex<br><span class="subtitle">Converts Cartesian representation to complex</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Converts the Real inputs <em>re</em> (real part) and <em>im</em> (imaginary part) to the Complex output <em>y</em>.</p>
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSO</a></code> (Single Output continuous control block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>re</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>im</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PolarToComplex"><h2><embed class="icon" src="../../images/icon0326.svg" width="263" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;PolarToComplex<br><span class="subtitle">Converts polar representation to complex</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Converts the Real inputs <em>len</em> (length, absolute) and <em>phi</em> (angle, argument) to the Complex output <em>y</em>.</p>
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSO</a></code> (Single Output continuous control block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>len</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>phi</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="ComplexToReal"><h2><embed class="icon" src="../../images/icon0327.svg" width="283" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;ComplexToReal<br><span class="subtitle">Converts complex to Cartesian representation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Converts the Complex input <em>u</em> to the Real outputs <em>re</em> (real part) and <em>im</em> (imaginary part).</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConjugateInput</code></td><td><code>false</code></td><td>If true, input is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>re</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>im</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="ComplexToPolar"><h2><embed class="icon" src="../../images/icon0328.svg" width="283" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;ComplexToPolar<br><span class="subtitle">Converts complex to polar representation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Converts the Complex input <em>u</em> to the Real outputs <em>len</em> (length, absolute) and <em>phi</em> (angle, argument).</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConjugateInput</code></td><td><code>false</code></td><td>If true, input is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>len</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>phi</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Bode"><h2><embed class="icon" src="../../images/icon0329.svg" width="263" height="223" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;Bode<br><span class="subtitle">Calculate quantities to plot Bode diagram</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This complex block is used to determine variables of a Bode diagram for the output <code>y</code>.
+The output <code>y</code> is calculated by <code>u / divisor</code> if <code>useDivisor == true</code>.
+Otherwise the output <code>y = u</code>.</p>
+<ul>
+<li><code>abs_y</code> Absolute value of <code>y</code></li>
+<li><code>arg_y</code> Angle of <code>y</code></li>
+<li><code>dB_y</code> Logarithm to the base 10 of the absolute value of <code>y</code> in dB</li>
+</ul>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useDivisor</code></td><td><code>true</code></td><td>Use divisor input, if true</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u</code></td><td>Dividend if useDivisor == true</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>divisor</code></td><td>Divisor</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>abs_y</code></td><td>Absolute value of ratio u / divisor</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>arg_y</code></td><td>Angle of ratio u / divisor</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Quotient y = u / divisor</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>dB_y</code></td><td>Log10 of absolute value of ratio u / divisor in dB</td></tr>
+</table>
+<hr><a name="TransferFunction"><h2><embed class="icon" src="../../images/icon0330.svg" width="263" height="243" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">ComplexMath</a>.&#8203;TransferFunction<br><span class="subtitle">Complex Transfer Function</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The complex input u is multiplied by the complex transfer function (depending on frequency input w) to obtain the complex output y (nb = dimension of b, na = dimension of a):
+</p>
+<pre>
+           b[1]*(jw)^[nb-1] + b[2]*(jw)^[nb-2] + ... + b[nb]
+   y(jw) = ------------------------------------------------- * u(jw)
+           a[1]*(jw)^[na-1] + a[2]*(jw)^[na-2] + ... + a[na]
+</pre>
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSISO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSISO</a></code> (Single Input Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConjugateInput</code></td><td><code>false</code></td><td>If true, input is processed conjugate complex</td></tr>
+<tr><td><code>Real</code></td><td><code>b[:]</code></td><td><code>{1}</code></td><td>Numerator coefficients of transfer function (e.g., 2*s+3 is specified as {2,3})</td></tr>
+<tr><td><code>Real</code></td><td><code>a[:]</code></td><td><code>{1}</code></td><td>Denominator coefficients of transfer function (e.g., 5*s+6 is specified as {5,6})</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u</code></td><td>Connector of Complex input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>w</code></td><td>Frequency input</td></tr>
+</table>
+</body></html>

@@ -1,0 +1,268 @@
+<html><head><title>Modelica.ComplexBlocks.Interfaces</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Interfaces"><h1><embed class="icon" src="../../images/icon0015.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;Interfaces<br><span class="subtitle">Library of connectors and partial models for input/output blocks</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This library defines Complex input and output signals, as well as partial blocks.</p>
+<p>Extends from <code><a href="../../Icons/InterfacesPackage/index.html">Modelica.&#8203;Icons.&#8203;InterfacesPackage</a></code> (Icon for packages containing interfaces).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#ComplexInput"><code>ComplexInput</code></a></td><td>'input Complex' as connector</td></tr>
+<tr><td><a href="#ComplexMI2MO"><code>ComplexMI2MO</code></a></td><td>2 Multiple Input / Multiple Output continuous control block</td></tr>
+<tr><td><a href="#ComplexMIMO"><code>ComplexMIMO</code></a></td><td>Multiple Input Multiple Output continuous control block</td></tr>
+<tr><td><a href="#ComplexMIMOs"><code>ComplexMIMOs</code></a></td><td>Multiple Input Multiple Output continuous control block with same number of inputs and outputs</td></tr>
+<tr><td><a href="#ComplexMISO"><code>ComplexMISO</code></a></td><td>Multiple Input Single Output continuous control block</td></tr>
+<tr><td><a href="#ComplexMO"><code>ComplexMO</code></a></td><td>Multiple Output continuous control block</td></tr>
+<tr><td><a href="#ComplexOutput"><code>ComplexOutput</code></a></td><td>'output Complex' as connector</td></tr>
+<tr><td><a href="#ComplexSI2SO"><code>ComplexSI2SO</code></a></td><td>2 Single Input / 1 Single Output continuous control block</td></tr>
+<tr><td><a href="#ComplexSignalSource"><code>ComplexSignalSource</code></a></td><td>Base class for continuous signal source</td></tr>
+<tr><td><a href="#ComplexSIMO"><code>ComplexSIMO</code></a></td><td>Single Input Multiple Output continuous control block</td></tr>
+<tr><td><a href="#ComplexSISO"><code>ComplexSISO</code></a></td><td>Single Input Single Output continuous control block</td></tr>
+<tr><td><a href="#ComplexSO"><code>ComplexSO</code></a></td><td>Single Output continuous control block</td></tr>
+</table>
+<hr><a name="ComplexInput"><h2><embed class="icon" src="../../images/icon0300.svg" width="203" height="203" />
+Operator Record Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;ComplexInput<br><span class="subtitle">'input Complex' as connector</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Connector with one input signal of type Complex.
+</p>
+<p>Extends from <code>Complex</code> (Complex number with overloaded operators).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>re</code></td><td>Real part of complex number</td></tr>
+<tr><td><code>Real</code></td><td><code>im</code></td><td>Imaginary part of complex number</td></tr>
+</table>
+<hr><a name="ComplexOutput"><h2><embed class="icon" src="../../images/icon0301.svg" width="203" height="203" />
+Operator Record Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;ComplexOutput<br><span class="subtitle">'output Complex' as connector</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Connector with one output signal of type Complex.
+</p>
+<p>Extends from <code>Complex</code> (Complex number with overloaded operators).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>re</code></td><td>Real part of complex number</td></tr>
+<tr><td><code>Real</code></td><td><code>im</code></td><td>Imaginary part of complex number</td></tr>
+</table>
+<hr><a name="ComplexSO"><h2><embed class="icon" src="../../images/icon0302.svg" width="223" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;ComplexSO<br><span class="subtitle">Single Output continuous control block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has one continuous Complex output signal.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="ComplexMO"><h2><embed class="icon" src="../../images/icon0302.svg" width="223" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;ComplexMO<br><span class="subtitle">Multiple Output continuous control block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has one continuous Complex output signal vector.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nout</code></td><td><code>1</code></td><td>Number of outputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y[nout]</code></td><td>Connector of Complex output signals</td></tr>
+</table>
+<hr><a name="ComplexSISO"><h2><embed class="icon" src="../../images/icon0303.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;ComplexSISO<br><span class="subtitle">Single Input Single Output continuous control block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has one continuous Complex input and one continuous Complex output signal.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConjugateInput</code></td><td><code>false</code></td><td>If true, input is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u</code></td><td>Connector of Complex input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="ComplexSI2SO"><h2><embed class="icon" src="../../images/icon0304.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;ComplexSI2SO<br><span class="subtitle">2 Single Input / 1 Single Output continuous control block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+                                      <p>
+                                      Block has two continuous Complex input signals u1 and u2 and one
+                                      continuous Complex output signal y.
+                                      </p>
+                                      
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConjugateInput1</code></td><td><code>false</code></td><td>If true, input 1 is processed conjugate complex</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useConjugateInput2</code></td><td><code>false</code></td><td>If true, input 2 is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u1</code></td><td>Connector of Complex input signal 1</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u2</code></td><td>Connector of Complex input signal 2</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="ComplexSIMO"><h2><embed class="icon" src="../../images/icon0303.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;ComplexSIMO<br><span class="subtitle">Single Input Multiple Output continuous control block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+ Block has one continuous Complex input signal and a
+vector of continuous Complex output signals.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nout</code></td><td><code>1</code></td><td>Number of outputs</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useConjugateInput</code></td><td><code>false</code></td><td>If true, input is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u</code></td><td>Connector of Complex input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y[nout]</code></td><td>Connector of Complex output signals</td></tr>
+</table>
+<hr><a name="ComplexMISO"><h2><embed class="icon" src="../../images/icon0303.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;ComplexMISO<br><span class="subtitle">Multiple Input Single Output continuous control block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has a vector of continuous Complex input signals and
+one continuous Complex output signal.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nin</code></td><td><code>1</code></td><td>Number of inputs</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useConjugateInput[nin]</code></td><td><code>fill(false, nin)</code></td><td>If true, inputs are processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u[nin]</code></td><td>Connector of Complex input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+<hr><a name="ComplexMIMO"><h2><embed class="icon" src="../../images/icon0303.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;ComplexMIMO<br><span class="subtitle">Multiple Input Multiple Output continuous control block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has a continuous Complex input vector and a continuous Complex output signal vector.
+The signal sizes of the input and output vector may be different.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nin</code></td><td><code>1</code></td><td>Number of inputs</td></tr>
+<tr><td><code>Integer</code></td><td><code>nout</code></td><td><code>1</code></td><td>Number of outputs</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useConjugateInput[nin]</code></td><td><code>fill(false, nin)</code></td><td>If true, inputs are processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u[nin]</code></td><td>Connector of Complex input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y[nout]</code></td><td>Connector of Complex output signals</td></tr>
+</table>
+<hr><a name="ComplexMIMOs"><h2><embed class="icon" src="../../images/icon0303.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;ComplexMIMOs<br><span class="subtitle">Multiple Input Multiple Output continuous control block with same number of inputs and outputs</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has a continuous Complex input vector and a continuous Complex output signal vector
+where the signal sizes of the input and output vector are identical.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>1</code></td><td>Number of inputs (= number of outputs)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useConjugateInput[n]</code></td><td><code>fill(false, n)</code></td><td>If true, inputs are processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u[n]</code></td><td>Connector of Complex input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y[n]</code></td><td>Connector of Complex output signals</td></tr>
+</table>
+<hr><a name="ComplexMI2MO"><h2><embed class="icon" src="../../images/icon0304.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;ComplexMI2MO<br><span class="subtitle">2 Multiple Input / Multiple Output continuous control block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has two continuous Complex input vectors u1 and u2 and one
+continuous Complex output vector y.
+All vectors have the same number of elements.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>1</code></td><td>Dimension of input and output vectors.</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useConjugateInput1[n]</code></td><td><code>fill(false, n)</code></td><td>If true, inputs 1 are processed conjugate complex</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useConjugateInput2[n]</code></td><td><code>fill(false, n)</code></td><td>If true, inputs 2 are processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u1[n]</code></td><td>Connector 1 of Complex input signals</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>u2[n]</code></td><td>Connector 2 of Complex input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y[n]</code></td><td>Connector of Complex output signals</td></tr>
+</table>
+<hr><a name="ComplexSignalSource"><h2><embed class="icon" src="../../images/icon0302.svg" width="223" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">ComplexBlocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;ComplexSignalSource<br><span class="subtitle">Base class for continuous signal source</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Basic block for Complex sources.
+This component has one continuous Complex output signal y
+and two parameters (offset, startTime) to shift the
+generated signal.
+</p>
+<p>Extends from <code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexSO">Modelica.&#8203;ComplexBlocks.&#8203;Interfaces.&#8203;ComplexSO</a></code> (Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Complex</code></td><td><code>offset</code></td><td><code>Complex(0)</code></td><td>Offset of output signal y</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Output y = offset for time &lt; startTime</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>Connector of Complex output signal</td></tr>
+</table>
+</body></html>

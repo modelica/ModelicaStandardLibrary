@@ -1,0 +1,369 @@
+<html><head><title>Modelica.Mechanics.Translational.Examples</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Examples"><h1><embed class="icon" src="../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;Examples<br><span class="subtitle">Demonstration examples of the components of this package</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains example models to demonstrate the usage of the
+Translational package. Open the models and
+simulate them according to the provided description in the models.
+</p>
+
+<p>Extends from <code><a href="../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Accelerate"><code>Accelerate</code></a></td><td>Use of model accelerate</td></tr>
+<tr><td><a href="#Brake"><code>Brake</code></a></td><td>Demonstrate braking of a translational moving mass</td></tr>
+<tr><td><a href="#Damper"><code>Damper</code></a></td><td>Use of damper models</td></tr>
+<tr><td><a href="#ElastoGap"><code>ElastoGap</code></a></td><td>Demonstrate usage of ElastoGap</td></tr>
+<tr><td><a href="#Friction"><code>Friction</code></a></td><td>Use of model Stop</td></tr>
+<tr><td><a href="#GenerationOfFMUs"><code>GenerationOfFMUs</code></a></td><td>Example to demonstrate variants to generate FMUs (Functional Mock-up Units)</td></tr>
+<tr><td><a href="#HeatLosses"><code>HeatLosses</code></a></td><td>Demonstrate the modeling of heat losses</td></tr>
+<tr><td><a href="#InitialConditions"><code>InitialConditions</code></a></td><td>Setting of initial conditions</td></tr>
+<tr><td><a href="#Oscillator"><code>Oscillator</code></a></td><td>Oscillator demonstrates the use of initial conditions</td></tr>
+<tr><td><a href="#PreLoad"><code>PreLoad</code></a></td><td>Preload of a spool using ElastoGap models</td></tr>
+<tr><td><a href="#Sensors"><code>Sensors</code></a></td><td>Sensors for translational systems</td></tr>
+<tr><td><a href="#SignConvention"><code>SignConvention</code></a></td><td>Examples for the used sign conventions</td></tr>
+<tr><td><a href="#TestEddyCurrentBrake"><code>TestEddyCurrentBrake</code></a></td><td>Test of translational eddy current brake</td></tr>
+<tr><td><a href="../../../Mechanics/Translational/Examples/Utilities/index.html"><code>Utilities</code></a> &hellip;</td><td>Utility classes used by translational example models</td></tr>
+<tr><td><a href="#WhyArrows"><code>WhyArrows</code></a></td><td>Use of arrows in Mechanics.Translational</td></tr>
+</table>
+<hr><a name="SignConvention"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;SignConvention<br><span class="subtitle">Examples for the used sign conventions</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+If all arrows point in the same direction, a positive force
+results in a positive acceleration&nbsp;<var>a</var>, velocity&nbsp;<var>v</var> and position&nbsp;<var>s</var>.
+</p>
+<p>
+For a force of 1&nbsp;N and a mass of 1&nbsp;kg this leads to
+</p>
+<blockquote><pre>
+a = 1 m/s2
+v = 1 m/s after 1 s (SlidingMass1.v)
+s = 0.5 m after 1 s (SlidingMass1.s)
+</pre></blockquote>
+<p>
+The acceleration is not available for plotting.
+</p>
+<p>
+System 1) and 2) are equivalent. It doesn't matter whether the
+force pushes at flange_a in system&nbsp;1 or pulls at flange_b in system&nbsp;2.
+</p><p>
+It is of course possible to ignore the arrows and connect the models
+in an arbitrary way. But then it is hard see in what direction the
+force acts.
+</p><p>
+In the third system the two arrows are opposed which means that the
+force acts in the opposite direction (in the same direction as in
+the two other examples).
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="InitialConditions"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;InitialConditions<br><span class="subtitle">Setting of initial conditions</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+There are several ways to set initial conditions.
+In the first system the position of the mass m3 was defined
+by using the modifier s(start=4.5), the position of m4 by s(start=12.5).
+These positions were chosen such that the system is at rest. To calculate
+these values start at the left (fixed2) with a value of 1&nbsp;m. The spring s2
+has an unstretched length of 2&nbsp;m and m3 an length of 3&nbsp;m, which leads to
+</p>
+
+<blockquote><pre>
+  1   m (fixed2)
++ 2   m (spring s2)
++ 3/2 m (half of the length of mass m3)
+-------
+  4,5 m = s(start = 4.5) for m3
++ 3/2 m (half of the length of mass m3)
++ 4   m (springDamper sd2)
++ 5/2 m (half of length of mass m4)
+-------
+ 12,5 m = s(start = 12.5) for m4
+</pre></blockquote>
+
+<p>
+This selection of initial conditions can prioritize the selection of
+those variables (m3.s and m4.s) as state variables.
+</p>
+
+<p>
+In the second example, the lengths of the springs are given start values
+but they cannot be used as state for pure springs (only for the spring/damper
+combination). In this case the system is not at rest.
+</p>
+
+<blockquote>
+<img src="../../../../Images/Mechanics/Translational/InitialConditions.png">
+</blockquote>
+
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="WhyArrows"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;WhyArrows<br><span class="subtitle">Use of arrows in Mechanics.Translational</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+When using the models of the translational sublibrary
+it is recommended to make sure that all arrows point in
+the same direction because then all component have the
+same reference system.
+In the example the distance from flange_a of Rod1 to flange_b
+of Rod2 is 2&nbsp;m. The distance from flange_a of Rod1 to flange_b
+of Rod3 is also 2&nbsp;m though it is difficult to see that. Without
+the arrows it would be almost impossible to notice.
+That all arrows point in the same direction is a sufficient
+condition for an easy use of the library. There are cases
+where horizontally flipped models can be used without
+problems.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="Accelerate"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;Accelerate<br><span class="subtitle">Use of model accelerate</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Demonstrate usage of component
+<a href="../../../Mechanics/Translational/Sources/index.html#Accelerate">Sources.Accelerate</a>
+by moving a mass with a predefined acceleration.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="Damper"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;Damper<br><span class="subtitle">Use of damper models</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Demonstrate usage of a translational damper component in various configurations.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="Oscillator"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;Oscillator<br><span class="subtitle">Oscillator demonstrates the use of initial conditions</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+A spring - mass system is a mechanical oscillator. If no
+damping is included and the system is excited at resonance
+frequency infinite amplitudes will result.
+The resonant frequency is given by
+omega_res&nbsp;=&nbsp;sqrt(c&nbsp;/&nbsp;m)
+with:
+</p>
+
+<blockquote><pre>
+c ... spring stiffness
+m ... mass
+</pre></blockquote>
+
+<p>
+To make sure that the system is initially at rest the initial
+conditions s(start=-0.5) and v(start=0) for the sliding masses
+are set.
+If damping is added the amplitudes are bounded.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="Sensors"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;Sensors<br><span class="subtitle">Sensors for translational systems</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+These sensors measure
+</p>
+
+<blockquote><pre>
+force f in N
+position s in m
+velocity v in m/s
+acceleration a in m/s2
+</pre></blockquote>
+
+<p>
+In this example, the measured velocity and acceleration is independent of
+the flange the sensor is connected to. In contrast, the measured position
+depends on the flange (flange_a or flange_b) and the
+length&nbsp;<var>L</var> of the component.
+Plot <code>positionSensor1.s</code>, <code>positionSensor2.s</code> and <code>mass.s</code>
+to see the difference.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="Friction"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;Friction<br><span class="subtitle">Use of model Stop</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<ol>
+<li> Simulate and then plot stop1.f as a function of stop1.v
+     This gives the Stribeck curve.</li>
+<li> The same model is also available by modeling the system with a Mass and
+     a SupportFriction model. The SupportFriction model defines the friction characteristic
+     with a table. The table is constructed with function
+     Examples.Utilities.GenerateStribeckFrictionTable(..) to generate the
+     same friction characteristic as with stop1.
+     The simulation results of stop1 and of model mass are therefore identical.</li>
+<li> Model stop2 gives an example for a hard stop. However there
+     can arise some problems with the used modeling approach (use of
+     <strong>reinit</strong>(..), convergence problems). In this case use the ElastoGap
+     to model a stop (see example Preload).</li>
+</ol>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="PreLoad"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;PreLoad<br><span class="subtitle">Preload of a spool using ElastoGap models</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+When designing hydraulic valves it is often necessary to hold the spool in
+a certain position as long as an external force is below a threshold value.
+If this force exceeds the threshold value a linear relation between force
+and position is desired.
+There are designs that need only one spring to accomplish this task. Using
+the ElastoGap elements this design can be modelled easily.
+Drawing of spool.
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/Translational/PreLoad.png"><br>
+<img src="../../../../Images/Mechanics/Translational/PreLoad3.png"><br>
+<img src="../../../../Images/Mechanics/Translational/PreLoad4.png"><br>
+</p>
+
+<p>
+Simulate for 100&nbsp;s and plot the spool position <code>spool.s</code>
+as a function of working force <code>force.f</code>.
+For positive force, the spool moves in positive direction - in figure below
+the start value <code>spool.s.start</code> influences the offset.
+.
+</p>
+
+<p>
+<img src="../../../../Images/Mechanics/Translational/PreLoad2.png">
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="ElastoGap"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;ElastoGap<br><span class="subtitle">Demonstrate usage of ElastoGap</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model demonstrates the effect of ElastoGaps on eigenfrequency:
+Plot mass1.s and mass2.s as well as mass1.v and mass2.v to see that effect.
+</p>
+<p>
+While mass1 is moved by both spring/damper forces all the time, this is not the case for mass2
+since elastoGap1 lifts off at s&nbsp;&gt;&nbsp;-0.5 m and elastoGap2 lifts off at s&nbsp;&lt;&nbsp;+0.5 m.
+Therefore, mass2 moves freely as long as -0.5&nbsp;m&nbsp;&lt;&nbsp;s&nbsp;&lt;&nbsp;+0.5&nbsp;m.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#TranslationalDampingConstant">TranslationalDampingConstant</a></code></td><td><code>d</code></td><td><code>1.5</code></td><td>Damping constant</td></tr>
+</table>
+<hr><a name="Brake"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;Brake<br><span class="subtitle">Demonstrate braking of a translational moving mass</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model consists of a mass with an initial velocity of 1&nbsp;m/s.
+After 0.1&nbsp;s, a brake is activated and it is shown that the mass decelerates until
+it arrives at rest and remains at rest. Two versions of this system are present,
+one where the brake is implicitly grounded and one where it is grounded explicitly.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="HeatLosses"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;HeatLosses<br><span class="subtitle">Demonstrate the modeling of heat losses</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model demonstrates how to model the dissipated power of a Translational model,
+by enabling the heatPort of all components and connecting these heatPorts via
+a convection element to the environment. The total heat flow generated by the
+elements and transported to the environment
+is present in variable convection.fluid.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="TestEddyCurrentBrake"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;TestEddyCurrentBrake<br><span class="subtitle">Test of translational eddy current brake</span></h2></a>
+<h3>Information</h3>
+<p>
+
+A moving mass gets decelerated by an eddy current brake. The loss power is fed to a heat capacitor.
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="GenerationOfFMUs"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;GenerationOfFMUs<br><span class="subtitle">Example to demonstrate variants to generate FMUs (Functional Mock-up Units)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example demonstrates how to generate an input/output block (e.g. in form of an
+FMU - <a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>) from various Translational components.
+The goal is to export such an input/output block from Modelica and import
+it in another modeling environment. The essential issue is that before
+exporting it must be known in which way the component is utilized in the
+target environment. Depending on the target usage, different flange variables
+need to be in the interface with either input or output causality.
+Note, this example model can be used to test the FMU export/import of a Modelica tool.
+Just export the components marked in the icons as "toFMU" as FMUs and import
+them back. The models should then still work and give the same results as a
+pure Modelica model.
+</p>
+
+<p>
+<strong>Connecting two masses</strong><br>
+The upper part (DirectMass, InverseMass)
+demonstrates how to export two masses and connect them
+together in a target system. This requires that one of the masses
+(here: DirectMass)
+is defined to have states and the position, velocity and
+acceleration are provided in the interface.
+The other mass (here: InverseMass) is moved according
+to the provided input position, velocity and acceleration.
+</p>
+
+<p>
+<strong>Connecting a force element that needs position and velocities</strong><br>
+The middle part (SpringDamper) demonstrates how to export a force element
+that needs both position and velocities for its force law and connect this
+force law in a target system between two masses.
+</p>
+
+<p>
+<strong>Connecting a force element that needs only positions</strong><br>
+The lower part (Spring) demonstrates how to export a force element
+that needs only positions for its force law and connect this
+force law in a target system between two masses.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+</body></html>

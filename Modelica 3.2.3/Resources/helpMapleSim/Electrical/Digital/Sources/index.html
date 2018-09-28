@@ -1,0 +1,237 @@
+<html><head><title>Modelica.Electrical.Digital.Sources</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Sources"><h1><embed class="icon" src="../../../images/icon0259.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;Sources<br><span class="subtitle">Time-dependent digital signal sources</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>The sources are not taken from Standard Logic. They were added since they turned out to be quite useful, since such sources are often needed. For a better optical overview the colour green was chosen for the sources.</p>
+<p>Extends from <code><a href="../../../Icons/SourcesPackage/index.html">Modelica.&#8203;Icons.&#8203;SourcesPackage</a></code> (Icon for packages containing sources).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Clock"><code>Clock</code></a></td><td>Digital Clock Source</td></tr>
+<tr><td><a href="#Pulse"><code>Pulse</code></a></td><td>Digital Pulse Source</td></tr>
+<tr><td><a href="#Set"><code>Set</code></a></td><td>Digital Set Source</td></tr>
+<tr><td><a href="#Step"><code>Step</code></a></td><td>Digital Step Source</td></tr>
+<tr><td><a href="#Table"><code>Table</code></a></td><td>Digital Tabular Source</td></tr>
+</table>
+<hr><a name="Set"><h2><embed class="icon" src="../../../images/icon0526.svg" width="213" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Sources</a>.&#8203;Set<br><span class="subtitle">Digital Set Source</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Sets a nine valued digital signal, which is specified by the <em>setval</em> parameter.
+</p>
+<p>
+To specify <em>setval</em>, the integer code has to be used.
+</p>
+<p><strong>Code Table</strong></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><strong>Logic value</strong></td>
+      <td><strong>Integer code</strong></td>
+      <td><strong>Meaning</strong></td>
+  </tr>
+
+  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
+  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
+  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
+  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
+  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
+  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
+  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
+  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
+  <tr><td>'-'</td> <td>9</td> <td>Do not care</td></tr>
+</table>
+
+<p>
+If the logic values are imported by<br><strong>import L = Digital.Interfaces.Logic;</strong><br>
+they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forcing 0.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>x</code></td><td>&nbsp;</td><td>Logic value to be set</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Step"><h2><embed class="icon" src="../../../images/icon0527.svg" width="213" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Sources</a>.&#8203;Step<br><span class="subtitle">Digital Step Source</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The step source output signal steps from the value <em>before</em> to the value <em>after</em>
+at the time <em>stepTime</em>.
+</p>
+<p>
+To specify the logic value parameters, the integer code has to be used.
+</p>
+<p><strong>Code Table</strong></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><strong>Logic value</strong></td>
+      <td><strong>Integer code</strong></td>
+      <td><strong>Meaning</strong></td>
+  </tr>
+
+  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
+  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
+  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
+  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
+  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
+  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
+  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
+  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
+  <tr><td>'-'</td> <td>9</td> <td>Do not care</td></tr>
+</table>
+<p>
+If the logic values are imported by<br><strong>import L = Digital.Interfaces.Logic;</strong><br>
+they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forcing 0.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>before</code></td><td>&nbsp;</td><td>Logic value before step</td></tr>
+<tr><td><code><a href="../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>after</code></td><td>&nbsp;</td><td>Logic value after step</td></tr>
+<tr><td><code>Real</code></td><td><code>stepTime</code></td><td>&nbsp;</td><td>step time</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Table"><h2><embed class="icon" src="../../../images/icon0528.svg" width="213" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Sources</a>.&#8203;Table<br><span class="subtitle">Digital Tabular Source</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The table source output signal <em>y</em> steps to the values of the  <em>x</em> table at the corresponding
+timepoints in the <em>t</em> table.<br>The initial value is specified by <em>y0</em>.
+</p>
+<p>
+To specify the logic value parameters, the integer code has to be used.
+</p>
+<p><strong>Code Table</strong></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><strong>Logic value</strong></td>
+      <td><strong>Integer code</strong></td>
+      <td><strong>Meaning</strong></td>
+  </tr>
+
+  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
+  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
+  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
+  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
+  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
+  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
+  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
+  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
+  <tr><td>'-'</td> <td>9</td> <td>Do not care</td></tr>
+</table>
+<p>
+If the logic values are imported by<br><strong>import L = Digital.Interfaces.Logic;</strong><br>
+they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forcing 0.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>x[:]</code></td><td><code>{L.'1'}</code></td><td>vector of values</td></tr>
+<tr><td><code>Real</code></td><td><code>t[size(x, 1)]</code></td><td><code>{1}</code></td><td>vector of corresponding time points</td></tr>
+<tr><td><code><a href="../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>y0</code></td><td><code>L.&#8203;'U'</code></td><td>initial output value</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>n</code></td><td><code>size(x, 1)</code></td><td>table size</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Pulse"><h2><embed class="icon" src="../../../images/icon0529.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Sources</a>.&#8203;Pulse<br><span class="subtitle">Digital Pulse Source</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The pulse source forms pulses between the  <em>quiet</em> value and the <em>pulse</em> value.
+The pulse length <em>width</em> is specified in percent of the period length <em>period</em>.
+The number of periods is specified by <em>nperiod</em>. If <em>nperiod</em> is less than zero,
+the number of periods is unlimited.
+</p>
+<p>
+To specify the logic value parameters, the integer code has to be used.
+</p>
+<p><strong>Code Table</strong></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><strong>Logic value</strong></td>
+      <td><strong>Integer code</strong></td>
+      <td><strong>Meaning</strong></td>
+  </tr>
+
+  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
+  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
+  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
+  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
+  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
+  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
+  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
+  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
+  <tr><td>'-'</td> <td>9</td> <td>Do not care</td></tr>
+</table>
+<p>
+If the logic values are imported by<br><strong>import L = Digital.Interfaces.Logic;</strong><br>
+they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forcing 0.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>width</code></td><td>&nbsp;</td><td>Widths of pulses in % of periods</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>period</code></td><td>&nbsp;</td><td>Time for one period</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td>&nbsp;</td><td>Output = quiet for time &lt; startTime</td></tr>
+<tr><td><code><a href="../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>pulse</code></td><td>&nbsp;</td><td>pulsed value</td></tr>
+<tr><td><code><a href="../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>quiet</code></td><td>&nbsp;</td><td>quiet value</td></tr>
+<tr><td><code>Integer</code></td><td><code>nperiod</code></td><td>&nbsp;</td><td>Number of periods (&lt; 0 means infinite number of periods)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Clock"><h2><embed class="icon" src="../../../images/icon0530.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Sources</a>.&#8203;Clock<br><span class="subtitle">Digital Clock Source</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The clock source forms pulses between the  <em>'0'</em> value (forcing 0) and the <em>'1'</em> value (forcing 1).
+The pulse length <em>width</em> is specified in percent of the period length <em>period</em>.
+The number of periods is unlimited. The first pulse starts at startTime.
+</p>
+<p> The clock source is a special but often used variant of the pulse source.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td>&nbsp;</td><td>Output = offset for time &lt; startTime</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>period</code></td><td>&nbsp;</td><td>Time for one period</td></tr>
+<tr><td><code>Real</code></td><td><code>width</code></td><td>&nbsp;</td><td>Width of pulses in % of period</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>Connector of Digital output signal</td></tr>
+</table>
+</body></html>

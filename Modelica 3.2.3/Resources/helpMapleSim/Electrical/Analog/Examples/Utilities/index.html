@@ -1,0 +1,257 @@
+<html><head><title>Modelica.Electrical.Analog.Examples.Utilities</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Utilities"><h1><embed class="icon" src="../../../../images/icon0009.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;Utilities<br><span class="subtitle">Utility components used by package Examples</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package contains some utility components used by package examples. These components are auxiliary components that should not be used like true MLS components since they are designed the purpose of the examples only, not for common use.</p>
+<p>Extends from <code><a href="../../../../Icons/UtilitiesPackage/index.html">Modelica.&#8203;Icons.&#8203;UtilitiesPackage</a></code> (Icon for utility packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Conductor"><code>Conductor</code></a></td><td>Input/output block of a conductance model</td></tr>
+<tr><td><a href="#DirectCapacitor"><code>DirectCapacitor</code></a></td><td>Input/output block of a direct capacitor model</td></tr>
+<tr><td><a href="#DirectInductor"><code>DirectInductor</code></a></td><td>Input/output block of a direct inductor model</td></tr>
+<tr><td><a href="#InverseCapacitor"><code>InverseCapacitor</code></a></td><td>Input/output block of an inverse capacitor model</td></tr>
+<tr><td><a href="#InverseInductor"><code>InverseInductor</code></a></td><td>Input/output block of an inverse inductor model</td></tr>
+<tr><td><a href="#Nand"><code>Nand</code></a></td><td>CMOS NAND Gate (see Tietze/Schenk, page 157)</td></tr>
+<tr><td><a href="#NonlinearResistor"><code>NonlinearResistor</code></a></td><td>Chua's resistor</td></tr>
+<tr><td><a href="#RealSwitch"><code>RealSwitch</code></a></td><td>Ideal switch with resistance</td></tr>
+<tr><td><a href="#Resistor"><code>Resistor</code></a></td><td>Input/output block of a resistance model</td></tr>
+<tr><td><a href="#SwitchedCapacitor"><code>SwitchedCapacitor</code></a></td><td>Switched capacitor which can represent a positive or negative resistance</td></tr>
+<tr><td><a href="#Transistor"><code>Transistor</code></a></td><td>Transistor with resistance an capacitance</td></tr>
+</table>
+<hr><a name="Nand"><h2><embed class="icon" src="../../../../images/icon0369.svg" width="223" height="213" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;Nand<br><span class="subtitle">CMOS NAND Gate (see Tietze/Schenk, page 157)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The nand gate is a basic CMOS building block. It consists of four CMOS transistors.</p>
+<p><strong>Reference:</strong></p>
+<p>Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin Heidelberg NewYork 1980, p. 157</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#Pin">Pin</a></code></td><td><code>x1</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#Pin">Pin</a></code></td><td><code>x2</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#Pin">Pin</a></code></td><td><code>Vdd</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#Pin">Pin</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="NonlinearResistor"><h2><embed class="icon" src="../../../../images/icon0370.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;NonlinearResistor<br><span class="subtitle">Chua's resistor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This is the only nonlinear component for Chua&#39;s circuit. It is a piecewise linear resistor with both an inner and an outer range, which includes the inner one. The slopes of both ranges are given by parameters. The resistance characteristic is continuous. For Chua&#39;s circuit both slopes have to be chosen to be negative.</p>
+<p>Extends from <code><a href="../../../../Electrical/Analog/Interfaces/index.html#OnePort">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;OnePort</a></code> (Component with two electrical pins p and n and current i from p to n).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Ga</code></td><td>&nbsp;</td><td>Conductance in inner voltage range</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Gb</code></td><td>&nbsp;</td><td>Conductance in outer voltage range</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>Ve</code></td><td>&nbsp;</td><td>Inner voltage range limit</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+</table>
+<hr><a name="RealSwitch"><h2><embed class="icon" src="../../../../images/icon0371.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;RealSwitch<br><span class="subtitle">Ideal switch with resistance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This component is a special kind of a commuting switch which possesses an additional constant resistance. This resistance was necessary in an example. It is not designed for common use.</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#Pin">Pin</a></code></td><td><code>p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#Pin">Pin</a></code></td><td><code>n1</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#Pin">Pin</a></code></td><td><code>n2</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#Pin">Pin</a></code></td><td><code>control</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Transistor"><h2><embed class="icon" src="../../../../images/icon0372.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;Transistor<br><span class="subtitle">Transistor with resistance an capacitance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Since the simple bipolar transistor model does not have base or collector resistances both are added in this component. Additionally, a capacity is added to the base pin. See the schematic for more details.  In such a way the transistor model can be enhanced to become more common.</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#Pin">Pin</a></code></td><td><code>c</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#Pin">Pin</a></code></td><td><code>b</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#Pin">Pin</a></code></td><td><code>e</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="DirectCapacitor"><h2><embed class="icon" src="../../../../images/icon0373.svg" width="283" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;DirectCapacitor<br><span class="subtitle">Input/output block of a direct capacitor model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block that has only the basic icon for an input/output
+block (no declarations, no equations). Most blocks
+of package Modelica.Blocks inherit directly or indirectly
+from this block.
+</p>
+<p>Extends from <code><a href="../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>C</code></td><td><code>1</code></td><td>Capacitance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>iDrive</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>v</code></td><td>Capacitor changes voltage due to current</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>dv</code></td><td>Capacitor changes voltage due to current</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>i</code></td><td>Current to the capacitor</td></tr>
+</table>
+<hr><a name="InverseCapacitor"><h2><embed class="icon" src="../../../../images/icon0374.svg" width="243" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;InverseCapacitor<br><span class="subtitle">Input/output block of an inverse capacitor model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block that has only the basic icon for an input/output
+block (no declarations, no equations). Most blocks
+of package Modelica.Blocks inherit directly or indirectly
+from this block.
+</p>
+<p>Extends from <code><a href="../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>C</code></td><td><code>1</code></td><td>Capacitance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>v</code></td><td>Voltage to drive the Capacitor</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>dv</code></td><td>Voltage to drive the Capacitor</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>i</code></td><td>Current needed to drive the oneport according to v, dv</td></tr>
+</table>
+<hr><a name="SwitchedCapacitor"><h2><embed class="icon" src="../../../../images/icon0375.svg" width="225" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;SwitchedCapacitor<br><span class="subtitle">Switched capacitor which can represent a positive or negative resistance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This model is a switched capacitor model without thermal behavior which can represent positive and negative resistances.</p>
+<p>The clock source is inside the model, its frequency can be chosen by a parameter.
+Also the resistance is a parameter which can be positive and negative.
+The internal (switched) capacitor is parametrized in such a way that the total resistance is independently from the frequency equal to the resistance parameter.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>clock</code></td><td>&nbsp;</td><td>Clock</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td>&nbsp;</td><td>Resistance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Resistor"><h2><embed class="icon" src="../../../../images/icon0376.svg" width="283" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;Resistor<br><span class="subtitle">Input/output block of a resistance model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block that has only the basic icon for an input/output
+block (no declarations, no equations). Most blocks
+of package Modelica.Blocks inherit directly or indirectly
+from this block.
+</p>
+<p>Extends from <code><a href="../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>1</code></td><td>Resistance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>v1</code></td><td>Voltage of left oneport of conduction element</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>i1</code></td><td>Current generated by the conduction element</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>v2</code></td><td>Voltage of right oneport of conduction element</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>i2</code></td><td>Current generated by the conduction element</td></tr>
+</table>
+<hr><a name="DirectInductor"><h2><embed class="icon" src="../../../../images/icon0377.svg" width="283" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;DirectInductor<br><span class="subtitle">Input/output block of a direct inductor model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block that has only the basic icon for an input/output
+block (no declarations, no equations). Most blocks
+of package Modelica.Blocks inherit directly or indirectly
+from this block.
+</p>
+<p>Extends from <code><a href="../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L</code></td><td><code>1</code></td><td>Inductance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>vDrive</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>i</code></td><td>Inductor changes current due to voltage</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>di</code></td><td>Inductor changes current due to voltage</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>v</code></td><td>Voltage to the inductor</td></tr>
+</table>
+<hr><a name="InverseInductor"><h2><embed class="icon" src="../../../../images/icon0378.svg" width="243" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;InverseInductor<br><span class="subtitle">Input/output block of an inverse inductor model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block that has only the basic icon for an input/output
+block (no declarations, no equations). Most blocks
+of package Modelica.Blocks inherit directly or indirectly
+from this block.
+</p>
+<p>Extends from <code><a href="../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L</code></td><td><code>1</code></td><td>Inductance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>i</code></td><td>Current to drive the Inductor</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>di</code></td><td>Current to drive the Inductor</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>v</code></td><td>Voltage needed to drive the oneport according to i, di</td></tr>
+</table>
+<hr><a name="Conductor"><h2><embed class="icon" src="../../../../images/icon0379.svg" width="283" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Analog</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;Conductor<br><span class="subtitle">Input/output block of a conductance model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block that has only the basic icon for an input/output
+block (no declarations, no equations). Most blocks
+of package Modelica.Blocks inherit directly or indirectly
+from this block.
+</p>
+<p>Extends from <code><a href="../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>G</code></td><td><code>1</code></td><td>Conductance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>i1</code></td><td>Current of left oneport of resistance element</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>v1</code></td><td>Voltage generated by the resistance element</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>i2</code></td><td>Current of right oneport of conduction element</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>v2</code></td><td>Voltage generated by the resistance element</td></tr>
+</table>
+</body></html>

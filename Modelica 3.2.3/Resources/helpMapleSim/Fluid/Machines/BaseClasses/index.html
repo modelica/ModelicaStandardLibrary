@@ -1,0 +1,116 @@
+<html><head><title>Modelica.Fluid.Machines.BaseClasses</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="BaseClasses"><h1><embed class="icon" src="../../../images/icon1037.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;BaseClasses<br><span class="subtitle">Base classes used in the Machines package (only of interest to build new component models)</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon shall be used for a package/library that contains base models and classes, respectively.</p>
+<p>Extends from <code><a href="../../../Icons/BasesPackage/index.html">Modelica.&#8203;Icons.&#8203;BasesPackage</a></code> (Icon for packages containing base classes).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#PartialPump"><code>PartialPump</code></a></td><td>Base model for centrifugal pumps</td></tr>
+<tr><td><a href="../../../Fluid/Machines/BaseClasses/PumpCharacteristics/index.html"><code>PumpCharacteristics</code></a> &hellip;</td><td>Functions for pump characteristics</td></tr>
+<tr><td><a href="../../../Fluid/Machines/BaseClasses/PumpMonitoring/index.html"><code>PumpMonitoring</code></a> &hellip;</td><td>Monitoring of pump operation</td></tr>
+</table>
+<hr><a name="PartialPump"><h2><embed class="icon" src="../../../images/icon1353.svg" width="223" height="203" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Machines</a>.&#8203;<a href="index.html">BaseClasses</a>.&#8203;PartialPump<br><span class="subtitle">Base model for centrifugal pumps</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This is the base model for pumps.</p>
+<p>The model describes a centrifugal pump, or a group of <code>nParallel</code> identical pumps. The pump model is based on the theory of kinematic similarity: the pump characteristics are given for nominal operating conditions (rotational speed and fluid density), and then adapted to actual operating condition, according to the similarity equations.</p>
+
+<p><strong>Pump characteristics</strong></p>
+<p> The nominal hydraulic characteristic (head vs. volume flow rate) is given by the replaceable function <code>flowCharacteristic</code>.</p>
+<p> The pump energy balance can be specified in two alternative ways:</p>
+<ul>
+<li><code>use_powerCharacteristic = false</code> (default option): the replaceable function <code>efficiencyCharacteristic</code> (efficiency vs. volume flow rate in nominal conditions) is used to determine the efficiency, and then the power consumption.
+    The default is a constant efficiency of 0.8.</li>
+<li><code>use_powerCharacteristic = true</code>: the replaceable function <code>powerCharacteristic</code> (power consumption vs. volume flow rate in nominal conditions) is used to determine the power consumption, and then the efficiency.
+    Use <code>powerCharacteristic</code> to specify a non-zero power consumption for zero flow rate.</li>
+</ul>
+<p>
+Several functions are provided in the package <code>PumpCharacteristics</code> to specify the characteristics as a function of some operating points at nominal conditions.
+</p>
+<p>Depending on the value of the <code>checkValve</code> parameter, the model either supports reverse flow conditions, or includes a built-in check valve to avoid flow reversal.
+</p>
+<p>It is possible to take into account the mass and energy storage of the fluid inside the pump by specifying its volume <code>V</code>, and by selecting appropriate dynamic mass and energy balance assumptions (see below);
+this is recommended to avoid singularities in the computation of the outlet enthalpy in case of zero flow rate.
+If zero flow rate conditions are always avoided, this dynamic effect can be neglected by leaving the default value <code>V = 0</code>, thus avoiding fast state variables in the model.
+</p>
+
+<p><strong>Dynamics options</strong></p>
+<p>
+Steady-state mass and energy balances are assumed per default, neglecting the holdup of fluid in the pump; this configuration works well if the flow rate is always positive.
+Dynamic mass and energy balance can be used by setting the corresponding dynamic parameters. This is recommended to avoid singularities at zero or reversing mass flow rate. If the initial conditions imply non-zero mass flow rate, it is possible to use the <code>SteadyStateInitial</code> condition, otherwise it is recommended to use <code>FixedInitial</code> in order to avoid undetermined initial conditions.
+</p>
+
+<p><strong>Heat transfer</strong></p>
+<p>
+The Boolean parameter <code>use_HeatTransfer</code> can be set to true if heat exchanged with the environment
+should be taken into account or to model a housing. This might be desirable if a pump with realistic
+<code>powerCharacteristic</code> for zero flow operates while a valve prevents fluid flow.
+</p>
+
+<p><strong>Diagnostics of Cavitation</strong></p>
+<p>The replaceable Monitoring submodel can be configured to PumpMonitoringNPSH,
+in order to compute the Net Positive Suction Head available and check for cavitation,
+provided a two-phase medium model is used (see Advanced tab).
+</p>
+<p>Extends from <code><a href="../../../Fluid/Interfaces/index.html#PartialTwoPort">Modelica.&#8203;Fluid.&#8203;Interfaces.&#8203;PartialTwoPort</a></code> (Partial component with two ports) and <code><a href="../../../Fluid/Interfaces/index.html#PartialLumpedVolume">Modelica.&#8203;Fluid.&#8203;Interfaces.&#8203;PartialLumpedVolume</a></code> (Lumped volume with mass and energy balance).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code><a href="../../../Fluid/Machines/BaseClasses/PartialPump/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_a_start</code></td><td><code>system.&#8203;p_start</code></td><td>Guess value for inlet pressure</td></tr>
+<tr><td><code><a href="../../../Fluid/Machines/BaseClasses/PartialPump/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_b_start</code></td><td><code>p_a_start</code></td><td>Guess value for outlet pressure</td></tr>
+<tr><td><code><a href="../../../Fluid/Machines/BaseClasses/PartialPump/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_start</code></td><td><code>system.&#8203;m_flow_start</code></td><td>Guess value of m_flow = port_a.m_flow</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#VolumeFlowRate">VolumeFlowRate</a></code></td><td><code>V_flow_single_init</code></td><td><code>m_flow_start / rho_nominal / nParallel</code></td><td>Used for simplified initialization model</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Height">Height</a></code></td><td><code>delta_head_init</code></td><td><code>flowCharacteristic(V_flow_single_init) - flowCharacteristic(0)</code></td><td>Used for simplified initialization model</td></tr>
+<tr><td><code>Integer</code></td><td><code>nParallel</code></td><td><code>1</code></td><td>Number of pumps in parallel</td></tr>
+<tr><td><code><a href="../../../SIunits/Conversions/NonSIunits/index.html#AngularVelocity_rpm">AngularVelocity_rpm</a></code></td><td><code>N_nominal</code></td><td>&nbsp;</td><td>Nominal rotational speed for flow characteristic</td></tr>
+<tr><td><code><a href="../../../Fluid/Machines/BaseClasses/PartialPump/Medium/index.html#Density">Density</a></code></td><td><code>rho_nominal</code></td><td><code>Medium.density_pTX(Medium.p_default, Medium.T_default, Medium.X_default)</code></td><td>Nominal fluid density for characteristic</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_powerCharacteristic</code></td><td><code>false</code></td><td>Use powerCharacteristic (vs. efficiencyCharacteristic)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>checkValve</code></td><td><code>false</code></td><td>= true to prevent reverse flow</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Volume">Volume</a></code></td><td><code>V</code></td><td><code>0</code></td><td>Volume inside the pump</td></tr>
+<tr><td><code><a href="../../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>energyDynamics</code></td><td><code>Types.&#8203;Dynamics.&#8203;SteadyState</code></td><td>Formulation of energy balance</td></tr>
+<tr><td><code><a href="../../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>massDynamics</code></td><td><code>Types.&#8203;Dynamics.&#8203;SteadyState</code></td><td>Formulation of mass balance</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>substanceDynamics</code></td><td><code>massDynamics</code></td><td>Formulation of substance balance</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>traceDynamics</code></td><td><code>massDynamics</code></td><td>Formulation of trace substance balance</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Fluid/Machines/BaseClasses/PartialPump/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_start</code></td><td><code>p_b_start</code></td><td>Start value of pressure</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_T_start</code></td><td><code>true</code></td><td>= true, use T_start, otherwise h_start</td></tr>
+<tr><td><code><a href="../../../Fluid/Machines/BaseClasses/PartialPump/Medium/index.html#Temperature">Temperature</a></code></td><td><code>T_start</code></td><td><code>if use_T_start then system.T_start else Medium.temperature_phX(p_start, h_start, X_start)</code></td><td>Start value of temperature</td></tr>
+<tr><td><code><a href="../../../Fluid/Machines/BaseClasses/PartialPump/Medium/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_start</code></td><td><code>if use_T_start then Medium.specificEnthalpy_pTX(p_start, T_start, X_start) else Medium.h_default</code></td><td>Start value of specific enthalpy</td></tr>
+<tr><td><code><a href="../../../Fluid/Machines/BaseClasses/PartialPump/Medium/index.html#MassFraction">MassFraction</a></code></td><td><code>X_start[Medium.nX]</code></td><td><code>Medium.&#8203;X_default</code></td><td>Start value of mass fractions m_i/m</td></tr>
+<tr><td><code><a href="../../../Fluid/Machines/BaseClasses/PartialPump/Medium/index.html#ExtraProperty">ExtraProperty</a></code></td><td><code>C_start[Medium.nC]</code></td><td><code>Medium.&#8203;C_default</code></td><td>Start value of trace substances</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_HeatTransfer</code></td><td><code>false</code></td><td>= true to use a HeatTransfer model, e.g., for a housing</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Acceleration">Acceleration</a></code></td><td><code>g</code></td><td><code>system.&#8203;g</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Boolean</code></td><td><code>show_NPSHa</code></td><td><code>false</code></td><td>obsolete -- remove modifier and specify Monitoring for NPSH instead</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

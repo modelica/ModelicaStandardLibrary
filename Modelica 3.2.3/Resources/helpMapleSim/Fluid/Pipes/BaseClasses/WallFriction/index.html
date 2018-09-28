@@ -1,0 +1,128 @@
+<html><head><title>Modelica.Fluid.Pipes.BaseClasses.WallFriction</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="WallFriction"><h1><embed class="icon" src="../../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Pipes</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;WallFriction<br><span class="subtitle">Different variants for pressure drops due to pipe wall friction</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package provides functions to compute
+pressure losses due to <strong>wall friction</strong> in a pipe.
+Every correlation is defined by a package that is derived
+by inheritance from the package WallFriction.PartialWallFriction.
+The details of the underlying pipe wall friction model are described in the
+<a href="../../../../Fluid/UsersGuide/ComponentDefinition/index.html#WallFriction">UsersGuide</a>.
+Basically, different variants of the equation
+</p>
+
+<pre>
+   dp = &lambda;(Re,<font face="Symbol">D</font>)*(L/D)*&rho;*v*|v|/2
+</pre>
+
+<p>
+are used, where the friction loss factor &lambda; is shown
+in the next figure:
+</p>
+
+<p>
+<img src="../../../../../Images/Fluid/Components/PipeFriction1.png"
+     alt="PipeFriction1.png">
+</p>
+
+<p>Extends from <code><a href="../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="../../../../Fluid/Pipes/BaseClasses/WallFriction/Detailed/index.html"><code>Detailed</code></a> &hellip;</td><td>Pipe wall friction for laminar and turbulent flow (detailed characteristic)</td></tr>
+<tr><td><a href="../../../../Fluid/Pipes/BaseClasses/WallFriction/Laminar/index.html"><code>Laminar</code></a> &hellip;</td><td>Pipe wall friction for laminar flow in circular tubes (linear correlation)</td></tr>
+<tr><td><a href="../../../../Fluid/Pipes/BaseClasses/WallFriction/LaminarAndQuadraticTurbulent/index.html"><code>LaminarAndQuadraticTurbulent</code></a> &hellip;</td><td>Pipe wall friction for laminar and turbulent flow in circular tubes (simple characteristic)</td></tr>
+<tr><td><a href="../../../../Fluid/Pipes/BaseClasses/WallFriction/NoFriction/index.html"><code>NoFriction</code></a> &hellip;</td><td>No pipe wall friction, no static head</td></tr>
+<tr><td><a href="../../../../Fluid/Pipes/BaseClasses/WallFriction/PartialWallFriction/index.html"><code>PartialWallFriction</code></a> &hellip;</td><td>Partial wall friction characteristic (base package of all wall friction characteristics)</td></tr>
+<tr><td><a href="../../../../Fluid/Pipes/BaseClasses/WallFriction/QuadraticTurbulent/index.html"><code>QuadraticTurbulent</code></a> &hellip;</td><td>Pipe wall friction for turbulent flow in circular tubes (simple characteristic, mu not used)</td></tr>
+<tr><td><a href="#TestWallFrictionAndGravity"><code>TestWallFrictionAndGravity</code></a></td><td>Pressure loss in pipe due to wall friction and gravity (only for test purposes; if needed use Pipes.StaticPipe instead)</td></tr>
+</table>
+<hr><a name="TestWallFrictionAndGravity"><h2><embed class="icon" src="../../../../images/icon1348.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Pipes</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">WallFriction</a>.&#8203;TestWallFrictionAndGravity<br><span class="subtitle">Pressure loss in pipe due to wall friction and gravity (only for test purposes; if needed use Pipes.StaticPipe instead)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model describes pressure losses due to <strong>wall friction</strong> in a pipe
+and due to gravity.
+It is assumed that no mass or energy is stored in the pipe.
+Correlations of different complexity and validity can be
+selected via the replaceable package <strong>WallFriction</strong> (see parameter menu below).
+The details of the pipe wall friction model are described in the
+<a href="../../../../Fluid/UsersGuide/ComponentDefinition/index.html#WallFriction">UsersGuide</a>.
+Basically, different variants of the equation
+</p>
+
+<pre>
+   dp = &lambda;(Re,<font face="Symbol">D</font>)*(L/D)*&rho;*v*|v|/2
+</pre>
+
+<p>
+are used, where the friction loss factor &lambda; is shown
+in the next figure:
+</p>
+
+<p>
+<img src="../../../../../Images/Fluid/Components/PipeFriction1.png"
+     alt="PipeFriction1.png">
+</p>
+
+<p>
+By default, the correlations are computed with media data
+at the actual time instant.
+In order to reduce non-linear equation systems, parameter
+<strong>use_nominal</strong> provides the option
+to compute the correlations with constant media values
+at the desired operating point. This might speed-up the
+simulation and/or might give a more robust simulation.
+</p>
+<p>Extends from <code><a href="../../../../Fluid/Interfaces/index.html#PartialTwoPortTransport">Modelica.&#8203;Fluid.&#8203;Interfaces.&#8203;PartialTwoPortTransport</a></code> (Partial element transporting fluid between two ports without storage of mass or energy).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code><a href="../../../../Fluid/Pipes/BaseClasses/WallFriction/TestWallFrictionAndGravity/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>dp_start</code></td><td><code>dp_fric_nominal + system.g * height_ab * rho_nominal</code></td><td>Guess value of dp = port_a.p - port_b.p</td></tr>
+<tr><td><code><a href="../../../../Fluid/Pipes/BaseClasses/WallFriction/TestWallFrictionAndGravity/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_start</code></td><td><code>system.&#8203;m_flow_start</code></td><td>Guess value of m_flow = port_a.m_flow</td></tr>
+<tr><td><code><a href="../../../../Fluid/Pipes/BaseClasses/WallFriction/TestWallFrictionAndGravity/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * m_flow_nominal else system.m_flow_small</code></td><td>Small mass flow rate for regularization of zero flow</td></tr>
+<tr><td><code>Boolean</code></td><td><code>show_T</code></td><td><code>true</code></td><td>= true, if temperatures at port_a and port_b are computed</td></tr>
+<tr><td><code>Boolean</code></td><td><code>show_V_flow</code></td><td><code>true</code></td><td>= true, if volume flow rate at inflowing port is computed</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>length</code></td><td>&nbsp;</td><td>Length of pipe</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Diameter">Diameter</a></code></td><td><code>diameter</code></td><td>&nbsp;</td><td>Inner (hydraulic) diameter of pipe</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Area">Area</a></code></td><td><code>crossArea</code></td><td><code>0.25 * (Modelica.Constants.pi * diameter * diameter)</code></td><td>Inner cross section area</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>height_ab</code></td><td><code>0</code></td><td>Height(port_b) - Height(port_a)</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>roughness</code></td><td><code>2.5e-5</code></td><td>Absolute roughness of pipe (default = smooth steel pipe)</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nominal</code></td><td><code>if system.use_eps_Re then system.m_flow_nominal else 100 * system.m_flow_small</code></td><td>Nominal mass flow rate</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_nominal</code></td><td><code>false</code></td><td>= true, if mu_nominal and rho_nominal are used, otherwise computed from medium</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>mu_nominal</code></td><td><code>Medium.dynamicViscosity(Medium.setState_pTX(Medium.p_default, Medium.T_default, Medium.X_default))</code></td><td>Nominal dynamic viscosity (e.g., mu_liquidWater = 1e-3, mu_air = 1.8e-5)</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_nominal</code></td><td><code>Medium.density_pTX(Medium.p_default, Medium.T_default, Medium.X_default)</code></td><td>Nominal density (e.g., rho_liquidWater = 995, rho_air = 1.2)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>show_Re</code></td><td><code>false</code></td><td>= true, if Reynolds number is included for plotting</td></tr>
+<tr><td><code>Boolean</code></td><td><code>from_dp</code></td><td><code>true</code></td><td>= true, use m_flow = f(dp), otherwise dp = f(m_flow)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+</table>
+</body></html>

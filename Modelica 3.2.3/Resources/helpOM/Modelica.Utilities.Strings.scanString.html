@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Utilities.Strings.scanString</title>
+</head>
+<body>
+<h1><a href="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg"><img class="svgiconhead" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Utilities.Strings.html">Strings</a>.<span class="omc-h1">scanString</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+             string2 = Strings.<strong>scanString</strong>(string);
+(string2, nextIndex) = Strings.<strong>scanString</strong>(string, startIndex=1, message="");
+</pre></blockquote>
+<h4>Description</h4>
+<p>Function <strong>scanString</strong> scans the string starting
+at index "startIndex", checks whether the next token is a String
+literal and returns its value as a String, as well as the index
+directly after the String. An assert is triggered, if the scanned
+string does not contain a String literal with optional leading
+white space.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>function scanString
+  extends Modelica.Icons.Function;
+  input String string "String to be scanned";
+  input Integer startIndex(min = 1) = 1 "Start scanning of string at character startIndex";
+  input String message = "" "Message used in error message if scan is not successful";
+  output String result "Value of string";
+  output Integer nextIndex "Index of character after the found string";
+end scanString;</pre></blockquote>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

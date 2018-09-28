@@ -1,0 +1,240 @@
+<html><head><title>Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Interfaces"><h1><embed class="icon" src="../../../../images/icon0015.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;Interfaces<br><span class="subtitle">Interfaces of magnetic network components</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains connectors for the magnetic domain and partial models for lumped magnetic network components.
+</p>
+
+<p>Extends from <code><a href="../../../../Icons/InterfacesPackage/index.html">Modelica.&#8203;Icons.&#8203;InterfacesPackage</a></code> (Icon for packages containing interfaces).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#AbsoluteSensor"><code>AbsoluteSensor</code></a></td><td>Partial potential sensor</td></tr>
+<tr><td><a href="#MagneticPort"><code>MagneticPort</code></a></td><td>Quasi-static magnetic port</td></tr>
+<tr><td><a href="#NegativeMagneticPort"><code>NegativeMagneticPort</code></a></td><td>Negative quasi-static magnetic port</td></tr>
+<tr><td><a href="#PartialFixedShape"><code>PartialFixedShape</code></a></td><td>Base class for flux tubes with fixed shape during simulation; linear or non-linear material characteristics</td></tr>
+<tr><td><a href="#PartialLeakage"><code>PartialLeakage</code></a></td><td>Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1</td></tr>
+<tr><td><a href="#PartialTwoPorts"><code>PartialTwoPorts</code></a></td><td>Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n</td></tr>
+<tr><td><a href="#PartialTwoPortsElementary"><code>PartialTwoPortsElementary</code></a></td><td>Partial component with two magnetic ports p and n for textual programming</td></tr>
+<tr><td><a href="#PositiveMagneticPort"><code>PositiveMagneticPort</code></a></td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td><a href="#RelativeSensor"><code>RelativeSensor</code></a></td><td>Partial magnetic voltage or flux sensor</td></tr>
+<tr><td><a href="#Source"><code>Source</code></a></td><td>Partial magnetic voltage or flux source</td></tr>
+</table>
+<hr><a name="MagneticPort"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Connector <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;MagneticPort<br><span class="subtitle">Quasi-static magnetic port</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Base definition of complex quasi-static magnetic port.
+The potential variable is the complex magnetic potential difference <code>V_m</code> and the flow variable
+is the complex magnetic flux <code>Phi</code>.</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a>,
+<a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a>,
+<a href="../../../../Magnetic/FluxTubes/Interfaces/index.html#MagneticPort">Magnetic.FluxTubes.Interfaces.MagneticPort</a>
+</p>
+
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#ComplexMagneticPotential">ComplexMagneticPotential</a></code></td><td><code>V_m</code></td><td>Complex magnetic potential at the port</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#ComplexMagneticFlux">ComplexMagneticFlux</a></code></td><td><code>Phi</code></td><td>Complex magnetic flux flowing into the port</td></tr>
+</table>
+<hr><a name="PositiveMagneticPort"><h2><embed class="icon" src="../../../../images/icon1000.svg" width="203" height="203" />
+Connector <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PositiveMagneticPort<br><span class="subtitle">Positive quasi-static magnetic port</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The positive magnetic port is based on the
+<a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#MagneticPort">MagneticPort</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the
+reference angle is the actual angular frequency of the quasi-static magnetic potential and flux.
+The symbol is also designed such way to look different than the
+<a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a>.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#MagneticPort">MagneticPort</a>,
+<a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a>,
+<a href="../../../../Magnetic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">Magnetic.FluxTubes.Interfaces.PositiveMagneticPort</a>
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#MagneticPort">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FundamentalWave.&#8203;Interfaces.&#8203;MagneticPort</a></code> (Quasi-static magnetic port of fundamental wave machines).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#ComplexMagneticPotential">ComplexMagneticPotential</a></code></td><td><code>V_m</code></td><td>Complex magnetic potential at the port</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#ComplexMagneticFlux">ComplexMagneticFlux</a></code></td><td><code>Phi</code></td><td>Complex magnetic flux flowing into the port</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/Types/index.html#Reference">Reference</a></code></td><td><code>reference</code></td><td>Reference</td></tr>
+</table>
+<hr><a name="NegativeMagneticPort"><h2><embed class="icon" src="../../../../images/icon1001.svg" width="203" height="203" />
+Connector <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;NegativeMagneticPort<br><span class="subtitle">Negative quasi-static magnetic port</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The negative magnetic port is based on the
+<a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#MagneticPort">MagneticPort</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the
+reference angle is the actual angular frequency of the quasi-static magnetic potential and flux.
+The symbol is also designed such way to look different than the
+<a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a>.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#MagneticPort">MagneticPort</a>,
+<a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a>,
+<a href="../../../../Magnetic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">Magnetic.FluxTubes.Interfaces.NegativeMagneticPort</a>
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FundamentalWave/Interfaces/index.html#MagneticPort">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FundamentalWave.&#8203;Interfaces.&#8203;MagneticPort</a></code> (Quasi-static magnetic port of fundamental wave machines).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#ComplexMagneticPotential">ComplexMagneticPotential</a></code></td><td><code>V_m</code></td><td>Complex magnetic potential at the port</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#ComplexMagneticFlux">ComplexMagneticFlux</a></code></td><td><code>Phi</code></td><td>Complex magnetic flux flowing into the port</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/Types/index.html#Reference">Reference</a></code></td><td><code>reference</code></td><td>Reference</td></tr>
+</table>
+<hr><a name="PartialTwoPortsElementary"><h2><embed class="icon" src="../../../../images/icon1002.svg" width="223" height="203" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialTwoPortsElementary<br><span class="subtitle">Partial component with two magnetic ports p and n for textual programming</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Partial model of a flux tube component with two magnetic ports:
+the positive port connector <code>port_p</code>, and the negative port
+connector <code>port_n</code>. The total magnetic potential difference
+<code>V_m</code> and the flux flowing into the positive port,
+<code>Phi</code> are also defined in this model.
+</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<hr><a name="PartialTwoPorts"><h2><embed class="icon" src="../../../../images/icon1002.svg" width="223" height="203" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialTwoPorts<br><span class="subtitle">Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+It is assumed that the magnetic flux flowing into <code>port_p</code>
+is identical to the flux flowing out of <code>port_n</code>.
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PartialTwoPortsElementary">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialTwoPortsElementary</a></code> (Partial component with two magnetic ports p and n for textual programming).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<hr><a name="PartialFixedShape"><h2><embed class="icon" src="../../../../images/icon0995.svg" width="223" height="203" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialFixedShape<br><span class="subtitle">Base class for flux tubes with fixed shape during simulation; linear or non-linear material characteristics</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Please refer to the description of  the subpackage
+<a href="../../../../Magnetic/QuasiStatic/FluxTubes/Shapes/FixedShape/index.html">Shapes.FixedShape</a>
+for utilisation of this partial model.
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PartialTwoPorts">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialTwoPorts</a></code> (Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#RelativePermeability">RelativePermeability</a></code></td><td><code>mu_rConst</code></td><td><code>1</code></td><td>Constant relative permeability</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<hr><a name="PartialLeakage"><h2><embed class="icon" src="../../../../images/icon0995.svg" width="223" height="203" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialLeakage<br><span class="subtitle">Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Please refer to the description of the subpackage
+<a href="../../../../Magnetic/QuasiStatic/FluxTubes/Shapes/Leakage/index.html">Shapes.Leakage</a>
+for utilisation of this partial model.
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PartialTwoPorts">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialTwoPorts</a></code> (Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<hr><a name="AbsoluteSensor"><h2><embed class="icon" src="../../../../images/icon1003.svg" width="213" height="203" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;AbsoluteSensor<br><span class="subtitle">Partial potential sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The absolute sensor partial model provides a single
+<a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a>
+to measure the complex magnetic potential. Additionally this model contains a base icon and a definition
+of the angular frequency.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port</code></td><td>Quasi-static magnetic port</td></tr>
+</table>
+<hr><a name="RelativeSensor"><h2><embed class="icon" src="../../../../images/icon1004.svg" width="223" height="223" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;RelativeSensor<br><span class="subtitle">Partial magnetic voltage or flux sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The relative sensor partial model relies on the
+<a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PartialTwoPorts">PartialTwoPorts</a>
+to measure the complex magnetic voltage, flux or power. Additionally this model contains a base icon and a definition
+of the angular frequency.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device) and <code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PartialTwoPorts">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialTwoPorts</a></code> (Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Source"><h2><embed class="icon" src="../../../../images/icon1005.svg" width="223" height="203" />
+Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;Source<br><span class="subtitle">Partial magnetic voltage or flux source</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The source model provides a positive and negative magnetic port. Additionally this model contains a base icon
+and a definition of the angular frequency.
+</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive magnetic port</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative magnetic port</td></tr>
+</table>
+</body></html>

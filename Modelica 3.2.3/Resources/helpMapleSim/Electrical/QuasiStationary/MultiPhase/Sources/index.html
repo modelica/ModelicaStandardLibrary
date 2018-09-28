@@ -1,0 +1,306 @@
+<html><head><title>Modelica.Electrical.QuasiStationary.MultiPhase.Sources</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Sources"><h1><embed class="icon" src="../../../../images/icon0259.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;Sources<br><span class="subtitle">AC multiphase sources</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package hosts sources for quasi stationary multiphase circuits.
+Quasi stationary theory can be found in the
+<a href="../../../../Electrical/QuasiStationary/UsersGuide/index.html#References">references</a>.
+</p>
+<h4>See also</h4>
+
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sources/index.html">SinglePhase.Sources</a>
+
+<p>Extends from <code><a href="../../../../Icons/SourcesPackage/index.html">Modelica.&#8203;Icons.&#8203;SourcesPackage</a></code> (Icon for packages containing sources).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#CurrentSource"><code>CurrentSource</code></a></td><td>Constant multiphase AC current</td></tr>
+<tr><td><a href="#FrequencySweepCurrentSource"><code>FrequencySweepCurrentSource</code></a></td><td>Current source with integrated frequency sweep</td></tr>
+<tr><td><a href="#FrequencySweepVoltageSource"><code>FrequencySweepVoltageSource</code></a></td><td>Voltage source with integrated frequency sweep</td></tr>
+<tr><td><a href="#ReferenceCurrentSource"><code>ReferenceCurrentSource</code></a></td><td>Variable multiphase AC current with reference angle input</td></tr>
+<tr><td><a href="#ReferenceVoltageSource"><code>ReferenceVoltageSource</code></a></td><td>Variable multiphase AC voltage with reference angle input</td></tr>
+<tr><td><a href="#VariableCurrentSource"><code>VariableCurrentSource</code></a></td><td>Variable multiphase AC current</td></tr>
+<tr><td><a href="#VariableVoltageSource"><code>VariableVoltageSource</code></a></td><td>Variable multiphase AC voltage</td></tr>
+<tr><td><a href="#VoltageSource"><code>VoltageSource</code></a></td><td>Constant multiphase AC voltage</td></tr>
+</table>
+<hr><a name="VoltageSource"><h2><embed class="icon" src="../../../../images/icon0860.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Sources</a>.&#8203;VoltageSource<br><span class="subtitle">Constant multiphase AC voltage</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+This model describes <em>m</em> constant voltage sources, specifying the complex voltages by the RMS voltages and the phase shifts
+(defaults are
+<a href="../../../../Electrical/MultiPhase/Functions/index.html#symmetricOrientation">-symmetricOrientation</a>).
+<em>m</em> <a href="../../../../Electrical/QuasiStationary/SinglePhase/Sources/index.html#VoltageSource">single phase VoltageSources</a> are used.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sources/index.html#VoltageSource">SinglePhase.VoltageSource</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Sources/index.html#VariableVoltageSource">VariableVoltageSource</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Sources/index.html#CurrentSource">CurrentSource</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Sources/index.html#VariableCurrentSource">VariableCurrentSource</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#Source">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;Source</a></code> (Partial voltage / current source).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td>&nbsp;</td><td>Frequency of the source</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>V[m]</code></td><td>&nbsp;</td><td>RMS voltage of the source</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>phi[m]</code></td><td><code>-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)</code></td><td>Phase shift of the source</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+</table>
+<hr><a name="VariableVoltageSource"><h2><embed class="icon" src="../../../../images/icon0861.svg" width="223" height="243" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Sources</a>.&#8203;VariableVoltageSource<br><span class="subtitle">Variable multiphase AC voltage</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+This model describes <em>m</em> variable voltage sources, with <em>m</em> complex signal inputs,
+specifying the complex voltages by the complex RMS voltage components.
+Additionally, the frequency of the voltage source is defined by a real signal input.
+<em>m</em> <a href="../../../../Electrical/QuasiStationary/SinglePhase/Sources/index.html#VariableVoltageSource">single phase VariableVoltageSources</a> are used.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sources/index.html#VoltageSource">SinglePhase.VoltageSource</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Sources/index.html#VoltageSource">VoltageSource</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Sources/index.html#CurrentSource">CurrentSource</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Sources/index.html#VariableCurrentSource">VariableCurrentSource</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#Source">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;Source</a></code> (Partial voltage / current source).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>f</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>V[m]</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="ReferenceVoltageSource"><h2><embed class="icon" src="../../../../images/icon0862.svg" width="223" height="243" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Sources</a>.&#8203;ReferenceVoltageSource<br><span class="subtitle">Variable multiphase AC voltage with reference angle input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+This model describes <em>m</em> variable current sources, with <em>m</em> complex signal inputs,
+specifying the complex current by the complex RMS voltage components.
+Additionally, the frequency of the current source is defined by a real signal input.
+<em>m</em> <a href="../../../../Electrical/QuasiStationary/SinglePhase/Sources/index.html#VariableCurrentSource">single phase VariableCurrentSources</a> are used.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sources/index.html#VoltageSource">SinglePhase.VoltageSource</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Sources/index.html#VoltageSource">VoltageSource</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Sources/index.html#VariableVoltageSource">VariableVoltageSource</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Sources/index.html#CurrentSource">CurrentSource</a>.
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#ReferenceSource">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;ReferenceSource</a></code> (Partial of voltage or current source with reference input).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>gamma</code></td><td>Reference angle of voltage source</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>V[m]</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="FrequencySweepVoltageSource"><h2><embed class="icon" src="../../../../images/icon0863.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Sources</a>.&#8203;FrequencySweepVoltageSource<br><span class="subtitle">Voltage source with integrated frequency sweep</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This source provides polyphase constant RMS phase voltages <code>V</code> and phase angles <code>phi</code>,
+whereas the frequency sweeps from
+<code>fStart</code> to <code>fStop</code> with <code>duration</code>. The frequency sweeps such
+way that on a logarithmic frequency scale, the frequency curve appears linear.</p>
+
+<p><img src="../../../../../Images/Electrical/QuasiStationary/SinglePhase/Sources/FrequencySweepSource.png"
+     alt="FrequencySweepSource.png"></p>
+
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Two plugs with pin-adapter).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fStart</code></td><td>&nbsp;</td><td>Start sweep frequency</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fStop</code></td><td>&nbsp;</td><td>Stop sweep frequency</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Start time of frequency sweep</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>duration</code></td><td>&nbsp;</td><td>Duration of frequency sweep</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>V[m]</code></td><td>&nbsp;</td><td>RMS voltage of the source</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>phi[m]</code></td><td><code>-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)</code></td><td>Phase shift of the source</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+</table>
+<hr><a name="CurrentSource"><h2><embed class="icon" src="../../../../images/icon0864.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Sources</a>.&#8203;CurrentSource<br><span class="subtitle">Constant multiphase AC current</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+This model describes <em>m</em> constant current sources, specifying the complex currents by the RMS currents and the phase shifts
+(defaults are
+<a href="../../../../Electrical/MultiPhase/Functions/index.html#symmetricOrientation">-symmetricOrientation</a>).
+<em>m</em> <a href="../../../../Electrical/QuasiStationary/SinglePhase/Sources/index.html#CurrentSource">single phase CurrentSources</a> are used.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sources/index.html#CurrentSource">SinglePhase.CurrentSource</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Sources/index.html#VoltageSource">VoltageSource</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Sources/index.html#VariableVoltageSource">VariableVoltageSource</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Sources/index.html#VariableCurrentSource">VariableCurrentSource</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#Source">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;Source</a></code> (Partial voltage / current source).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td>&nbsp;</td><td>Frequency of the source</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>I[m]</code></td><td>&nbsp;</td><td>RMS current of the source</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>phi[m]</code></td><td><code>-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)</code></td><td>Phase shift of the source</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+</table>
+<hr><a name="VariableCurrentSource"><h2><embed class="icon" src="../../../../images/icon0865.svg" width="223" height="243" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Sources</a>.&#8203;VariableCurrentSource<br><span class="subtitle">Variable multiphase AC current</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+This model describes <em>m</em> variable current sources, with <em>m</em> complex signal inputs,
+specifying the complex current by the complex RMS voltage components.
+Additionally, the frequency of the current source is defined by a real signal input.
+<em>m</em> <a href="../../../../Electrical/QuasiStationary/SinglePhase/Sources/index.html#VariableCurrentSource">single phase VariableCurrentSources</a> are used.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sources/index.html#VoltageSource">SinglePhase.VoltageSource</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Sources/index.html#VoltageSource">VoltageSource</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Sources/index.html#VariableVoltageSource">VariableVoltageSource</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Sources/index.html#CurrentSource">CurrentSource</a>.
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#Source">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;Source</a></code> (Partial voltage / current source).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>f</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>I[m]</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="ReferenceCurrentSource"><h2><embed class="icon" src="../../../../images/icon0866.svg" width="223" height="243" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Sources</a>.&#8203;ReferenceCurrentSource<br><span class="subtitle">Variable multiphase AC current with reference angle input</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+This model describes <em>m</em> variable current sources, with <em>m</em> complex signal inputs,
+specifying the complex current by the complex RMS voltage components.
+Additionally, the frequency of the current source is defined by a real signal input.
+<em>m</em> <a href="../../../../Electrical/QuasiStationary/SinglePhase/Sources/index.html#VariableCurrentSource">single phase VariableCurrentSources</a> are used.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sources/index.html#VoltageSource">SinglePhase.VoltageSource</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Sources/index.html#VoltageSource">VoltageSource</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Sources/index.html#VariableVoltageSource">VariableVoltageSource</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Sources/index.html#CurrentSource">CurrentSource</a>.
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#ReferenceSource">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;ReferenceSource</a></code> (Partial of voltage or current source with reference input).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>gamma</code></td><td>Reference angle of current source</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../ComplexBlocks/Interfaces/index.html#ComplexInput">ComplexInput</a></code></td><td><code>I[m]</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="FrequencySweepCurrentSource"><h2><embed class="icon" src="../../../../images/icon0867.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Sources</a>.&#8203;FrequencySweepCurrentSource<br><span class="subtitle">Current source with integrated frequency sweep</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This source provides polyphase constant RMS phase currents <code>I</code> and phase angles <code>phi</code>,
+whereas the frequency sweeps from
+<code>fStart</code> to <code>fStop</code> with <code>duration</code>. The frequency sweeps such
+way that on a logarithmic frequency scale, the frequency curve appears linear.</p>
+
+<p><img src="../../../../../Images/Electrical/QuasiStationary/SinglePhase/Sources/FrequencySweepSource.png"
+     alt="FrequencySweepSource.png"></p>
+
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Two plugs with pin-adapter).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fStart</code></td><td>&nbsp;</td><td>Start sweep frequency</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fStop</code></td><td>&nbsp;</td><td>Stop sweep frequency</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Start time of frequency sweep</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>duration</code></td><td>&nbsp;</td><td>Duration of frequency sweep</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>I[m]</code></td><td>&nbsp;</td><td>RMS current of the source</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>phi[m]</code></td><td><code>-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)</code></td><td>Phase shift of the source</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+</table>
+</body></html>

@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Visualizers.Internal.FixedLines</title>
+</head>
+<body>
+<h1><a href="Icons/159283f44ee5a0c7825933e7c16cc4b0e9f132e0.svg"><img class="svgiconhead" src="Icons/159283f44ee5a0c7825933e7c16cc4b0e9f132e0.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.Internal.html">Internal</a>.<span class="omc-h1">FixedLines</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>With model <strong>FixedLines</strong> a set of lines is defined
+that are located relatively to frame_a. Every line is represented
+by a cylinder. This allows to define simple shaped 3-dimensional
+characters. An example is shown in the following figure:<br />
+&nbsp;</p>
+<img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/FixedLines.png" alt="model Visualizers.FixedLines" />
+<p>&nbsp;<br />
+The two letters "x" and "y" are constructed with 4 lines by
+providing the following data for parameter
+<strong>lines</strong></p>
+<pre>
+   lines = {[0, 0; 1, 1],[0, 1; 1, 0],[1.5, -0.5; 2.5, 1],[1.5, 1; 2, 0.25]}
+</pre>
+<p>Via parameter vectors <strong>n_x</strong> and
+<strong>n_y</strong> a two-dimensional coordinate system is
+defined. The points defined with parameter <strong>lines</strong>
+are with respect to this coordinate system. For example "[0, 0; 1,
+1]" defines a line that starts at {0,0} and ends at {1,1}. The
+diameter and color of all line cylinders are identical.</p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Thermal.FluidHeatFlow.Components.Cylinder</title>
+</head>
+<body>
+<h1><a href="Icons/a49db086d8446c5ac5cbae39f0b40e48b2feae42.svg"><img class="svgiconhead" src="Icons/a49db086d8446c5ac5cbae39f0b40e48b2feae42.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Thermal.html">Thermal</a>.<a class="omc-h1-a" href="Modelica.Thermal.FluidHeatFlow.html">FluidHeatFlow</a>.<a class="omc-h1-a" href="Modelica.Thermal.FluidHeatFlow.Components.html">Components</a>.<span class="omc-h1">Cylinder</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This is a simple model of a piston in a cylinder:</p>
+<p>The translational flange is connected to the piston, the
+cylinder has a flowPort at the bottom.</p>
+<p>The position of the piston within the cylinder goes from 0 at
+the bottom to L (length of the cylinder) at the top of the
+cylinder. If the piston leaves the cylinder, an assertion is
+triggered.</p>
+<ul>
+<li>A movement of the piston is coupled with volume flow through
+the flowPort.</li>
+<li>The force at the piston is equal to pressure of the fluid times
+A (cross section of the piston).</li>
+</ul>
+<p>The piston is considered without mass.</p>
+<p>Note: Take care of the initial conditions. The position of the
+piston (relative to the support) should be in the range (0, L). The
+position of the flange (as well as of the support, if
+useSupport=true) is influenced by connected components.</p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

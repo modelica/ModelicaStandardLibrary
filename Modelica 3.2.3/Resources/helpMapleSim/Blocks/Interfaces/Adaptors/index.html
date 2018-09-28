@@ -1,0 +1,254 @@
+<html><head><title>Modelica.Blocks.Interfaces.Adaptors</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Adaptors"><h1><embed class="icon" src="../../../images/icon0015.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;Adaptors<br><span class="subtitle">Package with adaptors (especially useful for FMUs)</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains partial adaptors to implement adaptors in various domains
+between a physical connector and a signal representation of the connector signals.
+This component is used to provide a pure signal interface around a physical model
+and export this model in form of an input/output block,
+especially as FMU (<a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>).
+</p>
+<p>Extends from <code><a href="../../../Icons/InterfacesPackage/index.html">Modelica.&#8203;Icons.&#8203;InterfacesPackage</a></code> (Icon for packages containing interfaces).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#FlowToPotentialAdaptor"><code>FlowToPotentialAdaptor</code></a></td><td>Signal adaptor for a connector with flow, 1st derivative of flow, and 2nd derivative of flow as inputs and
+  potential, 1st derivative of potential, and 2nd derivative of potential as outputs (especially useful for FMUs)</td></tr>
+<tr><td><a href="../../../Blocks/Interfaces/Adaptors/Functions/index.html"><code>Functions</code></a> &hellip;</td><td>Functions for adaptors</td></tr>
+<tr><td><a href="#PotentialToFlowAdaptor"><code>PotentialToFlowAdaptor</code></a></td><td>Signal adaptor for a connector with potential, 1st derivative of potential, and 2nd derivative of potential as inputs and
+  flow, 1st derivative of flow, and 2nd derivative of flow as outputs (especially useful for FMUs)</td></tr>
+<tr><td><a href="#ReceiveBoolean"><code>ReceiveBoolean</code></a></td><td>Obsolete block to receive Boolean signal from bus</td></tr>
+<tr><td><a href="#ReceiveInteger"><code>ReceiveInteger</code></a></td><td>Obsolete block to receive Integer signal from bus</td></tr>
+<tr><td><a href="#ReceiveReal"><code>ReceiveReal</code></a></td><td>Obsolete block to receive Real signal from bus</td></tr>
+<tr><td><a href="#SendBoolean"><code>SendBoolean</code></a></td><td>Obsolete block to send Boolean signal to bus</td></tr>
+<tr><td><a href="#SendInteger"><code>SendInteger</code></a></td><td>Obsolete block to send Integer signal to bus</td></tr>
+<tr><td><a href="#SendReal"><code>SendReal</code></a></td><td>Obsolete block to send Real signal to bus</td></tr>
+</table>
+<hr><a name="FlowToPotentialAdaptor"><h2><embed class="icon" src="../../../images/icon0090.svg" width="203" height="203" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">Adaptors</a>.&#8203;FlowToPotentialAdaptor<br><span class="subtitle">Signal adaptor for a connector with flow, 1st derivative of flow, and 2nd derivative of flow as inputs and
+  potential, 1st derivative of potential, and 2nd derivative of potential as outputs (especially useful for FMUs)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Adaptor between a physical connector and a signal representation of the connector signals.
+This component is used to provide a pure signal interface around a physical model
+and export this model in form of an input/output block,
+especially as FMU (<a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>).
+</p>
+<p>
+This adaptor has flow, optional 1st derivative of flow, and optional 2nd derivative of flow as input and
+potential, optional 1st derivative of potential, and optional 2nd derivative of potential as output signals.
+</p>
+<p>
+Note, the input signals must be consistent to each other
+(fder=der(f), fder2=der(fder)).
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>use_pder</code></td><td><code>true</code></td><td>Use output for 1st derivative of potential</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_pder2</code></td><td><code>true</code></td><td>Use output for 2nd derivative of potential (only if 1st derivate is used, too)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_fder</code></td><td><code>true</code></td><td>Use input for 1st derivative of flow</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_fder2</code></td><td><code>true</code></td><td>Use input for 2nd derivative of flow (only if 1st derivate is used, too)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>p</code></td><td>Output for potential</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>pder</code></td><td>Optional output for der(potential)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>pder2</code></td><td>Optional output for der2(potential)</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>f</code></td><td>Input for flow</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>fder</code></td><td>Optional input for der(flow)</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>fder2</code></td><td>Optional input for der2(flow)</td></tr>
+</table>
+<hr><a name="PotentialToFlowAdaptor"><h2><embed class="icon" src="../../../images/icon0091.svg" width="203" height="203" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">Adaptors</a>.&#8203;PotentialToFlowAdaptor<br><span class="subtitle">Signal adaptor for a connector with potential, 1st derivative of potential, and 2nd derivative of potential as inputs and
+  flow, 1st derivative of flow, and 2nd derivative of flow as outputs (especially useful for FMUs)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Adaptor between a physical connector and a signal representation of the connector signals.
+This component is used to provide a pure signal interface around a physical model
+and export this model in form of an input/output block,
+especially as FMU (<a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>).
+</p>
+<p>
+This adaptor has potential, optional 1st derivative of potential, and optional 2nd derivative of potential as input and
+flow, optional 1st derivative of flow, and optional 2nd derivative of flow as output signals.
+</p>
+<p>
+Note, the input signals must be consistent to each other
+(pder=der(p), pder2=der(pder)).
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>use_pder</code></td><td><code>true</code></td><td>Use input for 1st derivative of potential</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_pder2</code></td><td><code>true</code></td><td>Use input for 2nd derivative of potential (only if 1st derivate is used, too)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_fder</code></td><td><code>true</code></td><td>Use output for 1st derivative of flow</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_fder2</code></td><td><code>true</code></td><td>Use output for 2nd derivative of flow (only if 1st derivate is used, too)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>p</code></td><td>Input for potential</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>pder</code></td><td>Optional input for der(potential)</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>pder2</code></td><td>Optional input for der2(potential)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>f</code></td><td>Output for flow</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>fder</code></td><td>Optional output for der(flow)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>fder2</code></td><td>Optional output for der2(flow)</td></tr>
+</table>
+<hr><a name="SendReal"><h2><embed class="icon" src="../../../images/icon0093.svg" width="263" height="207" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">Adaptors</a>.&#8203;SendReal<br><span class="subtitle">Obsolete block to send Real signal to bus</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Obsolete block that was previously used to connect a Real signal
+to a signal in a connector. This block is only provided for
+backward compatibility.
+</p>
+
+<p>
+It is much more convenient and more powerful to use "expandable connectors"
+for signal buses, see example
+<a href="../../../Blocks/Examples/index.html#BusUsage">BusUsage</a>.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>toBus</code></td><td>Output signal to be connected to bus</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Input signal to be send to bus</td></tr>
+</table>
+<hr><a name="SendBoolean"><h2><embed class="icon" src="../../../images/icon0094.svg" width="263" height="207" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">Adaptors</a>.&#8203;SendBoolean<br><span class="subtitle">Obsolete block to send Boolean signal to bus</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Obsolete block that was previously used to connect a Boolean signal
+to a signal in a connector. This block is only provided for
+backward compatibility.
+</p>
+
+<p>
+It is much more convenient and more powerful to use "expandable connectors"
+for signal buses, see example
+<a href="../../../Blocks/Examples/index.html#BusUsage">BusUsage</a>.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>toBus</code></td><td>Output signal to be connected to bus</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u</code></td><td>Input signal to be send to bus</td></tr>
+</table>
+<hr><a name="SendInteger"><h2><embed class="icon" src="../../../images/icon0095.svg" width="263" height="207" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">Adaptors</a>.&#8203;SendInteger<br><span class="subtitle">Obsolete block to send Integer signal to bus</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Obsolete block that was previously used to connect an Integer signal
+to a signal in a connector. This block is only provided for
+backward compatibility.
+</p>
+
+<p>
+It is much more convenient and more powerful to use "expandable connectors"
+for signal buses, see example
+<a href="../../../Blocks/Examples/index.html#BusUsage">BusUsage</a>.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#IntegerOutput">IntegerOutput</a></code></td><td><code>toBus</code></td><td>Output signal to be connected to bus</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#IntegerInput">IntegerInput</a></code></td><td><code>u</code></td><td>Input signal to be send to bus</td></tr>
+</table>
+<hr><a name="ReceiveReal"><h2><embed class="icon" src="../../../images/icon0096.svg" width="243" height="207" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">Adaptors</a>.&#8203;ReceiveReal<br><span class="subtitle">Obsolete block to receive Real signal from bus</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Obsolete block that was previously used to connect a Real signal
+in a connector to an input of a block. This block is only provided for
+backward compatibility.
+</p>
+
+<p>
+It is much more convenient and more powerful to use "expandable connectors"
+for signal buses, see example
+<a href="../../../Blocks/Examples/index.html#BusUsage">BusUsage</a>.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>fromBus</code></td><td>To be connected with signal on bus</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Output signal to be received from bus</td></tr>
+</table>
+<hr><a name="ReceiveBoolean"><h2><embed class="icon" src="../../../images/icon0097.svg" width="243" height="207" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">Adaptors</a>.&#8203;ReceiveBoolean<br><span class="subtitle">Obsolete block to receive Boolean signal from bus</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Obsolete block that was previously used to connect a Boolean signal
+in a connector to an input of a block. This block is only provided for
+backward compatibility.
+</p>
+
+<p>
+It is much more convenient and more powerful to use "expandable connectors"
+for signal buses, see example
+<a href="../../../Blocks/Examples/index.html#BusUsage">BusUsage</a>.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>fromBus</code></td><td>To be connected with signal on bus</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Output signal to be received from bus</td></tr>
+</table>
+<hr><a name="ReceiveInteger"><h2><embed class="icon" src="../../../images/icon0098.svg" width="243" height="207" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Blocks</a>.&#8203;<a href="../index.html">Interfaces</a>.&#8203;<a href="index.html">Adaptors</a>.&#8203;ReceiveInteger<br><span class="subtitle">Obsolete block to receive Integer signal from bus</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Obsolete block that was previously used to connect an Integer signal
+in a connector to an input of a block. This block is only provided for
+backward compatibility.
+</p>
+
+<p>
+It is much more convenient and more powerful to use "expandable connectors"
+for signal buses, see example
+<a href="../../../Blocks/Examples/index.html#BusUsage">BusUsage</a>.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#IntegerInput">IntegerInput</a></code></td><td><code>fromBus</code></td><td>To be connected with signal on bus</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#IntegerOutput">IntegerOutput</a></code></td><td><code>y</code></td><td>Output signal to be received from bus</td></tr>
+</table>
+</body></html>

@@ -1,0 +1,124 @@
+<html><head><title>Modelica.Magnetic.FluxTubes.Sources</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Sources"><h1><embed class="icon" src="../../../images/icon0259.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;Sources<br><span class="subtitle">Sources of different complexity of magnetomotive force and magnetic flux</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains sources of a magnetic potential difference or a magnetic flux:
+</p>
+<p>Extends from <code><a href="../../../Icons/SourcesPackage/index.html">Modelica.&#8203;Icons.&#8203;SourcesPackage</a></code> (Icon for packages containing sources).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#ConstantMagneticFlux"><code>ConstantMagneticFlux</code></a></td><td>Source of constant magnetic flux</td></tr>
+<tr><td><a href="#ConstantMagneticPotentialDifference"><code>ConstantMagneticPotentialDifference</code></a></td><td>Constant magnetomotive force</td></tr>
+<tr><td><a href="#SignalMagneticFlux"><code>SignalMagneticFlux</code></a></td><td>Signal-controlled magnetic flux source</td></tr>
+<tr><td><a href="#SignalMagneticPotentialDifference"><code>SignalMagneticPotentialDifference</code></a></td><td>Signal-controlled magnetomotive force</td></tr>
+</table>
+<hr><a name="ConstantMagneticPotentialDifference"><h2><embed class="icon" src="../../../images/icon0951.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Sources</a>.&#8203;ConstantMagneticPotentialDifference<br><span class="subtitle">Constant magnetomotive force</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Magnetic circuits under steady-state conditions, i.e., with stationary magnetic fields (change of magnetic flux  d&Phi;/dt = 0) can be described with constant sources of a magnetic potential difference or magnetomotive force (mmf). Constant magnetic potential differences are imposed by
+</p>
+<ul>
+<li>coils with stationary current (di / dt = 0) and</li>
+<li>permanent magnets modelled with <em>Th&eacute;venin</em>'s equivalent magnetic circuit.</li>
+</ul>
+<p>
+For modelling of reluctance actuators with this source component it is assumed that the armature is fixed so that no motion-induced flux change d&Phi;/dt can occur.
+</p>
+<p>Extends from <code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PartialTwoPortsElementary">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialTwoPortsElementary</a></code> (Partial component with two magnetic ports p and n for textual programming).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#MagneticPotentialDifference">MagneticPotentialDifference</a></code></td><td><code>V_m</code></td><td>&nbsp;</td><td>Magnetic potential difference</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive magnetic port</td></tr>
+<tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative magnetic port</td></tr>
+</table>
+<hr><a name="SignalMagneticPotentialDifference"><h2><embed class="icon" src="../../../images/icon0952.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Sources</a>.&#8203;SignalMagneticPotentialDifference<br><span class="subtitle">Signal-controlled magnetomotive force</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+In electromagnetic devices, a change of a coil's magnetic flux linkage &Psi; reacts on the electrical subsystem in that a voltage v is induced due to <em>Faraday</em>'s law:
+</p>
+<pre>
+    v = - d&Psi;/dt
+</pre>
+<p>This reaction can possibly be neglected for</p>
+<ul>
+<li>modelling of electromagnetic actuators under quasi-stationary conditions (slow current change, slow armature motion),</li>
+<li>modelling of current-controlled electromagnetic actuators (ideal current source) and</li>
+<li>for system simulation where the system dynamics is not governed by an electromagnetic actuator, but by the surrounding subsystems.</li>
+</ul>
+<p>
+In these cases, the magnetic potential difference or magnetomotive force imposed by a coil can easily be modelled with a signal-controlled source. Except for the neglected dynamics, steady-state actuator forces will be calculated properly in actuator models based on these sources.
+</p>
+<p>Extends from <code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PartialTwoPortsElementary">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialTwoPortsElementary</a></code> (Partial component with two magnetic ports p and n for textual programming).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive magnetic port</td></tr>
+<tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative magnetic port</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>V_m</code></td><td>Magnetic potential difference</td></tr>
+</table>
+<hr><a name="ConstantMagneticFlux"><h2><embed class="icon" src="../../../images/icon0953.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Sources</a>.&#8203;ConstantMagneticFlux<br><span class="subtitle">Source of constant magnetic flux</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Sources of a constant magnetic flux are useful for modelling of permanent magnets with <em>Norton</em>'s magnetic equivalent circuit.
+</p>
+<p>Extends from <code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PartialTwoPortsElementary">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialTwoPortsElementary</a></code> (Partial component with two magnetic ports p and n for textual programming).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#MagneticFlux">MagneticFlux</a></code></td><td><code>Phi</code></td><td><code>1</code></td><td>Magnetic flux</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive magnetic port</td></tr>
+<tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative magnetic port</td></tr>
+</table>
+<hr><a name="SignalMagneticFlux"><h2><embed class="icon" src="../../../images/icon0954.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Sources</a>.&#8203;SignalMagneticFlux<br><span class="subtitle">Signal-controlled magnetic flux source</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This source of a magnetic flux is intended for test purposes, e.g., for simulation and subsequent plotting of a softmagnetic material's magnetisation characteristics if used together with a non-linear reluctance element.
+</p>
+<p>Extends from <code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PartialTwoPortsElementary">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialTwoPortsElementary</a></code> (Partial component with two magnetic ports p and n for textual programming).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive magnetic port</td></tr>
+<tr><td><code><a href="../../../Magnetic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative magnetic port</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>Phi</code></td><td>Magnetic flux</td></tr>
+</table>
+</body></html>

@@ -1,0 +1,696 @@
+<html><head><title>Modelica.Mechanics.MultiBody.Examples.Elementary</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Elementary"><h1><embed class="icon" src="../../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;Elementary<br><span class="subtitle">Elementary examples to demonstrate various features of the MultiBody library</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains elementary example models to demonstrate
+the usage of the MultiBody library
+</p>
+<h4>Content</h4>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><strong><em>Model</em></strong></th><th><strong><em>Description</em></strong></th></tr>
+  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Elementary/index.html#DoublePendulum">DoublePendulum</a><br>
+          <a href="../../../../Mechanics/MultiBody/Examples/Elementary/index.html#DoublePendulumInitTip">DoublePendulumInitTip</a></td>
+      <td> Simple double pendulum with two revolute joints and two bodies. In DoublePendulumInitTip, the initial position of the pendulum tip is given
+           instead of common initialization by pendulum angles.<br>
+      <img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulumSmall.png">
+      </td>
+  </tr>
+  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Elementary/index.html#ForceAndTorque">ForceAndTorque</a></td>
+      <td> Demonstrates usage of Forces.ForceAndTorque element.<br>
+      <img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/ForceAndTorque_small.png">
+      </td>
+  </tr>
+  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Elementary/index.html#FreeBody">FreeBody</a></td>
+      <td> Free flying body attached by two springs to environment.<br>
+      <img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/FreeBody_small.png">
+      </td>
+  </tr>
+  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Elementary/index.html#InitSpringConstant">InitSpringConstant</a></td>
+      <td> Determine spring constant such that system is in steady state
+           at given position.<br>
+      <img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/InitSpringConstant_small.png">
+      </td>
+  </tr>
+  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Elementary/index.html#LineForceWithTwoMasses">LineForceWithTwoMasses</a></td>
+      <td> Demonstrates a line force with two point masses using a
+           Joints.Assemblies.JointUPS and alternatively a
+           Forces.LineForceWithTwoMasses component.<br>
+      <img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/LineForceWithTwoMasses_small.png">
+      </td>
+  </tr>
+  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Elementary/index.html#Pendulum">Pendulum</a></td>
+      <td> Simple pendulum with one revolute joint and one body.<br>
+      <img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/Pendulum_small.png">
+      </td>
+  </tr>
+  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Elementary/index.html#PendulumWithSpringDamper">PendulumWithSpringDamper</a></td>
+      <td> Simple spring/damper/mass system<br>
+      <img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/PendulumWithSpringDamper_small.png">
+      </td>
+  </tr>
+  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Elementary/index.html#PointGravity">PointGravity</a></td>
+      <td> Two bodies in a point gravity field<br>
+      <img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/PointGravity_small.png">
+      </td>
+  </tr>
+  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Elementary/index.html#PointGravityWithPointMasses">PointGravityWithPointMasses</a></td>
+      <td> Two point masses in a point gravity field (rotation of bodies is neglected)<br>
+      <img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/PointGravityWithPointMasses_small.png">
+      </td>
+  </tr>
+  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Elementary/index.html#PointGravityWithPointMasses2">PointGravityWithPointMasses2</a></td>
+      <td> Rigidly connected point masses in a point gravity field<br>
+      <img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/PointGravityWithPointMasses2_small.png">
+      </td>
+  </tr>
+
+  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Elementary/index.html#RollingWheel">RollingWheel</a></td>
+      <td> Single wheel rolling on ground starting from an initial speed<br>
+      <img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/RollingWheel.png">
+      </td>
+  </tr>
+
+  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Elementary/index.html#RollingWheelSetDriving">RollingWheelSetDriving</a></td>
+      <td> Rolling wheel set that is driven by torques driving the wheels<br>
+      <img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/RollingWheelSetDriving.png">
+      </td>
+  </tr>
+
+  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Elementary/index.html#RollingWheelSetPulling">RollingWheelSetPulling</a></td>
+      <td> Rolling wheel set that is pulled by a force<br>
+      <img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/RollingWheelSetPulling.png">
+      </td>
+  </tr>
+
+  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Elementary/index.html#SpringDamperSystem">SpringDamperSystem</a></td>
+      <td> Spring/damper system with a prismatic joint and
+           attached on free flying body<br>
+      <img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/SpringDamperSystem_small.png">
+      </td>
+  </tr>
+  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Elementary/index.html#SpringMassSystem">SpringMassSystem</a></td>
+      <td> Mass attached via a prismatic joint and a spring to the world frame<br>
+      <img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/SpringMassSystem_small.png">
+      </td>
+  </tr>
+  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Elementary/index.html#SpringWithMass">SpringWithMass</a></td>
+      <td> Point mass hanging on a spring<br>
+      <img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/SpringWithMass_small.png">
+      </td>
+  </tr>
+  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Elementary/index.html#ThreeSprings">ThreeSprings</a></td>
+      <td> 3-dimensional springs in series and parallel connection<br>
+      <img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/ThreeSprings_small.png">
+      </td>
+  </tr>
+
+  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Elementary/index.html#HeatLosses">HeatLosses</a></td>
+      <td> Demonstrate the modeling of heat losses.  </td>
+  </tr>
+
+  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Elementary/index.html#UserDefinedGravityField">UserDefinedGravityField </a></td>
+      <td> Demonstrate the modeling of a user-defined gravity field.  </td>
+  </tr>
+
+  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Elementary/index.html#Surfaces">Surfaces</a></td>
+      <td> Demonstrate the visualization of a sine surface,
+       as well as a torus and a wheel constructed from a surface<br>
+      <img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/Surfaces_small.png">
+      </td>
+  </tr>
+
+</table>
+<p>Extends from <code><a href="../../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#DoublePendulum"><code>DoublePendulum</code></a></td><td>Simple double pendulum with two revolute joints and two bodies</td></tr>
+<tr><td><a href="#DoublePendulumInitTip"><code>DoublePendulumInitTip</code></a></td><td>Demonstrate how to initialize a double pendulum so that its tip starts at a predefined position</td></tr>
+<tr><td><a href="#ForceAndTorque"><code>ForceAndTorque</code></a></td><td>Demonstrate usage of ForceAndTorque element</td></tr>
+<tr><td><a href="#FreeBody"><code>FreeBody</code></a></td><td>Free flying body attached by two springs to environment</td></tr>
+<tr><td><a href="#HeatLosses"><code>HeatLosses</code></a></td><td>Demonstrate the modeling of heat losses</td></tr>
+<tr><td><a href="#InitSpringConstant"><code>InitSpringConstant</code></a></td><td>Determine spring constant such that system is in steady state at given position</td></tr>
+<tr><td><a href="#LineForceWithTwoMasses"><code>LineForceWithTwoMasses</code></a></td><td>Demonstrate line force with two point masses using a JointUPS and alternatively a LineForceWithTwoMasses component</td></tr>
+<tr><td><a href="#Pendulum"><code>Pendulum</code></a></td><td>Simple pendulum with one revolute joint and one body</td></tr>
+<tr><td><a href="#PendulumWithSpringDamper"><code>PendulumWithSpringDamper</code></a></td><td>Simple spring/damper/mass system</td></tr>
+<tr><td><a href="#PointGravity"><code>PointGravity</code></a></td><td>Two point masses in a point gravity field</td></tr>
+<tr><td><a href="#PointGravityWithPointMasses"><code>PointGravityWithPointMasses</code></a></td><td>Two point masses in a point gravity field (rotation of bodies is neglected)</td></tr>
+<tr><td><a href="#PointGravityWithPointMasses2"><code>PointGravityWithPointMasses2</code></a></td><td>Rigidly connected point masses in a point gravity field</td></tr>
+<tr><td><a href="#RollingWheel"><code>RollingWheel</code></a></td><td>Single wheel rolling on ground starting from an initial speed</td></tr>
+<tr><td><a href="#RollingWheelSetDriving"><code>RollingWheelSetDriving</code></a></td><td>Rolling wheel set that is driven by torques driving the wheels</td></tr>
+<tr><td><a href="#RollingWheelSetPulling"><code>RollingWheelSetPulling</code></a></td><td>Rolling wheel set that is pulled by a force</td></tr>
+<tr><td><a href="#SpringDamperSystem"><code>SpringDamperSystem</code></a></td><td>Simple spring/damper/mass system</td></tr>
+<tr><td><a href="#SpringMassSystem"><code>SpringMassSystem</code></a></td><td>Mass attached with a spring to the world frame</td></tr>
+<tr><td><a href="#SpringWithMass"><code>SpringWithMass</code></a></td><td>Point mass hanging on a spring</td></tr>
+<tr><td><a href="#Surfaces"><code>Surfaces</code></a></td><td>Demonstrate the visualization of a sine surface, as well as a torus and a wheel constructed from a surface</td></tr>
+<tr><td><a href="#ThreeSprings"><code>ThreeSprings</code></a></td><td>3-dim. springs in series and parallel connection</td></tr>
+<tr><td><a href="#UserDefinedGravityField"><code>UserDefinedGravityField</code></a></td><td>Demonstrate the modeling of a user-defined gravity field</td></tr>
+<tr><td><a href="../../../../Mechanics/MultiBody/Examples/Elementary/Utilities/index.html"><code>Utilities</code></a> &hellip;</td><td>Utility classes used by elementary multi-body example models</td></tr>
+</table>
+<hr><a name="DoublePendulum"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Elementary</a>.&#8203;DoublePendulum<br><span class="subtitle">Simple double pendulum with two revolute joints and two bodies</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example demonstrates that by using joint and body
+elements animation is automatically available. Also the revolute
+joints are animated. Note, that animation of every component
+can be switched of by setting the first parameter <strong>animation</strong>
+to <strong>false</strong> or by setting <strong>enableAnimation</strong> in the <strong>world</strong>
+object to <strong>false</strong> to switch off animation of all components.
+</p>
+
+<blockquote>
+<img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulum.png"
+alt="model Examples.Elementary.DoublePendulum">
+</blockquote>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="DoublePendulumInitTip"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Elementary</a>.&#8203;DoublePendulumInitTip<br><span class="subtitle">Demonstrate how to initialize a double pendulum so that its tip starts at a predefined position</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example demonstrates at hand of a double pendulum,
+how non-standard initialization can be defined:
+The absolute position of the pendulum tip, and its absolute speed
+shall be initially defined. This can be performed with the
+<a href="../../../../Mechanics/MultiBody/Joints/index.html#FreeMotionScalarInit">Joints.FreeMotionScalarInit</a>
+joint that allows to initialize individual elements of its relative vectors.
+In this case, the x-, and y-coordinates of the relative position vector
+(visualized by the yellow arrow in the figure below) and of its
+derivative shall have a defined value at initial time.
+The configuration of the double pendulum at the initial time is
+shown below, where the tip position is required to have the coordinates
+x=0.7, y=0.3.
+</p>
+<p>
+Setting only the tip&#39;s start position results in an ambiguous initialization since
+two valid solutions for <code>revolute1.phi</code> and <code>revolute2.phi</code> exist.
+Moreover, the calculated angles <code>revolute1.phi</code> and <code>revolute2.phi</code>
+can be a multiple of expected solution <code>phi1</code> and <code>phi2</code>,
+</p>
+<ul>
+<li>revolute1.phi(k1) = phi1 + 2 &pi; k1,</li>
+<li>revolute2.phi(k2) = phi2 + 2 &pi; k2.</li>
+</ul>
+<p>
+To clearly indicate the preferred solution, guess initial angles can be additionally given.
+In this example, it is simply done by <code>revolute2.phi.start&nbsp;=&nbsp;Modelica.Constants.pi/2</code>.
+</p>
+<blockquote>
+<img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulumInitTip.png">
+</blockquote>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="ForceAndTorque"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Elementary</a>.&#8203;ForceAndTorque<br><span class="subtitle">Demonstrate usage of ForceAndTorque element</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+In this example the usage of the general force element
+"<a href="../../../../Mechanics/MultiBody/Forces/index.html#ForceAndTorque">ForceAndTorque</a>"
+is shown. A "ForceAndTorque" element is connected
+between a body and a fixed point in the world system. The force and torque
+is defined by the "Constant" block. The two vectors are resolved in the
+coordinate system defined by the "fixedRotation" component that is
+fixed in the world system:
+</p>
+<p>
+The animation view at time = 0 is shown in the figure below.
+The yellow line is directed from frame_a to frame_b of the
+forceAndTorque component. The green arrow characterizes the
+force acting at the body whereas the green double arrow characterizes
+the torque acting at the body. The lengths of the two vectors
+are proportional to the lengths of the force and torque vectors
+(constant scaling factors are defined as parameters in the
+forceAndTorque component):
+</p>
+<img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/ForceAndTorque.png">
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="FreeBody"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Elementary</a>.&#8203;FreeBody<br><span class="subtitle">Free flying body attached by two springs to environment</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example demonstrates:
+</p>
+<ul>
+<li>The animation of spring and damper components</li>
+<li>A body can be freely moving without any connection to a joint.
+    In this case body coordinates are used automatically as
+    states (whenever joints are present, it is first tried to
+    use the generalized coordinates of the joints as states).</li>
+<li>If a body is freely moving, the initial position and velocity of the body
+    can be defined with the "Initialization" menu as shown with the
+    body "body1" in the left part (click on "Initialization").</li>
+</ul>
+
+<img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/FreeBody.png"
+alt="model Examples.Elementary.FreeBody">
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+</table>
+<hr><a name="InitSpringConstant"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Elementary</a>.&#8203;InitSpringConstant<br><span class="subtitle">Determine spring constant such that system is in steady state at given position</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example demonstrates a non-standard type of initialization
+by calculating a spring constant such
+that a simple pendulum is at a defined position in steady state.
+</p>
+<p>
+The goal is that the pendulum should be in steady state
+when the rotation angle of the pendulum is zero. The spring
+constant of the spring shall be calculated during initialization
+such that this goal is reached.
+</p>
+<p>
+The pendulum has one degree of freedom, i.e., two states.
+Therefore, two additional equations have to be provided
+for initialization. However, parameter "c" of the spring
+component is defined with attribute "fixed = <strong>false</strong>", i.e.,
+the value of this parameter is computed during initialization.
+Therefore, there is one additional equation required during
+initialization. The 3 initial equations are the rotational
+angle of the revolute joint and its first and second
+derivative. The latter ones are zero, in order to initialize
+in steady state. By setting the start values of phi, w, a to zero and
+their fixed attributes to true, the required
+3 initial equations are defined.
+</p>
+<p>
+After translation, this model is initialized in steady-state.
+The spring constant is computed as c = 49.05 N/m.
+An animation of this simulation is shown in the figure below.
+</p>
+
+<img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/InitSpringConstant.png"
+alt="model Examples.Elementary.InitSpringConstant">
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="LineForceWithTwoMasses"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Elementary</a>.&#8203;LineForceWithTwoMasses<br><span class="subtitle">Demonstrate line force with two point masses using a JointUPS and alternatively a LineForceWithTwoMasses component</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+It is demonstrated how to implement line force components
+that shall have mass properties. Two alternative implementations
+are given:
+</p>
+<ul>
+<li> With <a href="../../../../Mechanics/MultiBody/Joints/Assemblies/index.html#JointUPS">JointUPS</a>:<br>
+     Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS is an aggregation
+     of a universal, a prismatic and a spherical joint that approximates
+     a real force component, such as a hydraulic cylinder. At the two
+     frames of the prismatic joint (frame_ia, frame_ib of jointUPS)
+     two bodies are attached. The parameters are selected such that
+     the center of masses of the two bodies are located on the line
+     connecting frame_a and frame_b of the jointUPS component.
+     Both bodies have the same mass and the inertia tensor is set to zero,
+     i.e., the two bodies are treated as point masses.</li>
+<li> With <a href="../../../../Mechanics/MultiBody/Forces/index.html#LineForceWithTwoMasses">LineForceWithTwoMasses</a>:<br>
+     Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses is a line force component
+     with the built-in property that two point masses are located
+     on the line on which the line force is acting.
+     The parameters are selected in such a way that the same
+     system as with the jointUPS component is described.</li>
+</ul>
+<p>
+In both cases, a linear 1-dimensional translational damper from the
+Modelica.Mechanics.Translational library is used as
+line force between the two attachment points. Simulate
+this system and plot the differences of the cut forces at both sides
+of the line force component ("rod_f_diff" and "body_f_diff").
+Both vectors should be zero
+(depending on the chosen relative tolerance of the integration,
+the difference is in the order of 1e-10 ... 1e-15).
+</p>
+<p>
+Note, that the implementation with the LineForceWithTwoMasses
+component is simpler and more convenient.
+An animation of this simulation is shown in the figure below.
+The system on the left side in the front is the animation with
+the LineForceWithTwoMasses component whereas the system on the right
+side in the back is the animation with the JointUPS component.
+</p>
+
+<blockquote>
+<img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/LineForceWithTwoMasses2.png">
+</blockquote>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m</code></td><td><code>1</code></td><td>Mass of point masses</td></tr>
+</table>
+<hr><a name="Pendulum"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Elementary</a>.&#8203;Pendulum<br><span class="subtitle">Simple pendulum with one revolute joint and one body</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This simple model demonstrates that by just dragging components
+default animation is defined that shows the structure of the
+assembled system.
+</p>
+<blockquote>
+<img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/Pendulum.png"
+alt="model Examples.Elementary.Pendulum">
+</blockquote>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="PendulumWithSpringDamper"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Elementary</a>.&#8203;PendulumWithSpringDamper<br><span class="subtitle">Simple spring/damper/mass system</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+A body is attached on a revolute and prismatic joint.
+A 3-dim. spring and a 3-dim. damper are connected between the body
+and a point fixed in the world frame:
+</p>
+
+<img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/PendulumWithSpringDamper.png"
+alt="model Examples.Elementary.PendulumWithSpringDamper">
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+</table>
+<hr><a name="PointGravity"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Elementary</a>.&#8203;PointGravity<br><span class="subtitle">Two point masses in a point gravity field</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model demonstrates a point gravity field. Two bodies
+are placed in the gravity field. The initial positions and velocities of
+these bodies are selected such that one body rotates on a circle and
+the other body rotates on an ellipse around the center of the
+point gravity field.
+</p>
+
+<img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/PointGravity.png"
+alt="model Examples.Elementary.PointGravity">
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="PointGravityWithPointMasses"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Elementary</a>.&#8203;PointGravityWithPointMasses<br><span class="subtitle">Two point masses in a point gravity field (rotation of bodies is neglected)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model demonstrates the usage of model Parts.PointMass in a
+point gravity field. The PointMass model has the feature that
+the rotation is not taken into account and can therefore also not be
+calculated. This example demonstrates two cases where this does not matter:
+If a PointMass is not connected (body1, body2), the orientation object in
+these point masses is set to a unit rotation.
+If a PointMass is connected by a line force element, such as
+the used Forces.LineForceWithMass component, then the orientation object
+is set to a unit rotation within the line force element.
+These are the two cases where the rotation is automatically set to
+a default value, when the physical system does not provide the equations.
+</p>
+
+<img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/PointGravityWithPointMasses.png">
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="PointGravityWithPointMasses2"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Elementary</a>.&#8203;PointGravityWithPointMasses2<br><span class="subtitle">Rigidly connected point masses in a point gravity field</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model demonstrates the usage of model Parts.PointMass in a
+point gravity field. 6 point masses are connected rigidly together.
+Translating such a model results in an error, because point masses do
+not define an orientation object. The example demonstrates that in such
+a case (when the orientation object is not defined by an object that
+is connected to a point mass), a "MultiBody.Joints.FreeMotion" joint
+has to be used, to define the degrees of freedom of this structure.
+</p>
+
+<p>
+In order to demonstrate that this approach is correct, in model
+"referenceSystem", the same system is again provided, but this time
+modeled with a generic body (Parts.Body) where the inertia tensor is
+set to zero. In this case, no FreeMotion object is needed because every
+body provides its absolute translational and rotational position and
+velocity as potential states.
+</p>
+
+<p>
+The two systems should move exactly in the same way. The system with the PointMasses
+object visualizes the point masses in "red", whereas the "referenceSystem" shows
+its bodies in "blue".
+
+<img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/PointGravityWithPointMasses2.png">
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="SpringDamperSystem"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Elementary</a>.&#8203;SpringDamperSystem<br><span class="subtitle">Simple spring/damper/mass system</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example demonstrates:
+</p>
+<ul>
+<li>The animation of spring and damper components</li>
+<li>A body can be freely moving without any connection to a joint.
+    In this case body coordinates are used automatically as
+    states (whenever joints are present, it is first tried to
+    use the generalized coordinates of the joints as states).</li>
+<li>If a body is freely moving, the initial position and velocity of the body
+    can be defined with the "Initialization" menu as shown with the
+    body "body1" in the left part (click on "Initialization").</li>
+</ul>
+
+<img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/SpringDamperSystem.png"
+alt="model Examples.Elementary.SpringDamperSystem">
+
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+</table>
+<hr><a name="SpringMassSystem"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Elementary</a>.&#8203;SpringMassSystem<br><span class="subtitle">Mass attached with a spring to the world frame</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example shows the two different ways how force laws
+can be utilized:
+</p>
+<ul>
+<li>In the left system a body is attached via a prismatic
+    joint to the world frame. The prismatic joint has two
+    1-dimensional translational flanges (called "support" and "axis")
+    that allows to connect elements from the Modelica.Mechanics.Translational
+    library between the support and the axis connector. The effect is
+    that the force generated by the 1-dimensional elements acts as driving
+    force in the axis of the prismatic joint. In the example a simple
+    spring is used.<br>
+    The advantage of this approach is that the many elements from the
+    Translational library can be easily used here and that this implementation
+    is usually more efficient as when using 3-dimensional springs.</li>
+<li>In the right system the same model is defined. The difference is
+    that a 3-dimensional spring from the Modelica.Mechanics.MultiBody.Forces library is used.
+    This has the advantage to get a nice animation of the force component.</li>
+</ul>
+
+<img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/SpringMassSystem.png"
+alt="model Examples.Elementary.SpringMassSystem">
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+</table>
+<hr><a name="SpringWithMass"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Elementary</a>.&#8203;SpringWithMass<br><span class="subtitle">Point mass hanging on a spring</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example shows that a force component may have a mass.
+The 3-dimensional spring as used in this example, has an optional
+point mass between the two points where the spring is attached.
+In the animation, this point mass is represented by a small,
+light blue, sphere.
+</p>
+
+<img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/SpringWithMass.png"
+alt="model Examples.Elementary.SpringWithMass">
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="ThreeSprings"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Elementary</a>.&#8203;ThreeSprings<br><span class="subtitle">3-dim. springs in series and parallel connection</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example demonstrates that <strong>3-dimensional line force</strong> elements
+(here: Modelica.Mechanics.MultiBody.Forces.Spring elements) can be connected together
+in <strong>series</strong> without having a body with mass at the
+connection point (as usually required by multi-body programs).
+This is advantageous since stiff systems can be avoided, say, due to
+a stiff spring and a small mass at the connection point.
+</p>
+
+<blockquote>
+<img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/ThreeSprings.png"
+alt="model Examples.Elementary.ThreeSprings">
+</blockquote>
+
+<p>
+For a more thorough explanation, see
+<a href="../../../../Mechanics/MultiBody/UsersGuide/Tutorial/index.html#ConnectionOfLineForces">MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+</table>
+<hr><a name="RollingWheel"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Elementary</a>.&#8203;RollingWheel<br><span class="subtitle">Single wheel rolling on ground starting from an initial speed</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Demonstrates how a single wheel is rolling on ground
+(starting with an initial velocity).
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="RollingWheelSetDriving"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Elementary</a>.&#8203;RollingWheelSetDriving<br><span class="subtitle">Rolling wheel set that is driven by torques driving the wheels</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Demonstrates how a RollingWheelSet (two wheels rigidly coupled together) is rolling
+on ground when driven by some external torques.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="RollingWheelSetPulling"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Elementary</a>.&#8203;RollingWheelSetPulling<br><span class="subtitle">Rolling wheel set that is pulled by a force</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Demonstrates how a RollingWheelSet (two wheels rigidly coupled together) is rolling
+on ground when pulled by an external force..
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="HeatLosses"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Elementary</a>.&#8203;HeatLosses<br><span class="subtitle">Demonstrate the modeling of heat losses</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model demonstrates how to model the dissipated power of a multi-body
+force element by enabling the heatPort of all components and connecting these heatPorts via
+a convection element to the environment. The total heat flow generated by the
+elements of this multi-body system and transported to the environment
+is present in variable convection.fluid.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr><a name="UserDefinedGravityField"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Elementary</a>.&#8203;UserDefinedGravityField<br><span class="subtitle">Demonstrate the modeling of a user-defined gravity field</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example demonstrates a user defined gravity field.
+Function "world.gravityAcceleration" is redeclared to function
+<a href="../../../../Mechanics/MultiBody/Examples/Elementary/Utilities/index.html#theoreticalNormalGravityWGS84">theoreticalNormalGravityWGS84</a>
+that computes the theoretical gravity of the
+<a href="http://earth-info.nga.mil/GandG/publications/tr8350.2/wgs84fin.pdf">WGS84 ellipsoid earth model</a> at and close to
+the earth ellipsoid surface. In the gravity field, a large, single pendulum is present. Via parameter "geodeticLatitude", the geodetic latitude on the earth can be defined, where the pendulum is present. The world frame is located at the WGS84 earth ellipsoid at this latitude. The result variable
+"gravity" is the gravity vector at the center of mass of the pendulum mass.
+Since the height of this mass is changing, the value of the gravity is also changing
+(the difference is in the order of 0.00001).
+</p>
+
+<p>
+The result of the simulation is slightly different at the equator (geodeticLatitude=0)
+and at the poles (geodeticLatitude=90). For example, after 10 s of simulation time
+the rotation angle of the pendulum, rev.phi, has the following values:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><td><strong><em>latitude [deg]</em></strong></td>
+    <td><strong><em>rev.phi [rad]</em></strong></td></tr>
+<tr><td> = 0</td>
+    <td>= -2.39 rad</td></tr>
+
+<tr><td>= 90</td>
+    <td>= -2.42 rad</td></tr>
+</table>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/Conversions/NonSIunits/index.html#Angle_deg">Angle_deg</a></code></td><td><code>geodeticLatitude</code></td><td><code>0</code></td><td>Geodetic latitude</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Position">Position</a></code></td><td><code>height</code></td><td><code>20</code></td><td>Height of pendulum attachment point over WGS84 earth ellipsoid</td></tr>
+</table>
+<hr><a name="Surfaces"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Elementary</a>.&#8203;Surfaces<br><span class="subtitle">Demonstrate the visualization of a sine surface, as well as a torus and a wheel constructed from a surface</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example demonstrates the use of the
+<a href="../../../../Mechanics/MultiBody/Visualizers/Advanced/index.html#Surface">Surface</a>
+visualizer that visualizes a moving, parameterized surface.
+The "sine-wave" surface is a direct application of the surface model.
+Furthermore, the "torus" surface is an instance of
+<a href="../../../../Mechanics/MultiBody/Visualizers/index.html#Torus">Torus</a>,
+the "wheel" surface is an instance of
+<a href="../../../../Mechanics/MultiBody/Visualizers/index.html#VoluminousWheel">VoluminousWheel</a>,
+and the "pipeWithScalarField surface is an instance of
+<a href="../../../../Mechanics/MultiBody/Visualizers/index.html#PipeWithScalarField">PipeWithScalarField</a>.
+All latter visual shapes are constructed with the surface model.
+The following image shows a screen-shot of this example model:
+</p>
+
+<blockquote>
+<img src="../../../../../Images/Mechanics/MultiBody/Examples/Elementary/Surfaces.png">
+</blockquote>
+
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>x_min</code></td><td><code>-1</code></td><td>Minimum value of x</td></tr>
+<tr><td><code>Real</code></td><td><code>x_max</code></td><td><code>1</code></td><td>Maximum value of x</td></tr>
+<tr><td><code>Real</code></td><td><code>y_min</code></td><td><code>-1</code></td><td>Minimum value of y</td></tr>
+<tr><td><code>Real</code></td><td><code>y_max</code></td><td><code>1</code></td><td>Maximum value of y</td></tr>
+<tr><td><code>Real</code></td><td><code>z_min</code></td><td><code>0</code></td><td>Minimum value of z</td></tr>
+<tr><td><code>Real</code></td><td><code>z_max</code></td><td><code>1</code></td><td>Maximum value of z</td></tr>
+</table>
+</body></html>

@@ -1,0 +1,22 @@
+<svg width="353" height="323" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.StateGraph.Examples.Utilities.MakeProduct" class="component">
+		<polygon points="41.5,301.5 341.5,301.5 341.5,1.5 41.5,1.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="266.0" y="281.5" text-anchor="middle" fill="#000000" font-size="19.9px" font-family="sans-serif">resume</text>
+		<text x="118.0" y="277.1" text-anchor="middle" fill="#000000" font-size="15.2px" font-family="sans-serif">suspend</text>
+		<g id="inPort" class="port">
+			<polygon points="21.5,161.5 41.5,151.5 21.5,141.5" fill="#000000" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="outPort" class="port">
+			<polygon points="341.5,146.5 351.5,146.5 351.5,156.5 341.5,156.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="suspend" class="port">
+			<polygon points="121.5,301.5 121.5,311.5 111.5,311.5 111.5,301.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="resume" class="port">
+			<polygon points="256.5,321.5 266.5,301.5 276.5,321.5" fill="#000000" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="level1" class="port">
+			<polygon points="1.5,251.5 41.5,271.5 1.5,291.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

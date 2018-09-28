@@ -1,0 +1,1144 @@
+<html><head><title>Modelica.Blocks.Sources</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Sources"><h1><embed class="icon" src="../../images/icon0259.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;Sources<br><span class="subtitle">Library of signal source blocks generating Real, Integer and Boolean signals</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains <strong>source</strong> components, i.e., blocks which
+have only output signals. These blocks are used as signal generators
+for Real, Integer and Boolean signals.
+</p>
+
+<p>
+All Real source signals (with the exception of the Constant source)
+have at least the following two parameters:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><strong>offset</strong></td>
+      <td>Value which is added to the signal</td>
+  </tr>
+  <tr><td><strong>startTime</strong></td>
+      <td>Start time of signal. For time &lt; startTime,
+                the output y is set to offset.</td>
+  </tr>
+</table>
+
+<p>
+The <strong>offset</strong> parameter is especially useful in order to shift
+the corresponding source, such that at initial time the system
+is stationary. To determine the corresponding value of offset,
+usually requires a trimming calculation.
+</p>
+<p>Extends from <code><a href="../../Icons/SourcesPackage/index.html">Modelica.&#8203;Icons.&#8203;SourcesPackage</a></code> (Icon for packages containing sources).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#BooleanConstant"><code>BooleanConstant</code></a></td><td>Generate constant signal of type Boolean</td></tr>
+<tr><td><a href="#BooleanExpression"><code>BooleanExpression</code></a></td><td>Set output signal to a time varying Boolean expression</td></tr>
+<tr><td><a href="#BooleanPulse"><code>BooleanPulse</code></a></td><td>Generate pulse signal of type Boolean</td></tr>
+<tr><td><a href="#BooleanStep"><code>BooleanStep</code></a></td><td>Generate step signal of type Boolean</td></tr>
+<tr><td><a href="#BooleanTable"><code>BooleanTable</code></a></td><td>Generate a Boolean output signal based on a vector of time instants</td></tr>
+<tr><td><a href="#Clock"><code>Clock</code></a></td><td>Generate actual time signal</td></tr>
+<tr><td><a href="#CombiTimeTable"><code>CombiTimeTable</code></a></td><td>Table look-up with respect to time and linear/periodic extrapolation methods (data from matrix/file)</td></tr>
+<tr><td><a href="#Constant"><code>Constant</code></a></td><td>Generate constant signal of type Real</td></tr>
+<tr><td><a href="#Cosine"><code>Cosine</code></a></td><td>Generate cosine signal</td></tr>
+<tr><td><a href="#Exponentials"><code>Exponentials</code></a></td><td>Generate a rising and falling exponential signal</td></tr>
+<tr><td><a href="#ExpSine"><code>ExpSine</code></a></td><td>Generate exponentially damped sine signal</td></tr>
+<tr><td><a href="#IntegerConstant"><code>IntegerConstant</code></a></td><td>Generate constant signal of type Integer</td></tr>
+<tr><td><a href="#IntegerExpression"><code>IntegerExpression</code></a></td><td>Set output signal to a time varying Integer expression</td></tr>
+<tr><td><a href="#IntegerStep"><code>IntegerStep</code></a></td><td>Generate step signal of type Integer</td></tr>
+<tr><td><a href="#IntegerTable"><code>IntegerTable</code></a></td><td>Generate an Integer output signal based on a table matrix with [time, yi] values</td></tr>
+<tr><td><a href="#KinematicPTP"><code>KinematicPTP</code></a></td><td>Move as fast as possible along a distance within given kinematic constraints</td></tr>
+<tr><td><a href="#KinematicPTP2"><code>KinematicPTP2</code></a></td><td>Move as fast as possible from start to end position within given kinematic constraints with output signals q, qd=der(q), qdd=der(qd)</td></tr>
+<tr><td><a href="#Pulse"><code>Pulse</code></a></td><td>Generate pulse signal of type Real</td></tr>
+<tr><td><a href="#RadioButtonSource"><code>RadioButtonSource</code></a></td><td>Boolean signal source that mimics a radio button</td></tr>
+<tr><td><a href="#Ramp"><code>Ramp</code></a></td><td>Generate ramp signal</td></tr>
+<tr><td><a href="#RealExpression"><code>RealExpression</code></a></td><td>Set output signal to a time varying Real expression</td></tr>
+<tr><td><a href="#SampleTrigger"><code>SampleTrigger</code></a></td><td>Generate sample trigger signal</td></tr>
+<tr><td><a href="#SawTooth"><code>SawTooth</code></a></td><td>Generate saw tooth signal</td></tr>
+<tr><td><a href="#Sine"><code>Sine</code></a></td><td>Generate sine signal</td></tr>
+<tr><td><a href="#Step"><code>Step</code></a></td><td>Generate step signal of type Real</td></tr>
+<tr><td><a href="#TimeTable"><code>TimeTable</code></a></td><td>Generate a (possibly discontinuous) signal by linear interpolation in a table</td></tr>
+<tr><td><a href="#Trapezoid"><code>Trapezoid</code></a></td><td>Generate trapezoidal signal of type Real</td></tr>
+</table>
+<hr><a name="RealExpression"><h2><embed class="icon" src="../../images/icon0260.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;RealExpression<br><span class="subtitle">Set output signal to a time varying Real expression</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The (time varying) Real output signal of this block can be defined in its
+parameter menu via variable <strong>y</strong>. The purpose is to support the
+easy definition of Real expressions in a block diagram. For example,
+in the y-menu the definition "if time &lt; 1 then 0 else 1" can be given in order
+to define that the output signal is one, if time &ge; 1 and otherwise
+it is zero. Note, that "time" is a built-in variable that is always
+accessible and represents the "model time" and that
+variable <strong>y</strong> is both a variable and a connector.
+</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Value of Real output</td></tr>
+</table>
+<hr><a name="IntegerExpression"><h2><embed class="icon" src="../../images/icon0261.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;IntegerExpression<br><span class="subtitle">Set output signal to a time varying Integer expression</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The (time varying) Integer output signal of this block can be defined in its
+parameter menu via variable <strong>y</strong>. The purpose is to support the
+easy definition of Integer expressions in a block diagram. For example,
+in the y-menu the definition "if time &lt; 1 then 0 else 1" can be given in order
+to define that the output signal is one, if time &ge; 1 and otherwise
+it is zero. Note, that "time" is a built-in variable that is always
+accessible and represents the "model time" and that
+variable <strong>y</strong> is both a variable and a connector.
+</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#IntegerOutput">IntegerOutput</a></code></td><td><code>y</code></td><td>Value of Integer output</td></tr>
+</table>
+<hr><a name="BooleanExpression"><h2><embed class="icon" src="../../images/icon0262.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;BooleanExpression<br><span class="subtitle">Set output signal to a time varying Boolean expression</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The (time varying) Boolean output signal of this block can be defined in its
+parameter menu via variable <strong>y</strong>. The purpose is to support the
+easy definition of Boolean expressions in a block diagram. For example,
+in the y-menu the definition "time &gt;= 1 and time &lt;= 2" can be given in order
+to define that the output signal is <strong>true</strong> in the time interval
+1 &le; time &le; 2 and otherwise it is <strong>false</strong>.
+Note, that "time" is a built-in variable that is always
+accessible and represents the "model time" and that
+variable <strong>y</strong> is both a variable and a connector.
+</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Value of Boolean output</td></tr>
+</table>
+<hr><a name="Clock"><h2><embed class="icon" src="../../images/icon0263.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;Clock<br><span class="subtitle">Generate actual time signal</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The Real output y is a clock signal:
+</p>
+
+<p>
+<img src="../../../Images/Blocks/Sources/Clock.png"
+     alt="Clock.png">
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#SignalSource">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;SignalSource</a></code> (Base class for continuous signal source).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>offset</code></td><td><code>0</code></td><td>Offset of output signal y</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Output y = offset for time &lt; startTime</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="Constant"><h2><embed class="icon" src="../../images/icon0264.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;Constant<br><span class="subtitle">Generate constant signal of type Real</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The Real output y is a constant signal:
+</p>
+
+<p>
+<img src="../../../Images/Blocks/Sources/Constant.png"
+     alt="Constant.png">
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#SO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;SO</a></code> (Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>k</code></td><td>&nbsp;</td><td>Constant output value</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="Step"><h2><embed class="icon" src="../../images/icon0265.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;Step<br><span class="subtitle">Generate step signal of type Real</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The Real output y is a step signal:
+</p>
+
+<p>
+<img src="../../../Images/Blocks/Sources/Step.png"
+     alt="Step.png">
+</p>
+
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#SignalSource">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;SignalSource</a></code> (Base class for continuous signal source).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>height</code></td><td><code>1</code></td><td>Height of step</td></tr>
+<tr><td><code>Real</code></td><td><code>offset</code></td><td><code>0</code></td><td>Offset of output signal y</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Output y = offset for time &lt; startTime</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="Ramp"><h2><embed class="icon" src="../../images/icon0266.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;Ramp<br><span class="subtitle">Generate ramp signal</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The Real output y is a ramp signal:
+</p>
+
+<p>
+<img src="../../../Images/Blocks/Sources/Ramp.png"
+     alt="Ramp.png">
+</p>
+
+<p>
+If parameter duration is set to 0.0, the limiting case of a Step signal is achieved.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#SignalSource">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;SignalSource</a></code> (Base class for continuous signal source).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>height</code></td><td><code>1</code></td><td>Height of ramps</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>duration</code></td><td>&nbsp;</td><td>Duration of ramp (= 0.0 gives a Step)</td></tr>
+<tr><td><code>Real</code></td><td><code>offset</code></td><td><code>0</code></td><td>Offset of output signal y</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Output y = offset for time &lt; startTime</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="Sine"><h2><embed class="icon" src="../../images/icon0267.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;Sine<br><span class="subtitle">Generate sine signal</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The Real output y is a sine signal:
+</p>
+
+<p>
+<img src="../../../Images/Blocks/Sources/Sine.png"
+     alt="Sine.png">
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#SignalSource">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;SignalSource</a></code> (Base class for continuous signal source).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>amplitude</code></td><td><code>1</code></td><td>Amplitude of sine wave</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>freqHz</code></td><td>&nbsp;</td><td>Frequency of sine wave</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Angle">Angle</a></code></td><td><code>phase</code></td><td><code>0</code></td><td>Phase of sine wave</td></tr>
+<tr><td><code>Real</code></td><td><code>offset</code></td><td><code>0</code></td><td>Offset of output signal y</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Output y = offset for time &lt; startTime</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="Cosine"><h2><embed class="icon" src="../../images/icon0268.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;Cosine<br><span class="subtitle">Generate cosine signal</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The Real output y is a cosine signal:
+</p>
+
+<p>
+<img src="../../../Images/Blocks/Sources/Cosine.png"
+     alt="Cosine.png">
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#SignalSource">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;SignalSource</a></code> (Base class for continuous signal source).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>amplitude</code></td><td><code>1</code></td><td>Amplitude of cosine wave</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>freqHz</code></td><td>&nbsp;</td><td>Frequency of cosine wave</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Angle">Angle</a></code></td><td><code>phase</code></td><td><code>0</code></td><td>Phase of cosine wave</td></tr>
+<tr><td><code>Real</code></td><td><code>offset</code></td><td><code>0</code></td><td>Offset of output signal y</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Output y = offset for time &lt; startTime</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="ExpSine"><h2><embed class="icon" src="../../images/icon0269.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;ExpSine<br><span class="subtitle">Generate exponentially damped sine signal</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The Real output y is a sine signal with exponentially changing amplitude:
+</p>
+
+<p>
+<img src="../../../Images/Blocks/Sources/ExpSine.png"
+     alt="ExpSine.png">
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#SignalSource">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;SignalSource</a></code> (Base class for continuous signal source).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>amplitude</code></td><td><code>1</code></td><td>Amplitude of sine wave</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>freqHz</code></td><td>&nbsp;</td><td>Frequency of sine wave</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Angle">Angle</a></code></td><td><code>phase</code></td><td><code>0</code></td><td>Phase of sine wave</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Damping">Damping</a></code></td><td><code>damping</code></td><td>&nbsp;</td><td>Damping coefficient of sine wave</td></tr>
+<tr><td><code>Real</code></td><td><code>offset</code></td><td><code>0</code></td><td>Offset of output signal y</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Output y = offset for time &lt; startTime</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="Exponentials"><h2><embed class="icon" src="../../images/icon0270.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;Exponentials<br><span class="subtitle">Generate a rising and falling exponential signal</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The Real output y is a rising exponential followed
+by a falling exponential signal:
+</p>
+
+<p>
+<img src="../../../Images/Blocks/Sources/Exponentials.png"
+     alt="Exponentials.png">
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#SignalSource">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;SignalSource</a></code> (Base class for continuous signal source).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>outMax</code></td><td><code>1</code></td><td>Height of output for infinite riseTime</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>riseTime</code></td><td>&nbsp;</td><td>Rise time</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>riseTimeConst</code></td><td><code>0.1</code></td><td>Rise time constant; rising is defined as outMax*(1-exp(-riseTime/riseTimeConst))</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>fallTimeConst</code></td><td><code>riseTimeConst</code></td><td>Fall time constant</td></tr>
+<tr><td><code>Real</code></td><td><code>offset</code></td><td><code>0</code></td><td>Offset of output signal y</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Output y = offset for time &lt; startTime</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="Pulse"><h2><embed class="icon" src="../../images/icon0271.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;Pulse<br><span class="subtitle">Generate pulse signal of type Real</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The Real output y is a pulse signal:
+</p>
+
+<p>
+<img src="../../../Images/Blocks/Sources/Pulse.png"
+     alt="Pulse.png">
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#SignalSource">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;SignalSource</a></code> (Base class for continuous signal source).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>amplitude</code></td><td><code>1</code></td><td>Amplitude of pulse</td></tr>
+<tr><td><code>Real</code></td><td><code>width</code></td><td><code>50</code></td><td>Width of pulse in % of period</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>period</code></td><td>&nbsp;</td><td>Time for one period</td></tr>
+<tr><td><code>Integer</code></td><td><code>nperiod</code></td><td><code>-1</code></td><td>Number of periods (&lt; 0 means infinite number of periods)</td></tr>
+<tr><td><code>Real</code></td><td><code>offset</code></td><td><code>0</code></td><td>Offset of output signal y</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Output y = offset for time &lt; startTime</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="SawTooth"><h2><embed class="icon" src="../../images/icon0272.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;SawTooth<br><span class="subtitle">Generate saw tooth signal</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The Real output y is a saw tooth signal:
+</p>
+
+<p>
+<img src="../../../Images/Blocks/Sources/SawTooth.png"
+     alt="SawTooth.png">
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#SignalSource">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;SignalSource</a></code> (Base class for continuous signal source).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>amplitude</code></td><td><code>1</code></td><td>Amplitude of saw tooth</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>period</code></td><td>&nbsp;</td><td>Time for one period</td></tr>
+<tr><td><code>Integer</code></td><td><code>nperiod</code></td><td><code>-1</code></td><td>Number of periods (&lt; 0 means infinite number of periods)</td></tr>
+<tr><td><code>Real</code></td><td><code>offset</code></td><td><code>0</code></td><td>Offset of output signal y</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Output y = offset for time &lt; startTime</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="Trapezoid"><h2><embed class="icon" src="../../images/icon0273.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;Trapezoid<br><span class="subtitle">Generate trapezoidal signal of type Real</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The Real output y is a trapezoid signal:
+</p>
+
+<p>
+<img src="../../../Images/Blocks/Sources/Trapezoid.png"
+     alt="Trapezoid">
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#SignalSource">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;SignalSource</a></code> (Base class for continuous signal source).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>amplitude</code></td><td><code>1</code></td><td>Amplitude of trapezoid</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>rising</code></td><td><code>0</code></td><td>Rising duration of trapezoid</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>width</code></td><td><code>0.5</code></td><td>Width duration of trapezoid</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>falling</code></td><td><code>0</code></td><td>Falling duration of trapezoid</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>period</code></td><td>&nbsp;</td><td>Time for one period</td></tr>
+<tr><td><code>Integer</code></td><td><code>nperiod</code></td><td><code>-1</code></td><td>Number of periods (&lt; 0 means infinite number of periods)</td></tr>
+<tr><td><code>Real</code></td><td><code>offset</code></td><td><code>0</code></td><td>Offset of output signal y</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Output y = offset for time &lt; startTime</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="KinematicPTP"><h2><embed class="icon" src="../../images/icon0274.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;KinematicPTP<br><span class="subtitle">Move as fast as possible along a distance within given kinematic constraints</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The goal is to move as <strong>fast</strong> as possible along a distance
+<strong>deltaq</strong>
+under given <strong>kinematical constraints</strong>. The distance can be a positional or
+angular range. In robotics such a movement is called <strong>PTP</strong> (Point-To-Point).
+This source block generates the <strong>acceleration</strong> qdd of this signal
+as output:
+</p>
+
+<p>
+<img src="../../../Images/Blocks/Sources/KinematicPTP.png"
+     alt="KinematicPTP.png">
+</p>
+
+<p>
+After integrating the output two times, the position q is
+obtained. The signal is constructed in such a way that it is not possible
+to move faster, given the <strong>maximally</strong> allowed <strong>velocity</strong> qd_max and
+the <strong>maximally</strong> allowed <strong>acceleration</strong> qdd_max.
+</p>
+<p>
+If several distances are given (vector deltaq has more than 1 element),
+an acceleration output vector is constructed such that all signals
+are in the same periods in the acceleration, constant velocity
+and deceleration phase. This means that only one of the signals
+is at its limits whereas the others are synchronized in such a way
+that the end point is reached at the same time instant.
+</p>
+
+<p>
+This element is useful to generate a reference signal for a controller
+which controls a drive train or in combination with model
+Modelica.Mechanics.Rotational.<strong>Accelerate</strong> to drive
+a flange according to a given acceleration.
+</p>
+
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#MO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;MO</a></code> (Multiple Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>deltaq[:]</code></td><td><code>{1}</code></td><td>Distance to move</td></tr>
+<tr><td><code>Real</code></td><td><code>qd_max[:]</code></td><td><code>{1}</code></td><td>Maximum velocities der(q)</td></tr>
+<tr><td><code>Real</code></td><td><code>qdd_max[:]</code></td><td><code>{1}</code></td><td>Maximum accelerations der(qd)</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Time instant at which movement starts</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nout</code></td><td><code>max([size(deltaq, 1); size(qd_max, 1); size(qdd_max, 1)])</code></td><td>Number of outputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[nout]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+<hr><a name="KinematicPTP2"><h2><embed class="icon" src="../../images/icon0275.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;KinematicPTP2<br><span class="subtitle">Move as fast as possible from start to end position within given kinematic constraints with output signals q, qd=der(q), qdd=der(qd)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The goal is to move as <strong>fast</strong> as possible from start position <strong>q_begin</strong>
+to end position <strong>q_end</strong>
+under given <strong>kinematical constraints</strong>. The positions can be translational or
+rotational definitions (i.e., q_begin/q_end is given). In robotics such a movement is called <strong>PTP</strong> (Point-To-Point).
+This source block generates the <strong>position</strong> q(t), the
+<strong>speed</strong> qd(t) = der(q), and the <strong>acceleration</strong> qdd = der(qd)
+as output. The signals are constructed in such a way that it is not possible
+to move faster, given the <strong>maximally</strong> allowed <strong>velocity</strong> qd_max and
+the <strong>maximally</strong> allowed <strong>acceleration</strong> qdd_max:
+</p>
+
+<p>
+<img src="../../../Images/Blocks/Sources/KinematicPTP2.png"
+     alt="KinematicPTP2.png">
+</p>
+
+<p>
+If vectors q_begin/q_end have more than 1 element,
+the output vectors are constructed such that all signals
+are in the same periods in the acceleration, constant velocity
+and deceleration phase. This means that only one of the signals
+is at its limits whereas the others are synchronized in such a way
+that the end point is reached at the same time instant.
+</p>
+
+<p>
+This element is useful to generate a reference signal for a controller
+which controls, e.g., a drive train, or to drive
+a flange according to a given acceleration.
+</p>
+
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>q_begin[:]</code></td><td><code>{0}</code></td><td>Start position</td></tr>
+<tr><td><code>Real</code></td><td><code>q_end[:]</code></td><td><code>{1}</code></td><td>End position</td></tr>
+<tr><td><code>Real</code></td><td><code>qd_max[:]</code></td><td><code>{1}</code></td><td>Maximum velocities der(q)</td></tr>
+<tr><td><code>Real</code></td><td><code>qdd_max[:]</code></td><td><code>{1}</code></td><td>Maximum accelerations der(qd)</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Time instant at which movement starts</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nout</code></td><td><code>max([size(q_begin, 1); size(q_end, 1); size(qd_max, 1); size(qdd_max, 1)])</code></td><td>Number of output signals (= dimension of q, qd, qdd, moving)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>q[nout]</code></td><td>Reference position of path planning</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>qd[nout]</code></td><td>Reference speed of path planning</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>qdd[nout]</code></td><td>Reference acceleration of path planning</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>moving[nout]</code></td><td>= true, if end position not yet reached; = false, if end position reached or axis is completely at rest</td></tr>
+</table>
+<hr><a name="TimeTable"><h2><embed class="icon" src="../../images/icon0276.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;TimeTable<br><span class="subtitle">Generate a (possibly discontinuous) signal by linear interpolation in a table</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block generates an output signal by <strong>linear interpolation</strong> in
+a table. The time points and function values are stored in a matrix
+<strong>table[i,j]</strong>, where the first column table[:,1] contains the
+time points and the second column contains the data to be interpolated.
+The table interpolation has the following properties:
+</p>
+<ul>
+<li>The interpolation interval is found by a linear search where the interval used in the
+    last call is used as start interval.</li>
+<li>The time points need to be <strong>monotonically increasing</strong>.</li>
+<li><strong>Discontinuities</strong> are allowed, by providing the same
+    time point twice in the table.</li>
+<li>Values <strong>outside</strong> of the table range, are computed by
+    <strong>extrapolation</strong> through the last or first two points of the
+    table.</li>
+<li>If the table has only <strong>one row</strong>, no interpolation is performed and
+    the function value is just returned independently of the actual time instant.</li>
+<li>Via parameters <strong>shiftTime</strong> and <strong>offset</strong> the curve defined
+    by the table can be shifted both in time and in the ordinate value.
+    The time instants stored in the table are therefore <strong>relative</strong>
+    to <strong>shiftTime</strong>.</li>
+<li>If time &lt; startTime, no interpolation is performed and the offset
+    is used as ordinate value for the output.</li>
+<li>If the table has more than one row, the first point in time <strong>always</strong> has to be set to <strong>0</strong>, e.g.,
+    <strong>table=[1,1;2,2]</strong> is <strong>illegal</strong>. If you want to
+    shift the time table in time use the <strong>shiftTime</strong> parameter instead.</li>
+<li>The table is implemented in a numerically sound way by
+    generating <strong>time events</strong> at interval boundaries.
+    This generates continuously differentiable values for the integrator.</li>
+<li>Via parameter <strong>timeScale</strong> the first column of the table array can
+    be scaled, e.g., if the table array is given in hours (instead of seconds)
+    <strong>timeScale</strong> shall be set to 3600.</li>
+</ul>
+<p>
+Example:
+</p>
+<pre>
+   table = [0, 0;
+            1, 0;
+            1, 1;
+            2, 4;
+            3, 9;
+            4, 16];
+If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
+    e.g., time = 1.5, the output y =  2.5,
+    e.g., time = 2.0, the output y =  4.0,
+    e.g., time = 5.0, the output y = 23.0 (i.e., extrapolation).
+</pre>
+
+<p>
+<img src="../../../Images/Blocks/Sources/TimeTable.png"
+     alt="TimeTable.png">
+</p>
+
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#SignalSource">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;SignalSource</a></code> (Base class for continuous signal source).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>table[:,2]</code></td><td><code>fill(0, 0, 2)</code></td><td>Table matrix (time = first column; e.g., table=[0, 0; 1, 1; 2, 4])</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>timeScale</code></td><td><code>1</code></td><td>Time scale of first table column</td></tr>
+<tr><td><code>Real</code></td><td><code>offset</code></td><td><code>0</code></td><td>Offset of output signal y</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Output y = offset for time &lt; startTime</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>shiftTime</code></td><td><code>startTime</code></td><td>Shift time of first table column</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="CombiTimeTable"><h2><embed class="icon" src="../../images/icon0277.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;CombiTimeTable<br><span class="subtitle">Table look-up with respect to time and linear/periodic extrapolation methods (data from matrix/file)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block generates an output signal y[:] by <strong>constant</strong>,
+<strong>linear</strong> or <strong>cubic Hermite spline interpolation</strong>
+in a table. The time points and function values are stored in a matrix
+<strong>table[i,j]</strong>, where the first column table[:,1] contains the
+time points and the other columns contain the data to be interpolated.
+</p>
+
+<p>
+<img src="../../../Images/Blocks/Sources/CombiTimeTable.png"
+     alt="CombiTimeTable.png">
+</p>
+
+<p>
+Via parameter <strong>columns</strong> it can be defined which columns of the
+table are interpolated. If, e.g., columns={2,4}, it is assumed that
+2 output signals are present and that the first output is computed
+by interpolation of column 2 and the second output is computed
+by interpolation of column 4 of the table matrix.
+The table interpolation has the following properties:
+</p>
+<ul>
+<li>The interpolation interval is found by a binary search where the interval used in the
+    last call is used as start interval.</li>
+<li>The time points need to be <strong>strictly increasing</strong> for cubic Hermite
+    spline interpolation, otherwise <strong>monotonically increasing</strong>.</li>
+<li><strong>Discontinuities</strong> are allowed for (constant or) linear interpolation,
+    by providing the same time point twice in the table.</li>
+<li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
+<pre>
+  smoothness = 1: Linear interpolation
+             = 2: Akima interpolation: Smooth interpolation by cubic Hermite
+                  splines such that der(y) is continuous, also if extrapolated.
+             = 3: Constant segments
+             = 4: Fritsch-Butland interpolation: Smooth interpolation by cubic
+                  Hermite splines such that y preserves the monotonicity and
+                  der(y) is continuous, also if extrapolated.
+             = 5: Steffen interpolation: Smooth interpolation by cubic Hermite
+                  splines such that y preserves the monotonicity and der(y)
+                  is continuous, also if extrapolated.
+</pre></li>
+<li>Values <strong>outside</strong> of the table range, are computed by
+    extrapolation according to the setting of parameter <strong>extrapolation</strong>:
+<pre>
+  extrapolation = 1: Hold the first or last value of the table,
+                     if outside of the table scope.
+                = 2: Extrapolate by using the derivative at the first/last table
+                     points if outside of the table scope.
+                     (If smoothness is LinearSegments or ConstantSegments
+                     this means to extrapolate linearly through the first/last
+                     two table points.).
+                = 3: Periodically repeat the table data (periodical function).
+                = 4: No extrapolation, i.e. extrapolation triggers an error
+</pre></li>
+<li>If the table has only <strong>one row</strong>, no interpolation is performed and
+    the table values of this row are just returned.</li>
+<li>Via parameters <strong>shiftTime</strong> and <strong>offset</strong> the curve defined
+    by the table can be shifted both in time and in the ordinate value.
+    The time instants stored in the table are therefore <strong>relative</strong>
+    to <strong>shiftTime</strong>.</li>
+<li>If time &lt; startTime, no interpolation is performed and the offset
+    is used as ordinate value for all outputs.</li>
+<li>The table is implemented in a numerically sound way by
+    generating <strong>time events</strong> at interval boundaries, in case of
+    interpolation by linear segments.
+    This generates continuously differentiable values for the integrator.
+    Via parameter <strong>timeEvents</strong> it is defined how the time events are generated:
+<pre>
+  timeEvents = 1: Always generate time events at interval boundaries
+             = 2: Generate time events at discontinuities (defined by duplicated sample points)
+             = 3: No time events at interval boundaries
+</pre>
+    For interpolation by constant segments time events are always generated at interval boundaries.
+    For smooth interpolation by cubic Hermite splines no time events are generated at interval boundaries.</li>
+<li>Via parameter <strong>timeScale</strong> the first column of the table array can
+    be scaled, e.g., if the table array is given in hours (instead of seconds)
+    <strong>timeScale</strong> shall be set to 3600.</li>
+<li>For special applications it is sometimes needed to know the minimum
+    and maximum time instant defined in the table as a parameter. For this
+    reason parameters <strong>t_min</strong>/<strong>t_minScaled</strong> and
+    <strong>t_max</strong>/<strong>t_maxScaled</strong> are provided and can be
+    accessed from the outside of the table object. Whereas <strong>t_min</strong> and
+    <strong>t_max</strong> define the scaled abscissa values (using parameter
+    <strong>timeScale</strong>) in SIunits.Time, <strong>t_minScaled</strong> and
+    <strong>t_maxScaled</strong> define the unitless original abscissa values of
+    the table.</li>
+</ul>
+<p>
+Example:
+</p>
+<pre>
+   table = [0, 0;
+            1, 0;
+            1, 1;
+            2, 4;
+            3, 9;
+            4, 16];
+   extrapolation = 2 (default), timeEvents = 2
+If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
+    e.g., time = 1.5, the output y =  2.5,
+    e.g., time = 2.0, the output y =  4.0,
+    e.g., time = 5.0, the output y = 23.0 (i.e., extrapolation via last 2 points).
+</pre>
+<p>
+The table matrix can be defined in the following ways:
+</p>
+<ol>
+<li>Explicitly supplied as <strong>parameter matrix</strong> "table",
+    and the other parameters have the following values:
+<pre>
+   tableName is "NoName" or has only blanks,
+   fileName  is "NoName" or has only blanks.
+</pre></li>
+<li><strong>Read</strong> from a <strong>file</strong> "fileName" where the matrix is stored as
+    "tableName". Both text and MATLAB MAT-file format is possible.
+    (The text format is described below).
+    The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
+    The library supports at least v4, v6 and v7 whereas v7.3 is optional.
+    It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
+    by command
+<pre>
+   save tables.mat tab1 tab2 tab3
+</pre>
+    or Scilab by command
+<pre>
+   savematfile tables.mat tab1 tab2 tab3
+</pre>
+    when the three tables tab1, tab2, tab3 should be used from the model.<br>
+    Note, a fileName can be defined as URI by using the helper function
+    <a href="../../Utilities/Files/index.html#loadResource">loadResource</a>.</li>
+<li>Statically stored in function "usertab" in file "usertab.c".
+    The matrix is identified by "tableName". Parameter
+    fileName = "NoName" or has only blanks. Row-wise storage is always to be
+    preferred as otherwise the table is reallocated and transposed.</li>
+</ol>
+<p>
+When the constant "NO_FILE_SYSTEM" is defined, all file I/O related parts of the
+source code are removed by the C-preprocessor, such that no access to files takes place.
+</p>
+<p>
+If tables are read from a text file, the file needs to have the
+following structure ("-----" is not part of the file content):
+</p>
+<pre>
+-----------------------------------------------------
+#1
+double tab1(6,2)   # comment line
+  0   0
+  1   0
+  1   1
+  2   4
+  3   9
+  4  16
+double tab2(6,2)   # another comment line
+  0   0
+  2   0
+  2   2
+  4   8
+  6  18
+  8  32
+-----------------------------------------------------
+</pre>
+<p>
+Note, that the first two characters in the file need to be
+"#1" (a line comment defining the version number of the file format).
+Afterwards, the corresponding matrix has to be declared
+with type (= "double" or "float"), name and actual dimensions.
+Finally, in successive rows of the file, the elements of the matrix
+have to be given. The elements have to be provided as a sequence of
+numbers in row-wise order (therefore a matrix row can span several
+lines in the file and need not start at the beginning of a line).
+Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
+Number separators are spaces, tab (\t), comma (,), or semicolon (;).
+Several matrices may be defined one after another. Line comments start
+with the hash symbol (#) and can appear everywhere.
+Text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the text file is ignored.
+Other characters, like trailing non comments, are not allowed in the file.
+</p>
+<p>
+MATLAB is a registered trademark of The MathWorks, Inc.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#MO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;MO</a></code> (Multiple Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nout</code></td><td><code>max([size(columns, 1); size(offset, 1)])</code></td><td>Number of outputs</td></tr>
+<tr><td><code>Boolean</code></td><td><code>tableOnFile</code></td><td><code>false</code></td><td>= true, if table is defined on file or in function usertab</td></tr>
+<tr><td><code>Real</code></td><td><code>table[:,:]</code></td><td><code>fill(0, 0, 2)</code></td><td>Table matrix (time = first column; e.g., table=[0, 0; 1, 1; 2, 4])</td></tr>
+<tr><td><code>String</code></td><td><code>tableName</code></td><td><code>"NoName"</code></td><td>Table name on file or in function usertab (see docu)</td></tr>
+<tr><td><code>String</code></td><td><code>fileName</code></td><td><code>"NoName"</code></td><td>File where matrix is stored</td></tr>
+<tr><td><code>Boolean</code></td><td><code>verboseRead</code></td><td><code>true</code></td><td>= true, if info message that file is loading is to be printed</td></tr>
+<tr><td><code>Integer</code></td><td><code>columns[:]</code></td><td><code>2:size(table, 2)</code></td><td>Columns of table to be interpolated</td></tr>
+<tr><td><code><a href="../../Blocks/Types/index.html#Smoothness">Smoothness</a></code></td><td><code>smoothness</code></td><td><code>Modelica.&#8203;Blocks.&#8203;Types.&#8203;Smoothness.&#8203;LinearSegments</code></td><td>Smoothness of table interpolation</td></tr>
+<tr><td><code><a href="../../Blocks/Types/index.html#Extrapolation">Extrapolation</a></code></td><td><code>extrapolation</code></td><td><code>Modelica.&#8203;Blocks.&#8203;Types.&#8203;Extrapolation.&#8203;LastTwoPoints</code></td><td>Extrapolation of data outside the definition range</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>timeScale</code></td><td><code>1</code></td><td>Time scale of first table column</td></tr>
+<tr><td><code>Real</code></td><td><code>offset[:]</code></td><td><code>{0}</code></td><td>Offsets of output signals</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Output = offset for time &lt; startTime</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>shiftTime</code></td><td><code>startTime</code></td><td>Shift time of first table column</td></tr>
+<tr><td><code><a href="../../Blocks/Types/index.html#TimeEvents">TimeEvents</a></code></td><td><code>timeEvents</code></td><td><code>Modelica.&#8203;Blocks.&#8203;Types.&#8203;TimeEvents.&#8203;Always</code></td><td>Time event handling of table interpolation</td></tr>
+<tr><td><code>Boolean</code></td><td><code>verboseExtrapolation</code></td><td><code>false</code></td><td>= true, if warning messages are to be printed if time is outside the table definition range</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>t_min</code></td><td><code>t_minScaled * timeScale</code></td><td>Minimum abscissa value defined in table</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>t_max</code></td><td><code>t_maxScaled * timeScale</code></td><td>Maximum abscissa value defined in table</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>t_minScaled</code></td><td><code>Internal.getTimeTableTmin(tableID)</code></td><td>Minimum (scaled) abscissa value defined in table</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>t_maxScaled</code></td><td><code>Internal.getTimeTableTmax(tableID)</code></td><td>Maximum (scaled) abscissa value defined in table</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[nout]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+<hr><a name="BooleanConstant"><h2><embed class="icon" src="../../images/icon0278.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;BooleanConstant<br><span class="subtitle">Generate constant signal of type Boolean</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The Boolean output y is a constant signal:
+</p>
+
+<p>
+<img src="../../../Images/Blocks/Sources/BooleanConstant.png"
+     alt="BooleanConstant.png">
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanSource">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanSource</a></code> (Partial source block (has 1 output Boolean signal and an appropriate default icon)).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>k</code></td><td><code>true</code></td><td>Constant output value</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="BooleanStep"><h2><embed class="icon" src="../../images/icon0279.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;BooleanStep<br><span class="subtitle">Generate step signal of type Boolean</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The Boolean output y is a step signal:
+</p>
+
+<p>
+<img src="../../../Images/Blocks/Sources/BooleanStep.png"
+     alt="BooleanStep.png">
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanSource">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanSource</a></code> (Partial source block (has 1 output Boolean signal and an appropriate default icon)).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Time instant of step start</td></tr>
+<tr><td><code>Boolean</code></td><td><code>startValue</code></td><td><code>false</code></td><td>Output before startTime</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="BooleanPulse"><h2><embed class="icon" src="../../images/icon0280.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;BooleanPulse<br><span class="subtitle">Generate pulse signal of type Boolean</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The Boolean output y is a pulse signal:
+</p>
+
+<p>
+<img src="../../../Images/Blocks/Sources/Pulse.png"
+     alt="Pulse.png">
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanSource">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanSource</a></code> (Partial source block (has 1 output Boolean signal and an appropriate default icon)).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>width</code></td><td><code>50</code></td><td>Width of pulse in % of period</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>period</code></td><td>&nbsp;</td><td>Time for one period</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Time instant of first pulse</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="SampleTrigger"><h2><embed class="icon" src="../../images/icon0281.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;SampleTrigger<br><span class="subtitle">Generate sample trigger signal</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The Boolean output y is a trigger signal where the output y is only <strong>true</strong>
+at sample times (defined by parameter <strong>period</strong>) and is otherwise
+<strong>false</strong>.
+</p>
+
+<p>
+<img src="../../../Images/Blocks/Sources/SampleTrigger.png"
+     alt="SampleTrigger.png">
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanSource">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanSource</a></code> (Partial source block (has 1 output Boolean signal and an appropriate default icon)).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>period</code></td><td>&nbsp;</td><td>Sample period</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Time instant of first sample trigger</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="BooleanTable"><h2><embed class="icon" src="../../images/icon0282.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;BooleanTable<br><span class="subtitle">Generate a Boolean output signal based on a vector of time instants</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The Boolean output y is a signal defined by parameter vector <strong>table</strong>.
+In the vector time points are stored.
+The table interpolation has the following properties:
+</p>
+
+<ul>
+<li>At every time point, the output y
+    changes its value to the negated value of the previous one.</li>
+<li>Values <strong>outside</strong> of the table range, are computed by
+    extrapolation according to the setting of parameter <strong>extrapolation</strong>:
+<pre>
+  extrapolation = 1: Hold the <strong>startValue</strong> or last value of the table,
+                     if outside of the table scope.
+                = 2: Extrapolate by using the derivative at the first/last table
+                     points if outside of the table scope.
+                     (This setting is not suitable and triggers an assert.)
+                = 3: Periodically repeat the table data (periodical function).
+                = 4: No extrapolation, i.e. extrapolation triggers an error
+</pre></li>
+<li>Via parameter <strong>shiftTime</strong> the curve defined by the table can be shifted
+    in time.
+    The time instants stored in the table are therefore <strong>relative</strong>
+    to <strong>shiftTime</strong>.</li>
+<li>If time &lt; startTime, no interpolation is performed and <strong>false</strong>
+    is used as ordinate value for the output.</li>
+</ul>
+
+<p>
+<img src="../../../Images/Blocks/Sources/BooleanTable.png"
+     alt="BooleanTable.png">
+</p>
+
+<p>
+The precise semantics is:
+</p>
+
+<pre>
+  <strong>if</strong> size(table,1) == 0 <strong>then</strong>
+     y = startValue;
+  <strong>else</strong>
+     //            time &lt; table[1]: y = startValue
+     // table[1] &le; time &lt; table[2]: y = not startValue
+     // table[2] &le; time &lt; table[3]: y = startValue
+     // table[3] &le; time &lt; table[4]: y = not startValue
+     // ...
+  <strong>end if</strong>;
+</pre>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#partialBooleanSO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;partialBooleanSO</a></code> (Partial block with 1 output Boolean signal).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>table[:]</code></td><td><code>{0, 1}</code></td><td>Vector of time points. At every time point, the output y gets its opposite value (e.g., table={0,1})</td></tr>
+<tr><td><code>Boolean</code></td><td><code>startValue</code></td><td><code>false</code></td><td>Start value of y. At time = table[1], y changes to 'not startValue'</td></tr>
+<tr><td><code><a href="../../Blocks/Types/index.html#Extrapolation">Extrapolation</a></code></td><td><code>extrapolation</code></td><td><code>Modelica.&#8203;Blocks.&#8203;Types.&#8203;Extrapolation.&#8203;HoldLastPoint</code></td><td>Extrapolation of data outside the definition range</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>-Modelica.Constants.inf</code></td><td>Output = false for time &lt; startTime</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>shiftTime</code></td><td><code>0</code></td><td>Shift time of table</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="RadioButtonSource"><h2><embed class="icon" src="../../images/icon0283.svg" width="233" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;RadioButtonSource<br><span class="subtitle">Boolean signal source that mimics a radio button</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Boolean signal source that mimics a radio button:
+Via a table, a radio button is pressed (i.e., the output 'on' is set to true) and is reset when an element of the Boolean vector
+'reset' becomes true. If both appear at the same time instant, setting
+the button according to the table has a higher priority as resetting
+the button. Example:
+</p>
+
+<pre>
+  RadioButtonSource start(buttonTimeTable={1,3}, reset={stop.on});
+  RadioButtonSource stop (buttonTimeTable={2,4}, reset={start.on});
+</pre>
+
+<p>
+The "start" button is pressed at time=1 s and time=3 s,
+whereas the "stop" button is pressed at time=2 s and time=4 s.
+This gives the following result:
+</p>
+
+<blockquote>
+<img src="../../../Images/Blocks/Sources/RadioButtonSource.png"
+     alt="RadioButtonSource.png">
+</blockquote>
+
+<p>
+This example is also available in
+<a href="../../Blocks/Examples/index.html#Interaction1">Modelica.Blocks.Examples.Interaction1</a>
+</p>
+
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>buttonTimeTable[:]</code></td><td><code>{0, 1}</code></td><td>Time instants where button is pressed</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>on</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="IntegerConstant"><h2><embed class="icon" src="../../images/icon0284.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;IntegerConstant<br><span class="subtitle">Generate constant signal of type Integer</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The Integer output y is a constant signal:
+</p>
+
+<p>
+<img src="../../../Images/Blocks/Sources/IntegerConstant.png"
+     alt="IntegerConstant.png">
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#IntegerSO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;IntegerSO</a></code> (Single Integer Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>k</code></td><td>&nbsp;</td><td>Constant output value</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#IntegerOutput">IntegerOutput</a></code></td><td><code>y</code></td><td>Connector of Integer output signal</td></tr>
+</table>
+<hr><a name="IntegerStep"><h2><embed class="icon" src="../../images/icon0285.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;IntegerStep<br><span class="subtitle">Generate step signal of type Integer</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The Integer output y is a step signal:
+</p>
+
+<p>
+<img src="../../../Images/Blocks/Sources/IntegerStep.png"
+     alt="IntegerStep.png">
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#IntegerSignalSource">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;IntegerSignalSource</a></code> (Base class for continuous Integer signal source).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>height</code></td><td><code>1</code></td><td>Height of step</td></tr>
+<tr><td><code>Integer</code></td><td><code>offset</code></td><td><code>0</code></td><td>Offset of output signal y</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Output y = offset for time &lt; startTime</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#IntegerOutput">IntegerOutput</a></code></td><td><code>y</code></td><td>Connector of Integer output signal</td></tr>
+</table>
+<hr><a name="IntegerTable"><h2><embed class="icon" src="../../images/icon0286.svg" width="223" height="203" />
+Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Sources</a>.&#8203;IntegerTable<br><span class="subtitle">Generate an Integer output signal based on a table matrix with [time, yi] values</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+This block generates an Integer output signal by using a table.
+The time points and y-values are stored in a matrix
+<strong>table[i,j]</strong>, where the first column table[:,1] contains the
+Real time points and the second column contains the Integer value of the
+output y at this time point.
+The table interpolation has the following properties:
+</p>
+
+<ul>
+<li>An assert is triggered, if no table values are provided, if the
+    time points are not strict monotonically increasing, or if
+    the second column of the table matrix does not contain Integer values.</li>
+<li>Values <strong>outside</strong> of the table range, are computed by
+    extrapolation according to the setting of parameter <strong>extrapolation</strong>:
+<pre>
+  extrapolation = 1: Hold the first or last value of the table,
+                     if outside of the table scope.
+                = 2: Extrapolate by using the derivative at the first/last table
+                     points if outside of the table scope.
+                     (This setting is not suitable and triggers an assert.)
+                = 3: Periodically repeat the table data (periodical function).
+                = 4: No extrapolation, i.e. extrapolation triggers an error
+</pre></li>
+<li>If the table has only <strong>one row</strong>, no interpolation is performed and
+    the table values of this row are just returned.</li>
+<li>Via parameter <strong>shiftTime</strong> the curve defined by the table can be shifted
+    in time.
+    The time instants stored in the table are therefore <strong>relative</strong>
+    to <strong>shiftTime</strong>.</li>
+<li>If time &lt; startTime, no interpolation is performed and zero
+    is used as ordinate value for the output.</li>
+</ul>
+
+<p>
+Example:
+</p>
+<pre>
+   table = [  0, 1;
+              1, 4;
+            1.5, 5;
+              2, 6];
+</pre>
+<p>
+results in the following output:
+</p>
+
+<blockquote><p>
+<img src="../../../Images/Blocks/Sources/IntegerTable.png"
+     alt="IntegerTable.png">
+</p></blockquote>
+
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#IntegerSO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;IntegerSO</a></code> (Single Integer Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>table[:,2]</code></td><td><code>fill(0, 0, 2)</code></td><td>Table matrix (first column: time; second column: y)</td></tr>
+<tr><td><code><a href="../../Blocks/Types/index.html#Extrapolation">Extrapolation</a></code></td><td><code>extrapolation</code></td><td><code>Modelica.&#8203;Blocks.&#8203;Types.&#8203;Extrapolation.&#8203;HoldLastPoint</code></td><td>Extrapolation of data outside the definition range</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>-Modelica.Constants.inf</code></td><td>Output = 0 for time &lt; startTime</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>shiftTime</code></td><td><code>0</code></td><td>Shift time of first table column</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#IntegerOutput">IntegerOutput</a></code></td><td><code>y</code></td><td>Connector of Integer output signal</td></tr>
+</table>
+</body></html>

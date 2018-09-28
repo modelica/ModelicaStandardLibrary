@@ -1,0 +1,267 @@
+<html><head><title>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="SynchronousMachines"><h1><embed class="icon" src="../../../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">QuasiStatic</a>.&#8203;<a href="../../index.html">FundamentalWave</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;SynchronousMachines<br><span class="subtitle">Quasi static synchronous machines</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>Standard package icon.</p>
+<p>Extends from <code><a href="../../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#SM_ElectricalExcited"><code>SM_ElectricalExcited</code></a></td><td>Electrical excited synchronous machine with optional damper cage</td></tr>
+<tr><td><a href="#SM_PermanentMagnet"><code>SM_PermanentMagnet</code></a></td><td>Permanent magnet synchronous machine with optional damper cage</td></tr>
+<tr><td><a href="#SM_ReluctanceRotor"><code>SM_ReluctanceRotor</code></a></td><td>Synchronous reluctance machine with optional damper cage</td></tr>
+</table>
+<hr><a name="SM_PermanentMagnet"><h2><embed class="icon" src="../../../../../images/icon1028.svg" width="257" height="233" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">QuasiStatic</a>.&#8203;<a href="../../index.html">FundamentalWave</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">SynchronousMachines</a>.&#8203;SM_PermanentMagnet<br><span class="subtitle">Permanent magnet synchronous machine with optional damper cage</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Resistances and stray inductances of the machine refer to an <code>m</code> phase stator. The symmetry of the stator and the supply are assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
+</p>
+
+<ul>
+<li>heat losses in the temperature dependent stator winding resistances</li>
+<li>optional, when enabled: heat losses in the temperature dependent damper cage resistances</li>
+<li>friction losses</li>
+<li>core losses (only eddy current losses, no hysteresis losses)</li>
+<li>stray load losses</li>
+<li>permanent magnet losses</li>
+</ul>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/BasicMachines/SynchronousMachines/index.html#SM_ElectricalExcited">
+SM_ElectricalExcited</a>,
+<a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/BasicMachines/SynchronousMachines/index.html#SM_ReluctanceRotor">
+SM_ReluctanceRotor</a>,
+<a href="../../../../../Magnetic/FundamentalWave/BasicMachines/SynchronousInductionMachines/index.html#SM_PermanentMagnet">
+Magnetic.FundamentalWave.BasicMachines.SM_PermanentMagnet</a>,
+<a href="../../../../../Magnetic/FundamentalWave/BasicMachines/SynchronousInductionMachines/index.html#SM_ElectricalExcited">
+Magnetic.FundamentalWave.BasicMachines.SM_ElectricalExcited</a>,
+<a href="../../../../../Magnetic/FundamentalWave/BasicMachines/SynchronousInductionMachines/index.html#SM_ReluctanceRotor">
+Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
+</p>
+<p>Extends from <code><a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/BasicMachines/BaseClasses/index.html#PartialBasicMachine">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FundamentalWave.&#8203;BasicMachines.&#8203;BaseClasses.&#8203;PartialBasicMachine</a></code> (Partial model for quasi static multi phase machines).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of stator phases</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Jr</code></td><td>&nbsp;</td><td>Rotor inertia</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useSupport</code></td><td><code>false</code></td><td>Enable / disable (=fixed stator) support</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Js</code></td><td>&nbsp;</td><td>Stator inertia</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useThermalPort</code></td><td><code>false</code></td><td>Enable / disable (=fixed temperatures) thermal port</td></tr>
+<tr><td><code>Integer</code></td><td><code>p</code></td><td>&nbsp;</td><td>Number of pole pairs (Integer)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fsNominal</code></td><td>&nbsp;</td><td>Nominal frequency</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TsOperational</code></td><td>&nbsp;</td><td>Operational temperature of stator resistance</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rs</code></td><td>&nbsp;</td><td>Stator resistance per phase at TRef</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TsRef</code></td><td>&nbsp;</td><td>Reference temperature of stator resistance</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20s</code></td><td>&nbsp;</td><td>Temperature coefficient of stator resistance at 20 degC</td></tr>
+<tr><td><code>Real</code></td><td><code>effectiveStatorTurns</code></td><td><code>1</code></td><td>Effective number of stator turns</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lssigma</code></td><td>&nbsp;</td><td>Stator stray inductance per phase</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/FundamentalWave/Types/index.html#SalientInductance">SalientInductance</a></code></td><td><code>L0</code></td><td>&nbsp;</td><td>Salient inductance of an unchorded coil</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Losses/index.html#FrictionParameters">FrictionParameters</a></code></td><td><code>frictionParameters</code></td><td>&nbsp;</td><td>Friction loss parameter record</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Losses/index.html#CoreParameters">CoreParameters</a></code></td><td><code>statorCoreParameters</code></td><td>&nbsp;</td><td>Stator core loss parameter record; all parameters refer to stator side</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Losses/index.html#StrayLoadParameters">StrayLoadParameters</a></code></td><td><code>strayLoadParameters</code></td><td>&nbsp;</td><td>Stray load loss parameter record</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lmd</code></td><td>&nbsp;</td><td>Stator main field inductance per phase, d-axis</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lmq</code></td><td>&nbsp;</td><td>Stator main field inductance per phase, q-axis</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useDamperCage</code></td><td>&nbsp;</td><td>Enable/disable damper cage</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lrsigmad</code></td><td>&nbsp;</td><td>Rotor leakage inductance, d-axis, w.r.t. stator side</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lrsigmaq</code></td><td><code>Lrsigmad</code></td><td>Rotor leakage inductance, q-axis, w.r.t. stator side</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rrd</code></td><td>&nbsp;</td><td>Rotor resistance, d-axis, w.r.t. stator side</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rrq</code></td><td><code>Rrd</code></td><td>Rotor resistance , q-axis, w.r.t. stator side</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TrRef</code></td><td>&nbsp;</td><td>Reference temperature of damper resistances in d- and q-axis</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20r</code></td><td>&nbsp;</td><td>Temperature coefficient of damper resistances in d- and q-axis</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TpmOperational</code></td><td><code>293.15</code></td><td>Operational temperature of permanent magnet</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TrOperational</code></td><td>&nbsp;</td><td>Operational temperature of (optional) damper cage</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VsOpenCircuit</code></td><td>&nbsp;</td><td>Open circuit RMS voltage per phase @ fsNominal</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Losses/index.html#PermanentMagnetLossParameters">PermanentMagnetLossParameters</a></code></td><td><code>permanentMagnetLossParameters</code></td><td>&nbsp;</td><td>Permanent magnet loss parameter record</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>Shaft</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>support</code></td><td>Support at which the reaction torque is acting</td></tr>
+<tr><td><code><a href="../../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_sp</code></td><td>Positive plug of stator</td></tr>
+<tr><td><code><a href="../../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_sn</code></td><td>Negative plug of stator</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Interfaces/InductionMachines/index.html#ThermalPortSMPM">ThermalPortSMPM</a></code></td><td><code>thermalPort</code></td><td>Thermal port of induction machines</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Interfaces/InductionMachines/index.html#ThermalPortSMPM">ThermalPortSMPM</a></code></td><td><code>internalThermalPort</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/Rotational/Interfaces/index.html#Support">Support</a></code></td><td><code>internalSupport</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>ir[2]</code></td><td>Damper cage currents</td></tr>
+</table>
+<hr><a name="SM_ElectricalExcited"><h2><embed class="icon" src="../../../../../images/icon1029.svg" width="257" height="233" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">QuasiStatic</a>.&#8203;<a href="../../index.html">FundamentalWave</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">SynchronousMachines</a>.&#8203;SM_ElectricalExcited<br><span class="subtitle">Electrical excited synchronous machine with optional damper cage</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Resistances and stray inductances of the machine refer to an <code>m</code> phase stator. The symmetry of the stator and the supply are assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
+</p>
+
+<ul>
+<li>heat losses in the temperature dependent stator winding resistances</li>
+<li>heat losses in the temperature dependent excitation winding resistance</li>
+<li>optional, when enabled: heat losses in the temperature dependent damper cage resistances</li>
+<li>brush losses in the excitation circuit</li>
+<li>friction losses</li>
+<li>core losses (only eddy current losses, no hysteresis losses)</li>
+<li>stray load losses</li>
+</ul>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/BasicMachines/SynchronousMachines/index.html#SM_PermanentMagnet">
+SM_PermanentMagnet</a>,
+<a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/BasicMachines/SynchronousMachines/index.html#SM_ReluctanceRotor">
+SM_ReluctanceRotor</a>,
+<a href="../../../../../Magnetic/FundamentalWave/BasicMachines/SynchronousInductionMachines/index.html#SM_PermanentMagnet">
+Magnetic.FundamentalWave.BasicMachines.SM_PermanentMagnet</a>,
+<a href="../../../../../Magnetic/FundamentalWave/BasicMachines/SynchronousInductionMachines/index.html#SM_ElectricalExcited">
+Magnetic.FundamentalWave.BasicMachines.SM_ElectricalExcited</a>,
+<a href="../../../../../Magnetic/FundamentalWave/BasicMachines/SynchronousInductionMachines/index.html#SM_ReluctanceRotor">
+Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
+</p>
+<p>Extends from <code><a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/BasicMachines/BaseClasses/index.html#PartialBasicMachine">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FundamentalWave.&#8203;BasicMachines.&#8203;BaseClasses.&#8203;PartialBasicMachine</a></code> (Partial model for quasi static multi phase machines).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of stator phases</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Jr</code></td><td>&nbsp;</td><td>Rotor inertia</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useSupport</code></td><td><code>false</code></td><td>Enable / disable (=fixed stator) support</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Js</code></td><td>&nbsp;</td><td>Stator inertia</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useThermalPort</code></td><td><code>false</code></td><td>Enable / disable (=fixed temperatures) thermal port</td></tr>
+<tr><td><code>Integer</code></td><td><code>p</code></td><td>&nbsp;</td><td>Number of pole pairs (Integer)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fsNominal</code></td><td>&nbsp;</td><td>Nominal frequency</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TsOperational</code></td><td>&nbsp;</td><td>Operational temperature of stator resistance</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rs</code></td><td>&nbsp;</td><td>Stator resistance per phase at TRef</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TsRef</code></td><td>&nbsp;</td><td>Reference temperature of stator resistance</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20s</code></td><td>&nbsp;</td><td>Temperature coefficient of stator resistance at 20 degC</td></tr>
+<tr><td><code>Real</code></td><td><code>effectiveStatorTurns</code></td><td><code>1</code></td><td>Effective number of stator turns</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lssigma</code></td><td>&nbsp;</td><td>Stator stray inductance per phase</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/FundamentalWave/Types/index.html#SalientInductance">SalientInductance</a></code></td><td><code>L0</code></td><td>&nbsp;</td><td>Salient inductance of an unchorded coil</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Losses/index.html#FrictionParameters">FrictionParameters</a></code></td><td><code>frictionParameters</code></td><td>&nbsp;</td><td>Friction loss parameter record</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Losses/index.html#CoreParameters">CoreParameters</a></code></td><td><code>statorCoreParameters</code></td><td>&nbsp;</td><td>Stator core loss parameter record; all parameters refer to stator side</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Losses/index.html#StrayLoadParameters">StrayLoadParameters</a></code></td><td><code>strayLoadParameters</code></td><td>&nbsp;</td><td>Stray load loss parameter record</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lmd</code></td><td>&nbsp;</td><td>Stator main field inductance per phase, d-axis</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lmq</code></td><td>&nbsp;</td><td>Stator main field inductance per phase, q-axis</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useDamperCage</code></td><td>&nbsp;</td><td>Enable/disable damper cage</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lrsigmad</code></td><td>&nbsp;</td><td>Rotor leakage inductance, d-axis, w.r.t. stator side</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lrsigmaq</code></td><td><code>Lrsigmad</code></td><td>Rotor leakage inductance, q-axis, w.r.t. stator side</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rrd</code></td><td>&nbsp;</td><td>Rotor resistance, d-axis, w.r.t. stator side</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rrq</code></td><td><code>Rrd</code></td><td>Rotor resistance , q-axis, w.r.t. stator side</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TrRef</code></td><td>&nbsp;</td><td>Reference temperature of damper resistances in d- and q-axis</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20r</code></td><td>&nbsp;</td><td>Temperature coefficient of damper resistances in d- and q-axis</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TrOperational</code></td><td>&nbsp;</td><td>Operational temperature of (optional) damper cage</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TeOperational</code></td><td>&nbsp;</td><td>Operational excitation temperature</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VsNominal</code></td><td>&nbsp;</td><td>Nominal stator voltage</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Current">Current</a></code></td><td><code>IeOpenCircuit</code></td><td>&nbsp;</td><td>Open circuit excitation current @ nominal voltage and frequency</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Re</code></td><td>&nbsp;</td><td>Warm excitation resistance</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TeRef</code></td><td>&nbsp;</td><td>Reference temperature of excitation resistance</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20e</code></td><td>&nbsp;</td><td>Temperature coefficient of excitation resistance</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Losses/index.html#BrushParameters">BrushParameters</a></code></td><td><code>brushParameters</code></td><td>&nbsp;</td><td>Brush loss parameter record</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>Shaft</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>support</code></td><td>Support at which the reaction torque is acting</td></tr>
+<tr><td><code><a href="../../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_sp</code></td><td>Positive plug of stator</td></tr>
+<tr><td><code><a href="../../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_sn</code></td><td>Negative plug of stator</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Interfaces/InductionMachines/index.html#ThermalPortSMEE">ThermalPortSMEE</a></code></td><td><code>thermalPort</code></td><td>Thermal port of induction machines</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Interfaces/InductionMachines/index.html#ThermalPortSMEE">ThermalPortSMEE</a></code></td><td><code>internalThermalPort</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/Rotational/Interfaces/index.html#Support">Support</a></code></td><td><code>internalSupport</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>ir[2]</code></td><td>Damper cage currents</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_ep</code></td><td>Positive pin of excitation</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_en</code></td><td>Negative pin of excitation</td></tr>
+</table>
+<hr><a name="SM_ReluctanceRotor"><h2><embed class="icon" src="../../../../../images/icon1030.svg" width="257" height="233" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Magnetic</a>.&#8203;<a href="../../../index.html">QuasiStatic</a>.&#8203;<a href="../../index.html">FundamentalWave</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">SynchronousMachines</a>.&#8203;SM_ReluctanceRotor<br><span class="subtitle">Synchronous reluctance machine with optional damper cage</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Resistances and stray inductances of the machine refer to an <code>m</code> phase stator. The symmetry of the stator and the supply are assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
+</p>
+
+<ul>
+<li>heat losses in the temperature dependent stator winding resistances</li>
+<li>optional, when enabled: heat losses in the temperature dependent damper cage resistances</li>
+<li>friction losses</li>
+<li>core losses (only eddy current losses, no hysteresis losses)</li>
+<li>stray load losses</li>
+</ul>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/BasicMachines/SynchronousMachines/index.html#SM_PermanentMagnet">
+SM_PermanentMagnet</a>,
+<a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/BasicMachines/SynchronousMachines/index.html#SM_ElectricalExcited">
+SM_ElectricalExcited</a>,
+<a href="../../../../../Magnetic/FundamentalWave/BasicMachines/SynchronousInductionMachines/index.html#SM_PermanentMagnet">
+Magnetic.FundamentalWave.BasicMachines.SM_PermanentMagnet</a>,
+<a href="../../../../../Magnetic/FundamentalWave/BasicMachines/SynchronousInductionMachines/index.html#SM_ElectricalExcited">
+Magnetic.FundamentalWave.BasicMachines.SM_ElectricalExcited</a>,
+<a href="../../../../../Magnetic/FundamentalWave/BasicMachines/SynchronousInductionMachines/index.html#SM_ReluctanceRotor">
+Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
+</p>
+<p>Extends from <code><a href="../../../../../Magnetic/QuasiStatic/FundamentalWave/BasicMachines/BaseClasses/index.html#PartialBasicMachine">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FundamentalWave.&#8203;BasicMachines.&#8203;BaseClasses.&#8203;PartialBasicMachine</a></code> (Partial model for quasi static multi phase machines).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of stator phases</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Jr</code></td><td>&nbsp;</td><td>Rotor inertia</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useSupport</code></td><td><code>false</code></td><td>Enable / disable (=fixed stator) support</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>Js</code></td><td>&nbsp;</td><td>Stator inertia</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useThermalPort</code></td><td><code>false</code></td><td>Enable / disable (=fixed temperatures) thermal port</td></tr>
+<tr><td><code>Integer</code></td><td><code>p</code></td><td>&nbsp;</td><td>Number of pole pairs (Integer)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fsNominal</code></td><td>&nbsp;</td><td>Nominal frequency</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TsOperational</code></td><td>&nbsp;</td><td>Operational temperature of stator resistance</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rs</code></td><td>&nbsp;</td><td>Stator resistance per phase at TRef</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TsRef</code></td><td>&nbsp;</td><td>Reference temperature of stator resistance</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20s</code></td><td>&nbsp;</td><td>Temperature coefficient of stator resistance at 20 degC</td></tr>
+<tr><td><code>Real</code></td><td><code>effectiveStatorTurns</code></td><td><code>1</code></td><td>Effective number of stator turns</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lssigma</code></td><td>&nbsp;</td><td>Stator stray inductance per phase</td></tr>
+<tr><td><code><a href="../../../../../Magnetic/FundamentalWave/Types/index.html#SalientInductance">SalientInductance</a></code></td><td><code>L0</code></td><td>&nbsp;</td><td>Salient inductance of an unchorded coil</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Losses/index.html#FrictionParameters">FrictionParameters</a></code></td><td><code>frictionParameters</code></td><td>&nbsp;</td><td>Friction loss parameter record</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Losses/index.html#CoreParameters">CoreParameters</a></code></td><td><code>statorCoreParameters</code></td><td>&nbsp;</td><td>Stator core loss parameter record; all parameters refer to stator side</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Losses/index.html#StrayLoadParameters">StrayLoadParameters</a></code></td><td><code>strayLoadParameters</code></td><td>&nbsp;</td><td>Stray load loss parameter record</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lmd</code></td><td>&nbsp;</td><td>Stator main field inductance per phase, d-axis</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lmq</code></td><td>&nbsp;</td><td>Stator main field inductance per phase, q-axis</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useDamperCage</code></td><td>&nbsp;</td><td>Enable/disable damper cage</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lrsigmad</code></td><td>&nbsp;</td><td>Rotor leakage inductance, d-axis, w.r.t. stator side</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>Lrsigmaq</code></td><td><code>Lrsigmad</code></td><td>Rotor leakage inductance, q-axis, w.r.t. stator side</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rrd</code></td><td>&nbsp;</td><td>Rotor resistance, d-axis, w.r.t. stator side</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Rrq</code></td><td><code>Rrd</code></td><td>Rotor resistance , q-axis, w.r.t. stator side</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TrRef</code></td><td>&nbsp;</td><td>Reference temperature of damper resistances in d- and q-axis</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Thermal/index.html#LinearTemperatureCoefficient20">LinearTemperatureCoefficient20</a></code></td><td><code>alpha20r</code></td><td>&nbsp;</td><td>Temperature coefficient of damper resistances in d- and q-axis</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>TrOperational</code></td><td>&nbsp;</td><td>Operational temperature of (optional) damper cage</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>Shaft</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>support</code></td><td>Support at which the reaction torque is acting</td></tr>
+<tr><td><code><a href="../../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_sp</code></td><td>Positive plug of stator</td></tr>
+<tr><td><code><a href="../../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_sn</code></td><td>Negative plug of stator</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Interfaces/InductionMachines/index.html#ThermalPortSMR">ThermalPortSMR</a></code></td><td><code>thermalPort</code></td><td>Thermal port of induction machines</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Machines/Interfaces/InductionMachines/index.html#ThermalPortSMR">ThermalPortSMR</a></code></td><td><code>internalThermalPort</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Mechanics/Rotational/Interfaces/index.html#Support">Support</a></code></td><td><code>internalSupport</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>ir[2]</code></td><td>Damper cage currents</td></tr>
+</table>
+</body></html>

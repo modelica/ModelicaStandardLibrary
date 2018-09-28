@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Annotations.dateModified</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Annotations.html">Annotations</a>.<span class="omc-h1">dateModified</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>UTC date and time of the latest change to the package in the
+following format (with one space between date and time):<br />
+&nbsp;&nbsp;<code>YYYY-MM-DD hh:mm:ssZ</code></p>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+<strong>annotation</strong>"(" dateModified "=" STRING ")"
+</pre></blockquote>
+<h4>Description</h4>
+<p>“<code>dateModified</code>” is the UTC date and time (according
+to <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>) of
+the last modification of the package. <em>The intention is that a
+Modelica tool updates this annotation whenever the package or part
+of it was modified and is saved on persistent storage (like file or
+database system).</em></p>
+<h4>Examples</h4>
+<pre>
+<strong>package</strong> Modelica
+  <strong>annotation</strong>(version      = "3.0.1",
+             versionDate  = "2008-04-10",
+             <em>dateModified = "2009-02-15 16:33:14Z"</em>,
+             revisionId   = "c04e23a0d 2018-08-01 12:00:00 +0200");
+  ...
+  <strong>end</strong> Modelica;
+</pre>
+<h5>Related annotations:</h5>
+<ul>
+<li><a href="ModelicaReference.Annotations.revisionId.html">revisionId</a></li>
+<li><a href="ModelicaReference.Annotations.uses.html">uses</a></li>
+<li><a href="ModelicaReference.Annotations.version.html">version</a></li>
+<li><a href="ModelicaReference.Annotations.versionDate.html">versionDate</a></li>
+</ul>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

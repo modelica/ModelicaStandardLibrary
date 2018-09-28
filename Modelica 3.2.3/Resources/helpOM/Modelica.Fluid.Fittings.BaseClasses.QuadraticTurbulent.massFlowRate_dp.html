@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.massFlowRate_dp</title>
+</head>
+<body>
+<h1><a href="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg"><img class="svgiconhead" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.html">Fittings</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.BaseClasses.html">BaseClasses</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.html">QuadraticTurbulent</a>.<span class="omc-h1">massFlowRate_dp</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Compute mass flow rate from constant loss factor and pressure
+drop (m_flow = f(dp)). For small pressure drops (dp &lt; dp_small),
+the characteristic is approximated by a polynomial in order to have
+a finite derivative at zero mass flow rate.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>function massFlowRate_dp
+  extends Modelica.Icons.Function;
+  input SI.Pressure dp "Pressure drop (dp = port_a.p - port_b.p)";
+  input SI.Density rho_a "Density at port_a";
+  input SI.Density rho_b "Density at port_b";
+  input LossFactorData data "Constant loss factors for both flow directions" annotation(
+    choices(choice = Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.wallFriction(), choice = Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.suddenExpansion(), choice = Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
+  input SI.AbsolutePressure dp_small = 1 "Turbulent flow if |dp| &gt;= dp_small";
+  output SI.MassFlowRate m_flow "Mass flow rate from port_a to port_b";
+end massFlowRate_dp;</pre></blockquote>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

@@ -1,0 +1,135 @@
+<html><head><title>Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Channel</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Channel"><h1><embed class="icon" src="../../../../../../images/icon0002.svg" width="203" height="203" />
+Package <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Fluid</a>.&#8203;<a href="../../../../index.html">Dissipation</a>.&#8203;<a href="../../../index.html">Utilities</a>.&#8203;<a href="../../index.html">SharedDocumentation</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;Channel<br><span class="subtitle">Icon for general information packages</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates classes containing only documentation, intended for general description of, e.g., concepts and features of a package.</p>
+<p>Extends from <code><a href="../../../../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#dp_internalFlowOverall"><code>dp_internalFlowOverall</code></a></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="dp_internalFlowOverall"><h2><embed class="icon" src="../../../../../../images/icon0002.svg" width="203" height="203" />
+Class <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Fluid</a>.&#8203;<a href="../../../../index.html">Dissipation</a>.&#8203;<a href="../../../index.html">Utilities</a>.&#8203;<a href="../../index.html">SharedDocumentation</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">Channel</a>.&#8203;dp_internalFlowOverall<br><span class="subtitle">Icon for general information packages</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Calculation of pressure loss for an internal flow through different geometries at overall flow regime for single-phase fluid flow considering surface roughness.
+</p>
+<h4>Restriction</h4>
+<p>
+This function shall be used inside of the restricted limits according to the referenced literature.
+</p>
+<ul>
+ <li>
+      <strong> developed fluid flow </strong>
+ </li>
+</ul>
+
+<h4>Geometry</h4>
+
+<p>
+<img src="../../../../../../../Images/Fluid/Dissipation/pressureLoss/channel/pic-pLchannel.png" alt="pic-pLchannel"/>
+</p>
+
+<h4>Calculation</h4>
+<p>
+The pressure loss <strong>dp</strong> for channels is determined by:
+</p>
+
+<pre>
+    dp = zeta_TOT * (rho/2) * velocity^2
+</pre>
+
+<p>
+with
+</p>
+
+<table>
+<tr><td><strong> rho            </strong></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><strong> velocity       </strong></td><td> as mean velocity [m/s],</td></tr>
+<tr><td><strong> zeta_TOT       </strong></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+
+<p>
+<strong>Channels with different shape of its cross sectional area are calculated </strong> according to <em>[Miller 1978, p. 138, fig. 8.5-8-6]</em>
+</p>
+<p>
+The pressure loss of these channels is similar to its calculation in straight pipes. There are three different flow regimes observed (laminar,transition,turbulent). The pressure loss coefficient (<strong>zeta_TOT</strong>) of a channel is calculated in dependence of the flow regime as follows:
+</p>
+
+<ul>
+  <li><strong>Laminar regime (Re &le; Re_lam_leave)</strong>:
+     <pre>
+      zeta_TOT = CF_lam/Re * (L/d_hyd)
+     </pre></li>
+  <li><p><strong>Transition regime (Re_lam_leave &le; 4e4)</strong></p>
+        <p>This calculation is done using a smoothing function interpolating between the laminar and the turbulent flow regime.</p></li>
+  <li> <p><strong>Turbulent regime (Re &ge; 4e3)</strong>:</p>
+        <p>The turbulent regime can be calculated with the pressure loss correlations for a straight pipe with the hydraulic diameter of
+           the chosen geometry instead of the internal diameter of a straight pipe according to <em>[VDI 2002, p. Lab 4, sec. 2.1]</em> .
+           The documentation of turbulent fluid flow for a straight pipe is shown in
+           <a href="../../../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/StraightPipe/index.html#dp_turbulent">dp_turbulent</a>.</p></li>
+</ul>
+
+<p>
+with
+</p>
+
+<table>
+<tr><td><strong> CF_lam        </strong></td><td> as correction factor considering the geometry for laminar regime [-],</td></tr>
+<tr><td><strong> L             </strong></td><td> as length of geometry perpendicular to cross sectional area [m],</td></tr>
+<tr><td><strong> d_hyd         </strong></td><td> as hydraulic diameter of geometry [m],</td></tr>
+<tr><td><strong> Re            </strong></td><td> as Reynolds number [-],</td></tr>
+<tr><td><strong> zeta_TOT      </strong></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+
+<p>
+Note that the beginning of the laminar regime depends on the chosen surface roughness of the channel and cannot be beneath <strong>Re &le; 1e3</strong>.
+</p>
+<h4>Verification</h4>
+<p>
+The Darcy friction factor (<strong>lambda_FRI</strong>) of a channel with different shapes of its cross sectional area are shown in dependence of the Reynolds number (<strong>Re</strong>) in the figures below.
+</p>
+
+<p>
+<img src="../../../../../../../Images/Fluid/Dissipation/pressureLoss/channel/fig_channel_dp_internalFlowOverall_lambdaVsRe.png" alt="fig_channel_dp_internalFlowOverall_lambdaVsRe"/>
+</p>
+
+<p>
+The Darcy friction factor (<strong>lambda_FRI</strong>) for different geometries has been obtained at the same hydraulic diameter and the same mean velocity of the internal flow. Note that there is no difference of the Darcy friction factor in the turbulent regime if using the same hydraulic diameter for all geometries. Roughness can be considered but it is not used for this validation.
+</p>
+<h4>References</h4>
+<dl>
+<dt>Miller,D.S.:</dt>
+    <dd><strong>Internal flow systems</strong>.
+    Volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1978.</dd>
+<dt>VDI:</dt>
+    <dd><strong>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</strong>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+<p>Extends from <code><a href="../../../../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+</body></html>

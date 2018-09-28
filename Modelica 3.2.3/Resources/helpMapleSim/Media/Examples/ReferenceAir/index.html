@@ -1,0 +1,144 @@
+<html><head><title>Modelica.Media.Examples.ReferenceAir</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="ReferenceAir"><h1><embed class="icon" src="../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;ReferenceAir<br><span class="subtitle">Examples for detailed dry air and moist air medium models</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates a package that contains executable examples.</p>
+<p>Extends from <code><a href="../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#DryAir1"><code>DryAir1</code></a></td><td>Example 1 for dry air</td></tr>
+<tr><td><a href="#DryAir2"><code>DryAir2</code></a></td><td>Example 2 for dry air</td></tr>
+<tr><td><a href="#Inverse_sh_T"><code>Inverse_sh_T</code></a></td><td>Solve h = h_pT(p, T), s = s_pT(p, T) for T, if h or s is given</td></tr>
+<tr><td><a href="#Inverse_sh_TX"><code>Inverse_sh_TX</code></a></td><td>Solve h = h_pTX(p, T, X), s = s_pTX(p, T, X) for T, if h or s is given</td></tr>
+<tr><td><a href="#MoistAir"><code>MoistAir</code></a></td><td>Ideal gas flue gas model</td></tr>
+<tr><td><a href="#MoistAir1"><code>MoistAir1</code></a></td><td>Example 1 for moist air</td></tr>
+<tr><td><a href="#MoistAir2"><code>MoistAir2</code></a></td><td>Example 2 for moist air</td></tr>
+</table>
+<hr><a name="DryAir1"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">ReferenceAir</a>.&#8203;DryAir1<br><span class="subtitle">Example 1 for dry air</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples) and <code><a href="../../../Media/Examples/Utilities/index.html#PartialTestModel">Modelica.&#8203;Media.&#8203;Examples.&#8203;Utilities.&#8203;PartialTestModel</a></code> (Basic test model to test a medium).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_start</code></td><td><code>Medium.&#8203;p_default</code></td><td>Initial value of pressure</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_start</code></td><td><code>Medium.&#8203;T_default</code></td><td>Initial value of temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_start</code></td><td><code>Medium.&#8203;h_default</code></td><td>Initial value of specific enthalpy</td></tr>
+<tr><td><code>Real</code></td><td><code>X_start[Medium.nX]</code></td><td><code>Medium.&#8203;X_default</code></td><td>Initial value of mass fractions</td></tr>
+</table>
+<hr><a name="DryAir2"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">ReferenceAir</a>.&#8203;DryAir2<br><span class="subtitle">Example 2 for dry air</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples) and <code><a href="../../../Media/Examples/Utilities/index.html#PartialTestModel2">Modelica.&#8203;Media.&#8203;Examples.&#8203;Utilities.&#8203;PartialTestModel2</a></code> (Slightly larger test model to test a medium).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_start</code></td><td><code>100000</code></td><td>Initial value of pressure</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_start</code></td><td><code>300</code></td><td>Initial value of temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_start</code></td><td><code>1</code></td><td>Initial value of specific enthalpy</td></tr>
+<tr><td><code>Real</code></td><td><code>X_start[Medium.nX]</code></td><td><code>Medium.&#8203;reference_X</code></td><td>Initial value of mass fractions</td></tr>
+</table>
+<hr><a name="MoistAir"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">ReferenceAir</a>.&#8203;MoistAir<br><span class="subtitle">Ideal gas flue gas model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates an example. The play button suggests that the example can be executed.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_start</code></td><td><code>274</code></td><td>Initial guess value for temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p_start</code></td><td><code>100000</code></td><td>Initial guess value for pressure</td></tr>
+<tr><td><code><a href="../../../Media/Examples/ReferenceAir/MoistAir/Medium/index.html#MolarMass">MolarMass</a></code></td><td><code>MMx[2]</code></td><td><code>{Medium.dryair.MM, Medium.steam.MM}</code></td><td>Vector of molar masses (consisting of dry air and of steam)</td></tr>
+</table>
+<hr><a name="MoistAir1"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">ReferenceAir</a>.&#8203;MoistAir1<br><span class="subtitle">Example 1 for moist air</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples) and <code><a href="../../../Media/Examples/Utilities/index.html#PartialTestModel">Modelica.&#8203;Media.&#8203;Examples.&#8203;Utilities.&#8203;PartialTestModel</a></code> (Basic test model to test a medium).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_start</code></td><td><code>Medium.&#8203;p_default</code></td><td>Initial value of pressure</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_start</code></td><td><code>Medium.&#8203;T_default</code></td><td>Initial value of temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_start</code></td><td><code>Medium.&#8203;h_default</code></td><td>Initial value of specific enthalpy</td></tr>
+<tr><td><code>Real</code></td><td><code>X_start[Medium.nX]</code></td><td><code>Medium.&#8203;X_default</code></td><td>Initial value of mass fractions</td></tr>
+</table>
+<hr><a name="MoistAir2"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">ReferenceAir</a>.&#8203;MoistAir2<br><span class="subtitle">Example 2 for moist air</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples) and <code><a href="../../../Media/Examples/Utilities/index.html#PartialTestModel2">Modelica.&#8203;Media.&#8203;Examples.&#8203;Utilities.&#8203;PartialTestModel2</a></code> (Slightly larger test model to test a medium).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_start</code></td><td><code>100000</code></td><td>Initial value of pressure</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_start</code></td><td><code>300</code></td><td>Initial value of temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_start</code></td><td><code>1</code></td><td>Initial value of specific enthalpy</td></tr>
+<tr><td><code>Real</code></td><td><code>X_start[Medium.nX]</code></td><td><code>Medium.&#8203;reference_X</code></td><td>Initial value of mass fractions</td></tr>
+</table>
+<hr><a name="Inverse_sh_T"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">ReferenceAir</a>.&#8203;Inverse_sh_T<br><span class="subtitle">Solve h = h_pT(p, T), s = s_pT(p, T) for T, if h or s is given</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates an example. The play button suggests that the example can be executed.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_min</code></td><td><code>300</code></td><td>Vary temperature linearly from T_min (time=0) up to T_max (time=1)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_max</code></td><td><code>500</code></td><td>Vary temperature linearly from T_min (time=0) up to T_max (time=1)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td><code>100000</code></td><td>Fixed pressure in model</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_min</code></td><td><code>Medium.specificEnthalpy(Medium.setState_pT(p, T_min))</code></td><td>Specific enthalpy at T_min</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_max</code></td><td><code>Medium.specificEnthalpy(Medium.setState_pT(p, T_max))</code></td><td>Specific enthalpy at T_max</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s_min</code></td><td><code>Medium.specificEntropy(Medium.setState_pT(p, T_min))</code></td><td>Specific entropy at T_min</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s_max</code></td><td><code>Medium.specificEntropy(Medium.setState_pT(p, T_max))</code></td><td>Specific entropy at T_max</td></tr>
+</table>
+<hr><a name="Inverse_sh_TX"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">ReferenceAir</a>.&#8203;Inverse_sh_TX<br><span class="subtitle">Solve h = h_pTX(p, T, X), s = s_pTX(p, T, X) for T, if h or s is given</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_min</code></td><td><code>300</code></td><td>Vary temperature linearly from T_min (time=0) up to T_max (time=1)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_max</code></td><td><code>500</code></td><td>Vary temperature linearly from T_min (time=0) up to T_max (time=1)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td><code>100000</code></td><td>Fixed pressure in model</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#MassFraction">MassFraction</a></code></td><td><code>X[:]</code></td><td><code>Modelica.&#8203;Media.&#8203;Air.&#8203;ReferenceMoistAir.&#8203;reference_X</code></td><td>Mass fraction vector</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_min</code></td><td><code>Modelica.Media.Air.ReferenceMoistAir.specificEnthalpy(Modelica.Media.Air.ReferenceMoistAir.setState_pTX(p, T_min, X))</code></td><td>Specific enthalpy at T_min</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_max</code></td><td><code>Modelica.Media.Air.ReferenceMoistAir.specificEnthalpy(Modelica.Media.Air.ReferenceMoistAir.setState_pTX(p, T_max, X))</code></td><td>Specific enthalpy at T_max</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s_min</code></td><td><code>Modelica.Media.Air.ReferenceMoistAir.specificEntropy(Modelica.Media.Air.ReferenceMoistAir.setState_pTX(p, T_min, X))</code></td><td>Specific entropy at T_min</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s_max</code></td><td><code>Modelica.Media.Air.ReferenceMoistAir.specificEntropy(Modelica.Media.Air.ReferenceMoistAir.setState_pTX(p, T_max, X))</code></td><td>Specific entropy at T_max</td></tr>
+</table>
+</body></html>

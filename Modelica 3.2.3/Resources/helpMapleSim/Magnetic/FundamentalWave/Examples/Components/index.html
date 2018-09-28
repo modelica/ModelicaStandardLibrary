@@ -1,0 +1,85 @@
+<html><head><title>Modelica.Magnetic.FundamentalWave.Examples.Components</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Components"><h1><embed class="icon" src="../../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FundamentalWave</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;Components<br><span class="subtitle">Examples of components of the FundamentalWave library</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates a package that contains executable examples.</p>
+<p>Extends from <code><a href="../../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#EddyCurrentLosses"><code>EddyCurrentLosses</code></a></td><td>Comparison of equivalent circuits of eddy current loss models</td></tr>
+<tr><td><a href="#MultiPhaseInductance"><code>MultiPhaseInductance</code></a></td><td>Multi phase inductance</td></tr>
+<tr><td><a href="#SinglePhaseInductance"><code>SinglePhaseInductance</code></a></td><td>Single phase inductance</td></tr>
+</table>
+<hr><a name="EddyCurrentLosses"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FundamentalWave</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Components</a>.&#8203;EddyCurrentLosses<br><span class="subtitle">Comparison of equivalent circuits of eddy current loss models</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+In this example the eddy current losses are implemented in two different ways. Compare the loss dissipation <code>powerb_e.power</code> and <code>powerb_m.power</code> of the two models indicated by power meters.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>0.1</code></td><td>Resistance of leader cables</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Gc</code></td><td><code>1</code></td><td>Loss conductance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Reluctance">Reluctance</a></code></td><td><code>R_m</code></td><td><code>1</code></td><td>Reluctance of the magnetic circuit</td></tr>
+<tr><td><code>Real</code></td><td><code>N</code></td><td><code>1</code></td><td>Number of turns</td></tr>
+</table>
+<hr><a name="SinglePhaseInductance"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FundamentalWave</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Components</a>.&#8203;SinglePhaseInductance<br><span class="subtitle">Single phase inductance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates an example. The play button suggests that the example can be executed.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>1</code></td><td>Supply frequency</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VRMS</code></td><td><code>100</code></td><td>RMS supply voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>0.1</code></td><td>Leader cable resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L</code></td><td><code>1</code></td><td>Load inductance</td></tr>
+<tr><td><code>Real</code></td><td><code>effectiveTurns</code></td><td><code>5</code></td><td>Effective number of turns</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Reluctance">Reluctance</a></code></td><td><code>R_m</code></td><td><code>effectiveTurns ^ 2 / L</code></td><td>Equivalent magnetic reluctance</td></tr>
+</table>
+<hr><a name="MultiPhaseInductance"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">FundamentalWave</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Components</a>.&#8203;MultiPhaseInductance<br><span class="subtitle">Multi phase inductance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates an example. The play button suggests that the example can be executed.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td><code>1</code></td><td>Supply frequency</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VRMS</code></td><td><code>100</code></td><td>RMS supply voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>0.1</code></td><td>Leader cable resistance</td></tr>
+<tr><td><code>Real</code></td><td><code>effectiveTurns</code></td><td><code>5</code></td><td>Effective number of turns</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>L</code></td><td><code>1</code></td><td>Load inductance</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Reluctance">Reluctance</a></code></td><td><code>R_m</code></td><td><code>0.5 * (m * effectiveTurns ^ 2) / L</code></td><td>Equivalent magnetic reluctance</td></tr>
+</table>
+</body></html>

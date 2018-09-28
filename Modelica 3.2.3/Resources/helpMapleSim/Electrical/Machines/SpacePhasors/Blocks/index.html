@@ -1,0 +1,185 @@
+<html><head><title>Modelica.Electrical.Machines.SpacePhasors.Blocks</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Blocks"><h1><embed class="icon" src="../../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">SpacePhasors</a>.&#8203;Blocks<br><span class="subtitle">Blocks for space phasor transformation</span></h1></a>
+<h3>Information</h3>
+<p>
+
+This package contains space phasor transformation blocks for use in controllers:
+<ul>
+<li>ToSpacePhasor: transforms a set of multi phase values to space phasor and zero sequence system</li>
+<li>FromSpacePhasor: transforms a space phasor and zero sequence system to a set of multi phase values</li>
+<li>Rotator: rotates a space phasor (from one coordinate system into another)</li>
+<li>ToPolar: Converts a space phasor from rectangular coordinates to polar coordinates</li>
+<li>FromPolar: Converts a space phasor from polar coordinates to rectangular coordinates</li>
+</ul>
+<p>
+Space phasors are defined as vectors of length = 2,
+the first element representing the real part and the second element representing the imaginary part of the space phasor.
+</p>
+<p>Extends from <code><a href="../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#FromPolar"><code>FromPolar</code></a></td><td>Converts a space phasor from polar coordinates</td></tr>
+<tr><td><a href="#FromSpacePhasor"><code>FromSpacePhasor</code></a></td><td>Conversion of space phasors to multi phase instantaneous values</td></tr>
+<tr><td><a href="#LessThreshold"><code>LessThreshold</code></a></td><td>Sets angle to zero when length is below threshold</td></tr>
+<tr><td><a href="#QuasiRMS"><code>QuasiRMS</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#Rotator"><code>Rotator</code></a></td><td>Rotates space phasor</td></tr>
+<tr><td><a href="#ToPolar"><code>ToPolar</code></a></td><td>Converts a space phasor to polar coordinates</td></tr>
+<tr><td><a href="#ToSpacePhasor"><code>ToSpacePhasor</code></a></td><td>Conversion of multi phase instantaneous values to space phasors</td></tr>
+</table>
+<hr><a name="Rotator"><h2><embed class="icon" src="../../../../images/icon0612.svg" width="263" height="243" />
+Block <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">SpacePhasors</a>.&#8203;<a href="index.html">Blocks</a>.&#8203;Rotator<br><span class="subtitle">Rotates space phasor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Rotates a space phasor (voltage or current) input <code>u</code> by the <code>angle</code> in negative mathematical direction. This block represents the transformation of one space phasor <code>u</code> from one rotating reference (coordinate) frame into another where the space phasor is <code>y</code>. The output reference frame leads the input reference frame by angle <code>angle</code>.
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      <img src="../../../../../Images/Electrical/Machines/Rotator.png">
+    </td>
+  </tr>
+  <caption align="bottom"><strong>Fig. 1:</strong> Original and rotated reference frame of a space phasor </caption>
+</table>
+
+<p>Extends from <code><a href="../../../../Blocks/Interfaces/index.html#MIMOs">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;MIMOs</a></code> (Multiple Input Multiple Output continuous control block with same number of inputs and outputs).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>n</code></td><td><code>2</code></td><td>Number of inputs (= number of outputs)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[n]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[n]</code></td><td>Connector of Real output signals</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>angle</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="ToSpacePhasor"><h2><embed class="icon" src="../../../../images/icon0613.svg" width="263" height="203" />
+Block <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">SpacePhasors</a>.&#8203;<a href="index.html">Blocks</a>.&#8203;ToSpacePhasor<br><span class="subtitle">Conversion of multi phase instantaneous values to space phasors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Transformation of multi phase values (of voltages or currents) to space phasor and zero sequence value.
+<p>Extends from <code><a href="../../../../Blocks/Interfaces/index.html#MIMO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;MIMO</a></code> (Multiple Input Multiple Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nin</code></td><td><code>m</code></td><td>Number of inputs</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nout</code></td><td><code>2</code></td><td>Number of outputs</td></tr>
+<tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[nin]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[nout]</code></td><td>Connector of Real output signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>zero</code></td><td>Zero sequence component</td></tr>
+</table>
+<hr><a name="FromSpacePhasor"><h2><embed class="icon" src="../../../../images/icon0614.svg" width="263" height="203" />
+Block <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">SpacePhasors</a>.&#8203;<a href="index.html">Blocks</a>.&#8203;FromSpacePhasor<br><span class="subtitle">Conversion of space phasors to multi phase instantaneous values</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Transformation of space phasor and zero sequence value to multi phase values (of voltages or currents).
+<p>Extends from <code><a href="../../../../Blocks/Interfaces/index.html#MIMO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;MIMO</a></code> (Multiple Input Multiple Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nin</code></td><td><code>2</code></td><td>Number of inputs</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nout</code></td><td><code>m</code></td><td>Number of outputs</td></tr>
+<tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[nin]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[nout]</code></td><td>Connector of Real output signals</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>zero</code></td><td>Zero sequence component</td></tr>
+</table>
+<hr><a name="ToPolar"><h2><embed class="icon" src="../../../../images/icon0615.svg" width="263" height="203" />
+Block <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">SpacePhasors</a>.&#8203;<a href="index.html">Blocks</a>.&#8203;ToPolar<br><span class="subtitle">Converts a space phasor to polar coordinates</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Converts a space phasor from rectangular coordinates to polar coordinates.
+<p>Extends from <code><a href="../../../../Blocks/Interfaces/index.html#MIMOs">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;MIMOs</a></code> (Multiple Input Multiple Output continuous control block with same number of inputs and outputs).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>n</code></td><td><code>2</code></td><td>Number of inputs (= number of outputs)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[n]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[n]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+<hr><a name="FromPolar"><h2><embed class="icon" src="../../../../images/icon0616.svg" width="263" height="203" />
+Block <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">SpacePhasors</a>.&#8203;<a href="index.html">Blocks</a>.&#8203;FromPolar<br><span class="subtitle">Converts a space phasor from polar coordinates</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Converts a space phasor from polar coordinates to rectangular coordinates.
+<p>Extends from <code><a href="../../../../Blocks/Interfaces/index.html#MIMOs">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;MIMOs</a></code> (Multiple Input Multiple Output continuous control block with same number of inputs and outputs).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>n</code></td><td><code>2</code></td><td>Number of inputs (= number of outputs)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[n]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[n]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+<hr><a name="QuasiRMS"><h2><embed class="icon" src="../../../../images/icon0617.svg" width="263" height="203" />
+Block <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">SpacePhasors</a>.&#8203;<a href="index.html">Blocks</a>.&#8203;QuasiRMS<br><span class="subtitle">Multiple Input Single Output continuous control block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model determines the RMS value of the input space phasor <code>u</code>.</p> 
+<p>Extends from <code><a href="../../../../Blocks/Interfaces/index.html#MISO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;MISO</a></code> (Multiple Input Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nin</code></td><td><code>2</code></td><td>Number of inputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[nin]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="LessThreshold"><h2><embed class="icon" src="../../../../images/icon0058.svg" width="263" height="203" />
+Block <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">SpacePhasors</a>.&#8203;<a href="index.html">Blocks</a>.&#8203;LessThreshold<br><span class="subtitle">Sets angle to zero when length is below threshold</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has a vector of continuous Real input signals and
+one continuous Real output signal.
+</p>
+<p>Extends from <code><a href="../../../../Blocks/Interfaces/index.html#MISO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;MISO</a></code> (Multiple Input Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>nin</code></td><td><code>2</code></td><td>Number of inputs</td></tr>
+<tr><td><code>Real</code></td><td><code>threshold</code></td><td>&nbsp;</td><td>Threshold</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[nin]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+</body></html>

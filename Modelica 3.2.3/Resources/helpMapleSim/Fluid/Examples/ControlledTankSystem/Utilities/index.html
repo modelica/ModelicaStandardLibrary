@@ -1,0 +1,85 @@
+<html><head><title>Modelica.Fluid.Examples.ControlledTankSystem.Utilities</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Utilities"><h1><embed class="icon" src="../../../../images/icon0009.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ControlledTankSystem</a>.&#8203;Utilities<br><span class="subtitle">Icon for utility packages</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates a package containing utility classes.</p>
+<p>Extends from <code><a href="../../../../Icons/UtilitiesPackage/index.html">Modelica.&#8203;Icons.&#8203;UtilitiesPackage</a></code> (Icon for utility packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#NormalOperation"><code>NormalOperation</code></a></td><td>Normal operation of tank system (button start pressed)</td></tr>
+<tr><td><a href="#RadioButton"><code>RadioButton</code></a></td><td>Button that sets its output to true when pressed and is reset when an element of 'reset' becomes true</td></tr>
+<tr><td><a href="#TankController"><code>TankController</code></a></td><td>Controller for tank system</td></tr>
+</table>
+<hr><a name="TankController"><h2><embed class="icon" src="../../../../images/icon1312.svg" width="233" height="223" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ControlledTankSystem</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;TankController<br><span class="subtitle">Controller for tank system</span></h2></a>
+<p>Extends from <code><a href="../../../../StateGraph/Interfaces/index.html#PartialStateGraphIcon">Modelica.&#8203;StateGraph.&#8203;Interfaces.&#8203;PartialStateGraphIcon</a></code> (Icon for a StateGraph object).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Height">Height</a></code></td><td><code>maxLevel</code></td><td>&nbsp;</td><td>Fill level of tank 1</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Height">Height</a></code></td><td><code>minLevel</code></td><td>&nbsp;</td><td>Lowest level of tank 1 and 2</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>waitTime</code></td><td>&nbsp;</td><td>Wait time, between operations</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>start</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>stop</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>shut</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>level1</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>level2</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>valve1</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>valve2</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>valve3</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="NormalOperation"><h2><embed class="icon" src="../../../../images/icon0342.svg" width="353" height="323" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ControlledTankSystem</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;NormalOperation<br><span class="subtitle">Normal operation of tank system (button start pressed)</span></h2></a>
+<p>Extends from <code><a href="../../../../StateGraph/index.html#PartialCompositeStep">Modelica.&#8203;StateGraph.&#8203;PartialCompositeStep</a></code> (Superclass of a subgraph, i.e., a composite step that has internally a StateGraph).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nSuspend</code></td><td><code>1</code></td><td>Number of suspend ports</td></tr>
+<tr><td><code>Integer</code></td><td><code>nResume</code></td><td><code>1</code></td><td>Number of resume ports</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Height">Height</a></code></td><td><code>maxLevel</code></td><td>&nbsp;</td><td>Fill level of tank 1</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Height">Height</a></code></td><td><code>minLevel</code></td><td>&nbsp;</td><td>Lowest level of tank 1 and 2</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>waitTime</code></td><td>&nbsp;</td><td>Wait time between operations</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../StateGraph/Interfaces/index.html#Step_in">Step_in</a></code></td><td><code>inPort</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../StateGraph/Interfaces/index.html#Step_out">Step_out</a></code></td><td><code>outPort</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../StateGraph/Interfaces/index.html#CompositeStep_suspend">CompositeStep_suspend</a></code></td><td><code>suspend[nSuspend]</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../StateGraph/Interfaces/index.html#CompositeStep_resume">CompositeStep_resume</a></code></td><td><code>resume[nResume]</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>level1</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="RadioButton"><h2><embed class="icon" src="../../../../images/icon0364.svg" width="223" height="203" />
+Block <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ControlledTankSystem</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;RadioButton<br><span class="subtitle">Button that sets its output to true when pressed and is reset when an element of 'reset' becomes true</span></h2></a>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>buttonTimeTable[:]</code></td><td>&nbsp;</td><td>Time instants where button is pressed</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>on</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Magnetic.QuasiStatic.FundamentalWave.Losses.StrayLoad</title>
+</head>
+<body>
+<h1><a href="Icons/e3dc387404c146eb2c33400625ba92184bdb5e71.svg"><img class="svgiconhead" src="Icons/e3dc387404c146eb2c33400625ba92184bdb5e71.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Magnetic.html">Magnetic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.QuasiStatic.html">QuasiStatic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.QuasiStatic.FundamentalWave.html">FundamentalWave</a>.<a class="omc-h1-a" href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Losses.html">Losses</a>.<span class="omc-h1">StrayLoad</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Stray load losses are modeled similar to standards EN 60034-2
+and IEEE 512, i.e., they are dependent on square of current, but
+without scaling them to zero at no-load current.</p>
+<p>For an estimation of dependency on varying angular velocity see:
+<a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.References.html">
+[Lang1984]</a></p>
+<p>The stray load losses are modeled such way that they do not
+cause a voltage drop in the electric circuit. Instead, the
+dissipated losses are considered through an equivalent braking
+torque at the shaft.</p>
+<p>The stray load loss torque is</p>
+<pre>
+  tau = PRef/wRef * (i/IRef)^2 * (w/wRef)^power_w
+</pre>
+<p>where <code>i</code> is the current of the machine and
+<code>w</code> is the actual angular velocity. The dependency of
+the stray load torque on the angular velocity is modeled by the
+exponent <code>power_w</code>.</p>
+<h4>See also</h4>
+<p><a href="Modelica.Electrical.Machines.Losses.StrayLoadParameters.html">
+StrayLoad parameters</a></p>
+<p>If it is desired to neglect stray load losses, set
+<code>strayLoadParameters.PRef = 0</code> (this is the
+default).</p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

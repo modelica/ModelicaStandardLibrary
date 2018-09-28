@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Sources.BooleanTable</title>
+</head>
+<body>
+<h1><a href="Icons/fc303dc727bbd680d2de7648603fa3b2406a0b2c.svg"><img class="svgiconhead" src="Icons/fc303dc727bbd680d2de7648603fa3b2406a0b2c.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Sources.html">Sources</a>.<span class="omc-h1">BooleanTable</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The Boolean output y is a signal defined by parameter vector
+<strong>table</strong>. In the vector time points are stored. The
+table interpolation has the following properties:</p>
+<ul>
+<li>At every time point, the output y changes its value to the
+negated value of the previous one.</li>
+<li>Values <strong>outside</strong> of the table range, are
+computed by extrapolation according to the setting of parameter
+<strong>extrapolation</strong>:
+<pre>
+  extrapolation = 1: Hold the <strong>startValue</strong> or last value of the table,
+                     if outside of the table scope.
+                = 2: Extrapolate by using the derivative at the first/last table
+                     points if outside of the table scope.
+                     (This setting is not suitable and triggers an assert.)
+                = 3: Periodically repeat the table data (periodical function).
+                = 4: No extrapolation, i.e. extrapolation triggers an error
+</pre></li>
+<li>Via parameter <strong>shiftTime</strong> the curve defined by
+the table can be shifted in time. The time instants stored in the
+table are therefore <strong>relative</strong> to
+<strong>shiftTime</strong>.</li>
+<li>If time &lt; startTime, no interpolation is performed and
+<strong>false</strong> is used as ordinate value for the
+output.</li>
+</ul>
+<p><img src="../../../Modelica%203.2.3/Resources/Images/Blocks/Sources/BooleanTable.png" alt="BooleanTable.png" /></p>
+<p>The precise semantics is:</p>
+<pre>
+  <strong>if</strong> size(table,1) == 0 <strong>then</strong>
+     y = startValue;
+  <strong>else</strong>
+     //            time &lt; table[1]: y = startValue
+     // table[1] ≤ time &lt; table[2]: y = not startValue
+     // table[2] ≤ time &lt; table[3]: y = startValue
+     // table[3] ≤ time &lt; table[4]: y = not startValue
+     // ...
+  <strong>end if</strong>;
+</pre>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

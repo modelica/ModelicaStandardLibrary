@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Operators.'Integer()'</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Operators.html">Operators</a>.<span class="omc-h1">'Integer()'</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Returns ordinal number of enumeration</p>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+<strong>Integer</strong>(&lt;expression of enumeration type&gt;)</pre></blockquote>
+<h4>Description</h4>
+<p>Returns the ordinal number of the enumeration value E.enumvalue,
+to which the expression is evaluated, where Integer(E.e1) =1,
+Integer(E.en) =size(E), for an enumeration type E=enumeration(e1,
+..., en).</p>
+<h4>Examples</h4>
+<blockquote>
+<pre>
+<strong>type</strong> Size = <strong>enumeration</strong>(small, medium, large, xlarge);
+Size tshirt = Size.large;
+Integer tshirtValue = <strong>Integer</strong>(tshirt);  // = 3
+</pre></blockquote>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

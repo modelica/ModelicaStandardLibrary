@@ -1,0 +1,160 @@
+<html><head><title>Modelica.Electrical.PowerConverters.DCAC.Control</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Control"><h1><embed class="icon" src="../../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">PowerConverters</a>.&#8203;<a href="../index.html">DCAC</a>.&#8203;Control<br><span class="subtitle">Control components for DC to AC converters</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Currently there are only threephase PWM implemented (not multiphase).
+</p>
+<p>Extends from <code><a href="../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#IntersectivePWM"><code>IntersectivePWM</code></a></td><td>Intersective PWM</td></tr>
+<tr><td><a href="#PWM"><code>PWM</code></a></td><td>PulseWidthModulation</td></tr>
+<tr><td><a href="#SVPWM"><code>SVPWM</code></a></td><td>SpaceVector Pulse Width Modulation</td></tr>
+</table>
+<hr><a name="PWM"><h2><embed class="icon" src="../../../../images/icon0746.svg" width="263" height="203" />
+Block <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">PowerConverters</a>.&#8203;<a href="../index.html">DCAC</a>.&#8203;<a href="index.html">Control</a>.&#8203;PWM<br><span class="subtitle">PulseWidthModulation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Let the user choose the PWM type from:
+</p>
+<ul>
+<li><a href="../../../../Electrical/PowerConverters/DCAC/Control/index.html#SVPWM">Space Vector pulse width modulation</a></li>
+<li><a href="../../../../Electrical/PowerConverters/DCAC/Control/index.html#IntersectivePWM">Intersective pulse width modulation</a></li>
+</ul>
+<p>Extends from <code><a href="../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/PowerConverters/Types/index.html#PWMType">PWMType</a></code></td><td><code>pwmType</code></td><td><code>Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Types.&#8203;PWMType.&#8203;SVPWM</code></td><td>PWM Type</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td>&nbsp;</td><td>Switching frequency</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Start time of PWM</td></tr>
+<tr><td><code>Real</code></td><td><code>uMax</code></td><td>&nbsp;</td><td>Maximum amplitude of signal</td></tr>
+<tr><td><code><a href="../../../../Electrical/PowerConverters/Types/index.html#ReferenceType">ReferenceType</a></code></td><td><code>refType</code></td><td><code>Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Types.&#8203;ReferenceType.&#8203;Triangle3</code></td><td>Type of reference signal</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[2]</code></td><td>Reference space phasor</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>fire_p[m]</code></td><td>positive fire signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>fire_n[m]</code></td><td>negative fire signal</td></tr>
+</table>
+<hr><a name="SVPWM"><h2><embed class="icon" src="../../../../images/icon0747.svg" width="263" height="203" />
+Block <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">PowerConverters</a>.&#8203;<a href="../index.html">DCAC</a>.&#8203;<a href="index.html">Control</a>.&#8203;SVPWM<br><span class="subtitle">SpaceVector Pulse Width Modulation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+For a threephase system, 8 space vectors are available according to the following switching patterns:
+</p>
+<ul>
+<li>0 [0,0,0] length 0</li>
+<li>1 [1,0,0] 000&deg;</li>
+<li>2 [1,1,0] 060&deg;</li>
+<li>3 [0,1,0] 120&deg;</li>
+<li>4 [0,1,1] 180&deg;</li>
+<li>5 [0,0,1] 240&deg;</li>
+<li>6 [1,0,1] 300&deg;</li>
+<li>7 [1,1,1] length 0</li>
+</ul>
+<p>
+Vector 1..6 form a hexagon, vector 0 and 7 are of length 0.
+</p>
+<p>
+First, the space vector is limited,
+and the sector of the hexagon is determined where the input space vector <u>u</u> is located;
+then the angle of the space vector within this sector 0&le;&phi;&lt;60&deg; is calculated.
+</p>
+<p>
+The input space vector is averaged by <u>u</u> = t<sub>a</sub>*<u>u</u><sub>a</sub> + t<sub>b</sub>*<u>u</u><sub>b</sub> + t<sub>0</sub>*0,
+where <u>u</u><sub>a</sub> is the space vector at the left border of the sector
+and <u>u</u><sub>b</sub> is the space vector at the right border of the sector.
+If necessary, a zero length vector is applied additionally.
+</p>
+<p>
+The relative time spans for averaging over one switching period are determined by the following equations:
+</p>
+<ul>
+<li>Real part: <u>u</u>*cos(&phi;) = <u>u</u><sub>b</sub>*t<sub>b</sub>*cos(60&deg;) + <u>u</u><sub>a</sub>*t<sub>a</sub>*1</li>
+<li>Imag.part: <u>u</u>*sin(&phi;) = <u>u</u><sub>b</sub>*t<sub>b</sub>*sin(60&deg;)</li>
+<li>t<sub>a</sub> + t<sub>b</sub> + t<sub>0</sub> = 1</li>
+</ul>
+<p>
+To obtain the positive fire signal, the switching time spans are distributed symmetrically:
+t<sub>0</sub>/4 + t<sub>a</sub>/2 + t<sub>b</sub>/2 +t<sub>0</sub>/2 + t<sub>b</sub>/2 + t<sub>a</sub>/2 + t<sub>0</sub>/4
+</p>
+<p>
+The switching pattern of the negative fire signal is just the inverse of the positive fire signal.
+</p>
+<p>Extends from <code><a href="../../../../Blocks/Interfaces/index.html#DiscreteBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;DiscreteBlock</a></code> (Base class of discrete control blocks).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td>&nbsp;</td><td>Switching frequency</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>samplePeriod</code></td><td><code>f ^ (-1)</code></td><td>Sample period of component</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>First sample time instant</td></tr>
+<tr><td><code>Real</code></td><td><code>uMax</code></td><td>&nbsp;</td><td>Maximum length of space vector = half diagonal of hexagon</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[2]</code></td><td>Reference space phasor</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>fire_p[m]</code></td><td>positive fire signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>fire_n[m]</code></td><td>negative fire signal</td></tr>
+</table>
+<hr><a name="IntersectivePWM"><h2><embed class="icon" src="../../../../images/icon0748.svg" width="263" height="203" />
+Block <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">PowerConverters</a>.&#8203;<a href="../index.html">DCAC</a>.&#8203;<a href="index.html">Control</a>.&#8203;IntersectivePWM<br><span class="subtitle">Intersective PWM</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The intersective PWM transforms the input space phasor <u>u</u> to the three phase voltages,
+and compares them with the reference signals.
+As long as the phase voltage is greater than the corresponding reference signal, the corresponding fire signal is true.
+The switching pattern of the negative fire signal is just the inverse of the positive fire signal.
+</p>
+<p>
+The user can choose from 4 different reference signals:
+</p>
+<ul>
+<li>Sawtooth1: sawtooth signal, same phase in all 3 phases</li>
+<li>Sawtooth3: sawtooth signal, phase shift between the 3 phases = period/3</li>
+<li>Triangle1: triangle signal, same phase in all 3 phases</li>
+<li>Triangle3: triangle signal, phase shift between the 3 phases = period/3</li>
+</ul>
+<p>Extends from <code><a href="../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>f</code></td><td>&nbsp;</td><td>Switching frequency</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Start time of PWM</td></tr>
+<tr><td><code>Real</code></td><td><code>uMax</code></td><td>&nbsp;</td><td>Maximum amplitude of signal</td></tr>
+<tr><td><code><a href="../../../../Electrical/PowerConverters/Types/index.html#ReferenceType">ReferenceType</a></code></td><td><code>refType</code></td><td><code>Modelica.&#8203;Electrical.&#8203;PowerConverters.&#8203;Types.&#8203;ReferenceType.&#8203;Triangle3</code></td><td>Type of reference signal</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[2]</code></td><td>Reference space phasor</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>fire_p[m]</code></td><td>positive fire signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>fire_n[m]</code></td><td>negative fire signal</td></tr>
+</table>
+</body></html>

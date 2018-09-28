@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Media.Common.OneNonLinearEquation</title>
+</head>
+<body>
+<h1><a href="Icons/18f85713b799c9265a689dbd6af5286d753ae121.svg"><img class="svgiconhead" src="Icons/18f85713b799c9265a689dbd6af5286d753ae121.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.Common.html">Common</a>.<span class="omc-h1">OneNonLinearEquation</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This function should currently only be used in Modelica.Media,
+since it might be replaced in the future by another strategy, where
+the tool is responsible for the solution of the non-linear
+equation.</p>
+<p>This library determines the solution of one non-linear algebraic
+equation "y=f(x)" in one unknown "x" in a reliable way. As input,
+the desired value y of the non-linear function has to be given, as
+well as an interval x_min, x_max that contains the solution, i.e.,
+"f(x_min) - y" and "f(x_max) - y" must have a different sign. If
+possible, a smaller interval is computed by inverse quadratic
+interpolation (interpolating with a quadratic polynomial through
+the last 3 points and computing the zero). If this fails, bisection
+is used, which always reduces the interval by a factor of 2. The
+inverse quadratic interpolation method has superlinear convergence.
+This is roughly the same convergence rate as a globally convergent
+Newton method, but without the need to compute derivatives of the
+non-linear function. The solver function is a direct mapping of the
+Algol 60 procedure "zero" to Modelica, from:</p>
+<dl>
+<dt>Brent R.P.:</dt>
+<dd><strong>Algorithms for Minimization without
+derivatives</strong>. Prentice Hall, 1973, pp. 58-59.</dd>
+</dl>
+<p>Due to current limitations of the Modelica language (not
+possible to pass a function reference to a function), the
+construction to use this solver on a user-defined function is a bit
+complicated (this method is from Hans Olsson, Dassault Systèmes
+AB). A user has to provide a package in the following way:</p>
+<pre>
+  <strong>package</strong> MyNonLinearSolver
+    <strong>extends</strong> OneNonLinearEquation;
+
+    <strong>redeclare record extends</strong> Data
+      // Define data to be passed to user function
+      ...
+    <strong>end</strong> Data;
+
+    <strong>redeclare function extends</strong> f_nonlinear
+    <strong>algorithm</strong>
+       // Compute the non-linear equation: y = f(x, Data)
+    <strong>end</strong> f_nonlinear;
+
+    // Dummy definition that has to be present for current Dymola
+    <strong>redeclare function extends</strong> solve
+    <strong>end</strong> solve;
+  <strong>end</strong> MyNonLinearSolver;
+
+  x_zero = MyNonLinearSolver.solve(y_zero, x_min, x_max, data=data);
+</pre>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Common.OneNonLinearEquation.f_nonlinear_Data.html"><img class="svgiconsmall" src="Icons/b48a3537f7989225942ec2c9c0cc8b4464fd948a.svg" /></a>&nbsp;<a href="Modelica.Media.Common.OneNonLinearEquation.f_nonlinear_Data.html">f_nonlinear_Data</a></td>
+<td>Data specific for function f_nonlinear</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Common.OneNonLinearEquation.f_nonlinear.html"><img class="svgiconsmall" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a href="Modelica.Media.Common.OneNonLinearEquation.f_nonlinear.html">f_nonlinear</a></td>
+<td>Nonlinear algebraic equation in one unknown: y =
+f_nonlinear(x,p,X)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Common.OneNonLinearEquation.solve.html"><img class="svgiconsmall" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a href="Modelica.Media.Common.OneNonLinearEquation.solve.html">solve</a></td>
+<td>Solve f_nonlinear(x_zero)=y_zero; f_nonlinear(x_min) - y_zero
+and f_nonlinear(x_max)-y_zero must have different sign</td>
+</tr>
+</table>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

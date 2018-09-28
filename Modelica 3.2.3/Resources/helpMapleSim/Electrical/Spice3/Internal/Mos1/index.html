@@ -1,0 +1,251 @@
+<html><head><title>Modelica.Electrical.Spice3.Internal.Mos1</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Mos1"><h1><embed class="icon" src="../../../../images/icon0034.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;Mos1<br><span class="subtitle">Records and functions for MOSFETs level 1</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package Mos1 contains functions and record with data of the MOSFET model level 1.</p>
+<p>Extends from <code><a href="../../../../Icons/InternalPackage/index.html">Modelica.&#8203;Icons.&#8203;InternalPackage</a></code> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#drainCur"><code>drainCur</code></a></td><td>Drain current calculation</td></tr>
+<tr><td><a href="#Mos1Calc"><code>Mos1Calc</code></a></td><td>Further MOSFET variables (for level 1)</td></tr>
+<tr><td><a href="#Mos1ModelLineParams"><code>Mos1ModelLineParams</code></a></td><td>Record for Mosfet model line parameters (for level 1)</td></tr>
+<tr><td><a href="#mos1ModelLineParamsInitEquations"><code>mos1ModelLineParamsInitEquations</code></a></td><td>Initial precalculation</td></tr>
+<tr><td><a href="#mos1RenameParameters"><code>mos1RenameParameters</code></a></td><td>Parameter renaming to internal names</td></tr>
+<tr><td><a href="#mos1RenameParametersDev"><code>mos1RenameParametersDev</code></a></td><td>Device parameter renaming to internal names</td></tr>
+</table>
+<hr><a name="Mos1ModelLineParams"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Mos1</a>.&#8203;Mos1ModelLineParams<br><span class="subtitle">Record for Mosfet model line parameters (for level 1)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This record Mos1ModelLineParams contains the model line parameters that are used for the MOSFET transistors level 1 in SPICE3.</p>
+<p>Extends from <code><a href="../../../../Electrical/Spice3/Internal/Mos/index.html#MosModelLineParams">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;Mos.&#8203;MosModelLineParams</a></code> (Record for Mosfet model line parameters (for level 1, 2, 3 and 6)).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>m_jctSatCurDensity</code></td><td>JS, Bulk jct. sat. current density, input - use tSatCurDens</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>m_sheetResistance</code></td><td>RSH, Sheet resistance</td></tr>
+<tr><td><code>Real</code></td><td><code>m_bulkJctPotential</code></td><td>PB, Bulk junction potential, input - use tBulkPot</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>m_bulkJctBotGradingCoeff</code></td><td>MJ, Bottom grading coefficient</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#LinearTemperatureCoefficient">LinearTemperatureCoefficient</a></code></td><td><code>m_bulkJctSideGradingCoeff</code></td><td>MJSW, Side grading coefficient</td></tr>
+<tr><td><code>Real</code></td><td><code>m_oxideThickness</code></td><td>TOX, Oxide thickness unit: micron</td></tr>
+<tr><td><code>Real</code></td><td><code>m_oxideThicknessIsGiven</code></td><td>TOX, IsGiven value</td></tr>
+<tr><td><code>Real</code></td><td><code>m_gateSourceOverlapCapFactor</code></td><td>CGS0, Gate-source overlap cap</td></tr>
+<tr><td><code>Real</code></td><td><code>m_gateDrainOverlapCapFactor</code></td><td>CGD0, Gate-drain overlap cap</td></tr>
+<tr><td><code>Real</code></td><td><code>m_gateBulkOverlapCapFactor</code></td><td>CGB0, Gate-bulk overlap cap</td></tr>
+<tr><td><code>Real</code></td><td><code>m_fNcoef</code></td><td>KF, Flicker noise coefficient</td></tr>
+<tr><td><code>Real</code></td><td><code>m_fNexp</code></td><td>AF, Flicker noise exponent</td></tr>
+<tr><td><code>Real</code></td><td><code>m_mjswIsGiven</code></td><td>MJSW, IsGivenValue</td></tr>
+<tr><td><code>Real</code></td><td><code>m_cgsoIsGiven</code></td><td>CGSO, IsGivenValue</td></tr>
+<tr><td><code>Real</code></td><td><code>m_cgdoIsGiven</code></td><td>CGDO, IsGivenValue</td></tr>
+<tr><td><code>Real</code></td><td><code>m_cgboIsGiven</code></td><td>CGBO, IsGivenValue</td></tr>
+<tr><td><code>Real</code></td><td><code>m_pbIsGiven</code></td><td>PB, IsGivenValue</td></tr>
+<tr><td><code>Real</code></td><td><code>m_oxideCapFactor</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_vt0</code></td><td>VTO, Threshold voltage</td></tr>
+<tr><td><code>Real</code></td><td><code>m_vtOIsGiven</code></td><td>VTO IsGivenValue</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_capBD</code></td><td>CBD, B-D junction capacitance</td></tr>
+<tr><td><code>Real</code></td><td><code>m_capBDIsGiven</code></td><td>CapBD IsGivenValue</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_capBS</code></td><td>CBS, B-S junction capacitance</td></tr>
+<tr><td><code>Real</code></td><td><code>m_capBSIsGiven</code></td><td>CapBS IsGivenValue</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#CapacitancePerArea">CapacitancePerArea</a></code></td><td><code>m_bulkCapFactor</code></td><td>CJ, Bottom junction cap per area</td></tr>
+<tr><td><code>Real</code></td><td><code>m_bulkCapFactorIsGiven</code></td><td>Bulk cap factor IsGivenValue</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Permittivity">Permittivity</a></code></td><td><code>m_sideWallCapFactor</code></td><td>CJSW, Side grading coefficient</td></tr>
+<tr><td><code>Real</code></td><td><code>m_fwdCapDepCoeff</code></td><td>FC, Forward bias junction fit parameter</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_phi</code></td><td>PHI, Surface potential</td></tr>
+<tr><td><code>Real</code></td><td><code>m_phiIsGiven</code></td><td>Phi IsGivenValue</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_gamma</code></td><td>GAMMA, Bulk threshold parameter</td></tr>
+<tr><td><code>Real</code></td><td><code>m_gammaIsGiven</code></td><td>Gamma IsGivenValue</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#InversePotential">InversePotential</a></code></td><td><code>m_lambda</code></td><td>Channel-length modulation</td></tr>
+<tr><td><code>Real</code></td><td><code>m_substrateDoping</code></td><td>NSUB, Substrate doping</td></tr>
+<tr><td><code>Real</code></td><td><code>m_substrateDopingIsGiven</code></td><td>Substrate doping IsGivenValue</td></tr>
+<tr><td><code>Real</code></td><td><code>m_gateType</code></td><td>TPG, Gate type</td></tr>
+<tr><td><code><a href="../../../../SIunits/Conversions/NonSIunits/index.html#PerArea_cm">PerArea_cm</a></code></td><td><code>m_surfaceStateDensity</code></td><td>NSS, Gate type</td></tr>
+<tr><td><code>Real</code></td><td><code>m_surfaceStateDensityIsGiven</code></td><td>surfaceStateDensityIsGivenValue</td></tr>
+<tr><td><code><a href="../../../../SIunits/Conversions/NonSIunits/index.html#Area_cmPerVoltageSecond">Area_cmPerVoltageSecond</a></code></td><td><code>m_surfaceMobility</code></td><td>UO, Surface mobility</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>m_latDiff</code></td><td>LD, Lateral diffusion</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_jctSatCur</code></td><td>IS, Bulk junction sat. current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>m_drainResistance</code></td><td>RD, Drain ohmic resistance</td></tr>
+<tr><td><code>Real</code></td><td><code>m_drainResistanceIsGiven</code></td><td>Drain resistance IsGivenValue</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>m_sourceResistance</code></td><td>RS, Source ohmic resistance</td></tr>
+<tr><td><code>Real</code></td><td><code>m_sourceResistanceIsGiven</code></td><td>Source resistance IsGivenValue</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Transconductance">Transconductance</a></code></td><td><code>m_transconductance</code></td><td>input - use tTransconductance</td></tr>
+<tr><td><code>Real</code></td><td><code>m_transconductanceIsGiven</code></td><td>Transconductance IsGivenValue</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>m_tnom</code></td><td>TNOM, Parameter measurement temperature</td></tr>
+</table>
+<hr><a name="Mos1Calc"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Mos1</a>.&#8203;Mos1Calc<br><span class="subtitle">Further MOSFET variables (for level 1)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This record Mos1Calc contains further MOSFET variables (for level 1) that are needed for the calculations.</p>
+<p>Extends from <code><a href="../../../../Electrical/Spice3/Internal/Mos/index.html#MosCalc">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;Mos.&#8203;MosCalc</a></code> (Further MOSFET variables (for level 1, 2, 3 and 6)).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_vds</code></td><td>Vds, Drain-Source voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_vgs</code></td><td>Vgs, Gate-Source voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_vbs</code></td><td>Vbs, Bulk-Source voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_cbs</code></td><td>Ibs, B-S junction current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>m_gbs</code></td><td>Gbs, Bulk-Source conductance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_cbd</code></td><td>Ibd, B-D junction current</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>m_gbd</code></td><td>Gbd, Bulk-Drain conductance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_cdrain</code></td><td>Ids</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>m_gds</code></td><td>Gds, Drain-Source conductance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Transconductance">Transconductance</a></code></td><td><code>m_gm</code></td><td>Gm, Transconductance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Transconductance">Transconductance</a></code></td><td><code>m_gmbs</code></td><td>Gmbs, Bulk-Source transconductance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_capbsb</code></td><td>Cbsb</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Charge">Charge</a></code></td><td><code>m_chargebsb</code></td><td>Qbsb</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_capbss</code></td><td>Cbss</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Charge">Charge</a></code></td><td><code>m_chargebss</code></td><td>Qbss</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_capbdb</code></td><td>Cbdb</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Charge">Charge</a></code></td><td><code>m_chargebdb</code></td><td>Qbdb</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_capbds</code></td><td>Cbds</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Charge">Charge</a></code></td><td><code>m_chargebds</code></td><td>Qbds</td></tr>
+<tr><td><code>Real</code></td><td><code>m_Beta</code></td><td>Beta</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_capGSovl</code></td><td>Cgso, Gate-source overlap cap.</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_capGDovl</code></td><td>Cgdo, Gate-drain overlap cap.</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_capGBovl</code></td><td>Cgbo, Gate-bulk overlap cap.</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_capOx</code></td><td>Cox</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_von</code></td><td>Von, Turn-on voltage</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_vdsat</code></td><td>Vdsat</td></tr>
+<tr><td><code>Integer</code></td><td><code>m_mode</code></td><td>Mode</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>m_lEff</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>m_sourceResistance</code></td><td>Rs</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>m_drainResistance</code></td><td>Rd</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Transconductance">Transconductance</a></code></td><td><code>m_tTransconductance</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/Conversions/NonSIunits/index.html#Area_cmPerVoltageSecond">Area_cmPerVoltageSecond</a></code></td><td><code>m_tSurfMob</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_tPhi</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_tVto</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#CurrentDensity">CurrentDensity</a></code></td><td><code>m_tSatCurDens</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_tDrainSatCur</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Current">Current</a></code></td><td><code>m_tSourceSatCur</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_tCBDb</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_tCBDs</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_tCBSb</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_tCBSs</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#CapacitancePerArea">CapacitancePerArea</a></code></td><td><code>m_tCj</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Permittivity">Permittivity</a></code></td><td><code>m_tCjsw</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_tBulkPot</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_tDepCap</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_tVbi</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_VBScrit</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_VBDcrit</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_f1b</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_f2b</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_f3b</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_f1s</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_f2s</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>m_f3s</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>m_dVt</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_capgd</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_capgs</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>m_capgb</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Charge">Charge</a></code></td><td><code>m_qgs</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Charge">Charge</a></code></td><td><code>m_qgd</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Charge">Charge</a></code></td><td><code>m_qgb</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="mos1ModelLineParamsInitEquations"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Mos1</a>.&#8203;mos1ModelLineParamsInitEquations<br><span class="subtitle">Initial precalculation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function mos1ModelLineParamsInitEquation does the initial precalculation of the MOSFET model line parameters for level 1.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Mos1/index.html#Mos1ModelLineParams">Mos1ModelLineParams</a></code></td><td><code>in_p</code></td><td>Input record model line parameters for MOS1</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/index.html#SpiceConstants">SpiceConstants</a></code></td><td><code>in_C</code></td><td>Spice constants</td></tr>
+<tr><td><code>Integer</code></td><td><code>in_m_type</code></td><td>Type of MOS transistor</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Mos/index.html#MosModelLineVariables">MosModelLineVariables</a></code></td><td><code>out_v</code></td><td>Output record model line variables</td></tr>
+</table>
+<hr><a name="drainCur"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Mos1</a>.&#8203;drainCur<br><span class="subtitle">Drain current calculation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function drainCur calculates the main currents that flows from drain node to source node (level 1).</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>vb</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>vg</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>vds</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Mos1/index.html#Mos1Calc">Mos1Calc</a></code></td><td><code>in_c</code></td><td>Input record Mos1Calc</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Mos1/index.html#Mos1ModelLineParams">Mos1ModelLineParams</a></code></td><td><code>in_p</code></td><td>Input record model line parameters for MOS1</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/index.html#SpiceConstants">SpiceConstants</a></code></td><td><code>in_C</code></td><td>Spice constants</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/Mos/index.html#MosModelLineVariables">MosModelLineVariables</a></code></td><td><code>in_vp</code></td><td>Input record model line variables</td></tr>
+<tr><td><code>Integer</code></td><td><code>in_m_type</code></td><td>Type of Mos transistor</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Mos1/index.html#Mos1Calc">Mos1Calc</a></code></td><td><code>out_c</code></td><td>Output record Mos1Calc</td></tr>
+</table>
+<hr><a name="mos1RenameParameters"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Mos1</a>.&#8203;mos1RenameParameters<br><span class="subtitle">Parameter renaming to internal names</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function mos1RenameParameters assigns the external (given by the user, e.g., RD) technology parameters
+to the internal parameters (e.g., m_drainResistance). It also does the analysis of the IsGiven values (level 1).</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/index.html#ModelcardMOS">ModelcardMOS</a></code></td><td><code>ex</code></td><td>Modelcard with technology parameters</td></tr>
+<tr><td><code><a href="../../../../Electrical/Spice3/Internal/index.html#SpiceConstants">SpiceConstants</a></code></td><td><code>con</code></td><td>Spice constants</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Mos/index.html#MosModelLineParams">MosModelLineParams</a></code></td><td><code>intern</code></td><td>Output record model line parameters</td></tr>
+</table>
+<hr><a name="mos1RenameParametersDev"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Spice3</a>.&#8203;<a href="../index.html">Internal</a>.&#8203;<a href="index.html">Mos1</a>.&#8203;mos1RenameParametersDev<br><span class="subtitle">Device parameter renaming to internal names</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This function mos1RenameParametersDev assigns the external (given by the user) device parameters to the internal parameters. It also does the analysis of the IsGiven values (level 1).</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/index.html#ModelcardMOS">ModelcardMOS</a></code></td><td><code>ex</code></td><td>&nbsp</td></tr>
+<tr><td><code>Integer</code></td><td><code>mtype</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>W</code></td><td>Channel Width</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>L</code></td><td>Channel Length</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Area">Area</a></code></td><td><code>AD</code></td><td>Area of the drain diffusion</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Area">Area</a></code></td><td><code>AS</code></td><td>Area of the source diffusion</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>PD</code></td><td>Perimeter of the drain junction</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>PS</code></td><td>Perimeter of the source junction</td></tr>
+<tr><td><code>Real</code></td><td><code>NRD</code></td><td>Number of squares of the drain diffusions</td></tr>
+<tr><td><code>Real</code></td><td><code>NRS</code></td><td>Number of squares of the source diffusions</td></tr>
+<tr><td><code>Integer</code></td><td><code>OFF</code></td><td>Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet</td></tr>
+<tr><td><code>Real</code></td><td><code>IC</code></td><td>Initial condition values, not implemented yet</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>TEMP</code></td><td>Temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Spice3/Internal/Mosfet/index.html#Mosfet">Mosfet</a></code></td><td><code>dev</code></td><td>Output record Mosfet</td></tr>
+</table>
+</body></html>

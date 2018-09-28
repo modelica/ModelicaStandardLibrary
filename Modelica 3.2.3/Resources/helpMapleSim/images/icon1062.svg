@@ -1,0 +1,18 @@
+<svg width="223" height="213" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2" class="component">
+		<polygon points="21.5,151.5 201.5,151.5 201.5,51.5 21.5,51.5" fill="#D7D7D7" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="61.5,97.5 46.5,97.5 46.5,86.5 21.5,101.5 46.5,116.5 46.5,105.5 61.5,105.5" fill="#FF0000" stroke="#FF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="161.5,97.5 181.5,97.5 176.5,97.5 176.5,86.5 201.5,101.5 176.5,116.5 176.5,105.5 161.5,105.5" fill="#FF0000" stroke="#FF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="61.5,201.5 141.5,201.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="171.5,201.5 141.5,191.5 141.5,211.5" fill="#808080" stroke="#808080" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="80.5,114.5 81.0,117.3 81.9,119.9 83.3,122.1 85.0,124.1 87.0,125.7 89.5,127.1 89.5,127.1 91.9,128.1 94.4,128.9 97.1,129.6 100.0,130.2 103.0,130.6 106.2,130.9 109.5,131.1 109.5,131.1 124.0,131.6 143.5,132.5 143.5,132.5 150.4,132.8 156.6,132.9 162.0,133.0 166.6,132.9 170.4,132.8 173.5,132.5 173.5,132.5 177.0,131.9 179.5,131.2 181.0,130.4 181.5,129.5 181.5,129.5 181.1,128.7 179.7,127.9 177.5,127.1 174.5,126.3 170.5,125.5 170.5,125.5 158.0,123.2 142.5,120.5 142.5,120.5 138.4,119.7 134.5,118.9 130.9,118.1 127.5,117.2 124.4,116.4 121.5,115.4 118.9,114.5 116.5,113.5 116.5,113.5 114.3,112.5 112.1,111.4 110.0,110.2 108.0,109.0 106.0,107.7 104.1,106.4 102.3,105.0 100.5,103.5 100.5,103.5 98.6,101.7 96.8,99.8 95.2,97.8 93.8,95.7 92.5,93.4 91.4,91.0 90.5,88.5 90.5,88.5 89.1,84.1 87.8,79.8 86.6,75.6 85.5,71.5 85.5,71.5 84.3,67.6 83.3,66.6 82.5,68.5 82.5,68.5 82.0,71.3 81.5,74.8 81.0,78.8 80.5,83.5 80.5,83.5 80.1,88.2 79.8,92.5 79.6,96.2 79.5,99.5 79.5,99.5 79.5,102.0 79.7,104.8 79.9,107.8 80.1,111.0" fill-opacity="0" stroke="#5F5F5F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="65.5,141.5 187.5,141.5" fill-opacity="0" stroke="#878787" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="71.5,147.5 71.5,61.5" fill-opacity="0" stroke="#878787" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="flange_a" class="port">
+			<polygon points="1.5,111.5 21.5,111.5 21.5,91.5 1.5,91.5" fill="#007F00" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="flange_b" class="port">
+			<polygon points="201.5,111.5 221.5,111.5 221.5,91.5 201.5,91.5" fill="#FFFFFF" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

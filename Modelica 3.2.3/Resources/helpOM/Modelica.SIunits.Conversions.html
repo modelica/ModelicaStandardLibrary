@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.SIunits.Conversions</title>
+</head>
+<body>
+<h1><a href="Icons/18f85713b799c9265a689dbd6af5286d753ae121.svg"><img class="svgiconhead" src="Icons/18f85713b799c9265a689dbd6af5286d753ae121.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.SIunits.html">SIunits</a>.<span class="omc-h1">Conversions</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This package provides conversion functions from the non SI Units
+defined in package Modelica.SIunits.Conversions.NonSIunits to the
+corresponding SI Units defined in package Modelica.SIunits and vice
+versa. It is recommended to use these functions in the following
+way (note, that all functions have one Real input and one Real
+output argument):</p>
+<pre>
+  <strong>import</strong> SI = Modelica.SIunits;
+  <strong>import</strong> Modelica.SIunits.Conversions.*;
+     ...
+  <strong>parameter</strong> SI.Temperature     T   = from_degC(25);   // convert 25 degree Celsius to Kelvin
+  <strong>parameter</strong> SI.Angle           phi = from_deg(180);   // convert 180 degree to radian
+  <strong>parameter</strong> SI.AngularVelocity w   = from_rpm(3600);  // convert 3600 revolutions per minutes
+                                                      // to radian per seconds
+</pre>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.NonSIunits.html"><img class="svgiconsmall" src="Icons/f0a7383aebb3ba5ec3c14e7d266f83855087526d.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.NonSIunits.html">NonSIunits</a></td>
+<td>Type definitions of non SI units</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_unit1.html"><img class="svgiconsmall" src="Icons/93615073c32c6c239c88be5cb1b080cef2b8ebd0.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.to_unit1.html">to_unit1</a></td>
+<td>Change the unit of a Real number to unit="1"</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_degC.html"><img class="svgiconsmall" src="Icons/42c1d804b4a03b5b49651f2307df936c285abc5a.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.to_degC.html">to_degC</a></td>
+<td>Convert from Kelvin to degCelsius</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_degC.html"><img class="svgiconsmall" src="Icons/5d3b50029cbeae1e9959aa95a07d6c8314345488.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.from_degC.html">from_degC</a></td>
+<td>Convert from degCelsius to Kelvin</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_degF.html"><img class="svgiconsmall" src="Icons/5c7b4cf3c1a9f24e913f984ba842e6305a886d96.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.to_degF.html">to_degF</a></td>
+<td>Convert from Kelvin to degFahrenheit</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_degF.html"><img class="svgiconsmall" src="Icons/0434c677004029d3e9bfef4d9db7eec8a834cc8a.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.from_degF.html">from_degF</a></td>
+<td>Convert from degFahrenheit to Kelvin</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_degRk.html"><img class="svgiconsmall" src="Icons/d36e3615f5cd46a70ac2d351f5e6c53e5f69f261.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.to_degRk.html">to_degRk</a></td>
+<td>Convert from Kelvin to degRankine</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_degRk.html"><img class="svgiconsmall" src="Icons/a55bfaa1445470ffb5bedc73578f2a304543e3fa.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.from_degRk.html">from_degRk</a></td>
+<td>Convert from degRankine to Kelvin</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_deg.html"><img class="svgiconsmall" src="Icons/1dd535115a67caf34d237f535d61b2c645ae90f7.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.to_deg.html">to_deg</a></td>
+<td>Convert from radian to degree</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_deg.html"><img class="svgiconsmall" src="Icons/ac95d6699146806f9a7df4117110c5a174b8f5db.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.from_deg.html">from_deg</a></td>
+<td>Convert from degree to radian</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_rpm.html"><img class="svgiconsmall" src="Icons/b0b1c0dff792812c2ab4a454303eba7e8f544d1d.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.to_rpm.html">to_rpm</a></td>
+<td>Convert from radian per second to revolutions per minute</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_rpm.html"><img class="svgiconsmall" src="Icons/c49878fab611d30736d5680d2129287f1828fa61.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.from_rpm.html">from_rpm</a></td>
+<td>Convert from revolutions per minute to radian per second</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_kmh.html"><img class="svgiconsmall" src="Icons/a6c144c776d09dafc86734fb5ead52dc15a3864c.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.to_kmh.html">to_kmh</a></td>
+<td>Convert from metre per second to kilometre per hour</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_kmh.html"><img class="svgiconsmall" src="Icons/f4d3ef642b1fec144cfb108cd8bea8a5b65cb445.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.from_kmh.html">from_kmh</a></td>
+<td>Convert from kilometre per hour to metre per second</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_day.html"><img class="svgiconsmall" src="Icons/46eb3fe3752cb44efb5b9b6b3548ff155d8f7809.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.to_day.html">to_day</a></td>
+<td>Convert from second to day</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_day.html"><img class="svgiconsmall" src="Icons/d075f396c9d02ff72bfc4301752290749407a3b4.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.from_day.html">from_day</a></td>
+<td>Convert from day to second</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_hour.html"><img class="svgiconsmall" src="Icons/2cd91a630cf26aa94d5d96a2d7961fb08c8af897.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.to_hour.html">to_hour</a></td>
+<td>Convert from second to hour</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_hour.html"><img class="svgiconsmall" src="Icons/929a4654731ebe67d4fa834ee4ae9ebdd55a4243.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.from_hour.html">from_hour</a></td>
+<td>Convert from hour to second</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_minute.html"><img class="svgiconsmall" src="Icons/bcad0cf905209accf06426f307661b0942eddbe4.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.to_minute.html">to_minute</a></td>
+<td>Convert from second to minute</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_minute.html"><img class="svgiconsmall" src="Icons/f7b2bb1d9ff0e93e19644c454c012281e02052ea.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.from_minute.html">from_minute</a></td>
+<td>Convert from minute to second</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_litre.html"><img class="svgiconsmall" src="Icons/d289387652529c6a005daa9e7c52ccca9c47aaa8.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.to_litre.html">to_litre</a></td>
+<td>Convert from cubic metre to litre</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_litre.html"><img class="svgiconsmall" src="Icons/431fb0250fe1c0910dcdd0ca51c2cb400073becc.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.from_litre.html">from_litre</a></td>
+<td>Convert from litre to cubic metre</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_Ah.html"><img class="svgiconsmall" src="Icons/db6a3ffa1d12dbf86cf8ccaa4f8f82b8a443271b.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.from_Ah.html">from_Ah</a></td>
+<td>Convert from Ampere hours to Coulomb</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_Ah.html"><img class="svgiconsmall" src="Icons/de67e5a376e75159f2b5097e36b3072945f22d23.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.to_Ah.html">to_Ah</a></td>
+<td>Convert from Coulomb to Ampere hours</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_Wh.html"><img class="svgiconsmall" src="Icons/8eb63947c5d0a33489b4bdca853efb06f3969e4c.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.from_Wh.html">from_Wh</a></td>
+<td>Convert from Watt hour to Joule</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_Wh.html"><img class="svgiconsmall" src="Icons/1fc90b6b516192b1a1ccf7503faa868a6cd4486d.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.to_Wh.html">to_Wh</a></td>
+<td>Convert from Joule to Watt hour</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_kWh.html"><img class="svgiconsmall" src="Icons/ce4cbf766ba57dc95747f771b6770ce014032909.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.to_kWh.html">to_kWh</a></td>
+<td>Convert from Joule to kilo Watt hour</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_kWh.html"><img class="svgiconsmall" src="Icons/90595ba605fc730d7e7de7791b46ed9849484558.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.from_kWh.html">from_kWh</a></td>
+<td>Convert from kilo Watt hour to Joule</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_bar.html"><img class="svgiconsmall" src="Icons/25f8f51a95743c31b04fb57cc750b9755c2827d8.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.to_bar.html">to_bar</a></td>
+<td>Convert from Pascal to bar</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_bar.html"><img class="svgiconsmall" src="Icons/2bd88831c34c1da38215a29247dce5cfc3cfd444.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.from_bar.html">from_bar</a></td>
+<td>Convert from bar to Pascal</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_gps.html"><img class="svgiconsmall" src="Icons/ba90a69605c4dadcd1d98a59709524b41d25ff1f.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.to_gps.html">to_gps</a></td>
+<td>Convert from kilogram per second to gram per second</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_gps.html"><img class="svgiconsmall" src="Icons/4777cd94d6273ca78bb0af51d4a11a7e9c043017.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.from_gps.html">from_gps</a></td>
+<td>Convert from gram per second to kilogram per second</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_Hz.html"><img class="svgiconsmall" src="Icons/c786807ce15a4e4a29f52e5e3d65b8ccb6ec2950.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.from_Hz.html">from_Hz</a></td>
+<td>Convert from Hz to rad/s</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_Hz.html"><img class="svgiconsmall" src="Icons/960cfd77ef17ab3d861727df94614af239765bc6.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.to_Hz.html">to_Hz</a></td>
+<td>Convert from rad/s to Hz</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_cm2.html"><img class="svgiconsmall" src="Icons/377b660cb27d7f6fb7254bc6e7825bf36f4f6574.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.to_cm2.html">to_cm2</a></td>
+<td>Convert from square metre to square centimetre</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_cm2.html"><img class="svgiconsmall" src="Icons/c0b006270ca1c9c247aee45235251053fe118a45.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.from_cm2.html">from_cm2</a></td>
+<td>Convert from square centimetre to square metre</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.ConversionIcon.html"><img class="svgiconsmall" src="Icons/57c75575c70ce086e85a8670387e070947aae68a.svg" /></a>&nbsp;<a href="Modelica.SIunits.Conversions.ConversionIcon.html">ConversionIcon</a></td>
+<td>This icon will be removed in future Modelica versions.</td>
+</tr>
+</table>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

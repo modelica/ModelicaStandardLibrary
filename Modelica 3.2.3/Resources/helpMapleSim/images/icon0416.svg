@@ -1,0 +1,27 @@
+<svg width="223" height="223" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted" class="component">
+		<polygon points="171.5,111.5 51.5,41.5 51.5,181.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="21.5,51.5 51.5,51.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="21.5,171.5 51.5,171.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="171.5,111.5 201.5,111.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="63.5,79.5 83.5,79.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="72.5,131.5 72.5,152.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="61.5,142.5 83.5,142.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="111.5" y="26.7" text-anchor="middle" fill="#0000FF" font-size="19.8px" font-family="sans-serif">IdealizedOpAmpLimted</text>
+		<g id="in_p" class="port">
+			<polygon points="21.5,181.5 1.5,181.5 1.5,161.5 21.5,161.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="in_n" class="port">
+			<polygon points="1.5,61.5 21.5,61.5 21.5,41.5 1.5,41.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="out" class="port">
+			<polygon points="221.5,121.5 201.5,121.5 201.5,101.5 221.5,101.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="s_p" class="port">
+			<polygon points="121.5,21.5 101.5,21.5 101.5,1.5 121.5,1.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="s_n" class="port">
+			<polygon points="101.5,221.5 121.5,221.5 121.5,201.5 101.5,201.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

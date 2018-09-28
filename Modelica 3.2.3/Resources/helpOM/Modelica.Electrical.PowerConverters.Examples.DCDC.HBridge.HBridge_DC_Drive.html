@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge.HBridge_DC_Drive</title>
+</head>
+<body>
+<h1><a href="Icons/f35cd3a794f1a9453f90369fb59b62cf30078ebf.svg"><img class="svgiconhead" src="Icons/f35cd3a794f1a9453f90369fb59b62cf30078ebf.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.PowerConverters.html">PowerConverters</a>.<a class="omc-h1-a" href="Modelica.Electrical.PowerConverters.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Electrical.PowerConverters.Examples.DCDC.html">DCDC</a>.<a class="omc-h1-a" href="Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge.html">HBridge</a>.<span class="omc-h1">HBridge_DC_Drive</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This example of an H bridge with DC drive demonstrates the
+operation of the DC machine in four quadrants. The DC output
+voltage is equal to <code>2 * (dutyCycle - 0.5)</code> times the
+input voltage.</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th><strong>start time (s)</strong></th>
+<th><strong>machine speed</strong></th>
+<th><strong>machine torque</strong></th>
+<th><strong>mode</strong></th>
+</tr>
+<tr>
+<td>0</td>
+<td>zero</td>
+<td>zero</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>positive</td>
+<td>zero</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>positive</td>
+<td>positive</td>
+<td>motor</td>
+</tr>
+<tr>
+<td>9.5</td>
+<td>positive</td>
+<td>negative</td>
+<td>generator</td>
+</tr>
+<tr>
+<td>12.5</td>
+<td>negative</td>
+<td>negative</td>
+<td>motor</td>
+</tr>
+<tr>
+<td>15.5</td>
+<td>negative</td>
+<td>positive</td>
+<td>generator</td>
+</tr>
+<tr>
+<td>19</td>
+<td>negative</td>
+<td>zero</td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td>zero</td>
+<td>zero</td>
+<td></td>
+</tr>
+</table>
+<p>Plot machine current <code>dcpm.ia</code>, averaged current
+<code>meanCurrent.y</code>, machine speed
+<code>dcpm.wMechanical</code>, averaged machine speed
+<code>dcpm.va</code> and torque
+<code>dcpm.tauElectrical</code>.</p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

@@ -1,0 +1,116 @@
+<html><head><title>Modelica.Fluid.Examples.HeatExchanger.BaseClasses</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="BaseClasses"><h1><embed class="icon" src="../../../../images/icon1037.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">HeatExchanger</a>.&#8203;BaseClasses<br><span class="subtitle">Additional models for heat exchangers</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon shall be used for a package/library that contains base models and classes, respectively.</p>
+<p>Extends from <code><a href="../../../../Icons/BasesPackage/index.html">Modelica.&#8203;Icons.&#8203;BasesPackage</a></code> (Icon for packages containing base classes).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#BasicHX"><code>BasicHX</code></a></td><td>Simple heat exchanger model</td></tr>
+<tr><td><a href="#WallConstProps"><code>WallConstProps</code></a></td><td>Pipe wall with capacitance, assuming 1D heat conduction and constant material properties</td></tr>
+</table>
+<hr><a name="BasicHX"><h2><embed class="icon" src="../../../../images/icon1323.svg" width="243" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">HeatExchanger</a>.&#8203;<a href="index.html">BaseClasses</a>.&#8203;BasicHX<br><span class="subtitle">Simple heat exchanger model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Simple model of a heat exchanger consisting of two pipes and one wall in between.
+For both fluids geometry parameters, such as heat transfer area and cross section as well as heat transfer and pressure drop correlations may be chosen.
+The flow scheme may be concurrent or counterflow, defined by the respective flow directions of the fluids entering the component.
+The design flow direction with positive m_flow variables is counterflow.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>length</code></td><td>&nbsp;</td><td>Length of flow path for both fluids</td></tr>
+<tr><td><code>Integer</code></td><td><code>nNodes</code></td><td><code>2</code></td><td>Spatial segmentation</td></tr>
+<tr><td><code><a href="../../../../Fluid/Types/index.html#ModelStructure">ModelStructure</a></code></td><td><code>modelStructure_1</code></td><td><code>Types.&#8203;ModelStructure.&#8203;av_vb</code></td><td>Determines whether flow or volume models are present at the ports</td></tr>
+<tr><td><code><a href="../../../../Fluid/Types/index.html#ModelStructure">ModelStructure</a></code></td><td><code>modelStructure_2</code></td><td><code>Types.&#8203;ModelStructure.&#8203;av_vb</code></td><td>Determines whether flow or volume models are present at the ports</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Area">Area</a></code></td><td><code>crossArea_1</code></td><td>&nbsp;</td><td>Cross sectional area</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Area">Area</a></code></td><td><code>crossArea_2</code></td><td>&nbsp;</td><td>Cross sectional area</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>perimeter_1</code></td><td>&nbsp;</td><td>Flow channel perimeter</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>perimeter_2</code></td><td>&nbsp;</td><td>Flow channel perimeter</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Boolean</code></td><td><code>use_HeatTransfer</code></td><td><code>true</code></td><td>= true to use the HeatTransfer_1/_2 model</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Area">Area</a></code></td><td><code>area_h_1</code></td><td>&nbsp;</td><td>Heat transfer area</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Area">Area</a></code></td><td><code>area_h_2</code></td><td>&nbsp;</td><td>Heat transfer area</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>s_wall</code></td><td>&nbsp;</td><td>Wall thickness</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#ThermalConductivity">ThermalConductivity</a></code></td><td><code>k_wall</code></td><td>&nbsp;</td><td>Thermal conductivity of wall material</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>c_wall</code></td><td>&nbsp;</td><td>Specific heat capacity of wall material</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_wall</code></td><td>&nbsp;</td><td>Density of wall material</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Area">Area</a></code></td><td><code>area_h</code></td><td><code>0.5 * (area_h_1 + area_h_2)</code></td><td>Heat transfer area</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m_wall</code></td><td><code>rho_wall * area_h * s_wall</code></td><td>Wall mass</td></tr>
+<tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code><a href="../../../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>energyDynamics</code></td><td><code>system.&#8203;energyDynamics</code></td><td>Formulation of energy balance</td></tr>
+<tr><td><code><a href="../../../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>massDynamics</code></td><td><code>system.&#8203;massDynamics</code></td><td>Formulation of mass balance</td></tr>
+<tr><td><code><a href="../../../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>momentumDynamics</code></td><td><code>system.&#8203;momentumDynamics</code></td><td>Formulation of momentum balance, if pressureLoss options available</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>Twall_start</code></td><td>&nbsp;</td><td>Start value of wall temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>dT</code></td><td>&nbsp;</td><td>Start value for pipe_1.T - pipe_2.T</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_T_start</code></td><td><code>true</code></td><td>Use T_start if true, otherwise h_start</td></tr>
+<tr><td><code><a href="../../../../Fluid/Examples/HeatExchanger/BaseClasses/BasicHX/Medium_1/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_a_start1</code></td><td><code>Medium_1.&#8203;p_default</code></td><td>Start value of pressure</td></tr>
+<tr><td><code><a href="../../../../Fluid/Examples/HeatExchanger/BaseClasses/BasicHX/Medium_1/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_b_start1</code></td><td><code>Medium_1.&#8203;p_default</code></td><td>Start value of pressure</td></tr>
+<tr><td><code><a href="../../../../Fluid/Examples/HeatExchanger/BaseClasses/BasicHX/Medium_1/index.html#Temperature">Temperature</a></code></td><td><code>T_start_1</code></td><td><code>if use_T_start then Medium_1.T_default else Medium_1.temperature_phX(0.5 * (p_a_start1 + p_b_start1), h_start_1, X_start_1)</code></td><td>Start value of temperature</td></tr>
+<tr><td><code><a href="../../../../Fluid/Examples/HeatExchanger/BaseClasses/BasicHX/Medium_1/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_start_1</code></td><td><code>if use_T_start then Medium_1.specificEnthalpy_pTX(0.5 * (p_a_start1 + p_b_start1), T_start_1, X_start_1) else Medium_1.h_default</code></td><td>Start value of specific enthalpy</td></tr>
+<tr><td><code><a href="../../../../Fluid/Examples/HeatExchanger/BaseClasses/BasicHX/Medium_1/index.html#MassFraction">MassFraction</a></code></td><td><code>X_start_1[Medium_1.nX]</code></td><td><code>Medium_1.&#8203;X_default</code></td><td>Start value of mass fractions m_i/m</td></tr>
+<tr><td><code><a href="../../../../Fluid/Examples/HeatExchanger/BaseClasses/BasicHX/Medium_1/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_start_1</code></td><td><code>system.&#8203;m_flow_start</code></td><td>Start value of mass flow rate</td></tr>
+<tr><td><code><a href="../../../../Fluid/Examples/HeatExchanger/BaseClasses/BasicHX/Medium_2/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_a_start2</code></td><td><code>Medium_2.&#8203;p_default</code></td><td>Start value of pressure</td></tr>
+<tr><td><code><a href="../../../../Fluid/Examples/HeatExchanger/BaseClasses/BasicHX/Medium_2/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_b_start2</code></td><td><code>Medium_2.&#8203;p_default</code></td><td>Start value of pressure</td></tr>
+<tr><td><code><a href="../../../../Fluid/Examples/HeatExchanger/BaseClasses/BasicHX/Medium_2/index.html#Temperature">Temperature</a></code></td><td><code>T_start_2</code></td><td><code>if use_T_start then Medium_2.T_default else Medium_2.temperature_phX(0.5 * (p_a_start2 + p_b_start2), h_start_2, X_start_2)</code></td><td>Start value of temperature</td></tr>
+<tr><td><code><a href="../../../../Fluid/Examples/HeatExchanger/BaseClasses/BasicHX/Medium_2/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_start_2</code></td><td><code>if use_T_start then Medium_2.specificEnthalpy_pTX(0.5 * (p_a_start2 + p_b_start2), T_start_2, X_start_2) else Medium_2.h_default</code></td><td>Start value of specific enthalpy</td></tr>
+<tr><td><code><a href="../../../../Fluid/Examples/HeatExchanger/BaseClasses/BasicHX/Medium_2/index.html#MassFraction">MassFraction</a></code></td><td><code>X_start_2[Medium_2.nX]</code></td><td><code>Medium_2.&#8203;X_default</code></td><td>Start value of mass fractions m_i/m</td></tr>
+<tr><td><code><a href="../../../../Fluid/Examples/HeatExchanger/BaseClasses/BasicHX/Medium_2/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_start_2</code></td><td><code>system.&#8203;m_flow_start</code></td><td>Start value of mass flow rate</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>roughness_1</code></td><td><code>2.5e-5</code></td><td>Absolute roughness of pipe (default = smooth steel pipe)</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>roughness_2</code></td><td><code>2.5e-5</code></td><td>Absolute roughness of pipe (default = smooth steel pipe)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b1</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a1</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b2</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a2</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="WallConstProps"><h2><embed class="icon" src="../../../../images/icon1324.svg" width="203" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">HeatExchanger</a>.&#8203;<a href="index.html">BaseClasses</a>.&#8203;WallConstProps<br><span class="subtitle">Pipe wall with capacitance, assuming 1D heat conduction and constant material properties</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Simple model of circular (or any other closed shape) wall to be used for pipe (or duct) models. Heat conduction is regarded one dimensional, capacitance is lumped at the arithmetic mean temperature. The spatial discretization (parameter <code>n</code>) is meant to correspond to a connected fluid model discretization.
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>1</code></td><td>Segmentation perpendicular to heat conduction</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>s</code></td><td>&nbsp;</td><td>Wall thickness</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Area">Area</a></code></td><td><code>area_h</code></td><td>&nbsp;</td><td>Heat transfer area</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_wall</code></td><td>&nbsp;</td><td>Density of wall material</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>c_wall</code></td><td>&nbsp;</td><td>Specific heat capacity of wall material</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#ThermalConductivity">ThermalConductivity</a></code></td><td><code>k_wall</code></td><td>&nbsp;</td><td>Thermal conductivity of wall material</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m[n]</code></td><td><code>fill(rho_wall * area_h * s / n, n)</code></td><td>Distribution of wall mass</td></tr>
+<tr><td><code><a href="../../../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>energyDynamics</code></td><td><code>system.&#8203;energyDynamics</code></td><td>Formulation of energy balance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_start</code></td><td>&nbsp;</td><td>Wall temperature start value</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>dT</code></td><td>&nbsp;</td><td>Start value for port_b.T - port_a.T</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort_a[n]</code></td><td>Thermal port</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort_b[n]</code></td><td>Thermal port</td></tr>
+</table>
+</body></html>

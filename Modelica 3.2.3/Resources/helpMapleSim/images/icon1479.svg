@@ -1,0 +1,20 @@
+<svg width="253" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature" class="component">
+		<defs>
+			<pattern id="pat2" patternUnits="userSpaceOnUse" width="14" height="14">
+				<rect width="14" height="14" fill="#9F9FDF" />
+				<path d="M-1,13 l2,2 M0,0 l14,14 M13,-1 l2,2" stroke="#000000" stroke-width="1" />
+			</pattern>
+		</defs>
+		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="url(#pat2)" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="39.5,101.5 205.5,101.5" fill-opacity="0" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="91.5" y="198.8" text-anchor="middle" fill="#000000" font-size="132.8px" font-family="sans-serif">K</text>
+		<polygon points="191.5,121.5 191.5,81.5 231.5,101.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="port" class="port">
+			<polygon points="231.5,111.5 251.5,111.5 251.5,91.5 231.5,91.5" fill="#FFFFFF" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="T" class="port">
+			<polygon points="1.5,81.5 41.5,101.5 1.5,121.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.FastFourierTransform.realFFT</title>
+</head>
+<body>
+<h1><a href="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg"><img class="svgiconhead" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.FastFourierTransform.html">FastFourierTransform</a>.<span class="omc-h1">realFFT</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<p>(info, amplitudes, phases) = <strong>realFFT</strong>(u);</p>
+</blockquote>
+<h4>Description</h4>
+<p>The input argument of this function is a Real vector u.
+size(u,1) <strong>must</strong> be even. An efficient computation
+is performed, if size(u,1) = 2^a*3^b*5^c (a,b,c Integer ≥ 0). An
+appropriate length of vector u can be computed with function
+<a href="Modelica.Math.FastFourierTransform.realFFTsamplePoints.html">
+realFFTsamplePoints</a>. Function <strong>realFFT</strong> computes
+a real FFT (Fast Fourier Transform) of u and returns the result in
+form of the outputs amplitudes and phases. Argument info provides
+additional information:</p>
+<pre>   info = 0: Successful FFT computation.
+   info = 1: size(u,1) is not even.
+   info = 3: Another error.
+</pre>
+<p>Note, in the original publication about the efficient
+computation of FFT (Cooley and Tukey, 1965), the number of sample
+points must be 2^a. However, all newer FFT algorithms do not have
+this strong restriction and especially not the open source software
+<a href="http://sourceforge.net/projects/kissfft/">KissFFT</a> from
+Mark Borgerding used in this function.</p>
+<p>The function returns the FFT such that amplitudes[1] is the mean
+value of u (= sum(u)/size(u,1)), and amplitudes[i] is the amplitude
+of a sine-function at the i-th frequency.</p>
+<h4>References</h4>
+<dl>
+<dt>Mark Borgerding (2010):</dt>
+<dd><strong>KissFFT, version 1.3.0</strong>. <a href="http://sourceforge.net/projects/kissfft/">http://sourceforge.net/projects/kissfft/</a>.<br />
+
+&nbsp;</dd>
+<dt>James W. Cooley, John W. Tukey (1965):</dt>
+<dd><strong>An algorithm for the machine calculation of complex
+Fourier series</strong>. Math. Comput. 19: 297-301.
+doi:10.2307/2003354.<br />
+&nbsp;</dd>
+<dt>Martin R. Kuhn, Martin Otter, Tim Giese (2015):</dt>
+<dd><strong>Model Based Specifications in Aircraft Systems
+Design</strong>. Modelica 2015 Conference, Versailles, France, pp.
+491-500, Sept.23-25, 2015. Download from: <a href="http://www.ep.liu.se/ecp/118/053/ecp15118491.pdf">http://www.ep.liu.se/ecp/118/053/ecp15118491.pdf</a></dd>
+</dl>
+<h4>Example</h4>
+<blockquote>(info, A) = realFFT({0,0.1,0.2,0.4,0.5,
+0.6})</blockquote>
+<p>See also <a href="Modelica.Math.FastFourierTransform.Examples.RealFFT1.html">Examples.RealFFT1</a>
+which is a complete example where an FFT is computed during
+simulation and stored on file.</p>
+<h4>See also</h4>
+<p><a href="Modelica.Math.FastFourierTransform.realFFTinfo.html">realFFTinfo</a>,
+<a href="Modelica.Math.FastFourierTransform.realFFTsamplePoints.html">
+realFFTsamplePoints</a>, <a href="Modelica.Math.FastFourierTransform.realFFTwriteToFile.html">realFFTwriteToFile</a></p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>function realFFT
+  extends Modelica.Icons.Function;
+  input Real u[:] "Signal for which FFT shall be computed (size(nu,1) MUST be EVEN and should be an integer multiple of 2,3,5, that is size(nu,1) = 2^a*3^b*5^c, with a,b,c Integer &gt;= 0)";
+  input Integer nfi "Number of frequency points that shall be returned in amplitudes and phases (typically: nfi = max(1,min(integer(ceil(f_max/f_resolution))+1,nf))); the maximal possible value is nfi=div(size(u,1),2)+1)";
+  output Integer info "Information flag (0: FFT computed, 1: nu is not even, 3: another error)";
+  output Real amplitudes[nfi] "Amplitudes of FFT";
+  output Real phases[nfi] "Phases of FFT in [deg]";
+end realFFT;</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th>Date</th>
+<th align="left">Description</th>
+</tr>
+<tr>
+<td>Nov. 29, 2015</td>
+<td>Initial version implemented by Martin R. Kuhn and Martin Otter
+(<a href="http://www.dlr.de/rmc/sr/en">DLR Institute of System
+Dynamics and Control</a>.</td>
+</tr>
+</table>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

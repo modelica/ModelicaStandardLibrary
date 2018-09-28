@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Classes.ExternalObject</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Classes.html">Classes</a>.<span class="omc-h1">ExternalObject</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Define external functions with internal memory.</p>
+<h4>Description</h4>
+<p>External functions may have internal memory reported between
+function calls. Within Modelica this memory is defined as instance
+of the predefined class <strong>ExternalObject</strong> according
+to the following rules:</p>
+<ul>
+<li>There is a predefined partial class
+<strong>ExternalObject</strong> [<em>since the class is partial, it
+is not possible to define an instance of this class</em>].</li>
+<li>An external object class shall be directly extended from
+ExternalObject, shall have exactly two function definitions, called
+"<strong>constructor</strong>" and "<strong>destructor</strong>",
+and shall not contain other elements.</li>
+<li>The constructor function is called exactly once before the
+first use of the object. For each completely constructed object,
+the destructor is called exactly once, after the last use of the
+object, even if an error occurs. The constructor shall have exactly
+one output argument in which the constructed ExternalObject is
+returned. The destructor shall have no output arguments and the
+only input argument of the destructor shall be the ExternalObject.
+It is not legal to call explicitly the constructor and destructor
+functions.</li>
+<li>Classes derived from ExternalObject can neither be used in an
+extends-clause nor in a short class definition.</li>
+<li>External functions may be defined which operate on the internal
+memory of an ExternalObject. An ExternalObject used as input
+argument or return value of an external C-function is mapped to the
+C-type "void*".</li>
+</ul>
+<h4>Examples</h4>
+<p>A user-defined table may be defined in the following way as an
+ExternalObject (the table is read in a user-defined format from
+file and has memory for the last used table interval):</p>
+<pre>
+<strong>class</strong> MyTable
+  <strong>extends</strong> ExternalObject;
+  <strong>function</strong> constructor
+    <strong>input</strong>  String  fileName = "";
+    <strong>input</strong>  String  tableName = "";
+    <strong>output</strong> MyTable table;
+    <strong>external</strong> "C" table = initMyTable(fileName, tableName);
+  <strong>end</strong> constructor;
+
+  <strong>function</strong> destructor "Release storage of table"
+    <strong>input</strong>  MyTable table;
+    <strong>external</strong> "C" closeMyTable(table);
+  <strong>end</strong> destructor;
+<strong>end</strong> MyTable;
+</pre>
+<p>and used in the following way:</p>
+<pre>
+<strong>model</strong> test "Define a new table and interpolate in it"
+  MyTable table=MyTable(fileName ="testTables.txt",
+                        tableName="table1");  // call initMyTable
+  Real y;
+<strong>equation</strong>
+  y = interpolateMyTable(table, time);
+<strong>end</strong> test;
+</pre>
+<p>This requires to provide the following Modelica function:</p>
+<pre>
+<strong>function</strong> interpolateMyTable "Interpolate in table"
+  <strong>input</strong>  MyTable table;
+  <strong>input</strong>  Real  u;
+  <strong>output</strong> Real  y;
+  <strong>external</strong> "C" y = interpolateMyTable(table, u);
+<strong>end</strong> interpolateTable;
+</pre>
+<p>The external C-functions may be defined in the following
+way:</p>
+<pre>
+<strong>typedef struct</strong> {  /* User-defined data structure of the table */
+  <strong>double</strong>* array;      /* nrow*ncolumn vector       */
+  <strong>int</strong>     nrow;       /* number of rows            */
+  <strong>int</strong>     ncol;       /* number of columns         */
+  <strong>int</strong>     type;       /* interpolation type        */
+  <strong>int</strong>     lastIndex;  /* last row index for search */
+} MyTable;
+
+<strong>void</strong>* initMyTable(const char* fileName, const char* tableName) {
+  MyTable* table = malloc(sizeof(MyTable));
+  <strong>if</strong> ( table == NULL ) ModelicaError("Not enough memory");
+        // read table from file and store all data in *table
+  <strong>return</strong> (void*) table;
+}
+
+<strong>void </strong>closeMyTable(void* object) { /* Release table storage */
+  MyTable* table = (MyTable*) object;
+  <strong>if</strong> ( object == NULL ) return;
+  free(table-&gt;array);
+  free(table);
+}
+
+<strong>double</strong> interpolateMyTable(void* object, double u) {
+  MyTable* table = (MyTable*) object;
+  <strong>double</strong> y;
+  // Interpolate using "table" data (compute y)
+  <strong>return</strong> y;
+}
+</pre>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

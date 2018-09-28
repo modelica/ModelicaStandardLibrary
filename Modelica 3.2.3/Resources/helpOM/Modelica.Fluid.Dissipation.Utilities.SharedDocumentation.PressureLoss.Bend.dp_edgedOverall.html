@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_edgedOverall</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.html">SharedDocumentation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.html">PressureLoss</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.html">Bend</a>.<span class="omc-h1">dp_edgedOverall</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Calculation of pressure loss in edged bends with sharp corners
+at overall flow regime for incompressible and single-phase fluid
+flow through circular cross sectional area considering surface
+roughness.</p>
+<h4>Restriction</h4>
+<p>This function shall be used inside of the restricted limits
+according to the referenced literature.</p>
+<ul>
+<li><strong>circular cross sectional area</strong> <em>[Idelchik
+2006, p. 366, diag. 6-7]</em></li>
+<li><strong>edged bend with sharp corners at turning</strong>
+<em>[Idelchik 2006, p. 366, diag. 6-7]</em></li>
+<li><strong>0° ≤ angle of turning ≤ 180°</strong> <em>[Idelchik
+2006, p. 338, sec. 19]</em></li>
+<li><strong>length of edged bend along edged axis / diameter ≥
+10</strong> <em>[Idelchik 2006, p. 366, diag. 6-7]</em></li>
+</ul>
+<h4>Geometry</h4>
+<p><img src="../../../Modelica%203.2.3/Resources/Images/Fluid/Dissipation/pressureLoss/bend/pic_edgedBend.png" alt="pic_edgedBend" /></p>
+<h4>Calculation</h4>
+<p>The pressure loss <strong>dp</strong> for edged bends is
+determined by:</p>
+<pre>
+    dp = zeta_TOT * (rho/2) * velocity^2
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><strong>rho</strong></td>
+<td>as density of fluid [kg/m3],</td>
+</tr>
+<tr>
+<td><strong>velocity</strong></td>
+<td>as mean velocity [m/s],</td>
+</tr>
+<tr>
+<td><strong>zeta_TOT</strong></td>
+<td>as pressure loss coefficient [-].</td>
+</tr>
+</table>
+<p>The pressure loss coefficient <strong>zeta_TOT</strong> of an
+edged bend can be calculated for different angles of turning
+<strong>delta</strong> by:</p>
+<pre>
+    zeta_TOT = A * C1 * zeta_LOC * CF_Fri* CF_Re <em>[Idelchik 2006, p. 366, diag. 6-7] </em> and <em>[Miller 1984, p. 149, sec. 9.4]</em>
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><strong>A</strong></td>
+<td>as coefficient considering effect for angle of turning
+[-],</td>
+</tr>
+<tr>
+<td><strong>C1</strong></td>
+<td>as coefficient considering relative elongation of cross
+sectional area (here: circular cross sectional area) [-],</td>
+</tr>
+<tr>
+<td><strong>CF_Fri</strong></td>
+<td>as correction factor considering surface roughness [-],</td>
+</tr>
+<tr>
+<td><strong>CF_Re</strong></td>
+<td>as correction factor considering Reynolds number [-],</td>
+</tr>
+<tr>
+<td><strong>delta</strong></td>
+<td>as angle of turning [deg].</td>
+</tr>
+</table>
+<p>The correction factor <strong>CF_Fri</strong> regarding the
+influence of surface roughness is determined as ratio of the Darcy
+friction factor for rough surfaces to smooth surfaces according to
+<em>[Miller, p. 207, eq. 9.3]:</em></p>
+<pre>
+    CF_Fri = lambda_FRI_rough / lambda_FRI_smooth
+</pre>
+<p>and the Darcy friction factors <strong>lambda_FRI</strong> are
+calculated with an approximated Colebrook-White law according to
+<em>[Miller, p. 191, eq. 8.4]:</em></p>
+<pre>
+    lambda_FRI = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><strong>d_hyd</strong></td>
+<td>as hydraulic diameter [m],</td>
+</tr>
+<tr>
+<td><strong>K</strong></td>
+<td>as absolute roughness (average height of surface asperities)
+[m],</td>
+</tr>
+<tr>
+<td><strong>lambda_FRI</strong></td>
+<td>as Darcy friction factor[-],</td>
+</tr>
+<tr>
+<td><strong>Re</strong></td>
+<td>as Reynolds number [m],</td>
+</tr>
+<tr>
+<td><strong>zeta_TOT</strong></td>
+<td>as pressure loss coefficient [-].</td>
+</tr>
+</table>
+<p>Note that the Darcy friction factor for a smooth surface
+<strong>lambda_FRI_smooth</strong> is calculated with the previous
+equation and an absolute roughness of <strong>K = 0</strong> .</p>
+<p>The correction for surface roughness through
+<strong>CF_Fri</strong> is used only in the turbulent regime, where
+the fluid flow is influenced by surface asperities not covered by a
+laminar boundary layer. Here the correction according to friction
+starts at <strong>Re ≥ Re_lam_leave</strong> according to
+<em>[Idelchik 2006, p. 336, sec. 15]</em>. Here the end of the
+laminar regime is restricted to a Reynolds number smaller than 2e3
+w.r.t <em>[VDI, p. Lac 6, fig. 16]</em>.</p>
+<p>Nevertheless the transition point from the laminar to the
+transition regime is shifted to smaller Reynolds numbers for an
+increasing absolute roughness. This effect is considered according
+to <em>[Samoilenko in Idelchik 2006, p. 81, sec. 2-1-21]</em>
+as:</p>
+<pre>
+    Re_lam_leave = 754*exp(if k ≤ 0.007 then 0.0065/0.007 else 0.0065/k)
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><strong>k = K /d_hyd</strong></td>
+<td>as relative roughness [-],</td>
+</tr>
+<tr>
+<td><strong>Re_lam_leave</strong></td>
+<td>as Reynolds number for leaving laminar regime [-].</td>
+</tr>
+</table>
+<p>Note that the beginning of the laminar regime cannot be beneath
+<strong>Re ≤ 5e2</strong> .</p>
+<p>In addition the influence or decreasing Reynolds numbers
+<strong>Re</strong> on the pressure loss coefficient
+<strong>zeta_TOT</strong> in the laminar and turbulent regime is
+considered through a second correction factor
+<strong>CF_Re</strong> according to <em>[Miller 1984, p. 149, sec.
+9.4]</em> by:</p>
+<pre>
+   CF_Re = B/Re^exp for Re ≤ 2e5
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><strong>B = f(Geometry)</strong></td>
+<td>as coefficient considering effect of Reynolds number in laminar
+regime [-],</td>
+</tr>
+<tr>
+<td><strong>exp</strong></td>
+<td>as exponent for Reynolds number in laminar regime [-],</td>
+</tr>
+<tr>
+<td><strong>Re</strong></td>
+<td>as Reynolds number [-],</td>
+</tr>
+</table>
+<p>Note that the coefficient <strong>B</strong> considers the
+influence of the angle of turning <strong>delta</strong> on the
+pressure loss coefficient <strong>zeta_TOT</strong> in the laminar
+regime according to <em>[Idelchik 2006, p. 340, sec. 28]</em>.</p>
+<p>Note that the correction of the pressure loss coefficient
+<strong>zeta_TOT</strong> is influenced by the correction factor
+<strong>CF_Re</strong> only for decreasing Reynolds numbers
+<strong>Re</strong> out of the turbulent fluid flow regime at
+<strong>Re ≤ 2e5</strong> into transition and laminar fluid flow
+regime.</p>
+<h4>Verification</h4>
+<p>The pressure loss coefficient <strong>zeta_TOT</strong> of a
+edged bend in dependence of the Reynolds number <strong>Re</strong>
+for different angles of turning <strong>delta</strong> is shown in
+the figures below.</p>
+<p><img src="../../../Modelica%203.2.3/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_ZETAvsRE.png" alt="fig_bend_dp_edgedOverall_ZETAvsRE" /></p>
+<p>Pressure loss calculation of edged bends is complex and there
+are large differences in literature data. Nevertheless these
+calculations cover the usual range of pressure loss coefficients
+for an edged bend.</p>
+<p>The validation of the pressure loss coefficient for an edged
+bends shows four possible flow regimes:</p>
+<ul>
+<li><strong>laminar regime</strong> for Re ≤ 5e2</li>
+<li><strong>transition regime</strong> for 5e2 ≤ Re ≤ 1e3 ...
+1e4</li>
+<li><strong>turbulent regime dependent on Reynolds number</strong>
+for 2e3 ... 1e4 ≤ Re ≤ 1e5</li>
+<li><strong>turbulent regime independent of Reynolds
+number</strong> for Re ≥ 2e5</li>
+</ul>
+<p><strong>Incompressible case</strong> [Pressure loss =
+f(m_flow)]:</p>
+<p>The pressure loss in dependence of the mass flow rate of water
+is shown for different angles of turning:</p>
+<p><img src="../../../Modelica%203.2.3/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_DPvsMFLOWwrtDelta.png" alt="fig_bend_dp_edgedOverall_DPvsMFLOWwrtDelta" /></p>
+<p><strong>Compressible case</strong> [Mass flow rate = f(dp)]:</p>
+<p>The mass flow rate in dependence of the pressure loss of water
+is shown for different angles of turning:</p>
+<p><img src="../../../Modelica%203.2.3/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_MFLOWvsDPwrtDelta.png" alt="fig_bend_dp_edgedOverall_MFLOWvsDPwrtDelta" /></p>
+<h4>References</h4>
+<dl>
+<dt>Idelchik,I.E.:</dt>
+<dd><strong>Handbook of hydraulic resistance</strong>. Jaico
+Publishing House,Mumbai,3rd edition, 2006.</dd>
+<dt>Miller,D.S.:</dt>
+<dd><strong>Internal flow systems</strong>. volume 5th of BHRA
+Fluid Engineering Series.BHRA Fluid Engineering, 1984.</dd>
+<dt>Samoilenko,L.A.:</dt>
+<dd><strong>Investigation of the hydraulic resistance of pipelines
+in the zone of transition from laminar into turbulent
+motion</strong>. PhD thesis, Leningrad State University, 1968.</dd>
+<dt>VDI:</dt>
+<dd><strong>VDI - Wärmeatlas: Berechnungsblätter für den
+Wärmeübergang</strong>. Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

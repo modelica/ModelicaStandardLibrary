@@ -1,0 +1,31 @@
+<svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.Digital.Registers.DFFREGSRH" class="component">
+		<polygon points="51.5,151.5 153.5,151.5 153.5,31.5 51.5,31.5" fill="#FFFFFF" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="15.5,61.5 51.5,61.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="17.5,121.5 51.5,121.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="153.5,61.5 185.5,61.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="51.5,111.5 65.5,121.5 51.5,131.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="98.5" y="68.7" text-anchor="middle" fill="#7F216B" font-size="18.9px" font-family="sans-serif">DFFREGSR</text>
+		<text x="100.5" y="144.3" text-anchor="middle" fill="#7F216B" font-size="12.3px" font-family="sans-serif">reset</text>
+		<text x="81.5" y="125.1" text-anchor="middle" fill="#7F216B" font-size="11.5px" font-family="sans-serif">clock</text>
+		<polyline points="17.5,21.5 101.5,21.5 101.5,31.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="17.5,161.5 101.5,161.5 101.5,151.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="100.5" y="47.6" text-anchor="middle" fill="#7F216B" font-size="15.9px" font-family="sans-serif">set</text>
+		<text x="98.5" y="80.8" text-anchor="middle" fill="#7F007F" font-size="12.1px" font-family="sans-serif">high active</text>
+		<g id="set" class="port">
+			<polygon points="1.5,29.5 17.5,29.5 17.5,13.5 1.5,13.5" fill="#7F007F" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="reset" class="port">
+			<polygon points="1.5,169.5 17.5,169.5 17.5,153.5 1.5,153.5" fill="#7F007F" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="clock" class="port">
+			<polygon points="1.5,129.5 17.5,129.5 17.5,113.5 1.5,113.5" fill="#7F007F" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="dataIn" class="port">
+			<polygon points="1.5,69.5 17.5,69.5 17.5,53.5 1.5,53.5" fill="#7F007F" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="dataOut" class="port">
+			<polygon points="185.5,53.5 201.5,61.5 185.5,69.5" fill="#FFFFFF" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Sensors.Internal.BasicTransformRelativeVector</title>
+</head>
+<body>
+<h1><a href="Icons/1b8177c3a7dd61f0166fc43c4d4d242195ad2a20.svg"><img class="svgiconhead" src="Icons/1b8177c3a7dd61f0166fc43c4d4d242195ad2a20.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Sensors.html">Sensors</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Sensors.Internal.html">Internal</a>.<span class="omc-h1">BasicTransformRelativeVector</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This basic sensor transforms a relative vector
+<strong>r_in</strong>, resolved in frame defined by frame_r_in,
+into another frame specified by frame_r_out. This output vector is
+provided at the output signal connector <strong>r_out</strong>.</p>
+<p>Via parameters <strong>frame_r_in</strong> and
+<strong>frame_r_out</strong> it is defined in which frame the
+position vector is resolved:</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th><strong>resolveInFrame =<br />
+Types.ResolveInFrameAB.</strong></th>
+<th><strong>Meaning</strong></th>
+</tr>
+<tr>
+<td>world</td>
+<td>Resolve vector in world frame</td>
+</tr>
+<tr>
+<td>frame_a</td>
+<td>Resolve vector in frame_a</td>
+</tr>
+<tr>
+<td>frame_b</td>
+<td>Resolve vector in frame_b</td>
+</tr>
+<tr>
+<td>frame_resolve</td>
+<td>Resolve vector in frame_resolve</td>
+</tr>
+</table>
+<p>In this basic sensor model, <strong>the connector frame_resolve
+is always enabled and must be connected</strong>.</p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

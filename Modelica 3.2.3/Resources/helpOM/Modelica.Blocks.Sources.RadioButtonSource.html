@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Sources.RadioButtonSource</title>
+</head>
+<body>
+<h1><a href="Icons/a61be11f336d665252c1002854da292c068e9918.svg"><img class="svgiconhead" src="Icons/a61be11f336d665252c1002854da292c068e9918.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Sources.html">Sources</a>.<span class="omc-h1">RadioButtonSource</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Boolean signal source that mimics a radio button: Via a table, a
+radio button is pressed (i.e., the output 'on' is set to true) and
+is reset when an element of the Boolean vector 'reset' becomes
+true. If both appear at the same time instant, setting the button
+according to the table has a higher priority as resetting the
+button. Example:</p>
+<pre>
+  RadioButtonSource start(buttonTimeTable={1,3}, reset={stop.on});
+  RadioButtonSource stop (buttonTimeTable={2,4}, reset={start.on});
+</pre>
+<p>The "start" button is pressed at time=1 s and time=3 s, whereas
+the "stop" button is pressed at time=2 s and time=4 s. This gives
+the following result:</p>
+<blockquote><img src="../../../Modelica%203.2.3/Resources/Images/Blocks/Sources/RadioButtonSource.png" alt="RadioButtonSource.png" /></blockquote>
+<p>This example is also available in <a href="Modelica.Blocks.Examples.Interaction1.html">Modelica.Blocks.Examples.Interaction1</a></p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

@@ -1,0 +1,147 @@
+<html><head><title>Modelica.Math.FastFourierTransform.Internal</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Internal"><h1><embed class="icon" src="../../../images/icon0034.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Math</a>.&#8203;<a href="../index.html">FastFourierTransform</a>.&#8203;Internal<br><span class="subtitle">Internal library that should not be used directly by a user</span></h1></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+This icon shall be used for a package that contains internal classes not to be
+directly utilized by a user.
+</p>
+<p>Extends from <code><a href="../../../Icons/InternalPackage/index.html">Modelica.&#8203;Icons.&#8203;InternalPackage</a></code> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#prime235Factorization"><code>prime235Factorization</code></a></td><td>Factorization of an integer in prime numbers 2,3,5</td></tr>
+<tr><td><a href="#rawRealFFT"><code>rawRealFFT</code></a></td><td>Compute raw Fast Fourier Transform for real signal vector</td></tr>
+</table>
+<hr><a name="rawRealFFT"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Math</a>.&#8203;<a href="../index.html">FastFourierTransform</a>.&#8203;<a href="index.html">Internal</a>.&#8203;rawRealFFT<br><span class="subtitle">Compute raw Fast Fourier Transform for real signal vector</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+
+<blockquote><p>
+(info, amplitudes, phases) = <strong>rawRealFFT</strong>(u);
+</p></blockquote>
+
+<h4>Description</h4>
+<p>
+Raw interface to a function of the Kiss_FFT package to compute the FFT of a real, sampled signal.
+The input argument of this function is a Real vector u. size(u,1) <strong>must</strong> be even. An efficient computation
+is performed, if size(u,1) = 2^a*3^b*5^c (a,b,c Integer &ge; 0).
+The function computes a real FFT (Fast Fourier Transform) of u and returns the result
+in form of the outputs amplitudes and phases. Argument info provides additional information:
+</p>
+
+<pre>   info = 0: Successful FFT computation.
+   info = 1: size(u,1) is not even.
+   info = 2: size(work,1) is not correct (= a protected utility array).
+   info = 3: Another error.
+</pre>
+
+<p>
+Note, in the original publication about the efficient computation of FFT (Cooley and Tukey, 1965),
+the number of sample points must be 2^a. However, all newer FFT algorithms do not have
+this strong restriction and especially not the open source software
+<a href="http://sourceforge.net/projects/kissfft/">KissFFT</a> from Mark Borgerding
+used in this function.
+</p>
+
+<h4>References</h4>
+
+<dl>
+<dt>Mark Borgerding (2010):</dt>
+<dd> <strong>KissFFT, version 1.3.0</strong>.
+     <a href="http://sourceforge.net/projects/kissfft/">http://sourceforge.net/projects/kissfft/</a>.
+     <br>&nbsp;
+     </dd>
+
+<dt>James W. Cooley, John W. Tukey (1965):</dt>
+<dd> <strong>An algorithm for the machine calculation of complex Fourier series</strong>.
+     Math. Comput. 19: 297-301. doi:10.2307/2003354.
+     <br>&nbsp;
+     </dd>
+
+<dt>Martin R. Kuhn, Martin Otter, Tim Giese (2015):</dt>
+<dd> <strong>Model Based Specifications in Aircraft Systems Design</strong>.
+     Modelica 2015 Conference, Versailles, France,
+     pp. 491-500, Sept.23-25, 2015.
+     Download from:
+     <a href="http://www.ep.liu.se/ecp/118/053/ecp15118491.pdf">http://www.ep.liu.se/ecp/118/053/ecp15118491.pdf</a>
+     </dd>
+</dl>
+
+
+<h4>Example</h4>
+<blockquote>
+(info, A, phases) = realFFT({0,0.1,0.2,0.4,0.5, 0.6})
+</blockquote>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u[:]</code></td><td>Signal for which FFT shall be computed (size(nu,1) MUST be EVEN and should be an integer multiple of 2,3,5, that is size(nu,1) = 2^a*3^b*5^c, with a,b,c Integer &gt;= 0)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>info</code></td><td>Information flag (0: FFT computed, 1: nu is not even, 2: nwork is wrong, 3: another error)</td></tr>
+<tr><td><code>Real</code></td><td><code>amplitudes[div(size(u, 1), 2) + 1]</code></td><td>Amplitudes of FFT</td></tr>
+<tr><td><code>Real</code></td><td><code>phases[div(size(u, 1), 2) + 1]</code></td><td>Phases of FFT</td></tr>
+</table>
+<hr><a name="prime235Factorization"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Math</a>.&#8203;<a href="../index.html">FastFourierTransform</a>.&#8203;<a href="index.html">Internal</a>.&#8203;prime235Factorization<br><span class="subtitle">Factorization of an integer in prime numbers 2,3,5</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+
+<blockquote><p>
+(success, e2, e3, e5) = <strong>prime235Factorization</strong>(n);
+</p></blockquote>
+
+<h4>Description</h4>
+<p>
+Compute the factorization of input Integer n in prime numbers 2, 3, and 5. If this is possible, success = true and
+e2 is the number of prime numbers2, e3 the number of prime numbers 3 and e5 the number of prime numbers 5.
+If this is not possible, success = false, and e2, e3, e5 are dummy values.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>(success, e2, e3, e5) = prime235Factorization(60)   // success=true, e2=2, e3=1, e5=1 (= 2^2*3^1*5^1)
+(success, e2, e3, e5) = prime235Factorization(7)    // success=false
+</pre></blockquote>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>success</code></td><td>= true, if factorization in 2,3,5 is possible</td></tr>
+<tr><td><code>Integer</code></td><td><code>e2</code></td><td>n = 2^e2*3^e3*5^e5</td></tr>
+<tr><td><code>Integer</code></td><td><code>e3</code></td><td>n = 2^e2*3^e3*5^e5</td></tr>
+<tr><td><code>Integer</code></td><td><code>e5</code></td><td>n = 2^e2*3^e3*5^e5</td></tr>
+</table>
+</body></html>

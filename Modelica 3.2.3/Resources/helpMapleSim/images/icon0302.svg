@@ -1,0 +1,10 @@
+<svg width="223" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.ComplexBlocks.Interfaces.ComplexSO" class="component">
+		<polygon points="1.5,201.5 201.5,201.5 201.5,1.5 1.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="y" class="port">
+			<polygon points="202.2,110.8 203.0,111.3 204.0,111.5 204.0,111.5 206.4,111.5 211.5,111.5 211.5,111.5 216.6,111.5 219.0,111.5 219.0,111.5 220.0,111.3 220.8,110.8 220.8,110.8 221.3,110.0 221.5,109.0 221.5,109.0 221.5,106.6 221.5,101.5 221.5,101.5 221.5,96.4 221.5,94.0 221.5,94.0 221.3,93.0 220.8,92.2 220.8,92.2 220.0,91.7 219.0,91.5 219.0,91.5 216.6,91.5 211.5,91.5 211.5,91.5 206.4,91.5 204.0,91.5 204.0,91.5 203.0,91.7 202.2,92.2 202.2,92.2 201.7,93.0 201.5,94.0 201.5,94.0 201.5,96.4 201.5,101.5 201.5,101.5 201.5,106.6 201.5,109.0 201.5,109.0 201.7,110.0" fill="#A0A0A4" stroke="#A0A0A4" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<text x="211.5" y="106.7" text-anchor="middle" fill="#FFFFFF" font-size="13.3px" font-family="sans-serif">C</text>
+			<polygon points="201.5,91.5 221.5,101.5 201.5,111.5" fill="#FFFFFF" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

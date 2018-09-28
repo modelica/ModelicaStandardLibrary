@@ -1,0 +1,14 @@
+<svg width="223" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.Spice3.Sources.V_pwl" class="component">
+		<polygon points="160.5,101.5 160.3,97.2 159.8,92.9 158.8,88.7 157.6,84.6 155.9,80.6 154.0,76.8 151.7,73.2 149.1,69.7 146.2,66.5 143.1,63.6 139.7,60.9 136.1,58.6 132.3,56.5 128.4,54.8 124.3,53.4 120.1,52.4 115.9,51.8 111.6,51.5 107.3,51.6 103.0,52.1 98.8,52.9 94.6,54.1 90.6,55.6 86.8,57.5 83.1,59.7 79.6,62.2 76.3,65.0 73.3,68.1 70.6,71.4 68.1,75.0 66.0,78.7 64.2,82.6 62.8,86.7 61.7,90.8 60.9,95.1 60.5,99.3 60.5,103.7 60.9,107.9 61.7,112.2 62.8,116.3 64.2,120.4 66.0,124.3 68.1,128.0 70.6,131.6 73.3,134.9 76.3,138.0 79.6,140.8 83.1,143.3 86.8,145.5 90.6,147.4 94.6,148.9 98.8,150.1 103.0,150.9 107.3,151.4 111.6,151.5 115.9,151.2 120.1,150.6 124.3,149.6 128.4,148.2 132.3,146.5 136.1,144.4 139.7,142.1 143.1,139.4 146.2,136.5 149.1,133.3 151.7,129.8 154.0,126.2 155.9,122.4 157.6,118.4 158.8,114.3 159.8,110.1 160.3,105.8" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="21.5,101.5 161.5,101.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="161.5,101.5 201.5,101.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="71.5,151.5 71.5,31.5 171.5,31.5 171.5,151.5 71.5,151.5 71.5,121.5 171.5,121.5 171.5,91.5 71.5,91.5 71.5,61.5 171.5,61.5 171.5,31.5 121.5,31.5 121.5,152.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="p" class="port">
+			<polygon points="1.5,111.5 21.5,111.5 21.5,91.5 1.5,91.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="n" class="port">
+			<polygon points="221.5,111.5 201.5,111.5 201.5,91.5 221.5,91.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

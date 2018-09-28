@@ -1,0 +1,388 @@
+<html><head><title>Modelica.Fluid.Interfaces</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Interfaces"><h1><embed class="icon" src="../../images/icon0015.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;Interfaces<br><span class="subtitle">Interfaces for steady state and unsteady, mixed-phase, multi-substance, incompressible and compressible flow</span></h1></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../Icons/InterfacesPackage/index.html">Modelica.&#8203;Icons.&#8203;InterfacesPackage</a></code> (Icon for packages containing interfaces).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#FluidPort"><code>FluidPort</code></a></td><td>Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)</td></tr>
+<tr><td><a href="#FluidPort_a"><code>FluidPort_a</code></a></td><td>Generic fluid connector at design inlet</td></tr>
+<tr><td><a href="#FluidPort_b"><code>FluidPort_b</code></a></td><td>Generic fluid connector at design outlet</td></tr>
+<tr><td><a href="#FluidPorts_a"><code>FluidPorts_a</code></a></td><td>Fluid connector with filled, large icon to be used for vectors of FluidPorts (vector dimensions must be added after dragging)</td></tr>
+<tr><td><a href="#FluidPorts_b"><code>FluidPorts_b</code></a></td><td>Fluid connector with outlined, large icon to be used for vectors of FluidPorts (vector dimensions must be added after dragging)</td></tr>
+<tr><td><a href="#HeatPorts_a"><code>HeatPorts_a</code></a></td><td>HeatPort connector with filled, large icon to be used for vectors of HeatPorts (vector dimensions must be added after dragging)</td></tr>
+<tr><td><a href="#HeatPorts_b"><code>HeatPorts_b</code></a></td><td>HeatPort connector with filled, large icon to be used for vectors of HeatPorts (vector dimensions must be added after dragging)</td></tr>
+<tr><td><a href="#PartialDistributedFlow"><code>PartialDistributedFlow</code></a></td><td>Base class for a distributed momentum balance</td></tr>
+<tr><td><a href="#PartialDistributedVolume"><code>PartialDistributedVolume</code></a></td><td>Base class for distributed volume models</td></tr>
+<tr><td><a href="#PartialHeatTransfer"><code>PartialHeatTransfer</code></a></td><td>Common interface for heat transfer models</td></tr>
+<tr><td><a href="#PartialLumpedFlow"><code>PartialLumpedFlow</code></a></td><td>Base class for a lumped momentum balance</td></tr>
+<tr><td><a href="#PartialLumpedVolume"><code>PartialLumpedVolume</code></a></td><td>Lumped volume with mass and energy balance</td></tr>
+<tr><td><a href="#PartialPressureLoss"><code>PartialPressureLoss</code></a></td><td>Base flow model for pressure loss functions with the same area at port_a and at port_b</td></tr>
+<tr><td><a href="#PartialTwoPort"><code>PartialTwoPort</code></a></td><td>Partial component with two ports</td></tr>
+<tr><td><a href="#PartialTwoPortTransport"><code>PartialTwoPortTransport</code></a></td><td>Partial element transporting fluid between two ports without storage of mass or energy</td></tr>
+</table>
+<hr><a name="FluidPort"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;FluidPort<br><span class="subtitle">Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)</span></h2></a>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../Fluid/Interfaces/FluidPort/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate from the connection point into the component</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/FluidPort/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Thermodynamic pressure in the connection point</td></tr>
+<tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../Fluid/Interfaces/FluidPort/Medium/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_outflow</code></td><td>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0</td></tr>
+<tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../Fluid/Interfaces/FluidPort/Medium/index.html#MassFraction">MassFraction</a></code></td><td><code>Xi_outflow[Medium.nXi]</code></td><td>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0</td></tr>
+<tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../Fluid/Interfaces/FluidPort/Medium/index.html#ExtraProperty">ExtraProperty</a></code></td><td><code>C_outflow[Medium.nC]</code></td><td>Properties c_i/m close to the connection point if m_flow &lt; 0</td></tr>
+</table>
+<hr><a name="FluidPort_a"><h2><embed class="icon" src="../../images/icon1388.svg" width="203" height="203" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;FluidPort_a<br><span class="subtitle">Generic fluid connector at design inlet</span></h2></a>
+<p>Extends from <code><a href="../../Fluid/Interfaces/index.html#FluidPort">Modelica.&#8203;Fluid.&#8203;Interfaces.&#8203;FluidPort</a></code> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../Fluid/Interfaces/FluidPort_a/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate from the connection point into the component</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/FluidPort_a/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Thermodynamic pressure in the connection point</td></tr>
+<tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../Fluid/Interfaces/FluidPort_a/Medium/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_outflow</code></td><td>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0</td></tr>
+<tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../Fluid/Interfaces/FluidPort_a/Medium/index.html#MassFraction">MassFraction</a></code></td><td><code>Xi_outflow[Medium.nXi]</code></td><td>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0</td></tr>
+<tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../Fluid/Interfaces/FluidPort_a/Medium/index.html#ExtraProperty">ExtraProperty</a></code></td><td><code>C_outflow[Medium.nC]</code></td><td>Properties c_i/m close to the connection point if m_flow &lt; 0</td></tr>
+</table>
+<hr><a name="FluidPort_b"><h2><embed class="icon" src="../../images/icon1389.svg" width="203" height="203" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;FluidPort_b<br><span class="subtitle">Generic fluid connector at design outlet</span></h2></a>
+<p>Extends from <code><a href="../../Fluid/Interfaces/index.html#FluidPort">Modelica.&#8203;Fluid.&#8203;Interfaces.&#8203;FluidPort</a></code> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../Fluid/Interfaces/FluidPort_b/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate from the connection point into the component</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/FluidPort_b/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Thermodynamic pressure in the connection point</td></tr>
+<tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../Fluid/Interfaces/FluidPort_b/Medium/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_outflow</code></td><td>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0</td></tr>
+<tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../Fluid/Interfaces/FluidPort_b/Medium/index.html#MassFraction">MassFraction</a></code></td><td><code>Xi_outflow[Medium.nXi]</code></td><td>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0</td></tr>
+<tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../Fluid/Interfaces/FluidPort_b/Medium/index.html#ExtraProperty">ExtraProperty</a></code></td><td><code>C_outflow[Medium.nC]</code></td><td>Properties c_i/m close to the connection point if m_flow &lt; 0</td></tr>
+</table>
+<hr><a name="FluidPorts_a"><h2><embed class="icon" src="../../images/icon1390.svg" width="103" height="403" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;FluidPorts_a<br><span class="subtitle">Fluid connector with filled, large icon to be used for vectors of FluidPorts (vector dimensions must be added after dragging)</span></h2></a>
+<p>Extends from <code><a href="../../Fluid/Interfaces/index.html#FluidPort">Modelica.&#8203;Fluid.&#8203;Interfaces.&#8203;FluidPort</a></code> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../Fluid/Interfaces/FluidPorts_a/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate from the connection point into the component</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/FluidPorts_a/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Thermodynamic pressure in the connection point</td></tr>
+<tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../Fluid/Interfaces/FluidPorts_a/Medium/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_outflow</code></td><td>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0</td></tr>
+<tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../Fluid/Interfaces/FluidPorts_a/Medium/index.html#MassFraction">MassFraction</a></code></td><td><code>Xi_outflow[Medium.nXi]</code></td><td>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0</td></tr>
+<tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../Fluid/Interfaces/FluidPorts_a/Medium/index.html#ExtraProperty">ExtraProperty</a></code></td><td><code>C_outflow[Medium.nC]</code></td><td>Properties c_i/m close to the connection point if m_flow &lt; 0</td></tr>
+</table>
+<hr><a name="FluidPorts_b"><h2><embed class="icon" src="../../images/icon1391.svg" width="103" height="403" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;FluidPorts_b<br><span class="subtitle">Fluid connector with outlined, large icon to be used for vectors of FluidPorts (vector dimensions must be added after dragging)</span></h2></a>
+<p>Extends from <code><a href="../../Fluid/Interfaces/index.html#FluidPort">Modelica.&#8203;Fluid.&#8203;Interfaces.&#8203;FluidPort</a></code> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../Fluid/Interfaces/FluidPorts_b/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate from the connection point into the component</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/FluidPorts_b/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p</code></td><td>Thermodynamic pressure in the connection point</td></tr>
+<tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../Fluid/Interfaces/FluidPorts_b/Medium/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_outflow</code></td><td>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0</td></tr>
+<tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../Fluid/Interfaces/FluidPorts_b/Medium/index.html#MassFraction">MassFraction</a></code></td><td><code>Xi_outflow[Medium.nXi]</code></td><td>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0</td></tr>
+<tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../Fluid/Interfaces/FluidPorts_b/Medium/index.html#ExtraProperty">ExtraProperty</a></code></td><td><code>C_outflow[Medium.nC]</code></td><td>Properties c_i/m close to the connection point if m_flow &lt; 0</td></tr>
+</table>
+<hr><a name="PartialTwoPort"><h2><embed class="icon" src="../../images/icon1367.svg" width="223" height="203" />
+Partial Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialTwoPort<br><span class="subtitle">Partial component with two ports</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This partial model defines an interface for components with two ports.
+The treatment of the design flow direction and of flow reversal are predefined based on the parameter <code><strong>allowFlowReversal</strong></code>.
+The component may transport fluid and may have internal storage for a given fluid <code><strong>Medium</strong></code>.
+</p>
+<p>
+An extending model providing direct access to internal storage of mass or energy through port_a or port_b
+should redefine the protected parameters <code><strong>port_a_exposesState</strong></code> and <code><strong>port_b_exposesState</strong></code> appropriately.
+This will be visualized at the port icons, in order to improve the understanding of fluid model diagrams.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+</table>
+<hr><a name="PartialTwoPortTransport"><h2><embed class="icon" src="../../images/icon1367.svg" width="223" height="203" />
+Partial Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialTwoPortTransport<br><span class="subtitle">Partial element transporting fluid between two ports without storage of mass or energy</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component transports fluid between its two ports, without storing mass or energy.
+Energy may be exchanged with the environment though, e.g., in the form of work.
+<code>PartialTwoPortTransport</code> is intended as base class for devices like orifices, valves and simple fluid machines.</p>
+<p>
+Three equations need to be added by an extending class using this component:
+</p>
+<ul>
+<li>the momentum balance specifying the relationship between the pressure drop <code>dp</code> and the mass flow rate <code>m_flow</code>,</li>
+<li><code>port_b.h_outflow</code> for flow in design direction, and</li>
+<li><code>port_a.h_outflow</code> for flow in reverse direction.</li>
+</ul>
+<p>
+Moreover appropriate values shall be assigned to the following parameters:
+</p>
+<ul>
+<li><code>dp_start</code> for a guess of the pressure drop</li>
+<li><code>m_flow_small</code> for regularization of zero flow.</li>
+</ul>
+<p>Extends from <code><a href="../../Fluid/Interfaces/index.html#PartialTwoPort">Modelica.&#8203;Fluid.&#8203;Interfaces.&#8203;PartialTwoPort</a></code> (Partial component with two ports).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/PartialTwoPortTransport/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>dp_start</code></td><td><code>0.01 * system.p_start</code></td><td>Guess value of dp = port_a.p - port_b.p</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/PartialTwoPortTransport/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_start</code></td><td><code>system.&#8203;m_flow_start</code></td><td>Guess value of m_flow = port_a.m_flow</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/PartialTwoPortTransport/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * system.m_flow_nominal else system.m_flow_small</code></td><td>Small mass flow rate for regularization of zero flow</td></tr>
+<tr><td><code>Boolean</code></td><td><code>show_T</code></td><td><code>true</code></td><td>= true, if temperatures at port_a and port_b are computed</td></tr>
+<tr><td><code>Boolean</code></td><td><code>show_V_flow</code></td><td><code>true</code></td><td>= true, if volume flow rate at inflowing port is computed</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+</table>
+<hr><a name="HeatPorts_a"><h2><embed class="icon" src="../../images/icon1392.svg" width="404" height="103" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;HeatPorts_a<br><span class="subtitle">HeatPort connector with filled, large icon to be used for vectors of HeatPorts (vector dimensions must be added after dragging)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort">Modelica.&#8203;Thermal.&#8203;HeatTransfer.&#8203;Interfaces.&#8203;HeatPort</a></code> (Thermal port for 1-dim. heat transfer).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Port temperature</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../SIunits/index.html#HeatFlowRate">HeatFlowRate</a></code></td><td><code>Q_flow</code></td><td>Heat flow rate (positive if flowing from outside into the component)</td></tr>
+</table>
+<hr><a name="HeatPorts_b"><h2><embed class="icon" src="../../images/icon1393.svg" width="403" height="104" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;HeatPorts_b<br><span class="subtitle">HeatPort connector with filled, large icon to be used for vectors of HeatPorts (vector dimensions must be added after dragging)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort">Modelica.&#8203;Thermal.&#8203;HeatTransfer.&#8203;Interfaces.&#8203;HeatPort</a></code> (Thermal port for 1-dim. heat transfer).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Port temperature</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../SIunits/index.html#HeatFlowRate">HeatFlowRate</a></code></td><td><code>Q_flow</code></td><td>Heat flow rate (positive if flowing from outside into the component)</td></tr>
+</table>
+<hr><a name="PartialHeatTransfer"><h2><embed class="icon" src="../../images/icon1394.svg" width="203" height="203" />
+Partial Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialHeatTransfer<br><span class="subtitle">Common interface for heat transfer models</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component is a common interface for heat transfer models. The heat flow rates <code>Q_flows[n]</code> through the boundaries of n flow segments
+are obtained as function of the thermodynamic <code>states</code> of the flow segments for a given fluid <code>Medium</code>,
+the <code>surfaceAreas[n]</code> and the boundary temperatures <code>heatPorts[n].T</code>.
+</p>
+<p>
+The heat loss coefficient <code>k</code> can be used to model a thermal isolation between <code>heatPorts.T</code> and <code>T_ambient</code>.</p>
+<p>
+An extending model implementing this interface needs to define one equation: the relation between the predefined fluid temperatures <code>Ts[n]</code>,
+the boundary temperatures <code>heatPorts[n].T</code>, and the heat flow rates <code>Q_flows[n]</code>.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>1</code></td><td>Number of heat transfer segments</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_k</code></td><td><code>false</code></td><td>= true to use k value for thermal isolation</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#CoefficientOfHeatTransfer">CoefficientOfHeatTransfer</a></code></td><td><code>k</code></td><td><code>0</code></td><td>Heat transfer coefficient to ambient</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T_ambient</code></td><td><code>system.&#8203;T_ambient</code></td><td>Ambient temperature</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#HeatPorts_a">HeatPorts_a</a></code></td><td><code>heatPorts[n]</code></td><td>Heat port to component boundary</td></tr>
+</table>
+<hr><a name="PartialLumpedVolume"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Partial Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialLumpedVolume<br><span class="subtitle">Lumped volume with mass and energy balance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Interface and base class for an ideally mixed fluid volume with the ability to store mass and energy.
+The following boundary flow and source terms are part of the energy balance and must be specified in an extending class:
+</p>
+<ul>
+<li><code><strong>Qb_flow</strong></code>, e.g., convective or latent heat flow rate across segment boundary, and</li>
+<li><code><strong>Wb_flow</strong></code>, work term, e.g., p*der(fluidVolume) if the volume is not constant.</li>
+</ul>
+<p>
+The component volume <code><strong>fluidVolume</strong></code> is an input that needs to be set in the extending class to complete the model.
+</p>
+<p>
+Further source terms must be defined by an extending class for fluid flow across the segment boundary:
+</p>
+<ul>
+<li><code><strong>Hb_flow</strong></code>, enthalpy flow,</li>
+<li><code><strong>mb_flow</strong></code>, mass flow,</li>
+<li><code><strong>mbXi_flow</strong></code>, substance mass flow, and</li>
+<li><code><strong>mbC_flow</strong></code>, trace substance mass flow.</li>
+</ul>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>energyDynamics</code></td><td><code>system.&#8203;energyDynamics</code></td><td>Formulation of energy balance</td></tr>
+<tr><td><code><a href="../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>massDynamics</code></td><td><code>system.&#8203;massDynamics</code></td><td>Formulation of mass balance</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>substanceDynamics</code></td><td><code>massDynamics</code></td><td>Formulation of substance balance</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>traceDynamics</code></td><td><code>massDynamics</code></td><td>Formulation of trace substance balance</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/PartialLumpedVolume/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_start</code></td><td><code>system.&#8203;p_start</code></td><td>Start value of pressure</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_T_start</code></td><td><code>true</code></td><td>= true, use T_start, otherwise h_start</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/PartialLumpedVolume/Medium/index.html#Temperature">Temperature</a></code></td><td><code>T_start</code></td><td><code>if use_T_start then system.T_start else Medium.temperature_phX(p_start, h_start, X_start)</code></td><td>Start value of temperature</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/PartialLumpedVolume/Medium/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_start</code></td><td><code>if use_T_start then Medium.specificEnthalpy_pTX(p_start, T_start, X_start) else Medium.h_default</code></td><td>Start value of specific enthalpy</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/PartialLumpedVolume/Medium/index.html#MassFraction">MassFraction</a></code></td><td><code>X_start[Medium.nX]</code></td><td><code>Medium.&#8203;X_default</code></td><td>Start value of mass fractions m_i/m</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/PartialLumpedVolume/Medium/index.html#ExtraProperty">ExtraProperty</a></code></td><td><code>C_start[Medium.nC]</code></td><td><code>Medium.&#8203;C_default</code></td><td>Start value of trace substances</td></tr>
+</table>
+<hr><a name="PartialLumpedFlow"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Partial Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialLumpedFlow<br><span class="subtitle">Base class for a lumped momentum balance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Interface and base class for a momentum balance, defining the mass flow rate <code><strong>m_flow</strong></code>
+of a given <code>Medium</code> in a flow model.
+</p>
+<p>
+The following boundary flow and force terms are part of the momentum balance and must be specified in an extending model (to zero if not considered):
+</p>
+<ul>
+<li><code><strong>Ib_flow</strong></code>, the flow of momentum across model boundaries,</li>
+<li><code><strong>F_p[m]</strong></code>, pressure force, and</li>
+<li><code><strong>F_fg[m]</strong></code>, friction and gravity forces.</li>
+</ul>
+<p>
+The length of the flow path <code><strong>pathLength</strong></code> is an input that needs to be set in an extending class to complete the model.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (m_flow &gt;= 0)</td></tr>
+<tr><td><code><a href="../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>momentumDynamics</code></td><td><code>system.&#8203;momentumDynamics</code></td><td>Formulation of momentum balance</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/PartialLumpedFlow/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_start</code></td><td><code>system.&#8203;m_flow_start</code></td><td>Start value of mass flow rates</td></tr>
+</table>
+<hr><a name="PartialDistributedVolume"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Partial Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialDistributedVolume<br><span class="subtitle">Base class for distributed volume models</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Interface and base class for <code><strong>n</strong></code> ideally mixed fluid volumes with the ability to store mass and energy.
+It is intended to model a one-dimensional spatial discretization of fluid flow according to the finite volume method.
+The following boundary flow and source terms are part of the energy balance and must be specified in an extending class:
+</p>
+<ul>
+<li><code><strong>Qb_flows[n]</strong></code>, heat flow term, e.g., conductive heat flows across segment boundaries, and</li>
+<li><code><strong>Wb_flows[n]</strong></code>, work term.</li>
+</ul>
+<p>
+The component volumes <code><strong>fluidVolumes[n]</strong></code> are an input that needs to be set in an extending class to complete the model.
+</p>
+<p>
+Further source terms must be defined by an extending class for fluid flow across the segment boundary:
+</p>
+<ul>
+<li><code><strong>Hb_flows[n]</strong></code>, enthalpy flow,</li>
+<li><code><strong>mb_flows[n]</strong></code>, mass flow,</li>
+<li><code><strong>mbXi_flows[n]</strong></code>, substance mass flow, and</li>
+<li><code><strong>mbC_flows[n]</strong></code>, trace substance mass flow.</li>
+</ul>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>2</code></td><td>Number of discrete volumes</td></tr>
+<tr><td><code><a href="../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>energyDynamics</code></td><td><code>system.&#8203;energyDynamics</code></td><td>Formulation of energy balances</td></tr>
+<tr><td><code><a href="../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>massDynamics</code></td><td><code>system.&#8203;massDynamics</code></td><td>Formulation of mass balances</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>substanceDynamics</code></td><td><code>massDynamics</code></td><td>Formulation of substance balances</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>traceDynamics</code></td><td><code>massDynamics</code></td><td>Formulation of trace substance balances</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/PartialDistributedVolume/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_a_start</code></td><td><code>system.&#8203;p_start</code></td><td>Start value of pressure at port a</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/PartialDistributedVolume/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_b_start</code></td><td><code>p_a_start</code></td><td>Start value of pressure at port b</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../Fluid/Interfaces/PartialDistributedVolume/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>ps_start[n]</code></td><td><code>if 1 &lt; n then linspace(p_a_start, p_b_start, n) else {0.5 * (p_a_start + p_b_start)}</code></td><td>Start value of pressure</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_T_start</code></td><td><code>true</code></td><td>Use T_start if true, otherwise h_start</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/PartialDistributedVolume/Medium/index.html#Temperature">Temperature</a></code></td><td><code>T_start</code></td><td><code>if use_T_start then system.T_start else Medium.temperature_phX(0.5 * (p_a_start + p_b_start), h_start, X_start)</code></td><td>Start value of temperature</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/PartialDistributedVolume/Medium/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h_start</code></td><td><code>if use_T_start then Medium.specificEnthalpy_pTX(0.5 * (p_a_start + p_b_start), T_start, X_start) else Medium.h_default</code></td><td>Start value of specific enthalpy</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/PartialDistributedVolume/Medium/index.html#MassFraction">MassFraction</a></code></td><td><code>X_start[Medium.nX]</code></td><td><code>Medium.&#8203;X_default</code></td><td>Start value of mass fractions m_i/m</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/PartialDistributedVolume/Medium/index.html#ExtraProperty">ExtraProperty</a></code></td><td><code>C_start[Medium.nC]</code></td><td><code>Medium.&#8203;C_default</code></td><td>Start value of trace substances</td></tr>
+</table>
+<hr><a name="PartialDistributedFlow"><h2><embed class="icon" src="../../images/icon0293.svg" width="203" height="203" />
+Partial Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialDistributedFlow<br><span class="subtitle">Base class for a distributed momentum balance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Interface and base class for <code><strong>m</strong></code> momentum balances, defining the mass flow rates <code><strong>m_flows[m]</strong></code>
+of a given <code>Medium</code> in <code><strong>m</strong></code> flow segments.
+</p>
+<p>
+The following boundary flow and force terms are part of the momentum balances and must be specified in an extending model (to zero if not considered):
+</p>
+<ul>
+<li><code><strong>Ib_flows[m]</strong></code>, the flows of momentum across segment boundaries,</li>
+<li><code><strong>Fs_p[m]</strong></code>, pressure forces, and</li>
+<li><code><strong>Fs_fg[m]</strong></code>, friction and gravity forces.</li>
+</ul>
+<p>
+The lengths along the flow path <code><strong>pathLengths[m]</strong></code> are an input that needs to be set in an extending class to complete the model.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (m_flows &gt;= zeros(m))</td></tr>
+<tr><td><code>Integer</code></td><td><code>m</code></td><td><code>1</code></td><td>Number of flow segments</td></tr>
+<tr><td><code><a href="../../Fluid/Types/index.html#Dynamics">Dynamics</a></code></td><td><code>momentumDynamics</code></td><td><code>system.&#8203;momentumDynamics</code></td><td>Formulation of momentum balance</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/PartialDistributedFlow/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_start</code></td><td><code>system.&#8203;m_flow_start</code></td><td>Start value of mass flow rates</td></tr>
+</table>
+<hr><a name="PartialPressureLoss"><h2><embed class="icon" src="../../images/icon1367.svg" width="223" height="203" />
+Partial Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialPressureLoss<br><span class="subtitle">Base flow model for pressure loss functions with the same area at port_a and at port_b</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component transports fluid between its two ports, without storing mass or energy.
+Energy may be exchanged with the environment though, e.g., in the form of work.
+<code>PartialTwoPortTransport</code> is intended as base class for devices like orifices, valves and simple fluid machines.</p>
+<p>
+Three equations need to be added by an extending class using this component:
+</p>
+<ul>
+<li>the momentum balance specifying the relationship between the pressure drop <code>dp</code> and the mass flow rate <code>m_flow</code>,</li>
+<li><code>port_b.h_outflow</code> for flow in design direction, and</li>
+<li><code>port_a.h_outflow</code> for flow in reverse direction.</li>
+</ul>
+<p>
+Moreover appropriate values shall be assigned to the following parameters:
+</p>
+<ul>
+<li><code>dp_start</code> for a guess of the pressure drop</li>
+<li><code>m_flow_small</code> for regularization of zero flow.</li>
+</ul>
+<p>Extends from <code><a href="../../Fluid/Interfaces/index.html#PartialTwoPortTransport">Modelica.&#8203;Fluid.&#8203;Interfaces.&#8203;PartialTwoPortTransport</a></code> (Partial element transporting fluid between two ports without storage of mass or energy).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/PartialPressureLoss/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>dp_start</code></td><td><code>0.01 * system.p_start</code></td><td>Guess value of dp = port_a.p - port_b.p</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/PartialPressureLoss/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_start</code></td><td><code>system.&#8203;m_flow_start</code></td><td>Guess value of m_flow = port_a.m_flow</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/PartialPressureLoss/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * system.m_flow_nominal else system.m_flow_small</code></td><td>Small mass flow rate for regularization of zero flow</td></tr>
+<tr><td><code>Boolean</code></td><td><code>show_T</code></td><td><code>true</code></td><td>= true, if temperatures at port_a and port_b are computed</td></tr>
+<tr><td><code>Boolean</code></td><td><code>show_V_flow</code></td><td><code>true</code></td><td>= true, if volume flow rate at inflowing port is computed</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+</table>
+</body></html>

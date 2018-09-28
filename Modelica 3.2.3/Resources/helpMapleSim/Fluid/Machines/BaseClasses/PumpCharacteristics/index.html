@@ -1,0 +1,188 @@
+<html><head><title>Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="PumpCharacteristics"><h1><embed class="icon" src="../../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;PumpCharacteristics<br><span class="subtitle">Functions for pump characteristics</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>Standard package icon.</p>
+<p>Extends from <code><a href="../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#baseEfficiency"><code>baseEfficiency</code></a></td><td>Base class for efficiency characteristics</td></tr>
+<tr><td><a href="#baseFlow"><code>baseFlow</code></a></td><td>Base class for pump flow characteristics</td></tr>
+<tr><td><a href="#basePower"><code>basePower</code></a></td><td>Base class for pump power consumption characteristics</td></tr>
+<tr><td><a href="#constantEfficiency"><code>constantEfficiency</code></a></td><td>Constant efficiency characteristic</td></tr>
+<tr><td><a href="#linearFlow"><code>linearFlow</code></a></td><td>Linear flow characteristic</td></tr>
+<tr><td><a href="#linearPower"><code>linearPower</code></a></td><td>Linear power consumption characteristic</td></tr>
+<tr><td><a href="#polynomialFlow"><code>polynomialFlow</code></a></td><td>Polynomial flow characteristic, including linear extrapolation</td></tr>
+<tr><td><a href="#quadraticFlow"><code>quadraticFlow</code></a></td><td>Quadratic flow characteristic, including linear extrapolation</td></tr>
+<tr><td><a href="#quadraticPower"><code>quadraticPower</code></a></td><td>Quadratic power consumption characteristic</td></tr>
+</table>
+<hr><a name="baseFlow"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Partial Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">PumpCharacteristics</a>.&#8203;baseFlow<br><span class="subtitle">Base class for pump flow characteristics</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#VolumeFlowRate">VolumeFlowRate</a></code></td><td><code>V_flow</code></td><td>Volumetric flow rate</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Height">Height</a></code></td><td><code>head</code></td><td>Pump head</td></tr>
+</table>
+<hr><a name="basePower"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Partial Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">PumpCharacteristics</a>.&#8203;basePower<br><span class="subtitle">Base class for pump power consumption characteristics</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#VolumeFlowRate">VolumeFlowRate</a></code></td><td><code>V_flow</code></td><td>Volumetric flow rate</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>consumption</code></td><td>Power consumption</td></tr>
+</table>
+<hr><a name="baseEfficiency"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Partial Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">PumpCharacteristics</a>.&#8203;baseEfficiency<br><span class="subtitle">Base class for efficiency characteristics</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#VolumeFlowRate">VolumeFlowRate</a></code></td><td><code>V_flow</code></td><td>Volumetric flow rate</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>eta</code></td><td>Efficiency</td></tr>
+</table>
+<hr><a name="linearFlow"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">PumpCharacteristics</a>.&#8203;linearFlow<br><span class="subtitle">Linear flow characteristic</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Fluid/Machines/BaseClasses/PumpCharacteristics/index.html#baseFlow">Modelica.&#8203;Fluid.&#8203;Machines.&#8203;BaseClasses.&#8203;PumpCharacteristics.&#8203;baseFlow</a></code> (Base class for pump flow characteristics).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#VolumeFlowRate">VolumeFlowRate</a></code></td><td><code>V_flow</code></td><td>Volumetric flow rate</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#VolumeFlowRate">VolumeFlowRate</a></code></td><td><code>V_flow_nominal[2]</code></td><td>Volume flow rate for two operating points (single pump)</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Height">Height</a></code></td><td><code>head_nominal[2]</code></td><td>Pump head for two operating points</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Height">Height</a></code></td><td><code>head</code></td><td>Pump head</td></tr>
+</table>
+<hr><a name="quadraticFlow"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">PumpCharacteristics</a>.&#8203;quadraticFlow<br><span class="subtitle">Quadratic flow characteristic, including linear extrapolation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Fluid/Machines/BaseClasses/PumpCharacteristics/index.html#baseFlow">Modelica.&#8203;Fluid.&#8203;Machines.&#8203;BaseClasses.&#8203;PumpCharacteristics.&#8203;baseFlow</a></code> (Base class for pump flow characteristics).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#VolumeFlowRate">VolumeFlowRate</a></code></td><td><code>V_flow</code></td><td>Volumetric flow rate</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#VolumeFlowRate">VolumeFlowRate</a></code></td><td><code>V_flow_nominal[3]</code></td><td>Volume flow rate for three operating points (single pump)</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Height">Height</a></code></td><td><code>head_nominal[3]</code></td><td>Pump head for three operating points</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Height">Height</a></code></td><td><code>head</code></td><td>Pump head</td></tr>
+</table>
+<hr><a name="polynomialFlow"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">PumpCharacteristics</a>.&#8203;polynomialFlow<br><span class="subtitle">Polynomial flow characteristic, including linear extrapolation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Fluid/Machines/BaseClasses/PumpCharacteristics/index.html#baseFlow">Modelica.&#8203;Fluid.&#8203;Machines.&#8203;BaseClasses.&#8203;PumpCharacteristics.&#8203;baseFlow</a></code> (Base class for pump flow characteristics).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#VolumeFlowRate">VolumeFlowRate</a></code></td><td><code>V_flow</code></td><td>Volumetric flow rate</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#VolumeFlowRate">VolumeFlowRate</a></code></td><td><code>V_flow_nominal[:]</code></td><td>Volume flow rate for N operating points (single pump)</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Height">Height</a></code></td><td><code>head_nominal[:]</code></td><td>Pump head for N operating points</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Height">Height</a></code></td><td><code>head</code></td><td>Pump head</td></tr>
+</table>
+<hr><a name="constantEfficiency"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">PumpCharacteristics</a>.&#8203;constantEfficiency<br><span class="subtitle">Constant efficiency characteristic</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Fluid/Machines/BaseClasses/PumpCharacteristics/index.html#baseEfficiency">Modelica.&#8203;Fluid.&#8203;Machines.&#8203;BaseClasses.&#8203;PumpCharacteristics.&#8203;baseEfficiency</a></code> (Base class for efficiency characteristics).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#VolumeFlowRate">VolumeFlowRate</a></code></td><td><code>V_flow</code></td><td>Volumetric flow rate</td></tr>
+<tr><td><code>Real</code></td><td><code>eta_nominal</code></td><td>Nominal efficiency</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>eta</code></td><td>Efficiency</td></tr>
+</table>
+<hr><a name="linearPower"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">PumpCharacteristics</a>.&#8203;linearPower<br><span class="subtitle">Linear power consumption characteristic</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Fluid/Machines/BaseClasses/PumpCharacteristics/index.html#basePower">Modelica.&#8203;Fluid.&#8203;Machines.&#8203;BaseClasses.&#8203;PumpCharacteristics.&#8203;basePower</a></code> (Base class for pump power consumption characteristics).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#VolumeFlowRate">VolumeFlowRate</a></code></td><td><code>V_flow</code></td><td>Volumetric flow rate</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#VolumeFlowRate">VolumeFlowRate</a></code></td><td><code>V_flow_nominal[2]</code></td><td>Volume flow rate for two operating points (single pump)</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>W_nominal[2]</code></td><td>Power consumption for two operating points</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>consumption</code></td><td>Power consumption</td></tr>
+</table>
+<hr><a name="quadraticPower"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">PumpCharacteristics</a>.&#8203;quadraticPower<br><span class="subtitle">Quadratic power consumption characteristic</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../Fluid/Machines/BaseClasses/PumpCharacteristics/index.html#basePower">Modelica.&#8203;Fluid.&#8203;Machines.&#8203;BaseClasses.&#8203;PumpCharacteristics.&#8203;basePower</a></code> (Base class for pump power consumption characteristics).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#VolumeFlowRate">VolumeFlowRate</a></code></td><td><code>V_flow</code></td><td>Volumetric flow rate</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#VolumeFlowRate">VolumeFlowRate</a></code></td><td><code>V_flow_nominal[3]</code></td><td>Volume flow rate for three operating points (single pump)</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>W_nominal[3]</code></td><td>Power consumption for three operating points</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Power">Power</a></code></td><td><code>consumption</code></td><td>Power consumption</td></tr>
+</table>
+</body></html>

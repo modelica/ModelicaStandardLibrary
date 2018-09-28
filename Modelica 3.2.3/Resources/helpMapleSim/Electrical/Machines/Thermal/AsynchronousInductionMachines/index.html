@@ -1,0 +1,78 @@
+<html><head><title>Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="AsynchronousInductionMachines"><h1><embed class="icon" src="../../../../images/icon0573.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Thermal</a>.&#8203;AsynchronousInductionMachines<br><span class="subtitle">Thermal parts of asynchronous induction machines</span></h1></a>
+<h3>Information</h3>
+<p>
+
+Thermal parts for asynchronous induction machines
+<p>Extends from <code><a href="../../../../Icons/VariantsPackage/index.html">Modelica.&#8203;Icons.&#8203;VariantsPackage</a></code> (Icon for package containing variants).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#ThermalAmbientAIMC"><code>ThermalAmbientAIMC</code></a></td><td>Thermal ambient for asynchronous induction machine with squirrel cage</td></tr>
+<tr><td><a href="#ThermalAmbientAIMS"><code>ThermalAmbientAIMS</code></a></td><td>Thermal ambient for asynchronous induction machine with slipring</td></tr>
+</table>
+<hr><a name="ThermalAmbientAIMC"><h2><embed class="icon" src="../../../../images/icon0628.svg" width="243" height="254" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Thermal</a>.&#8203;<a href="index.html">AsynchronousInductionMachines</a>.&#8203;ThermalAmbientAIMC<br><span class="subtitle">Thermal ambient for asynchronous induction machine with squirrel cage</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Thermal ambient for asynchronous induction machines with squirrel cage to prescribe winding temperatures either constant or via signal connectors.
+Additionally, all losses = heat flows are recorded.
+<p>Extends from <code><a href="../../../../Electrical/Machines/Interfaces/InductionMachines/index.html#PartialThermalAmbientInductionMachines">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Interfaces.&#8203;InductionMachines.&#8203;PartialThermalAmbientInductionMachines</a></code> (Partial thermal ambient for induction machines).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of stator phases</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useTemperatureInputs</code></td><td><code>false</code></td><td>If true, temperature inputs are used; else, temperatures are constant</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>Ts</code></td><td>&nbsp;</td><td>Temperature of stator windings</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>Tr</code></td><td>&nbsp;</td><td>Temperature of rotor (squirrel cage)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Machines/Interfaces/InductionMachines/index.html#ThermalPortAIMC">ThermalPortAIMC</a></code></td><td><code>thermalPort</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>TStatorWinding</code></td><td>Temperature of stator windings</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>TRotorWinding</code></td><td>Temperature of squirrel cage</td></tr>
+</table>
+<hr><a name="ThermalAmbientAIMS"><h2><embed class="icon" src="../../../../images/icon0629.svg" width="243" height="254" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">Thermal</a>.&#8203;<a href="index.html">AsynchronousInductionMachines</a>.&#8203;ThermalAmbientAIMS<br><span class="subtitle">Thermal ambient for asynchronous induction machine with slipring</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Thermal ambient for asynchronous induction machines with slipring rotor to prescribe winding temperatures either constant or via signal connectors.
+Additionally, all losses = heat flows are recorded.
+<p>Extends from <code><a href="../../../../Electrical/Machines/Interfaces/InductionMachines/index.html#PartialThermalAmbientInductionMachines">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Interfaces.&#8203;InductionMachines.&#8203;PartialThermalAmbientInductionMachines</a></code> (Partial thermal ambient for induction machines).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of stator phases</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useTemperatureInputs</code></td><td><code>false</code></td><td>If true, temperature inputs are used; else, temperatures are constant</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>Ts</code></td><td>&nbsp;</td><td>Temperature of stator windings</td></tr>
+<tr><td><code>Integer</code></td><td><code>mr</code></td><td><code>m</code></td><td>Number of rotor phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>Tr</code></td><td>&nbsp;</td><td>Temperature of rotor windings</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/Machines/Interfaces/InductionMachines/index.html#ThermalPortAIMS">ThermalPortAIMS</a></code></td><td><code>thermalPort</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>TStatorWinding</code></td><td>Temperature of stator windings</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>TRotorWinding</code></td><td>Temperature of rotor windings</td></tr>
+</table>
+</body></html>

@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.QuasiStationary.UsersGuide.ReleaseNotes</title>
+</head>
+<body>
+<h1><a href="Icons/7e5916c8ded3e7489f5937a6ee55f7f07d893583.svg"><img class="svgiconhead" src="Icons/7e5916c8ded3e7489f5937a6ee55f7f07d893583.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.QuasiStationary.html">QuasiStationary</a>.<a class="omc-h1-a" href="Modelica.Electrical.QuasiStationary.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">ReleaseNotes</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h5>Version 3.2.3, 2018-09-26</h5>
+<ul>
+<li>Added frequency dependent behavior im impedance and admittance
+models, see <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2451">#2451</a></li>
+<li>Added frequency sweep voltage and current sources, see <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2442">#2442</a>
+<ul>
+<li>Single-phase <a href="Modelica.Electrical.QuasiStationary.SinglePhase.Sources.FrequencySweepVoltageSource.html">
+FrequencySweepVoltageSource</a></li>
+<li>Single-phase <a href="Modelica.Electrical.QuasiStationary.SinglePhase.Sources.FrequencySweepCurrentSource.html">
+FrequencySweepCurrentSource</a></li>
+<li>Polyphase <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepVoltageSource.html">
+FrequencySweepVoltageSource</a></li>
+<li>Polyphase <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepCurrentSource.html">
+FrequencySweepCurrentSource</a></li>
+</ul>
+</li>
+<li>Shortened default component names, see <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2301">#2301</a></li>
+<li>Fixed missing <code>final useConjugateInput = false</code>, see
+<a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2251">#2251</a>
+<ul>
+<li><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.SymmetricalComponents.html">
+MultiPhase.Blocks.SymmetricalComponents</a></li>
+<li><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.FromSymmetricalComponents.html">
+MultiPhase.Blocks.FromSymmetricalComponents</a></li>
+<li><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.SingleToMultiPhase.html">
+MultiPhase.Blocks.SingleToMultiPhase</a></li>
+</ul>
+</li>
+<li>Updated icons of inductors and transformer models, see <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2210">#2210</a></li>
+<li>Added polar and power quantities in ideal quasi stationary
+transformer model, see <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2173">#2173</a></li>
+<li>Removed redundant (and not identical) parameter m from <a href="Modelica.Electrical.MultiPhase.Basic.MutualInductor.html">MutualInductor</a>,
+see <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2202">#2202</a></li>
+<li>Added linear multi phase mutual inductor model, see <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2200">#2200</a></li>
+<li>Added complex impedance and admittance models of single phase
+and multi phase package, see ticket <a href="https://trac.modelica.org/Modelica/ticket/1870">#1870</a></li>
+<li>Added magnitude and argument of complex voltages and currents
+in interface and sensor models, see ticket <a href="https://trac.modelica.org/Modelica/ticket/1405">#1405</a></li>
+<li>Added active, reactive and apparent power and power factor in
+interface models, see ticket <a href="https://trac.modelica.org/Modelica/ticket/1405">#1405</a></li>
+<li>Added complex single and multi phase impedance and admittance
+models (ticket <a href="https://trac.modelica.org/Modelica/ticket/1367">#1367</a>)</li>
+<li>Updated documentation on temperature dependency of resistance
+and conductance models</li>
+<li>Rewrote source models to simplify initialization ( <a href="https://trac.modelica.org/Modelica/changeset/7031">r7031</a>)</li>
+<li>Implementation of ideal transformer model</li>
+</ul>
+<h5>Version 1.0.0</h5>
+<ul>
+<li>First official release</li>
+</ul>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

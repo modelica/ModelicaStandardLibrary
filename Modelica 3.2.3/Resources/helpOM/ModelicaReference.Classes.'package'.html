@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Classes.'package'</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Classes.html">Classes</a>.<span class="omc-h1">'package'</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Define specialized class <em>package</em></p>
+<h4>Examples</h4>
+<pre><strong>package</strong> Library
+  <strong>constant</strong> Real k = 0.1;
+
+  <strong>type</strong> X = Real(min=0);
+
+  <strong>model</strong> A
+    ...
+  <strong>end</strong> A;
+
+  <strong>model</strong> B
+    ...
+  <strong>end</strong> B;
+<strong>end</strong> Library;</pre>
+<h4>Syntax</h4>
+<pre>
+[ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>package</strong>
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <strong>end</strong> IDENT
+   | "=" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | "=" <strong>enumeration</strong> "(" ( [enum_list] | ":" ) ")" comment</pre>
+<p>See Modelica Language Specification for further details.</p>
+<h4>Description</h4>
+<p>May only contain declarations of classes and constants. Enhanced
+to allow import of elements of packages.</p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

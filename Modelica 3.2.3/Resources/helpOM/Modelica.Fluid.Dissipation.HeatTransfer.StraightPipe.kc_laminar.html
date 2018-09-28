@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar</title>
+</head>
+<body>
+<h1><a href="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg"><img class="svgiconhead" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.HeatTransfer.html">HeatTransfer</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.html">StraightPipe</a>.<span class="omc-h1">kc_laminar</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Calculation of mean convective heat transfer coefficient
+<strong>kc</strong> of a straight pipe at an uniform wall
+temperature <strong>or</strong> uniform heat flux
+<strong>and</strong> for a hydrodynamically developed
+<strong>or</strong> undeveloped laminar fluid flow. Note that
+additionally a failure status is observed in this function to check
+if the intended boundary conditions are fulfilled. <a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_laminar.html">
+See more information</a> .</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>function kc_laminar
+  extends Modelica.Icons.Function;
+  input Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_IN_con IN_con "Input record for function kc_laminar" annotation(
+    Dialog(group = "Constant inputs"));
+  input Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_IN_var IN_var "Input record for function kc_laminar" annotation(
+    Dialog(group = "Variable inputs"));
+  output SI.CoefficientOfHeatTransfer kc "Convective heat transfer coefficient" annotation(
+    Dialog(group = "Output"));
+  output SI.PrandtlNumber Pr "Prandtl number" annotation(
+    Dialog(group = "Output"));
+  output SI.ReynoldsNumber Re "Reynolds number" annotation(
+    Dialog(group = "Output"));
+  output SI.NusseltNumber Nu "Nusselt number" annotation(
+    Dialog(group = "Output"));
+  output Real failureStatus "0== boundary conditions fulfilled | 1== failure &gt;&gt; check if still meaningful results" annotation(
+    Dialog(group = "Output"));
+end kc_laminar;</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero
+mass flow rate.</p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

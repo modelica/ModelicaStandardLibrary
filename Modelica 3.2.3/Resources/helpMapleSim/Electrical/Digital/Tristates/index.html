@@ -1,0 +1,378 @@
+<html><head><title>Modelica.Electrical.Digital.Tristates</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Tristates"><h1><embed class="icon" src="../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;Tristates<br><span class="subtitle">Transfergates, Buffers, Inverters, and WiredX</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>Standard package icon.</p>
+<p>Extends from <code><a href="../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#BUF3S"><code>BUF3S</code></a></td><td>Tristate buffer with enable active high</td></tr>
+<tr><td><a href="#BUF3SL"><code>BUF3SL</code></a></td><td>Tristate buffer with enable active low</td></tr>
+<tr><td><a href="#INV3S"><code>INV3S</code></a></td><td>Tristate Inverter with enable active high</td></tr>
+<tr><td><a href="#INV3SL"><code>INV3SL</code></a></td><td>Tristate inverter with enable active low</td></tr>
+<tr><td><a href="#NRXFERGATE"><code>NRXFERGATE</code></a></td><td>Transfergate with enable active high. Output strength reduced.</td></tr>
+<tr><td><a href="#NXFERGATE"><code>NXFERGATE</code></a></td><td>Transfergate with enable active high</td></tr>
+<tr><td><a href="#PRXFERGATE"><code>PRXFERGATE</code></a></td><td>Transfergate with enable active low. Output strength reduced.</td></tr>
+<tr><td><a href="#PXFERGATE"><code>PXFERGATE</code></a></td><td>Transfergate with enable active low</td></tr>
+<tr><td><a href="#WiredX"><code>WiredX</code></a></td><td>Wired node with multiple input and one output</td></tr>
+</table>
+<hr><a name="NXFERGATE"><h2><embed class="icon" src="../../../images/icon0552.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Tristates</a>.&#8203;NXFERGATE<br><span class="subtitle">Transfergate with enable active high</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
+<p><strong>Truth Table</strong></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><strong>DataIn</strong></td>
+      <td><strong>Enable</strong></td>
+      <td><strong>DataOut</strong></td>
+  </tr>
+
+  <tr><td>*</td> <td>U</td> <td>U</td></tr>
+  <tr><td>*</td> <td>X</td> <td>UX</td></tr>
+  <tr><td>*</td> <td>0</td> <td>Z</td></tr>
+  <tr><td>*</td> <td>1</td> <td>DataIn</td></tr>
+  <tr><td>*</td> <td>Z</td> <td>UX</td></tr>
+  <tr><td>*</td> <td>W</td> <td>UX</td></tr>
+  <tr><td>*</td> <td>L</td> <td>Z</td></tr>
+  <tr><td>*</td> <td>H</td> <td>DataIn</td></tr>
+  <tr><td>*</td> <td>-</td> <td>UX</td></tr>
+</table>
+
+<pre>
+  UX: if dataIn == U then U else X
+</pre>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tHL</code></td><td><code>0</code></td><td>High-&gt;Low delay</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tLH</code></td><td><code>0</code></td><td>Low-&gt;High delay</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>enable</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>x</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="NRXFERGATE"><h2><embed class="icon" src="../../../images/icon0553.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Tristates</a>.&#8203;NRXFERGATE<br><span class="subtitle">Transfergate with enable active high. Output strength reduced.</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
+<p><strong>Truth Table</strong></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><strong>DataIn</strong></td>
+      <td><strong>Enable</strong></td>
+      <td><strong>DataOut</strong></td>
+  </tr>
+
+  <tr><td>*</td> <td>U</td> <td>U</td></tr>
+  <tr><td>*</td> <td>X</td> <td>UW</td></tr>
+  <tr><td>*</td> <td>0</td> <td>Z</td></tr>
+  <tr><td>*</td> <td>1</td> <td>DataIn, Strength Reduced</td></tr>
+  <tr><td>*</td> <td>Z</td> <td>UW</td></tr>
+  <tr><td>*</td> <td>W</td> <td>UW</td></tr>
+  <tr><td>*</td> <td>L</td> <td>Z</td></tr>
+  <tr><td>*</td> <td>H</td> <td>DataIn, Strength Reduced</td></tr>
+  <tr><td>*</td> <td>-</td> <td>UW</td></tr>
+</table>
+
+<pre>
+  UW: if dataIn == U then U else W
+  Strength Reduced: 0 -> L, 1 -> H, X -> W
+</pre>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tHL</code></td><td><code>0</code></td><td>High-&gt;Low delay</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tLH</code></td><td><code>0</code></td><td>Low-&gt;High delay</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>enable</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>x</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PXFERGATE"><h2><embed class="icon" src="../../../images/icon0554.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Tristates</a>.&#8203;PXFERGATE<br><span class="subtitle">Transfergate with enable active low</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
+<p><strong>Truth Table</strong></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><strong>DataIn</strong></td>
+      <td><strong>Enable</strong></td>
+      <td><strong>DataOut</strong></td>
+  </tr>
+
+  <tr><td>*</td> <td>U</td> <td>U</td></tr>
+  <tr><td>*</td> <td>X</td> <td>UX</td></tr>
+  <tr><td>*</td> <td>0</td> <td>DataIn</td></tr>
+  <tr><td>*</td> <td>1</td> <td>Z</td></tr>
+  <tr><td>*</td> <td>Z</td> <td>UX</td></tr>
+  <tr><td>*</td> <td>W</td> <td>UX</td></tr>
+  <tr><td>*</td> <td>L</td> <td>DataIn</td></tr>
+  <tr><td>*</td> <td>H</td> <td>Z</td></tr>
+  <tr><td>*</td> <td>-</td> <td>UX</td></tr>
+</table>
+
+<pre>
+  UX: if dataIn == U then U else X
+</pre>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tHL</code></td><td><code>0</code></td><td>High-&gt;Low delay</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tLH</code></td><td><code>0</code></td><td>Low-&gt;High delay</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>enable</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>x</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PRXFERGATE"><h2><embed class="icon" src="../../../images/icon0555.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Tristates</a>.&#8203;PRXFERGATE<br><span class="subtitle">Transfergate with enable active low. Output strength reduced.</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
+<p><strong>Truth Table</strong></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><strong>DataIn</strong></td>
+      <td><strong>Enable</strong></td>
+      <td><strong>DataOut</strong></td>
+  </tr>
+
+  <tr><td>*</td> <td>U</td> <td>U</td></tr>
+  <tr><td>*</td> <td>X</td> <td>UW</td></tr>
+  <tr><td>*</td> <td>0</td> <td>DataIn, Strength Reduced</td></tr>
+  <tr><td>*</td> <td>1</td> <td>Z</td></tr>
+  <tr><td>*</td> <td>Z</td> <td>UW</td></tr>
+  <tr><td>*</td> <td>W</td> <td>UW</td></tr>
+  <tr><td>*</td> <td>L</td> <td>DataIn, Strength Reduced</td></tr>
+  <tr><td>*</td> <td>H</td> <td>Z</td></tr>
+  <tr><td>*</td> <td>-</td> <td>UW</td></tr>
+</table>
+<p>
+  UW: if dataIn == U then U else W
+  Strength Reduced: 0 -> L, 1 -> H, X -> W
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tHL</code></td><td><code>0</code></td><td>High-&gt;Low delay</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tLH</code></td><td><code>0</code></td><td>Low-&gt;High delay</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>enable</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>x</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="BUF3S"><h2><embed class="icon" src="../../../images/icon0556.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Tristates</a>.&#8203;BUF3S<br><span class="subtitle">Tristate buffer with enable active high</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
+<p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
+<p><strong>Truth Table</strong></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><strong>DataIn</strong></td>
+      <td><strong>Enable</strong></td>
+      <td><strong>DataOut*</strong></td>
+  </tr>
+
+  <tr><td>*</td> <td>U</td> <td>U</td></tr>
+  <tr><td>*</td> <td>X</td> <td>UX</td></tr>
+  <tr><td>*</td> <td>0</td> <td>Z</td></tr>
+  <tr><td>*</td> <td>1</td> <td>DataIn</td></tr>
+  <tr><td>*</td> <td>Z</td> <td>UX</td></tr>
+  <tr><td>*</td> <td>W</td> <td>UX</td></tr>
+  <tr><td>*</td> <td>L</td> <td>Z</td></tr>
+  <tr><td>*</td> <td>H</td> <td>DataIn</td></tr>
+  <tr><td>*</td> <td>-</td> <td>UX</td></tr>
+</table>
+
+<pre>
+  UX: if dataIn == U then U else X
+  DataOut*: Strength map for DataOut according to tristate table Buf3sTable
+</pre>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tHL</code></td><td><code>0</code></td><td>High-&gt;Low delay</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tLH</code></td><td><code>0</code></td><td>Low-&gt;High delay</td></tr>
+<tr><td><code><a href="../../../Electrical/Digital/Interfaces/index.html#Strength">Strength</a></code></td><td><code>strength</code></td><td><code>S.&#8203;'S_X01'</code></td><td>output strength</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>enable</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>x</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="BUF3SL"><h2><embed class="icon" src="../../../images/icon0557.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Tristates</a>.&#8203;BUF3SL<br><span class="subtitle">Tristate buffer with enable active low</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
+<p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
+<p><strong>Truth Table</strong></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><strong>DataIn</strong></td>
+      <td><strong>Enable</strong></td>
+      <td><strong>DataOut*</strong></td>
+  </tr>
+
+  <tr><td>*</td> <td>U</td> <td>U</td></tr>
+  <tr><td>*</td> <td>X</td> <td>UX</td></tr>
+  <tr><td>*</td> <td>0</td> <td>DataIn</td></tr>
+  <tr><td>*</td> <td>1</td> <td>Z</td></tr>
+  <tr><td>*</td> <td>Z</td> <td>UX</td></tr>
+  <tr><td>*</td> <td>W</td> <td>UX</td></tr>
+  <tr><td>*</td> <td>L</td> <td>DataIn</td></tr>
+  <tr><td>*</td> <td>H</td> <td>Z</td></tr>
+  <tr><td>*</td> <td>-</td> <td>UX</td></tr>
+</table>
+
+<pre>
+  UX: if dataIn == U then U else X
+  DataOut*: Strength map for DataOut according to tristate table Buf3slTable
+</pre>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tHL</code></td><td><code>0</code></td><td>High-&gt;Low delay</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tLH</code></td><td><code>0</code></td><td>Low-&gt;High delay</td></tr>
+<tr><td><code><a href="../../../Electrical/Digital/Interfaces/index.html#Strength">Strength</a></code></td><td><code>strength</code></td><td><code>S.&#8203;'S_X01'</code></td><td>output strength</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>enable</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>x</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="INV3S"><h2><embed class="icon" src="../../../images/icon0558.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Tristates</a>.&#8203;INV3S<br><span class="subtitle">Tristate Inverter with enable active high</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
+<p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
+<p><strong>Truth Table</strong></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><strong>DataIn</strong></td>
+      <td><strong>Enable</strong></td>
+      <td><strong>DataOut*</strong></td>
+  </tr>
+
+  <tr><td>*</td> <td>U</td> <td>U</td></tr>
+  <tr><td>*</td> <td>X</td> <td>UX</td></tr>
+  <tr><td>*</td> <td>0</td> <td>Z</td></tr>
+  <tr><td>*</td> <td>1</td> <td>Not DataIn</td></tr>
+  <tr><td>*</td> <td>Z</td> <td>UX</td></tr>
+  <tr><td>*</td> <td>W</td> <td>UX</td></tr>
+  <tr><td>*</td> <td>L</td> <td>Z</td></tr>
+  <tr><td>*</td> <td>H</td> <td>Not DataIn</td></tr>
+  <tr><td>*</td> <td>-</td> <td>UX</td></tr>
+</table>
+
+<pre>
+  UX: if dataIn == U then U else X
+  DataOut*: Strength map for DataOut according to tristate table Buf3sTable
+</pre>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tHL</code></td><td><code>0</code></td><td>High-&gt;Low delay</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tLH</code></td><td><code>0</code></td><td>Low-&gt;High delay</td></tr>
+<tr><td><code><a href="../../../Electrical/Digital/Interfaces/index.html#Strength">Strength</a></code></td><td><code>strength</code></td><td><code>S.&#8203;'S_X01'</code></td><td>output strength</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>enable</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>x</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="INV3SL"><h2><embed class="icon" src="../../../images/icon0559.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Tristates</a>.&#8203;INV3SL<br><span class="subtitle">Tristate inverter with enable active low</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
+<p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
+<p><strong>Truth Table</strong></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><strong>DataIn</strong></td>
+      <td><strong>Enable</strong></td>
+      <td><strong>DataOut*</strong></td>
+  </tr>
+
+  <tr><td>*</td> <td>U</td> <td>U</td></tr>
+  <tr><td>*</td> <td>X</td> <td>UX</td></tr>
+  <tr><td>*</td> <td>0</td> <td>Not DataIn</td></tr>
+  <tr><td>*</td> <td>1</td> <td>Z</td></tr>
+  <tr><td>*</td> <td>Z</td> <td>UX</td></tr>
+  <tr><td>*</td> <td>W</td> <td>UX</td></tr>
+  <tr><td>*</td> <td>L</td> <td>Not DataIn</td></tr>
+  <tr><td>*</td> <td>H</td> <td>Z</td></tr>
+  <tr><td>*</td> <td>-</td> <td>UX</td></tr>
+</table>
+
+<pre>
+  UX: if dataIn == U then U else X
+  DataOut*: Strength map for DataOut according to tristate table Buf3slTable
+</pre>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tHL</code></td><td><code>0</code></td><td>High-&gt;Low delay</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tLH</code></td><td><code>0</code></td><td>Low-&gt;High delay</td></tr>
+<tr><td><code><a href="../../../Electrical/Digital/Interfaces/index.html#Strength">Strength</a></code></td><td><code>strength</code></td><td><code>S.&#8203;'S_X01'</code></td><td>output strength</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>enable</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>x</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="WiredX"><h2><embed class="icon" src="../../../images/icon0560.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Tristates</a>.&#8203;WiredX<br><span class="subtitle">Wired node with multiple input and one output</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Wires n input signals in one output signal, without delay.
+</p>
+<p>Resolution table is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
+<p>Extends from <code><a href="../../../Electrical/Digital/Interfaces/index.html#MISO">Modelica.&#8203;Electrical.&#8203;Digital.&#8203;Interfaces.&#8203;MISO</a></code> (Multiple input - single output).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>2</code></td><td>Number of inputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>x[n]</code></td><td>Connector of Digital input signal vector</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>Connector of Digital output signal</td></tr>
+</table>
+</body></html>

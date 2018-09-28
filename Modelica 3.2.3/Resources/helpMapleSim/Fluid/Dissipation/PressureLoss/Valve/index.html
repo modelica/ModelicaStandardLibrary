@@ -1,0 +1,128 @@
+<html><head><title>Modelica.Fluid.Dissipation.PressureLoss.Valve</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Valve"><h1><embed class="icon" src="../../../../images/icon0573.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;Valve<br><span class="subtitle">Package for pressure loss calculation of valves</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<h4>Valve</h4>
+<h5>Several geometries</h5>
+<p>
+Calculation of pressure loss for a valve with different geometries at overall flow regime for incompressible and single-phase fluid flow in dependence of its opening.
+<a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/Valve/index.html#dp_severalGeometryOverall">See more information</a>.
+</p>
+
+<p>Extends from <code><a href="../../../../Icons/VariantsPackage/index.html">Modelica.&#8203;Icons.&#8203;VariantsPackage</a></code> (Icon for package containing variants).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#dp_severalGeometryOverall_DP"><code>dp_severalGeometryOverall_DP</code></a></td><td>Pressure loss of valve | calculate pressure loss | several geometries | overall flow regime</td></tr>
+<tr><td><a href="#dp_severalGeometryOverall_IN_con"><code>dp_severalGeometryOverall_IN_con</code></a></td><td>Input record for function dp_severalGeometryOverall_DP and dp_severalGeometryOverall_MFLOW</td></tr>
+<tr><td><a href="#dp_severalGeometryOverall_IN_var"><code>dp_severalGeometryOverall_IN_var</code></a></td><td>Input record for function dp_severalGeometryOverall_DP and dp_severalGeometryOverall_MFLOW</td></tr>
+<tr><td><a href="#dp_severalGeometryOverall_MFLOW"><code>dp_severalGeometryOverall_MFLOW</code></a></td><td>Pressure loss of valve | calculate mass flow rate | several geometries | overall flow regime</td></tr>
+</table>
+<hr><a name="dp_severalGeometryOverall_DP"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">Valve</a>.&#8203;dp_severalGeometryOverall_DP<br><span class="subtitle">Pressure loss of valve | calculate pressure loss | several geometries | overall flow regime</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Calculation of pressure loss for a valve with different geometries at overall flow regime for incompressible and single-phase fluid flow in dependence of its opening.
+</p>
+
+<p>
+Generally this function is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href="../../../../Fluid/Dissipation/PressureLoss/Valve/index.html#dp_severalGeometryOverall_MFLOW">dp_severalGeometryOverall_MFLOW</a> is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/Valve/index.html#dp_severalGeometryOverall">See more information</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Dissipation/PressureLoss/Valve/index.html#dp_severalGeometryOverall_IN_con">dp_severalGeometryOverall_IN_con</a></code></td><td><code>IN_con</code></td><td>Input record for function dp_severalGeometryOverall_DP</td></tr>
+<tr><td><code><a href="../../../../Fluid/Dissipation/PressureLoss/Valve/index.html#dp_severalGeometryOverall_IN_var">dp_severalGeometryOverall_IN_var</a></code></td><td><code>IN_var</code></td><td>Input record for function dp_severalGeometryOverall_DP</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>DP</code></td><td>Pressure loss</td></tr>
+</table>
+<hr><a name="dp_severalGeometryOverall_MFLOW"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">Valve</a>.&#8203;dp_severalGeometryOverall_MFLOW<br><span class="subtitle">Pressure loss of valve | calculate mass flow rate | several geometries | overall flow regime</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Calculation of pressure loss for a valve with different geometries at overall flow regime for incompressible and single-phase fluid flow in dependence of its opening.
+</p>
+
+<p>
+Generally this  function is numerically best used for the <strong> compressible case </strong>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href="../../../../Fluid/Dissipation/PressureLoss/Valve/index.html#dp_severalGeometryOverall_DP">dp_severalGeometryOverall_DP</a> is numerically best used for the <strong> incompressible case </strong> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated. <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/Valve/index.html#dp_severalGeometryOverall">See more information</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Dissipation/PressureLoss/Valve/index.html#dp_severalGeometryOverall_IN_con">dp_severalGeometryOverall_IN_con</a></code></td><td><code>IN_con</code></td><td>Input record for function dp_severalGeometryOverall_MFLOW</td></tr>
+<tr><td><code><a href="../../../../Fluid/Dissipation/PressureLoss/Valve/index.html#dp_severalGeometryOverall_IN_var">dp_severalGeometryOverall_IN_var</a></code></td><td><code>IN_var</code></td><td>Input record for function dp_severalGeometryOverall_MFLOW</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>dp</code></td><td>Pressure loss</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>M_FLOW</code></td><td>Mass flow rate</td></tr>
+</table>
+<hr><a name="dp_severalGeometryOverall_IN_con"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">Valve</a>.&#8203;dp_severalGeometryOverall_IN_con<br><span class="subtitle">Input record for function dp_severalGeometryOverall_DP and dp_severalGeometryOverall_MFLOW</span></h2></a>
+<h3>Information</h3>
+<p>
+
+This record is used as <strong> input record </strong> for the pressure loss function
+<a href="../../../../Fluid/Dissipation/PressureLoss/Valve/index.html#dp_severalGeometryOverall_DP"> dp_severalGeometryOverall_DP</a> and
+<a href="../../../../Fluid/Dissipation/PressureLoss/Valve/index.html#dp_severalGeometryOverall_MFLOW"> dp_severalGeometryOverall_MFLOW</a>.
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Dissipation/Utilities/Types/index.html#ValveGeometry">ValveGeometry</a></code></td><td><code>geometry</code></td><td>Choice of geometry for valve</td></tr>
+<tr><td><code><a href="../../../../Fluid/Dissipation/Utilities/Types/index.html#ValveCoefficient">ValveCoefficient</a></code></td><td><code>valveCoefficient</code></td><td>Choice of valve coefficient</td></tr>
+<tr><td><code>Real</code></td><td><code>Av</code></td><td>Av (metric) flow coefficient [Av]=m^2</td></tr>
+<tr><td><code>Real</code></td><td><code>Kv</code></td><td>Kv (metric) flow coefficient [Kv]=m^3/h</td></tr>
+<tr><td><code>Real</code></td><td><code>Cv</code></td><td>Cv (US) flow coefficient [Cv]=USG/min</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>dp_nominal</code></td><td>Nominal pressure loss</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nominal</code></td><td>Nominal mass flow rate</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_nominal</code></td><td>Nominal inlet density</td></tr>
+<tr><td><code>Real</code></td><td><code>opening_nominal</code></td><td>Nominal opening</td></tr>
+<tr><td><code>Real</code></td><td><code>zeta_TOT_min</code></td><td>Minimal pressure loss coefficient at full opening</td></tr>
+<tr><td><code>Real</code></td><td><code>zeta_TOT_max</code></td><td>Maximum pressure loss coefficient at closed opening</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>dp_small</code></td><td>Linearisation for a pressure loss smaller then dp_small</td></tr>
+</table>
+<hr><a name="dp_severalGeometryOverall_IN_var"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">Valve</a>.&#8203;dp_severalGeometryOverall_IN_var<br><span class="subtitle">Input record for function dp_severalGeometryOverall_DP and dp_severalGeometryOverall_MFLOW</span></h2></a>
+<h3>Information</h3>
+<p>
+
+This record is used as <strong> input record </strong> for the pressure loss function
+<a href="../../../../Fluid/Dissipation/PressureLoss/Valve/index.html#dp_severalGeometryOverall_DP"> dp_severalGeometryOverall_DP</a> and
+<a href="../../../../Fluid/Dissipation/PressureLoss/Valve/index.html#dp_severalGeometryOverall_MFLOW"> dp_severalGeometryOverall_MFLOW</a>.
+<p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>opening</code></td><td>Opening of valve | 0==closed and 1== fully opened</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta</code></td><td>Dynamic viscosity of fluid</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho</code></td><td>Density of fluid</td></tr>
+</table>
+</body></html>

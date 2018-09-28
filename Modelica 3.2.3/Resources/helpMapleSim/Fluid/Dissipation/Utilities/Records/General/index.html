@@ -1,0 +1,264 @@
+<html><head><title>Modelica.Fluid.Dissipation.Utilities.Records.General</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="General"><h1><embed class="icon" src="../../../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Records</a>.&#8203;General<br><span class="subtitle">Icon for standard packages</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>Standard package icon.</p>
+<p>Extends from <code><a href="../../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#FluidProperties"><code>FluidProperties</code></a></td><td>Base record for fluid properties</td></tr>
+<tr><td><a href="#IdealGas"><code>IdealGas</code></a></td><td>Base record for generic pressure loss function | ideal gas | mean density</td></tr>
+<tr><td><a href="#IdealGas_con"><code>IdealGas_con</code></a></td><td>Base record for generic pressure loss function | ideal gas | mean density</td></tr>
+<tr><td><a href="#IdealGas_var"><code>IdealGas_var</code></a></td><td>Base record for generic pressure loss function | ideal gas | mean density</td></tr>
+<tr><td><a href="#NominalDensityViscosity"><code>NominalDensityViscosity</code></a></td><td>Base record for generic pressure loss function</td></tr>
+<tr><td><a href="#NominalPressureLossLawDensity"><code>NominalPressureLossLawDensity</code></a></td><td>Base record for generic pressure loss function</td></tr>
+<tr><td><a href="#NominalPressureLossLawDensity_con"><code>NominalPressureLossLawDensity_con</code></a></td><td>Base record for generic pressure loss function</td></tr>
+<tr><td><a href="#NominalPressureLossLawDensity_var"><code>NominalPressureLossLawDensity_var</code></a></td><td>Base record for generic pressure loss function</td></tr>
+<tr><td><a href="#PressureLoss"><code>PressureLoss</code></a></td><td>Base record for fluid properties for pressure loss</td></tr>
+<tr><td><a href="#QuadraticVFLOW"><code>QuadraticVFLOW</code></a></td><td>Base record for generic pressure loss function | quadratic function (dp=a*Vdot^2 + b*Vdot)</td></tr>
+<tr><td><a href="#TwoPhaseFlow"><code>TwoPhaseFlow</code></a></td><td>base record for two phase Flow</td></tr>
+<tr><td><a href="#TwoPhaseFlow_con"><code>TwoPhaseFlow_con</code></a></td><td>Base record for two phase Flow</td></tr>
+<tr><td><a href="#TwoPhaseFlow_var"><code>TwoPhaseFlow_var</code></a></td><td>Base record for two phase flow</td></tr>
+</table>
+<hr><a name="PressureLoss"><h2><embed class="icon" src="../../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Records</a>.&#8203;<a href="index.html">General</a>.&#8203;PressureLoss<br><span class="subtitle">Base record for fluid properties for pressure loss</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta</code></td><td>Dynamic viscosity of fluid</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho</code></td><td>Density of fluid</td></tr>
+</table>
+<hr><a name="FluidProperties"><h2><embed class="icon" src="../../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Records</a>.&#8203;<a href="index.html">General</a>.&#8203;FluidProperties<br><span class="subtitle">Base record for fluid properties</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#SpecificHeatCapacityAtConstantPressure">SpecificHeatCapacityAtConstantPressure</a></code></td><td><code>cp</code></td><td>Specific heat capacity of fluid at constant pressure</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta</code></td><td>Dynamic viscosity of fluid</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#ThermalConductivity">ThermalConductivity</a></code></td><td><code>lambda</code></td><td>Thermal conductivity of fluid</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho</code></td><td>Density of fluid</td></tr>
+</table>
+<hr><a name="IdealGas_con"><h2><embed class="icon" src="../../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Records</a>.&#8203;<a href="index.html">General</a>.&#8203;IdealGas_con<br><span class="subtitle">Base record for generic pressure loss function | ideal gas | mean density</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>exp</code></td><td>Exponent of pressure loss law</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>R_s</code></td><td>Specific gas constant of ideal gas</td></tr>
+<tr><td><code>Real</code></td><td><code>Km</code></td><td>Coefficient for pressure loss law [(Pa)^2/{(kg/s)^exp*K}]</td></tr>
+</table>
+<hr><a name="IdealGas_var"><h2><embed class="icon" src="../../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Records</a>.&#8203;<a href="index.html">General</a>.&#8203;IdealGas_var<br><span class="subtitle">Base record for generic pressure loss function | ideal gas | mean density</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_m</code></td><td>Mean density of ideal gas</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>T_m</code></td><td>Mean temperature of ideal gas</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p_m</code></td><td>Mean pressure of ideal gas</td></tr>
+</table>
+<hr><a name="NominalDensityViscosity"><h2><embed class="icon" src="../../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Records</a>.&#8203;<a href="index.html">General</a>.&#8203;NominalDensityViscosity<br><span class="subtitle">Base record for generic pressure loss function</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>dp_nom</code></td><td>Nominal pressure loss (at nominal values of mass flow rate and density)</td></tr>
+<tr><td><code>Real</code></td><td><code>exp</code></td><td>Exponent of pressure loss law</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nom</code></td><td>Nominal mass flow rate (at nominal values of pressure loss and density)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_nom</code></td><td>Nominal density (at nominal values of mass flow rate and pressure loss)</td></tr>
+<tr><td><code>Real</code></td><td><code>exp_eta</code></td><td>Exponent for dynamic viscosity dependence</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta_nom</code></td><td>Dynamic viscosity at nominal pressure loss</td></tr>
+</table>
+<hr><a name="NominalPressureLossLawDensity_con"><h2><embed class="icon" src="../../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Records</a>.&#8203;<a href="index.html">General</a>.&#8203;NominalPressureLossLawDensity_con<br><span class="subtitle">Base record for generic pressure loss function</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Fluid/Dissipation/Utilities/Types/index.html#MassOrVolumeFlowRate">MassOrVolumeFlowRate</a></code></td><td><code>target</code></td><td>MassFlowRate == use nominal mass flow rate | VolumeFlowRate == use nominal volume flow rate</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Area">Area</a></code></td><td><code>A_cross</code></td><td>Cross sectional area</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Area">Area</a></code></td><td><code>A_cross_nom</code></td><td>Nominal cross sectional area</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>dp_nom</code></td><td>Nominal pressure loss (at nominal values of mass flow rate and density)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nom</code></td><td>Nominal mass flow rate (at nominal values of pressure loss and density)</td></tr>
+<tr><td><code>Real</code></td><td><code>exp</code></td><td>Exponent of pressure loss law</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#VolumeFlowRate">VolumeFlowRate</a></code></td><td><code>V_flow_nom</code></td><td>Nominal volume flow rate (at nominal values of pressure loss and density)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_nom</code></td><td>Nominal density (at nominal values of mass flow rate and pressure loss)</td></tr>
+<tr><td><code><a href="../../../../../Fluid/Dissipation/Utilities/Types/index.html#PressureLossCoefficient">PressureLossCoefficient</a></code></td><td><code>zeta_TOT_nom</code></td><td>Nominal pressure loss coefficient (for nominal values)</td></tr>
+</table>
+<hr><a name="NominalPressureLossLawDensity_var"><h2><embed class="icon" src="../../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Records</a>.&#8203;<a href="index.html">General</a>.&#8203;NominalPressureLossLawDensity_var<br><span class="subtitle">Base record for generic pressure loss function</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Fluid/Dissipation/Utilities/Types/index.html#PressureLossCoefficient">PressureLossCoefficient</a></code></td><td><code>zeta_TOT</code></td><td>Pressure loss coefficient</td></tr>
+</table>
+<hr><a name="QuadraticVFLOW"><h2><embed class="icon" src="../../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Records</a>.&#8203;<a href="index.html">General</a>.&#8203;QuadraticVFLOW<br><span class="subtitle">Base record for generic pressure loss function | quadratic function (dp=a*Vdot^2 + b*Vdot)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>a</code></td><td>Coefficient for quadratic term</td></tr>
+<tr><td><code>Real</code></td><td><code>b</code></td><td>Coefficient for linear term</td></tr>
+</table>
+<hr><a name="TwoPhaseFlow_con"><h2><embed class="icon" src="../../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Records</a>.&#8203;<a href="index.html">General</a>.&#8203;TwoPhaseFlow_con<br><span class="subtitle">Base record for two phase Flow</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Area">Area</a></code></td><td><code>A_cross</code></td><td>Cross sectional area</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>perimeter</code></td><td>Wetted perimeter</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>length</code></td><td>Length in fluid flow direction</td></tr>
+</table>
+<hr><a name="TwoPhaseFlow_var"><h2><embed class="icon" src="../../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Records</a>.&#8203;<a href="index.html">General</a>.&#8203;TwoPhaseFlow_var<br><span class="subtitle">Base record for two phase flow</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_g</code></td><td>Density of gas</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_l</code></td><td>Density of liquid</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta_g</code></td><td>Dynamic viscosity of gas</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta_l</code></td><td>Dynamic viscosity of liquid</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SurfaceTension">SurfaceTension</a></code></td><td><code>sigma</code></td><td>Surface tension</td></tr>
+<tr><td><code>Real</code></td><td><code>x_flow</code></td><td>Mean mass flow rate quality over length</td></tr>
+</table>
+<hr><a name="IdealGas"><h2><embed class="icon" src="../../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Records</a>.&#8203;<a href="index.html">General</a>.&#8203;IdealGas<br><span class="subtitle">Base record for generic pressure loss function | ideal gas | mean density</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Real</code></td><td><code>exp</code></td><td>Exponent of pressure loss law</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>R_s</code></td><td>Specific gas constant of ideal gas</td></tr>
+<tr><td><code>Real</code></td><td><code>Km</code></td><td>Coefficient for pressure loss law [(Pa)^2/{(kg/s)^exp*K}]</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_m</code></td><td>Mean density of ideal gas</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temp_K">Temp_K</a></code></td><td><code>T_m</code></td><td>Mean temperature of ideal gas</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p_m</code></td><td>Mean pressure of ideal gas</td></tr>
+</table>
+<hr><a name="NominalPressureLossLawDensity"><h2><embed class="icon" src="../../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Records</a>.&#8203;<a href="index.html">General</a>.&#8203;NominalPressureLossLawDensity<br><span class="subtitle">Base record for generic pressure loss function</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Fluid/Dissipation/Utilities/Types/index.html#MassOrVolumeFlowRate">MassOrVolumeFlowRate</a></code></td><td><code>target</code></td><td>MassFlowRate == use nominal mass flow rate | VolumeFlowRate == use nominal volume flow rate</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#Area">Area</a></code></td><td><code>A_cross</code></td><td>Cross sectional area</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#Area">Area</a></code></td><td><code>A_cross_nom</code></td><td>Nominal cross sectional area</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>dp_nom</code></td><td>Nominal pressure loss (at nominal values of mass flow rate and density)</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nom</code></td><td>Nominal mass flow rate (at nominal values of pressure loss and density)</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>exp</code></td><td>Exponent of pressure loss law</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#VolumeFlowRate">VolumeFlowRate</a></code></td><td><code>V_flow_nom</code></td><td>Nominal volume flow rate (at nominal values of pressure loss and density)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_nom</code></td><td>Nominal density (at nominal values of mass flow rate and pressure loss)</td></tr>
+<tr><td><code><a href="../../../../../Fluid/Dissipation/Utilities/Types/index.html#PressureLossCoefficient">PressureLossCoefficient</a></code></td><td><code>zeta_TOT</code></td><td>Pressure loss coefficient</td></tr>
+<tr><td>parameter <code><a href="../../../../../Fluid/Dissipation/Utilities/Types/index.html#PressureLossCoefficient">PressureLossCoefficient</a></code></td><td><code>zeta_TOT_nom</code></td><td>Nominal pressure loss coefficient (for nominal values)</td></tr>
+</table>
+<hr><a name="TwoPhaseFlow"><h2><embed class="icon" src="../../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Fluid</a>.&#8203;<a href="../../../index.html">Dissipation</a>.&#8203;<a href="../../index.html">Utilities</a>.&#8203;<a href="../index.html">Records</a>.&#8203;<a href="index.html">General</a>.&#8203;TwoPhaseFlow<br><span class="subtitle">base record for two phase Flow</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_l</code></td><td>Density of liquid</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_g</code></td><td>Density of gas</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta_l</code></td><td>Dynamic viscosity of liquid</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta_g</code></td><td>Dynamic viscosity of gas</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#MassFraction">MassFraction</a></code></td><td><code>x</code></td><td>Vapour fraction</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#SurfaceTension">SurfaceTension</a></code></td><td><code>sigma</code></td><td>Surface Tension</td></tr>
+<tr><td><code>Real</code></td><td><code>n</code></td><td>Exponent in Blasius equation (0.2-0.25)</td></tr>
+</table>
+</body></html>

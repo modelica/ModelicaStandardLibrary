@@ -1,0 +1,237 @@
+<html><head><title>Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="TwoPhase"><h1><embed class="icon" src="../../../../../../images/icon0092.svg" width="203" height="203" />
+Package <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Fluid</a>.&#8203;<a href="../../../../index.html">Dissipation</a>.&#8203;<a href="../../../index.html">Utilities</a>.&#8203;<a href="../../index.html">Functions</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;TwoPhase<br><span class="subtitle">Package with utility functions to compute two phase pressure loss characteristics</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>Standard package icon.</p>
+<p>Extends from <code><a href="../../../../../../Icons/FunctionsPackage/index.html">Modelica.&#8203;Icons.&#8203;FunctionsPackage</a></code> (Icon for packages containing functions).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#dp_twoPhaseChisholm_DP"><code>dp_twoPhaseChisholm_DP</code></a></td><td>Frictional pressure loss of straight pipe for two phase flow according to Chisholm correlation | calculate pressure loss | overall flow regime</td></tr>
+<tr><td><a href="#dp_twoPhaseFriedel_DP"><code>dp_twoPhaseFriedel_DP</code></a></td><td>Frictional pressure loss of straight pipe for two phase flow according to Friedel correlation | calculate pressure loss| overall flow regime</td></tr>
+<tr><td><a href="#dp_twoPhaseGeodetic_DP"><code>dp_twoPhaseGeodetic_DP</code></a></td><td>Geodetic pressure loss of straight pipe for two phase flow | calculate pressure loss</td></tr>
+<tr><td><a href="#dp_twoPhaseMomentum_DP"><code>dp_twoPhaseMomentum_DP</code></a></td><td>Momentum pressure loss of straight pipe for two phase flow | calculate pressure loss</td></tr>
+<tr><td><a href="#SlipRatio"><code>SlipRatio</code></a></td><td>Calculation of (analytical/empirical) slip ratio</td></tr>
+<tr><td><a href="#TwoPhaseDensity"><code>TwoPhaseDensity</code></a></td><td>Calculation of mean density for two phase flow</td></tr>
+<tr><td><a href="#TwoPhaseMultiplierChisholm"><code>TwoPhaseMultiplierChisholm</code></a></td><td>Calculation of two phase multiplier according to Chisholm | constant mass flow rate quality</td></tr>
+<tr><td><a href="#TwoPhaseMultiplierFriedel"><code>TwoPhaseMultiplierFriedel</code></a></td><td>Calculation of two phase multiplier according to Friedel | constant mass flow rate quality | horizontal flow | vertical upflow and downflow</td></tr>
+<tr><td><a href="#VoidFraction"><code>VoidFraction</code></a></td><td>Calculation of (cross sectional) void fraction for two phase flow</td></tr>
+</table>
+<hr><a name="dp_twoPhaseChisholm_DP"><h2><embed class="icon" src="../../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Fluid</a>.&#8203;<a href="../../../../index.html">Dissipation</a>.&#8203;<a href="../../../index.html">Utilities</a>.&#8203;<a href="../../index.html">Functions</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">TwoPhase</a>.&#8203;dp_twoPhaseChisholm_DP<br><span class="subtitle">Frictional pressure loss of straight pipe for two phase flow according to Chisholm correlation | calculate pressure loss | overall flow regime</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../Fluid/Dissipation/Utilities/Records/General/index.html#TwoPhaseFlow_con">TwoPhaseFlow_con</a></code></td><td><code>IN_con</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../../Fluid/Dissipation/Utilities/Records/General/index.html#TwoPhaseFlow_var">TwoPhaseFlow_var</a></code></td><td><code>IN_var</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>DP</code></td><td>Output for function dp_twoPhaseChisholm_DP</td></tr>
+</table>
+<hr><a name="dp_twoPhaseFriedel_DP"><h2><embed class="icon" src="../../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Fluid</a>.&#8203;<a href="../../../../index.html">Dissipation</a>.&#8203;<a href="../../../index.html">Utilities</a>.&#8203;<a href="../../index.html">Functions</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">TwoPhase</a>.&#8203;dp_twoPhaseFriedel_DP<br><span class="subtitle">Frictional pressure loss of straight pipe for two phase flow according to Friedel correlation | calculate pressure loss| overall flow regime</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../Fluid/Dissipation/Utilities/Records/General/index.html#TwoPhaseFlow_con">TwoPhaseFlow_con</a></code></td><td><code>IN_con</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../../Fluid/Dissipation/Utilities/Records/General/index.html#TwoPhaseFlow_var">TwoPhaseFlow_var</a></code></td><td><code>IN_var</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>DP</code></td><td>Output for function dp_twoPhaseFriedel_DP</td></tr>
+</table>
+<hr><a name="dp_twoPhaseGeodetic_DP"><h2><embed class="icon" src="../../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Fluid</a>.&#8203;<a href="../../../../index.html">Dissipation</a>.&#8203;<a href="../../../index.html">Utilities</a>.&#8203;<a href="../../index.html">Functions</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">TwoPhase</a>.&#8203;dp_twoPhaseGeodetic_DP<br><span class="subtitle">Geodetic pressure loss of straight pipe for two phase flow | calculate pressure loss</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../Fluid/Dissipation/Utilities/Types/index.html#VoidFractionApproach">VoidFractionApproach</a></code></td><td><code>voidFractionApproach</code></td><td>Choice of void fraction approach</td></tr>
+<tr><td><code>Boolean</code></td><td><code>crossSectionalAveraged</code></td><td>true == cross sectional averaged void fraction | false == volumetric</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>length</code></td><td>Length in fluid flow direction</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>phi</code></td><td>Tilt angle to horizontal</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_g</code></td><td>Density of gaseous phase</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_l</code></td><td>Density of liquid phase</td></tr>
+<tr><td><code>Real</code></td><td><code>x_flow</code></td><td>Mass flow rate quality</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>DP_geo</code></td><td>Geodetic pressure loss</td></tr>
+</table>
+<hr><a name="dp_twoPhaseMomentum_DP"><h2><embed class="icon" src="../../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Fluid</a>.&#8203;<a href="../../../../index.html">Dissipation</a>.&#8203;<a href="../../../index.html">Utilities</a>.&#8203;<a href="../../index.html">Functions</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">TwoPhase</a>.&#8203;dp_twoPhaseMomentum_DP<br><span class="subtitle">Momentum pressure loss of straight pipe for two phase flow | calculate pressure loss</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../Fluid/Dissipation/Utilities/Types/index.html#VoidFractionApproach">VoidFractionApproach</a></code></td><td><code>voidFractionApproach</code></td><td>Choice of void fraction approach</td></tr>
+<tr><td><code>Boolean</code></td><td><code>massFlowRateCorrection</code></td><td>Consider heterogeneous mass flow rate correction</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Area">Area</a></code></td><td><code>A_cross</code></td><td>Cross sectional area</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Length">Length</a></code></td><td><code>perimeter</code></td><td>Perimeter</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_g</code></td><td>Density of gas</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_l</code></td><td>Density of liquid</td></tr>
+<tr><td><code>Real</code></td><td><code>x_flow_end</code></td><td>Mass flow rate quality at end of length</td></tr>
+<tr><td><code>Real</code></td><td><code>x_flow_sta</code></td><td>Mass flow rate quality at start of length</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>DP_mom</code></td><td>Momentum pressure loss</td></tr>
+</table>
+<hr><a name="TwoPhaseMultiplierFriedel"><h2><embed class="icon" src="../../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Fluid</a>.&#8203;<a href="../../../../index.html">Dissipation</a>.&#8203;<a href="../../../index.html">Utilities</a>.&#8203;<a href="../../index.html">Functions</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">TwoPhase</a>.&#8203;TwoPhaseMultiplierFriedel<br><span class="subtitle">Calculation of two phase multiplier according to Friedel | constant mass flow rate quality | horizontal flow | vertical upflow and downflow</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../Fluid/Dissipation/Utilities/Records/General/index.html#TwoPhaseFlow_con">TwoPhaseFlow_con</a></code></td><td><code>IN_con</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../../Fluid/Dissipation/Utilities/Records/General/index.html#TwoPhaseFlow_var">TwoPhaseFlow_var</a></code></td><td><code>IN_var</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>phi</code></td><td>Two phase multiplier w.r.t. Friedel</td></tr>
+</table>
+<hr><a name="TwoPhaseMultiplierChisholm"><h2><embed class="icon" src="../../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Fluid</a>.&#8203;<a href="../../../../index.html">Dissipation</a>.&#8203;<a href="../../../index.html">Utilities</a>.&#8203;<a href="../../index.html">Functions</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">TwoPhase</a>.&#8203;TwoPhaseMultiplierChisholm<br><span class="subtitle">Calculation of two phase multiplier according to Chisholm | constant mass flow rate quality</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../Fluid/Dissipation/Utilities/Records/General/index.html#TwoPhaseFlow_con">TwoPhaseFlow_con</a></code></td><td><code>IN_con</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../../Fluid/Dissipation/Utilities/Records/General/index.html#TwoPhaseFlow_var">TwoPhaseFlow_var</a></code></td><td><code>IN_var</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>Mass flow rate</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>phi</code></td><td>Two phase multiplier w.r.t. Chisholm</td></tr>
+</table>
+<hr><a name="TwoPhaseDensity"><h2><embed class="icon" src="../../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Fluid</a>.&#8203;<a href="../../../../index.html">Dissipation</a>.&#8203;<a href="../../../index.html">Utilities</a>.&#8203;<a href="../../index.html">Functions</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">TwoPhase</a>.&#8203;TwoPhaseDensity<br><span class="subtitle">Calculation of mean density for two phase flow</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The gaseous and the liquid part of a fluid in a two phase flow are often discontinuously distributed. This complex behaviour is simplified for engineering calculations. The two phase flow of different fluid flow situations (e.g., bubble or stratified flow) is modelled as if the gaseous and the liquid phase are continuously distributed.
+</p>
+
+<p>
+A <strong> mean density </strong> assuming a continuous distribution out of a discontinuous two phase fluid flow situation can be calculated with a <strong> homogeneous or a heterogeneous approach </strong> (see <a href="../../../../../../Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_twoPhaseOverall_DP">dp_twoPhaseOverall_DP</a>).</p>
+<p>
+The following <strong> modelling approaches </strong> can be used to calculate the mean density of two phase flow:
+</p>
+<ul>
+<li>        <strong> homogeneous density </strong> (homogeneous approach)</li>
+<li>         <strong> momentum flux density </strong> (heterogeneous approach)</li>
+<li>         <strong> kinetic energy flow density </strong> (heterogeneous approach)</li>
+</ul>
+
+
+<p>
+The heterogeneous approaches are analytically derived by minimising the momentum flux or the kinetic energy flow assuming implicitly that the two-phase flow will tend towards the minimum of this quantity.
+</p>
+
+<h4>References</h4>
+<dl>
+ <dt>VDI:</dt>
+    <dd><strong>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</strong>.
+    Springer Verlag, 10th edition, 2006.</dd>
+</dl>
+<p>Extends from <code><a href="../../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../Fluid/Dissipation/Utilities/Types/index.html#VoidFractionApproach">VoidFractionApproach</a></code></td><td><code>voidFractionApproach</code></td><td>Choice of void fraction approach</td></tr>
+<tr><td><code>Boolean</code></td><td><code>massFlowRateCorrection</code></td><td>Consider heterogeneous mass flow rate correction</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_g</code></td><td>Density of gaseous phase</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_l</code></td><td>Density of liquid phase</td></tr>
+<tr><td><code>Real</code></td><td><code>epsilon_A</code></td><td>Void fraction (cross sectional averaged)</td></tr>
+<tr><td><code>Real</code></td><td><code>x_flow</code></td><td>Mass flow rate quality</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_2ph</code></td><td>Mean density of two phase flow</td></tr>
+</table>
+<hr><a name="VoidFraction"><h2><embed class="icon" src="../../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Fluid</a>.&#8203;<a href="../../../../index.html">Dissipation</a>.&#8203;<a href="../../../index.html">Utilities</a>.&#8203;<a href="../../index.html">Functions</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">TwoPhase</a>.&#8203;VoidFraction<br><span class="subtitle">Calculation of (cross sectional) void fraction for two phase flow</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../Fluid/Dissipation/Utilities/Types/index.html#VoidFractionApproach">VoidFractionApproach</a></code></td><td><code>voidFractionApproach</code></td><td>Choice of void fraction approach</td></tr>
+<tr><td><code>Boolean</code></td><td><code>crossSectionalAveraged</code></td><td>true == cross sectional averaged void fraction | false == volumetric</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_g</code></td><td>Density of gaseous phase</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_l</code></td><td>Density of liquid phase</td></tr>
+<tr><td><code>Real</code></td><td><code>x_flow</code></td><td>Mass flow rate quality</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>epsilon</code></td><td>Void fraction</td></tr>
+<tr><td><code>Real</code></td><td><code>slipRatio</code></td><td>Slip ratio</td></tr>
+</table>
+<hr><a name="SlipRatio"><h2><embed class="icon" src="../../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../../index.html">Fluid</a>.&#8203;<a href="../../../../index.html">Dissipation</a>.&#8203;<a href="../../../index.html">Utilities</a>.&#8203;<a href="../../index.html">Functions</a>.&#8203;<a href="../index.html">PressureLoss</a>.&#8203;<a href="index.html">TwoPhase</a>.&#8203;SlipRatio<br><span class="subtitle">Calculation of (analytical/empirical) slip ratio</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../../Fluid/Dissipation/Utilities/Types/index.html#VoidFractionApproach">VoidFractionApproach</a></code></td><td><code>voidFractionApproach</code></td><td>Choice of void fraction approach</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_g</code></td><td>Density of gaseous phase</td></tr>
+<tr><td><code><a href="../../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho_l</code></td><td>Density of liquid phase</td></tr>
+<tr><td><code>Real</code></td><td><code>x_flow</code></td><td>Mass flow rate quality</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>SR</code></td><td>Slip ratio</td></tr>
+</table>
+</body></html>

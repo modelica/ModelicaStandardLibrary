@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve2</title>
+</head>
+<body>
+<h1><a href="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg"><img class="svgiconhead" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Frames.Quaternions.html">Quaternions</a>.<span class="omc-h1">resolve2</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+v2 = Quaternions.<strong>resolve2</strong>(Q, v1);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function returns vector&nbsp;v resolved in frame&nbsp;2
+(=v2) from vector&nbsp;v resolved in frame&nbsp;1 (=v1) using the
+<a href="Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation.html">
+quaternions orientation</a>&nbsp;Q that describes the orientation
+to rotate frame&nbsp;1 into frame&nbsp;2.</p>
+<h4>See also</h4>
+<p><a href="Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve1.html">
+resolve1</a>, <a href="Modelica.Mechanics.MultiBody.Frames.resolve2.html">Frames.resolve2</a>,
+<a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolve2.html">
+TransformationMatrices.resolve2</a>.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>function resolve2
+  extends Modelica.Icons.Function;
+  input Quaternions.Orientation Q "Quaternions orientation object to rotate frame 1 into frame 2";
+  input Real v1[3] "Vector in frame 1";
+  output Real v2[3] "Vector in frame 2";
+end resolve2;</pre></blockquote>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

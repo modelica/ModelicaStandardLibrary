@@ -1,0 +1,95 @@
+<html><head><title>Modelica.Thermal.FluidHeatFlow.Interfaces</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Interfaces"><h1><embed class="icon" src="../../../images/icon0015.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">FluidHeatFlow</a>.&#8203;Interfaces<br><span class="subtitle">Connectors and partial models</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package contains connectors and partial models:</p>
+<ul>
+<li>FlowPort: basic definition of the connector.</li>
+<li>FlowPort_a &amp; FlowPort_b: same as FlowPort with different icons to differentiate direction of flow</li>
+<li>package Partials (defining basic thermodynamic equations)</li>
+</ul>
+
+<p>Extends from <code><a href="../../../Icons/InterfacesPackage/index.html">Modelica.&#8203;Icons.&#8203;InterfacesPackage</a></code> (Icon for packages containing interfaces).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#FlowPort"><code>FlowPort</code></a></td><td>Connector flow port</td></tr>
+<tr><td><a href="#FlowPort_a"><code>FlowPort_a</code></a></td><td>Filled flow port (used upstream)</td></tr>
+<tr><td><a href="#FlowPort_b"><code>FlowPort_b</code></a></td><td>Hollow flow port (used downstream)</td></tr>
+<tr><td><a href="../../../Thermal/FluidHeatFlow/Interfaces/Partials/index.html"><code>Partials</code></a> &hellip;</td><td>Partial models</td></tr>
+</table>
+<hr><a name="FlowPort"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">FluidHeatFlow</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;FlowPort<br><span class="subtitle">Connector flow port</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Basic definition of the connector.<br>
+<strong>Variables:</strong>
+<ul>
+<li>Pressure p</li>
+<li>flow MassFlowRate m_flow</li>
+<li>Specific Enthalpy h</li>
+<li>flow EnthaplyFlowRate H_flow</li>
+</ul>
+If ports with different media are connected, the simulation is asserted due to the check of parameter.
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../Thermal/FluidHeatFlow/Media/index.html#Medium">Medium</a></code></td><td><code>medium</code></td><td>Medium in the connector</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../SIunits/index.html#EnthalpyFlowRate">EnthalpyFlowRate</a></code></td><td><code>H_flow</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="FlowPort_a"><h2><embed class="icon" src="../../../images/icon1452.svg" width="203" height="203" />
+Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">FluidHeatFlow</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;FlowPort_a<br><span class="subtitle">Filled flow port (used upstream)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Same as FlowPort, but icon allows to differentiate direction of flow.
+<p>Extends from <code><a href="../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort">Modelica.&#8203;Thermal.&#8203;FluidHeatFlow.&#8203;Interfaces.&#8203;FlowPort</a></code> (Connector flow port).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../Thermal/FluidHeatFlow/Media/index.html#Medium">Medium</a></code></td><td><code>medium</code></td><td>Medium in the connector</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../SIunits/index.html#EnthalpyFlowRate">EnthalpyFlowRate</a></code></td><td><code>H_flow</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="FlowPort_b"><h2><embed class="icon" src="../../../images/icon1453.svg" width="203" height="203" />
+Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">FluidHeatFlow</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;FlowPort_b<br><span class="subtitle">Hollow flow port (used downstream)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+Same as FlowPort, but icon allows to differentiate direction of flow.
+<p>Extends from <code><a href="../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort">Modelica.&#8203;Thermal.&#8203;FluidHeatFlow.&#8203;Interfaces.&#8203;FlowPort</a></code> (Connector flow port).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../Thermal/FluidHeatFlow/Media/index.html#Medium">Medium</a></code></td><td><code>medium</code></td><td>Medium in the connector</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>flow</b>&nbsp;</code><code><a href="../../../SIunits/index.html#EnthalpyFlowRate">EnthalpyFlowRate</a></code></td><td><code>H_flow</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

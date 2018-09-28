@@ -1,0 +1,127 @@
+<html><head><title>ModelicaServices.UsersGuide</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="UsersGuide"><h1><embed class="icon" src="../images/icon0002.svg" width="203" height="203" />
+Package <a href="../index.html">ModelicaServices</a>.&#8203;UsersGuide<br><span class="subtitle">User's Guide</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates classes containing only documentation, intended for general description of, e.g., concepts and features of a package.</p>
+<p>Extends from <code>Modelica.&#8203;Icons.&#8203;Information</code> (Icon for general information packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Contact"><code>Contact</code></a></td><td>Contact</td></tr>
+<tr><td><a href="#ReleaseNotes"><code>ReleaseNotes</code></a></td><td>Release notes</td></tr>
+</table>
+<hr><a name="ReleaseNotes"><h2><embed class="icon" src="../images/icon0003.svg" width="203" height="203" />
+Class <a href="../index.html">ModelicaServices</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;ReleaseNotes<br><span class="subtitle">Release notes</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Version 3.2.3, 2018-09-26</h4>
+
+<ul>
+<li> New function
+     <a href="../System/index.html#exit">exit</a>
+     to terminate the Modelica environment, see <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2211">#2211</a>.
+     </li>
+</ul>
+
+<h4>Version 3.2.1, 2012-12-05</h4>
+
+<ul>
+<li> Version numbering adapted to the corresponding version number of
+     package Modelica (= Modelica Standard Library).</li>
+<li> New function
+     <a href="../ExternalReferences/index.html#loadResource">loadResource</a>
+     to determine the absolute, local file name from an URI path name.
+     </li>
+<li> New String type with tool dependent choices
+     <a href="../Types/index.html#SolverMethod">SolverMethod</a>
+     to define the integration method to solve differential equations in a
+     clocked discretized continuous-time partition.
+     </li>
+<li> New package
+     <a href="../Machine/index.html">Machine</a>
+     to define the processor dependent constants as used in
+     <a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/Modelica3.2.3/Constants/">Modelica.Constants</a>.
+     </li>
+</ul>
+
+
+<h4>Version 1.1, 2010-07-30</h4>
+
+<ul>
+<li> New model <a href="../Animation/index.html#Surface">Surface</a>
+     to describe movable, parameterized surfaces.</li>
+<li> New string constant ModelicaServices.target to define the
+     target of the corresponding ModelicaServices implementation</li>
+<li> Package icons adapted to the icons of package Modelica, version 3.2.</li>
+<li> ModelicaServices library on the Modelica subversion server provided in three versions:
+     <ol>
+     <li> <strong>Default/ModelicaServices</strong><br>
+          (for tools that do not support 3-dim. visualization).</li>
+
+     <li> <strong>Dymola/ModelicaServices</strong><br>
+          (a Dymola-specific implementation).</li>
+
+     <li> <strong>DymolaAndDLRVisualization/ModelicaServices</strong><br>
+          (an implementation that uses the DLR Visualization library
+           in combination with Dymola).</li>
+     </ol>
+     </li>
+</ul>
+
+<h4>Version 1.0, 2009-06-21</h4>
+
+<p>
+First version of the ModelicaServices library.
+</p>
+<p>Extends from <code>Modelica.&#8203;Icons.&#8203;ReleaseNotes</code> (Icon for release notes in documentation).</p>
+<hr><a name="Contact"><h2><embed class="icon" src="../images/icon0004.svg" width="203" height="203" />
+Class <a href="../index.html">ModelicaServices</a>.&#8203;<a href="index.html">UsersGuide</a>.&#8203;Contact<br><span class="subtitle">Contact</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h5>Main Author:</h5>
+
+<table border=0 cellspacing=0 cellpadding=2>
+<tr>
+<td>
+<a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a><br>
+    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
+    Robotik und Mechatronik Zentrum (RMC)<br>
+    Institut f&uuml;r Systemdynamik und Regelungstechnik (SR)<br>
+    Postfach 1116<br>
+    D-82230 Wessling<br>
+    Germany<br>
+    email: <a href="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</a></td>
+</tr>
+</table>
+
+<p><strong>Acknowledgements:</strong></p>
+
+<p>
+The design of the Animation.Shape component is from Hilding Elmqvist, previously at Dassault Syst&egrave;mes AB.
+</p>
+<p>Extends from <code>Modelica.&#8203;Icons.&#8203;Contact</code> (Icon for contact information).</p>
+</body></html>

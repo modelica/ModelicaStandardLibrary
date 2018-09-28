@@ -1,0 +1,187 @@
+<html><head><title>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="RobotR3"><h1><embed class="icon" src="../../../../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Mechanics</a>.&#8203;<a href="../../../index.html">MultiBody</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">Systems</a>.&#8203;RobotR3<br><span class="subtitle">Library to demonstrate robot system models based on the Manutec r3 robot</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains models of the robot r3 of the company Manutec.
+These models are used to demonstrate in which way complex
+robot models might be built up by testing first the component
+models individually before composing them together.
+Furthermore, it is shown how CAD data can be used
+for animation.
+</p>
+
+<img src="../../../../../../Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.png"
+alt="model Examples.Systems.RobotR3">
+
+<p>
+The following models are available:
+</p>
+<pre>
+   <strong>oneAxis</strong>   Test one axis (controller, motor, gearbox).
+   <strong>fullRobot</strong> Test complete robot model.
+</pre>
+<p>
+The r3 robot is no longer manufactured. In fact the company
+Manutec does no longer exist.
+The parameters of this robot have been determined by measurements
+in the laboratory of DLR. The measurement procedure is described in:
+</p>
+<pre>
+   Tuerk S. (1990): Zur Modellierung der Dynamik von Robotern mit
+       rotatorischen Gelenken. Fortschrittberichte VDI, Reihe 8, Nr. 211,
+       VDI-Verlag 1990.
+</pre>
+<p>
+The robot model is described in detail in
+</p>
+<pre>
+   Otter M. (1995): Objektorientierte Modellierung mechatronischer
+       Systeme am Beispiel geregelter Roboter. Dissertation,
+       Fortschrittberichte VDI, Reihe 20, Nr. 147, VDI-Verlag 1995.
+       This report can be downloaded as compressed postscript file
+       from: <a href="http://www.robotic.dlr.de/Martin.Otter">http://www.robotic.dlr.de/Martin.Otter</a>.
+</pre>
+<p>
+The path planning is performed in a simple way by using essentially
+the Modelica.Mechanics.Rotational.KinematicPTP block. A user defines
+a path by start and end angle of every axis. A path is planned such
+that all axes are moving as fast as possible under the given
+restrictions of maximum joint speeds and maximum joint accelerations.
+The actual r3 robot from Manutec had a different path planning strategy.
+Today's path planning algorithms from robot companies are much
+more involved.
+</p>
+<p>
+In order to get a nice animation, CAD data from a KUKA robot
+is used, since CAD data of the original r3 robot was not available.
+The KUKA CAD data was derived from public data of
+<a href="http://www.kuka-robotics.com/">
+KUKA</a>.
+Since dimensions of the corresponding KUKA robot are similar but not
+identical to the r3 robot, the data of the r3 robot (such as arm lengths) have been modified, such that it matches the CAD data.
+</p>
+<p>
+In this model, a simplified P-PI cascade controller for every
+axes is used. The parameters have been manually adjusted by
+simulations. The original r3 controllers are more complicated.
+The reason to use simplified controllers is to have a simpler demo.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="../../../../../Mechanics/MultiBody/Examples/Systems/RobotR3/Components/index.html"><code>Components</code></a> &hellip;</td><td>Library of components of the robot</td></tr>
+<tr><td><a href="#fullRobot"><code>fullRobot</code></a></td><td>Six degree of freedom robot with path planning, controllers, motors, brakes, gears and mechanics</td></tr>
+<tr><td><a href="#oneAxis"><code>oneAxis</code></a></td><td>Model of one axis of robot (controller, motor, gearbox) with simple load</td></tr>
+</table>
+<hr><a name="oneAxis"><h2><embed class="icon" src="../../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Mechanics</a>.&#8203;<a href="../../../index.html">MultiBody</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">Systems</a>.&#8203;<a href="index.html">RobotR3</a>.&#8203;oneAxis<br><span class="subtitle">Model of one axis of robot (controller, motor, gearbox) with simple load</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+With this model one axis of the r3 robot is checked.
+The mechanical structure is replaced by a simple
+load inertia.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>mLoad</code></td><td><code>15</code></td><td>Mass of load</td></tr>
+<tr><td><code>Real</code></td><td><code>kp</code></td><td><code>5</code></td><td>Gain of position controller of axis 2</td></tr>
+<tr><td><code>Real</code></td><td><code>ks</code></td><td><code>0.5</code></td><td>Gain of speed controller of axis 2</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Ts</code></td><td><code>0.05</code></td><td>Time constant of integrator of speed controller of axis 2</td></tr>
+<tr><td><code>Real</code></td><td><code>startAngle</code></td><td><code>0</code></td><td>Start angle of axis 2</td></tr>
+<tr><td><code>Real</code></td><td><code>endAngle</code></td><td><code>120</code></td><td>End angle of axis 2</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>swingTime</code></td><td><code>0.5</code></td><td>Additional time after reference motion is in rest before simulation is stopped</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>refSpeedMax</code></td><td><code>3</code></td><td>Maximum reference speed</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#AngularAcceleration">AngularAcceleration</a></code></td><td><code>refAccMax</code></td><td><code>10</code></td><td>Maximum reference acceleration</td></tr>
+</table>
+<hr><a name="fullRobot"><h2><embed class="icon" src="../../../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Mechanics</a>.&#8203;<a href="../../../index.html">MultiBody</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">Systems</a>.&#8203;<a href="index.html">RobotR3</a>.&#8203;fullRobot<br><span class="subtitle">Six degree of freedom robot with path planning, controllers, motors, brakes, gears and mechanics</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This example animates a motion of a detailed model of the robot
+with predefined axes' angles over time.
+For animation, CAD data is used.
+Translate and simulate with the default settings
+(default simulation stop time = 2&nbsp;s).
+</p>
+<p>
+The path planning block incorporates a simulation termination condition.
+Thus, the simulation can be terminated before reaching the stop time.
+The condition depends on the start and end positions of the joints, and on their
+reference speeds and reference accelerations.
+For current settings, the termination condition should indeed be fulfilled right before the simulation stops.
+</p>
+
+<p>
+<img src="../../../../../../Images/Mechanics/MultiBody/Examples/Systems/r3_fullRobot.png" alt="model Examples.Loops.Systems.RobotR3.fullRobot">
+</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>mLoad</code></td><td><code>15</code></td><td>Mass of load</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>rLoad[3]</code></td><td><code>{0.1, 0.25, 0.1}</code></td><td>Distance from last flange to load mass</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Acceleration">Acceleration</a></code></td><td><code>g</code></td><td><code>9.81</code></td><td>Gravity acceleration</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>refStartTime</code></td><td><code>0</code></td><td>Start time of reference motion</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>refSwingTime</code></td><td><code>0.5</code></td><td>Additional time after reference motion is in rest before simulation is stopped</td></tr>
+<tr><td><code>Real</code></td><td><code>startAngle1</code></td><td><code>-60</code></td><td>Start angle of axis 1</td></tr>
+<tr><td><code>Real</code></td><td><code>startAngle2</code></td><td><code>20</code></td><td>Start angle of axis 2</td></tr>
+<tr><td><code>Real</code></td><td><code>startAngle3</code></td><td><code>90</code></td><td>Start angle of axis 3</td></tr>
+<tr><td><code>Real</code></td><td><code>startAngle4</code></td><td><code>0</code></td><td>Start angle of axis 4</td></tr>
+<tr><td><code>Real</code></td><td><code>startAngle5</code></td><td><code>-110</code></td><td>Start angle of axis 5</td></tr>
+<tr><td><code>Real</code></td><td><code>startAngle6</code></td><td><code>0</code></td><td>Start angle of axis 6</td></tr>
+<tr><td><code>Real</code></td><td><code>endAngle1</code></td><td><code>60</code></td><td>End angle of axis 1</td></tr>
+<tr><td><code>Real</code></td><td><code>endAngle2</code></td><td><code>-70</code></td><td>End angle of axis 2</td></tr>
+<tr><td><code>Real</code></td><td><code>endAngle3</code></td><td><code>-35</code></td><td>End angle of axis 3</td></tr>
+<tr><td><code>Real</code></td><td><code>endAngle4</code></td><td><code>45</code></td><td>End angle of axis 4</td></tr>
+<tr><td><code>Real</code></td><td><code>endAngle5</code></td><td><code>110</code></td><td>End angle of axis 5</td></tr>
+<tr><td><code>Real</code></td><td><code>endAngle6</code></td><td><code>45</code></td><td>End angle of axis 6</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>refSpeedMax[6]</code></td><td><code>{3, 1.5, 5, 3.1, 3.1, 4.1}</code></td><td>Maximum reference speeds of all joints</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#AngularAcceleration">AngularAcceleration</a></code></td><td><code>refAccMax[6]</code></td><td><code>{15, 15, 15, 60, 60, 60}</code></td><td>Maximum reference accelerations of all joints</td></tr>
+<tr><td><code>Real</code></td><td><code>kp1</code></td><td><code>5</code></td><td>Gain of position controller</td></tr>
+<tr><td><code>Real</code></td><td><code>ks1</code></td><td><code>0.5</code></td><td>Gain of speed controller</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Ts1</code></td><td><code>0.05</code></td><td>Time constant of integrator of speed controller</td></tr>
+<tr><td><code>Real</code></td><td><code>kp2</code></td><td><code>5</code></td><td>Gain of position controller</td></tr>
+<tr><td><code>Real</code></td><td><code>ks2</code></td><td><code>0.5</code></td><td>Gain of speed controller</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Ts2</code></td><td><code>0.05</code></td><td>Time constant of integrator of speed controller</td></tr>
+<tr><td><code>Real</code></td><td><code>kp3</code></td><td><code>5</code></td><td>Gain of position controller</td></tr>
+<tr><td><code>Real</code></td><td><code>ks3</code></td><td><code>0.5</code></td><td>Gain of speed controller</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Ts3</code></td><td><code>0.05</code></td><td>Time constant of integrator of speed controller</td></tr>
+<tr><td><code>Real</code></td><td><code>kp4</code></td><td><code>5</code></td><td>Gain of position controller</td></tr>
+<tr><td><code>Real</code></td><td><code>ks4</code></td><td><code>0.5</code></td><td>Gain of speed controller</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Ts4</code></td><td><code>0.05</code></td><td>Time constant of integrator of speed controller</td></tr>
+<tr><td><code>Real</code></td><td><code>kp5</code></td><td><code>5</code></td><td>Gain of position controller</td></tr>
+<tr><td><code>Real</code></td><td><code>ks5</code></td><td><code>0.5</code></td><td>Gain of speed controller</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Ts5</code></td><td><code>0.05</code></td><td>Time constant of integrator of speed controller</td></tr>
+<tr><td><code>Real</code></td><td><code>kp6</code></td><td><code>5</code></td><td>Gain of position controller</td></tr>
+<tr><td><code>Real</code></td><td><code>ks6</code></td><td><code>0.5</code></td><td>Gain of speed controller</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Ts6</code></td><td><code>0.05</code></td><td>Time constant of integrator of speed controller</td></tr>
+</table>
+</body></html>

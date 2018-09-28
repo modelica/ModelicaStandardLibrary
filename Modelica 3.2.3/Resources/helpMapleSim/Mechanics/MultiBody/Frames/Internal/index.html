@@ -1,0 +1,201 @@
+<html><head><title>Modelica.Mechanics.MultiBody.Frames.Internal</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Internal"><h1><embed class="icon" src="../../../../images/icon0034.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;Internal<br><span class="subtitle">Internal definitions that may be removed or changed (do not use)</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Package with classes that are used within package Frames.
+The classes in this package should not be directly used by a user.
+</p>
+<p>Extends from <code><a href="../../../../Icons/InternalPackage/index.html">Modelica.&#8203;Icons.&#8203;InternalPackage</a></code> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#maxWithoutEvent"><code>maxWithoutEvent</code></a></td><td>Maximum of the input arguments, without event and function can be differentiated</td></tr>
+<tr><td><a href="#maxWithoutEvent_d"><code>maxWithoutEvent_d</code></a></td><td>First derivative of function maxWithoutEvent(..)</td></tr>
+<tr><td><a href="#maxWithoutEvent_dd"><code>maxWithoutEvent_dd</code></a></td><td>First derivative of function maxWithoutEvent_d(..)</td></tr>
+<tr><td><a href="#QuaternionBase"><code>QuaternionBase[4]</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#resolve1_der"><code>resolve1_der</code></a></td><td>Derivative of function Frames.resolve1(..)</td></tr>
+<tr><td><a href="#resolve2_der"><code>resolve2_der</code></a></td><td>Derivative of function Frames.resolve2(..)</td></tr>
+<tr><td><a href="#resolveRelative_der"><code>resolveRelative_der</code></a></td><td>Derivative of function Frames.resolveRelative(..)</td></tr>
+<tr><td><a href="#TransformationMatrix"><code>TransformationMatrix[3,3]</code></a></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="TransformationMatrix"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Internal</a>.&#8203;TransformationMatrix</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="QuaternionBase"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Internal</a>.&#8203;QuaternionBase</h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="maxWithoutEvent"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Internal</a>.&#8203;maxWithoutEvent<br><span class="subtitle">Maximum of the input arguments, without event and function can be differentiated</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+y = Internal.<strong>maxWithoutEvent</strong>(u1, u2)
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Function <strong>maxWithoutEvent</strong> returns the maximum of its two
+input arguments. This functions is used instead of the Modelica
+built-in function "max" or an if-statement with "noEvent(..)",
+in order that the function can be differentiated by providing
+the first and second derivatives with additional functions.
+Note, from a strict mathematical point of view the derivatives
+will be wrong, since Dirac impulses would occur in the
+derivatives. For the special cases as used in the MultiBody
+library, this is irrelevant and therefore the usage of the function is correct.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u1</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>u2</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="maxWithoutEvent_d"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Internal</a>.&#8203;maxWithoutEvent_d<br><span class="subtitle">First derivative of function maxWithoutEvent(..)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a derivative of function
+<a href="../../../../Mechanics/MultiBody/Frames/Internal/index.html#maxWithoutEvent">maxWithoutEvent</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u1</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>u2</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>u1_d</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>u2_d</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y_d</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="maxWithoutEvent_dd"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Internal</a>.&#8203;maxWithoutEvent_dd<br><span class="subtitle">First derivative of function maxWithoutEvent_d(..)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a derivative of function
+<a href="../../../../Mechanics/MultiBody/Frames/Internal/index.html#maxWithoutEvent_d">maxWithoutEvent_d</a>,
+i.e. a second derivative of function
+<a href="../../../../Mechanics/MultiBody/Frames/Internal/index.html#maxWithoutEvent">maxWithoutEvent</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u1</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>u2</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>u1_d</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>u2_d</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>u1_dd</code></td><td>&nbsp</td></tr>
+<tr><td><code>Real</code></td><td><code>u2_dd</code></td><td>&nbsp</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y_dd</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="resolve1_der"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Internal</a>.&#8203;resolve1_der<br><span class="subtitle">Derivative of function Frames.resolve1(..)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a derivative of function
+<a href="../../../../Mechanics/MultiBody/Frames/index.html#resolve1">resolve1</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/index.html#Orientation">Orientation</a></code></td><td><code>R</code></td><td>Orientation object to rotate frame 1 into frame 2</td></tr>
+<tr><td><code>Real</code></td><td><code>v2[3]</code></td><td>Vector resolved in frame 2</td></tr>
+<tr><td><code>Real</code></td><td><code>v2_der[3]</code></td><td>= der(v2)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>v1_der[3]</code></td><td>Derivative of vector v resolved in frame 1</td></tr>
+</table>
+<hr><a name="resolve2_der"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Internal</a>.&#8203;resolve2_der<br><span class="subtitle">Derivative of function Frames.resolve2(..)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a derivative of function
+<a href="../../../../Mechanics/MultiBody/Frames/index.html#resolve2">resolve2</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/index.html#Orientation">Orientation</a></code></td><td><code>R</code></td><td>Orientation object to rotate frame 1 into frame 2</td></tr>
+<tr><td><code>Real</code></td><td><code>v1[3]</code></td><td>Vector resolved in frame 1</td></tr>
+<tr><td><code>Real</code></td><td><code>v1_der[3]</code></td><td>= der(v1)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>v2_der[3]</code></td><td>Derivative of vector v resolved in frame 2</td></tr>
+</table>
+<hr><a name="resolveRelative_der"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Internal</a>.&#8203;resolveRelative_der<br><span class="subtitle">Derivative of function Frames.resolveRelative(..)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a derivative of function
+<a href="../../../../Mechanics/MultiBody/Frames/index.html#resolveRelative">resolveRelative</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>v1[3]</code></td><td>Vector in frame 1</td></tr>
+<tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/index.html#Orientation">Orientation</a></code></td><td><code>R1</code></td><td>Orientation object to rotate frame 0 into frame 1</td></tr>
+<tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/index.html#Orientation">Orientation</a></code></td><td><code>R2</code></td><td>Orientation object to rotate frame 0 into frame 2</td></tr>
+<tr><td><code>Real</code></td><td><code>v1_der[3]</code></td><td>= der(v1)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>v2_der[3]</code></td><td>Derivative of vector v resolved in frame 2</td></tr>
+</table>
+</body></html>

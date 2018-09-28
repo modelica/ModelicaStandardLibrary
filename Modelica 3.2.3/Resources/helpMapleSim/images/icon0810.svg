@@ -1,0 +1,20 @@
+<svg width="223" height="223" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.GraetzRectifier" class="component">
+		<text x="186.5" y="111.0" text-anchor="middle" fill="#0000FF" font-size="39.9px" font-family="sans-serif">DC</text>
+		<text x="36.5" y="111.0" text-anchor="middle" fill="#0000FF" font-size="39.9px" font-family="sans-serif">AC</text>
+		<polyline points="109.5,71.5 41.5,71.5 109.5,71.5 41.5,161.5 109.5,161.5 109.5,71.5 109.5,161.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="113.5,71.5 181.5,71.5 113.5,71.5 181.5,161.5 113.5,161.5 113.5,71.5 113.5,161.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="pin_pAC" class="port">
+			<polygon points="1.5,1.5 21.5,1.5 21.5,21.5 1.5,21.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="pin_nAC" class="port">
+			<polygon points="1.5,221.5 21.5,221.5 21.5,201.5 1.5,201.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="pin_pDC" class="port">
+			<polygon points="201.5,1.5 221.5,1.5 221.5,21.5 201.5,21.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="pin_nDC" class="port">
+			<polygon points="201.5,221.5 221.5,221.5 221.5,201.5 201.5,201.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

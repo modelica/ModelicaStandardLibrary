@@ -1,0 +1,233 @@
+<html><head><title>Modelica.Math.Distributions.Uniform</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Uniform"><h1><embed class="icon" src="../../../images/icon1505.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Math</a>.&#8203;<a href="../index.html">Distributions</a>.&#8203;Uniform<br><span class="subtitle">Library of uniform distribution functions</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package provides
+</p>
+<ul>
+<li> probability density function (= derivative of cumulative distribution function),</li>
+<li> cumulative distribution function, and</li>
+<li> quantile (= inverse cumulative distribution function).</li>
+</ul>
+<p>
+of the <strong>uniform</strong> distribution. Examples:
+</p>
+
+<blockquote>
+<img src="../../../../Images/Math/Distributions/Uniform.density.png">
+</blockquote>
+
+<blockquote>
+<img src="../../../../Images/Math/Distributions/Uniform.cumulative.png">
+</blockquote>
+
+<blockquote>
+<img src="../../../../Images/Math/Distributions/Uniform.quantile.png">
+</blockquote>
+
+<p>
+For more details of this distribution see
+<a href="http://en.wikipedia.org/wiki/Uniform_distribution_(continuous)">Wikipedia</a>.
+</p>
+<p>Extends from <code><a href="../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#cumulative"><code>cumulative</code></a></td><td>Cumulative distribution function of uniform distribution</td></tr>
+<tr><td><a href="#density"><code>density</code></a></td><td>Density of uniform distribution</td></tr>
+<tr><td><a href="#quantile"><code>quantile</code></a></td><td>Quantile of uniform distribution</td></tr>
+</table>
+<hr><a name="density"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Math</a>.&#8203;<a href="../index.html">Distributions</a>.&#8203;<a href="index.html">Uniform</a>.&#8203;density<br><span class="subtitle">Density of uniform distribution</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Uniform.<strong>density</strong>(u, u_min=0, u_max=1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the probability density function according to a <strong>uniform</strong> distribution in a band.
+Plot of the function:
+</p>
+
+<blockquote>
+<img src="../../../../Images/Math/Distributions/Uniform.density.png">
+</blockquote>
+
+<p>
+For more details, see
+<a href="http://en.wikipedia.org/wiki/Uniform_distribution_(continuous)">Wikipedia</a>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  density(0.5)    // = 1
+  density(0,-1,1) // = 0.5
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="../../../Math/Distributions/Uniform/index.html#cumulative">Uniform.cumulative</a>,
+<a href="../../../Math/Distributions/Uniform/index.html#quantile">Uniform.quantile</a>.
+</p>
+<p>Extends from <code><a href="../../../Math/Distributions/Interfaces/index.html#partialDensity">Modelica.&#8203;Math.&#8203;Distributions.&#8203;Interfaces.&#8203;partialDensity</a></code> (Common interface of probability density functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>Random number over the real axis (-inf &lt; u &lt; inf)</td></tr>
+<tr><td><code>Real</code></td><td><code>u_min</code></td><td>Lower limit of u</td></tr>
+<tr><td><code>Real</code></td><td><code>u_max</code></td><td>Upper limit of u</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>Density of u</td></tr>
+</table>
+<hr><a name="cumulative"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Math</a>.&#8203;<a href="../index.html">Distributions</a>.&#8203;<a href="index.html">Uniform</a>.&#8203;cumulative<br><span class="subtitle">Cumulative distribution function of uniform distribution</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Uniform.<strong>cumulative</strong>(u, u_min=0, u_max=1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the cumulative distribution function
+according to a <strong>uniform</strong> distribution in a band.
+The returned value y is in the range:
+</p>
+
+<blockquote>
+0 &le; y &le; 1
+</blockquote>
+
+<p>
+Plot of the function:
+</p>
+
+<blockquote>
+<img src="../../../../Images/Math/Distributions/Uniform.cumulative.png">
+</blockquote>
+
+<p>
+For more details, see
+<a href="http://en.wikipedia.org/wiki/Uniform_distribution_(continuous)">Wikipedia</a>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  cumulative(0.5)    // = 0.5
+  cumulative(0,-1,1) // = 0.5
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="../../../Math/Distributions/Uniform/index.html#density">Uniform.density</a>,
+<a href="../../../Math/Distributions/Uniform/index.html#quantile">Uniform.quantile</a>.
+</p>
+<p>Extends from <code><a href="../../../Math/Distributions/Interfaces/index.html#partialCumulative">Modelica.&#8203;Math.&#8203;Distributions.&#8203;Interfaces.&#8203;partialCumulative</a></code> (Common interface of cumulative distribution functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>Value over the real axis (-inf &lt; u &lt; inf)</td></tr>
+<tr><td><code>Real</code></td><td><code>u_min</code></td><td>Lower limit of u</td></tr>
+<tr><td><code>Real</code></td><td><code>u_max</code></td><td>Upper limit of u</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>Value in the range 0 &lt;= y &lt;= 1</td></tr>
+</table>
+<hr><a name="quantile"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Math</a>.&#8203;<a href="../index.html">Distributions</a>.&#8203;<a href="index.html">Uniform</a>.&#8203;quantile<br><span class="subtitle">Quantile of uniform distribution</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Uniform.<strong>quantile</strong>(u, y_min=0, y_max=1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the inverse cumulative distribution function (= quantile) according to a <strong>uniform</strong>
+distribution in a band. Input argument u must be in the range:
+</p>
+
+<blockquote>
+<p>
+0 &le; u &le; 1
+</p>
+</blockquote>
+
+<p>
+The returned number y is in the range:
+</p>
+
+<blockquote>
+<p>
+y_min &le; y &le; y_max
+</p>
+</blockquote>
+
+<p>
+Plot of the function:
+</p>
+
+<blockquote>
+<img src="../../../../Images/Math/Distributions/Uniform.quantile.png">
+</blockquote>
+
+<p>
+For more details, see
+<a href="http://en.wikipedia.org/wiki/Uniform_distribution_(continuous)">Wikipedia</a>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  quantile(0.5)      // = 0.5
+  quantile(0.5,-1,1) // = 0
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="../../../Math/Distributions/Uniform/index.html#density">Uniform.density</a>,
+<a href="../../../Math/Distributions/Uniform/index.html#cumulative">Uniform.cumulative</a>.
+</p>
+<p>Extends from <code><a href="../../../Math/Distributions/Interfaces/index.html#partialQuantile">Modelica.&#8203;Math.&#8203;Distributions.&#8203;Interfaces.&#8203;partialQuantile</a></code> (Common interface of quantile functions (= inverse cumulative distribution functions)).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>u</code></td><td>Random number in the range 0 &lt;= u &lt;= 1</td></tr>
+<tr><td><code>Real</code></td><td><code>y_min</code></td><td>Lower limit of y</td></tr>
+<tr><td><code>Real</code></td><td><code>y_max</code></td><td>Upper limit of y</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>y</code></td><td>Random number u transformed according to the given distribution</td></tr>
+</table>
+</body></html>

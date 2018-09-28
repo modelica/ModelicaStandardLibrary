@@ -1,0 +1,7 @@
+<svg width="303" height="303" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Mechanics.Translational.Interfaces.Support" class="component">
+		<polygon points="61.5,241.5 241.5,241.5 241.5,61.5 61.5,61.5" fill="#AFAFAF" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="1.5,301.5 301.5,301.5 301.5,1.5 1.5,1.5" fill="#AFBEAF" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="61.5,241.5 241.5,241.5 241.5,61.5 61.5,61.5" fill="#007F00" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+	</g>
+</svg>

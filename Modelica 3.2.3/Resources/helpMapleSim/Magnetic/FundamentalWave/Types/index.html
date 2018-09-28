@@ -1,0 +1,201 @@
+<html><head><title>Modelica.Magnetic.FundamentalWave.Types</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Types"><h1><embed class="icon" src="../../../images/icon0292.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;Types<br><span class="subtitle">Definition of salient types</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package provides types for modeling anisotropic saliency effects in electric machines. These saliencies are usually considered by a d- (direct) and q-axis (quadrature) components in the respective axis (of the rotor).</p>
+<p>Extends from <code><a href="../../../Icons/TypesPackage/index.html">Modelica.&#8203;Icons.&#8203;TypesPackage</a></code> (Icon for packages containing type definitions).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Salient"><code>Salient</code></a></td><td>Base record of saliency with d and q component</td></tr>
+<tr><td><a href="#SalientCurrent"><code>SalientCurrent</code></a></td><td>Salient current</td></tr>
+<tr><td><a href="#SalientInductance"><code>SalientInductance</code></a></td><td>Salient inductance</td></tr>
+<tr><td><a href="#SalientPermeance"><code>SalientPermeance</code></a></td><td>Salient permeance</td></tr>
+<tr><td><a href="#SalientReluctance"><code>SalientReluctance</code></a></td><td>Salient reluctance</td></tr>
+<tr><td><a href="#SalientResistance"><code>SalientResistance</code></a></td><td>Salient resistance</td></tr>
+<tr><td><a href="#SalientVoltage"><code>SalientVoltage</code></a></td><td>Salient voltage</td></tr>
+</table>
+<hr><a name="Salient"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Types</a>.&#8203;Salient<br><span class="subtitle">Base record of saliency with d and q component</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, however, refers to different properties in d- and q-axis and thus considers the anisotropic behavior.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientCurrent">SalientCurrent</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientVoltage">SalientVoltage</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientInductance">SalientInductance</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientReluctance">SalientReluctance</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientResistance">SalientResistance</a>
+</p>
+
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>d</code></td><td>Component of d (direct) axis, aligned to real part</td></tr>
+<tr><td><code>Real</code></td><td><code>q</code></td><td>Component of q (quadrature) axis, aligned to imaginary part</td></tr>
+</table>
+<hr><a name="SalientCurrent"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Types</a>.&#8203;SalientCurrent<br><span class="subtitle">Salient current</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Type representing the d- and q-axis of a current phasor.</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#Salient">Salient</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientVoltage">SalientVoltage</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientResistance">SalientResistance</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientInductance">SalientInductance</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientReluctance">SalientReluctance</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientPermeance">SalientPermeance</a>
+</p>
+
+<p>Extends from <code><a href="../../../Magnetic/FundamentalWave/Types/index.html#Salient">Modelica.&#8203;Magnetic.&#8203;FundamentalWave.&#8203;Types.&#8203;Salient</a></code> (Base record of saliency with d and q component).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>d</code></td><td>Component of d (direct) axis, aligned to real part</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>q</code></td><td>Component of q (quadrature) axis, aligned to imaginary part</td></tr>
+</table>
+<hr><a name="SalientVoltage"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Types</a>.&#8203;SalientVoltage<br><span class="subtitle">Salient voltage</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Type representing the d- and q-axis of a voltage phasor.</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#Salient">Salient</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientCurrent">SalientCurrent</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientResistance">SalientResistance</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientInductance">SalientInductance</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientReluctance">SalientReluctance</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientPermeance">SalientPermeance</a>
+</p>
+
+<p>Extends from <code><a href="../../../Magnetic/FundamentalWave/Types/index.html#Salient">Modelica.&#8203;Magnetic.&#8203;FundamentalWave.&#8203;Types.&#8203;Salient</a></code> (Base record of saliency with d and q component).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>d</code></td><td>Component of d (direct) axis, aligned to real part</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>q</code></td><td>Component of q (quadrature) axis, aligned to imaginary part</td></tr>
+</table>
+<hr><a name="SalientResistance"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Types</a>.&#8203;SalientResistance<br><span class="subtitle">Salient resistance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Type representing the d- and q-axis of an resistance with respect to the fundamental wave.</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#Salient">Salient</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientCurrent">SalientCurrent</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientVoltage">SalientVoltage</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientInductance">SalientInductance</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientReluctance">SalientReluctance</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientPermeance">SalientPermeance</a>
+</p>
+
+<p>Extends from <code><a href="../../../Magnetic/FundamentalWave/Types/index.html#Salient">Modelica.&#8203;Magnetic.&#8203;FundamentalWave.&#8203;Types.&#8203;Salient</a></code> (Base record of saliency with d and q component).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>d</code></td><td>Component of d (direct) axis, aligned to real part</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>q</code></td><td>Component of q (quadrature) axis, aligned to imaginary part</td></tr>
+</table>
+<hr><a name="SalientInductance"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Types</a>.&#8203;SalientInductance<br><span class="subtitle">Salient inductance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Type representing the d- and q-axis of an inductance with respect to the fundamental wave.</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#Salient">Salient</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientCurrent">SalientCurrent</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientVoltage">SalientVoltage</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientResistance">SalientResistance</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientReluctance">SalientReluctance</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientPermeance">SalientPermeance</a>
+</p>
+
+<p>Extends from <code><a href="../../../Magnetic/FundamentalWave/Types/index.html#Salient">Modelica.&#8203;Magnetic.&#8203;FundamentalWave.&#8203;Types.&#8203;Salient</a></code> (Base record of saliency with d and q component).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>d</code></td><td>Component of d (direct) axis, aligned to real part</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Inductance">Inductance</a></code></td><td><code>q</code></td><td>Component of q (quadrature) axis, aligned to imaginary part</td></tr>
+</table>
+<hr><a name="SalientReluctance"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Types</a>.&#8203;SalientReluctance<br><span class="subtitle">Salient reluctance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Type representing the d- and q-axis of an reluctance with respect to the fundamental wave.</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#Salient">Salient</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientCurrent">SalientCurrent</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientVoltage">SalientVoltage</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientResistance">SalientResistance</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientInductance">SalientInductance</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientPermeance">SalientPermeance</a>
+</p>
+
+<p>Extends from <code><a href="../../../Magnetic/FundamentalWave/Types/index.html#Salient">Modelica.&#8203;Magnetic.&#8203;FundamentalWave.&#8203;Types.&#8203;Salient</a></code> (Base record of saliency with d and q component).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Reluctance">Reluctance</a></code></td><td><code>d</code></td><td>Component of d (direct) axis, aligned to real part</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Reluctance">Reluctance</a></code></td><td><code>q</code></td><td>Component of q (quadrature) axis, aligned to imaginary part</td></tr>
+</table>
+<hr><a name="SalientPermeance"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Magnetic</a>.&#8203;<a href="../index.html">FundamentalWave</a>.&#8203;<a href="index.html">Types</a>.&#8203;SalientPermeance<br><span class="subtitle">Salient permeance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Type representing the d- and q-axis of an reluctance with respect to the fundamental wave.</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#Salient">Salient</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientCurrent">SalientCurrent</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientVoltage">SalientVoltage</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientResistance">SalientResistance</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientInductance">SalientInductance</a>,
+<a href="../../../Magnetic/FundamentalWave/Types/index.html#SalientReluctance">SalientReluctance</a>
+</p>
+
+<p>Extends from <code><a href="../../../Magnetic/FundamentalWave/Types/index.html#Salient">Modelica.&#8203;Magnetic.&#8203;FundamentalWave.&#8203;Types.&#8203;Salient</a></code> (Base record of saliency with d and q component).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Permeance">Permeance</a></code></td><td><code>d</code></td><td>Component of d (direct) axis, aligned to real part</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Permeance">Permeance</a></code></td><td><code>q</code></td><td>Component of q (quadrature) axis, aligned to imaginary part</td></tr>
+</table>
+</body></html>

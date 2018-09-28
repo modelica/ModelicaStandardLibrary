@@ -1,0 +1,17 @@
+<svg width="263" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Blocks.Math.ContinuousMean" class="component">
+		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="235.5,101.5 213.5,93.5 213.5,109.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="55.5,101.5 213.5,101.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="65.5,33.5 65.5,181.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="65.5,11.5 57.5,33.5 73.5,33.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="65.5,132.5 79.5,132.5 79.5,116.5 87.5,116.5 87.5,164.5 95.5,164.5 95.5,142.5 103.5,142.5 103.5,58.5 111.5,58.5 111.5,90.5 111.5,90.5 111.5,150.5 121.5,150.5 121.5,132.5 131.5,132.5 131.5,160.5 141.5,160.5 141.5,78.5 147.5,78.5 147.5,64.5 153.5,64.5 153.5,120.5 163.5,120.5 163.5,108.5 169.5,108.5 169.5,138.5 179.5,138.5 179.5,66.5 189.5,66.5 189.5,100.5 197.5,100.5 197.5,166.5 207.5,166.5" fill-opacity="0" stroke="#D7D7D7" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="65.5,125.5 211.5,125.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="u" class="port">
+			<polygon points="1.5,81.5 41.5,101.5 1.5,121.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="y" class="port">
+			<polygon points="241.5,91.5 261.5,101.5 241.5,111.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

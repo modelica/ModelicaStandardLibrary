@@ -1,0 +1,16 @@
+<svg width="263" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Blocks.Discrete.TransferFunction" class="component">
+		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="#DFD3A9" stroke="#00007F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="44.5,200.0 240.0,200.0 240.0,4.5" fill-opacity="0" stroke="#706A55" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="43.0,198.5 43.0,3.0 238.5,3.0" fill-opacity="0" stroke="#EFE9D4" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="223.5,101.5 57.5,101.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="138.5" y="86.0" text-anchor="middle" fill="#00007F" font-size="102.3px" font-family="sans-serif">b(z)</text>
+		<text x="141.5" y="188.9" text-anchor="middle" fill="#00007F" font-size="101.8px" font-family="sans-serif">a(z)</text>
+		<g id="u" class="port">
+			<polygon points="1.5,81.5 41.5,101.5 1.5,121.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="y" class="port">
+			<polygon points="241.5,91.5 261.5,101.5 241.5,111.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

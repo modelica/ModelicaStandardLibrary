@@ -1,0 +1,988 @@
+<html><head><title>Modelica.Blocks.Interfaces</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Interfaces"><h1><embed class="icon" src="../../images/icon0015.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;Interfaces<br><span class="subtitle">Library of connectors and partial models for input/output blocks</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains interface definitions for
+<strong>continuous</strong> input/output blocks with Real,
+Integer and Boolean signals. Furthermore, it contains
+partial models for continuous and discrete blocks.
+</p>
+
+<p>Extends from <code><a href="../../Icons/InterfacesPackage/index.html">Modelica.&#8203;Icons.&#8203;InterfacesPackage</a></code> (Icon for packages containing interfaces).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="../../Blocks/Interfaces/Adaptors/index.html"><code>Adaptors</code></a> &hellip;</td><td>Package with adaptors (especially useful for FMUs)</td></tr>
+<tr><td><a href="#BlockIcon"><code>BlockIcon</code></a></td><td>This icon will be removed in future Modelica versions, use Modelica.Blocks.Icons.Block instead.</td></tr>
+<tr><td><a href="#BooleanBlockIcon"><code>BooleanBlockIcon</code></a></td><td>This icon will be removed in future Modelica versions, use Modelica.Blocks.Icons.BooleanBlock instead.</td></tr>
+<tr><td><a href="#BooleanInput"><code>BooleanInput</code></a></td><td>'input Boolean' as connector</td></tr>
+<tr><td><a href="#BooleanMIMOs"><code>BooleanMIMOs</code></a></td><td>Multiple Input Multiple Output continuous control block with same number of inputs and outputs of Boolean type</td></tr>
+<tr><td><a href="#BooleanOutput"><code>BooleanOutput</code></a></td><td>'output Boolean' as connector</td></tr>
+<tr><td><a href="#BooleanSignalSource"><code>BooleanSignalSource</code></a></td><td>Base class for Boolean signal sources</td></tr>
+<tr><td><a href="#BooleanSISO"><code>BooleanSISO</code></a></td><td>Single Input Single Output control block with signals of type Boolean</td></tr>
+<tr><td><a href="#BooleanVectorInput"><code>BooleanVectorInput</code></a></td><td>Boolean input connector used for vector of connectors</td></tr>
+<tr><td><a href="#DiscreteBlock"><code>DiscreteBlock</code></a></td><td>Base class of discrete control blocks</td></tr>
+<tr><td><a href="#DiscreteBlockIcon"><code>DiscreteBlockIcon</code></a></td><td>This icon will be removed in future Modelica versions, use Modelica.Blocks.Icons.DiscreteBlock instead.</td></tr>
+<tr><td><a href="#DiscreteMIMO"><code>DiscreteMIMO</code></a></td><td>Multiple Input Multiple Output discrete control block</td></tr>
+<tr><td><a href="#DiscreteMIMOs"><code>DiscreteMIMOs</code></a></td><td>Multiple Input Multiple Output discrete control block</td></tr>
+<tr><td><a href="#DiscreteSISO"><code>DiscreteSISO</code></a></td><td>Single Input Single Output discrete control block</td></tr>
+<tr><td><a href="#IntegerBlockIcon"><code>IntegerBlockIcon</code></a></td><td>This icon will be removed in future Modelica versions, use Modelica.Blocks.Icons.IntegerBlock instead.</td></tr>
+<tr><td><a href="#IntegerInput"><code>IntegerInput</code></a></td><td>'input Integer' as connector</td></tr>
+<tr><td><a href="#IntegerMIBooleanMOs"><code>IntegerMIBooleanMOs</code></a></td><td>Multiple Integer Input Multiple Boolean Output continuous control block with same number of inputs and outputs</td></tr>
+<tr><td><a href="#IntegerMO"><code>IntegerMO</code></a></td><td>Multiple Integer Output continuous control block</td></tr>
+<tr><td><a href="#IntegerOutput"><code>IntegerOutput</code></a></td><td>'output Integer' as connector</td></tr>
+<tr><td><a href="#IntegerSIBooleanSO"><code>IntegerSIBooleanSO</code></a></td><td>Integer Input Boolean Output continuous control block</td></tr>
+<tr><td><a href="#IntegerSignalSource"><code>IntegerSignalSource</code></a></td><td>Base class for continuous Integer signal source</td></tr>
+<tr><td><a href="#IntegerSO"><code>IntegerSO</code></a></td><td>Single Integer Output continuous control block</td></tr>
+<tr><td><a href="#IntegerVectorInput"><code>IntegerVectorInput</code></a></td><td>Integer input connector used for vector of connectors</td></tr>
+<tr><td><a href="#MI2BooleanMOs"><code>MI2BooleanMOs</code></a></td><td>2 Multiple Input / Boolean Multiple Output block with same signal lengths</td></tr>
+<tr><td><a href="#MI2MO"><code>MI2MO</code></a></td><td>2 Multiple Input / Multiple Output continuous control block</td></tr>
+<tr><td><a href="#MIMO"><code>MIMO</code></a></td><td>Multiple Input Multiple Output continuous control block</td></tr>
+<tr><td><a href="#MIMOs"><code>MIMOs</code></a></td><td>Multiple Input Multiple Output continuous control block with same number of inputs and outputs</td></tr>
+<tr><td><a href="#MISO"><code>MISO</code></a></td><td>Multiple Input Single Output continuous control block</td></tr>
+<tr><td><a href="#MO"><code>MO</code></a></td><td>Multiple Output continuous control block</td></tr>
+<tr><td><a href="#MVcontrol"><code>MVcontrol</code></a></td><td>Multi-Variable continuous controller</td></tr>
+<tr><td><a href="#MVdiscrete"><code>MVdiscrete</code></a></td><td>Discrete Multi-Variable controller</td></tr>
+<tr><td><a href="#partialBooleanBlockIcon"><code>partialBooleanBlockIcon</code></a></td><td>This icon will be removed in future Modelica versions, use Modelica.Blocks.Icons.PartialBooleanBlock instead.</td></tr>
+<tr><td><a href="#partialBooleanComparison"><code>partialBooleanComparison</code></a></td><td>Partial block with 2 Real input and 1 Boolean output signal (the result of a comparison of the two Real inputs)</td></tr>
+<tr><td><a href="#PartialBooleanMISO"><code>PartialBooleanMISO</code></a></td><td>Partial block with a BooleanVectorInput and a BooleanOutput signal</td></tr>
+<tr><td><a href="#partialBooleanSI"><code>partialBooleanSI</code></a></td><td>Partial block with 1 input Boolean signal</td></tr>
+<tr><td><a href="#partialBooleanSI2SO"><code>partialBooleanSI2SO</code></a></td><td>Partial block with 2 input and 1 output Boolean signal</td></tr>
+<tr><td><a href="#partialBooleanSI3SO"><code>partialBooleanSI3SO</code></a></td><td>Partial block with 3 input and 1 output Boolean signal</td></tr>
+<tr><td><a href="#partialBooleanSISO"><code>partialBooleanSISO</code></a></td><td>Partial block with 1 input and 1 output Boolean signal</td></tr>
+<tr><td><a href="#PartialBooleanSISO_small"><code>PartialBooleanSISO_small</code></a></td><td>Partial block with a BooleanInput and a BooleanOutput signal and a small block icon</td></tr>
+<tr><td><a href="#partialBooleanSO"><code>partialBooleanSO</code></a></td><td>Partial block with 1 output Boolean signal</td></tr>
+<tr><td><a href="#partialBooleanSource"><code>partialBooleanSource</code></a></td><td>Partial source block (has 1 output Boolean signal and an appropriate default icon)</td></tr>
+<tr><td><a href="#partialBooleanThresholdComparison"><code>partialBooleanThresholdComparison</code></a></td><td>Partial block to compare the Real input u with a threshold and provide the result as 1 Boolean output signal</td></tr>
+<tr><td><a href="#PartialConversionBlock"><code>PartialConversionBlock</code></a></td><td>Partial block defining the interface for conversion blocks</td></tr>
+<tr><td><a href="#PartialIntegerMISO"><code>PartialIntegerMISO</code></a></td><td>Partial block with an IntegerVectorInput and an IntegerOutput signal</td></tr>
+<tr><td><a href="#PartialIntegerSISO"><code>PartialIntegerSISO</code></a></td><td>Partial block with a IntegerInput and an IntegerOutput signal</td></tr>
+<tr><td><a href="#PartialNoise"><code>PartialNoise</code></a></td><td>Partial noise generator</td></tr>
+<tr><td><a href="#PartialRealMISO"><code>PartialRealMISO</code></a></td><td>Partial block with a RealVectorInput and a RealOutput signal</td></tr>
+<tr><td><a href="#RealInput"><code>RealInput</code></a></td><td>'input Real' as connector</td></tr>
+<tr><td><a href="#RealOutput"><code>RealOutput</code></a></td><td>'output Real' as connector</td></tr>
+<tr><td><a href="#RealVectorInput"><code>RealVectorInput</code></a></td><td>Real input connector used for vector of connectors</td></tr>
+<tr><td><a href="#RealVectorOutput"><code>RealVectorOutput</code></a></td><td>Real output connector used for vector of connectors</td></tr>
+<tr><td><a href="#SI2BooleanSO"><code>SI2BooleanSO</code></a></td><td>2 Single Input / Boolean Single Output block</td></tr>
+<tr><td><a href="#SI2SO"><code>SI2SO</code></a></td><td>2 Single Input / 1 Single Output continuous control block</td></tr>
+<tr><td><a href="#SignalSource"><code>SignalSource</code></a></td><td>Base class for continuous signal source</td></tr>
+<tr><td><a href="#SIMO"><code>SIMO</code></a></td><td>Single Input Multiple Output continuous control block</td></tr>
+<tr><td><a href="#SISO"><code>SISO</code></a></td><td>Single Input Single Output continuous control block</td></tr>
+<tr><td><a href="#SO"><code>SO</code></a></td><td>Single Output continuous control block</td></tr>
+<tr><td><a href="#SVcontrol"><code>SVcontrol</code></a></td><td>Single-Variable continuous controller</td></tr>
+<tr><td><a href="#SVdiscrete"><code>SVdiscrete</code></a></td><td>Discrete Single-Variable controller</td></tr>
+</table>
+<hr><a name="RealInput"><h2><embed class="icon" src="../../images/icon0049.svg" width="203" height="203" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;RealInput<br><span class="subtitle">'input Real' as connector</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Connector with one input signal of type Real.
+</p>
+<p>Extends from <code>Real</code>.</p>
+<hr><a name="RealOutput"><h2><embed class="icon" src="../../images/icon0050.svg" width="203" height="203" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;RealOutput<br><span class="subtitle">'output Real' as connector</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Connector with one output signal of type Real.
+</p>
+<p>Extends from <code>Real</code>.</p>
+<hr><a name="BooleanInput"><h2><embed class="icon" src="../../images/icon0051.svg" width="203" height="203" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;BooleanInput<br><span class="subtitle">'input Boolean' as connector</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Connector with one input signal of type Boolean.
+</p>
+<p>Extends from <code>Boolean</code>.</p>
+<hr><a name="BooleanOutput"><h2><embed class="icon" src="../../images/icon0052.svg" width="203" height="203" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;BooleanOutput<br><span class="subtitle">'output Boolean' as connector</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Connector with one output signal of type Boolean.
+</p>
+<p>Extends from <code>Boolean</code>.</p>
+<hr><a name="IntegerInput"><h2><embed class="icon" src="../../images/icon0053.svg" width="203" height="203" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;IntegerInput<br><span class="subtitle">'input Integer' as connector</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Connector with one input signal of type Integer.
+</p>
+<p>Extends from <code>Integer</code>.</p>
+<hr><a name="IntegerOutput"><h2><embed class="icon" src="../../images/icon0054.svg" width="203" height="203" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;IntegerOutput<br><span class="subtitle">'output Integer' as connector</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Connector with one output signal of type Integer.
+</p>
+<p>Extends from <code>Integer</code>.</p>
+<hr><a name="RealVectorInput"><h2><embed class="icon" src="../../images/icon0055.svg" width="203" height="203" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;RealVectorInput<br><span class="subtitle">Real input connector used for vector of connectors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Real input connector that is used for a vector of connectors,
+for example <a href="../../Blocks/Interfaces/index.html#PartialRealMISO">PartialRealMISO</a>,
+and has therefore a different icon as RealInput connector.
+</p>
+<p>Extends from <code>Real</code>.</p>
+<hr><a name="IntegerVectorInput"><h2><embed class="icon" src="../../images/icon0056.svg" width="203" height="203" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;IntegerVectorInput<br><span class="subtitle">Integer input connector used for vector of connectors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+Integer input connector that is used for a vector of connectors,
+for example <a href="../../Blocks/Interfaces/index.html#PartialIntegerMISO">PartialIntegerMISO</a>,
+and has therefore a different icon as IntegerInput connector.
+</p>
+<p>Extends from <code>Integer</code>.</p>
+<hr><a name="BooleanVectorInput"><h2><embed class="icon" src="../../images/icon0057.svg" width="203" height="203" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;BooleanVectorInput<br><span class="subtitle">Boolean input connector used for vector of connectors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Boolean input connector that is used for a vector of connectors,
+for example <a href="../../Blocks/Interfaces/index.html#PartialBooleanMISO">PartialBooleanMISO</a>,
+and has therefore a different icon as BooleanInput connector.
+</p>
+<p>Extends from <code>Boolean</code>.</p>
+<hr><a name="RealVectorOutput"><h2><embed class="icon" src="../../images/icon0055.svg" width="203" height="203" />
+Connector <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;RealVectorOutput<br><span class="subtitle">Real output connector used for vector of connectors</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Real output connector that is used for a vector of connectors,
+for example <a href="../../Blocks/Routing/index.html#DeMultiplex">DeMultiplex</a>,
+and has therefore a different icon as RealOutput connector.
+</p>
+<p>Extends from <code>Real</code>.</p>
+<hr><a name="SO"><h2><embed class="icon" src="../../images/icon0011.svg" width="223" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;SO<br><span class="subtitle">Single Output continuous control block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has one continuous Real output signal.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="MO"><h2><embed class="icon" src="../../images/icon0011.svg" width="223" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;MO<br><span class="subtitle">Multiple Output continuous control block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has one continuous Real output signal vector.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nout</code></td><td><code>1</code></td><td>Number of outputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[nout]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+<hr><a name="SISO"><h2><embed class="icon" src="../../images/icon0058.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;SISO<br><span class="subtitle">Single Input Single Output continuous control block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has one continuous Real input and one continuous Real output signal.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="SI2SO"><h2><embed class="icon" src="../../images/icon0059.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;SI2SO<br><span class="subtitle">2 Single Input / 1 Single Output continuous control block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has two continuous Real input signals u1 and u2 and one
+continuous Real output signal y.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u1</code></td><td>Connector of Real input signal 1</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u2</code></td><td>Connector of Real input signal 2</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="SIMO"><h2><embed class="icon" src="../../images/icon0058.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;SIMO<br><span class="subtitle">Single Input Multiple Output continuous control block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p> Block has one continuous Real input signal and a
+    vector of continuous Real output signals.</p>
+
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nout</code></td><td><code>1</code></td><td>Number of outputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[nout]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+<hr><a name="MISO"><h2><embed class="icon" src="../../images/icon0058.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;MISO<br><span class="subtitle">Multiple Input Single Output continuous control block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has a vector of continuous Real input signals and
+one continuous Real output signal.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nin</code></td><td><code>1</code></td><td>Number of inputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[nin]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="PartialRealMISO"><h2><embed class="icon" src="../../images/icon0060.svg" width="257" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialRealMISO<br><span class="subtitle">Partial block with a RealVectorInput and a RealOutput signal</span></h2></a>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>significantDigits</code></td><td><code>3</code></td><td>Number of significant digits to be shown in dynamic diagram layer for y</td></tr>
+<tr><td><code>Integer</code></td><td><code>nu</code></td><td><code>0</code></td><td>Number of input connections</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealVectorInput">RealVectorInput</a></code></td><td><code>u[nu]</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="MIMO"><h2><embed class="icon" src="../../images/icon0058.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;MIMO<br><span class="subtitle">Multiple Input Multiple Output continuous control block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has a continuous Real input and a continuous Real output signal vector.
+The signal sizes of the input and output vector may be different.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nin</code></td><td><code>1</code></td><td>Number of inputs</td></tr>
+<tr><td><code>Integer</code></td><td><code>nout</code></td><td><code>1</code></td><td>Number of outputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[nin]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[nout]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+<hr><a name="MIMOs"><h2><embed class="icon" src="../../images/icon0058.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;MIMOs<br><span class="subtitle">Multiple Input Multiple Output continuous control block with same number of inputs and outputs</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has a continuous Real input and a continuous Real output signal vector
+where the signal sizes of the input and output vector are identical.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>1</code></td><td>Number of inputs (= number of outputs)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[n]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[n]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+<hr><a name="MI2MO"><h2><embed class="icon" src="../../images/icon0059.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;MI2MO<br><span class="subtitle">2 Multiple Input / Multiple Output continuous control block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has two continuous Real input vectors u1 and u2 and one
+continuous Real output vector y.
+All vectors have the same number of elements.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>1</code></td><td>Dimension of input and output vectors.</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u1[n]</code></td><td>Connector 1 of Real input signals</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u2[n]</code></td><td>Connector 2 of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[n]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+<hr><a name="SignalSource"><h2><embed class="icon" src="../../images/icon0011.svg" width="223" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;SignalSource<br><span class="subtitle">Base class for continuous signal source</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Basic block for Real sources of package Blocks.Sources.
+This component has one continuous Real output signal y
+and two parameters (offset, startTime) to shift the
+generated signal.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#SO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;SO</a></code> (Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>offset</code></td><td><code>0</code></td><td>Offset of output signal y</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Output y = offset for time &lt; startTime</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="SVcontrol"><h2><embed class="icon" src="../../images/icon0061.svg" width="263" height="243" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;SVcontrol<br><span class="subtitle">Single-Variable continuous controller</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has two continuous Real input signals and one
+continuous Real output signal. The block is designed
+to be used as base class for a corresponding controller.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u_s</code></td><td>Connector of setpoint input signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u_m</code></td><td>Connector of measurement input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of actuator output signal</td></tr>
+</table>
+<hr><a name="MVcontrol"><h2><embed class="icon" src="../../images/icon0061.svg" width="263" height="243" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;MVcontrol<br><span class="subtitle">Multi-Variable continuous controller</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has two continuous Real input signal vectors and one
+continuous Real output signal vector. The block is designed
+to be used as base class for a corresponding controller.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nu_s</code></td><td><code>1</code></td><td>Number of setpoint inputs</td></tr>
+<tr><td><code>Integer</code></td><td><code>nu_m</code></td><td><code>1</code></td><td>Number of measurement inputs</td></tr>
+<tr><td><code>Integer</code></td><td><code>ny</code></td><td><code>1</code></td><td>Number of actuator outputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u_s[nu_s]</code></td><td>Connector of setpoint input signals</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u_m[nu_m]</code></td><td>Connector of measurement input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[ny]</code></td><td>Connector of actuator output signals</td></tr>
+</table>
+<hr><a name="DiscreteBlock"><h2><embed class="icon" src="../../images/icon0062.svg" width="203" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;DiscreteBlock<br><span class="subtitle">Base class of discrete control blocks</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Basic definitions of a discrete block of library
+Blocks.Discrete.
+The output(s) will only change at events, but are not formally a discrete variable(s) in Modelica.
+The input(s) will be sampled, and can thus be continuous variable(s).
+</p>
+
+<p>
+<strong>Important</strong>: If you connect several discrete blocks you should normally ensure that <strong>samplePeriod (and startTime)
+are exactly identical</strong> for all blocks, since otherwise the output from one block will be transformed into a continuous signal
+and sampled, which can cause a variable delay of up to one sample period leading to unexpected results.
+</p>
+
+<p>
+Modelica 3.3 introduced synchronous operators that avoid the need to manually propagate samplePeriod to each block.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#DiscreteBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;DiscreteBlock</a></code> (Graphical layout of discrete block component icon).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>samplePeriod</code></td><td>&nbsp;</td><td>Sample period of component</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>First sample time instant</td></tr>
+</table>
+<hr><a name="DiscreteSISO"><h2><embed class="icon" src="../../images/icon0063.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;DiscreteSISO<br><span class="subtitle">Single Input Single Output discrete control block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has one input and one output signal
+which are sampled due to the defined <strong>samplePeriod</strong> parameter.
+See the base-class <a href="../../Blocks/Interfaces/index.html#DiscreteBlock">DiscreteBlock</a> for more information.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#DiscreteBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;DiscreteBlock</a></code> (Base class of discrete control blocks).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>samplePeriod</code></td><td>&nbsp;</td><td>Sample period of component</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>First sample time instant</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+<hr><a name="DiscreteMIMO"><h2><embed class="icon" src="../../images/icon0063.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;DiscreteMIMO<br><span class="subtitle">Multiple Input Multiple Output discrete control block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has a input and a output signal vector
+which are sampled due to the defined <strong>samplePeriod</strong> parameter.
+See the base-class <a href="../../Blocks/Interfaces/index.html#DiscreteBlock">DiscreteBlock</a> for more information.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#DiscreteBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;DiscreteBlock</a></code> (Base class of discrete control blocks).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>samplePeriod</code></td><td>&nbsp;</td><td>Sample period of component</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>First sample time instant</td></tr>
+<tr><td><code>Integer</code></td><td><code>nin</code></td><td><code>1</code></td><td>Number of inputs</td></tr>
+<tr><td><code>Integer</code></td><td><code>nout</code></td><td><code>1</code></td><td>Number of outputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[nin]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[nout]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+<hr><a name="DiscreteMIMOs"><h2><embed class="icon" src="../../images/icon0063.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;DiscreteMIMOs<br><span class="subtitle">Multiple Input Multiple Output discrete control block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has a input and a output signal vector
+where the signal sizes of the input and output vector are identical.
+These signals are sampled due to the defined <strong>samplePeriod</strong> parameter.
+See the base-class <a href="../../Blocks/Interfaces/index.html#DiscreteBlock">DiscreteBlock</a> for more information.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#DiscreteBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;DiscreteBlock</a></code> (Base class of discrete control blocks).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>1</code></td><td>Number of inputs (= number of outputs)</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>samplePeriod</code></td><td>&nbsp;</td><td>Sample period of component</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>First sample time instant</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u[n]</code></td><td>Connector of Real input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[n]</code></td><td>Connector of Real output signals</td></tr>
+</table>
+<hr><a name="SVdiscrete"><h2><embed class="icon" src="../../images/icon0064.svg" width="263" height="243" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;SVdiscrete<br><span class="subtitle">Discrete Single-Variable controller</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has two Real input signals and one
+Real output signal
+that are sampled due to the defined <strong>samplePeriod</strong> parameter.
+The block is designed
+to be used as base class for a corresponding controller.
+See the base-class <a href="../../Blocks/Interfaces/index.html#DiscreteBlock">DiscreteBlock</a> for more information.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#DiscreteBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;DiscreteBlock</a></code> (Base class of discrete control blocks).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>samplePeriod</code></td><td>&nbsp;</td><td>Sample period of component</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>First sample time instant</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u_s</code></td><td>Scalar setpoint input signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u_m</code></td><td>Scalar measurement input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Scalar actuator output signal</td></tr>
+</table>
+<hr><a name="MVdiscrete"><h2><embed class="icon" src="../../images/icon0064.svg" width="263" height="243" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;MVdiscrete<br><span class="subtitle">Discrete Multi-Variable controller</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has two Real input signal vectors and one
+Real output signal vector. The vector signals
+are sampled due to the defined <strong>samplePeriod</strong> parameter.
+The block is designed
+to be used as base class for a corresponding controller.
+See the base-class <a href="../../Blocks/Interfaces/index.html#DiscreteBlock">DiscreteBlock</a> for more information.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#DiscreteBlock">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;DiscreteBlock</a></code> (Base class of discrete control blocks).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>samplePeriod</code></td><td>&nbsp;</td><td>Sample period of component</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>First sample time instant</td></tr>
+<tr><td><code>Integer</code></td><td><code>nu_s</code></td><td><code>1</code></td><td>Number of setpoint inputs</td></tr>
+<tr><td><code>Integer</code></td><td><code>nu_m</code></td><td><code>1</code></td><td>Number of measurement inputs</td></tr>
+<tr><td><code>Integer</code></td><td><code>ny</code></td><td><code>1</code></td><td>Number of actuator outputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u_s[nu_s]</code></td><td>Setpoint input signals</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u_m[nu_m]</code></td><td>Measurement input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y[ny]</code></td><td>Actuator output signals</td></tr>
+</table>
+<hr><a name="BooleanSISO"><h2><embed class="icon" src="../../images/icon0065.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;BooleanSISO<br><span class="subtitle">Single Input Single Output control block with signals of type Boolean</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has one continuous Boolean input and one continuous Boolean output signal.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#BooleanBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;BooleanBlock</a></code> (Basic graphical layout of Boolean block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u</code></td><td>Connector of Boolean input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="BooleanMIMOs"><h2><embed class="icon" src="../../images/icon0065.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;BooleanMIMOs<br><span class="subtitle">Multiple Input Multiple Output continuous control block with same number of inputs and outputs of Boolean type</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has a continuous Boolean input and a continuous Boolean output signal vector
+where the signal sizes of the input and output vector are identical.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#BooleanBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;BooleanBlock</a></code> (Basic graphical layout of Boolean block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>1</code></td><td>Number of inputs (= number of outputs)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u[n]</code></td><td>Connector of Boolean input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y[n]</code></td><td>Connector of Boolean output signals</td></tr>
+</table>
+<hr><a name="MI2BooleanMOs"><h2><embed class="icon" src="../../images/icon0066.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;MI2BooleanMOs<br><span class="subtitle">2 Multiple Input / Boolean Multiple Output block with same signal lengths</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Block has two Boolean input vectors u1 and u2 and one Boolean output
+vector y. All vectors have the same number of elements.</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#BooleanBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;BooleanBlock</a></code> (Basic graphical layout of Boolean block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>1</code></td><td>Dimension of input and output vectors.</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u1[n]</code></td><td>Connector 1 of Boolean input signals</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u2[n]</code></td><td>Connector 2 of Boolean input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y[n]</code></td><td>Connector of Boolean output signals</td></tr>
+</table>
+<hr><a name="SI2BooleanSO"><h2><embed class="icon" src="../../images/icon0067.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;SI2BooleanSO<br><span class="subtitle">2 Single Input / Boolean Single Output block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has two Boolean input signals u1 and u2 and one Boolean output signal y.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#BooleanBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;BooleanBlock</a></code> (Basic graphical layout of Boolean block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u1</code></td><td>Connector 1 of Boolean input signals</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u2</code></td><td>Connector 2 of Boolean input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signals</td></tr>
+</table>
+<hr><a name="BooleanSignalSource"><h2><embed class="icon" src="../../images/icon0068.svg" width="223" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;BooleanSignalSource<br><span class="subtitle">Base class for Boolean signal sources</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Basic block for Boolean sources of package Blocks.Sources.
+This component has one continuous Boolean output signal y.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#BooleanBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;BooleanBlock</a></code> (Basic graphical layout of Boolean block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="IntegerSO"><h2><embed class="icon" src="../../images/icon0069.svg" width="223" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;IntegerSO<br><span class="subtitle">Single Integer Output continuous control block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has one continuous Integer output signal.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#IntegerBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;IntegerBlock</a></code> (Basic graphical layout of Integer block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#IntegerOutput">IntegerOutput</a></code></td><td><code>y</code></td><td>Connector of Integer output signal</td></tr>
+</table>
+<hr><a name="IntegerMO"><h2><embed class="icon" src="../../images/icon0069.svg" width="223" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;IntegerMO<br><span class="subtitle">Multiple Integer Output continuous control block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has one continuous Integer output signal vector.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#IntegerBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;IntegerBlock</a></code> (Basic graphical layout of Integer block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nout</code></td><td><code>1</code></td><td>Number of outputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#IntegerOutput">IntegerOutput</a></code></td><td><code>y[nout]</code></td><td>Connector of Integer output signals</td></tr>
+</table>
+<hr><a name="IntegerSignalSource"><h2><embed class="icon" src="../../images/icon0069.svg" width="223" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;IntegerSignalSource<br><span class="subtitle">Base class for continuous Integer signal source</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Basic block for Integer sources of package Blocks.Sources.
+This component has one continuous Integer output signal y
+and two parameters (offset, startTime) to shift the
+generated signal.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#IntegerSO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;IntegerSO</a></code> (Single Integer Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>offset</code></td><td><code>0</code></td><td>Offset of output signal y</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Output y = offset for time &lt; startTime</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#IntegerOutput">IntegerOutput</a></code></td><td><code>y</code></td><td>Connector of Integer output signal</td></tr>
+</table>
+<hr><a name="IntegerSIBooleanSO"><h2><embed class="icon" src="../../images/icon0070.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;IntegerSIBooleanSO<br><span class="subtitle">Integer Input Boolean Output continuous control block</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has a continuous Integer input and a continuous Boolean output signal.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#BooleanBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;BooleanBlock</a></code> (Basic graphical layout of Boolean block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#IntegerInput">IntegerInput</a></code></td><td><code>u</code></td><td>Connector of Integer input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="IntegerMIBooleanMOs"><h2><embed class="icon" src="../../images/icon0070.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;IntegerMIBooleanMOs<br><span class="subtitle">Multiple Integer Input Multiple Boolean Output continuous control block with same number of inputs and outputs</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has a continuous Integer input and a continuous Boolean output signal vector
+where the signal sizes of the input and output vector are identical.
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#BooleanBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;BooleanBlock</a></code> (Basic graphical layout of Boolean block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>n</code></td><td><code>1</code></td><td>Number of inputs (= number of outputs)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#IntegerInput">IntegerInput</a></code></td><td><code>u[n]</code></td><td>Connector of Integer input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y[n]</code></td><td>Connector of Boolean output signals</td></tr>
+</table>
+<hr><a name="PartialIntegerSISO"><h2><embed class="icon" src="../../images/icon0071.svg" width="323" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialIntegerSISO<br><span class="subtitle">Partial block with a IntegerInput and an IntegerOutput signal</span></h2></a>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#IntegerInput">IntegerInput</a></code></td><td><code>u</code></td><td>Integer input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#IntegerOutput">IntegerOutput</a></code></td><td><code>y</code></td><td>Integer output signal</td></tr>
+</table>
+<hr><a name="PartialIntegerMISO"><h2><embed class="icon" src="../../images/icon0072.svg" width="253" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialIntegerMISO<br><span class="subtitle">Partial block with an IntegerVectorInput and an IntegerOutput signal</span></h2></a>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nu</code></td><td><code>0</code></td><td>Number of input connections</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#IntegerVectorInput">IntegerVectorInput</a></code></td><td><code>u[nu]</code></td><td>Vector of Integer input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#IntegerOutput">IntegerOutput</a></code></td><td><code>y</code></td><td>Integer output signal</td></tr>
+</table>
+<hr><a name="partialBooleanSISO"><h2><embed class="icon" src="../../images/icon0073.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;partialBooleanSISO<br><span class="subtitle">Partial block with 1 input and 1 output Boolean signal</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has one continuous Boolean input and one continuous Boolean output signal
+with a 3D icon (e.g., used in Blocks.Logical library).
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#PartialBooleanBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;PartialBooleanBlock</a></code> (Basic graphical layout of logical block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u</code></td><td>Connector of Boolean input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="partialBooleanSI2SO"><h2><embed class="icon" src="../../images/icon0074.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;partialBooleanSI2SO<br><span class="subtitle">Partial block with 2 input and 1 output Boolean signal</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has two continuous Boolean input and one continuous Boolean output signal
+with a 3D icon (e.g., used in Blocks.Logical library).
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#PartialBooleanBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;PartialBooleanBlock</a></code> (Basic graphical layout of logical block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u1</code></td><td>Connector of first Boolean input signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u2</code></td><td>Connector of second Boolean input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="partialBooleanSI3SO"><h2><embed class="icon" src="../../images/icon0075.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;partialBooleanSI3SO<br><span class="subtitle">Partial block with 3 input and 1 output Boolean signal</span></h2></a>
+<h3>Information</h3>
+<p>
+<p>
+Block has three continuous Boolean input and one continuous Boolean output signal
+with a 3D icon (e.g., used in Blocks.Logical library).
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#PartialBooleanBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;PartialBooleanBlock</a></code> (Basic graphical layout of logical block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u1</code></td><td>Connector of first Boolean input signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u2</code></td><td>Connector of second Boolean input signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u3</code></td><td>Connector of third Boolean input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="partialBooleanSI"><h2><embed class="icon" src="../../images/icon0076.svg" width="243" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;partialBooleanSI<br><span class="subtitle">Partial block with 1 input Boolean signal</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has one continuous Boolean input signal
+with a 3D icon (e.g., used in Blocks.Logical library).
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#PartialBooleanBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;PartialBooleanBlock</a></code> (Basic graphical layout of logical block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u</code></td><td>Connector of Boolean input signal</td></tr>
+</table>
+<hr><a name="partialBooleanSO"><h2><embed class="icon" src="../../images/icon0077.svg" width="223" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;partialBooleanSO<br><span class="subtitle">Partial block with 1 output Boolean signal</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has one continuous Boolean output signal
+with a 3D icon (e.g., used in Blocks.Logical library).
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#PartialBooleanBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;PartialBooleanBlock</a></code> (Basic graphical layout of logical block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="partialBooleanSource"><h2><embed class="icon" src="../../images/icon0078.svg" width="223" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;partialBooleanSource<br><span class="subtitle">Partial source block (has 1 output Boolean signal and an appropriate default icon)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Basic block for Boolean sources of package Blocks.Sources.
+This component has one continuous Boolean output signal y
+and a 3D icon (e.g., used in Blocks.Logical library).
+</p>
+<p>Extends from <code><a href="../../Blocks/Icons/index.html#PartialBooleanBlock">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;PartialBooleanBlock</a></code> (Basic graphical layout of logical block).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="partialBooleanThresholdComparison"><h2><embed class="icon" src="../../images/icon0079.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;partialBooleanThresholdComparison<br><span class="subtitle">Partial block to compare the Real input u with a threshold and provide the result as 1 Boolean output signal</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has one continuous Real input and one continuous Boolean output signal
+as well as a 3D icon (e.g., used in Blocks.Logical library).
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>threshold</code></td><td><code>0</code></td><td>Comparison with respect to threshold</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="partialBooleanComparison"><h2><embed class="icon" src="../../images/icon0080.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;partialBooleanComparison<br><span class="subtitle">Partial block with 2 Real input and 1 Boolean output signal (the result of a comparison of the two Real inputs)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Block has two continuous Real input and one continuous Boolean output signal
+as a result of the comparison of the two input signals. The block
+has a 3D icon (e.g., used in Blocks.Logical library).
+</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u1</code></td><td>Connector of first Real input signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u2</code></td><td>Connector of second Real input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Connector of Boolean output signal</td></tr>
+</table>
+<hr><a name="PartialBooleanSISO_small"><h2><embed class="icon" src="../../images/icon0081.svg" width="323" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialBooleanSISO_small<br><span class="subtitle">Partial block with a BooleanInput and a BooleanOutput signal and a small block icon</span></h2></a>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>u</code></td><td>Boolean input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Boolean output signal</td></tr>
+</table>
+<hr><a name="PartialBooleanMISO"><h2><embed class="icon" src="../../images/icon0082.svg" width="253" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialBooleanMISO<br><span class="subtitle">Partial block with a BooleanVectorInput and a BooleanOutput signal</span></h2></a>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nu</code></td><td><code>0</code></td><td>Number of input connections</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanVectorInput">BooleanVectorInput</a></code></td><td><code>u[nu]</code></td><td>Vector of Boolean input signals</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>y</code></td><td>Boolean output signal</td></tr>
+</table>
+<hr><a name="PartialConversionBlock"><h2><embed class="icon" src="../../images/icon0083.svg" width="263" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialConversionBlock<br><span class="subtitle">Partial block defining the interface for conversion blocks</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This block defines the interface of a conversion block that
+converts from one unit into another one.
+</p>
+
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal to be converted</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal containing input signal u in another unit</td></tr>
+</table>
+<hr><a name="BlockIcon"><h2><embed class="icon" src="../../images/icon0084.svg" width="207" height="207" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;BlockIcon<br><span class="subtitle">This icon will be removed in future Modelica versions, use Modelica.Blocks.Icons.Block instead.</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon will be removed in future versions of the Modelica Standard Library.
+Instead the icon <a href="../../Blocks/Icons/index.html#Block">Modelica.Blocks.Icons.Block</a> shall be used.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<hr><a name="BooleanBlockIcon"><h2><embed class="icon" src="../../images/icon0085.svg" width="207" height="207" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;BooleanBlockIcon<br><span class="subtitle">This icon will be removed in future Modelica versions, use Modelica.Blocks.Icons.BooleanBlock instead.</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon will be removed in future versions of the Modelica Standard Library.
+Instead the icon <a href="../../Blocks/Icons/index.html#BooleanBlock">Modelica.Blocks.Icons.BooleanBlock</a> shall be used.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<hr><a name="DiscreteBlockIcon"><h2><embed class="icon" src="../../images/icon0086.svg" width="207" height="207" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;DiscreteBlockIcon<br><span class="subtitle">This icon will be removed in future Modelica versions, use Modelica.Blocks.Icons.DiscreteBlock instead.</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon will be removed in future versions of the Modelica Standard Library.
+Instead the icon <a href="../../Blocks/Icons/index.html#DiscreteBlock">Modelica.Blocks.Icons.DiscreteBlock</a> shall be used.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<hr><a name="IntegerBlockIcon"><h2><embed class="icon" src="../../images/icon0087.svg" width="207" height="207" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;IntegerBlockIcon<br><span class="subtitle">This icon will be removed in future Modelica versions, use Modelica.Blocks.Icons.IntegerBlock instead.</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon will be removed in future versions of the Modelica Standard Library.
+Instead the icon <a href="../../Blocks/Icons/index.html#IntegerBlock">Modelica.Blocks.Icons.IntegerBlock</a> shall be used.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<hr><a name="partialBooleanBlockIcon"><h2><embed class="icon" src="../../images/icon0088.svg" width="207" height="207" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;partialBooleanBlockIcon<br><span class="subtitle">This icon will be removed in future Modelica versions, use Modelica.Blocks.Icons.PartialBooleanBlock instead.</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon will be removed in future versions of the Modelica Standard Library.
+Instead the icon <a href="../../Blocks/Icons/index.html#PartialBooleanBlock">Modelica.Blocks.Icons.PartialBooleanBlock</a> shall be used.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#ObsoleteModel">Modelica.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for classes that are obsolete and will be removed in later versions).</p>
+<hr><a name="PartialNoise"><h2><embed class="icon" src="../../images/icon0089.svg" width="223" height="203" />
+Partial Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blocks</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialNoise<br><span class="subtitle">Partial noise generator</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Partial base class of noise generators defining the common features
+of noise blocks.
+</p>
+<p>Extends from <code><a href="../../Blocks/Interfaces/index.html#SO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;SO</a></code> (Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../SIunits/index.html#Period">Period</a></code></td><td><code>samplePeriod</code></td><td>&nbsp;</td><td>Period for sampling the raw random numbers</td></tr>
+<tr><td><code>Boolean</code></td><td><code>enableNoise</code></td><td><code>globalSeed.&#8203;enableNoise</code></td><td>=true: y = noise, otherwise y = y_off</td></tr>
+<tr><td><code>Real</code></td><td><code>y_off</code></td><td><code>0</code></td><td>y = y_off if enableNoise=false (or time&lt;startTime, see below)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useGlobalSeed</code></td><td><code>true</code></td><td>= true: use global seed, otherwise ignore it</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useAutomaticLocalSeed</code></td><td><code>true</code></td><td>= true: use automatic local seed, otherwise use fixedLocalSeed</td></tr>
+<tr><td><code>Integer</code></td><td><code>fixedLocalSeed</code></td><td><code>1</code></td><td>Local seed (any Integer number)</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>startTime</code></td><td><code>0</code></td><td>Start time for sampling the raw random numbers</td></tr>
+<tr><td><code>Integer</code></td><td><code>localSeed</code></td><td>&nbsp;</td><td>The actual localSeed</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+</table>
+</body></html>

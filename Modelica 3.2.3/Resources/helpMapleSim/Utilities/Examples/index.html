@@ -1,0 +1,333 @@
+<html><head><title>Modelica.Utilities.Examples</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Examples"><h1><embed class="icon" src="../../images/icon0007.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;Examples<br><span class="subtitle">Examples to demonstrate the usage of package Modelica.Utilities</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains quite involved examples that demonstrate how to
+use the functions of package Modelica.Utilities. In particular
+the following examples are present.
+</p>
+<ul>
+<li> Function <a href="../../Utilities/Examples/index.html#calculator">calculator</a>
+     is an interpreter to evaluate
+     expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi.
+     For example: calculator("1.5*sin(pi/6)");<br>&nbsp;</li>
+<li> Function <a href="../../Utilities/Examples/index.html#expression">expression</a>
+     is the basic function used in "calculator" to evaluate an expression.
+     It is useful if the expression interpreter is used in a larger
+     scan operation (such as readRealParameter below).<br>&nbsp;</li>
+<li> Function <a href="../../Utilities/Examples/index.html#readRealParameter">readRealParameter</a>
+     reads the value of a parameter
+     from file, given the file and the parameter name. The value
+     on file is interpreted with the Examples.expression function
+     and can therefore be an expression.<br>&nbsp;</li>
+<li> Model <a href="../../Utilities/Examples/index.html#readRealParameterModel">readRealParameterModel</a>
+     is a test model to demonstrate the usage of "readRealParameter". The model
+     contains 3 parameters that are read from file <a href="../../../Data/Utilities/Examples_readRealParameters.txt">Examples_readRealParameters.txt</a>.<br>&nbsp;
+     </li>
+<li> Model <a href="../../Utilities/Examples/index.html#WriteRealMatrixToFile">WriteRealMatrixToFile</a>
+     demonstrates the usage of function "Streams.writeReaMatrix" to store a matrix in various MATLAB MAT formats on file.<br>&nbsp;
+     </li>
+<li> Model <a href="../../Utilities/Examples/index.html#ReadRealMatrixFromFile">ReadRealMatrixFromFile</a>
+     demonstrates the usage of functions "Streams.readMatrixSize" and "Streams.readRealMatrix"
+     to read a matrix in various MATLAB MAT formats from file.
+     </li>
+</ul>
+<p>Extends from <code><a href="../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#calculator"><code>calculator</code></a></td><td>Interpreter to evaluate simple expressions consisting of +, -, *, /, (), sin(), cos(), tan(), sqrt(), asin(), acos(), atan(), exp(), log(), pi</td></tr>
+<tr><td><a href="#expression"><code>expression</code></a></td><td>Expression interpreter that returns with the position after the expression (expression may consist of +, -, *, /, (), sin(), cos(), tan(), sqrt(), asin(), acos(), atan(), exp(), log(), pi)</td></tr>
+<tr><td><a href="#ReadRealMatrixFromFile"><code>ReadRealMatrixFromFile</code></a></td><td>Demonstrate usage of function Streams.readRealMatrix</td></tr>
+<tr><td><a href="#readRealParameter"><code>readRealParameter</code></a></td><td>Read the value of a Real parameter from file</td></tr>
+<tr><td><a href="#readRealParameterModel"><code>readRealParameterModel</code></a></td><td>Demonstrate usage of Examples.readRealParameter/.expression</td></tr>
+<tr><td><a href="#WriteRealMatrixToFile"><code>WriteRealMatrixToFile</code></a></td><td>Demonstrate usage of function Streams.writeRealMatrix</td></tr>
+</table>
+<hr><a name="calculator"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Examples</a>.&#8203;calculator<br><span class="subtitle">Interpreter to evaluate simple expressions consisting of +, -, *, /, (), sin(), cos(), tan(), sqrt(), asin(), acos(), atan(), exp(), log(), pi</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+result = <strong>calculator</strong>(expression);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function demonstrates how a simple expression calculator
+can be implemented in form of a recursive decent parser
+using basically the Strings.scanToken(..) and Strings.scanDelimiter(..)
+function.
+</p>
+<p>
+The following operations are supported (pi=3.14.. is a predefined constant):
+</p>
+<pre>
+   +, -
+   *, /
+   (expression)
+   sin(expression)
+   cos(expression)
+   tan(expression)
+   sqrt(expression)
+   asin(expression)
+   acos(expression)
+   atan(expression)
+   exp(expression)
+   log(expression)
+   pi
+</pre>
+<h4>Example</h4>
+<blockquote><pre>
+  calculator("2+3*(4-1)");  // returns 11
+  calculator("sin(pi/6)");  // returns 0.5
+</pre></blockquote>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>string</code></td><td>Expression that is evaluated</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>result</code></td><td>Value of expression</td></tr>
+</table>
+<hr><a name="expression"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Examples</a>.&#8203;expression<br><span class="subtitle">Expression interpreter that returns with the position after the expression (expression may consist of +, -, *, /, (), sin(), cos(), tan(), sqrt(), asin(), acos(), atan(), exp(), log(), pi)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+             result = <strong>expression</strong>(string);
+(result, nextIndex) = <strong>expression</strong>(string, startIndex=1, message="");
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function is nearly the same as Examples.<strong>calculator</strong>.
+The essential difference is that function "expression" might be
+used in other parsing operations: After the expression is
+parsed and evaluated, the function returns with the value
+of the expression as well as the position of the character
+directly after the expression.
+</p>
+<p>
+This function demonstrates how a simple expression calculator
+can be implemented in form of a recursive decent parser
+using basically the Strings.scanToken(..) and scanDelimiters(..)
+function. There are 2 local functions (term, primary) that
+implement the corresponding part of the grammar.
+</p>
+<p>
+The following operations are supported (pi=3.14.. is a predefined constant):
+</p>
+<pre>
+   +, -
+   *, /
+   (expression)
+   sin(expression)
+   cos(expression)
+   tan(expression)
+   sqrt(expression)
+   asin(expression)
+   acos(expression)
+   atan(expression)
+   exp(expression)
+   log(expression)
+   pi
+</pre>
+<p>
+The optional argument "startIndex" defines at which position
+scanning of the expression starts.
+</p>
+<p>
+In case of error,
+the optional argument "message" is appended to the error
+message, in order to give additional information where
+the error occurred.
+</p>
+<p>
+This function parses the following grammar
+</p>
+<pre>
+  expression: [ add_op ] term { add_op term }
+  add_op    : "+" | "-"
+  term      : primary { mul_op primary }
+  mul_op    : "*" | "/"
+  primary   : UNSIGNED_NUMBER
+              | pi
+              | ( expression )
+              | functionName( expression )
+  function  :   sin
+              | cos
+              | tan
+              | sqrt
+              | asin
+              | acos
+              | atan
+              | exp
+              | log
+</pre>
+<p>
+Note, in Examples.readRealParameter it is shown, how the expression
+function can be used as part of another scan operation.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  expression("2+3*(4-1)");  // returns 11
+  expression("sin(pi/6)");  // returns 0.5
+</pre></blockquote>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>string</code></td><td>Expression that is evaluated</td></tr>
+<tr><td><code>Integer</code></td><td><code>startIndex</code></td><td>Start scanning of expression at character startIndex</td></tr>
+<tr><td><code>String</code></td><td><code>message</code></td><td>Message used in error message if scan is not successful</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>result</code></td><td>Value of expression</td></tr>
+<tr><td><code>Integer</code></td><td><code>nextIndex</code></td><td>Index after the scanned expression</td></tr>
+</table>
+<hr><a name="readRealParameter"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Examples</a>.&#8203;readRealParameter<br><span class="subtitle">Read the value of a Real parameter from file</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+result = <strong>readRealParameter</strong>(fileName, name);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function demonstrates how a function can be implemented
+that reads the value of a parameter from file. The function
+performs the following actions:
+</p>
+<ol>
+<li> It opens file "fileName" and reads the lines of the file.</li>
+<li> In every line, Modelica line comments ("// ... end-of-line")
+     are skipped</li>
+<li> If a line consists of "name = expression" and the "name"
+     in this line is identical to the second argument "name"
+     of the function call, the expression calculator Examples.expression
+     is used to evaluate the expression after the "=" character.
+     The expression can optionally be terminated with a ";".</li>
+<li> The result of the expression evaluation is returned as
+     the value of the parameter "name".</li>
+</ol>
+<h4>Example</h4>
+<p>
+On file "test.txt" the following lines might be present:
+</p>
+<blockquote><pre>
+// Motor data
+J        = 2.3     // inertia
+w_rel0   = 1.5*2;  // relative angular velocity
+phi_rel0 = pi/3
+</pre></blockquote>
+<p>
+The function returns the value "3.0" when called as:
+</p>
+<blockquote><pre>
+readRealParameter("test.txt", "w_rel0")
+</pre></blockquote>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>fileName</code></td><td>Name of file</td></tr>
+<tr><td><code>String</code></td><td><code>name</code></td><td>Name of parameter</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>result</code></td><td>Actual value of parameter on file</td></tr>
+</table>
+<hr><a name="readRealParameterModel"><h2><embed class="icon" src="../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Examples</a>.&#8203;readRealParameterModel<br><span class="subtitle">Demonstrate usage of Examples.readRealParameter/.expression</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Model that shows the usage of Examples.readRealParameter and Examples.expression.
+The model has 3 parameters and the values of these parameters are read
+from a file.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>file</code></td><td><code>Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Examples_readRealParameters.txt")</code></td><td>File on which data is present</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>J</code></td><td><code>readRealParameter(file, "J")</code></td><td>Inertia</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Angle">Angle</a></code></td><td><code>phi_rel0</code></td><td><code>readRealParameter(file, "phi_rel0")</code></td><td>Relative angle</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>w_rel0</code></td><td><code>readRealParameter(file, "w_rel0")</code></td><td>Relative angular velocity</td></tr>
+</table>
+<hr><a name="WriteRealMatrixToFile"><h2><embed class="icon" src="../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Examples</a>.&#8203;WriteRealMatrixToFile<br><span class="subtitle">Demonstrate usage of function Streams.writeRealMatrix</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Example model that shows how to write a Real matrix in MATLAB MAT format on file
+using function <a href="../../Utilities/Streams/index.html#writeRealMatrix">writeRealMatrix</a>.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>A[3,2]</code></td><td><code>[11,12; 21,22; 31,32]</code></td><td>Matrix stored in different formats on files</td></tr>
+</table>
+<hr><a name="ReadRealMatrixFromFile"><h2><embed class="icon" src="../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Examples</a>.&#8203;ReadRealMatrixFromFile<br><span class="subtitle">Demonstrate usage of function Streams.readRealMatrix</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Example model that shows how to read a Real matrix in MATLAB MAT format from file
+using functions
+<a href="../../Utilities/Streams/index.html#readMatrixSize">readMatrixSize</a> and
+<a href="../../Utilities/Streams/index.html#readRealMatrix">readRealMatrix</a>.
+</p>
+
+<p>
+Additionally, specific matrices from the supported file formats are loaded and it is checked
+whether the loaded matrices have the expected values.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>file</code></td><td><code>Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v4.mat")</code></td><td>File name of matrix</td></tr>
+<tr><td><code>String</code></td><td><code>matrixName</code></td><td><code>"Matrix_A"</code></td><td>Matrix name in file</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>dim[2]</code></td><td><code>Modelica.Utilities.Streams.readMatrixSize(file, matrixName)</code></td><td>Dimension of matrix</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>A[:,:]</code></td><td><code>Modelica.Utilities.Streams.readRealMatrix(file, matrixName, dim1[1], dim1[2])</code></td><td>Matrix data</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>String</code></td><td><code>file1</code></td><td><code>Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v4.mat")</code></td><td>File name of check matrix 1</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>String</code></td><td><code>file2</code></td><td><code>Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v6.mat")</code></td><td>File name of check matrix 2</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>String</code></td><td><code>file3</code></td><td><code>Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v7.mat")</code></td><td>File name of check matrix 3</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>String</code></td><td><code>matrixName1</code></td><td><code>"Matrix_A"</code></td><td>Names of check matrices</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>dim1[2]</code></td><td><code>Modelica.Utilities.Streams.readMatrixSize(file1, matrixName1)</code></td><td>Dimension of check matrix 1</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>dim2[2]</code></td><td><code>Modelica.Utilities.Streams.readMatrixSize(file2, matrixName1)</code></td><td>Dimension of check matrix 2</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>dim3[2]</code></td><td><code>Modelica.Utilities.Streams.readMatrixSize(file3, matrixName1)</code></td><td>Dimension of check matrix 3</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>A1[:,:]</code></td><td><code>Modelica.Utilities.Streams.readRealMatrix(file1, matrixName1, dim1[1], dim1[2])</code></td><td>Data of check matrix 1</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>A2[:,:]</code></td><td><code>Modelica.Utilities.Streams.readRealMatrix(file2, matrixName1, dim2[1], dim2[2])</code></td><td>Data of check matrix 2</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>A3[:,:]</code></td><td><code>Modelica.Utilities.Streams.readRealMatrix(file3, matrixName1, dim3[1], dim3[2])</code></td><td>Data of check matrix 3</td></tr>
+</table>
+</body></html>

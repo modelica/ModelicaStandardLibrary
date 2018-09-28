@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.ThreePhaseTwoLevel_PWM</title>
+</head>
+<body>
+<h1><a href="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg"><img class="svgiconhead" src="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.PowerConverters.html">PowerConverters</a>.<a class="omc-h1-a" href="Modelica.Electrical.PowerConverters.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Electrical.PowerConverters.Examples.DCAC.html">DCAC</a>.<a class="omc-h1-a" href="Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.html">MultiPhaseTwoLevel</a>.<span class="omc-h1">ThreePhaseTwoLevel_PWM</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>A reference space vector (formed by real part = cosine and
+imaginary part = sine) of length √2*RMS and frequency 2 Hz is
+applied. The resulting switching patterns are applied to a
+threephase twolevel bridge with switching frequency 100 Hz, fed by
+DC voltage = √2*√3*1 where 1 is the theoretical maximum voltage
+from terminal to neutral. The resulting voltages with reference to
+midpoint of the DC voltage are measured.</p>
+<p>The RMS of the first harmonic of the first of these voltages is
+calculated. Please note that the value of the first harmonic is
+vaild after the first period (i.e. 0.5 s).</p>
+<p>Furthermore, these three voltages are transformed to the
+corresponding space phasor. Note that the zero component is not
+zero, indicating the shift of the neutral with respect to the
+midpoint of the DC voltage.</p>
+<p>The space phasor is rotated to the coordinate system rotating
+with 2*π*2 Hz. To suppress the influence of switching, real and
+imaginary part of the rotated phasor are filtered. The polar
+representation of this rotated and filtered phasor are
+calculated.</p>
+<p>Please note that the filter has a settle time depending on the
+filter parameters.</p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

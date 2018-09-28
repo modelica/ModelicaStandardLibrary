@@ -1,0 +1,12 @@
+<svg width="243" height="243" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.PowerConverters.Enable.EnableLogic" class="component">
+		<polygon points="21.5,201.5 221.5,201.5 221.5,1.5 21.5,1.5" fill="#FFFFFF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="121.5" y="116.2" text-anchor="middle" fill="#FF00FF" font-size="40.2px" font-family="sans-serif">enable</text>
+		<g id="enable" class="port">
+			<polygon points="201.5,241.5 221.5,201.5 241.5,241.5" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="internalEnable" class="port">
+			<polygon points="21.5,111.5 1.5,101.5 21.5,91.5" fill="#FFFFFF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

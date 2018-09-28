@@ -1,0 +1,94 @@
+<html><head><title>ModelicaServices</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="ModelicaServices"><h1><embed class="icon" src="images/icon0001.svg" width="203" height="203" />
+Package ModelicaServices<br><span class="subtitle">ModelicaServices (Default implementation) - Models and functions used in the Modelica Standard Library requiring a tool specific implementation</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains a set of functions and models to be used in the
+Modelica Standard Library that requires a tool specific implementation.
+These are:
+</p>
+
+<ul>
+<li> <a href="Animation/index.html#Shape">Animation.Shape</a>
+     provides a 3-dim. visualization of elementary
+     mechanical objects. It is used in
+<a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/Modelica3.2.3/Mechanics/MultiBody/Visualizers/Advanced/Shape/">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>
+     via inheritance.</li>
+
+<li> <a href="Animation/index.html#Surface">Animation.Surface</a>
+     provides a 3-dim. visualization of
+     moveable parameterized surface. It is used in
+<a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/Modelica3.2.3/Mechanics/MultiBody/Visualizers/Advanced/Surface/">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface</a>
+     via inheritance.</li>
+
+<li> <a href="ExternalReferences/index.html#loadResource">ExternalReferences.loadResource</a>
+     provides a function to return the absolute path name of an URI or a local file name. It is used in
+<a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/Modelica3.2.3/Utilities/Files/loadResource/">Modelica.Utilities.Files.loadResource</a>
+     via inheritance.</li>
+
+<li> <a href="Machine/index.html">Machine</a>
+     provides a package of machine constants. It is used in
+<a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/Modelica3.2.3/Constants/">Modelica.Constants</a>.</li>
+
+<li> <a href="System/index.html#exit">System.exit</a> provides a function to terminate the execution of the Modelica environment. It is used in <a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/Modelica3.2.3/Utilities/System/exit/">Modelica.Utilities.System.exit</a> via inheritance.</li>
+
+<li> <a href="Types/index.html#SolverMethod">Types.SolverMethod</a>
+     provides a string defining the integration method to solve differential equations in
+     a clocked discretized continuous-time partition (see Modelica 3.3 language specification).
+     It is not yet used in the Modelica Standard Library, but in the Modelica_Synchronous library
+     that provides convenience blocks for the clock operators of Modelica version &ge; 3.3.</li>
+</ul>
+
+<p>
+This is the default implementation, if no tool-specific implementation is available.
+This ModelicaServices package provides only "dummy" models that do nothing.
+</p>
+
+<p>
+<strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
+Copyright &copy; 2009-2018, DLR and Dassault Syst&egrave;mes AB.
+</p>
+
+<p>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href="https://modelica.org/licenses/modelica-3-clause-bsd">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+</p>
+
+<p>This document describes version 3.2.3 of the ModelicaServices library.</p>
+<p>Extends from <code>Modelica.&#8203;Icons.&#8203;Package</code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="Animation/index.html"><code>Animation</code></a> &hellip;</td><td>Models and functions for 3-dim. animation</td></tr>
+<tr><td><a href="ExternalReferences/index.html"><code>ExternalReferences</code></a> &hellip;</td><td>Library of functions to access external resources</td></tr>
+<tr><td><a href="Machine/index.html"><code>Machine</code></a> &hellip;</td><td>Machine dependent constants</td></tr>
+<tr><td><a href="System/index.html"><code>System</code></a> &hellip;</td><td>System dependent functions</td></tr>
+<tr><td><a href="Types/index.html"><code>Types</code></a> &hellip;</td><td>Library of types with vendor specific choices</td></tr>
+<tr><td><a href="UsersGuide/index.html"><code>UsersGuide</code></a> &hellip;</td><td>User's Guide</td></tr>
+</table>
+<h3>Package Constants</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Value</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>target</code></td><td><code>"Default"</code></td><td>Target of this ModelicaServices implementation</td></tr>
+</table>
+</body></html>

@@ -1,0 +1,206 @@
+<html><head><title>Modelica.Electrical.MultiPhase.Interfaces</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Interfaces"><h1><embed class="icon" src="../../../images/icon0015.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;Interfaces<br><span class="subtitle">Interfaces for electrical multiphase models</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains connectors and interfaces (partial models) for
+electrical multiphase components, based on Modelica.Electrical.Analog.
+</p>
+
+<p>Extends from <code><a href="../../../Icons/InterfacesPackage/index.html">Modelica.&#8203;Icons.&#8203;InterfacesPackage</a></code> (Icon for packages containing interfaces).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#ConditionalHeatPort"><code>ConditionalHeatPort</code></a></td><td>Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network</td></tr>
+<tr><td><a href="#FourPlug"><code>FourPlug</code></a></td><td>Component with two polyphase electrical ports</td></tr>
+<tr><td><a href="#NegativePlug"><code>NegativePlug</code></a></td><td>Negative polyphase electrical plug with m pins</td></tr>
+<tr><td><a href="#OnePort"><code>OnePort</code></a></td><td>Component with two electrical plugs and currents from plug_p to plug_n</td></tr>
+<tr><td><a href="#Plug"><code>Plug</code></a></td><td>Polyphase electrical plug with m pins</td></tr>
+<tr><td><a href="#PositivePlug"><code>PositivePlug</code></a></td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td><a href="#TwoPlug"><code>TwoPlug</code></a></td><td>Component with one polyphase electrical port</td></tr>
+<tr><td><a href="#TwoPort"><code>TwoPort</code></a></td><td>Component with two polyphase electrical ports, including currents</td></tr>
+</table>
+<hr><a name="Plug"><h2><embed class="icon" src="../../../images/icon0353.svg" width="203" height="203" />
+Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;Plug<br><span class="subtitle">Polyphase electrical plug with m pins</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Connectors PositivePlug and NegativePlug are nearly identical.
+The only difference is that the icons are different in order
+to identify more easily the plugs of a component.
+Usually, connector PositivePlug is used for the positive and
+connector NegativePlug for the negative plug of an electrical component.<br>
+Connector Plug is a composite connector containing m Pins (Modelica.Electrical.Analog.Interfaces.Pin).
+</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Integer</code></td><td><code>m</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#Pin">Pin</a></code></td><td><code>pin[m]</code></td><td>Pins of the plug</td></tr>
+</table>
+<hr><a name="PositivePlug"><h2><embed class="icon" src="../../../images/icon0723.svg" width="203" height="203" />
+Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PositivePlug<br><span class="subtitle">Positive polyphase electrical plug with m pins</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Connectors PositivePlug and NegativePlug are nearly identical.
+The only difference is that the icons are different in order
+to identify more easily the plugs of a component.
+Usually, connector PositivePlug is used for the positive and
+connector NegativePlug for the negative plug of an electrical component.<br>
+Connector Plug is a composite connector containing m Pins (Modelica.Electrical.Analog.Interfaces.Pin).
+</p>
+<p>Extends from <code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#Plug">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;Plug</a></code> (Polyphase electrical plug with m pins).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Integer</code></td><td><code>m</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#Pin">Pin</a></code></td><td><code>pin[m]</code></td><td>Pins of the plug</td></tr>
+</table>
+<hr><a name="NegativePlug"><h2><embed class="icon" src="../../../images/icon0724.svg" width="203" height="203" />
+Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;NegativePlug<br><span class="subtitle">Negative polyphase electrical plug with m pins</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Connectors PositivePlug and NegativePlug are nearly identical.
+The only difference is that the icons are different in order
+to identify more easily the plugs of a component.
+Usually, connector PositivePlug is used for the positive and
+connector NegativePlug for the negative plug of an electrical component.<br>
+Connector Plug is a composite connector containing m Pins (Modelica.Electrical.Analog.Interfaces.Pin).
+</p>
+<p>Extends from <code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#Plug">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;Plug</a></code> (Polyphase electrical plug with m pins).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Integer</code></td><td><code>m</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#Pin">Pin</a></code></td><td><code>pin[m]</code></td><td>Pins of the plug</td></tr>
+</table>
+<hr><a name="ConditionalHeatPort"><h2><embed class="icon" src="../../../images/icon0437.svg" width="203" height="213" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;ConditionalHeatPort<br><span class="subtitle">Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This partial model provides conditional heat ports for the connection to a thermal network.
+</p>
+<ul>
+<li> If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal
+     loss power flows internally to the ground. In this case, the parameter <strong>T</strong> specifies
+     the fixed device temperatures.</li>
+<li> If <strong>useHeatPort</strong> is set to <strong>true</strong>, all heat ports are available.</li>
+</ul>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>mh</code></td><td><code>3</code></td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if all heat ports are enabled</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T[mh]</code></td><td><code>fill(293.15, mh)</code></td><td>Fixed device temperatures if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort[mh]</code></td><td>Conditional heat ports</td></tr>
+</table>
+<hr><a name="TwoPlug"><h2><embed class="icon" src="../../../images/icon0725.svg" width="223" height="203" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;TwoPlug<br><span class="subtitle">Component with one polyphase electrical port</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Superclass of elements which have <strong>two</strong> electrical plugs:
+the positive plug connector <em>plug_p</em>, and the negative plug connector <em>plug_n</em>.
+The currents flowing into plug_p are provided explicitly as currents i[m].
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative polyphase electrical plug with m pins</td></tr>
+</table>
+<hr><a name="OnePort"><h2><embed class="icon" src="../../../images/icon0725.svg" width="223" height="203" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;OnePort<br><span class="subtitle">Component with two electrical plugs and currents from plug_p to plug_n</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Superclass of elements which have <strong>two</strong> electrical plugs:
+the positive plug connector <em>plug_p</em>, and the negative plug connector <em>plug_n</em>.
+The currents flowing into plug_p are provided explicitly as currents i[m].
+It is assumed that the currents flowing into plug_p are identical to the currents flowing out of plug_n.
+</p>
+<p>Extends from <code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Component with one polyphase electrical port).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive polyphase electrical plug with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative polyphase electrical plug with m pins</td></tr>
+</table>
+<hr><a name="FourPlug"><h2><embed class="icon" src="../../../images/icon0726.svg" width="223" height="223" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;FourPlug<br><span class="subtitle">Component with two polyphase electrical ports</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Superclass of elements which have <strong>four</strong> electrical plugs.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p1</code></td><td>Positive electrical polyphase plug of port 1 with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p2</code></td><td>Positive electrical polyphase plug of port 2 with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n1</code></td><td>Negative electrical polyphase plug of port 1 with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n2</code></td><td>Negative electrical polyphase plug of port 2 with m pins</td></tr>
+</table>
+<hr><a name="TwoPort"><h2><embed class="icon" src="../../../images/icon0726.svg" width="223" height="223" />
+Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;TwoPort<br><span class="subtitle">Component with two polyphase electrical ports, including currents</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Superclass of elements which have <strong>four</strong> electrical plugs.
+It is assumed that the currents flowing into plug_p1 are identical to the currents flowing out of plug_n1,
+and that the currents flowing into plug_p2 are identical to the currents flowing out of plug_n2.
+</p>
+<p>Extends from <code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#FourPlug">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;FourPlug</a></code> (Component with two polyphase electrical ports).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p1</code></td><td>Positive electrical polyphase plug of port 1 with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p2</code></td><td>Positive electrical polyphase plug of port 2 with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n1</code></td><td>Negative electrical polyphase plug of port 1 with m pins</td></tr>
+<tr><td><code><a href="../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n2</code></td><td>Negative electrical polyphase plug of port 2 with m pins</td></tr>
+</table>
+</body></html>

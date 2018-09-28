@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.ComplexMath.Vectors.reverse</title>
+</head>
+<body>
+<h1><a href="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg"><img class="svgiconhead" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.ComplexMath.html">ComplexMath</a>.<a class="omc-h1-a" href="Modelica.ComplexMath.Vectors.html">Vectors</a>.<span class="omc-h1">reverse</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>Vectors.<strong>reverse</strong>(v);</pre></blockquote>
+<h4>Description</h4>
+The function call
+"<code>Vectors.<strong>reverse</strong>(v)</code>" returns the
+complex vector elements in reverse order.
+<h4>Example</h4>
+<blockquote>
+<pre>
+<strong>reverse</strong>({1,2,3,4});  // = {4,3,2,1}</pre></blockquote>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>function reverse
+  extends Modelica.Icons.Function;
+  input Complex v[:] "Vector";
+  output Complex result[size(v, 1)] "Elements of vector v in reversed order";
+end reverse;</pre></blockquote>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

@@ -1,0 +1,192 @@
+<html><head><title>Modelica.Thermal.FluidHeatFlow.Sources</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Sources"><h1><embed class="icon" src="../../../images/icon0259.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">FluidHeatFlow</a>.&#8203;Sources<br><span class="subtitle">Ideal fluid sources, e.g., ambient, volume flow</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains different types of sources:
+</p>
+<ul>
+<li>Ambient with constant or prescribed pressure and temperature</li>
+<li>AbsolutePressure to define pressure level of a closed cooling cycle.</li>
+<li>Constant and prescribed volume flow</li>
+<li>Constant and prescribed pressure increase</li>
+<li>Simple pump with mechanical flange</li>
+</ul>
+<p>
+Thermodynamic equations are defined in partial models (package Interfaces.Partials).
+All fans / pumps are considered without losses, they do not change enthalpy flow.
+</p>
+<p>Extends from <code><a href="../../../Icons/SourcesPackage/index.html">Modelica.&#8203;Icons.&#8203;SourcesPackage</a></code> (Icon for packages containing sources).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#AbsolutePressure"><code>AbsolutePressure</code></a></td><td>Defines absolute pressure level</td></tr>
+<tr><td><a href="#Ambient"><code>Ambient</code></a></td><td>Ambient with constant properties</td></tr>
+<tr><td><a href="#IdealPump"><code>IdealPump</code></a></td><td>Model of an ideal pump</td></tr>
+<tr><td><a href="#PressureIncrease"><code>PressureIncrease</code></a></td><td>Enforces constant pressure increase</td></tr>
+<tr><td><a href="#VolumeFlow"><code>VolumeFlow</code></a></td><td>Enforces constant volume flow</td></tr>
+</table>
+<hr><a name="Ambient"><h2><embed class="icon" src="../../../images/icon1447.svg" width="233" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">FluidHeatFlow</a>.&#8203;<a href="index.html">Sources</a>.&#8203;Ambient<br><span class="subtitle">Ambient with constant properties</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>(Infinite) ambient with constant pressure and temperature.</p>
+<p>Thermodynamic equations are defined by Partials.Ambient.</p>
+<p>Extends from <code><a href="../../../Thermal/FluidHeatFlow/Interfaces/Partials/index.html#SinglePortLeft">Modelica.&#8203;Thermal.&#8203;FluidHeatFlow.&#8203;Interfaces.&#8203;Partials.&#8203;SinglePortLeft</a></code> (Partial model of a single port at the left).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Media/index.html#Medium">Medium</a></code></td><td><code>medium</code></td><td><code>Modelica.Thermal.FluidHeatFlow.Media.Medium()</code></td><td>Medium</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T0</code></td><td><code>293.15</code></td><td>Initial temperature of medium</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Boolean</code></td><td><code>T0fixed</code></td><td><code>false</code></td><td>Initial temperature guess value or fixed</td></tr>
+<tr><td><code>Boolean</code></td><td><code>usePressureInput</code></td><td><code>false</code></td><td>Enable / disable pressure input</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>constantAmbientPressure</code></td><td>&nbsp;</td><td>Ambient pressure</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useTemperatureInput</code></td><td><code>false</code></td><td>Enable / disable temperature input</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>constantAmbientTemperature</code></td><td>&nbsp;</td><td>Ambient temperature</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_a">FlowPort_a</a></code></td><td><code>flowPort</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>ambientPressure</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>ambientTemperature</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="AbsolutePressure"><h2><embed class="icon" src="../../../images/icon1448.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">FluidHeatFlow</a>.&#8203;<a href="index.html">Sources</a>.&#8203;AbsolutePressure<br><span class="subtitle">Defines absolute pressure level</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>AbsolutePressure to define pressure level of a closed cooling cycle.</p>
+<p>Coolant's mass flow, temperature and enthalpy flow are not affected.</p>
+<p>Extends from <code><a href="../../../Thermal/FluidHeatFlow/Interfaces/Partials/index.html#SinglePortLeft">Modelica.&#8203;Thermal.&#8203;FluidHeatFlow.&#8203;Interfaces.&#8203;Partials.&#8203;SinglePortLeft</a></code> (Partial model of a single port at the left).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Media/index.html#Medium">Medium</a></code></td><td><code>medium</code></td><td><code>Modelica.Thermal.FluidHeatFlow.Media.Medium()</code></td><td>Medium</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T0</code></td><td><code>293.15</code></td><td>Initial temperature of medium</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Boolean</code></td><td><code>T0fixed</code></td><td><code>false</code></td><td>Initial temperature guess value or fixed</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>&nbsp;</td><td>Pressure ground</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_a">FlowPort_a</a></code></td><td><code>flowPort</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="VolumeFlow"><h2><embed class="icon" src="../../../images/icon1449.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">FluidHeatFlow</a>.&#8203;<a href="index.html">Sources</a>.&#8203;VolumeFlow<br><span class="subtitle">Enforces constant volume flow</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Fan resp. pump with constant volume flow rate. Pressure increase is the response of the whole system.</p>
+<p>Coolant's temperature and enthalpy flow are not affected.</p>
+<p>
+Setting parameter m (mass of medium within fan/pump) to zero
+leads to neglect of temperature transient cv*m*der(T).
+</p>
+<p>Thermodynamic equations are defined by Partials.TwoPort.</p>
+<p>Extends from <code><a href="../../../Thermal/FluidHeatFlow/Interfaces/Partials/index.html#TwoPort">Modelica.&#8203;Thermal.&#8203;FluidHeatFlow.&#8203;Interfaces.&#8203;Partials.&#8203;TwoPort</a></code> (Partial model of two port).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Media/index.html#Medium">Medium</a></code></td><td><code>medium</code></td><td><code>Modelica.Thermal.FluidHeatFlow.Media.Medium()</code></td><td>Medium in the component</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m</code></td><td>&nbsp;</td><td>Mass of medium</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T0</code></td><td>&nbsp;</td><td>Initial temperature of medium</td></tr>
+<tr><td><code>Boolean</code></td><td><code>T0fixed</code></td><td><code>false</code></td><td>Initial temperature guess value or fixed</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>tapT</code></td><td><code>1</code></td><td>Defines temperature of heatPort between inlet and outlet temperature</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useVolumeFlowInput</code></td><td><code>false</code></td><td>Enable / disable volume flow input</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#VolumeFlowRate">VolumeFlowRate</a></code></td><td><code>constantVolumeFlow</code></td><td>&nbsp;</td><td>Volume flow rate</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_a">FlowPort_a</a></code></td><td><code>flowPort_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_b">FlowPort_b</a></code></td><td><code>flowPort_b</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>volumeFlow</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PressureIncrease"><h2><embed class="icon" src="../../../images/icon1450.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">FluidHeatFlow</a>.&#8203;<a href="index.html">Sources</a>.&#8203;PressureIncrease<br><span class="subtitle">Enforces constant pressure increase</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Fan resp. pump with constant pressure increase. Mass resp. volume flow is the response of the whole system.</p>
+<p>Coolant's temperature and enthalpy flow are not affected.</p>
+<p>
+Setting parameter m (mass of medium within fan/pump) to zero
+leads to neglect of temperature transient cv*m*der(T).
+</p>
+<p>Thermodynamic equations are defined by Partials.TwoPort.</p>
+<p>Extends from <code><a href="../../../Thermal/FluidHeatFlow/Interfaces/Partials/index.html#TwoPort">Modelica.&#8203;Thermal.&#8203;FluidHeatFlow.&#8203;Interfaces.&#8203;Partials.&#8203;TwoPort</a></code> (Partial model of two port).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Media/index.html#Medium">Medium</a></code></td><td><code>medium</code></td><td><code>Modelica.Thermal.FluidHeatFlow.Media.Medium()</code></td><td>Medium in the component</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m</code></td><td>&nbsp;</td><td>Mass of medium</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T0</code></td><td>&nbsp;</td><td>Initial temperature of medium</td></tr>
+<tr><td><code>Boolean</code></td><td><code>T0fixed</code></td><td><code>false</code></td><td>Initial temperature guess value or fixed</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>tapT</code></td><td><code>1</code></td><td>Defines temperature of heatPort between inlet and outlet temperature</td></tr>
+<tr><td><code>Boolean</code></td><td><code>usePressureIncreaseInput</code></td><td><code>false</code></td><td>Enable / disable pressure increase input</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>constantPressureIncrease</code></td><td>&nbsp;</td><td>Pressure increase</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_a">FlowPort_a</a></code></td><td><code>flowPort_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_b">FlowPort_b</a></code></td><td><code>flowPort_b</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>pressureIncrease</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="IdealPump"><h2><embed class="icon" src="../../../images/icon1451.svg" width="223" height="213" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Thermal</a>.&#8203;<a href="../index.html">FluidHeatFlow</a>.&#8203;<a href="index.html">Sources</a>.&#8203;IdealPump<br><span class="subtitle">Model of an ideal pump</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Simple fan resp. pump where characteristic is dependent on shaft's speed, <br>
+torque * speed = pressure increase * volume flow (without losses)<br>
+Pressure increase versus volume flow is defined by a linear function,
+from dp0(V_flow=0) to V_flow0(dp=0).<br>
+The axis intersections vary with speed as follows:
+</p>
+<ul>
+<li>dp prop. speed^2</li>
+<li>V_flow prop. speed</li>
+</ul>
+<p>
+Coolant's temperature and enthalpy flow are not affected.<br>
+Setting parameter m (mass of medium within fan/pump) to zero
+leads to neglection of temperature transient cv*m*der(T).<br>
+Thermodynamic equations are defined by Partials.TwoPort.
+</p>
+<p>Extends from <code><a href="../../../Thermal/FluidHeatFlow/Interfaces/Partials/index.html#TwoPort">Modelica.&#8203;Thermal.&#8203;FluidHeatFlow.&#8203;Interfaces.&#8203;Partials.&#8203;TwoPort</a></code> (Partial model of two port).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Media/index.html#Medium">Medium</a></code></td><td><code>medium</code></td><td><code>Modelica.Thermal.FluidHeatFlow.Media.Medium()</code></td><td>Medium in the component</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>m</code></td><td>&nbsp;</td><td>Mass of medium</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T0</code></td><td>&nbsp;</td><td>Initial temperature of medium</td></tr>
+<tr><td><code>Boolean</code></td><td><code>T0fixed</code></td><td><code>false</code></td><td>Initial temperature guess value or fixed</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>tapT</code></td><td><code>1</code></td><td>Defines temperature of heatPort between inlet and outlet temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wNominal</code></td><td>&nbsp;</td><td>Nominal speed</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>dp0</code></td><td>&nbsp;</td><td>Max. pressure increase @ V_flow=0</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#VolumeFlowRate">VolumeFlowRate</a></code></td><td><code>V_flow0</code></td><td>&nbsp;</td><td>Max. volume flow rate @ dp=0</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_a">FlowPort_a</a></code></td><td><code>flowPort_a</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Thermal/FluidHeatFlow/Interfaces/index.html#FlowPort_b">FlowPort_b</a></code></td><td><code>flowPort_b</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

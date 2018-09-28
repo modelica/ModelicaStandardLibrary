@@ -1,0 +1,671 @@
+<html><head><title>Modelica.Electrical.Spice3.Semiconductors</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Semiconductors"><h1><embed class="icon" src="../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;Semiconductors<br><span class="subtitle">Semiconductor devices and model cards</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package contains both the semiconductor devices models of SPICE3, which are available, and their modelcards. The user should apply the models of this package.</p>
+<p>All models of this package extend models of the package Repository, which contains the functions, parameters and data which are necessary to model the behaviour of the semiconductor devices.The modelcard records contain the SPICE3 technology parameters, which can be adjusted for more than one MOS simultaneously.</p>
+<p>Extends from <code><a href="../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#C_Capacitor"><code>C_Capacitor</code></a></td><td>Semiconductor capacitor</td></tr>
+<tr><td><a href="#D_DIODE"><code>D_DIODE</code></a></td><td>Diode model</td></tr>
+<tr><td><a href="#J_NJFJFET"><code>J_NJFJFET</code></a></td><td>N-channel Junction Field-Effect Transistor model (JFET)</td></tr>
+<tr><td><a href="#J_PJFJFET"><code>J_PJFJFET</code></a></td><td>P-channel Junction Field-Effect Transistor model (JFET)</td></tr>
+<tr><td><a href="#M_NMOS"><code>M_NMOS</code></a></td><td>NMOS MOSFET device</td></tr>
+<tr><td><a href="#M_NMOS2"><code>M_NMOS2</code></a></td><td>NMOS MOSFET device</td></tr>
+<tr><td><a href="#M_PMOS"><code>M_PMOS</code></a></td><td>PMOS MOSFET device</td></tr>
+<tr><td><a href="#M_PMOS2"><code>M_PMOS2</code></a></td><td>PMOS MOSFET device</td></tr>
+<tr><td><a href="#ModelcardBJT"><code>ModelcardBJT</code></a></td><td>Record for the specification of modelcard parameters</td></tr>
+<tr><td><a href="#ModelcardCAPACITOR"><code>ModelcardCAPACITOR</code></a></td><td>Record for the specification of modelcard parameters for Semiconductor Capacitor</td></tr>
+<tr><td><a href="#ModelcardDIODE"><code>ModelcardDIODE</code></a></td><td>Record for the specification of modelcard parameters</td></tr>
+<tr><td><a href="#ModelcardJFET"><code>ModelcardJFET</code></a></td><td>Record for the specification of modelcard parameters for JFET</td></tr>
+<tr><td><a href="#ModelcardMOS"><code>ModelcardMOS</code></a></td><td>Record for the specification of modelcard parameters</td></tr>
+<tr><td><a href="#ModelcardMOS2"><code>ModelcardMOS2</code></a></td><td>Record for the specification of modelcard parameters</td></tr>
+<tr><td><a href="#ModelcardRESISTOR"><code>ModelcardRESISTOR</code></a></td><td>Record for the specification of modelcard parameters</td></tr>
+<tr><td><a href="#Q_NPNBJT"><code>Q_NPNBJT</code></a></td><td>Bipolar junction transistor</td></tr>
+<tr><td><a href="#Q_PNPBJT"><code>Q_PNPBJT</code></a></td><td>Bipolar junction transistor</td></tr>
+<tr><td><a href="#R_Resistor"><code>R_Resistor</code></a></td><td>Semiconductor resistor from SPICE3</td></tr>
+</table>
+<hr><a name="M_PMOS"><h2><embed class="icon" src="../../../images/icon0884.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Semiconductors</a>.&#8203;M_PMOS<br><span class="subtitle">PMOS MOSFET device</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The model M_PMOS is a P channel MOSFET transistor with fixed level 1: Shichman-Hodges model</p>
+<p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
+<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
+<p>The package Semiconductors is for user access but not the package Repository.</p>
+<p>Extends from <code><a href="../../../Electrical/Spice3/Internal/index.html#MOS">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;MOS</a></code> (Metal-Oxide Semiconductor Field-Effect Transistor).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mtype</code></td><td><code>1</code></td><td>MOSFET type: 0 - N channel, 1 - P channel</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>L</code></td><td><code>1e-4</code></td><td>Length</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>W</code></td><td><code>1e-4</code></td><td>Width</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Area">Area</a></code></td><td><code>AD</code></td><td><code>0</code></td><td>Area of the drain diffusion</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Area">Area</a></code></td><td><code>AS</code></td><td><code>0</code></td><td>Area of the source diffusion</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>PD</code></td><td><code>0</code></td><td>Perimeter of the drain junction</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>PS</code></td><td><code>0</code></td><td>Perimeter of the source junction</td></tr>
+<tr><td><code>Real</code></td><td><code>NRD</code></td><td><code>1</code></td><td>Number of squares of the drain diffusions</td></tr>
+<tr><td><code>Real</code></td><td><code>NRS</code></td><td><code>1</code></td><td>Number of squares of the source diffusions</td></tr>
+<tr><td><code>Integer</code></td><td><code>OFF</code></td><td><code>0</code></td><td>Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC</code></td><td>&nbsp;</td><td>Initial condition values, not implemented yet</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>TEMP</code></td><td><code>27</code></td><td>Operating temperature of the device</td></tr>
+<tr><td><code><a href="../../../Electrical/Spice3/Internal/index.html#ModelcardMOS">ModelcardMOS</a></code></td><td><code>modelcard</code></td><td>&nbsp;</td><td>MOSFET modelcard</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos1/index.html#Mos1ModelLineParams">Mos1ModelLineParams</a></code></td><td><code>p</code></td><td><code>Mos1.mos1RenameParameters(modelcard, C)</code></td><td>Model line parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mosfet/index.html#Mosfet">Mosfet</a></code></td><td><code>m</code></td><td><code>Mos1.mos1RenameParametersDev(modelcard, mtype, W, L, AS, AS, PD, PS, NRD, NRS, OFF, IC, TEMP)</code></td><td>Renamed parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>m_type</code></td><td><code>if 0.5 &lt; m.m_bPMOS then -1 else 1</code></td><td>Type of the transistor</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos/index.html#MosModelLineVariables">MosModelLineVariables</a></code></td><td><code>vp</code></td><td><code>Mos1.mos1ModelLineParamsInitEquations(p, C, m_type)</code></td><td>Model line variables</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos1/index.html#Mos1Calc">Mos1Calc</a></code></td><td><code>c1</code></td><td><code>Mos.mosCalcInitEquations(p, C, vp, m)</code></td><td>Precalculated parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos1/index.html#Mos1Calc">Mos1Calc</a></code></td><td><code>c2</code></td><td><code>Mos.mosCalcCalcTempDependencies(p, C, vp, m, c1, m_type)</code></td><td>Precalculated parameters</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>G</code></td><td>gate node</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>D</code></td><td>drain node</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>S</code></td><td>source node</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>B</code></td><td>bulk node</td></tr>
+</table>
+<hr><a name="M_NMOS"><h2><embed class="icon" src="../../../images/icon0885.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Semiconductors</a>.&#8203;M_NMOS<br><span class="subtitle">NMOS MOSFET device</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The model M_NMOS is a N channel MOSFET transistor with fixed level 1: Shichman-Hodges model</p>
+<p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
+<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
+<p>The package Semiconductors is for user access but not the package Repository.</p>
+<p>Extends from <code><a href="../../../Electrical/Spice3/Internal/index.html#MOS">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;MOS</a></code> (Metal-Oxide Semiconductor Field-Effect Transistor).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mtype</code></td><td><code>0</code></td><td>MOSFET type: 0 - N channel, 1 - P channel</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>L</code></td><td><code>1e-4</code></td><td>Length</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>W</code></td><td><code>1e-4</code></td><td>Width</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Area">Area</a></code></td><td><code>AD</code></td><td><code>0</code></td><td>Area of the drain diffusion</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Area">Area</a></code></td><td><code>AS</code></td><td><code>0</code></td><td>Area of the source diffusion</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>PD</code></td><td><code>0</code></td><td>Perimeter of the drain junction</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>PS</code></td><td><code>0</code></td><td>Perimeter of the source junction</td></tr>
+<tr><td><code>Real</code></td><td><code>NRD</code></td><td><code>1</code></td><td>Number of squares of the drain diffusions</td></tr>
+<tr><td><code>Real</code></td><td><code>NRS</code></td><td><code>1</code></td><td>Number of squares of the source diffusions</td></tr>
+<tr><td><code>Integer</code></td><td><code>OFF</code></td><td><code>0</code></td><td>Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC</code></td><td>&nbsp;</td><td>Initial condition values, not implemented yet</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>TEMP</code></td><td><code>27</code></td><td>Operating temperature of the device</td></tr>
+<tr><td><code><a href="../../../Electrical/Spice3/Internal/index.html#ModelcardMOS">ModelcardMOS</a></code></td><td><code>modelcard</code></td><td>&nbsp;</td><td>MOSFET modelcard</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos1/index.html#Mos1ModelLineParams">Mos1ModelLineParams</a></code></td><td><code>p</code></td><td><code>Mos1.mos1RenameParameters(modelcard, C)</code></td><td>Model line parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mosfet/index.html#Mosfet">Mosfet</a></code></td><td><code>m</code></td><td><code>Mos1.mos1RenameParametersDev(modelcard, mtype, W, L, AS, AS, PD, PS, NRD, NRS, OFF, IC, TEMP)</code></td><td>Renamed parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>m_type</code></td><td><code>if 0.5 &lt; m.m_bPMOS then -1 else 1</code></td><td>Type of the transistor</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos/index.html#MosModelLineVariables">MosModelLineVariables</a></code></td><td><code>vp</code></td><td><code>Mos1.mos1ModelLineParamsInitEquations(p, C, m_type)</code></td><td>Model line variables</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos1/index.html#Mos1Calc">Mos1Calc</a></code></td><td><code>c1</code></td><td><code>Mos.mosCalcInitEquations(p, C, vp, m)</code></td><td>Precalculated parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos1/index.html#Mos1Calc">Mos1Calc</a></code></td><td><code>c2</code></td><td><code>Mos.mosCalcCalcTempDependencies(p, C, vp, m, c1, m_type)</code></td><td>Precalculated parameters</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>G</code></td><td>gate node</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>D</code></td><td>drain node</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>S</code></td><td>source node</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>B</code></td><td>bulk node</td></tr>
+</table>
+<hr><a name="ModelcardMOS"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Semiconductors</a>.&#8203;ModelcardMOS<br><span class="subtitle">Record for the specification of modelcard parameters</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Technology model parameters of MOSFET transistor with fixed level 1: Shichman-Hodges model</p>
+<p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records) and <code><a href="../../../Electrical/Spice3/Internal/index.html#ModelcardMOS">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;ModelcardMOS</a></code> (Record with technology parameters (.model)).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VTO</code></td><td>Zero-bias threshold voltage, default 0</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Transconductance">Transconductance</a></code></td><td><code>KP</code></td><td>Transconductance parameter, default 2e-5</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>GAMMA</code></td><td>Bulk threshold parameter, default 0</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>PHI</code></td><td>Surface potential, default 0.6</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#InversePotential">InversePotential</a></code></td><td><code>LAMBDA</code></td><td>Channel-length modulation, default 0</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RD</code></td><td>Drain ohmic resistance, default 0</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RS</code></td><td>Source ohmic resistance, default 0</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>CBD</code></td><td>Zero-bias B-D junction capacitance, default 0</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>CBS</code></td><td>Zero-bias B-S junction capacitance, default 0</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>IS</code></td><td>Bulk junction saturation current</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>PB</code></td><td>Bulk junction potential</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Permittivity">Permittivity</a></code></td><td><code>CGSO</code></td><td>Gate-source overlap capacitance per meter channel width</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Permittivity">Permittivity</a></code></td><td><code>CGDO</code></td><td>Gate-drain overlap capacitance per meter channel width</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Permittivity">Permittivity</a></code></td><td><code>CGBO</code></td><td>Gate-bulk overlap capacitance per meter channel width</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RSH</code></td><td>Drain and source diffusion sheet resistance</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#CapacitancePerArea">CapacitancePerArea</a></code></td><td><code>CJ</code></td><td>Zero-bias bulk junction bottom cap. per sq-meter of junction area</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>MJ</code></td><td>Bulk junction bottom grading coefficient</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Permittivity">Permittivity</a></code></td><td><code>CJSW</code></td><td>Zero-bias junction sidewall cap. per meter of junction perimeter</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>MJSW</code></td><td>Bulk junction sidewall grading coefficient</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#CurrentDensity">CurrentDensity</a></code></td><td><code>JS</code></td><td>Bulk junction saturation current per sq-meter of junction area</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>TOX</code></td><td>Oxide thickness, default 1e-7</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>NSUB</code></td><td>Substrate doping, default 0</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/Conversions/NonSIunits/index.html#PerArea_cm">PerArea_cm</a></code></td><td><code>NSS</code></td><td>Surface state density</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>TPG</code></td><td>Type of gate material: +1 opp. to substrate, -1 same as substrate, 0 Al gate</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>LD</code></td><td>Lateral diffusion</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/Conversions/NonSIunits/index.html#Area_cmPerVoltageSecond">Area_cmPerVoltageSecond</a></code></td><td><code>UO</code></td><td>Surface mobility</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>KF</code></td><td>Flicker noise coefficient</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>AF</code></td><td>Flicker noise exponent</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>FC</code></td><td>Coefficient for forward-bias depletion capacitance formula</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>TNOM</code></td><td>Parameter measurement temperature, default 27</td></tr>
+<tr><td>constant <code>Integer</code></td><td><code>LEVEL</code></td><td>Model level: Shichman-Hodges</td></tr>
+</table>
+<hr><a name="M_NMOS2"><h2><embed class="icon" src="../../../images/icon0886.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Semiconductors</a>.&#8203;M_NMOS2<br><span class="subtitle">NMOS MOSFET device</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The model M_NMOS is a N channel MOSFET transistor with fixed level 2:</p>
+<p>The models from the package Semiconductors accesses to the package Internal where all functions,</p>
+<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
+<p>The package Semiconductors is for user access but not the package Internal.</p>
+<p>Extends from <code><a href="../../../Electrical/Spice3/Internal/index.html#MOS2">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;MOS2</a></code> (Metal-Oxide Semiconductor Field-Effect Transistor).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mtype</code></td><td><code>0</code></td><td>MOSFET type: 0 - N channel, 1 - P channel</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>L</code></td><td><code>1e-4</code></td><td>Length</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>W</code></td><td><code>1e-4</code></td><td>Width</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Area">Area</a></code></td><td><code>AD</code></td><td><code>0</code></td><td>Area of the drain diffusion</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Area">Area</a></code></td><td><code>AS</code></td><td><code>0</code></td><td>Area of the source diffusion</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>PD</code></td><td><code>0</code></td><td>Perimeter of the drain junction</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>PS</code></td><td><code>0</code></td><td>Perimeter of the source junction</td></tr>
+<tr><td><code>Real</code></td><td><code>NRD</code></td><td><code>1</code></td><td>Number of squares of the drain diffusions</td></tr>
+<tr><td><code>Real</code></td><td><code>NRS</code></td><td><code>1</code></td><td>Number of squares of the source diffusions</td></tr>
+<tr><td><code>Integer</code></td><td><code>OFF</code></td><td><code>0</code></td><td>Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC_VDS</code></td><td><code>-1e+40</code></td><td>Initial condition value (VDS, not implemented yet)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC_VGS</code></td><td><code>-1e+40</code></td><td>Initial condition value (VGS, not implemented yet)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC_VBS</code></td><td><code>-1e+40</code></td><td>Initial condition value (VBS, not implemented yet)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>UIC</code></td><td><code>false</code></td><td>Use initial conditions: true, if initial condition is used</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>TEMP</code></td><td><code>27</code></td><td>Operating temperature of the device</td></tr>
+<tr><td><code><a href="../../../Electrical/Spice3/Internal/index.html#ModelcardMOS2">ModelcardMOS2</a></code></td><td><code>modelcard</code></td><td>&nbsp;</td><td>MOSFET modelcard</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos2/index.html#Mos2ModelLineParams">Mos2ModelLineParams</a></code></td><td><code>p</code></td><td><code>Spice3.Internal.Mos2.mos2RenameParametersRevised(modelcard)</code></td><td>Model line parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mosfet/index.html#Mosfet">Mosfet</a></code></td><td><code>m</code></td><td><code>Spice3.Internal.Mosfet.mosfetRenameParametersDev(W, L, AD, AS, PD, PS, NRD, NRS, OFF, IC_VDS, IC_VGS, IC_VBS, UIC, TEMP)</code></td><td>Renamed parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mosfet/index.html#Mosfet">Mosfet</a></code></td><td><code>m1</code></td><td><code>Spice3.Internal.Mosfet.mosfetInitEquations(m)</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>m_type</code></td><td><code>if 0.5 &lt; m.m_bPMOS then -1 else 1</code></td><td>Type of the transistor</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos2/index.html#Mos2ModelLineParams">Mos2ModelLineParams</a></code></td><td><code>p1</code></td><td><code>Spice3.Internal.Mos2.mos2ModelLineParamsInitEquationsRevised(p, m_type)</code></td><td>Model line variables</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos2/index.html#Mos2Calc">Mos2Calc</a></code></td><td><code>c11</code></td><td><code>Spice3.Internal.Mos.mos2CalcInitEquationsRevised(p1, m1)</code></td><td>Precalculated parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos2/index.html#Mos2Calc">Mos2Calc</a></code></td><td><code>c22</code></td><td><code>Spice3.Internal.Mos.mos2CalcCalcTempDependenciesRevised(p1, m1, c11, m_type)</code></td><td>Precalculated parameters</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC</code></td><td>&nbsp;</td><td>Initial condition values, not implemented yet</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos2/index.html#Mos2ModelLineVariables">Mos2ModelLineVariables</a></code></td><td><code>vp</code></td><td><code>Spice3.Internal.Mos2.mos2ModelLineParamsInitEquations(p, C, m_type)</code></td><td>Model line variables</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos2/index.html#Mos2Calc">Mos2Calc</a></code></td><td><code>c1</code></td><td><code>Spice3.Internal.Mos.mos2CalcInitEquations(p, C, vp, m)</code></td><td>Precalculated parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos2/index.html#Mos2Calc">Mos2Calc</a></code></td><td><code>c2</code></td><td><code>Spice3.Internal.Mos.mos2CalcCalcTempDependencies(p, C, vp, m, c1, m_type)</code></td><td>Precalculated parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos2/index.html#Mos2ModelLineParams">Mos2ModelLineParams</a></code></td><td><code>p_obsolete</code></td><td><code>Spice3.Internal.Mos2.mos2RenameParameters(modelcard, C)</code></td><td>Model line parameters</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>G</code></td><td>gate node</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>D</code></td><td>drain node</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>S</code></td><td>source node</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>B</code></td><td>bulk node</td></tr>
+</table>
+<hr><a name="M_PMOS2"><h2><embed class="icon" src="../../../images/icon0887.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Semiconductors</a>.&#8203;M_PMOS2<br><span class="subtitle">PMOS MOSFET device</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The model M_PMOS is a P channel MOSFET transistor with fixed level 2:</p>
+<p>The models from the package Semiconductors accesses to the package Internal where all functions,</p>
+<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
+<p>The package Semiconductors is for user access but not the package Internal.</p>
+<p>Extends from <code><a href="../../../Electrical/Spice3/Internal/index.html#MOS2">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;MOS2</a></code> (Metal-Oxide Semiconductor Field-Effect Transistor).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mtype</code></td><td><code>1</code></td><td>MOSFET type: 0 - N channel, 1 - P channel</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>L</code></td><td><code>1e-4</code></td><td>Length</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>W</code></td><td><code>1e-4</code></td><td>Width</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Area">Area</a></code></td><td><code>AD</code></td><td><code>0</code></td><td>Area of the drain diffusion</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Area">Area</a></code></td><td><code>AS</code></td><td><code>0</code></td><td>Area of the source diffusion</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>PD</code></td><td><code>0</code></td><td>Perimeter of the drain junction</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>PS</code></td><td><code>0</code></td><td>Perimeter of the source junction</td></tr>
+<tr><td><code>Real</code></td><td><code>NRD</code></td><td><code>1</code></td><td>Number of squares of the drain diffusions</td></tr>
+<tr><td><code>Real</code></td><td><code>NRS</code></td><td><code>1</code></td><td>Number of squares of the source diffusions</td></tr>
+<tr><td><code>Integer</code></td><td><code>OFF</code></td><td><code>0</code></td><td>Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC_VDS</code></td><td><code>-1e+40</code></td><td>Initial condition value (VDS, not implemented yet)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC_VGS</code></td><td><code>-1e+40</code></td><td>Initial condition value (VGS, not implemented yet)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC_VBS</code></td><td><code>-1e+40</code></td><td>Initial condition value (VBS, not implemented yet)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>UIC</code></td><td><code>false</code></td><td>Use initial conditions: true, if initial condition is used</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>TEMP</code></td><td><code>27</code></td><td>Operating temperature of the device</td></tr>
+<tr><td><code><a href="../../../Electrical/Spice3/Internal/index.html#ModelcardMOS2">ModelcardMOS2</a></code></td><td><code>modelcard</code></td><td>&nbsp;</td><td>MOSFET modelcard</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos2/index.html#Mos2ModelLineParams">Mos2ModelLineParams</a></code></td><td><code>p</code></td><td><code>Spice3.Internal.Mos2.mos2RenameParametersRevised(modelcard)</code></td><td>Model line parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mosfet/index.html#Mosfet">Mosfet</a></code></td><td><code>m</code></td><td><code>Spice3.Internal.Mosfet.mosfetRenameParametersDev(W, L, AD, AS, PD, PS, NRD, NRS, OFF, IC_VDS, IC_VGS, IC_VBS, UIC, TEMP)</code></td><td>Renamed parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mosfet/index.html#Mosfet">Mosfet</a></code></td><td><code>m1</code></td><td><code>Spice3.Internal.Mosfet.mosfetInitEquations(m)</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>m_type</code></td><td><code>if 0.5 &lt; m.m_bPMOS then -1 else 1</code></td><td>Type of the transistor</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos2/index.html#Mos2ModelLineParams">Mos2ModelLineParams</a></code></td><td><code>p1</code></td><td><code>Spice3.Internal.Mos2.mos2ModelLineParamsInitEquationsRevised(p, m_type)</code></td><td>Model line variables</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos2/index.html#Mos2Calc">Mos2Calc</a></code></td><td><code>c11</code></td><td><code>Spice3.Internal.Mos.mos2CalcInitEquationsRevised(p1, m1)</code></td><td>Precalculated parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos2/index.html#Mos2Calc">Mos2Calc</a></code></td><td><code>c22</code></td><td><code>Spice3.Internal.Mos.mos2CalcCalcTempDependenciesRevised(p1, m1, c11, m_type)</code></td><td>Precalculated parameters</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC</code></td><td>&nbsp;</td><td>Initial condition values, not implemented yet</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos2/index.html#Mos2ModelLineVariables">Mos2ModelLineVariables</a></code></td><td><code>vp</code></td><td><code>Spice3.Internal.Mos2.mos2ModelLineParamsInitEquations(p, C, m_type)</code></td><td>Model line variables</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos2/index.html#Mos2Calc">Mos2Calc</a></code></td><td><code>c1</code></td><td><code>Spice3.Internal.Mos.mos2CalcInitEquations(p, C, vp, m)</code></td><td>Precalculated parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos2/index.html#Mos2Calc">Mos2Calc</a></code></td><td><code>c2</code></td><td><code>Spice3.Internal.Mos.mos2CalcCalcTempDependencies(p, C, vp, m, c1, m_type)</code></td><td>Precalculated parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Mos2/index.html#Mos2ModelLineParams">Mos2ModelLineParams</a></code></td><td><code>p_obsolete</code></td><td><code>Spice3.Internal.Mos2.mos2RenameParameters(modelcard, C)</code></td><td>Model line parameters</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>G</code></td><td>gate node</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>D</code></td><td>drain node</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>S</code></td><td>source node</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>B</code></td><td>bulk node</td></tr>
+</table>
+<hr><a name="ModelcardMOS2"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Semiconductors</a>.&#8203;ModelcardMOS2<br><span class="subtitle">Record for the specification of modelcard parameters</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Technology model parameters of MOSFET transistor with fixed level 1: Shichman-Hodges model</p>
+<p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records) and <code><a href="../../../Electrical/Spice3/Internal/index.html#ModelcardMOS2">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;ModelcardMOS2</a></code> (Record with technology parameters (.model)).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VTO</code></td><td>Zero-bias threshold voltage, default 0</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Transconductance">Transconductance</a></code></td><td><code>KP</code></td><td>Transconductance parameter, default 2e-5</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>GAMMA</code></td><td>Bulk threshold parameter, default 0</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>PHI</code></td><td>Surface potential, default 0.6</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#InversePotential">InversePotential</a></code></td><td><code>LAMBDA</code></td><td>Channel-length modulation, default 0</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RD</code></td><td>Drain ohmic resistance, default 0</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RS</code></td><td>Source ohmic resistance, default 0</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>CBD</code></td><td>Zero-bias B-D junction capacitance, default 0</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>CBS</code></td><td>Zero-bias B-S junction capacitance, default 0</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>IS</code></td><td>Bulk junction saturation current</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>PB</code></td><td>Bulk junction potential</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Permittivity">Permittivity</a></code></td><td><code>CGSO</code></td><td>Gate-source overlap capacitance per meter channel width</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Permittivity">Permittivity</a></code></td><td><code>CGDO</code></td><td>Gate-drain overlap capacitance per meter channel width</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Permittivity">Permittivity</a></code></td><td><code>CGBO</code></td><td>Gate-bulk overlap capacitance per meter channel width</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RSH</code></td><td>Drain and source diffusion sheet resistance</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#CapacitancePerArea">CapacitancePerArea</a></code></td><td><code>CJ</code></td><td>Zero-bias bulk junction bottom cap. per sq-meter of junction area</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>MJ</code></td><td>Bulk junction bottom grading coefficient</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Permittivity">Permittivity</a></code></td><td><code>CJSW</code></td><td>Zero-bias junction sidewall cap. per meter of junction perimeter</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>MJSW</code></td><td>Bulk junction sidewall grading coefficient</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#CurrentDensity">CurrentDensity</a></code></td><td><code>JS</code></td><td>Bulk junction saturation current per sq-meter of junction area</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>TOX</code></td><td>Oxide thickness, default 1e-7</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>NSUB</code></td><td>Substrate doping, default 0</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/Conversions/NonSIunits/index.html#PerArea_cm">PerArea_cm</a></code></td><td><code>NSS</code></td><td>Surface state density</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>TPG</code></td><td>Type of gate material: +1 opp. to substrate, -1 same as substrate, 0 Al gate</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>LD</code></td><td>Lateral diffusion</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/Conversions/NonSIunits/index.html#Area_cmPerVoltageSecond">Area_cmPerVoltageSecond</a></code></td><td><code>UO</code></td><td>Surface mobility</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>KF</code></td><td>Flicker noise coefficient</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>AF</code></td><td>Flicker noise exponent</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>FC</code></td><td>Coefficient for forward-bias depletion capacitance formula</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>TNOM</code></td><td>Parameter measurement temperature, default 27</td></tr>
+<tr><td>constant <code>Integer</code></td><td><code>LEVEL</code></td><td>Model level: Shichman-Hodges</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/Conversions/NonSIunits/index.html#PerArea_cm">PerArea_cm</a></code></td><td><code>NFS</code></td><td>Fast surface state density</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>XJ</code></td><td>Metallurgical junction depth</td></tr>
+<tr><td>parameter <code><a href="../../../Electrical/Spice3/Types/index.html#ElectricFieldStrength_cm">ElectricFieldStrength_cm</a></code></td><td><code>UCRIT</code></td><td>Critical field for mobility degradation (MOS2 only)</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>UEXP</code></td><td>Critical field exponent in mobility degradation (MOS2 only)</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Velocity">Velocity</a></code></td><td><code>VMAX</code></td><td>Maximum drift velocity of carries</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>NEFF</code></td><td>Total channel charge (fixed and mobile) coefficient (MOS2 only)</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>DELTA</code></td><td>Width effect on threshold voltage</td></tr>
+</table>
+<hr><a name="Q_NPNBJT"><h2><embed class="icon" src="../../../images/icon0888.svg" width="219" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Semiconductors</a>.&#8203;Q_NPNBJT<br><span class="subtitle">Bipolar junction transistor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The model Q_NPNBJT is a NPN bipolar junction transistor model: Modified Gummel-Poon.</p>
+<p>The models from the package Semiconductors accesses to the package Internal where all functions,</p>
+<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
+<p>The package Semiconductors is for user access but not the package Internal.</p>
+<p>Extends from <code><a href="../../../Electrical/Spice3/Internal/index.html#BJT2">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;BJT2</a></code> (Bipolar junction transistor).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useSubstrateNode</code></td><td><code>false</code></td><td>=true, if SubstrateNode is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>TBJT</code></td><td><code>1</code></td><td>Type of transistor (NPN=1, PNP=-1)</td></tr>
+<tr><td><code>Real</code></td><td><code>AREA</code></td><td><code>1</code></td><td>Area factor</td></tr>
+<tr><td><code>Boolean</code></td><td><code>OFF</code></td><td><code>false</code></td><td>Optional initial condition: false - IC not used, true - IC used, not implemented yet</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC_VBE</code></td><td><code>-1e+40</code></td><td>Initial condition value (VBC, not implemented yet)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC_VCE</code></td><td><code>-1e+40</code></td><td>Initial condition value (VBE, not implemented yet)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>UIC</code></td><td><code>false</code></td><td>Use initial conditions: true, if initial condition is used</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>TEMP</code></td><td><code>27</code></td><td>Operating temperature of the device</td></tr>
+<tr><td><code>Boolean</code></td><td><code>SENS_AREA</code></td><td><code>false</code></td><td>Flag to request sensitivity WRT area, not implemented yet</td></tr>
+<tr><td><code><a href="../../../Electrical/Spice3/Internal/index.html#ModelcardBJT2">ModelcardBJT2</a></code></td><td><code>modelcard</code></td><td>&nbsp;</td><td>BJT modelcard</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Bjt/index.html#BjtModelLineParams">BjtModelLineParams</a></code></td><td><code>p</code></td><td><code>Spice3.Internal.Bjt.bjtRenameParameters(modelcard, TBJT)</code></td><td>Model line parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Bjt/index.html#Bjt">Bjt</a></code></td><td><code>dev</code></td><td><code>Spice3.Internal.Bjt.bjtRenameParametersDev(AREA, OFF, IC_VBE, IC_VCE, UIC, SENS_AREA, TEMP)</code></td><td>Renamed parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Bjt/index.html#BjtModelLineParams">BjtModelLineParams</a></code></td><td><code>p1</code></td><td><code>Spice3.Internal.Bjt.bjtModelLineInitEquations(p)</code></td><td>Model line variables</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Bjt/index.html#Bjt">Bjt</a></code></td><td><code>dev1</code></td><td><code>Spice3.Internal.Bjt.bjtInitEquations(dev, p1)</code></td><td>Precalculated parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Bjt/index.html#BjtCalc">BjtCalc</a></code></td><td><code>c</code></td><td><code>Spice3.Internal.Bjt.bjtCalcTempDependencies(dev1, p1)</code></td><td>Precalculated parameters</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>B</code></td><td>Base node</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>C</code></td><td>Collector node</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>E</code></td><td>Emitter node</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>S</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="Q_PNPBJT"><h2><embed class="icon" src="../../../images/icon0889.svg" width="219" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Semiconductors</a>.&#8203;Q_PNPBJT<br><span class="subtitle">Bipolar junction transistor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The model Q_PNPBJT is a PNP bipolar junction transistor model: Modified Gummel-Poon.</p>
+<p>The models from the package Semiconductors accesses to the package Internal where all functions,</p>
+<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
+<p>The package Semiconductors is for user access but not the package Internal.</p>
+<p>Extends from <code><a href="../../../Electrical/Spice3/Internal/index.html#BJT2">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;BJT2</a></code> (Bipolar junction transistor).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useSubstrateNode</code></td><td><code>false</code></td><td>=true, if SubstrateNode is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>TBJT</code></td><td><code>-1</code></td><td>Type of transistor (NPN=1, PNP=-1)</td></tr>
+<tr><td><code>Real</code></td><td><code>AREA</code></td><td><code>1</code></td><td>Area factor</td></tr>
+<tr><td><code>Boolean</code></td><td><code>OFF</code></td><td><code>false</code></td><td>Optional initial condition: false - IC not used, true - IC used, not implemented yet</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC_VBE</code></td><td><code>-1e+40</code></td><td>Initial condition value (VBC, not implemented yet)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC_VCE</code></td><td><code>-1e+40</code></td><td>Initial condition value (VBE, not implemented yet)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>UIC</code></td><td><code>false</code></td><td>Use initial conditions: true, if initial condition is used</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>TEMP</code></td><td><code>27</code></td><td>Operating temperature of the device</td></tr>
+<tr><td><code>Boolean</code></td><td><code>SENS_AREA</code></td><td><code>false</code></td><td>Flag to request sensitivity WRT area, not implemented yet</td></tr>
+<tr><td><code><a href="../../../Electrical/Spice3/Internal/index.html#ModelcardBJT2">ModelcardBJT2</a></code></td><td><code>modelcard</code></td><td>&nbsp;</td><td>BJT modelcard</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Bjt/index.html#BjtModelLineParams">BjtModelLineParams</a></code></td><td><code>p</code></td><td><code>Spice3.Internal.Bjt.bjtRenameParameters(modelcard, TBJT)</code></td><td>Model line parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Bjt/index.html#Bjt">Bjt</a></code></td><td><code>dev</code></td><td><code>Spice3.Internal.Bjt.bjtRenameParametersDev(AREA, OFF, IC_VBE, IC_VCE, UIC, SENS_AREA, TEMP)</code></td><td>Renamed parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Bjt/index.html#BjtModelLineParams">BjtModelLineParams</a></code></td><td><code>p1</code></td><td><code>Spice3.Internal.Bjt.bjtModelLineInitEquations(p)</code></td><td>Model line variables</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Bjt/index.html#Bjt">Bjt</a></code></td><td><code>dev1</code></td><td><code>Spice3.Internal.Bjt.bjtInitEquations(dev, p1)</code></td><td>Precalculated parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Bjt/index.html#BjtCalc">BjtCalc</a></code></td><td><code>c</code></td><td><code>Spice3.Internal.Bjt.bjtCalcTempDependencies(dev1, p1)</code></td><td>Precalculated parameters</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>B</code></td><td>Base node</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>C</code></td><td>Collector node</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>E</code></td><td>Emitter node</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>S</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="ModelcardBJT"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Semiconductors</a>.&#8203;ModelcardBJT<br><span class="subtitle">Record for the specification of modelcard parameters</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
+<p>Technology parameters of the modified Gummel-Poon bipolar junction transistor model</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records) and <code><a href="../../../Electrical/Spice3/Internal/index.html#ModelcardBJT2">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;ModelcardBJT2</a></code> (Record with technology parameters (.model)).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>TNOM</code></td><td>Parameter measurement temperature</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>IS</code></td><td>Transport saturation current</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>BF</code></td><td>Ideal maximum forward beta F</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>NF</code></td><td>Forward current emission coefficientF</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>NE</code></td><td>B-E leakage emission coefficient</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>ISE</code></td><td>B-E leakage saturation current, default = 0</td></tr>
+<tr><td>constant <code>Real</code></td><td><code>C2</code></td><td>Obsolete parameter name, default = 0</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>ISC</code></td><td>B-C leakage saturation current, default = 0</td></tr>
+<tr><td>constant <code>Real</code></td><td><code>C4</code></td><td>Obsolete parameter name, default = 0</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>BR</code></td><td>Ideal maximum reverse beta</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>NR</code></td><td>Reverse current emission coefficient</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>NC</code></td><td>B-C leakage emission coefficient</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VAF</code></td><td>Forward Early voltage</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>IKF</code></td><td>Forward beta roll-off corner current</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VAR</code></td><td>Reverse Early voltage</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>IKR</code></td><td>Reverse beta roll-off corner current</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RE</code></td><td>Emitter resistance</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RC</code></td><td>Collector resistance</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>IRB</code></td><td>Current for base resistance = (rb+rbm)/2</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RB</code></td><td>Zero bias base resistance</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RBM</code></td><td>Minimum base resistance, default = 0.0</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>CJE</code></td><td>Zero bias B-E depletion capacitance</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VJE</code></td><td>B-E built in potential</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>MJE</code></td><td>B-E junction exponential factor</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>TF</code></td><td>Ideal forward transit time</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>XTF</code></td><td>Coefficient for bias dependence of TF</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>ITF</code></td><td>High current dependence of TF,</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VTF</code></td><td>Voltage giving VBC dependence of TF</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>PTF</code></td><td>Excess phase at freq=1/(TF*2*Pi) Hz</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>CJC</code></td><td>Zero bias B-C depletion capacitance</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VJC</code></td><td>B-C built in potential</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>MJC</code></td><td>B-C junction grading coefficient</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>XCJC</code></td><td>Fraction of B-C cap to internal base</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>TR</code></td><td>Ideal reverse transit time</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>CJS</code></td><td>Zero bias C-S capacitance</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VJS</code></td><td>Substrate junction built-in potential</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>MJS</code></td><td>Substrate junction grading coefficient</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>XTB</code></td><td>Forward and reverse beta temperature exponent</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#GapEnergy">GapEnergy</a></code></td><td><code>EG</code></td><td>Energy gap for IS temperature effect on IS</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>XTI</code></td><td>Temperature exponent for IS</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>KF</code></td><td>Flicker Noise Coefficient</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>AF</code></td><td>Flicker Noise Exponent</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>FC</code></td><td>Forward bias junction fit parameter</td></tr>
+</table>
+<hr><a name="J_PJFJFET"><h2><embed class="icon" src="../../../images/icon0890.svg" width="213" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Semiconductors</a>.&#8203;J_PJFJFET<br><span class="subtitle">P-channel Junction Field-Effect Transistor model (JFET)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>J_PJFJFET is a P-channel junction field-effect transistor.</p>
+<p>The junction field-effect transistor is derived from the FET model of Shichman and Hodges.</p>
+<p>The models from the package Semiconductors accesses to the package Internal where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Internal.</p>
+<p>Extends from <code><a href="../../../Electrical/Spice3/Internal/index.html#JFET">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;JFET</a></code> (Junction Field-Effect Transistor).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mtype</code></td><td><code>1</code></td><td>JFET type: 0 - N channel, 1 - P channel</td></tr>
+<tr><td><code>Real</code></td><td><code>AREA</code></td><td>&nbsp;</td><td>Number of parallel connected identical elements</td></tr>
+<tr><td><code>Boolean</code></td><td><code>OFF</code></td><td><code>false</code></td><td>Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC_VDS</code></td><td><code>-1e+40</code></td><td>Initial condition value (VDS, not implemented yet)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC_VGS</code></td><td><code>-1e+40</code></td><td>Initial condition value (VGS, not implemented yet)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>UIC</code></td><td><code>false</code></td><td>Use initial conditions: true, if initial condition is used</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>TEMP</code></td><td><code>27</code></td><td>Operating temperature of the device</td></tr>
+<tr><td><code><a href="../../../Electrical/Spice3/Internal/index.html#ModelcardJFET">ModelcardJFET</a></code></td><td><code>modelcard</code></td><td>&nbsp;</td><td>JFET modelcard</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Jfet/index.html#JfetModelLine">JfetModelLine</a></code></td><td><code>p</code></td><td><code>Modelica.Electrical.Spice3.Internal.Jfet.jfetRenameParameters(modelcard)</code></td><td>Model line parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Fet/index.html#Fet">Fet</a></code></td><td><code>m</code></td><td><code>Modelica.Electrical.Spice3.Internal.Fet.fetRenameParametersDev(AREA, OFF, IC_VDS, IC_VGS, UIC, TEMP)</code></td><td>Renamed parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>m_type</code></td><td><code>if 0.5 &lt; mtype then -1 else 1</code></td><td>Type of the transistor</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Jfet/index.html#JfetModelLine">JfetModelLine</a></code></td><td><code>p1</code></td><td><code>Modelica.Electrical.Spice3.Internal.Jfet.jfetInitEquations(m, p)</code></td><td>Precalculated parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Jfet/index.html#JfetModelLine">JfetModelLine</a></code></td><td><code>p2</code></td><td><code>Modelica.Electrical.Spice3.Internal.Jfet.jfetModelLineInitEquations(p1)</code></td><td>Model line variables</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Fet/index.html#Fet">Fet</a></code></td><td><code>m1</code></td><td><code>Modelica.Electrical.Spice3.Internal.Jfet.jfetCalcTempDependencies(m, p2)</code></td><td>Precalculated parameters</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>G</code></td><td>gate node</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>D</code></td><td>drain node</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>S</code></td><td>source node</td></tr>
+</table>
+<hr><a name="J_NJFJFET"><h2><embed class="icon" src="../../../images/icon0891.svg" width="213" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Semiconductors</a>.&#8203;J_NJFJFET<br><span class="subtitle">N-channel Junction Field-Effect Transistor model (JFET)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>J_NJFJFET is a N-channel junction field-effect transistor.</p>
+<p>The junction field-effect transistor is derived from the FET model of Shichman and Hodges.</p>
+<p>The models from the package Semiconductors accesses to the package Internal where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Internal.</p>
+<p>Extends from <code><a href="../../../Electrical/Spice3/Internal/index.html#JFET">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;JFET</a></code> (Junction Field-Effect Transistor).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mtype</code></td><td><code>0</code></td><td>JFET type: 0 - N channel, 1 - P channel</td></tr>
+<tr><td><code>Real</code></td><td><code>AREA</code></td><td>&nbsp;</td><td>Number of parallel connected identical elements</td></tr>
+<tr><td><code>Boolean</code></td><td><code>OFF</code></td><td><code>false</code></td><td>Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC_VDS</code></td><td><code>-1e+40</code></td><td>Initial condition value (VDS, not implemented yet)</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC_VGS</code></td><td><code>-1e+40</code></td><td>Initial condition value (VGS, not implemented yet)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>UIC</code></td><td><code>false</code></td><td>Use initial conditions: true, if initial condition is used</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>TEMP</code></td><td><code>27</code></td><td>Operating temperature of the device</td></tr>
+<tr><td><code><a href="../../../Electrical/Spice3/Internal/index.html#ModelcardJFET">ModelcardJFET</a></code></td><td><code>modelcard</code></td><td>&nbsp;</td><td>JFET modelcard</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Jfet/index.html#JfetModelLine">JfetModelLine</a></code></td><td><code>p</code></td><td><code>Modelica.Electrical.Spice3.Internal.Jfet.jfetRenameParameters(modelcard)</code></td><td>Model line parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Fet/index.html#Fet">Fet</a></code></td><td><code>m</code></td><td><code>Modelica.Electrical.Spice3.Internal.Fet.fetRenameParametersDev(AREA, OFF, IC_VDS, IC_VGS, UIC, TEMP)</code></td><td>Renamed parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>m_type</code></td><td><code>if 0.5 &lt; mtype then -1 else 1</code></td><td>Type of the transistor</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Jfet/index.html#JfetModelLine">JfetModelLine</a></code></td><td><code>p1</code></td><td><code>Modelica.Electrical.Spice3.Internal.Jfet.jfetInitEquations(m, p)</code></td><td>Precalculated parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Jfet/index.html#JfetModelLine">JfetModelLine</a></code></td><td><code>p2</code></td><td><code>Modelica.Electrical.Spice3.Internal.Jfet.jfetModelLineInitEquations(p1)</code></td><td>Model line variables</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Fet/index.html#Fet">Fet</a></code></td><td><code>m1</code></td><td><code>Modelica.Electrical.Spice3.Internal.Jfet.jfetCalcTempDependencies(m, p2)</code></td><td>Precalculated parameters</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>G</code></td><td>gate node</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>D</code></td><td>drain node</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>S</code></td><td>source node</td></tr>
+</table>
+<hr><a name="ModelcardJFET"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Semiconductors</a>.&#8203;ModelcardJFET<br><span class="subtitle">Record for the specification of modelcard parameters for JFET</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Technology parameters of the junction field-effect transistor model.</p>
+<p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records) and <code><a href="../../../Electrical/Spice3/Internal/index.html#ModelcardJFET">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;ModelcardJFET</a></code> (Record with technology parameters (.model)).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>CGS</code></td><td>Zero-bias G-S junction capacitance, default 0</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>CGD</code></td><td>Zero-bias G-D junction capacitance, default 0</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>IS</code></td><td>Saturation current of pn junctions</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>FC</code></td><td>Coefficient for forward-bias depletion capacitance formula</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RD</code></td><td>Drain ohmic resistance, default 0</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RS</code></td><td>Source ohmic resistance, default 0</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>TNOM</code></td><td>Parameter measurement temperature</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VTO</code></td><td>Zero-bias threshold voltage, default -2</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#InversePotential">InversePotential</a></code></td><td><code>B</code></td><td>Dotierungsverlauf parameter, default 1</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>BETA</code></td><td>Output admittance parameter, default 1e-4</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#InversePotential">InversePotential</a></code></td><td><code>LAMBDA</code></td><td>Channel-length modulation, default 0</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>PB</code></td><td>Junction potential of pn junctions</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>AF</code></td><td>Flicker noise exponent</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>KF</code></td><td>Flicker noise coefficient</td></tr>
+</table>
+<hr><a name="D_DIODE"><h2><embed class="icon" src="../../../images/icon0892.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Semiconductors</a>.&#8203;D_DIODE<br><span class="subtitle">Diode model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The model D_DIODE is a Junction diode model</p>
+<p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
+<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
+<p>The package Semiconductors is for user access but not the package Repository.</p>
+<p>Extends from <code><a href="../../../Electrical/Spice3/Internal/index.html#DIODE">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;DIODE</a></code> (Diode model).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>AREA</code></td><td><code>1</code></td><td>Area factor</td></tr>
+<tr><td><code>Boolean</code></td><td><code>OFF</code></td><td><code>false</code></td><td>Optional initial condition: false - IC not used, true - IC used, not implemented yet</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC</code></td><td>&nbsp;</td><td>Initial condition value (VD, not implemented yet</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>TEMP</code></td><td><code>27</code></td><td>Operating temperature of the device</td></tr>
+<tr><td><code>Boolean</code></td><td><code>SENS_AREA</code></td><td>&nbsp;</td><td>Flag to request sensitivity WRT area, not implemented yet</td></tr>
+<tr><td><code><a href="../../../Electrical/Spice3/Internal/index.html#ModelcardDIODE">ModelcardDIODE</a></code></td><td><code>modelcarddiode</code></td><td>&nbsp;</td><td>DIODE modelcard</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Diode/index.html#DiodeModelLineParams">DiodeModelLineParams</a></code></td><td><code>param</code></td><td><code>Diode.diodeRenameParameters(modelcarddiode, C)</code></td><td>Model line parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Diode/index.html#DiodeParams">DiodeParams</a></code></td><td><code>dp</code></td><td><code>Diode.diodeRenameParametersDev(TEMP, AREA, IC, OFF, SENS_AREA)</code></td><td>Renamed parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Model/index.html#Model">Model</a></code></td><td><code>m</code></td><td><code>Diode.diodeRenameParametersDevTemp(TEMP)</code></td><td>Renamed parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Diode/index.html#DiodeVariables">DiodeVariables</a></code></td><td><code>c1</code></td><td><code>Diode.diodeInitEquations(param)</code></td><td>Precalculated values</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Diode/index.html#DiodeCalc">DiodeCalc</a></code></td><td><code>c2</code></td><td><code>Diode.diodeCalcTempDependencies(param, dp, m, c1)</code></td><td>Precalculated values</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+</table>
+<hr><a name="ModelcardDIODE"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Semiconductors</a>.&#8203;ModelcardDIODE<br><span class="subtitle">Record for the specification of modelcard parameters</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
+<p>Technology parameters of the junction diode model</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records) and <code><a href="../../../Electrical/Spice3/Internal/index.html#ModelcardDIODE">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;ModelcardDIODE</a></code> (Record with technology parameters (.model)).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>IS</code></td><td>Saturation Current</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RS</code></td><td>Ohmic resistance</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>N</code></td><td>Emission coefficient</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>TT</code></td><td>Transit time</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>CJO</code></td><td>Junction capacitance</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VJ</code></td><td>Junction Potential</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>M</code></td><td>Grading coefficient</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#ActivationEnergy">ActivationEnergy</a></code></td><td><code>EG</code></td><td>Activation Energy</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>XTI</code></td><td>Saturation current temperature exponent</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>FC</code></td><td>Forward bias junction fit parameter</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>BV</code></td><td>Reverse breakdown voltage, default infinity</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Current">Current</a></code></td><td><code>IBV</code></td><td>Current at reverse breakdown voltage</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>TNOM</code></td><td>Parameter measurement temperature</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>KF</code></td><td>Flicker noise coefficient</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>AF</code></td><td>Flicker noise exponent</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>G</code></td><td>Ohmic conductance</td></tr>
+</table>
+<hr><a name="R_Resistor"><h2><embed class="icon" src="../../../images/icon0893.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Semiconductors</a>.&#8203;R_Resistor<br><span class="subtitle">Semiconductor resistor from SPICE3</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>The model R_Resistor is a Semiconductor resistor model.</p>
+<p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
+<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
+<p>The package Semiconductors is for user access but not the package Repository.</p>
+<p>Extends from <code><a href="../../../Electrical/Spice3/Internal/index.html#R_SEMI">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;R_SEMI</a></code> (Semiconductor resistor).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>-1e+40</code></td><td>Resistance, if specified, geometrical information is overwritten</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>TEMP</code></td><td><code>-1e+40</code></td><td>Temperature of resistor</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>L</code></td><td><code>-1e+40</code></td><td>Length of the resistor</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>W</code></td><td><code>-1e+40</code></td><td>Width of the resistor, default DEFW (modelcard)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>SENS_AREA</code></td><td><code>false</code></td><td>Parameter for sensitivity analyses, not implemented yet</td></tr>
+<tr><td><code><a href="../../../Electrical/Spice3/Internal/index.html#ModelcardR">ModelcardR</a></code></td><td><code>modelcard</code></td><td>&nbsp;</td><td>Resistor modelcard</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Rsemiconductor/index.html#ResistorModelLineParams">ResistorModelLineParams</a></code></td><td><code>lp</code></td><td><code>Rsemiconductor.resistorRenameParameters(modelcard, C)</code></td><td>Model Line Parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Rsemiconductor/index.html#ResistorParams">ResistorParams</a></code></td><td><code>rp</code></td><td><code>Rsemiconductor.resistorRenameParametersDev(R, W, L, TEMP, SENS_AREA, C)</code></td><td>Renamed parameters</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+</table>
+<hr><a name="ModelcardRESISTOR"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Semiconductors</a>.&#8203;ModelcardRESISTOR<br><span class="subtitle">Record for the specification of modelcard parameters</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
+<p>Technology parameters of the semiconductor resistor model</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records) and <code><a href="../../../Electrical/Spice3/Internal/index.html#ModelcardR">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;ModelcardR</a></code> (Record with technology parameters (.model)).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../SIunits/index.html#LinearTemperatureCoefficientResistance">LinearTemperatureCoefficientResistance</a></code></td><td><code>TC1</code></td><td>First order temperature coefficient</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#QuadraticTemperatureCoefficientResistance">QuadraticTemperatureCoefficientResistance</a></code></td><td><code>TC2</code></td><td>Second order temperature coefficient</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RSH</code></td><td>Sheet resistance</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>TNOM</code></td><td>Parameter measurement temperature, default 27</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>DEFW</code></td><td>Default device width</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>NARROW</code></td><td>Narrowing of resistor due to side etching</td></tr>
+</table>
+<hr><a name="C_Capacitor"><h2><embed class="icon" src="../../../images/icon0894.svg" width="223" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Semiconductors</a>.&#8203;C_Capacitor<br><span class="subtitle">Semiconductor capacitor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>C_Capacitor is a Semiconductor Capacitor model.</p>
+<p>This capacitor model allows the calculation of the actual capacitance value from strictly geometric information and the specification of the process.</p>
+<p>The models from the package Semiconductors accesses to the package Repository where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Repository.</p>
+<p>Extends from <code><a href="../../../Electrical/Spice3/Internal/index.html#C_SEMI">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;C_SEMI</a></code> (Semiconductor capacitor).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Capacitance">Capacitance</a></code></td><td><code>C</code></td><td><code>-1e+40</code></td><td>Capacitance, if specified, geometrical information is overwritten</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temp_C">Temp_C</a></code></td><td><code>TEMP</code></td><td><code>27</code></td><td>Temperature of capacitor</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>L</code></td><td>&nbsp;</td><td>Length of the capacitor</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>W</code></td><td><code>-1e+40</code></td><td>Width of the capacitor, default DEFW (modelcard)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>SENS_AREA</code></td><td><code>false</code></td><td>Parameter for sensitivity analyses, not implemented yet</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>IC</code></td><td><code>0</code></td><td>Initial value</td></tr>
+<tr><td><code>Boolean</code></td><td><code>UIC</code></td><td><code>false</code></td><td>Use initial conditions: true, if initial condition is used</td></tr>
+<tr><td><code><a href="../../../Electrical/Spice3/Internal/index.html#ModelcardC">ModelcardC</a></code></td><td><code>modelcard</code></td><td>&nbsp;</td><td>Capacitor modelcard</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Csemiconductor/index.html#CapacitorModelLineParams">CapacitorModelLineParams</a></code></td><td><code>lp</code></td><td><code>Modelica.Electrical.Spice3.Internal.Csemiconductor.capacitorRenameParameters(modelcard)</code></td><td>Model Line Parameters</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../Electrical/Spice3/Internal/Csemiconductor/index.html#Capacitor">Capacitor</a></code></td><td><code>cp</code></td><td><code>Modelica.Electrical.Spice3.Internal.Csemiconductor.capacitorRenameParametersDev(C, W, L, TEMP, SENS_AREA, lp)</code></td><td>Renamed parameters</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin</td></tr>
+<tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin</td></tr>
+</table>
+<hr><a name="ModelcardCAPACITOR"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Spice3</a>.&#8203;<a href="index.html">Semiconductors</a>.&#8203;ModelcardCAPACITOR<br><span class="subtitle">Record for the specification of modelcard parameters for Semiconductor Capacitor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Technology parameters of the semiconductor capacitor model.</p>
+<p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records) and <code><a href="../../../Electrical/Spice3/Internal/index.html#ModelcardC">Modelica.&#8203;Electrical.&#8203;Spice3.&#8203;Internal.&#8203;ModelcardC</a></code> (Record with technology parameters (.model)).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../SIunits/index.html#CapacitancePerArea">CapacitancePerArea</a></code></td><td><code>CJ</code></td><td>Junction bottom capacitance     F/meters2</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Permittivity">Permittivity</a></code></td><td><code>CJSW</code></td><td>Junction sidewall capacitance   F/meters</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>DEFW</code></td><td>Default device width</td></tr>
+<tr><td>parameter <code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>NARROW</code></td><td>Narrowing due to side etching</td></tr>
+</table>
+</body></html>

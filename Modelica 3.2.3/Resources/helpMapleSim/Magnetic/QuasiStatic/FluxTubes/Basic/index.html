@@ -1,0 +1,249 @@
+<html><head><title>Modelica.Magnetic.QuasiStatic.FluxTubes.Basic</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Basic"><h1><embed class="icon" src="../../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;Basic<br><span class="subtitle">Basic elements of magnetic network models</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package contains the basic components of quasi static flux tubes package.</p>
+<p>Extends from <code><a href="../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#ConstantPermeance"><code>ConstantPermeance</code></a></td><td>Constant permeance</td></tr>
+<tr><td><a href="#ConstantReluctance"><code>ConstantReluctance</code></a></td><td>Constant reluctance</td></tr>
+<tr><td><a href="#Crossing"><code>Crossing</code></a></td><td>Crossing of two branches</td></tr>
+<tr><td><a href="#EddyCurrent"><code>EddyCurrent</code></a></td><td>For modelling of eddy current in a conductive magnetic flux tube</td></tr>
+<tr><td><a href="#ElectroMagneticConverter"><code>ElectroMagneticConverter</code></a></td><td>Electro-magnetic energy conversion</td></tr>
+<tr><td><a href="#Ground"><code>Ground</code></a></td><td>Zero magnetic potential</td></tr>
+<tr><td><a href="#Idle"><code>Idle</code></a></td><td>Idle running branch</td></tr>
+<tr><td><a href="#LeakageWithCoefficient"><code>LeakageWithCoefficient</code></a></td><td>Leakage reluctance with respect to the reluctance of a useful flux path (not for dynamic simulation of actuators)</td></tr>
+<tr><td><a href="#Short"><code>Short</code></a></td><td>Short cut branch</td></tr>
+</table>
+<hr><a name="Ground"><h2><embed class="icon" src="../../../../images/icon0993.svg" width="203" height="213" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Ground<br><span class="subtitle">Zero magnetic potential</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The magnetic potential at the magnetic ground node is zero. Every magnetic network model must contain at least one magnetic ground object.
+</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="ElectroMagneticConverter"><h2><embed class="icon" src="../../../../images/icon0994.svg" width="235" height="223" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Basic</a>.&#8203;ElectroMagneticConverter<br><span class="subtitle">Electro-magnetic energy conversion</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The electro magnetic energy conversion is given by <strong>Ampere</strong>'s law and <strong>Faraday</strong>'s law respectively:
+</p>
+
+<dl>
+<dd>
+<img src="../../../../../Images/Magnetic/QuasiStatic/FluxTubes/converter.png">
+</dd>
+</dl>
+
+<p>
+In this equation
+<img src="../../../../../Images/Magnetic/QuasiStatic/FluxTubes/V_m.png">
+is the magnetomotive force that is supplied to the connected magnetic circuit,
+<img src="../../../../../Images/Magnetic/QuasiStatic/FluxTubes/Phi.png">
+is the magnetic flux through the associated branch of this magnetic circuit. The negative sign of the induced voltage
+<img src="../../../../../Images/Magnetic/QuasiStatic/FluxTubes/v.png"> is due to <strong>Lenz</strong>'s law.
+</p>
+
+<p>
+The static inductance is calculated from the flux linkage
+</p>
+<dl>
+<dd>
+<img src="../../../../../Images/Magnetic/QuasiStatic/FluxTubes/Psi-N-Phi.png">
+</dd>
+</dl>
+<p>and the current
+<img src="../../../../../Images/Magnetic/QuasiStatic/FluxTubes/i.png">:
+</p>
+<dl>
+<dd>
+<img src="../../../../../Images/Magnetic/QuasiStatic/FluxTubes/L_stat-Psi-i.png">
+</dd>
+</dl>
+<p>
+This quantity is calculated for information only.</p>
+
+<h5>Note</h5>
+
+<p><img src="../../../../../Images/Magnetic/QuasiStatic/FluxTubes/L_stat.png">
+is set to</p>
+<dl>
+<dd>
+<img src="../../../../../Images/Magnetic/QuasiStatic/FluxTubes/L_stat-Psi-eps.png">
+</dd>
+</dl>
+<p>
+if
+<img src="../../../../../Images/Magnetic/QuasiStatic/FluxTubes/i-lt-eps.png">.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>N</code></td><td><code>1</code></td><td>Number of turns</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive magnetic port</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative magnetic port</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>Positive electric pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>Negative electric pin</td></tr>
+</table>
+<hr><a name="ConstantReluctance"><h2><embed class="icon" src="../../../../images/icon0995.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Basic</a>.&#8203;ConstantReluctance<br><span class="subtitle">Constant reluctance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This constant reluctance is provided for test purposes and simple magnetic network models. The reluctance is not calculated from geometry and permeability of a flux tube, but is provided as parameter.
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PartialTwoPorts">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialTwoPorts</a></code> (Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Reluctance">Reluctance</a></code></td><td><code>R_m</code></td><td><code>1</code></td><td>Magnetic reluctance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<hr><a name="ConstantPermeance"><h2><embed class="icon" src="../../../../images/icon0995.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Basic</a>.&#8203;ConstantPermeance<br><span class="subtitle">Constant permeance</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This constant permeance is provided for test purposes and simple magnetic network models. The permeance is not calculated from geometry and permeability of a flux tube, but is provided as parameter.
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PartialTwoPorts">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialTwoPorts</a></code> (Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Permeance">Permeance</a></code></td><td><code>G_m</code></td><td><code>1</code></td><td>Magnetic permeance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<hr><a name="LeakageWithCoefficient"><h2><embed class="icon" src="../../../../images/icon0995.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Basic</a>.&#8203;LeakageWithCoefficient<br><span class="subtitle">Leakage reluctance with respect to the reluctance of a useful flux path (not for dynamic simulation of actuators)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Differently from the flux tube elements of package <a href="../../../../Magnetic/QuasiStatic/FluxTubes/Shapes/Leakage/index.html">Shapes.Leakage</a>
+that are calculated from their geometry, this leakage reluctance is calculated with reference to the total reluctance of a useful flux path. Parameter <code>c_usefulFlux</code> is the ratio of the useful flux over the total flux.
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PartialLeakage">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialLeakage</a></code> (Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#CouplingCoefficient">CouplingCoefficient</a></code></td><td><code>c_usefulFlux</code></td><td><code>0.7</code></td><td>Ratio useful flux/(leakage flux + useful flux) = useful flux/total flux</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<hr><a name="EddyCurrent"><h2><embed class="icon" src="../../../../images/icon0996.svg" width="223" height="213" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Basic</a>.&#8203;EddyCurrent<br><span class="subtitle">For modelling of eddy current in a conductive magnetic flux tube</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Eddy currents are induced in a conductive magnetic flux tube when the flux changes with time. This causes a magnetic voltage drop in addition to the voltage drop that is due to the reluctance of this flux tube. The eddy current component can be thought of as a short-circuited secondary winding of a transformer with only one turn. Its resistance is then determined by the geometry and resistivity of the eddy current path. Alternatively, a total conductance parameter can be used.
+</p>
+
+<p>
+Partitioning of a solid conductive cylinder or prism into several hollow cylinders or separate nested prisms and modelling of each of these flux tubes connected in parallel with a series connection of a reluctance element and an eddy current component can model the delayed buildup of the magnetic field in the complete flux tube from the outer to the inner sections. Please refer to <a href="../../../../Magnetic/FluxTubes/UsersGuide/index.html#Literature">[Ka08]</a> for an illustration.
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PartialTwoPorts">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialTwoPorts</a></code> (Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n) and <code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#PartialElementaryConditionalHeatPort">Modelica.&#8203;Thermal.&#8203;HeatTransfer.&#8203;Interfaces.&#8203;PartialElementaryConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useConductance</code></td><td><code>false</code></td><td>Use conductance instead of geometry data and rho</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>G</code></td><td><code>1.020408163e+7</code></td><td>Equivalent loss conductance G=A/rho/l</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistivity">Resistivity</a></code></td><td><code>rho</code></td><td><code>9.8e-8</code></td><td>Resistivity of flux tube material (default: Iron at 20degC)</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>l</code></td><td><code>1</code></td><td>Average length of eddy current path</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Area">Area</a></code></td><td><code>A</code></td><td><code>1</code></td><td>Cross sectional area of eddy current path</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R</code></td><td><code>rho * l / A</code></td><td>Electrical resistance of eddy current path</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td><code>273.15</code></td><td>Fixed device temperature if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
+</table>
+<hr><a name="Idle"><h2><embed class="icon" src="../../../../images/icon0997.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Idle<br><span class="subtitle">Idle running branch</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a simple idle running branch. The magnetic flux through this component is equal to zero.
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PartialTwoPorts">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialTwoPorts</a></code> (Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<hr><a name="Short"><h2><embed class="icon" src="../../../../images/icon0998.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Short<br><span class="subtitle">Short cut branch</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a simple short cut branch. The magnetic voltage of this component is equal to zero.
+</p>
+<p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PartialTwoPorts">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialTwoPorts</a></code> (Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive quasi-static magnetic port</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative quasi-static magnetic port</td></tr>
+</table>
+<hr><a name="Crossing"><h2><embed class="icon" src="../../../../images/icon0999.svg" width="223" height="223" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Magnetic</a>.&#8203;<a href="../../index.html">QuasiStatic</a>.&#8203;<a href="../index.html">FluxTubes</a>.&#8203;<a href="index.html">Basic</a>.&#8203;Crossing<br><span class="subtitle">Crossing of two branches</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a simple crossing of two branches. The ports <code>port_p1</code> and <code>port_p2</code> are connected, as well as <code>port_n1</code> and <code>port_n2</code>.
+</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p1</code></td><td>Positive port_p1 connected with port_p2</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p2</code></td><td>Positive port_p2 connected with port_p1</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n1</code></td><td>Negative port_n1 connected with port_n2</td></tr>
+<tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n2</code></td><td>Negative port_n2 connected with port_n1</td></tr>
+</table>
+</body></html>

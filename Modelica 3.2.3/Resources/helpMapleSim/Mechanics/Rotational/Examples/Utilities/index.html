@@ -1,0 +1,186 @@
+<html><head><title>Modelica.Mechanics.Rotational.Examples.Utilities</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Utilities"><h1><embed class="icon" src="../../../../images/icon0009.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">Rotational</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;Utilities<br><span class="subtitle">Utility classes used by rotational example models</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains utility models and functions used by some
+of the example models from the rotational mechanics package.
+</p>
+<p>Extends from <code><a href="../../../../Icons/UtilitiesPackage/index.html">Modelica.&#8203;Icons.&#8203;UtilitiesPackage</a></code> (Icon for utility packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#DirectInertia"><code>DirectInertia</code></a></td><td>Input/output block of a direct inertia model</td></tr>
+<tr><td><a href="#InverseInertia"><code>InverseInertia</code></a></td><td>Input/output block of an inverse inertia model</td></tr>
+<tr><td><a href="#Spring"><code>Spring</code></a></td><td>Input/output block of a spring model</td></tr>
+<tr><td><a href="#SpringDamper"><code>SpringDamper</code></a></td><td>Input/output block of a spring/damper model</td></tr>
+<tr><td><a href="#SpringDamperNoRelativeStates"><code>SpringDamperNoRelativeStates</code></a></td><td>Linear 1D rotational spring and damper in parallel (phi and w are not used as states)</td></tr>
+</table>
+<hr><a name="DirectInertia"><h2><embed class="icon" src="../../../../images/icon1198.svg" width="283" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">Rotational</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;DirectInertia<br><span class="subtitle">Input/output block of a direct inertia model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+A rotational component with pure signal interface which can be applied for
+a FMU (<a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>)
+exchange.
+The input torque <code>tauDrive</code> is applied on one side of a rotational
+component with inertia whereby the input torque <code>tau</code> is applied
+on the other side of it.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Mechanics/Rotational/Examples/Utilities/index.html#InverseInertia">InverseInertia</a>.
+</p>
+<p>Extends from <code><a href="../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>J</code></td><td><code>1</code></td><td>Inertia</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>tauDrive</code></td><td>Accelerating torque acting at flange (= -flange.tau)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>phi</code></td><td>Inertia moves with angle phi due to torque tau</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>w</code></td><td>Inertia moves with speed w due to torque tau</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>a</code></td><td>Inertia moves with acceleration a due to torque tau</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>tau</code></td><td>Torque to drive the inertia</td></tr>
+</table>
+<hr><a name="InverseInertia"><h2><embed class="icon" src="../../../../images/icon1199.svg" width="243" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">Rotational</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;InverseInertia<br><span class="subtitle">Input/output block of an inverse inertia model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+A rotational component with pure signal interface which can be applied for
+a FMU (<a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>)
+exchange.
+Based on the kinematic inputs applied on a component with inertia
+the output torque <code>tau</code> is returned.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Mechanics/Rotational/Examples/Utilities/index.html#DirectInertia">DirectInertia</a>.
+</p>
+<p>Extends from <code><a href="../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>J</code></td><td><code>1</code></td><td>Inertia</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>phi</code></td><td>Angle to drive the inertia</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>w</code></td><td>Speed to drive the inertia</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>a</code></td><td>Acceleration to drive the inertia</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>tau</code></td><td>Torque needed to drive the flange according to phi, w, a</td></tr>
+</table>
+<hr><a name="SpringDamper"><h2><embed class="icon" src="../../../../images/icon1200.svg" width="283" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">Rotational</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;SpringDamper<br><span class="subtitle">Input/output block of a spring/damper model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+A linear 1D rotational spring and damper in parallel with pure signal
+interface which can be applied for
+a FMU (<a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>)
+exchange.
+</p>
+<p>Extends from <code><a href="../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#RotationalSpringConstant">RotationalSpringConstant</a></code></td><td><code>c</code></td><td><code>10000</code></td><td>Spring constant</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#RotationalDampingConstant">RotationalDampingConstant</a></code></td><td><code>d</code></td><td><code>1</code></td><td>Damping constant</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>phi_rel0</code></td><td><code>0</code></td><td>Unstretched spring angle</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>phi1</code></td><td>Angle of left flange of force element</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>w1</code></td><td>Speed to left flange of force element</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>tau1</code></td><td>Torque generated by the force element</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>phi2</code></td><td>Angle of right flange of force element</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>w2</code></td><td>Speed to right flange of force element</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>tau2</code></td><td>Torque generated by the force element</td></tr>
+</table>
+<hr><a name="Spring"><h2><embed class="icon" src="../../../../images/icon1201.svg" width="283" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">Rotational</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;Spring<br><span class="subtitle">Input/output block of a spring model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+A linear 1D rotational spring with pure signal
+interface which can be applied for
+a FMU (<a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>)
+exchange.
+</p>
+<p>Extends from <code><a href="../../../../Blocks/Icons/index.html#Block">Modelica.&#8203;Blocks.&#8203;Icons.&#8203;Block</a></code> (Basic graphical layout of input/output block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#RotationalSpringConstant">RotationalSpringConstant</a></code></td><td><code>c</code></td><td><code>10000</code></td><td>Spring constant</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>phi_rel0</code></td><td><code>0</code></td><td>Unstretched spring angle</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>phi1</code></td><td>Angle of left flange of force element</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>tau1</code></td><td>Torque generated by the force element</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>phi2</code></td><td>Angle of right flange of force element</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>tau2</code></td><td>Torque generated by the force element</td></tr>
+</table>
+<hr><a name="SpringDamperNoRelativeStates"><h2><embed class="icon" src="../../../../images/icon1202.svg" width="223" height="213" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">Rotational</a>.&#8203;<a href="../index.html">Examples</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;SpringDamperNoRelativeStates<br><span class="subtitle">Linear 1D rotational spring and damper in parallel (phi and w are not used as states)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+A <strong>spring</strong> and <strong>damper</strong> element <strong>connected in parallel</strong>.
+The component can be
+connected either between two masses to describe the joint elasticity
+and damping, or between a mass and the housing (component Fixed),
+to describe a coupling of the element with the housing via a spring/damper.
+</p>
+
+<p>
+This is the same element as <a href="../../../../Mechanics/Rotational/Components/index.html#SpringDamper">Rotational.Components.SpringDamper</a>
+but with the only difference, that the relative quantities are not used as states. If the relative
+states are potentially used as states, "a_rel = der(w_rel)" is present, and then exporting this model
+as FMU requires to also have the accelerations in the flanges as inputs, which is usually not
+desired for a force element.
+</p>
+<p>Extends from <code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#PartialCompliant">Modelica.&#8203;Mechanics.&#8203;Rotational.&#8203;Interfaces.&#8203;PartialCompliant</a></code> (Partial model for the compliant connection of two rotational 1-dim. shaft flanges) and <code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#PartialElementaryConditionalHeatPortWithoutT">Modelica.&#8203;Thermal.&#8203;HeatTransfer.&#8203;Interfaces.&#8203;PartialElementaryConditionalHeatPortWithoutT</a></code> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#RotationalSpringConstant">RotationalSpringConstant</a></code></td><td><code>c</code></td><td>&nbsp;</td><td>Spring constant</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#RotationalDampingConstant">RotationalDampingConstant</a></code></td><td><code>d</code></td><td>&nbsp;</td><td>Damping constant</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>phi_rel0</code></td><td><code>0</code></td><td>Unstretched spring angle</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>Left flange of compliant 1-dim. rotational component</td></tr>
+<tr><td><code><a href="../../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>Right flange of compliant 1-dim. rotational component</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
+</table>
+</body></html>

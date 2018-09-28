@@ -1,0 +1,243 @@
+<html><head><title>Modelica.Electrical.QuasiStationary.SinglePhase.Sensors</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Sensors"><h1><embed class="icon" src="../../../../images/icon0460.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;Sensors<br><span class="subtitle">AC singlephase sensors</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package hosts sensors for quasi stationary single phase circuits.
+Quasi stationary theory for single phase circuits can be found in the
+<a href="../../../../Electrical/QuasiStationary/UsersGuide/index.html#References">references</a>.
+</p>
+<h4>See also</h4>
+
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Sensors/index.html">MultiPhase.Sensors</a>
+
+<p>Extends from <code><a href="../../../../Icons/SensorsPackage/index.html">Modelica.&#8203;Icons.&#8203;SensorsPackage</a></code> (Icon for packages containing sensors).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#CurrentSensor"><code>CurrentSensor</code></a></td><td>Current sensor</td></tr>
+<tr><td><a href="#FrequencySensor"><code>FrequencySensor</code></a></td><td>Frequency sensor</td></tr>
+<tr><td><a href="#MultiSensor"><code>MultiSensor</code></a></td><td>Sensor to measure current, voltage and power</td></tr>
+<tr><td><a href="#PotentialSensor"><code>PotentialSensor</code></a></td><td>Potential sensor</td></tr>
+<tr><td><a href="#PowerSensor"><code>PowerSensor</code></a></td><td>Power sensor</td></tr>
+<tr><td><a href="#ReferenceSensor"><code>ReferenceSensor</code></a></td><td>Sensor of reference angle gamma</td></tr>
+<tr><td><a href="#VoltageSensor"><code>VoltageSensor</code></a></td><td>Voltage sensor</td></tr>
+</table>
+<hr><a name="ReferenceSensor"><h2><embed class="icon" src="../../../../images/icon0790.svg" width="233" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;ReferenceSensor<br><span class="subtitle">Sensor of reference angle gamma</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+This sensor can be used to measure the reference angle.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#FrequencySensor">FrequencySensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#PotentialSensor">PotentialSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#VoltageSensor">VoltageSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#CurrentSensor">CurrentSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#PowerSensor">PowerSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#MultiSensor">MultiSensor</a>
+</p>
+
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#AbsoluteSensor">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;SinglePhase.&#8203;Interfaces.&#8203;AbsoluteSensor</a></code> (Partial potential sensor).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin</code></td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Reference angle</td></tr>
+</table>
+<hr><a name="FrequencySensor"><h2><embed class="icon" src="../../../../images/icon0791.svg" width="233" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;FrequencySensor<br><span class="subtitle">Frequency sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+This sensor can be used to measure the frequency of the reference system.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#ReferenceSensor">ReferenceSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#PotentialSensor">PotentialSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#VoltageSensor">VoltageSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#CurrentSensor">CurrentSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#PowerSensor">PowerSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#MultiSensor">MultiSensor</a>
+</p>
+
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#AbsoluteSensor">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;SinglePhase.&#8203;Interfaces.&#8203;AbsoluteSensor</a></code> (Partial potential sensor).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin</code></td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PotentialSensor"><h2><embed class="icon" src="../../../../images/icon0792.svg" width="233" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;PotentialSensor<br><span class="subtitle">Potential sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+This sensor can be used to measure the complex potential.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#ReferenceSensor">ReferenceSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#FrequencySensor">FrequencySensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#VoltageSensor">VoltageSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#CurrentSensor">CurrentSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#PowerSensor">PowerSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#MultiSensor">MultiSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#MultiSensor">MultiSensor</a>
+</p>
+
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#AbsoluteSensor">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;SinglePhase.&#8203;Interfaces.&#8203;AbsoluteSensor</a></code> (Partial potential sensor).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin</code></td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="VoltageSensor"><h2><embed class="icon" src="../../../../images/icon0793.svg" width="223" height="223" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;VoltageSensor<br><span class="subtitle">Voltage sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This sensor can be used to measure the complex voltage.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#ReferenceSensor">ReferenceSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#FrequencySensor">FrequencySensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#PotentialSensor">PotentialSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#CurrentSensor">CurrentSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#PowerSensor">PowerSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#MultiSensor">MultiSensor</a>
+</p>
+
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#RelativeSensor">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;SinglePhase.&#8203;Interfaces.&#8203;RelativeSensor</a></code> (Partial voltage / current sensor).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="CurrentSensor"><h2><embed class="icon" src="../../../../images/icon0794.svg" width="223" height="223" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;CurrentSensor<br><span class="subtitle">Current sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This sensor can be used to measure the complex current.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#ReferenceSensor">ReferenceSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#FrequencySensor">FrequencySensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#PotentialSensor">PotentialSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#VoltageSensor">VoltageSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#PowerSensor">PowerSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#MultiSensor">MultiSensor</a>
+</p>
+
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#RelativeSensor">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;SinglePhase.&#8203;Interfaces.&#8203;RelativeSensor</a></code> (Partial voltage / current sensor).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>Positive quasi-static single-phase pin</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>Negative quasi-static single-phase pin</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="PowerSensor"><h2><embed class="icon" src="../../../../images/icon0795.svg" width="223" height="233" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;PowerSensor<br><span class="subtitle">Power sensor</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+This sensor can be used to measure the complex apparent power.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#ReferenceSensor">ReferenceSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#FrequencySensor">FrequencySensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#PotentialSensor">PotentialSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#VoltageSensor">VoltageSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#CurrentSensor">CurrentSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#MultiSensor">MultiSensor</a>
+</p>
+
+<p>Extends from <code><a href="../../../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>currentP</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>currentN</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>voltageP</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>voltageN</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>y</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="MultiSensor"><h2><embed class="icon" src="../../../../images/icon0796.svg" width="233" height="233" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">SinglePhase</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;MultiSensor<br><span class="subtitle">Sensor to measure current, voltage and power</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This multi sensor measures current, voltage and instantaneous electrical power of a singlephase system and has a separated voltage and current path.
+The pins of the voltage path are pv and nv, the pins of the current path are pc and nc.
+The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#ReferenceSensor">ReferenceSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#FrequencySensor">FrequencySensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#PotentialSensor">PotentialSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#VoltageSensor">VoltageSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#CurrentSensor">CurrentSensor</a>,
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Sensors/index.html#PowerSensor">PowerSensor</a>,
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#RotationalSensor">Modelica.&#8203;Icons.&#8203;RotationalSensor</a></code> (Icon representing a round measurement device).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pc</code></td><td>Positive pin, current path</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>nc</code></td><td>Negative pin, current path</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pv</code></td><td>Positive pin, voltage path</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/SinglePhase/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>nv</code></td><td>Negative pin, voltage path</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>i</code></td><td>Current as complex output signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>v</code></td><td>Voltage as complex output signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../ComplexBlocks/Interfaces/index.html#ComplexOutput">ComplexOutput</a></code></td><td><code>apparentPower</code></td><td>Instantaneous apparent power as complex output signal</td></tr>
+</table>
+</body></html>

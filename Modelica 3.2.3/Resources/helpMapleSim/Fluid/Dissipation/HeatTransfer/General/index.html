@@ -1,0 +1,118 @@
+<html><head><title>Modelica.Fluid.Dissipation.HeatTransfer.General</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="General"><h1><embed class="icon" src="../../../../images/icon0573.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">HeatTransfer</a>.&#8203;General<br><span class="subtitle">Icon for package containing variants</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<h4>General heat transfer</h4>
+<h5>Approximated forced convection</h5>
+<p>Approximate calculation of the mean convective heat transfer coefficient <strong> kc </strong> for forced convection with a fully developed fluid flow in a turbulent regime. <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/HeatTransfer/General/index.html#kc_approxForcedConvection">See more information.</a></p>
+<p>Extends from <code><a href="../../../../Icons/VariantsPackage/index.html">Modelica.&#8203;Icons.&#8203;VariantsPackage</a></code> (Icon for package containing variants).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#kc_approxForcedConvection"><code>kc_approxForcedConvection</code></a></td><td>Mean convective heat transfer coefficient for forced convection | approximation | turbulent regime | hydrodynamically developed fluid flow</td></tr>
+<tr><td><a href="#kc_approxForcedConvection_IN_con"><code>kc_approxForcedConvection_IN_con</code></a></td><td>Input record for function kc_approxForcedConvection and kc_approxForcedConvection_KC</td></tr>
+<tr><td><a href="#kc_approxForcedConvection_IN_var"><code>kc_approxForcedConvection_IN_var</code></a></td><td>Input record for function kc_approxForcedConvection and kc_approxForcedConvection_KC</td></tr>
+<tr><td><a href="#kc_approxForcedConvection_KC"><code>kc_approxForcedConvection_KC</code></a></td><td>Mean convective heat transfer coefficient for forced convection | approximation | turbulent regime | hydrodynamically developed fluid flow</td></tr>
+</table>
+<hr><a name="kc_approxForcedConvection"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">HeatTransfer</a>.&#8203;<a href="index.html">General</a>.&#8203;kc_approxForcedConvection<br><span class="subtitle">Mean convective heat transfer coefficient for forced convection | approximation | turbulent regime | hydrodynamically developed fluid flow</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Approximate calculation of the mean convective heat transfer coefficient <strong> kc </strong> for forced convection with a fully developed fluid flow in a turbulent regime.
+</p>
+
+<p>
+A detailed documentation for this convective heat transfer calculation can be found in its underlying function
+<a href="../../../../Fluid/Dissipation/HeatTransfer/General/index.html#kc_approxForcedConvection_KC">kc_approxForcedConvection_KC</a> .
+Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/HeatTransfer/General/index.html#kc_approxForcedConvection">See more information</a> .
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Dissipation/HeatTransfer/General/index.html#kc_approxForcedConvection_IN_con">kc_approxForcedConvection_IN_con</a></code></td><td><code>IN_con</code></td><td>Input record for function kc_approxForcedConvection</td></tr>
+<tr><td><code><a href="../../../../Fluid/Dissipation/HeatTransfer/General/index.html#kc_approxForcedConvection_IN_var">kc_approxForcedConvection_IN_var</a></code></td><td><code>IN_var</code></td><td>Input record for function kc_approxForcedConvection</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#CoefficientOfHeatTransfer">CoefficientOfHeatTransfer</a></code></td><td><code>kc</code></td><td>Convective heat transfer coefficient</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#PrandtlNumber">PrandtlNumber</a></code></td><td><code>Pr</code></td><td>Prandtl number</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#ReynoldsNumber">ReynoldsNumber</a></code></td><td><code>Re</code></td><td>Reynolds number</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#NusseltNumber">NusseltNumber</a></code></td><td><code>Nu</code></td><td>Nusselt number</td></tr>
+<tr><td><code>Real</code></td><td><code>failureStatus</code></td><td>0== boundary conditions fulfilled | 1== failure &gt;&gt; check if still meaningful results</td></tr>
+</table>
+<hr><a name="kc_approxForcedConvection_KC"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">HeatTransfer</a>.&#8203;<a href="index.html">General</a>.&#8203;kc_approxForcedConvection_KC<br><span class="subtitle">Mean convective heat transfer coefficient for forced convection | approximation | turbulent regime | hydrodynamically developed fluid flow</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Approximate calculation of the mean convective heat transfer coefficient <strong> kc </strong> for forced convection with a fully developed fluid flow in a turbulent regime.
+<a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/HeatTransfer/General/index.html#kc_approxForcedConvection">See more information</a> .
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Dissipation/HeatTransfer/General/index.html#kc_approxForcedConvection_IN_con">kc_approxForcedConvection_IN_con</a></code></td><td><code>IN_con</code></td><td>Input record for function kc_approxForcedConvection_KC</td></tr>
+<tr><td><code><a href="../../../../Fluid/Dissipation/HeatTransfer/General/index.html#kc_approxForcedConvection_IN_var">kc_approxForcedConvection_IN_var</a></code></td><td><code>IN_var</code></td><td>Input record for function kc_approxForcedConvection_KC</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#CoefficientOfHeatTransfer">CoefficientOfHeatTransfer</a></code></td><td><code>kc</code></td><td>Output for function kc_approxForcedConvection_KC</td></tr>
+</table>
+<hr><a name="kc_approxForcedConvection_IN_con"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">HeatTransfer</a>.&#8203;<a href="index.html">General</a>.&#8203;kc_approxForcedConvection_IN_con<br><span class="subtitle">Input record for function kc_approxForcedConvection and kc_approxForcedConvection_KC</span></h2></a>
+<h3>Information</h3>
+<p>
+
+This record is used as <strong> input record </strong> for the heat transfer function <a href="../../../../Fluid/Dissipation/HeatTransfer/General/index.html#kc_approxForcedConvection"> kc_approxForcedConvection</a> and
+<a href="../../../../Fluid/Dissipation/HeatTransfer/General/index.html#kc_approxForcedConvection_KC"> kc_approxForcedConvection_KC</a>.
+<p>Extends from <code><a href="../../../../Fluid/Dissipation/Utilities/Records/HeatTransfer/index.html#General">Modelica.&#8203;Fluid.&#8203;Dissipation.&#8203;Utilities.&#8203;Records.&#8203;HeatTransfer.&#8203;General</a></code> (Input for generic correlation).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Fluid/Dissipation/Utilities/Types/index.html#kc_general">kc_general</a></code></td><td><code>target</code></td><td>Target correlation</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Area">Area</a></code></td><td><code>A_cross</code></td><td>Cross sectional area</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>perimeter</code></td><td>Wetted perimeter</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>exp_Pr</code></td><td>Exponent for Prandtl number w.r.t. Dittus/Boelter | 0.4 for heating | 0.3 for cooling</td></tr>
+</table>
+<hr><a name="kc_approxForcedConvection_IN_var"><h2><embed class="icon" src="../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Dissipation</a>.&#8203;<a href="../index.html">HeatTransfer</a>.&#8203;<a href="index.html">General</a>.&#8203;kc_approxForcedConvection_IN_var<br><span class="subtitle">Input record for function kc_approxForcedConvection and kc_approxForcedConvection_KC</span></h2></a>
+<h3>Information</h3>
+<p>
+
+This record is used as <strong> input record </strong> for the heat transfer function <a href="../../../../Fluid/Dissipation/HeatTransfer/General/index.html#kc_approxForcedConvection"> kc_approxForcedConvection</a> and
+<a href="../../../../Fluid/Dissipation/HeatTransfer/General/index.html#kc_approxForcedConvection_KC"> kc_approxForcedConvection_KC</a>.
+<p>Extends from <code><a href="../../../../Fluid/Dissipation/Utilities/Records/General/index.html#FluidProperties">Modelica.&#8203;Fluid.&#8203;Dissipation.&#8203;Utilities.&#8203;Records.&#8203;General.&#8203;FluidProperties</a></code> (Base record for fluid properties).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#SpecificHeatCapacityAtConstantPressure">SpecificHeatCapacityAtConstantPressure</a></code></td><td><code>cp</code></td><td>Specific heat capacity of fluid at constant pressure</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta</code></td><td>Dynamic viscosity of fluid</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#ThermalConductivity">ThermalConductivity</a></code></td><td><code>lambda</code></td><td>Thermal conductivity of fluid</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho</code></td><td>Density of fluid</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta_wall</code></td><td>Dynamic viscosity of fluid at wall temperature</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

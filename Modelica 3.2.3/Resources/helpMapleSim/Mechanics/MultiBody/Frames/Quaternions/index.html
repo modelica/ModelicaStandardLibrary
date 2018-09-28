@@ -1,0 +1,777 @@
+<html><head><title>Modelica.Mechanics.MultiBody.Frames.Quaternions</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Quaternions"><h1><embed class="icon" src="../../../../images/icon0092.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;Quaternions<br><span class="subtitle">Functions to transform rotational frame quantities based on quaternions (also called Euler parameters)</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Package <strong>Frames.Quaternions</strong> contains type definitions and
+functions to transform rotational frame quantities with quaternions.
+Functions of this package are currently only utilized in
+MultiBody.Parts.Body components, when quaternions shall be used
+as parts of the body states.
+Some functions are also used in a new Modelica package for
+B-Spline interpolation that is able to interpolate paths consisting of
+position vectors and orientation objects.
+</p>
+<h4>Content</h4>
+<p>In the table below an example is given for every function definition.
+The used variables have the following declaration:
+</p>
+<pre>
+   Quaternions.Orientation Q, Q1, Q2, Q_rel, Q_inv;
+   Real[3,3]   T, T_inv;
+   Real[3]     v1, v2, w1, w2, n_x, n_y, n_z, res_ori, phi;
+   Real[6]     res_equal;
+   Real        L, angle;
+</pre>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>
+  <tr><td><strong>Orientation Q;</strong></td>
+      <td>New type defining a quaternion object that describes<br>
+          the rotation of frame 1 into frame 2.
+      </td>
+  </tr>
+  <tr><td><strong>der_Orientation</strong> der_Q;</td>
+      <td>New type defining the first time derivative
+         of Frames.Quaternions.Orientation.
+      </td>
+  </tr>
+  <tr><td>res_ori = <strong>orientationConstraint</strong>(Q);</td>
+      <td>Return the constraints between the variables of a quaternion object<br>
+      (shall be zero).</td>
+  </tr>
+  <tr><td>w1 = <strong>angularVelocity1</strong>(Q, der_Q);</td>
+      <td>Return angular velocity resolved in frame 1 from
+          quaternion object Q<br> and its derivative der_Q.
+     </td>
+  </tr>
+  <tr><td>w2 = <strong>angularVelocity2</strong>(Q, der_Q);</td>
+      <td>Return angular velocity resolved in frame 2 from
+          quaternion object Q<br> and its derivative der_Q.
+     </td>
+  </tr>
+  <tr><td>v1 = <strong>resolve1</strong>(Q,v2);</td>
+      <td>Transform vector v2 from frame 2 to frame 1.
+      </td>
+  </tr>
+  <tr><td>v2 = <strong>resolve2</strong>(Q,v1);</td>
+      <td>Transform vector v1 from frame 1 to frame 2.
+     </td>
+  </tr>
+  <tr><td>[v1,w1] = <strong>multipleResolve1</strong>(Q, [v2,w2]);</td>
+      <td>Transform several vectors from frame 2 to frame 1.
+      </td>
+  </tr>
+  <tr><td>[v2,w2] = <strong>multipleResolve2</strong>(Q, [v1,w1]);</td>
+      <td>Transform several vectors from frame 1 to frame 2.
+      </td>
+  </tr>
+  <tr><td>Q = <strong>nullRotation</strong>()</td>
+      <td>Return quaternion object R that does not rotate a frame.
+      </td>
+  </tr>
+  <tr><td>Q_inv = <strong>inverseRotation</strong>(Q);</td>
+      <td>Return inverse quaternion object.
+      </td>
+  </tr>
+  <tr><td>Q_rel = <strong>relativeRotation</strong>(Q1,Q2);</td>
+      <td>Return relative quaternion object from two absolute
+          quaternion objects.
+      </td>
+  </tr>
+  <tr><td>Q2 = <strong>absoluteRotation</strong>(Q1,Q_rel);</td>
+      <td>Return absolute quaternion object from another
+          absolute<br> and a relative quaternion object.
+      </td>
+  </tr>
+  <tr><td>Q = <strong>planarRotation</strong>(e, angle);</td>
+      <td>Return quaternion object of a planar rotation.
+      </td>
+  </tr>
+  <tr><td>phi = <strong>smallRotation</strong>(Q);</td>
+      <td>Return rotation angles phi valid for a small rotation.
+      </td>
+  </tr>
+  <tr><td>Q = <strong>from_T</strong>(T);</td>
+      <td>Return quaternion object Q from transformation matrix T.
+      </td>
+  </tr>
+  <tr><td>Q = <strong>from_T_inv</strong>(T_inv);</td>
+      <td>Return quaternion object Q from inverse transformation matrix T_inv.
+      </td>
+  </tr>
+  <tr><td>T = <strong>to_T</strong>(Q);</td>
+      <td>Return transformation matrix T from quaternion object Q.
+      </td>
+  </tr>
+  <tr><td>T_inv = <strong>to_T_inv</strong>(Q);</td>
+      <td>Return inverse transformation matrix T_inv from quaternion object Q.
+      </td>
+  </tr>
+</table>
+<p>Extends from <code><a href="../../../../Icons/FunctionsPackage/index.html">Modelica.&#8203;Icons.&#8203;FunctionsPackage</a></code> (Icon for packages containing functions).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#absoluteRotation"><code>absoluteRotation</code></a></td><td>Return absolute quaternions orientation object from another absolute and a relative quaternions orientation object</td></tr>
+<tr><td><a href="#angularVelocity1"><code>angularVelocity1</code></a></td><td>Compute angular velocity resolved in frame 1 from quaternions orientation object and its derivative</td></tr>
+<tr><td><a href="#angularVelocity2"><code>angularVelocity2</code></a></td><td>Compute angular velocity resolved in frame 2 from quaternions orientation object and its derivative</td></tr>
+<tr><td><a href="#der_Orientation"><code>der_Orientation[4]</code></a></td><td>First time derivative of Quaternions.Orientation</td></tr>
+<tr><td><a href="#from_T"><code>from_T</code></a></td><td>Return quaternion orientation object Q from transformation matrix T</td></tr>
+<tr><td><a href="#from_T_inv"><code>from_T_inv</code></a></td><td>Return quaternion orientation object Q from inverse transformation matrix T_inv</td></tr>
+<tr><td><a href="#inverseRotation"><code>inverseRotation</code></a></td><td>Return inverse quaternions orientation object</td></tr>
+<tr><td><a href="#multipleResolve1"><code>multipleResolve1</code></a></td><td>Transform several vectors from frame 2 to frame 1</td></tr>
+<tr><td><a href="#multipleResolve2"><code>multipleResolve2</code></a></td><td>Transform several vectors from frame 1 to frame 2</td></tr>
+<tr><td><a href="#nullRotation"><code>nullRotation</code></a></td><td>Return quaternion orientation object that does not rotate a frame</td></tr>
+<tr><td><a href="#Orientation"><code>Orientation</code></a></td><td>Orientation type defining rotation from a frame 1 into a frame 2 with quaternions {p1,p2,p3,p0}</td></tr>
+<tr><td><a href="#orientationConstraint"><code>orientationConstraint</code></a></td><td>Return residues of orientation constraints (shall be zero)</td></tr>
+<tr><td><a href="#planarRotation"><code>planarRotation</code></a></td><td>Return quaternion orientation object of a planar rotation</td></tr>
+<tr><td><a href="#relativeRotation"><code>relativeRotation</code></a></td><td>Return relative quaternions orientation object</td></tr>
+<tr><td><a href="#resolve1"><code>resolve1</code></a></td><td>Transform vector from frame 2 to frame 1</td></tr>
+<tr><td><a href="#resolve2"><code>resolve2</code></a></td><td>Transform vector from frame 1 to frame 2</td></tr>
+<tr><td><a href="#smallRotation"><code>smallRotation</code></a></td><td>Return rotation angles valid for a small rotation</td></tr>
+<tr><td><a href="#to_T"><code>to_T</code></a></td><td>Return transformation matrix T from quaternion orientation object Q</td></tr>
+<tr><td><a href="#to_T_inv"><code>to_T_inv</code></a></td><td>Return inverse transformation matrix T_inv from quaternion orientation object Q</td></tr>
+</table>
+<hr><a name="Orientation"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Quaternions</a>.&#8203;Orientation<br><span class="subtitle">Orientation type defining rotation from a frame 1 into a frame 2 with quaternions {p1,p2,p3,p0}</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This type describes the <strong>rotation</strong> to rotate a frame 1 into
+a frame 2 using quaternions (also called <strong>Euler parameters</strong>)
+according to the following definition:
+</p>
+<pre>
+   Quaternions.Orientation Q;
+   Real  n[3];
+   Real  phi(unit="rad");
+   Q = [ n*sin(phi/2)
+           cos(phi/2) ]
+</pre>
+<p>
+where "n" is the <strong>axis of rotation</strong> to rotate frame 1 into
+frame 2 and "phi" is the <strong>rotation angle</strong> for this rotation.
+Vector "n" is either resolved in frame 1 or in frame 2
+(the result is the same since the coordinates of "n" with respect to
+frame 1 are identical to its coordinates with respect to frame 2).
+</p>
+<p>
+The term "quaternions" is preferred over the historically
+more reasonable "Euler parameters" in order to not get
+confused with Modelica "parameters".
+</p>
+<p>Extends from <code><a href="../../../../Mechanics/MultiBody/Frames/Internal/index.html#QuaternionBase">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Frames.&#8203;Internal.&#8203;QuaternionBase</a></code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="der_Orientation"><h2><embed class="icon" src="../../../../images/icon0293.svg" width="203" height="203" />
+Type <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Quaternions</a>.&#8203;der_Orientation<br><span class="subtitle">First time derivative of Quaternions.Orientation</span></h2></a>
+<p>Extends from <code>Real</code>.</p>
+<h3>Attributes</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Value</th></tr><tr><td><code>unit</code></td><td><code>"1/s"</code></td></tr>
+<tr><td><code>min</code></td><td><code>-Modelica.Constants.inf</code></td></tr>
+<tr><td><code>max</code></td><td><code>Modelica.Constants.inf</code></td></tr>
+<tr><td><code>start</code></td><td><code>0.</code></td></tr>
+</table>
+<hr><a name="orientationConstraint"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Quaternions</a>.&#8203;orientationConstraint<br><span class="subtitle">Return residues of orientation constraints (shall be zero)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+residue = Quaternions.<strong>orientationConstraint</strong>(Q);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns the Real residue vector with&nbsp;1 element only that describes the constraints
+between the&nbsp;4 elements of the
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">quaternions orientation</a>&nbsp;Q.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Mechanics/MultiBody/Frames/index.html#orientationConstraint">Frames.orientationConstraint</a>,
+<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#orientationConstraint">TransformationMatrices.orientationConstraint</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q[4]</code></td><td>Quaternions orientation object to rotate frame 1 into frame 2</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>residue[1]</code></td><td>Residue constraint (shall be zero)</td></tr>
+</table>
+<hr><a name="angularVelocity1"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Quaternions</a>.&#8203;angularVelocity1<br><span class="subtitle">Compute angular velocity resolved in frame 1 from quaternions orientation object and its derivative</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+w = Quaternions.<strong>angularVelocity1</strong>(Q, der_Q);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns the angular velocity&nbsp;w of frame&nbsp;2 with
+respect to frame&nbsp;1, <strong>resolved in frame&nbsp;1</strong>, from the
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">quaternions orientation</a>&nbsp;Q
+that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2
+and from its first time derivative der_Q.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Mechanics/MultiBody/Frames/index.html#angularVelocity1">Frames.angularVelocity1</a>,
+<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#angularVelocity1">TransformationMatrices.angularVelocity1</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q[4]</code></td><td>Quaternions orientation object to rotate frame 1 into frame 2</td></tr>
+<tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#der_Orientation">der_Orientation</a></code></td><td><code>der_Q[4]</code></td><td>Derivative of Q</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>w[3]</code></td><td>Angular velocity of frame 2 with respect to frame 1 resolved in frame 1</td></tr>
+</table>
+<hr><a name="angularVelocity2"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Quaternions</a>.&#8203;angularVelocity2<br><span class="subtitle">Compute angular velocity resolved in frame 2 from quaternions orientation object and its derivative</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+w = Quaternions.<strong>angularVelocity2</strong>(Q, der_Q);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns the angular velocity&nbsp;w of frame&nbsp;2 with
+respect to frame&nbsp;1, <strong>resolved in frame&nbsp;2</strong>, from the
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">quaternions orientation</a>&nbsp;Q
+that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2
+and from its first time derivative der_Q.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Mechanics/MultiBody/Frames/index.html#angularVelocity2">Frames.angularVelocity2</a>,
+<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#angularVelocity2">TransformationMatrices.angularVelocity2</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q[4]</code></td><td>Quaternions orientation object to rotate frame 1 into frame 2</td></tr>
+<tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#der_Orientation">der_Orientation</a></code></td><td><code>der_Q[4]</code></td><td>Derivative of Q</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>w[3]</code></td><td>Angular velocity of frame 2 with respect to frame 1 resolved in frame 2</td></tr>
+</table>
+<hr><a name="resolve1"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Quaternions</a>.&#8203;resolve1<br><span class="subtitle">Transform vector from frame 2 to frame 1</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+v1 = Quaternions.<strong>resolve1</strong>(Q, v2);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns vector&nbsp;v resolved in frame&nbsp;1 (=v1) from vector&nbsp;v
+resolved in frame&nbsp;2 (=v2) using the
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">quaternions orientation</a>&nbsp;Q
+that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#resolve2">resolve2</a>,
+<a href="../../../../Mechanics/MultiBody/Frames/index.html#resolve1">Frames.resolve1</a>,
+<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#resolve1">TransformationMatrices.resolve1</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q[4]</code></td><td>Quaternions orientation object to rotate frame 1 into frame 2</td></tr>
+<tr><td><code>Real</code></td><td><code>v2[3]</code></td><td>Vector in frame 2</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>v1[3]</code></td><td>Vector in frame 1</td></tr>
+</table>
+<hr><a name="resolve2"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Quaternions</a>.&#8203;resolve2<br><span class="subtitle">Transform vector from frame 1 to frame 2</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+v2 = Quaternions.<strong>resolve2</strong>(Q, v1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns vector&nbsp;v resolved in frame&nbsp;2 (=v2) from vector&nbsp;v
+resolved in frame&nbsp;1 (=v1) using the
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">quaternions orientation</a>&nbsp;Q
+that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#resolve1">resolve1</a>,
+<a href="../../../../Mechanics/MultiBody/Frames/index.html#resolve2">Frames.resolve2</a>,
+<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#resolve2">TransformationMatrices.resolve2</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q[4]</code></td><td>Quaternions orientation object to rotate frame 1 into frame 2</td></tr>
+<tr><td><code>Real</code></td><td><code>v1[3]</code></td><td>Vector in frame 1</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>v2[3]</code></td><td>Vector in frame 2</td></tr>
+</table>
+<hr><a name="multipleResolve1"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Quaternions</a>.&#8203;multipleResolve1<br><span class="subtitle">Transform several vectors from frame 2 to frame 1</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+v1 = Quaternions.<strong>multipleResolve1</strong>(Q, v2);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns vectors&nbsp;v resolved in frame&nbsp;1 (=v1) from vectors&nbsp;v
+resolved in frame&nbsp;2 (=v2) using the
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">quaternions orientation</a>&nbsp;Q
+that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#multipleResolve1">TransformationMatrices.multipleResolve1</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q[4]</code></td><td>Quaternions orientation object to rotate frame 1 into frame 2</td></tr>
+<tr><td><code>Real</code></td><td><code>v2[3,:]</code></td><td>Vectors in frame 2</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>v1[3,size(v2, 2)]</code></td><td>Vectors in frame 1</td></tr>
+</table>
+<hr><a name="multipleResolve2"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Quaternions</a>.&#8203;multipleResolve2<br><span class="subtitle">Transform several vectors from frame 1 to frame 2</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+v2 = Quaternions.<strong>multipleResolve2</strong>(Q, v1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns vectors&nbsp;v resolved in frame&nbsp;2 (=v2) from vectors&nbsp;v
+resolved in frame&nbsp;1 (=v1) using the
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">quaternions orientation</a>&nbsp;Q
+that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#multipleResolve2">TransformationMatrices.multipleResolve2</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q[4]</code></td><td>Quaternions orientation object to rotate frame 1 into frame 2</td></tr>
+<tr><td><code>Real</code></td><td><code>v1[3,:]</code></td><td>Vectors in frame 1</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>v2[3,size(v1, 2)]</code></td><td>Vectors in frame 2</td></tr>
+</table>
+<hr><a name="nullRotation"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Quaternions</a>.&#8203;nullRotation<br><span class="subtitle">Return quaternion orientation object that does not rotate a frame</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Q = Quaternions.<strong>nullRotation</strong>();
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns a
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">quaternions orientation</a>&nbsp;Q
+describing the orientation object to rotate frame&nbsp;1 into frame&nbsp;2, if frame&nbsp;1 and frame&nbsp;2 are identical.
+(= transformation matrix is identity matrix and angular velocity is zero).
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Mechanics/MultiBody/Frames/index.html#nullRotation">Frames.nullRotation</a>,
+<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#nullRotation">TransformationMatrices.nullRotation</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q[4]</code></td><td>Quaternions orientation object to rotate frame 1 into frame 2</td></tr>
+</table>
+<hr><a name="inverseRotation"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Quaternions</a>.&#8203;inverseRotation<br><span class="subtitle">Return inverse quaternions orientation object</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Q_inv = Quaternions.<strong>inverseRotation</strong>(Q);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">quaternions orientation</a>&nbsp;Q_inv
+that describes the orientation to rotate from frame&nbsp;2 to frame&nbsp;1
+from the
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">quaternions orientation</a>&nbsp;Q
+that describes the orientation to rotate from frame&nbsp;1 into frame&nbsp;2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Mechanics/MultiBody/Frames/index.html#inverseRotation">Frames.inverseRotation</a>,
+<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#inverseRotation">TransformationMatrices.inverseRotation</a>.
+
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q[4]</code></td><td>Quaternions orientation object to rotate frame 1 into frame 2</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q_inv[4]</code></td><td>Quaternions orientation object to rotate frame 2 into frame 1</td></tr>
+</table>
+<hr><a name="relativeRotation"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Quaternions</a>.&#8203;relativeRotation<br><span class="subtitle">Return relative quaternions orientation object</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Q_rel = Quaternions.<strong>relativeRotation</strong>(Q1, Q2);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">quaternions orientation</a>&nbsp;Q_rel
+that describes the orientation to rotate frame&nbsp;1 to frame&nbsp;2 from the
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">quaternions orientation</a>&nbsp;Q1
+that describes the orientation to rotate from frame&nbsp;0 to frame&nbsp;1 and from the
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">quaternions orientation</a>&nbsp;Q2
+that describes the orientation to rotate from frame&nbsp;0 to frame&nbsp;2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Mechanics/MultiBody/Frames/index.html#relativeRotation">Frames.relativeRotation</a>,
+<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#relativeRotation">TransformationMatrices.relativeRotation</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q1[4]</code></td><td>Quaternions orientation object to rotate frame 0 into frame 1</td></tr>
+<tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q2[4]</code></td><td>Quaternions orientation object to rotate frame 0 into frame 2</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q_rel[4]</code></td><td>Quaternions orientation object to rotate frame 1 into frame 2</td></tr>
+</table>
+<hr><a name="absoluteRotation"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Quaternions</a>.&#8203;absoluteRotation<br><span class="subtitle">Return absolute quaternions orientation object from another absolute and a relative quaternions orientation object</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Q2 = Quaternions.<strong>absoluteRotation</strong>(Q1, Q_rel);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">quaternions orientation</a>&nbsp;Q2
+that describes the orientation frame&nbsp;0 to frame&nbsp;2 from the
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">quaternions orientation</a>&nbsp;Q1
+that describes the orientation to rotate from frame&nbsp;0 to frame&nbsp;1 and from the relative
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">quaternions orientation</a> Q_rel
+that describes the orientation to rotate from frame&nbsp;1 to frame&nbsp;2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Mechanics/MultiBody/Frames/index.html#absoluteRotation">Frames.absoluteRotation</a>,
+<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#absoluteRotation">TransformationMatrices.absoluteRotation</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q1[4]</code></td><td>Quaternions orientation object to rotate frame 0 into frame 1</td></tr>
+<tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q_rel[4]</code></td><td>Quaternions orientation object to rotate frame 1 into frame 2</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q2[4]</code></td><td>Quaternions orientation object to rotate frame 0 into frame 2</td></tr>
+</table>
+<hr><a name="planarRotation"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Quaternions</a>.&#8203;planarRotation<br><span class="subtitle">Return quaternion orientation object of a planar rotation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Q = Quaternions.<strong>planarRotation</strong>(e, angle);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">quaternions orientation</a>&nbsp;Q
+that describes the orientation to rotate in the plane along unit
+axis <strong>e</strong> from frame 1 into frame 2 with angle <strong>angle</strong>.
+Note, "e" must be a unit vector. However, this is not checked in this function and the function will
+return a wrong result, if length(e) is not one.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Mechanics/MultiBody/Frames/index.html#planarRotation">Frames.planarRotation</a>,
+<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#planarRotation">TransformationMatrices.planarRotation</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>e[3]</code></td><td>Normalized axis of rotation (must have length=1)</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>angle</code></td><td>Rotation angle to rotate frame 1 into frame 2 along axis e</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q[4]</code></td><td>Quaternions orientation object to rotate frame 1 into frame 2 along axis e</td></tr>
+</table>
+<hr><a name="smallRotation"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Quaternions</a>.&#8203;smallRotation<br><span class="subtitle">Return rotation angles valid for a small rotation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+phi = Quaternions.<strong>smallRotation</strong>(Q);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns rotation angles valid for a small rotation of x-y-z sequence (i.e. {1,2,3}).
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Mechanics/MultiBody/Frames/index.html#smallRotation">Frames.smallRotation</a>,
+<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#smallRotation">TransformationMatrices.smallRotation</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q[4]</code></td><td>Quaternions orientation object to rotate frame 1 into frame 2</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>phi[3]</code></td><td>The rotation angles around x-, y-, and z-axis of frame 1 to rotate frame 1 into frame 2 for a small relative rotation</td></tr>
+</table>
+<hr><a name="from_T"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Quaternions</a>.&#8203;from_T<br><span class="subtitle">Return quaternion orientation object Q from transformation matrix T</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Q = Quaternions.<strong>from_T</strong>(T, Q_guess);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns a
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">quaternions orientation</a>&nbsp;Q.
+computed from a transformation matrix&nbsp;T
+and depending on the initial guess Q_guess.
+Generally, the transformation matrix&nbsp;T can be gained using a function from the
+<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html">TransformationMatrices</a>
+package.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#to_T">to_T</a>.
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#from_T_inv">from_T_inv</a>,
+<a href="../../../../Mechanics/MultiBody/Frames/index.html#from_T">Frames.from_T</a>,
+<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#from_T">TransformationMatrices.from_T</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>T[3,3]</code></td><td>Transformation matrix to transform vector from frame 1 to frame 2 (v2=T*v1)</td></tr>
+<tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q_guess[4]</code></td><td>Guess value for Q (there are 2 solutions; the one close to Q_guess is used</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q[4]</code></td><td>Quaternions orientation object to rotate frame 1 into frame 2 (Q and -Q have same transformation matrix)</td></tr>
+</table>
+<hr><a name="from_T_inv"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Quaternions</a>.&#8203;from_T_inv<br><span class="subtitle">Return quaternion orientation object Q from inverse transformation matrix T_inv</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Q = Quaternions.<strong>from_T_inv</strong>(T_inv, Q_guess);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns a
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">quaternions orientation</a>&nbsp;Q.
+computed from an inverse transformation matrix T_inv
+and depending on the initial guess Q_guess.
+Generally, the transformation matrix T_inv can be gained using a function from the
+<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html">TransformationMatrices</a>
+package, e.g. using T_inv = <a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#inverseRotation">inverseRotation</a>(T).
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#from_T">from_T</a>,
+<a href="../../../../Mechanics/MultiBody/Frames/index.html#from_T_inv">Frames.from_T_inv</a>,
+<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#from_T_inv">TransformationMatrices.from_T_inv</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>T_inv[3,3]</code></td><td>Inverse transformation matrix to transform vector from frame 2 to frame 1 (v1=T_inv*v2)</td></tr>
+<tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q_guess[4]</code></td><td>Guess value for output Q (there are 2 solutions; the one closer to Q_guess is used</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q[4]</code></td><td>Quaternions orientation object to rotate frame 1 into frame 2 (Q and -Q have same transformation matrix)</td></tr>
+</table>
+<hr><a name="to_T"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Quaternions</a>.&#8203;to_T<br><span class="subtitle">Return transformation matrix T from quaternion orientation object Q</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+T = Quaternions.<strong>to_T</strong>(Q);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns a real matrix&nbsp;T
+<!--<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;T-->
+computed from a
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">quaternions orientation</a>&nbsp;Q.
+The matrix&nbsp;T is considered to be an object transformation matrix.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#from_T">from_T</a>,
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#to_T_inv">to_T_inv</a>,
+<a href="../../../../Mechanics/MultiBody/Frames/index.html#to_T">Frames.to_T</a>,
+<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#to_T">TransformationMatrices.to_T</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q[4]</code></td><td>Quaternions orientation object to rotate frame 1 into frame 2</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>T[3,3]</code></td><td>Transformation matrix to transform vector from frame 1 to frame 2 (v2=T*v1)</td></tr>
+</table>
+<hr><a name="to_T_inv"><h2><embed class="icon" src="../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Frames</a>.&#8203;<a href="index.html">Quaternions</a>.&#8203;to_T_inv<br><span class="subtitle">Return inverse transformation matrix T_inv from quaternion orientation object Q</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+T_inv = Quaternions.<strong>to_T_inv</strong>(Q);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns a real matrix&nbsp;T_inv
+computed from a
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">quaternions orientation</a>&nbsp;Q.
+The matrix&nbsp;T is considered to be an inverse transformation matrix.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#to_T">to_T</a>,
+<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#from_T_inv">from_T_inv</a>,
+<a href="../../../../Mechanics/MultiBody/Frames/index.html#to_T_inv">Frames.to_T_inv</a>,
+<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#to_T_inv">TransformationMatrices.to_T_inv</a>.
+</p>
+<p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">Orientation</a></code></td><td><code>Q[4]</code></td><td>Quaternions orientation object to rotate frame 1 into frame 2</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>T_inv[3,3]</code></td><td>Transformation matrix to transform vector from frame 2 to frame 1 (v1=T*v2)</td></tr>
+</table>
+</body></html>

@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+ObsoleteModelica3.Electrical.Analog.Basic.HeatingResistor</title>
+</head>
+<body>
+<h1><a href="Icons/f3ca61ef7cfed0d4e4ae283d6502a9d6f4399a20.svg"><img class="svgiconhead" src="Icons/f3ca61ef7cfed0d4e4ae283d6502a9d6f4399a20.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ObsoleteModelica3.html">ObsoleteModelica3</a>.<a class="omc-h1-a" href="ObsoleteModelica3.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="ObsoleteModelica3.Electrical.Analog.html">Analog</a>.<a class="omc-h1-a" href="ObsoleteModelica3.Electrical.Analog.Basic.html">Basic</a>.<span class="omc-h1">HeatingResistor</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This is a model for an electrical resistor where the generated
+heat is dissipated to the environment via connector
+<strong>heatPort</strong> and where the resistance R is temperature
+dependent according to the following equation:</p>
+<pre>    R = R_ref*(1 + alpha*(heatPort.T - T_ref))
+</pre>
+<p><strong>alpha</strong> is the <strong>temperature coefficient of
+resistance</strong>, which is often abbreviated as
+<strong>TCR</strong>. In resistor catalogues, it is usually defined
+as <strong>X [ppm/K]</strong> (parts per million, similarly to
+percentage) meaning <strong>X*1.e-6 [1/K]</strong>. Resistors are
+available for 1 .. 7000 ppm/K, i.e., alpha = 1e-6 .. 7e-3 1/K;</p>
+<p>When connector <strong>heatPort</strong> is <strong>not</strong>
+connected, the temperature dependent behaviour is switched off by
+setting heatPort.T = T_ref. Additionally, the equation
+<code>heatPort.Q_flow = 0</code> is implicitly present due to a
+special rule in Modelica that flow variables of not connected
+connectors are set to zero.</p>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><em>2002</em> by Anton Haumer<br />
+initially implemented<br /></li>
+</ul>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

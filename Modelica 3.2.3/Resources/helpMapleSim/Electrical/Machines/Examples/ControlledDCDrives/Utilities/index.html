@@ -1,0 +1,244 @@
+<html><head><title>Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Utilities"><h1><embed class="icon" src="../../../../../images/icon0009.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">Machines</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ControlledDCDrives</a>.&#8203;Utilities<br><span class="subtitle">Utilities for controlled drives</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package contains utilities for controlled drives</p>
+<p>Extends from <code><a href="../../../../../Icons/UtilitiesPackage/index.html">Modelica.&#8203;Icons.&#8203;UtilitiesPackage</a></code> (Icon for utility packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Battery"><code>Battery</code></a></td><td>Simple battery model</td></tr>
+<tr><td><a href="#DcdcInverter"><code>DcdcInverter</code></a></td><td>DC-DC inverter</td></tr>
+<tr><td><a href="#DriveDataDCPM"><code>DriveDataDCPM</code></a></td><td>Parameters of a controlled DC permanent magnet drive</td></tr>
+<tr><td><a href="#IdealDcDc"><code>IdealDcDc</code></a></td><td>Ideal DC-DC inverter</td></tr>
+<tr><td><a href="#LimitedPI"><code>LimitedPI</code></a></td><td>Limited PI-controller with anti-windup and feed-forward</td></tr>
+<tr><td><a href="#PartialControlledDCPM"><code>PartialControlledDCPM</code></a></td><td>Partial controlled DC PM drive with H-bridge from battery</td></tr>
+<tr><td><a href="#SwitchingDcDc"><code>SwitchingDcDc</code></a></td><td>Switching DC-DC inverter</td></tr>
+</table>
+<hr><a name="PartialControlledDCPM"><h2><embed class="icon" src="../../../../../images/icon0566.svg" width="303" height="203" />
+Partial Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">Machines</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ControlledDCDrives</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;PartialControlledDCPM<br><span class="subtitle">Partial controlled DC PM drive with H-bridge from battery</span></h2></a>
+<h3>Information</h3>
+<p>
+
+  <p>This is a partial model of a controlled DC PM drive.</p>
+<p>
+Electrical power is taken from a battery (constant voltage with inner resistance) and fed to the motor via a DC-DC inverter.
+The level of detail of the DC-DC inverter may be chosen from ideal averaging or switching.
+The DC-DC inverter is commanded by the current controller.
+The current controller is parameterized according to the absolute optimum.
+</p>
+<p>
+Further reading:
+<a href="../../../../../../Documentation/Electrical/Machines/DriveControl.pdf">Tutorial at the Modelica Conference 2017</a>
+</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../../Electrical/Machines/Examples/ControlledDCDrives/Utilities/index.html#DriveDataDCPM">DriveDataDCPM</a></code></td><td><code>driveData</code></td><td>&nbsp;</td><td>&nbsp</td></tr>
+</table>
+<hr><a name="DriveDataDCPM"><h2><embed class="icon" src="../../../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">Machines</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ControlledDCDrives</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;DriveDataDCPM<br><span class="subtitle">Parameters of a controlled DC permanent magnet drive</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Calculates controller parameters of a DC permanent magnet drive:
+Current controller according to absolute optimum, speed controller according to symmetric optimum.
+</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code><a href="../../../../../Electrical/Machines/Utilities/ParameterRecords/index.html#DcPermanentMagnetData">DcPermanentMagnetData</a></code></td><td><code>motorData</code></td><td>Motor data</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ra</code></td><td>Armature resistance at nominal temperature</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Ta</code></td><td>Armature time constant</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#Power">Power</a></code></td><td><code>PNominal</code></td><td>Nominal mechanical output</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>tauNominal</code></td><td>Nominal torque</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#ElectricalTorqueConstant">ElectricalTorqueConstant</a></code></td><td><code>kPhi</code></td><td>Torque constant</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>w0</code></td><td>No-load speed</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fS</code></td><td>Switching frequency</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VBat</code></td><td>DC no-load voltage</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Td</code></td><td>Dead time of inverter</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Tmf</code></td><td>Measurement filter time constant</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Tsigma</code></td><td>Sum of small time constants</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#Inertia">Inertia</a></code></td><td><code>JL</code></td><td>Load inertia</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VaMax</code></td><td>Maximum Voltage</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#Current">Current</a></code></td><td><code>IaMax</code></td><td>Maximum current</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#Torque">Torque</a></code></td><td><code>tauMax</code></td><td>Maximum torque</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>wMax</code></td><td>Maximum speed</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#AngularAcceleration">AngularAcceleration</a></code></td><td><code>aMax</code></td><td>Maximum acceleration</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>kpI</code></td><td>Proportional gain</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>TiI</code></td><td>Integral time constant</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Tsub</code></td><td>Substitute time constant</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>kpw</code></td><td>Proportional gain</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Tiw</code></td><td>Integral time constant</td></tr>
+<tr><td>parameter <code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Tfw</code></td><td>Filter time constant</td></tr>
+<tr><td>parameter <code>Real</code></td><td><code>kpP</code></td><td>Proportional gain</td></tr>
+</table>
+<hr><a name="LimitedPI"><h2><embed class="icon" src="../../../../../images/icon0568.svg" width="283" height="243" />
+Block <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">Machines</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ControlledDCDrives</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;LimitedPI<br><span class="subtitle">Limited PI-controller with anti-windup and feed-forward</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Proportional - Integral - controller with optional feed-forward and limitation at the output.
+</p>
+<p>
+The integral part can be switched off to obtain a limited P-controller.
+</p>
+<p>
+The feed-forward gain can either be constant or given by the optional input kFF.
+</p>
+<p>
+When the output is limited, the controller cannot bring the control error to zero and the integrator will not stop integrating.
+To avoid this <strong>WindUp</strong> - effect, an <strong>Anti-WindUp</strong> loop is implemented:
+The difference between unlimited and limited output is fed back to the integrator's input.
+</p>
+<p>Extends from <code><a href="../../../../../Blocks/Interfaces/index.html#SISO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;SISO</a></code> (Single Input Single Output continuous control block).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>k</code></td><td><code>1</code></td><td>Gain</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useI</code></td><td><code>true</code></td><td>PI else P</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Ti</code></td><td><code>1</code></td><td>Integral time constant (T&gt;0 required)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useFF</code></td><td><code>false</code></td><td>Use feed-forward?</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useConstantKFF</code></td><td><code>true</code></td><td>Use constant feed-forward factor?</td></tr>
+<tr><td><code>Real</code></td><td><code>KFF</code></td><td><code>1</code></td><td>Feed-forward gain</td></tr>
+<tr><td><code>Boolean</code></td><td><code>constantLimits</code></td><td><code>true</code></td><td>Use constant limits?</td></tr>
+<tr><td><code>Boolean</code></td><td><code>symmetricLimits</code></td><td><code>true</code></td><td>Use symmetric limits?</td></tr>
+<tr><td><code>Real</code></td><td><code>yMax</code></td><td><code>inf</code></td><td>Upper limit of output</td></tr>
+<tr><td><code>Real</code></td><td><code>yMin</code></td><td><code>-yMax</code></td><td>Lower limit of output</td></tr>
+<tr><td><code><a href="../../../../../Blocks/Types/index.html#Init">Init</a></code></td><td><code>initType</code></td><td><code>Modelica.&#8203;Blocks.&#8203;Types.&#8203;Init.&#8203;NoInit</code></td><td>Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)</td></tr>
+<tr><td><code>Real</code></td><td><code>x_start</code></td><td><code>0</code></td><td>Initial or guess value of state</td></tr>
+<tr><td><code>Real</code></td><td><code>y_start</code></td><td><code>0</code></td><td>Initial value of output</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u</code></td><td>Connector of Real input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>u_m</code></td><td>Connector of measured signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>feedForward</code></td><td>Connector of feed-forward signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>kFF</code></td><td>Connector of feed-forward factor</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>yMaxVar</code></td><td>Connector of yMax input signal</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>yMinVar</code></td><td>Connector of yMin input signal</td></tr>
+</table>
+<hr><a name="Battery"><h2><embed class="icon" src="../../../../../images/icon0569.svg" width="203" height="213" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">Machines</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ControlledDCDrives</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;Battery<br><span class="subtitle">Simple battery model</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a simple model of a DC-source resp. battery, consisting of a constant DC-voltage and an inner resistance.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>V0</code></td><td>&nbsp;</td><td>No-load voltage</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Current">Current</a></code></td><td><code>INominal</code></td><td>&nbsp;</td><td>Nominal current</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ri</code></td><td><code>0.05 * V0 / INominal</code></td><td>Inner resistance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_n</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="DcdcInverter"><h2><embed class="icon" src="../../../../../images/icon0570.svg" width="263" height="223" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">Machines</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ControlledDCDrives</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;DcdcInverter<br><span class="subtitle">DC-DC inverter</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This is a model of a DC-DC inverter. The level of detail of the DC-DC inverter may be chosen from ideal averaging or switching.</p>
+<p>Reference voltage is limited to actual battery voltage.</p>
+<p>Battery voltage and motor current are measured.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>useIdealInverter</code></td><td><code>true</code></td><td>Use ideal averaging inverter, otherwise switching inverter</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fS</code></td><td>&nbsp;</td><td>Switching frequency</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Td</code></td><td><code>0.5 / fS</code></td><td>Dead time</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Tmf</code></td><td><code>2 / fS</code></td><td>Measurement filter time constant</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VMax</code></td><td>&nbsp;</td><td>Maximum Voltage</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Ti</code></td><td><code>1e-6</code></td><td>Time constant of integral power controller</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RonT</code></td><td><code>1e-5</code></td><td>Transistor closed resistance</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>GoffT</code></td><td><code>1e-5</code></td><td>Transistor opened conductance</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VkneeT</code></td><td><code>0</code></td><td>Transistor threshold voltage</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RonD</code></td><td><code>1e-5</code></td><td>Diode closed resistance</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>GoffD</code></td><td><code>1e-5</code></td><td>Diode opened conductance</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VkneeD</code></td><td><code>0</code></td><td>Diode threshold voltage</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_pBat</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_nBat</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_pMot</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_nMot</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>vRef</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>vDC</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>iDC</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>vMot</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>iMot</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="IdealDcDc"><h2><embed class="icon" src="../../../../../images/icon0571.svg" width="253" height="225" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">Machines</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ControlledDCDrives</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;IdealDcDc<br><span class="subtitle">Ideal DC-DC inverter</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This is a model of an ideal DC-DC inverter based on a power balance achieved by an integral controller.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Td</code></td><td>&nbsp;</td><td>Dead time</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Time">Time</a></code></td><td><code>Ti</code></td><td><code>1e-6</code></td><td>Time constant of integral power controller</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_nBat</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_pBat</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_nMot</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_pMot</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>vRef</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="SwitchingDcDc"><h2><embed class="icon" src="../../../../../images/icon0572.svg" width="253" height="223" />
+Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Electrical</a>.&#8203;<a href="../../../index.html">Machines</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ControlledDCDrives</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;SwitchingDcDc<br><span class="subtitle">Switching DC-DC inverter</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This is a model of a switching DC-DC inverter based on a H-bridge.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Frequency">Frequency</a></code></td><td><code>fS</code></td><td>&nbsp;</td><td>Switching frequency</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VMax</code></td><td>&nbsp;</td><td>Maximum Voltage</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RonT</code></td><td><code>1e-5</code></td><td>Transistor closed resistance</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>GoffT</code></td><td><code>1e-5</code></td><td>Transistor opened conductance</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VkneeT</code></td><td><code>0</code></td><td>Transistor threshold voltage</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>RonD</code></td><td><code>1e-5</code></td><td>Diode closed resistance</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>GoffD</code></td><td><code>1e-5</code></td><td>Diode opened conductance</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>VkneeD</code></td><td><code>0</code></td><td>Diode threshold voltage</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_nBat</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_pBat</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_pMot</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_nMot</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>vRef</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>vMax</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

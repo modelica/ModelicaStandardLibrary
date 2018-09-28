@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.SlipRatio</title>
+</head>
+<body>
+<h1><a href="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg"><img class="svgiconhead" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.Functions.html">Functions</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.html">PressureLoss</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.html">TwoPhase</a>.<span class="omc-h1">SlipRatio</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<pre>Calculation of (analytical/empirical) slip ratio</pre>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>function SlipRatio
+  extends Modelica.Icons.Function;
+  input Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach voidFractionApproach = Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous "Choice of void fraction approach" annotation(
+    Dialog(group = "Choices"));
+  input SI.Density rho_g(min = Modelica.Constants.eps) "Density of gaseous phase" annotation(
+    Dialog);
+  input SI.Density rho_l(min = Modelica.Constants.eps) "Density of liquid phase" annotation(
+    Dialog);
+  input Real x_flow = 0 "Mass flow rate quality" annotation(
+    Dialog);
+  output Real SR "Slip ratio";
+end SlipRatio;</pre></blockquote>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

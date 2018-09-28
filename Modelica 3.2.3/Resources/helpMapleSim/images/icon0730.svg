@@ -1,0 +1,20 @@
+<svg width="243" height="263" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse" class="component">
+		<polygon points="41.5,221.5 241.5,221.5 241.5,21.5 41.5,21.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="101.5,141.5 101.5,145.5 121.5,145.5 121.5,161.5 101.5,161.5 101.5,181.5" fill-opacity="0" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="161.5,141.5 161.5,165.5 181.5,165.5 181.5,181.5 161.5,181.5" fill-opacity="0" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="141.5" y="105.0" text-anchor="middle" fill="#FF00FF" font-size="36.9px" font-family="sans-serif">2*3%</text>
+		<g id="firingAngle" class="port">
+			<polygon points="161.5,261.5 141.5,221.5 121.5,261.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="fire_p" class="port">
+			<polygon points="71.5,21.5 81.5,1.5 91.5,21.5" fill="#FFFFFF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="fire_n" class="port">
+			<polygon points="191.5,21.5 201.5,1.5 211.5,21.5" fill="#FFFFFF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="v" class="port">
+			<polygon points="1.5,101.5 41.5,121.5 1.5,141.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

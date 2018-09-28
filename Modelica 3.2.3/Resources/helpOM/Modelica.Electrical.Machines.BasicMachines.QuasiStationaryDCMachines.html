@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines</title>
+</head>
+<body>
+<h1><a href="Icons/9b87e99753a1d017dd6abcd8e995916dab379bf5.svg"><img class="svgiconhead" src="Icons/9b87e99753a1d017dd6abcd8e995916dab379bf5.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.html">Machines</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.BasicMachines.html">BasicMachines</a>.<span class="omc-h1">QuasiStationaryDCMachines</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This package contains quasistationary models of DC machines;
+these models are fully compatible with the <a href="Modelica.Electrical.Machines.BasicMachines.DCMachines.html">transient
+machine models of DC machines</a>; the only difference is that
+electrical transients are neglected.</p>
+<h4>Please note:</h4>
+<p>Quasistationary DC machine models are basically different from
+quasistationary induction machine models: Quasistationary DC
+machine models neglect electrical transients, i.e., setting
+<code>der(i) = 0</code>, whereas quasistationary induction machine
+models are based on time phasor theory, see <a href="Modelica.Electrical.QuasiStationary.html">QuasiStationary
+Library</a>, where e.g., <code>L*der(i)</code> is replaced by
+<code>j*omega*L*(I_re+j*I_im)</code>.</p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_PermanentMagnet.html">
+<img class="svgiconsmall" src="Icons/95c198aa96d6917378accc3dc6a3ed7142e2467a.svg" /></a>&nbsp;<a href="Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_PermanentMagnet.html">DC_PermanentMagnet</a></td>
+<td>Quasistationary permanent magnet DC machine</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_ElectricalExcited.html">
+<img class="svgiconsmall" src="Icons/793527718af1c784b854f4638e1fd520db6c69a9.svg" /></a>&nbsp;<a href="Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_ElectricalExcited.html">DC_ElectricalExcited</a></td>
+<td>Quasistationary electrical shunt/separate excited linear DC
+machine</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_SeriesExcited.html">
+<img class="svgiconsmall" src="Icons/eee6aafbf977786c750d5c13592674517003cb7a.svg" /></a>&nbsp;<a href="Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_SeriesExcited.html">DC_SeriesExcited</a></td>
+<td>Quasistationary series excited linear DC machine</td>
+</tr>
+</table>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<dl>
+<dt><strong>Main Authors:</strong></dt>
+<dd><a href="https://www.haumer.at/">Anton Haumer</a><br />
+Technical Consulting &amp; Electrical Engineering<br />
+D-93049 Regensburg<br />
+Germany<br />
+email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a></dd>
+<dt><strong>Copyright:</strong></dt>
+<dd>Copyright © 1998-2018, Modelica Association and Anton
+Haumer.<br />
+<em>The Modelica package is <strong>free</strong> software; it can
+be redistributed and/or modified under the terms of the
+<strong>Modelica license</strong>, see the license conditions and
+the accompanying <strong>disclaimer</strong> in the documentation
+of package Modelica in file "Modelica/package.mo".</em></dd>
+</dl>
+<ul>
+<li>v2.3.0 2010/02/16 Anton Haumer<br />
+first implementation</li>
+</ul>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

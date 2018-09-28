@@ -1,0 +1,20 @@
+<svg width="213" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.StateGraph.Alternative" class="component">
+		<polyline points="27.5,1.5 187.5,1.5" fill-opacity="0" stroke="#000000" stroke-dasharray="1 2" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="27.5,201.5 187.5,201.5" fill-opacity="0" stroke="#000000" stroke-dasharray="1 2" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="7.5,101.5 27.5,101.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="187.5,101.5 207.5,101.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="inPort" class="port">
+			<polygon points="1.5,98.5 7.5,101.5 1.5,104.5" fill="#000000" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="outPort" class="port">
+			<polygon points="207.5,103.5 211.5,103.5 211.5,99.5 207.5,99.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="join" class="port">
+			<polygon points="185.5,1.5 187.5,1.5 187.5,201.5 185.5,201.5" fill="#AFAFAF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="split" class="port">
+			<polygon points="29.5,1.5 27.5,1.5 27.5,201.5 29.5,201.5" fill="#AFAFAF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

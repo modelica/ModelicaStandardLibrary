@@ -1,0 +1,385 @@
+<html><head><title>Modelica.Media.Common.ThermoFluidSpecial</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="ThermoFluidSpecial"><h1><embed class="icon" src="../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Common</a>.&#8203;ThermoFluidSpecial<br><span class="subtitle">Property records used by the ThermoFluid library</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>Standard package icon.</p>
+<p>Extends from <code><a href="../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#FixedIGProperties"><code>FixedIGProperties</code></a></td><td>Constant properties for ideal gases</td></tr>
+<tr><td><a href="#gibbsToBoundaryProps"><code>gibbsToBoundaryProps</code></a></td><td>Calculate phase boundary property record from dimensionless Gibbs function</td></tr>
+<tr><td><a href="#gibbsToProps_dT"><code>gibbsToProps_dT</code></a></td><td>Calculate property record for density and temperature as states from dimensionless Gibbs function</td></tr>
+<tr><td><a href="#gibbsToProps_ph"><code>gibbsToProps_ph</code></a></td><td>Calculate property record for pressure and specific enthalpy as states from dimensionless Gibbs function</td></tr>
+<tr><td><a href="#gibbsToProps_pT"><code>gibbsToProps_pT</code></a></td><td>Calculate property record for pressure and temperature as states from dimensionless Gibbs function</td></tr>
+<tr><td><a href="#helmholtzToProps_dT"><code>helmholtzToProps_dT</code></a></td><td>Calculate property record for density and temperature as states from dimensionless Helmholtz function</td></tr>
+<tr><td><a href="#helmholtzToProps_ph"><code>helmholtzToProps_ph</code></a></td><td>Calculate property record for pressure and specific enthalpy as states from dimensionless Helmholtz function</td></tr>
+<tr><td><a href="#helmholtzToProps_pT"><code>helmholtzToProps_pT</code></a></td><td>Calculate property record for pressure and temperature as states from dimensionless Helmholtz function</td></tr>
+<tr><td><a href="#ThermoBaseVars"><code>ThermoBaseVars</code></a></td><td>&nbsp</td></tr>
+<tr><td><a href="#ThermoProperties"><code>ThermoProperties</code></a></td><td>Thermodynamic base property data for all state models</td></tr>
+<tr><td><a href="#ThermoProperties_dT"><code>ThermoProperties_dT</code></a></td><td>Thermodynamic property data for density d and temperature T as dynamic states</td></tr>
+<tr><td><a href="#ThermoProperties_ph"><code>ThermoProperties_ph</code></a></td><td>Thermodynamic property data for pressure p and specific enthalpy h as dynamic states</td></tr>
+<tr><td><a href="#ThermoProperties_pT"><code>ThermoProperties_pT</code></a></td><td>Thermodynamic property data for pressure p and temperature T as dynamic states</td></tr>
+<tr><td><a href="#TransportProps"><code>TransportProps</code></a></td><td>Record with transport properties</td></tr>
+<tr><td><a href="#TwoPhaseToProps_dT"><code>TwoPhaseToProps_dT</code></a></td><td>Compute property record for density and temperature as states from saturation properties</td></tr>
+<tr><td><a href="#TwoPhaseToProps_ph"><code>TwoPhaseToProps_ph</code></a></td><td>Compute property record for pressure and specific enthalpy as states from saturation properties</td></tr>
+</table>
+<hr><a name="FixedIGProperties"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">ThermoFluidSpecial</a>.&#8203;FixedIGProperties<br><span class="subtitle">Constant properties for ideal gases</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Integer</code></td><td><code>nspecies</code></td><td>Number of components</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#MolarMass">MolarMass</a></code></td><td><code>MM[nspecies]</code></td><td>Molar mass of components</td></tr>
+<tr><td><code>Real</code></td><td><code>invMM[nspecies]</code></td><td>Inverse of molar mass of components</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>R[nspecies]</code></td><td>Gas constant</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>Hf[nspecies]</code></td><td>Enthalpy of formation at 298.15K</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>H0[nspecies]</code></td><td>H0(298.15K) - H0(0K)</td></tr>
+</table>
+<hr><a name="ThermoBaseVars"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">ThermoFluidSpecial</a>.&#8203;ThermoBaseVars<br><span class="subtitle">Icon for records</span></h2></a>
+<h3>Information</h3>
+<p>
+
+                         <h4>Model description</h4>
+                              <p>
+                              <strong>ThermoBaseVars</strong> is inherited by all medium property models
+                              and by all models defining the dynamic states for the conservation
+                              of mass and energy. Thus it is a good choice as a restricting class
+                              for any medium model or dynamic state model.
+                           </p>
+                              
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Integer</code></td><td><code>n</code></td><td>Discretization number</td></tr>
+<tr><td>parameter <code>Integer</code></td><td><code>nspecies</code></td><td>Number of species</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p[n]</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T[n]</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Density">Density</a></code></td><td><code>d[n]</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h[n]</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s[n]</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#RatioOfSpecificHeatCapacities">RatioOfSpecificHeatCapacities</a></code></td><td><code>kappa[n]</code></td><td>Ratio of cp/cv</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>M[n]</code></td><td>Total mass</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Energy">Energy</a></code></td><td><code>U[n]</code></td><td>Inner energy</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>dM[n]</code></td><td>Change in total mass</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Power">Power</a></code></td><td><code>dU[n]</code></td><td>Change in inner energy</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Volume">Volume</a></code></td><td><code>V[n]</code></td><td>Volume</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#MassFraction">MassFraction</a></code></td><td><code>mass_x[n,nspecies]</code></td><td>Mass fraction</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#MoleFraction">MoleFraction</a></code></td><td><code>mole_y[n,nspecies]</code></td><td>Mole fraction</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Mass">Mass</a></code></td><td><code>M_x[n,nspecies]</code></td><td>Component mass</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>dM_x[n,nspecies]</code></td><td>Rate of change in component mass</td></tr>
+<tr><td><code><a href="../../../Media/Common/index.html#MolarFlowRate">MolarFlowRate</a></code></td><td><code>dZ[n,nspecies]</code></td><td>Rate of change in component moles</td></tr>
+<tr><td><code><a href="../../../Media/Common/index.html#MolarFlowRate">MolarFlowRate</a></code></td><td><code>rZ[n,nspecies]</code></td><td>Reaction(source) mole rates</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#MolarMass">MolarMass</a></code></td><td><code>MM[n]</code></td><td>Molar mass of mixture</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#AmountOfSubstance">AmountOfSubstance</a></code></td><td><code>Moles[n]</code></td><td>Total moles</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#AmountOfSubstance">AmountOfSubstance</a></code></td><td><code>Moles_z[n,nspecies]</code></td><td>Mole vector</td></tr>
+</table>
+<hr><a name="ThermoProperties"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">ThermoFluidSpecial</a>.&#8203;ThermoProperties<br><span class="subtitle">Thermodynamic base property data for all state models</span></h2></a>
+<h3>Information</h3>
+<p>
+
+        <h4>Model description</h4>
+        <p>
+        A base class for medium property models which work with most of the
+        versions of dynamic states that are available in the ThermoFluid
+        library. Currently used by all ideal gas models.
+     </p>
+        
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td>parameter <code>Integer</code></td><td><code>nspecies</code></td><td>Number of species</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Volume">Volume</a></code></td><td><code>V</code></td><td>Volume</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnergy">SpecificEnergy</a></code></td><td><code>u</code></td><td>Specific inner energy</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificGibbsFreeEnergy">SpecificGibbsFreeEnergy</a></code></td><td><code>g</code></td><td>Specific Gibbs free energy</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp</code></td><td>Heat capacity at constant pressure</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cv</code></td><td>Heat capacity at constant volume</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>R</code></td><td>Gas constant</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#MolarMass">MolarMass</a></code></td><td><code>MM</code></td><td>Molar mass of mixture</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#MassFraction">MassFraction</a></code></td><td><code>mass_x[nspecies]</code></td><td>Mass fraction</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#MoleFraction">MoleFraction</a></code></td><td><code>mole_y[nspecies]</code></td><td>Mole fraction</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#RatioOfSpecificHeatCapacities">RatioOfSpecificHeatCapacities</a></code></td><td><code>kappa</code></td><td>Ratio of cp/cv</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#DerDensityByTemperature">DerDensityByTemperature</a></code></td><td><code>ddTp</code></td><td>Derivative of density by temperature at constant pressure</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#DerDensityByPressure">DerDensityByPressure</a></code></td><td><code>ddpT</code></td><td>Derivative of density by pressure at constant temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>dupT</code></td><td>Derivative of inner energy by pressure at constant T</td></tr>
+<tr><td><code>Real</code></td><td><code>dudT</code></td><td>Derivative of inner energy by density at constant T</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>duTp</code></td><td>Derivative of inner energy by temperature at constant p</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnergy">SpecificEnergy</a></code></td><td><code>ddx[nspecies]</code></td><td>Derivative vector of density by change in mass composition</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnergy">SpecificEnergy</a></code></td><td><code>compu[nspecies]</code></td><td>Inner energy of the components</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>compp[nspecies]</code></td><td>partial pressures of the components</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Velocity">Velocity</a></code></td><td><code>a</code></td><td>Speed of sound</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#HeatCapacity">HeatCapacity</a></code></td><td><code>dUTZ</code></td><td>Derivative of inner energy by temperature at constant moles</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#MolarInternalEnergy">MolarInternalEnergy</a></code></td><td><code>dUZT[nspecies]</code></td><td>Derivative of inner energy by moles at constant temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>dHMxT[nspecies]</code></td><td>Derivative of total enthalpy w.r.t. component mass at constant T</td></tr>
+<tr><td><code>Real</code></td><td><code>dpT</code></td><td>Derivative of pressure w.r.t. temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>dpZ[nspecies]</code></td><td>Derivative of pressure w.r.t. moles</td></tr>
+</table>
+<hr><a name="ThermoProperties_ph"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">ThermoFluidSpecial</a>.&#8203;ThermoProperties_ph<br><span class="subtitle">Thermodynamic property data for pressure p and specific enthalpy h as dynamic states</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Model description</h4>
+<p>
+A base class for medium property models which
+use pressure and enthalpy as dynamic states.
+This is the preferred model for fluids that can also be in the
+two phase and liquid regions.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnergy">SpecificEnergy</a></code></td><td><code>u</code></td><td>Specific inner energy</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp</code></td><td>Heat capacity at constant pressure</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cv</code></td><td>Heat capacity at constant volume</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>R</code></td><td>Gas constant</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#RatioOfSpecificHeatCapacities">RatioOfSpecificHeatCapacities</a></code></td><td><code>kappa</code></td><td>Ratio of cp/cv</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Velocity">Velocity</a></code></td><td><code>a</code></td><td>Speed of sound</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#DerDensityByEnthalpy">DerDensityByEnthalpy</a></code></td><td><code>ddhp</code></td><td>Derivative of density by enthalpy at constant pressure</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#DerDensityByPressure">DerDensityByPressure</a></code></td><td><code>ddph</code></td><td>Derivative of density by pressure at constant enthalpy</td></tr>
+<tr><td><code>Real</code></td><td><code>duph</code></td><td>Derivative of inner energy by pressure at constant enthalpy</td></tr>
+<tr><td><code>Real</code></td><td><code>duhp</code></td><td>Derivative of inner energy by enthalpy at constant pressure</td></tr>
+</table>
+<hr><a name="ThermoProperties_pT"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">ThermoFluidSpecial</a>.&#8203;ThermoProperties_pT<br><span class="subtitle">Thermodynamic property data for pressure p and temperature T as dynamic states</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Model description</h4>
+<p>
+A base class for medium property models which use pressure and temperature as dynamic states.
+This is a reasonable model for fluids that can also be in the gas and
+liquid regions, but never in the two-phase region.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnergy">SpecificEnergy</a></code></td><td><code>u</code></td><td>Specific inner energy</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp</code></td><td>Heat capacity at constant pressure</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cv</code></td><td>Heat capacity at constant volume</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>R</code></td><td>Gas constant</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#RatioOfSpecificHeatCapacities">RatioOfSpecificHeatCapacities</a></code></td><td><code>kappa</code></td><td>Ratio of cp/cv</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Velocity">Velocity</a></code></td><td><code>a</code></td><td>Speed of sound</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#DerDensityByTemperature">DerDensityByTemperature</a></code></td><td><code>ddTp</code></td><td>Derivative of density by temperature at constant pressure</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#DerDensityByPressure">DerDensityByPressure</a></code></td><td><code>ddpT</code></td><td>Derivative of density by pressure at constant temperature</td></tr>
+<tr><td><code>Real</code></td><td><code>dupT</code></td><td>Derivative of inner energy by pressure at constant T</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>duTp</code></td><td>Derivative of inner energy by temperature at constant p</td></tr>
+</table>
+<hr><a name="ThermoProperties_dT"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">ThermoFluidSpecial</a>.&#8203;ThermoProperties_dT<br><span class="subtitle">Thermodynamic property data for density d and temperature T as dynamic states</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Model description</h4>
+<p>
+A base class for medium property models which use density and temperature as dynamic states.
+This is a reasonable model for fluids that can be in the gas, liquid
+and two-phase region. The model is numerically not well suited for
+liquids except if the pressure is always above approx. 80% of the
+critical pressure.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnthalpy">SpecificEnthalpy</a></code></td><td><code>h</code></td><td>Specific enthalpy</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEnergy">SpecificEnergy</a></code></td><td><code>u</code></td><td>Specific inner energy</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificEntropy">SpecificEntropy</a></code></td><td><code>s</code></td><td>Specific entropy</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cp</code></td><td>Heat capacity at constant pressure</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>cv</code></td><td>Heat capacity at constant volume</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#SpecificHeatCapacity">SpecificHeatCapacity</a></code></td><td><code>R</code></td><td>Gas constant</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#RatioOfSpecificHeatCapacities">RatioOfSpecificHeatCapacities</a></code></td><td><code>kappa</code></td><td>Ratio of cp/cv</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Velocity">Velocity</a></code></td><td><code>a</code></td><td>Speed of sound</td></tr>
+<tr><td><code>Real</code></td><td><code>dudT</code></td><td>Derivative of inner energy by density at constant T</td></tr>
+</table>
+<hr><a name="TransportProps"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">ThermoFluidSpecial</a>.&#8203;TransportProps<br><span class="subtitle">Record with transport properties</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This icon is indicates a record.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
+<h3>Fields</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#ThermalConductivity">ThermalConductivity</a></code></td><td><code>lam</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="gibbsToProps_ph"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">ThermoFluidSpecial</a>.&#8203;gibbsToProps_ph<br><span class="subtitle">Calculate property record for pressure and specific enthalpy as states from dimensionless Gibbs function</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Common/index.html#GibbsDerivs">GibbsDerivs</a></code></td><td><code>g</code></td><td>Dimensionless derivatives of Gibbs function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Common/ThermoFluidSpecial/index.html#ThermoProperties_ph">ThermoProperties_ph</a></code></td><td><code>pro</code></td><td>Property record for pressure and specific enthalpy as dynamic states</td></tr>
+</table>
+<hr><a name="gibbsToBoundaryProps"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">ThermoFluidSpecial</a>.&#8203;gibbsToBoundaryProps<br><span class="subtitle">Calculate phase boundary property record from dimensionless Gibbs function</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Common/index.html#GibbsDerivs">GibbsDerivs</a></code></td><td><code>g</code></td><td>Dimensionless derivatives of Gibbs function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Common/index.html#PhaseBoundaryProperties">PhaseBoundaryProperties</a></code></td><td><code>sat</code></td><td>Phase boundary properties</td></tr>
+</table>
+<hr><a name="gibbsToProps_dT"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">ThermoFluidSpecial</a>.&#8203;gibbsToProps_dT<br><span class="subtitle">Calculate property record for density and temperature as states from dimensionless Gibbs function</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Common/index.html#GibbsDerivs">GibbsDerivs</a></code></td><td><code>g</code></td><td>Dimensionless derivatives of Gibbs function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Common/ThermoFluidSpecial/index.html#ThermoProperties_dT">ThermoProperties_dT</a></code></td><td><code>pro</code></td><td>Property record for density and temperature as dynamic states</td></tr>
+</table>
+<hr><a name="gibbsToProps_pT"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">ThermoFluidSpecial</a>.&#8203;gibbsToProps_pT<br><span class="subtitle">Calculate property record for pressure and temperature as states from dimensionless Gibbs function</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Common/index.html#GibbsDerivs">GibbsDerivs</a></code></td><td><code>g</code></td><td>Dimensionless derivatives of Gibbs function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Common/ThermoFluidSpecial/index.html#ThermoProperties_pT">ThermoProperties_pT</a></code></td><td><code>pro</code></td><td>Property record for pressure and temperature as dynamic states</td></tr>
+</table>
+<hr><a name="helmholtzToProps_ph"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">ThermoFluidSpecial</a>.&#8203;helmholtzToProps_ph<br><span class="subtitle">Calculate property record for pressure and specific enthalpy as states from dimensionless Helmholtz function</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Common/index.html#HelmholtzDerivs">HelmholtzDerivs</a></code></td><td><code>f</code></td><td>Dimensionless derivatives of Helmholtz function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Common/ThermoFluidSpecial/index.html#ThermoProperties_ph">ThermoProperties_ph</a></code></td><td><code>pro</code></td><td>Property record for pressure and specific enthalpy as dynamic states</td></tr>
+</table>
+<hr><a name="helmholtzToProps_pT"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">ThermoFluidSpecial</a>.&#8203;helmholtzToProps_pT<br><span class="subtitle">Calculate property record for pressure and temperature as states from dimensionless Helmholtz function</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Common/index.html#HelmholtzDerivs">HelmholtzDerivs</a></code></td><td><code>f</code></td><td>Dimensionless derivatives of Helmholtz function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Common/ThermoFluidSpecial/index.html#ThermoProperties_pT">ThermoProperties_pT</a></code></td><td><code>pro</code></td><td>Property record for pressure and temperature as dynamic states</td></tr>
+</table>
+<hr><a name="helmholtzToProps_dT"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">ThermoFluidSpecial</a>.&#8203;helmholtzToProps_dT<br><span class="subtitle">Calculate property record for density and temperature as states from dimensionless Helmholtz function</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Common/index.html#HelmholtzDerivs">HelmholtzDerivs</a></code></td><td><code>f</code></td><td>Dimensionless derivatives of Helmholtz function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Common/ThermoFluidSpecial/index.html#ThermoProperties_dT">ThermoProperties_dT</a></code></td><td><code>pro</code></td><td>Property record for density and temperature as dynamic states</td></tr>
+</table>
+<hr><a name="TwoPhaseToProps_ph"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">ThermoFluidSpecial</a>.&#8203;TwoPhaseToProps_ph<br><span class="subtitle">Compute property record for pressure and specific enthalpy as states from saturation properties</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Common/index.html#SaturationProperties">SaturationProperties</a></code></td><td><code>sat</code></td><td>Saturation property record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Common/ThermoFluidSpecial/index.html#ThermoProperties_ph">ThermoProperties_ph</a></code></td><td><code>pro</code></td><td>Property record for pressure and specific enthalpy as dynamic states</td></tr>
+</table>
+<hr><a name="TwoPhaseToProps_dT"><h2><embed class="icon" src="../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Media</a>.&#8203;<a href="../index.html">Common</a>.&#8203;<a href="index.html">ThermoFluidSpecial</a>.&#8203;TwoPhaseToProps_dT<br><span class="subtitle">Compute property record for density and temperature as states from saturation properties</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Common/index.html#SaturationProperties">SaturationProperties</a></code></td><td><code>sat</code></td><td>Saturation properties</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Media/Common/ThermoFluidSpecial/index.html#ThermoProperties_dT">ThermoProperties_dT</a></code></td><td><code>pro</code></td><td>Property record for density and temperature as dynamic states</td></tr>
+</table>
+</body></html>

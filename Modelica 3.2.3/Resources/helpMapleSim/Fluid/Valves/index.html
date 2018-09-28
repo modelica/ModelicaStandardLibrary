@@ -1,0 +1,270 @@
+<html><head><title>Modelica.Fluid.Valves</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Valves"><h1><embed class="icon" src="../../images/icon0573.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;Valves<br><span class="subtitle">Components for the regulation and control of fluid flow</span></h1></a>
+<h3>Information</h3>
+<p>
+
+
+<p>Extends from <code><a href="../../Icons/VariantsPackage/index.html">Modelica.&#8203;Icons.&#8203;VariantsPackage</a></code> (Icon for package containing variants).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="../../Fluid/Valves/BaseClasses/index.html"><code>BaseClasses</code></a> &hellip;</td><td>Base classes used in the Valves package (only of interest to build new component models)</td></tr>
+<tr><td><a href="#ValveCompressible"><code>ValveCompressible</code></a></td><td>Valve for compressible fluids, accounts for choked flow conditions</td></tr>
+<tr><td><a href="#ValveDiscrete"><code>ValveDiscrete</code></a></td><td>Valve for water/steam flows with linear pressure drop</td></tr>
+<tr><td><a href="#ValveIncompressible"><code>ValveIncompressible</code></a></td><td>Valve for (almost) incompressible fluids</td></tr>
+<tr><td><a href="#ValveLinear"><code>ValveLinear</code></a></td><td>Valve for water/steam flows with linear pressure drop</td></tr>
+<tr><td><a href="#ValveVaporizing"><code>ValveVaporizing</code></a></td><td>Valve for possibly vaporizing (almost) incompressible fluids, accounts for choked flow conditions</td></tr>
+</table>
+<hr><a name="ValveIncompressible"><h2><embed class="icon" src="../../images/icon1354.svg" width="223" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Valves</a>.&#8203;ValveIncompressible<br><span class="subtitle">Valve for (almost) incompressible fluids</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Valve model according to the IEC 534/ISA S.75 standards for valve sizing, incompressible fluids.</p>
+
+<p>
+The parameters of this model are explained in detail in
+<a href="../../Fluid/Valves/BaseClasses/index.html#PartialValve">PartialValve</a>
+(the base model for valves).
+</p>
+
+<p>
+This model assumes that the fluid has a low compressibility, which is always the case for liquids.
+It can also be used with gases, provided that the pressure drop is lower than 0.2 times the absolute pressure at the inlet, so that the fluid density does not change much inside the valve.</p>
+
+<p>
+If <code>checkValve</code> is false, the valve supports reverse flow, with a symmetric flow characteristic curve. Otherwise, reverse flow is stopped (check valve behaviour).
+</p>
+
+<p>
+The treatment of parameters <strong>Kv</strong> and <strong>Cv</strong> is
+explained in detail in the
+<a href="../../Fluid/UsersGuide/ComponentDefinition/index.html#ValveCharacteristics">User's Guide</a>.
+</p>
+
+<p>Extends from <code><a href="../../Fluid/Valves/BaseClasses/index.html#PartialValve">Modelica.&#8203;Fluid.&#8203;Valves.&#8203;BaseClasses.&#8203;PartialValve</a></code> (Base model for valves).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveIncompressible/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>dp_start</code></td><td><code>dp_nominal</code></td><td>Guess value of dp = port_a.p - port_b.p</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveIncompressible/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_start</code></td><td><code>m_flow_nominal</code></td><td>Guess value of m_flow = port_a.m_flow</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveIncompressible/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * m_flow_nominal else system.m_flow_small</code></td><td>Small mass flow rate for regularization of zero flow</td></tr>
+<tr><td><code>Boolean</code></td><td><code>show_T</code></td><td><code>true</code></td><td>= true, if temperatures at port_a and port_b are computed</td></tr>
+<tr><td><code>Boolean</code></td><td><code>show_V_flow</code></td><td><code>true</code></td><td>= true, if volume flow rate at inflowing port is computed</td></tr>
+<tr><td><code><a href="../../Fluid/Types/index.html#CvTypes">CvTypes</a></code></td><td><code>CvData</code></td><td><code>Modelica.&#8203;Fluid.&#8203;Types.&#8203;CvTypes.&#8203;OpPoint</code></td><td>Selection of flow coefficient</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Area">Area</a></code></td><td><code>Av</code></td><td>&nbsp;</td><td>Av (metric) flow coefficient</td></tr>
+<tr><td><code>Real</code></td><td><code>Kv</code></td><td><code>0</code></td><td>Kv (metric) flow coefficient [m3/h]</td></tr>
+<tr><td><code>Real</code></td><td><code>Cv</code></td><td><code>0</code></td><td>Cv (US) flow coefficient [USG/min]</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>dp_nominal</code></td><td>&nbsp;</td><td>Nominal pressure drop</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveIncompressible/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nominal</code></td><td>&nbsp;</td><td>Nominal mass flowrate</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveIncompressible/Medium/index.html#Density">Density</a></code></td><td><code>rho_nominal</code></td><td><code>Medium.density_pTX(Medium.p_default, Medium.T_default, Medium.X_default)</code></td><td>Nominal inlet density</td></tr>
+<tr><td><code>Real</code></td><td><code>opening_nominal</code></td><td><code>1</code></td><td>Nominal opening</td></tr>
+<tr><td><code>Boolean</code></td><td><code>filteredOpening</code></td><td><code>false</code></td><td>= true, if opening is filtered with a 2nd order CriticalDamping filter</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>riseTime</code></td><td><code>1</code></td><td>Rise time of the filter (time to reach 99.6 % of an opening step)</td></tr>
+<tr><td><code>Real</code></td><td><code>leakageOpening</code></td><td><code>0.001</code></td><td>The opening signal is limited by leakageOpening (to improve the numerics)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>checkValve</code></td><td><code>false</code></td><td>Reverse flow stopped</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_Re</code></td><td><code>system.&#8203;use_eps_Re</code></td><td>= true, if turbulent region is defined by Re, otherwise by m_flow_small</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>opening</code></td><td>Valve position in the range 0..1</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>opening_filtered</code></td><td>Filtered valve position in the range 0..1</td></tr>
+</table>
+<hr><a name="ValveVaporizing"><h2><embed class="icon" src="../../images/icon1354.svg" width="223" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Valves</a>.&#8203;ValveVaporizing<br><span class="subtitle">Valve for possibly vaporizing (almost) incompressible fluids, accounts for choked flow conditions</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Valve model according to the IEC 534/ISA S.75 standards for valve sizing, incompressible fluid at the inlet, and possibly two-phase fluid at the outlet, including choked flow conditions.</p>
+
+<p>
+The parameters of this model are explained in detail in
+<a href="../../Fluid/Valves/BaseClasses/index.html#PartialValve">PartialValve</a>
+(the base model for valves).
+</p>
+
+<p>The model operating range includes choked flow operation, which takes place for low outlet pressures due to flashing in the vena contracta; otherwise, non-choking conditions are assumed.</p>
+<p>This model requires a two-phase medium model, to describe the liquid and (possible) two-phase conditions.</p>
+<p>The default liquid pressure recovery coefficient <code>Fl</code> is constant and given by the parameter <code>Fl_nominal</code>. The relative change (per unit) of the recovery coefficient can be specified as a given function of the valve opening by replacing the <code>FlCharacteristic</code> function.</p>
+<p>If <code>checkValve</code> is false, the valve supports reverse flow, with a symmetric flow characteristic curve. Otherwise, reverse flow is stopped (check valve behaviour).</p>
+
+<p>
+The treatment of parameters <strong>Kv</strong> and <strong>Cv</strong> is
+explained in detail in the
+<a href="../../Fluid/UsersGuide/ComponentDefinition/index.html#ValveCharacteristics">User's Guide</a>.
+</p>
+
+<p>Extends from <code><a href="../../Fluid/Valves/BaseClasses/index.html#PartialValve">Modelica.&#8203;Fluid.&#8203;Valves.&#8203;BaseClasses.&#8203;PartialValve</a></code> (Base model for valves).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveVaporizing/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>dp_start</code></td><td><code>dp_nominal</code></td><td>Guess value of dp = port_a.p - port_b.p</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveVaporizing/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_start</code></td><td><code>m_flow_nominal</code></td><td>Guess value of m_flow = port_a.m_flow</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveVaporizing/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * m_flow_nominal else system.m_flow_small</code></td><td>Small mass flow rate for regularization of zero flow</td></tr>
+<tr><td><code>Boolean</code></td><td><code>show_T</code></td><td><code>true</code></td><td>= true, if temperatures at port_a and port_b are computed</td></tr>
+<tr><td><code>Boolean</code></td><td><code>show_V_flow</code></td><td><code>true</code></td><td>= true, if volume flow rate at inflowing port is computed</td></tr>
+<tr><td><code><a href="../../Fluid/Types/index.html#CvTypes">CvTypes</a></code></td><td><code>CvData</code></td><td><code>Modelica.&#8203;Fluid.&#8203;Types.&#8203;CvTypes.&#8203;OpPoint</code></td><td>Selection of flow coefficient</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Area">Area</a></code></td><td><code>Av</code></td><td>&nbsp;</td><td>Av (metric) flow coefficient</td></tr>
+<tr><td><code>Real</code></td><td><code>Kv</code></td><td><code>0</code></td><td>Kv (metric) flow coefficient [m3/h]</td></tr>
+<tr><td><code>Real</code></td><td><code>Cv</code></td><td><code>0</code></td><td>Cv (US) flow coefficient [USG/min]</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>dp_nominal</code></td><td>&nbsp;</td><td>Nominal pressure drop</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveVaporizing/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nominal</code></td><td>&nbsp;</td><td>Nominal mass flowrate</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveVaporizing/Medium/index.html#Density">Density</a></code></td><td><code>rho_nominal</code></td><td><code>Medium.density_pTX(Medium.p_default, Medium.T_default, Medium.X_default)</code></td><td>Nominal inlet density</td></tr>
+<tr><td><code>Real</code></td><td><code>opening_nominal</code></td><td><code>1</code></td><td>Nominal opening</td></tr>
+<tr><td><code>Boolean</code></td><td><code>filteredOpening</code></td><td><code>false</code></td><td>= true, if opening is filtered with a 2nd order CriticalDamping filter</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>riseTime</code></td><td><code>1</code></td><td>Rise time of the filter (time to reach 99.6 % of an opening step)</td></tr>
+<tr><td><code>Real</code></td><td><code>leakageOpening</code></td><td><code>0.001</code></td><td>The opening signal is limited by leakageOpening (to improve the numerics)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>checkValve</code></td><td><code>false</code></td><td>Reverse flow stopped</td></tr>
+<tr><td><code>Real</code></td><td><code>Fl_nominal</code></td><td><code>0.9</code></td><td>Liquid pressure recovery factor</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_Re</code></td><td><code>system.&#8203;use_eps_Re</code></td><td>= true, if turbulent region is defined by Re, otherwise by m_flow_small</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>opening</code></td><td>Valve position in the range 0..1</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>opening_filtered</code></td><td>Filtered valve position in the range 0..1</td></tr>
+</table>
+<hr><a name="ValveCompressible"><h2><embed class="icon" src="../../images/icon1354.svg" width="223" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Valves</a>.&#8203;ValveCompressible<br><span class="subtitle">Valve for compressible fluids, accounts for choked flow conditions</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>Valve model according to the IEC 534/ISA S.75 standards for valve sizing, compressible fluid, no phase change, also covering choked-flow conditions.</p>
+
+<p>
+The parameters of this model are explained in detail in
+<a href="../../Fluid/Valves/BaseClasses/index.html#PartialValve">PartialValve</a>
+(the base model for valves).
+</p>
+
+<p>This model can be used with gases and vapours, with arbitrary pressure ratio between inlet and outlet.</p>
+
+<p>The product Fk*xt is given by the parameter <code>Fxt_full</code>, and is assumed constant by default. The relative change (per unit) of the xt coefficient with the valve opening can be specified by replacing the <code>xtCharacteristic</code> function.</p>
+<p>If <code>checkValve</code> is false, the valve supports reverse flow, with a symmetric flow characteristic curve. Otherwise, reverse flow is stopped (check valve behaviour).</p>
+
+<p>
+The treatment of parameters <strong>Kv</strong> and <strong>Cv</strong> is
+explained in detail in the
+<a href="../../Fluid/UsersGuide/ComponentDefinition/index.html#ValveCharacteristics">User's Guide</a>.
+</p>
+
+<p>Extends from <code><a href="../../Fluid/Valves/BaseClasses/index.html#PartialValve">Modelica.&#8203;Fluid.&#8203;Valves.&#8203;BaseClasses.&#8203;PartialValve</a></code> (Base model for valves).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveCompressible/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>dp_start</code></td><td><code>dp_nominal</code></td><td>Guess value of dp = port_a.p - port_b.p</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveCompressible/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_start</code></td><td><code>m_flow_nominal</code></td><td>Guess value of m_flow = port_a.m_flow</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveCompressible/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * m_flow_nominal else system.m_flow_small</code></td><td>Small mass flow rate for regularization of zero flow</td></tr>
+<tr><td><code>Boolean</code></td><td><code>show_T</code></td><td><code>true</code></td><td>= true, if temperatures at port_a and port_b are computed</td></tr>
+<tr><td><code>Boolean</code></td><td><code>show_V_flow</code></td><td><code>true</code></td><td>= true, if volume flow rate at inflowing port is computed</td></tr>
+<tr><td><code><a href="../../Fluid/Types/index.html#CvTypes">CvTypes</a></code></td><td><code>CvData</code></td><td><code>Modelica.&#8203;Fluid.&#8203;Types.&#8203;CvTypes.&#8203;OpPoint</code></td><td>Selection of flow coefficient</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Area">Area</a></code></td><td><code>Av</code></td><td>&nbsp;</td><td>Av (metric) flow coefficient</td></tr>
+<tr><td><code>Real</code></td><td><code>Kv</code></td><td><code>0</code></td><td>Kv (metric) flow coefficient [m3/h]</td></tr>
+<tr><td><code>Real</code></td><td><code>Cv</code></td><td><code>0</code></td><td>Cv (US) flow coefficient [USG/min]</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>dp_nominal</code></td><td>&nbsp;</td><td>Nominal pressure drop</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveCompressible/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nominal</code></td><td>&nbsp;</td><td>Nominal mass flowrate</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveCompressible/Medium/index.html#Density">Density</a></code></td><td><code>rho_nominal</code></td><td><code>Medium.density_pTX(Medium.p_default, Medium.T_default, Medium.X_default)</code></td><td>Nominal inlet density</td></tr>
+<tr><td><code>Real</code></td><td><code>opening_nominal</code></td><td><code>1</code></td><td>Nominal opening</td></tr>
+<tr><td><code>Boolean</code></td><td><code>filteredOpening</code></td><td><code>false</code></td><td>= true, if opening is filtered with a 2nd order CriticalDamping filter</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#Time">Time</a></code></td><td><code>riseTime</code></td><td><code>1</code></td><td>Rise time of the filter (time to reach 99.6 % of an opening step)</td></tr>
+<tr><td><code>Real</code></td><td><code>leakageOpening</code></td><td><code>0.001</code></td><td>The opening signal is limited by leakageOpening (to improve the numerics)</td></tr>
+<tr><td><code>Boolean</code></td><td><code>checkValve</code></td><td><code>false</code></td><td>Reverse flow stopped</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveCompressible/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>p_nominal</code></td><td>&nbsp;</td><td>Nominal inlet pressure</td></tr>
+<tr><td><code>Real</code></td><td><code>Fxt_full</code></td><td><code>0.5</code></td><td>Fk*xt critical ratio at full opening</td></tr>
+<tr><td><code>Boolean</code></td><td><code>use_Re</code></td><td><code>system.&#8203;use_eps_Re</code></td><td>= true, if turbulent region is defined by Re, otherwise by m_flow_small</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>opening</code></td><td>Valve position in the range 0..1</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>opening_filtered</code></td><td>Filtered valve position in the range 0..1</td></tr>
+</table>
+<hr><a name="ValveLinear"><h2><embed class="icon" src="../../images/icon1355.svg" width="223" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Valves</a>.&#8203;ValveLinear<br><span class="subtitle">Valve for water/steam flows with linear pressure drop</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This very simple model provides a pressure drop which is proportional to the flowrate and to the <code>opening</code> input, without computing any fluid property. It can be used for testing purposes, when
+a simple model of a variable pressure loss is needed.</p>
+<p>A medium model must be nevertheless be specified, so that the fluid ports can be connected to other components using the same medium model.</p>
+<p>The model is adiabatic (no heat losses to the ambient) and neglects changes in kinetic energy from the inlet to the outlet.</p>
+<p>Extends from <code><a href="../../Fluid/Interfaces/index.html#PartialTwoPortTransport">Modelica.&#8203;Fluid.&#8203;Interfaces.&#8203;PartialTwoPortTransport</a></code> (Partial element transporting fluid between two ports without storage of mass or energy).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveLinear/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>dp_start</code></td><td><code>0.01 * system.p_start</code></td><td>Guess value of dp = port_a.p - port_b.p</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveLinear/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_start</code></td><td><code>system.&#8203;m_flow_start</code></td><td>Guess value of m_flow = port_a.m_flow</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveLinear/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * system.m_flow_nominal else system.m_flow_small</code></td><td>Small mass flow rate for regularization of zero flow</td></tr>
+<tr><td><code>Boolean</code></td><td><code>show_T</code></td><td><code>true</code></td><td>= true, if temperatures at port_a and port_b are computed</td></tr>
+<tr><td><code>Boolean</code></td><td><code>show_V_flow</code></td><td><code>true</code></td><td>= true, if volume flow rate at inflowing port is computed</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>dp_nominal</code></td><td>&nbsp;</td><td>Nominal pressure drop at full opening</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveLinear/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nominal</code></td><td>&nbsp;</td><td>Nominal mass flowrate at full opening</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../Fluid/Types/index.html#HydraulicConductance">HydraulicConductance</a></code></td><td><code>k</code></td><td><code>m_flow_nominal / dp_nominal</code></td><td>Hydraulic conductance at full opening</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>opening</code></td><td>=1: completely open, =0: completely closed</td></tr>
+</table>
+<hr><a name="ValveDiscrete"><h2><embed class="icon" src="../../images/icon1356.svg" width="223" height="203" />
+Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Fluid</a>.&#8203;<a href="index.html">Valves</a>.&#8203;ValveDiscrete<br><span class="subtitle">Valve for water/steam flows with linear pressure drop</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This very simple model provides a (small) pressure drop which is proportional to the flowrate if the Boolean open signal is <strong>true</strong>. Otherwise, the mass flow rate is zero. If opening_min > 0, a small leakage mass flow rate occurs when open = <strong>false</strong>.
+</p>
+<p>This model can be used for simplified modelling of on-off valves, when it is not important to accurately describe the pressure loss when the valve is open. Although the medium model is not used to determine the pressure loss, it must be nevertheless be specified, so that the fluid ports can be connected to other components using the same medium model.</p>
+<p>The model is adiabatic (no heat losses to the ambient) and neglects changes in kinetic energy from the inlet to the outlet.</p>
+<p>
+In a diagram animation, the valve is shown in "green", when
+it is open.
+</p>
+<p>Extends from <code><a href="../../Fluid/Interfaces/index.html#PartialTwoPortTransport">Modelica.&#8203;Fluid.&#8203;Interfaces.&#8203;PartialTwoPortTransport</a></code> (Partial element transporting fluid between two ports without storage of mass or energy).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>allowFlowReversal</code></td><td><code>system.&#8203;allowFlowReversal</code></td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveDiscrete/Medium/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>dp_start</code></td><td><code>0.01 * system.p_start</code></td><td>Guess value of dp = port_a.p - port_b.p</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveDiscrete/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_start</code></td><td><code>system.&#8203;m_flow_start</code></td><td>Guess value of m_flow = port_a.m_flow</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveDiscrete/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * system.m_flow_nominal else system.m_flow_small</code></td><td>Small mass flow rate for regularization of zero flow</td></tr>
+<tr><td><code>Boolean</code></td><td><code>show_T</code></td><td><code>true</code></td><td>= true, if temperatures at port_a and port_b are computed</td></tr>
+<tr><td><code>Boolean</code></td><td><code>show_V_flow</code></td><td><code>true</code></td><td>= true, if volume flow rate at inflowing port is computed</td></tr>
+<tr><td><code><a href="../../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>dp_nominal</code></td><td>&nbsp;</td><td>Nominal pressure drop at full opening=1</td></tr>
+<tr><td><code><a href="../../Fluid/Valves/ValveDiscrete/Medium/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nominal</code></td><td>&nbsp;</td><td>Nominal mass flowrate at full opening=1</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../Fluid/Types/index.html#HydraulicConductance">HydraulicConductance</a></code></td><td><code>k</code></td><td><code>m_flow_nominal / dp_nominal</code></td><td>Hydraulic conductance at full opening=1</td></tr>
+<tr><td><code>Real</code></td><td><code>opening_min</code></td><td><code>0</code></td><td>Remaining opening if closed, causing small leakage flow</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><a href="../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>open</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

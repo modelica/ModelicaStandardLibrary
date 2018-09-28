@@ -1,0 +1,215 @@
+<html><head><title>Modelica.Electrical.QuasiStationary.MultiPhase.Ideal</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Ideal"><h1><embed class="icon" src="../../../../images/icon0782.svg" width="203" height="203" />
+Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;Ideal<br><span class="subtitle">Ideal components for AC multiphase models</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>This package hosts ideal models for quasi stationary multiphase circuits.
+Quasi stationary theory can be found in the
+<a href="../../../../Electrical/QuasiStationary/UsersGuide/index.html#References">references</a>.
+</p>
+<h4>See also</h4>
+
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Ideal/index.html">SinglePhase.Ideal</a>
+
+<p>Extends from <code><a href="../../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#IdealClosingSwitch"><code>IdealClosingSwitch</code></a></td><td>Multiphase ideal closer</td></tr>
+<tr><td><a href="#IdealCommutingSwitch"><code>IdealCommutingSwitch</code></a></td><td>Multiphase ideal commuting switch</td></tr>
+<tr><td><a href="#IdealIntermediateSwitch"><code>IdealIntermediateSwitch</code></a></td><td>Multiphase ideal intermediate switch</td></tr>
+<tr><td><a href="#IdealOpeningSwitch"><code>IdealOpeningSwitch</code></a></td><td>Multiphase ideal opener</td></tr>
+<tr><td><a href="#Idle"><code>Idle</code></a></td><td>Idle branch</td></tr>
+<tr><td><a href="#Short"><code>Short</code></a></td><td>Short cut branch</td></tr>
+</table>
+<hr><a name="Idle"><h2><embed class="icon" src="../../../../images/icon0839.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;Idle<br><span class="subtitle">Idle branch</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model describes <em>m</em> simple idle branches considering the complex currents <em><u>i</u></em> = 0;
+it uses <em>m</em> <a href="../../../../Electrical/QuasiStationary/SinglePhase/Ideal/index.html#Idle">single phase idle branches</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Ideal/index.html#Idle">Idle</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Ideal/index.html#Short">Short</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Two plugs with pin-adapter).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+</table>
+<hr><a name="Short"><h2><embed class="icon" src="../../../../images/icon0840.svg" width="223" height="203" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;Short<br><span class="subtitle">Short cut branch</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This model describes <em>m</em> simple short branches considering the complex voltages <em><u>v</u></em> = 0;
+it uses <em>m</em> <a href="../../../../Electrical/QuasiStationary/SinglePhase/Ideal/index.html#Short">single phase short branches</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../../../Electrical/QuasiStationary/SinglePhase/Ideal/index.html#Short">Short</a>,
+<a href="../../../../Electrical/QuasiStationary/MultiPhase/Ideal/index.html#Idle">Idle</a>
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Two plugs with pin-adapter).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+</table>
+<hr><a name="IdealCommutingSwitch"><h2><embed class="icon" src="../../../../images/icon0841.svg" width="223" height="253" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;IdealCommutingSwitch<br><span class="subtitle">Multiphase ideal commuting switch</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Contains m singlephase ideal commuting switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealCommutingSwitch).
+</p>
+<p>
+<strong>Use with care:</strong>
+This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
+</p>
+<p>Extends from <code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron[m]</code></td><td>&nbsp;</td><td>Closed switch resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff[m]</code></td><td>&nbsp;</td><td>Opened switch conductance</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mh</code></td><td><code>m</code></td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if all heat ports are enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T[mh]</code></td><td><code>fill(293.15, m)</code></td><td>Fixed device temperatures if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort[mh]</code></td><td>Conditional heat ports</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>control[m]</code></td><td>true =&gt; p--n2 connected, false =&gt; p--n1 connected</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n2</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n1</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="IdealIntermediateSwitch"><h2><embed class="icon" src="../../../../images/icon0842.svg" width="223" height="253" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;IdealIntermediateSwitch<br><span class="subtitle">Multiphase ideal intermediate switch</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Contains m ideal intermediate switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealIntermediateSwitch).
+</p>
+<p>
+<strong>Use with care:</strong>
+This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
+</p>
+<p>Extends from <code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron[m]</code></td><td>&nbsp;</td><td>Closed switch resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff[m]</code></td><td>&nbsp;</td><td>Opened switch conductance</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mh</code></td><td><code>m</code></td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if all heat ports are enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T[mh]</code></td><td><code>fill(293.15, m)</code></td><td>Fixed device temperatures if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort[mh]</code></td><td>Conditional heat ports</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>control[m]</code></td><td>true =&gt; p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2 connected</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p1</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p2</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n2</code></td><td>&nbsp</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n1</code></td><td>&nbsp</td></tr>
+</table>
+<hr><a name="IdealOpeningSwitch"><h2><embed class="icon" src="../../../../images/icon0843.svg" width="223" height="253" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;IdealOpeningSwitch<br><span class="subtitle">Multiphase ideal opener</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Contains m ideal opening switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealOpeningSwitch).
+</p>
+<p>
+<strong>Use with care:</strong>
+This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Two plugs with pin-adapter) and <code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron[m]</code></td><td>&nbsp;</td><td>Closed switch resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff[m]</code></td><td>&nbsp;</td><td>Opened switch conductance</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mh</code></td><td><code>m</code></td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if all heat ports are enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T[mh]</code></td><td><code>fill(293.15, m)</code></td><td>Fixed device temperatures if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort[mh]</code></td><td>Conditional heat ports</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>control[m]</code></td><td>true =&gt; switch open, false =&gt; p--n connected</td></tr>
+</table>
+<hr><a name="IdealClosingSwitch"><h2><embed class="icon" src="../../../../images/icon0844.svg" width="223" height="253" />
+Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">QuasiStationary</a>.&#8203;<a href="../index.html">MultiPhase</a>.&#8203;<a href="index.html">Ideal</a>.&#8203;IdealClosingSwitch<br><span class="subtitle">Multiphase ideal closer</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Contains m ideal closing switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealClosingSwitch).
+</p>
+<p>
+<strong>Use with care:</strong>
+This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
+</p>
+<p>Extends from <code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;QuasiStationary.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Two plugs with pin-adapter) and <code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#ConditionalHeatPort">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;ConditionalHeatPort</a></code> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>m</code></td><td><code>3</code></td><td>Number of phases</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>Ron[m]</code></td><td>&nbsp;</td><td>Closed switch resistance</td></tr>
+<tr><td><code><a href="../../../../SIunits/index.html#Conductance">Conductance</a></code></td><td><code>Goff[m]</code></td><td>&nbsp;</td><td>Opened switch conductance</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Integer</code></td><td><code>mh</code></td><td><code>m</code></td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if all heat ports are enabled</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T[mh]</code></td><td><code>fill(293.15, m)</code></td><td>Fixed device temperatures if useHeatPort = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_p</code></td><td>Positive quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Electrical/QuasiStationary/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_n</code></td><td>Negative quasi-static polyphase plug</td></tr>
+<tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort[mh]</code></td><td>Conditional heat ports</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>control[m]</code></td><td>true =&gt; p--n connected, false =&gt; switch open</td></tr>
+</table>
+</body></html>

@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.isEqual</title>
+</head>
+<body>
+<h1><a href="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg"><img class="svgiconhead" src="Icons/d953a636119d5a1a377b681c185832b7639dc546.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<span class="omc-h1">isEqual</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Math.<strong>isEqual</strong>(s1, s2);
+Math.<strong>isEqual</strong>(s1, s2, eps=0);
+</pre></blockquote>
+<h4>Description</h4>
+<p>The function call "<code>Math.isEqual(s1, s2)</code>" returns
+<strong>true</strong>, if the two Real scalars s1 and s2 are
+identical. Otherwise the function returns <strong>false</strong>.
+The equality check is performed by "abs(s1-s2) ≤ eps", where "eps"
+can be provided as third argument of the function. Default is "eps
+= 0".</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  Real s1 = 2.0;
+  Real s2 = 2.0;
+  Real s3 = 2.000001;
+  Boolean result;
+<strong>algorithm</strong>
+  result := Math.isEqual(s1,s2);     // = <strong>true</strong>
+  result := Math.isEqual(s1,s3);     // = <strong>false</strong>
+  result := Math.isEqual(s1,s3,0.1); // = <strong>true</strong>
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Vectors.isEqual.html">Vectors.isEqual</a>,
+<a href="Modelica.Math.Matrices.isEqual.html">Matrices.isEqual</a>,
+<a href="Modelica.Utilities.Strings.isEqual.html">Strings.isEqual</a></p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>function isEqual
+  extends Modelica.Icons.Function;
+  input Real s1 "First scalar";
+  input Real s2 "Second scalar";
+  input Real eps(min = 0) = 0 "The two scalars are identical if abs(s1-s2) &lt;= eps";
+  output Boolean result "= true, if scalars are identical";
+end isEqual;</pre></blockquote>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Machines.Losses.DCMachines.Core</title>
+</head>
+<body>
+<h1><a href="Icons/5b82be05e9d2ce31befabcb8f52f566365fd2d3b.svg"><img class="svgiconhead" src="Icons/5b82be05e9d2ce31befabcb8f52f566365fd2d3b.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.html">Machines</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Losses.html">Losses</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Losses.DCMachines.html">DCMachines</a>.<span class="omc-h1">Core</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Core losses can be separated into <em>eddy current</em> and
+<em>hysteresis</em> losses. The total core losses can thus be
+expressed as</p>
+<pre>
+  p = PRef * (ratioHysteresis * (wRef / w) + 1 - ratioHysteresis) * (v / VRef)^2
+</pre>
+<p>where <code>w</code> is the actual angular velocity and
+<code>v</code> is the actual voltage. The term
+<code>ratioHysteresis</code> is the ratio of the hysteresis losses
+with respect to the total core losses for reference inner voltage
+and reference angular velocity.</p>
+<p>For the voltage and angular velocity range with respect to
+Fig.&nbsp;1, the dependency of total core losses on the parameter
+<code>ratioHysteresis</code> is depicted in Fig.&nbsp;2.</p>
+<table border="0" cellspacing="0" cellpadding="1">
+<tr>
+<td><img src="../../../Modelica%203.2.3/Resources/Images/Electrical/Machines/corelossesVw.png" alt="corelossesVw.png" /></td>
+</tr>
+<tr>
+<td><strong>Fig. 1:</strong> Voltage versus angular velocity</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="1">
+<tr>
+<td><img src="../../../Modelica%203.2.3/Resources/Images/Electrical/Machines/corelossesPcw.png" alt="corelossesPcw.png" /></td>
+</tr>
+<tr>
+<td><strong>Fig. 2:</strong> Core losses versus angular velocity
+with parameter <code>ratioHysteresis</code></td>
+</tr>
+</table>
+<h4>Note</h4>
+<p>In the current implementation it is assumed that
+<code>ratioHysteresis = 0</code>. This parameter cannot be changed
+due to compatibility reasons.</p>
+<h4>See also</h4>
+<p><a href="Modelica.Electrical.Machines.Losses.CoreParameters.html">Core
+loss parameters</a></p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>

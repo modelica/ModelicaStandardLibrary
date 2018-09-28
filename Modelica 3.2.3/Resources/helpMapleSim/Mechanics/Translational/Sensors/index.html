@@ -1,0 +1,204 @@
+<html><head><title>Modelica.Mechanics.Translational.Sensors</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Sensors"><h1><embed class="icon" src="../../../images/icon1279.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;Sensors<br><span class="subtitle">Sensors for 1-dim. translational mechanical quantities</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains ideal sensor components that provide
+the connector variables as signals for further processing with the
+Modelica.Blocks library.
+</p>
+<p>Extends from <code><a href="../../../Icons/SensorsPackage/index.html">Modelica.&#8203;Icons.&#8203;SensorsPackage</a></code> (Icon for packages containing sensors).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#AccSensor"><code>AccSensor</code></a></td><td>Ideal sensor to measure the absolute acceleration</td></tr>
+<tr><td><a href="#ForceSensor"><code>ForceSensor</code></a></td><td>Ideal sensor to measure the force between two flanges</td></tr>
+<tr><td><a href="#MultiSensor"><code>MultiSensor</code></a></td><td>Ideal sensor to measure the absolute velocity, force and power between two flanges</td></tr>
+<tr><td><a href="#PositionSensor"><code>PositionSensor</code></a></td><td>Ideal sensor to measure the absolute position</td></tr>
+<tr><td><a href="#PowerSensor"><code>PowerSensor</code></a></td><td>Ideal sensor to measure the power between two flanges (= flange_a.f*der(flange_a.s))</td></tr>
+<tr><td><a href="#RelAccSensor"><code>RelAccSensor</code></a></td><td>Ideal sensor to measure the relative acceleration</td></tr>
+<tr><td><a href="#RelPositionSensor"><code>RelPositionSensor</code></a></td><td>Ideal sensor to measure the relative position</td></tr>
+<tr><td><a href="#RelSpeedSensor"><code>RelSpeedSensor</code></a></td><td>Ideal sensor to measure the relative speed</td></tr>
+<tr><td><a href="#SpeedSensor"><code>SpeedSensor</code></a></td><td>Ideal sensor to measure the absolute velocity</td></tr>
+</table>
+<hr><a name="PositionSensor"><h2><embed class="icon" src="../../../images/icon1280.svg" width="233" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;PositionSensor<br><span class="subtitle">Ideal sensor to measure the absolute position</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Measures the <em>absolute position s</em> of a flange in an ideal way and provides the result as
+output signals (to be further processed with blocks of the
+Modelica.Blocks library).
+</p>
+
+<p>Extends from <code><a href="../../../Mechanics/Translational/Interfaces/index.html#PartialAbsoluteSensor">Modelica.&#8203;Mechanics.&#8203;Translational.&#8203;Interfaces.&#8203;PartialAbsoluteSensor</a></code> (Device to measure a single absolute flange variable).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>Flange to be measured (flange axis directed in to cut plane, e. g. from left to right)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>s</code></td><td>Absolute position of flange as output signal</td></tr>
+</table>
+<hr><a name="SpeedSensor"><h2><embed class="icon" src="../../../images/icon1280.svg" width="233" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;SpeedSensor<br><span class="subtitle">Ideal sensor to measure the absolute velocity</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Measures the <em>absolute velocity v</em> of a flange in an ideal way and provides the result as
+output signals (to be further processed with blocks of the
+Modelica.Blocks library).
+</p>
+
+<p>Extends from <code><a href="../../../Mechanics/Translational/Interfaces/index.html#PartialAbsoluteSensor">Modelica.&#8203;Mechanics.&#8203;Translational.&#8203;Interfaces.&#8203;PartialAbsoluteSensor</a></code> (Device to measure a single absolute flange variable).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>Flange to be measured (flange axis directed in to cut plane, e. g. from left to right)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>v</code></td><td>Absolute velocity of flange as output signal</td></tr>
+</table>
+<hr><a name="AccSensor"><h2><embed class="icon" src="../../../images/icon1280.svg" width="233" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;AccSensor<br><span class="subtitle">Ideal sensor to measure the absolute acceleration</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Measures the <em>absolute acceleration a</em>
+of a flange in an ideal way and provides the result as
+output signals (to be further processed with blocks of the
+Modelica.Blocks library).
+</p>
+
+<p>Extends from <code><a href="../../../Mechanics/Translational/Interfaces/index.html#PartialAbsoluteSensor">Modelica.&#8203;Mechanics.&#8203;Translational.&#8203;Interfaces.&#8203;PartialAbsoluteSensor</a></code> (Device to measure a single absolute flange variable).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>Flange to be measured (flange axis directed in to cut plane, e. g. from left to right)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>a</code></td><td>Absolute acceleration of flange as output signal</td></tr>
+</table>
+<hr><a name="RelPositionSensor"><h2><embed class="icon" src="../../../images/icon1281.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;RelPositionSensor<br><span class="subtitle">Ideal sensor to measure the relative position</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Measures the <em>relative position s</em> of a flange in an ideal way and provides the result as
+output signals (to be further processed with blocks of the
+Modelica.Blocks library).
+</p>
+
+<p>Extends from <code><a href="../../../Mechanics/Translational/Interfaces/index.html#PartialRelativeSensor">Modelica.&#8203;Mechanics.&#8203;Translational.&#8203;Interfaces.&#8203;PartialRelativeSensor</a></code> (Device to measure a single relative variable between two flanges).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)</td></tr>
+<tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>(right) driven flange (flange axis directed out of cut plane)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>s_rel</code></td><td>Distance between two flanges (= flange_b.s - flange_a.s) as output signal</td></tr>
+</table>
+<hr><a name="RelSpeedSensor"><h2><embed class="icon" src="../../../images/icon1282.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;RelSpeedSensor<br><span class="subtitle">Ideal sensor to measure the relative speed</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Measures the <em>relative speed v</em> of a flange in an ideal way and provides the result as
+output signals (to be further processed with blocks of the
+Modelica.Blocks library).
+</p>
+
+<p>Extends from <code><a href="../../../Mechanics/Translational/Interfaces/index.html#PartialRelativeSensor">Modelica.&#8203;Mechanics.&#8203;Translational.&#8203;Interfaces.&#8203;PartialRelativeSensor</a></code> (Device to measure a single relative variable between two flanges).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)</td></tr>
+<tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>(right) driven flange (flange axis directed out of cut plane)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>v_rel</code></td><td>Relative velocity between two flanges (= der(flange_b.s) - der(flange_a.s)) as output signal</td></tr>
+</table>
+<hr><a name="RelAccSensor"><h2><embed class="icon" src="../../../images/icon1281.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;RelAccSensor<br><span class="subtitle">Ideal sensor to measure the relative acceleration</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Measures the <em>relative acceleration a</em> of a flange in an ideal way and provides the result as
+output signals (to be further processed with blocks of the
+Modelica.Blocks library).
+</p>
+
+<p>Extends from <code><a href="../../../Mechanics/Translational/Interfaces/index.html#PartialRelativeSensor">Modelica.&#8203;Mechanics.&#8203;Translational.&#8203;Interfaces.&#8203;PartialRelativeSensor</a></code> (Device to measure a single relative variable between two flanges).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)</td></tr>
+<tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>(right) driven flange (flange axis directed out of cut plane)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>a_rel</code></td><td>Relative acceleration between two flanges (= der(v_rel)) as output signal</td></tr>
+</table>
+<hr><a name="ForceSensor"><h2><embed class="icon" src="../../../images/icon1283.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;ForceSensor<br><span class="subtitle">Ideal sensor to measure the force between two flanges</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Measures the <em>cut-force between two flanges</em> in an ideal way
+and provides the result as output signal (to be further processed
+with blocks of the Modelica.Blocks library).
+</p>
+
+<p>Extends from <code><a href="../../../Mechanics/Translational/Interfaces/index.html#PartialRelativeSensor">Modelica.&#8203;Mechanics.&#8203;Translational.&#8203;Interfaces.&#8203;PartialRelativeSensor</a></code> (Device to measure a single relative variable between two flanges).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)</td></tr>
+<tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>(right) driven flange (flange axis directed out of cut plane)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>f</code></td><td>Force in flange_a and flange_b (f = flange_a.f = -flange_b.f) as output signal</td></tr>
+</table>
+<hr><a name="PowerSensor"><h2><embed class="icon" src="../../../images/icon1283.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;PowerSensor<br><span class="subtitle">Ideal sensor to measure the power between two flanges (= flange_a.f*der(flange_a.s))</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Measures the <strong>power between two flanges</strong> in an ideal way
+and provides the result as output signal <strong>power</strong>
+(to be further processed with blocks of the Modelica.Blocks library).
+</p>
+<p>Extends from <code><a href="../../../Mechanics/Translational/Interfaces/index.html#PartialRelativeSensor">Modelica.&#8203;Mechanics.&#8203;Translational.&#8203;Interfaces.&#8203;PartialRelativeSensor</a></code> (Device to measure a single relative variable between two flanges).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)</td></tr>
+<tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>(right) driven flange (flange axis directed out of cut plane)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>power</code></td><td>Power in flange flange_a as output signal</td></tr>
+</table>
+<hr><a name="MultiSensor"><h2><embed class="icon" src="../../../images/icon1284.svg" width="223" height="223" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;MultiSensor<br><span class="subtitle">Ideal sensor to measure the absolute velocity, force and power between two flanges</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Measures the <strong>absolute velocity</strong> of a flange_a, the <strong>cut-force</strong> and <strong>power</strong> between two flanges in an
+ideal way and provides the results as output signals <strong>v</strong>, <strong>f</strong> and <strong>power</strong>, respectively.</p>
+<p>Extends from <code><a href="../../../Mechanics/Translational/Interfaces/index.html#PartialRelativeSensor">Modelica.&#8203;Mechanics.&#8203;Translational.&#8203;Interfaces.&#8203;PartialRelativeSensor</a></code> (Device to measure a single relative variable between two flanges).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)</td></tr>
+<tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>(right) driven flange (flange axis directed out of cut plane)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>power</code></td><td>Power in flange flange_a as output signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>f</code></td><td>Force in flange_a and flange_b (f = flange_a.f = -flange_b.f) as output signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>v</code></td><td>Absolute velocity of flange as output signal as output signal</td></tr>
+</table>
+</body></html>

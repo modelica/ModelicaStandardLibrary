@@ -1,0 +1,135 @@
+<html><head><title>Modelica.Electrical.Digital.Delay</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Delay"><h1><embed class="icon" src="../../../images/icon0012.svg" width="203" height="203" />
+Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;Delay<br><span class="subtitle">Delay blocks</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>The Delay package collects the delay blocks which are used in many components. Both transport and inertial delay are offered for scalar connectors. The most advanced component is the sensitive inertial delay the delay time of which is chosen in dependency of the signal values. This component is also available for vector valued input.</p>
+<p>Extends from <code><a href="../../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#DelayParams"><code>DelayParams</code></a></td><td>Definition of delay parameters</td></tr>
+<tr><td><a href="#InertialDelay"><code>InertialDelay</code></a></td><td>Inertial delay with initial parameter</td></tr>
+<tr><td><a href="#InertialDelaySensitive"><code>InertialDelaySensitive</code></a></td><td>Provide the input as output if it holds its value for a specific amount of time</td></tr>
+<tr><td><a href="#InertialDelaySensitiveVector"><code>InertialDelaySensitiveVector</code></a></td><td>Delay of a vector of digital signals</td></tr>
+<tr><td><a href="#TransportDelay"><code>TransportDelay</code></a></td><td>Transport delay with initial parameter</td></tr>
+</table>
+<hr><a name="DelayParams"><h2><embed class="icon" src="../../../images/icon0293.svg" width="203" height="203" />
+Partial Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Delay</a>.&#8203;DelayParams<br><span class="subtitle">Definition of delay parameters</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>DelayParams is a partial model for providing delay times and inertial values. It is used in components of the package Gates which need the same parameters. The partial model does not have any behavior or equations.</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tLH</code></td><td>&nbsp;</td><td>Rise inertial delay</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tHL</code></td><td>&nbsp;</td><td>Fall inertial delay</td></tr>
+<tr><td><code><a href="../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>y0</code></td><td><code>L.&#8203;'U'</code></td><td>Initial value of output</td></tr>
+</table>
+<hr><a name="TransportDelay"><h2><embed class="icon" src="../../../images/icon0507.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Delay</a>.&#8203;TransportDelay<br><span class="subtitle">Transport delay with initial parameter</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Provide the input as output exactly delayed by <em>Tdel</em>.
+If time less than <em>Tdel</em> the initial value <em>initout</em> holds.
+</p>
+<p>Extends from <code><a href="../../../Electrical/Digital/Interfaces/index.html#SISO">Modelica.&#8203;Electrical.&#8203;Digital.&#8203;Interfaces.&#8203;SISO</a></code> (Single input, single output).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>delayTime</code></td><td>&nbsp;</td><td>delay time</td></tr>
+<tr><td><code><a href="../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>y0</code></td><td><code>L.&#8203;'U'</code></td><td>initial value of output</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>x</code></td><td>Connector of Digital input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>Connector of Digital output signal</td></tr>
+</table>
+<hr><a name="InertialDelay"><h2><embed class="icon" src="../../../images/icon0508.svg" width="213" height="203" />
+Block <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Delay</a>.&#8203;InertialDelay<br><span class="subtitle">Inertial delay with initial parameter</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Provides the input as output delayed by <em>delayTime</em> if the input holds its value for a longer time than <em>delayTime</em>.
+If time is less than <em>delayTime</em> the initial value <em>y0</em> holds.
+</p>
+<p>Extends from <code><a href="../../../Electrical/Digital/Interfaces/index.html#SISO">Modelica.&#8203;Electrical.&#8203;Digital.&#8203;Interfaces.&#8203;SISO</a></code> (Single input, single output).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>delayTime</code></td><td>&nbsp;</td><td>Minimum time to hold value</td></tr>
+<tr><td><code><a href="../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>y0</code></td><td><code>L.&#8203;'U'</code></td><td>Initial value of output y</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>x</code></td><td>Connector of Digital input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>Connector of Digital output signal</td></tr>
+</table>
+<hr><a name="InertialDelaySensitive"><h2><embed class="icon" src="../../../images/icon0509.svg" width="213" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Delay</a>.&#8203;InertialDelaySensitive<br><span class="subtitle">Provide the input as output if it holds its value for a specific amount of time</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Provides the input as output delayed by <em>Tdel</em> if the input holds its value for a longer time than <em>Tdel</em>.
+If the time is less than <em>Tdel</em> the initial value <em>y0</em> holds.<br>
+The delay <em>Tdel</em> depends on the values of the signal change. To calculate <em>Tdel</em>, the DelayTable specified in
+Digital.Tables is used. If the corresponding value is 1, then <em>tLH</em> is used, if it is -1, then <em>tHL</em>
+is used, if it is zero, the input is not delayed.
+</p>
+<p>Extends from <code><a href="../../../Electrical/Digital/Interfaces/index.html#SISO">Modelica.&#8203;Electrical.&#8203;Digital.&#8203;Interfaces.&#8203;SISO</a></code> (Single input, single output).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tLH</code></td><td>&nbsp;</td><td>rise inertial delay</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tHL</code></td><td>&nbsp;</td><td>fall inertial delay</td></tr>
+<tr><td><code><a href="../../../Electrical/Digital/Interfaces/index.html#Logic">Logic</a></code></td><td><code>y0</code></td><td><code>L.&#8203;'U'</code></td><td>initial value of output</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>x</code></td><td>Connector of Digital input signal</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y</code></td><td>Connector of Digital output signal</td></tr>
+</table>
+<hr><a name="InertialDelaySensitiveVector"><h2><embed class="icon" src="../../../images/icon0510.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Electrical</a>.&#8203;<a href="../index.html">Digital</a>.&#8203;<a href="index.html">Delay</a>.&#8203;InertialDelaySensitiveVector<br><span class="subtitle">Delay of a vector of digital signals</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<p>
+The delay element <strong>Inertial Delay Sensitive</strong> is applied to a vector of n signals.
+The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals.
+</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tHL</code></td><td><code>0</code></td><td>High-&gt;Low delay</td></tr>
+<tr><td><code><a href="../../../SIunits/index.html#Time">Time</a></code></td><td><code>tLH</code></td><td><code>0</code></td><td>Low-&gt;High delay</td></tr>
+<tr><td><code>Integer</code></td><td><code>n</code></td><td><code>1</code></td><td>Data width</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalInput">DigitalInput</a></code></td><td><code>x[n]</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Electrical/Digital/Interfaces/index.html#DigitalOutput">DigitalOutput</a></code></td><td><code>y[n]</code></td><td>&nbsp</td></tr>
+</table>
+</body></html>

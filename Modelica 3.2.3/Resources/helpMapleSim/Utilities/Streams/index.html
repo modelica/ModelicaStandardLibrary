@@ -1,0 +1,428 @@
+<html><head><title>Modelica.Utilities.Streams</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Streams"><h1><embed class="icon" src="../../images/icon0092.svg" width="203" height="203" />
+Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;Streams<br><span class="subtitle">Read from files and write to files</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<h4>Library content</h4>
+<p>
+Package <strong>Streams</strong> contains functions to input and output strings
+to a message window or on files, as well as reading matrices from file
+and writing matrices to file. Note that a string is interpreted
+and displayed as html text (e.g., with print(..) or error(..))
+if it is enclosed with the Modelica html quotation, e.g.,
+</p>
+<blockquote><p>
+string = "&lt;html&gt; first line &lt;br&gt; second line &lt;/html&gt;".
+</p></blockquote>
+<p>
+It is a quality of implementation, whether (a) all tags of html are supported
+or only a subset, (b) how html tags are interpreted if the output device
+does not allow to display formatted text.
+</p>
+<p>
+In the table below an example call to every function is given:
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>
+  <tr><td><a href="../../Utilities/Streams/index.html#print">print</a>(string)<br>
+          <a href="../../Utilities/Streams/index.html#print">print</a>(string,fileName)</td>
+      <td> Print string "string" or vector of strings to message window or on
+           file "fileName".</td>
+  </tr>
+  <tr><td>stringVector =
+         <a href="../../Utilities/Streams/index.html#readFile">readFile</a>(fileName)</td>
+      <td> Read complete text file and return it as a vector of strings.</td>
+  </tr>
+  <tr><td>(string, endOfFile) =
+         <a href="../../Utilities/Streams/index.html#readLine">readLine</a>(fileName, lineNumber)</td>
+      <td>Returns from the file the content of line lineNumber.</td>
+  </tr>
+  <tr><td>lines =
+         <a href="../../Utilities/Streams/index.html#countLines">countLines</a>(fileName)</td>
+      <td>Returns the number of lines in a file.</td>
+  </tr>
+  <tr><td><a href="../../Utilities/Streams/index.html#error">error</a>(string)</td>
+      <td> Print error message "string" to message window
+           and cancel all actions</td>
+  </tr>
+  <tr><td><a href="../../Utilities/Streams/index.html#close">close</a>(fileName)</td>
+      <td> Close file if it is still open. Ignore call if
+           file is already closed or does not exist. </td>
+  </tr>
+  <tr><td><a href="../../Utilities/Streams/index.html#readMatrixSize">readMatrixSize</a>(fileName, matrixName)</td>
+      <td> Read dimensions of a Real matrix from a MATLAB MAT file. </td></tr>
+  <tr><td><a href="../../Utilities/Streams/index.html#readRealMatrix">readRealMatrix</a>(fileName, matrixName, nrow, ncol)</td>
+      <td> Read a Real matrix from a MATLAB MAT file. </td></tr>
+  <tr><td><a href="../../Utilities/Streams/index.html#writeRealMatrix">writeRealMatrix</a>(fileName, matrixName, matrix, append, format)</td>
+      <td> Write Real matrix to a MATLAB MAT file. </td></tr>
+</table>
+<p>
+Use functions <strong>scanXXX</strong> from package
+<a href="../../Utilities/Strings/index.html">Strings</a>
+to parse a string.
+</p>
+<p>
+If Real, Integer or Boolean values shall be printed
+or used in an error message, they have to be first converted
+to strings with the builtin operator
+<a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/ModelicaReference3.2.3/Operators/'String()'/">ModelicaReference.Operators.'String()'</a>(...).
+Example:
+</p>
+<pre>
+  <strong>if</strong> x &lt; 0 <strong>or</strong> x &gt; 1 <strong>then</strong>
+     Streams.error("x (= " + String(x) + ") has to be in the range 0 .. 1");
+  <strong>end if</strong>;
+</pre>
+<p>Extends from <code><a href="../../Icons/FunctionsPackage/index.html">Modelica.&#8203;Icons.&#8203;FunctionsPackage</a></code> (Icon for packages containing functions).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#close"><code>close</code></a></td><td>Close file</td></tr>
+<tr><td><a href="#countLines"><code>countLines</code></a></td><td>Return the number of lines in a file</td></tr>
+<tr><td><a href="#error"><code>error</code></a></td><td>Print error message and cancel all actions - in case of an unrecoverable error</td></tr>
+<tr><td><a href="#print"><code>print</code></a></td><td>Print string to terminal or file</td></tr>
+<tr><td><a href="#readFile"><code>readFile</code></a></td><td>Read content of a file and return it in a vector of strings</td></tr>
+<tr><td><a href="#readLine"><code>readLine</code></a></td><td>Read a line of text from a file and return it in a string</td></tr>
+<tr><td><a href="#readMatrixSize"><code>readMatrixSize</code></a></td><td>Read dimensions of a Real matrix from a MATLAB MAT file</td></tr>
+<tr><td><a href="#readRealMatrix"><code>readRealMatrix</code></a></td><td>Read Real matrix from MATLAB MAT file</td></tr>
+<tr><td><a href="#writeRealMatrix"><code>writeRealMatrix</code></a></td><td>Write Real matrix to a MATLAB MAT file</td></tr>
+</table>
+<hr><a name="print"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Streams</a>.&#8203;print<br><span class="subtitle">Print string to terminal or file</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Streams.<strong>print</strong>(string);
+Streams.<strong>print</strong>(string,fileName);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <strong>print</strong>(..) opens automatically the given file, if
+it is not yet open. If the file does not exist, it is created.
+If the file does exist, the given string is appended to the file.
+If this is not desired, call "Files.remove(fileName)" before calling print
+("remove(..)" is silent, if the file does not exist).
+The Modelica environment may close the file whenever appropriate.
+This can be enforced by calling <strong>Streams.close</strong>(fileName).
+After every call of "print(..)" a "new line" is printed automatically.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  Streams.print("x = " + String(x));
+  Streams.print("y = " + String(y));
+  Streams.print("x = " + String(y), "mytestfile.txt");
+</pre></blockquote>
+<h4>See also</h4>
+<p>
+<a href="../../Utilities/Streams/index.html">Streams</a>,
+<a href="../../Utilities/Streams/index.html#error">Streams.error</a>,
+<a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/ModelicaReference3.2.3/Operators/'String()'/">ModelicaReference.Operators.'String()'</a>
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>string</code></td><td>String to be printed</td></tr>
+<tr><td><code>String</code></td><td><code>fileName</code></td><td>File where to print (empty string is the terminal)</td></tr>
+</table>
+<hr><a name="readFile"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Streams</a>.&#8203;readFile<br><span class="subtitle">Read content of a file and return it in a vector of strings</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+stringVector = Streams.<strong>readFile</strong>(fileName)
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <strong>readFile</strong>(..) opens the given file, reads the complete
+content, closes the file and returns the content as a vector of strings. Lines are separated by LF or CR-LF; the returned strings do not contain the line separators.
+Note, a fileName can be defined as URI by using the helper function
+<a href="../../Utilities/Files/index.html#loadResource">loadResource</a>.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>fileName</code></td><td>Name of the file that shall be read</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>stringVector[countLines(fileName)]</code></td><td>Content of file</td></tr>
+</table>
+<hr><a name="readLine"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Streams</a>.&#8203;readLine<br><span class="subtitle">Read a line of text from a file and return it in a string</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+(string, endOfFile) = Streams.<strong>readLine</strong>(fileName, lineNumber)
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <strong>readLine</strong>(..) opens the given file, reads enough of the
+content to get the requested line, and returns the line as a string.
+Lines are separated by LF or CR-LF; the returned string does not
+contain the line separator. The file might remain open after
+the call.
+</p>
+<p>
+If lineNumber > countLines(fileName), an empty string is returned
+and endOfFile=true. Otherwise endOfFile=false.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>fileName</code></td><td>Name of the file that shall be read</td></tr>
+<tr><td><code>Integer</code></td><td><code>lineNumber</code></td><td>Number of line to read</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>string</code></td><td>Line of text</td></tr>
+<tr><td><code>Boolean</code></td><td><code>endOfFile</code></td><td>If true, end-of-file was reached when trying to read line</td></tr>
+</table>
+<hr><a name="countLines"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Streams</a>.&#8203;countLines<br><span class="subtitle">Return the number of lines in a file</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+numberOfLines = Streams.<strong>countLines</strong>(fileName)
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <strong>countLines</strong>(..) opens the given file, reads the complete
+content, closes the file and returns the number of lines. Lines are
+separated by LF or CR-LF.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>fileName</code></td><td>Name of the file that shall be read</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>numberOfLines</code></td><td>Number of lines in file</td></tr>
+</table>
+<hr><a name="error"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Streams</a>.&#8203;error<br><span class="subtitle">Print error message and cancel all actions - in case of an unrecoverable error</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Streams.<strong>error</strong>(string);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+In case of an unrecoverable error (i.e., if the solver is unable to recover from the error),
+print the string "string" as error message and cancel all actions.
+This function is semantically equivalent with the built-in function <strong>assert</strong> if called with the (default) <strong>AssertionLevel.error</strong>.
+Line breaks are characterized by "\n" in the string.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  Streams.error("x (= " + String(x) + ")\nhas to be in the range 0 .. 1");
+</pre></blockquote>
+<h4>See also</h4>
+<p>
+<a href="../../Utilities/Streams/index.html">Streams</a>,
+<a href="../../Utilities/Streams/index.html#print">Streams.print</a>,
+<a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/ModelicaReference3.2.3/Operators/'assert()'/">ModelicaReference.Operators.'assert()'</a>
+<a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/ModelicaReference3.2.3/Operators/'String()'/">ModelicaReference.Operators.'String()'</a>
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>string</code></td><td>String to be printed to error message window</td></tr>
+</table>
+<hr><a name="close"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Streams</a>.&#8203;close<br><span class="subtitle">Close file</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Streams.<strong>close</strong>(fileName)
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Close file if it is open. Ignore call if
+file is already closed or does not exist.
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>fileName</code></td><td>Name of the file that shall be closed</td></tr>
+</table>
+<hr><a name="readMatrixSize"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Streams</a>.&#8203;readMatrixSize<br><span class="subtitle">Read dimensions of a Real matrix from a MATLAB MAT file</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+dim = Streams.<strong>readMatrixSize</strong>(fileName, matrixName)
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Function <strong>readMatrixSize</strong>(..) opens the given MATLAB MAT file
+(in format v4, v6, v7, and if HDF is supported in the Modelica tool, also v7.3),
+and reads the dimensions of the given Real matrix.
+These dimensions are returned in the Integer vector dim.
+</p>
+
+<h4>Example</h4>
+<p>
+See <a href="../../Utilities/Examples/index.html#ReadRealMatrixFromFile">Examples.ReadRealMatrixFromFile</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../Utilities/Streams/index.html#readRealMatrix">readRealMatrix</a>,
+<a href="../../Utilities/Streams/index.html#writeRealMatrix">writeRealMatrix</a>
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>fileName</code></td><td>File where external data is stored</td></tr>
+<tr><td><code>String</code></td><td><code>matrixName</code></td><td>Name / identifier of the 2D Real array on the file</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>dim[2]</code></td><td>Number of rows and columns of the 2D Real array</td></tr>
+</table>
+<hr><a name="readRealMatrix"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Streams</a>.&#8203;readRealMatrix<br><span class="subtitle">Read Real matrix from MATLAB MAT file</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+matrix = Streams.<strong>readRealMatrix</strong>(fileName, matrixName, nrow, ncol, verboseRead)
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Function <strong>readRealMatrix</strong>(..) opens the given MATLAB MAT file
+(in format v4, v6, v7, and if HDF is supported in the Modelica tool, also v7.3),
+and reads the given matrix from this file. The dimensions of this matrix must first
+be inquired with function
+<a href="../../Utilities/Streams/index.html#readMatrixSize">readMatrixSize</a>
+and passed via arguments nrow and ncol to this function.
+</p>
+
+<h4>Example</h4>
+<p>
+See <a href="../../Utilities/Examples/index.html#ReadRealMatrixFromFile">Examples.ReadRealMatrixFromFile</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../Utilities/Streams/index.html#readMatrixSize">readMatrixSize</a>,
+<a href="../../Utilities/Streams/index.html#writeRealMatrix">writeRealMatrix</a>
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>fileName</code></td><td>File where external data is stored</td></tr>
+<tr><td><code>String</code></td><td><code>matrixName</code></td><td>Name / identifier of the 2D Real array on the file</td></tr>
+<tr><td><code>Integer</code></td><td><code>nrow</code></td><td>Number of rows of the 2D Real array</td></tr>
+<tr><td><code>Integer</code></td><td><code>ncol</code></td><td>Number of columns of the 2D Real array</td></tr>
+<tr><td><code>Boolean</code></td><td><code>verboseRead</code></td><td>= true: Print info message; = false: No info message</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>matrix[nrow,ncol]</code></td><td>2D Real array</td></tr>
+</table>
+<hr><a name="writeRealMatrix"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Utilities</a>.&#8203;<a href="index.html">Streams</a>.&#8203;writeRealMatrix<br><span class="subtitle">Write Real matrix to a MATLAB MAT file</span></h2></a>
+<h3>Information</h3>
+<p>
+
+
+<h4>Syntax</h4>
+<blockquote><pre>
+success = Streams.<strong>writeRealMatrix</strong>(fileName, matrixName, matrix, append, format)
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Function <strong>writeRealMatrix</strong>(..) writes the given matrix to a new or an existing MATLAB MAT file
+(in format v4, v6, v7, and if HDF is supported in the Modelica tool, also v7.3).
+If <code>append = false</code> (= default), the file is newly created
+(or an existing file is deleted and re-created).
+If <code>append = true</code>, the matrix is included in an existing file or if the
+file does not yet exists this flag is ignored. If the file exists and
+<code>append = true</code>, argument format is ignored.
+</p>
+
+<p>
+Parameter <strong>format</strong> defines the format in which the values are stored on file.
+The following formats are supported:<br>&nbsp;
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><td>format = </td><td>Type of format</td></tr>
+<tr><td>"4"  </td><td>MATLAB MAT version v4</td></tr>
+<tr><td>"6"  </td><td>MATLAB MAT version v6</td></tr>
+<tr><td>"7"  </td><td>MATLAB MAT version v7</td></tr>
+<tr><td>"7.3"</td><td>MATLAB MAT version v7.3<br>
+                      (requires HDF support in the Modelica tool)</td></tr>
+</table>
+
+<p>
+The function returns <code>success = true</code> if the matrix was successfully written
+to file. Otherwise, an error message is printed and the function returns with
+<code>success = false</code>.
+</p>
+
+<h4>Example</h4>
+<p>
+See <a href="../../Utilities/Examples/index.html#WriteRealMatrixToFile">Examples.WriteRealMatrixToFile</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="../../Utilities/Streams/index.html#readMatrixSize">readMatrixSize</a>,
+<a href="../../Utilities/Streams/index.html#readRealMatrix">readRealMatrix</a>
+</p>
+<p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>String</code></td><td><code>fileName</code></td><td>File where external data is to be stored</td></tr>
+<tr><td><code>String</code></td><td><code>matrixName</code></td><td>Name / identifier of the 2D Real array on the file</td></tr>
+<tr><td><code>Real</code></td><td><code>matrix[:,:]</code></td><td>2D Real array</td></tr>
+<tr><td><code>Boolean</code></td><td><code>append</code></td><td>Append values to file</td></tr>
+<tr><td><code>String</code></td><td><code>format</code></td><td>MATLAB MAT file version: "4" -&gt; v4, "6" -&gt; v6, "7" -&gt; v7</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>success</code></td><td>true if successful</td></tr>
+</table>
+</body></html>

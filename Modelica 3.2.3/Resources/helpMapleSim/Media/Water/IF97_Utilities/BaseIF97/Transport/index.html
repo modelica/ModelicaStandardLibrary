@@ -1,0 +1,118 @@
+<html><head><title>Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Transport"><h1><embed class="icon" src="../../../../../images/icon0092.svg" width="203" height="203" />
+Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;Transport<br><span class="subtitle">Transport properties for water according to IAPWS/IF97</span></h1></a>
+<h3>Information</h3>
+<p>
+<h4>Package description</h4>
+          <h4>Package contents</h4>
+          <ul>
+          <li>Function <strong>visc_dTp</strong> implements a function to compute the industrial formulation of the
+          dynamic viscosity of water as a function of density and temperature.
+          The details are described in the document <a href="../../../../../../Documentation/Media/Water/IF97documentation/visc.pdf">visc.pdf</a>.</li>
+          <li>Function <strong>cond_dTp</strong> implements a function to compute  the industrial formulation of the thermal conductivity of water as
+          a function of density, temperature and pressure. <strong>Important note</strong>: Obviously only two of the three
+          inputs are really needed, but using three inputs speeds up the computation and the three variables are known in most models anyways.
+          The inputs d,T and p have to be consistent.
+          The details are described in the document <a href="../../../../../../Documentation/Media/Water/IF97documentation/surf.pdf">surf.pdf</a>.</li>
+          <li>Function <strong>surfaceTension</strong> implements a function to compute the surface tension between vapour
+          and liquid water as a function of temperature.
+          The details are described in the document <a href="../../../../../../Documentation/Media/Water/IF97documentation/thcond.pdf">thcond.pdf</a>.</li>
+          </ul>
+          <h4>Version Info and Revision history
+          </h4>
+          <ul>
+          <li>First implemented: <em>October, 2002</em>
+          by Hubertus Tummescheit
+          </li>
+          </ul>
+          <address>Authors: Hubertus Tummescheit and Jonas Eborn<br>
+      Modelon AB<br>
+      Ideon Science Park<br>
+      SE-22370 Lund, Sweden<br>
+      email: hubertus@modelon.se
+          </address>
+          <ul>
+          <li>Initial version: October 2002</li>
+          </ul>
+          
+<p>Extends from <code><a href="../../../../../Icons/FunctionsPackage/index.html">Modelica.&#8203;Icons.&#8203;FunctionsPackage</a></code> (Icon for packages containing functions).</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#cond_dTp"><code>cond_dTp</code></a></td><td>Thermal conductivity lam(d,T,p) (industrial use version) only in one-phase region</td></tr>
+<tr><td><a href="#surfaceTension"><code>surfaceTension</code></a></td><td>Surface tension in region 4 between steam and water</td></tr>
+<tr><td><a href="#visc_dTp"><code>visc_dTp</code></a></td><td>Dynamic viscosity eta(d,T,p), industrial formulation</td></tr>
+</table>
+<hr><a name="visc_dTp"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Transport</a>.&#8203;visc_dTp<br><span class="subtitle">Dynamic viscosity eta(d,T,p), industrial formulation</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature (K)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure (only needed for region of validity)</td></tr>
+<tr><td><code>Integer</code></td><td><code>phase</code></td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#DynamicViscosity">DynamicViscosity</a></code></td><td><code>eta</code></td><td>Dynamic viscosity</td></tr>
+</table>
+<hr><a name="cond_dTp"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Transport</a>.&#8203;cond_dTp<br><span class="subtitle">Thermal conductivity lam(d,T,p) (industrial use version) only in one-phase region</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Density">Density</a></code></td><td><code>d</code></td><td>Density</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature (K)</td></tr>
+<tr><td><code><a href="../../../../../SIunits/index.html#Pressure">Pressure</a></code></td><td><code>p</code></td><td>Pressure</td></tr>
+<tr><td><code>Integer</code></td><td><code>phase</code></td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td><code>Boolean</code></td><td><code>industrialMethod</code></td><td>If true, the industrial method is used, otherwise the scientific one</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#ThermalConductivity">ThermalConductivity</a></code></td><td><code>lambda</code></td><td>Thermal conductivity</td></tr>
+</table>
+<hr><a name="surfaceTension"><h2><embed class="icon" src="../../../../../images/icon0035.svg" width="203" height="203" />
+Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../../index.html">Media</a>.&#8203;<a href="../../../index.html">Water</a>.&#8203;<a href="../../index.html">IF97_Utilities</a>.&#8203;<a href="../index.html">BaseIF97</a>.&#8203;<a href="index.html">Transport</a>.&#8203;surfaceTension<br><span class="subtitle">Surface tension in region 4 between steam and water</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>This icon indicates Modelica functions.</p>
+<p>Extends from <code><a href="../../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
+<h3>Inputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#Temperature">Temperature</a></code></td><td><code>T</code></td><td>Temperature (K)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../../SIunits/index.html#SurfaceTension">SurfaceTension</a></code></td><td><code>sigma</code></td><td>Surface tension in SI units</td></tr>
+</table>
+</body></html>

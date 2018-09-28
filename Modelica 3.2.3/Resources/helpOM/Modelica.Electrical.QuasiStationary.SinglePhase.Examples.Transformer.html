@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.QuasiStationary.SinglePhase.Examples.Transformer</title>
+</head>
+<body>
+<h1><a href="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg"><img class="svgiconhead" src="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.QuasiStationary.html">QuasiStationary</a>.<a class="omc-h1-a" href="Modelica.Electrical.QuasiStationary.SinglePhase.html">SinglePhase</a>.<a class="omc-h1-a" href="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.html">Examples</a>.<span class="omc-h1">Transformer</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This examples shows the operational behavior of transformer with
+short circuit impedance. The transformer is loaded with constant
+current magnitude of 250A but variable phase angle. The angle
+varies from 0 to 360 degrees within one second of simulation
+time.</p>
+<p>Transformer data</p>
+<ul>
+<li>Nominal primary voltage <code>V1N = 1000 V</code></li>
+<li>Nominal secondary voltage <code>V2N = 200 V</code></li>
+<li>Nominal apparent power <code>SN = 50 kVA</code></li>
+<li>Short circuit impedance <code><u>Z</u><sub>k</sub> = 0.72 Ohm +
+j*0.96 Ohm</code></li>
+<li>Magnetizing current and core loss are not taken into
+account</li>
+</ul>
+<p>Plot the real part of the secondary voltage
+<code>idealTransformer.v2.re</code> on the x axis and
+<code>idealTransformer.v2.im</code> on the y axis. The locus of
+this complex voltage <code><u>v</u><sub>2</sub></code> is a circle.
+The center of the circle is the primary supply voltage divided by
+the transformation ratio of <code>n=5</code>. Since in this
+experiment the load current magnitude is constant, the voltage drop
+across the short circuit impedance of the transformer is constant,
+as well. The radius of the circle is equal to the constant
+magnitude of the voltage drop across the short circuit
+impedance.</p>
+<hr />
+Generated at 2018-09-28T09:15:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1432-g3445e57
+</body>
+</html>
