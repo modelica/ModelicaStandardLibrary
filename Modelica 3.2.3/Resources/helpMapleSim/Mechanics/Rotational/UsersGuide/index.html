@@ -33,14 +33,14 @@ sub-sections:
 </p>
 
 <ul>
-<li> <a href="../../../Mechanics/Rotational/UsersGuide/index.html#Overview">Overview</a></li>
-<li> <a href="../../../Mechanics/Rotational/UsersGuide/index.html#FlangeConnectors">Flange Connectors</a></li>
-<li> <a href="../../../Mechanics/Rotational/UsersGuide/index.html#SupportTorques">Support Torques</a></li>
-<li> <a href="../../../Mechanics/Rotational/UsersGuide/index.html#SignConventions">Sign Conventions</a></li>
-<li> <a href="../../../Mechanics/Rotational/UsersGuide/index.html#UserDefinedComponents">User Defined Components</a></li>
-<li> <a href="../../../Mechanics/Rotational/UsersGuide/index.html#RequirementsForSimulationTool">Requirements for Simulation Tools</a></li>
-<li> <a href="../../../Mechanics/Rotational/UsersGuide/index.html#StateSelection">State Selection</a></li>
-<li> <a href="../../../Mechanics/Rotational/UsersGuide/index.html#ModelingOfFriction">Modeling of Friction</a></li>
+<li> <a href="index.html#Overview">Overview</a></li>
+<li> <a href="index.html#FlangeConnectors">Flange Connectors</a></li>
+<li> <a href="index.html#SupportTorques">Support Torques</a></li>
+<li> <a href="index.html#SignConventions">Sign Conventions</a></li>
+<li> <a href="index.html#UserDefinedComponents">User Defined Components</a></li>
+<li> <a href="index.html#RequirementsForSimulationTool">Requirements for Simulation Tools</a></li>
+<li> <a href="index.html#StateSelection">State Selection</a></li>
+<li> <a href="index.html#ModelingOfFriction">Modeling of Friction</a></li>
 </ul>
 
 <p>Extends from <code><a href="../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
@@ -165,7 +165,7 @@ support torque is enabled or disabled. If it is enabled, it must be connected.
 If it is disabled, it need not be connected.
 Enabled support flanges offer, e.g., the possibility to model gearboxes mounted on
 the ground via spring-damper-systems (cf. example
-<a href="../../../Mechanics/Rotational/Examples/index.html#ElasticBearing">ElasticBearing</a>).
+<a href="../Examples/index.html#ElasticBearing">ElasticBearing</a>).
 </p>
 
 <p>
@@ -270,14 +270,14 @@ which are defined in sublibrary Interfaces:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Name</th><th>Description</th></tr>
 <tr>
-  <td><a href="../../../Mechanics/Rotational/Interfaces/index.html#PartialCompliant">PartialCompliant</a>
+  <td><a href="../Interfaces/index.html#PartialCompliant">PartialCompliant</a>
   </td>
   <td>Compliant connection of two rotational 1-dim. flanges
                    (used for force laws such as a spring or a damper).</td>
 </tr>
 
 <tr>
-  <td><a href="../../../Mechanics/Rotational/Interfaces/index.html#PartialCompliantWithRelativeStates">PartialCompliantWithRelativeStates</a>
+  <td><a href="../Interfaces/index.html#PartialCompliantWithRelativeStates">PartialCompliantWithRelativeStates</a>
   </td>
   <td> Same as "PartialCompliant", but relative angle and relative speed are
                     defined as preferred states. Use this partial model if the force law
@@ -289,7 +289,7 @@ which are defined in sublibrary Interfaces:
 </tr>
 
 <tr>
-  <td><a href="../../../Mechanics/Rotational/Interfaces/index.html#PartialElementaryTwoFlangesAndSupport2">PartialElementaryTwoFlangesAndSupport2</a>
+  <td><a href="../Interfaces/index.html#PartialElementaryTwoFlangesAndSupport2">PartialElementaryTwoFlangesAndSupport2</a>
 </td>
   <td> Partial model for a 1-dim. rotational gear consisting of the flange of
                     an input shaft, the flange of an output shaft and the support.
@@ -297,28 +297,28 @@ which are defined in sublibrary Interfaces:
 </tr>
 
 <tr>
-  <td><a href="../../../Mechanics/Rotational/Interfaces/index.html#PartialTorque">PartialTorque</a>
+  <td><a href="../Interfaces/index.html#PartialTorque">PartialTorque</a>
 </td>
   <td> Partial model of a torque acting at the flange (accelerates the flange).
   </td>
 </tr>
 
 <tr>
-  <td><a href="../../../Mechanics/Rotational/Interfaces/index.html#PartialTwoFlanges">PartialTwoFlanges</a>
+  <td><a href="../Interfaces/index.html#PartialTwoFlanges">PartialTwoFlanges</a>
 </td>
   <td>General connection of two rotational 1-dim. flanges.
   </td>
 </tr>
 
 <tr>
-  <td><a href="../../../Mechanics/Rotational/Interfaces/index.html#PartialAbsoluteSensor">PartialAbsoluteSensor</a>
+  <td><a href="../Interfaces/index.html#PartialAbsoluteSensor">PartialAbsoluteSensor</a>
 </td>
   <td>Measure absolute flange variables.
   </td>
 </tr>
 
 <tr>
-  <td><a href="../../../Mechanics/Rotational/Interfaces/index.html#PartialRelativeSensor">PartialRelativeSensor</a>
+  <td><a href="../Interfaces/index.html#PartialRelativeSensor">PartialRelativeSensor</a>
 </td>
   <td>Measure relative flange variables.
   </td>
@@ -461,7 +461,7 @@ Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 
 <p>
 Only a few components of the Rotational library use the der(..) operator
-and are therefore candidates to have states. Most important, component <a href="../../../Mechanics/Rotational/Components/index.html#Inertia">Inertia</a>
+and are therefore candidates to have states. Most important, component <a href="../Components/index.html#Inertia">Inertia</a>
 defines the absolute rotation angle and the absolute angular velocity of this
 component as candidate for states. In the "Advanced" menu the built-in StateSelect
 enumeration can be set to define the priority to use these variables as states.
@@ -517,9 +517,9 @@ Currently, in Modelica there is no possibility to provide this information.
 In order to reduce this effect, it is advisable to not use absolute angles, but
 relative angles as states. A user can define relative variables as states
 explicitly with component
-<a href="../../../Mechanics/Rotational/Components/index.html#RelativeStates">RelativeStates</a>.
+<a href="../Components/index.html#RelativeStates">RelativeStates</a>.
 Furthermore, all compliant components, such as
-<a href="../../../Mechanics/Rotational/Components/index.html#SpringDamper">SpringDamper</a> are
+<a href="../Components/index.html#SpringDamper">SpringDamper</a> are
 defining the relative angle and the relative angular velocity as preferred states.
 Therefore, a tool will select in most cases relative angles as states.
 </p>
@@ -533,7 +533,7 @@ explicitly a nominal value on the relative angle. This definition is provided in
 "Advanced" menu of the compliant components with parameter "phi_nominal".
 The default value is 1e-4 rad, to be in the order of a compliant deformation of a
 drive. For some components, like
-a <a href="../../../Mechanics/Rotational/Components/index.html#Clutch">Clutch</a>
+a <a href="../Components/index.html#Clutch">Clutch</a>
 this might be too small and a value of phi_nominal=1 might be more appropriate
 (a value of phi_nominal = 1e-4 does not hurt, but just makes the error control
 unnecessarily stringent).
@@ -556,7 +556,7 @@ Several elements of this library model <strong>Coulomb friction</strong> with th
 
 <p>
 The friction equations are defined in base model
-<a href="../../../Mechanics/Rotational/Interfaces/index.html#PartialFriction">Interfaces.PartialFriction</a>.
+<a href="../Interfaces/index.html#PartialFriction">Interfaces.PartialFriction</a>.
 Here are some explanations:
 </p>
 
@@ -668,7 +668,7 @@ mode = if (pre(mode) == Forward  or startFor)  and v&gt;0 then Forward  elseif
 
 <p>
 The above approach to model a simplified friction element is slightly generalized in model
-<a href="../../../Mechanics/Rotational/Interfaces/index.html#PartialFriction">Interfaces.PartialFriction</a>:
+<a href="../Interfaces/index.html#PartialFriction">Interfaces.PartialFriction</a>:
 </p>
 
 <ul>
@@ -705,4 +705,6 @@ Germany
      email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a></li>
 </ul>
 <p>Extends from <code><a href="../../../Icons/index.html#Contact">Modelica.&#8203;Icons.&#8203;Contact</a></code> (Icon for contact information).</p>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:39:39 EDT by <i>MapleSim</i>.</p>
 </body></html>

@@ -32,19 +32,19 @@ between two frame connectors, e.g., between two parts.
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><strong><em>Model</em></strong></th><th><strong><em>Description</em></strong></th></tr>
-  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#WorldForce">WorldForce</a></td>
+  <tr><td><a href="index.html#WorldForce">WorldForce</a></td>
       <td> External force acting at the frame to which this component
            is connected and defined by 3 input signals,
            that are interpreted as one vector resolved in frame world, frame_b or frame_resolve.<br>
            <img src="../../../../Images/Mechanics/MultiBody/Forces/ArrowForce.png"></td>
   </tr>
-  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#WorldTorque">WorldTorque</a></td>
+  <tr><td><a href="index.html#WorldTorque">WorldTorque</a></td>
       <td> External torque acting at the frame to which this component
            is connected and defined by 3 input signals,
            that are interpreted as one vector resolved in frame world, frame_b or frame_resolve.<br>
            <img src="../../../../Images/Mechanics/MultiBody/Forces/ArrowTorque.png"></td>
   </tr>
-  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#WorldForceAndTorque">WorldForceAndTorque</a></td>
+  <tr><td><a href="index.html#WorldForceAndTorque">WorldForceAndTorque</a></td>
       <td> External force and external torque acting at the frame
            to which this component
            is connected and defined by 3+3 input signals,
@@ -54,46 +54,46 @@ between two frame connectors, e.g., between two parts.
            <img src="../../../../Images/Mechanics/MultiBody/Forces/ArrowTorque.png">
       </td>
   </tr>
-  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#Force">Force</a></td>
+  <tr><td><a href="index.html#Force">Force</a></td>
       <td> Force acting between two frames defined by 3 input signals
            resolved in frame world, frame_a, frame_b or in frame_resolve.<br>
            <img src="../../../../Images/Mechanics/MultiBody/Forces/ArrowForce2.png"></td>
   </tr>
-  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#Torque">Torque</a></td>
+  <tr><td><a href="index.html#Torque">Torque</a></td>
       <td> Torque acting between two frames defined by 3 input signals
            resolved in frame world, frame_a, frame_b or in frame_resolve.<br>
            <img src="../../../../Images/Mechanics/MultiBody/Forces/ArrowTorque2.png"></td>
   </tr>
-  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#ForceAndTorque">ForceAndTorque</a></td>
+  <tr><td><a href="index.html#ForceAndTorque">ForceAndTorque</a></td>
       <td> Force and torque acting between two frames defined by 3+3 input signals
            resolved in frame world, frame_a, frame_b or in frame_resolve.<br>
            <img src="../../../../Images/Mechanics/MultiBody/Forces/ArrowForce2.png"><br>
            <img src="../../../../Images/Mechanics/MultiBody/Forces/ArrowTorque2.png"></td>
   </tr>
-  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#LineForceWithMass">LineForceWithMass</a></td>
+  <tr><td><a href="index.html#LineForceWithMass">LineForceWithMass</a></td>
       <td>  General line force component with an optional point mass
             on the connection line. The force law can be defined by a
             component of Modelica.Mechanics.Translational<br>
            <img src="../../../../Images/Mechanics/MultiBody/Forces/LineForceWithMass.png"></td>
   </tr>
-  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#LineForceWithTwoMasses">LineForceWithTwoMasses</a></td>
+  <tr><td><a href="index.html#LineForceWithTwoMasses">LineForceWithTwoMasses</a></td>
       <td>  General line force component with two optional point masses
             on the connection line. The force law can be defined by a
             component of Modelica.Mechanics.Translational<br>
            <img src="../../../../Images/Mechanics/MultiBody/Forces/LineForceWithTwoMasses.png"></td>
   </tr>
-  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#Spring">Spring</a></td>
+  <tr><td><a href="index.html#Spring">Spring</a></td>
       <td> Linear translational spring with optional mass<br>
            <img src="../../../../Images/Mechanics/MultiBody/Forces/Spring2.png"></td>
   </tr>
-  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#Damper">Damper</a></td>
+  <tr><td><a href="index.html#Damper">Damper</a></td>
       <td> Linear (velocity dependent) damper<br>
            <img src="../../../../Images/Mechanics/MultiBody/Forces/Damper2.png"></td>
   </tr>
-  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#SpringDamperParallel">SpringDamperParallel</a></td>
+  <tr><td><a href="index.html#SpringDamperParallel">SpringDamperParallel</a></td>
       <td> Linear spring and damper in parallel connection </td>
   </tr>
-  <tr><td><a href="../../../Mechanics/MultiBody/Forces/index.html#SpringDamperSeries">SpringDamperSeries</a></td>
+  <tr><td><a href="index.html#SpringDamperSeries">SpringDamperSeries</a></td>
       <td> Linear spring and damper in series connection </td>
   </tr>
 </table>
@@ -688,11 +688,11 @@ to frame_b, respectively.
 </p>
 <p>
 In example
-<a href="../../../Mechanics/MultiBody/Examples/Elementary/index.html#LineForceWithTwoMasses">
+<a href="../Examples/Elementary/index.html#LineForceWithTwoMasses">
 MultiBody.Examples.Elementary.LineForceWithTwoMasses</a> the usage of this
 line force element is shown and is compared with an alternative
 implementation using a
-<a href="../../../Mechanics/MultiBody/Joints/Assemblies/index.html#JointUPS">
+<a href="../Joints/Assemblies/index.html#JointUPS">
 MultiBody.Joints.Assemblies.JointUPS</a> component.
 The composition diagram of this example
 is displayed in the figure below.
@@ -938,4 +938,6 @@ force element) and der(s_damper) is the time derivative of s_damper.
 <tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
 <tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:39:27 EDT by <i>MapleSim</i>.</p>
 </body></html>

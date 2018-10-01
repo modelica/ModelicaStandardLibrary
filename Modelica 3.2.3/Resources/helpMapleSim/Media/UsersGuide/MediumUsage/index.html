@@ -29,19 +29,19 @@ Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.h
 Content:
 </p>
 <ol>
-<li><a href="../../../Media/UsersGuide/MediumUsage/index.html#BasicUsage">Basic usage of medium model</a></li>
-<li><a href="../../../Media/UsersGuide/MediumUsage/index.html#BalanceVolume">Medium model for a balance volume</a></li>
-<li><a href="../../../Media/UsersGuide/MediumUsage/index.html#ShortPipe">Medium model for a pressure loss</a></li>
-<li><a href="../../../Media/UsersGuide/MediumUsage/index.html#OptionalProperties">Optional medium properties</a></li>
-<li><a href="../../../Media/UsersGuide/MediumUsage/index.html#Constants">Constants provided by medium model</a></li>
-<li><a href="../../../Media/UsersGuide/MediumUsage/index.html#TwoPhase">Two-phase media</a></li>
-<li><a href="../../../Media/UsersGuide/MediumUsage/index.html#Initialization">Initialization</a></li>
+<li><a href="index.html#BasicUsage">Basic usage of medium model</a></li>
+<li><a href="index.html#BalanceVolume">Medium model for a balance volume</a></li>
+<li><a href="index.html#ShortPipe">Medium model for a pressure loss</a></li>
+<li><a href="index.html#OptionalProperties">Optional medium properties</a></li>
+<li><a href="index.html#Constants">Constants provided by medium model</a></li>
+<li><a href="index.html#TwoPhase">Two-phase media</a></li>
+<li><a href="index.html#Initialization">Initialization</a></li>
 </ol>
 
 <p>
 A good demonstration how to use the media from Modelica.Media is
 given in package ModelicaTest.Media.TestsWithFluid. Under
-<a href="../../../Media/Examples/Utilities/index.html">
+<a href="../../Examples/Utilities/index.html">
 Modelica.Media.Examples.Utilities</a> the most basic components of a Fluid library
 are defined. Additional media models with some very simple piping networks can be found in the
 <a href="https://github.com/modelica/ModelicaStandardLibrary/tree/master/ModelicaTest">ModelicaTest library</a> under
@@ -138,7 +138,7 @@ In a component, the most basic usage of a medium model is as follows
 <p>
 The second way is to use the setState_XXX functions to compute the thermodynamic state
 record from which all other thermodynamic state variables can be computed (see
-<a href="../../../Media/UsersGuide/MediumDefinition/index.html#BasicDefinition">
+<a href="../MediumDefinition/index.html#BasicDefinition">
 Basic definition of medium</a> for further details on ThermodynamicState). The setState_XXX functions
 accept either X or Xi (see explanation below) and will decide internally which of these two compositions
 is provided by the user. The four fundamental setState_XXX functions are provided in PartialMedium
@@ -298,7 +298,7 @@ port that fulfill the mass and energy balance and on a different grid components
 fulfill the momentum balance. A balance volume component, called junction
 volume below, should be primarily implemented in the following way
 (see also the implementation in
-<a href="../../../Media/Examples/Utilities/index.html#PortVolume">
+<a href="../../Examples/Utilities/index.html#PortVolume">
 Modelica.Media.Examples.Utilities.PortVolume</a>):
 </p>
 <pre>
@@ -412,7 +412,7 @@ other port. Since no mass or energy is stored, no differential
 equations for thermodynamic variables are present. A component model of this type
 has therefore usually the following structure
 (see also the implementation in
-<a href="../../../Media/Examples/Utilities/index.html#ShortPipe">
+<a href="../../Examples/Utilities/index.html#ShortPipe">
 Modelica.Media.Examples.Utilities.ShortPipe</a>):
 </p>
 <pre>
@@ -465,7 +465,7 @@ The <strong>semiLinear</strong>(..) operator is basically defined as:
 that is, it computes the enthalpy flow rate either from the port_a or
 from the port_b properties, depending on flow direction. The exact
 details of this operator are given in
-<a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/ModelicaReference3.2.3/Operators/'semiLinear()'/">
+<a href="../../../../../../ModelicaReference 3.2.3/Resources/helpMapleSim/Operators/index.html#'semiLinear()'">
 ModelicaReference.Operators.'semiLinear()'</a>. Especially, rules
 are defined in the Modelica specification that m_flow = 0 can be treated
 in a "meaningful way". Especially, if n fluid components (such as pipes)
@@ -508,7 +508,7 @@ In some cases additional medium properties are needed.
 A component that needs these optional properties has to call
 one of the functions listed in the following table. They are
 defined as partial functions within package
-<a href="../../../Media/Interfaces/PartialMedium/index.html">PartialMedium</a>,
+<a href="../../Interfaces/PartialMedium/index.html">PartialMedium</a>,
 and then (optionally) implemented in actual medium packages.
 If a component calls such an optional function and the
 medium package does not provide a new implementation for this
@@ -871,7 +871,7 @@ Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 
 <p>
 Models for media which can exist in one-phase or two-phase conditions inherit
-from <a href="../../../Media/Interfaces/PartialTwoPhaseMedium/index.html">
+from <a href="../../Interfaces/PartialTwoPhaseMedium/index.html">
 Modelica.Media.Interfaces.PartialTwoPhaseMedium</a>
 (which inherits from PartialMedium). The basic usage of these
 media models is the same as described in the previous sections. However, additional
@@ -1143,4 +1143,6 @@ exist:
      when this option is set (search for "nonlinear").</li>
 </ul>
 <p>Extends from <code><a href="../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:40:16 EDT by <i>MapleSim</i>.</p>
 </body></html>

@@ -62,7 +62,7 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 <p>
 
 <p>
-This is an ideal diode, for details see partial model <a href="../../../Electrical/Analog/Interfaces/index.html#IdealSemiconductor">IdealSemiconductor</a><br>
+This is an ideal diode, for details see partial model <a href="../Interfaces/index.html#IdealSemiconductor">IdealSemiconductor</a><br>
 The diode is conducting if voltage &gt; Vknee.<br>
 The diode is locking if current &lt; Vknee/Goff.
 </p>
@@ -87,7 +87,7 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 <p>
 
 <p>
-This is an ideal thyristor, for details see partial model <a href="../../../Electrical/Analog/Interfaces/index.html#IdealSemiconductor">IdealSemiconductor</a><br>
+This is an ideal thyristor, for details see partial model <a href="../Interfaces/index.html#IdealSemiconductor">IdealSemiconductor</a><br>
 The thyristor is conducting if voltage &gt; Vknee AND fire = true.<br>
 If fire gets false, the current has to fall below Vknee*Goff, then the thyristor gets locking.</p>
 <p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#IdealSemiconductor">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;IdealSemiconductor</a></code> (Ideal semiconductor).</p>
@@ -112,7 +112,7 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 <p>
 
 <p>
-This is an ideal GTO thyristor or switching transistor, for details see partial model <a href="../../../Electrical/Analog/Interfaces/index.html#IdealSemiconductor">IdealSemiconductor</a><br>
+This is an ideal GTO thyristor or switching transistor, for details see partial model <a href="../Interfaces/index.html#IdealSemiconductor">IdealSemiconductor</a><br>
 The GTO thyristor is conducting if voltage &gt; Vknee AND fire = true.<br>
 Otherwise, the GTO thyristor is locking.
 </p>
@@ -411,7 +411,7 @@ Due to this equations, the DC offset of secondary voltages and currents decremen
 </p>
 <p>
 Taking primary <code>L1sigma</code> and secondary <code>L2ssigma</code> leakage inductances into account,
-compared with the <a href="../../../Electrical/Analog/Basic/index.html#Transformer">basic transformer</a>
+compared with the <a href="../Basic/index.html#Transformer">basic transformer</a>
 the following parameter conversion can be applied (which leads to identical results):
 </p>
 <pre>
@@ -494,7 +494,7 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 
 <p>
 The switching behaviour of the ideal opening switch is controlled by the input signal control: off = control.<br>
-For further details, see partial model <a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitch">IdealSwitch</a>.
+For further details, see partial model <a href="../Interfaces/index.html#IdealSwitch">IdealSwitch</a>.
 </p>
 <p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitch">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;IdealSwitch</a></code> (Ideal electrical switch).</p>
 <h3>Parameters</h3>
@@ -518,7 +518,7 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 
 <p>
 The switching behaviour of the ideal closing switch is controlled by the input signal control: off = not control.<br>
-For further details, see partial model <a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitch">IdealSwitch</a>.
+For further details, see partial model <a href="../Interfaces/index.html#IdealSwitch">IdealSwitch</a>.
 </p>
 <p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitch">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;IdealSwitch</a></code> (Ideal electrical switch).</p>
 <h3>Parameters</h3>
@@ -542,7 +542,7 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 
 <p>
 The switching behaviour of the controlled  ideal opening switch is controlled by the control pin: off = control.v &gt; level<br>
-For further details, see partial model <a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitch">IdealSwitch</a>.
+For further details, see partial model <a href="../Interfaces/index.html#IdealSwitch">IdealSwitch</a>.
 </p>
 <p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitch">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;IdealSwitch</a></code> (Ideal electrical switch).</p>
 <h3>Parameters</h3>
@@ -567,7 +567,7 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 
 <p>
 The switching behaviour of the controlled ideal closing switch is controlled by the control pin: off = control.v &lt; level<br>
-For further details, see partial model <a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitch">IdealSwitch</a>.
+For further details, see partial model <a href="../Interfaces/index.html#IdealSwitch">IdealSwitch</a>.
 </p>
 
 <p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitch">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;IdealSwitch</a></code> (Ideal electrical switch).</p>
@@ -592,10 +592,10 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 <p>
 
 <p>
-This model is an extension to the <a href="../../../Electrical/Analog/Ideal/index.html#IdealOpeningSwitch">IdealOpeningSwitch</a>.
+This model is an extension to the <a href="index.html#IdealOpeningSwitch">IdealOpeningSwitch</a>.
 </p>
 <p>
-For details of the arc effect, see partial model <a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitchWithArc">IdealSwitchWithArc</a>.
+For details of the arc effect, see partial model <a href="../Interfaces/index.html#IdealSwitchWithArc">IdealSwitchWithArc</a>.
 </p>
 <p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitchWithArc">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;IdealSwitchWithArc</a></code> (Ideal switch with simple arc model).</p>
 <h3>Parameters</h3>
@@ -621,10 +621,10 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 <p>
 
 <p>
-This model is an extension to the <a href="../../../Electrical/Analog/Ideal/index.html#IdealClosingSwitch">IdealClosingSwitch</a>.
+This model is an extension to the <a href="index.html#IdealClosingSwitch">IdealClosingSwitch</a>.
 </p>
 <p>
-For details of the arc effect, see partial model <a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitchWithArc">IdealSwitchWithArc</a>.
+For details of the arc effect, see partial model <a href="../Interfaces/index.html#IdealSwitchWithArc">IdealSwitchWithArc</a>.
 </p>
 <p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitchWithArc">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;IdealSwitchWithArc</a></code> (Ideal switch with simple arc model).</p>
 <h3>Parameters</h3>
@@ -650,10 +650,10 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 <p>
 
 <p>
-This model is an extension to the <a href="../../../Electrical/Analog/Ideal/index.html#ControlledIdealOpeningSwitch">ControlledIdealOpeningSwitch</a>.
+This model is an extension to the <a href="index.html#ControlledIdealOpeningSwitch">ControlledIdealOpeningSwitch</a>.
 </p>
 <p>
-For details of the arc effect, see partial model <a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitchWithArc">IdealSwitchWithArc</a>.
+For details of the arc effect, see partial model <a href="../Interfaces/index.html#IdealSwitchWithArc">IdealSwitchWithArc</a>.
 </p>
 <p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitchWithArc">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;IdealSwitchWithArc</a></code> (Ideal switch with simple arc model).</p>
 <h3>Parameters</h3>
@@ -680,10 +680,10 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 <p>
 
 <p>
-This model is an extension to the <a href="../../../Electrical/Analog/Ideal/index.html#ControlledIdealClosingSwitch">ControlledIdealClosingSwitch</a>.
+This model is an extension to the <a href="index.html#ControlledIdealClosingSwitch">ControlledIdealClosingSwitch</a>.
 </p>
 <p>
-For details of the arc effect, see partial model <a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitchWithArc">IdealSwitchWithArc</a>.
+For details of the arc effect, see partial model <a href="../Interfaces/index.html#IdealSwitchWithArc">IdealSwitchWithArc</a>.
 </p>
 <p>Extends from <code><a href="../../../Electrical/Analog/Interfaces/index.html#IdealSwitchWithArc">Modelica.&#8203;Electrical.&#8203;Analog.&#8203;Interfaces.&#8203;IdealSwitchWithArc</a></code> (Ideal switch with simple arc model).</p>
 <h3>Parameters</h3>
@@ -813,4 +813,6 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 <tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>p</code></td><td>Positive electrical pin (output)</td></tr>
 <tr><td><code><a href="../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Negative electrical pin (output)</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:36:49 EDT by <i>MapleSim</i>.</p>
 </body></html>

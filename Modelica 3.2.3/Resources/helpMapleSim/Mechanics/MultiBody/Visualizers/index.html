@@ -32,8 +32,8 @@ animation features of the MultiBody library.
 </p>
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><a href="../../../Mechanics/MultiBody/Visualizers/index.html#FixedShape">FixedShape</a><br>
-             <a href="../../../Mechanics/MultiBody/Visualizers/index.html#FixedShape2">FixedShape2</a></td>
+  <tr><td><a href="index.html#FixedShape">FixedShape</a><br>
+             <a href="index.html#FixedShape2">FixedShape2</a></td>
       <td>Visualizing an elementary shape with dynamically varying shape attributes.
       FixedShape has one connector frame_a, whereas FixedShape2 has additionally
           a frame_b for easier connection to further visual objects.
@@ -41,14 +41,14 @@ animation features of the MultiBody library.
       <img src="../../../../Images/Mechanics/MultiBody/FixedShape.png" alt="model Visualizers.FixedShape">
       </td>
   </tr>
-  <tr><td><a href="../../../Mechanics/MultiBody/Visualizers/index.html#FixedFrame">FixedFrame</a></td>
+  <tr><td><a href="index.html#FixedFrame">FixedFrame</a></td>
       <td>Visualizing a coordinate system including axes labels with fixed sizes:<br>
       <img src="../../../../Images/Mechanics/MultiBody/FixedFrame2.png"
        alt="model Visualizers.FixedFrame">
       </td>
   </tr>
-  <tr><td><a href="../../../Mechanics/MultiBody/Visualizers/index.html#FixedArrow">FixedArrow</a>,<br>
-<a href="../../../Mechanics/MultiBody/Visualizers/index.html#SignalArrow">SignalArrow</a></td>
+  <tr><td><a href="index.html#FixedArrow">FixedArrow</a>,<br>
+<a href="index.html#SignalArrow">SignalArrow</a></td>
       <td>Visualizing an arrow. Model "FixedArrow" provides
       a fixed sized arrow, model "SignalArrow" provides
       an arrow with dynamically varying length that is defined
@@ -57,31 +57,31 @@ animation features of the MultiBody library.
       </td>
   </tr>
 
-  <tr><td><a href="../../../Mechanics/MultiBody/Visualizers/index.html#Ground">Ground</a></td>
+  <tr><td><a href="index.html#Ground">Ground</a></td>
       <td>Visualizing the ground by a plane:<br>
       <img src="../../../../Images/Mechanics/MultiBody/Visualizers/GroundSmall.png">
       </td>
   </tr>
 
-  <tr><td><a href="../../../Mechanics/MultiBody/Visualizers/index.html#Torus">Torus</a></td>
+  <tr><td><a href="index.html#Torus">Torus</a></td>
       <td>Visualizing a torus:<br>
       <img src="../../../../Images/Mechanics/MultiBody/Visualizers/TorusIcon.png">
       </td>
   </tr>
 
-  <tr><td><a href="../../../Mechanics/MultiBody/Visualizers/index.html#VoluminousWheel">VoluminousWheel</a></td>
+  <tr><td><a href="index.html#VoluminousWheel">VoluminousWheel</a></td>
       <td>Visualizing a wheel:<br>
       <img src="../../../../Images/Mechanics/MultiBody/Visualizers/VoluminousWheelIcon.png">
       </td>
   </tr>
 
-  <tr><td><a href="../../../Mechanics/MultiBody/Visualizers/index.html#PipeWithScalarField">PipeWithScalarField</a></td>
+  <tr><td><a href="index.html#PipeWithScalarField">PipeWithScalarField</a></td>
       <td>Visualizing a pipe with a scalar field represented by a color coding:<br>
       <img src="../../../../Images/Mechanics/MultiBody/Visualizers/PipeWithScalarFieldIcon.png">
       </td>
   </tr>
 
-<tr><td><a href="../../../Mechanics/MultiBody/Visualizers/Advanced/index.html">Advanced</a></td>
+<tr><td><a href="Advanced/index.html">Advanced</a></td>
       <td> <strong>Package</strong> that contains components to visualize
           3-dimensional shapes where all parts of the shape
           can vary dynamically. Basic knowledge of Modelica is
@@ -223,7 +223,7 @@ Parameter <strong>color</strong> is a vector with 3 elements,
 {r,&nbsp;g,&nbsp;b} are the "red", "green" and "blue" color parts.
 Note, r, g, b are given as Integer[3] in the ranges 0&nbsp;..&nbsp;255,
 respectively. The predefined type
-<a href="../../../Mechanics/MultiBody/Types/index.html#Color">MultiBody.Types.Color</a> contains a menu
+<a href="../Types/index.html#Color">MultiBody.Types.Color</a> contains a menu
 definition of the colors used in the MultiBody library together with a color editor.
 </p>
 <p>Extends from <code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#PartialVisualizer">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;PartialVisualizer</a></code> (Base model for visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)).</p>
@@ -349,7 +349,7 @@ Parameter <strong>color</strong> is a vector with 3 elements,
 {r,&nbsp;g,&nbsp;b} are the "red", "green" and "blue" color parts.
 Note, r, g, b are given as Integer[3] in the ranges 0&nbsp;..&nbsp;255,
 respectively. The predefined type
-<a href="../../../Mechanics/MultiBody/Types/index.html#Color">MultiBody.Types.Color</a> contains a menu
+<a href="../Types/index.html#Color">MultiBody.Types.Color</a> contains a menu
 definition of the colors used in the MultiBody library together with a color editor.
 </p>
 <p>
@@ -578,11 +578,11 @@ at the perimeter associated with the corresponding axis location.
 Typically the scalar field value is a temperature, but might
 be also another quantity.
 Predefined color maps are available from
-<a href="../../../Mechanics/MultiBody/Visualizers/Colors/ColorMaps/index.html">MultiBody.Visualizers.Colors.ColorMaps</a>
+<a href="Colors/ColorMaps/index.html">MultiBody.Visualizers.Colors.ColorMaps</a>
 and can be selected via parameter "colorMap".
 A color map with the corresponding scalar field values can be exported
 as vector-graphics in svg-format with function
-<a href="../../../Mechanics/MultiBody/Visualizers/Colors/index.html#colorMapToSvg">MultiBody.Visualizers.Colors.colorMapToSvg</a>.
+<a href="Colors/index.html#colorMapToSvg">MultiBody.Visualizers.Colors.colorMapToSvg</a>.
 Connector frame_a of this component is located in the center of the
 circle at the left side of the pipe and the pipe axis is oriented
 along the x-axis of frame_a, see figure below in which frame_a is visualized
@@ -595,7 +595,7 @@ with a coordinate system:
 
 <p>
 The color coding is shown in the next figure. It was generated with
-<a href="../../../Mechanics/MultiBody/Visualizers/Colors/index.html#colorMapToSvg">MultiBody.Visualizers.Colors.colorMapToSvg</a>
+<a href="Colors/index.html#colorMapToSvg">MultiBody.Visualizers.Colors.colorMapToSvg</a>
 using the following call:
 </p>
 
@@ -669,4 +669,6 @@ so that the rectangle is rotated about the z-axis of frame_a.
 <table border="1" cellspacing="0" cellpadding="3">
 <tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Coordinate system in which visualization data is resolved</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:39:38 EDT by <i>MapleSim</i>.</p>
 </body></html>

@@ -33,7 +33,7 @@ of a control system and re-simulating, it is important that the noise does not c
 otherwise it is hard to determine whether the changed control system or the differently
 computed noise has changed the behaviour of the controlled system).
 Many examples how to use the Noise blocks are provided in sublibrary
-<a href="../../Blocks/Examples/NoiseExamples/index.html">Blocks.Examples.NoiseExamples</a>.
+<a href="../Examples/NoiseExamples/index.html">Blocks.Examples.NoiseExamples</a>.
 </p>
 
 
@@ -41,7 +41,7 @@ Many examples how to use the Noise blocks are provided in sublibrary
 
 <p>
 When using one of the blocks of this sublibrary, on the same or a higher level,
-block <a href="../../Blocks/Noise/index.html#GlobalSeed">Noise.GlobalSeed</a>
+block <a href="index.html#GlobalSeed">Noise.GlobalSeed</a>
 must be dragged resulting in a declaration
 </p>
 
@@ -86,7 +86,7 @@ When using a noise block of this package, at a minimum the following parameters 
 </blockquote>
 
 <p>
-As a simple demonstration, see example <a href="../../Blocks/Examples/NoiseExamples/index.html#UniformNoise">Blocks.Examples.NoiseExamples.UniformNoise</a>.
+As a simple demonstration, see example <a href="../Examples/NoiseExamples/index.html#UniformNoise">Blocks.Examples.NoiseExamples.UniformNoise</a>.
 In the next diagram, a simulation result is shown for samplePeriod=0.02 s and uniform distribution with
 y_min=-1, y_max=3:
 </p>
@@ -252,7 +252,7 @@ Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blo
 <p>
 
 <p>
-When using one of the blocks of sublibrary <a href="../../Blocks/Noise/index.html">Noise</a>,
+When using one of the blocks of sublibrary <a href="index.html">Noise</a>,
 on the same or a higher hierarchical level, Noise.GlobalSeed
 must be dragged resulting in a declaration
 </p>
@@ -314,8 +314,8 @@ random number generators need to be called, "globalSeed.id_impure" has to be giv
 
 <p>
 Note, the usage of this block is demonstrated with examples
-<a href="../../Blocks/Examples/NoiseExamples/index.html#AutomaticSeed">AutomaticSeed</a> and
-<a href="../../Blocks/Examples/NoiseExamples/index.html#ImpureGenerator">ImpureGenerator</a>.
+<a href="../Examples/NoiseExamples/index.html#AutomaticSeed">AutomaticSeed</a> and
+<a href="../Examples/NoiseExamples/index.html#ImpureGenerator">ImpureGenerator</a>.
 </p>
 
 <p>
@@ -338,13 +338,13 @@ Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blo
 
 <p>
 A summary of the common properties of the noise blocks is provided in the documentation of package
-<a href="../../Blocks/Noise/index.html">Blocks.Noise</a>.
+<a href="index.html">Blocks.Noise</a>.
 This UniformNoise block generates reproducible, random noise at its output according to a uniform distribution.
 This means that random values are uniformly distributed within the range defined by parameters
-y_min and y_max (see example <a href="../../Blocks/Examples/NoiseExamples/index.html#UniformNoiseProperties">NoiseExamples.UniformNoiseProperties</a>).
+y_min and y_max (see example <a href="../Examples/NoiseExamples/index.html#UniformNoiseProperties">NoiseExamples.UniformNoiseProperties</a>).
 By default, two or more instances produce different, uncorrelated noise at the same time instant.
 The block can only be used if on the same or a higher hierarchical level,
-model <a href="../../Blocks/Noise/index.html#GlobalSeed">Blocks.Noise.GlobalSeed</a>
+model <a href="index.html#GlobalSeed">Blocks.Noise.GlobalSeed</a>
 is dragged to provide global settings for all instances.
 </p>
 <p>Extends from <code><a href="../../Blocks/Interfaces/index.html#PartialNoise">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialNoise</a></code> (Partial noise generator).</p>
@@ -372,13 +372,13 @@ Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blo
 
 <p>
 A summary of the common properties of the noise blocks is provided in the documentation of package
-<a href="../../Blocks/Noise/index.html">Blocks.Noise</a>.
+<a href="index.html">Blocks.Noise</a>.
 This NormalNoise block generates reproducible, random noise at its output according to a normal distribution.
 This means that random values are normally distributed with expectation value mu and standard deviation sigma.
-(see example <a href="../../Blocks/Examples/NoiseExamples/index.html#NormalNoiseProperties">NoiseExamples.NormalNoiseProperties</a>).
+(see example <a href="../Examples/NoiseExamples/index.html#NormalNoiseProperties">NoiseExamples.NormalNoiseProperties</a>).
 By default, two or more instances produce different, uncorrelated noise at the same time instant.
 The block can only be used if on the same or a higher hierarchical level,
-model <a href="../../Blocks/Noise/index.html#GlobalSeed">Blocks.Noise.GlobalSeed</a>
+model <a href="index.html#GlobalSeed">Blocks.Noise.GlobalSeed</a>
 is dragged to provide global settings for all instances.
 </p>
 <p>Extends from <code><a href="../../Blocks/Interfaces/index.html#PartialNoise">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialNoise</a></code> (Partial noise generator).</p>
@@ -406,7 +406,7 @@ Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blo
 
 <p>
 A summary of the common properties of the noise blocks is provided in the documentation of package
-<a href="../../Blocks/Noise/index.html">Blocks.Noise</a>.
+<a href="index.html">Blocks.Noise</a>.
 This TruncatedNormalNoise block generates reproducible, random noise at its output according to a truncated normal distribution.
 This means that normally distributed random values are truncated to the band y_min ... y_max.
 Measurement noise has often this distribution form.
@@ -419,10 +419,10 @@ standard deviation = (y_max - y_min)/6 (= 99.7 % of the non-truncated normal dis
 </p></blockquote>
 
 <p>
-For an example see <a href="../../Blocks/Examples/NoiseExamples/index.html#Distributions">NoiseExamples.Distributions</a>.
+For an example see <a href="../Examples/NoiseExamples/index.html#Distributions">NoiseExamples.Distributions</a>.
 By default, two or more instances produce different, uncorrelated noise at the same time instant.
 The block can only be used if on the same or a higher hierarchical level,
-model <a href="../../Blocks/Noise/index.html#GlobalSeed">Blocks.Noise.GlobalSeed</a>
+model <a href="index.html#GlobalSeed">Blocks.Noise.GlobalSeed</a>
 is dragged to provide global settings for all instances.
 </p>
 <p>Extends from <code><a href="../../Blocks/Interfaces/index.html#PartialNoise">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialNoise</a></code> (Partial noise generator).</p>
@@ -452,7 +452,7 @@ Block <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blo
 
 <p>
 A summary of the common properties of the noise blocks is provided in the documentation of package
-<a href="../../Blocks/Noise/index.html">Blocks.Noise</a>.
+<a href="index.html">Blocks.Noise</a>.
 This BandLimitedWhiteNoise block generates reproducible, random noise at its output according to a
 band-limited white noise distribution. This is performed by using a normal distribution with mu=0 and
 sigma = sqrt(noisePower/samplePeriod).
@@ -508,7 +508,7 @@ frequency bandwidth 1/samplePeriod: <code>signal power = signal variance = noise
 </p>
 
 <p>
-Example <a href="../../Blocks/Examples/NoiseExamples/index.html#DrydenContinuousTurbulence">NoiseExamples.DrydenContinuousTurbulence</a>
+Example <a href="../Examples/NoiseExamples/index.html#DrydenContinuousTurbulence">NoiseExamples.DrydenContinuousTurbulence</a>
 demonstrates how to utilize this block to model wind gust.
 </p>
 <p>Extends from <code><a href="../../Blocks/Interfaces/index.html#PartialNoise">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;PartialNoise</a></code> (Partial noise generator).</p>
@@ -528,4 +528,6 @@ demonstrates how to utilize this block to model wind gust.
 <table border="1" cellspacing="0" cellpadding="3">
 <tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:36:44 EDT by <i>MapleSim</i>.</p>
 </body></html>

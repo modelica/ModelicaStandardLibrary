@@ -28,7 +28,7 @@ Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.h
 <p>
 This package contains various example models that demonstrates how
 to utilize the blocks from sublibrary
-<a href="../../../Blocks/Noise/index.html">Blocks.Noise</a>.
+<a href="../../Noise/index.html">Blocks.Noise</a>.
 </p>
 <p>Extends from <code><a href="../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
 <h3>Package Contents</h3>
@@ -51,15 +51,15 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 
 <p>
 This example demonstrates the most simple usage of the
-<a href="../../../Blocks/Noise/index.html#UniformNoise">Noise.UniformNoise</a>
+<a href="../../Noise/index.html#UniformNoise">Noise.UniformNoise</a>
 block:
 </p>
 
 <ul>
-<li> <strong>globalSeed</strong> is the <a href="../../../Blocks/Noise/index.html#GlobalSeed">Noise.GlobalSeed</a>
+<li> <strong>globalSeed</strong> is the <a href="../../Noise/index.html#GlobalSeed">Noise.GlobalSeed</a>
      block with default options (just dragged from sublibrary Noise).</li>
 <li> <strong>uniformNoise1</strong> is an instance of
-     <a href="../../../Blocks/Noise/index.html#UniformNoise">Noise.UniformNoise</a> with
+     <a href="../../Noise/index.html#UniformNoise">Noise.UniformNoise</a> with
      samplePeriod = 0.02 s and a Uniform distribution with limits y_min=-1, y_max=3.</li>
 <li> <strong>uniformNoise2</strong> is identical to uniformNoise1 with the exception that
       useAutomaticLocalSeed=false and fixedLocalSeed=10.</li>
@@ -82,7 +82,7 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 
 <p>
 This example demonstrates manual and automatic seed selection of
-<a href="../../../Blocks/Noise/index.html#UniformNoise">UniformNoise</a> blocks, as well
+<a href="../../Noise/index.html#UniformNoise">UniformNoise</a> blocks, as well
 as starting the noise at startTime = 0.5 s with an output value of y = -1 before this
 time. All noise blocks in this example generate uniform noise in the
 band y_min=-1 .. y_max=3 with samplePeriod = 0.01 s.
@@ -155,10 +155,10 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 
 <p>
 This example demonstrates statistical properties of the
-<a href="../../../Blocks/Noise/index.html#UniformNoise">Blocks.Noise.UniformNoise</a> block
+<a href="../../Noise/index.html#UniformNoise">Blocks.Noise.UniformNoise</a> block
 using a <strong>uniform</strong> random number distribution.
 Block &quot;noise&quot; defines a band of 0 .. 6 and from the generated noise the mean and the variance
-is computed with blocks of package <a href="../../../Blocks/Math/index.html">Blocks.Math</a>.
+is computed with blocks of package <a href="../../Math/index.html">Blocks.Math</a>.
 Simulation results are shown in the next diagram:
 </p>
 
@@ -188,10 +188,10 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 
 <p>
 This example demonstrates statistical properties of the
-<a href="../../../Blocks/Noise/index.html#NormalNoise">Blocks.Noise.NormalNoise</a> block
+<a href="../../Noise/index.html#NormalNoise">Blocks.Noise.NormalNoise</a> block
 using a <strong>normal</strong> random number distribution with mu=3, sigma=1.
 From the generated noise the mean and the variance
-is computed with blocks of package <a href="../../../Blocks/Math/index.html">Blocks.Math</a>.
+is computed with blocks of package <a href="../../Math/index.html">Blocks.Math</a>.
 Simulation results are shown in the next diagram:
 </p>
 
@@ -296,7 +296,7 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 
 <p>
 This example shows how to use the
-<a href="../../../Blocks/Noise/index.html#BandLimitedWhiteNoise">BandLimitedWhiteNoise</a>
+<a href="../../Noise/index.html#BandLimitedWhiteNoise">BandLimitedWhiteNoise</a>
 to feed a Dryden continuous turbulence model. This model is used to describe turbulent wind at low altitudes
 that varies randomly in space
 (see also <a href="https://en.wikipedia.org/wiki/Continuous_gusts">wikipedia</a>).
@@ -348,7 +348,7 @@ The input to the filter is white noise with a normal distribution, zero mean, an
 That means, for a sampling time of 1s, it is parameterized with mean=0 and variance=1.
 However, in order to account for the change of noise power due to sampling, the noise must be scaled with sqrt(samplePeriod).
 This is done automatically in the
-<a href="../../../Blocks/Noise/index.html#BandLimitedWhiteNoise">BandLimitedWhiteNoise</a> block.
+<a href="../../Noise/index.html#BandLimitedWhiteNoise">BandLimitedWhiteNoise</a> block.
 </p>
 
 <h4>Example output</h4>
@@ -373,4 +373,6 @@ Reference
 <tr><td><code><a href="../../../SIunits/index.html#Velocity">Velocity</a></code></td><td><code>sigma</code></td><td><code>1.5432</code></td><td>Turbulence intensity (=0.1 * wind at 20 ft, typically 30 kt)</td></tr>
 <tr><td><code><a href="../../../SIunits/index.html#Length">Length</a></code></td><td><code>L</code></td><td><code>182.88</code></td><td>Scale length (= flight altitude)</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:36:42 EDT by <i>MapleSim</i>.</p>
 </body></html>

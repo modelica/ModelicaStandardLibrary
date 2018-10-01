@@ -28,7 +28,7 @@ Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../i
 <p>
 This package contains quasistationary models of DC machines;
 these models are fully compatible with the
-<a href="../../../../Electrical/Machines/BasicMachines/DCMachines/index.html">transient machine models of DC machines</a>;
+<a href="../DCMachines/index.html">transient machine models of DC machines</a>;
 the only difference is that electrical transients are neglected.
 </p>
 <h4>Please note:</h4>
@@ -36,7 +36,7 @@ the only difference is that electrical transients are neglected.
 Quasistationary DC machine models are basically different from quasistationary induction machine models:
 Quasistationary DC machine models neglect electrical transients, i.e., setting <code>der(i) = 0</code>,
 whereas quasistationary induction machine models are based on time phasor theory,
-see <a href="../../../../Electrical/QuasiStationary/index.html">QuasiStationary Library</a>,
+see <a href="../../../QuasiStationary/index.html">QuasiStationary Library</a>,
 where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</code>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/VariantsPackage/index.html">Modelica.&#8203;Icons.&#8203;VariantsPackage</a></code> (Icon for package containing variants).</p>
@@ -53,7 +53,7 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 
 <strong>Quasistationary model of a DC Machine with permanent magnets.</strong><br>
 This model is fully compatible with the
-<a href="../../../../Electrical/Machines/BasicMachines/DCMachines/index.html#DC_PermanentMagnet">transient machine model of a DC machine with permanent magnets</a>;
+<a href="../DCMachines/index.html#DC_PermanentMagnet">transient machine model of a DC machine with permanent magnets</a>;
 the only difference is that electrical transients are neglected.
 <p>Extends from <code><a href="../../../../Electrical/Machines/BasicMachines/DCMachines/index.html#DC_PermanentMagnet">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;BasicMachines.&#8203;DCMachines.&#8203;DC_PermanentMagnet</a></code> (Permanent magnet DC machine) and <code><a href="../../../../Electrical/Machines/Icons/index.html#QuasiStationaryMachine">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Icons.&#8203;QuasiStationaryMachine</a></code>.</p>
 <h3>Parameters</h3>
@@ -92,7 +92,7 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 
 <strong>Quasistationary model of a DC Machine with electrical shunt or separate excitation.</strong><br>
 This model is fully compatible with the
-<a href="../../../../Electrical/Machines/BasicMachines/DCMachines/index.html#DC_ElectricalExcited">transient machine model of a DC machine with electrical shunt or separate excitation</a>;
+<a href="../DCMachines/index.html#DC_ElectricalExcited">transient machine model of a DC machine with electrical shunt or separate excitation</a>;
 the only difference is that electrical transients are neglected.
 <p>Extends from <code><a href="../../../../Electrical/Machines/BasicMachines/DCMachines/index.html#DC_ElectricalExcited">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;BasicMachines.&#8203;DCMachines.&#8203;DC_ElectricalExcited</a></code> (Electrical shunt/separate excited linear DC machine) and <code><a href="../../../../Electrical/Machines/Icons/index.html#QuasiStationaryMachine">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Icons.&#8203;QuasiStationaryMachine</a></code>.</p>
 <h3>Parameters</h3>
@@ -139,7 +139,7 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 
 <strong>Quasistationary model of a DC Machine with Series excitation.</strong><br>
 This model is fully compatible with the
-<a href="../../../../Electrical/Machines/BasicMachines/DCMachines/index.html#DC_SeriesExcited">transient machine model of a DC machine with series excitation</a>;
+<a href="../DCMachines/index.html#DC_SeriesExcited">transient machine model of a DC machine with series excitation</a>;
 the only difference is that electrical transients are neglected.
 <p>Extends from <code><a href="../../../../Electrical/Machines/BasicMachines/DCMachines/index.html#DC_SeriesExcited">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;BasicMachines.&#8203;DCMachines.&#8203;DC_SeriesExcited</a></code> (Series excited linear DC machine) and <code><a href="../../../../Electrical/Machines/Icons/index.html#QuasiStationaryMachine">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Icons.&#8203;QuasiStationaryMachine</a></code>.</p>
 <h3>Parameters</h3>
@@ -179,4 +179,6 @@ the only difference is that electrical transients are neglected.
 <tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_ep</code></td><td>Positive series excitation pin</td></tr>
 <tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_en</code></td><td>Negative series excitation pin</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:36:58 EDT by <i>MapleSim</i>.</p>
 </body></html>

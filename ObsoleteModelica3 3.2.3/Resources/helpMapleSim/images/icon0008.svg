@@ -1,0 +1,20 @@
+<svg width="223" height="215" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="ObsoleteModelica3.Electrical.Analog.Basic.HeatingResistor" class="component">
+		<polygon points="9.5,205.5 213.5,205.5 213.5,1.5 9.5,1.5" fill-opacity="0" stroke="#FF0000" stroke-dasharray="3 4" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="21.5,103.5 41.5,103.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="181.5,103.5 201.5,103.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="41.5,133.5 181.5,133.5 181.5,73.5 41.5,73.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="111.5,133.5 111.5,194.5" fill-opacity="0" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="59.5,153.5 159.5,53.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="151.5,51.5 161.5,61.5 165.5,47.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="p" class="port">
+			<polygon points="1.5,113.5 21.5,113.5 21.5,93.5 1.5,93.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="n" class="port">
+			<polygon points="221.5,113.5 201.5,113.5 201.5,93.5 221.5,93.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="heatPort" class="port">
+			<polygon points="101.5,213.5 101.5,193.5 121.5,193.5 121.5,213.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

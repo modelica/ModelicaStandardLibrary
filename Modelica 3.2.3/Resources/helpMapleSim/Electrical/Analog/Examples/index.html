@@ -106,7 +106,7 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 
 <p>The example CauerLowPassSC is a low-pass-filter of the fifth order. It is realized using an switched-capacitor network with operational amplifiers. The voltage source V is the input voltage (step), and the OP5.out.v is the filter output voltage. The pulse response is calculated.</p>
 <p>This model is identical to the CauerLowPassAnalog example, but inverting. To get the same response as that of the CauerLowPassAnalog example, a negative voltage step is used as input.</p>
-<p>This model is identical to the CauerLowPassOPV example. But the resistors are realized by switched capacitors (see <a href="../../../Electrical/Analog/Examples/Utilities/index.html#SwitchedCapacitor">SwitchedCapacitor</a>). There are two different types of instances, one with a value of <code>R=1</code> and one with a value of <code>R=-1</code>.</p>
+<p>This model is identical to the CauerLowPassOPV example. But the resistors are realized by switched capacitors (see <a href="Utilities/index.html#SwitchedCapacitor">SwitchedCapacitor</a>). There are two different types of instances, one with a value of <code>R=1</code> and one with a value of <code>R=-1</code>.</p>
 <p>The simulation end time should be 60. Please plot both V.v (which is the inverted input voltage) and OP5.out.v (output voltage). Compare this result with the CauerLowPassAnalog result.</p>
 <p>Due to the recharging of the capacitances after switching the performance of simulation is not as good as in the CauerLowPassOPV example.</p>
 <p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
@@ -449,7 +449,7 @@ conductance law in a target system between two inductors.
 </p>
 <p>
 Bear in mind that separating physical components and connecting them via adaptor signals requires to place appropriate
-<a href="../../../Electrical/Analog/Basic/index.html#Ground">ground components</a> to define electric potential within the subcircuits.
+<a href="../Basic/index.html#Ground">ground components</a> to define electric potential within the subcircuits.
 </p>
 <p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
 <hr><a name="ResonanceCircuits"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
@@ -466,7 +466,7 @@ Connecting these input/output blocks should give the same results as connecting 
 </p>
 <p>
 Bear in mind that separating physical components and connecting them via adaptor signals requires to place appropriate
-<a href="../../../Electrical/Analog/Basic/index.html#Ground">ground components</a> to define electric potential within the subcircuits.
+<a href="../Basic/index.html#Ground">ground components</a> to define electric potential within the subcircuits.
 </p>
 <p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
 <h3>Parameters</h3>
@@ -494,4 +494,6 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 <tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R1</code></td><td><code>1000</code></td><td>Arbitrary resistance</td></tr>
 <tr><td><code><a href="../../../SIunits/index.html#Resistance">Resistance</a></code></td><td><code>R2</code></td><td><code>k * R1</code></td><td>Calculated resistance to reach desired amplification k</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:36:48 EDT by <i>MapleSim</i>.</p>
 </body></html>

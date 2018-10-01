@@ -1,0 +1,79 @@
+<html><head><title>ObsoleteModelica3</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="ObsoleteModelica3"><h1><embed class="icon" src="images/icon0001.svg" width="203" height="203" />
+Package ObsoleteModelica3<br><span class="subtitle">Library that contains components from Modelica Standard Library 2.2.2 that have been removed from version 3.0</span></h1></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This package contains models and blocks from the Modelica Standard Library
+version 2.2.2 that are no longer available in version 3.0.
+The conversion script for version 3.0 changes references in existing
+user models automatically to the models and blocks of package
+ObsoleteModelica3. The user should <strong>manually</strong> replace all
+references to ObsoleteModelica3 in his/her models to the models
+that are recommended in the documentation of the respective model.
+</p>
+
+<p>
+In most cases, this means that a model with the name
+"ObsoleteModelica3.XXX" should be renamed to "Modelica.XXX" (version 3.0)
+and then a manual adaptation is needed. For example, a reference to
+ObsoleteModelica3.Mechanics.MultiBody.Sensors.AbsoluteSensor
+should be replaced by
+Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor (version 3.0).
+Since the design of the component has changed (e.g., several
+optional connectors, and no longer one connector where all signals
+are packed together), this requires some changes at the place where
+the model is used (besides the renaming of the underlying class).
+</p>
+
+<p>
+The models in ObsoleteModelica3 are either not according to the Modelica Language
+version 3.0 and higher, or the model was changed to get a better design.
+In all cases, an automatic conversion to the new implementation
+was not feasible, since too complicated.
+</p>
+
+<p>
+In order to easily detect obsolete models and blocks, all of them are specially
+marked in the icon layer with a red box.
+</p>
+
+<p>
+Copyright &copy; 2007-2018, Modelica Association.
+</p>
+<p>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href="https://modelica.org/licenses/modelica-3-clause-bsd">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+</p>
+<p>This document describes version 3.2.3 of the ObsoleteModelica3 library.</p>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="Blocks/index.html"><code>Blocks</code></a> &hellip;</td><td>Library of basic input/output control blocks (continuous, discrete, logical, table blocks)</td></tr>
+<tr><td><a href="Electrical/index.html"><code>Electrical</code></a> &hellip;</td><td>Library of electrical models (analog, digital, machines, multi-phase)</td></tr>
+<tr><td><a href="Icons/index.html"><code>Icons</code></a> &hellip;</td><td>Library of icons</td></tr>
+<tr><td><a href="Mechanics/index.html"><code>Mechanics</code></a> &hellip;</td><td>Library of 1-dim. and 3-dim. mechanical components (multi-body, rotational, translational)</td></tr>
+</table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-11 11:27:34 EDT by <i>MapleSim</i>.</p>
+</body></html>

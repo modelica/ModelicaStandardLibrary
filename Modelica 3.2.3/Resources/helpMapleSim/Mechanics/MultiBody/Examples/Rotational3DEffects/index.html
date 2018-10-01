@@ -91,8 +91,8 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 
 <p>
 This example demonstrates how to utilize the
-<a href="../../../../Mechanics/MultiBody/Parts/index.html#Rotor1D">Rotor1D</a>
-and <a href="../../../../Mechanics/MultiBody/Parts/index.html#Mounting1D">Mounting1D</a> models and
+<a href="../../Parts/index.html#Rotor1D">Rotor1D</a>
+and <a href="../../Parts/index.html#Mounting1D">Mounting1D</a> models and
 compares the implementation with a standard multi-body implementation.
 Note, the solution with Rotor1D is much more efficient.
 </p>
@@ -104,7 +104,7 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 
 <p>
 This model demonstrates how a moving drive train modelled with 3-dim. multi-body elements
-(revolute, bodyCylinder) can alternatively be modeled with component <a href="../../../../Mechanics/MultiBody/Parts/index.html#Rotor1D">rotor1D</a> to speed up
+(revolute, bodyCylinder) can alternatively be modeled with component <a href="../../Parts/index.html#Rotor1D">rotor1D</a> to speed up
 simulation. The movement of the two systems is identical and also the cut-torques in the
 various frames (such as: r1.frame_b.t and r2.frame_b.t).
 </p>
@@ -122,10 +122,10 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 
 <p>
 This model demonstrates the usage of the
-<a href="../../../../Mechanics/MultiBody/Joints/index.html#GearConstraint">GearConstraint</a>
+<a href="../../Joints/index.html#GearConstraint">GearConstraint</a>
 model to model a gearbox with multi-body elements. The formulation is compared with
 a one-dimensional model that is mounted with an
-<a href="../../../../Mechanics/MultiBody/Parts/index.html#Mounting1D">Mounting1D</a> element.
+<a href="../../Parts/index.html#Mounting1D">Mounting1D</a> element.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
 <hr><a name="BevelGear1D"><h2><embed class="icon" src="../../../../images/icon0008.svg" width="203" height="203" />
@@ -174,4 +174,6 @@ tolerance).
 <tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>na[3]</code></td><td><code>{1, 0, 0}</code></td><td>Axis of rotation of left gear axis</td></tr>
 <tr><td><code><a href="../../../../Mechanics/MultiBody/Types/index.html#Axis">Axis</a></code></td><td><code>nb[3]</code></td><td><code>{0, 1, 0}</code></td><td>Axis of rotation of right gear axis</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:39:14 EDT by <i>MapleSim</i>.</p>
 </body></html>

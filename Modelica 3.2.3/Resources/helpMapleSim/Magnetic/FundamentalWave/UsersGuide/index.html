@@ -28,7 +28,7 @@ Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.h
 <p>
 This library contains components for modelling of electromagnetic fundamental wave
 models for the application in multi phase
-<a href="../../../Magnetic/FundamentalWave/BasicMachines/index.html">electric machines</a>.
+<a href="../BasicMachines/index.html">electric machines</a>.
 The number of phases is not restricted to three. DC machines are (currently) not included
 in this library. The FundamentalWave library is an alternative approach to the
 <a href="../../../Electrical/Machines/index.html">Modelica.Electrical.Machines</a> library.
@@ -39,7 +39,7 @@ field of electrical engineering.
 </p>
 
 <p>
-For more details see the <a href="../../../Magnetic/FundamentalWave/UsersGuide/index.html#Concept">concept.</a>
+For more details see the <a href="index.html#Concept">concept.</a>
 </p>
 
 <h5>Note</h5>
@@ -114,17 +114,17 @@ The waveforms of the magnetic field quantities, e.g., the magnetic potential dif
 </table>
 
 <p>
-The potential and flow quantities of this library are the complex magnetic potential difference and the complex magnetic flux as defined in the basic <a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#MagneticPort">magnetic port</a>. Due to the sinusoidal distribution of magnetic potential and flux, such a complex phasor representation can be used. This way, the FundamentalWave library can be seen as a spatial extension of the <a href="../../../Magnetic/FluxTubes/index.html">FluxTubes</a> library.
+The potential and flow quantities of this library are the complex magnetic potential difference and the complex magnetic flux as defined in the basic <a href="../Interfaces/index.html#MagneticPort">magnetic port</a>. Due to the sinusoidal distribution of magnetic potential and flux, such a complex phasor representation can be used. This way, the FundamentalWave library can be seen as a spatial extension of the <a href="../../FluxTubes/index.html">FluxTubes</a> library.
 </p>
 
 <p>
 The specific arrangement of windings in electric machines with <img src="../../../../Images/Magnetic/FundamentalWave/p.png"> pole pairs give rise to sinusoidal dominant magnetic potential wave. The spatial period of this wave is determined by one pole pair
-[<a href="../../../Magnetic/FundamentalWave/UsersGuide/index.html#References">Mueller70</a>,
- <a href="../../../Magnetic/FundamentalWave/UsersGuide/index.html#References">Spaeth73</a>].
+[<a href="index.html#References">Mueller70</a>,
+ <a href="index.html#References">Spaeth73</a>].
 </p>
 
 <p>
-The main components of an electric machine model based on the FundamentalWave library are <a href="../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#SymmetricMultiPhaseWinding">multi phase</a> and <a href="../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#SinglePhaseWinding">single phase windings</a>, <a href="../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#RotorSaliencyAirGap">air gap</a> as well as <a href="../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#SymmetricMultiPhaseWinding">symmetric</a> or <a href="../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#SaliencyCageWinding">salient cage</a> models.
+The main components of an electric machine model based on the FundamentalWave library are <a href="../BasicMachines/Components/index.html#SymmetricMultiPhaseWinding">multi phase</a> and <a href="../BasicMachines/Components/index.html#SinglePhaseWinding">single phase windings</a>, <a href="../BasicMachines/Components/index.html#RotorSaliencyAirGap">air gap</a> as well as <a href="../BasicMachines/Components/index.html#SymmetricMultiPhaseWinding">symmetric</a> or <a href="../BasicMachines/Components/index.html#SaliencyCageWinding">salient cage</a> models.
 The electric machine models provided in this library are based on symmetrical windings in the stator and equivalent two or three phase windings in squirrel cage rotors. Slip ring induction machines may have different phase numbers in the stator and rotor.
 </p>
 
@@ -136,15 +136,15 @@ The machine models of the FundamentalWave library are currently based on the fol
 
 <ul>
 <li>The number of stator phases is greater or equal to three
-    [<a href="../../../Magnetic/FundamentalWave/UsersGuide/index.html#References">Eckhardt82</a>]
+    [<a href="index.html#References">Eckhardt82</a>]
     </li>
 <li>The phase windings are assumed to be symmetrical; an extension to this approach can be considered</li>
 <li>Only fundamental wave effects are taken into account</li>
 <li>The magnetic potential difference refers to an equivalent two pole machine</li>
 <li>There are no restrictions on the waveforms of voltages and currents</li>
 <li>All resistances and inductances are modeled as constant quantities; saturation effects, cross coupling effects
-    [<a href="../../../Magnetic/FundamentalWave/UsersGuide/index.html#References">Li07</a>], temperature dependency of resistances and deep bar effects could be considered in an extension to this library</li>
-<li>Hysteresis losses are currently not considered [<a href="../../../Magnetic/FundamentalWave/UsersGuide/index.html#References">Haumer09</a>]</li>
+    [<a href="index.html#References">Li07</a>], temperature dependency of resistances and deep bar effects could be considered in an extension to this library</li>
+<li>Hysteresis losses are currently not considered [<a href="index.html#References">Haumer09</a>]</li>
 <li>The losses dissipated in the electric machine models are
     <ul>
     <li>ohmic heat losses,</li>
@@ -183,7 +183,7 @@ Electrical three phase machines have (usually) symmetrical three phase windings 
 excite spatial magnetic potential with a spacial displacement of
 <img src="../../../../Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/2pi_3.png"/>
 - with respect to the fundamental wave,
-see [<a href="../../../Magnetic/FundamentalWave/UsersGuide/index.html#References">Laughton02</a>].
+see [<a href="index.html#References">Laughton02</a>].
 Such a symmetrical three phase system of currents (or voltages) can be represented by
 <a href="http://en.wikipedia.org/wiki/Phasor">phasors</a>, as depicted in Fig. 1(a).
 The associated three phase winding is depicted in Fig. 2(a). The winding axis are displaced by
@@ -343,7 +343,7 @@ This way the same torque is generated and the machine currents are related by:
 
 <p>
 The same applies for the rotor parameters of a
-<a href="../../../Magnetic/FundamentalWave/BasicMachines/AsynchronousInductionMachines/index.html#AIM_SlipRing">
+<a href="../BasicMachines/AsynchronousInductionMachines/index.html#AIM_SlipRing">
 slip ring induction machine</a>, where the phase number
 <img src="../../../../Images/Magnetic/FundamentalWave/UsersGuide/Parameters/m.png">
 is simply replaced by
@@ -355,11 +355,11 @@ phase winding parameters -- at the same nominal rotor voltage and frequency.
 
 <h4>See also</h4>
 <p>
-<a href="../../../Magnetic/FundamentalWave/Examples/BasicMachines/index.html#AIMC_DOL_MultiPhase">AIMC_DOL_MultiPhase</a>,
-<a href="../../../Magnetic/FundamentalWave/Examples/BasicMachines/index.html#AIMS_Start_MultiPhase">AIMS_Start_MultiPhase</a>,
-<a href="../../../Magnetic/FundamentalWave/Examples/BasicMachines/index.html#SMPM_Inverter_MultiPhase">SMPM_Inverter_MultiPhase</a>,
-<a href="../../../Magnetic/FundamentalWave/Examples/BasicMachines/index.html#SMEE_Generator_MultiPhase">SMEE_Generator_MultiPhase</a>,
-<a href="../../../Magnetic/FundamentalWave/Examples/BasicMachines/index.html#SMR_Inverter_MultiPhase">SMR_Inverter_MultiPhase</a>
+<a href="../Examples/BasicMachines/index.html#AIMC_DOL_MultiPhase">AIMC_DOL_MultiPhase</a>,
+<a href="../Examples/BasicMachines/index.html#AIMS_Start_MultiPhase">AIMS_Start_MultiPhase</a>,
+<a href="../Examples/BasicMachines/index.html#SMPM_Inverter_MultiPhase">SMPM_Inverter_MultiPhase</a>,
+<a href="../Examples/BasicMachines/index.html#SMEE_Generator_MultiPhase">SMEE_Generator_MultiPhase</a>,
+<a href="../Examples/BasicMachines/index.html#SMR_Inverter_MultiPhase">SMR_Inverter_MultiPhase</a>
 </p>
 
 <p>Extends from <code><a href="../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
@@ -388,7 +388,7 @@ email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a><br>
 
 <p>
 Based on an original idea of Michael Beuschel this library was developed
-[<a href="../../../Magnetic/FundamentalWave/UsersGuide/index.html#References">Beuschel00</a>].
+[<a href="index.html#References">Beuschel00</a>].
 The authors of the FundamentalWave library would like to thank Michael Beuschel
 for contributing his source code to this library.
 </p>
@@ -423,18 +423,18 @@ Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 <li>Replace wrong permeance image in documentation according to
     <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2208">#2208</a></li>
 <li>Added obsolete annotation to
-    <a href="../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#SymmetricMultiPhaseCageWinding_obsolete">SymmetricMultiPhaseCageWinding_obsolete</a> and
-    <a href="../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#SaliencyCageWinding_obsolete">SaliencyCageWinding_obsolete</a>,
+    <a href="../BasicMachines/Components/index.html#SymmetricMultiPhaseCageWinding_obsolete">SymmetricMultiPhaseCageWinding_obsolete</a> and
+    <a href="../BasicMachines/Components/index.html#SaliencyCageWinding_obsolete">SaliencyCageWinding_obsolete</a>,
     see <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/1536">#1536</a></li>
 <li>Updated documentation of
-    <a href="../../../Magnetic/FundamentalWave/Components/index.html#Short">Short</a>,
-    <a href="../../../Magnetic/FundamentalWave/Components/index.html#Idle">Idle</a> and
-    <a href="../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#PermanentMagnet">PermanentMagnet</a>
+    <a href="../Components/index.html#Short">Short</a>,
+    <a href="../Components/index.html#Idle">Idle</a> and
+    <a href="../BasicMachines/Components/index.html#PermanentMagnet">PermanentMagnet</a>
     </li>
 <li>Added new components:
 <ul>
-    <li><a href="../../../Magnetic/FundamentalWave/Components/index.html#Crossing">Crossing</a></li>
-    <li><a href="../../../Magnetic/FundamentalWave/Components/index.html#Permeance">Permeance</a></li>
+    <li><a href="../Components/index.html#Crossing">Crossing</a></li>
+    <li><a href="../Components/index.html#Permeance">Permeance</a></li>
 </ul></li>
 <li>Removed parameter text from icon layer for reluctance and permeance model</li>
 <li>Restructured cage models with reluctance instead of inductance model according to ticket
@@ -458,7 +458,7 @@ this also includes the removal of the rotor cage heat sensor which previously ha
 <li>Fixed missing default parameter TpmOperational in ambient of PM synchronous machine, see ticket
 <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/1216">#1216</a>#1216</li>
 <li>Added voltages, currents, complex flux and magnetic potential difference as global variables in
-<a href="../../../Magnetic/FundamentalWave/Components/index.html#MultiPhaseElectroMagneticConverter">multi phase converter</a></li>
+<a href="../Components/index.html#MultiPhaseElectroMagneticConverter">multi phase converter</a></li>
 <li>Added two more component examples, showing the equivalent nature of electrical and magnetic domain</li>
 </ul>
 
@@ -482,7 +482,7 @@ this also includes the removal of the rotor cage heat sensor which previously ha
 
 <ul>
 <li>Corrected bug in calculation of core conductance in
-<a href="../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#SymmetricMultiPhaseWinding">SymmetricMultiPhaseWinding</a>:
+<a href="../BasicMachines/Components/index.html#SymmetricMultiPhaseWinding">SymmetricMultiPhaseWinding</a>:
 the wrong calculation <code>G=(m/2)*GcRef/effectiveTurns^2</code> is now replaced by <code>G=(m/2)*GcRef*effectiveTurns^2</code></li>
 </ul>
 
@@ -490,9 +490,9 @@ the wrong calculation <code>G=(m/2)*GcRef/effectiveTurns^2</code> is now replace
 
 <ul>
 <li>Naming and documentation of
-<a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#PartialTwoPort">
+<a href="../Interfaces/index.html#PartialTwoPort">
 PartialTwoPort</a> is exchanged by
-<a href="../../../Magnetic/FundamentalWave/Interfaces/index.html#PartialTwoPortElementary">
+<a href="../Interfaces/index.html#PartialTwoPortElementary">
 PartialTwoPortElementary</a> to match the naming conventions of
 <a href="../../../Mechanics/Rotational/Interfaces/index.html">
 Rotational.Interfaces</a>
@@ -505,18 +505,18 @@ Translational.Interfaces</a></li>
 <h5>Version 1.7.0, 2010-05-31</h5>
 
 <ul>
-<li>Changed <a href="../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#SymmetricMultiPhaseWinding">symmetric multi phase winding</a> model
+<li>Changed <a href="../BasicMachines/Components/index.html#SymmetricMultiPhaseWinding">symmetric multi phase winding</a> model
   <ul>
       <li>Added zero sequence inductance based on
           <a href="../../../Electrical/MultiPhase/Basic/index.html#ZeroInductor">zero inductor</a></li>
       <li>Replaced electrical model of stray
           <a href="../../../Electrical/MultiPhase/Basic/index.html#Inductor">inductor</a> by stray
-          <a href="../../../Magnetic/FundamentalWave/Components/index.html#Reluctance">reluctance</a> model</li>
-      <li>Integrated cores <a href="../../../Magnetic/FundamentalWave/Components/index.html#EddyCurrent">losses</a>
+          <a href="../Components/index.html#Reluctance">reluctance</a> model</li>
+      <li>Integrated cores <a href="../Components/index.html#EddyCurrent">losses</a>
           and <a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">heat port</a></li>
   </ul></li>
   <li>Added rotor core loss parameters in asynchronous induction machine with slip rings</li>
-  <li>Renamed heat ports of <a href="../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#SinglePhaseWinding">single phase winding</a> and <a href="../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#SymmetricMultiPhaseWinding">symmetric multi phase winding</a>
+  <li>Renamed heat ports of <a href="../BasicMachines/Components/index.html#SinglePhaseWinding">single phase winding</a> and <a href="../BasicMachines/Components/index.html#SymmetricMultiPhaseWinding">symmetric multi phase winding</a>
      </li>
   <li>Relocated core losses between zero inductor and stray reluctance model in the magnetic domain</li>
   <li>Renamed instances of stator and rotor (winding) models in each machines</li>
@@ -527,8 +527,8 @@ Translational.Interfaces</a></li>
   <li>Added machine specific output records to summarize power and loss balance</li>
   <li>Updated images of Users Guide</li>
   <li>Improved performance due to <code>annotation(Evaluate=true)</code> added to the parameters of the
-      <a href="../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#SinglePhaseWinding">single phase winding</a></li>
-  <li>Reduced number of states in <a href="../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#SymmetricMultiPhaseCageWinding">symmetric cage</a> model by introducing an additional non-grounded star connection</li>
+      <a href="../BasicMachines/Components/index.html#SinglePhaseWinding">single phase winding</a></li>
+  <li>Reduced number of states in <a href="../BasicMachines/Components/index.html#SymmetricMultiPhaseCageWinding">symmetric cage</a> model by introducing an additional non-grounded star connection</li>
 </ul>
 
 <h5>Version 1.6.0, 2010-05-05</h5>
@@ -536,19 +536,19 @@ Translational.Interfaces</a></li>
 <ul>
 <li>Renamed all parameters <code>windingAngle</code> to <code>orientation</code>. The following classes are affected:
 <ul>
-<li><a href="../../../Magnetic/FundamentalWave/Components/index.html#SinglePhaseElectroMagneticConverter">SinglePhaseElectroMagneticConverter</a></li>
-<li><a href="../../../Magnetic/FundamentalWave/Components/index.html#MultiPhaseElectroMagneticConverter">MultiPhaseElectroMagneticConverter</a></li>
-<li><a href="../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#SinglePhaseWinding">SinglePhaseWinding</a></li>
+<li><a href="../Components/index.html#SinglePhaseElectroMagneticConverter">SinglePhaseElectroMagneticConverter</a></li>
+<li><a href="../Components/index.html#MultiPhaseElectroMagneticConverter">MultiPhaseElectroMagneticConverter</a></li>
+<li><a href="../BasicMachines/Components/index.html#SinglePhaseWinding">SinglePhaseWinding</a></li>
 <li><a href="../../../Electrical/MultiPhase/Functions/index.html#symmetricOrientation">symmetricOrientation</a></li>
 </ul></li>
 <li>Update due to changed class names in <a href="../../../Electrical/Machines/Icons/index.html">Machines.Icons</a></li>
 <li>Using <a href="../../../Thermal/HeatTransfer/Interfaces/index.html#PartialElementaryConditionalHeatPort">HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort</a> instead of
     <a href="../../../Electrical/Analog/Interfaces/index.html#ConditionalHeatPort">Analog.Interfaces.ConditionalHeatPort</a> in
-    <a href="../../../Magnetic/FundamentalWave/Components/index.html#EddyCurrent">EddyCurrent</a></li>
+    <a href="../Components/index.html#EddyCurrent">EddyCurrent</a></li>
 <li>Added <code>modelica://</code> to all Modelica hyper links</li>
-<li>Fixed bug in displayed parameters of <a href="../../../Magnetic/FundamentalWave/Components/index.html#EddyCurrent">EddyCurrent</a></li>
+<li>Fixed bug in displayed parameters of <a href="../Components/index.html#EddyCurrent">EddyCurrent</a></li>
 <li>Updated some images (and renamed image file <code>LossPower.png</code> to <code>lossPower.png</code>)</li>
-<li>Exchanged positive and negative stator ports of <a href="../../../Magnetic/FundamentalWave/BasicMachines/Components/index.html#RotorSaliencyAirGap">RotorSaliencyAirGap</a>
+<li>Exchanged positive and negative stator ports of <a href="../BasicMachines/Components/index.html#RotorSaliencyAirGap">RotorSaliencyAirGap</a>
 model, adapted equations accordingly and updated code documentation.</li>
 </ul>
 
@@ -558,7 +558,7 @@ model, adapted equations accordingly and updated code documentation.</li>
 <li>Added stator core, friction, stray load and brush losses to all machine types based on
 <a href="../../../Electrical/Machines/Losses/index.html">loss models</a> of the <a href="../../../Electrical/Machines/index.html">Machines</a> library.</li>
 <li>Changed parameter of
-<a href="../../../Magnetic/FundamentalWave/Components/index.html#EddyCurrent">EddyCurrent</a>
+<a href="../Components/index.html#EddyCurrent">EddyCurrent</a>
 model from R to G</li>
 <li>Fixed wrong sign of internal quantity <code>tauElectrical</code>, model behavior does not change</li>
 <li>Rewrote equations of electromagnetic coupling to look more elegant</li>
@@ -567,7 +567,7 @@ model from R to G</li>
 <h5>Version 1.4.0, 2010-04-22</h5>
 
 <ul>
-<li>Added eddy current model in accordance to <a href="../../../Magnetic/FluxTubes/index.html">FluxTubes</a> library</li>
+<li>Added eddy current model in accordance to <a href="../../FluxTubes/index.html">FluxTubes</a> library</li>
 <li>Added thermal heat port to eddy current model</li>
 <li>Minor updates due to dependencies of <a href="../../../Electrical/Machines/index.html">Machines</a></li>
 </ul>
@@ -624,7 +624,7 @@ model from R to G</li>
 
 <ul>
 <li>First version based on the concept of the FluxTubes library and the Magnetics library of Michael Beuschel
-[<a href="../../../Magnetic/FundamentalWave/UsersGuide/index.html#References">Beuschel00</a>]</li>
+[<a href="index.html#References">Beuschel00</a>]</li>
 </ul>
 <p>Extends from <code><a href="../../../Icons/index.html#ReleaseNotes">Modelica.&#8203;Icons.&#8203;ReleaseNotes</a></code> (Icon for release notes in documentation).</p>
 <hr><a name="References"><h2><embed class="icon" src="../../../images/icon0003.svg" width="203" height="203" />
@@ -699,4 +699,6 @@ Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 
 </table>
 <p>Extends from <code><a href="../../../Icons/index.html#References">Modelica.&#8203;Icons.&#8203;References</a></code> (Icon for external references).</p>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:37:44 EDT by <i>MapleSim</i>.</p>
 </body></html>

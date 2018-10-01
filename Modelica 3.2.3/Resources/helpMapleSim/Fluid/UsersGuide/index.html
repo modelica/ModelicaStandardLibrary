@@ -114,7 +114,7 @@ This library has the following main features:
      or junction should be used if these are important for the specific problem at hand.
      In all circuits where friction dominates, or components such as pumps determine the flow rate,
      kinetic pressure is typically irrelevant. You can consider the
-     <a href="../../Fluid/Examples/Explanatory/index.html#MomentumBalanceFittings">Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings</a> model (and its documentation)
+     <a href="../Examples/Explanatory/index.html#MomentumBalanceFittings">Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings</a> model (and its documentation)
      to see one case where the momentum balance essentially depends on kinetic pressure,
      so it is necessary to use explicit fittings in order to obtain correct results.
      <br>&nbsp;</li>
@@ -134,7 +134,7 @@ Class <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Flu
 
 <p>
 Please explore the
-<a href="../../Fluid/Examples/index.html">Examples</a>,
+<a href="../Examples/index.html">Examples</a>,
 which provide simple models for a broad variety of applications.
 </p>
 <p>Extends from <code><a href="../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
@@ -170,32 +170,32 @@ Modelica_Fluid was refactored and finalized for the release:
 
 <li> Complete implementation of one-dimensional fluid flow<br>
      The balance equations as documented in
-     <a href="../../Fluid/UsersGuide/ComponentDefinition/index.html#BalanceEquations">UsersGuide.ComponentDefinition.BalanceEquations</a>
+     <a href="ComponentDefinition/index.html#BalanceEquations">UsersGuide.ComponentDefinition.BalanceEquations</a>
      are now completely implemented. The implementations with generic boundary flow and source terms find in:
      <ul>
-     <li><a href="../../Fluid/Interfaces/index.html#PartialDistributedVolume">Interfaces.PartialDistributedVolume</a>,
-         <a href="../../Fluid/Interfaces/index.html#PartialLumpedVolume">Interfaces.PartialLumpedVolume</a>:
+     <li><a href="../Interfaces/index.html#PartialDistributedVolume">Interfaces.PartialDistributedVolume</a>,
+         <a href="../Interfaces/index.html#PartialLumpedVolume">Interfaces.PartialLumpedVolume</a>:
          Energy, Mass and Substance balances</li>
-     <li><a href="../../Fluid/Interfaces/index.html#PartialDistributedFlow">Interfaces.PartialDistributedFlow</a>,
-         <a href="../../Fluid/Interfaces/index.html#PartialLumpedFlow">Interfaces.PartialLumpedFlow</a>:
+     <li><a href="../Interfaces/index.html#PartialDistributedFlow">Interfaces.PartialDistributedFlow</a>,
+         <a href="../Interfaces/index.html#PartialLumpedFlow">Interfaces.PartialLumpedFlow</a>:
          Momentum balance</li>
      </ul>
      Specific models combine the balances and define the boundary flow and source terms as appropriate.
      For instance
      <ul>
-     <li><a href="../../Fluid/Vessels/index.html#OpenTank">Vessels.OpenTank</a> extends from
-         <a href="../../Fluid/Interfaces/index.html#PartialLumpedVolume">Interfaces.PartialLumpedVolume</a>,</li>
-     <li><a href="../../Fluid/Fittings/index.html#SimpleGenericOrifice">Fittings.SimpleGenericOrifice</a> extends from
-         <a href="../../Fluid/Interfaces/index.html#PartialLumpedFlow">Interfaces.PartialLumpedFlow</a>, besides
-         <a href="../../Fluid/Interfaces/index.html#PartialTwoPortTransport">Interfaces.PartialTwoPortTransport</a>,</li>
-     <li><a href="../../Fluid/Pipes/index.html#DynamicPipe">Pipes.DynamicPipe</a> is based on
-         <a href="../../Fluid/Interfaces/index.html#PartialDistributedVolume">Interfaces.PartialDistributedVolume</a> and
-         <a href="../../Fluid/Interfaces/index.html#PartialDistributedFlow">Interfaces.PartialDistributedFlow</a>,
-         besides <a href="../../Fluid/Interfaces/index.html#PartialTwoPort">Interfaces.PartialTwoPort</a>.</li>
+     <li><a href="../Vessels/index.html#OpenTank">Vessels.OpenTank</a> extends from
+         <a href="../Interfaces/index.html#PartialLumpedVolume">Interfaces.PartialLumpedVolume</a>,</li>
+     <li><a href="../Fittings/index.html#SimpleGenericOrifice">Fittings.SimpleGenericOrifice</a> extends from
+         <a href="../Interfaces/index.html#PartialLumpedFlow">Interfaces.PartialLumpedFlow</a>, besides
+         <a href="../Interfaces/index.html#PartialTwoPortTransport">Interfaces.PartialTwoPortTransport</a>,</li>
+     <li><a href="../Pipes/index.html#DynamicPipe">Pipes.DynamicPipe</a> is based on
+         <a href="../Interfaces/index.html#PartialDistributedVolume">Interfaces.PartialDistributedVolume</a> and
+         <a href="../Interfaces/index.html#PartialDistributedFlow">Interfaces.PartialDistributedFlow</a>,
+         besides <a href="../Interfaces/index.html#PartialTwoPort">Interfaces.PartialTwoPort</a>.</li>
      </ul>
      All non-trivial mass and energy balances of Vessels, Machines and Fittings have been replaced with PartialLumpedVolume.
      The mass and energy balances of Pipes are based on PartialDistributedVolume.<br>
-     See <a href="../../Fluid/Examples/index.html#BranchingDynamicPipes">Examples.BranchingDynamicPipes</a>
+     See <a href="../Examples/index.html#BranchingDynamicPipes">Examples.BranchingDynamicPipes</a>
      for an example utilizing the complete balance equations.</li>
 
 <li> New approach for the connection of distributed flow models<br>
@@ -211,11 +211,11 @@ Modelica_Fluid was refactored and finalized for the release:
 
 <li> Clarification of modeling assumptions<br>
      The documentation has been extended to better explain the modeling assumptions made. In particular the section
-     <a href="../../Fluid/UsersGuide/ComponentDefinition/index.html#FluidConnectors">UsersGuide.ComponentDefinition.FluidConnectors</a>
+     <a href="ComponentDefinition/index.html#FluidConnectors">UsersGuide.ComponentDefinition.FluidConnectors</a>
      now makes clear that the ports represent the thermodynamic enthalpy, as opposed to stagnation enthalpy,
      and thermodynamic or static pressure, as opposed to total pressure. An new package Explanatory has been added to the
      examples to show the difference between static pressure and total pressure and possible implications. See
-     <a href="../../Fluid/Examples/Explanatory/index.html#MomentumBalanceFittings">Examples.Explanatory.MomentumBalanceFittings</a>.</li>
+     <a href="../Examples/Explanatory/index.html#MomentumBalanceFittings">Examples.Explanatory.MomentumBalanceFittings</a>.</li>
 
 <li> System (former Ambient)<br>
      The use of the global System object has been extended towards common default values for
@@ -224,12 +224,12 @@ Modelica_Fluid was refactored and finalized for the release:
      In particular steady-state initialization and complete steady-state simulation can now be specified system-wide.
      A new Types.Init.Dynamics has been introduced, combining steady-state and initial conditions.
      The former Types.Init has become obsolete.
-     <br>See <a href="../../Fluid/Examples/index.html#HeatingSystem">Examples.HeatingSystem</a></li>
+     <br>See <a href="../Examples/index.html#HeatingSystem">Examples.HeatingSystem</a></li>
 
 <li> Extension of pumps for better consideration of zero flow and heat transfer with environment<br>
      The simplified mass and energy balances have been replaced with a rigorous formulation.
      Moreover an optional heat transfer model can be configured for heat exchanged with the environment or the housing.<br>
-     See <a href="../../Fluid/Machines/BaseClasses/index.html#PartialPump">Machines.BaseClasses.PartialPump</a></li>
+     See <a href="../Machines/BaseClasses/index.html#PartialPump">Machines.BaseClasses.PartialPump</a></li>
 
 <li> Refinement of valves for flow reversal<br>
      All valves now use upstream discretization for reversing flow conditions.</li>
@@ -237,7 +237,7 @@ Modelica_Fluid was refactored and finalized for the release:
 <li> Finalization of trace substances<br>
      Modelica.Fluid now provides a sound implementation for trace substances,
      which can easily be added to existing Media models, in order to study their evolution in a fluid system.<br>
-     See <a href="../../Fluid/Examples/TraceSubstances/index.html#RoomCO2WithControls">Examples.TraceSubstances.RoomCO2WithControls</a></li>
+     See <a href="../Examples/TraceSubstances/index.html#RoomCO2WithControls">Examples.TraceSubstances.RoomCO2WithControls</a></li>
 
 <li> Vectorized ports for volumes<br>
      The ports of models that typically have large volumes, like Vessels and Sources,
@@ -245,7 +245,7 @@ Modelica_Fluid was refactored and finalized for the release:
      of such volume models resulted in unintended mixing equations for stream variables
      in connection sets outside the volumes. The mixing takes place inside the volumes
      when using multiple ports. Moreover a
-     <a href="../../Fluid/Fittings/index.html#MultiPort">Fittings.MultiPort</a>
+     <a href="../Fittings/index.html#MultiPort">Fittings.MultiPort</a>
      has been introduced. It can be attached to components like pipes,
      which do not have vectorized ports on their own.</li>
 
@@ -256,14 +256,14 @@ Modelica_Fluid was refactored and finalized for the release:
      are of secondary interest. As these models use the same interfaces, base classes and naming conventions,
      they can easily be replaced with more detailed models
      as more information shall be taken into account later on.<br>
-     See <a href="../../Fluid/Examples/index.html#InverseParameterization">Examples.InverseParameterization</a></li>
+     See <a href="../Examples/index.html#InverseParameterization">Examples.InverseParameterization</a></li>
 
 <li> Replaceable HeatTransfer models<br>
      The Vessels and the Machines now have replaceable HeatTransfer models,
      besides the Pipes. All HeatTransfer models are optional.
      The heat transfer models are parameterized with the Medium and the ThermodynamicState
      of involved flow segments.<br>
-     See <a href="../../Fluid/Interfaces/index.html#PartialHeatTransfer">Interfaces.PartialHeatTransfer</a>.</li>
+     See <a href="../Interfaces/index.html#PartialHeatTransfer">Interfaces.PartialHeatTransfer</a>.</li>
 
 <li> All examples are working now (using Dymola 7.1).<br>
      The number of examples has been extended with the former critical test cases
@@ -732,4 +732,6 @@ and many have contributed.
      is highly appreciated.</p>
 
 <p>Extends from <code><a href="../../Icons/index.html#Contact">Modelica.&#8203;Icons.&#8203;Contact</a></code> (Icon for contact information).</p>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:39:41 EDT by <i>MapleSim</i>.</p>
 </body></html>

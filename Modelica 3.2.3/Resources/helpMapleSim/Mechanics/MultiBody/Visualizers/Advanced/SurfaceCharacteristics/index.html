@@ -28,7 +28,7 @@ Package <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../.
 <p>
 This package contains functions that are used to define
 parameterized surfaces for use with the
-<a href="../../../../../Mechanics/MultiBody/Visualizers/Advanced/index.html#Surface">Surface</a>
+<a href="../index.html#Surface">Surface</a>
 model.
 </p>
 <p>Extends from <code><a href="../../../../../Icons/FunctionsPackage/index.html">Modelica.&#8203;Icons.&#8203;FunctionsPackage</a></code> (Icon for packages containing functions).</p>
@@ -45,7 +45,7 @@ Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../
 
 <p>
 Function <strong>torus</strong> computes the X, Y and Z arrays to visualize a torus
-with model <a href="../../../../../Mechanics/MultiBody/Visualizers/index.html#Torus">Torus</a>.
+with model <a href="../../index.html#Torus">Torus</a>.
 The left image below shows a torus with ri=0.5 m and ro = 0.2 m.
 The right images below shows the torus with the additional parameter
 settings:
@@ -86,18 +86,18 @@ Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../
 <p>
 Function <strong>pipeWithScalarField</strong> computes the X, Y, Z and C arrays in order to
 visualize a pipe and a scalar field along the pipe axis with model
-<a href="../../../../../Mechanics/MultiBody/Visualizers/Advanced/index.html#PipeWithScalarField">PipeWithScalarField</a>.
+<a href="../index.html#PipeWithScalarField">PipeWithScalarField</a>.
 The latter is shown by mapping scalar
 field to color values with a color map and utilizing this color
 at the perimeter associated with the corresponding axis location.
 Typically the scalar field value is a temperature, but might
 be also another quantity.
 Predefined color maps are available from
-<a href="../../../../../Mechanics/MultiBody/Visualizers/Colors/ColorMaps/index.html">MultiBody.Visualizers.Colors.ColorMaps</a>
+<a href="../../Colors/ColorMaps/index.html">MultiBody.Visualizers.Colors.ColorMaps</a>
 and can be selected via input argument "colorMap".
 A color map with the corresponding scalar field values can be exported
 as vector-graphics in svg-format with function
-<a href="../../../../../Mechanics/MultiBody/Visualizers/Colors/index.html#colorMapToSvg">MultiBody.Visualizers.Colors.colorMapToSvg</a>.
+<a href="../../Colors/index.html#colorMapToSvg">MultiBody.Visualizers.Colors.colorMapToSvg</a>.
 An example is shown in the next figure:
 </p>
 
@@ -107,7 +107,7 @@ An example is shown in the next figure:
 
 <p>
 The color coding is shown in the next figure. It was generated with
-<a href="../../../../../Mechanics/MultiBody/Visualizers/Colors/index.html#colorMapToSvg">Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg</a>
+<a href="../../Colors/index.html#colorMapToSvg">Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg</a>
 using the following call:
 </p>
 
@@ -149,7 +149,7 @@ Function <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../
 
 <p>
 Function <strong>rectangle</strong> computes the X, Y and Z arrays to visualize a rectangle
-with model <a href="../../../../../Mechanics/MultiBody/Visualizers/index.html#Rectangle">Rectangle</a>.
+with model <a href="../../index.html#Rectangle">Rectangle</a>.
 The image below shows two rectangles of
 </p>
 <blockquote><pre>
@@ -178,4 +178,6 @@ lv = 2.
 <tr><td><code><a href="../../../../../SIunits/index.html#Position">Position</a></code></td><td><code>Z[nu,nv]</code></td><td>[nu,nv] positions of points in z-Direction resolved in surface frame</td></tr>
 <tr><td><code>Real</code></td><td><code>C[if multiColoredSurface then nu else 0,if multiColoredSurface then nv else 0,3]</code></td><td>[nu,nv,3] Color array, defining the color for each surface point</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:39:38 EDT by <i>MapleSim</i>.</p>
 </body></html>

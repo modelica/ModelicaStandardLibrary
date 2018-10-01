@@ -46,48 +46,48 @@ In the table below an example call to every function is given:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>
-  <tr><td><a href="../../Utilities/Streams/index.html#print">print</a>(string)<br>
-          <a href="../../Utilities/Streams/index.html#print">print</a>(string,fileName)</td>
+  <tr><td><a href="index.html#print">print</a>(string)<br>
+          <a href="index.html#print">print</a>(string,fileName)</td>
       <td> Print string "string" or vector of strings to message window or on
            file "fileName".</td>
   </tr>
   <tr><td>stringVector =
-         <a href="../../Utilities/Streams/index.html#readFile">readFile</a>(fileName)</td>
+         <a href="index.html#readFile">readFile</a>(fileName)</td>
       <td> Read complete text file and return it as a vector of strings.</td>
   </tr>
   <tr><td>(string, endOfFile) =
-         <a href="../../Utilities/Streams/index.html#readLine">readLine</a>(fileName, lineNumber)</td>
+         <a href="index.html#readLine">readLine</a>(fileName, lineNumber)</td>
       <td>Returns from the file the content of line lineNumber.</td>
   </tr>
   <tr><td>lines =
-         <a href="../../Utilities/Streams/index.html#countLines">countLines</a>(fileName)</td>
+         <a href="index.html#countLines">countLines</a>(fileName)</td>
       <td>Returns the number of lines in a file.</td>
   </tr>
-  <tr><td><a href="../../Utilities/Streams/index.html#error">error</a>(string)</td>
+  <tr><td><a href="index.html#error">error</a>(string)</td>
       <td> Print error message "string" to message window
            and cancel all actions</td>
   </tr>
-  <tr><td><a href="../../Utilities/Streams/index.html#close">close</a>(fileName)</td>
+  <tr><td><a href="index.html#close">close</a>(fileName)</td>
       <td> Close file if it is still open. Ignore call if
            file is already closed or does not exist. </td>
   </tr>
-  <tr><td><a href="../../Utilities/Streams/index.html#readMatrixSize">readMatrixSize</a>(fileName, matrixName)</td>
+  <tr><td><a href="index.html#readMatrixSize">readMatrixSize</a>(fileName, matrixName)</td>
       <td> Read dimensions of a Real matrix from a MATLAB MAT file. </td></tr>
-  <tr><td><a href="../../Utilities/Streams/index.html#readRealMatrix">readRealMatrix</a>(fileName, matrixName, nrow, ncol)</td>
+  <tr><td><a href="index.html#readRealMatrix">readRealMatrix</a>(fileName, matrixName, nrow, ncol)</td>
       <td> Read a Real matrix from a MATLAB MAT file. </td></tr>
-  <tr><td><a href="../../Utilities/Streams/index.html#writeRealMatrix">writeRealMatrix</a>(fileName, matrixName, matrix, append, format)</td>
+  <tr><td><a href="index.html#writeRealMatrix">writeRealMatrix</a>(fileName, matrixName, matrix, append, format)</td>
       <td> Write Real matrix to a MATLAB MAT file. </td></tr>
 </table>
 <p>
 Use functions <strong>scanXXX</strong> from package
-<a href="../../Utilities/Strings/index.html">Strings</a>
+<a href="../Strings/index.html">Strings</a>
 to parse a string.
 </p>
 <p>
 If Real, Integer or Boolean values shall be printed
 or used in an error message, they have to be first converted
 to strings with the builtin operator
-<a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/ModelicaReference3.2.3/Operators/'String()'/">ModelicaReference.Operators.'String()'</a>(...).
+<a href="../../../../../ModelicaReference 3.2.3/Resources/helpMapleSim/Operators/index.html#'String()'">ModelicaReference.Operators.'String()'</a>(...).
 Example:
 </p>
 <pre>
@@ -137,9 +137,9 @@ After every call of "print(..)" a "new line" is printed automatically.
 </pre></blockquote>
 <h4>See also</h4>
 <p>
-<a href="../../Utilities/Streams/index.html">Streams</a>,
-<a href="../../Utilities/Streams/index.html#error">Streams.error</a>,
-<a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/ModelicaReference3.2.3/Operators/'String()'/">ModelicaReference.Operators.'String()'</a>
+<a href="index.html">Streams</a>,
+<a href="index.html#error">Streams.error</a>,
+<a href="../../../../../ModelicaReference 3.2.3/Resources/helpMapleSim/Operators/index.html#'String()'">ModelicaReference.Operators.'String()'</a>
 </p>
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -161,7 +161,7 @@ stringVector = Streams.<strong>readFile</strong>(fileName)
 Function <strong>readFile</strong>(..) opens the given file, reads the complete
 content, closes the file and returns the content as a vector of strings. Lines are separated by LF or CR-LF; the returned strings do not contain the line separators.
 Note, a fileName can be defined as URI by using the helper function
-<a href="../../Utilities/Files/index.html#loadResource">loadResource</a>.
+<a href="../Files/index.html#loadResource">loadResource</a>.
 </p>
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -250,10 +250,10 @@ Line breaks are characterized by "\n" in the string.
 </pre></blockquote>
 <h4>See also</h4>
 <p>
-<a href="../../Utilities/Streams/index.html">Streams</a>,
-<a href="../../Utilities/Streams/index.html#print">Streams.print</a>,
-<a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/ModelicaReference3.2.3/Operators/'assert()'/">ModelicaReference.Operators.'assert()'</a>
-<a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/ModelicaReference3.2.3/Operators/'String()'/">ModelicaReference.Operators.'String()'</a>
+<a href="index.html">Streams</a>,
+<a href="index.html#print">Streams.print</a>,
+<a href="../../../../../ModelicaReference 3.2.3/Resources/helpMapleSim/Operators/index.html#'assert()'">ModelicaReference.Operators.'assert()'</a>
+<a href="../../../../../ModelicaReference 3.2.3/Resources/helpMapleSim/Operators/index.html#'String()'">ModelicaReference.Operators.'String()'</a>
 </p>
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -299,13 +299,13 @@ These dimensions are returned in the Integer vector dim.
 
 <h4>Example</h4>
 <p>
-See <a href="../../Utilities/Examples/index.html#ReadRealMatrixFromFile">Examples.ReadRealMatrixFromFile</a>.
+See <a href="../Examples/index.html#ReadRealMatrixFromFile">Examples.ReadRealMatrixFromFile</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href="../../Utilities/Streams/index.html#readRealMatrix">readRealMatrix</a>,
-<a href="../../Utilities/Streams/index.html#writeRealMatrix">writeRealMatrix</a>
+<a href="index.html#readRealMatrix">readRealMatrix</a>,
+<a href="index.html#writeRealMatrix">writeRealMatrix</a>
 </p>
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -333,19 +333,19 @@ Function <strong>readRealMatrix</strong>(..) opens the given MATLAB MAT file
 (in format v4, v6, v7, and if HDF is supported in the Modelica tool, also v7.3),
 and reads the given matrix from this file. The dimensions of this matrix must first
 be inquired with function
-<a href="../../Utilities/Streams/index.html#readMatrixSize">readMatrixSize</a>
+<a href="index.html#readMatrixSize">readMatrixSize</a>
 and passed via arguments nrow and ncol to this function.
 </p>
 
 <h4>Example</h4>
 <p>
-See <a href="../../Utilities/Examples/index.html#ReadRealMatrixFromFile">Examples.ReadRealMatrixFromFile</a>.
+See <a href="../Examples/index.html#ReadRealMatrixFromFile">Examples.ReadRealMatrixFromFile</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href="../../Utilities/Streams/index.html#readMatrixSize">readMatrixSize</a>,
-<a href="../../Utilities/Streams/index.html#writeRealMatrix">writeRealMatrix</a>
+<a href="index.html#readMatrixSize">readMatrixSize</a>,
+<a href="index.html#writeRealMatrix">writeRealMatrix</a>
 </p>
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -404,13 +404,13 @@ to file. Otherwise, an error message is printed and the function returns with
 
 <h4>Example</h4>
 <p>
-See <a href="../../Utilities/Examples/index.html#WriteRealMatrixToFile">Examples.WriteRealMatrixToFile</a>.
+See <a href="../Examples/index.html#WriteRealMatrixToFile">Examples.WriteRealMatrixToFile</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href="../../Utilities/Streams/index.html#readMatrixSize">readMatrixSize</a>,
-<a href="../../Utilities/Streams/index.html#readRealMatrix">readRealMatrix</a>
+<a href="index.html#readMatrixSize">readMatrixSize</a>,
+<a href="index.html#readRealMatrix">readRealMatrix</a>
 </p>
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -425,4 +425,6 @@ See <a href="../../Utilities/Examples/index.html#WriteRealMatrixToFile">Examples
 <table border="1" cellspacing="0" cellpadding="3">
 <tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>success</code></td><td>true if successful</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:41:49 EDT by <i>MapleSim</i>.</p>
 </body></html>

@@ -1,0 +1,132 @@
+<html><head><title>ObsoleteModelica3.Mechanics.Rotational</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Rotational"><h1><embed class="icon" src="../../images/icon0001.svg" width="203" height="203" />
+Package <a href="../../index.html">ObsoleteModelica3</a>.&#8203;<a href="../index.html">Mechanics</a>.&#8203;Rotational<br><span class="subtitle">Library to model 1-dimensional, rotational mechanical systems</span></h1></a>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Gear"><code>Gear</code></a></td><td>Obsolete model. Use Modelica.Mechanics.Rotational.Components.Gearbox instead</td></tr>
+<tr><td><a href="#GearEfficiency"><code>GearEfficiency</code></a></td><td>Obsolete model. Use Modelica.Mechanics.Rotational.Components.LossyGear instead</td></tr>
+<tr><td><a href="../../Mechanics/Rotational/Interfaces/index.html"><code>Interfaces</code></a> &hellip;</td><td>Connectors and partial models for 1D rotational mechanical components</td></tr>
+<tr><td><a href="../../Mechanics/Rotational/Types/index.html"><code>Types</code></a> &hellip;</td><td>Constants and types with choices, especially to build menus</td></tr>
+</table>
+<hr><a name="GearEfficiency"><h2><embed class="icon" src="../../images/icon0028.svg" width="223" height="225" />
+Model <a href="../../index.html">ObsoleteModelica3</a>.&#8203;<a href="../index.html">Mechanics</a>.&#8203;<a href="index.html">Rotational</a>.&#8203;GearEfficiency<br><span class="subtitle">Obsolete model. Use Modelica.Mechanics.Rotational.Components.LossyGear instead</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+THIS COMPONENT IS <strong>OBSOLETE</strong> and should <strong>no longer be used</strong>. It is only
+kept for <strong>backward compatibility</strong> purposes. Use model
+Modelica.Mechanics.Rotational.LossyGear instead which implements
+gear efficiency in a much more reliable way.
+</p>
+<p>
+This component consists of two rigidly connected flanges flange_a and flange_b without
+inertia where an <strong>efficiency</strong> coefficient <strong>eta</strong> reduces the driven
+torque as function of the driving torque depending on the direction
+of the energy flow, i.e., energy is always lost. This can be seen as a
+simple model of the Coulomb friction acting between the teeth of a
+gearbox.
+</p>
+<p>
+Note, that most gearbox manufacturers provide tables of the
+efficiency of a gearbox as function of the angular velocity
+(efficiency becomes zero, if the angular velocity is zero).
+However, such a table is practically useless for simulation purposes,
+because in gearboxes always two types of friction is present:
+(1) Friction in the <strong>bearings</strong> and (2) friction between
+the teeth of the gear. (1) leads to a velocity dependent, additive
+loss-torque, whereas (2) leads to a torque-dependent reduction of the
+driving torque. The gearbox manufacturers measure both effects
+together and determine the gear efficiency from it, although for
+simulation purposes the two effects need to be separated.
+Assume for example that only constant bearing friction, i.e.,
+bearingTorque=const., is present, i.e.,
+</p>
+<pre>
+   (1)  loadTorque = motorTorque - sign(w)*bearingTorque
+</pre>
+<p>
+Gearbox manufacturers use the loss-formula
+</p>
+<pre>
+   (2)  loadTorque = eta*motorTorque
+</pre>
+<p>
+Comparing (1) and (2) gives a formula for the efficiency eta:
+</p>
+<pre>
+   eta = (1 - sign(w)*bearingTorque/motorTorque)
+</pre>
+<p>
+When the motorTorque becomes smaller as the bearingTorque,
+(2) is useless, because the efficiency is zero. To summarize,
+be careful to determine the gear <strong>efficiency</strong> of this element
+from tables of the gear manufacturers.
+</p>
+
+<p>Extends from <code><a href="../../Mechanics/Rotational/Interfaces/index.html#TwoFlangesAndBearing">ObsoleteModelica3.&#8203;Mechanics.&#8203;Rotational.&#8203;Interfaces.&#8203;TwoFlangesAndBearing</a></code> (Obsolete model. Use one of Modelica.Mechanics.Rotational.Interfaces.PartialXXX instead) and <code><a href="../../Icons/index.html#ObsoleteModel">ObsoleteModelica3.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for an obsolete model (use only for this case)).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>eta</code></td><td><code>1</code></td><td>Efficiency</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Flange_a</code></td><td><code>flange_a</code></td><td>Flange of left shaft</td></tr>
+<tr><td><code>Flange_b</code></td><td><code>flange_b</code></td><td>Flange of right shaft</td></tr>
+<tr><td><code>Flange_a</code></td><td><code>bearing</code></td><td>Flange of bearing</td></tr>
+</table>
+<hr><a name="Gear"><h2><embed class="icon" src="../../images/icon0029.svg" width="223" height="225" />
+Model <a href="../../index.html">ObsoleteModelica3</a>.&#8203;<a href="../index.html">Mechanics</a>.&#8203;<a href="index.html">Rotational</a>.&#8203;Gear<br><span class="subtitle">Obsolete model. Use Modelica.Mechanics.Rotational.Components.Gearbox instead</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This component models the essential effects of a gearbox, in particular
+gear <strong>efficiency</strong> due to friction between the teeth, <strong>bearing friction</strong>,
+gear <strong>elasticity</strong> and <strong>damping</strong>, <strong>backlash</strong>.
+The inertia of the gear wheels is not modeled. If necessary, inertia
+has to be taken into account by connecting components of model Inertia
+to the left and/or the right flange.
+</p>
+
+<p>Extends from <code><a href="../../Mechanics/Rotational/Interfaces/index.html#TwoFlangesAndBearingH">ObsoleteModelica3.&#8203;Mechanics.&#8203;Rotational.&#8203;Interfaces.&#8203;TwoFlangesAndBearingH</a></code> (Obsolete model. Use one of Modelica.Mechanics.Rotational.Interfaces.PartialXXX instead).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>ratio</code></td><td><code>1</code></td><td>transmission ratio (flange_a.phi/flange_b.phi)</td></tr>
+<tr><td><code>Real</code></td><td><code>eta</code></td><td><code>1</code></td><td>Gear efficiency</td></tr>
+<tr><td><code>Real</code></td><td><code>friction_pos[:,2]</code></td><td><code>[0,1]</code></td><td>[w,tau] positive sliding friction characteristic (w&gt;=0)</td></tr>
+<tr><td><code>Real</code></td><td><code>peak</code></td><td><code>1</code></td><td>peak*friction_pos[1,2] = maximum friction torque at zero velocity</td></tr>
+<tr><td><code>Real</code></td><td><code>c</code></td><td><code>100000</code></td><td>Gear elasticity (spring constant)</td></tr>
+<tr><td><code>Real</code></td><td><code>d</code></td><td><code>0</code></td><td>(relative) gear damping</td></tr>
+<tr><td><code>Angle</code></td><td><code>b</code></td><td><code>0</code></td><td>Total backlash</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Flange_a</code></td><td><code>flange_a</code></td><td>Flange of left shaft</td></tr>
+<tr><td><code>Flange_b</code></td><td><code>flange_b</code></td><td>Flange of right shaft</td></tr>
+<tr><td><code>Flange_a</code></td><td><code>bearing</code></td><td>Flange of bearing</td></tr>
+</table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-11 11:27:34 EDT by <i>MapleSim</i>.</p>
+</body></html>

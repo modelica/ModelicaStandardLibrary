@@ -1,0 +1,20 @@
+<svg width="215" height="245" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="ObsoleteModelica3.Mechanics.Rotational.Interfaces.PartialSpeedDependentTorque" class="component">
+		<polygon points="1.5,205.5 205.5,205.5 205.5,1.5 1.5,1.5" fill-opacity="0" stroke="#FF0000" stroke-dasharray="3 4" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="7.5,199.5 199.5,199.5 199.5,7.5 7.5,7.5" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="73.5,173.5 133.5,173.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="73.5,193.5 93.5,173.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="93.5,193.5 113.5,173.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="83.5,243.5 123.5,243.5 123.5,203.5 83.5,203.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="113.5,193.5 133.5,173.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="103.5,173.5 103.5,213.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="11.5,103.5 27.5,67.5 49.5,41.5 73.5,23.5 89.5,15.5 113.5,11.5 129.5,13.5 149.5,23.5 167.5,41.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="197.5,87.5 183.5,29.5 153.5,51.5" fill="#000000" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="flange" class="port">
+			<polygon points="193.5,103.5 193.5,102.6 193.6,101.8 193.8,100.9 194.1,100.1 194.4,99.3 194.8,98.6 195.3,97.8 195.8,97.1 196.4,96.5 197.0,95.9 197.7,95.4 198.4,94.9 199.1,94.5 199.9,94.2 200.7,93.9 201.6,93.7 202.4,93.6 203.3,93.5 204.1,93.5 205.0,93.6 205.8,93.8 206.7,94.0 207.5,94.3 208.2,94.7 209.0,95.1 209.7,95.6 210.3,96.2 210.9,96.8 211.5,97.5 212.0,98.2 212.4,98.9 212.8,99.7 213.0,100.5 213.3,101.4 213.4,102.2 213.5,103.1 213.5,103.9 213.4,104.8 213.3,105.6 213.0,106.5 212.8,107.3 212.4,108.1 212.0,108.8 211.5,109.5 210.9,110.2 210.3,110.8 209.7,111.4 209.0,111.9 208.2,112.3 207.5,112.7 206.7,113.0 205.8,113.2 205.0,113.4 204.1,113.5 203.3,113.5 202.4,113.4 201.6,113.3 200.7,113.1 199.9,112.8 199.1,112.5 198.4,112.1 197.7,111.6 197.0,111.1 196.4,110.5 195.8,109.9 195.3,109.2 194.8,108.4 194.4,107.7 194.1,106.9 193.8,106.1 193.6,105.2 193.5,104.4" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="bearing" class="port">
+			<polygon points="113.5,223.5 113.5,222.6 113.4,221.8 113.2,220.9 112.9,220.1 112.6,219.3 112.2,218.6 111.7,217.8 111.2,217.1 110.6,216.5 110.0,215.9 109.3,215.4 108.6,214.9 107.9,214.5 107.1,214.2 106.3,213.9 105.4,213.7 104.6,213.6 103.7,213.5 102.9,213.5 102.0,213.6 101.2,213.8 100.3,214.0 99.5,214.3 98.8,214.7 98.0,215.1 97.3,215.6 96.7,216.2 96.1,216.8 95.5,217.5 95.0,218.2 94.6,218.9 94.2,219.7 94.0,220.5 93.7,221.4 93.6,222.2 93.5,223.1 93.5,223.9 93.6,224.8 93.7,225.6 94.0,226.5 94.2,227.3 94.6,228.1 95.0,228.8 95.5,229.5 96.1,230.2 96.7,230.8 97.3,231.4 98.0,231.9 98.8,232.3 99.5,232.7 100.3,233.0 101.2,233.2 102.0,233.4 102.9,233.5 103.7,233.5 104.6,233.4 105.4,233.3 106.3,233.1 107.1,232.8 107.9,232.5 108.6,232.1 109.3,231.6 110.0,231.1 110.6,230.5 111.2,229.9 111.7,229.2 112.2,228.4 112.6,227.7 112.9,226.9 113.2,226.1 113.4,225.2 113.5,224.4" fill="#5F5F5F" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</g>
+</svg>

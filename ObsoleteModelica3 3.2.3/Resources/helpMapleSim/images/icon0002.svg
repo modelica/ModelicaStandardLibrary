@@ -1,0 +1,7 @@
+<svg width="207" height="207" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="ObsoleteModelica3.Blocks.Interfaces.Adaptors.AdaptorReal" class="component">
+		<polygon points="1.5,205.5 205.5,205.5 205.5,1.5 1.5,1.5" fill-opacity="0" stroke="#FF0000" stroke-dasharray="3 4" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="3.5,143.5 203.5,143.5 203.5,63.5 3.5,63.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="103.5" y="116.0" text-anchor="middle" fill="#0000FF" font-size="46.7px" font-family="sans-serif">adaptor</text>
+	</g>
+</svg>

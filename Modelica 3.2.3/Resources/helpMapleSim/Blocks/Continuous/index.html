@@ -34,7 +34,7 @@ described by differential equations.
 All blocks of this package can be initialized in different
 ways controlled by parameter <strong>initType</strong>. The possible
 values of initType are defined in
-<a href="../../Blocks/Types/index.html#Init">Modelica.Blocks.Types.Init</a>:
+<a href="../Types/index.html#Init">Modelica.Blocks.Types.Init</a>:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
@@ -146,7 +146,7 @@ the gain <em>k</em>:
 <p>
 It might be difficult to initialize the integrator in steady state.
 This is discussed in the description of package
-<a href="../../Blocks/Continuous/index.html#info#info">Continuous</a>.
+<a href="index.html#info">Continuous</a>.
 </p>
 
 <p>
@@ -187,7 +187,7 @@ the integral away from the bounds.
 <p>
 It might be difficult to initialize the integrator in steady state.
 This is discussed in the description of package
-<a href="../../Blocks/Continuous/index.html#info#info">Continuous</a>.
+<a href="index.html#info">Continuous</a>.
 </p>
 
 <p>
@@ -392,7 +392,7 @@ Example:
 It might be difficult to initialize the PI component in steady state
 due to the integrator part.
 This is discussed in the description of package
-<a href="../../Blocks/Continuous/index.html#info#info">Continuous</a>.
+<a href="index.html#info">Continuous</a>.
 </p>
 
 <p>Extends from <code><a href="../../Blocks/Interfaces/index.html#SISO">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;SISO</a></code> (Single Input Single Output continuous control block).</p>
@@ -424,9 +424,9 @@ block LimPID.
 The PID block can be initialized in different
 ways controlled by parameter <strong>initType</strong>. The possible
 values of initType are defined in
-<a href="../../Blocks/Types/index.html#InitPID">Modelica.Blocks.Types.InitPID</a>.
+<a href="../Types/index.html#InitPID">Modelica.Blocks.Types.InitPID</a>.
 This type is identical to
-<a href="../../Blocks/Types/index.html#Init">Types.Init</a>,
+<a href="../Types/index.html#Init">Types.Init</a>,
 with the only exception that the additional option
 <strong>DoNotUse_InitialIntegratorState</strong> is added for
 backward compatibility reasons (= integrator is initialized with
@@ -518,7 +518,7 @@ Via parameter <strong>controllerType</strong> either <strong>P</strong>, <strong
 or <strong>PID</strong> can be selected. If, e.g., PI is selected, all components belonging to the
 D-part are removed from the block (via conditional declarations).
 The example model
-<a href="../../Blocks/Examples/index.html#PID_Controller">Modelica.Blocks.Examples.PID_Controller</a>
+<a href="../Examples/index.html#PID_Controller">Modelica.Blocks.Examples.PID_Controller</a>
 demonstrates the usage of this controller.
 Several practical aspects of PID controller design are incorporated
 according to chapter 3 of the book:
@@ -591,9 +591,9 @@ together) and using the following strategy:
 This block can be initialized in different
 ways controlled by parameter <strong>initType</strong>. The possible
 values of initType are defined in
-<a href="../../Blocks/Types/index.html#InitPID">Modelica.Blocks.Types.InitPID</a>.
+<a href="../Types/index.html#InitPID">Modelica.Blocks.Types.InitPID</a>.
 This type is identical to
-<a href="../../Blocks/Types/index.html#Init">Types.Init</a>,
+<a href="../Types/index.html#Init">Types.Init</a>,
 with the only exception that the additional option
 <strong>DoNotUse_InitialIntegratorState</strong> is added for
 backward compatibility reasons (= integrator is initialized with
@@ -1117,4 +1117,6 @@ The filters are implemented in the following, reliable way:
 <tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>y</code></td><td>Connector of Real output signal</td></tr>
 <tr><td><code><b>output</b>&nbsp;</code><code><a href="../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>x[nx]</code></td><td>Filter states</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:36:42 EDT by <i>MapleSim</i>.</p>
 </body></html>

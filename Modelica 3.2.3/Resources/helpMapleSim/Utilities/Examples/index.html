@@ -31,27 +31,27 @@ use the functions of package Modelica.Utilities. In particular
 the following examples are present.
 </p>
 <ul>
-<li> Function <a href="../../Utilities/Examples/index.html#calculator">calculator</a>
+<li> Function <a href="index.html#calculator">calculator</a>
      is an interpreter to evaluate
      expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi.
      For example: calculator("1.5*sin(pi/6)");<br>&nbsp;</li>
-<li> Function <a href="../../Utilities/Examples/index.html#expression">expression</a>
+<li> Function <a href="index.html#expression">expression</a>
      is the basic function used in "calculator" to evaluate an expression.
      It is useful if the expression interpreter is used in a larger
      scan operation (such as readRealParameter below).<br>&nbsp;</li>
-<li> Function <a href="../../Utilities/Examples/index.html#readRealParameter">readRealParameter</a>
+<li> Function <a href="index.html#readRealParameter">readRealParameter</a>
      reads the value of a parameter
      from file, given the file and the parameter name. The value
      on file is interpreted with the Examples.expression function
      and can therefore be an expression.<br>&nbsp;</li>
-<li> Model <a href="../../Utilities/Examples/index.html#readRealParameterModel">readRealParameterModel</a>
+<li> Model <a href="index.html#readRealParameterModel">readRealParameterModel</a>
      is a test model to demonstrate the usage of "readRealParameter". The model
      contains 3 parameters that are read from file <a href="../../../Data/Utilities/Examples_readRealParameters.txt">Examples_readRealParameters.txt</a>.<br>&nbsp;
      </li>
-<li> Model <a href="../../Utilities/Examples/index.html#WriteRealMatrixToFile">WriteRealMatrixToFile</a>
+<li> Model <a href="index.html#WriteRealMatrixToFile">WriteRealMatrixToFile</a>
      demonstrates the usage of function "Streams.writeReaMatrix" to store a matrix in various MATLAB MAT formats on file.<br>&nbsp;
      </li>
-<li> Model <a href="../../Utilities/Examples/index.html#ReadRealMatrixFromFile">ReadRealMatrixFromFile</a>
+<li> Model <a href="index.html#ReadRealMatrixFromFile">ReadRealMatrixFromFile</a>
      demonstrates the usage of functions "Streams.readMatrixSize" and "Streams.readRealMatrix"
      to read a matrix in various MATLAB MAT formats from file.
      </li>
@@ -289,7 +289,7 @@ Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Uti
 
 <p>
 Example model that shows how to write a Real matrix in MATLAB MAT format on file
-using function <a href="../../Utilities/Streams/index.html#writeRealMatrix">writeRealMatrix</a>.
+using function <a href="../Streams/index.html#writeRealMatrix">writeRealMatrix</a>.
 </p>
 <p>Extends from <code><a href="../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
 <h3>Parameters</h3>
@@ -304,8 +304,8 @@ Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Uti
 <p>
 Example model that shows how to read a Real matrix in MATLAB MAT format from file
 using functions
-<a href="../../Utilities/Streams/index.html#readMatrixSize">readMatrixSize</a> and
-<a href="../../Utilities/Streams/index.html#readRealMatrix">readRealMatrix</a>.
+<a href="../Streams/index.html#readMatrixSize">readMatrixSize</a> and
+<a href="../Streams/index.html#readRealMatrix">readRealMatrix</a>.
 </p>
 
 <p>
@@ -330,4 +330,6 @@ whether the loaded matrices have the expected values.
 <tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>A2[:,:]</code></td><td><code>Modelica.Utilities.Streams.readRealMatrix(file2, matrixName1, dim2[1], dim2[2])</code></td><td>Data of check matrix 2</td></tr>
 <tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>A3[:,:]</code></td><td><code>Modelica.Utilities.Streams.readRealMatrix(file3, matrixName1, dim3[1], dim3[2])</code></td><td>Data of check matrix 3</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:41:49 EDT by <i>MapleSim</i>.</p>
 </body></html>

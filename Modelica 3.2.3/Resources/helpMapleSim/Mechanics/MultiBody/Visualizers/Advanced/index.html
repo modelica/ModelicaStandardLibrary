@@ -38,30 +38,30 @@ since they all have frame connectors).
 </p>
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><a href="../../../../Mechanics/MultiBody/Visualizers/Advanced/index.html#Arrow">Arrow</a></td>
+  <tr><td><a href="index.html#Arrow">Arrow</a></td>
       <td>Visualizing an arrow where all parts of the arrow can vary dynamically:<br>
       <img src="../../../../../Images/Mechanics/MultiBody/Visualizers/Arrow.png" alt="model Visualizers.Advanced.Arrow">
       </td>
   </tr>
-  <tr><td><a href="../../../../Mechanics/MultiBody/Visualizers/Advanced/index.html#DoubleArrow">DoubleArrow</a></td>
+  <tr><td><a href="index.html#DoubleArrow">DoubleArrow</a></td>
       <td>Visualizing a double arrow where all parts of the arrow can vary dynamically:<br>
       <img src="../../../../../Images/Mechanics/MultiBody/Visualizers/DoubleArrow.png" alt="model Visualizers.Advanced.DoubleArrow">
       </td>
   </tr>
-  <tr><td><a href="../../../../Mechanics/MultiBody/Visualizers/Advanced/index.html#Shape">Shape</a></td>
+  <tr><td><a href="index.html#Shape">Shape</a></td>
       <td>Visualizing an elementary object with variable size.
       The following shape types are supported:<br>&nbsp;<br>
       <img src="../../../../../Images/Mechanics/MultiBody/FixedShape.png" alt="model Visualizers.Advanced.Shape">
       </td>
   </tr>
 
-  <tr><td><a href="../../../../Mechanics/MultiBody/Visualizers/Advanced/index.html#Surface">Surface</a></td>
+  <tr><td><a href="index.html#Surface">Surface</a></td>
       <td>Visualizing a moveable parameterized surface:<br>
       <img src="../../../../../Images/Mechanics/MultiBody/Visualizers/Surface_small.png">
       </td>
   </tr>
 
-  <tr><td><a href="../../../../Mechanics/MultiBody/Visualizers/Advanced/index.html#PipeWithScalarField">PipeWithScalarField</a></td>
+  <tr><td><a href="index.html#PipeWithScalarField">PipeWithScalarField</a></td>
       <td>Visualizing a pipe with a scalar field represented by a color coding:<br>
       <img src="../../../../../Images/Mechanics/MultiBody/Visualizers/PipeWithScalarFieldIcon.png">
       </td>
@@ -257,7 +257,7 @@ Parameter <strong>color</strong> is a vector with 3 elements,
 {r,&nbsp;g,&nbsp;b} are the "red", "green" and "blue" color parts.
 Note, r, g, b are given as Integer[3] in the ranges 0&nbsp;..&nbsp;255,
 respectively. The predefined type
-<a href="../../../../Mechanics/MultiBody/Types/index.html#Color">MultiBody.Types.Color</a> contains a menu
+<a href="../../Types/index.html#Color">MultiBody.Types.Color</a> contains a menu
 definition of the colors used in the MultiBody library together with a color editor.
 </p>
 
@@ -300,7 +300,7 @@ that is used for animation. This object is specified by:
 The parameter values (u,v) are given by the ordinal numbers of the
 corresponding control point in u- or in v-direction, respectively.
 The surface is then defined by the replaceable function "surfaceCharacteristic" with the
-interface <a href="../../../../Mechanics/MultiBody/Interfaces/index.html#partialSurfaceCharacteristic">partialSurfaceCharacteristic</a>
+interface <a href="../../Interfaces/index.html#partialSurfaceCharacteristic">partialSurfaceCharacteristic</a>
 that returns the x-, y-, z- coordinate of every control point in form of 3 arrays X, Y, Z, and an optional color array C, if every control point shall have a different color:
 </p>
 
@@ -317,12 +317,12 @@ An example of a parameterized surface with color coding is shown in the next fig
 </blockquote>
 
 <p>
-Models <a href="../../../../Mechanics/MultiBody/Visualizers/index.html#Torus">Torus</a>,
-<a href="../../../../Mechanics/MultiBody/Visualizers/index.html#VoluminousWheel">VoluminousWheel</a>,
-<a href="../../../../Mechanics/MultiBody/Visualizers/index.html#PipeWithScalarField">PipeWithScalarField</a>,
+Models <a href="../index.html#Torus">Torus</a>,
+<a href="../index.html#VoluminousWheel">VoluminousWheel</a>,
+<a href="../index.html#PipeWithScalarField">PipeWithScalarField</a>,
 demonstrate how new visualizer objects can be constructed with the Surface model.<br>
 The direct usage of the Surface model, as well as of the Torus and the VoluminousWheel models, are demonstrated with example
-<a href="../../../../Mechanics/MultiBody/Examples/Elementary/index.html#Surfaces">Examples.Elementary.Surfaces</a>.
+<a href="../../Examples/Elementary/index.html#Surfaces">Examples.Elementary.Surfaces</a>.
 </p>
 <p>Extends from <code><a href="../../../../Mechanics/MultiBody/Icons/index.html#Surface">Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Icons.&#8203;Surface</a></code> (Surface icon), <code><a href="../../../../Utilities/Internal/PartialModelicaServices/Animation/index.html#PartialSurface">Modelica.&#8203;Utilities.&#8203;Internal.&#8203;PartialModelicaServices.&#8203;Animation.&#8203;PartialSurface</a></code> (Interface for 3D animation of surfaces), and <code>ModelicaServices.&#8203;Animation.&#8203;Surface</code> (Animation of a moveable, parameterized surface; the surface characteristic is provided by a function).</p>
 <h3>Parameters</h3>
@@ -345,11 +345,11 @@ at the perimeter associated with the corresponding axis location.
 Typically the scalar field value is a temperature, but might
 be also another quantity.
 Predefined color maps are available from
-<a href="../../../../Mechanics/MultiBody/Visualizers/Colors/ColorMaps/index.html">MultiBody.Visualizers.Colors.ColorMaps</a>
+<a href="../Colors/ColorMaps/index.html">MultiBody.Visualizers.Colors.ColorMaps</a>
 and can be selected via parameter "colorMap".
 A color map with the corresponding scalar field values can be exported
 as vector-graphics in svg-format with function
-<a href="../../../../Mechanics/MultiBody/Visualizers/Colors/index.html#colorMapToSvg">MultiBody.Visualizers.Colors.colorMapToSvg</a>.
+<a href="../Colors/index.html#colorMapToSvg">MultiBody.Visualizers.Colors.colorMapToSvg</a>.
 The position and orientation of the center of the
 circle at the left end of the pipe is defined via parameters
 "r_0" and "R", respectively. The pipe axis is oriented along
@@ -363,7 +363,7 @@ see figure below:
 
 <p>
 The color coding is shown in the next figure. It was generated with
-<a href="../../../../Mechanics/MultiBody/Visualizers/Colors/index.html#colorMapToSvg">MultiBody.Visualizers.Colors.colorMapToSvg</a>
+<a href="../Colors/index.html#colorMapToSvg">MultiBody.Visualizers.Colors.colorMapToSvg</a>
 using the following call:
 </p>
 
@@ -390,4 +390,6 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
 <tr><td><code>Real</code></td><td><code>T_max</code></td><td>&nbsp;</td><td>Maximum value of T that corresponds to colorMap[end,:]</td></tr>
 <tr><td><code>Integer</code></td><td><code>n_colors</code></td><td><code>64</code></td><td>Number of colors in the colorMap</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:39:38 EDT by <i>MapleSim</i>.</p>
 </body></html>

@@ -52,7 +52,7 @@ state = Utilities.<strong>initialStateWithXorshift6star</strong>(localSeed, glob
 <h4>Description</h4>
 
 <p>
-The <a href="../../../Math/Random/Generators/Xorshift64star/index.html">Xorshift64star</a>
+The <a href="../Generators/Xorshift64star/index.html">Xorshift64star</a>
 random number generator is used to fill a state vector of length nState (nState &ge; 1) with random numbers and return
 this vector. Arguments localSeed and globalSeed are any Integer numbers (including zero or negative number)
 that characterize the initial state.
@@ -133,15 +133,15 @@ id = <strong>initializeImpureRandom</strong>(seed;
 
 <p>
 Generates a hidden initial state vector for the
-<a href="../../../Math/Random/Generators/Xorshift1024star/index.html">Xorshift1024star</a>
+<a href="../Generators/Xorshift1024star/index.html">Xorshift1024star</a>
 random number generator (= xorshift1024* algorithm), from Integer input argument seed. Argument seed
 can be given any value (including zero or negative number). The function returns the
 dummy Integer number id. This number needs to be passed as input to function
-<a href="../../../Math/Random/Utilities/index.html#impureRandom">impureRandom</a>,
+<a href="index.html#impureRandom">impureRandom</a>,
 in order that the sorting order is correct (so that impureRandom is always called
 after initializeImpureRandom). The function stores a reasonable initial state vector
 in a C-static memory by using the
-<a href="../../../Math/Random/Generators/Xorshift64star/index.html">Xorshift64star</a>
+<a href="../Generators/Xorshift64star/index.html">Xorshift64star</a>
 random number generator to fill the internal state vector with 64 bit random numbers.
 </p>
 
@@ -161,8 +161,8 @@ random number generator to fill the internal state vector with 64 bit random num
 
 <h4>See also</h4>
 <p>
-<a href="../../../Math/Random/Utilities/index.html#impureRandom">Utilities.impureRandom</a>,
-<a href="../../../Math/Random/Generators/index.html">Random.Generators</a>
+<a href="index.html#impureRandom">Utilities.impureRandom</a>,
+<a href="../Generators/index.html">Random.Generators</a>
 </p>
 <p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -187,7 +187,7 @@ r = <strong>impureRandom</strong>(id);
 <p>
 Returns a uniform random number in the range 0 &lt; random &le; 1 with the xorshift1024* algorithm.
 The dummy input Integer argument id must be the output argument of a call to function
-<a href="../../../Math/Random/Utilities/index.html#initializeImpureRandom">initializeImpureRandom</a>,
+<a href="index.html#initializeImpureRandom">initializeImpureRandom</a>,
 in order that the sorting order is correct (so that impureRandom is always called
 after initializeImpureRandom). For every call of impureRandom(id), a different random number
 is returned, so the function is impure.
@@ -214,8 +214,8 @@ is returned, so the function is impure.
 
 <h4>See also</h4>
 <p>
-<a href="../../../Math/Random/Utilities/index.html#initializeImpureRandom">initializeImpureRandom</a>,
-<a href="../../../Math/Random/Generators/index.html">Random.Generators</a>
+<a href="index.html#initializeImpureRandom">initializeImpureRandom</a>,
+<a href="../Generators/index.html">Random.Generators</a>
 </p>
 <h4>Note</h4>
 <p>This function is impure!</p>
@@ -244,7 +244,7 @@ Returns an Integer random number in the range imin &le; random &le; imax with th
 (the random number in the range 0 ... 1 returned by the xorshift1024* algorithm is mapped to
 an Integer number in the range imin ... imax).
 The dummy input Integer argument id must be the output argument of a call to function
-<a href="../../../Math/Random/Utilities/index.html#initializeImpureRandom">initializeImpureRandom</a>,
+<a href="index.html#initializeImpureRandom">initializeImpureRandom</a>,
 in order that the sorting order is correct (so that impureRandomInteger is always called
 after initializeImpureRandom). For every call of impureRandomInteger(id), a different random number
 is returned, so the function is impure.
@@ -252,8 +252,8 @@ is returned, so the function is impure.
 
 <h4>See also</h4>
 <p>
-<a href="../../../Math/Random/Utilities/index.html#initializeImpureRandom">initializeImpureRandom</a>,
-<a href="../../../Math/Random/Generators/index.html">Random.Generators</a>
+<a href="index.html#initializeImpureRandom">initializeImpureRandom</a>,
+<a href="../Generators/index.html">Random.Generators</a>
 </p>
 <h4>Note</h4>
 <p>This function is impure!</p>
@@ -268,4 +268,6 @@ is returned, so the function is impure.
 <table border="1" cellspacing="0" cellpadding="3">
 <tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>y</code></td><td>A random number with a uniform distribution on the interval [imin,imax]</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:41:48 EDT by <i>MapleSim</i>.</p>
 </body></html>

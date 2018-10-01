@@ -32,7 +32,7 @@ This library contains components for modelling of electromagnetic devices with l
 This user's guide gives a short introduction to the underlying concept of <strong>magnetic flux tubes</strong>, summarizes the calculation of magnetic <strong>reluctance forces</strong> from lumped magnetic network models and lists <strong>reference literature</strong>.
 </p>
 <p>
-<a href="../../../Magnetic/FluxTubes/Examples/index.html">Examples</a> illustrates the usage of magnetic network models with simple models from different fields of application.</p>
+<a href="../Examples/index.html">Examples</a> illustrates the usage of magnetic network models with simple models from different fields of application.</p>
 <p>Extends from <code><a href="../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
 <h3>Package Contents</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -124,7 +124,7 @@ Generally, the thrust <em>F</em> developed by a translatory electro-magneto-mech
 </p>
 
 <p>
-where <em>n<sub>linear</sub></em> is the number of flux tube elements with constant relative permeability that change its permeance <em>G<sub>m i</sub></em> with armature position (index <em>i</em>), <em>V<sub>m i</sub></em> the magnetic voltage across each respective flux tube and <em>dG<sub>m i</sub>/dx</em> the derivative of the respective permeances with respect to armature position. Transition from the general formula based on magnetic co-energy to the latter one is outlined in <a href="../../../Magnetic/FluxTubes/UsersGuide/index.html#Literature">[KEQ+12]</a> for the reciprocal of the permeance, i.e., for the magnetic reluctance <em>R<sub>m</sub></em>. Note that
+where <em>n<sub>linear</sub></em> is the number of flux tube elements with constant relative permeability that change its permeance <em>G<sub>m i</sub></em> with armature position (index <em>i</em>), <em>V<sub>m i</sub></em> the magnetic voltage across each respective flux tube and <em>dG<sub>m i</sub>/dx</em> the derivative of the respective permeances with respect to armature position. Transition from the general formula based on magnetic co-energy to the latter one is outlined in <a href="index.html#Literature">[KEQ+12]</a> for the reciprocal of the permeance, i.e., for the magnetic reluctance <em>R<sub>m</sub></em>. Note that
 </p>
 
 <p>
@@ -134,11 +134,11 @@ where <em>n<sub>linear</sub></em> is the number of flux tube elements with const
 <p>with <em>&Phi;<sub>i</sub></em> being the magnetic flux through each respective flux tube element.</p>
 
 <p>
-Flux tube elements with <em>non-linear</em> material characteristics <em>&mu;<sub>r</sub></em>(<em>B</em>) in magnetic network models do not restrict the usability of the above equation. However, it is required that these nonlinear flux tube elements do not change its shape with armature motion (e.g., portion of a solenoid plunger where the magnetic flux passes through in axial direction). This limitation is not a strong one, since the permeance of nonlinear, but highly permeable ferromagnetic flux tube elements and its change with armature position compared to that of air gap flux tubes can be neglected in most cases. Because of this constraint, the dimensions of possibly nonlinear flux tube elements in sub-package <a href="../../../Magnetic/FluxTubes/Shapes/FixedShape/index.html">Shapes.FixedShape</a> are fixed, whereas the dimension in direction of motion of the linear flux tube elements in sub-package <a href="../../../Magnetic/FluxTubes/Shapes/Force/index.html">Shapes.Force</a> can vary during simulation. For the flux tubes defined in this package with their rather simple shapes, the derivative <em>dG<sub>m</sub>/dx</em> is given analytically. For more complex shapes and variations of dimensions with armature motion, it must be provided analytically during model development, preferably by extending the partial model <a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PartialForce">Interfaces.PartialForce</a>.
+Flux tube elements with <em>non-linear</em> material characteristics <em>&mu;<sub>r</sub></em>(<em>B</em>) in magnetic network models do not restrict the usability of the above equation. However, it is required that these nonlinear flux tube elements do not change its shape with armature motion (e.g., portion of a solenoid plunger where the magnetic flux passes through in axial direction). This limitation is not a strong one, since the permeance of nonlinear, but highly permeable ferromagnetic flux tube elements and its change with armature position compared to that of air gap flux tubes can be neglected in most cases. Because of this constraint, the dimensions of possibly nonlinear flux tube elements in sub-package <a href="../Shapes/FixedShape/index.html">Shapes.FixedShape</a> are fixed, whereas the dimension in direction of motion of the linear flux tube elements in sub-package <a href="../Shapes/Force/index.html">Shapes.Force</a> can vary during simulation. For the flux tubes defined in this package with their rather simple shapes, the derivative <em>dG<sub>m</sub>/dx</em> is given analytically. For more complex shapes and variations of dimensions with armature motion, it must be provided analytically during model development, preferably by extending the partial model <a href="../Interfaces/index.html#PartialForce">Interfaces.PartialForce</a>.
 </p>
 
 <p>
-The sub-package <a href="../../../Magnetic/FluxTubes/Shapes/Leakage/index.html">Shapes.Leakage</a> contains flux tube shapes typical for leakage flux around prismatic or cylindrical poles. Since the permeance of these flux tubes does not change with armature position, they do not contribute to a reluctance actuator's thrust.
+The sub-package <a href="../Shapes/Leakage/index.html">Shapes.Leakage</a> contains flux tube shapes typical for leakage flux around prismatic or cylindrical poles. Since the permeance of these flux tubes does not change with armature position, they do not contribute to a reluctance actuator's thrust.
 </p>
 
 <p>Extends from <code><a href="../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
@@ -271,30 +271,30 @@ Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 <h5>Version 3.2.2, 2014-12-05 (Johannes&nbsp;Ziske, Thomas&nbsp;B&ouml;drich)</h5>
 
 <ul>
-<li>Added package <a href="../../../Magnetic/FluxTubes/UsersGuide/Hysteresis/index.html">FluxTubes.UsersGuide.Hysteresis</a></li>
-<li>Added package <a href="../../../Magnetic/FluxTubes/Examples/Hysteresis/index.html">FluxTubes.Examples.Hysteresis</a></li>
-<li>Added package <a href="../../../Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/index.html">FluxTubes.Shapes.HysteresisAndMagnets</a></li>
-<li>Added package <a href="../../../Magnetic/FluxTubes/Material/HysteresisEverettParameter/index.html">FluxTubes.Material.HysteresisEverettParameter</a></li>
-<li>Added package <a href="../../../Magnetic/FluxTubes/Material/HysteresisTableData/index.html">FluxTubes.Material.HysteresisTableData</a></li>
-<li>Updated <a href="../../../Magnetic/FluxTubes/Interfaces/index.html#PartialFixedShape">FluxTubes.Interfaces.PartialFixedShape</a> for differentiability</li>
-<li>Updated <a href="../../../Magnetic/FluxTubes/UsersGuide/index.html#Literature">FluxTubes.UsersGuide.Literature</a></li>
+<li>Added package <a href="Hysteresis/index.html">FluxTubes.UsersGuide.Hysteresis</a></li>
+<li>Added package <a href="../Examples/Hysteresis/index.html">FluxTubes.Examples.Hysteresis</a></li>
+<li>Added package <a href="../Shapes/HysteresisAndMagnets/index.html">FluxTubes.Shapes.HysteresisAndMagnets</a></li>
+<li>Added package <a href="../Material/HysteresisEverettParameter/index.html">FluxTubes.Material.HysteresisEverettParameter</a></li>
+<li>Added package <a href="../Material/HysteresisTableData/index.html">FluxTubes.Material.HysteresisTableData</a></li>
+<li>Updated <a href="../Interfaces/index.html#PartialFixedShape">FluxTubes.Interfaces.PartialFixedShape</a> for differentiability</li>
+<li>Updated <a href="index.html#Literature">FluxTubes.UsersGuide.Literature</a></li>
 </ul>
 
 <h5>Version 3.2.2, 2014-01-15 (Christian&nbsp;Kral)</h5>
 
 <ul>
 <li>Added constant
-<a href="../../../Magnetic/FluxTubes/Basic/index.html#ConstantPermeance">permeance model</a></li>
+<a href="../Basic/index.html#ConstantPermeance">permeance model</a></li>
 <li>Added
-<a href="../../../Magnetic/FluxTubes/Shapes/FixedShape/index.html#GenericFluxTube">GenericFluxTube</a></li>
+<a href="../Shapes/FixedShape/index.html#GenericFluxTube">GenericFluxTube</a></li>
 <li>Added parameter <code>useConductance</code> including alternative parameterization in
-<a href="../../../Magnetic/FluxTubes/Basic/index.html#EddyCurrent">EddyCurrent</a></li>
+<a href="../Basic/index.html#EddyCurrent">EddyCurrent</a></li>
 <li>Added
-<a href="../../../Magnetic/FluxTubes/Basic/index.html#Idle">Idle</a></li>
+<a href="../Basic/index.html#Idle">Idle</a></li>
 <li>Added
-<a href="../../../Magnetic/FluxTubes/Basic/index.html#Short">Short</a></li>
+<a href="../Basic/index.html#Short">Short</a></li>
 <li>Added
-<a href="../../../Magnetic/FluxTubes/Basic/index.html#Crossing">Crossing</a></li>
+<a href="../Basic/index.html#Crossing">Crossing</a></li>
 </ul>
 
 <h5>Version 1.5, 2013-01-04 (Martin&nbsp;Otter, Thomas&nbsp;B&ouml;drich, Johannes&nbsp;Ziske)</h5>
@@ -383,4 +383,6 @@ Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
    The partial financial support by the European Union for this development is highly appreciated.</li>
 </ul>
 <p>Extends from <code><a href="../../../Icons/index.html#Contact">Modelica.&#8203;Icons.&#8203;Contact</a></code> (Icon for contact information).</p>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:37:41 EDT by <i>MapleSim</i>.</p>
 </body></html>

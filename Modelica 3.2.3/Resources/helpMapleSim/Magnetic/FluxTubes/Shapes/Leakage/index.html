@@ -26,15 +26,15 @@ Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../i
 <p>
 
 <p>
-Please have a look at <a href="../../../../Magnetic/FluxTubes/UsersGuide/index.html#ReluctanceForceCalculation">UsersGuide.ReluctanceForceCalculation</a> for an explanation of the different flux tube categories and resulting sub-packages.
+Please have a look at <a href="../../UsersGuide/index.html#ReluctanceForceCalculation">UsersGuide.ReluctanceForceCalculation</a> for an explanation of the different flux tube categories and resulting sub-packages.
 </p>
 
 <p>
-The permeances of all elements of this package are calculated from their geometry. These flux tube elements are intended for modelling of leakage fields through vacuum, air and other media with a relative permeability mu_r=1. <a href="../../../../Magnetic/FluxTubes/Basic/index.html#LeakageWithCoefficient">Basic.LeakageWithCoefficient</a> accounts for leakage not by the geometry of flux tubes, but by a coupling coefficient c_usefulFlux.
+The permeances of all elements of this package are calculated from their geometry. These flux tube elements are intended for modelling of leakage fields through vacuum, air and other media with a relative permeability mu_r=1. <a href="../../Basic/index.html#LeakageWithCoefficient">Basic.LeakageWithCoefficient</a> accounts for leakage not by the geometry of flux tubes, but by a coupling coefficient c_usefulFlux.
 </p>
 
 <p>
-All dimensions are defined as parameters. As a result, the shape of these elements will remain constant during dynamic simulation of actuators and reluctance forces will not be generated in these flux tube elements. A simple leakage flux tube with reluctance force generation is provided with the element <a href="../../../../Magnetic/FluxTubes/Shapes/Force/index.html#LeakageAroundPoles">Force.LeakageAroundPoles</a>. In cases where the accuracy of that element is not sufficient, the leakage elements of this package can be adapted and extended so that they are able to change their shape with armature motion and to generate reluctance forces. This requires an extension of the partial model <a href="../../../../Magnetic/FluxTubes/Interfaces/index.html#PartialForce">Interfaces.PartialForce</a>, a higher variability of the variables representing the flux tube's dimensions, definition of a relationship between armature position and these dimensions and determination of the analytic derivative dG_m/dx of the flux tube's permeance G_m with respect to armature position x.
+All dimensions are defined as parameters. As a result, the shape of these elements will remain constant during dynamic simulation of actuators and reluctance forces will not be generated in these flux tube elements. A simple leakage flux tube with reluctance force generation is provided with the element <a href="../Force/index.html#LeakageAroundPoles">Force.LeakageAroundPoles</a>. In cases where the accuracy of that element is not sufficient, the leakage elements of this package can be adapted and extended so that they are able to change their shape with armature motion and to generate reluctance forces. This requires an extension of the partial model <a href="../../Interfaces/index.html#PartialForce">Interfaces.PartialForce</a>, a higher variability of the variables representing the flux tube's dimensions, definition of a relationship between armature position and these dimensions and determination of the analytic derivative dG_m/dx of the flux tube's permeance G_m with respect to armature position x.
 </p>
 <p>Extends from <code><a href="../../../../Icons/VariantsPackage/index.html">Modelica.&#8203;Icons.&#8203;VariantsPackage</a></code> (Icon for package containing variants).</p>
 <h3>Package Contents</h3>
@@ -55,7 +55,7 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 <p>
 
 <p>
-Please refer to the enclosing sub-package <a href="../../../../Magnetic/FluxTubes/Shapes/Leakage/index.html">Leakage</a> for a description of all elements of this package and to <a href="../../../../Magnetic/FluxTubes/UsersGuide/index.html#Literature">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href="index.html">Leakage</a> for a description of all elements of this package and to <a href="../../UsersGuide/index.html#Literature">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 <p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Interfaces/index.html#PartialLeakage">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialLeakage</a></code> (Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1).</p>
 <h3>Parameters</h3>
@@ -73,7 +73,7 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 <p>
 
 <p>
-Please refer to the enclosing sub-package <a href="../../../../Magnetic/FluxTubes/Shapes/Leakage/index.html">Leakage</a> for a description of all elements of this package and to <a href="../../../../Magnetic/FluxTubes/UsersGuide/index.html#Literature">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href="index.html">Leakage</a> for a description of all elements of this package and to <a href="../../UsersGuide/index.html#Literature">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 <p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Interfaces/index.html#PartialLeakage">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialLeakage</a></code> (Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1).</p>
 <h3>Parameters</h3>
@@ -92,7 +92,7 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 <p>
 
 <p>
-Please refer to the enclosing sub-package <a href="../../../../Magnetic/FluxTubes/Shapes/Leakage/index.html">Leakage</a> for a description of all elements of this package and to <a href="../../../../Magnetic/FluxTubes/UsersGuide/index.html#Literature">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href="index.html">Leakage</a> for a description of all elements of this package and to <a href="../../UsersGuide/index.html#Literature">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 <p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Interfaces/index.html#PartialLeakage">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialLeakage</a></code> (Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1).</p>
 <h3>Parameters</h3>
@@ -110,7 +110,7 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 <p>
 
 <p>
-Please refer to the enclosing sub-package <a href="../../../../Magnetic/FluxTubes/Shapes/Leakage/index.html">Leakage</a> for a description of all elements of this package and to <a href="../../../../Magnetic/FluxTubes/UsersGuide/index.html#Literature">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href="index.html">Leakage</a> for a description of all elements of this package and to <a href="../../UsersGuide/index.html#Literature">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 <p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Interfaces/index.html#PartialLeakage">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialLeakage</a></code> (Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1).</p>
 <h3>Parameters</h3>
@@ -129,7 +129,7 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 <p>
 
 <p>
-Please refer to the enclosing sub-package <a href="../../../../Magnetic/FluxTubes/Shapes/Leakage/index.html">Leakage</a> for a description of all elements of this package and to <a href="../../../../Magnetic/FluxTubes/UsersGuide/index.html#Literature">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href="index.html">Leakage</a> for a description of all elements of this package and to <a href="../../UsersGuide/index.html#Literature">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 <p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Interfaces/index.html#PartialLeakage">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialLeakage</a></code> (Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1).</p>
 <h3>Parameters</h3>
@@ -147,7 +147,7 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 <p>
 
 <p>
-Please refer to the enclosing sub-package <a href="../../../../Magnetic/FluxTubes/Shapes/Leakage/index.html">Leakage</a> for a description of all elements of this package and to <a href="../../../../Magnetic/FluxTubes/UsersGuide/index.html#Literature">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href="index.html">Leakage</a> for a description of all elements of this package and to <a href="../../UsersGuide/index.html#Literature">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 <p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Interfaces/index.html#PartialLeakage">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialLeakage</a></code> (Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1).</p>
 <h3>Parameters</h3>
@@ -165,7 +165,7 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 <p>
 
 <p>
-Please refer to the enclosing sub-package <a href="../../../../Magnetic/FluxTubes/Shapes/Leakage/index.html">Leakage</a> for a description of all elements of this package and to <a href="../../../../Magnetic/FluxTubes/UsersGuide/index.html#Literature">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href="index.html">Leakage</a> for a description of all elements of this package and to <a href="../../UsersGuide/index.html#Literature">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 <p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Interfaces/index.html#PartialLeakage">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialLeakage</a></code> (Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1).</p>
 <h3>Parameters</h3>
@@ -183,7 +183,7 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 <p>
 
 <p>
-Please refer to the enclosing sub-package <a href="../../../../Magnetic/FluxTubes/Shapes/Leakage/index.html">Leakage</a> for a description of all elements of this package and to <a href="../../../../Magnetic/FluxTubes/UsersGuide/index.html#Literature">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href="index.html">Leakage</a> for a description of all elements of this package and to <a href="../../UsersGuide/index.html#Literature">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 <p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Interfaces/index.html#PartialLeakage">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialLeakage</a></code> (Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1).</p>
 <h3>Parameters</h3>
@@ -201,7 +201,7 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 <p>
 
 <p>
-Please refer to the enclosing sub-package <a href="../../../../Magnetic/FluxTubes/Shapes/Leakage/index.html">Leakage</a> for a description of all elements of this package and to <a href="../../../../Magnetic/FluxTubes/UsersGuide/index.html#Literature">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href="index.html">Leakage</a> for a description of all elements of this package and to <a href="../../UsersGuide/index.html#Literature">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 <p>Extends from <code><a href="../../../../Magnetic/FluxTubes/Interfaces/index.html#PartialLeakage">Modelica.&#8203;Magnetic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialLeakage</a></code> (Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1).</p>
 <h3>Parameters</h3>
@@ -217,4 +217,6 @@ Please refer to the enclosing sub-package <a href="../../../../Magnetic/FluxTube
 <tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Magnetic/FluxTubes/Interfaces/index.html#PositiveMagneticPort">PositiveMagneticPort</a></code></td><td><code>port_p</code></td><td>Positive magnetic port</td></tr>
 <tr><td><code><a href="../../../../Magnetic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n</code></td><td>Negative magnetic port</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:37:43 EDT by <i>MapleSim</i>.</p>
 </body></html>

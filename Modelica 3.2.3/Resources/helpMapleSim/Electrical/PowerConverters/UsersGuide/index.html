@@ -43,8 +43,8 @@ General types of AC/AC converters are currently not provided in this library.
 
 <ul>
   <li>All converter models rely on existing diode, thyristor and switch models provided in the
-      <a href="../../../Electrical/Analog/Ideal/index.html">Analog.Ideal</a> and the
-      <a href="../../../Electrical/MultiPhase/Ideal/index.html">MultiPhase.Ideal</a>
+      <a href="../../Analog/Ideal/index.html">Analog.Ideal</a> and the
+      <a href="../../MultiPhase/Ideal/index.html">MultiPhase.Ideal</a>
       package of the Modelica Standard Library.</li>
   <li>Switching losses and recovery effects are not considered</li>
   <li>Only conduction losses are taken into account</li>
@@ -68,10 +68,10 @@ General types of AC/AC converters are currently not provided in this library.
 
 <p>
 General background knowledge on power converters and power electronics can be found in
-<a href="../../../Electrical/PowerConverters/UsersGuide/index.html#References">[Skvarenina01]</a> and
-<a href="../../../Electrical/PowerConverters/UsersGuide/index.html#References">[Luo05]</a>.
+<a href="index.html#References">[Skvarenina01]</a> and
+<a href="index.html#References">[Luo05]</a>.
 A freely available book is available in
-<a href="../../../Electrical/PowerConverters/UsersGuide/index.html#References">[Williams2006]</a>.
+<a href="index.html#References">[Williams2006]</a>.
 </p>
 <p>Extends from <code><a href="../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
 <h3>Package Contents</h3>
@@ -103,12 +103,12 @@ Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 <h4>Topology classification</h4>
 
 <p>The PowerConverters library provides bridge and center tap rectifiers for single and multi phase supply, see
-<a href="../../../Electrical/PowerConverters/ACDC/index.html">AC/DC converters</a>.</p>
+<a href="../ACDC/index.html">AC/DC converters</a>.</p>
 
 <h4>Control</h4>
 
 <p>For each of the provided rectifiers a
-<a href="../../../Electrical/PowerConverters/ACDC/Control/index.html">control model</a> is available.
+<a href="../ACDC/Control/index.html">control model</a> is available.
 These control models have electrical connectors to be connected with the AC supply.
 The firing angle of thyristor rectifiers can either be set by a parameter or a signal input.
 </p>
@@ -116,7 +116,7 @@ The firing angle of thyristor rectifiers can either be set by a parameter or a s
 <h4>Examples</h4>
 
 <p>A variety of examples is provided at
-<a href="../../../Electrical/PowerConverters/Examples/ACDC/index.html">Examples.ACDC</a>.
+<a href="../Examples/ACDC/index.html">Examples.ACDC</a>.
 These examples include different kinds of DC loads. Even the control characteristics
 of the rectifiers can be obtained experimentally; the names of these models
 contain <code>_Characteristic</code>.
@@ -134,14 +134,14 @@ Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 
 <p>There are currently no space phasor pulse width modulation (PWM) models provided. However, for operating the single
 and multi phase inverter the PWM
-<a href="../../../Electrical/PowerConverters/DCDC/Control/index.html#SignalPWM">controller</a>
+<a href="../DCDC/Control/index.html#SignalPWM">controller</a>
 can be used.
 </p>
 
 <h4>Examples</h4>
 
 <p>Some examples are provided at
-<a href="../../../Electrical/PowerConverters/Examples/DCAC/index.html">Examples.DCAC</a>.
+<a href="../Examples/DCAC/index.html">Examples.DCAC</a>.
 </p>
 <p>Extends from <code><a href="../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
 <hr><a name="DCDCConcept"><h2><embed class="icon" src="../../../images/icon0002.svg" width="203" height="203" />
@@ -160,14 +160,14 @@ Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 <h4>Control</h4>
 
 <p>A pulse width modulation (PWM)
-<a href="../../../Electrical/PowerConverters/DCDC/Control/index.html">controller</a>
+<a href="../DCDC/Control/index.html">controller</a>
 is provided.
 </p>
 
 <h4>Examples</h4>
 
 <p>Some examples are provided at
-<a href="../../../Electrical/PowerConverters/Examples/DCDC/index.html">Examples.DCDC</a>.
+<a href="../Examples/DCDC/index.html">Examples.DCDC</a>.
 </p>
 <p>Extends from <code><a href="../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
 <hr><a name="Contact"><h2><embed class="icon" src="../../../images/icon0004.svg" width="203" height="203" />
@@ -252,4 +252,6 @@ Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
     </tr>
 </table>
 <p>Extends from <code><a href="../../../Icons/index.html#References">Modelica.&#8203;Icons.&#8203;References</a></code> (Icon for external references).</p>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:37:04 EDT by <i>MapleSim</i>.</p>
 </body></html>

@@ -26,15 +26,15 @@ Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../i
 <p>
 
 <p>
-In electromagnetic or reluctance actuators, a thrust or reluctance force is generated due to a non-zero gradient of the relative magnetic permeability mu_r at surfaces between regions of different permeability (non-saturated ferromagnetic material: mu_r>>1, adjacent air: mu_r=1). In lumped magnetic network models, this force can be calculated as shortly outlined in <a href="../../../../Magnetic/FluxTubes/UsersGuide/index.html#ReluctanceForceCalculation">Reluctance Forces</a> of the User's Guide.
+In electromagnetic or reluctance actuators, a thrust or reluctance force is generated due to a non-zero gradient of the relative magnetic permeability mu_r at surfaces between regions of different permeability (non-saturated ferromagnetic material: mu_r>>1, adjacent air: mu_r=1). In lumped magnetic network models, this force can be calculated as shortly outlined in <a href="../../UsersGuide/index.html#ReluctanceForceCalculation">Reluctance Forces</a> of the User's Guide.
 </p>
 
 <p>
-As an example of a reluctance actuator, a simple axis-symmetric lifting magnet with planar end planes of armature and pole is shown. Often, a <a href="../../../../Magnetic/FluxTubes/Examples/SolenoidActuator/Components/index.html#SimpleSolenoid">SimpleSolenoid</a> model is sufficient for initial rough design of such an actuator's magnetic subsystem. Higher accuracy can be gained from an <a href="../../../../Magnetic/FluxTubes/Examples/SolenoidActuator/Components/index.html#AdvancedSolenoid">AdvancedSolenoid</a> model where the coil-imposed magnetomotive force is split and the leakage flux between armature and yoke is accounted for more precisely.
+As an example of a reluctance actuator, a simple axis-symmetric lifting magnet with planar end planes of armature and pole is shown. Often, a <a href="Components/index.html#SimpleSolenoid">SimpleSolenoid</a> model is sufficient for initial rough design of such an actuator's magnetic subsystem. Higher accuracy can be gained from an <a href="Components/index.html#AdvancedSolenoid">AdvancedSolenoid</a> model where the coil-imposed magnetomotive force is split and the leakage flux between armature and yoke is accounted for more precisely.
 </p>
 
 <p>
-The differences between these two models in static behaviour can be analysed and compared to results obtained with a more accurate finite element analysis (FEA) in <a href="../../../../Magnetic/FluxTubes/Examples/SolenoidActuator/index.html#ComparisonQuasiStationary">ComparisonQuasiStationary</a>. The resulting differences in dynamic behaviour can be analysed and compared to FEA results with simulation of a pull-in stroke in <a href="../../../../Magnetic/FluxTubes/Examples/SolenoidActuator/index.html#ComparisonPullInStroke">ComparisonPullInStroke</a>.
+The differences between these two models in static behaviour can be analysed and compared to results obtained with a more accurate finite element analysis (FEA) in <a href="index.html#ComparisonQuasiStationary">ComparisonQuasiStationary</a>. The resulting differences in dynamic behaviour can be analysed and compared to FEA results with simulation of a pull-in stroke in <a href="index.html#ComparisonPullInStroke">ComparisonPullInStroke</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/ExamplesPackage/index.html">Modelica.&#8203;Icons.&#8203;ExamplesPackage</a></code> (Icon for packages containing runnable examples).</p>
 <h3>Package Contents</h3>
@@ -49,7 +49,7 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 <p>
 
 <p>
-Have a look at <a href="../../../../Magnetic/FluxTubes/Examples/SolenoidActuator/index.html">SolenoidActuator</a> for general comments and at <a href="../../../../Magnetic/FluxTubes/Examples/SolenoidActuator/Components/index.html#SimpleSolenoid">SimpleSolenoid</a> and <a href="../../../../Magnetic/FluxTubes/Examples/SolenoidActuator/Components/index.html#AdvancedSolenoid">AdvancedSolenoid</a> for a detailed description of both magnetic network models.
+Have a look at <a href="index.html">SolenoidActuator</a> for general comments and at <a href="Components/index.html#SimpleSolenoid">SimpleSolenoid</a> and <a href="Components/index.html#AdvancedSolenoid">AdvancedSolenoid</a> for a detailed description of both magnetic network models.
 </p>
 
 <p>
@@ -85,7 +85,7 @@ The magnetic flux through the armature and the actuator's static inductance both
 </pre>
 
 <p>
-As mentioned in the description of both magnetic network models, one can tell the higher armature flux and inductance of the advanced solenoid model at large air gaps compared to that of the simple model. The effect of this difference on dynamic model behaviour can be analysed in <a href="../../../../Magnetic/FluxTubes/Examples/SolenoidActuator/index.html#ComparisonPullInStroke">ComparisonPullInStroke</a>.
+As mentioned in the description of both magnetic network models, one can tell the higher armature flux and inductance of the advanced solenoid model at large air gaps compared to that of the simple model. The effect of this difference on dynamic model behaviour can be analysed in <a href="index.html#ComparisonPullInStroke">ComparisonPullInStroke</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
 <h3>Parameters</h3>
@@ -98,7 +98,7 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 <p>
 
 <p>
-Have a look at <a href="../../../../Magnetic/FluxTubes/Examples/SolenoidActuator/index.html">SolenoidActuator</a> for general comments and at <a href="../../../../Magnetic/FluxTubes/Examples/SolenoidActuator/Components/index.html#SimpleSolenoid">SimpleSolenoid</a> and <a href="../../../../Magnetic/FluxTubes/Examples/SolenoidActuator/Components/index.html#AdvancedSolenoid">AdvancedSolenoid</a> for a detailed description of both magnetic network models.
+Have a look at <a href="index.html">SolenoidActuator</a> for general comments and at <a href="Components/index.html#SimpleSolenoid">SimpleSolenoid</a> and <a href="Components/index.html#AdvancedSolenoid">AdvancedSolenoid</a> for a detailed description of both magnetic network models.
 </p>
 
 <p>
@@ -134,4 +134,6 @@ The characteristic current drop during pull-in is due to both armature motion an
 <table border="1" cellspacing="0" cellpadding="3">
 <tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Voltage">Voltage</a></code></td><td><code>v_step</code></td><td><code>12</code></td><td>Applied voltage</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:37:42 EDT by <i>MapleSim</i>.</p>
 </body></html>

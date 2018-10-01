@@ -38,7 +38,7 @@ Model <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../
 <p>
 
 <p>
-In the <a href="../../../../../Magnetic/FluxTubes/Examples/MovingCoilActuator/Components/index.html#ConstantActuator">ConstantActuator</a> model the force F is strictly proportional to the current i as indicated by the converter constant c. However, there is an additional non-linear force component in such an actuator that is due to the dependency of the coil inductance L on the armature position x. The inductance increases as the armature moves into the stator. The total force is
+In the <a href="index.html#ConstantActuator">ConstantActuator</a> model the force F is strictly proportional to the current i as indicated by the converter constant c. However, there is an additional non-linear force component in such an actuator that is due to the dependency of the coil inductance L on the armature position x. The inductance increases as the armature moves into the stator. The total force is
 </p>
 
 <pre>
@@ -99,7 +99,7 @@ with electrodynamic or <em>Lorentz</em> force F, converter constant c, current i
 </pre>
 
 <p>
-The converter constant c as well as coil resistance R and inductance L are assumed to be known, e.g., from measurements or catalogue data. Hence this model is well-suited for system simulation together with neighbouring subsystems, but not for actuator design, where the motor constant is to be found on base of the magnetic circuit's geometry, material properties and winding data. See <a href="../../../../../Magnetic/FluxTubes/Examples/MovingCoilActuator/Components/index.html#PermeanceActuator">PermeanceActuator</a> for a more accurate model of this actuator that is based on a magnetic network. Due to identical connectors, both models can be used in system simulation, e.g. to simulate a stroke as demonstrated in <a href="../../../../../Magnetic/FluxTubes/Examples/MovingCoilActuator/index.html#ArmatureStroke">ArmatureStroke</a>.
+The converter constant c as well as coil resistance R and inductance L are assumed to be known, e.g., from measurements or catalogue data. Hence this model is well-suited for system simulation together with neighbouring subsystems, but not for actuator design, where the motor constant is to be found on base of the magnetic circuit's geometry, material properties and winding data. See <a href="index.html#PermeanceActuator">PermeanceActuator</a> for a more accurate model of this actuator that is based on a magnetic network. Due to identical connectors, both models can be used in system simulation, e.g. to simulate a stroke as demonstrated in <a href="../index.html#ArmatureStroke">ArmatureStroke</a>.
 </p>
 <h3>Parameters</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -118,4 +118,6 @@ The converter constant c as well as coil resistance R and inductance L are assum
 <tr><td><code><a href="../../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>n</code></td><td>Electrical connector</td></tr>
 <tr><td><code><a href="../../../../../Mechanics/Translational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange</code></td><td>Flange of component</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:37:41 EDT by <i>MapleSim</i>.</p>
 </body></html>

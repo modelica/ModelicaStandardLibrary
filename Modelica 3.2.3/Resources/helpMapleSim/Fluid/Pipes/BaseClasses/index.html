@@ -73,7 +73,7 @@ The default value is nNodes=2.
 </p>
 <h4>Mass and Energy balances</h4>
 <p>
-The mass and energy balances are inherited from <a href="../../../Fluid/Interfaces/index.html#PartialDistributedVolume">Interfaces.PartialDistributedVolume</a>.
+The mass and energy balances are inherited from <a href="../../Interfaces/index.html#PartialDistributedVolume">Interfaces.PartialDistributedVolume</a>.
 One total mass and one energy balance is formed across each segment according to the finite volume approach.
 Substance mass balances are added if the medium contains more than one component.
 </p>
@@ -89,8 +89,8 @@ Moreover it needs to define two vectors of source terms for the distributed ener
 <h4>Momentum balance</h4>
 <p>
 The momentum balance is determined by the <strong><code>FlowModel</code></strong> component, which can be replaced with any model extended from
-<a href="../../../Fluid/Pipes/BaseClasses/FlowModels/index.html#PartialStaggeredFlowModel">BaseClasses.FlowModels.PartialStaggeredFlowModel</a>.
-The default setting is <a href="../../../Fluid/Pipes/BaseClasses/FlowModels/index.html#DetailedPipeFlow">DetailedPipeFlow</a>.
+<a href="FlowModels/index.html#PartialStaggeredFlowModel">BaseClasses.FlowModels.PartialStaggeredFlowModel</a>.
+The default setting is <a href="FlowModels/index.html#DetailedPipeFlow">DetailedPipeFlow</a>.
 </p>
 <p>
 This considers
@@ -168,4 +168,6 @@ This also allows for taking into account friction losses with respect to the act
 <tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Fluid/Interfaces/index.html#FluidPort_a">FluidPort_a</a></code></td><td><code>port_a</code></td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
 <tr><td><code><a href="../../../Fluid/Interfaces/index.html#FluidPort_b">FluidPort_b</a></code></td><td><code>port_b</code></td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:40:06 EDT by <i>MapleSim</i>.</p>
 </body></html>

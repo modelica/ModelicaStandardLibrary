@@ -31,7 +31,7 @@ This library provides functions operating on matrices. Below, the
 functions are ordered according to categories and a typical
 call of the respective function is shown.
 Most functions are solely an interface to the external
-<a href="../../Math/Matrices/LAPACK/index.html">LAPACK</a> library.
+<a href="LAPACK/index.html">LAPACK</a> library.
 </p>
 
 <p>
@@ -40,120 +40,120 @@ Note: A' is a short hand notation of transpose(A):
 
 <p><strong>Basic Information</strong></p>
 <ul>
-<li> <a href="../../Math/Matrices/index.html#toString">toString</a>(A)
+<li> <a href="index.html#toString">toString</a>(A)
      - returns the string representation of matrix A.</li>
 
-<li> <a href="../../Math/Matrices/index.html#isEqual">isEqual</a>(M1, M2)
+<li> <a href="index.html#isEqual">isEqual</a>(M1, M2)
      - returns true if matrices M1 and M2 have the same size and the same elements.</li>
 </ul>
 
 <p><strong>Linear Equations</strong></p>
 <ul>
-<li> <a href="../../Math/Matrices/index.html#solve">solve</a>(A,b)
+<li> <a href="index.html#solve">solve</a>(A,b)
      - returns solution x of the linear equation A*x=b (where b is a vector,
        and A is a square matrix that must be regular).</li>
 
-<li> <a href="../../Math/Matrices/index.html#solve2">solve2</a>(A,B)
+<li> <a href="index.html#solve2">solve2</a>(A,B)
      - returns solution X of the linear equation A*X=B (where B is a matrix,
        and A is a square matrix that must be regular)</li>
 
-<li> <a href="../../Math/Matrices/index.html#leastSquares">leastSquares</a>(A,b)
+<li> <a href="index.html#leastSquares">leastSquares</a>(A,b)
      - returns solution x of the linear equation A*x=b in a least squares sense
        (where b is a vector and A may be non-square and may be rank deficient)</li>
 
-<li> <a href="../../Math/Matrices/index.html#leastSquares2">leastSquares2</a>(A,B)
+<li> <a href="index.html#leastSquares2">leastSquares2</a>(A,B)
      - returns solution X of the linear equation A*X=B in a least squares sense
        (where B is a matrix and A may be non-square and may be rank deficient)</li>
 
-<li> <a href="../../Math/Matrices/index.html#equalityLeastSquares">equalityLeastSquares</a>(A,a,B,b)
+<li> <a href="index.html#equalityLeastSquares">equalityLeastSquares</a>(A,a,B,b)
      - returns solution x of a linear equality constrained least squares problem:
        min|A*x-a|^2 subject to B*x=b</li>
 
-<li> (LU,p,info) = <a href="../../Math/Matrices/index.html#LU">LU</a>(A)
+<li> (LU,p,info) = <a href="index.html#LU">LU</a>(A)
      - returns the LU decomposition with row pivoting of a rectangular matrix A.</li>
 
-<li> <a href="../../Math/Matrices/index.html#LU_solve">LU_solve</a>(LU,p,b)
+<li> <a href="index.html#LU_solve">LU_solve</a>(LU,p,b)
      - returns solution x of the linear equation L*U*x[p]=b with a b
        vector and an LU decomposition from "LU(..)".</li>
 
-<li> <a href="../../Math/Matrices/index.html#LU_solve2">LU_solve2</a>(LU,p,B)
+<li> <a href="index.html#LU_solve2">LU_solve2</a>(LU,p,B)
      - returns solution X of the linear equation L*U*X[p,:]=B with a B
        matrix and an LU decomposition from "LU(..)".</li>
 </ul>
 
 <p><strong>Matrix Factorizations</strong></p>
 <ul>
-<li> (eval,evec) = <a href="../../Math/Matrices/index.html#eigenValues">eigenValues</a>(A)
+<li> (eval,evec) = <a href="index.html#eigenValues">eigenValues</a>(A)
      - returns eigen values "eval" and eigen vectors "evec" for a real,
        nonsymmetric matrix A in a Real representation.</li>
 
-<li> <a href="../../Math/Matrices/index.html#eigenValueMatrix">eigenValueMatrix</a>(eval)
+<li> <a href="index.html#eigenValueMatrix">eigenValueMatrix</a>(eval)
      - returns real valued block diagonal matrix of the eigenvalues "eval" of matrix A.</li>
 
-<li> (sigma,U,VT) = <a href="../../Math/Matrices/index.html#singularValues">singularValues</a>(A)
+<li> (sigma,U,VT) = <a href="index.html#singularValues">singularValues</a>(A)
      - returns singular values "sigma" and left and right singular vectors U and VT
        of a rectangular matrix A.</li>
 
-<li> (Q,R,p) = <a href="../../Math/Matrices/index.html#QR">QR</a>(A)
+<li> (Q,R,p) = <a href="index.html#QR">QR</a>(A)
      - returns the QR decomposition with column pivoting of a rectangular matrix A
        such that Q*R = A[:,p].</li>
 
-<li> (H,U) = <a href="../../Math/Matrices/index.html#hessenberg">hessenberg</a>(A)
+<li> (H,U) = <a href="index.html#hessenberg">hessenberg</a>(A)
      - returns the upper Hessenberg form H and the orthogonal transformation matrix U
        of a square matrix A such that H = U'*A*U.</li>
 
-<li> <a href="../../Math/Matrices/index.html#realSchur">realSchur</a>(A)
+<li> <a href="index.html#realSchur">realSchur</a>(A)
      - returns the real Schur form of a square matrix A.</li>
 
-<li> <a href="../../Math/Matrices/index.html#cholesky">cholesky</a>(A)
+<li> <a href="index.html#cholesky">cholesky</a>(A)
      - returns the cholesky factor H of a real symmetric positive definite matrix A so that A = H'*H.</li>
 
-<li> (D,Aimproved) = <a href="../../Math/Matrices/index.html#balance">balance</a>(A)
+<li> (D,Aimproved) = <a href="index.html#balance">balance</a>(A)
      - returns an improved form Aimproved of a square matrix A that has a smaller condition as A,
        with Aimproved = inv(diagonal(D))*A*diagonal(D).</li>
 </ul>
 
 <p><strong>Matrix Properties</strong></p>
 <ul>
-<li> <a href="../../Math/Matrices/index.html#trace">trace</a>(A)
+<li> <a href="index.html#trace">trace</a>(A)
      - returns the trace of square matrix A, i.e., the sum of the diagonal elements.</li>
 
-<li> <a href="../../Math/Matrices/index.html#det">det</a>(A)
+<li> <a href="index.html#det">det</a>(A)
      - returns the determinant of square matrix A (using LU decomposition; try to avoid det(..))</li>
 
-<li> <a href="../../Math/Matrices/index.html#inv">inv</a>(A)
+<li> <a href="index.html#inv">inv</a>(A)
      - returns the inverse of square matrix A (try to avoid, use instead "solve2(..) with B=identity(..))</li>
 
-<li> <a href="../../Math/Matrices/index.html#rank">rank</a>(A)
+<li> <a href="index.html#rank">rank</a>(A)
      - returns the rank of square matrix A (computed with singular value decomposition)</li>
 
-<li> <a href="../../Math/Matrices/index.html#conditionNumber">conditionNumber</a>(A)
+<li> <a href="index.html#conditionNumber">conditionNumber</a>(A)
      - returns the condition number norm(A)*norm(inv(A)) of a square matrix A in the range 1..&infin;.</li>
 
-<li> <a href="../../Math/Matrices/index.html#rcond">rcond</a>(A)
+<li> <a href="index.html#rcond">rcond</a>(A)
      - returns the reciprocal condition number 1/conditionNumber(A) of a square matrix A in the range 0..1.</li>
 
-<li> <a href="../../Math/Matrices/index.html#norm">norm</a>(A)
+<li> <a href="index.html#norm">norm</a>(A)
      - returns the 1-, 2-, or infinity-norm of matrix A.</li>
 
-<li> <a href="../../Math/Matrices/index.html#frobeniusNorm">frobeniusNorm</a>(A)
+<li> <a href="index.html#frobeniusNorm">frobeniusNorm</a>(A)
      - returns the Frobenius norm of matrix A.</li>
 
-<li> <a href="../../Math/Matrices/index.html#nullSpace">nullSpace</a>(A)
+<li> <a href="index.html#nullSpace">nullSpace</a>(A)
      - returns the null space of matrix A.</li>
 </ul>
 
 <p><strong>Matrix Exponentials</strong></p>
 <ul>
-<li> <a href="../../Math/Matrices/index.html#exp">exp</a>(A)
+<li> <a href="index.html#exp">exp</a>(A)
      - returns the exponential e^A of a matrix A by adaptive Taylor series
        expansion with scaling and balancing</li>
 
-<li> (phi, gamma) = <a href="../../Math/Matrices/index.html#integralExp">integralExp</a>(A,B)
+<li> (phi, gamma) = <a href="index.html#integralExp">integralExp</a>(A,B)
      - returns the exponential phi=e^A and the integral gamma=integral(exp(A*t)*dt)*B as needed
        for a discretized system with zero order hold.</li>
 
-<li> (phi, gamma, gamma1) = <a href="../../Math/Matrices/index.html#integralExpT">integralExpT</a>(A,B)
+<li> (phi, gamma, gamma1) = <a href="index.html#integralExpT">integralExpT</a>(A,B)
      - returns the exponential phi=e^A, the integral gamma=integral(exp(A*t)*dt)*B,
        and the time-weighted integral gamma1 = integral((T-t)*exp(A*t)*dt)*B as needed
        for a discretized system with first order hold.</li>
@@ -161,41 +161,41 @@ Note: A' is a short hand notation of transpose(A):
 
 <p><strong>Matrix Equations</strong></p>
 <ul>
-<li> <a href="../../Math/Matrices/index.html#continuousLyapunov">continuousLyapunov</a>(A,C)
+<li> <a href="index.html#continuousLyapunov">continuousLyapunov</a>(A,C)
      - returns solution X of the continuous-time Lyapunov equation X*A + A'*X = C</li>
 
-<li> <a href="../../Math/Matrices/index.html#continuousSylvester">continuousSylvester</a>(A,B,C)
+<li> <a href="index.html#continuousSylvester">continuousSylvester</a>(A,B,C)
      - returns solution X of the continuous-time Sylvester equation A*X + X*B = C</li>
 
-<li> <a href="../../Math/Matrices/index.html#continuousRiccati">continuousRiccati</a>(A,B,R,Q)
+<li> <a href="index.html#continuousRiccati">continuousRiccati</a>(A,B,R,Q)
      - returns solution X of the continuous-time algebraic Riccati equation
        A'*X + X*A - X*B*inv(R)*B'*X + Q = 0</li>
 
-<li> <a href="../../Math/Matrices/index.html#discreteLyapunov">discreteLyapunov</a>(A,C)
+<li> <a href="index.html#discreteLyapunov">discreteLyapunov</a>(A,C)
      - returns solution X of the discrete-time Lyapunov equation A'*X*A + sgn*X = C</li>
 
-<li> <a href="../../Math/Matrices/index.html#discreteSylvester">discreteSylvester</a>(A,B,C)
+<li> <a href="index.html#discreteSylvester">discreteSylvester</a>(A,B,C)
      - returns solution X of the discrete-time Sylvester equation A*X*B + sgn*X = C</li>
 
-<li> <a href="../../Math/Matrices/index.html#discreteRiccati">discreteRiccati</a>(A,B,R,Q)
+<li> <a href="index.html#discreteRiccati">discreteRiccati</a>(A,B,R,Q)
      - returns solution X of the discrete-time algebraic Riccati equation
        A'*X*A - X - A'*X*B*inv(R + B'*X*B)*B'*X*A + Q = 0</li>
 </ul>
 
 <p><strong>Matrix Manipulation</strong></p>
 <ul>
-<li> <a href="../../Math/Matrices/index.html#sort">sort</a>(M)
+<li> <a href="index.html#sort">sort</a>(M)
      - returns the sorted rows or columns of matrix M in ascending or descending order.</li>
 
-<li> <a href="../../Math/Matrices/index.html#flipLeftRight">flipLeftRight</a>(M)
+<li> <a href="index.html#flipLeftRight">flipLeftRight</a>(M)
      - returns matrix M so that the columns of M are flipped in left/right direction.</li>
 
-<li> <a href="../../Math/Matrices/index.html#flipUpDown">flipUpDown</a>(M)
+<li> <a href="index.html#flipUpDown">flipUpDown</a>(M)
      - returns matrix M so that the rows of M are flipped in up/down direction.</li>
 </ul>
 
 <h4>See also</h4>
-<a href="../../Math/Vectors/index.html">Vectors</a>
+<a href="../Vectors/index.html">Vectors</a>
 
 <p>Extends from <code><a href="../../Icons/Package/index.html">Modelica.&#8203;Icons.&#8203;Package</a></code> (Icon for standard packages).</p>
 <h3>Package Contents</h3>
@@ -279,7 +279,7 @@ prefix "&lt;name&gt; =" is left out.
 
 <h4>See also</h4>
 <p>
-<a href="../../Math/Vectors/index.html#toString">Vectors.toString</a>
+<a href="../Vectors/index.html#toString">Vectors.toString</a>
 </p>
 
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
@@ -325,7 +325,7 @@ can be provided as third argument of the function. Default is "eps = 0".
   result := Matrices.isEqual(M1,M3,0.1); // = <strong>true</strong>
 </pre></blockquote>
 <h4>See also</h4>
-<a href="../../Math/Vectors/index.html#isEqual">Vectors.isEqual</a>,
+<a href="../Vectors/index.html#isEqual">Vectors.isEqual</a>,
 <a href="../../Utilities/Strings/index.html#isEqual">Strings.isEqual</a>
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -360,7 +360,7 @@ solution <strong>x</strong> of the linear system of equations
 <p>
 If a unique solution <strong>x</strong> does not exist (since <strong>A</strong> is singular),
 an assertion is triggered. If this is not desired, use instead
-<a href="../../Math/Matrices/index.html#leastSquares">Matrices.leastSquares</a>
+<a href="index.html#leastSquares">Matrices.leastSquares</a>
 and inquire the singularity of the solution with the return argument rank
 (a unique solution is computed if rank = size(A,1)).
 </p>
@@ -380,9 +380,9 @@ i.e., by Gaussian elimination with partial pivoting.
   x := Matrices.solve(A,b);  // x = {3,2,1}
 </pre></blockquote>
 <h4>See also</h4>
-<a href="../../Math/Matrices/index.html#LU">Matrices.LU</a>,
-<a href="../../Math/Matrices/index.html#LU_solve">Matrices.LU_solve</a>,
-<a href="../../Math/Matrices/index.html#leastSquares">Matrices.leastSquares</a>.
+<a href="index.html#LU">Matrices.LU</a>,
+<a href="index.html#LU_solve">Matrices.LU_solve</a>,
+<a href="index.html#leastSquares">Matrices.leastSquares</a>.
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -415,7 +415,7 @@ solution <strong>X</strong> of the linear system of equations
 <p>
 If a unique solution <strong>X</strong> does not exist (since <strong>A</strong> is singular),
 an assertion is triggered. If this is not desired, use instead
-<a href="../../Math/Matrices/index.html#leastSquares2">Matrices.leastSquares2</a>
+<a href="index.html#leastSquares2">Matrices.leastSquares2</a>
 and inquire the singularity of the solution with the return argument rank
 (a unique solution is computed if rank = size(A,1)).
 
@@ -441,9 +441,9 @@ i.e., by Gaussian elimination with partial pivoting.
 
 <h4>See also</h4>
 <p>
-<a href="../../Math/Matrices/index.html#LU">Matrices.LU</a>,
-<a href="../../Math/Matrices/index.html#LU_solve2">Matrices.LU_solve2</a>,
-<a href="../../Math/Matrices/index.html#leastSquares2">Matrices.leastSquares2</a>.
+<a href="index.html#LU">Matrices.LU</a>,
+<a href="index.html#LU_solve2">Matrices.LU_solve2</a>,
+<a href="index.html#leastSquares2">Matrices.leastSquares2</a>.
 </p>
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -579,9 +579,9 @@ where Q1 consists of the first "rank" columns of Q.
 <h4>See also</h4>
 
 <p>
-<a href="../../Math/Matrices/index.html#leastSquares2">Matrices.leastSquares2</a>
+<a href="index.html#leastSquares2">Matrices.leastSquares2</a>
 (same as leastSquares, but with a right hand side matrix),<br>
-<a href="../../Math/Matrices/index.html#solve">Matrices.solve</a>
+<a href="index.html#solve">Matrices.solve</a>
 (for square, regular matrices A)
 </p>
 
@@ -721,9 +721,9 @@ where Q1 consists of the first "rank" columns of Q.
 <h4>See also</h4>
 
 <p>
-<a href="../../Math/Matrices/index.html#leastSquares">Matrices.leastSquares</a>
+<a href="index.html#leastSquares">Matrices.leastSquares</a>
 (same as leastSquares2, but with a right hand side vector),<br>
-<a href="../../Math/Matrices/index.html#solve2">Matrices.solve2</a>
+<a href="index.html#solve2">Matrices.solve2</a>
 (for square, regular matrices A)
 </p>
 
@@ -816,13 +816,13 @@ diagonal elements (lower trapezoidal if m &gt; n), and
 Matrices <strong>L</strong> and <strong>U</strong> are stored in the returned
 matrix <code>LU</code> (the diagonal of <strong>L</strong> is not stored).
 With the companion function
-<a href="../../Math/Matrices/index.html#LU_solve">Matrices.LU_solve</a>,
+<a href="index.html#LU_solve">Matrices.LU_solve</a>,
 this decomposition can be used to solve
 linear systems (<strong>P</strong>*<strong>L</strong>*<strong>U</strong>)*<strong>x</strong> = <strong>b</strong> with different right
 hand side vectors <strong>b</strong>. If a linear system of equations with
 just one right hand side vector <strong>b</strong> shall be solved, it is
 more convenient to just use the function
-<a href="../../Math/Matrices/index.html#solve">Matrices.solve</a>.
+<a href="index.html#solve">Matrices.solve</a>.
 </p>
 <p>
 The optional third (Integer) output argument has the following meaning:</p>
@@ -862,8 +862,8 @@ matrix A was interchanged with row pivots[i].
 </pre></blockquote>
 <h4>See also</h4>
 <p>
-<a href="../../Math/Matrices/index.html#LU_solve">Matrices.LU_solve</a>,
-<a href="../../Math/Matrices/index.html#solve">Matrices.solve</a>,
+<a href="index.html#LU_solve">Matrices.LU_solve</a>,
+<a href="index.html#solve">Matrices.solve</a>,
 </p>
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -902,7 +902,7 @@ defined by vector <code>pivots</code>),
 diagonal elements (lower trapezoidal if m &gt; n), and
 <strong>U</strong> is an upper triangular matrix (upper trapezoidal if m &lt; n).
 The matrices of this decomposition are computed with function
-<a href="../../Math/Matrices/index.html#LU">Matrices.LU</a> that
+<a href="index.html#LU">Matrices.LU</a> that
 returns arguments <code>LU</code> and <code>pivots</code>
 used as input arguments of <code>Matrices.LU_solve</code>.
 With <code>Matrices.LU</code> and <code>Matrices.LU_solve</code>
@@ -910,7 +910,7 @@ it is possible to efficiently solve linear systems
 with different right hand side vectors. If a linear system of equations with
 just one right hand side vector shall be solved, it is
 more convenient to just use the function
-<a href="../../Math/Matrices/index.html#solve">Matrices.solve</a>.
+<a href="index.html#solve">Matrices.solve</a>.
 </p>
 <p>
 If a unique solution <strong>x</strong> does not exist (since the
@@ -941,8 +941,8 @@ matrix A was interchanged with row pivots[i].
   x2 := Matrices.LU_solve(LU, pivots, b2);  // x2 = {1,0,2}
 </pre></blockquote>
 <h4>See also</h4>
-<a href="../../Math/Matrices/index.html#LU">Matrices.LU</a>,
-<a href="../../Math/Matrices/index.html#solve">Matrices.solve</a>,
+<a href="index.html#LU">Matrices.LU</a>,
+<a href="index.html#solve">Matrices.solve</a>,
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -980,7 +980,7 @@ defined by vector <code>pivots</code>),
 diagonal elements (lower trapezoidal if m &gt; n), and
 <strong>U</strong> is an upper triangular matrix (upper trapezoidal if m &lt; n).
 The matrices of this decomposition are computed with function
-<a href="../../Math/Matrices/index.html#LU">Matrices.LU</a> that
+<a href="index.html#LU">Matrices.LU</a> that
 returns arguments <code>LU</code> and <code>pivots</code>
 used as input arguments of <code>Matrices.LU_solve2</code>.
 With <code>Matrices.LU</code> and <code>Matrices.LU_solve2</code>
@@ -988,7 +988,7 @@ it is possible to efficiently solve linear systems
 with different right hand side <strong>matrices</strong>. If a linear system of equations with
 just one right hand side matrix shall be solved, it is
 more convenient to just use the function
-<a href="../../Math/Matrices/index.html#solve2">Matrices.solve2</a>.
+<a href="index.html#solve2">Matrices.solve2</a>.
 </p>
 <p>
 If a unique solution <strong>X</strong> does not exist (since the
@@ -1027,8 +1027,8 @@ matrix A was interchanged with row pivots[i].
                                                       2, 4] */
 </pre></blockquote>
 <h4>See also</h4>
-<a href="../../Math/Matrices/index.html#LU">Matrices.LU</a>,
-<a href="../../Math/Matrices/index.html#solve2">Matrices.solve2</a>,
+<a href="index.html#LU">Matrices.LU</a>,
+<a href="index.html#solve2">Matrices.solve2</a>,
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -1062,7 +1062,7 @@ has an imaginary part, then eigenvalues[i+1,:] is the conjugate complex
 eigenvalue and eigenvectors[:,i] is the real and eigenvectors[:,i+1] is the
 imaginary part of the eigenvector of the i-th eigenvalue.
 With function
-<a href="../../Math/Matrices/index.html#eigenValueMatrix">Matrices.eigenValueMatrix</a>,
+<a href="index.html#eigenValueMatrix">Matrices.eigenValueMatrix</a>,
 a real block diagonal matrix is constructed from the eigenvalues
 such that
 </p>
@@ -1094,8 +1094,8 @@ i.e., matrix A has the 3 real eigenvalues -0.618, 8, 1.618.
 </p>
 
 <h4>See also</h4>
-<a href="../../Math/Matrices/index.html#eigenValueMatrix">Matrices.eigenValueMatrix</a>,
-<a href="../../Math/Matrices/index.html#singularValues">Matrices.singularValues</a>
+<a href="index.html#eigenValueMatrix">Matrices.eigenValueMatrix</a>,
+<a href="index.html#singularValues">Matrices.singularValues</a>
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -1120,7 +1120,7 @@ Matrices.<strong>eigenValueMatrix</strong>(eigenvalues);
 The function call returns a block diagonal matrix <strong>J</strong>
 from the two-column matrix <code>eigenvalues</code>
 (computed by function
-<a href="../../Math/Matrices/index.html#eigenValues">Matrices.eigenValues</a>).
+<a href="index.html#eigenValues">Matrices.eigenValues</a>).
 Matrix <code>eigenvalues</code> must have the real part of the
 eigenvalues in the first column and the imaginary part in the
 second column. If an eigenvalue i has a vanishing imaginary
@@ -1138,7 +1138,7 @@ are used to construct a 2 by 2 diagonal block of <strong>J</strong>:
 </pre>
 </blockquote>
 <h4>See also</h4>
-<a href="../../Math/Matrices/index.html#eigenValues">Matrices.eigenValues</a>
+<a href="index.html#eigenValues">Matrices.eigenValues</a>
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -1194,7 +1194,7 @@ matrices <code>U</code> and <code>VT</code>.
                  0,    0, 2.31, 0]
 </pre></blockquote>
 <h4>See also</h4>
-<a href="../../Math/Matrices/index.html#eigenValues">Matrices.eigenValues</a>
+<a href="index.html#eigenValues">Matrices.eigenValues</a>
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -1303,7 +1303,7 @@ Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">
 Function <strong>hessenberg</strong> computes the Hessenberg matrix <strong>H</strong> of matrix <strong>A</strong> as well as the orthogonal transformation matrix <strong>U</strong> that holds <strong>H</strong> = <strong>U</strong>'*<strong>A</strong>*<strong>U</strong>.
 The Hessenberg form of a matrix is computed by repeated Householder similarity transformation. The elementary reflectors and the corresponding scalar factors are provided
 by function "Utilities.toUpperHessenberg()". The transformation matrix <strong>U</strong> is then computed by
-<a href="../../Math/Matrices/LAPACK/index.html#dorghr">LAPACK.dorghr</a>.
+<a href="LAPACK/index.html#dorghr">LAPACK.dorghr</a>.
 </p>
 
 <h4>Example</h4>
@@ -1334,7 +1334,7 @@ by function "Utilities.toUpperHessenberg()". The transformation matrix <strong>U
 
 <h4>See also</h4>
 <p>
-<a href="../../Math/Matrices/Utilities/index.html#toUpperHessenberg">Matrices.Utilities.toUpperHessenberg</a>
+<a href="Utilities/index.html#toUpperHessenberg">Matrices.Utilities.toUpperHessenberg</a>
 </p>
 
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
@@ -1400,7 +1400,7 @@ The calculation in lapack.dgees is performed stepwise, i.e., using the internal 
 </pre></blockquote>
 
 <h4>See also</h4>
-<a href="../../Math/Matrices/Utilities/index.html#reorderRSF">Math.Matrices.Utilities.reorderRSF</a>
+<a href="Utilities/index.html#reorderRSF">Math.Matrices.Utilities.reorderRSF</a>
 
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -1438,7 +1438,7 @@ The optional Boolean input "upper" specifies whether the upper or the lower tria
 </pre></blockquote>
 
 <p>
-The computation is performed by <a href="../../Math/Matrices/LAPACK/index.html#dpotrf">LAPACK.dpotrf</a>.
+The computation is performed by <a href="LAPACK/index.html#dpotrf">LAPACK.dpotrf</a>.
 </p>
 
 <h4>Example</h4>
@@ -1697,17 +1697,17 @@ as by computing the determinant. Examples:
 </p>
 
 <ul>
-<li> Use <a href="../../Math/Matrices/index.html#rank">Matrices.rank</a>
+<li> Use <a href="index.html#rank">Matrices.rank</a>
      to compute whether det(A) = 0 (i.e., Matrices.rank(A) &lt; size(A,1)).</li>
 
-<li> Use <a href="../../Math/Matrices/index.html#solve">Matrices.solve</a>
+<li> Use <a href="index.html#solve">Matrices.solve</a>
      to solve the linear equation A*x = b, instead of using determinants to
      compute the solution.</li>
 </ul>
 
 <h4>See also</h4>
-<a href="../../Math/Matrices/index.html#rank">Matrices.rank</a>,
-<a href="../../Math/Matrices/index.html#solve">Matrices.solve</a>
+<a href="index.html#rank">Matrices.rank</a>,
+<a href="index.html#solve">Matrices.solve</a>
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -1737,14 +1737,14 @@ as by computing directly the inverse. Example:
 </p>
 
 <blockquote>
-Use x = <a href="../../Math/Matrices/index.html#solve">Matrices.solve</a>(A,b)
+Use x = <a href="index.html#solve">Matrices.solve</a>(A,b)
 to solve the linear equation A*x = b, instead of computing the solution by
 x = inv(A)*b, because this is much more efficient and much more reliable.
 </blockquote>
 
 <h4>See also</h4>
-<a href="../../Math/Matrices/index.html#solve">Matrices.solve</a>
-<a href="../../Math/Matrices/index.html#solve2">Matrices.solve2</a>
+<a href="index.html#solve">Matrices.solve</a>
+<a href="index.html#solve2">Matrices.solve2</a>
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -1780,7 +1780,7 @@ To be more precise:
 </ul>
 
 <h4>See also</h4>
-<a href="../../Math/Matrices/index.html#rcond">Matrices.rcond</a>.
+<a href="index.html#rcond">Matrices.rcond</a>.
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -1821,7 +1821,7 @@ For more details, see <a href="http://en.wikipedia.org/wiki/Condition_number">ht
 
 <h4>See also</h4>
 <p>
-<a href="../../Math/Matrices/index.html#rcond">Matrices.rcond</a>
+<a href="index.html#rcond">Matrices.rcond</a>
 </p>
 
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
@@ -1847,7 +1847,7 @@ r = Matrices.<strong>rcond</strong>(A);
 <h4>Description</h4>
 <p>
 This function estimates the reciprocal of the condition number (norm(A) * norm(inv(A))) of a general real matrix <strong>A</strong>, in either the 1-norm or
-the infinity-norm, using the LAPACK function <a href="../../Math/Matrices/LAPACK/index.html#dgecon">DGECON</a>.
+the infinity-norm, using the LAPACK function <a href="LAPACK/index.html#dgecon">DGECON</a>.
 If rcond(A) is near 1.0, <strong>A</strong> is well conditioned and <strong>A</strong> is ill conditioned if rcond(A) is near zero.
 </p>
 
@@ -1864,7 +1864,7 @@ If rcond(A) is near 1.0, <strong>A</strong> is well conditioned and <strong>A</s
 
 <h4>See also</h4>
 <p>
-<a href="../../Math/Matrices/index.html#conditionNumber">Matrices.conditionNumber</a>
+<a href="index.html#conditionNumber">Matrices.conditionNumber</a>
 </p>
 
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
@@ -1921,7 +1921,7 @@ Vectors.<strong>norm</strong>(A*v,p) &le; Matrices.<strong>norm</strong>(A,p)*Ve
 
 <h4>See also</h4>
 <p>
-<a href="../../Math/Matrices/index.html#frobeniusNorm">Matrices.frobeniusNorm</a>
+<a href="index.html#frobeniusNorm">Matrices.frobeniusNorm</a>
 </p>
 
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
@@ -1964,7 +1964,7 @@ This function computes the Frobenius norm of a general real matrix <strong>A</st
 
 <h4>See also</h4>
 <p>
-<a href="../../Math/Matrices/index.html#norm">Matrices.norm</a>
+<a href="index.html#norm">Matrices.norm</a>
 </p>
 
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
@@ -2054,7 +2054,7 @@ with
 
 <h4>See also</h4>
 <p>
-<a href="../../Math/Matrices/index.html#singularValues">Matrices.singularValues</a>
+<a href="index.html#singularValues">Matrices.singularValues</a>
 </p>
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -2363,8 +2363,8 @@ The Boolean input "ATisSchur" indicates to omit the transformation to Schur in t
 
 <h4>See also</h4>
 <p>
-<a href="../../Math/Matrices/index.html#continuousSylvester">Matrices.continuousSylvester</a>,
-<a href="../../Math/Matrices/index.html#discreteLyapunov">Matrices.discreteLyapunov</a>
+<a href="index.html#continuousSylvester">Matrices.continuousSylvester</a>,
+<a href="index.html#discreteLyapunov">Matrices.discreteLyapunov</a>
 </p>
 
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
@@ -2418,7 +2418,7 @@ The Boolean inputs "AisSchur" and "BisSchur" indicate to omit one or both of the
 </p>
 
 <p>
-The function applies LAPACK-routine DTRSYL. See <a href="../../Math/Matrices/LAPACK/index.html#dtrsyl">LAPACK.dtrsyl</a>
+The function applies LAPACK-routine DTRSYL. See <a href="LAPACK/index.html#dtrsyl">LAPACK.dtrsyl</a>
 for more information.
 </p>
 
@@ -2459,8 +2459,8 @@ for more information.
 </pre></blockquote>
 <h4>See also</h4>
 <p>
-<a href="../../Math/Matrices/index.html#discreteSylvester">Matrices.discreteSylvester</a>,
-<a href="../../Math/Matrices/index.html#continuousLyapunov">Matrices.continuousLyapunov</a>
+<a href="index.html#discreteSylvester">Matrices.discreteSylvester</a>,
+<a href="index.html#continuousLyapunov">Matrices.continuousLyapunov</a>
 </p>
 
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
@@ -2549,7 +2549,7 @@ with dimensions according to <strong>S</strong>, the solution <strong>X</strong>
 
 <p>
 With optional input <code>refinement=true</code> a subsequent iterative refinement based on Newton's method with exact line search is applied.
-See <a href="../../Math/Matrices/Utilities/index.html#continuousRiccatiIterative">continuousRiccatiIterative</a>
+See <a href="Utilities/index.html#continuousRiccatiIterative">continuousRiccatiIterative</a>
 for more information.
 </p>
 
@@ -2583,8 +2583,8 @@ X = [2.0, 1.0;
 
 <h4>See also</h4>
 <p>
-<a href="../../Math/Matrices/Utilities/index.html#continuousRiccatiIterative">Matrices.Utilities.continuousRiccatiIterative</a>,
-<a href="../../Math/Matrices/index.html#discreteRiccati">Matrices.discreteRiccati</a>
+<a href="Utilities/index.html#continuousRiccatiIterative">Matrices.Utilities.continuousRiccatiIterative</a>,
+<a href="index.html#discreteRiccati">Matrices.discreteRiccati</a>
 </p>
 
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
@@ -2681,8 +2681,8 @@ The Boolean input "ATisSchur" indicates to omit the transformation to Schur in t
 
 <h4>See also</h4>
 <p>
-<a href="../../Math/Matrices/index.html#discreteSylvester">Matrices.discreteSylvester</a>,
-<a href="../../Math/Matrices/index.html#continuousLyapunov">Matrices.continuousLyapunov</a>
+<a href="index.html#discreteSylvester">Matrices.discreteSylvester</a>,
+<a href="index.html#continuousLyapunov">Matrices.continuousLyapunov</a>
 </p>
 
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
@@ -2776,8 +2776,8 @@ The Boolean inputs "AisHess" and "BTisSchur" indicate to omit one or both of the
 
 <h4>See also</h4>
 <p>
-<a href="../../Math/Matrices/index.html#continuousSylvester">Matrices.continuousSylvester</a>,
-<a href="../../Math/Matrices/index.html#discreteLyapunov">Matrices.discreteLyapunov</a>
+<a href="index.html#continuousSylvester">Matrices.continuousSylvester</a>,
+<a href="index.html#discreteLyapunov">Matrices.discreteLyapunov</a>
 </p>
 
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
@@ -2917,7 +2917,7 @@ X = [14.5623, 9.7082;
 
 <h4>See also</h4>
 <p>
-<a href="../../Math/Matrices/index.html#continuousRiccati">Matrices.continuousRiccati</a>
+<a href="index.html#continuousRiccati">Matrices.continuousRiccati</a>
 </p>
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -3013,7 +3013,7 @@ Function <strong>flipLeftRight</strong> computes from matrix <strong>A</strong> 
 
 <h4>See also</h4>
 <p>
-<a href="../../Math/Matrices/index.html#flipUpDown">Matrices.flipUpDown</a>
+<a href="index.html#flipUpDown">Matrices.flipUpDown</a>
 </p>
 
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
@@ -3057,7 +3057,7 @@ Function <strong>flipUpDown</strong> computes from matrix <strong>A</strong> a m
 
 <h4>See also</h4>
 <p>
-<a href="../../Math/Matrices/index.html#flipLeftRight">Matrices.flipLeftRight</a>
+<a href="index.html#flipLeftRight">Matrices.flipLeftRight</a>
 </p>
 
 <p>Extends from <code><a href="../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
@@ -3069,4 +3069,6 @@ Function <strong>flipUpDown</strong> computes from matrix <strong>A</strong> a m
 <table border="1" cellspacing="0" cellpadding="3">
 <tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>Aflip[size(A, 1),size(A, 2)]</code></td><td>Flipped matrix</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:41:48 EDT by <i>MapleSim</i>.</p>
 </body></html>

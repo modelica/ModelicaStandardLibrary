@@ -32,16 +32,16 @@ mechanical systems with kinematic loops can be modeled.
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><strong><em>Model</em></strong></th><th><strong><em>Description</em></strong></th></tr>
-  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Loops/index.html#Engine1a">Engine1a</a><br>
-             <a href="../../../../Mechanics/MultiBody/Examples/Loops/index.html#Engine1b">Engine1b</a><br>
-             <a href="../../../../Mechanics/MultiBody/Examples/Loops/index.html#Engine1b_analytic">Engine1b_analytic</a></td>
+  <tr><td><a href="index.html#Engine1a">Engine1a</a><br>
+             <a href="index.html#Engine1b">Engine1b</a><br>
+             <a href="index.html#Engine1b_analytic">Engine1b_analytic</a></td>
       <td> Model of one cylinder engine (Engine1a: simple, without combustion; Engine1b: with combustion;
            Engine1b_analytic: same as Engine1b but analytic loop handling)<br>
       <img src="../../../../../Images/Mechanics/MultiBody/Examples/Loops/Engine.png">
       </td>
   </tr>
-  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Loops/index.html#EngineV6">EngineV6</a><br>
-<a href="../../../../Mechanics/MultiBody/Examples/Loops/index.html#EngineV6_analytic">EngineV6_analytic</a></td>
+  <tr><td><a href="index.html#EngineV6">EngineV6</a><br>
+<a href="index.html#EngineV6_analytic">EngineV6_analytic</a></td>
       <td> V6 engine with 6 cylinders, 6 planar loops and 1 degree-of-freedom.
            Second version with analytic handling of kinematic loops and CAD data
            animation.<br>
@@ -49,30 +49,30 @@ mechanical systems with kinematic loops can be modeled.
       <img src="../../../../../Images/Mechanics/MultiBody/Examples/Loops/EngineV6_CAD_smaller.png">
       </td>
   </tr>
-  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Loops/index.html#Fourbar1">Fourbar1</a></td>
+  <tr><td><a href="index.html#Fourbar1">Fourbar1</a></td>
       <td> One kinematic loop with four bars (with only revolute joints;
            5 non-linear equations)<br>
       <img src="../../../../../Images/Mechanics/MultiBody/Examples/Loops/Fourbar1_small.png">
       </td>
   </tr>
-  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Loops/index.html#Fourbar2">Fourbar2</a></td>
+  <tr><td><a href="index.html#Fourbar2">Fourbar2</a></td>
       <td> One kinematic loop with four bars (with UniversalSpherical
            joint; 1 non-linear equation)<br>
       <img src="../../../../../Images/Mechanics/MultiBody/Examples/Loops/Fourbar2_small.png">
       </td>
   </tr>
-  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Loops/index.html#Fourbar_analytic">Fourbar_analytic</a></td>
+  <tr><td><a href="index.html#Fourbar_analytic">Fourbar_analytic</a></td>
       <td> One kinematic loop with four bars (with JointSSP joint;
            analytic solution of non-linear algebraic loop)<br>
       <img src="../../../../../Images/Mechanics/MultiBody/Examples/Loops/Fourbar_analytic_small.png">
       </td>
   </tr>
-  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Loops/index.html#PlanarFourbar">PlanarFourbar</a></td>
+  <tr><td><a href="index.html#PlanarFourbar">PlanarFourbar</a></td>
       <td> Planar four bars  with one kinematic loop (with RevolutePlanarLoopConstraint joint)<br>
       <img src="../../../../../Images/Mechanics/MultiBody/Examples/Loops/PlanarFourbar_small.png">
       </td>
   </tr>
-  <tr><td><a href="../../../../Mechanics/MultiBody/Examples/Loops/index.html#PlanarLoops_analytic">PlanarLoops_analytic</a></td>
+  <tr><td><a href="index.html#PlanarLoops_analytic">PlanarLoops_analytic</a></td>
       <td> Mechanism with three planar kinematic loops and one
            degree-of-freedom with analytic loop handling
            (with JointRRR joints)<br>
@@ -133,14 +133,14 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 <p>
 This is a model of the mechanical part of one cylinder of an engine.
 It is similar to
-<a href="../../../../Mechanics/MultiBody/Examples/Loops/index.html#Engine1a#diagram">Loops.Engine1a</a>.
+<a href="index.html#Engine1a">Loops.Engine1a</a>.
 The difference is that a simple
 model for the gas force in the cylinder is added and that the
 model is restructured in such a way, that the central part of
 the planar kinematic loop can be easily replaced by the
 assembly joint "Modelica.Mechanics.MultiBody.Joints.Assemblies.<strong>JointRRP</strong>".
 This exchange of the kinematic loop is shown in
-<a href="../../../../Mechanics/MultiBody/Examples/Loops/index.html#Engine1b_analytic#diagram">Loops.Engine1b_analytic</a>.
+<a href="index.html#Engine1b_analytic">Loops.Engine1b_analytic</a>.
 The advantage of using JointRRP is, that the
 non-linear algebraic equation of this loop is solved analytically, and
 not numerically as in this model (Engine1b).
@@ -158,14 +158,14 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 
 <p>
 This is the same model as
-<a href="../../../../Mechanics/MultiBody/Examples/Loops/index.html#Engine1b#diagram">Loops.Engine1b</a>.
+<a href="index.html#Engine1b">Loops.Engine1b</a>.
 The only difference is that the central part of
 the planar kinematic loop has been replaced by the
 assembly joint "Modelica.Mechanics.MultiBody.Joints.Assemblies.<strong>JointRRP</strong>".
 The advantage of using JointRRP is, that the
 non-linear algebraic equation of this loop is solved analytically, and
 not numerically as in
-<a href="../../../../Mechanics/MultiBody/Examples/Loops/index.html#Engine1b#diagram">Loops.Engine1b</a>.
+<a href="index.html#Engine1b">Loops.Engine1b</a>.
 </p>
 <p>
 An animation of this example is shown in the figure below.
@@ -182,7 +182,7 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 This is a V6 engine with 6 cylinders. It is hierarchically built
 up by using instances of one cylinder. For more details on the
 modeling of one cylinder, see example
-<a href="../../../../Mechanics/MultiBody/Examples/Loops/index.html#Engine1b">Engine1b</a>.
+<a href="index.html#Engine1b">Engine1b</a>.
 An animation of the engine is shown in the figure below.
 </p>
 
@@ -320,7 +320,7 @@ Since JointSSP solves the non-linear constraint equation internally
 analytically, no non-linear equation appears any more and a Modelica
 translator can transform the system into state space
 form without solving a system of equations. For more details, see
-<a href="../../../../Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/index.html#AnalyticLoopHandling">
+<a href="../../UsersGuide/Tutorial/LoopStructures/index.html#AnalyticLoopHandling">
 MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
@@ -331,7 +331,7 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 
 <p>
 A planar four link mechanism demonstrating possible usage of the
-<a href="../../../../Mechanics/MultiBody/Joints/index.html#RevolutePlanarLoopConstraint">RevolutePlanarLoopConstraint</a>.
+<a href="../../Joints/index.html#RevolutePlanarLoopConstraint">RevolutePlanarLoopConstraint</a>.
 In this planar example, all the revolute joints rotate about axes perpendicular
 to the x-y plane, i.e. they all are parallel to each other.
 To enable a unique numerical solution in such a case,
@@ -343,7 +343,7 @@ instead of the common revolute joint.
 Another option is to use the assembly joint
 <strong>Joints.Assemblies.JointRRR</strong> instead of a part
 of the mechanism, as demonstrated in the example
-<a href="../../../../Mechanics/MultiBody/Examples/Loops/index.html#PlanarLoops_analytic">PlanarLoops_analytic</a>.
+<a href="index.html#PlanarLoops_analytic">PlanarLoops_analytic</a>.
 </p>
 
 <blockquote>
@@ -361,7 +361,7 @@ used to solve the non-linear equations of coupled planar loops analytically.
 In the mechanism below no non-linear equation occurs any more from the tool
 view, since these equations are solved analytically in the JointRRR joints.
 For more details, see
-<a href="../../../../Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/index.html#AnalyticLoopHandling">
+<a href="../../UsersGuide/Tutorial/LoopStructures/index.html#AnalyticLoopHandling">
 MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
 </p>
 
@@ -383,4 +383,6 @@ animation view.
 <tr><td><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>r3b[3]</code></td><td><code>{0, 0.55, 0}</code></td><td>Position vector from 'lower right' revolute to 'upper right' revolute joint in the third loop</td></tr>
 <tr><td><code><b>final</b>&nbsp;</code><code><a href="../../../../SIunits/index.html#Length">Length</a></code></td><td><code>r3a[3]</code></td><td><code>r3b + rh - r2b</code></td><td>Position vector from 'upper left' revolute to 'upper right' revolute joint in the third loop</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:39:08 EDT by <i>MapleSim</i>.</p>
 </body></html>

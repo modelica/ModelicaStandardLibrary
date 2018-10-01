@@ -278,13 +278,13 @@ residue = TransformationMatrices.<strong>orientationConstraint</strong>(T);
 <p>
 This function returns the Real residue vector with&nbsp;6 elements that describes the constraints
 between the&nbsp;9 elements of the
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;T.
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;T.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#orientationConstraint">Frames.orientationConstraint</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#orientationConstraint">Quaternions.orientationConstraint</a>.
+<a href="../index.html#orientationConstraint">Frames.orientationConstraint</a>,
+<a href="../Quaternions/index.html#orientationConstraint">Quaternions.orientationConstraint</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -309,7 +309,7 @@ w = TransformationMatrices.<strong>angularVelocity1</strong>(T, der_T);
 <p>
 This function returns the angular velocity&nbsp;w of frame&nbsp;2 with
 respect to frame&nbsp;1, <strong>resolved in frame&nbsp;1</strong>, from the
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;T
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;T
 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2
 and from its first time derivative der_T:
 </p>
@@ -319,8 +319,8 @@ w = vec( der(transpose(T)) * T ).
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#angularVelocity1">Frames.angularVelocity1</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#angularVelocity1">Quaternions.angularVelocity1</a>.
+<a href="../index.html#angularVelocity1">Frames.angularVelocity1</a>,
+<a href="../Quaternions/index.html#angularVelocity1">Quaternions.angularVelocity1</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -346,7 +346,7 @@ w = TransformationMatrices.<strong>angularVelocity2</strong>(T, der_T);
 <p>
 This function returns the angular velocity&nbsp;w of frame&nbsp;2 with
 respect to frame&nbsp;1, <strong>resolved in frame&nbsp;2</strong>, from the
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;T
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;T
 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2
 and from its first time derivative der_T:
 </p>
@@ -356,8 +356,8 @@ w = vec( T * der(transpose(T)) ).
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#angularVelocity2">Frames.angularVelocity2</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#angularVelocity2">Quaternions.angularVelocity2</a>.
+<a href="../index.html#angularVelocity2">Frames.angularVelocity2</a>,
+<a href="../Quaternions/index.html#angularVelocity2">Quaternions.angularVelocity2</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -383,15 +383,15 @@ v1 = TransformationMatrices.<strong>resolve1</strong>(T, v2);
 <p>
 This function returns vector&nbsp;v resolved in frame&nbsp;1 (=v1) from vector&nbsp;v
 resolved in frame&nbsp;2 (=v2) using the
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;T
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;T
 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#resolve2">resolve2</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#resolve1">Frames.resolve1</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#resolve1">Quaternions.resolve1</a>.
+<a href="index.html#resolve2">resolve2</a>,
+<a href="../index.html#resolve1">Frames.resolve1</a>,
+<a href="../Quaternions/index.html#resolve1">Quaternions.resolve1</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -417,15 +417,15 @@ v2 = TransformationMatrices.<strong>resolve2</strong>(T, v1);
 <p>
 This function returns vector&nbsp;v resolved in frame&nbsp;2 (=v2) from vector&nbsp;v
 resolved in frame&nbsp;1 (=v1) using the
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;T
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;T
 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#resolve1">resolve1</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#resolve2">Frames.resolve2</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#resolve2">Quaternions.resolve2</a>.
+<a href="index.html#resolve1">resolve1</a>,
+<a href="../index.html#resolve2">Frames.resolve2</a>,
+<a href="../Quaternions/index.html#resolve2">Quaternions.resolve2</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -451,13 +451,13 @@ v1 = TransformationMatrices.<strong>multipleResolve1</strong>(T, v2);
 <p>
 This function returns vectors&nbsp;v resolved in frame&nbsp;1 (=v1) from vectors&nbsp;v
 resolved in frame&nbsp;2 (=v2) using the
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;T
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;T
 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#multipleResolve1">Quaternions.multipleResolve1</a>.
+<a href="../Quaternions/index.html#multipleResolve1">Quaternions.multipleResolve1</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -483,13 +483,13 @@ v2 = TransformationMatrices.<strong>multipleResolve2</strong>(T, v1);
 <p>
 This function returns vectors&nbsp;v resolved in frame&nbsp;2 (=v2) from vectors&nbsp;v
 resolved in frame&nbsp;1 (=v1) using the
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;T
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;T
 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#multipleResolve2">Quaternions.multipleResolve2</a>.
+<a href="../Quaternions/index.html#multipleResolve2">Quaternions.multipleResolve2</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -515,13 +515,13 @@ D1 = TransformationMatrices.<strong>resolveDyade1</strong>(T, D2);
 <p>
 This function returns the second order tensor&nbsp;D
 resolved in frame&nbsp;1 (= D1) from its representation in frame&nbsp;2 (= D2) using the
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;T
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;T
 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#resolveDyade1">Frames.resolveDyade1</a>.
+<a href="../index.html#resolveDyade1">Frames.resolveDyade1</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -547,13 +547,13 @@ D2 = TransformationMatrices.<strong>resolveDyade2</strong>(T, D1);
 <p>
 This function returns the second order tensor&nbsp;D
 resolved in frame&nbsp;2 (= D2) from its representation in frame&nbsp;1 (= D1) using the
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;T
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;T
 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#resolveDyade2">Frames.resolveDyade2</a>.
+<a href="../index.html#resolveDyade2">Frames.resolveDyade2</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -578,15 +578,15 @@ T = TransformationMatrices.<strong>nullRotation</strong>();
 <h4>Description</h4>
 <p>
 This function returns a
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;T
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;T
 describing the orientation object to rotate frame&nbsp;1 into frame&nbsp;2, if frame&nbsp;1 and frame&nbsp;2 are identical.
 (= transformation matrix is identity matrix and angular velocity is zero).
 </p>
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#nullRotation">Frames.nullRotation</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#nullRotation">Quaternions.nullRotation</a>.
+<a href="../index.html#nullRotation">Frames.nullRotation</a>,
+<a href="../Quaternions/index.html#nullRotation">Quaternions.nullRotation</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Outputs</h3>
@@ -606,17 +606,17 @@ T_inv = TransformationMatrices.<strong>inverseRotation</strong>(T);
 <h4>Description</h4>
 <p>
 This function returns
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a> T_inv
+<a href="index.html#Orientation">transformation matrix</a> T_inv
 that describes the orientation to rotate from frame&nbsp;2 to frame&nbsp;1
 from the
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;T
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;T
 that describes the orientation to rotate from frame&nbsp;1 into frame&nbsp;2.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#inverseRotation">Frames.inverseRotation</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#inverseRotation">Quaternions.inverseRotation</a>.
+<a href="../index.html#inverseRotation">Frames.inverseRotation</a>,
+<a href="../Quaternions/index.html#inverseRotation">Quaternions.inverseRotation</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -640,18 +640,18 @@ T_rel = TransformationMatrices.<strong>relativeRotation</strong>(T1, T2);
 <h4>Description</h4>
 <p>
 This function returns
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a> T_rel
+<a href="index.html#Orientation">transformation matrix</a> T_rel
 that describes the orientation to rotate frame&nbsp;1 to frame&nbsp;2 from the
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;T1
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;T1
 that describes the orientation to rotate from frame&nbsp;0 to frame&nbsp;1 and from the
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;T2
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;T2
 that describes the orientation to rotate from frame&nbsp;0 to frame&nbsp;2.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#relativeRotation">Frames.relativeRotation</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#relativeRotation">Quaternions.relativeRotation</a>.
+<a href="../index.html#relativeRotation">Frames.relativeRotation</a>,
+<a href="../Quaternions/index.html#relativeRotation">Quaternions.relativeRotation</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -676,18 +676,18 @@ T2 = TransformationMatrices.<strong>absoluteRotation</strong>(T1, T_rel);
 <h4>Description</h4>
 <p>
 This function returns
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;T2
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;T2
 that describes the orientation frame&nbsp;0 to frame&nbsp;2 from the
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;T1
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;T1
 that describes the orientation to rotate from frame&nbsp;0 to frame&nbsp;1 and from the relative
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a> T2_rel
+<a href="index.html#Orientation">transformation matrix</a> T2_rel
 that describes the orientation to rotate from frame&nbsp;1 to frame&nbsp;2.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#absoluteRotation">Frames.absoluteRotation</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#absoluteRotation">Quaternions.absoluteRotation</a>.
+<a href="../index.html#absoluteRotation">Frames.absoluteRotation</a>,
+<a href="../Quaternions/index.html#absoluteRotation">Quaternions.absoluteRotation</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -712,7 +712,7 @@ T = TransformationMatrices.<strong>planarRotation</strong>(e, angle);
 <h4>Description</h4>
 <p>
 This function returns
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;T
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;T
 that describes the orientation to rotate in the plane along unit
 axis <strong>e</strong> from frame 1 into frame 2 with angle <strong>angle</strong>.
 Note, "e" must be a unit vector. However, this is not checked in this function and the function will
@@ -721,9 +721,9 @@ return a wrong result, if length(e) is not one.
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#planarRotationAngle">planarRotationAngle</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#planarRotation">Frames.planarRotation</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#planarRotation">Quaternions.planarRotation</a>.
+<a href="index.html#planarRotationAngle">planarRotationAngle</a>,
+<a href="../index.html#planarRotation">Frames.planarRotation</a>,
+<a href="../Quaternions/index.html#planarRotation">Quaternions.planarRotation</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -787,8 +787,8 @@ and/or a division by zero will occur.
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#planarRotation">planarRotation</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#planarRotationAngle">Frames.planarRotationAngle</a>.
+<a href="index.html#planarRotation">planarRotation</a>,
+<a href="../index.html#planarRotationAngle">Frames.planarRotationAngle</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -814,7 +814,7 @@ T = TransformationMatrices.<strong>axisRotation</strong>(axis, angle);
 <h4>Description</h4>
 <p>
 This function returns
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;T
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;T
 that describes the orientation to rotate along unit axis <strong>axis</strong>
 from frame 1 into frame 2 with angle <strong>angle</strong>.
 For example, TransformationMatrices.axisRotation(2, phi) returns the same orientation object as with the call
@@ -823,8 +823,8 @@ TransformationMatrices.planarRotation({0,1,0}, phi)
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#planarRotation">planarRotation</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#axisRotation">Frames.axisRotation</a>.
+<a href="index.html#planarRotation">planarRotation</a>,
+<a href="../index.html#axisRotation">Frames.axisRotation</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -849,14 +849,14 @@ T = TransformationMatrices.<strong>axesRotations</strong>(sequence, angles);
 <h4>Description</h4>
 <p>
 This function returns
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;T
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;T
 that describes the orientation defined by three elementary rotations in
 a given <strong>sequence</strong>, each rotated by <strong>angles</strong>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#axesRotations">Frames.axesRotations</a>.
+<a href="../index.html#axesRotations">Frames.axesRotations</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -892,7 +892,7 @@ A call to this function of the form
 <p>
 computes the rotation angles "<strong>angles</strong>[1:3]" to rotate frame 1
 into frame 2 along axes <strong>sequence</strong>[1:3], given the
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;T
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;T
 from frame 1 to frame 2. Therefore, the result of
 this function fulfills the following equation:
 </p>
@@ -927,7 +927,7 @@ sequence = <strong>{1,2,3}</strong>  // Cardan angle sequence
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#axesRotationsAngles">Frames.axesRotationsAngles</a>.
+<a href="../index.html#axesRotationsAngles">Frames.axesRotationsAngles</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -958,8 +958,8 @@ Optionally, residues are returned as well if <code>withResidues=true</code>.
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#smallRotation">Frames.smallRotation</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#smallRotation">Quaternions.smallRotation</a>.
+<a href="../index.html#smallRotation">Frames.smallRotation</a>,
+<a href="../Quaternions/index.html#smallRotation">Quaternions.smallRotation</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -1003,7 +1003,7 @@ arbitrarily such that e_x and e_y are orthogonal to each other.
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#from_nxy">Frames.from_nxy</a>.
+<a href="../index.html#from_nxy">Frames.from_nxy</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -1047,7 +1047,7 @@ arbitrarily such that n_x and e_z are orthogonal to each other.
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#from_nxz">Frames.from_nxz</a>.
+<a href="../index.html#from_nxz">Frames.from_nxz</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -1072,15 +1072,15 @@ R = TransformationMatrices.<strong>from_T</strong>(T);
 <h4>Description</h4>
 <p>
 This function returns a
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;R
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;R
 which is equal to a real input matrix&nbsp;T.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#from_T_inv">from_T_inv</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#to_T">to_T</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#from_T">Frames.from_T</a>.
+<a href="index.html#from_T_inv">from_T_inv</a>,
+<a href="index.html#to_T">to_T</a>,
+<a href="../index.html#from_T">Frames.from_T</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -1104,15 +1104,15 @@ R = TransformationMatrices.<strong>from_T_inv</strong>(T_inv);
 <h4>Description</h4>
 <p>
 This function returns a
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;R
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;R
 which is inverse to real input matrix T_inv.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#to_T_inv">to_T_inv</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#from_T">from_T</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#from_T_inv">Frames.from_T_inv</a>.
+<a href="index.html#to_T_inv">to_T_inv</a>,
+<a href="index.html#from_T">from_T</a>,
+<a href="../index.html#from_T_inv">Frames.from_T_inv</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -1136,14 +1136,14 @@ T = TransformationMatrices.<strong>from_Q</strong>(Q);
 <h4>Description</h4>
 <p>
 This function returns a
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;T
-computed from a <a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">quaternion object</a>&nbsp;Q
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;T
+computed from a <a href="../Quaternions/index.html#Orientation">quaternion object</a>&nbsp;Q
 </p>
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#to_Q">to_Q</a>.
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#from_Q">Frames.from_Q</a>.
+<a href="index.html#to_Q">to_Q</a>.
+<a href="../index.html#from_Q">Frames.from_Q</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -1167,15 +1167,15 @@ T = TransformationMatrices.<strong>to_T</strong>(R);
 <h4>Description</h4>
 <p>
 This function returns a real matrix&nbsp;T which is equal to a
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#Orientation">transformation matrix</a>&nbsp;R.
+<a href="../index.html#Orientation">transformation matrix</a>&nbsp;R.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#from_T">from_T</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#to_T_inv">to_T_inv</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#to_T">Frames.to_T</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#to_T">Quaternions.to_T</a>.
+<a href="index.html#from_T">from_T</a>,
+<a href="index.html#to_T_inv">to_T_inv</a>,
+<a href="../index.html#to_T">Frames.to_T</a>,
+<a href="../Quaternions/index.html#to_T">Quaternions.to_T</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -1200,15 +1200,15 @@ T_inv = TransformationMatrices.<strong>to_T_inv</strong>(R);
 <p>
 This function returns a real matrix&nbsp;T_inv
 which is inverse to a
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;R.
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;R.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#from_T_inv">from_T_inv</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#to_T">to_T</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#to_T_inv">Frames.to_T_inv</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#to_T_inv">Quaternions.to_T_inv</a>.
+<a href="index.html#from_T_inv">from_T_inv</a>,
+<a href="index.html#to_T">to_T</a>,
+<a href="../index.html#to_T_inv">Frames.to_T_inv</a>,
+<a href="../Quaternions/index.html#to_T_inv">Quaternions.to_T_inv</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -1231,15 +1231,15 @@ Q = TransformationMatrices.<strong>to_Q</strong>(T, Q_guess);
 
 <h4>Description</h4>
 <p>
-This function returns a <a href="../../../../Mechanics/MultiBody/Frames/Quaternions/index.html#Orientation">quaternion object</a>&nbsp;Q
-computed from a <a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;T
+This function returns a <a href="../Quaternions/index.html#Orientation">quaternion object</a>&nbsp;Q
+computed from a <a href="index.html#Orientation">transformation matrix</a>&nbsp;T
 and depending on the initial guess Q_guess.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#from_Q">from_Q</a>
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#to_Q">Frames.to_Q</a>.
+<a href="index.html#from_Q">from_Q</a>
+<a href="../index.html#to_Q">Frames.to_Q</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -1264,13 +1264,13 @@ vec = TransformationMatrices.<strong>to_vector</strong>(T);
 <h4>Description</h4>
 <p>
 This function returns a vector vec which contains elements of a
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>&nbsp;T.
+<a href="index.html#Orientation">transformation matrix</a>&nbsp;T.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#to_T">to_T</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#to_vector">Frames.to_vector</a>.
+<a href="index.html#to_T">to_T</a>,
+<a href="../index.html#to_vector">Frames.to_vector</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -1294,15 +1294,15 @@ exy = TransformationMatrices.<strong>to_exy</strong>(T);
 <h4>Description</h4>
 <p>
 This function returns unit vectors e_x and e_y which define axes of frame&nbsp;2 resolved in frame&nbsp;1,
-provided&nbsp;T is a <a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#Orientation">transformation matrix</a>
+provided&nbsp;T is a <a href="index.html#Orientation">transformation matrix</a>
 to rotate frame&nbsp;1 into &nbsp;2.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#from_nxy">from_nxy</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html#from_nxz">from_nxz</a>,
-<a href="../../../../Mechanics/MultiBody/Frames/index.html#to_exy">Frames.to_exy</a>.
+<a href="index.html#from_nxy">from_nxy</a>,
+<a href="index.html#from_nxz">from_nxz</a>,
+<a href="../index.html#to_exy">Frames.to_exy</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -1313,4 +1313,6 @@ to rotate frame&nbsp;1 into &nbsp;2.
 <table border="1" cellspacing="0" cellpadding="3">
 <tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>exy[3,2]</code></td><td>= [e_x, e_y] where e_x and e_y are axes unit vectors of frame 2, resolved in frame 1</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:39:28 EDT by <i>MapleSim</i>.</p>
 </body></html>

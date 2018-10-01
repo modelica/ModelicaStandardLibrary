@@ -52,7 +52,7 @@ The geometry is specified with the <code>pathLengths[n-1]</code> between the dev
 with the <code>crossAreas[n]</code> and the <code>roughnesses[n]</code> of the device segments.
 Moreover the fluid flow is characterized for different types of devices by the characteristic <code>dimensions[n]</code>
 and the average velocities <code>vs[n]</code> of fluid flow in the device segments.
-See <a href="../../../../Fluid/Pipes/BaseClasses/CharacteristicNumbers/index.html#ReynoldsNumber">Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber</a>
+See <a href="../CharacteristicNumbers/index.html#ReynoldsNumber">Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber</a>
 for example definitions.
 </p>
 <p>
@@ -127,7 +127,7 @@ and due to <strong>gravity</strong>.
 Correlations of different complexity and validity can be
 selected via the replaceable package <strong>WallFriction</strong> (see parameter menu below).
 The details of the pipe wall friction model are described in the
-<a href="../../../../Fluid/UsersGuide/ComponentDefinition/index.html#WallFriction">UsersGuide</a>.
+<a href="../../../UsersGuide/ComponentDefinition/index.html#WallFriction">UsersGuide</a>.
 Basically, different variants of the equation
 </p>
 
@@ -176,7 +176,7 @@ specified <code>dp_nominal</code> and <code>m_flow_nominal</code>.
 It takes into account the fluid density of each flow segment and
 obtains appropriate <code>pathLengths_nominal</code> values
 for an inverse parameterization of the
-<a href="../../../../Fluid/Pipes/BaseClasses/FlowModels/index.html#TurbulentPipeFlow">
+<a href="index.html#TurbulentPipeFlow">
           TurbulentPipeFlow</a>
 model. Per default the upstream and downstream densities are averaged with the setting <code>useUpstreamScheme = false</code>,
 in order to avoid discontinuous <code>pathLengths_nominal</code> values in the case of flow reversal.
@@ -265,7 +265,7 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 <p>
 This component defines the complete regime of wall friction.
 The details are described in the
-<a href="../../../../Fluid/UsersGuide/ComponentDefinition/index.html#WallFriction">UsersGuide</a>.
+<a href="../../../UsersGuide/ComponentDefinition/index.html#WallFriction">UsersGuide</a>.
 The functional relationship of the friction loss factor &lambda; is
 displayed in the next figure. Function massFlowRate_dp() defines the "red curve"
 ("Swamee and Jain"), where as function pressureLoss_m_flow() defines the
@@ -320,4 +320,6 @@ b has the same sign of the change of density.</p>
 <tr><td><code><a href="../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nominal</code></td><td><code>if system.use_eps_Re then system.m_flow_nominal else 100 * m_flow_small</code></td><td>Nominal mass flow rate</td></tr>
 <tr><td><code><a href="../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * m_flow_nominal else system.m_flow_small</code></td><td>Within regularization if |m_flows| &lt; m_flow_small (may be wider for large discontinuities in static head)</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:40:06 EDT by <i>MapleSim</i>.</p>
 </body></html>

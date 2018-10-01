@@ -1,0 +1,123 @@
+<html><head><title>ObsoleteModelica3.Mechanics.MultiBody.Joints.Internal</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Internal"><h1><embed class="icon" src="../../../../images/icon0001.svg" width="203" height="203" />
+Package <a href="../../../../index.html">ObsoleteModelica3</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Joints</a>.&#8203;Internal</h1></a>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#PrismaticWithLengthConstraint"><code>PrismaticWithLengthConstraint</code></a></td><td>Obsolete model. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint</td></tr>
+<tr><td><a href="#RevoluteWithLengthConstraint"><code>RevoluteWithLengthConstraint</code></a></td><td>Obsolete model. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint</td></tr>
+</table>
+<hr><a name="RevoluteWithLengthConstraint"><h2><embed class="icon" src="../../../../images/icon0015.svg" width="283" height="215" />
+Model <a href="../../../../index.html">ObsoleteModelica3</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Joints</a>.&#8203;<a href="index.html">Internal</a>.&#8203;RevoluteWithLengthConstraint<br><span class="subtitle">Obsolete model. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Joint where frame_b rotates around axis n which is fixed in frame_a.
+The two frames coincide when "phi + phi_offset = 0", where
+"phi_offset" is a parameter with a zero default
+and "phi" is the rotation angle.
+</p>
+<p>
+This variant of the revolute joint is designed to work together
+with a length constraint in a kinematic loop. This means that the
+angle of the revolute joint, phi, is computed such that the
+length constraint is fulfilled.
+</p>
+<p>
+<strong>Usually, this joint should not be used by a user of the MultiBody
+library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXYZ
+joints.</strong>
+</p>
+<p>Extends from <code>Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;PartialTwoFrames</code> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected) and <code><a href="../../../../Icons/index.html#ObsoleteModel">ObsoleteModelica3.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for an obsolete model (use only for this case)).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code>Position</code></td><td><code>lengthConstraint</code></td><td><code>1</code></td><td>Fixed length of length constraint</td></tr>
+<tr><td><code>Axis</code></td><td><code>n[3]</code></td><td><code>{0, 0, 1}</code></td><td>Axis of rotation resolved in frame_a (= same as in frame_b)</td></tr>
+<tr><td><code>Angle_deg</code></td><td><code>phi_offset</code></td><td><code>0</code></td><td>Relative angle offset (angle = phi + from_deg(phi_offset))</td></tr>
+<tr><td><code>Angle_deg</code></td><td><code>phi_guess</code></td><td><code>0</code></td><td>Select the configuration such that at initial time |phi - from_deg(phi_guess)|is minimal</td></tr>
+<tr><td><code>Distance</code></td><td><code>cylinderLength</code></td><td><code>world.&#8203;defaultJointLength</code></td><td>Length of cylinder representing the joint axis</td></tr>
+<tr><td><code>Distance</code></td><td><code>cylinderDiameter</code></td><td><code>world.&#8203;defaultJointWidth</code></td><td>Diameter of cylinder representing the joint axis</td></tr>
+<tr><td><code>Boolean</code></td><td><code>axisTorqueBalance</code></td><td><code>true</code></td><td>= true, if torque balance of flange axis with the frame_b connector (axis.tau = -e*frame_b.t) shall be defined. Otherwise this equation has to be provided outside of this joint</td></tr>
+<tr><td><code>Boolean</code></td><td><code>positiveBranch</code></td><td>&nbsp;</td><td>Based on phi_guess, selection of one of the two solutions of the non-linear constraint equation</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>e[3]</code></td><td><code>Modelica.Math.Vectors.normalize(n)</code></td><td>Unit vector in direction of rotation axis, resolved in frame_a</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Frame_a</code></td><td><code>frame_a</code></td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code>Frame_b</code></td><td><code>frame_b</code></td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code>Flange_a</code></td><td><code>axis</code></td><td>1-dim. rotational flange that drives the joint</td></tr>
+<tr><td><code>Flange_b</code></td><td><code>bearing</code></td><td>1-dim. rotational flange of the drive bearing</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code>RealInput</code></td><td><code>position_a[3]</code></td><td>Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code>RealInput</code></td><td><code>position_b[3]</code></td><td>Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint</td></tr>
+</table>
+<hr><a name="PrismaticWithLengthConstraint"><h2><embed class="icon" src="../../../../images/icon0016.svg" width="283" height="207" />
+Model <a href="../../../../index.html">ObsoleteModelica3</a>.&#8203;<a href="../../../index.html">Mechanics</a>.&#8203;<a href="../../index.html">MultiBody</a>.&#8203;<a href="../index.html">Joints</a>.&#8203;<a href="index.html">Internal</a>.&#8203;PrismaticWithLengthConstraint<br><span class="subtitle">Obsolete model. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Joint where frame_b is translated along axis n which is fixed in frame_a.
+The two frames coincide when "s + s_offset = 0", where
+"s_offset" is a parameter with a zero default
+and "s" is the relative distance.
+</p>
+<p>
+This variant of the prismatic joint is designed to work together
+with a length constraint in a kinematic loop. This means that the
+relative distance "s" of the joint is computed such that the
+length constraint is fulfilled.
+</p>
+<p>
+<strong>Usually, this joint should not be used by a user of the MultiBody
+library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXYZ
+joints.</strong>
+</p>
+<p>Extends from <code>Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;PartialTwoFrames</code> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected) and <code><a href="../../../../Icons/index.html#ObsoleteModel">ObsoleteModelica3.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for an obsolete model (use only for this case)).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code>Position</code></td><td><code>length</code></td><td><code>1</code></td><td>Fixed length of length constraint</td></tr>
+<tr><td><code>Axis</code></td><td><code>n[3]</code></td><td><code>{1, 0, 0}</code></td><td>Axis of translation resolved in frame_a (= same as in frame_b)</td></tr>
+<tr><td><code>Position</code></td><td><code>s_offset</code></td><td><code>0</code></td><td>Relative distance offset (distance between frame_a and frame_b = s(t) + s_offset)</td></tr>
+<tr><td><code>Position</code></td><td><code>s_guess</code></td><td><code>0</code></td><td>Select the configuration such that at initial time |s(t0)-s_guess|is minimal</td></tr>
+<tr><td><code>Axis</code></td><td><code>boxWidthDirection[3]</code></td><td><code>{0, 1, 0}</code></td><td>Vector in width direction of box, resolved in frame_a</td></tr>
+<tr><td><code>Distance</code></td><td><code>boxWidth</code></td><td><code>world.&#8203;defaultJointWidth</code></td><td>Width of prismatic joint box</td></tr>
+<tr><td><code>Distance</code></td><td><code>boxHeight</code></td><td><code>boxWidth</code></td><td>Height of prismatic joint box</td></tr>
+<tr><td><code>Boolean</code></td><td><code>axisForceBalance</code></td><td><code>true</code></td><td>= true, if force balance of flange axis with the frame_b connector (axis.f = -e*frame_b.f) shall be defined. Otherwise this equation has to be provided outside of this joint</td></tr>
+<tr><td><code>Boolean</code></td><td><code>positiveBranch</code></td><td>&nbsp;</td><td>Selection of one of the two solutions of the non-linear constraint equation</td></tr>
+<tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>e[3]</code></td><td><code>Modelica.Math.Vectors.normalize(n)</code></td><td>Unit vector in direction of translation axis, resolved in frame_a</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Frame_a</code></td><td><code>frame_a</code></td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code>Frame_b</code></td><td><code>frame_b</code></td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code>Flange_a</code></td><td><code>axis</code></td><td>1-dim. translational flange that drives the joint</td></tr>
+<tr><td><code>Flange_b</code></td><td><code>bearing</code></td><td>1-dim. translational flange of the drive bearing</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code>RealInput</code></td><td><code>position_a[3]</code></td><td>Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code>RealInput</code></td><td><code>position_b[3]</code></td><td>Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint</td></tr>
+</table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-11 11:27:33 EDT by <i>MapleSim</i>.</p>
+</body></html>

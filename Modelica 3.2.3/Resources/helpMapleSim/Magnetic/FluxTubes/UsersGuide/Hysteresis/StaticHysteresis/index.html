@@ -45,7 +45,7 @@ Class <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../
 <h4>The Tellinen hysteresis model</h4>
 
 <p>
-The Tellinen hysteresis model is described in more detail in <a href="../../../../../Magnetic/FluxTubes/UsersGuide/index.html#Literature">[Te98, ZB12]</a>. It is a simple model to describe the static magnetic hysteresis behavior of ferromagnetic materials. It only requires the Upper B<sub>U</sub>(H) and lower B<sub>L</sub>(H) branches of the limiting hysteresis loop for the adaption to a material specific hysteresis shape. Coming from negative magnetic saturation with increasing magnetic field strength H(t) the flux density B(T) travels along the B<sub>L</sub>(H). Coming from positive saturation with a decreasing H(t), B(t) travels along B<sub>U</sub>(H). The Tellinen model is defined by the following equation, which gives a calculation rule for time derivative of the magnetic flux density B(t) with respect to the current value of B(t), H(t) and its slope dH(t)/dt.
+The Tellinen hysteresis model is described in more detail in <a href="../../index.html#Literature">[Te98, ZB12]</a>. It is a simple model to describe the static magnetic hysteresis behavior of ferromagnetic materials. It only requires the Upper B<sub>U</sub>(H) and lower B<sub>L</sub>(H) branches of the limiting hysteresis loop for the adaption to a material specific hysteresis shape. Coming from negative magnetic saturation with increasing magnetic field strength H(t) the flux density B(T) travels along the B<sub>L</sub>(H). Coming from positive saturation with a decreasing H(t), B(t) travels along B<sub>U</sub>(H). The Tellinen model is defined by the following equation, which gives a calculation rule for time derivative of the magnetic flux density B(t) with respect to the current value of B(t), H(t) and its slope dH(t)/dt.
 </p>
 
 <table cellspacing="0" cellpadding="2" border="0"><tr>
@@ -72,7 +72,7 @@ Class <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../
 <h4>The Preisach hysteresis model</h4>
 
 <p>
-This section gives an very brief overview of the Preisach hysteresis model, which is explained in more detail in <a href="../../../../../Magnetic/FluxTubes/UsersGuide/index.html#Literature">[Pr35, Ma03, Zi12]</a>. The classical Preisach hysteresis model describes the course of magnetic flux density B(t) of a ferromagnetic core material as a function of the course of the magnetic field strength H(t) and its history. The model assumes an infinite set of elementary hysteresis operators &gamma;&alpha;&beta;. The simple rectangular pattern of the output &gamma;&alpha;&beta;H(t) of such an operator with its upper and lower switching limits &alpha; and &beta; is shown Fig. 1.
+This section gives an very brief overview of the Preisach hysteresis model, which is explained in more detail in <a href="../../index.html#Literature">[Pr35, Ma03, Zi12]</a>. The classical Preisach hysteresis model describes the course of magnetic flux density B(t) of a ferromagnetic core material as a function of the course of the magnetic field strength H(t) and its history. The model assumes an infinite set of elementary hysteresis operators &gamma;&alpha;&beta;. The simple rectangular pattern of the output &gamma;&alpha;&beta;H(t) of such an operator with its upper and lower switching limits &alpha; and &beta; is shown Fig. 1.
 </p>
 
 <table border="0" cellspacing="0" cellpadding="2">
@@ -112,7 +112,7 @@ Additionally, the Preisach distribution function P(&alpha;,&beta;) is defined ov
 <h4>Hysteresis shape and computing of the double integral</h4>
 
 <p>
-The equation above shows, that the double integral of P(&alpha;,&beta;) have to be computed in every time step to compute B(t) according to the Preisach hysteresis model. Typically, the Preisach distribution function is not analytically integrable twice. A numerical double integration in every time step would be very computationally intensive. Therefore, an analytical description of the Everett function <a href="../../../../../Magnetic/FluxTubes/UsersGuide/index.html#Literature">[YUY89]</a> is used to define the hysteresis shape.
+The equation above shows, that the double integral of P(&alpha;,&beta;) have to be computed in every time step to compute B(t) according to the Preisach hysteresis model. Typically, the Preisach distribution function is not analytically integrable twice. A numerical double integration in every time step would be very computationally intensive. Therefore, an analytical description of the Everett function <a href="../../index.html#Literature">[YUY89]</a> is used to define the hysteresis shape.
 </p>
 
 <table border="0" cellspacing="0" cellpadding="2">
@@ -137,8 +137,10 @@ The Everett function returns the change in magnetization which results when all 
 </table>
 
 <p>
-According to <a href="../../../../../Magnetic/FluxTubes/UsersGuide/index.html#Literature">[YUY89]</a> the used analytical form of the Everett function is parameterized by 8 parameters. Several parameter sets were identified to fit measured or published static hysteresis behavior of different materials. These predefined parameter sets are stored in <a href="../../../../../Magnetic/FluxTubes/Material/HysteresisEverettParameter/index.html"><code>FluxTubes.Material.HysteresisEverettParameter</code></a> library and can be used with the <a href="../../../../../Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/index.html#GenericHystPreisachEverett"><code>GenericHystPreisachEverett</code></a> flux tube element. Additionally, also the <a href="../../../../../Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/index.html#GenericHystTellinenEverett"><code>GenericHystTellinenEverett</code></a> element can use this library.
+According to <a href="../../index.html#Literature">[YUY89]</a> the used analytical form of the Everett function is parameterized by 8 parameters. Several parameter sets were identified to fit measured or published static hysteresis behavior of different materials. These predefined parameter sets are stored in <a href="../../../Material/HysteresisEverettParameter/index.html"><code>FluxTubes.Material.HysteresisEverettParameter</code></a> library and can be used with the <a href="../../../Shapes/HysteresisAndMagnets/index.html#GenericHystPreisachEverett"><code>GenericHystPreisachEverett</code></a> flux tube element. Additionally, also the <a href="../../../Shapes/HysteresisAndMagnets/index.html#GenericHystTellinenEverett"><code>GenericHystTellinenEverett</code></a> element can use this library.
 </p>
 
 <p>Extends from <code><a href="../../../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:37:41 EDT by <i>MapleSim</i>.</p>
 </body></html>

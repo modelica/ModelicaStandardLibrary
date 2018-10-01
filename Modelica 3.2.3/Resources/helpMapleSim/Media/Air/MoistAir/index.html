@@ -42,7 +42,7 @@ The thermodynamic model may be used for <strong>temperatures</strong> ranging fr
 <p>Several additional functions that are not needed to describe the thermodynamic system, but are required to model transport processes, like heat and mass transfer, may be called. They usually neglect the moisture influence unless otherwise stated.</p>
 
 <h4>Application</h4>
-<p>The model's main area of application is all processes that involve moist air cooling under near atmospheric pressure with possible moisture condensation. This is the case in all domestic and industrial air conditioning applications. Another large domain of moist air applications covers all processes that deal with dehydration of bulk material using air as a transport medium. Engineering tasks involving moist air are often performed (or at least visualized) by using charts that contain all relevant thermodynamic data for a moist air system. These so called psychrometric charts can be generated from the medium properties in this package. The model <a href="../../../Media/Examples/index.html#PsychrometricData">PsychrometricData</a> may be used for this purpose in order to obtain data for figures like those below (the plotting itself is not part of the model though).</p>
+<p>The model's main area of application is all processes that involve moist air cooling under near atmospheric pressure with possible moisture condensation. This is the case in all domestic and industrial air conditioning applications. Another large domain of moist air applications covers all processes that deal with dehydration of bulk material using air as a transport medium. Engineering tasks involving moist air are often performed (or at least visualized) by using charts that contain all relevant thermodynamic data for a moist air system. These so called psychrometric charts can be generated from the medium properties in this package. The model <a href="../../Examples/index.html#PsychrometricData">PsychrometricData</a> may be used for this purpose in order to obtain data for figures like those below (the plotting itself is not part of the model though).</p>
 
 <p>
 <img src="../../../../Images/Media/Air/Mollier.png"><br>
@@ -636,7 +636,7 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 <h3>Information</h3>
 <p>
 
-<p>This model computes thermodynamic properties of moist air from three independent (thermodynamic or/and numerical) state variables. Preferred numerical states are temperature T, pressure p and the reduced composition vector Xi, which contains the water mass fraction only. As an EOS the <strong>ideal gas law</strong> is used and associated restrictions apply. The model can also be used in the <strong>fog region</strong>, when moisture is present in its liquid state. However, it is assumed that the liquid water volume is negligible compared to that of the gas phase. Computation of thermal properties is based on property data of <a href="../../../Media/Air/DryAirNasa/index.html"> dry air</a> and water (source: VDI-W&auml;rmeatlas), respectively. Besides the standard thermodynamic variables <strong>absolute and relative humidity</strong>, x_water and phi, respectively, are given by the model. Upper case X denotes absolute humidity with respect to mass of moist air while absolute humidity with respect to mass of dry air only is denoted by a lower case x throughout the model. See <a href="../../../Media/Air/MoistAir/index.html">package description</a> for further information.</p>
+<p>This model computes thermodynamic properties of moist air from three independent (thermodynamic or/and numerical) state variables. Preferred numerical states are temperature T, pressure p and the reduced composition vector Xi, which contains the water mass fraction only. As an EOS the <strong>ideal gas law</strong> is used and associated restrictions apply. The model can also be used in the <strong>fog region</strong>, when moisture is present in its liquid state. However, it is assumed that the liquid water volume is negligible compared to that of the gas phase. Computation of thermal properties is based on property data of <a href="../DryAirNasa/index.html"> dry air</a> and water (source: VDI-W&auml;rmeatlas), respectively. Besides the standard thermodynamic variables <strong>absolute and relative humidity</strong>, x_water and phi, respectively, are given by the model. Upper case X denotes absolute humidity with respect to mass of moist air while absolute humidity with respect to mass of dry air only is denoted by a lower case x throughout the model. See <a href="index.html">package description</a> for further information.</p>
 <p>Extends from <code><a href="../../../Media/Interfaces/PartialCondensingGases/index.html#BaseProperties">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialCondensingGases.&#8203;BaseProperties</a></code> (Base properties (p, d, T, h, u, R, MM and, if applicable, X and Xi) of a medium).</p>
 <h3>Parameters</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -654,7 +654,7 @@ Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.
 <h3>Information</h3>
 <p>
 
-The <a href="../../../Media/Air/MoistAir/index.html#ThermodynamicState">thermodynamic state record</a> is computed from pressure p, temperature T and composition X.
+The <a href="index.html#ThermodynamicState">thermodynamic state record</a> is computed from pressure p, temperature T and composition X.
 <p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -671,7 +671,7 @@ Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.
 <h3>Information</h3>
 <p>
 
-The <a href="../../../Media/Air/MoistAir/index.html#ThermodynamicState">thermodynamic state record</a> is computed from pressure p, specific enthalpy h and composition X.
+The <a href="index.html#ThermodynamicState">thermodynamic state record</a> is computed from pressure p, specific enthalpy h and composition X.
 <p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -688,7 +688,7 @@ Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.
 <h3>Information</h3>
 <p>
 
-The <a href="../../../Media/Air/MoistAir/index.html#ThermodynamicState">thermodynamic state record</a> is computed from pressure p, specific enthalpy h and composition X.
+The <a href="index.html#ThermodynamicState">thermodynamic state record</a> is computed from pressure p, specific enthalpy h and composition X.
 <p>Extends from <code><a href="../../../Media/Interfaces/PartialCondensingGases/index.html#setState_psX">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialCondensingGases.&#8203;setState_psX</a></code> (Return thermodynamic state as function of p, s and composition X or Xi).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -705,7 +705,7 @@ Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.
 <h3>Information</h3>
 <p>
 
-The <a href="../../../Media/Air/MoistAir/index.html#ThermodynamicState">thermodynamic state record</a> is computed from density d, temperature T and composition X.
+The <a href="index.html#ThermodynamicState">thermodynamic state record</a> is computed from density d, temperature T and composition X.
 <p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -1380,7 +1380,7 @@ Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.
 <h3>Information</h3>
 <p>
 
-The ideal gas constant for moist air is computed from <a href="../../../Media/Air/MoistAir/index.html#ThermodynamicState">thermodynamic state</a> assuming that all water is in the gas phase.
+The ideal gas constant for moist air is computed from <a href="index.html#ThermodynamicState">thermodynamic state</a> assuming that all water is in the gas phase.
 <p>Extends from <code><a href="../../../Media/Interfaces/PartialCondensingGases/index.html#gasConstant">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialCondensingGases.&#8203;gasConstant</a></code> (Return the gas constant of the mixture (also for liquids)).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -1428,7 +1428,7 @@ Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.
 <p>
 
 Saturation pressure of water in the liquid and the solid region is computed using correlations. Functions for the
-<a href="../../../Media/Air/MoistAir/index.html#sublimationPressureIce">solid</a> and the <a href="../../../Media/Air/MoistAir/index.html#saturationPressureLiquid"> liquid</a> region, respectively, are combined using the first derivative continuous <a href="../../../Media/Air/MoistAir/Utilities/index.html#spliceFunction">spliceFunction</a>. This functions range of validity is from 190 to 647.096 K. For more information on the type of correlation used, see the documentation of the linked functions.
+<a href="index.html#sublimationPressureIce">solid</a> and the <a href="index.html#saturationPressureLiquid"> liquid</a> region, respectively, are combined using the first derivative continuous <a href="Utilities/index.html#spliceFunction">spliceFunction</a>. This functions range of validity is from 190 to 647.096 K. For more information on the type of correlation used, see the documentation of the linked functions.
 <p>Extends from <code><a href="../../../Media/Interfaces/PartialCondensingGases/index.html#saturationPressure">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialCondensingGases.&#8203;saturationPressure</a></code> (Return saturation pressure of condensing fluid).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -1459,7 +1459,7 @@ Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.
 <h3>Information</h3>
 <p>
 
-Specific enthalpy of liquid water is computed from temperature using a polynomial approach. Kept for compatibility reasons, better use <a href="../../../Media/Air/MoistAir/index.html#enthalpyOfWater">enthalpyOfWater</a> instead.
+Specific enthalpy of liquid water is computed from temperature using a polynomial approach. Kept for compatibility reasons, better use <a href="index.html#enthalpyOfWater">enthalpyOfWater</a> instead.
 <p>Extends from <code><a href="../../../Media/Interfaces/PartialCondensingGases/index.html#enthalpyOfLiquid">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialCondensingGases.&#8203;enthalpyOfLiquid</a></code> (Return liquid enthalpy of condensing fluid).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -1474,7 +1474,7 @@ Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.
 <h3>Information</h3>
 <p>
 
-Specific enthalpy of moist air is computed from temperature, provided all water is in the gaseous state. The first entry in the composition vector X must be the mass fraction of steam. For a function that also covers the fog region please refer to <a href="../../../Media/Air/MoistAir/index.html#h_pTX">h_pTX</a>.
+Specific enthalpy of moist air is computed from temperature, provided all water is in the gaseous state. The first entry in the composition vector X must be the mass fraction of steam. For a function that also covers the fog region please refer to <a href="index.html#h_pTX">h_pTX</a>.
 <p>Extends from <code><a href="../../../Media/Interfaces/PartialCondensingGases/index.html#enthalpyOfGas">Modelica.&#8203;Media.&#8203;Interfaces.&#8203;PartialCondensingGases.&#8203;enthalpyOfGas</a></code> (Return enthalpy of non-condensing gas mixture).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -1696,7 +1696,7 @@ Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.
 <h3>Information</h3>
 <p>
 
-Derivative function of <a href="../../../Media/Air/MoistAir/index.html#saturationPressure">saturationPressure</a>
+Derivative function of <a href="index.html#saturationPressure">saturationPressure</a>
 <p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -1712,7 +1712,7 @@ Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.
 <h3>Information</h3>
 <p>
 
- Computes saturation temperature from (partial) pressure via numerical inversion of the function <a href="../../../Media/Air/MoistAir/index.html#saturationPressure">saturationPressure</a>. Therefore additional inputs are required (or the defaults are used) for upper and lower temperature bounds.
+ Computes saturation temperature from (partial) pressure via numerical inversion of the function <a href="index.html#saturationPressure">saturationPressure</a>. Therefore additional inputs are required (or the defaults are used) for upper and lower temperature bounds.
 <p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -1766,7 +1766,7 @@ Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.
 <h3>Information</h3>
 <p>
 
-Derivative function for <a href="../../../Media/Air/MoistAir/index.html#enthalpyOfWater">enthalpyOfWater</a>.
+Derivative function for <a href="index.html#enthalpyOfWater">enthalpyOfWater</a>.
 
 <p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -1783,7 +1783,7 @@ Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.
 <h3>Information</h3>
 <p>
 
-Temperature is computed from pressure, specific enthalpy and composition via numerical inversion of function <a href="../../../Media/Air/MoistAir/index.html#h_pTX">h_pTX</a>.
+Temperature is computed from pressure, specific enthalpy and composition via numerical inversion of function <a href="index.html#h_pTX">h_pTX</a>.
 <p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -1817,7 +1817,7 @@ Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.
 <h3>Information</h3>
 <p>
 
-Derivative function for <a href="../../../Media/Air/MoistAir/index.html#h_pTX">h_pTX</a>.
+Derivative function for <a href="index.html#h_pTX">h_pTX</a>.
 <p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -1870,7 +1870,7 @@ Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.
 <h3>Information</h3>
 <p>
 
-Derivative function for <a href="../../../Media/Air/MoistAir/index.html#specificInternalEnergy_pTX">specificInternalEnergy_pTX</a>.
+Derivative function for <a href="index.html#specificInternalEnergy_pTX">specificInternalEnergy_pTX</a>.
 <p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -1890,7 +1890,7 @@ Function <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.
 <h3>Information</h3>
 <p>
 
-Temperature is computed from pressure, specific entropy and composition via numerical inversion of function <a href="../../../Media/Air/MoistAir/index.html#specificEntropy">specificEntropy</a>.
+Temperature is computed from pressure, specific entropy and composition via numerical inversion of function <a href="index.html#specificEntropy">specificEntropy</a>.
 <p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -1939,4 +1939,6 @@ Specific entropy of moist air is computed from pressure, temperature and composi
 <table border="1" cellspacing="0" cellpadding="3">
 <tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>ds</code></td><td>Specific entropy at p, T, X</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:40:32 EDT by <i>MapleSim</i>.</p>
 </body></html>

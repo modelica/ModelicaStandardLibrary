@@ -41,7 +41,7 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 
 <p>
 Model of voltage drop and losses of carbon brushes. This three-phase model uses three
-<a href="../../../../Electrical/Machines/Losses/DCMachines/index.html#Brush">DC Brush</a> loss models.
+<a href="../DCMachines/index.html#Brush">DC Brush</a> loss models.
 </p>
 <p>Extends from <code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#TwoPlug">Modelica.&#8203;Electrical.&#8203;MultiPhase.&#8203;Interfaces.&#8203;TwoPlug</a></code> (Component with one polyphase electrical port) and <code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#PartialConditionalHeatPort">Modelica.&#8203;Thermal.&#8203;HeatTransfer.&#8203;Interfaces.&#8203;PartialConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to dissipate losses, used for graphical modeling, i.e., for building models by drag-and-drop).</p>
 <h3>Parameters</h3>
@@ -87,7 +87,7 @@ The dependency of the stray load torque on the angular velocity is modeled by th
 </p>
 <h4>See also</h4>
 <p>
-<a href="../../../../Electrical/Machines/Losses/index.html#StrayLoadParameters">StrayLoad parameters</a>
+<a href="../index.html#StrayLoadParameters">StrayLoad parameters</a>
 </p>
 <p>
 If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRef = 0</code> (this is the default).
@@ -133,7 +133,7 @@ The dependency of the permanent magnet loss torque on the angular velocity is mo
 </p>
 <h4>See also</h4>
 <p>
-<a href="../../../../Electrical/Machines/Losses/index.html#PermanentMagnetLossParameters">Permanent magnet loss parameters</a>
+<a href="../index.html#PermanentMagnetLossParameters">Permanent magnet loss parameters</a>
 </p>
 <p>
 If it is desired to neglect permanent magnet losses, set <code>strayLoadParameters.PRef = 0</code> (this is the default).
@@ -200,7 +200,7 @@ The current implementation has thus the drawback over a model that considers <co
 
 <h4>See also</h4>
 <p>
-<a href="../../../../Electrical/Machines/Losses/index.html#CoreParameters">Core loss parameters</a>
+<a href="../index.html#CoreParameters">Core loss parameters</a>
 </p>
 
 <p>Extends from <code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#PartialElementaryConditionalHeatPortWithoutT">Modelica.&#8203;Thermal.&#8203;HeatTransfer.&#8203;Interfaces.&#8203;PartialElementaryConditionalHeatPortWithoutT</a></code> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).</p>
@@ -216,4 +216,6 @@ The current implementation has thus the drawback over a model that considers <co
 <tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
 <tr><td><code><a href="../../../../Electrical/Machines/Interfaces/index.html#SpacePhasor">SpacePhasor</a></code></td><td><code>spacePhasor</code></td><td>&nbsp</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:37:01 EDT by <i>MapleSim</i>.</p>
 </body></html>

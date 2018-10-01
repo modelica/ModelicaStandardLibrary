@@ -38,12 +38,12 @@ functions in package "Strings".
 Library "Advanced" provides the following functions:
 </p>
 <pre>
-  (nextIndex, realNumber)    = <a href="../../../Utilities/Strings/Advanced/index.html#scanReal">scanReal</a>        (string, startIndex, unsigned=false);
-  (nextIndex, integerNumber) = <a href="../../../Utilities/Strings/Advanced/index.html#scanInteger">scanInteger</a>     (string, startIndex, unsigned=false);
-  (nextIndex, string2)       = <a href="../../../Utilities/Strings/Advanced/index.html#scanString">scanString</a>      (string, startIndex);
-  (nextIndex, identifier)    = <a href="../../../Utilities/Strings/Advanced/index.html#scanIdentifier">scanIdentifier</a>  (string, startIndex);
-   nextIndex                 = <a href="../../../Utilities/Strings/Advanced/index.html#skipWhiteSpace">skipWhiteSpace</a>  (string, startIndex);
-   nextIndex                 = <a href="../../../Utilities/Strings/Advanced/index.html#skipLineComments">skipLineComments</a>(string, startIndex);
+  (nextIndex, realNumber)    = <a href="index.html#scanReal">scanReal</a>        (string, startIndex, unsigned=false);
+  (nextIndex, integerNumber) = <a href="index.html#scanInteger">scanInteger</a>     (string, startIndex, unsigned=false);
+  (nextIndex, string2)       = <a href="index.html#scanString">scanString</a>      (string, startIndex);
+  (nextIndex, identifier)    = <a href="index.html#scanIdentifier">scanIdentifier</a>  (string, startIndex);
+   nextIndex                 = <a href="index.html#skipWhiteSpace">skipWhiteSpace</a>  (string, startIndex);
+   nextIndex                 = <a href="index.html#skipLineComments">skipLineComments</a>(string, startIndex);
 </pre>
 <p>
 All functions perform the following actions:
@@ -63,25 +63,25 @@ All functions perform the following actions:
 The following additional rules apply for the scanning:
 </p>
 <ul>
-<li> Function <a href="../../../Utilities/Strings/Advanced/index.html#scanReal">scanReal</a>:<br>
+<li> Function <a href="index.html#scanReal">scanReal</a>:<br>
      Scans a full number including one optional leading "+" or "-" (if unsigned=false)
      according to the Modelica grammar. For example, "+1.23e-5", "0.123" are
      Real numbers, but ".1" is not.
      Note, an Integer number, such as "123" is also treated as a Real number.<br>&nbsp;</li>
-<li> Function <a href="../../../Utilities/Strings/Advanced/index.html#scanInteger">scanInteger</a>:<br>
+<li> Function <a href="index.html#scanInteger">scanInteger</a>:<br>
      Scans an Integer number including one optional leading "+"
      or "-" (if unsigned=false) according to the Modelica (and C/C++) grammar.
      For example, "+123", "20" are Integer numbers.
      Note, a Real number, such as "123.4" is not an Integer and
      scanInteger returns nextIndex = startIndex.<br>&nbsp;</li>
-<li> Function <a href="../../../Utilities/Strings/Advanced/index.html#scanString">scanString</a>:<br>
+<li> Function <a href="index.html#scanString">scanString</a>:<br>
      Scans a String according to the Modelica (and C/C++) grammar, e.g.,
      "This is a "string"" is a valid string token.<br>&nbsp;</li>
-<li> Function <a href="../../../Utilities/Strings/Advanced/index.html#scanIdentifier">scanIdentifier</a>:<br>
+<li> Function <a href="index.html#scanIdentifier">scanIdentifier</a>:<br>
      Scans a Modelica identifier, i.e., the identifier starts either
      with a letter, followed by letters, digits or "_".
      For example, "w_rel", "T12".<br>&nbsp;</li>
-<li> Function <a href="../../../Utilities/Strings/Advanced/index.html#skipLineComments">skipLineComments</a><br>
+<li> Function <a href="index.html#skipLineComments">skipLineComments</a><br>
      Skips white space and Modelica (C/C++) line comments iteratively.
      A line comment starts with "//" and ends either with an
      end-of-line ("\n") or the end of the "string".</li>
@@ -133,7 +133,7 @@ If the optional argument "unsigned" is <strong>true</strong>, the number
 shall not start with '+' or '-'. The default of "unsigned" is <strong>false</strong>.
 </p>
 <h4>See also</h4>
-<a href="../../../Utilities/Strings/Advanced/index.html">Strings.Advanced</a>.
+<a href="index.html">Strings.Advanced</a>.
 <p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -182,7 +182,7 @@ If the optional argument "unsigned" is <strong>true</strong>, the number
 shall not start with '+' or '-'. The default of "unsigned" is <strong>false</strong>.
 </p>
 <h4>See also</h4>
-<a href="../../../Utilities/Strings/Advanced/index.html">Strings.Advanced</a>.
+<a href="index.html">Strings.Advanced</a>.
 <p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -221,7 +221,7 @@ If not successful, on return nextIndex = startIndex and
 the second output argument is an empty string.
 </p>
 <h4>See also</h4>
-<a href="../../../Utilities/Strings/Advanced/index.html">Strings.Advanced</a>.
+<a href="index.html">Strings.Advanced</a>.
 <p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -260,7 +260,7 @@ If not successful, on return nextIndex = startIndex and
 the second output argument is an empty string.
 </p>
 <h4>See also</h4>
-<a href="../../../Utilities/Strings/Advanced/index.html">Strings.Advanced</a>.
+<a href="index.html">Strings.Advanced</a>.
 <p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -288,7 +288,7 @@ skips white space. The function returns nextIndex = index of character
 of the first non white space character.
 </p>
 <h4>See also</h4>
-<a href="../../../Utilities/Strings/Advanced/index.html">Strings.Advanced</a>.
+<a href="index.html">Strings.Advanced</a>.
 <p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -327,7 +327,7 @@ directly after the found line comment.
 If not successful, on return nextIndex = startIndex.
 </p>
 <h4>See also</h4>
-<a href="../../../Utilities/Strings/Advanced/index.html">Strings.Advanced</a>.
+<a href="index.html">Strings.Advanced</a>.
 <p>Extends from <code><a href="../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -338,4 +338,6 @@ If not successful, on return nextIndex = startIndex.
 <table border="1" cellspacing="0" cellpadding="3">
 <tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nextIndex</code></td><td>&nbsp</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:41:49 EDT by <i>MapleSim</i>.</p>
 </body></html>

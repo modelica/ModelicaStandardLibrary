@@ -1,0 +1,155 @@
+<html><head><title>ObsoleteModelica3.Mechanics.Rotational.Interfaces</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Interfaces"><h1><embed class="icon" src="../../../images/icon0001.svg" width="203" height="203" />
+Package <a href="../../../index.html">ObsoleteModelica3</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;Interfaces<br><span class="subtitle">Connectors and partial models for 1D rotational mechanical components</span></h1></a>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#AbsoluteSensor"><code>AbsoluteSensor</code></a></td><td>Obsolete model. Use Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor instead and define a meaningful name for the output signal</td></tr>
+<tr><td><a href="#Bearing"><code>Bearing</code></a></td><td>Obsolete model. Use one of Modelica.Mechanics.Rotational.Interfaces.PartialXXX instead</td></tr>
+<tr><td><a href="#PartialSpeedDependentTorque"><code>PartialSpeedDependentTorque</code></a></td><td>Partial model of a torque acting at the flange (accelerates the flange)</td></tr>
+<tr><td><a href="#RelativeSensor"><code>RelativeSensor</code></a></td><td>Obsolete model. Use Modelica.Mechanics.Rotational.Interfaces.PartialRelativbeSensor instead and define a meaningful name for the output signal</td></tr>
+<tr><td><a href="#Rigid"><code>Rigid</code></a></td><td>Base class for the rigid connection of two rotational 1D flanges</td></tr>
+<tr><td><a href="#TwoFlangesAndBearing"><code>TwoFlangesAndBearing</code></a></td><td>Obsolete model. Use one of Modelica.Mechanics.Rotational.Interfaces.PartialXXX instead</td></tr>
+<tr><td><a href="#TwoFlangesAndBearingH"><code>TwoFlangesAndBearingH</code></a></td><td>Obsolete model. Use one of Modelica.Mechanics.Rotational.Interfaces.PartialXXX instead</td></tr>
+</table>
+<hr><a name="Rigid"><h2><embed class="icon" src="../../../images/icon0022.svg" width="223" height="207" />
+Partial Model <a href="../../../index.html">ObsoleteModelica3</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;Rigid<br><span class="subtitle">Base class for the rigid connection of two rotational 1D flanges</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a 1D rotational component with two rigidly connected flanges,
+i.e., flange_a.phi = flange_b.phi. It is used e.g., to built up components
+with inertia.
+</p>
+
+<p>Extends from <code><a href="../../../Icons/index.html#ObsoleteModel">ObsoleteModelica3.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for an obsolete model (use only for this case)).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Flange_a</code></td><td><code>flange_a</code></td><td>(left) driving flange (flange axis directed INTO cut plane)</td></tr>
+<tr><td><code>Flange_b</code></td><td><code>flange_b</code></td><td>(right) driven flange (flange axis directed OUT OF cut plane)</td></tr>
+</table>
+<hr><a name="Bearing"><h2><embed class="icon" src="../../../images/icon0023.svg" width="223" height="225" />
+Partial Model <a href="../../../index.html">ObsoleteModelica3</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;Bearing<br><span class="subtitle">Obsolete model. Use one of Modelica.Mechanics.Rotational.Interfaces.PartialXXX instead</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a 1D rotational component with two flanges and an additional bearing flange.
+It is a superclass for the two components TwoFlangesAndBearing and TwoFlangesAndBearingH.</p>
+
+<p>Extends from <code>Modelica.&#8203;Mechanics.&#8203;Rotational.&#8203;Interfaces.&#8203;PartialTwoFlanges</code> (Partial model for a component with two rotational 1-dim. shaft flanges) and <code><a href="../../../Icons/index.html#ObsoleteModel">ObsoleteModelica3.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for an obsolete model (use only for this case)).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Flange_a</code></td><td><code>flange_a</code></td><td>Flange of left shaft</td></tr>
+<tr><td><code>Flange_b</code></td><td><code>flange_b</code></td><td>Flange of right shaft</td></tr>
+<tr><td><code>Flange_a</code></td><td><code>bearing</code></td><td>Flange of bearing</td></tr>
+</table>
+<hr><a name="TwoFlangesAndBearing"><h2><embed class="icon" src="../../../images/icon0023.svg" width="223" height="225" />
+Partial Model <a href="../../../index.html">ObsoleteModelica3</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;TwoFlangesAndBearing<br><span class="subtitle">Obsolete model. Use one of Modelica.Mechanics.Rotational.Interfaces.PartialXXX instead</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a 1D rotational component with two flanges and an additional bearing flange.
+It is used e.g., to build up equation-based parts of a drive train.</p>
+
+<p>Extends from <code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Bearing">ObsoleteModelica3.&#8203;Mechanics.&#8203;Rotational.&#8203;Interfaces.&#8203;Bearing</a></code> (Obsolete model. Use one of Modelica.Mechanics.Rotational.Interfaces.PartialXXX instead).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Flange_a</code></td><td><code>flange_a</code></td><td>Flange of left shaft</td></tr>
+<tr><td><code>Flange_b</code></td><td><code>flange_b</code></td><td>Flange of right shaft</td></tr>
+<tr><td><code>Flange_a</code></td><td><code>bearing</code></td><td>Flange of bearing</td></tr>
+</table>
+<hr><a name="TwoFlangesAndBearingH"><h2><embed class="icon" src="../../../images/icon0023.svg" width="223" height="225" />
+Partial Model <a href="../../../index.html">ObsoleteModelica3</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;TwoFlangesAndBearingH<br><span class="subtitle">Obsolete model. Use one of Modelica.Mechanics.Rotational.Interfaces.PartialXXX instead</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a 1D rotational component with two flanges and an additional bearing flange.
+It is used e.g., to build up parts of a drive train consisting
+of several base components.</p>
+
+<p>Extends from <code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Bearing">ObsoleteModelica3.&#8203;Mechanics.&#8203;Rotational.&#8203;Interfaces.&#8203;Bearing</a></code> (Obsolete model. Use one of Modelica.Mechanics.Rotational.Interfaces.PartialXXX instead).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Flange_a</code></td><td><code>flange_a</code></td><td>Flange of left shaft</td></tr>
+<tr><td><code>Flange_b</code></td><td><code>flange_b</code></td><td>Flange of right shaft</td></tr>
+<tr><td><code>Flange_a</code></td><td><code>bearing</code></td><td>Flange of bearing</td></tr>
+</table>
+<hr><a name="PartialSpeedDependentTorque"><h2><embed class="icon" src="../../../images/icon0024.svg" width="215" height="245" />
+Partial Model <a href="../../../index.html">ObsoleteModelica3</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;PartialSpeedDependentTorque<br><span class="subtitle">Partial model of a torque acting at the flange (accelerates the flange)</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+Partial model of torque dependent on speed that accelerates the flange.
+</p>
+<p>Extends from <code><a href="../../../Icons/index.html#ObsoleteModel">ObsoleteModelica3.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for an obsolete model (use only for this case)).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Flange_b</code></td><td><code>flange</code></td><td>Flange on which torque is acting</td></tr>
+<tr><td><code>Flange_a</code></td><td><code>bearing</code></td><td>Bearing at which the reaction torque (i.e., -flange.tau) is acting</td></tr>
+</table>
+<hr><a name="AbsoluteSensor"><h2><embed class="icon" src="../../../images/icon0025.svg" width="233" height="207" />
+Partial Model <a href="../../../index.html">ObsoleteModelica3</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;AbsoluteSensor<br><span class="subtitle">Obsolete model. Use Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor instead and define a meaningful name for the output signal</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is the base class of a 1D rotational component with one flange and one
+output signal y in order to measure an absolute kinematic quantity in the flange
+and to provide the measured signal as output signal for further processing
+with the blocks of package Modelica.Blocks.
+</p>
+
+<p>Extends from <code>Modelica.&#8203;Icons.&#8203;RotationalSensor</code> (Icon representing a round measurement device) and <code><a href="../../../Icons/index.html#ObsoleteModel">ObsoleteModelica3.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for an obsolete model (use only for this case)).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Flange_a</code></td><td><code>flange_a</code></td><td>(left) flange to be measured (flange axis directed INTO cut plane)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code>RealOutput</code></td><td><code>y</code></td><td>Sensor signal</td></tr>
+</table>
+<hr><a name="RelativeSensor"><h2><embed class="icon" src="../../../images/icon0026.svg" width="223" height="225" />
+Partial Model <a href="../../../index.html">ObsoleteModelica3</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Interfaces</a>.&#8203;RelativeSensor<br><span class="subtitle">Obsolete model. Use Modelica.Mechanics.Rotational.Interfaces.PartialRelativbeSensor instead and define a meaningful name for the output signal</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+This is a base class for 1D rotational components with two rigidly connected
+flanges and one output signal y in order to measure relative kinematic quantities
+between the two flanges or the cut-torque in the flange and
+to provide the measured signal as output signal for further processing
+with the blocks of package Modelica.Blocks.
+</p>
+
+<p>Extends from <code>Modelica.&#8203;Icons.&#8203;RotationalSensor</code> (Icon representing a round measurement device) and <code><a href="../../../Icons/index.html#ObsoleteModel">ObsoleteModelica3.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for an obsolete model (use only for this case)).</p>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Flange_a</code></td><td><code>flange_a</code></td><td>(left) driving flange (flange axis directed INTO cut plane)</td></tr>
+<tr><td><code>Flange_b</code></td><td><code>flange_b</code></td><td>(right) driven flange (flange axis directed OUT OF cut plane)</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code>RealOutput</code></td><td><code>y</code></td><td>Sensor signal</td></tr>
+</table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-11 11:27:33 EDT by <i>MapleSim</i>.</p>
+</body></html>

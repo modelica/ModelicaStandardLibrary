@@ -77,11 +77,11 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 <p>
 This example demonstrates coupling a quasi stationary circuit with a DC circuit.
 The QS voltage is rectified (using an
-<a href="../../../../Electrical/QuasiStationary/SinglePhase/Utilities/index.html#IdealACDCConverter">
+<a href="../Utilities/index.html#IdealACDCConverter">
 ideal AC DC converter</a>), loaded by a variable load conductor.
 The <em>conversionFactor = DC voltage / AC rms voltage</em> in this case is the root mean square of a rectified sine, i.e., 1.
 You may compare the quasi stationary results with that of a fully transient model (using a
-<a href="../../../../Electrical/QuasiStationary/SinglePhase/Utilities/index.html#GraetzRectifier">
+<a href="../Utilities/index.html#GraetzRectifier">
 Graetz rectifier</a>), plotting:
 </p>
 <ul>
@@ -125,4 +125,6 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 
 <p>Plot the real part of the secondary voltage <code>idealTransformer.v2.re</code> on the x axis and <code>idealTransformer.v2.im</code> on the y axis. The locus of this complex voltage <code><u>v</u><sub>2</sub></code> is a circle. The center of the circle is the primary supply voltage divided by the transformation ratio of <code>n=5</code>. Since in this experiment the load current magnitude is constant, the voltage drop across the short circuit impedance of the transformer is constant, as well. The radius of the circle is equal to the constant magnitude of the voltage drop across the short circuit impedance.</p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:37:09 EDT by <i>MapleSim</i>.</p>
 </body></html>

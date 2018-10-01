@@ -132,7 +132,7 @@ Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blo
 
 <p>
 This example demonstrates various options of the
-<a href="../../Blocks/Continuous/index.html#Filter">Filter</a> block.
+<a href="../Continuous/index.html#Filter">Filter</a> block.
 A step input starts at 0.1 s with an offset of 0.1, in order to demonstrate
 the initialization options. This step input drives 4 filter blocks that
 have identical parameters, with the only exception of the used analog filter type
@@ -161,7 +161,7 @@ Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blo
 
 <p>
 This example demonstrates that the output of the
-<a href="../../Blocks/Continuous/index.html#Filter">Filter</a> block
+<a href="../Continuous/index.html#Filter">Filter</a> block
 can be differentiated up to the order of the filter. This feature can be
 used in order to make an inverse model realizable or to "smooth" a potential
 discontinuous control signal.
@@ -354,7 +354,7 @@ Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blo
 
 <p>
 This simple example demonstrates the logical sources in
-<a href="../../Blocks/Sources/index.html">Modelica.Blocks.Sources</a> and demonstrate
+<a href="../Sources/index.html">Modelica.Blocks.Sources</a> and demonstrate
 their diagram animation (see "small circle" close to the output connector).
 The "booleanExpression" source shows how a logical expression can be defined
 in its parameter menu referring to variables available on this level of the
@@ -382,7 +382,7 @@ Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blo
 
 <p>
 This example demonstrates a network of mathematical Real blocks.
-from package <a href="../../Blocks/Math/index.html">Modelica.Blocks.Math</a>.
+from package <a href="../Math/index.html">Modelica.Blocks.Math</a>.
 Note, that
 </p>
 
@@ -405,7 +405,7 @@ Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blo
 
 <p>
 This example demonstrates a network of Integer blocks.
-from package <a href="../../Blocks/MathInteger/index.html">Modelica.Blocks.MathInteger</a>.
+from package <a href="../MathInteger/index.html">Modelica.Blocks.MathInteger</a>.
 Note, that
 </p>
 
@@ -429,7 +429,7 @@ Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blo
 
 <p>
 This example demonstrates a network of Boolean blocks
-from package <a href="../../Blocks/MathBoolean/index.html">Modelica.Blocks.MathBoolean</a>.
+from package <a href="../MathBoolean/index.html">Modelica.Blocks.MathBoolean</a>.
 Note, that
 </p>
 
@@ -453,7 +453,7 @@ Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blo
 
 <p>
 This example demonstrates a network of blocks
-from package <a href="../../Blocks/Interaction/index.html">Modelica.Blocks.Interaction</a>
+from package <a href="../Interaction/index.html">Modelica.Blocks.Interaction</a>
 to show how diagram animations can be constructed.
 </p>
 
@@ -497,10 +497,10 @@ at hand of this model (Modelica.Blocks.Examples.BusUsage):
 
 <p>
 The control and sub-control bus icons are provided within Modelica.Icons.
-In <a href="../../Blocks/Examples/BusUsage_Utilities/Interfaces/index.html">Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces</a>
+In <a href="BusUsage_Utilities/Interfaces/index.html">Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces</a>
 the buses for this example are defined. Both the "ControlBus" and the "SubControlBus" are
 <strong>expandable</strong> connectors that do not define any variable. For example,
-<a href="../../Blocks/Examples/BusUsage_Utilities/Interfaces/index.html#ControlBus#text">Interfaces.ControlBus</a>
+<a href="BusUsage_Utilities/Interfaces/index.html#ControlBus">Interfaces.ControlBus</a>
 is defined as:
 </p>
 <pre>  <strong>expandable connector</strong> ControlBus
@@ -538,7 +538,7 @@ the "controlBus". When typing "realSignal1" as "New name", a connection of the f
 <p>
 is generated and the "controlBus" contains the new signal "realSignal1". Modelica tools
 may give more support in order to list potential signals for a connection. Therefore, in
-<a href="../../Blocks/Examples/BusUsage_Utilities/Interfaces/index.html">BusUsage_Utilities.Interfaces</a>
+<a href="BusUsage_Utilities/Interfaces/index.html">BusUsage_Utilities.Interfaces</a>
 the expected implementation of the "ControlBus" and of the "SubControlBus" are given.
 For example "Internal.ControlBus" is defined as:
 </p>
@@ -576,7 +576,7 @@ Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blo
 
 <p>
 This example is based on a <a href="../../Electrical/Machines/Examples/Transformers/index.html#Rectifier6pulse">6-pulse rectifier example</a>,
-calculating the harmonics with the <a href="../../Blocks/Math/index.html#RealFFT">FFT block</a>.
+calculating the harmonics with the <a href="../Math/index.html#RealFFT">FFT block</a>.
 </p>
 <p>
 As expected, one can see the 5<sup>th</sup>, 7<sup>th</sup>, 11<sup>th</sup>, 13<sup>th</sup>, 17<sup>th</sup>, 19<sup>th</sup>, 23<sup>th</sup>, 25<sup>th</sup>, ... harmonic in the result.
@@ -598,7 +598,7 @@ Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blo
 
 <p>
 This example is based on a <a href="../../Electrical/Machines/Examples/Transformers/index.html#Rectifier12pulse">12-pulse rectifier example</a>,
-calculating the harmonics with the <a href="../../Blocks/Math/index.html#RealFFT">FFT block</a>.
+calculating the harmonics with the <a href="../Math/index.html#RealFFT">FFT block</a>.
 </p>
 <p>
 As expected, one can see the 11<sup>th</sup>, 13<sup>th</sup>, 23<sup>th</sup>, 25<sup>th</sup>, ... harmonic in the result.
@@ -620,7 +620,7 @@ Model <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Blo
 <p>
 
 <p>This example compares the result of the
-<a href="../../Blocks/Math/index.html#TotalHarmonicDistortion">total harmonic distortion (THD)</a>
+<a href="../Math/index.html#TotalHarmonicDistortion">total harmonic distortion (THD)</a>
 with respect to the fundamental wave and with respect to the total root mean square (RMS).
 In this simulation model a non-sinusoidal voltage
 wave form is created by the superposition two voltage waves:</p>
@@ -648,4 +648,6 @@ theoretical calculations:</p>
 <tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>THD1</code></td><td><code>V3 / V1</code></td><td>Theoretically obtained THD with respect to fundamental wave</td></tr>
 <tr><td><code><b>final</b>&nbsp;</code><code>Real</code></td><td><code>THDrms</code></td><td><code>V3 / sqrt(V1 ^ 2 + V3 ^ 2)</code></td><td>Theoretically obtained THD with respect to RMS</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:36:42 EDT by <i>MapleSim</i>.</p>
 </body></html>

@@ -1,0 +1,209 @@
+<html><head><title>ObsoleteModelica3.Mechanics.MultiBody.Forces</title></head>
+<style>
+body { font-family: Droid Serif,serif; font-size: 16px; line-height: 24px;  }
+p, dt, pre, blockquote, ol, ul, table, hr { margin-top: 24px; margin-bottom: 0 }
+img { margin-top: 24px }
+img.icon, embed.icon { float: right; margin: 0 0 24px 24px; border: 0 }
+h1, h2, h3, h4, h5, th { font-family: Droid Sans,sans-serif }
+h1 { font-size: 26px; line-height: 26px; margin: 18px 0 0 0 }h2 { font-size: 21px; line-height: 24px; margin: 26px 0 -2px 0 }h3 { font-size: 18px; line-height: 24px; margin: 27px 0 -3px 0 }h4 { font-size: 16px; line-height: 24px; margin: 28px 0 -4px 0; font-style: italic }h1 .subtitle, h2 .subtitle { font-size: 16px; font-style: italic }
+h1 br, h2 br { margin-bottom: 10px }
+p.interface { background-color: #EEE; padding: 20px; border: 1px solid #CCE; border-radius: 14px }
+code, pre, p.interface { font-family: Droid Sans Mono,monospace; font-size: 14px; line-height: 20px }
+li, dd, li p, dd p, li dt, dd dt, li pre, dd pre, li blockquote, dd blockquote, li table, dd table { margin-top: 11px; margin-bottom: 11px }
+dt + dt, dd, ul ul { margin-top: 0 }
+blockquote pre, blockquote blockquote { margin-top: 0; margin-bottom: 0 }
+ul ul li { margin-top:5px; margin-bottom:6px }
+td, th { vertical-align: top; font-size: 14px; line-height: 20px }
+th { background-color: #EEE }
+td p, th p { margin-top: 10px }
+td code, th code { font-size: 13px }
+hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
+</style>
+<body>
+<a name="Forces"><h1><embed class="icon" src="../../../images/icon0001.svg" width="203" height="203" />
+Package <a href="../../../index.html">ObsoleteModelica3</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;Forces<br><span class="subtitle">Components that exert forces and/or torques between frames</span></h1></a>
+<h3>Package Contents</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Name</th><th>Description</th></tr><tr><td><a href="#ForceAndTorque"><code>ForceAndTorque</code></a></td><td>Obsolete model. Use instead Modelica.Mechanics.MultiBody.Forces.ForceAndTorque</td></tr>
+<tr><td><a href="#FrameForceAndTorque"><code>FrameForceAndTorque</code></a></td><td>Obsolete model. Use instead Modelica.Mechanics.MultiBody.Forces.ForceAndTorque</td></tr>
+<tr><td><a href="#WorldForceAndTorque"><code>WorldForceAndTorque</code></a></td><td>Obsolete model. Use instead Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque</td></tr>
+</table>
+<hr><a name="WorldForceAndTorque"><h2><embed class="icon" src="../../../images/icon0011.svg" width="248" height="207" />
+Model <a href="../../../index.html">ObsoleteModelica3</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Forces</a>.&#8203;WorldForceAndTorque<br><span class="subtitle">Obsolete model. Use instead Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The <strong>6</strong> signals of the <strong>load</strong> connector are interpreted
+as the x-, y- and z-coordinates of a <strong>force</strong> and as
+the x-, y-, and z-coordinates of a <strong>torque</strong> resolved in the
+<strong>world frame</strong> and acting at the frame connector to which this
+component is attached. The input signals are mapped to the force
+and torque in the following way:
+</p>
+<pre>
+   force  = load[1:3]
+   torque = load[4:6]
+</pre>
+<p>
+The force and torque are by default visualized as an arrow (force)
+and as a double arrow (torque) acting at the connector to which
+they are connected. The diameters
+and colors of the arrows are fixed and can be defined via
+parameters <strong>forceDiameter</strong>, <strong>torqueDiameter</strong>,
+<strong>forceColor</strong> and <strong>torqueColor</strong>. The arrows
+point in the directions defined by the
+inPort.signal signals. The lengths of the arrows are proportional
+to the length of the force and torque vectors, respectively, using parameters
+<strong>N_to_m</strong> and <strong>Nm_to_m</strong> as scaling factors. For example, if N_to_m = 100 N/m,
+then a force of 350 N is displayed as an arrow of length 3.5 m.
+</p>
+<p>
+An example how to use this model is given in the
+following figure:
+</p>
+
+<img src="../../../../../../Modelica 3.2.3/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque1.png">
+
+<p>
+This leads to the following animation
+</p>
+
+<img src="../../../../../../Modelica 3.2.3/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque2.png">
+<p>Extends from <code>Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;PartialOneFrame_b</code> (Base model for components providing one frame_b connector + outer world + assert to guarantee that the component is connected) and <code><a href="../../../Icons/index.html#ObsoleteModel">ObsoleteModelica3.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for an obsolete model (use only for this case)).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code>Real</code></td><td><code>N_to_m</code></td><td><code>world.&#8203;defaultN_to_m</code></td><td> Force arrow scaling (length = force/N_to_m)</td></tr>
+<tr><td><code>Real</code></td><td><code>Nm_to_m</code></td><td><code>world.&#8203;defaultNm_to_m</code></td><td> Torque arrow scaling (length = torque/Nm_to_m)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Frame_b</code></td><td><code>frame_b</code></td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code>RealInput</code></td><td><code>load[6]</code></td><td>[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in world frame</td></tr>
+</table>
+<hr><a name="FrameForceAndTorque"><h2><embed class="icon" src="../../../images/icon0012.svg" width="248" height="210" />
+Model <a href="../../../index.html">ObsoleteModelica3</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Forces</a>.&#8203;FrameForceAndTorque<br><span class="subtitle">Obsolete model. Use instead Modelica.Mechanics.MultiBody.Forces.ForceAndTorque</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The <strong>6</strong> signals of the <strong>load</strong> connector are interpreted
+as the x-, y- and z-coordinates of a <strong>force</strong> and as
+the x-, y-, and z-coordinates of a <strong>torque</strong> acting at the frame
+connector to which this component is attached. If connector
+<strong>frame_resolve</strong> is <strong>not</strong> connected, the force and torque coordinates
+are with respect to <strong>frame_b</strong>. If connector
+<strong>frame_resolve</strong> is connected, the force and torque coordinates
+are with respect to <strong>frame_resolve</strong>. In this case the
+force and torque in connector frame_resolve are set to zero,
+i.e., this connector is solely used to provide the information
+of the coordinate system, in which the force coordinates
+are defined. The input signals are mapped to the force
+and torque in the following way:
+</p>
+<pre>
+   force  = load[1:3]
+   torque = load[4:6]
+</pre>
+<p>
+The force and torque are by default visualized as an arrow (force)
+and as a double arrow (torque) acting at the connector to which
+they are connected. The diameters
+and colors of the arrows are fixed and can be defined via
+parameters <strong>forceDiameter</strong>, <strong>torqueDiameter</strong>,
+<strong>forceColor</strong> and <strong>torqueColor</strong>. The arrows
+point in the directions defined by the
+inPort.signal signals. The lengths of the arrows are proportional
+to the length of the force and torque vectors, respectively, using parameters
+<strong>N_to_m</strong> and <strong>Nm_to_m</strong> as scaling factors. For example,
+if N_to_m = 100 N/m,
+then a force of 350 N is displayed as an arrow of length 3.5 m.
+</p>
+<p>
+An example how to use this model is given in the
+following figure:
+</p>
+
+<img src="../../../../../../Modelica 3.2.3/Resources/Images/Mechanics/MultiBody/Forces/obsoleteFrameForceAndTorque1.png">
+
+<p>
+This leads to the following animation
+</p>
+
+<img src="../../../../../../Modelica 3.2.3/Resources/Images/Mechanics/MultiBody/Forces/obsoleteFrameForceAndTorque2.png">
+<p>Extends from <code>Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;PartialOneFrame_b</code> (Base model for components providing one frame_b connector + outer world + assert to guarantee that the component is connected) and <code><a href="../../../Icons/index.html#ObsoleteModel">ObsoleteModelica3.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for an obsolete model (use only for this case)).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code>Real</code></td><td><code>N_to_m</code></td><td><code>world.&#8203;defaultN_to_m</code></td><td> Force arrow scaling (length = force/N_to_m)</td></tr>
+<tr><td><code>Real</code></td><td><code>Nm_to_m</code></td><td><code>world.&#8203;defaultNm_to_m</code></td><td> Torque arrow scaling (length = torque/Nm_to_m)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Frame_b</code></td><td><code>frame_b</code></td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code>Frame_resolve</code></td><td><code>frame_resolve</code></td><td>If connected, the input signals are resolved in this frame</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code>RealInput</code></td><td><code>load[6]</code></td><td>[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in frame_b or frame_resolved (if connected)</td></tr>
+</table>
+<hr><a name="ForceAndTorque"><h2><embed class="icon" src="../../../images/icon0013.svg" width="213" height="245" />
+Model <a href="../../../index.html">ObsoleteModelica3</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Forces</a>.&#8203;ForceAndTorque<br><span class="subtitle">Obsolete model. Use instead Modelica.Mechanics.MultiBody.Forces.ForceAndTorque</span></h2></a>
+<h3>Information</h3>
+<p>
+
+<p>
+The <strong>6</strong> signals of the <strong>load</strong> connector are interpreted
+as the x-, y- and z-coordinates of a <strong>force</strong> and as
+the x-, y-, and z-coordinates of a <strong>torque</strong> acting at the frame
+connector to which frame_b of this component is attached. If connector
+<strong>frame_resolve</strong> is <strong>not</strong> connected, the force and torque coordinates
+are with respect to <strong>frame_b</strong>. If connector
+<strong>frame_resolve</strong> is connected, the force and torque coordinates
+are with respect to <strong>frame_resolve</strong>. In this case the
+force and torque in connector frame_resolve are set to zero,
+i.e., this connector is solely used to provide the information
+of the coordinate system, in which the force/torque coordinates
+are defined. The input signals are mapped to the force
+and torque in the following way:
+</p>
+<pre>
+   force  = load[1:3]
+   torque = load[4:6]
+</pre>
+<p>
+Additionally, a force and torque acts on frame_a in such a way that
+the force and torque balance between frame_a and frame_b is fulfilled.
+</p>
+<p>
+An example how to use this model is given in the
+following figure:
+</p>
+
+<img src="../../../../../../Modelica 3.2.3/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque1.png">
+
+<p>
+This leads to the following animation (the yellow cylinder
+characterizes the line between frame_a and frame_b of the
+ForceAndTorque component, i.e., the force and torque acts with
+negative sign
+also on the opposite side of this cylinder, but for
+clarity this is not shown in the animation):
+</p>
+
+<img src="../../../../../../Modelica 3.2.3/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque2.png">
+<p>Extends from <code>Modelica.&#8203;Mechanics.&#8203;MultiBody.&#8203;Interfaces.&#8203;PartialTwoFrames</code> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected) and <code><a href="../../../Icons/index.html#ObsoleteModel">ObsoleteModelica3.&#8203;Icons.&#8203;ObsoleteModel</a></code> (Icon for an obsolete model (use only for this case)).</p>
+<h3>Parameters</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Boolean</code></td><td><code>animation</code></td><td><code>true</code></td><td>= true, if animation shall be enabled</td></tr>
+<tr><td><code>Real</code></td><td><code>N_to_m</code></td><td><code>world.&#8203;defaultN_to_m</code></td><td> Force arrow scaling (length = force/N_to_m)</td></tr>
+<tr><td><code>Real</code></td><td><code>Nm_to_m</code></td><td><code>world.&#8203;defaultNm_to_m</code></td><td> Torque arrow scaling (length = torque/Nm_to_m)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Frame_a</code></td><td><code>frame_a</code></td><td>Coordinate system a fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code>Frame_b</code></td><td><code>frame_b</code></td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td><code>Frame_resolve</code></td><td><code>frame_resolve</code></td><td>If connected, the input signals are resolved in this frame</td></tr>
+<tr><td><code><b>input</b>&nbsp;</code><code>RealInput</code></td><td><code>load[6]</code></td><td>[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in frame_b or frame_resolved (if connected)</td></tr>
+</table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-11 11:27:33 EDT by <i>MapleSim</i>.</p>
+</body></html>

@@ -30,12 +30,12 @@ More details are given in the following sub-sections:
 </p>
 
 <ul>
-<li> <a href="../../../Mechanics/Translational/UsersGuide/index.html#Overview">Overview</a></li>
-<li> <a href="../../../Mechanics/Translational/UsersGuide/index.html#FlangeConnectors">Flange Connectors</a></li>
-<li> <a href="../../../Mechanics/Translational/UsersGuide/index.html#SupportForces">Support Forces</a></li>
-<li> <a href="../../../Mechanics/Translational/UsersGuide/index.html#SignConventions">Sign Conventions</a></li>
-<li> <a href="../../../Mechanics/Translational/UsersGuide/index.html#UserDefinedComponents">User Defined Components</a></li>
-<li> <a href="../../../Mechanics/Translational/UsersGuide/index.html#StateSelection">State Selection</a></li>
+<li> <a href="index.html#Overview">Overview</a></li>
+<li> <a href="index.html#FlangeConnectors">Flange Connectors</a></li>
+<li> <a href="index.html#SupportForces">Support Forces</a></li>
+<li> <a href="index.html#SignConventions">Sign Conventions</a></li>
+<li> <a href="index.html#UserDefinedComponents">User Defined Components</a></li>
+<li> <a href="index.html#StateSelection">State Selection</a></li>
 </ul>
 
 <p>Extends from <code><a href="../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
@@ -231,14 +231,14 @@ which are defined in sublibrary Interfaces:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Name</th><th>Description</th></tr>
 <tr>
-  <td><a href="../../../Mechanics/Translational/Interfaces/index.html#PartialCompliant">PartialCompliant</a>
+  <td><a href="../Interfaces/index.html#PartialCompliant">PartialCompliant</a>
   </td>
   <td>Compliant connection of two translational 1-dim. flanges
                    (used for force laws such as a spring or a damper).</td>
 </tr>
 
 <tr>
-  <td><a href="../../../Mechanics/Translational/Interfaces/index.html#PartialCompliantWithRelativeStates">PartialCompliantWithRelativeStates</a>
+  <td><a href="../Interfaces/index.html#PartialCompliantWithRelativeStates">PartialCompliantWithRelativeStates</a>
   </td>
   <td> Same as "PartialCompliant", but relative position and relative speed are
                     defined as preferred states. Use this partial model if the force law
@@ -249,7 +249,7 @@ which are defined in sublibrary Interfaces:
 </tr>
 
 <tr>
-  <td><a href="../../../Mechanics/Translational/Interfaces/index.html#PartialElementaryTwoFlangesAndSupport2">PartialElementaryTwoFlangesAndSupport2</a>
+  <td><a href="../Interfaces/index.html#PartialElementaryTwoFlangesAndSupport2">PartialElementaryTwoFlangesAndSupport2</a>
 </td>
   <td> Partial model for a 1-dim. translational component consisting of the flange of
                     an input shaft, the flange of an output shaft and the support.
@@ -257,28 +257,28 @@ which are defined in sublibrary Interfaces:
 </tr>
 
 <tr>
-  <td><a href="../../../Mechanics/Translational/Interfaces/index.html#PartialForce">PartialForce</a>
+  <td><a href="../Interfaces/index.html#PartialForce">PartialForce</a>
 </td>
   <td> Partial model of a force acting at the flange (accelerates the flange).
   </td>
 </tr>
 
 <tr>
-  <td><a href="../../../Mechanics/Translational/Interfaces/index.html#PartialTwoFlanges">PartialTwoFlanges</a>
+  <td><a href="../Interfaces/index.html#PartialTwoFlanges">PartialTwoFlanges</a>
 </td>
   <td>General connection of two translational 1-dim. flanges.
   </td>
 </tr>
 
 <tr>
-  <td><a href="../../../Mechanics/Translational/Interfaces/index.html#PartialAbsoluteSensor">PartialAbsoluteSensor</a>
+  <td><a href="../Interfaces/index.html#PartialAbsoluteSensor">PartialAbsoluteSensor</a>
 </td>
   <td>Measure absolute flange variables.
   </td>
 </tr>
 
 <tr>
-  <td><a href="../../../Mechanics/Translational/Interfaces/index.html#PartialRelativeSensor">PartialRelativeSensor</a>
+  <td><a href="../Interfaces/index.html#PartialRelativeSensor">PartialRelativeSensor</a>
 </td>
   <td>Measure relative flange variables.
   </td>
@@ -360,7 +360,7 @@ Class <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 
 <p>
 Only a few components of the Translational library use the der(..) operator
-and are therefore candidates to have states. Most important, component <a href="../../../Mechanics/Translational/Components/index.html#Mass">Mass</a>
+and are therefore candidates to have states. Most important, component <a href="../Components/index.html#Mass">Mass</a>
 defines the absolute position and the absolute velocity of this
 component as candidate for states. In the "Advanced" menu the built-in StateSelect
 enumeration can be set to define the priority to use these variables as states.
@@ -414,9 +414,9 @@ Currently, in Modelica there is no possibility to provide this information.
 In order to reduce this effect, it is advisable to not use absolute angles, but
 relative angles as states. A user can define relative variables as states
 explicitly with component
-<a href="../../../Mechanics/Translational/Components/index.html#RelativeStates">RelativeStates</a>.
+<a href="../Components/index.html#RelativeStates">RelativeStates</a>.
 Furthermore, all compliant components, such as
-<a href="../../../Mechanics/Translational/Components/index.html#SpringDamper">SpringDamper</a> are
+<a href="../Components/index.html#SpringDamper">SpringDamper</a> are
 defining the relative position and the relative velocity as preferred states.
 Therefore, a tool will select in most cases relative positions as states.
 </p>
@@ -468,4 +468,6 @@ email: <a href="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</a>
      email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a></li>
 </ul>
 <p>Extends from <code><a href="../../../Icons/index.html#Contact">Modelica.&#8203;Icons.&#8203;Contact</a></code> (Icon for contact information).</p>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:39:40 EDT by <i>MapleSim</i>.</p>
 </body></html>

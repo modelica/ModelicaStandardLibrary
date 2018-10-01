@@ -107,7 +107,7 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 
 <p>
 This is a model for transport of heat without storing it; see also:
-<a href="../../../Thermal/HeatTransfer/Components/index.html#ThermalResistor">ThermalResistor</a>.
+<a href="index.html#ThermalResistor">ThermalResistor</a>.
 It may be used for complicated geometries where
 the thermal conductance G (= inverse of thermal resistance)
 is determined by measurements and is assumed to be constant
@@ -168,7 +168,7 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 
 <p>
 This is a model for transport of heat without storing it, same as the
-<a href="../../../Thermal/HeatTransfer/Components/index.html#ThermalConductor">ThermalConductor</a>
+<a href="index.html#ThermalConductor">ThermalConductor</a>
 but using the thermal resistance instead of the thermal conductance as a parameter.
 This is advantageous for series connections of ThermalResistors,
 especially if it shall be allowed that a ThermalResistance is defined to be zero (i.e. no temperature difference).
@@ -190,7 +190,7 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 
 <p>
 This is a model of linear heat convection, e.g., the heat transfer between a plate and the surrounding air; see also:
-<a href="../../../Thermal/HeatTransfer/Components/index.html#ConvectiveResistor">ConvectiveResistor</a>.
+<a href="index.html#ConvectiveResistor">ConvectiveResistor</a>.
 It may be used for complicated solid geometries and fluid flow over the solid by determining the
 convective thermal conductance Gc by measurements. The basic constitutive equation for convection is
 </p>
@@ -261,7 +261,7 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 
 <p>
 This is a model of linear heat convection, e.g., the heat transfer between a plate and the surrounding air; same as the
-<a href="../../../Thermal/HeatTransfer/Components/index.html#Convection">Convection</a> component
+<a href="index.html#Convection">Convection</a> component
 but using the convective resistance instead of the convective conductance as an input.
 This is advantageous for series connections of ConvectiveResistors,
 especially if it shall be allowed that a convective resistance is defined to be zero (i.e. no temperature difference).
@@ -377,7 +377,7 @@ This component is used to provide a pure signal interface around a HeatTransfer 
 and export this model in form of an input/output block,
 especially as FMU (<a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>).
 Examples of the usage of this adaptor are provided in
-<a href="../../../Thermal/HeatTransfer/Examples/index.html#GenerationOfFMUs">HeatTransfer.Examples.GenerationOfFMUs</a>.
+<a href="../Examples/index.html#GenerationOfFMUs">HeatTransfer.Examples.GenerationOfFMUs</a>.
 This adaptor has heatflow as input and temperature and derivative of temperature as output signals.
 </p>
 <p>Extends from <code><a href="../../../Blocks/Interfaces/Adaptors/index.html#FlowToPotentialAdaptor">Modelica.&#8203;Blocks.&#8203;Interfaces.&#8203;Adaptors.&#8203;FlowToPotentialAdaptor</a></code> (Signal adaptor for a connector with flow, 1st derivative of flow, and 2nd derivative of flow as inputs and
@@ -410,7 +410,7 @@ This component is used to provide a pure signal interface around a HeatTransfer 
 and export this model in form of an input/output block,
 especially as FMU (<a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>).
 Examples of the usage of this adaptor are provided in
-<a href="../../../Thermal/HeatTransfer/Examples/index.html#GenerationOfFMUs">HeatTransfer.Examples.GenerationOfFMUs</a>.
+<a href="../Examples/index.html#GenerationOfFMUs">HeatTransfer.Examples.GenerationOfFMUs</a>.
 This adaptor has temperature and derivative of temperature as input signals and heatflow as output signal.
 </p>
 <p>
@@ -436,4 +436,6 @@ Note, the input signals must be consistent to each other
 <tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>fder2</code></td><td>Optional output for der2(flow)</td></tr>
 <tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_b">HeatPort_b</a></code></td><td><code>heatPort</code></td><td>&nbsp</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:41:47 EDT by <i>MapleSim</i>.</p>
 </body></html>

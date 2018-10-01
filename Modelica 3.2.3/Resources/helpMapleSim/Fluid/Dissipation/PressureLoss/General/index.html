@@ -29,32 +29,32 @@ Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../i
 <h5>General pressure loss for ideal gas</h5>
 <p>
 Calculation of a generic pressure loss for an <strong> ideal gas </strong> using mean density.
-<a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_idealGas">See more information</a>.
+<a href="../../Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_idealGas">See more information</a>.
 </p>
 
 <h5>Generic pressure loss depending on density and viscosity </h5>
 <p>
 Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density, nominal dynamic viscosity) at an operation point via interpolation.
 This generic function considers the pressure loss law via a pressure loss exponent and the influence of density and dynamic viscosity on pressure loss.
-<a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_nominalDensityViscosity">See more information</a>.
+<a href="../../Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_nominalDensityViscosity">See more information</a>.
 </p>
 
 <h5>Generic pressure loss depending on density</h5>
 <p>
 Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density) via interpolation from an operation point.
-<a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_nominalPressureLossLawDensity">See more information</a>.
+<a href="../../Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_nominalPressureLossLawDensity">See more information</a>.
 </p>
 
 <h5>Generic pressure loss depending on pressure loss coefficient</h5>
 <p>
 Calculation of a generic pressure loss in dependence of a pressure loss coefficient.
- <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_pressureLossCoefficient">See more information</a>.
+ <a href="../../Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_pressureLossCoefficient">See more information</a>.
 </p>
 
 <h5>Generic pressure loss depending on volume flow rate</h5>
 <p>
 Calculation of a generic pressure loss with linear or quadratic dependence on volume flow rate.
- <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_volumeFlowRate">See more information</a>.
+ <a href="../../Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_volumeFlowRate">See more information</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/VariantsPackage/index.html">Modelica.&#8203;Icons.&#8203;VariantsPackage</a></code> (Icon for package containing variants).</p>
 <h3>Package Contents</h3>
@@ -90,7 +90,7 @@ Calculation of a generic pressure loss for an <strong> ideal gas </strong> using
 </p>
 
 <p>
-Generally this  function is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_idealGas_MFLOW">dp_idealGas_MFLOW</a> is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_idealGas">See more information</a>.
+Generally this  function is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href="index.html#dp_idealGas_MFLOW">dp_idealGas_MFLOW</a> is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href="../../Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_idealGas">See more information</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -113,7 +113,7 @@ Calculation of a generic pressure loss for an <strong> ideal gas </strong> using
 </p>
 
 <p>
-Generally this  function is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_idealGas_DP">dp_idealGas_DP</a> is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.  <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_idealGas">See more information</a>.
+Generally this  function is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href="index.html#dp_idealGas_DP">dp_idealGas_DP</a> is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.  <a href="../../Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_idealGas">See more information</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -132,8 +132,8 @@ Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../in
 <p>
 
 This record is used as <strong> input record </strong> for the pressure loss function
-<a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_idealGas_DP"> dp_idealGas_DP </a> and
-<a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_idealGas_MFLOW"> dp_idealGas_MFLOW </a>.
+<a href="index.html#dp_idealGas_DP"> dp_idealGas_DP </a> and
+<a href="index.html#dp_idealGas_MFLOW"> dp_idealGas_MFLOW </a>.
 <p>Extends from <code><a href="../../../../Fluid/Dissipation/Utilities/Records/General/index.html#IdealGas_con">Modelica.&#8203;Fluid.&#8203;Dissipation.&#8203;Utilities.&#8203;Records.&#8203;General.&#8203;IdealGas_con</a></code> (Base record for generic pressure loss function | ideal gas | mean density).</p>
 <h3>Fields</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -148,8 +148,8 @@ Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../in
 <p>
 
 This record is used as <strong> input record </strong> for the pressure loss function
-<a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_idealGas_DP"> dp_idealGas_DP</a> and
-<a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_idealGas_MFLOW"> dp_idealGas_MFLOW</a>.
+<a href="index.html#dp_idealGas_DP"> dp_idealGas_DP</a> and
+<a href="index.html#dp_idealGas_MFLOW"> dp_idealGas_MFLOW</a>.
 <p>Extends from <code><a href="../../../../Fluid/Dissipation/Utilities/Records/General/index.html#IdealGas_var">Modelica.&#8203;Fluid.&#8203;Dissipation.&#8203;Utilities.&#8203;Records.&#8203;General.&#8203;IdealGas_var</a></code> (Base record for generic pressure loss function | ideal gas | mean density).</p>
 <h3>Fields</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -168,7 +168,7 @@ This generic function considers the pressure loss law via a pressure loss expone
 </p>
 
 <p>
-Generally this function is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_nominalDensityViscosity_MFLOW">dp_nominalDensityViscosity_MFLOW</a> is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_nominalDensityViscosity">See more information</a>.
+Generally this function is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href="index.html#dp_nominalDensityViscosity_MFLOW">dp_nominalDensityViscosity_MFLOW</a> is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href="../../Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_nominalDensityViscosity">See more information</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -192,7 +192,7 @@ This generic function considers the pressure loss law via a pressure loss expone
 </p>
 
 <p>
-Generally this function is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the function <a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_nominalDensityViscosity_DP">dp_genericDensityViscosity_DP</a> is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_nominalDensityViscosity">See more information</a>.
+Generally this function is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the function <a href="index.html#dp_nominalDensityViscosity_DP">dp_genericDensityViscosity_DP</a> is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href="../../Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_nominalDensityViscosity">See more information</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -211,8 +211,8 @@ Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../in
 <p>
 
 This record is used as <strong> input record </strong> for the pressure loss function
-<a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_nominalDensityViscosity_DP"> dp_nominalDensityViscosity_DP</a> and
-<a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_nominalDensityViscosity_MFLOW"> dp_nominalDensityViscosity_MFLOW</a>.
+<a href="index.html#dp_nominalDensityViscosity_DP"> dp_nominalDensityViscosity_DP</a> and
+<a href="index.html#dp_nominalDensityViscosity_MFLOW"> dp_nominalDensityViscosity_MFLOW</a>.
 <p>Extends from <code><a href="../../../../Fluid/Dissipation/Utilities/Records/General/index.html#NominalDensityViscosity">Modelica.&#8203;Fluid.&#8203;Dissipation.&#8203;Utilities.&#8203;Records.&#8203;General.&#8203;NominalDensityViscosity</a></code> (Base record for generic pressure loss function).</p>
 <h3>Fields</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -229,8 +229,8 @@ Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../in
 <p>
 
 This record is used as <strong> input record </strong> for the pressure loss function
-<a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_nominalDensityViscosity_DP"> dp_nominalDensityViscosity_DP</a> and
-<a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_nominalDensityViscosity_MFLOW"> dp_nominalDensityViscosity_MFLOW</a>.
+<a href="index.html#dp_nominalDensityViscosity_DP"> dp_nominalDensityViscosity_DP</a> and
+<a href="index.html#dp_nominalDensityViscosity_MFLOW"> dp_nominalDensityViscosity_MFLOW</a>.
 <p>Extends from <code><a href="../../../../Fluid/Dissipation/Utilities/Records/General/index.html#PressureLoss">Modelica.&#8203;Fluid.&#8203;Dissipation.&#8203;Utilities.&#8203;Records.&#8203;General.&#8203;PressureLoss</a></code> (Base record for fluid properties for pressure loss).</p>
 <h3>Fields</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -248,7 +248,7 @@ This generic function considers the pressure loss law via a nominal pressure los
 </p>
 
 <p>
-Generally this function is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_nominalPressureLossLawDensity_MFLOW">dp_nominalPressureLossLawDensity_MFLOW</a> is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_nominalPressureLossLawDensity">See more information</a>.
+Generally this function is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href="index.html#dp_nominalPressureLossLawDensity_MFLOW">dp_nominalPressureLossLawDensity_MFLOW</a> is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href="../../Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_nominalPressureLossLawDensity">See more information</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -272,7 +272,7 @@ This generic function considers the pressure loss law via a nominal pressure los
 </p>
 
 <p>
-Generally this function is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the function <a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_nominalPressureLossLawDensity_DP">dp_nominalPressurelosslawDensity_DP</a> is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_nominalPressureLossLawDensity">See more information</a>.
+Generally this function is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the function <a href="index.html#dp_nominalPressureLossLawDensity_DP">dp_nominalPressurelosslawDensity_DP</a> is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href="../../Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_nominalPressureLossLawDensity">See more information</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -291,8 +291,8 @@ Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../in
 <p>
 
 This record is used as <strong> input record </strong> for the pressure loss function
-<a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_nominalPressureLossLawDensity_DP"> dp_nominalPressureLosslawDensity_DP</a> and
-<a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_nominalPressureLossLawDensity_MFLOW"> dp_nominalPressureLosslawDensity_MFLOW</a>.
+<a href="index.html#dp_nominalPressureLossLawDensity_DP"> dp_nominalPressureLosslawDensity_DP</a> and
+<a href="index.html#dp_nominalPressureLossLawDensity_MFLOW"> dp_nominalPressureLosslawDensity_MFLOW</a>.
 <p>Extends from <code><a href="../../../../Fluid/Dissipation/Utilities/Records/General/index.html#NominalPressureLossLawDensity_con">Modelica.&#8203;Fluid.&#8203;Dissipation.&#8203;Utilities.&#8203;Records.&#8203;General.&#8203;NominalPressureLossLawDensity_con</a></code> (Base record for generic pressure loss function).</p>
 <h3>Fields</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -312,8 +312,8 @@ Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../in
 <p>
 
 This record is used as <strong> input record </strong> for the pressure loss function
-<a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_nominalPressureLossLawDensity_DP"> dp_nominalPressureLosslawDensity_DP</a> and
-<a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_nominalPressureLossLawDensity_MFLOW"> dp_nominalPressureLosslawDensity_MFLOW</a>.
+<a href="index.html#dp_nominalPressureLossLawDensity_DP"> dp_nominalPressureLosslawDensity_DP</a> and
+<a href="index.html#dp_nominalPressureLossLawDensity_MFLOW"> dp_nominalPressureLosslawDensity_MFLOW</a>.
 <p>Extends from <code><a href="../../../../Fluid/Dissipation/Utilities/Records/General/index.html#NominalPressureLossLawDensity_var">Modelica.&#8203;Fluid.&#8203;Dissipation.&#8203;Utilities.&#8203;Records.&#8203;General.&#8203;NominalPressureLossLawDensity_var</a></code> (Base record for generic pressure loss function).</p>
 <h3>Fields</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -330,7 +330,7 @@ Calculation of a generic pressure loss in dependence of a pressure loss coeffici
 </p>
 
 <p>
-Generally this function is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_pressureLossCoefficient_MFLOW">dp_pressureLossCoefficient_MFLOW</a> is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_pressureLossCoefficient">See more information</a>.
+Generally this function is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href="index.html#dp_pressureLossCoefficient_MFLOW">dp_pressureLossCoefficient_MFLOW</a> is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href="../../Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_pressureLossCoefficient">See more information</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -353,7 +353,7 @@ Calculation of a generic pressure loss in dependence of  a pressure loss coeffic
 </p>
 
 <p>
-Generally this  function is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_pressureLossCoefficient_DP">dp_pressureLossCoefficient_DP</a> is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_pressureLossCoefficient">See more information</a>.
+Generally this  function is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href="index.html#dp_pressureLossCoefficient_DP">dp_pressureLossCoefficient_DP</a> is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href="../../Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_pressureLossCoefficient">See more information</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -372,8 +372,8 @@ Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../in
 <p>
 
 This record is used as <strong> input record </strong> for the pressure loss function
-<a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_pressureLossCoefficient_DP"> dp_pressureLossCoefficient_DP</a> and
-<a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_pressureLossCoefficient_MFLOW"> dp_pressureLossCoefficient_MFLOW</a>.
+<a href="index.html#dp_pressureLossCoefficient_DP"> dp_pressureLossCoefficient_DP</a> and
+<a href="index.html#dp_pressureLossCoefficient_MFLOW"> dp_pressureLossCoefficient_MFLOW</a>.
 <p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
 <h3>Fields</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -386,8 +386,8 @@ Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../in
 <p>
 
 This record is used as <strong> input record </strong> for the pressure loss function
-<a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_pressureLossCoefficient_DP"> dp_pressureLossCoefficient_DP</a> and
-<a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_pressureLossCoefficient_MFLOW"> dp_pressureLossCoefficient_MFLOW</a>.
+<a href="index.html#dp_pressureLossCoefficient_DP"> dp_pressureLossCoefficient_DP</a> and
+<a href="index.html#dp_pressureLossCoefficient_MFLOW"> dp_pressureLossCoefficient_MFLOW</a>.
 <p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
 <h3>Fields</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -405,7 +405,7 @@ The function can be used to calculate pressure loss at known mass flow rate <str
 </p>
 
 <p>
-Generally this  function is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_volumeFlowRate_MFLOW">dp_volumeFlowRate_MFLOW</a> is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_volumeFlowRate">See more information</a>.
+Generally this  function is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href="index.html#dp_volumeFlowRate_MFLOW">dp_volumeFlowRate_MFLOW</a> is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href="../../Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_volumeFlowRate">See more information</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -429,7 +429,7 @@ The function can be used to calculate pressure loss at known mass flow rate <str
 </p>
 
 <p>
-Generally this  function is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_volumeFlowRate_DP">dp_volumeFlowRate_DP</a> is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href="../../../../Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_volumeFlowRate">See more information</a>.
+Generally this  function is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href="index.html#dp_volumeFlowRate_DP">dp_volumeFlowRate_DP</a> is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href="../../Utilities/SharedDocumentation/PressureLoss/General/index.html#dp_volumeFlowRate">See more information</a>.
 </p>
 <p>Extends from <code><a href="../../../../Icons/index.html#Function">Modelica.&#8203;Icons.&#8203;Function</a></code> (Icon for functions).</p>
 <h3>Inputs</h3>
@@ -448,8 +448,8 @@ Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../in
 <p>
 
 This record is used as <strong> input record </strong> for the pressure loss function
- <a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_volumeFlowRate_DP"> dp_volumeFlowRate_DP</a> and
- <a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_volumeFlowRate_MFLOW"> dp_volumeFlowRate_MFLOW</a>.
+ <a href="index.html#dp_volumeFlowRate_DP"> dp_volumeFlowRate_DP</a> and
+ <a href="index.html#dp_volumeFlowRate_MFLOW"> dp_volumeFlowRate_MFLOW</a>.
 <p>Extends from <code><a href="../../../../Fluid/Dissipation/Utilities/Records/General/index.html#QuadraticVFLOW">Modelica.&#8203;Fluid.&#8203;Dissipation.&#8203;Utilities.&#8203;Records.&#8203;General.&#8203;QuadraticVFLOW</a></code> (Base record for generic pressure loss function | quadratic function (dp=a*Vdot^2 + b*Vdot)).</p>
 <h3>Fields</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -463,11 +463,13 @@ Record <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../in
 <p>
 
 This record is used as <strong> input record </strong> for the pressure loss function
- <a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_volumeFlowRate_DP"> dp_volumeFlowRate_DP</a> and
- <a href="../../../../Fluid/Dissipation/PressureLoss/General/index.html#dp_volumeFlowRate_MFLOW"> dp_volumeFlowRate_MFLOW</a>.
+ <a href="index.html#dp_volumeFlowRate_DP"> dp_volumeFlowRate_DP</a> and
+ <a href="index.html#dp_volumeFlowRate_MFLOW"> dp_volumeFlowRate_MFLOW</a>.
 <p>Extends from <code><a href="../../../../Icons/index.html#Record">Modelica.&#8203;Icons.&#8203;Record</a></code> (Icon for records).</p>
 <h3>Fields</h3>
 <table border="1" cellspacing="0" cellpadding="3">
 <tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Density">Density</a></code></td><td><code>rho</code></td><td>Density of fluid</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:40:11 EDT by <i>MapleSim</i>.</p>
 </body></html>

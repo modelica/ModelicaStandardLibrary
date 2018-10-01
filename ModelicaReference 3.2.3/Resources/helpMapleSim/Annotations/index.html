@@ -89,7 +89,7 @@ When converting between units (in the user-interface for plotting and entering p
 
 <h4>Example usage</h4>
 <p>
-This annotation is used in the Modelica Standard Library for example in <a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/Modelica3.2.3/SIunits/">Modelica.SIunits</a> for the type definition TemperatureDifference.
+This annotation is used in the Modelica Standard Library for example in <a href="../../../../Modelica 3.2.3/Resources/helpMapleSim/SIunits/index.html">Modelica.SIunits</a> for the type definition TemperatureDifference.
 </p>
 <p>Extends from <code><a href="../Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
 <hr><a name="choices"><h2><embed class="icon" src="../images/icon0001.svg" width="203" height="203" />
@@ -198,10 +198,10 @@ Class <a href="../index.html">ModelicaReference</a>.&#8203;<a href="index.html">
 </pre>
 <h5>Related annotations:</h5>
 <ul>
-  <li><a href="../Annotations/index.html#revisionId">revisionId</a></li>
-  <li><a href="../Annotations/index.html#uses">uses</a></li>
-  <li><a href="../Annotations/index.html#version">version</a></li>
-  <li><a href="../Annotations/index.html#versionDate">versionDate</a></li>
+  <li><a href="index.html#revisionId">revisionId</a></li>
+  <li><a href="index.html#uses">uses</a></li>
+  <li><a href="index.html#version">version</a></li>
+  <li><a href="index.html#versionDate">versionDate</a></li>
 </ul>
 <p>Extends from <code><a href="../Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
 <hr><a name="defaultComponentName"><h2><embed class="icon" src="../images/icon0001.svg" width="203" height="203" />
@@ -480,7 +480,7 @@ Define graphical layout of the parameter menu.
                    <strong>group</strong> = "Parameters",
       <strong>showStartAttribute</strong> = false,
            <strong>colorSelector</strong> = false,
-              <strong>groupImage</strong> = "modelica://MyPackage/Resources/Images/image.png",
+              <strong>groupImage</strong> = "MyPackage/Resources/Images/image.png",
          <strong>connectorSizing</strong> = false));
 </pre>
 </blockquote>
@@ -564,13 +564,13 @@ documentation_annotation:
 The "Documentation" annotation can contain the "info" annotation giving a textual description, the "revisions" annotation giving a list of revisions and other annotations defined by a tool [The "revisions" documentation may be omitted in printed documentation]. How the tool interprets the information in "Documentation" is unspecified. Within a string of the "Documentation" annotation, the tags &lt;HTML&gt; and &lt;/HTML&gt; or &lt;html&gt; and &lt;/html&gt; define the start and end of content that is HTML encoded. Links to Modelica classes may be defined with the HTML link command using scheme "Modelica", e.g.,
 </p>
 <pre>
-    &lt;a href="modelica://MultiBody.Tutorial"&gt;MultiBody.Tutorial&lt;/a&gt;
+    &lt;a href="MultiBody.Tutorial"&gt;MultiBody.Tutorial&lt;/a&gt;
 </pre>
 <p>
 Together with scheme "Modelica" the (URI)  fragment specifiers #diagram, #info, #text, #icon may be used to reference different layers. Example:
 </p>
 <pre>
-   &lt;a href="modelica://MultiBody.Joints.Revolute#info"&gt;Revolute&lt;/a&gt;
+   &lt;a href="MultiBody.Joints.Revolute#info"&gt;Revolute&lt;/a&gt;
 </pre>
 <p>Extends from <code><a href="../Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
 <hr><a name="DocumentationClass"><h2><embed class="icon" src="../images/icon0001.svg" width="203" height="203" />
@@ -766,7 +766,7 @@ If "Inline = false", the model developer proposes to not inline the function.
 <h4>Example usage</h4>
 
 <p>
-Inline = true is for example used in  <a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/Modelica3.2.3/Mechanics/MultiBody/Frames/">Modelica.Mechanics.MultiBody.Frames</a> and in functions of <a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/Modelica3.2.3/Media/">Modelica.Media</a> to have no overhead for function calls such as resolving a vector in a different coordinate system and at the same time the function can be analytically differentiated, e.g., for index reduction needed for mechanical systems.
+Inline = true is for example used in  <a href="../../../../Modelica 3.2.3/Resources/helpMapleSim/Mechanics/MultiBody/Frames/index.html">Modelica.Mechanics.MultiBody.Frames</a> and in functions of <a href="../../../../Modelica 3.2.3/Resources/helpMapleSim/Media/index.html">Modelica.Media</a> to have no overhead for function calls such as resolving a vector in a different coordinate system and at the same time the function can be analytically differentiated, e.g., for index reduction needed for mechanical systems.
 </p>
 <p>Extends from <code><a href="../Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
 <hr><a name="InlineAfterIndexReduction"><h2><embed class="icon" src="../images/icon0001.svg" width="203" height="203" />
@@ -791,12 +791,12 @@ Has only an effect within a function declaration.
 If true, the model developer proposes to inline the function after the function is differentiated for index reduction, and before any other symbolic transformations are performed.
 </p>
 <p>
-<em>This annotation cannot be combined with annotations <a href="../Annotations/index.html#Inline">Inline</a> and <a href="../Annotations/index.html#LateInline">LateInline</a>!</em>
+<em>This annotation cannot be combined with annotations <a href="index.html#Inline">Inline</a> and <a href="index.html#LateInline">LateInline</a>!</em>
 </p>
 
 <h4>Example usage</h4>
 <p>
-<code>InlineAfterIndexReduction = true</code> is for example used in <a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/Modelica3.2.3/Mechanics/Rotational/Sources/Move/">Modelica.Mechanics.Rotational.Sources.Move</a> to define that an input signal is the derivative of another input signal.
+<code>InlineAfterIndexReduction = true</code> is for example used in <a href="../../../../Modelica 3.2.3/Resources/helpMapleSim/Mechanics/Rotational/Sources/index.html#Move">Modelica.Mechanics.Rotational.Sources.Move</a> to define that an input signal is the derivative of another input signal.
 </p>
 <p>Extends from <code><a href="../Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
 <hr><a name="inverse"><h2><embed class="icon" src="../images/icon0001.svg" width="203" height="203" />
@@ -873,7 +873,7 @@ If "LateInline = false", the model developer proposes to not inline the function
 
 <h4>Example usage</h4>
 <p>
-This annotation is for example used in  <a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/Modelica3.2.3/Media/Water/IF97_Utilities/T_props_ph/">Modelica.Media.Water.IF97_Utilities.T_props_ph</a> to provide in combination with common subexpression elimination the automatic caching of function calls. Furthermore, it is used in order that a tool is able to propagate specific enthalpy over connectors in the <a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/Modelica3.2.3/Fluid/">Modelica.Fluid</a> library.
+This annotation is for example used in  <a href="../../../../Modelica 3.2.3/Resources/helpMapleSim/Media/Water/IF97_Utilities/index.html#T_props_ph">Modelica.Media.Water.IF97_Utilities.T_props_ph</a> to provide in combination with common subexpression elimination the automatic caching of function calls. Furthermore, it is used in order that a tool is able to propagate specific enthalpy over connectors in the <a href="../../../../Modelica 3.2.3/Resources/helpMapleSim/Fluid/index.html">Modelica.Fluid</a> library.
 </p>
 <p>Extends from <code><a href="../Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
 <hr><a name="missingInnerMessage"><h2><embed class="icon" src="../images/icon0001.svg" width="203" height="203" />
@@ -978,9 +978,9 @@ Class <a href="../index.html">ModelicaReference</a>.&#8203;<a href="index.html">
   <strong>end</strong> Modelica;</pre>
 <h5>Related annotations:</h5>
 <ul>
-  <li><a href="../Annotations/index.html#version">version</a></li>
-  <li><a href="../Annotations/index.html#versionDate">versionDate</a></li>
-  <li><a href="../Annotations/index.html#dateModified">dateModified</a></li>
+  <li><a href="index.html#version">version</a></li>
+  <li><a href="index.html#versionDate">versionDate</a></li>
+  <li><a href="index.html#dateModified">dateModified</a></li>
 </ul>
 <p>Extends from <code><a href="../Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
 <hr><a name="smoothOrder"><h2><embed class="icon" src="../images/icon0001.svg" width="203" height="203" />
@@ -1017,7 +1017,7 @@ The optional argument <code>normallyConstant</code> of <code>smoothOrder</code> 
 
 <h4>Examples</h4>
 <p>
-This annotation is used by many functions of the <a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/Modelica3.2.3/Fluid/">Modelica.Fluid</a> library, such as <a href="/home/svorkoetter/sandboxes/main/toolbox_source/MapleSim/modelica/Modelica3.2.3/Fluid/Dissipation/PressureLoss/StraightPipe/dp_laminar_DP/">Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP</a>, since geometric arguments to these functions are usually constant.
+This annotation is used by many functions of the <a href="../../../../Modelica 3.2.3/Resources/helpMapleSim/Fluid/index.html">Modelica.Fluid</a> library, such as <a href="../../../../Modelica 3.2.3/Resources/helpMapleSim/Fluid/Dissipation/PressureLoss/StraightPipe/index.html#dp_laminar_DP">Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP</a>, since geometric arguments to these functions are usually constant.
 </p>
 <pre>
 <strong>function</strong> SpecialPolynomial
@@ -1108,10 +1108,10 @@ Defines that classes within this top-level class uses a specific version of anot
 
 <h5>Related annotations:</h5>
 <ul>
-  <li><a href="../Annotations/index.html#dateModified">dateModified</a></li>
-  <li><a href="../Annotations/index.html#revisionId">revisionId</a></li>
-  <li><a href="../Annotations/index.html#version">version</a></li>
-  <li><a href="../Annotations/index.html#versionDate">versionDate</a></li>
+  <li><a href="index.html#dateModified">dateModified</a></li>
+  <li><a href="index.html#revisionId">revisionId</a></li>
+  <li><a href="index.html#version">version</a></li>
+  <li><a href="index.html#versionDate">versionDate</a></li>
 </ul>
 <p>Extends from <code><a href="../Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
 <hr><a name="version"><h2><embed class="icon" src="../images/icon0001.svg" width="203" height="203" />
@@ -1217,10 +1217,10 @@ This allows a tool to access multiple versions of the same package.
 </p>
 <h5>Related annotations:</h5>
 <ul>
-  <li><a href="../Annotations/index.html#dateModified">dateModified</a></li>
-  <li><a href="../Annotations/index.html#revisionId">revisionId</a></li>
-  <li><a href="../Annotations/index.html#uses">uses</a></li>
-  <li><a href="../Annotations/index.html#version">version</a></li>
+  <li><a href="index.html#dateModified">dateModified</a></li>
+  <li><a href="index.html#revisionId">revisionId</a></li>
+  <li><a href="index.html#uses">uses</a></li>
+  <li><a href="index.html#version">version</a></li>
 </ul>
 <p>Extends from <code><a href="../Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
 <hr><a name="versionBuild"><h2><embed class="icon" src="../images/icon0001.svg" width="203" height="203" />
@@ -1259,11 +1259,11 @@ A &ldquo;<code>versionBuild</code>&rdquo; number A that is higher as &ldquo;<cod
 </pre>
 <h5>Related annotations:</h5>
 <ul>
-  <li><a href="../Annotations/index.html#dateModified">dateModified</a></li>
-  <li><a href="../Annotations/index.html#revisionId">revisionId</a></li>
-  <li><a href="../Annotations/index.html#uses">uses</a></li>
-  <li><a href="../Annotations/index.html#version">version</a></li>
-  <li><a href="../Annotations/index.html#versionDate">versionDate</a></li>
+  <li><a href="index.html#dateModified">dateModified</a></li>
+  <li><a href="index.html#revisionId">revisionId</a></li>
+  <li><a href="index.html#uses">uses</a></li>
+  <li><a href="index.html#version">version</a></li>
+  <li><a href="index.html#versionDate">versionDate</a></li>
 </ul>
 <p>Extends from <code><a href="../Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
 <hr><a name="versionDate"><h2><embed class="icon" src="../images/icon0001.svg" width="203" height="203" />
@@ -1289,10 +1289,12 @@ Class <a href="../index.html">ModelicaReference</a>.&#8203;<a href="index.html">
   <strong>end</strong> Modelica;</pre>
 <h5>Related annotations:</h5>
 <ul>
-  <li><a href="../Annotations/index.html#uses">uses</a></li>
-  <li><a href="../Annotations/index.html#version">version</a></li>
-  <li><a href="../Annotations/index.html#dateModified">dateModified</a></li>
-  <li><a href="../Annotations/index.html#revisionId">revisionId</a></li>
+  <li><a href="index.html#uses">uses</a></li>
+  <li><a href="index.html#version">version</a></li>
+  <li><a href="index.html#dateModified">dateModified</a></li>
+  <li><a href="index.html#revisionId">revisionId</a></li>
 </ul>
 <p>Extends from <code><a href="../Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:41:51 EDT by <i>MapleSim</i>.</p>
 </body></html>

@@ -36,11 +36,11 @@ occurring non-linear algebraic equation systems are solved
 analytically. There are the following sub-chapters:
 </p>
 <ol>
-<li><a href="../../../../../Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/index.html#Introduction">Introduction</a>
+<li><a href="index.html#Introduction">Introduction</a>
 </li>
-<li><a href="../../../../../Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/index.html#PlanarLoops">Planar loops</a>.
+<li><a href="index.html#PlanarLoops">Planar loops</a>.
 </li>
-<li><a href="../../../../../Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/index.html#AnalyticLoopHandling">Analytic loop handling</a>.
+<li><a href="index.html#AnalyticLoopHandling">Analytic loop handling</a>.
 </li>
 </ol>
 <p>Extends from <code><a href="../../../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
@@ -59,7 +59,7 @@ Class <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../
 In principal, no special action is needed, if
 loop structures occur (contrary to the ModelicaAdditions.MultiBody library).
 An example is presented in the figure below. It is available as
-<a href="../../../../../Mechanics/MultiBody/Examples/Loops/index.html#Fourbar1">
+<a href="../../../Examples/Loops/index.html#Fourbar1">
 MultiBody.Examples.Loops.Fourbar1</a>
 </p>
 
@@ -114,7 +114,7 @@ In many mechanisms it is possible to solve the non-linear algebraic
 equations analytically. For a certain class of systems this can
 be performed also with the MultiBody library. This technique
 is described in section
-"<a href="../../../../../Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/index.html#AnalyticLoopHandling">Analytic loop handling</a>".
+"<a href="index.html#AnalyticLoopHandling">Analytic loop handling</a>".
 </p>
 <p>Extends from <code><a href="../../../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
 <hr><a name="PlanarLoops"><h2><embed class="icon" src="../../../../../images/icon0002.svg" width="203" height="203" />
@@ -125,7 +125,7 @@ Class <a href="../../../../../index.html">Modelica</a>.&#8203;<a href="../../../
 <p>
 In the figure below, the model of a V6 engine is
 shown that has a simple combustion model. It is available as
-<a href="../../../../../Mechanics/MultiBody/Examples/Loops/index.html#EngineV6">
+<a href="../../../Examples/Loops/index.html#EngineV6">
 MultiBody.Examples.Loops.EngineV6</a>.
 </p>
 
@@ -175,7 +175,7 @@ on pure structural information cannot distinguish these two cases.
 The usual remedy is to remove superfluous constraints,
 e.g., along the axis of rotation of <strong>one</strong> revolute joint. Since this is
 not easy for an inexperienced modeler, the special joint:
-<a href="../../../../../Mechanics/MultiBody/Joints/index.html#RevolutePlanarLoopConstraint">
+<a href="../../../Joints/index.html#RevolutePlanarLoopConstraint">
 RevolutePlanarLoopConstraint</a> is provided that removes these constraints.
 Exactly one revolute joint in a every planar loop must be replaced by this
 joint type. In the engine example, this special joint is used for
@@ -207,7 +207,7 @@ Both cases are discussed in the error message.
 Note, that the non-linear algebraic equations occurring
 in planar loops can be solved analytically in most cases and therefore it is
 highly recommended to use the techniques discussed in section
-"<a href="../../../../../Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/index.html#AnalyticLoopHandling">Analytic loop handling</a>"
+"<a href="index.html#AnalyticLoopHandling">Analytic loop handling</a>"
 for such systems.
 </p>
 <p>Extends from <code><a href="../../../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
@@ -236,7 +236,7 @@ In a series of papers and dissertations
 Prof. Hiller and his group in Duisburg, Germany,
 have developed systematic methods to handle mechanical
 loops analytically, see also
-<a href="../../../../../Mechanics/MultiBody/UsersGuide/index.html#Literature">MultiBody.UsersGuide.Literature</a>.
+<a href="../../index.html#Literature">MultiBody.UsersGuide.Literature</a>.
 The "characteristic pair of joints" method
 basically cuts a loop at two joints and uses geometric
 invariants to reduce the number of algebraic
@@ -254,7 +254,7 @@ method is usually manually applied which requires know-how and experience.
 In the MultiBody library, the "characteristic pair of
 joints" method is supported in a restricted form such that it can be applied
 also by non-specialists. The idea is to provide aggregations of joints in package
-<a href="../../../../../Mechanics/MultiBody/Joints/Assemblies/index.html">
+<a href="../../../Joints/Assemblies/index.html">
 MultiBody.Joints.Assemblies</a>
 as one object that either have <strong>6</strong> degrees of freedom or
 <strong>3</strong> degrees of freedom (for usage in planar loops).
@@ -274,7 +274,7 @@ joints and one prismatic joint.
 In the figure below, the five revolute joints
 and the prismatic joint are collected together in an assembly object
 called "jointSSP" from
-<a href="../../../../../Mechanics/MultiBody/Joints/Assemblies/index.html#JointSSP">
+<a href="../../../Joints/Assemblies/index.html#JointSSP">
 MultiBody.Joints.Assemblies.JointSSP</a>.
 </p>
 
@@ -453,7 +453,7 @@ revolute and one prismatic joint, as can be seen in next figure.
 Since 6
 cylinders are connected together, 6 coupled loops with 6 JointRRP objects are
 present. This model is available as
-<a href="../../../../../Mechanics/MultiBody/Examples/Loops/index.html#EngineV6_analytic">
+<a href="../../../Examples/Loops/index.html#EngineV6_analytic">
 MultiBody.Examples.Loops.EngineV6_analytic</a>.
 </p>
 <p>
@@ -482,4 +482,6 @@ loop. Additionally, a linear system of equations of order 43 is present.
 The simulation time is about 5 times faster with the analytic loop handling.
 </p>
 <p>Extends from <code><a href="../../../../../Icons/index.html#Information">Modelica.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:38:06 EDT by <i>MapleSim</i>.</p>
 </body></html>

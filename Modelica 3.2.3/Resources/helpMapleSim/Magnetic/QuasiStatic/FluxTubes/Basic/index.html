@@ -160,7 +160,7 @@ Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 <p>
 
 <p>
-Differently from the flux tube elements of package <a href="../../../../Magnetic/QuasiStatic/FluxTubes/Shapes/Leakage/index.html">Shapes.Leakage</a>
+Differently from the flux tube elements of package <a href="../Shapes/Leakage/index.html">Shapes.Leakage</a>
 that are calculated from their geometry, this leakage reluctance is calculated with reference to the total reluctance of a useful flux path. Parameter <code>c_usefulFlux</code> is the ratio of the useful flux over the total flux.
 </p>
 <p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PartialLeakage">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialLeakage</a></code> (Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1).</p>
@@ -183,7 +183,7 @@ Eddy currents are induced in a conductive magnetic flux tube when the flux chang
 </p>
 
 <p>
-Partitioning of a solid conductive cylinder or prism into several hollow cylinders or separate nested prisms and modelling of each of these flux tubes connected in parallel with a series connection of a reluctance element and an eddy current component can model the delayed buildup of the magnetic field in the complete flux tube from the outer to the inner sections. Please refer to <a href="../../../../Magnetic/FluxTubes/UsersGuide/index.html#Literature">[Ka08]</a> for an illustration.
+Partitioning of a solid conductive cylinder or prism into several hollow cylinders or separate nested prisms and modelling of each of these flux tubes connected in parallel with a series connection of a reluctance element and an eddy current component can model the delayed buildup of the magnetic field in the complete flux tube from the outer to the inner sections. Please refer to <a href="../../../FluxTubes/UsersGuide/index.html#Literature">[Ka08]</a> for an illustration.
 </p>
 <p>Extends from <code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#PartialTwoPorts">Modelica.&#8203;Magnetic.&#8203;QuasiStatic.&#8203;FluxTubes.&#8203;Interfaces.&#8203;PartialTwoPorts</a></code> (Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n) and <code><a href="../../../../Thermal/HeatTransfer/Interfaces/index.html#PartialElementaryConditionalHeatPort">Modelica.&#8203;Thermal.&#8203;HeatTransfer.&#8203;Interfaces.&#8203;PartialElementaryConditionalHeatPort</a></code> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).</p>
 <h3>Parameters</h3>
@@ -246,4 +246,6 @@ This is a simple crossing of two branches. The ports <code>port_p1</code> and <c
 <tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n1</code></td><td>Negative port_n1 connected with port_n2</td></tr>
 <tr><td><code><a href="../../../../Magnetic/QuasiStatic/FluxTubes/Interfaces/index.html#NegativeMagneticPort">NegativeMagneticPort</a></code></td><td><code>port_n2</code></td><td>Negative port_n2 connected with port_n1</td></tr>
 </table>
+<hr style="border-color:#999" />
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:37:52 EDT by <i>MapleSim</i>.</p>
 </body></html>
