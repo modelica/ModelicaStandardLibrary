@@ -5229,7 +5229,7 @@ Further reading:
 <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
 </p>
 </html>"),Diagram(coordinateSystem(extent={{-200,-100},{100,100}})),
-          Icon(coordinateSystem(extent={{-180,-100},{100,100}})));
+          Icon(coordinateSystem(extent={{-100,-100},{100,100}})));
       end CurrentControlledDCPM;
 
       model SpeedControlledDCPM
@@ -5295,7 +5295,7 @@ Further reading:
 <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
 </p>
 </html>"),Diagram(coordinateSystem(extent={{-200,-100},{100,100}})),
-          Icon(coordinateSystem(extent={{-180,-100},{100,100}})));
+          Icon(coordinateSystem(extent={{-100,-100},{100,100}})));
       end SpeedControlledDCPM;
 
       model PositionControlledDCPM
@@ -5370,7 +5370,7 @@ Further reading:
 <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
 </p>
 </html>"),Diagram(coordinateSystem(extent={{-200,-100},{100,100}})),
-          Icon(coordinateSystem(extent={{-180,-100},{100,100}})));
+          Icon(coordinateSystem(extent={{-100,-100},{100,100}})));
       end PositionControlledDCPM;
 
       package Utilities "Utilities for controlled drives"
@@ -5473,7 +5473,7 @@ Further reading:
 <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Machines/DriveControl.pdf\">Tutorial at the Modelica Conference 2017</a>
 </p>
 </html>"),  Diagram(coordinateSystem(extent={{-200,-100},{100,100}})),
-            Icon(coordinateSystem(extent={{-200,-100},{100,100}})));
+            Icon(coordinateSystem(extent={{-100,-100},{100,100}})));
         end PartialControlledDCPM;
 
         record DriveDataDCPM
