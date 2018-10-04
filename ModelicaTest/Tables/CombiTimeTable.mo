@@ -1085,4 +1085,20 @@ double mydummyfunc(double* dummy_in) {
         fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_utf8.txt")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test84;
+
+  model Test85 "Single time event at t_min=t_max > startTime = 0 (Ticket #2724)"
+    extends Modelica.Icons.Example;
+    extends Test0_noDer(t_new(
+      table=[1,10;1,11],
+      smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments));
+    annotation (experiment(StartTime=0, StopTime=3));
+  end Test85;
+
+  model Test86 "Two time events (Ticket #2724)"
+    extends Modelica.Icons.Example;
+    extends Test0_noDer(t_new(
+      table=[1,10;1,11;2,12],
+      smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments));
+    annotation (experiment(StartTime=0, StopTime=3));
+  end Test86;
 end CombiTimeTable;
