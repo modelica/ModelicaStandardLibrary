@@ -38,6 +38,10 @@
       Modelica.Blocks.Tables.CombiTable2D
 
    Release Notes:
+      Oct. 04, 2018: by Thomas Beutlich, ESI ITI GmbH
+                     Fixed event detection of CombiTimeTable (ticket #2724)
+                     Fixed left extrapolation of CombiTimeTable (ticket #2724)
+
       Jan. 03, 2018: by Thomas Beutlich, ESI ITI GmbH
                      Improved reentrancy of CombiTimeTable (ticket #2411)
 
@@ -1015,12 +1019,12 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                                 case CONSTANT_SEGMENTS: {
                                     const double t0 = TABLE_COL0(last);
                                     const double t1 = TABLE_COL0(last + 1);
+                                    const double y0 = TABLE(last, col);
                                     const double y1 = TABLE(last + 1, col);
                                     if (isNearlyEqual(t0, t1)) {
-                                        y = y1;
+                                        y = (extrapolate == RIGHT) ? y1 : y0;
                                     }
                                     else {
-                                        const double y0 = TABLE(last, col);
                                         LINEAR(t, t0, t1, y0, y1);
                                     }
                                     break;
@@ -1591,7 +1595,7 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                     else {
                         nextTimeEvent = DBL_MAX;
                     }
-                } while (nextTimeEvent < t);
+                } while (nextTimeEvent <= t);
             }
         }
 
