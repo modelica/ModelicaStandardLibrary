@@ -622,10 +622,7 @@ Example:
               100}}), graphics={Text(
             extent={{-90,-60},{90,60}},
             lineColor={160,160,164},
-            textString="*K"), Text(
-            extent={{-150,150},{150,110}},
-            textString="%name",
-            lineColor={0,0,255})}),
+            textString="*K")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
               extent={{-100,-100},{100,100}},
@@ -835,10 +832,7 @@ Example:
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(
-            points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}}), Text(
-            extent={{-150,150},{150,110}},
-            textString="%name",
-            lineColor={0,0,255})}),
+            points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
               extent={{-100,-100},{100,100}},
@@ -943,10 +937,6 @@ Example:
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Text(
-            lineColor={0,0,255},
-            extent={{-150,110},{150,150}},
-            textString="%name"),
           Line(points={{-100,60},{-74,24},{-44,24}}, color={0,0,127}),
           Line(points={{-100,-60},{-74,-28},{-42,-28}}, color={0,0,127}),
           Ellipse(lineColor={0,0,127}, extent={{-50,-50},{50,50}}),
@@ -1104,10 +1094,6 @@ by <em>dividing</em> the two inputs <strong>u1</strong> and <strong>u2</strong>:
           Ellipse(fillPattern=FillPattern.Solid, extent={{-5,20},{5,30}}),
           Ellipse(fillPattern=FillPattern.Solid, extent={{-5,-30},{5,-20}}),
           Ellipse(lineColor={0,0,127}, extent={{-50,-50},{50,50}}),
-          Text(
-            lineColor={0,0,255},
-            extent={{-150,110},{150,150}},
-            textString="%name"),
           Line(points={{-100,60},{-66,60},{-40,30}}, color={0,0,127}),
           Line(points={{-100,-60},{0,-60},{0,-50}}, color={0,0,127}),
           Text(
@@ -1840,10 +1826,6 @@ This blocks computes the output <strong>y</strong> as the
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Text(
-            extent={{-150,150},{150,110}},
-            textString="%name",
-            lineColor={0,0,255}),
           Polygon(
             points={{0,90},{-8,68},{8,68},{0,90}},
             lineColor={192,192,192},
