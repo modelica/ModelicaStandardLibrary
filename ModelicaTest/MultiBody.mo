@@ -6174,7 +6174,8 @@ and plot gasForce.press over gasForce.s_rel.
         height=0.1,
         angles_fixed=true,
         w_0_fixed=true,
-        w_0_start={1,0,0})
+        w_0_start={1,0,0},
+        r_0(start={1,0,0}))
         annotation (Placement(transformation(extent={{40,60},{60,80}})));
       Modelica.Mechanics.MultiBody.Joints.Spherical spherical1
         annotation (Placement(transformation(extent={{38,12},{58,32}})));
