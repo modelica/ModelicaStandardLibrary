@@ -582,7 +582,11 @@ package Basic "Basic electrical components"
           Line(
             points={{30,40},{31,46},{38,54},{52,54},{59,46},{60,40}},
             color={0,0,255},
-            smooth=Smooth.Bezier)}),Documentation(info="<html>
+            smooth=Smooth.Bezier),
+          Line(
+            points={{0,4},{0,-22}},
+            color={0,0,255},
+            pattern=LinePattern.Dot)}),Documentation(info="<html>
 <p>The model <em>M_Transformer</em> is a model of a transformer with the possibility to choose the number of inductors. Inside the model, an inductance matrix is built based on the inductance of the inductors and the coupling inductances between the inductors given as a parameter vector from the user of the model.</p>
 
 <p>An example shows that approach:<br>
