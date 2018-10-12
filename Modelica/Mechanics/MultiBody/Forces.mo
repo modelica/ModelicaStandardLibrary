@@ -71,7 +71,7 @@ package Forces "Components that exert forces and/or torques between frames"
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Text(
-            extent={{-100,-46},{100,-76}},
+            extent={{-100,-40},{100,-70}},
             lineColor={192,192,192},
             textString="resolve"),
           Polygon(
@@ -79,7 +79,7 @@ package Forces "Components that exert forces and/or torques between frames"
                 {-100,10}},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-150,85},{150,45}},
+            extent={{-150,80},{150,40}},
             textString="%name",
             lineColor={0,0,255}),
           Line(
@@ -1315,7 +1315,7 @@ clarity this is not shown in the animation):
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-150,-55},{150,-95}},
+            extent={{-150,-50},{150,-90}},
             textString="%name",
             lineColor={0,0,255}),
           Rectangle(
@@ -1359,7 +1359,7 @@ clarity this is not shown in the animation):
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-50,93},{32,78}},
+            extent={{-40,98},{40,82}},
             textString="length",
             lineColor={0,0,255}),
           Ellipse(
@@ -2763,7 +2763,7 @@ values from the outside in order that the model remains balanced
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
-              extent={{-89,-46},{91,-76}},
+              extent={{-100,-40},{100,-70}},
               lineColor={192,192,192},
               textString="resolve"),
             Polygon(
@@ -2771,7 +2771,7 @@ values from the outside in order that the model remains balanced
                   -10},{-100,10}},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-149,103},{136,42}},
+              extent={{-150,80},{150,40}},
               textString="%name",
               lineColor={0,0,255}),
             Line(
@@ -2871,7 +2871,7 @@ values from the outside in order that the model remains balanced
               lineColor={192,192,192},
               textString="resolve"),
             Text(
-              extent={{-145,-28},{140,-89}},
+              extent={{-150,-40},{150,-80}},
               textString="%name",
               lineColor={0,0,255}),
             Line(
@@ -2931,7 +2931,7 @@ values from the outside in order that the model remains balanced
       input GravityTypes gravityType "Type of gravity field" annotation(Dialog);
       input Modelica.SIunits.Acceleration g[3]
         "Constant gravity acceleration, resolved in world frame, if gravityType=UniformGravity"
-                                                                                                annotation(Dialog);
+        annotation(Dialog);
       input Real mue(unit="m3/s2")
         "Field constant of point gravity field, if gravityType=PointGravity" annotation(Dialog);
     algorithm
