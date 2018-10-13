@@ -524,10 +524,7 @@ Example:
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(
-                  points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}}),Text(
-                  extent={{-150,150},{150,110}},
-                  textString="%name",
-                  lineColor={0,0,255})}),
+                  points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Rectangle(
                   extent={{-100,-100},{100,100}},
@@ -645,10 +642,7 @@ result in the following equation:
                   extent={{-98,-52},{7,-92}},
                   textString="%k2"),Text(
                   extent={{-100,90},{5,50}},
-                  textString="%k1"),Text(
-                  extent={{-150,150},{150,110}},
-                  textString="%name",
-                  lineColor={0,0,255}),Line(points={{-100,60},{-40,60},{-30,40}},
+                  textString="%k1"),   Line(points={{-100,60},{-40,60},{-30,40}},
               color={0,0,255}),Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,
               0,255}),Line(points={{-100,-60},{-40,-60},{-30,-40}}, color={0,0,255}),
               Line(points={{-15,-25.99},{15,25.99}}),
@@ -864,10 +858,8 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
                   fillPattern=FillPattern.Solid),Ellipse(
                   extent={{-5,-20},{5,-30}},
                   fillPattern=FillPattern.Solid),Ellipse(extent={{-50,50},{50,-50}},
-              lineColor={0,0,127}),Text(
-                  extent={{-150,150},{150,110}},
-                  textString="%name",
-                  lineColor={0,0,255}),Line(points={{-100,60},{-66,60},{-40,30}},
+                lineColor={0,0,127}),
+              Line(points={{-100,60},{-66,60},{-40,30}},
               color={0,0,127}),Line(points={{-100,-60},{0,-60},{0,-50}}, color=
               {0,0,127}),
             Text(
@@ -1989,10 +1981,7 @@ An error occurs if the elements of the input <code>u</code> is zero.
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid,
               textString="dB",
-              lineColor={128,128,128}),     Text(
-            extent={{-150,150},{150,110}},
-            textString="%name",
-            lineColor={0,0,255}),
+              lineColor={128,128,128}),
             Text(
               extent={{40,-90},{80,-70}},
               lineThickness=0.5,

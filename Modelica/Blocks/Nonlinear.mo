@@ -81,10 +81,6 @@ a lot by removing one strong nonlinearity from the initialization problem.
           Text(
             extent={{-150,-150},{150,-110}},
             textString="uMax=%uMax"),
-          Text(
-            extent={{-150,150},{150,110}},
-            textString="%name",
-            lineColor={0,0,255}),
           Line(
             visible=strict,
             points={{50,70},{80,70}},
@@ -199,10 +195,6 @@ a lot by removing one strong nonlinearity from the initialization problem.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-80,-70},{-50,-70},{50,70},{80,70}}),
-          Text(
-            extent={{-150,150},{150,110}},
-            textString="%name",
-            lineColor={0,0,255}),
           Line(points={{-100,80},{66,80},{66,70}}, color={0,0,127}),
           Line(points={{-100,-80},{-64,-80},{-64,-70}}, color={0,0,127}),
           Polygon(points={{-64,-70},{-66,-74},{-62,-74},{-64,-70}}, lineColor={
@@ -336,7 +328,7 @@ with derivative time constant <code>Td</code>. Smaller time constant <code>Td</c
         parameter Real uMax(start=1) "Upper limits of dead zones";
         parameter Real uMin=-uMax "Lower limits of dead zones";
         parameter Boolean deadZoneAtInit = true
-      "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
+          "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
           annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true));
 
         extends Interfaces.SISO;
@@ -376,11 +368,7 @@ function of the input with a slope of 1.
           Text(
             extent={{-150,-150},{150,-110}},
             lineColor={160,160,164},
-            textString="uMax=%uMax"),
-          Text(
-            extent={{-150,150},{150,110}},
-            textString="%name",
-            lineColor={0,0,255})}),
+            textString="uMax=%uMax")}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
