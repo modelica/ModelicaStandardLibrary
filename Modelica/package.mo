@@ -2355,6 +2355,19 @@ have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and wi
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Interfaces.Adaptors</strong></td></tr>
 <tr><td>SendReal<br>SendBoolean<br>SendInteger<br>ReceiveReal<br>ReceiveBoolean<br>ReceiveInteger</td>
     <td>Use expandable connectors instead.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.StateGraph.Temporary</strong></td></tr>
+<tr><td>SetRealParameter</td>
+    <td>Use parameter Real instead.</td></tr>
+<tr><td>anyTrue</td>
+    <td>Use Modelica.Math.BooleanVectors.anyTrue instead.</td></tr>
+<tr><td>allTrue</td>
+    <td>Use Modelica.Math.BooleanVectors.allTrue instead instead.</td></tr>
+<tr><td>RadioButton</td>
+    <td>Use future model from Modelica.Blocks.Interaction instead.</td></tr>
+<tr><td>NumericValue</td>
+    <td>Use Modelica.Blocks.Interaction.Show.RealValue instead.</td></tr>
+<tr><td>IndicatorLamp</td>
+    <td>Use Modelica.Blocks.Interaction.Show.BooleanValue instead.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Digital.Converters</strong></td></tr>
 <tr><td>LogicToXO1<br>LogicToXO1Z</td>
     <td>Use LogicToX01 or LogicToX01Z instead.</td></tr>
