@@ -2960,7 +2960,7 @@ annotation (
 Note, there is a much improved version of this library called
 \"Modelica_StateGraph2\". If this library is not yet distributed with your
 Modelica tool, you can download it from
-<a href=\"https://www.modelica.org/libraries/Modelica_StateGraph2\">https://www.modelica.org/libraries/Modelica_StateGraph2</a>.
+<a href=\"https://github.com/modelica/Modelica_StateGraph2\">https://github.com/modelica/Modelica_StateGraph2</a>.
 In the
 <a href=\"modelica://Modelica.StateGraph.UsersGuide.ComparisonWithStateGraph2\">Users Guide</a>
 a detailed comparison is given. It is highly recommended to use Modelica_StateGraph2 instead

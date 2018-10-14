@@ -4422,17 +4422,17 @@ Note:
 </p>
 <ul>
 <li> Libraries
-     <a href=\"https://www.modelica.org/libraries/Modelica_FundamentalWave\">Modelica_FundamentalWave</a>
+     <a href=\"https://github.com/modelica-deprecated/Modelica_FundamentalWave\">Modelica_FundamentalWave</a>
      and
-     <a href=\"https://www.modelica.org/libraries/Modelica_QuasiStationary\">Modelica_QuasiStationary</a>
+     <a href=\"https://github.com/modelica-deprecated/Modelica_Quasistationary\">Modelica_QuasiStationary</a>
      are included in this version in an improved form.</li>
 <li> From library
-     <a href=\"https://www.modelica.org/libraries/Modelica_LinearSystems2\">Modelica_LinearSystems2</a>,
+     <a href=\"https://github.com/modelica/Modelica_LinearSystems2\">Modelica_LinearSystems2</a>,
      the sublibraries
      Math.Complex, Math.Vectors and Math.Matrices are included in this version
      in an improved form.</li>
 <li> From library
-     <a href=\"https://www.modelica.org/libraries/Modelica_StateGraph2\">Modelica_StateGraph2</a>,
+     <a href=\"https://github.com/modelica/Modelica_StateGraph2\">Modelica_StateGraph2</a>,
      the sublibrary Blocks is included in this version in an improved form.</li>
 </ul>
 </html>"));
