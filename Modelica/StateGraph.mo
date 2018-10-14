@@ -2788,6 +2788,7 @@ package Temporary
     "Components that will be provided by other libraries in the future"
 type SetRealParameter = Real "Define Real parameter (GUI not yet satisfactory)"
   annotation (
+  obsolete = "Obsolete type due to experimental design", 
   Dialog,
   defaultComponentName="name",
   defaultComponentPrefixes="parameter",
@@ -2836,11 +2837,13 @@ value, still requires to go in to the text layer.
 </html>"));
 
   extends Modelica.Icons.Package;
+  extends Modelica.Icons.ObsoleteModel;
 
   function anyTrue
       "Returns true, if at least on element of the Boolean input vector is true"
 
     extends Modelica.Icons.Function;
+    extends Modelica.Icons.ObsoleteModel;
     input Boolean b[:];
     output Boolean result;
   algorithm
@@ -2848,11 +2851,15 @@ value, still requires to go in to the text layer.
     for i in 1:size(b,1) loop
        result := result or b[i];
     end for;
+  annotation(
+    obsolete = "Obsolete function - use Modelica.Math.BooleanVectors.anyTrue instead",
+    Documentation(info="<html></html>"));
   end anyTrue;
 
   function allTrue
       "Returns true, if all elements of the Boolean input vector are true"
     extends Modelica.Icons.Function;
+    extends Modelica.Icons.ObsoleteModel;
     input Boolean b[:];
     output Boolean result;
   algorithm
@@ -2860,11 +2867,14 @@ value, still requires to go in to the text layer.
     for i in 1:size(b,1) loop
        result := result and b[i];
     end for;
+  annotation(
+    obsolete = "Obsolete function - use Modelica.Math.BooleanVectors.allTrue instead",
+    Documentation(info="<html></html>"));
   end allTrue;
 
   block RadioButton
       "Button that sets its output to true when pressed and is reset when an element of 'reset' becomes true"
-
+    extends Modelica.Icons.ObsoleteModel;
     parameter Modelica.SIunits.Time buttonTimeTable[:]={0}
         "Time instants where button is pressed and released";
     input Boolean reset[:]={false}
@@ -2883,7 +2893,9 @@ value, still requires to go in to the text layer.
     when pre(reset) then
       on := false;
     end when;
-    annotation (Icon(
+    annotation (
+      obsolete = "Obsolete model due to experimental design, that will be moved to Modelica.Blocks.Interaction in future",
+      Icon(
           coordinateSystem(preserveAspectRatio=false,extent={{-100,-100},{100,100}}),
           graphics={
             Rectangle(
@@ -2900,6 +2912,7 @@ value, still requires to go in to the text layer.
   end RadioButton;
 
   model NumericValue "Show value of Real input signal dynamically"
+    extends Modelica.Icons.ObsoleteModel;
     parameter Integer precision(min=0) = 3
         "Number of significant digits to be shown";
     parameter Boolean hideConnector=false
@@ -2910,7 +2923,9 @@ value, still requires to go in to the text layer.
       Dialog(enable=hideConnector),
       Placement(transformation(extent={{-140,-20},{-100,20}})));
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+    annotation (
+      obsolete = "Obsolete model - use Modelica.Blocks.Interaction.Show.RealValue instead",
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
               extent={{100,50},{-100,-50}},
               lineColor={0,0,255},
@@ -2928,11 +2943,13 @@ value, still requires to go in to the text layer.
 
   model IndicatorLamp
       "Dynamically show Boolean input signal (false/true = white/green color)"
-
+    extends Modelica.Icons.ObsoleteModel;
     Modelica.Blocks.Interfaces.BooleanInput u
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+    annotation (
+      obsolete = "Obsolete model - use Modelica.Blocks.Interaction.Show.BooleanValue instead",
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Ellipse(
               extent={{-100,-100},{100,100}},
               fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else
@@ -2950,11 +2967,12 @@ value, still requires to go in to the text layer.
 This library is just temporarily present. The components of
 this library will be present in the future in the Modelica
 standard library (with the new block connectors) and in the
-UserInteraction library that is currently under development.
+<a href=\"modelica://Modelica.Blocks.Interaction\">Interaction</a> library .
 </p>
 </html>"));
 end Temporary;
 annotation (
+  obsolete = "Obsolete package due to experimental design",
   Documentation(info="<html>
 <p>
 Note, there is a much improved version of this library called
