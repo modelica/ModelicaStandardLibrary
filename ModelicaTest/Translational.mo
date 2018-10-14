@@ -150,6 +150,23 @@ extends Modelica.Icons.ExamplesPackage;
       annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
     Modelica.Mechanics.Translational.Sources.SignForce signForce(f_nominal=-100,
         v0=1) annotation (Placement(transformation(extent={{40,-40},{20,-20}})));
+    Modelica.Mechanics.Translational.Sources.EddyCurrentForce eddyCurrentForce(
+      f_nominal=100,
+      v_nominal=10,
+      useHeatPort=true,
+      TRef=293.15,
+      alpha20(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper)
+      annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
+    Modelica.Mechanics.Translational.Components.Mass mass5(
+      m=1,
+      s(fixed=true, start=0),
+      v(fixed=true, start=20))
+      annotation (Placement(transformation(extent={{20,-70},{40,-50}})));
+    Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(C=1, T(
+          fixed=true)) annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=180,
+          origin={-10,-90})));
   equation
     connect(mass1.flange_b, linearSpeedDependentForce.flange)
       annotation (Line(points={{-20,60},{20,60}}, color={0,127,0}));
@@ -159,6 +176,10 @@ extends Modelica.Icons.ExamplesPackage;
       annotation (Line(points={{20,0},{-20,0}}, color={0,127,0}));
     connect(signForce.flange, mass4.flange_b)
       annotation (Line(points={{20,-30},{0,-30},{-20,-30}}, color={0,127,0}));
+    connect(eddyCurrentForce.heatPort, heatCapacitor.port) annotation (Line(
+          points={{-10,-70},{-10,-80}}, color={191,0,0}));
+    connect(eddyCurrentForce.flange, mass5.flange_a)
+      annotation (Line(points={{10,-60},{20,-60}}, color={0,127,0}));
     annotation (
       experiment(StopTime=2));
   end TestBraking;
