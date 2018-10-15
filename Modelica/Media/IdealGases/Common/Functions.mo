@@ -263,8 +263,8 @@ transform the formula to SI units:
     output Modelica.Media.Interfaces.Types.ThermalConductivity lambda
       "Thermal conductivity [W/(m.k)]";
   algorithm
-    lambda := if method == 1 then eta*(Cp - data.R + (9/4)*data.R) else eta*(Cp
-       - data.R)*(1.32 + 1.77/((Cp/Modelica.Constants.R) - 1.0));
+    lambda := if method == 1 then eta*(Cp - data.R + (9/4)*data.R)
+                             else eta*(Cp - data.R)*(1.32 + 1.77/((Cp/data.R) - 1.0));
     annotation (smoothOrder=2,
                 Documentation(info="<html>
 <p>
