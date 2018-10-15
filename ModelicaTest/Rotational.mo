@@ -1627,30 +1627,29 @@ they were not deleted yet.")}));
       alpha20(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
       TRef=293.15,
       useHeatPort=true)
-      annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
+      annotation (Placement(transformation(extent={{40,-70},{20,-50}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia5(
       phi(fixed=true, start=0),
       J=1,
       w(fixed=true, start=20))
-      annotation (Placement(transformation(extent={{20,-70},{40,-50}})));
+      annotation (Placement(transformation(extent={{-40,-70},{-20,-50}})));
     Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(C=1, T(
           fixed=true)) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=180,
-          origin={-10,-90})));
+          origin={40,-90})));
   equation
     connect(inertia1.flange_b, linearSpeedDependentTorque.flange)
-      annotation (Line(points={{-20,60},{0,60},{20,60}}));
+      annotation (Line(points={{-20,60},{20,60}}));
     connect(inertia2.flange_b, quadraticSpeedDependentTorque.flange)
-      annotation (Line(points={{-20,30},{0,30},{20,30}}));
+      annotation (Line(points={{-20,30},{20,30}}));
     connect(inertia3.flange_b, constantTorque.flange)
-      annotation (Line(points={{-20,0},{0,0},{20,0}}));
+      annotation (Line(points={{-20,0},{20,0}}));
     connect(signTorque.flange, inertia4.flange_b)
-      annotation (Line(points={{20,-30},{0,-30},{-20,-30}}));
+      annotation (Line(points={{20,-30},{-20,-30}}));
     connect(eddyCurrentTorque.heatPort, heatCapacitor.port) annotation (Line(
-          points={{-10,-70},{-10,-80}}, color={191,0,0}));
-    connect(eddyCurrentTorque.flange, inertia5.flange_a)
-      annotation (Line(points={{10,-60},{20,-60}}));
+          points={{40,-70},{40,-80}}, color={191,0,0}));
+    connect(inertia5.flange_b, eddyCurrentTorque.flange) annotation (Line(points={{-20,-60},{20,-60}}, color={0,0,0}));
     annotation (
       experiment(StopTime=2));
   end TestBraking;
