@@ -1691,7 +1691,7 @@ is present in variable convection.fluid.
       connect(eddyCurrentForce.heatPort, heatCapacitor.port) annotation (Line(
             points={{-10,-10},{-10,-15},{-10,-20}}, color={191,0,0}));
       annotation (
-        experiment(Interval=0.001),
+        experiment(StopTime=1.0, Interval=0.001),
         Documentation(info="<html>
 A moving mass gets decelerated by an eddy current brake. The loss power is fed to a heat capacitor.
 </html>"));
