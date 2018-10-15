@@ -3360,10 +3360,10 @@ Modelica.Media.Common.OneNonLinearEquation.
                         extent={{-100,100},{100,-100}},
                         fillPattern=FillPattern.Sphere,
                         fillColor={170,213,255}),Text(
-                        extent={{-144,178},{146,116}},
+                        extent={{-150,150},{150,110}},
                         textString="%name",
-                        lineColor={0,0,255}),Text(
-                        extent={{-130,-108},{144,-150}},
+                        lineColor={0,0,255}), Text(
+                        extent={{-150,-110},{150,-150}},
                         textString="V=%V")}), Documentation(info="<html>
 <p>
 This component models the <strong>volume</strong> of <strong>fixed size</strong> that is
@@ -3445,11 +3445,11 @@ transport.
                         extent={{-54,32},{16,-30}},
                         lineColor={255,0,0},
                         textString="m"),Text(
-                        extent={{-142,142},{156,88}},
+                        extent={{-150,150},{150,110}},
                         textString="%name",
-                        lineColor={0,0,255}),Text(
-                        extent={{-154,-88},{150,-132}},
-                        textString="%m_flow"),Ellipse(
+                        lineColor={0,0,255}), Text(
+                        extent={{-150,-110},{150,-150}},
+                        textString="%m_flow"), Ellipse(
                         extent={{-26,30},{-18,22}},
                         lineColor={255,0,0},
                         fillColor={255,0,0},
@@ -3519,10 +3519,10 @@ transport.
         annotation (Icon(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={Ellipse(
-                        extent={{-100,80},{100,-80}},
+                        extent={{-100,100},{100,-100}},
                         fillPattern=FillPattern.Sphere,
-                        fillColor={0,127,255}),Text(
-                        extent={{-136,144},{132,82}},
+                        fillColor={0,127,255}), Text(
+                        extent={{-150,150},{150,110}},
                         textString="%name",
                         lineColor={0,0,255})}), Documentation(info="<html>
 <p>
@@ -3593,9 +3593,9 @@ with exception of ambient pressure, do not have an effect.
                         extent={{-100,34},{100,-36}},
                         fillPattern=FillPattern.HorizontalCylinder,
                         fillColor={0,127,255}),Text(
-                        extent={{-150,140},{150,80}},
-                        textString="%name"),Text(
-                        extent={{-136,-62},{122,-108}},
+                        extent={{-150,110},{150,70}},
+                        textString="%name", lineColor={0,0,255}), Text(
+                        extent={{-150,-70},{150,-110}},
                         textString="k=%m_flow_nominal/%dp_nominal")}),
             Documentation(info="<html>
 <p>
