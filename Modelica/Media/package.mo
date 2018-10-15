@@ -2375,7 +2375,7 @@ package Examples
 </html>"), experiment(StopTime=1));
   end MixtureGases;
 
-  model MoistAir "Ideal gas flue gas model"
+  model MoistAir "Example for moist air"
     extends Modelica.Icons.Example;
     package Medium = Air.MoistAir "Medium model";
     Medium.BaseProperties medium(
@@ -2678,7 +2678,7 @@ points, e.g., when an isentropic reference state is computed.
       annotation (experiment(StopTime=1.01));
     end DryAir2;
 
-    model MoistAir "Ideal gas flue gas model"
+    model MoistAir "Example for moist air"
       extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Temperature T_start=274
         "Initial guess value for temperature";
