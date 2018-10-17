@@ -2225,6 +2225,8 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
     <td> Partial adaptors for generation of FMUs, optionally taking first and second derivative into account,
          for consistent components in various domains.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Math</strong></td></tr>
+<tr><td width=\"150\">Power</td>
+    <td>Computes the power of the input signal.</td></tr>
 <tr><td width=\"150\">WrapAngle</td>
     <td> Wraps the angle signal at the input to the interval ]-&pi;, &pi;] or [0, 2&pi;[.</td></tr>
 <tr><td width=\"150\">Pythagoras</td>
@@ -2233,6 +2235,11 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
     <td> This block calculates THD of the signal at the input.</td></tr>
 <tr><td width=\"150\">RealFFT</td>
     <td> This block samples the input and calculates the FFT, writing the result to a mat file when the simulation terminates.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Routing</strong></td></tr>
+<tr><td width=\"150\">Multiplex</td>
+    <td>Multiplexer block for <em>arbitrary</em> number of input signals</td></tr>
+<tr><td width=\"150\">DeMultiplex</td>
+    <td>Demultiplexer block for <em>arbitrary</em> number of output signals</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Tables</strong></td></tr>
 <tr><td width=\"150\">CombiTable2Dv</td>
     <td>Variant of CombiTable2D (table look-up in two dimensions) with vector inputs and vector output</td></tr>
