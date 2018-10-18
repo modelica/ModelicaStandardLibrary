@@ -523,6 +523,7 @@ package Basic "Basic electrical components"
             extent={{-150,110},{150,70}},
             textString="%name",
             lineColor={0,0,255}),
+          Text(extent={{-150,-70},{150,-110}}, textString="N=%N"),
           Line(points={{60,-40},{90,-40}},
                                        color={0,0,255}),
           Line(points={{-90,-40},{-60,-40}},
