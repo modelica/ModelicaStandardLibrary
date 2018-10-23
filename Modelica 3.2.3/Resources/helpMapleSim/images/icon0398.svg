@@ -1,28 +1,19 @@
-<svg width="223" height="223" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Analog.Basic.OpAmpDetailed" class="component">
-		<polygon points="181.5,111.5 41.5,31.5 41.5,191.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="111.5,71.5 111.5,1.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="111.5,151.5 111.5,201.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="21.5,51.5 41.5,51.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="21.5,171.5 41.5,171.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="181.5,111.5 201.5,111.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="53.5,61.5 73.5,61.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="51.5,162.5 73.5,162.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="62.5,151.5 62.5,172.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+<svg width="223" height="253" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.Analog.Basic.VariableResistor" class="component">
+		<polyline points="21.5,141.5 41.5,141.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="41.5,171.5 181.5,171.5 181.5,111.5 41.5,111.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="181.5,141.5 201.5,141.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<g id="p" class="port">
-			<polygon points="1.5,181.5 21.5,181.5 21.5,161.5 1.5,161.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="1.5,151.5 21.5,151.5 21.5,131.5 1.5,131.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
-		<g id="m" class="port">
-			<polygon points="21.5,61.5 1.5,61.5 1.5,41.5 21.5,41.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="n" class="port">
+			<polygon points="221.5,151.5 201.5,151.5 201.5,131.5 221.5,131.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
-		<g id="outp" class="port">
-			<polygon points="221.5,121.5 201.5,121.5 201.5,101.5 221.5,101.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="heatPort" class="port">
+			<polygon points="101.5,251.5 121.5,251.5 121.5,231.5 101.5,231.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
-		<g id="p_supply" class="port">
-			<polygon points="101.5,21.5 121.5,21.5 121.5,1.5 101.5,1.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="m_supply" class="port">
-			<polygon points="101.5,221.5 121.5,221.5 121.5,201.5 101.5,201.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="R" class="port">
+			<polygon points="131.5,1.5 111.5,41.5 91.5,1.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

@@ -1,27 +1,27 @@
 <svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Machines.Icons.QuasiStationaryMachine" class="component">
+	<g id="Modelica.Electrical.Machines.Icons.FundamentalWaveMachine" class="component">
 		<defs>
 			<linearGradient id="cyl2" x1="0" y1="0" x2="0" y2="1">
 				<stop offset="0%" stop-color="#000000" />
-				<stop offset="5%" stop-color="#202830" />
-				<stop offset="10%" stop-color="#3D4D5C" />
-				<stop offset="15%" stop-color="#576D82" />
-				<stop offset="20%" stop-color="#6D88A3" />
-				<stop offset="25%" stop-color="#80A0BF" />
-				<stop offset="30%" stop-color="#8FB3D6" />
-				<stop offset="35%" stop-color="#9BC2E8" />
-				<stop offset="40%" stop-color="#A3CCF5" />
-				<stop offset="45%" stop-color="#A8D3FC" />
-				<stop offset="50%" stop-color="#AAD5FF" />
-				<stop offset="55%" stop-color="#A8D3FC" />
-				<stop offset="60%" stop-color="#A3CCF5" />
-				<stop offset="65%" stop-color="#9BC2E8" />
-				<stop offset="70%" stop-color="#8FB3D6" />
-				<stop offset="75%" stop-color="#80A0BF" />
-				<stop offset="80%" stop-color="#6D88A3" />
-				<stop offset="85%" stop-color="#576D82" />
-				<stop offset="90%" stop-color="#3D4D5C" />
-				<stop offset="95%" stop-color="#202830" />
+				<stop offset="5%" stop-color="#301800" />
+				<stop offset="10%" stop-color="#5C2E00" />
+				<stop offset="15%" stop-color="#824100" />
+				<stop offset="20%" stop-color="#A35200" />
+				<stop offset="25%" stop-color="#BF6000" />
+				<stop offset="30%" stop-color="#D66C00" />
+				<stop offset="35%" stop-color="#E87400" />
+				<stop offset="40%" stop-color="#F57B00" />
+				<stop offset="45%" stop-color="#FC7F00" />
+				<stop offset="50%" stop-color="#FF8000" />
+				<stop offset="55%" stop-color="#FC7F00" />
+				<stop offset="60%" stop-color="#F57B00" />
+				<stop offset="65%" stop-color="#E87400" />
+				<stop offset="70%" stop-color="#D66C00" />
+				<stop offset="75%" stop-color="#BF6000" />
+				<stop offset="80%" stop-color="#A35200" />
+				<stop offset="85%" stop-color="#824100" />
+				<stop offset="90%" stop-color="#5C2E00" />
+				<stop offset="95%" stop-color="#301800" />
 				<stop offset="100%" stop-color="#000000" />
 			</linearGradient>
 		</defs>

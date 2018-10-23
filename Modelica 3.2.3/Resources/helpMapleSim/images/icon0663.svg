@@ -1,11 +1,16 @@
 <svg width="263" height="243" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Machines.Utilities.ToDQ" class="component">
+	<g id="Modelica.Electrical.Machines.Utilities.CurrentController" class="component">
 		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<g id="u" class="port">
-			<polygon points="1.5,81.5 41.5,101.5 1.5,121.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
+		<text x="101.5" y="61.4" text-anchor="middle" fill="#0000FF" font-size="26.6px" font-family="sans-serif">id_rms</text>
+		<text x="101.5" y="156.8" text-anchor="middle" fill="#0000FF" font-size="20.3px" font-family="sans-serif">iq_rms</text>
 		<g id="y" class="port">
 			<polygon points="241.5,91.5 261.5,101.5 241.5,111.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="id_rms" class="port">
+			<polygon points="1.5,21.5 41.5,41.5 1.5,61.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="iq_rms" class="port">
+			<polygon points="1.5,141.5 41.5,161.5 1.5,181.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 		<g id="phi" class="port">
 			<polygon points="161.5,241.5 141.5,201.5 121.5,241.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />

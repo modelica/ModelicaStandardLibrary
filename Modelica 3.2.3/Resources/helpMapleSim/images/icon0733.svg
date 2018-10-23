@@ -1,23 +1,27 @@
-<svg width="263" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.PowerConverters.ACDC.Control.Filter" class="component">
-		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="61.5,11.5 53.5,33.5 69.5,33.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="61.5,23.5 61.5,191.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="231.5,181.5 209.5,173.5 209.5,189.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="51.5,181.5 223.5,181.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<defs>
-			<pattern id="pat7" patternUnits="userSpaceOnUse" width="14" height="14">
-				<rect width="14" height="14" fill="#FFFFFF" />
-				<path d="M-1,13 l2,2 M0,0 l14,14 M13,-1 l2,2" stroke="#A0A0A4" stroke-width="1" />
-			</pattern>
-		</defs>
-		<polygon points="61.5,181.5 163.5,181.5 163.5,93.5 61.5,93.5" fill="url(#pat7)" stroke="#A0A0A4" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="61.5,75.5 115.5,75.5 119.0,75.6 122.5,75.7 125.8,76.0 129.1,76.4 132.2,77.0 135.3,77.6 138.2,78.4 141.1,79.3 143.8,80.3 146.5,81.4 149.0,82.6 151.5,84.0 153.8,85.5 156.1,87.0 158.2,88.7 160.3,90.6 162.2,92.5 164.1,94.6 165.8,96.8 167.5,99.1 169.0,101.5 170.5,104.0 171.8,106.7 173.1,109.4 174.2,112.3 175.3,115.3 176.2,118.4 177.1,121.7 177.8,125.0 178.5,128.5 187.5,181.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<g id="u" class="port">
-			<polygon points="1.5,81.5 41.5,101.5 1.5,121.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+<svg width="223" height="213" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.PowerConverters.ACDC.DiodeBridge2Pulse" class="component">
+		<polygon points="11.5,201.5 211.5,201.5 211.5,1.5 11.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="11.5,201.5 211.5,1.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="61.5" y="51.4" text-anchor="middle" fill="#00007F" font-size="26.6px" font-family="sans-serif">AC</text>
+		<text x="161.5" y="171.4" text-anchor="middle" fill="#00007F" font-size="26.6px" font-family="sans-serif">DC</text>
+		<polygon points="71.5,125.5 151.5,125.5 151.5,77.5 71.5,77.5" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="71.5,101.5 151.5,101.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="131.5,77.5 131.5,125.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="131.5,101.5 91.5,77.5 91.5,125.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="ac_p" class="port">
+			<polygon points="1.5,51.5 21.5,51.5 21.5,31.5 1.5,31.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
-		<g id="y" class="port">
-			<polygon points="241.5,91.5 261.5,101.5 241.5,111.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="ac_n" class="port">
+			<polygon points="1.5,171.5 21.5,171.5 21.5,151.5 1.5,151.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="dc_p" class="port">
+			<polygon points="201.5,51.5 221.5,51.5 221.5,31.5 201.5,31.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="dc_n" class="port">
+			<polygon points="201.5,171.5 221.5,171.5 221.5,151.5 201.5,151.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="heatPort" class="port">
+			<polygon points="101.5,211.5 121.5,211.5 121.5,191.5 101.5,191.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

@@ -1,35 +1,11 @@
-<svg width="233" height="223" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Fluid.Examples.ControlledTankSystem.Utilities.TankController" class="component">
-		<polygon points="21.5,201.5 221.5,201.5 221.5,1.5 21.5,1.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="65.5" y="47.6" text-anchor="middle" fill="#000000" font-size="18.6px" font-family="sans-serif">start</text>
-		<text x="65.0" y="107.1" text-anchor="middle" fill="#000000" font-size="15.2px" font-family="sans-serif">stop</text>
-		<text x="65.0" y="170.5" text-anchor="middle" fill="#000000" font-size="19.9px" font-family="sans-serif">shut</text>
-		<text x="70.0" y="197.6" text-anchor="middle" fill="#000000" font-size="18.6px" font-family="sans-serif">level1</text>
-		<text x="175.0" y="199.5" text-anchor="middle" fill="#000000" font-size="19.9px" font-family="sans-serif">level2</text>
-		<text x="176.0" y="47.6" text-anchor="middle" fill="#000000" font-size="18.6px" font-family="sans-serif">valve1</text>
-		<g id="start" class="port">
-			<polygon points="1.5,31.5 21.5,41.5 1.5,51.5" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="stop" class="port">
-			<polygon points="1.5,91.5 21.5,101.5 1.5,111.5" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="shut" class="port">
-			<polygon points="1.5,151.5 21.5,161.5 1.5,171.5" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="level1" class="port">
-			<polygon points="51.5,221.5 61.5,201.5 71.5,221.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="level2" class="port">
-			<polygon points="171.5,221.5 181.5,201.5 191.5,221.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="valve1" class="port">
-			<polygon points="221.5,36.5 231.5,41.5 221.5,46.5" fill="#FFFFFF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="valve2" class="port">
-			<polygon points="221.5,96.5 231.5,101.5 221.5,106.5" fill="#FFFFFF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="valve3" class="port">
-			<polygon points="221.5,156.5 231.5,161.5 221.5,166.5" fill="#FFFFFF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+<svg width="243" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.setReal" class="component">
+		<polygon points="41.5,141.5 241.5,141.5 241.5,61.5 41.5,61.5" fill="#EBEBEB" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="44.5,140.0 240.0,140.0 240.0,64.5" fill-opacity="0" stroke="#767676" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="43.0,138.5 43.0,63.0 238.5,63.0" fill-opacity="0" stroke="#F5F5F5" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="141.5" y="116.0" text-anchor="middle" fill="#000000" font-size="39.9px" font-family="sans-serif">u</text>
+		<g id="u" class="port">
+			<polygon points="1.5,81.5 41.5,101.5 1.5,121.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

@@ -1,33 +1,43 @@
-<svg width="223" height="233" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Analog.Sensors.PowerSensor" class="component">
-		<polygon points="181.5,111.5 181.2,105.5 180.5,99.5 179.2,93.6 177.4,87.9 175.1,82.3 172.4,76.9 169.2,71.8 165.6,67.0 161.5,62.5 157.1,58.4 152.4,54.7 147.4,51.4 142.1,48.5 136.5,46.1 130.8,44.2 125.0,42.8 119.0,41.9 113.0,41.5 107.0,41.6 101.0,42.3 95.1,43.5 89.3,45.1 83.7,47.3 78.3,49.9 73.1,53.0 68.2,56.5 63.6,60.4 59.4,64.7 55.6,69.4 52.2,74.3 49.2,79.6 46.7,85.1 44.7,90.7 43.1,96.6 42.1,102.5 41.6,108.5 41.6,114.5 42.1,120.5 43.1,126.4 44.7,132.3 46.7,137.9 49.2,143.4 52.2,148.7 55.6,153.6 59.4,158.3 63.6,162.6 68.2,166.5 73.1,170.0 78.3,173.1 83.7,175.7 89.3,177.9 95.1,179.5 101.0,180.7 107.0,181.4 113.0,181.5 119.0,181.1 125.0,180.2 130.8,178.8 136.5,176.9 142.1,174.5 147.4,171.6 152.4,168.3 157.1,164.6 161.5,160.5 165.6,156.0 169.2,151.2 172.4,146.1 175.1,140.7 177.4,135.1 179.2,129.4 180.5,123.5 181.2,117.5" fill="#F5F5F5" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="134.4,78.7 151.7,54.2" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="88.6,78.7 71.3,54.2" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="149.1,97.8 177.3,87.6" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="73.9,97.8 45.7,87.6" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="123.5,111.5 123.5,110.5 123.3,109.4 123.1,108.4 122.8,107.4 122.4,106.5 121.9,105.6 121.4,104.7 120.8,103.9 120.1,103.1 119.3,102.4 118.5,101.8 117.6,101.2 116.7,100.7 115.8,100.3 114.8,100.0 113.8,99.7 112.8,99.6 111.8,99.5 110.7,99.5 109.7,99.6 108.7,99.8 107.7,100.1 106.7,100.5 105.8,100.9 104.9,101.5 104.1,102.1 103.3,102.7 102.6,103.5 101.9,104.3 101.3,105.1 100.8,106.0 100.4,107.0 100.0,107.9 99.8,108.9 99.6,110.0 99.5,111.0 99.5,112.0 99.6,113.0 99.8,114.1 100.0,115.1 100.4,116.0 100.8,117.0 101.3,117.9 101.9,118.7 102.6,119.5 103.3,120.3 104.1,120.9 104.9,121.5 105.8,122.1 106.7,122.5 107.7,122.9 108.7,123.2 109.7,123.4 110.7,123.5 111.8,123.5 112.8,123.4 113.8,123.3 114.8,123.0 115.8,122.7 116.7,122.3 117.6,121.8 118.5,121.2 119.3,120.6 120.1,119.9 120.8,119.1 121.4,118.3 121.9,117.4 122.4,116.5 122.8,115.6 123.1,114.6 123.3,113.6 123.5,112.5" fill-opacity="0" stroke="#404040" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="106.7,110.0 127.6,53.7 131.0,49.5 131.4,54.9 116.3,113.0" fill="#404040" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="118.5,111.5 118.5,110.9 118.4,110.3 118.3,109.7 118.1,109.1 117.9,108.6 117.6,108.0 117.3,107.5 116.9,107.1 116.5,106.6 116.1,106.2 115.6,105.8 115.1,105.5 114.6,105.2 114.0,105.0 113.4,104.8 112.8,104.6 112.3,104.5 111.7,104.5 111.0,104.5 110.4,104.6 109.9,104.7 109.3,104.9 108.7,105.1 108.2,105.3 107.7,105.6 107.2,106.0 106.7,106.4 106.3,106.8 105.9,107.3 105.6,107.8 105.3,108.3 105.0,108.9 104.8,109.4 104.7,110.0 104.6,110.6 104.5,111.2 104.5,111.8 104.6,112.4 104.7,113.0 104.8,113.6 105.0,114.1 105.3,114.7 105.6,115.2 105.9,115.7 106.3,116.2 106.7,116.6 107.2,117.0 107.7,117.4 108.2,117.7 108.7,117.9 109.3,118.1 109.9,118.3 110.4,118.4 111.0,118.5 111.7,118.5 112.3,118.5 112.8,118.4 113.4,118.2 114.0,118.0 114.6,117.8 115.1,117.5 115.6,117.2 116.1,116.8 116.5,116.4 116.9,115.9 117.3,115.5 117.6,115.0 117.9,114.4 118.1,113.9 118.3,113.3 118.4,112.7 118.5,112.1" fill="#404040" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="111.5,11.5 111.5,41.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="111.5,181.5 111.5,211.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="11.5,211.5 11.5,191.5 53.5,149.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="11.5,111.5 211.5,111.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="111.5,41.5 111.5,71.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="112.0" y="180.1" text-anchor="middle" fill="#000000" font-size="78.4px" font-family="sans-serif">P</text>
+<svg width="233" height="233" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.Analog.Sensors.MultiSensor" class="component">
+		<polygon points="191.5,111.5 191.2,105.5 190.5,99.5 189.2,93.6 187.4,87.9 185.1,82.3 182.4,76.9 179.2,71.8 175.6,67.0 171.5,62.5 167.1,58.4 162.4,54.7 157.4,51.4 152.1,48.5 146.5,46.1 140.8,44.2 135.0,42.8 129.0,41.9 123.0,41.5 117.0,41.6 111.0,42.3 105.1,43.5 99.3,45.1 93.7,47.3 88.3,49.9 83.1,53.0 78.2,56.5 73.6,60.4 69.4,64.7 65.6,69.4 62.2,74.3 59.2,79.6 56.7,85.1 54.7,90.7 53.1,96.6 52.1,102.5 51.6,108.5 51.6,114.5 52.1,120.5 53.1,126.4 54.7,132.3 56.7,137.9 59.2,143.4 62.2,148.7 65.6,153.6 69.4,158.3 73.6,162.6 78.2,166.5 83.1,170.0 88.3,173.1 93.7,175.7 99.3,177.9 105.1,179.5 111.0,180.7 117.0,181.4 123.0,181.5 129.0,181.1 135.0,180.2 140.8,178.8 146.5,176.9 152.1,174.5 157.4,171.6 162.4,168.3 167.1,164.6 171.5,160.5 175.6,156.0 179.2,151.2 182.4,146.1 185.1,140.7 187.4,135.1 189.2,129.4 190.5,123.5 191.2,117.5" fill="#F5F5F5" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="144.4,78.7 161.7,54.2" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="98.6,78.7 81.3,54.2" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="159.1,97.8 187.3,87.6" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="83.9,97.8 55.7,87.6" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="133.5,111.5 133.5,110.5 133.3,109.4 133.1,108.4 132.8,107.4 132.4,106.5 131.9,105.6 131.4,104.7 130.8,103.9 130.1,103.1 129.3,102.4 128.5,101.8 127.6,101.2 126.7,100.7 125.8,100.3 124.8,100.0 123.8,99.7 122.8,99.6 121.8,99.5 120.7,99.5 119.7,99.6 118.7,99.8 117.7,100.1 116.7,100.5 115.8,100.9 114.9,101.5 114.1,102.1 113.3,102.7 112.6,103.5 111.9,104.3 111.3,105.1 110.8,106.0 110.4,107.0 110.0,107.9 109.8,108.9 109.6,110.0 109.5,111.0 109.5,112.0 109.6,113.0 109.8,114.1 110.0,115.1 110.4,116.0 110.8,117.0 111.3,117.9 111.9,118.7 112.6,119.5 113.3,120.3 114.1,120.9 114.9,121.5 115.8,122.1 116.7,122.5 117.7,122.9 118.7,123.2 119.7,123.4 120.7,123.5 121.8,123.5 122.8,123.4 123.8,123.3 124.8,123.0 125.8,122.7 126.7,122.3 127.6,121.8 128.5,121.2 129.3,120.6 130.1,119.9 130.8,119.1 131.4,118.3 131.9,117.4 132.4,116.5 132.8,115.6 133.1,114.6 133.3,113.6 133.5,112.5" fill-opacity="0" stroke="#404040" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="116.7,110.0 137.6,53.7 141.0,49.5 141.4,54.9 126.3,113.0" fill="#404040" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="128.5,111.5 128.5,110.9 128.4,110.3 128.3,109.7 128.1,109.1 127.9,108.6 127.6,108.0 127.3,107.5 126.9,107.1 126.5,106.6 126.1,106.2 125.6,105.8 125.1,105.5 124.6,105.2 124.0,105.0 123.4,104.8 122.8,104.6 122.3,104.5 121.7,104.5 121.0,104.5 120.4,104.6 119.9,104.7 119.3,104.9 118.7,105.1 118.2,105.3 117.7,105.6 117.2,106.0 116.7,106.4 116.3,106.8 115.9,107.3 115.6,107.8 115.3,108.3 115.0,108.9 114.8,109.4 114.7,110.0 114.6,110.6 114.5,111.2 114.5,111.8 114.6,112.4 114.7,113.0 114.8,113.6 115.0,114.1 115.3,114.7 115.6,115.2 115.9,115.7 116.3,116.2 116.7,116.6 117.2,117.0 117.7,117.4 118.2,117.7 118.7,117.9 119.3,118.1 119.9,118.3 120.4,118.4 121.0,118.5 121.7,118.5 122.3,118.5 122.8,118.4 123.4,118.2 124.0,118.0 124.6,117.8 125.1,117.5 125.6,117.2 126.1,116.8 126.5,116.4 126.9,115.9 127.3,115.5 127.6,115.0 127.9,114.4 128.1,113.9 128.3,113.3 128.4,112.7 128.5,112.1" fill="#404040" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="121.5,11.5 121.5,41.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="121.5,181.5 121.5,211.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="21.5,111.5 221.5,111.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="121.5,41.5 121.5,71.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="21.5,171.5 41.5,171.5 65.5,153.5" fill-opacity="0" stroke="#1C6CC8" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="61.5,211.5 61.5,191.5 79.5,167.5" fill-opacity="0" stroke="#1C6CC8" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="181.5,211.5 181.5,191.5 163.5,167.5" fill-opacity="0" stroke="#1C6CC8" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="41.5" y="181.6" text-anchor="middle" fill="#000000" font-size="40.6px" font-family="sans-serif">p</text>
+		<text x="61.5" y="210.7" text-anchor="middle" fill="#000000" font-size="53.1px" font-family="sans-serif">i</text>
+		<text x="181.5" y="210.7" text-anchor="middle" fill="#000000" font-size="53.1px" font-family="sans-serif">v</text>
 		<g id="pc" class="port">
-			<polygon points="21.5,121.5 1.5,121.5 1.5,101.5 21.5,101.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="31.5,121.5 11.5,121.5 11.5,101.5 31.5,101.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 		<g id="nc" class="port">
-			<polygon points="221.5,121.5 201.5,121.5 201.5,101.5 221.5,101.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="231.5,121.5 211.5,121.5 211.5,101.5 231.5,101.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 		<g id="pv" class="port">
-			<polygon points="101.5,1.5 121.5,1.5 121.5,21.5 101.5,21.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="111.5,1.5 131.5,1.5 131.5,21.5 111.5,21.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 		<g id="nv" class="port">
-			<polygon points="121.5,221.5 101.5,221.5 101.5,201.5 121.5,201.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="131.5,221.5 111.5,221.5 111.5,201.5 131.5,201.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="i" class="port">
+			<polygon points="71.5,211.5 61.5,231.5 51.5,211.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="v" class="port">
+			<polygon points="191.5,211.5 181.5,231.5 171.5,211.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 		<g id="power" class="port">
-			<polygon points="1.5,211.5 11.5,231.5 21.5,211.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="21.5,161.5 1.5,171.5 21.5,181.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

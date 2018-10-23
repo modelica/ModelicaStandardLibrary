@@ -1,11 +1,11 @@
 <svg width="213" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Spice3.Additionals.H_CCV_POLY" class="component">
+	<g id="Modelica.Electrical.Spice3.Additionals.F_CCC_POLY" class="component">
 		<polygon points="31.5,171.5 171.5,171.5 171.5,31.5 31.5,31.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="201.5,51.5 131.5,51.5 131.5,151.5 201.5,151.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polygon points="151.5,101.5 151.4,99.8 151.2,98.1 150.8,96.4 150.3,94.7 149.7,93.2 148.9,91.6 148.0,90.2 146.9,88.8 145.8,87.5 144.5,86.3 143.2,85.3 141.7,84.3 140.2,83.5 138.7,82.8 137.0,82.3 135.3,81.9 133.6,81.6 131.9,81.5 130.2,81.5 128.5,81.7 126.8,82.1 125.2,82.5 123.5,83.1 122.0,83.9 120.5,84.8 119.1,85.8 117.8,86.9 116.6,88.1 115.5,89.5 114.5,90.9 113.7,92.4 113.0,93.9 112.4,95.6 112.0,97.2 111.7,98.9 111.5,100.6 111.5,102.4 111.7,104.1 112.0,105.8 112.4,107.4 113.0,109.1 113.7,110.6 114.5,112.1 115.5,113.5 116.6,114.9 117.8,116.1 119.1,117.2 120.5,118.2 122.0,119.1 123.5,119.9 125.2,120.5 126.8,120.9 128.5,121.3 130.2,121.5 131.9,121.5 133.6,121.4 135.3,121.1 137.0,120.7 138.7,120.2 140.2,119.5 141.7,118.7 143.2,117.7 144.5,116.7 145.8,115.5 146.9,114.2 148.0,112.8 148.9,111.4 149.7,109.8 150.3,108.3 150.8,106.6 151.2,104.9 151.4,103.2" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="81.5,51.5 121.5,51.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polygon points="121.5,51.5 111.5,48.5 111.5,54.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="79.5" y="160.9" text-anchor="middle" fill="#0000FF" font-size="45.2px" font-family="sans-serif">CCV</text>
+		<text x="79.5" y="158.9" text-anchor="middle" fill="#0000FF" font-size="45.2px" font-family="sans-serif">CCC</text>
 		<g id="p" class="port">
 			<polygon points="211.5,61.5 191.5,61.5 191.5,41.5 211.5,41.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>

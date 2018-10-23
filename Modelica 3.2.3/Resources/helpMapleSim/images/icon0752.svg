@@ -1,18 +1,47 @@
-<svg width="263" height="243" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle" class="component">
-		<polygon points="41.5,241.5 241.5,241.5 241.5,41.5 41.5,41.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="141.5,201.5 201.5,81.5" fill-opacity="0" stroke="#000000" stroke-dasharray="3 4" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="81.5,201.5 201.5,81.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="63.5,201.5 65.5,201.5 203.5,201.5 203.5,195.5 223.5,201.5 203.5,207.5 203.5,201.5 203.5,201.5" fill="#000000" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="141.5,221.5 141.5,81.5 135.5,81.5 141.5,61.5 147.5,81.5 141.5,81.5" fill="#000000" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<g id="v" class="port">
-			<polygon points="1.5,121.5 41.5,141.5 1.5,161.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+<svg width="233" height="243" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.PowerConverters.DCDC.ChopperStepDown" class="component">
+		<polygon points="11.5,201.5 211.5,201.5 211.5,1.5 11.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="11.5,201.5 211.5,1.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="61.5" y="51.4" text-anchor="middle" fill="#00007F" font-size="26.6px" font-family="sans-serif">DC in</text>
+		<text x="161.5" y="171.4" text-anchor="middle" fill="#00007F" font-size="26.6px" font-family="sans-serif">DC out</text>
+		<polygon points="71.5,141.5 151.5,141.5 151.5,61.5 71.5,61.5" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="81.5,81.5 81.5,101.5" fill-opacity="0" stroke="#D943B4" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="71.5,71.5 81.5,81.5 91.5,71.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="91.5,71.5 85.5,75.5 87.5,77.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="131.5,91.5 121.5,111.5 141.5,111.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="121.5,91.5 141.5,91.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="91.5,71.5 171.5,71.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="51.5,71.5 71.5,71.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="51.5,131.5 171.5,131.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="131.5,71.5 131.5,131.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="53.5,71.5 53.5,71.3 53.5,71.2 53.4,71.0 53.4,70.8 53.3,70.7 53.2,70.5 53.1,70.4 53.0,70.2 52.9,70.1 52.8,70.0 52.7,69.9 52.5,69.8 52.4,69.7 52.2,69.6 52.1,69.6 51.9,69.5 51.7,69.5 51.5,69.5 51.4,69.5 51.2,69.5 51.0,69.6 50.9,69.6 50.7,69.7 50.6,69.7 50.4,69.8 50.3,69.9 50.1,70.0 50.0,70.2 49.9,70.3 49.8,70.4 49.7,70.6 49.6,70.7 49.6,70.9 49.5,71.1 49.5,71.2 49.5,71.4 49.5,71.6 49.5,71.8 49.5,71.9 49.6,72.1 49.6,72.3 49.7,72.4 49.8,72.6 49.9,72.7 50.0,72.8 50.1,73.0 50.3,73.1 50.4,73.2 50.6,73.3 50.7,73.3 50.9,73.4 51.0,73.4 51.2,73.5 51.4,73.5 51.5,73.5 51.7,73.5 51.9,73.5 52.1,73.4 52.2,73.4 52.4,73.3 52.5,73.2 52.7,73.1 52.8,73.0 52.9,72.9 53.0,72.8 53.1,72.6 53.2,72.5 53.3,72.3 53.4,72.2 53.4,72.0 53.5,71.8 53.5,71.7" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="53.5,131.5 53.5,131.3 53.5,131.2 53.4,131.0 53.4,130.8 53.3,130.7 53.2,130.5 53.1,130.4 53.0,130.2 52.9,130.1 52.8,130.0 52.7,129.9 52.5,129.8 52.4,129.7 52.2,129.6 52.1,129.6 51.9,129.5 51.7,129.5 51.5,129.5 51.4,129.5 51.2,129.5 51.0,129.6 50.9,129.6 50.7,129.7 50.6,129.7 50.4,129.8 50.3,129.9 50.1,130.0 50.0,130.2 49.9,130.3 49.8,130.4 49.7,130.6 49.6,130.7 49.6,130.9 49.5,131.1 49.5,131.2 49.5,131.4 49.5,131.6 49.5,131.8 49.5,131.9 49.6,132.1 49.6,132.3 49.7,132.4 49.8,132.6 49.9,132.7 50.0,132.8 50.1,133.0 50.3,133.1 50.4,133.2 50.6,133.3 50.7,133.3 50.9,133.4 51.0,133.4 51.2,133.5 51.4,133.5 51.5,133.5 51.7,133.5 51.9,133.5 52.1,133.4 52.2,133.4 52.4,133.3 52.5,133.2 52.7,133.1 52.8,133.0 52.9,132.9 53.0,132.8 53.1,132.6 53.2,132.5 53.3,132.3 53.4,132.2 53.4,132.0 53.5,131.8 53.5,131.7" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="133.5,131.5 133.5,131.3 133.5,131.2 133.4,131.0 133.4,130.8 133.3,130.7 133.2,130.5 133.1,130.4 133.0,130.2 132.9,130.1 132.8,130.0 132.7,129.9 132.5,129.8 132.4,129.7 132.2,129.6 132.1,129.6 131.9,129.5 131.7,129.5 131.5,129.5 131.4,129.5 131.2,129.5 131.0,129.6 130.9,129.6 130.7,129.7 130.6,129.7 130.4,129.8 130.3,129.9 130.1,130.0 130.0,130.2 129.9,130.3 129.8,130.4 129.7,130.6 129.6,130.7 129.6,130.9 129.5,131.1 129.5,131.2 129.5,131.4 129.5,131.6 129.5,131.8 129.5,131.9 129.6,132.1 129.6,132.3 129.7,132.4 129.8,132.6 129.9,132.7 130.0,132.8 130.1,133.0 130.3,133.1 130.4,133.2 130.6,133.3 130.7,133.3 130.9,133.4 131.0,133.4 131.2,133.5 131.4,133.5 131.5,133.5 131.7,133.5 131.9,133.5 132.1,133.4 132.2,133.4 132.4,133.3 132.5,133.2 132.7,133.1 132.8,133.0 132.9,132.9 133.0,132.8 133.1,132.6 133.2,132.5 133.3,132.3 133.4,132.2 133.4,132.0 133.5,131.8 133.5,131.7" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="173.5,131.5 173.5,131.3 173.5,131.2 173.4,131.0 173.4,130.8 173.3,130.7 173.2,130.5 173.1,130.4 173.0,130.2 172.9,130.1 172.8,130.0 172.7,129.9 172.5,129.8 172.4,129.7 172.2,129.6 172.1,129.6 171.9,129.5 171.7,129.5 171.5,129.5 171.4,129.5 171.2,129.5 171.0,129.6 170.9,129.6 170.7,129.7 170.6,129.7 170.4,129.8 170.3,129.9 170.1,130.0 170.0,130.2 169.9,130.3 169.8,130.4 169.7,130.6 169.6,130.7 169.6,130.9 169.5,131.1 169.5,131.2 169.5,131.4 169.5,131.6 169.5,131.8 169.5,131.9 169.6,132.1 169.6,132.3 169.7,132.4 169.8,132.6 169.9,132.7 170.0,132.8 170.1,133.0 170.3,133.1 170.4,133.2 170.6,133.3 170.7,133.3 170.9,133.4 171.0,133.4 171.2,133.5 171.4,133.5 171.5,133.5 171.7,133.5 171.9,133.5 172.1,133.4 172.2,133.4 172.4,133.3 172.5,133.2 172.7,133.1 172.8,133.0 172.9,132.9 173.0,132.8 173.1,132.6 173.2,132.5 173.3,132.3 173.4,132.2 173.4,132.0 173.5,131.8 173.5,131.7" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="173.5,71.5 173.5,71.3 173.5,71.2 173.4,71.0 173.4,70.8 173.3,70.7 173.2,70.5 173.1,70.4 173.0,70.2 172.9,70.1 172.8,70.0 172.7,69.9 172.5,69.8 172.4,69.7 172.2,69.6 172.1,69.6 171.9,69.5 171.7,69.5 171.5,69.5 171.4,69.5 171.2,69.5 171.0,69.6 170.9,69.6 170.7,69.7 170.6,69.7 170.4,69.8 170.3,69.9 170.1,70.0 170.0,70.2 169.9,70.3 169.8,70.4 169.7,70.6 169.6,70.7 169.6,70.9 169.5,71.1 169.5,71.2 169.5,71.4 169.5,71.6 169.5,71.8 169.5,71.9 169.6,72.1 169.6,72.3 169.7,72.4 169.8,72.6 169.9,72.7 170.0,72.8 170.1,73.0 170.3,73.1 170.4,73.2 170.6,73.3 170.7,73.3 170.9,73.4 171.0,73.4 171.2,73.5 171.4,73.5 171.5,73.5 171.7,73.5 171.9,73.5 172.1,73.4 172.2,73.4 172.4,73.3 172.5,73.2 172.7,73.1 172.8,73.0 172.9,72.9 173.0,72.8 173.1,72.6 173.2,72.5 173.3,72.3 173.4,72.2 173.4,72.0 173.5,71.8 173.5,71.7" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="133.5,71.5 133.5,71.3 133.5,71.2 133.4,71.0 133.4,70.8 133.3,70.7 133.2,70.5 133.1,70.4 133.0,70.2 132.9,70.1 132.8,70.0 132.7,69.9 132.5,69.8 132.4,69.7 132.2,69.6 132.1,69.6 131.9,69.5 131.7,69.5 131.5,69.5 131.4,69.5 131.2,69.5 131.0,69.6 130.9,69.6 130.7,69.7 130.6,69.7 130.4,69.8 130.3,69.9 130.1,70.0 130.0,70.2 129.9,70.3 129.8,70.4 129.7,70.6 129.6,70.7 129.6,70.9 129.5,71.1 129.5,71.2 129.5,71.4 129.5,71.6 129.5,71.8 129.5,71.9 129.6,72.1 129.6,72.3 129.7,72.4 129.8,72.6 129.9,72.7 130.0,72.8 130.1,73.0 130.3,73.1 130.4,73.2 130.6,73.3 130.7,73.3 130.9,73.4 131.0,73.4 131.2,73.5 131.4,73.5 131.5,73.5 131.7,73.5 131.9,73.5 132.1,73.4 132.2,73.4 132.4,73.3 132.5,73.2 132.7,73.1 132.8,73.0 132.9,72.9 133.0,72.8 133.1,72.6 133.2,72.5 133.3,72.3 133.4,72.2 133.4,72.0 133.5,71.8 133.5,71.7" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="95.5,75.5 95.4,74.3 95.3,73.1 95.0,71.9 94.7,70.8 94.2,69.7 93.7,68.6 93.0,67.6 92.3,66.6 91.5,65.7 90.6,64.9 89.7,64.1 88.7,63.5 87.6,62.9 86.5,62.4 85.4,62.0 84.2,61.8 83.0,61.6 81.8,61.5 80.6,61.5 79.4,61.7 78.2,61.9 77.1,62.2 75.9,62.7 74.9,63.2 73.8,63.8 72.8,64.5 71.9,65.3 71.1,66.1 70.3,67.1 69.6,68.1 69.0,69.1 68.5,70.2 68.1,71.3 67.8,72.5 67.6,73.7 67.5,74.9 67.5,76.1 67.6,77.3 67.8,78.5 68.1,79.7 68.5,80.8 69.0,81.9 69.6,82.9 70.3,83.9 71.1,84.9 71.9,85.7 72.8,86.5 73.8,87.2 74.9,87.8 75.9,88.3 77.1,88.8 78.2,89.1 79.4,89.3 80.6,89.5 81.8,89.5 83.0,89.4 84.2,89.2 85.4,89.0 86.5,88.6 87.6,88.1 88.7,87.5 89.7,86.9 90.6,86.1 91.5,85.3 92.3,84.4 93.0,83.4 93.7,82.4 94.2,81.3 94.7,80.2 95.0,79.1 95.3,77.9 95.4,76.7" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="71.5,81.5 91.5,81.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="dc_p1" class="port">
+			<polygon points="1.5,51.5 21.5,51.5 21.5,31.5 1.5,31.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
-		<g id="dutyCycle" class="port">
-			<polygon points="241.5,131.5 261.5,141.5 241.5,151.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="dc_n1" class="port">
+			<polygon points="1.5,171.5 21.5,171.5 21.5,151.5 1.5,151.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
-		<g id="vMaxExt" class="port">
-			<polygon points="161.5,1.5 141.5,41.5 121.5,1.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="dc_p2" class="port">
+			<polygon points="201.5,51.5 221.5,51.5 221.5,31.5 201.5,31.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="dc_n2" class="port">
+			<polygon points="201.5,171.5 221.5,171.5 221.5,151.5 201.5,151.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="heatPort" class="port">
+			<polygon points="101.5,211.5 121.5,211.5 121.5,191.5 101.5,191.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="enable" class="port">
+			<polygon points="191.5,241.5 211.5,201.5 231.5,241.5" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="fire_p" class="port">
+			<polygon points="31.5,241.5 51.5,201.5 71.5,241.5" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

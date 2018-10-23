@@ -1,17 +1,19 @@
-<svg width="223" height="253" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Machines.SpacePhasors.Components.Rotator" class="component">
-		<polyline points="111.5,111.5 191.5,111.5 171.5,101.5 171.5,121.5 191.5,111.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="111.5,111.5 111.5,31.5 101.5,51.5 121.5,51.5 111.5,31.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="161.5,111.5 153.5,97.5 165.5,95.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="111.5,61.5 120.5,62.5 123.4,62.9 126.3,63.5 129.0,64.2 131.6,65.2 134.1,66.2 136.5,67.5 136.5,67.5 138.5,68.7 140.3,69.9 142.1,71.3 143.8,72.7 145.5,74.2 147.0,75.8 148.5,77.5 148.5,77.5 150.1,79.5 151.6,81.5 153.0,83.5 154.3,85.5 155.4,87.5 156.5,89.5 156.5,89.5 157.4,91.6 158.3,93.7 159.0,96.0 159.6,98.4 160.1,100.9 160.5,103.5 161.5,111.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<g id="spacePhasor_a" class="port">
-			<polygon points="11.5,1.5 1.5,11.5 11.5,21.5 21.5,11.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+<svg width="263" height="243" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator" class="component">
+		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="141.5,101.5 141.5,21.5 131.5,41.5 151.5,41.5 141.5,21.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="141.5,101.5 221.5,101.5 201.5,91.5 201.5,111.5 221.5,101.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="191.5,101.5 183.5,87.5 195.5,85.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="139.5" y="188.8" text-anchor="middle" fill="#000000" font-size="20.3px" font-family="sans-serif">angle</text>
+		<polyline points="141.5,51.5 150.5,52.5 153.4,52.9 156.3,53.5 159.0,54.2 161.6,55.2 164.1,56.2 166.5,57.5 166.5,57.5 168.5,58.7 170.3,59.9 172.1,61.3 173.8,62.7 175.5,64.2 177.0,65.8 178.5,67.5 178.5,67.5 180.1,69.5 181.6,71.5 183.0,73.5 184.3,75.5 185.4,77.5 186.5,79.5 186.5,79.5 187.4,81.6 188.3,83.7 189.0,86.0 189.6,88.4 190.1,90.9 190.5,93.5 191.5,101.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="u" class="port">
+			<polygon points="1.5,81.5 41.5,101.5 1.5,121.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
-		<g id="spacePhasor_b" class="port">
-			<polygon points="211.5,1.5 201.5,11.5 211.5,21.5 221.5,11.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="y" class="port">
+			<polygon points="241.5,91.5 261.5,101.5 241.5,111.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 		<g id="angle" class="port">
-			<polygon points="91.5,251.5 111.5,211.5 131.5,251.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="121.5,241.5 141.5,201.5 161.5,241.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

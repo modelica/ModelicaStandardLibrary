@@ -1,11 +1,23 @@
 <svg width="243" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.StateGraph.Temporary.NumericValue" class="component">
-		<polygon points="41.5,151.5 241.5,151.5 241.5,51.5 41.5,51.5" fill="#ECE9D8" stroke="#0000FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="44.5,150.0 240.0,150.0 240.0,54.5" fill-opacity="0" stroke="#76756C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="43.0,148.5 43.0,53.0 238.5,53.0" fill-opacity="0" stroke="#F6F4EB" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="141.5" y="145.4" text-anchor="middle" fill="#0000FF" font-size="106.3px" font-family="sans-serif"> </text>
-		<g id="Value" class="port">
-			<polygon points="1.5,81.5 41.5,101.5 1.5,121.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+	<g id="Modelica.StateGraph.Temporary.IndicatorLamp" class="component">
+		<defs>
+			<radialGradient id="sph2">
+				<stop offset="0%" stop-color="#EBEBEB" />
+				<stop offset="10%" stop-color="#E9E9E9" />
+				<stop offset="20%" stop-color="#E2E2E2" />
+				<stop offset="30%" stop-color="#D6D6D6" />
+				<stop offset="40%" stop-color="#C5C5C5" />
+				<stop offset="50%" stop-color="#B0B0B0" />
+				<stop offset="60%" stop-color="#969696" />
+				<stop offset="70%" stop-color="#787878" />
+				<stop offset="80%" stop-color="#555555" />
+				<stop offset="90%" stop-color="#2D2D2D" />
+				<stop offset="100%" stop-color="#000000" />
+			</radialGradient>
+		</defs>
+		<polygon points="241.5,101.5 241.1,92.9 240.0,84.4 238.2,76.0 235.6,67.7 232.4,59.8 228.5,52.1 223.9,44.8 218.7,38.0 213.0,31.6 206.7,25.7 199.9,20.3 192.7,15.6 185.2,11.5 177.3,8.1 169.1,5.4 160.7,3.4 152.2,2.1 143.7,1.5 135.0,1.7 126.5,2.6 118.1,4.3 109.8,6.7 101.7,9.7 94.0,13.5 86.6,17.9 79.6,22.9 73.1,28.5 67.1,34.7 61.6,41.3 56.7,48.4 52.5,55.9 48.9,63.7 46.0,71.8 43.8,80.1 42.3,88.6 41.6,97.2 41.6,105.8 42.3,114.4 43.8,122.9 46.0,131.2 48.9,139.3 52.5,147.1 56.7,154.6 61.6,161.7 67.1,168.3 73.1,174.5 79.6,180.1 86.6,185.1 94.0,189.5 101.7,193.3 109.8,196.3 118.1,198.7 126.5,200.4 135.0,201.3 143.7,201.5 152.2,200.9 160.7,199.6 169.1,197.6 177.3,194.9 185.2,191.5 192.7,187.4 199.9,182.7 206.7,177.3 213.0,171.4 218.7,165.0 223.9,158.2 228.5,150.9 232.4,143.2 235.6,135.3 238.2,127.0 240.0,118.6 241.1,110.1" fill="url(#sph2)" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="u" class="port">
+			<polygon points="1.5,81.5 41.5,101.5 1.5,121.5" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

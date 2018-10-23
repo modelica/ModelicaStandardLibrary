@@ -1,11 +1,11 @@
 <svg width="223" height="223" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Analog.Lines.TLine2" class="component">
+	<g id="Modelica.Electrical.Analog.Lines.TLine3" class="component">
 		<polygon points="31.5,191.5 191.5,191.5 191.5,31.5 31.5,31.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="171.5,211.5 201.5,211.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="171.5,11.5 201.5,11.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="51.5,11.5 21.5,11.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="51.5,211.5 21.5,211.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="111.5" y="159.6" text-anchor="middle" fill="#000000" font-size="50.1px" font-family="sans-serif">TLine2</text>
+		<text x="111.5" y="159.6" text-anchor="middle" fill="#000000" font-size="50.1px" font-family="sans-serif">TLine3</text>
 		<polyline points="71.5,71.5 71.5,91.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="151.5,81.5 71.5,81.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="151.5,71.5 151.5,91.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />

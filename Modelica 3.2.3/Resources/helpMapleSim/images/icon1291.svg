@@ -1,5 +1,5 @@
 <svg width="213" height="223" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Mechanics.Translational.Sources.QuadraticSpeedDependentForce" class="component">
+	<g id="Modelica.Mechanics.Translational.Sources.ConstantForce" class="component">
 		<polyline points="51.5,221.5 71.5,201.5" fill-opacity="0" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="71.5,221.5 91.5,201.5" fill-opacity="0" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="91.5,221.5 111.5,201.5" fill-opacity="0" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
@@ -11,9 +11,9 @@
 		<polygon points="182.5,21.5 152.5,11.5 152.5,31.5" fill="#5F7F5F" stroke="#5F7F5F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="49.5,161.5 178.5,161.5" fill-opacity="0" stroke="#5F7F5F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polygon points="19.5,161.5 50.5,151.5 50.5,171.5" fill="#5F7F5F" stroke="#5F7F5F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="41.5,51.5 41.5,141.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="26.5,131.5 176.5,131.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="41.5,131.5 51.5,130.5 54.8,130.1 58.2,129.6 61.5,129.0 64.8,128.3 68.2,127.4 71.5,126.5 71.5,126.5 74.0,125.7 76.5,124.8 79.0,123.8 81.5,122.8 84.0,121.6 86.5,120.3 89.0,119.0 91.5,117.5 91.5,117.5 95.5,115.0 99.5,112.4 103.5,109.6 107.5,106.6 111.5,103.5 111.5,103.5 115.5,100.2 119.5,96.8 123.5,93.2 127.5,89.4 131.5,85.5 131.5,85.5 134.8,82.1 138.1,78.5 141.2,74.8 144.4,70.8 147.5,66.8 150.5,62.5 159.5,49.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="26.5,91.5 176.5,91.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="101.5,41.5 101.5,101.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="26.5,71.5 176.5,71.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<g id="flange" class="port">
 			<polygon points="191.5,111.5 211.5,111.5 211.5,91.5 191.5,91.5" fill="#FFFFFF" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>

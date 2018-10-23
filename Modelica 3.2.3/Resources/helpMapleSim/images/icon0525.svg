@@ -1,13 +1,8 @@
 <svg width="213" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Digital.Gates.BufGate" class="component">
-		<polygon points="51.5,201.5 151.5,201.5 151.5,1.5 51.5,1.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="151.5,101.5 193.5,101.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="51.5,201.5 151.5,201.5 151.5,1.5 51.5,1.5" fill="#D5AAFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="102.5" y="189.1" text-anchor="middle" fill="#000000" font-size="20.2px" font-family="sans-serif">Gate</text>
-		<text x="101.5" y="60.7" text-anchor="middle" fill="#000000" font-size="53.1px" font-family="sans-serif">1</text>
-		<g id="x" class="port">
-			<polygon points="31.5,111.5 51.5,111.5 51.5,91.5 31.5,91.5" fill="#7F007F" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
+	<g id="Modelica.Electrical.Digital.Sources.Set" class="component">
+		<polygon points="51.5,201.5 151.5,201.5 151.5,1.5 51.5,1.5" fill="#D5FFAA" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="101.5" y="60.7" text-anchor="middle" fill="#000000" font-size="53.1px" font-family="sans-serif">SET</text>
+		<polyline points="151.5,101.5 191.5,101.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<g id="y" class="port">
 			<polygon points="191.5,91.5 211.5,101.5 191.5,111.5" fill="#FFFFFF" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>

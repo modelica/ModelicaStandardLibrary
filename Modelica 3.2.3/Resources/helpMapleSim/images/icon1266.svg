@@ -1,24 +1,9 @@
 <svg width="223" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Mechanics.Translational.Components.Mass" class="component">
+	<g id="Modelica.Mechanics.Translational.Components.Rod" class="component">
 		<polyline points="11.5,101.5 211.5,101.5" fill-opacity="0" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<defs>
-			<radialGradient id="sph3">
-				<stop offset="0%" stop-color="#A0D7A0" />
-				<stop offset="10%" stop-color="#9ED69E" />
-				<stop offset="20%" stop-color="#9AD39A" />
-				<stop offset="30%" stop-color="#92CF92" />
-				<stop offset="40%" stop-color="#86C986" />
-				<stop offset="50%" stop-color="#78C178" />
-				<stop offset="60%" stop-color="#66B766" />
-				<stop offset="70%" stop-color="#52AC52" />
-				<stop offset="80%" stop-color="#3A9F3A" />
-				<stop offset="90%" stop-color="#1E901E" />
-				<stop offset="100%" stop-color="#007F00" />
-			</radialGradient>
-		</defs>
-		<polygon points="56.5,131.5 167.5,131.5 167.5,71.5 56.5,71.5" fill="url(#sph3)" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polygon points="161.5,191.5 131.5,181.5 131.5,201.5" fill="#5F7F5F" stroke="#5F7F5F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="51.5,191.5 131.5,191.5" fill-opacity="0" stroke="#5F7F5F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="51.5,111.5 171.5,111.5 171.5,91.5 51.5,91.5" fill="#A0D7A0" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<g id="flange_a" class="port">
 			<polygon points="1.5,111.5 21.5,111.5 21.5,91.5 1.5,91.5" fill="#007F00" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>

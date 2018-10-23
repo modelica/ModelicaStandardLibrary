@@ -1,5 +1,5 @@
 <svg width="253" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Fluid.Sources.MassFlowSource_T" class="component">
+	<g id="Modelica.Fluid.Sources.MassFlowSource_h" class="component">
 		<defs>
 			<linearGradient id="cyl2" x1="0" y1="0" x2="0" y2="1">
 				<stop offset="0%" stop-color="#000000" />
@@ -25,7 +25,7 @@
 				<stop offset="100%" stop-color="#000000" />
 			</linearGradient>
 		</defs>
-		<polygon points="176.5,146.5 241.5,146.5 241.5,56.5 176.5,56.5" fill="url(#cyl2)" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="177.5,146.5 241.5,146.5 241.5,56.5 177.5,56.5" fill="url(#cyl2)" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polygon points="201.5,101.5 201.2,94.6 200.3,87.8 198.8,81.1 196.8,74.5 194.2,68.1 191.1,62.0 187.4,56.2 183.3,50.7 178.7,45.5 173.7,40.8 168.2,36.6 162.5,32.8 156.4,29.5 150.1,26.8 143.6,24.6 136.9,23.0 130.1,22.0 123.2,21.5 116.3,21.7 109.5,22.4 102.7,23.7 96.1,25.6 89.7,28.1 83.5,31.1 77.6,34.6 72.0,38.6 66.8,43.1 62.0,48.1 57.6,53.4 53.7,59.0 50.3,65.0 47.4,71.3 45.1,77.8 43.3,84.4 42.2,91.2 41.6,98.1 41.6,104.9 42.2,111.8 43.3,118.6 45.1,125.2 47.4,131.7 50.3,138.0 53.7,144.0 57.6,149.6 62.0,154.9 66.8,159.9 72.0,164.4 77.6,168.4 83.5,171.9 89.7,174.9 96.1,177.4 102.7,179.3 109.5,180.6 116.3,181.3 123.2,181.5 130.1,181.0 136.9,180.0 143.6,178.4 150.1,176.2 156.4,173.5 162.5,170.2 168.2,166.4 173.7,162.2 178.7,157.5 183.3,152.3 187.4,146.8 191.1,141.0 194.2,134.9 196.8,128.5 198.8,121.9 200.3,115.2 201.2,108.4" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polygon points="81.5,31.5 201.5,101.5 81.5,169.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<text x="122.5" y="130.0" text-anchor="middle" fill="#FF0000" font-size="82.4px" font-family="sans-serif">m</text>
@@ -38,7 +38,7 @@
 		<g id="m_flow_in" class="port">
 			<polygon points="21.5,1.5 61.5,21.5 21.5,41.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
-		<g id="T_in" class="port">
+		<g id="h_in" class="port">
 			<polygon points="1.5,41.5 41.5,61.5 1.5,81.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 		<g id="X_in" class="port">

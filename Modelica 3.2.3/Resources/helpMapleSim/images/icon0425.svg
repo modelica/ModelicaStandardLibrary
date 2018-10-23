@@ -1,11 +1,10 @@
 <svg width="223" height="233" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Analog.Ideal.OpenerWithArc" class="component">
+	<g id="Modelica.Electrical.Analog.Ideal.CloserWithArc" class="component">
 		<polygon points="75.5,121.5 75.5,121.2 75.4,120.8 75.4,120.5 75.3,120.1 75.1,119.8 75.0,119.5 74.8,119.2 74.6,119.0 74.4,118.7 74.1,118.5 73.8,118.3 73.5,118.1 73.2,117.9 72.9,117.8 72.6,117.7 72.3,117.6 71.9,117.5 71.6,117.5 71.2,117.5 70.9,117.5 70.6,117.6 70.2,117.7 69.9,117.8 69.6,118.0 69.3,118.2 69.0,118.4 68.8,118.6 68.5,118.8 68.3,119.1 68.1,119.4 67.9,119.7 67.8,120.0 67.7,120.3 67.6,120.6 67.5,121.0 67.5,121.3 67.5,121.7 67.5,122.0 67.6,122.4 67.7,122.7 67.8,123.0 67.9,123.3 68.1,123.6 68.3,123.9 68.5,124.2 68.8,124.4 69.0,124.6 69.3,124.8 69.6,125.0 69.9,125.2 70.2,125.3 70.6,125.4 70.9,125.5 71.2,125.5 71.6,125.5 71.9,125.5 72.3,125.4 72.6,125.3 72.9,125.2 73.2,125.1 73.5,124.9 73.8,124.7 74.1,124.5 74.4,124.3 74.6,124.0 74.8,123.8 75.0,123.5 75.1,123.2 75.3,122.9 75.4,122.5 75.4,122.2 75.5,121.8" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="21.5,121.5 67.5,121.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="74.5,119.5 151.5,81.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="151.5,121.5 201.5,121.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="151.5,101.5 151.5,121.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="151.5,81.5 143.5,91.5 159.5,95.5 151.5,101.5" fill-opacity="0" stroke="#FF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="151.5,81.5 143.5,107.5 159.5,99.5 151.5,121.5" fill-opacity="0" stroke="#FF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<g id="p" class="port">
 			<polygon points="1.5,131.5 21.5,131.5 21.5,111.5 1.5,111.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>

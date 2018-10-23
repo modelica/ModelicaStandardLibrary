@@ -1,5 +1,5 @@
 <svg width="223" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Digital.Examples.Utilities.RS" class="component">
+	<g id="Modelica.Electrical.Digital.Examples.Utilities.RSFF" class="component">
 		<polygon points="21.5,201.5 201.5,201.5 201.5,1.5 21.5,1.5" fill="#FFFFAA" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<text x="111.5" y="60.1" text-anchor="middle" fill="#000000" font-size="79.7px" font-family="sans-serif">RS</text>
 		<polyline points="51.5,1.5 51.5,201.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
@@ -8,6 +8,7 @@
 		<text x="36.5" y="41.4" text-anchor="middle" fill="#000000" font-size="26.6px" font-family="sans-serif">S</text>
 		<text x="186.5" y="41.4" text-anchor="middle" fill="#000000" font-size="26.6px" font-family="sans-serif">Q</text>
 		<text x="186.5" y="179.0" text-anchor="middle" fill="#000000" font-size="19.8px" font-family="sans-serif">QN</text>
+		<polyline points="21.5,81.5 51.5,101.5 21.5,121.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<g id="s" class="port">
 			<polygon points="1.5,41.5 21.5,41.5 21.5,21.5 1.5,21.5" fill="#7F007F" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
@@ -19,6 +20,9 @@
 		</g>
 		<g id="qn" class="port">
 			<polygon points="201.5,161.5 221.5,171.5 201.5,181.5" fill="#FFFFFF" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="clk" class="port">
+			<polygon points="1.5,111.5 21.5,111.5 21.5,91.5 1.5,91.5" fill="#7F007F" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

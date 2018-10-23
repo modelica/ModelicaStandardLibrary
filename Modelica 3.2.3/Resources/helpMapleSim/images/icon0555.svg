@@ -1,11 +1,10 @@
 <svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Digital.Tristates.PRXFERGATE" class="component">
-		<polygon points="41.5,121.5 161.5,121.5 161.5,41.5 41.5,41.5" fill="#D5AAFF" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="68.5,85.5 132.5,85.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="21.5,111.5 69.5,111.5 69.5,91.5 131.5,91.5 131.5,111.5 181.5,111.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="122.5" y="83.1" text-anchor="middle" fill="#7F007F" font-size="37.2px" font-family="sans-serif">PR</text>
-		<polyline points="19.5,31.5 101.5,31.5 101.5,85.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="98.5" y="141.8" text-anchor="middle" fill="#0000FF" font-size="13.7px" font-family="sans-serif">PRXFERGATE</text>
+	<g id="Modelica.Electrical.Digital.Tristates.BUF3S" class="component">
+		<polyline points="21.5,31.5 101.5,31.5 101.5,87.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="61.5,61.5 61.5,161.5 141.5,111.5" fill="#D5AAFF" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="21.5,111.5 61.5,111.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="141.5,111.5 183.5,111.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="84.5" y="184.6" text-anchor="middle" fill="#0000FF" font-size="27.3px" font-family="sans-serif">BUF3S</text>
 		<g id="enable" class="port">
 			<polygon points="1.5,41.5 21.5,41.5 21.5,21.5 1.5,21.5" fill="#7F007F" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>

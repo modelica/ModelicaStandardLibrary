@@ -1,5 +1,5 @@
 <svg width="213" height="223" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Mechanics.Translational.Sources.ConstantSpeed" class="component">
+	<g id="Modelica.Mechanics.Translational.Sources.ForceStep" class="component">
 		<polyline points="51.5,221.5 71.5,201.5" fill-opacity="0" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="71.5,221.5 91.5,201.5" fill-opacity="0" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="91.5,221.5 111.5,201.5" fill-opacity="0" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
@@ -11,9 +11,9 @@
 		<polygon points="182.5,21.5 152.5,11.5 152.5,31.5" fill="#5F7F5F" stroke="#5F7F5F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="49.5,161.5 178.5,161.5" fill-opacity="0" stroke="#5F7F5F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polygon points="19.5,161.5 50.5,151.5 50.5,171.5" fill="#5F7F5F" stroke="#5F7F5F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="41.5,41.5 41.5,111.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="26.5,101.5 176.5,101.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="111.5,116.5 111.5,31.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="26.5,131.5 101.5,131.5 101.5,56.5 166.5,56.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="151.5" y="141.0" text-anchor="middle" fill="#808080" font-size="39.9px" font-family="sans-serif">time</text>
 		<g id="flange" class="port">
 			<polygon points="191.5,111.5 211.5,111.5 211.5,91.5 191.5,91.5" fill="#FFFFFF" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>

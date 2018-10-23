@@ -20,7 +20,7 @@ td code, th code { font-size: 13px }
 hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
 </style>
 <body>
-<a name="Components"><h1><embed class="icon" src="../../../images/icon1203.svg" width="203" height="203" />
+<a name="Components"><h1><embed class="icon" src="../../../images/icon1202.svg" width="203" height="203" />
 Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;Components<br><span class="subtitle">Components for 1D rotational mechanical drive trains</span></h1></a>
 <h3>Information</h3>
 <p>
@@ -50,13 +50,13 @@ This package contains basic components 1D mechanical rotational drive trains.
 <tr><td><a href="#Inertia"><code>Inertia</code></a></td><td>1D-rotational component with inertia</td></tr>
 <tr><td><a href="#InitializeFlange"><code>InitializeFlange</code></a></td><td>Initializes a flange with pre-defined angle, speed and angular acceleration (usually, this is reference data from a control bus)</td></tr>
 <tr><td><a href="#LossyGear"><code>LossyGear</code></a></td><td>Gear with mesh efficiency and bearing friction (stuck/rolling possible)</td></tr>
-<tr><td><a href="#OneWayClutch"><code>OneWayClutch</code></a></td><td>Series connection of freewheel and clutch</td></tr>
+<tr><td><a href="#OneWayClutch"><code>OneWayClutch</code></a></td><td>Parallel connection of freewheel and clutch</td></tr>
 <tr><td><a href="#RelativeStates"><code>RelativeStates</code></a></td><td>Definition of relative state variables</td></tr>
 <tr><td><a href="#Spring"><code>Spring</code></a></td><td>Linear 1D rotational spring</td></tr>
 <tr><td><a href="#SpringDamper"><code>SpringDamper</code></a></td><td>Linear 1D rotational spring and damper in parallel</td></tr>
 <tr><td><a href="#TorqueToAngleAdaptor"><code>TorqueToAngleAdaptor</code></a></td><td>Signal adaptor for a Rotational flange with angle, speed, and acceleration as outputs and torque as input (especially useful for FMUs)</td></tr>
 </table>
-<hr><a name="Fixed"><h2><embed class="icon" src="../../../images/icon1204.svg" width="203" height="203" />
+<hr><a name="Fixed"><h2><embed class="icon" src="../../../images/icon1203.svg" width="203" height="203" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;Fixed<br><span class="subtitle">Flange fixed in housing at a given angle</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -80,7 +80,7 @@ at an angle phi0 in the <strong>housing</strong>. May be used:
 <table border="1" cellspacing="0" cellpadding="3">
 <tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange</code></td><td>(right) flange fixed in housing</td></tr>
 </table>
-<hr><a name="Inertia"><h2><embed class="icon" src="../../../images/icon1205.svg" width="223" height="203" />
+<hr><a name="Inertia"><h2><embed class="icon" src="../../../images/icon1204.svg" width="223" height="203" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;Inertia<br><span class="subtitle">1D-rotational component with inertia</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -99,7 +99,7 @@ Rotational component with <strong>inertia</strong> and two rigidly connected fla
 <tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>Flange of left shaft</td></tr>
 <tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>Flange of right shaft</td></tr>
 </table>
-<hr><a name="Disc"><h2><embed class="icon" src="../../../images/icon1206.svg" width="223" height="203" />
+<hr><a name="Disc"><h2><embed class="icon" src="../../../images/icon1205.svg" width="223" height="203" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;Disc<br><span class="subtitle">1-dim. rotational rigid component without inertia, where right flange is rotated by a fixed angle with respect to left flange</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -119,7 +119,7 @@ flange.
 <tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>Flange of left shaft</td></tr>
 <tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>Flange of right shaft</td></tr>
 </table>
-<hr><a name="Spring"><h2><embed class="icon" src="../../../images/icon1207.svg" width="223" height="203" />
+<hr><a name="Spring"><h2><embed class="icon" src="../../../images/icon1206.svg" width="223" height="203" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;Spring<br><span class="subtitle">Linear 1D rotational spring</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -142,7 +142,7 @@ a coupling of the element with the housing via a spring.
 <tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>Left flange of compliant 1-dim. rotational component</td></tr>
 <tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>Right flange of compliant 1-dim. rotational component</td></tr>
 </table>
-<hr><a name="Damper"><h2><embed class="icon" src="../../../images/icon1208.svg" width="223" height="213" />
+<hr><a name="Damper"><h2><embed class="icon" src="../../../images/icon1207.svg" width="223" height="213" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;Damper<br><span class="subtitle">Linear 1D rotational damper</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -172,7 +172,7 @@ in the User's Guide of the Rotational library.
 <tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>Right flange of compliant 1-dim. rotational component</td></tr>
 <tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
 </table>
-<hr><a name="SpringDamper"><h2><embed class="icon" src="../../../images/icon1209.svg" width="223" height="213" />
+<hr><a name="SpringDamper"><h2><embed class="icon" src="../../../images/icon1208.svg" width="223" height="213" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;SpringDamper<br><span class="subtitle">Linear 1D rotational spring and damper in parallel</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -206,7 +206,7 @@ in the User's Guide of the Rotational library.
 <tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>Right flange of compliant 1-dim. rotational component</td></tr>
 <tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
 </table>
-<hr><a name="ElastoBacklash"><h2><embed class="icon" src="../../../images/icon1210.svg" width="223" height="213" />
+<hr><a name="ElastoBacklash"><h2><embed class="icon" src="../../../images/icon1209.svg" width="223" height="213" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;ElastoBacklash<br><span class="subtitle">Backlash connected in series to linear spring and damper (backlash is modeled with elasticity)</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -338,7 +338,7 @@ in the User's Guide of the Rotational library.
 <tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>Right flange of compliant 1-dim. rotational component</td></tr>
 <tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
 </table>
-<hr><a name="ElastoBacklash2"><h2><embed class="icon" src="../../../images/icon1211.svg" width="223" height="213" />
+<hr><a name="ElastoBacklash2"><h2><embed class="icon" src="../../../images/icon1210.svg" width="223" height="213" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;ElastoBacklash2<br><span class="subtitle">Backlash connected in series to linear spring and damper (backlash is modeled with elasticity; at start of contact the flange torque can jump, contrary to the ElastoBacklash model)</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -455,7 +455,7 @@ in the User's Guide of the Rotational library.
 <tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>Right flange of compliant 1-dim. rotational component</td></tr>
 <tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
 </table>
-<hr><a name="BearingFriction"><h2><embed class="icon" src="../../../images/icon1212.svg" width="223" height="223" />
+<hr><a name="BearingFriction"><h2><embed class="icon" src="../../../images/icon1211.svg" width="223" height="223" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;BearingFriction<br><span class="subtitle">Coulomb friction in bearings</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -548,7 +548,6 @@ following references, especially (Armstrong and Canudas de Wit 1996):
 <tr><td><code>Real</code></td><td><code>tau_pos[:,2]</code></td><td><code>[0,1]</code></td><td>[w,tau] Positive sliding friction characteristic (w&gt;=0)</td></tr>
 <tr><td><code>Real</code></td><td><code>peak</code></td><td><code>1</code></td><td>Peak for maximum friction torque at w==0 (tau0_max = peak*tau_pos[1,2])</td></tr>
 <tr><td><code><a href="../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>w_small</code></td><td><code>1e+10</code></td><td>Relative angular velocity near to zero if jumps due to a reinit(..) of the velocity can occur (set to low value only if such impulses can occur)</td></tr>
-<tr><td><code>Real</code></td><td><code>K_locked</code></td><td><code>0</code></td><td>Gain driving the relative motion between the friction elements to 0 when locked.  This parameter should only be non-zero when using the model with fixed-step integration</td></tr>
 <tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -558,7 +557,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
 <tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Support">Support</a></code></td><td><code>support</code></td><td>Support/housing of component</td></tr>
 <tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
 </table>
-<hr><a name="Brake"><h2><embed class="icon" src="../../../images/icon1213.svg" width="223" height="253" />
+<hr><a name="Brake"><h2><embed class="icon" src="../../../images/icon1212.svg" width="223" height="253" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;Brake<br><span class="subtitle">Brake based on Coulomb friction</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -664,7 +663,6 @@ in the User's Guide of the Rotational library.
 <tr><td><code>Real</code></td><td><code>cgeo</code></td><td><code>1</code></td><td>Geometry constant containing friction distribution assumption</td></tr>
 <tr><td><code><a href="../../../SIunits/index.html#Force">Force</a></code></td><td><code>fn_max</code></td><td>&nbsp;</td><td>Maximum normal force</td></tr>
 <tr><td><code><a href="../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>w_small</code></td><td><code>1e+10</code></td><td>Relative angular velocity near to zero if jumps due to a reinit(..) of the velocity can occur (set to low value only if such impulses can occur)</td></tr>
-<tr><td><code>Real</code></td><td><code>K_locked</code></td><td><code>0</code></td><td>Gain driving the relative motion between the friction elements to 0 when locked.  This parameter should only be non-zero when using the model with fixed-step integration</td></tr>
 <tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -675,7 +673,7 @@ in the User's Guide of the Rotational library.
 <tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
 <tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>f_normalized</code></td><td>Normalized force signal 0..1 (normal force = fn_max*f_normalized; brake is active if &gt; 0)</td></tr>
 </table>
-<hr><a name="Clutch"><h2><embed class="icon" src="../../../images/icon1214.svg" width="223" height="243" />
+<hr><a name="Clutch"><h2><embed class="icon" src="../../../images/icon1213.svg" width="223" height="243" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;Clutch<br><span class="subtitle">Clutch based on Coulomb friction</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -782,7 +780,6 @@ in the User's Guide of the Rotational library.
 <tr><td><code>Real</code></td><td><code>cgeo</code></td><td><code>1</code></td><td>Geometry constant containing friction distribution assumption</td></tr>
 <tr><td><code><a href="../../../SIunits/index.html#Force">Force</a></code></td><td><code>fn_max</code></td><td>&nbsp;</td><td>Maximum normal force</td></tr>
 <tr><td><code><a href="../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>w_small</code></td><td><code>1e+10</code></td><td>Relative angular velocity near to zero if jumps due to a reinit(..) of the velocity can occur (set to low value only if such impulses can occur)</td></tr>
-<tr><td><code>Real</code></td><td><code>K_locked</code></td><td><code>0</code></td><td>Gain driving the relative motion between the friction elements to 0 when locked.  This parameter should only be non-zero when using the model with fixed-step integration</td></tr>
 <tr><td><code>Boolean</code></td><td><code>useHeatPort</code></td><td><code>false</code></td><td>=true, if heatPort is enabled</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -792,91 +789,101 @@ in the User's Guide of the Rotational library.
 <tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
 <tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>f_normalized</code></td><td>Normalized force signal 0..1 (normal force = fn_max*f_normalized; clutch is engaged if &gt; 0)</td></tr>
 </table>
-<hr><a name="OneWayClutch"><h2><embed class="icon" src="../../../images/icon1215.svg" width="223" height="243" />
-Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;OneWayClutch<br><span class="subtitle">Series connection of freewheel and clutch</span></h2></a>
+<hr><a name="OneWayClutch"><h2><embed class="icon" src="../../../images/icon1214.svg" width="223" height="243" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;OneWayClutch<br><span class="subtitle">Parallel connection of freewheel and clutch</span></h2></a>
 <h3>Information</h3>
 <p>
 
 <p>
-This component models a <b>one-way clutch</b>, i.e., a component with
+This component models a <strong>one-way clutch</strong>, i.e., a component with
 two flanges where friction is present between the two flanges
 and these flanges are pressed together via a normal force. These
-flanges maybe sliding with respect to each other
-Parallel connection of ClutchCombi and of FreeWheel.
-                     The element is introduced to resolve the ambiguity
-                     of the constraint torques of the elements.
+flanges may be sliding with respect to each other.
+</p>
 <p>
-A one-way-clutch is an element where a clutch is connected in parallel
-to a free wheel. This special element is provided, because such
+A one-way-clutch is an element where a&nbsp;clutch is connected in parallel
+to a&nbsp;free wheel. This special element is provided, because such
 a parallel connection introduces an ambiguity into the model
 (the constraint torques are not uniquely defined when both
 elements are stuck) and this element resolves it by introducing
-<b>one</b> constraint torque and not two.
+<strong>one</strong> constraint torque only instead of two constraints.
 </p>
 <p>
-Note, initial values have to be chosen for the model, such that the
-relative speed of the one-way-clutch >= 0. Otherwise, the configuration
+Note, initial values have to be chosen for the model such that the
+relative speed of the one-way-clutch &ge;&nbsp;0. Otherwise, the configuration
 is physically not possible and an error occurs.
 </p>
 <p>
-The normal force fn has to be provided as input signal f_normalized in a normalized form
-(0 &le; f_normalized &le; 1),
-fn = fn_max*f_normalized, where fn_max has to be provided as parameter. Friction in the
-clutch is modelled in the following way:
+The normal force&nbsp;fn has to be provided as input signal f_normalized in a normalized form
+(0&nbsp;&le;&nbsp;f_normalized&nbsp;&le;&nbsp;1),
+fn&nbsp;=&nbsp;fn_max&nbsp;*&nbsp;f_normalized, where fn_max has to be provided as parameter.
 </p>
 <p>
+The friction in the clutch is modeled in the following way.
 When the relative angular velocity is positive, the friction torque is a
-function of the velocity dependent friction coefficient  mue(w_rel) , of
-the normal force "fn", and of a geometry constant "cgeo" which takes into
+function of the velocity dependent friction coefficient mue(w_rel), of
+the normal force&nbsp;fn, and of a geometry constant cgeo which takes into
 account the geometry of the device and the assumptions on the friction
 distributions:
 </p>
-<pre>
-        frictional_torque = <b>cgeo</b> * <b>mue</b>(w_rel) * <b>fn</b>
-</pre>
+
+<blockquote><pre>
+frictional_torque = <strong>cgeo</strong> * <strong>mue</strong>(w_rel) * <strong>fn</strong>
+</pre></blockquote>
+
 <p>
-   Typical values of coefficients of friction:
+Typical values of coefficients of friction:
 </p>
-<pre>
-      dry operation   :  <b>mue</b> = 0.2 .. 0.4
-      operating in oil:  <b>mue</b> = 0.05 .. 0.1
-</pre>
+
+<blockquote><pre>
+dry operation   :  <strong>mue</strong> = 0.2 .. 0.4
+operating in oil:  <strong>mue</strong> = 0.05 .. 0.1
+</pre></blockquote>
+
 <p>
-   When plates are pressed together, where  <b>ri</b>  is the inner radius,
-   <b>ro</b> is the outer radius and <b>N</b> is the number of friction interfaces,
-   the geometry constant is calculated in the following way under the
-   assumption of a uniform rate of wear at the interfaces:
+The geometry constant is calculated - under the
+assumption of a uniform rate of wear at the friction surfaces - in the following way:
 </p>
-<pre>
-         <b>cgeo</b> = <b>N</b>*(<b>r0</b> + <b>ri</b>)/2
-</pre>
+
+<blockquote><pre>
+<strong>cgeo</strong> = <strong>N</strong>*(<strong>r0</strong> + <strong>ri</strong>)/2
+</pre></blockquote>
+
 <p>
-    The positive part of the friction characteristic <b>mue</b>(w_rel),
-    w_rel >= 0, is defined via table mue_pos (first column = w_rel,
-    second column = mue). Currently, only linear interpolation in
-    the table is supported.
+where <strong>ri</strong> is the inner radius,
+<strong>ro</strong> is the outer radius and&nbsp;<strong>N</strong> is the number of friction interfaces,
+</p>
+
+<p>
+The positive part of the friction characteristic <strong>mue</strong>(w_rel),
+w_rel&nbsp;>=&nbsp;0, is defined via table mue_pos (first column = w_rel,
+second column = mue). Currently, only linear interpolation in
+the table is supported.
 </p>
 <p>
-   When the relative angular velocity becomes zero, the elements
-   connected by the friction element become stuck, i.e., the relative
-   angle remains constant. In this phase the friction torque is
-   calculated from a torque balance due to the requirement, that
-   the relative acceleration shall be zero.  The elements begin
-   to slide when the friction torque exceeds a threshold value,
-   called the  maximum static friction torque, computed via:
+When the relative angular velocity w_rel becomes zero, the elements
+connected by the friction element become stuck, i.e., the relative
+angle remains constant. In this phase the friction torque is
+calculated from a torque balance due to the requirement that
+the relative acceleration shall be zero.  The elements begin
+to slide when the friction torque exceeds a threshold value,
+called the  maximum static friction torque, computed via:
 </p>
-<pre>
-       frictional_torque = <b>peak</b> * <b>cgeo</b> * <b>mue</b>(w_rel=0) * <b>fn</b>   (<b>peak</b> >= 1)
-</pre>
+
+<blockquote><pre>
+frictional_torque = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mue</strong>(w_rel=0) * <strong>fn</strong>,   (<strong>peak</strong> >= 1)
+</pre></blockquote>
+
 <p>
 This procedure is implemented in a "clean" way by state events and
 leads to continuous/discrete systems of equations if friction elements
-are dynamically coupled. The method is described in:
+are dynamically coupled. The method is described in
+(see also a short sketch in <a href="../UsersGuide/index.html#ModelingOfFriction">UsersGuide.ModelingOfFriction</a>):
 </p>
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
-<dd><b>Hybrid Modeling in Modelica based on the Synchronous
-    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
+<dd><strong>Hybrid Modeling in Modelica based on the Synchronous
+    Data Flow Principle</strong>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
 </dl>
 
 <p>
@@ -890,7 +897,7 @@ in the User's Guide of the Rotational library.
 <tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../SIunits/index.html#Angle">Angle</a></code></td><td><code>phi_nominal</code></td><td><code>1e-4</code></td><td>Nominal value of phi_rel (used for scaling)</td></tr>
 <tr><td><code>StateSelect</code></td><td><code>stateSelect</code></td><td><code>StateSelect.&#8203;prefer</code></td><td>Priority to use phi_rel and w_rel as states</td></tr>
 <tr><td><code>Real</code></td><td><code>mue_pos[:,2]</code></td><td><code>[0,0.5]</code></td><td>[w,mue] positive sliding friction coefficient (w_rel&gt;=0)</td></tr>
-<tr><td><code>Real</code></td><td><code>peak</code></td><td><code>1</code></td><td>peak*mue_pos[1,2] = maximum value of mue for w_rel==0</td></tr>
+<tr><td><code>Real</code></td><td><code>peak</code></td><td><code>1</code></td><td>Peak for maximum value of mue at w==0 (mue0_max = peak*mue_pos[1,2])</td></tr>
 <tr><td><code>Real</code></td><td><code>cgeo</code></td><td><code>1</code></td><td>Geometry constant containing friction distribution assumption</td></tr>
 <tr><td><code><a href="../../../SIunits/index.html#Force">Force</a></code></td><td><code>fn_max</code></td><td>&nbsp;</td><td>Maximum normal force</td></tr>
 <tr><td><code><a href="../../../SIunits/index.html#AngularVelocity">AngularVelocity</a></code></td><td><code>w_small</code></td><td><code>1e+10</code></td><td>Relative angular velocity near to zero if jumps due to a reinit(..) of the velocity can occur (set to low value only if such impulses can occur)</td></tr>
@@ -903,7 +910,7 @@ in the User's Guide of the Rotational library.
 <tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
 <tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>f_normalized</code></td><td>Normalized force signal 0..1 (normal force = fn_max*f_normalized; clutch is engaged if &gt; 0)</td></tr>
 </table>
-<hr><a name="IdealGear"><h2><embed class="icon" src="../../../images/icon1216.svg" width="223" height="223" />
+<hr><a name="IdealGear"><h2><embed class="icon" src="../../../images/icon1215.svg" width="223" height="223" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;IdealGear<br><span class="subtitle">Ideal gear without inertia</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -928,7 +935,7 @@ connected to other elements in an appropriate way.
 <tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>Flange of right shaft</td></tr>
 <tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Support">Support</a></code></td><td><code>support</code></td><td>Support/housing of component</td></tr>
 </table>
-<hr><a name="LossyGear"><h2><embed class="icon" src="../../../images/icon1217.svg" width="223" height="223" />
+<hr><a name="LossyGear"><h2><embed class="icon" src="../../../images/icon1216.svg" width="223" height="223" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;LossyGear<br><span class="subtitle">Gear with mesh efficiency and bearing friction (stuck/rolling possible)</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -1109,7 +1116,7 @@ Sept. 11, 2009.</li>
 <tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Support">Support</a></code></td><td><code>support</code></td><td>Support/housing of component</td></tr>
 <tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
 </table>
-<hr><a name="IdealPlanetary"><h2><embed class="icon" src="../../../images/icon1218.svg" width="223" height="213" />
+<hr><a name="IdealPlanetary"><h2><embed class="icon" src="../../../images/icon1217.svg" width="223" height="213" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;IdealPlanetary<br><span class="subtitle">Ideal planetary gear box</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -1163,7 +1170,7 @@ in the flanges, are along the axis vector displayed in the icon.
 <tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>carrier</code></td><td>Flange of carrier shaft</td></tr>
 <tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>ring</code></td><td>Flange of ring shaft</td></tr>
 </table>
-<hr><a name="Gearbox"><h2><embed class="icon" src="../../../images/icon1219.svg" width="223" height="223" />
+<hr><a name="Gearbox"><h2><embed class="icon" src="../../../images/icon1218.svg" width="223" height="223" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;Gearbox<br><span class="subtitle">Realistic model of a gearbox (based on LossyGear)</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -1209,7 +1216,7 @@ Gearbox.
 <tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Support">Support</a></code></td><td><code>support</code></td><td>Support/housing of component</td></tr>
 <tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
 </table>
-<hr><a name="IdealGearR2T"><h2><embed class="icon" src="../../../images/icon1220.svg" width="233" height="218" />
+<hr><a name="IdealGearR2T"><h2><embed class="icon" src="../../../images/icon1219.svg" width="233" height="218" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;IdealGearR2T<br><span class="subtitle">Gearbox transforming rotational into translational motion</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -1239,7 +1246,7 @@ This component defines the kinematic constraint:
 <tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Support">Support</a></code></td><td><code>supportR</code></td><td>Rotational support/housing of component</td></tr>
 <tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Support">Support</a></code></td><td><code>supportT</code></td><td>Translational support/housing of component</td></tr>
 </table>
-<hr><a name="IdealRollingWheel"><h2><embed class="icon" src="../../../images/icon1221.svg" width="233" height="218" />
+<hr><a name="IdealRollingWheel"><h2><embed class="icon" src="../../../images/icon1220.svg" width="233" height="218" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;IdealRollingWheel<br><span class="subtitle">Simple 1-dim. model of an ideal rolling wheel without inertia</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -1266,7 +1273,7 @@ no rolling resistance. This component defines the kinematic constraint:
 <tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Support">Support</a></code></td><td><code>supportR</code></td><td>Rotational support/housing of component</td></tr>
 <tr><td><code><a href="../../../Mechanics/Translational/Interfaces/index.html#Support">Support</a></code></td><td><code>supportT</code></td><td>Translational support/housing of component</td></tr>
 </table>
-<hr><a name="InitializeFlange"><h2><embed class="icon" src="../../../images/icon1222.svg" width="253" height="203" />
+<hr><a name="InitializeFlange"><h2><embed class="icon" src="../../../images/icon1221.svg" width="253" height="203" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;InitializeFlange<br><span class="subtitle">Initializes a flange with pre-defined angle, speed and angular acceleration (usually, this is reference data from a control bus)</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -1311,7 +1318,7 @@ provided via a signal bus.
 <tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>a_start</code></td><td>Initial angular acceleration of flange</td></tr>
 <tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange</code></td><td>Flange that is initialized</td></tr>
 </table>
-<hr><a name="RelativeStates"><h2><embed class="icon" src="../../../images/icon1223.svg" width="223" height="203" />
+<hr><a name="RelativeStates"><h2><embed class="icon" src="../../../images/icon1222.svg" width="223" height="203" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;RelativeStates<br><span class="subtitle">Definition of relative state variables</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -1360,7 +1367,7 @@ in the User's Guide of the Rotational library.
 <tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange_a</code></td><td>Flange of left shaft</td></tr>
 <tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange_b</code></td><td>Flange of right shaft</td></tr>
 </table>
-<hr><a name="AngleToTorqueAdaptor"><h2><embed class="icon" src="../../../images/icon1224.svg" width="203" height="203" />
+<hr><a name="AngleToTorqueAdaptor"><h2><embed class="icon" src="../../../images/icon1223.svg" width="203" height="203" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;AngleToTorqueAdaptor<br><span class="subtitle">Signal adaptor for a Rotational flange with torque as output and angle, speed, and optionally acceleration as inputs (especially useful for FMUs)</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -1389,7 +1396,7 @@ torque as output signal. Note, the input signals must be consistent to each othe
 <tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>a</code></td><td>Angular acceleration to drive the flange (a = der(w) required)</td></tr>
 <tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>tau</code></td><td>Torque needed to drive the flange according to phi, w, a</td></tr>
 </table>
-<hr><a name="TorqueToAngleAdaptor"><h2><embed class="icon" src="../../../images/icon1225.svg" width="203" height="203" />
+<hr><a name="TorqueToAngleAdaptor"><h2><embed class="icon" src="../../../images/icon1224.svg" width="203" height="203" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;TorqueToAngleAdaptor<br><span class="subtitle">Signal adaptor for a Rotational flange with angle, speed, and acceleration as outputs and torque as input (especially useful for FMUs)</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -1416,7 +1423,7 @@ This adaptor has torque as input and angle, angular velocity and angular acceler
 <tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>a</code></td><td>Flange moves with angular acceleration a due to torque tau</td></tr>
 <tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>tau</code></td><td>Torque to drive the flange</td></tr>
 </table>
-<hr><a name="GeneralAngleToTorqueAdaptor"><h2><embed class="icon" src="../../../images/icon1226.svg" width="203" height="203" />
+<hr><a name="GeneralAngleToTorqueAdaptor"><h2><embed class="icon" src="../../../images/icon1225.svg" width="203" height="203" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;GeneralAngleToTorqueAdaptor<br><span class="subtitle">Signal adaptor for a rotational flange with torque as output and angle, speed and acceleration as input (especially useful for FMUs)</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -1452,7 +1459,7 @@ Note, the input signals must be consistent to each other
 <tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>fder2</code></td><td>Optional output for der2(flow)</td></tr>
 <tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_b">Flange_b</a></code></td><td><code>flange</code></td><td>&nbsp</td></tr>
 </table>
-<hr><a name="GeneralTorqueToAngleAdaptor"><h2><embed class="icon" src="../../../images/icon1227.svg" width="203" height="203" />
+<hr><a name="GeneralTorqueToAngleAdaptor"><h2><embed class="icon" src="../../../images/icon1226.svg" width="203" height="203" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Components</a>.&#8203;GeneralTorqueToAngleAdaptor<br><span class="subtitle">Signal adaptor for a rotational flange with angle, speed, and acceleration as outputs and torque as input (especially useful for FMUs)</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -1484,5 +1491,5 @@ This adaptor has torque as input and angle, angular velocity and angular acceler
 <tr><td><code><a href="../../../Mechanics/Rotational/Interfaces/index.html#Flange_a">Flange_a</a></code></td><td><code>flange</code></td><td>&nbsp</td></tr>
 </table>
 <hr style="border-color:#999" />
-<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:39:40 EDT by <i>MapleSim</i>.</p>
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-22 14:47:46 EDT by <i>MapleSim</i>.</p>
 </body></html>

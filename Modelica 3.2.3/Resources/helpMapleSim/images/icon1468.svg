@@ -1,10 +1,10 @@
 <svg width="223" height="223" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Thermal.HeatTransfer.Components.Convection" class="component">
+	<g id="Modelica.Thermal.HeatTransfer.Components.ConvectiveResistor" class="component">
 		<polygon points="49.5,201.5 209.5,201.5 209.5,41.5 49.5,41.5" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<defs>
 			<pattern id="pat3" patternUnits="userSpaceOnUse" width="14" height="14">
 				<rect width="14" height="14" fill="#C0C0C0" />
-				<path d="M-1,13 l2,2 M0,0 l14,14 M13,-1 l2,2" stroke="#000000" stroke-width="1" />
+				<path d="M-1,1 l2,-2 M0,14 l14,-14 M13,15 l2,-2" stroke="#000000" stroke-width="1" />
 			</pattern>
 		</defs>
 		<polygon points="21.5,201.5 51.5,201.5 51.5,41.5 21.5,41.5" fill="url(#pat3)" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
@@ -27,7 +27,7 @@
 		<polyline points="167.5,131.5 187.5,141.5" fill-opacity="0" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="167.5,111.5 187.5,101.5" fill-opacity="0" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="167.5,91.5 187.5,101.5" fill-opacity="0" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<g id="Gc" class="port">
+		<g id="Rc" class="port">
 			<polygon points="131.5,1.5 111.5,41.5 91.5,1.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 		<g id="solid" class="port">

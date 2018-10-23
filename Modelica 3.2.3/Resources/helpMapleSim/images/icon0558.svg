@@ -1,11 +1,11 @@
 <svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Digital.Tristates.INV3S" class="component">
-		<polyline points="21.5,31.5 101.5,31.5 101.5,87.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+	<g id="Modelica.Electrical.Digital.Tristates.INV3SL" class="component">
 		<polygon points="61.5,61.5 61.5,161.5 141.5,111.5" fill="#D5AAFF" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="21.5,31.5 101.5,31.5 101.5,87.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="21.5,111.5 61.5,111.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="141.5,111.5 183.5,111.5" fill-opacity="0" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polygon points="155.5,111.5 155.5,110.9 155.4,110.3 155.3,109.7 155.1,109.1 154.9,108.6 154.6,108.0 154.3,107.5 153.9,107.1 153.5,106.6 153.1,106.2 152.6,105.8 152.1,105.5 151.6,105.2 151.0,105.0 150.4,104.8 149.8,104.6 149.3,104.5 148.7,104.5 148.0,104.5 147.4,104.6 146.9,104.7 146.3,104.9 145.7,105.1 145.2,105.3 144.7,105.6 144.2,106.0 143.7,106.4 143.3,106.8 142.9,107.3 142.6,107.8 142.3,108.3 142.0,108.9 141.8,109.4 141.7,110.0 141.6,110.6 141.5,111.2 141.5,111.8 141.6,112.4 141.7,113.0 141.8,113.6 142.0,114.1 142.3,114.7 142.6,115.2 142.9,115.7 143.3,116.2 143.7,116.6 144.2,117.0 144.7,117.4 145.2,117.7 145.7,117.9 146.3,118.1 146.9,118.3 147.4,118.4 148.0,118.5 148.7,118.5 149.3,118.5 149.8,118.4 150.4,118.2 151.0,118.0 151.6,117.8 152.1,117.5 152.6,117.2 153.1,116.8 153.5,116.4 153.9,115.9 154.3,115.5 154.6,115.0 154.9,114.4 155.1,113.9 155.3,113.3 155.4,112.7 155.5,112.1" fill="#D5AAFF" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="84.5" y="185.3" text-anchor="middle" fill="#0000FF" font-size="29.2px" font-family="sans-serif">INV3S</text>
+		<text x="84.5" y="183.7" text-anchor="middle" fill="#0000FF" font-size="24.7px" font-family="sans-serif">INV3SL</text>
 		<g id="enable" class="port">
 			<polygon points="1.5,41.5 21.5,41.5 21.5,21.5 1.5,21.5" fill="#7F007F" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>

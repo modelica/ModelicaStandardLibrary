@@ -1,5 +1,5 @@
 <svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Machines.Icons.Machine" class="component">
+	<g id="Modelica.Electrical.Machines.Icons.Drive" class="component">
 		<defs>
 			<linearGradient id="cyl2" x1="0" y1="0" x2="0" y2="1">
 				<stop offset="0%" stop-color="#000000" />
@@ -78,7 +78,10 @@
 			</linearGradient>
 		</defs>
 		<polygon points="181.5,111.5 201.5,111.5 201.5,91.5 181.5,91.5" fill="url(#cyl4)" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="61.5,51.5 141.5,51.5 141.5,31.5 61.5,31.5" fill="#5F5F5F" stroke="#5F5F5F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="61.5,51.5 141.5,51.5 141.5,1.5 61.5,1.5" fill="#5F5F5F" stroke="#5F5F5F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polygon points="51.5,191.5 61.5,191.5 91.5,121.5 141.5,121.5 171.5,191.5 181.5,191.5 181.5,201.5 51.5,201.5" fill="#000000" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="113.5,9.5 113.5,41.5" fill-opacity="0" stroke="#FFFFFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="89.5,41.5 89.5,9.5 113.5,25.5" fill-opacity="0" stroke="#FFFFFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="75.5,25.5 127.5,25.5" fill-opacity="0" stroke="#FFFFFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 	</g>
 </svg>

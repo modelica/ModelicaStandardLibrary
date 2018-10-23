@@ -20,7 +20,7 @@ td code, th code { font-size: 13px }
 hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
 </style>
 <body>
-<a name="SynchronousInductionMachines"><h1><embed class="icon" src="../../../../images/icon0573.svg" width="203" height="203" />
+<a name="SynchronousInductionMachines"><h1><embed class="icon" src="../../../../images/icon0572.svg" width="203" height="203" />
 Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;SynchronousInductionMachines<br><span class="subtitle">Models of synchronous induction machines</span></h1></a>
 <h3>Information</h3>
 <p>
@@ -51,13 +51,13 @@ These models use package SpacePhasors.
 <tr><td><a href="#SM_PermanentMagnet"><code>SM_PermanentMagnet</code></a></td><td>Permanent magnet synchronous induction machine</td></tr>
 <tr><td><a href="#SM_ReluctanceRotor"><code>SM_ReluctanceRotor</code></a></td><td>Synchronous induction machine with reluctance rotor and damper cage</td></tr>
 </table>
-<hr><a name="SM_PermanentMagnet"><h2><embed class="icon" src="../../../../images/icon0576.svg" width="257" height="233" />
+<hr><a name="SM_PermanentMagnet"><h2><embed class="icon" src="../../../../images/icon0575.svg" width="257" height="233" />
 Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">SynchronousInductionMachines</a>.&#8203;SM_PermanentMagnet<br><span class="subtitle">Permanent magnet synchronous induction machine</span></h2></a>
 <h3>Information</h3>
 <p>
 
-<p><b>Model of a three phase permanent magnet synchronous induction machine.</b><br>
-Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation and a rotor-fixed <i>AirGap</i> model. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed coordinate system. Permanent magnet excitation is modelled by a constant equivalent excitation current feeding the d-axis. The machine models take the following loss effects into account:
+<p><strong>Model of a three phase permanent magnet synchronous induction machine.</strong><br>
+Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation and a rotor-fixed <em>AirGap</em> model. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed coordinate system. Permanent magnet excitation is modelled by a constant equivalent excitation current feeding the d-axis. The machine models take the following loss effects into account:
 </p>
 
 <ul>
@@ -70,139 +70,139 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </ul>
 
 <p>Whether a damper cage is present or not, can be selected with Boolean parameter useDamperCage (default = true).
-<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
+<br><strong>Default values for machine's parameters (a realistic example) are:</strong><br></p>
 <table>
 <tr>
-<td valign="top">number of pole pairs p</td>
-<td valign="top">2</td><td valign="top"> </td>
+<td>number of pole pairs p</td>
+<td>2</td><td> </td>
 </tr>
 <tr>
-<td valign="top">stator's moment of inertia</td>
-<td valign="top">0.29</td><td valign="top">kg.m2</td>
+<td>stator's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
 </tr>
 <tr>
-<td valign="top">rotor's moment of inertia</td>
-<td valign="top">0.29</td><td valign="top">kg.m2</td>
+<td>rotor's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
 </tr>
 <tr>
-<td valign="top">nominal frequency fNominal</td>
-<td valign="top">50</td><td valign="top">Hz</td>
+<td>nominal frequency fNominal</td>
+<td>50</td><td>Hz</td>
 </tr>
 <tr>
-<td valign="top">nominal voltage per phase</td>
-<td valign="top">100</td><td valign="top">V RMS</td>
+<td>nominal voltage per phase</td>
+<td>100</td><td>V RMS</td>
 </tr>
 <tr>
-<td valign="top">no-load voltage per phase</td>
-<td valign="top">112.3</td><td valign="top">V RMS @ nominal speed</td>
+<td>no-load voltage per phase</td>
+<td>112.3</td><td>V RMS @ nominal speed</td>
 </tr>
 <tr>
-<td valign="top">nominal current per phase</td>
-<td valign="top">100</td><td valign="top">A RMS</td>
+<td>nominal current per phase</td>
+<td>100</td><td>A RMS</td>
 </tr>
 <tr>
-<td valign="top">nominal torque</td>
-<td valign="top">181.4</td><td valign="top">Nm</td>
+<td>nominal torque</td>
+<td>181.4</td><td>Nm</td>
 </tr>
 <tr>
-<td valign="top">nominal speed</td>
-<td valign="top">1500</td><td valign="top">rpm</td>
+<td>nominal speed</td>
+<td>1500</td><td>rpm</td>
 </tr>
 <tr>
-<td valign="top">nominal mechanical output</td>
-<td valign="top">28.5</td><td valign="top">kW</td>
+<td>nominal mechanical output</td>
+<td>28.5</td><td>kW</td>
 </tr>
 <tr>
-<td valign="top">nominal rotor angle</td>
-<td valign="top">20.75</td><td valign="top">degree</td>
+<td>nominal rotor angle</td>
+<td>20.75</td><td>degree</td>
 </tr>
 <tr>
-<td valign="top">efficiency</td>
-<td valign="top">95.0</td><td valign="top">%</td>
+<td>efficiency</td>
+<td>95.0</td><td>%</td>
 </tr>
 <tr>
-<td valign="top">power factor</td>
-<td valign="top">0.98</td><td valign="top"> </td>
+<td>power factor</td>
+<td>0.98</td><td> </td>
 </tr>
 <tr>
-<td valign="top">stator resistance</td>
-<td valign="top">0.03</td><td valign="top">Ohm per phase at reference temperature</td>
+<td>stator resistance</td>
+<td>0.03</td><td>Ohm per phase at reference temperature</td>
 </tr>
 <tr>
-<td valign="top">reference temperature TsRef</td>
-<td valign="top">20</td><td valign="top">&deg;C</td>
+<td>reference temperature TsRef</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign="top">temperature coefficient alpha20s </td>
-<td valign="top">0</td><td valign="top">1/K</td>
+<td>temperature coefficient alpha20s </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign="top">stator reactance Xd</td>
-<td valign="top">0.4</td><td valign="top">Ohm per phase in d-axis</td>
+<td>stator reactance Xd</td>
+<td>0.4</td><td>Ohm per phase in d-axis</td>
 </tr>
 <tr>
-<td valign="top">stator reactance Xq</td>
-<td valign="top">0.4</td><td valign="top">Ohm per phase in q-axis</td>
+<td>stator reactance Xq</td>
+<td>0.4</td><td>Ohm per phase in q-axis</td>
 </tr>
 <tr>
-<td valign="top">stator stray reactance Xss</td>
-<td valign="top">0.1</td><td valign="top">Ohm per phase</td>
+<td>stator stray reactance Xss</td>
+<td>0.1</td><td>Ohm per phase</td>
 </tr>
 <tr>
-<td valign="top">damper resistance in d-axis</td>
-<td valign="top">0.04</td><td valign="top">Ohm at reference temperature</td>
+<td>damper resistance in d-axis</td>
+<td>0.04</td><td>Ohm at reference temperature</td>
 </tr>
 <tr>
-<td valign="top">damper resistance in q-axis</td>
-<td valign="top">same as d-axis</td><td valign="top"> </td>
+<td>damper resistance in q-axis</td>
+<td>same as d-axis</td><td> </td>
 </tr>
 <tr>
-<td valign="top">reference temperature TrRef</td>
-<td valign="top">20</td><td valign="top">&deg;C</td>
+<td>reference temperature TrRef</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign="top">temperature coefficient alpha20r </td>
-<td valign="top">0</td><td valign="top">1/K</td>
+<td>temperature coefficient alpha20r </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign="top">damper stray reactance in d-axis XDds</td>
-<td valign="top">0.05</td><td valign="top">Ohm</td>
+<td>damper stray reactance in d-axis XDds</td>
+<td>0.05</td><td>Ohm</td>
 </tr>
 <tr>
-<td valign="top">damper stray reactance in q-axis XDqs</td>
-<td valign="top">same as d-axis</td><td valign="top"> </td>
+<td>damper stray reactance in q-axis XDqs</td>
+<td>same as d-axis</td><td> </td>
 </tr>
 <tr>
-<td valign="top">stator operational temperature TsOperational</td>
-<td valign="top">20</td><td valign="top">&deg;C</td>
+<td>stator operational temperature TsOperational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign="top">damper operational temperature TrOperational</td>
-<td valign="top">20</td><td valign="top">&deg;C</td>
+<td>damper operational temperature TrOperational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign="top">These values give the following inductances:</td>
-<td valign="top"> </td><td valign="top"> </td>
+<td>These values give the following inductances:</td>
+<td> </td><td> </td>
 </tr>
 <tr>
-<td valign="top">main field inductance in d-axis</td>
-<td valign="top">(Xd - Xss)/(2*pi*fNominal)</td><td valign="top"> </td>
+<td>main field inductance in d-axis</td>
+<td>(Xd - Xss)/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign="top">main field inductance in q-axis</td>
-<td valign="top">(Xq - Xss)/(2*pi*fNominal)</td><td valign="top"> </td>
+<td>main field inductance in q-axis</td>
+<td>(Xq - Xss)/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign="top">stator stray inductance per phase</td>
-<td valign="top">Xss/(2*pi*fNominal)</td><td valign="top"> </td>
+<td>stator stray inductance per phase</td>
+<td>Xss/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign="top">damper stray inductance in d-axis</td>
-<td valign="top">XDds/(2*pi*fNominal)</td><td valign="top"> </td>
+<td>damper stray inductance in d-axis</td>
+<td>XDds/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign="top">damper stray inductance in q-axis</td>
-<td valign="top">XDqs/(2*pi*fNominal)</td><td valign="top"> </td>
+<td>damper stray inductance in q-axis</td>
+<td>XDqs/(2*pi*fNominal)</td><td> </td>
 </tr>
 </table>
 <p>Extends from <code><a href="../../../../Electrical/Machines/Interfaces/index.html#PartialBasicInductionMachine">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Interfaces.&#8203;PartialBasicInductionMachine</a></code> (Partial model for induction machine).</p>
@@ -245,14 +245,16 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <tr><td><code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_sp</code></td><td>Positive stator plug</td></tr>
 <tr><td><code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_sn</code></td><td>Negative stator plug</td></tr>
 <tr><td><code><a href="../../../../Electrical/Machines/Interfaces/InductionMachines/index.html#ThermalPortSMPM">ThermalPortSMPM</a></code></td><td><code>thermalPort</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>ir[2]</code></td><td>Damper cage currents</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>idq_dr[2]</code></td><td>Damper space phasor current / rotor fixed frame</td></tr>
 </table>
-<hr><a name="SM_ElectricalExcited"><h2><embed class="icon" src="../../../../images/icon0577.svg" width="257" height="233" />
+<hr><a name="SM_ElectricalExcited"><h2><embed class="icon" src="../../../../images/icon0576.svg" width="257" height="233" />
 Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">SynchronousInductionMachines</a>.&#8203;SM_ElectricalExcited<br><span class="subtitle">Electrical excited synchronous induction machine with damper cage</span></h2></a>
 <h3>Information</h3>
 <p>
 
-<p><b>Model of a three phase electrical excited synchronous induction machine with damper cage.</b><br>
-Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation and a rotor-fixed <i>AirGap</i> model. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed coordinate system. Electrical excitation is modelled by converting excitation current and voltage to d-axis space phasors. The machine models take the following loss effects into account:
+<p><strong>Model of a three phase electrical excited synchronous induction machine with damper cage.</strong><br>
+Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation and a rotor-fixed <em>AirGap</em> model. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed coordinate system. Electrical excitation is modelled by converting excitation current and voltage to d-axis space phasors. The machine models take the following loss effects into account:
 </p>
 
 <ul>
@@ -266,172 +268,172 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </ul>
 
 <p>Whether a damper cage is present or not, can be selected with Boolean parameter useDamperCage (default = true).
-<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
+<br><strong>Default values for machine's parameters (a realistic example) are:</strong><br></p>
 <table>
 <tr>
-<td valign="top">number of pole pairs p</td>
-<td valign="top">2</td><td valign="top"> </td>
+<td>number of pole pairs p</td>
+<td>2</td><td> </td>
 </tr>
 <tr>
-<td valign="top">stator's moment of inertia</td>
-<td valign="top">0.29</td><td valign="top">kg.m2</td>
+<td>stator's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
 </tr>
 <tr>
-<td valign="top">rotor's moment of inertia</td>
-<td valign="top">0.29</td><td valign="top">kg.m2</td>
+<td>rotor's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
 </tr>
 <tr>
-<td valign="top">nominal frequency fNominal</td>
-<td valign="top">50</td><td valign="top">Hz</td>
+<td>nominal frequency fNominal</td>
+<td>50</td><td>Hz</td>
 </tr>
 <tr>
-<td valign="top">nominal voltage per phase</td>
-<td valign="top">100</td><td valign="top">V RMS</td>
+<td>nominal voltage per phase</td>
+<td>100</td><td>V RMS</td>
 </tr>
 <tr>
-<td valign="top">no-load excitation current<br>
+<td>no-load excitation current<br>
     @ nominal voltage and frequency</td>
-<td valign="top">10</td><td valign="top">A DC</td>
+<td>10</td><td>A DC</td>
 </tr>
 <tr>
-<td valign="top">warm excitation resistance</td>
-<td valign="top">2.5</td><td valign="top">Ohm</td>
+<td>warm excitation resistance</td>
+<td>2.5</td><td>Ohm</td>
 </tr>
 <tr>
-<td valign="top">nominal current per phase</td>
-<td valign="top">100</td><td valign="top">A RMS</td>
+<td>nominal current per phase</td>
+<td>100</td><td>A RMS</td>
 </tr>
 <tr>
-<td valign="top">nominal apparent power</td>
-<td valign="top">-30000</td><td valign="top">VA</td>
+<td>nominal apparent power</td>
+<td>-30000</td><td>VA</td>
 </tr>
 <tr>
-<td valign="top">power factor</td>
-<td valign="top">-1.0</td><td valign="top">ind./cap.</td>
+<td>power factor</td>
+<td>-1.0</td><td>ind./cap.</td>
 </tr>
 <tr>
-<td valign="top">nominal excitation current</td>
-<td valign="top">19</td><td valign="top">A</td>
+<td>nominal excitation current</td>
+<td>19</td><td>A</td>
 </tr>
 <tr>
-<td valign="top">efficiency w/o excitation</td>
-<td valign="top">97.1</td><td valign="top">%</td>
+<td>efficiency w/o excitation</td>
+<td>97.1</td><td>%</td>
 </tr>
 <tr>
-<td valign="top">nominal torque</td>
-<td valign="top">-196.7</td><td valign="top">Nm</td>
+<td>nominal torque</td>
+<td>-196.7</td><td>Nm</td>
 </tr>
 <tr>
-<td valign="top">nominal speed</td>
-<td valign="top">1500</td><td valign="top">rpm</td>
+<td>nominal speed</td>
+<td>1500</td><td>rpm</td>
 </tr>
 <tr>
-<td valign="top">nominal rotor angle</td>
-<td valign="top">-57.23</td><td valign="top">degree</td>
+<td>nominal rotor angle</td>
+<td>-57.23</td><td>degree</td>
 </tr>
 <tr>
-<td valign="top">stator resistance</td>
-<td valign="top">0.03</td><td valign="top">Ohm per phase at reference temperature</td>
+<td>stator resistance</td>
+<td>0.03</td><td>Ohm per phase at reference temperature</td>
 </tr>
 <tr>
-<td valign="top">reference temperature TsRef</td>
-<td valign="top">20</td><td valign="top">&deg;C</td>
+<td>reference temperature TsRef</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign="top">temperature coefficient alpha20s </td>
-<td valign="top">0</td><td valign="top">1/K</td>
+<td>temperature coefficient alpha20s </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign="top">stator reactance Xd</td>
-<td valign="top">1.6</td><td valign="top">Ohm per phase in d-axis</td>
+<td>stator reactance Xd</td>
+<td>1.6</td><td>Ohm per phase in d-axis</td>
 </tr>
 <tr>
-<td valign="top">giving Kc</td>
-<td valign="top">0.625</td><td valign="top"> </td>
+<td>giving Kc</td>
+<td>0.625</td><td> </td>
 </tr>
 <tr>
-<td valign="top">stator reactance Xq</td>
-<td valign="top">1.6</td><td valign="top">Ohm per phase in q-axis</td>
+<td>stator reactance Xq</td>
+<td>1.6</td><td>Ohm per phase in q-axis</td>
 </tr>
 <tr>
-<td valign="top">stator stray reactance Xss</td>
-<td valign="top">0.1</td><td valign="top">Ohm per phase</td>
+<td>stator stray reactance Xss</td>
+<td>0.1</td><td>Ohm per phase</td>
 </tr>
 <tr>
-<td valign="top">damper resistance in d-axis</td>
-<td valign="top">0.04</td><td valign="top">Ohm at reference temperature</td>
+<td>damper resistance in d-axis</td>
+<td>0.04</td><td>Ohm at reference temperature</td>
 </tr>
 <tr>
-<td valign="top">damper resistance in q-axis</td>
-<td valign="top">same as d-axis</td><td valign="top"> </td>
+<td>damper resistance in q-axis</td>
+<td>same as d-axis</td><td> </td>
 </tr>
 <tr>
-<td valign="top">reference temperature TrRef</td>
-<td valign="top">20</td><td valign="top">&deg;C</td>
+<td>reference temperature TrRef</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign="top">temperature coefficient alpha20r </td>
-<td valign="top">0</td><td valign="top">1/K</td>
+<td>temperature coefficient alpha20r </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign="top">damper stray reactance in d-axis XDds</td>
-<td valign="top">0.05</td><td valign="top">Ohm</td>
+<td>damper stray reactance in d-axis XDds</td>
+<td>0.05</td><td>Ohm</td>
 </tr>
 <tr>
-<td valign="top">damper stray reactance in q-axis XDqs</td>
-<td valign="top">same as d-axis</td><td valign="top"> </td>
+<td>damper stray reactance in q-axis XDqs</td>
+<td>same as d-axis</td><td> </td>
 </tr>
 <tr>
-<td valign="top">excitation resistance</td>
-<td valign="top">2.5</td><td valign="top">Ohm at reference temperature</td>
+<td>excitation resistance</td>
+<td>2.5</td><td>Ohm at reference temperature</td>
 </tr>
 <tr>
-<td valign="top">reference temperature TeRef</td>
-<td valign="top">20</td><td valign="top">&deg;C</td>
+<td>reference temperature TeRef</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign="top">temperature coefficient alpha20e </td>
-<td valign="top">0</td><td valign="top">1/K</td>
+<td>temperature coefficient alpha20e </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign="top">excitation stray inductance</td>
-<td valign="top">2.5</td><td valign="top">% of total excitation inductance</td>
+<td>excitation stray inductance</td>
+<td>2.5</td><td>% of total excitation inductance</td>
 </tr>
 <tr>
-<td valign="top">stator operational temperature TsOperational</td>
-<td valign="top">20</td><td valign="top">&deg;C</td>
+<td>stator operational temperature TsOperational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign="top">damper operational temperature TrOperational</td>
-<td valign="top">20</td><td valign="top">&deg;C</td>
+<td>damper operational temperature TrOperational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign="top">excitation operational temperature TeOperational</td>
-<td valign="top">20</td><td valign="top">&deg;C</td>
+<td>excitation operational temperature TeOperational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign="top">These values give the following inductances:</td>
-<td valign="top"> </td><td valign="top"> </td>
+<td>These values give the following inductances:</td>
+<td> </td><td> </td>
 </tr>
 <tr>
-<td valign="top">main field inductance in d-axis</td>
-<td valign="top">(Xd - Xss)/(2*pi*fNominal)</td><td valign="top"> </td>
+<td>main field inductance in d-axis</td>
+<td>(Xd - Xss)/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign="top">main field inductance in q-axis</td>
-<td valign="top">(Xq - Xss)/(2*pi*fNominal)</td><td valign="top"> </td>
+<td>main field inductance in q-axis</td>
+<td>(Xq - Xss)/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign="top">stator stray inductance per phase</td>
-<td valign="top">Xss/(2*pi*fNominal)</td><td valign="top"> </td>
+<td>stator stray inductance per phase</td>
+<td>Xss/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign="top">damper stray inductance in d-axis</td>
-<td valign="top">XDds/(2*pi*fNominal)</td><td valign="top"> </td>
+<td>damper stray inductance in d-axis</td>
+<td>XDds/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign="top">damper stray inductance in q-axis</td>
-<td valign="top">XDqs/(2*pi*fNominal)</td><td valign="top"> </td>
+<td>damper stray inductance in q-axis</td>
+<td>XDqs/(2*pi*fNominal)</td><td> </td>
 </tr>
 </table>
 <p>Extends from <code><a href="../../../../Electrical/Machines/Interfaces/index.html#PartialBasicInductionMachine">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Interfaces.&#8203;PartialBasicInductionMachine</a></code> (Partial model for induction machine).</p>
@@ -479,16 +481,18 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <tr><td><code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_sp</code></td><td>Positive stator plug</td></tr>
 <tr><td><code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_sn</code></td><td>Negative stator plug</td></tr>
 <tr><td><code><a href="../../../../Electrical/Machines/Interfaces/InductionMachines/index.html#ThermalPortSMEE">ThermalPortSMEE</a></code></td><td><code>thermalPort</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>ir[2]</code></td><td>Damper cage currents</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>idq_dr[2]</code></td><td>Damper space phasor current / rotor fixed frame</td></tr>
 <tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#PositivePin">PositivePin</a></code></td><td><code>pin_ep</code></td><td>Positive excitation pin</td></tr>
 <tr><td><code><a href="../../../../Electrical/Analog/Interfaces/index.html#NegativePin">NegativePin</a></code></td><td><code>pin_en</code></td><td>Negative excitation pin</td></tr>
 </table>
-<hr><a name="SM_ReluctanceRotor"><h2><embed class="icon" src="../../../../images/icon0578.svg" width="257" height="233" />
+<hr><a name="SM_ReluctanceRotor"><h2><embed class="icon" src="../../../../images/icon0577.svg" width="257" height="233" />
 Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Electrical</a>.&#8203;<a href="../../index.html">Machines</a>.&#8203;<a href="../index.html">BasicMachines</a>.&#8203;<a href="index.html">SynchronousInductionMachines</a>.&#8203;SM_ReluctanceRotor<br><span class="subtitle">Synchronous induction machine with reluctance rotor and damper cage</span></h2></a>
 <h3>Information</h3>
 <p>
 
-<p><b>Model of a three phase synchronous induction machine with reluctance rotor and damper cage.</b><br>
-Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed coordinate system. Both together connected via a rotor-fixed <i>AirGap</i> model. The machine models take the following loss effects into account:
+<p><strong>Model of a three phase synchronous induction machine with reluctance rotor and damper cage.</strong><br>
+Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed coordinate system. Both together connected via a rotor-fixed <em>AirGap</em> model. The machine models take the following loss effects into account:
 </p>
 
 <ul>
@@ -500,131 +504,131 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </ul>
 
 <p>Whether a damper cage is present or not, can be selected with Boolean parameter useDamperCage (default = true).
-<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
+<br><strong>Default values for machine's parameters (a realistic example) are:</strong><br></p>
 <table>
 <tr>
-<td valign="top">number of pole pairs p</td>
-<td valign="top">2</td><td valign="top"> </td>
+<td>number of pole pairs p</td>
+<td>2</td><td> </td>
 </tr>
 <tr>
-<td valign="top">stator's moment of inertia</td>
-<td valign="top">0.29</td><td valign="top">kg.m2</td>
+<td>stator's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
 </tr>
 <tr>
-<td valign="top">rotor's moment of inertia</td>
-<td valign="top">0.29</td><td valign="top">kg.m2</td>
+<td>rotor's moment of inertia</td>
+<td>0.29</td><td>kg.m2</td>
 </tr>
 <tr>
-<td valign="top">nominal frequency fNominal</td>
-<td valign="top">50</td><td valign="top">Hz</td>
+<td>nominal frequency fNominal</td>
+<td>50</td><td>Hz</td>
 </tr>
 <tr>
-<td valign="top">nominal voltage per phase</td>
-<td valign="top">100</td><td valign="top">V RMS</td>
+<td>nominal voltage per phase</td>
+<td>100</td><td>V RMS</td>
 </tr>
 <tr>
-<td valign="top">nominal current per phase</td>
-<td valign="top">50</td><td valign="top">A RMS</td>
+<td>nominal current per phase</td>
+<td>50</td><td>A RMS</td>
 </tr>
 <tr>
-<td valign="top">nominal torque</td>
-<td valign="top"> 46</td><td valign="top">Nm</td>
+<td>nominal torque</td>
+<td> 46</td><td>Nm</td>
 </tr>
 <tr>
-<td valign="top">nominal speed</td>
-<td valign="top">1500</td><td valign="top">rpm</td>
+<td>nominal speed</td>
+<td>1500</td><td>rpm</td>
 </tr>
 <tr>
-<td valign="top">nominal mechanical output</td>
-<td valign="top"> 7.23</td><td valign="top">kW</td>
+<td>nominal mechanical output</td>
+<td> 7.23</td><td>kW</td>
 </tr>
 <tr>
-<td valign="top">efficiency</td>
-<td valign="top">96.98</td><td valign="top">%</td>
+<td>efficiency</td>
+<td>96.98</td><td>%</td>
 </tr>
 <tr>
-<td valign="top">power factor</td>
-<td valign="top">0.497</td><td valign="top"> </td>
+<td>power factor</td>
+<td>0.497</td><td> </td>
 </tr>
 <tr>
-<td valign="top">stator resistance</td>
-<td valign="top">0.03</td><td valign="top">Ohm per phase at reference temperature</td>
+<td>stator resistance</td>
+<td>0.03</td><td>Ohm per phase at reference temperature</td>
 </tr>
 <tr>
-<td valign="top">reference temperature TsRef</td>
-<td valign="top">20</td><td valign="top">&deg;C</td>
+<td>reference temperature TsRef</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign="top">temperature coefficient alpha20s </td>
-<td valign="top">0</td><td valign="top">1/K</td>
+<td>temperature coefficient alpha20s </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign="top">rotor resistance in d-axis</td>
-<td valign="top">0.04</td><td valign="top">Ohm at reference temperature</td>
+<td>rotor resistance in d-axis</td>
+<td>0.04</td><td>Ohm at reference temperature</td>
 </tr>
 <tr>
-<td valign="top">rotor resistance in q-axis</td>
-<td valign="top">same as d-axis</td><td valign="top"> </td>
+<td>rotor resistance in q-axis</td>
+<td>same as d-axis</td><td> </td>
 </tr>
 <tr>
-<td valign="top">reference temperature TrRef</td>
-<td valign="top">20</td><td valign="top">&deg;C</td>
+<td>reference temperature TrRef</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign="top">temperature coefficient alpha20r </td>
-<td valign="top">0</td><td valign="top">1/K</td>
+<td>temperature coefficient alpha20r </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign="top">stator reactance Xsd in d-axis</td>
-<td valign="top">3</td><td valign="top">Ohm per phase</td>
+<td>stator reactance Xsd in d-axis</td>
+<td>3</td><td>Ohm per phase</td>
 </tr>
 <tr>
-<td valign="top">stator reactance Xsq in q-axis</td>
-<td valign="top">1</td><td valign="top">Ohm</td>
+<td>stator reactance Xsq in q-axis</td>
+<td>1</td><td>Ohm</td>
 </tr>
 <tr>
-<td valign="top">stator stray reactance Xss</td>
-<td valign="top">0.1</td><td valign="top">Ohm per phase</td>
+<td>stator stray reactance Xss</td>
+<td>0.1</td><td>Ohm per phase</td>
 </tr>
 <tr>
-<td valign="top">rotor stray reactance in d-axis Xrds</td>
-<td valign="top">0.05</td><td valign="top">Ohm per phase</td>
+<td>rotor stray reactance in d-axis Xrds</td>
+<td>0.05</td><td>Ohm per phase</td>
 </tr>
 <tr>
-<td valign="top">rotor stray reactance in q-axis Xrqs</td>
-<td valign="top">same as d-axis</td><td valign="top"> </td>
+<td>rotor stray reactance in q-axis Xrqs</td>
+<td>same as d-axis</td><td> </td>
 </tr>
 <tr>
-<td valign="top">stator operational temperature TsOperational</td>
-<td valign="top">20</td><td valign="top">&deg;C</td>
+<td>stator operational temperature TsOperational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign="top">damper operational temperature TrOperational</td>
-<td valign="top">20</td><td valign="top">&deg;C</td>
+<td>damper operational temperature TrOperational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign="top">These values give the following inductances:</td>
-<td valign="top"> </td><td valign="top"> </td>
+<td>These values give the following inductances:</td>
+<td> </td><td> </td>
 </tr>
 <tr>
-<td valign="top">stator stray inductance per phase</td>
-<td valign="top">Xss/(2*pi*fNominal)</td><td valign="top"> </td>
+<td>stator stray inductance per phase</td>
+<td>Xss/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign="top">rotor stray inductance in d-axis</td>
-<td valign="top">Xrds/(2*pi*fNominal)</td><td valign="top"> </td>
+<td>rotor stray inductance in d-axis</td>
+<td>Xrds/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign="top">rotor stray inductance in q-axis</td>
-<td valign="top">Xrqs/(2*pi*fNominal)</td><td valign="top"> </td>
+<td>rotor stray inductance in q-axis</td>
+<td>Xrqs/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign="top">main field inductance per phase in d-axis</td>
-<td valign="top">(Xsd-Xss)/(2*pi*fNominal)</td><td valign="top"> </td>
+<td>main field inductance per phase in d-axis</td>
+<td>(Xsd-Xss)/(2*pi*fNominal)</td><td> </td>
 </tr>
 <tr>
-<td valign="top">main field inductance per phase in q-axis</td>
-<td valign="top">(Xsq-Xss)/(2*pi*fNominal)</td><td valign="top"> </td>
+<td>main field inductance per phase in q-axis</td>
+<td>(Xsq-Xss)/(2*pi*fNominal)</td><td> </td>
 </tr>
 </table>
 <p>Extends from <code><a href="../../../../Electrical/Machines/Interfaces/index.html#PartialBasicInductionMachine">Modelica.&#8203;Electrical.&#8203;Machines.&#8203;Interfaces.&#8203;PartialBasicInductionMachine</a></code> (Partial model for induction machine).</p>
@@ -664,7 +668,9 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <tr><td><code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#PositivePlug">PositivePlug</a></code></td><td><code>plug_sp</code></td><td>Positive stator plug</td></tr>
 <tr><td><code><a href="../../../../Electrical/MultiPhase/Interfaces/index.html#NegativePlug">NegativePlug</a></code></td><td><code>plug_sn</code></td><td>Negative stator plug</td></tr>
 <tr><td><code><a href="../../../../Electrical/Machines/Interfaces/InductionMachines/index.html#ThermalPortSMR">ThermalPortSMR</a></code></td><td><code>thermalPort</code></td><td>&nbsp</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>ir[2]</code></td><td>Damper cage currents</td></tr>
+<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>idq_dr[2]</code></td><td>Damper space phasor current / rotor fixed frame</td></tr>
 </table>
 <hr style="border-color:#999" />
-<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:36:58 EDT by <i>MapleSim</i>.</p>
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-22 14:44:57 EDT by <i>MapleSim</i>.</p>
 </body></html>

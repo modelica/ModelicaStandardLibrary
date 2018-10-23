@@ -1,8 +1,8 @@
 <svg width="223" height="243" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="enable" class="port">
-		<polygon points="181.5,241.5 201.5,201.5 221.5,241.5" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<g id="fire_p" class="port">
-			<polygon points="21.5,241.5 41.5,201.5 61.5,241.5" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+	<g id="fire_p" class="port">
+		<polygon points="21.5,241.5 41.5,201.5 61.5,241.5" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="enable" class="port">
+			<polygon points="181.5,241.5 201.5,201.5 221.5,241.5" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

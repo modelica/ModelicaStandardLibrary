@@ -1,14 +1,14 @@
 <svg width="283" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.ComplexBlocks.ComplexMath.ComplexToReal" class="component">
+	<g id="Modelica.ComplexBlocks.ComplexMath.ComplexToPolar" class="component">
 		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="201.5" y="60.7" text-anchor="middle" fill="#00007F" font-size="53.1px" font-family="sans-serif">re</text>
-		<text x="201.5" y="180.7" text-anchor="middle" fill="#00007F" font-size="53.1px" font-family="sans-serif">im</text>
+		<text x="201.5" y="60.7" text-anchor="middle" fill="#00007F" font-size="53.1px" font-family="sans-serif">len</text>
+		<text x="201.5" y="171.6" text-anchor="middle" fill="#00007F" font-size="40.6px" font-family="sans-serif">phi</text>
 		<polygon points="181.5,101.5 161.5,81.5 161.5,91.5 131.5,91.5 131.5,111.5 161.5,111.5 161.5,121.5" fill="#55AAFF" stroke="#0080FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<text x="81.5" y="158.1" text-anchor="middle" fill="#55AAFF" font-size="159.4px" font-family="sans-serif">C</text>
-		<g id="re" class="port">
+		<g id="len" class="port">
 			<polygon points="241.5,21.5 281.5,41.5 241.5,61.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
-		<g id="im" class="port">
+		<g id="phi" class="port">
 			<polygon points="241.5,141.5 281.5,161.5 241.5,181.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 		<g id="u" class="port">

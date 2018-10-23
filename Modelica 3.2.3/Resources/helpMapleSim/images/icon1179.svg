@@ -1,10 +1,14 @@
-<svg width="208" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Mechanics.MultiBody.Visualizers.FixedArrow" class="component">
+<svg width="208" height="243" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Mechanics.MultiBody.Visualizers.SignalArrow" class="component">
+		<polyline points="106.3,203.5 106.3,129.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polygon points="6.3,129.5 126.3,129.5 126.3,73.5 6.3,73.5" fill="#808080" stroke="#808080" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polygon points="126.3,41.5 206.3,101.5 126.3,161.5" fill="#808080" stroke="#808080" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<g id="frame_a" class="port">
 			<polygon points="4.7,103.1 7.9,103.1 7.9,99.9 4.7,99.9" fill-opacity="0" stroke="#5F5F5F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 			<polygon points="1.5,117.5 11.1,117.5 11.1,85.5 1.5,85.5" fill="#C0C0C0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="r_head" class="port">
+			<polygon points="86.3,241.5 106.3,201.5 126.3,241.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

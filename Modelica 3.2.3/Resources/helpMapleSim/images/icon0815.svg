@@ -1,5 +1,5 @@
-<svg width="223" height="224" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Transformers.Dy.Dy01" class="component">
+<svg width="223" height="214" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Transformers.Dd.Dd00" class="component">
 		<defs>
 			<linearGradient id="cyl2" x1="0" y1="0" x2="1" y2="0">
 				<stop offset="0%" stop-color="#000000" />
@@ -295,9 +295,6 @@
 		<g id="thermalPort" class="port">
 			<polygon points="100.5,23.5 122.5,23.5 122.5,1.5 100.5,1.5" fill="#5F5F5F" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 			<polygon points="119.5,12.5 119.5,11.8 119.4,11.1 119.2,10.5 119.0,9.8 118.8,9.2 118.4,8.5 118.1,8.0 117.7,7.4 117.2,6.9 116.7,6.4 116.2,6.0 115.6,5.6 115.0,5.3 114.4,5.0 113.7,4.8 113.0,4.6 112.3,4.5 111.7,4.5 111.0,4.5 110.3,4.6 109.6,4.7 109.0,4.9 108.3,5.2 107.7,5.5 107.1,5.8 106.5,6.2 106.0,6.7 105.5,7.2 105.1,7.7 104.7,8.3 104.4,8.9 104.1,9.5 103.9,10.1 103.7,10.8 103.6,11.5 103.5,12.2 103.5,12.8 103.6,13.5 103.7,14.2 103.9,14.9 104.1,15.5 104.4,16.1 104.7,16.7 105.1,17.3 105.5,17.8 106.0,18.3 106.5,18.8 107.1,19.2 107.7,19.5 108.3,19.8 109.0,20.1 109.6,20.3 110.3,20.4 111.0,20.5 111.7,20.5 112.3,20.5 113.0,20.4 113.7,20.2 114.4,20.0 115.0,19.7 115.6,19.4 116.2,19.0 116.7,18.6 117.2,18.1 117.7,17.6 118.1,17.0 118.4,16.5 118.8,15.8 119.0,15.2 119.2,14.5 119.4,13.9 119.5,13.2" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="starpoint2" class="port">
-			<polygon points="151.5,222.5 171.5,222.5 171.5,202.5 151.5,202.5" fill="#FFFFFF" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

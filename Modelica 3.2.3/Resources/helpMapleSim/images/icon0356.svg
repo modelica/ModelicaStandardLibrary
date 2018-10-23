@@ -1,11 +1,15 @@
-<svg width="233" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.StateGraph.Step" class="component">
+<svg width="233" height="223" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.StateGraph.StepWithSignal" class="component">
 		<polygon points="21.5,201.5 221.5,201.5 221.5,1.5 21.5,1.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="122.5" y="193.4" text-anchor="middle" fill="#000000" font-size="23.9px" font-family="sans-serif">active</text>
 		<g id="inPort" class="port">
 			<polygon points="1.5,111.5 21.5,101.5 1.5,91.5" fill="#000000" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 		<g id="outPort" class="port">
 			<polygon points="221.5,96.5 231.5,96.5 231.5,106.5 221.5,106.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="active" class="port">
+			<polygon points="131.5,201.5 121.5,221.5 111.5,201.5" fill="#FFFFFF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

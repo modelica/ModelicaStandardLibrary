@@ -1,9 +1,9 @@
 <svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.SIunits.Conversions.to_litre" class="component">
+	<g id="Modelica.SIunits.Conversions.from_litre" class="component">
 		<polygon points="1.5,201.5 201.5,201.5 201.5,1.5 1.5,1.5" fill="#FFFFFF" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="11.5,101.5 131.5,101.5" fill-opacity="0" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polygon points="191.5,101.5 131.5,81.5 131.5,121.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="151.5" y="200.6" text-anchor="middle" fill="#000000" font-size="58.5px" font-family="sans-serif">litre</text>
-		<text x="54.5" y="44.6" text-anchor="middle" fill="#000000" font-size="58.5px" font-family="sans-serif">m3</text>
+		<text x="49.5" y="38.8" text-anchor="middle" fill="#000000" font-size="50.5px" font-family="sans-serif">litre</text>
+		<text x="148.5" y="200.6" text-anchor="middle" fill="#000000" font-size="58.5px" font-family="sans-serif">m3</text>
 	</g>
 </svg>

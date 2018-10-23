@@ -1,42 +1,12 @@
-<svg width="233" height="243" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.PowerConverters.DCDC.HBridge" class="component">
-		<polygon points="11.5,201.5 211.5,201.5 211.5,1.5 11.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="11.5,201.5 211.5,1.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="71.5,141.5 151.5,141.5 151.5,61.5 71.5,61.5" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="161.5" y="171.4" text-anchor="middle" fill="#00007F" font-size="26.6px" font-family="sans-serif">DC out</text>
-		<text x="61.5" y="51.4" text-anchor="middle" fill="#00007F" font-size="26.6px" font-family="sans-serif">DC in</text>
-		<polyline points="71.5,101.5 83.5,101.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="83.5,81.5 83.5,121.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="91.5,81.5 91.5,121.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="91.5,97.5 111.5,77.5 111.5,61.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="91.5,105.5 111.5,125.5 111.5,141.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="107.5,121.5 101.5,109.5 95.5,115.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="111.5,125.5 121.5,125.5 121.5,77.5 111.5,77.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="111.5,93.5 131.5,93.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="121.5,93.5 111.5,109.5 131.5,109.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<g id="dc_p1" class="port">
-			<polygon points="1.5,51.5 21.5,51.5 21.5,31.5 1.5,31.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="dc_n1" class="port">
-			<polygon points="1.5,171.5 21.5,171.5 21.5,151.5 1.5,151.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="dc_p2" class="port">
-			<polygon points="201.5,51.5 221.5,51.5 221.5,31.5 201.5,31.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="dc_n2" class="port">
-			<polygon points="201.5,171.5 221.5,171.5 221.5,151.5 201.5,151.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="heatPort" class="port">
-			<polygon points="101.5,211.5 121.5,211.5 121.5,191.5 101.5,191.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
+<svg width="243" height="243" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.PowerConverters.Enable.EnableLogic" class="component">
+		<polygon points="21.5,201.5 221.5,201.5 221.5,1.5 21.5,1.5" fill="#FFFFFF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="121.5" y="116.2" text-anchor="middle" fill="#FF00FF" font-size="40.2px" font-family="sans-serif">enable</text>
 		<g id="enable" class="port">
-			<polygon points="191.5,241.5 211.5,201.5 231.5,241.5" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="201.5,241.5 221.5,201.5 241.5,241.5" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
-		<g id="fire_p" class="port">
-			<polygon points="31.5,241.5 51.5,201.5 71.5,241.5" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="fire_n" class="port">
-			<polygon points="151.5,241.5 171.5,201.5 191.5,241.5" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="internalEnable" class="port">
+			<polygon points="21.5,111.5 1.5,101.5 21.5,91.5" fill="#FFFFFF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

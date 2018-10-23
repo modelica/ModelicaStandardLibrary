@@ -1,10 +1,10 @@
 <svg width="223" height="223" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Spice3.Semiconductors.M_NMOS" class="component">
+	<g id="Modelica.Electrical.Spice3.Semiconductors.M_NMOS2" class="component">
 		<polyline points="111.5,19.5 111.5,71.5 99.5,71.5 99.5,151.5 111.5,151.5 111.5,205.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="19.5,111.5 91.5,111.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="99.5,111.5 205.5,111.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="91.5,71.5 91.5,151.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="161.5" y="180.4" text-anchor="middle" fill="#0000FF" font-size="23.9px" font-family="sans-serif">M_NMOS</text>
+		<text x="161.5" y="179.2" text-anchor="middle" fill="#0000FF" font-size="20.6px" font-family="sans-serif">M_NMOS2</text>
 		<polygon points="151.5,111.5 171.5,106.5 171.5,116.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<g id="G" class="port">
 			<polygon points="1.5,123.5 21.5,123.5 21.5,101.5 1.5,101.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />

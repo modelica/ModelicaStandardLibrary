@@ -1,6 +1,18 @@
-<svg width="203" height="223" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="port" class="port">
-		<polygon points="101.5,201.5 100.6,201.5 99.8,201.6 98.9,201.8 98.1,202.1 97.3,202.4 96.6,202.8 95.8,203.3 95.1,203.8 94.5,204.4 93.9,205.0 93.4,205.7 92.9,206.4 92.5,207.1 92.2,207.9 91.9,208.7 91.7,209.6 91.6,210.4 91.5,211.3 91.5,212.1 91.6,213.0 91.8,213.8 92.0,214.7 92.3,215.5 92.7,216.2 93.1,217.0 93.6,217.7 94.2,218.3 94.8,218.9 95.5,219.5 96.2,220.0 96.9,220.4 97.7,220.8 98.5,221.0 99.4,221.3 100.2,221.4 101.1,221.5 101.9,221.5 102.8,221.4 103.6,221.3 104.5,221.0 105.3,220.8 106.1,220.4 106.8,220.0 107.5,219.5 108.2,218.9 108.8,218.3 109.4,217.7 109.9,217.0 110.3,216.2 110.7,215.5 111.0,214.7 111.2,213.8 111.4,213.0 111.5,212.1 111.5,211.3 111.4,210.4 111.3,209.6 111.1,208.7 110.8,207.9 110.5,207.1 110.1,206.4 109.6,205.7 109.1,205.0 108.5,204.4 107.9,203.8 107.2,203.3 106.4,202.8 105.7,202.4 104.9,202.1 104.1,201.8 103.2,201.6 102.4,201.5" fill="#007FFF" stroke="#007FFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="101.5,201.5 100.6,201.5 99.8,201.6 98.9,201.8 98.1,202.1 97.3,202.4 96.6,202.8 95.8,203.3 95.1,203.8 94.5,204.4 93.9,205.0 93.4,205.7 92.9,206.4 92.5,207.1 92.2,207.9 91.9,208.7 91.7,209.6 91.6,210.4 91.5,211.3 91.5,212.1 91.6,213.0 91.8,213.8 92.0,214.7 92.3,215.5 92.7,216.2 93.1,217.0 93.6,217.7 94.2,218.3 94.8,218.9 95.5,219.5 96.2,220.0 96.9,220.4 97.7,220.8 98.5,221.0 99.4,221.3 100.2,221.4 101.1,221.5 101.9,221.5 102.8,221.4 103.6,221.3 104.5,221.0 105.3,220.8 106.1,220.4 106.8,220.0 107.5,219.5 108.2,218.9 108.8,218.3 109.4,217.7 109.9,217.0 110.3,216.2 110.7,215.5 111.0,214.7 111.2,213.8 111.4,213.0 111.5,212.1 111.5,211.3 111.4,210.4 111.3,209.6 111.1,208.7 110.8,207.9 110.5,207.1 110.1,206.4 109.6,205.7 109.1,205.0 108.5,204.4 107.9,203.8 107.2,203.3 106.4,202.8 105.7,202.4 104.9,202.1 104.1,201.8 103.2,201.6 102.4,201.5" fill="#007FFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+<svg width="523" height="403" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.Controller" class="component">
+		<polygon points="81.5,401.5 481.5,401.5 481.5,1.5 81.5,1.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="233.5,201.5 281.5,201.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="111.5,261.5 231.5,261.5 231.5,141.5 111.5,141.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="281.5,161.5 281.5,241.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="281.5,201.5 307.5,201.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="307.5,191.5 331.5,201.5 307.5,211.5" fill="#000000" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="331.5,261.5 451.5,261.5 451.5,141.5 331.5,141.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="257.5,191.5 281.5,201.5 257.5,211.5" fill="#000000" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="sensors" class="port">
+			<polygon points="1.5,161.5 1.5,241.5 81.5,201.5" fill="#D7D7D7" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="actuators" class="port">
+			<polygon points="481.5,181.5 521.5,201.5 481.5,221.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
 	</g>
 </svg>

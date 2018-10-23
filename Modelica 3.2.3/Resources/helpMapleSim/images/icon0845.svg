@@ -1,13 +1,27 @@
 <svg width="263" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.QuasiRMS" class="component">
+	<g id="Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.SymmetricalComponents" class="component">
 		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<g id="y" class="port">
-			<polygon points="241.5,91.5 261.5,101.5 241.5,111.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
+		<polyline points="97.5,101.5 133.5,121.5 119.5,117.5 123.5,111.5 133.5,121.5" fill-opacity="0" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="97.5,101.5 97.5,61.5 101.5,75.5 93.5,75.5 97.5,61.5" fill-opacity="0" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="97.5,101.5 63.5,121.5 73.5,111.5 77.5,117.5 63.5,121.5" fill-opacity="0" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="183.5,53.5 219.5,73.5 205.5,69.5 209.5,63.5 219.5,73.5" fill-opacity="0" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="183.5,53.5 183.5,13.5 187.5,27.5 179.5,27.5 183.5,13.5" fill-opacity="0" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="183.5,53.5 149.5,73.5 159.5,63.5 163.5,69.5 149.5,73.5" fill-opacity="0" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="183.5,123.5 219.5,143.5 205.5,139.5 209.5,133.5 219.5,143.5" fill-opacity="0" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="183.5,123.5 183.5,83.5 187.5,97.5 179.5,97.5 183.5,83.5" fill-opacity="0" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="183.5,123.5 149.5,143.5 159.5,133.5 163.5,139.5 149.5,143.5" fill-opacity="0" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="183.5,189.5 183.5,149.5 187.5,163.5 179.5,163.5 183.5,149.5" fill-opacity="0" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="193.5,189.5 193.5,149.5 197.5,163.5 189.5,163.5 193.5,149.5" fill-opacity="0" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="173.5,189.5 173.5,149.5 177.5,163.5 169.5,163.5 173.5,149.5" fill-opacity="0" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<g id="u" class="port">
 			<polygon points="3.0,120.0 4.6,121.1 6.5,121.5 6.5,121.5 11.3,121.5 21.5,121.5 21.5,121.5 31.7,121.5 36.5,121.5 36.5,121.5 38.4,121.1 40.0,120.0 40.0,120.0 41.1,118.4 41.5,116.5 41.5,116.5 41.5,111.7 41.5,101.5 41.5,101.5 41.5,91.3 41.5,86.5 41.5,86.5 41.1,84.6 40.0,83.0 40.0,83.0 38.4,81.9 36.5,81.5 36.5,81.5 31.7,81.5 21.5,81.5 21.5,81.5 11.3,81.5 6.5,81.5 6.5,81.5 4.6,81.9 3.0,83.0 3.0,83.0 1.9,84.6 1.5,86.5 1.5,86.5 1.5,91.3 1.5,101.5 1.5,101.5 1.5,111.7 1.5,116.5 1.5,116.5 1.9,118.4" fill="#A0A0A4" stroke="#A0A0A4" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 			<text x="21.5" y="111.4" text-anchor="middle" fill="#FFFFFF" font-size="26.6px" font-family="sans-serif">C</text>
 			<polygon points="1.5,81.5 41.5,101.5 1.5,121.5" fill="#55AAFF" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="y" class="port">
+			<polygon points="242.2,110.8 243.0,111.3 244.0,111.5 244.0,111.5 246.4,111.5 251.5,111.5 251.5,111.5 256.6,111.5 259.0,111.5 259.0,111.5 260.0,111.3 260.8,110.8 260.8,110.8 261.3,110.0 261.5,109.0 261.5,109.0 261.5,106.6 261.5,101.5 261.5,101.5 261.5,96.4 261.5,94.0 261.5,94.0 261.3,93.0 260.8,92.2 260.8,92.2 260.0,91.7 259.0,91.5 259.0,91.5 256.6,91.5 251.5,91.5 251.5,91.5 246.4,91.5 244.0,91.5 244.0,91.5 243.0,91.7 242.2,92.2 242.2,92.2 241.7,93.0 241.5,94.0 241.5,94.0 241.5,96.4 241.5,101.5 241.5,101.5 241.5,106.6 241.5,109.0 241.5,109.0 241.7,110.0" fill="#A0A0A4" stroke="#A0A0A4" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<text x="251.5" y="106.7" text-anchor="middle" fill="#FFFFFF" font-size="13.3px" font-family="sans-serif">C</text>
+			<polygon points="241.5,91.5 261.5,101.5 241.5,111.5" fill="#FFFFFF" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

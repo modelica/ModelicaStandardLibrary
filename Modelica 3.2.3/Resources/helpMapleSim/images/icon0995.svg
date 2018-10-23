@@ -1,13 +1,16 @@
-<svg width="223" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ConstantReluctance" class="component">
-		<polygon points="41.5,131.5 181.5,131.5 181.5,71.5 41.5,71.5" fill="#FFFFFF" stroke="#FFAA55" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+<svg width="223" height="213" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.EddyCurrent" class="component">
 		<polyline points="41.5,101.5 21.5,101.5" fill-opacity="0" stroke="#FFAA55" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="181.5,101.5 201.5,101.5" fill-opacity="0" stroke="#FFAA55" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="41.5,131.5 181.5,131.5 181.5,71.5 41.5,71.5" fill="#FFAA55" stroke="#FFAA55" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<g id="port_p" class="port">
 			<polygon points="1.5,111.5 21.5,111.5 21.5,91.5 1.5,91.5" fill="#FFAA55" stroke="#FFAA55" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 		<g id="port_n" class="port">
 			<polygon points="201.5,111.5 221.5,111.5 221.5,91.5 201.5,91.5" fill="#FFFFFF" stroke="#FFAA55" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="heatPort" class="port">
+			<polygon points="1.5,211.5 21.5,211.5 21.5,191.5 1.5,191.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

@@ -1,12 +1,12 @@
 <svg width="263" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Thermal.HeatTransfer.Celsius.ToKelvin" class="component">
+	<g id="Modelica.Thermal.HeatTransfer.Celsius.FromKelvin" class="component">
 		<polygon points="181.5,101.5 181.4,98.1 180.9,94.6 180.2,91.3 179.2,88.0 177.9,84.8 176.3,81.7 174.5,78.8 172.4,76.1 170.1,73.5 167.6,71.2 164.9,69.0 162.0,67.1 159.0,65.5 155.8,64.1 152.5,63.1 149.2,62.2 145.8,61.7 142.4,61.5 138.9,61.6 135.5,62.0 132.1,62.6 128.8,63.6 125.6,64.8 122.5,66.3 119.5,68.1 116.8,70.1 114.1,72.3 111.7,74.8 109.5,77.4 107.6,80.3 105.9,83.3 104.5,86.4 103.3,89.6 102.4,93.0 101.8,96.4 101.5,99.8 101.5,103.2 101.8,106.6 102.4,110.0 103.3,113.4 104.5,116.6 105.9,119.7 107.6,122.7 109.5,125.6 111.7,128.2 114.1,130.7 116.8,132.9 119.5,134.9 122.5,136.7 125.6,138.2 128.8,139.4 132.1,140.4 135.5,141.0 138.9,141.4 142.4,141.5 145.8,141.3 149.2,140.8 152.5,139.9 155.8,138.9 159.0,137.5 162.0,135.9 164.9,134.0 167.6,131.8 170.1,129.5 172.4,126.9 174.5,124.2 176.3,121.3 177.9,118.2 179.2,115.0 180.2,111.7 180.9,108.4 181.4,104.9" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="100.5,101.5 41.5,101.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="241.5,101.5 181.5,101.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<g id="Celsius" class="port">
+		<polyline points="101.5,101.5 41.5,101.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="181.5,101.5 241.5,101.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="Kelvin" class="port">
 			<polygon points="1.5,81.5 41.5,101.5 1.5,121.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
-		<g id="Kelvin" class="port">
+		<g id="Celsius" class="port">
 			<polygon points="241.5,91.5 261.5,101.5 241.5,111.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 	</g>

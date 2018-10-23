@@ -20,7 +20,7 @@ td code, th code { font-size: 13px }
 hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
 </style>
 <body>
-<a name="BaseClasses"><h1><embed class="icon" src="../../../images/icon1037.svg" width="203" height="203" />
+<a name="BaseClasses"><h1><embed class="icon" src="../../../images/icon1036.svg" width="203" height="203" />
 Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Vessels</a>.&#8203;BaseClasses<br><span class="subtitle">Base classes used in the Vessels package (only of interest to build new component models)</span></h1></a>
 <h3>Information</h3>
 <p>
@@ -39,7 +39,7 @@ Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.h
     zeta_out -- Hydraulic resistance out of vessel, default 0.5 for small diameter mounted flush with the wall
     zeta_in -- Hydraulic resistance into vessel, default 1.04 for small diameter mounted flush with the wall</td></tr>
 </table>
-<hr><a name="PartialLumpedVessel"><h2><embed class="icon" src="../../../images/icon1328.svg" width="213" height="213" />
+<hr><a name="PartialLumpedVessel"><h2><embed class="icon" src="../../../images/icon1327.svg" width="213" height="213" />
 Partial Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Vessels</a>.&#8203;<a href="index.html">BaseClasses</a>.&#8203;PartialLumpedVessel<br><span class="subtitle">Lumped volume with a vector of fluid ports and replaceable heat transfer model</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -126,7 +126,7 @@ should be used if these values are needed.
 <tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Fluid/Vessels/BaseClasses/index.html#VesselFluidPorts_b">VesselFluidPorts_b</a></code></td><td><code>ports[nPorts]</code></td><td>Fluid inlets and outlets</td></tr>
 <tr><td><code><a href="../../../Thermal/HeatTransfer/Interfaces/index.html#HeatPort_a">HeatPort_a</a></code></td><td><code>heatPort</code></td><td>&nbsp</td></tr>
 </table>
-<hr><a name="VesselPortsData"><h2><embed class="icon" src="../../../images/icon0567.svg" width="203" height="203" />
+<hr><a name="VesselPortsData"><h2><embed class="icon" src="../../../images/icon0566.svg" width="203" height="203" />
 Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Vessels</a>.&#8203;<a href="index.html">BaseClasses</a>.&#8203;VesselPortsData<br><span class="subtitle">Data to describe inlet/outlet ports at vessels:
     diameter -- Inner (hydraulic) diameter of inlet/outlet port
     height -- Height over the bottom of the vessel
@@ -260,7 +260,7 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
 <tr><td>parameter <code>Real</code></td><td><code>zeta_out</code></td><td>Hydraulic resistance out of vessel, default 0.5 for small diameter mounted flush with the wall</td></tr>
 <tr><td>parameter <code>Real</code></td><td><code>zeta_in</code></td><td>Hydraulic resistance into vessel, default 1.04 for small diameter mounted flush with the wall</td></tr>
 </table>
-<hr><a name="VesselFluidPorts_a"><h2><embed class="icon" src="../../../images/icon1332.svg" width="103" height="403" />
+<hr><a name="VesselFluidPorts_a"><h2><embed class="icon" src="../../../images/icon1331.svg" width="103" height="403" />
 Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Vessels</a>.&#8203;<a href="index.html">BaseClasses</a>.&#8203;VesselFluidPorts_a<br><span class="subtitle">Fluid connector with filled, large icon to be used for horizontally aligned vectors of FluidPorts (vector dimensions must be added after dragging)</span></h2></a>
 <p>Extends from <code><a href="../../../Fluid/Interfaces/index.html#FluidPort">Modelica.&#8203;Fluid.&#8203;Interfaces.&#8203;FluidPort</a></code> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).</p>
 <h3>Fields</h3>
@@ -271,7 +271,7 @@ Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index
 <tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../../Fluid/Vessels/BaseClasses/VesselFluidPorts_a/Medium/index.html#MassFraction">MassFraction</a></code></td><td><code>Xi_outflow[Medium.nXi]</code></td><td>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0</td></tr>
 <tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../../Fluid/Vessels/BaseClasses/VesselFluidPorts_a/Medium/index.html#ExtraProperty">ExtraProperty</a></code></td><td><code>C_outflow[Medium.nC]</code></td><td>Properties c_i/m close to the connection point if m_flow &lt; 0</td></tr>
 </table>
-<hr><a name="VesselFluidPorts_b"><h2><embed class="icon" src="../../../images/icon1333.svg" width="103" height="403" />
+<hr><a name="VesselFluidPorts_b"><h2><embed class="icon" src="../../../images/icon1332.svg" width="103" height="403" />
 Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Fluid</a>.&#8203;<a href="../index.html">Vessels</a>.&#8203;<a href="index.html">BaseClasses</a>.&#8203;VesselFluidPorts_b<br><span class="subtitle">Fluid connector with outlined, large icon to be used for horizontally aligned vectors of FluidPorts (vector dimensions must be added after dragging)</span></h2></a>
 <p>Extends from <code><a href="../../../Fluid/Interfaces/index.html#FluidPort">Modelica.&#8203;Fluid.&#8203;Interfaces.&#8203;FluidPort</a></code> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).</p>
 <h3>Fields</h3>
@@ -283,5 +283,5 @@ Connector <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index
 <tr><td><code><b>stream</b>&nbsp;</code><code><a href="../../../Fluid/Vessels/BaseClasses/VesselFluidPorts_b/Medium/index.html#ExtraProperty">ExtraProperty</a></code></td><td><code>C_outflow[Medium.nC]</code></td><td>Properties c_i/m close to the connection point if m_flow &lt; 0</td></tr>
 </table>
 <hr style="border-color:#999" />
-<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:40:05 EDT by <i>MapleSim</i>.</p>
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-22 14:48:15 EDT by <i>MapleSim</i>.</p>
 </body></html>

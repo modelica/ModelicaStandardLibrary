@@ -1,290 +1,84 @@
 <svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Machines.Icons.QuasiStationaryTransformer" class="component">
+	<g id="Modelica.Electrical.Machines.Icons.QuasiStaticFundamentalWaveMachine" class="component">
 		<defs>
-			<linearGradient id="cyl2" x1="0" y1="0" x2="1" y2="0">
+			<linearGradient id="cyl2" x1="0" y1="0" x2="0" y2="1">
 				<stop offset="0%" stop-color="#000000" />
-				<stop offset="5%" stop-color="#1A1A1A" />
-				<stop offset="10%" stop-color="#313131" />
-				<stop offset="15%" stop-color="#454545" />
-				<stop offset="20%" stop-color="#565656" />
-				<stop offset="25%" stop-color="#656565" />
-				<stop offset="30%" stop-color="#717171" />
-				<stop offset="35%" stop-color="#7B7B7B" />
-				<stop offset="40%" stop-color="#828282" />
-				<stop offset="45%" stop-color="#868686" />
-				<stop offset="50%" stop-color="#878787" />
-				<stop offset="55%" stop-color="#868686" />
-				<stop offset="60%" stop-color="#828282" />
-				<stop offset="65%" stop-color="#7B7B7B" />
-				<stop offset="70%" stop-color="#717171" />
-				<stop offset="75%" stop-color="#656565" />
-				<stop offset="80%" stop-color="#565656" />
-				<stop offset="85%" stop-color="#454545" />
-				<stop offset="90%" stop-color="#313131" />
-				<stop offset="95%" stop-color="#1A1A1A" />
+				<stop offset="5%" stop-color="#302717" />
+				<stop offset="10%" stop-color="#5C4A2B" />
+				<stop offset="15%" stop-color="#82693D" />
+				<stop offset="20%" stop-color="#A3844D" />
+				<stop offset="25%" stop-color="#BF9B5A" />
+				<stop offset="30%" stop-color="#D6AD65" />
+				<stop offset="35%" stop-color="#E8BB6D" />
+				<stop offset="40%" stop-color="#F5C673" />
+				<stop offset="45%" stop-color="#FCCC77" />
+				<stop offset="50%" stop-color="#FFCE78" />
+				<stop offset="55%" stop-color="#FCCC77" />
+				<stop offset="60%" stop-color="#F5C673" />
+				<stop offset="65%" stop-color="#E8BB6D" />
+				<stop offset="70%" stop-color="#D6AD65" />
+				<stop offset="75%" stop-color="#BF9B5A" />
+				<stop offset="80%" stop-color="#A3844D" />
+				<stop offset="85%" stop-color="#82693D" />
+				<stop offset="90%" stop-color="#5C4A2B" />
+				<stop offset="95%" stop-color="#302717" />
 				<stop offset="100%" stop-color="#000000" />
 			</linearGradient>
 		</defs>
-		<polygon points="31.5,41.5 51.5,61.5 51.5,141.5 31.5,161.5" fill="url(#cyl2)" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="61.5,161.5 181.5,161.5 181.5,41.5 61.5,41.5" fill="url(#cyl2)" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<defs>
-			<linearGradient id="cyl3" x1="0" y1="0" x2="1" y2="0">
+			<linearGradient id="cyl3" x1="0" y1="0" x2="0" y2="1">
 				<stop offset="0%" stop-color="#000000" />
-				<stop offset="5%" stop-color="#1A1A1A" />
-				<stop offset="10%" stop-color="#313131" />
-				<stop offset="15%" stop-color="#454545" />
-				<stop offset="20%" stop-color="#565656" />
-				<stop offset="25%" stop-color="#656565" />
-				<stop offset="30%" stop-color="#717171" />
-				<stop offset="35%" stop-color="#7B7B7B" />
-				<stop offset="40%" stop-color="#828282" />
-				<stop offset="45%" stop-color="#868686" />
-				<stop offset="50%" stop-color="#878787" />
-				<stop offset="55%" stop-color="#868686" />
-				<stop offset="60%" stop-color="#828282" />
-				<stop offset="65%" stop-color="#7B7B7B" />
-				<stop offset="70%" stop-color="#717171" />
-				<stop offset="75%" stop-color="#656565" />
-				<stop offset="80%" stop-color="#565656" />
-				<stop offset="85%" stop-color="#454545" />
-				<stop offset="90%" stop-color="#313131" />
-				<stop offset="95%" stop-color="#1A1A1A" />
+				<stop offset="5%" stop-color="#181818" />
+				<stop offset="10%" stop-color="#2E2E2E" />
+				<stop offset="15%" stop-color="#414141" />
+				<stop offset="20%" stop-color="#525252" />
+				<stop offset="25%" stop-color="#606060" />
+				<stop offset="30%" stop-color="#6C6C6C" />
+				<stop offset="35%" stop-color="#747474" />
+				<stop offset="40%" stop-color="#7B7B7B" />
+				<stop offset="45%" stop-color="#7F7F7F" />
+				<stop offset="50%" stop-color="#808080" />
+				<stop offset="55%" stop-color="#7F7F7F" />
+				<stop offset="60%" stop-color="#7B7B7B" />
+				<stop offset="65%" stop-color="#747474" />
+				<stop offset="70%" stop-color="#6C6C6C" />
+				<stop offset="75%" stop-color="#606060" />
+				<stop offset="80%" stop-color="#525252" />
+				<stop offset="85%" stop-color="#414141" />
+				<stop offset="90%" stop-color="#2E2E2E" />
+				<stop offset="95%" stop-color="#181818" />
 				<stop offset="100%" stop-color="#000000" />
 			</linearGradient>
 		</defs>
-		<polygon points="171.5,41.5 151.5,61.5 151.5,141.5 171.5,161.5" fill="url(#cyl3)" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="41.5,161.5 61.5,161.5 61.5,41.5 41.5,41.5" fill="url(#cyl3)" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<defs>
-			<linearGradient id="cyl4" x1="0" y1="0" x2="1" y2="0">
+			<linearGradient id="cyl4" x1="0" y1="0" x2="0" y2="1">
 				<stop offset="0%" stop-color="#000000" />
-				<stop offset="5%" stop-color="#1A1A1A" />
-				<stop offset="10%" stop-color="#313131" />
-				<stop offset="15%" stop-color="#454545" />
-				<stop offset="20%" stop-color="#565656" />
-				<stop offset="25%" stop-color="#656565" />
-				<stop offset="30%" stop-color="#717171" />
-				<stop offset="35%" stop-color="#7B7B7B" />
-				<stop offset="40%" stop-color="#828282" />
-				<stop offset="45%" stop-color="#868686" />
-				<stop offset="50%" stop-color="#878787" />
-				<stop offset="55%" stop-color="#868686" />
-				<stop offset="60%" stop-color="#828282" />
-				<stop offset="65%" stop-color="#7B7B7B" />
-				<stop offset="70%" stop-color="#717171" />
-				<stop offset="75%" stop-color="#656565" />
-				<stop offset="80%" stop-color="#565656" />
-				<stop offset="85%" stop-color="#454545" />
-				<stop offset="90%" stop-color="#313131" />
-				<stop offset="95%" stop-color="#1A1A1A" />
+				<stop offset="5%" stop-color="#121212" />
+				<stop offset="10%" stop-color="#222222" />
+				<stop offset="15%" stop-color="#303030" />
+				<stop offset="20%" stop-color="#3D3D3D" />
+				<stop offset="25%" stop-color="#474747" />
+				<stop offset="30%" stop-color="#505050" />
+				<stop offset="35%" stop-color="#565656" />
+				<stop offset="40%" stop-color="#5B5B5B" />
+				<stop offset="45%" stop-color="#5E5E5E" />
+				<stop offset="50%" stop-color="#5F5F5F" />
+				<stop offset="55%" stop-color="#5E5E5E" />
+				<stop offset="60%" stop-color="#5B5B5B" />
+				<stop offset="65%" stop-color="#565656" />
+				<stop offset="70%" stop-color="#505050" />
+				<stop offset="75%" stop-color="#474747" />
+				<stop offset="80%" stop-color="#3D3D3D" />
+				<stop offset="85%" stop-color="#303030" />
+				<stop offset="90%" stop-color="#222222" />
+				<stop offset="95%" stop-color="#121212" />
 				<stop offset="100%" stop-color="#000000" />
 			</linearGradient>
 		</defs>
-		<polygon points="101.5,51.5 91.5,61.5 91.5,141.5 101.5,151.5 111.5,141.5 111.5,61.5" fill="url(#cyl4)" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<defs>
-			<linearGradient id="cyl5" x1="0" y1="0" x2="1" y2="0">
-				<stop offset="0%" stop-color="#000000" />
-				<stop offset="5%" stop-color="#1A1A1A" />
-				<stop offset="10%" stop-color="#313131" />
-				<stop offset="15%" stop-color="#454545" />
-				<stop offset="20%" stop-color="#565656" />
-				<stop offset="25%" stop-color="#656565" />
-				<stop offset="30%" stop-color="#717171" />
-				<stop offset="35%" stop-color="#7B7B7B" />
-				<stop offset="40%" stop-color="#828282" />
-				<stop offset="45%" stop-color="#868686" />
-				<stop offset="50%" stop-color="#878787" />
-				<stop offset="55%" stop-color="#868686" />
-				<stop offset="60%" stop-color="#828282" />
-				<stop offset="65%" stop-color="#7B7B7B" />
-				<stop offset="70%" stop-color="#717171" />
-				<stop offset="75%" stop-color="#656565" />
-				<stop offset="80%" stop-color="#565656" />
-				<stop offset="85%" stop-color="#454545" />
-				<stop offset="90%" stop-color="#313131" />
-				<stop offset="95%" stop-color="#1A1A1A" />
-				<stop offset="100%" stop-color="#000000" />
-			</linearGradient>
-		</defs>
-		<polygon points="31.5,41.5 171.5,41.5 151.5,61.5 111.5,61.5 101.5,51.5 91.5,61.5 51.5,61.5" fill="url(#cyl5)" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<defs>
-			<linearGradient id="cyl6" x1="0" y1="0" x2="1" y2="0">
-				<stop offset="0%" stop-color="#000000" />
-				<stop offset="5%" stop-color="#1A1A1A" />
-				<stop offset="10%" stop-color="#313131" />
-				<stop offset="15%" stop-color="#454545" />
-				<stop offset="20%" stop-color="#565656" />
-				<stop offset="25%" stop-color="#656565" />
-				<stop offset="30%" stop-color="#717171" />
-				<stop offset="35%" stop-color="#7B7B7B" />
-				<stop offset="40%" stop-color="#828282" />
-				<stop offset="45%" stop-color="#868686" />
-				<stop offset="50%" stop-color="#878787" />
-				<stop offset="55%" stop-color="#868686" />
-				<stop offset="60%" stop-color="#828282" />
-				<stop offset="65%" stop-color="#7B7B7B" />
-				<stop offset="70%" stop-color="#717171" />
-				<stop offset="75%" stop-color="#656565" />
-				<stop offset="80%" stop-color="#565656" />
-				<stop offset="85%" stop-color="#454545" />
-				<stop offset="90%" stop-color="#313131" />
-				<stop offset="95%" stop-color="#1A1A1A" />
-				<stop offset="100%" stop-color="#000000" />
-			</linearGradient>
-		</defs>
-		<polygon points="31.5,161.5 171.5,161.5 151.5,141.5 111.5,141.5 101.5,151.5 91.5,141.5 51.5,141.5" fill="url(#cyl6)" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<defs>
-			<linearGradient id="cyl7" x1="0" y1="0" x2="1" y2="0">
-				<stop offset="0%" stop-color="#D5AAFF" />
-				<stop offset="5%" stop-color="#D5AAFF" />
-				<stop offset="10%" stop-color="#D5AAFF" />
-				<stop offset="15%" stop-color="#D5AAFF" />
-				<stop offset="20%" stop-color="#D5AAFF" />
-				<stop offset="25%" stop-color="#D5AAFF" />
-				<stop offset="30%" stop-color="#D5AAFF" />
-				<stop offset="35%" stop-color="#D5AAFF" />
-				<stop offset="40%" stop-color="#D5AAFF" />
-				<stop offset="45%" stop-color="#D5AAFF" />
-				<stop offset="50%" stop-color="#D5AAFF" />
-				<stop offset="55%" stop-color="#D5AAFF" />
-				<stop offset="60%" stop-color="#D5AAFF" />
-				<stop offset="65%" stop-color="#D5AAFF" />
-				<stop offset="70%" stop-color="#D5AAFF" />
-				<stop offset="75%" stop-color="#D5AAFF" />
-				<stop offset="80%" stop-color="#D5AAFF" />
-				<stop offset="85%" stop-color="#D5AAFF" />
-				<stop offset="90%" stop-color="#D5AAFF" />
-				<stop offset="95%" stop-color="#D5AAFF" />
-				<stop offset="100%" stop-color="#D5AAFF" />
-			</linearGradient>
-		</defs>
-		<polygon points="23.5,137.5 59.5,137.5 59.5,65.5 23.5,65.5" fill="url(#cyl7)" stroke="#D5AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<defs>
-			<linearGradient id="cyl8" x1="0" y1="0" x2="1" y2="0">
-				<stop offset="0%" stop-color="#AAD5FF" />
-				<stop offset="5%" stop-color="#AAD5FF" />
-				<stop offset="10%" stop-color="#AAD5FF" />
-				<stop offset="15%" stop-color="#AAD5FF" />
-				<stop offset="20%" stop-color="#AAD5FF" />
-				<stop offset="25%" stop-color="#AAD5FF" />
-				<stop offset="30%" stop-color="#AAD5FF" />
-				<stop offset="35%" stop-color="#AAD5FF" />
-				<stop offset="40%" stop-color="#AAD5FF" />
-				<stop offset="45%" stop-color="#AAD5FF" />
-				<stop offset="50%" stop-color="#AAD5FF" />
-				<stop offset="55%" stop-color="#AAD5FF" />
-				<stop offset="60%" stop-color="#AAD5FF" />
-				<stop offset="65%" stop-color="#AAD5FF" />
-				<stop offset="70%" stop-color="#AAD5FF" />
-				<stop offset="75%" stop-color="#AAD5FF" />
-				<stop offset="80%" stop-color="#AAD5FF" />
-				<stop offset="85%" stop-color="#AAD5FF" />
-				<stop offset="90%" stop-color="#AAD5FF" />
-				<stop offset="95%" stop-color="#AAD5FF" />
-				<stop offset="100%" stop-color="#AAD5FF" />
-			</linearGradient>
-		</defs>
-		<polygon points="17.5,129.5 65.5,129.5 65.5,73.5 17.5,73.5" fill="url(#cyl8)" stroke="#AAD5FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<defs>
-			<linearGradient id="cyl9" x1="0" y1="0" x2="1" y2="0">
-				<stop offset="0%" stop-color="#D5AAFF" />
-				<stop offset="5%" stop-color="#D5AAFF" />
-				<stop offset="10%" stop-color="#D5AAFF" />
-				<stop offset="15%" stop-color="#D5AAFF" />
-				<stop offset="20%" stop-color="#D5AAFF" />
-				<stop offset="25%" stop-color="#D5AAFF" />
-				<stop offset="30%" stop-color="#D5AAFF" />
-				<stop offset="35%" stop-color="#D5AAFF" />
-				<stop offset="40%" stop-color="#D5AAFF" />
-				<stop offset="45%" stop-color="#D5AAFF" />
-				<stop offset="50%" stop-color="#D5AAFF" />
-				<stop offset="55%" stop-color="#D5AAFF" />
-				<stop offset="60%" stop-color="#D5AAFF" />
-				<stop offset="65%" stop-color="#D5AAFF" />
-				<stop offset="70%" stop-color="#D5AAFF" />
-				<stop offset="75%" stop-color="#D5AAFF" />
-				<stop offset="80%" stop-color="#D5AAFF" />
-				<stop offset="85%" stop-color="#D5AAFF" />
-				<stop offset="90%" stop-color="#D5AAFF" />
-				<stop offset="95%" stop-color="#D5AAFF" />
-				<stop offset="100%" stop-color="#D5AAFF" />
-			</linearGradient>
-		</defs>
-		<polygon points="83.5,137.5 119.5,137.5 119.5,65.5 83.5,65.5" fill="url(#cyl9)" stroke="#D5AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<defs>
-			<linearGradient id="cyl10" x1="0" y1="0" x2="1" y2="0">
-				<stop offset="0%" stop-color="#AAD5FF" />
-				<stop offset="5%" stop-color="#AAD5FF" />
-				<stop offset="10%" stop-color="#AAD5FF" />
-				<stop offset="15%" stop-color="#AAD5FF" />
-				<stop offset="20%" stop-color="#AAD5FF" />
-				<stop offset="25%" stop-color="#AAD5FF" />
-				<stop offset="30%" stop-color="#AAD5FF" />
-				<stop offset="35%" stop-color="#AAD5FF" />
-				<stop offset="40%" stop-color="#AAD5FF" />
-				<stop offset="45%" stop-color="#AAD5FF" />
-				<stop offset="50%" stop-color="#AAD5FF" />
-				<stop offset="55%" stop-color="#AAD5FF" />
-				<stop offset="60%" stop-color="#AAD5FF" />
-				<stop offset="65%" stop-color="#AAD5FF" />
-				<stop offset="70%" stop-color="#AAD5FF" />
-				<stop offset="75%" stop-color="#AAD5FF" />
-				<stop offset="80%" stop-color="#AAD5FF" />
-				<stop offset="85%" stop-color="#AAD5FF" />
-				<stop offset="90%" stop-color="#AAD5FF" />
-				<stop offset="95%" stop-color="#AAD5FF" />
-				<stop offset="100%" stop-color="#AAD5FF" />
-			</linearGradient>
-		</defs>
-		<polygon points="77.5,129.5 125.5,129.5 125.5,73.5 77.5,73.5" fill="url(#cyl10)" stroke="#AAD5FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<defs>
-			<linearGradient id="cyl11" x1="0" y1="0" x2="1" y2="0">
-				<stop offset="0%" stop-color="#D5AAFF" />
-				<stop offset="5%" stop-color="#D5AAFF" />
-				<stop offset="10%" stop-color="#D5AAFF" />
-				<stop offset="15%" stop-color="#D5AAFF" />
-				<stop offset="20%" stop-color="#D5AAFF" />
-				<stop offset="25%" stop-color="#D5AAFF" />
-				<stop offset="30%" stop-color="#D5AAFF" />
-				<stop offset="35%" stop-color="#D5AAFF" />
-				<stop offset="40%" stop-color="#D5AAFF" />
-				<stop offset="45%" stop-color="#D5AAFF" />
-				<stop offset="50%" stop-color="#D5AAFF" />
-				<stop offset="55%" stop-color="#D5AAFF" />
-				<stop offset="60%" stop-color="#D5AAFF" />
-				<stop offset="65%" stop-color="#D5AAFF" />
-				<stop offset="70%" stop-color="#D5AAFF" />
-				<stop offset="75%" stop-color="#D5AAFF" />
-				<stop offset="80%" stop-color="#D5AAFF" />
-				<stop offset="85%" stop-color="#D5AAFF" />
-				<stop offset="90%" stop-color="#D5AAFF" />
-				<stop offset="95%" stop-color="#D5AAFF" />
-				<stop offset="100%" stop-color="#D5AAFF" />
-			</linearGradient>
-		</defs>
-		<polygon points="143.5,137.5 179.5,137.5 179.5,65.5 143.5,65.5" fill="url(#cyl11)" stroke="#D5AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<defs>
-			<linearGradient id="cyl12" x1="0" y1="0" x2="1" y2="0">
-				<stop offset="0%" stop-color="#AAD5FF" />
-				<stop offset="5%" stop-color="#AAD5FF" />
-				<stop offset="10%" stop-color="#AAD5FF" />
-				<stop offset="15%" stop-color="#AAD5FF" />
-				<stop offset="20%" stop-color="#AAD5FF" />
-				<stop offset="25%" stop-color="#AAD5FF" />
-				<stop offset="30%" stop-color="#AAD5FF" />
-				<stop offset="35%" stop-color="#AAD5FF" />
-				<stop offset="40%" stop-color="#AAD5FF" />
-				<stop offset="45%" stop-color="#AAD5FF" />
-				<stop offset="50%" stop-color="#AAD5FF" />
-				<stop offset="55%" stop-color="#AAD5FF" />
-				<stop offset="60%" stop-color="#AAD5FF" />
-				<stop offset="65%" stop-color="#AAD5FF" />
-				<stop offset="70%" stop-color="#AAD5FF" />
-				<stop offset="75%" stop-color="#AAD5FF" />
-				<stop offset="80%" stop-color="#AAD5FF" />
-				<stop offset="85%" stop-color="#AAD5FF" />
-				<stop offset="90%" stop-color="#AAD5FF" />
-				<stop offset="95%" stop-color="#AAD5FF" />
-				<stop offset="100%" stop-color="#AAD5FF" />
-			</linearGradient>
-		</defs>
-		<polygon points="137.5,129.5 185.5,129.5 185.5,73.5 137.5,73.5" fill="url(#cyl12)" stroke="#AAD5FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="181.5,111.5 201.5,111.5 201.5,91.5 181.5,91.5" fill="url(#cyl4)" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="61.5,51.5 141.5,51.5 141.5,31.5 61.5,31.5" fill="#5F5F5F" stroke="#5F5F5F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="51.5,191.5 61.5,191.5 91.5,121.5 141.5,121.5 171.5,191.5 181.5,191.5 181.5,201.5 51.5,201.5" fill="#000000" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 	</g>
 </svg>

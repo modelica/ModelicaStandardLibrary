@@ -1,5 +1,5 @@
 <svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer" class="component">
+	<g id="Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer" class="component">
 		<defs>
 			<radialGradient id="sph2">
 				<stop offset="0%" stop-color="#E80000" />
@@ -16,7 +16,7 @@
 			</radialGradient>
 		</defs>
 		<polygon points="161.5,97.5 161.3,92.3 160.6,87.2 159.5,82.2 158.0,77.2 156.0,72.5 153.7,67.9 150.9,63.5 147.8,59.4 144.4,55.5 140.6,52.0 136.6,48.8 132.2,46.0 127.7,43.5 123.0,41.5 118.1,39.8 113.0,38.6 107.9,37.8 102.8,37.5 97.6,37.6 92.5,38.2 87.4,39.2 82.5,40.6 77.6,42.4 73.0,44.7 68.6,47.3 64.4,50.4 60.5,53.7 56.9,57.4 53.6,61.4 50.6,65.7 48.1,70.1 45.9,74.8 44.2,79.7 42.9,84.7 42.0,89.8 41.6,94.9 41.6,100.1 42.0,105.2 42.9,110.3 44.2,115.3 45.9,120.2 48.1,124.9 50.6,129.3 53.6,133.6 56.9,137.6 60.5,141.3 64.4,144.6 68.6,147.7 73.0,150.3 77.6,152.6 82.5,154.4 87.4,155.8 92.5,156.8 97.6,157.4 102.8,157.5 107.9,157.2 113.0,156.4 118.1,155.2 123.0,153.5 127.7,151.5 132.2,149.0 136.6,146.2 140.6,143.0 144.4,139.5 147.8,135.6 150.9,131.5 153.7,127.1 156.0,122.5 158.0,117.8 159.5,112.8 160.6,107.8 161.3,102.7" fill="url(#sph2)" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="102.5" y="98.4" text-anchor="middle" fill="#000000" font-size="9.0px" font-family="sans-serif">PartialVesselHeatTransfer</text>
+		<text x="102.5" y="99.5" text-anchor="middle" fill="#000000" font-size="9.8px" font-family="sans-serif">IdealHeatTransfer</text>
 		<g id="heatPorts" class="port">
 			<polygon points="81.4,41.5 121.5,41.5 121.5,21.5 81.4,21.5" fill="#FFFFFF" stroke="#7F0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 			<polygon points="84.4,40.5 93.2,40.5 93.2,22.5 84.4,22.5" fill="#7F0000" stroke="#7F0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />

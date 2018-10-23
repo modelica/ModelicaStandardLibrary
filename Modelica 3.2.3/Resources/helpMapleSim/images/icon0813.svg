@@ -1,5 +1,5 @@
 <svg width="223" height="224" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Transformers.Yy.Yy00" class="component">
+	<g id="Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Transformers.Yd.Yd01" class="component">
 		<defs>
 			<linearGradient id="cyl2" x1="0" y1="0" x2="1" y2="0">
 				<stop offset="0%" stop-color="#000000" />
@@ -298,9 +298,6 @@
 		</g>
 		<g id="starpoint1" class="port">
 			<polygon points="51.5,222.5 71.5,222.5 71.5,202.5 51.5,202.5" fill="#FFFFFF" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="starpoint2" class="port">
-			<polygon points="151.5,222.5 171.5,222.5 171.5,202.5 151.5,202.5" fill="#FFFFFF" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

@@ -1,10 +1,19 @@
-<svg width="203" height="213" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Thermal.HeatTransfer.Components.HeatCapacitor" class="component">
-		<polygon points="101.5,34.5 81.5,38.5 61.5,44.5 49.5,58.5 43.5,66.5 33.5,76.5 29.5,88.5 25.5,102.5 23.5,116.5 25.5,132.5 25.5,144.5 25.5,154.5 31.5,166.5 37.5,174.5 53.5,178.5 71.5,184.5 83.5,184.5 99.5,186.5 109.5,190.5 123.5,190.5 133.5,188.5 143.5,182.5 155.5,176.5 157.5,174.5 167.5,162.5 169.5,154.5 171.5,152.5 173.5,136.5 177.5,122.5 179.5,114.5 179.5,98.5 175.5,86.5 167.5,76.5 155.5,68.5 145.5,60.5 137.5,44.5 127.5,36.5" fill="#C0C0C0" stroke="#A0A0A4" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="43.5,66.5 33.5,76.5 29.5,88.5 25.5,102.5 23.5,116.5 25.5,132.5 25.5,144.5 25.5,154.5 31.5,166.5 37.5,174.5 53.5,178.5 71.5,184.5 83.5,184.5 99.5,186.5 109.5,190.5 123.5,190.5 133.5,188.5 143.5,182.5 155.5,176.5 143.5,178.5 141.5,178.5 131.5,180.5 121.5,182.5 119.5,182.5 111.5,182.5 103.5,178.5 89.5,174.5 79.5,174.5 71.5,172.5 61.5,166.5 51.5,156.5 45.5,144.5 43.5,136.5 43.5,126.5 41.5,114.5 41.5,106.5 41.5,94.5 43.5,84.5 45.5,82.5 49.5,74.5 53.5,66.5 57.5,56.5 61.5,44.5" fill="#A0A0A4" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="102.5" y="125.0" text-anchor="middle" fill="#000000" font-size="41.2px" font-family="sans-serif">C</text>
-		<g id="port" class="port">
-			<polygon points="111.5,211.5 111.5,191.5 91.5,191.5 91.5,211.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+<svg width="223" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Thermal.HeatTransfer.Components.ThermalConductor" class="component">
+		<defs>
+			<pattern id="pat2" patternUnits="userSpaceOnUse" width="14" height="14">
+				<rect width="14" height="14" fill="#C0C0C0" />
+				<path d="M-1,13 l2,2 M0,0 l14,14 M13,-1 l2,2" stroke="#000000" stroke-width="1" />
+			</pattern>
+		</defs>
+		<polygon points="21.5,171.5 201.5,171.5 201.5,31.5 21.5,31.5" fill="url(#pat2)" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="21.5,31.5 21.5,171.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="201.5,31.5 201.5,171.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="port_a" class="port">
+			<polygon points="1.5,111.5 21.5,111.5 21.5,91.5 1.5,91.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="port_b" class="port">
+			<polygon points="201.5,111.5 221.5,111.5 221.5,91.5 201.5,91.5" fill="#FFFFFF" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

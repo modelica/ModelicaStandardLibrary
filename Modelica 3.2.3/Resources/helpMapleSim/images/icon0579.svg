@@ -1,5 +1,5 @@
 <svg width="253" height="233" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet" class="component">
+	<g id="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited" class="component">
 		<defs>
 			<linearGradient id="cyl2" x1="0" y1="0" x2="0" y2="1">
 				<stop offset="0%" stop-color="#000000" />
@@ -88,8 +88,11 @@
 		<polyline points="251.5,211.5 241.5,231.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="91.5,41.5 71.5,41.5 71.5,21.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="171.5,41.5 191.5,41.5 191.5,21.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="1.5,121.5 31.5,121.5 31.5,101.5 1.5,101.5" fill="#00FF00" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="31.5,121.5 61.5,121.5 61.5,101.5 31.5,101.5" fill="#FF0000" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="1.5,115.5 2.5,110.5 6.5,106.5 11.5,105.5 16.5,106.5 20.5,110.5 21.5,115.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="21.5,115.5 22.5,110.5 26.5,106.5 31.5,105.5 36.5,106.5 40.5,110.5 41.5,115.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="41.5,115.5 42.5,110.5 46.5,106.5 51.5,105.5 56.5,106.5 60.5,110.5 61.5,115.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="31.5,161.5 31.5,131.5 61.5,131.5 61.5,113.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="31.5,61.5 31.5,91.5 1.5,91.5 1.5,115.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<g id="flange" class="port">
 			<polygon points="241.5,111.5 241.5,110.6 241.4,109.8 241.2,108.9 240.9,108.1 240.6,107.3 240.2,106.6 239.7,105.8 239.2,105.1 238.6,104.5 238.0,103.9 237.3,103.4 236.6,102.9 235.9,102.5 235.1,102.2 234.3,101.9 233.4,101.7 232.6,101.6 231.7,101.5 230.9,101.5 230.0,101.6 229.2,101.8 228.3,102.0 227.5,102.3 226.8,102.7 226.0,103.1 225.3,103.6 224.7,104.2 224.1,104.8 223.5,105.5 223.0,106.2 222.6,106.9 222.2,107.7 222.0,108.5 221.7,109.4 221.6,110.2 221.5,111.1 221.5,111.9 221.6,112.8 221.7,113.6 222.0,114.5 222.2,115.3 222.6,116.1 223.0,116.8 223.5,117.5 224.1,118.2 224.7,118.8 225.3,119.4 226.0,119.9 226.8,120.3 227.5,120.7 228.3,121.0 229.2,121.2 230.0,121.4 230.9,121.5 231.7,121.5 232.6,121.4 233.4,121.3 234.3,121.1 235.1,120.8 235.9,120.5 236.6,120.1 237.3,119.6 238.0,119.1 238.6,118.5 239.2,117.9 239.7,117.2 240.2,116.4 240.6,115.7 240.9,114.9 241.2,114.1 241.4,113.2 241.5,112.4" fill="#5F5F5F" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
@@ -105,6 +108,12 @@
 		<g id="thermalPort" class="port">
 			<polygon points="120.5,222.5 142.5,222.5 142.5,200.5 120.5,200.5" fill="#5F5F5F" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 			<polygon points="139.5,211.5 139.5,210.8 139.4,210.1 139.2,209.5 139.0,208.8 138.8,208.2 138.5,207.5 138.1,207.0 137.7,206.4 137.2,205.9 136.7,205.4 136.2,205.0 135.6,204.6 135.0,204.3 134.4,204.0 133.7,203.8 133.0,203.6 132.4,203.5 131.7,203.5 131.0,203.5 130.3,203.6 129.6,203.7 129.0,203.9 128.3,204.2 127.7,204.5 127.1,204.8 126.6,205.2 126.0,205.7 125.5,206.2 125.1,206.7 124.7,207.3 124.4,207.9 124.1,208.5 123.9,209.1 123.7,209.8 123.6,210.5 123.5,211.2 123.5,211.8 123.6,212.5 123.7,213.2 123.9,213.9 124.1,214.5 124.4,215.1 124.7,215.7 125.1,216.3 125.5,216.8 126.0,217.3 126.6,217.8 127.1,218.2 127.7,218.5 128.3,218.8 129.0,219.1 129.6,219.3 130.3,219.4 131.0,219.5 131.7,219.5 132.4,219.5 133.0,219.4 133.7,219.2 134.4,219.0 135.0,218.7 135.6,218.4 136.2,218.0 136.7,217.6 137.2,217.1 137.7,216.6 138.1,216.0 138.5,215.5 138.8,214.8 139.0,214.2 139.2,213.5 139.4,212.9 139.5,212.2" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="pin_ep" class="port">
+			<polygon points="21.5,41.5 41.5,41.5 41.5,61.5 21.5,61.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+		<g id="pin_en" class="port">
+			<polygon points="41.5,161.5 21.5,161.5 21.5,181.5 41.5,181.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

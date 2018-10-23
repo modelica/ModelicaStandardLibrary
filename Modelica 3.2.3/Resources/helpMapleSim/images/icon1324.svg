@@ -1,18 +1,16 @@
 <svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.WallConstProps" class="component">
-		<defs>
-			<pattern id="pat2" patternUnits="userSpaceOnUse" width="14" height="14">
-				<rect width="14" height="14" fill="#5F5F5F" />
-				<path d="M-1,1 l2,-2 M0,14 l14,-14 M13,15 l2,-2" stroke="#000000" stroke-width="1" />
-			</pattern>
-		</defs>
-		<polygon points="1.5,141.5 201.5,141.5 201.5,61.5 1.5,61.5" fill="url(#pat2)" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="98.5" y="107.5" text-anchor="middle" fill="#000000" font-size="23.1px" font-family="sans-serif">WallConstProps</text>
-		<g id="heatPort_a" class="port">
-			<polygon points="81.5,61.5 121.5,61.5 121.5,41.5 81.5,41.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="heatPort_b" class="port">
-			<polygon points="81.5,141.5 121.5,141.5 121.5,161.5 81.5,161.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
+	<g id="Modelica.Fluid.System" class="component">
+		<polygon points="1.5,201.5 201.5,201.5 201.5,1.5 1.5,1.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="15.5,131.5 183.5,131.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="19.5,169.5 49.5,131.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="53.5,169.5 83.5,131.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="87.5,169.5 117.5,131.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="123.5,169.5 153.5,131.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="175.5,17.5 175.5,87.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="161.5,87.5 189.5,87.5 175.5,119.5" fill="#000000" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="139.5" y="110.1" text-anchor="middle" fill="#000000" font-size="38.6px" font-family="sans-serif">g</text>
+		<text x="93.5" y="51.0" text-anchor="middle" fill="#000000" font-size="42.5px" font-family="sans-serif">defaults</text>
+		<polyline points="19.5,87.5 59.5,121.5 103.5,71.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="113.5,72.5 113.5,71.6 113.3,70.6 113.1,69.7 112.9,68.8 112.5,67.9 112.1,67.1 111.6,66.3 111.0,65.5 110.4,64.8 109.7,64.2 108.9,63.6 108.1,63.1 107.3,62.6 106.4,62.2 105.5,61.9 104.6,61.7 103.7,61.6 102.7,61.5 101.8,61.5 100.8,61.6 99.9,61.8 99.0,62.1 98.1,62.4 97.3,62.8 96.5,63.3 95.7,63.9 95.0,64.5 94.3,65.2 93.7,65.9 93.2,66.7 92.7,67.5 92.3,68.3 92.0,69.2 91.8,70.2 91.6,71.1 91.5,72.0 91.5,73.0 91.6,73.9 91.8,74.8 92.0,75.8 92.3,76.7 92.7,77.5 93.2,78.3 93.7,79.1 94.3,79.8 95.0,80.5 95.7,81.1 96.5,81.7 97.3,82.2 98.1,82.6 99.0,82.9 99.9,83.2 100.8,83.4 101.8,83.5 102.7,83.5 103.7,83.4 104.6,83.3 105.5,83.1 106.4,82.8 107.3,82.4 108.1,81.9 108.9,81.4 109.7,80.8 110.4,80.2 111.0,79.5 111.6,78.7 112.1,77.9 112.5,77.1 112.9,76.2 113.1,75.3 113.3,74.4 113.5,73.4" fill="#FF0000" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 	</g>
 </svg>

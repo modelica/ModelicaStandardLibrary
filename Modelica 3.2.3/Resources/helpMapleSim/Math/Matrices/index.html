@@ -20,7 +20,7 @@ td code, th code { font-size: 13px }
 hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
 </style>
 <body>
-<a name="Matrices"><h1><embed class="icon" src="../../images/icon1497.svg" width="203" height="203" />
+<a name="Matrices"><h1><embed class="icon" src="../../images/icon1496.svg" width="203" height="203" />
 Package <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Math</a>.&#8203;Matrices<br><span class="subtitle">Library of functions operating on matrices</span></h1></a>
 <h3>Information</h3>
 <p>
@@ -212,7 +212,7 @@ Note: A' is a short hand notation of transpose(A):
 <tr><td><a href="#discreteRiccati"><code>discreteRiccati</code></a></td><td>Return solution of discrete-time algebraic Riccati equation A'*X*A - X - A'*X*B*inv(R + B'*X*B)*B'*X*A + Q = 0 (dare)</td></tr>
 <tr><td><a href="#discreteSylvester"><code>discreteSylvester</code></a></td><td>Return solution of the discrete-time Sylvester equation A*X*B + sgn*X = C</td></tr>
 <tr><td><a href="#eigenValueMatrix"><code>eigenValueMatrix</code></a></td><td>Return real valued block diagonal matrix J of eigenvalues of matrix A (A=V*J*Vinv)</td></tr>
-<tr><td><a href="#eigenValues"><code>eigenValues</code></a></td><td>Return eigenvalues for a real, nonsymmetric matrix in a Real representation</td></tr>
+<tr><td><a href="#eigenValues"><code>eigenValues</code></a></td><td>Return eigenvalues and eigenvectors for a real, nonsymmetric matrix in a Real representation</td></tr>
 <tr><td><a href="#equalityLeastSquares"><code>equalityLeastSquares</code></a></td><td>Solve a linear equality constrained least squares problem</td></tr>
 <tr><td><a href="../../Math/Matrices/Examples/index.html"><code>Examples</code></a> &hellip;</td><td>Examples demonstrating the usage of the Math.Matrices functions</td></tr>
 <tr><td><a href="#exp"><code>exp</code></a></td><td>Return the exponential of a matrix by adaptive Taylor series expansion with scaling and balancing</td></tr>
@@ -1041,20 +1041,20 @@ matrix A was interchanged with row pivots[i].
 <tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>X[size(B, 1),size(B, 2)]</code></td><td>Solution matrix such that P*L*U*X = B</td></tr>
 </table>
 <hr><a name="eigenValues"><h2><embed class="icon" src="../../images/icon0035.svg" width="203" height="203" />
-Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">Matrices</a>.&#8203;eigenValues<br><span class="subtitle">Return eigenvalues for a real, nonsymmetric matrix in a Real representation</span></h2></a>
+Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">Math</a>.&#8203;<a href="index.html">Matrices</a>.&#8203;eigenValues<br><span class="subtitle">Return eigenvalues and eigenvectors for a real, nonsymmetric matrix in a Real representation</span></h2></a>
 <h3>Information</h3>
 <p>
 
 <h4>Syntax</h4>
 <blockquote><pre>
-                eigenvalues = Matrices.<b>eigenValues</b>(A);
-(eigenvalues, eigenvectors) = Matrices.<b>eigenValues</b>(A);
+                eigenvalues = Matrices.<strong>eigenValues</strong>(A);
+(eigenvalues, eigenvectors) = Matrices.<strong>eigenValues</strong>(A);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
 This function call returns the eigenvalues and
 optionally the (right) eigenvectors of a square matrix
-<b>A</b>. The first column of "eigenvalues" contains the real and the
+<strong>A</strong>. The first column of "eigenvalues" contains the real and the
 second column contains the imaginary part of the eigenvalues.
 If the i-th eigenvalue has no imaginary part, then eigenvectors[:,i] is
 the corresponding real eigenvector. If the i-th eigenvalue
@@ -1082,8 +1082,8 @@ the same).
   Real A[3,3] = [1,2,3;
                  3,4,5;
                  2,1,4];
-  Real eval;
-<b>algorithm</b>
+  Real eval[3,2];
+<strong>algorithm</strong>
   eval := Matrices.eigenValues(A);  // eval = [-0.618, 0;
                                     //          8.0  , 0;
                                     //          1.618, 0];
@@ -1724,7 +1724,7 @@ Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">
 
 <h4>Syntax</h4>
 <blockquote><pre>
-invA = Matrices.<b>inv</b>(A);
+invA = Matrices.<strong>inv</strong>(A);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -2941,24 +2941,24 @@ Function <a href="../../index.html">Modelica</a>.&#8203;<a href="../index.html">
 
 <h4>Syntax</h4>
 <blockquote><pre>
-           sorted_M = Matrices.<b>sort</b>(M);
-(sorted_M, indices) = Matrices.<b>sort</b>(M, sortRows=true, ascending=true);
+           sorted_M = Matrices.<strong>sort</strong>(M);
+(sorted_M, indices) = Matrices.<strong>sort</strong>(M, sortRows=true, ascending=true);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-Function <b>sort</b>(..) sorts the rows of a Real matrix M
+Function <strong>sort</strong>(..) sorts the rows of a Real matrix M
 in ascending order and returns the result in sorted_M.
-If the optional argument "sortRows" is <b>false</b>, the columns
+If the optional argument "sortRows" is <strong>false</strong>, the columns
 of the matrix are sorted.
-If the optional argument "ascending" is <b>false</b>, the rows or
+If the optional argument "ascending" is <strong>false</strong>, the rows or
 columns are sorted in descending order. In the optional second
 output argument, the indices of the sorted rows or columns with respect
 to the original matrix are given, such that
 </p>
 
 <pre>
-   sorted_M = <b>if</b> sortedRow <b>then</b> M[indices,:] <b>else</b> M[:,indices];
+   sorted_M = <strong>if</strong> sortedRow <strong>then</strong> M[indices,:] <strong>else</strong> M[:,indices];
 </pre>
 
 <h4>Example</h4>
@@ -3070,5 +3070,5 @@ Function <strong>flipUpDown</strong> computes from matrix <strong>A</strong> a m
 <tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>Aflip[size(A, 1),size(A, 2)]</code></td><td>Flipped matrix</td></tr>
 </table>
 <hr style="border-color:#999" />
-<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-03 12:41:48 EDT by <i>MapleSim</i>.</p>
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-22 14:49:32 EDT by <i>MapleSim</i>.</p>
 </body></html>

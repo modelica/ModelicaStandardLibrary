@@ -1,9 +1,9 @@
 <svg width="223" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Thermal.HeatTransfer.Components.ThermalConductor" class="component">
+	<g id="Modelica.Thermal.HeatTransfer.Components.ThermalResistor" class="component">
 		<defs>
 			<pattern id="pat2" patternUnits="userSpaceOnUse" width="14" height="14">
 				<rect width="14" height="14" fill="#C0C0C0" />
-				<path d="M-1,13 l2,2 M0,0 l14,14 M13,-1 l2,2" stroke="#000000" stroke-width="1" />
+				<path d="M-1,1 l2,-2 M0,14 l14,-14 M13,15 l2,-2" stroke="#000000" stroke-width="1" />
 			</pattern>
 		</defs>
 		<polygon points="21.5,171.5 201.5,171.5 201.5,31.5 21.5,31.5" fill="url(#pat2)" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />

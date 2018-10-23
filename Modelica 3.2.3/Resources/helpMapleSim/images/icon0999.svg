@@ -1,18 +1,5 @@
-<svg width="223" height="223" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.Crossing" class="component">
-		<polyline points="211.5,11.5 151.5,11.5 71.5,211.5 11.5,211.5" fill-opacity="0" stroke="#FFAA55" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="11.5,11.5 71.5,11.5 151.5,209.5 211.5,211.5" fill-opacity="0" stroke="#FFAA55" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<g id="port_p1" class="port">
-			<polygon points="1.5,21.5 21.5,21.5 21.5,1.5 1.5,1.5" fill="#FFAA55" stroke="#FFAA55" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="port_p2" class="port">
-			<polygon points="201.5,221.5 221.5,221.5 221.5,201.5 201.5,201.5" fill="#FFAA55" stroke="#FFAA55" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="port_n1" class="port">
-			<polygon points="1.5,221.5 21.5,221.5 21.5,201.5 1.5,201.5" fill="#FFFFFF" stroke="#FFAA55" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="port_n2" class="port">
-			<polygon points="201.5,21.5 221.5,21.5 221.5,1.5 201.5,1.5" fill="#FFFFFF" stroke="#FFAA55" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
+<svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PositiveMagneticPort" class="component">
+		<polygon points="1.5,201.5 201.5,201.5 201.5,1.5 1.5,1.5" fill="#FFAA55" stroke="#FFAA55" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 	</g>
 </svg>

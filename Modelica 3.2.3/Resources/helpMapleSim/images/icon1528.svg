@@ -1,11 +1,11 @@
 <svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Math.log" class="component">
+	<g id="Modelica.Math.log10" class="component">
 		<polygon points="1.5,201.5 201.5,201.5 201.5,1.5 1.5,1.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="21.5,181.5 21.5,33.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polygon points="21.5,11.5 13.5,33.5 29.5,33.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polyline points="11.5,101.5 169.5,101.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
 		<polygon points="191.5,101.5 169.5,93.5 169.5,109.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="21.5,181.5 22.3,152.1 23.1,138.5 23.9,129.5 24.7,122.8 26.3,112.9 28.7,102.8 32.0,93.4 36.8,83.6 44.0,73.5 54.5,63.4 69.7,53.4 91.4,43.5 123.6,33.5 170.2,23.4 181.5,21.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="131.5" y="161.5" text-anchor="middle" fill="#C0C0C0" font-size="48.7px" font-family="sans-serif">log</text>
+		<polyline points="21.7,181.5 22.3,152.1 23.1,138.5 23.9,129.5 24.7,122.8 26.3,112.9 28.7,102.8 32.0,93.4 36.8,83.6 44.0,73.5 54.5,63.4 69.7,53.4 91.4,43.5 123.6,33.5 170.2,23.4 181.5,21.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<text x="116.5" y="157.0" text-anchor="middle" fill="#C0C0C0" font-size="38.0px" font-family="sans-serif">log10</text>
 	</g>
 </svg>
