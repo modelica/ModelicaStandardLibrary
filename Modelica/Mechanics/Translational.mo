@@ -1065,10 +1065,10 @@ omega_res&nbsp;=&nbsp;sqrt(c&nbsp;/&nbsp;m)
 with:
 </p>
 
-<blockquote><pre>
-c ... spring stiffness
-m ... mass
-</pre></blockquote>
+<blockquote>
+  c &hellip; spring stiffness and<br>
+  m &hellip; mass.
+</blockquote>
 
 <p>
 To make sure that the system is initially at rest the initial
@@ -3143,12 +3143,12 @@ distributions:
         frictional_force = <strong>cgeo</strong> * <strong>mu</strong>(v) * <strong>fn</strong>
 </pre>
 <p>
-   Typical values of coefficients of friction:
+   Typical values of coefficients of friction <strong>mue</strong>:
 </p>
-<pre>
-      dry operation   :  <strong>mu</strong> = 0.2 ... 0.4
-      operating in oil:  <strong>mu</strong> = 0.05 ... 0.1
-</pre>
+<ul>
+  <li>0.2&nbsp;&hellip;&nbsp;0.4 for dry operation,</li>
+  <li>0.05&nbsp;&hellip;&nbsp;0.1 when operating in oil.</li>
+</ul>
 <p>
     The positive part of the friction characteristic <strong>mu</strong>(v),
     v >= 0, is defined via table mu_pos (first column = v,

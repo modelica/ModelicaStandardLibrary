@@ -3679,12 +3679,12 @@ distributions:
         frictional_torque = <strong>cgeo</strong> * <strong>mu</strong>(w) * <strong>fn</strong>
 </pre>
 <p>
-   Typical values of coefficients of friction:
+   Typical values of coefficients of friction <strong>mue</strong>:
 </p>
-<pre>
-      dry operation   :  <strong>mu</strong> = 0.2 ... 0.4
-      operating in oil:  <strong>mu</strong> = 0.05 ... 0.1
-</pre>
+<ul>
+  <li>0.2&nbsp;&hellip;&nbsp;0.4 for dry operation,</li>
+  <li>0.05&nbsp;&hellip;&nbsp;0.1 when operating in oil.</li>
+</ul>
 <p>
    When plates are pressed together, where  <strong>ri</strong>  is the inner radius,
    <strong>ro</strong> is the outer radius and <strong>N</strong> is the number of friction interfaces,
@@ -3836,12 +3836,12 @@ distributions:
         frictional_torque = <strong>cgeo</strong> * <strong>mu</strong>(w_rel) * <strong>fn</strong>
 </pre>
 <p>
-   Typical values of coefficients of friction:
+   Typical values of coefficients of friction <strong>mue</strong>:
 </p>
-<pre>
-      dry operation   :  <strong>mu</strong> = 0.2 ... 0.4
-      operating in oil:  <strong>mu</strong> = 0.05 ... 0.1
-</pre>
+<ul>
+  <li>0.2&nbsp;&hellip;&nbsp;0.4 for dry operation,</li>
+  <li>0.05&nbsp;&hellip;&nbsp;0.1 when operating in oil.</li>
+</ul>
 <p>
    When plates are pressed together, where  <strong>ri</strong>  is the inner radius,
    <strong>ro</strong> is the outer radius and <strong>N</strong> is the number of friction interfaces,
@@ -4040,13 +4040,12 @@ frictional_torque = <strong>cgeo</strong> * <strong>mu</strong>(w_rel) * <strong
 </pre></blockquote>
 
 <p>
-Typical values of coefficients of friction:
+Typical values of coefficients of friction <strong>mue</strong>:
 </p>
-
-<blockquote><pre>
-dry operation   :  <strong>mu</strong> = 0.2 ... 0.4
-operating in oil:  <strong>mu</strong> = 0.05 ... 0.1
-</pre></blockquote>
+<ul>
+  <li>0.2&nbsp;&hellip;&nbsp;0.4 for dry operation,</li>
+  <li>0.05&nbsp;&hellip;&nbsp;0.1 when operating in oil.</li>
+</ul>
 
 <p>
 The geometry constant is calculated - under the
