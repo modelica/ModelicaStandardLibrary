@@ -422,7 +422,7 @@ as possible.
 
       annotation (Documentation(info="<html>
 <p>
-Only a few components of the Rotational library use the der(..) operator
+Only a few components of the Rotational library use the der(&hellip;) operator
 and are therefore candidates to have states. Most important, component <a href=\"modelica://Modelica.Mechanics.Rotational.Components.Inertia\">Inertia</a>
 defines the absolute rotation angle and the absolute angular velocity of this
 component as candidate for states. In the \"Advanced\" menu the built-in StateSelect
@@ -3682,8 +3682,8 @@ distributions:
    Typical values of coefficients of friction:
 </p>
 <pre>
-      dry operation   :  <strong>mu</strong> = 0.2 .. 0.4
-      operating in oil:  <strong>mu</strong> = 0.05 .. 0.1
+      dry operation   :  <strong>mu</strong> = 0.2 ... 0.4
+      operating in oil:  <strong>mu</strong> = 0.05 ... 0.1
 </pre>
 <p>
    When plates are pressed together, where  <strong>ri</strong>  is the inner radius,
@@ -3839,8 +3839,8 @@ distributions:
    Typical values of coefficients of friction:
 </p>
 <pre>
-      dry operation   :  <strong>mu</strong> = 0.2 .. 0.4
-      operating in oil:  <strong>mu</strong> = 0.05 .. 0.1
+      dry operation   :  <strong>mu</strong> = 0.2 ... 0.4
+      operating in oil:  <strong>mu</strong> = 0.05 ... 0.1
 </pre>
 <p>
    When plates are pressed together, where  <strong>ri</strong>  is the inner radius,
@@ -4044,8 +4044,8 @@ Typical values of coefficients of friction:
 </p>
 
 <blockquote><pre>
-dry operation   :  <strong>mu</strong> = 0.2 .. 0.4
-operating in oil:  <strong>mu</strong> = 0.05 .. 0.1
+dry operation   :  <strong>mu</strong> = 0.2 ... 0.4
+operating in oil:  <strong>mu</strong> = 0.05 ... 0.1
 </pre></blockquote>
 
 <p>
@@ -4412,18 +4412,18 @@ meaning:
       <td>|tau_bf2|</td>
     </tr>
     <tr>
-      <td align=\"center\">...</td>
-      <td align=\"center\">...</td>
-      <td align=\"center\">...</td>
-      <td align=\"center\">...</td>
-      <td align=\"center\">...</td>
+      <td align=\"center\">&hellip;</td>
+      <td align=\"center\">&hellip;</td>
+      <td align=\"center\">&hellip;</td>
+      <td align=\"center\">&hellip;</td>
+      <td align=\"center\">&hellip;</td>
     </tr>
     <tr>
-      <td align=\"center\">...</td>
-      <td align=\"center\">...</td>
-      <td align=\"center\">...</td>
-      <td align=\"center\">...</td>
-      <td align=\"center\">...</td>
+      <td align=\"center\">&hellip;</td>
+      <td align=\"center\">&hellip;</td>
+      <td align=\"center\">&hellip;</td>
+      <td align=\"center\">&hellip;</td>
+      <td align=\"center\">&hellip;</td>
     </tr>
   </tbody>
 </table>
