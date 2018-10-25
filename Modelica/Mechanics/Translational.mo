@@ -1861,9 +1861,10 @@ force law in a target system between two masses.
         end for;
         annotation (Documentation(info="<html>
 <p>
-Returns a table with the friction characteristic table[nTable,2] = [0,&nbsp;f1; &hellip;; v_max,&nbsp;fn], where the first
-column is the velocity&nbsp;v in the range 0&nbsp;&hellip;&nbsp;v_max and the second column is the friction force
-according to the Stribeck curve:
+Returns a table with the friction characteristic
+table[nTable,&nbsp;2]&nbsp;=&nbsp;[0,&nbsp;f1;&nbsp;&hellip;;&nbsp;v_max,&nbsp;fn],
+where the first column is the velocity&nbsp;v in the range 0&nbsp;&hellip;&nbsp;v_max
+and the second column is the friction force according to the Stribeck curve:
 </p>
 
 <blockquote><pre>
