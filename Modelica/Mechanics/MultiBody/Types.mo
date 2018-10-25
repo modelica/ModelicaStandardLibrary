@@ -153,7 +153,7 @@ Additionally, external shapes can be specified as (not all options might be supp
 </p>
 
 <ul>
-<li> <strong>\"1\", \"2\", &hellip;</strong><br>
+<li> <strong>\"1\", \"2\",&nbsp;&hellip;</strong><br>
      define external shapes specified in DXF format in files \"1.dxf\", \"2.dxf\", &hellip;
      The DXF-files must be found either in the current directory or in the directory where
      the Shape instance is stored that references the DXF file.
