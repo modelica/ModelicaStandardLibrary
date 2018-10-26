@@ -1599,7 +1599,7 @@ argument):</p>
   type NeutronFluenceRate = Real (final quantity="NeutronFluenceRate", final unit=
              "s-1.m-2");
   type TotalNeutronSourceDensity = Real (final quantity=
-          "TotalNeutronSourceDesity", final unit="s-1.m-3");
+          "TotalNeutronSourceDensity", final unit="s-1.m-3");
   type SlowingDownDensity = Real (final quantity="SlowingDownDensity", final unit=
              "s-1.m-3");
   type ResonanceEscapeProbability = Real (final quantity=
