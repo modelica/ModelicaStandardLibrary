@@ -237,7 +237,7 @@ the output is <strong>false</strong>.
           Line(
             points={{-54,20},{-8,0},{-54,-20}},
             thickness=0.5),
-          Line(points={{-54,-38},{-8,-18}}, thickness=0.5)}), Documentation(info="<html>
+          Line(points={{-54,-40},{-8,-20}}, thickness=0.5)}), Documentation(info="<html>
 <p>
 The output is <strong>true</strong> if the Real input is greater than or equal to
 parameter <strong>threshold</strong>, otherwise
@@ -311,7 +311,7 @@ Real input u2, otherwise the output is <strong>false</strong>.
           Line(
             points={{-54,20},{-8,0},{-54,-20}},
             thickness=0.5),
-          Line(points={{-54,-38},{-8,-18}}, thickness=0.5)}), Documentation(info="<html>
+          Line(points={{-54,-40},{-8,-20}}, thickness=0.5)}), Documentation(info="<html>
 <p>
 The output is <strong>true</strong> if Real input u1 is greater than or equal to
 Real input u2, otherwise the output is <strong>false</strong>.
