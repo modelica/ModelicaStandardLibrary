@@ -237,7 +237,8 @@ the output is <strong>false</strong>.
           Line(
             points={{-54,20},{-8,0},{-54,-20}},
             thickness=0.5),
-          Line(points={{-54,-40},{-8,-20}}, thickness=0.5)}), Documentation(info="<html>
+          Line(points={{-54,-30},{-8,-30}}, thickness=0.5)}),
+      Documentation(info="<html>
 <p>
 The output is <strong>true</strong> if the Real input is greater than or equal to
 parameter <strong>threshold</strong>, otherwise
@@ -270,7 +271,8 @@ the output is <strong>false</strong>.
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Line(points={{-8,20},{-54,0},{-8,-20}}, thickness=0.5),
-          Line(points={{-54,-20},{-8,-40}}, thickness=0.5)}), Documentation(info="<html>
+          Line(points={{-54,-30},{-8,-30}}, thickness=0.5)}),
+      Documentation(info="<html>
 <p>
 The output is <strong>true</strong> if the Real input is less than or equal to
 parameter <strong>threshold</strong>, otherwise
@@ -311,7 +313,8 @@ Real input u2, otherwise the output is <strong>false</strong>.
           Line(
             points={{-54,20},{-8,0},{-54,-20}},
             thickness=0.5),
-          Line(points={{-54,-40},{-8,-20}}, thickness=0.5)}), Documentation(info="<html>
+          Line(points={{-54,-30},{-8,-30}}, thickness=0.5)}),
+      Documentation(info="<html>
 <p>
 The output is <strong>true</strong> if Real input u1 is greater than or equal to
 Real input u2, otherwise the output is <strong>false</strong>.
@@ -346,7 +349,8 @@ Real input u2, otherwise the output is <strong>false</strong>.
           Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,127}),
           Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,127}),
           Line(points={{-8,20},{-54,0},{-8,-20}}, thickness=0.5),
-          Line(points={{-54,-20},{-8,-40}}, thickness=0.5)}), Documentation(info="<html>
+          Line(points={{-54,-30},{-8,-30}}, thickness=0.5)}),
+      Documentation(info="<html>
 <p>
 The output is <strong>true</strong> if Real input u1 is less than or equal to
 Real input u2, otherwise the output is <strong>false</strong>.
