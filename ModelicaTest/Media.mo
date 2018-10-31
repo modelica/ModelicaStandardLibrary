@@ -926,16 +926,164 @@ is given to compare the approximation.
 
     extends Modelica.Icons.ExamplesPackage;
 
+    package Components
+      "Functions, connectors and models needed for the media model tests"
+
+      extends Modelica.Icons.Package;
+
+      partial model PartialTestModel "Basic test model to test a medium"
+
+        replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
+          "Medium model" annotation (choicesAllMatching=true);
+        parameter Modelica.SIunits.AbsolutePressure p_start=Medium.p_default
+          "Initial value of pressure";
+        parameter Modelica.SIunits.Temperature T_start=Medium.T_default
+          "Initial value of temperature";
+        parameter Modelica.SIunits.SpecificEnthalpy h_start=Medium.h_default
+          "Initial value of specific enthalpy";
+        parameter Real X_start[Medium.nX]=Medium.X_default
+          "Initial value of mass fractions";
+
+        /*
+  parameter SI.AbsolutePressure p_start = 1.0e5 "Initial value of pressure";
+  parameter SI.Temperature T_start = 300 "Initial value of temperature";
+  parameter SI.Density h_start = 1 "Initial value of specific enthalpy";
+  parameter Real X_start[Medium.nX] = Medium.reference_X
+    "Initial value of mass fractions";
+*/
+        Modelica.Fluid.Vessels.ClosedVolume volume(
+          redeclare package Medium = Medium,
+          p_start=p_start,
+          T_start=T_start,
+          h_start=h_start,
+          X_start=X_start,
+          V=0.1,
+          nPorts=2,
+          use_portsData=false) annotation (Placement(transformation(extent={{-40,
+                  0},{-20,20}})));
+        Modelica.Fluid.Sources.MassFlowSource_T fixedMassFlowRate(
+          redeclare package Medium = Medium,
+          m_flow=1,
+          T=system.T_ambient,
+          nPorts=1) annotation (Placement(transformation(extent={{-80,-2},{-60,
+                  18}})));
+        Modelica.Fluid.Sources.FixedBoundary ambient(
+          redeclare package Medium = Medium,
+          nPorts=1,
+          p=p_start,
+          T=T_start) annotation (Placement(transformation(extent={{60,0},{40,20}})));
+        Modelica.Fluid.Pipes.StaticPipe shortPipe(
+          redeclare package Medium = Medium,
+          length=1,
+          redeclare model FlowModel =
+              Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalLaminarFlow (
+                dp_nominal=1000000000, m_flow_nominal=1.0),
+          diameter=0.05) annotation (Placement(transformation(extent={{0,0},{20,
+                  20}})));
+        inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
+          annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
+      equation
+        connect(fixedMassFlowRate.ports[1], volume.ports[1]) annotation (Line(
+            points={{-60,8},{-46,8},{-46,0},{-32,0}}, color={0,127,255}));
+        connect(volume.ports[2], shortPipe.port_a) annotation (Line(
+            points={{-28,0},{-16,0},{-16,10},{0,10}}, color={0,127,255}));
+        connect(shortPipe.port_b, ambient.ports[1]) annotation (Line(
+            points={{20,10},{40,10}}, color={0,127,255}));
+        annotation (Documentation(info="<html>
+
+</html>"));
+      end PartialTestModel;
+
+      partial model PartialTestModel2
+        "Slightly larger test model to test a medium"
+
+        replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
+          "Medium model" annotation (choicesAllMatching=true);
+        parameter Modelica.SIunits.AbsolutePressure p_start=1.0e5
+          "Initial value of pressure";
+        parameter Modelica.SIunits.Temperature T_start=300
+          "Initial value of temperature";
+        parameter Modelica.SIunits.SpecificEnthalpy h_start=1
+          "Initial value of specific enthalpy";
+        parameter Real X_start[Medium.nX]=Medium.reference_X
+          "Initial value of mass fractions";
+        Modelica.Fluid.Vessels.ClosedVolume volume(
+          redeclare package Medium = Medium,
+          p_start=p_start,
+          T_start=T_start,
+          h_start=h_start,
+          X_start=X_start,
+          V=0.1,
+          nPorts=2,
+          use_portsData=false) annotation (Placement(transformation(extent={{-60,
+                  20},{-40,40}})));
+        Modelica.Fluid.Sources.MassFlowSource_T fixedMassFlowRate(
+          redeclare package Medium = Medium,
+          m_flow=1,
+          T=system.T_ambient,
+          nPorts=1) annotation (Placement(transformation(extent={{-100,0},{-80,
+                  20}})));
+        Modelica.Fluid.Sources.FixedBoundary ambient(
+          redeclare package Medium = Medium,
+          p=p_start,
+          T=T_start,
+          nPorts=1) annotation (Placement(transformation(extent={{60,0},{40,20}})));
+        Modelica.Fluid.Pipes.StaticPipe shortPipe(
+          redeclare package Medium = Medium,
+          length=1,
+          redeclare model FlowModel =
+              Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalLaminarFlow (
+                dp_nominal=1000000000, m_flow_nominal=1.0),
+          diameter=0.05) annotation (Placement(transformation(extent={{-42,0},{
+                  -22,20}})));
+        inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
+          annotation (Placement(transformation(extent={{-100,78},{-80,98}})));
+        Modelica.Fluid.Pipes.StaticPipe shortPipe1(
+          redeclare package Medium = Medium,
+          length=1,
+          redeclare model FlowModel =
+              Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalLaminarFlow (
+                dp_nominal=1000000000, m_flow_nominal=1.0),
+          diameter=0.05) annotation (Placement(transformation(extent={{0,0},{20,
+                  20}})));
+        Modelica.Fluid.Vessels.ClosedVolume volume1(
+          redeclare package Medium = Medium,
+          p_start=p_start,
+          T_start=T_start,
+          h_start=h_start,
+          X_start=X_start,
+          V=0.1,
+          nPorts=2,
+          use_portsData=false) annotation (Placement(transformation(extent={{-18,
+                  20},{2,40}})));
+      equation
+        connect(fixedMassFlowRate.ports[1], volume.ports[1]) annotation (Line(
+            points={{-80,10},{-50,10},{-50,20},{-52,20}}, color={0,127,255}));
+        connect(volume.ports[2], shortPipe.port_a) annotation (Line(
+            points={{-48,20},{-50,20},{-50,10},{-42,10}}, color={0,127,255}));
+        connect(shortPipe1.port_a, volume1.ports[1]) annotation (Line(
+            points={{0,10},{-8,10},{-8,20},{-10,20}}, color={0,127,255}));
+        connect(shortPipe.port_b, volume1.ports[2]) annotation (Line(
+            points={{-22,10},{-8,10},{-8,20},{-6,20}}, color={0,127,255}));
+        connect(shortPipe1.port_b, ambient.ports[1]) annotation (Line(
+            points={{20,10},{40,10}}, color={0,127,255}));
+        annotation (Documentation(info="<html>
+
+</html>"));
+      end PartialTestModel2;
+      annotation (Documentation(info="<html>
+
+</html>"));
+    end Components;
+
     package MediaTestModels "Test models to test all media"
       extends Modelica.Icons.ExamplesPackage;
       package Air "Test models of library Modelica.Media.Air"
         extends Modelica.Icons.ExamplesPackage;
         model SimpleAir "Test Modelica.Media.Air.SimpleAir"
           extends Modelica.Icons.Example;
-          extends Modelica.Media.Examples.Utilities.PartialTestModel(
+          extends ModelicaTest.Media.TestsWithFluid.Components.PartialTestModel(
               redeclare package Medium = Modelica.Media.Air.SimpleAir);
-          inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
-            annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
           annotation (Documentation(info="<html>
 
 </html>"), experiment(StopTime=1.01));
@@ -943,10 +1091,8 @@ is given to compare the approximation.
 
         model DryAirNasa "Test Modelica.Media.Air.DryAirNasa"
           extends Modelica.Icons.Example;
-          extends Modelica.Media.Examples.Utilities.PartialTestModel(
+          extends ModelicaTest.Media.TestsWithFluid.Components.PartialTestModel(
               redeclare package Medium = Modelica.Media.Air.DryAirNasa);
-          inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
-            annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
           annotation (Documentation(info="<html>
 
 </html>"), experiment(StopTime=1.01));
@@ -954,10 +1100,8 @@ is given to compare the approximation.
 
         model MoistAir "Test Modelica.Media.Air.MoistAir"
           extends Modelica.Icons.Example;
-          extends Modelica.Media.Examples.Utilities.PartialTestModel(
+          extends ModelicaTest.Media.TestsWithFluid.Components.PartialTestModel(
               redeclare package Medium = Modelica.Media.Air.MoistAir);
-          inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
-            annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
           annotation (Documentation(info="<html>
 
 </html>"), experiment(StopTime=1.01));
@@ -972,10 +1116,8 @@ is given to compare the approximation.
 
         model Air "Test single gas Modelica.Media.IdealGases.SingleGases.Air"
           extends Modelica.Icons.Example;
-          extends Modelica.Media.Examples.Utilities.PartialTestModel(
+          extends ModelicaTest.Media.TestsWithFluid.Components.PartialTestModel(
               redeclare package Medium = Modelica.Media.Air.DryAirNasa);
-          inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
-            annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
           annotation (Documentation(info="<html>
 
 </html>"), experiment(StopTime=1.01));
@@ -984,11 +1126,9 @@ is given to compare the approximation.
         model Nitrogen
           "Test single gas Modelica.Media.IdealGases.SingleGases.N2"
           extends Modelica.Icons.Example;
-          extends Modelica.Media.Examples.Utilities.PartialTestModel(
+          extends ModelicaTest.Media.TestsWithFluid.Components.PartialTestModel(
               redeclare package Medium =
                 Modelica.Media.IdealGases.SingleGases.N2);
-          inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
-            annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
           annotation (Documentation(info="<html>
 
 </html>"), experiment(StopTime=1.01));
@@ -997,11 +1137,9 @@ is given to compare the approximation.
         model SimpleNaturalGas
           "Test mixture gas Modelica.Media.IdealGases.MixtureGases.SimpleNaturalGas"
           extends Modelica.Icons.Example;
-          extends Modelica.Media.Examples.Utilities.PartialTestModel(
+          extends ModelicaTest.Media.TestsWithFluid.Components.PartialTestModel(
               redeclare package Medium =
                 Modelica.Media.IdealGases.MixtureGases.SimpleNaturalGas);
-          inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
-            annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
           annotation (Documentation(info="<html>
 
 </html>"), experiment(StopTime=1.01));
@@ -1010,11 +1148,9 @@ is given to compare the approximation.
         model SimpleNaturalGasFixedComposition
           "Test mixture gas Modelica.Media.IdealGases.MixtureGases.SimpleNaturalGas"
           extends Modelica.Icons.Example;
-          extends Modelica.Media.Examples.Utilities.PartialTestModel(
+          extends ModelicaTest.Media.TestsWithFluid.Components.PartialTestModel(
               redeclare package Medium =
                 Modelica.Media.IdealGases.MixtureGases.SimpleNaturalGasFixedComposition);
-          inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
-            annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
           annotation (experiment(StopTime=1.01));
         end SimpleNaturalGasFixedComposition;
       end IdealGases;
@@ -1024,12 +1160,10 @@ is given to compare the approximation.
         extends Modelica.Icons.ExamplesPackage;
         model Glycol47 "Test Modelica.Media.Incompressible.Examples.Glycol47"
           extends Modelica.Icons.Example;
-          extends Modelica.Media.Examples.Utilities.PartialTestModel(
+          extends ModelicaTest.Media.TestsWithFluid.Components.PartialTestModel(
               redeclare package Medium =
                 Modelica.Media.Incompressible.Examples.Glycol47 (final
                   singleState=true, final enthalpyOfT=true));
-          inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
-            annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
           annotation (Documentation(info="<html>
 
 </html>"), experiment(StopTime=1.01));
@@ -1038,11 +1172,9 @@ is given to compare the approximation.
         model Essotherm650
           "Test Modelica.Media.Incompressible.Examples.Essotherm65"
           extends Modelica.Icons.Example;
-          extends Modelica.Media.Examples.Utilities.PartialTestModel(
+          extends ModelicaTest.Media.TestsWithFluid.Components.PartialTestModel(
               redeclare package Medium =
                 Modelica.Media.Incompressible.Examples.Essotherm650);
-          inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
-            annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
           annotation (Documentation(info="<html>
 
 </html>"), experiment(StopTime=1.01));
@@ -1057,11 +1189,9 @@ is given to compare the approximation.
         model ConstantPropertyLiquidWater
           "Test Modelica.Media.Water.ConstantPropertyLiquidWater"
           extends Modelica.Icons.Example;
-          extends Modelica.Media.Examples.Utilities.PartialTestModel(
+          extends ModelicaTest.Media.TestsWithFluid.Components.PartialTestModel(
               redeclare package Medium =
                 Modelica.Media.Water.ConstantPropertyLiquidWater);
-          inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
-            annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
           annotation (Documentation(info="<html>
 
 </html>"), experiment(StopTime=1.01));
@@ -1069,10 +1199,8 @@ is given to compare the approximation.
 
         model IdealSteam "Test Modelica.Media.Water.IdealSteam"
           extends Modelica.Icons.Example;
-          extends Modelica.Media.Examples.Utilities.PartialTestModel(
+          extends ModelicaTest.Media.TestsWithFluid.Components.PartialTestModel(
               redeclare package Medium = Modelica.Media.Water.IdealSteam);
-          inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
-            annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
           annotation (Documentation(info="<html>
 
 </html>"), experiment(StopTime=1.01));
@@ -1081,11 +1209,11 @@ is given to compare the approximation.
         model WaterIF97OnePhase_ph
           "Test Modelica.Media.Water.WaterIF97OnePhase_ph"
           extends Modelica.Icons.Example;
-          extends Modelica.Media.Examples.Utilities.PartialTestModel(
+          extends ModelicaTest.Media.TestsWithFluid.Components.PartialTestModel(
             redeclare package Medium =
-                Modelica.Media.Water.WaterIF97OnePhase_ph);
-          inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial)
-            annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
+                Modelica.Media.Water.WaterIF97OnePhase_ph,
+            system(energyDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial),
+            volume(medium(h(fixed=true), p(fixed=true))));
 
           annotation (Documentation(info="<html>
 
@@ -1094,10 +1222,10 @@ is given to compare the approximation.
 
         model WaterIF97_pT "Test Modelica.Media.Water.WaterIF97_pT"
           extends Modelica.Icons.Example;
-          extends Modelica.Media.Examples.Utilities.PartialTestModel(
-            redeclare package Medium = Modelica.Media.Water.WaterIF97_pT);
-          inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial)
-            annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
+          extends ModelicaTest.Media.TestsWithFluid.Components.PartialTestModel(
+            redeclare package Medium = Modelica.Media.Water.WaterIF97_pT,
+            system(energyDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial),
+            volume(medium(T(fixed=true), p(fixed=true))));
 
           annotation (Documentation(info="<html>
 
@@ -1106,10 +1234,10 @@ is given to compare the approximation.
 
         model WaterIF97_ph "Test Modelica.Media.Water.WaterIF97_ph"
           extends Modelica.Icons.Example;
-          extends Modelica.Media.Examples.Utilities.PartialTestModel(
-            redeclare package Medium = Modelica.Media.Water.WaterIF97_ph);
-          inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial)
-            annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
+          extends ModelicaTest.Media.TestsWithFluid.Components.PartialTestModel(
+            redeclare package Medium = Modelica.Media.Water.WaterIF97_ph,
+            system(energyDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial),
+            volume(medium(h(fixed=true), p(fixed=true))));
 
           annotation (Documentation(info="<html>
 
@@ -1133,7 +1261,7 @@ is given to compare the approximation.
         model LinearColdWater
           "Test Modelica.Media.Incompressible.Examples.Glycol47"
           extends Modelica.Icons.Example;
-          extends Modelica.Media.Examples.Utilities.PartialTestModel(
+          extends ModelicaTest.Media.TestsWithFluid.Components.PartialTestModel(
               redeclare package Medium =
                 Modelica.Media.CompressibleLiquids.LinearColdWater);
           annotation (Documentation(info="<html>
@@ -1144,7 +1272,7 @@ is given to compare the approximation.
         model LinearWater_pT
           "Test Modelica.Media.Incompressible.Examples.Essotherm65"
           extends Modelica.Icons.Example;
-          extends Modelica.Media.Examples.Utilities.PartialTestModel(
+          extends ModelicaTest.Media.TestsWithFluid.Components.PartialTestModel(
               redeclare package Medium =
                 Modelica.Media.CompressibleLiquids.LinearWater_pT_Ambient);
           annotation (Documentation(info="<html>
