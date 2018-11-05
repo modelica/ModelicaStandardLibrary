@@ -91,14 +91,14 @@ Plotting the imaginary part versus the real part, you will see an Archimedean sp
 
     model ShowTransferFunction "Test Complex Transfer Function Block"
       extends Modelica.Icons.Example;
-      parameter Real d=1/sqrt(2);
-      parameter Real b[:]={1};
-      parameter Real a[:]={1,2*d,1};
-      parameter Real wMin=0.01;
-      parameter Real wMax=100;
-      Real lg_w=log10(logFrequencySweep.y);
-      Real dB=20*log10(complexToPolar.len);
-      Modelica.SIunits.Angle phi(displayUnit="deg")=complexToPolar.phi;
+      parameter Real d=1/sqrt(2) "Damping coefficient";
+      parameter Real b[:]={1} "Numerator polynomial coefficients of the transfer function";
+      parameter Real a[:]={1,2*d,1} "Denominator polynomial coefficients of the transfer function";
+      parameter Real wMin=0.01 "Lower bound for frequency sweep";
+      parameter Real wMax=100 "Upper bound for frequency sweep";
+      Real lg_w=log10(logFrequencySweep.y) "Logarithm of frequency";
+      Real dB=20*log10(complexToPolar.len) "Magnitude of the transfer function in decibel";
+      Modelica.SIunits.Angle phi(displayUnit="deg")=complexToPolar.phi "Argument of the transfer function";
       Modelica.ComplexBlocks.Sources.LogFrequencySweep logFrequencySweep(
         duration=1,
         wMin=wMin,
