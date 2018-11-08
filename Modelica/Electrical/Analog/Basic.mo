@@ -489,9 +489,9 @@ package Basic "Basic electrical components"
     parameter SI.Inductance L[dimL]={1,0.1,0.2,2,0.3,3}
       "Inductances and coupling inductances";
     Modelica.Electrical.Analog.Interfaces.PositivePin p[N] "Positive pin"
-      annotation (Placement(transformation(extent={{-110,-60},{-90,60}})));
+      annotation (Placement(transformation(extent={{-110,-70},{-90,70}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin n[N] "Negative pin"
-      annotation (Placement(transformation(extent={{90,-60},{110,60}})));
+      annotation (Placement(transformation(extent={{90,-70},{110,70}})));
 
     SI.Voltage v[N] "Voltage drop over inductors";
     SI.Current i[N](each start=0, fixed=true)
@@ -520,70 +520,86 @@ package Basic "Basic electrical components"
     annotation (defaultComponentName="transformer", Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Text(
-            extent={{-150,110},{150,70}},
+            extent={{-150,120},{150,80}},
             textString="%name",
             lineColor={0,0,255}),
-          Text(extent={{-150,-70},{150,-110}}, textString="N=%N"),
-          Line(points={{60,-40},{90,-40}},
+          Text(extent={{-150,-80},{150,-120}}, textString="N=%N"),
+          Line(points={{60,-50},{90,-50}},
                                        color={0,0,255}),
-          Line(points={{-90,-40},{-60,-40}},
+          Line(points={{-90,-50},{-60,-50}},
                                          color={0,0,255}),
           Line(
-            points={{-60,-40},{-59,-34},{-52,-26},{-38,-26},{-31,-34},{-30,-40}},
+            points={{-60,-50},{-59,-44},{-52,-36},{-38,-36},{-31,-44},{-30,-50}},
             color={0,0,255},
             smooth=Smooth.Bezier),
           Line(
-            points={{-30,-40},{-29,-34},{-22,-26},{-8,-26},{-1,-34},{0,-40}},
+            points={{-30,-50},{-29,-44},{-22,-36},{-8,-36},{-1,-44},{0,-50}},
             color={0,0,255},
             smooth=Smooth.Bezier),
           Line(
-            points={{0,-40},{1,-34},{8,-26},{22,-26},{29,-34},{30,-40}},
+            points={{0,-50},{1,-44},{8,-36},{22,-36},{29,-44},{30,-50}},
             color={0,0,255},
             smooth=Smooth.Bezier),
           Line(
-            points={{30,-40},{31,-34},{38,-26},{52,-26},{59,-34},{60,-40}},
+            points={{30,-50},{31,-44},{38,-36},{52,-36},{59,-44},{60,-50}},
             color={0,0,255},
             smooth=Smooth.Bezier),
-          Line(points={{60,10},{90,10}},
+          Line(points={{60,20},{90,20}},
                                        color={0,0,255}),
-          Line(points={{-90,10},{-60,10}},
+          Line(points={{-90,20},{-60,20}},
                                          color={0,0,255}),
           Line(
-            points={{-60,10},{-59,16},{-52,24},{-38,24},{-31,16},{-30,10}},
+            points={{-60,20},{-59,26},{-52,34},{-38,34},{-31,26},{-30,20}},
             color={0,0,255},
             smooth=Smooth.Bezier),
           Line(
-            points={{-30,10},{-29,16},{-22,24},{-8,24},{-1,16},{0,10}},
+            points={{-30,20},{-29,26},{-22,34},{-8,34},{-1,26},{0,20}},
             color={0,0,255},
             smooth=Smooth.Bezier),
           Line(
-            points={{0,10},{1,16},{8,24},{22,24},{29,16},{30,10}},
+            points={{0,20},{1,26},{8,34},{22,34},{29,26},{30,20}},
             color={0,0,255},
             smooth=Smooth.Bezier),
           Line(
-            points={{30,10},{31,16},{38,24},{52,24},{59,16},{60,10}},
+            points={{30,20},{31,26},{38,34},{52,34},{59,26},{60,20}},
             color={0,0,255},
             smooth=Smooth.Bezier),
-          Line(points={{60,40},{90,40}},
+          Line(points={{60,50},{90,50}},
                                        color={0,0,255}),
-          Line(points={{-90,40},{-60,40}},
+          Line(points={{-90,50},{-60,50}},
                                          color={0,0,255}),
           Line(
-            points={{-60,40},{-59,46},{-52,54},{-38,54},{-31,46},{-30,40}},
+            points={{-60,50},{-59,56},{-52,64},{-38,64},{-31,56},{-30,50}},
             color={0,0,255},
             smooth=Smooth.Bezier),
           Line(
-            points={{-30,40},{-29,46},{-22,54},{-8,54},{-1,46},{0,40}},
+            points={{-30,50},{-29,56},{-22,64},{-8,64},{-1,56},{0,50}},
             color={0,0,255},
             smooth=Smooth.Bezier),
           Line(
-            points={{0,40},{1,46},{8,54},{22,54},{29,46},{30,40}},
+            points={{0,50},{1,56},{8,64},{22,64},{29,56},{30,50}},
             color={0,0,255},
             smooth=Smooth.Bezier),
           Line(
-            points={{30,40},{31,46},{38,54},{52,54},{59,46},{60,40}},
+            points={{30,50},{31,56},{38,64},{52,64},{59,56},{60,50}},
             color={0,0,255},
-            smooth=Smooth.Bezier)}),Documentation(info="<html>
+            smooth=Smooth.Bezier),
+          Ellipse(
+            extent={{-2,6},{2,2}},
+            lineColor={0,0,255},
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid),
+          Ellipse(
+            extent={{-2,-22},{2,-26}},
+            lineColor={0,0,255},
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid),
+          Ellipse(
+            extent={{-2,-8},{2,-12}},
+            lineColor={0,0,255},
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid)}),
+          Documentation(info="<html>
 <p>The model <em>M_Transformer</em> is a model of a transformer with the possibility to choose the number of inductors. Inside the model, an inductance matrix is built based on the inductance of the inductors and the coupling inductances between the inductors given as a parameter vector from the user of the model.</p>
 
 <p>An example shows that approach:<br>
