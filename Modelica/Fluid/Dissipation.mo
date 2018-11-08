@@ -12335,9 +12335,9 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
     end Icons;
 
     package Records "Package for base records"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.RecordsPackage;
       package General
-        extends Modelica.Icons.Package;
+        extends Modelica.Icons.RecordsPackage;
         record PressureLoss
           "Base record for fluid properties for pressure loss"
           extends Modelica.Icons.Record;
@@ -12598,7 +12598,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
       end General;
 
       package HeatTransfer
-        extends Modelica.Icons.Package;
+        extends Modelica.Icons.RecordsPackage;
         record EvenGap "Input for even gap"
           extends Modelica.Icons.Record;
 
@@ -12739,7 +12739,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
       end HeatTransfer;
 
       package PressureLoss
-        extends Modelica.Icons.Package;
+        extends Modelica.Icons.RecordsPackage;
 
         record Bend "Input for bend"
           extends EdgedBend;
