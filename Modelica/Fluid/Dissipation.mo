@@ -100,7 +100,7 @@ dropped in the equation section of the <strong> equation layer </strong> of the 
 </h4>
 <p>
 The chosen function in Step 2 still needs its corresponding input values provided by
-records. These input records are spitted into one for input parameters (e.g., for
+records. These input records are split into one for input parameters (e.g., for
 geometry) and one for input variables (e.g., for fluid properties). The name of these
 input records are identical with the corresponding function but with the extension <strong>
 _IN_con </strong> for parameters and <strong> _IN_var </strong> for variables as input. These
