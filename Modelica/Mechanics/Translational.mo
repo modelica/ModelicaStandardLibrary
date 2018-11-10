@@ -1665,7 +1665,7 @@ is present in variable convection.fluid.
               preserveAspectRatio=false)));
     end HeatLosses;
 
-    model TestEddyCurrentBrake "Test of translational eddy current brake"
+    model EddyCurrentBrake "Demonstrate the usage of the translational eddy current brake"
       extends Modelica.Icons.Example;
       Modelica.Mechanics.Translational.Sources.EddyCurrentForce
         eddyCurrentForce(
@@ -1693,9 +1693,9 @@ is present in variable convection.fluid.
       annotation (
         experiment(StopTime=1.0, Interval=0.001),
         Documentation(info="<html>
-A moving mass gets decelerated by an eddy current brake. The loss power is fed to a heat capacitor.
+An eddy current brake reduces the speed of a moving mass. Kinetic energy is converted to thermal energy which leads to a temperature increase of the thermal capacitance of the brake, which can be assumed as adiabatic during the rather short time span of the braking.
 </html>"));
-    end TestEddyCurrentBrake;
+    end EddyCurrentBrake;
 
     model GenerationOfFMUs
       "Example to demonstrate variants to generate FMUs (Functional Mock-up Units)"
