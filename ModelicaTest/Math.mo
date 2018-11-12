@@ -779,6 +779,13 @@ extends Modelica.Icons.ExamplesPackage;
     annotation (experiment(StopTime=0));
   end TestMatrices3;
 
+  model TestMatricesExamplesSolveLinearEquations
+    extends Modelica.Icons.Example;
+    equation
+      Modelica.Math.Matrices.Examples.solveLinearEquations();
+    annotation (experiment(StopTime=0));
+  end TestMatricesExamplesSolveLinearEquations;
+
   model TestVectors
     extends Modelica.Icons.Example;
 
@@ -833,7 +840,7 @@ extends Modelica.Icons.ExamplesPackage;
     annotation (experiment(StopTime=5));
   end TestInterpolateParametric;
 
-    model TestInterpolateTimeVarying "To test smoothOrder in Modelica.Math.Vectors.interpolate"
+  model TestInterpolateTimeVarying "To test smoothOrder in Modelica.Math.Vectors.interpolate"
     extends Modelica.Icons.Example;
     Real tabx[:]={0,1,2,3,4,5}+0.1*time*ones(6);
     Real taby[:]=tabx .* tabx;
@@ -848,7 +855,7 @@ extends Modelica.Icons.ExamplesPackage;
     der(xIntegrated)=p*y;
     assert(abs(x-xIntegrated)<0.1, "Automatically generated derivative should integrate correctly.");
     annotation (experiment(StopTime=5));
-    end TestInterpolateTimeVarying;
+  end TestInterpolateTimeVarying;
 
   package Random
     function randomNumbers
