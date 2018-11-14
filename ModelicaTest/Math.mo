@@ -1287,6 +1287,7 @@ extends Modelica.Icons.ExamplesPackage;
     end TestTruncatedDistributions;
 
     model TestRandomIntegers
+      extends Modelica.Icons.Example;
       parameter Integer id(fixed=false);
       Integer y;
       parameter Integer n=3;
