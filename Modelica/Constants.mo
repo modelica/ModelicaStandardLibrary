@@ -26,28 +26,29 @@ package Constants
     "Biggest Integer number such that Integer_inf and -Integer_inf are representable on the machine";
 
   // Constants of nature
-  // (name, value, description from http://www.bipm.org/utils/common/pdf/si-brochure-draft-2016b.pdf, data from 2016)
+  // (name, value, description from https://www.bipm.org/utils/en/pdf/CGPM/Draft-Resolution-A-EN.pdf, data from 2018)
   // The values for c, q, h, k, N_A are exact and part of the basis of the SI-system
   // Note that the elementary charge uses the common alternate name q since e was taken.
-  // The values for F, R, sigma, mue_0, epsilson_0, T_zero are also exact.
+  // The values for F, R, sigma, mue_0, epsilson_0 are also exact.
+  // Note that T_zero is not exact, instead the triple point of water is 273.16 K.
   final constant SI.Velocity c=299792458 "Speed of light in vacuum";
   final constant SI.Acceleration g_n=9.80665
     "Standard acceleration of gravity on earth";
   final constant Real G(final unit="m3/(kg.s2)") = 6.67408e-11
-    "Newtonian constant of gravitation (previous value: 6.6742e-11)";
+    "Newtonian constant of gravitation";
   final constant SI.ElectricCharge q = 1.602176634e-19 "elementary charge";
   final constant SI.FaradayConstant F = q*N_A
-    "Faraday constant, C/mol (previous value: 9.64853399e4)";
+    "Faraday constant, C/mol";
   final constant Real h(final unit="J.s") = 6.62607015e-34
-    "Planck constant (previous value: 6.6260693e-34)";
+    "Planck constant";
   final constant Real k(final unit="J/K") = 1.380649e-23
-    "Boltzmann constant (previous value: 1.3806505e-23)";
+    "Boltzmann constant";
   final constant Real R(final unit="J/(mol.K)") = k*N_A
-    "Molar gas constant (previous value: 8.314472)";
+    "Molar gas constant";
   final constant Real sigma(final unit="W/(m2.K4)") = 2*pi^5*k^4/(15*h^3*c^2)
-    "Stefan-Boltzmann constant (previous value: 5.670400e-8)";
+    "Stefan-Boltzmann constant ";
   final constant Real N_A(final unit="1/mol") = 6.02214076e23
-    "Avogadro constant (previous value: 6.0221415e23)";
+    "Avogadro constant";
   final constant Real mue_0(final unit="N/A2") = 4*pi*1.e-7 "Magnetic constant";
   final constant Real epsilon_0(final unit="F/m") = 1/(mue_0*c*c)
     "Electric constant";
@@ -58,10 +59,12 @@ package Constants
 <p>
 This package provides often needed constants from mathematics, machine
 dependent constants and constants from nature. The latter constants
-(name, value, description) are from the following source:
+(name, value, description) are from the following source (will add updated codata reference when available):
 </p>
 
 <dl>
+<dt>International Bureau of Weights and Measures</dt>
+<dd><a href=\"https://www.bipm.org/utils/en/pdf/CGPM/Draft-Resolution-A-EN.pdf\">Revised SI standard</a></dd>
 <dt>Peter J. Mohr, David B. Newell, and Barry N. Taylor:</dt>
 <dd><b>CODATA Recommended Values of the Fundamental Physical Constants: 2014</b>.
 <a href= \"http://dx.doi.org/10.5281/zenodo.22826\">http://dx.doi.org/10.5281/zenodo.22826</a>, 2015. See also <a href=
