@@ -35,18 +35,18 @@ package Constants
     "Standard acceleration of gravity on earth";
   final constant Real G(final unit="m3/(kg.s2)") = 6.67408e-11
     "Newtonian constant of gravitation (previous value: 6.6742e-11)";
-  final constant SI.ElectricCharge q = 1.6021766208e-19 "elementary charge";
+  final constant SI.ElectricCharge q = 1.602176634e-19 "elementary charge";
   final constant SI.FaradayConstant F = q*N_A
     "Faraday constant, C/mol (previous value: 9.64853399e4)";
-  final constant Real h(final unit="J.s") = 6.626070040e-34
+  final constant Real h(final unit="J.s") = 6.62607015e-34
     "Planck constant (previous value: 6.6260693e-34)";
-  final constant Real k(final unit="J/K") = 1.38064852e-23
+  final constant Real k(final unit="J/K") = 1.380649e-23
     "Boltzmann constant (previous value: 1.3806505e-23)";
   final constant Real R(final unit="J/(mol.K)") = k*N_A
     "Molar gas constant (previous value: 8.314472)";
   final constant Real sigma(final unit="W/(m2.K4)") = 2*pi^5*k^4/(15*h^3*c^2)
     "Stefan-Boltzmann constant (previous value: 5.670400e-8)";
-  final constant Real N_A(final unit="1/mol") = 6.022140857e23
+  final constant Real N_A(final unit="1/mol") = 6.02214076e23
     "Avogadro constant (previous value: 6.0221415e23)";
   final constant Real mue_0(final unit="N/A2") = 4*pi*1.e-7 "Magnetic constant";
   final constant Real epsilon_0(final unit="F/m") = 1/(mue_0*c*c)
