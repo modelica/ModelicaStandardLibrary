@@ -3092,7 +3092,7 @@ T = TransformationMatrices.<strong>from_nxy</strong>(n_x, n_y);
 <h4>Description</h4>
 <p>
 It is assumed that the two input vectors n_x and n_y are
-resolved in frame&nbsp;1 and are directed along the&nbsp;x and&nbsp;y axis
+resolved in frame&nbsp;1 and are directed along the&nbsp;x and y&nbsp;axis
 of frame&nbsp;2 (i.e., n_x and n_y are orthogonal to each other).
 The function returns the orientation object&nbsp;T to rotate from
 frame&nbsp;1 to frame&nbsp;2.
@@ -3145,7 +3145,7 @@ T = TransformationMatrices.<strong>from_nxz</strong>(n_x, n_z);
 <h4>Description</h4>
 <p>
 It is assumed that the two input vectors n_x and n_z are
-resolved in frame&nbsp;1 and are directed along the&nbsp;x and&nbsp;z axis
+resolved in frame&nbsp;1 and are directed along the&nbsp;x and z&nbsp;axis
 of frame&nbsp;2 (i.e., n_x and n_z are orthogonal to each other).
 The function returns the orientation object&nbsp;T to rotate from
 frame&nbsp;1 to frame&nbsp;2.
