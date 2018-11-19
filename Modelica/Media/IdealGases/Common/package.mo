@@ -1050,15 +1050,15 @@ end gasMixtureViscosity;
   Mm := ((sum(sum(y[i]*y[j]*edivk[i,j]*sigma[i,j]^2*Mij[i,j]^(1/2) for j in 1:n) for i in 1:n))/(edivkm*sigmam3^(2/3)))^2;
   wm := (sum(sum(y[i]*y[j]*wij[i,j]*sigma[i,j]^3 for j in 1:n) for i in 1:n))/sigmam3;
   mum := (sigmam3*(sum(sum(y[i]*y[j]*mu[i]^2*mu[j]^2/sigma[i,j]^3 for j in 1:n) for i in 1:n)))^(1/4);
-  Vcm := sigmam3/(0.809)^3;
-  Tcm := 1.2593*edivkm;
-  murm := 131.3*mum/(Vcm*Tcm)^(1/2);
+  Vcm := sigmam3/(0.809)^3 "eq. (4)";
+  Tcm := 1.2593*edivkm "eq. (5)";
+  murm := 131.3*mum/(Vcm*Tcm)^(1/2) "eq. (8)";
   kappam := (sigmam3*(sum(sum(y[i]*y[j]*kappaij[i,j] for j in 1:n) for i in 1:n)));
-  Fcm := 1 - 0.275*wm + 0.059035*murm^4 + kappam;
-  Tmstar := T/edivkm;
-  omegav := 1.16145*(Tmstar)^(-0.14874) + 0.52487*Math.exp(-0.77320*Tmstar) + 2.16178*Math.exp(-2.43787*Tmstar);
-  etam := 26.69*Fcm*(Mm*T)^(1/2)/(sigmam3^(2/3)*omegav);
-  etaMixture := etam*1e7;
+  Fcm := 1 - 0.275*wm + 0.059035*murm^4 + kappam "eq. (7)";
+  Tmstar := T/edivkm "eq. (3)";
+  omegav := 1.16145*(Tmstar)^(-0.14874) + 0.52487*Modelica.Math.exp(-0.77320*Tmstar) + 2.16178*Modelica.Math.exp(-2.43787*Tmstar) "eq. (2)";
+  etam := 26.69*Fcm*(Mm*T)^(1/2)/(sigmam3^(2/3)*omegav) "eq. (1)";
+  etaMixture := etam*1e-7; // conversion from microPoise->Pa.s
 
     annotation (smoothOrder=2,
               Documentation(info="<html>
