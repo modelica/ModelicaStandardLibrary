@@ -993,13 +993,13 @@ end gasMixtureViscosity;
   extends Modelica.Icons.Function;
 
     input Temperature T "Temperature";
-    input Temperature[nX] Tc "Critical temperatures";
-    input MolarVolume[nX] Vcrit "Critical volumes (m3/mol)";
-    input Real[nX] w "Acentric factors";
-    input Real[nX] mu "Dipole moments (debyes)";
-    input MolarMass[nX] MolecularWeights "Molecular weights (kg/mol)";
-    input MoleFraction[nX] y "Molar Fractions";
-    input Real[nX] kappa =  zeros(nX) "Association Factors";
+    input Temperature[size(y,1)] Tc "Critical temperatures";
+    input MolarVolume[size(y,1)] Vcrit "Critical volumes (m3/mol)";
+    input Real[size(y,1)] w "Acentric factors";
+    input Real[size(y,1)] mu "Dipole moments (debyes)";
+    input MolarMass[size(y,1)] MolecularWeights "Molecular weights (kg/mol)";
+    input MoleFraction[:] y "Molar Fractions";
+    input Real[size(y,1)] kappa = zeros(size(y,1)) "Association Factors";
     output DynamicViscosity etaMixture "Mixture viscosity (Pa.s)";
   protected
   constant Real[size(y,1)] Vc =  Vcrit*1000000 "Critical volumes (cm3/mol)";
