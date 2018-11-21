@@ -1,0 +1,11 @@
+// Convert from Modelica 3.2.2 to Modelica 3.2.3
+
+// clear
+convertClear();
+
+
+// Change references to classes that are removed from Modelica Standard Library
+convertClass("Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_DP",
+              "Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_Re")
+convertClass("Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_MFLOW",
+              "Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_lambda");

@@ -3859,7 +3859,7 @@ Generally this function is numerically best used for the <strong> incompressible
         SI.ReynoldsNumber Re_check=if Re_lam < Re_lam_leave then Re_lam else Re_turb;
         //determine Re for transition regime
         SI.ReynoldsNumber Re_trans=if Re_lam >= Re_lam_leave then
-            Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_DP(
+            Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_Re(
             Re_check,
             Re_lam_leave,
             Re_turb_min,
@@ -5357,7 +5357,7 @@ Generally this  function is numerically best used for the <strong> incompressibl
         SI.ReynoldsNumber Re_check=if Re_lam < Re_lam_leave then Re_lam else Re_turb;
         //determine Re for transition regime
         SI.ReynoldsNumber Re_trans=if Re_lam >= Re_lam_leave then
-            Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_DP(
+            Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_Re(
             Re_check,
             Re_lam_leave,
             Re_turb_min,
@@ -5490,7 +5490,7 @@ This record is used as <strong> input record </strong> for the pressure loss fun
           "Darcy friction factor";
         TYP.DarcyFrictionFactor lambda_FRI_calc=if Re < Re_lam_leave then 64/Re else
             if Re > Re_turb_min then lambda_FRI/Re^2 else
-            Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_MFLOW(
+            Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_lambda(
             Re,
             Re_lam_leave,
             Re_turb_min,
@@ -5586,7 +5586,7 @@ Generally this  function is numerically best used for the <strong> incompressibl
         SI.ReynoldsNumber Re_check=if Re_lam < Re_lam_leave then Re_lam else Re_turb;
         //determine Re for transition regime
         SI.ReynoldsNumber Re_trans=if Re_lam >= Re_lam_leave then
-            Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_DP(
+            Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_Re(
             Re_check,
             Re_lam_leave,
             Re_turb_min,
@@ -10731,7 +10731,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
       package General "Package with utility functions"
         extends Modelica.Icons.FunctionsPackage;
 
-        function CubicInterpolation_DP
+        function CubicInterpolation_Re
           extends Modelica.Icons.Function;
           import Modelica.Math;
           input Real Re_turbulent;
@@ -10767,10 +10767,13 @@ The heterogeneous approaches are analytically derived by minimising the momentum
 
         algorithm
           Re := Re1*(lambda2/lambda2_1)^(1 + dx*(c2 + dx*c3));
-          annotation (Inline=false, smoothOrder=5);
-        end CubicInterpolation_DP;
+          annotation (Inline=false, smoothOrder=5, 
+		  Documentation(revisions="<html>
+2018-11-20 Stefan Wischhusen: Renamed function from CubicInterpolation_DP to CubicInterpolation_Re.
+</html>"));
+        end CubicInterpolation_Re;
 
-        function CubicInterpolation_MFLOW
+        function CubicInterpolation_lambda
           extends Modelica.Icons.Function;
           import Modelica.Math;
           input SI.ReynoldsNumber Re;
@@ -10804,8 +10807,11 @@ The heterogeneous approaches are analytically derived by minimising the momentum
 
         algorithm
           lambda2 := 64*Re1*(Re/Re1)^(1 + dx*(c2 + dx*c3));
-          annotation (Inline=false, smoothOrder=5);
-        end CubicInterpolation_MFLOW;
+          annotation (Inline=false, smoothOrder=5,
+		  Documentation(revisions="<html>
+2018-11-20 Stefan Wischhusen: Renamed function from CubicInterpolation_MFLOW to CubicInterpolation_lambda.
+</html>");
+        end CubicInterpolation_lambda;
 
         function LambertW
           "Closed approximation of Lambert's w function for solving f(x) = x exp(x) for x"
