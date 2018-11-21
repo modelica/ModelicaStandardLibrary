@@ -10810,7 +10810,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
           annotation (Inline=false, smoothOrder=5,
 		  Documentation(revisions="<html>
 2018-11-20 Stefan Wischhusen: Renamed function from CubicInterpolation_MFLOW to CubicInterpolation_lambda.
-</html>");
+</html>"));
         end CubicInterpolation_lambda;
 
         function LambertW
