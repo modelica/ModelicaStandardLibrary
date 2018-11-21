@@ -4530,24 +4530,25 @@ This record is used as <strong> input record </strong> for the pressure loss fun
         output SI.Pressure DP "Output for function dp_volumeFlowRate_DP";
 
       protected
-        Real a=max(Modelica.Constants.eps, abs(IN_con.a));
-        Real b=max(Modelica.Constants.eps, abs(IN_con.b));
+        Real a=abs(IN_con.a);
+        Real b=abs(IN_con.b);
 
         SI.VolumeFlowRate V_flow=m_flow/max(Modelica.Constants.eps, IN_var.rho)
           "Volume flow rate";
-        SI.Pressure dp_min=IN_con.dp_min
+        SI.Pressure dp_min=max(Modelica.Constants.eps, abs(IN_con.dp_min))
           "Start of approximation for decreasing pressure loss";
-        SI.VolumeFlowRate V_flow_smooth=if IN_con.a > 0 then -(b/(2*a) + ((-b/(2*a))^
-            2 + dp_min/a)^0.5) else dp_min/b
+        SI.VolumeFlowRate V_flow_smooth=if a > 0 then -b/(2*a) + ((b/(2*a))^
+            2 + dp_min/a)^0.5 else if a<=0 and b > 0 then dp_min/b else 0
           "Start of approximation for decreasing volume flow rate";
 
         //Documentation
 
       algorithm
-        DP := a*Dissipation.Utilities.Functions.General.SmoothPower(
+        assert(a+b>0, "Please provide non-zero factors for either a or b of function dp=a*V_flow^2 + b*V_flow");
+        DP := a*(if a>0 then Dissipation.Utilities.Functions.General.SmoothPower(
                 V_flow,
                 V_flow_smooth,
-                2) + b*V_flow;
+                2) else 0) + b*V_flow;
       annotation (Inline=false, smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_MFLOW(
                 IN_con,
@@ -4561,6 +4562,8 @@ The function can be used to calculate pressure loss at known mass flow rate <str
 <p>
 Generally this  function is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_MFLOW\">dp_volumeFlowRate_MFLOW</a> is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate\">See more information</a>.
 </p>
+</html>", revisions="<html>
+2018-11-21 Stefan Wischhusen: Fixed problem for linear case (a=0 and b>0).
 </html>"));
       end dp_volumeFlowRate_DP;
 
@@ -4586,20 +4589,21 @@ Generally this  function is numerically best used for the <strong> incompressibl
           "Output for function dp_volumeFlowRate_MFLOW";
 
       protected
-        Real a=max(Modelica.Constants.eps, abs(IN_con.a));
-        Real b=max(Modelica.Constants.eps, abs(IN_con.b));
+        Real a=abs(IN_con.a);
+        Real b=abs(IN_con.b);
 
-        SI.Pressure dp_min=IN_con.dp_min
+        SI.Pressure dp_min=max(Modelica.Constants.eps, abs(IN_con.dp_min))
           "Start of approximation for decreasing pressure loss";
 
         //Documentation
 
       algorithm
-        M_FLOW := IN_var.rho*(-b/(2*a) +
+        assert(a+b>0, "Please provide non-zero factors for either a or b of function dp=a*V_flow^2 + b*V_flow");
+        M_FLOW := IN_var.rho*(if a>0 then (-b/(2*a) +
           Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower(
                 (b/(2*a))^2 + (1/a)*dp,
                 (b/(2*a))^2 + (1/a)*dp_min,
-                0.5));
+                0.5)) else b*dp);
       annotation (Inline=true, smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP(
                 IN_con,
@@ -4613,6 +4617,8 @@ The function can be used to calculate pressure loss at known mass flow rate <str
 <p>
 Generally this  function is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP\">dp_volumeFlowRate_DP</a> is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate\">See more information</a>.
 </p>
+</html>", revisions="<html>
+2018-11-21 Stefan Wischhusen: Fixed problem for linear case (a=0 and b>0).
 </html>"));
       end dp_volumeFlowRate_MFLOW;
 
