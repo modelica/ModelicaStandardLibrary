@@ -4603,7 +4603,7 @@ Generally this  function is numerically best used for the <strong> incompressibl
           Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower(
                 (b/(2*a))^2 + (1/a)*dp,
                 (b/(2*a))^2 + (1/a)*dp_min,
-                0.5)) else b*dp);
+                0.5)) else dp/b);
       annotation (Inline=true, smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP(
                 IN_con,
