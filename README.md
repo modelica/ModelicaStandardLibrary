@@ -26,6 +26,6 @@ it can be redistributed and/or modified under the terms of the [3-Clause BSD Lic
 
 ## Development and contribution
 The development is organised by the [Modelica Association Project - Libraries (MAP-LIB)](https://www.modelica.org/projects).
-See also the [MAP-LIB Project Rules](https://github.com/modelica/MAP-LIB_ProjectRules) for more information.
+See also the [contribution guide](CONTRIBUTING.md) and the [MAP-LIB Project Rules](https://github.com/modelica/MAP-LIB_ProjectRules) for more information.
 
 You may report any issues by using the [Issue Tracker](../../issues).
