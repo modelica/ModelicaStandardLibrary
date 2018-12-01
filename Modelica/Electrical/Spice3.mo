@@ -3240,11 +3240,11 @@ Christoph Clau&szlig;
       parameter Real table[:, :]=[0, 0; 1, 1; 2, 4]
         "Table matrix (time = first column, voltage = second column)";
     protected
-     parameter Integer x= size(table,1);
-     parameter Real tlast = table[x,1] + 1;
-     parameter Real valuelast = table[x,2];
-     parameter Real lastvaluematrix[1,2]=[tlast, valuelast];
-     parameter Real tablenew[:,2]=cat(1,table,lastvaluematrix);
+      parameter Integer x= size(table,1);
+      parameter Real tlast = table[x,1] + 1;
+      parameter Real valuelast = table[x,2];
+      parameter Real lastvaluematrix[1,2]=[tlast, valuelast];
+      parameter Real tablenew[:,2]=cat(1,table,lastvaluematrix);
       Modelica.Blocks.Sources.TimeTable tab(table=tablenew);
     equation
       v = tab.y;
@@ -3281,7 +3281,6 @@ Christoph Clau&szlig;
 <li><strong>Discontinuities</strong> are allowed, by providing the same time point twice in the table.</li>
 <li>Values <strong>outside</strong> of the table range, are computed by <strong>extrapolation</strong> through the last or first two points of the table.</li>
 <li>If the table has only <strong>one row</strong>, no interpolation is performed and the voltage value is just returned independently of the actual time instant, i.e., this is a constant voltage source.</li>
-<li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined by the table can be shifted both in time and in the voltage.</li>
 <li>The table is implemented in a numerically sound way by generating <strong>time events</strong> at interval boundaries.
     This generates continuously differentiable values for the integrator.</li>
 </ul>
@@ -3603,20 +3602,18 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     end I_pulse;
 
     model I_pwl "Piece-wise linear current source"
-       extends Modelica.Electrical.Analog.Interfaces.OnePort;
+      extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter Real table[:, :]=[0, 0; 1, 1; 2, 4]
         "Table matrix (time = first column, current = second column)";
     protected
-     parameter Integer x= size(table,1);
-     parameter Real tlast = table[x,1] + 1;
-     parameter Real valuelast = table[x,2];
-     parameter Real lastvaluematrix[1,2]=[tlast, valuelast];
-     parameter Real tablenew[:,2]=cat(1,table,lastvaluematrix);
-     Modelica.Blocks.Sources.TimeTable tab(table=tablenew);
-
+      parameter Integer x= size(table,1);
+      parameter Real tlast = table[x,1] + 1;
+      parameter Real valuelast = table[x,2];
+      parameter Real lastvaluematrix[1,2]=[tlast, valuelast];
+      parameter Real tablenew[:,2]=cat(1,table,lastvaluematrix);
+      Modelica.Blocks.Sources.TimeTable tab(table=tablenew);
     equation
       i = tab.y;
-
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=false,
@@ -3628,8 +3625,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
                fillPattern=FillPattern.Solid),
              Line(points={{-90,0},{-50,0}}, color={0,0,255}),
              Line(points={{50,0},{90,0}}, color={0,0,255}),
-             Line(points={{-1,-50},{-1,50}},
-                                           color={0,0,255}),
+             Line(points={{-1,-50},{-1,50}}, color={0,0,255}),
             Text(
               extent={{-148,-57},{152,-97}},
               textString="%name",
@@ -3649,7 +3645,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 <li><strong>Discontinuities</strong> are allowed, by providing the same time point twice in the table.</li>
 <li>Values <strong>outside</strong> of the table range, are computed by <strong>extrapolation</strong> through the last or first two points of the table.</li>
 <li>If the table has only <strong>one row</strong>, no interpolation is performed and the current value is just returned independently of the actual time instant, i.e., this is a constant current source.</li>
-<li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined by the table can be shifted both in time and in the current.</li>
 <li>The table is implemented in a numerically sound way by generating <strong>time events</strong> at interval boundaries.
     This generates continuously differentiable values for the integrator.</li>
 </ul>
