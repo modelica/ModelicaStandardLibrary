@@ -3605,7 +3605,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     model I_pwl "Piece-wise linear current source"
        extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter Real table[:, :]=[0, 0; 1, 1; 2, 4]
-        "Table matrix (time = first column, voltage = second column)";
+        "Table matrix (time = first column, current = second column)";
     protected
      parameter Integer x= size(table,1);
      parameter Real tlast = table[x,1] + 1;
