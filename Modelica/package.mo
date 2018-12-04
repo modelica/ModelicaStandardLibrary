@@ -2186,7 +2186,7 @@ and will interpret it in the same way. Short Overview:
 <ul>
 <li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3/ResolvedGitHubIssues.html\">500 issues (including pull requests)</a>
     have been addressed for this release.</li>
-<li><strong>94</strong> component models and blocks, <strong>34</strong> example models and <strong>9</strong> functions are newly included.</li>
+<li><strong>94</strong> component models and blocks, <strong>36</strong> example models and <strong>9</strong> functions are newly included.</li>
 <li>The license has been changed to BSD 3-clause, visit: <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</li>
 </ul>
 
@@ -8386,7 +8386,7 @@ This version of the Modelica Standard Library consists of
 </p>
 <ul>
 <li><strong>1288</strong> component models and blocks,</li>
-<li><strong>402</strong> example models, and</li>
+<li><strong>404</strong> example models, and</li>
 <li><strong>1227</strong> functions</li>
 </ul>
 <p>
