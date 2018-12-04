@@ -2631,7 +2631,7 @@ If a user wants to avoid events entirely, he/she may enclose the right-hand side
 Equations like (2) might be used for monitoring purposes (e.g. plots), in order to inspect what the <em>actual</em> enthalpy of the fluid flowing through a port is.
 In this case, the user will probably want to see the change due to flow reversal at the exact instant, so an event should be generated.
 If the user does not bother, then he/she should enclose the right-hand side of (2) with  <code><strong>noEvent()</strong></code>.
-Since the output of <code><strong>actualStream()</strong></code> will be discontinuous, it should not be used by itself to model physical behaviour (e.g., to compute densities used in momentum balances) -  <code><strong>inStream()</strong></code> should be used for this purpose.The operator  <code><strong>actualStream()</strong></code> should be used to model physical behaviour only when multiplied by the corresponding flow variable (like in the above energy balance equation), because this removes the discontinuity.
+Since the output of <code><strong>actualStream()</strong></code> will be discontinuous, it should not be used by itself to model physical behaviour (e.g., to compute densities used in momentum balances) -  <code><strong>inStream()</strong></code> should be used for this purpose. The operator  <code><strong>actualStream()</strong></code> should be used to model physical behaviour only when multiplied by the corresponding flow variable (like in the above energy balance equation), because this removes the discontinuity.
 </p>
 </html>"));
   end 'actualStream()';
