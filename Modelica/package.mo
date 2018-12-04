@@ -2368,6 +2368,11 @@ have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and wi
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines</strong></td></tr>
 <tr><td>BasicMachines.Components.BasicTransformer</td>
     <td>Use Interfaces.PartialBasicTransformer instead.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Spice3.Internal</strong></td></tr>
+<tr><td>BJT</td>
+    <td>Use BJT2 instead.</td></tr>
+<tr><td>Bjt3.*</td>
+    <td>Use revised classes instead.</td></tr>	
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
 <tr><td>Examples.Loops.Utilities.GasForce</td>
     <td>Use Examples.Loops.Utilities.GasForce2 instead.</td></tr>
@@ -2448,9 +2453,18 @@ that can lead to wrong simulation results):
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources</strong></td></tr>
 <tr><td>TimeTable</td>
     <td>The derivative of the <code>TimeTable</code> output could no longer be determined. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.Air</strong></td></tr>
+<tr><td>MoistAir.molarMass<br>ReferenceMoistAir.molarMass</td>
+    <td>The computation of the function output <code>MM</code> was wrong. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.IdealGases.Common.Functions</strong></td></tr>
+<tr><td>thermalConductivityEstimate</td>
+    <td>The computation of the function output <code>lambda</code> was wrong for the modified Eucken correlation, i.e., if <code>method</code> is set to 2. This has been corrected.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Media.IdealGases.Common.SingleGasesData</strong></td></tr>
 <tr><td>CH2<br>CH3<br>CH3OOH<br>C2CL2<br>C2CL4<br>C2CL6<br>C2HCL<br>C2HCL3<br>CH2CO_ketene<br>O_CH_2O<br>HO_CO_2OH<br>CH2BrminusCOOH<br>C2H3CL<br>CH2CLminusCOOH<br>HO2<br>HO2minus<br>OD<br>ODminus</td>
     <td>The coefficients for <code>blow</code>, <code>ahigh</code> and <code>bhigh</code> were wrong. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.Incompressible.TableBased</strong></td></tr>
+<tr><td>BaseProperties</td>
+    <td>The unit of the gas constant <code>R</code> for table based media was not correctly considered. This has been corrected.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Math.Random.Utilities</strong></td></tr>
 <tr><td>impureRandomInteger</td>
     <td>The function output <code>y</code> was not computed to yield a discrete uniform distribution for a minimum value <code>imin</code> of 1. This has been corrected.</td></tr>
