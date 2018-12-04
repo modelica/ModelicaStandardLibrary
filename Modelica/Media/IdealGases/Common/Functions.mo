@@ -251,7 +251,7 @@ transform the formula to SI units:
   end dynamicViscosityLowPressure;
 
   function thermalConductivityEstimate
-    "Thermal conductivity of polyatomic gases(Eucken and Modified Eucken correlation)"
+    "Thermal conductivity of polyatomic gases (Eucken and Modified Eucken correlation)"
     extends Modelica.Icons.Function;
     input Modelica.Media.Interfaces.Types.SpecificHeatCapacity Cp
       "Constant pressure heat capacity";
