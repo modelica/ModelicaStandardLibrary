@@ -2399,6 +2399,9 @@ have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and wi
 <tr><td colspan=\"2\"><strong>Modelica.Icons</strong></td></tr>
 <tr><td>Library<br>Library2<br>GearIcon<br>MotorIcon<br>Info</td>
     <td>Use (substitute) icons from Modelica.Icons, Modelica.Mechanics.Rotational.Icons or Modelica.Electrical.Machines.Icons instead.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.SIunits.Conversions.NonSIunits</strong></td></tr>
+<tr><td>FirstOrderTemperaturCoefficient<br>SecondOrderTemperaturCoefficient</td>
+    <td>Use Modelica.SIunits.LinearTemperatureCoefficientResistance or Modelica.SIunits.QuadraticTemperatureCoefficientResistance instead.</td></tr>
 </table>
 
 <p><br>
