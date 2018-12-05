@@ -3364,7 +3364,12 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             Line(points={{-90,0},{-50,0}}, color={0,0,255}),
             Line(points={{50,0},{90,0}}, color={0,0,255}),
             Line(points={{-1,-50},{-1,50}},
-                                          color={0,0,255})}),
+                                          color={0,0,255}),
+                                                      Polygon(
+             points={{90,0},{60,10},{60,-10},{90,0}},
+             lineColor={0,0,255},
+             fillColor={0,0,255},
+             fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
 <p>The I_constant source is a simple constant current source for an ideal constant current which is provided by a parameter.</p>
 </html>"));
