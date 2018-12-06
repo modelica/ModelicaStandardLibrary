@@ -5540,7 +5540,7 @@ another kind):</p>
 <table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" >
 <thead>
 <tr>
-  <th></th><th colspan=\"11\">Base Class</th>
+  <th></th><th colspan=\"12\">Base Class</th>
 </tr>
 <tr>
   <td><strong>Derived Class</strong></td>
@@ -5555,6 +5555,7 @@ another kind):</p>
   <td>connector</td>
   <td>block</td>
   <td>model</td>
+  <td>class</td>
 </tr>
 </thead>
 <tbody>
@@ -5562,12 +5563,14 @@ another kind):</p>
   <td>package</td>
   <td>yes</td>
   <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td style=\"background-color:lightgray\">yes</td>
 </tr>
 <tr>
   <td>operator</td>
   <td></td>
   <td>yes</td>
   <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td style=\"background-color:lightgray\">yes</td>
 </tr>
 <tr>
   <td>function</td>
@@ -5575,6 +5578,7 @@ another kind):</p>
   <td></td>
   <td>yes</td>
   <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td style=\"background-color:lightgray\">yes</td>
 </tr>
 <tr>
   <td>operator<br>function</td>
@@ -5583,6 +5587,7 @@ another kind):</p>
   <td style=\"background-color:lightgray\">yes</td>
   <td>yes</td>
   <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td style=\"background-color:lightgray\">yes</td>
 </tr>
 <tr>
   <td>type</td>
@@ -5592,6 +5597,7 @@ another kind):</p>
   <td></td>
   <td>yes</td>
   <td></td><td></td><td></td><td></td><td></td><td></td>
+  <td style=\"background-color:lightgray\">yes</td>
 </tr>
 <tr>
   <td>record</td>
@@ -5602,6 +5608,7 @@ another kind):</p>
   <td></td>
   <td>yes</td>
   <td></td><td></td><td></td><td></td><td></td>
+  <td style=\"background-color:lightgray\">yes</td>
 </tr>
 <tr>
   <td>operator<br>record</td>
@@ -5613,6 +5620,7 @@ another kind):</p>
   <td></td>
   <td>yes</td>
   <td></td><td></td><td></td><td></td>
+  <td style=\"background-color:lightgray\">yes</td>
 </tr>
 <tr>
   <td>exapandable<br>connector</td>
@@ -5625,6 +5633,7 @@ another kind):</p>
   <td></td>
   <td>yes</td>
   <td></td><td></td><td></td>
+  <td style=\"background-color:lightgray\">yes</td>
 </tr>
 <tr>
   <td>connector</td>
@@ -5634,10 +5643,11 @@ another kind):</p>
   <td></td>
   <td style=\"background-color:lightgray\">yes</td>
   <td style=\"background-color:lightgray\">yes</td>
-  <td></td>
+  <td style=\"background-color:lightgray\">yes</td>
   <td style=\"background-color:lightgray\">yes</td>
   <td>yes</td>
   <td></td><td></td>
+  <td style=\"background-color:lightgray\">yes</td>
 </tr>
 <tr>
   <td>block</td>
@@ -5652,6 +5662,7 @@ another kind):</p>
   <td></td>
   <td>yes</td>
   <td></td>
+  <td style=\"background-color:lightgray\">yes</td>
 </tr>
 <tr>
   <td>model</td>
@@ -5665,6 +5676,22 @@ another kind):</p>
   <td></td>
   <td></td>
   <td style=\"background-color:lightgray\">yes</td>
+  <td>yes</td>
+  <td style=\"background-color:lightgray\">yes</td>
+</tr>
+<tr>
+  <td>class</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
   <td>yes</td>
 </tr>
 </tbody>
