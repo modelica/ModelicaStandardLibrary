@@ -2979,7 +2979,6 @@ Christoph Clau&szlig;
         Icon(coordinateSystem(
         preserveAspectRatio=false,
         extent={{-100,-100},{100,100}}), graphics={
-        Text(extent={{-100,-120},{100,-80}}, textString="%name=%V"),
             Ellipse(
               extent={{-50,50},{50,-50}},
               lineColor={0,0,255},
@@ -2988,9 +2987,18 @@ Christoph Clau&szlig;
             Line(points={{-90,0},{-50,0}}, color={0,0,255}),
             Line(points={{-50,0},{50,0}}, color={0,0,255}),
             Line(points={{50,0},{90,0}}, color={0,0,255}),
-            Line(points={{60,20},{80,20}}, color={0,0,255}),
-            Line(points={{-70,30},{-70,10}}, color={0,0,255}),
-            Line(points={{-80,20},{-60,20}}, color={0,0,255})}),
+            Text(
+              extent={{-120,60},{-20,0}},
+              lineColor={0,0,255},
+              textString="+"),
+            Text(
+              extent={{20,60},{120,0}},
+              lineColor={0,0,255},
+              textString="-"),
+            Text(
+              extent={{-150,90},{150,50}},
+              lineColor={0,0,255},
+              textString="%name")}),
     Documentation(info="<html>
 <p>The V_constant source is a  source is a simple constant voltage source for an ideal constant voltage which is provided by a parameter.</p>
 </html>"));
@@ -3012,15 +3020,15 @@ Christoph Clau&szlig;
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Text(
-              extent={{-122,53},{-22,3}},
+              extent={{-120,60},{-20,0}},
               lineColor={0,0,255},
               textString="+"),
             Text(
-              extent={{19,59},{119,9}},
+              extent={{20,60},{120,0}},
               lineColor={0,0,255},
               textString="-"),
              Ellipse(
-               extent={{-51,50},{49,-50}},
+               extent={{-50,50},{50,-50}},
                lineColor={0,0,255},
                fillColor={255,255,255},
                fillPattern=FillPattern.Solid),
@@ -3035,9 +3043,9 @@ Christoph Clau&szlig;
                   63.1,-21.9},{68.7,-21.9},{75.2,-16.5},{80,-9.8}},
                                                          color={192,192,192}),
             Text(
-              extent={{-150,-56},{150,-96}},
-              textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              extent={{-150,90},{150,50}},
+              lineColor={0,0,255},
+              textString="%name")}),  Documentation(info="<html>
 <p>Damped sinusoidal source</p>
 <h4>Note:</h4>
 <ul>
@@ -3067,19 +3075,15 @@ Christoph Clau&szlig;
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={
             Text(
-              extent={{-117,57},{-17,7}},
+              extent={{-120,60},{-20,0}},
               lineColor={0,0,255},
               textString="+"),
             Text(
-              extent={{22,60},{122,10}},
+              extent={{20,60},{120,0}},
               lineColor={0,0,255},
               textString="-"),
-            Text(
-              extent={{-153,-58},{147,-98}},
-              textString="%name",
-              lineColor={0,0,255}),
              Ellipse(
-               extent={{-51,50},{49,-50}},
+               extent={{-50,50},{50,-50}},
                lineColor={0,0,255},
                fillColor={255,255,255},
                fillPattern=FillPattern.Solid),
@@ -3092,7 +3096,11 @@ Christoph Clau&szlig;
                   14.14,18.3},{17.68,8},{21.9,-2.2},{26.2,-10.6},{31.1,-18.5},{
                   36.8,-25.4},{43.1,-31.3},{50.9,-36.5},{60.8,-40.8},{70,-43.4}},
                                                                       color={
-                  192,192,192})}),
+                  192,192,192}),
+            Text(
+              extent={{-150,90},{150,50}},
+              lineColor={0,0,255},
+              textString="%name")}),
         Documentation(info="<html>
 <p>Rising and falling exponential source.</p>
 <h4>Note:</h4>
@@ -3140,26 +3148,26 @@ Christoph Clau&szlig;
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={
             Text(
-              extent={{-120,49},{-20,-1}},
+              extent={{-120,60},{-20,0}},
               lineColor={0,0,255},
               textString="+"),
             Text(
-              extent={{25,53},{125,3}},
+              extent={{20,60},{120,0}},
               lineColor={0,0,255},
               textString="-"),
-            Text(
-              extent={{-157,-62},{143,-102}},
-              textString="%name",
-              lineColor={0,0,255}),
              Ellipse(
-               extent={{-51,50},{49,-50}},
+               extent={{-50,50},{50,-50}},
                lineColor={0,0,255},
                fillColor={255,255,255},
                fillPattern=FillPattern.Solid),
              Line(points={{-90,0},{50,0}}, color={0,0,255}),
              Line(points={{50,0},{90,0}}, color={0,0,255}),
             Line(points={{-86,-74},{-65,-74},{-35,66},{-4,66},{25,-74},{46,-74},
-                  {75,66}}, color={192,192,192})}),
+                  {75,66}}, color={192,192,192}),
+            Text(
+              extent={{-150,90},{150,50}},
+              lineColor={0,0,255},
+              textString="%name")}),
         Documentation(info="<html>
 <p>Periodic pulse source with not limited number of periods.</p>
 <p>A single pulse is described by the following table:</p>
@@ -3253,19 +3261,15 @@ Christoph Clau&szlig;
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={
             Text(
-              extent={{-150,-56},{150,-96}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-120,49},{-20,-1}},
+              extent={{-120,60},{-20,0}},
               lineColor={0,0,255},
               textString="+"),
             Text(
-              extent={{25,53},{125,3}},
+              extent={{20,60},{120,0}},
               lineColor={0,0,255},
               textString="-"),
              Ellipse(
-               extent={{-51,50},{49,-50}},
+               extent={{-50,50},{50,-50}},
                lineColor={0,0,255},
                fillColor={255,255,255},
                fillPattern=FillPattern.Solid),
@@ -3273,7 +3277,11 @@ Christoph Clau&szlig;
              Line(points={{50,0},{90,0}}, color={0,0,255}),
                                    Line(points={{-40,-50},{-40,70},{60,70},{60,
                   -50},{-40,-50},{-40,-20},{60,-20},{60,10},{-40,10},{-40,40},{
-                  60,40},{60,70},{10,70},{10,-51}}, color={192,192,192})}),
+                  60,40},{60,70},{10,70},{10,-51}}, color={192,192,192}),
+            Text(
+              extent={{-150,90},{150,50}},
+              lineColor={0,0,255},
+              textString="%name")}),
         Documentation(info="<html>
 <p>This model generates a voltage by <strong>linear interpolation</strong> in a given table. The time points and voltage values are stored in a matrix <strong>table[i,j]</strong>, where the first column table[:,1] contains the time points and the second column contains the voltage to be interpolated. The table interpolation has the following properties:</p>
 <ul>
@@ -3314,28 +3322,28 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={
             Text(
-              extent={{-150,-56},{150,-96}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-120,49},{-20,-1}},
+              extent={{-120,60},{-20,0}},
               lineColor={0,0,255},
               textString="+"),
             Text(
-              extent={{25,53},{125,3}},
+              extent={{20,60},{120,0}},
               lineColor={0,0,255},
               textString="-"),
              Ellipse(
-               extent={{-51,50},{49,-50}},
+               extent={{-50,50},{50,-50}},
                lineColor={0,0,255},
                fillColor={255,255,255},
                fillPattern=FillPattern.Solid),
              Line(points={{-90,0},{50,0}}, color={0,0,255}),
              Line(points={{50,0},{90,0}}, color={0,0,255}),
             Text(
-              extent={{-51,57},{55,18}},
+              extent={{-60,-50},{60,-90}},
               lineColor={0,0,255},
-              textString="SFFM")}),
+              textString="SFFM"),
+            Text(
+              extent={{-150,90},{150,50}},
+              lineColor={0,0,255},
+              textString="%name")}),
         Documentation(info="<html>
 <p>The single-frequency frequency modulation source generates a carrier signal of the frequency FC. This signal is modulated by the signal frequency FS. See the formula in the Modelica text.</p>
 <h4>Attention:</h4>
@@ -3355,16 +3363,23 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={
-            Text(extent={{-94,-106},{106,-66}}, textString="%name=%I"),
             Ellipse(
-              extent={{-51,50},{49,-50}},
+              extent={{-50,50},{50,-50}},
               lineColor={0,0,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Line(points={{-90,0},{-50,0}}, color={0,0,255}),
             Line(points={{50,0},{90,0}}, color={0,0,255}),
-            Line(points={{-1,-50},{-1,50}},
-                                          color={0,0,255})}),
+            Line(points={{0,-50},{0,50}}, color={0,0,255}),
+                                                      Polygon(
+             points={{90,0},{60,10},{60,-10},{90,0}},
+             lineColor={0,0,255},
+             fillColor={0,0,255},
+             fillPattern=FillPattern.Solid),
+           Text(
+             extent={{-150,90},{150,50}},
+             lineColor={0,0,255},
+              textString="%name")}),
         Documentation(info="<html>
 <p>The I_constant source is a simple constant current source for an ideal constant current which is provided by a parameter.</p>
 </html>"));
@@ -3392,18 +3407,14 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid),
              Ellipse(
-               extent={{-51,50},{49,-50}},
+               extent={{-50,50},{50,-50}},
                lineColor={0,0,255},
                fillColor={255,255,255},
                fillPattern=FillPattern.Solid),
              Line(points={{-90,0},{-50,0}}, color={0,0,255}),
              Line(points={{50,0},{90,0}}, color={0,0,255}),
-             Line(points={{-1,-50},{-1,50}},
-                                           color={0,0,255}),
-            Text(
-              extent={{-144,-64},{156,-104}},
-              textString="%name",
-              lineColor={0,0,255}),Line(points={{-77,-12},{-72.2,20.3},{-69,
+             Line(points={{0,-50},{0,50}}, color={0,0,255}),
+                                   Line(points={{-77,-12},{-72.2,20.3},{-69,
                   38.3},{-65.7,52.5},{-62.5,62.2},{-59.3,67.3},{-56.1,67.6},{
                   -52.9,63.3},{-49.7,55.1},{-45.6,40.2},{-40,13.8},{-32,-25.9},
                   {-27.2,-45.7},{-23.1,-57.9},{-19.1,-65.2},{-15.1,-67.3},{
@@ -3411,7 +3422,11 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
                   14.4},{21.1,22.8},{25.1,26},{29.9,25.2},{34.8,19.8},{41.2,7.4},
                   {54.1,-22.5},{60.5,-33.2},{66.1,-37.9},{71.7,-37.9},{78.2,
                   -32.5},{83,-25.8}},
-                color={192,192,192})}),
+                color={192,192,192}),
+            Text(
+              extent={{-150,90},{150,50}},
+              lineColor={0,0,255},
+              textString="%name")}),
         Documentation(info="<html>
 <p>Damped sinusoidal source</p>
 <h4>Note:</h4>
@@ -3448,20 +3463,21 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
                lineColor={0,0,255},
                fillColor={255,255,255},
                fillPattern=FillPattern.Solid),
-             Line(points={{-89,0},{-49,0}}, color={0,0,255}),
-             Line(points={{51,0},{91,0}}, color={0,0,255}),
+             Line(points={{-89,0},{-50,0}}, color={0,0,255}),
+             Line(points={{50,0},{91,0}}, color={0,0,255}),
              Line(points={{0,-50},{0,50}}, color={0,0,255}),
-            Text(
-              extent={{-145,-60},{155,-100}},
-              textString="%name",
-              lineColor={0,0,255}),Line(points={{-79,-53},{-76.2,-38.3},{-73.3,
+                                   Line(points={{-79,-53},{-76.2,-38.3},{-73.3,
                   -25.1},{-69.8,-10.6},{-66.3,2},{-62.7,12.92},{-58.5,24.18},{
                   -54.3,33.7},{-49.3,43},{-43.6,51.5},{-37.3,59.1},{-30.2,65.6},
                   {-21.7,71.3},{-11.1,76.2},{-9,77},{-6.88,64.5},{-4.05,49.7},{
                   -1.22,36.8},{1.606,25.45},{5.14,13.3},{8.68,3},{12.9,-7.2},{
                   17.2,-15.6},{22.1,-23.5},{27.8,-30.4},{34.1,-36.3},{41.9,
                   -41.5},{51.8,-45.8},{61,-48.4}},
-                                           color={192,192,192})}),
+                                           color={192,192,192}),
+            Text(
+              extent={{-150,90},{150,50}},
+              lineColor={0,0,255},
+              textString="%name")}),
         Documentation(info="<html>
 <p>Rising and falling exponential source.</p>
 <h4>Note:</h4>
@@ -3512,20 +3528,20 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid),
              Ellipse(
-               extent={{-51,50},{49,-50}},
+               extent={{-50,50},{50,-50}},
                lineColor={0,0,255},
                fillColor={255,255,255},
                fillPattern=FillPattern.Solid),
              Line(points={{-90,0},{-50,0}}, color={0,0,255}),
              Line(points={{50,0},{90,0}}, color={0,0,255}),
-             Line(points={{-1,-50},{-1,50}},
-                                           color={0,0,255}),
-            Text(
-              extent={{-150,-58},{150,-98}},
-              textString="%name",
-              lineColor={0,0,255}), Line(points={{-85,-60},
+             Line(points={{0,-50},{0,50}}, color={0,0,255}),
+                                    Line(points={{-85,-60},
                   {-64,-60},{-34,80},{-3,80},{26,-60},{47,-60},{76,80}}, color=
-                  {192,192,192})}),
+                  {192,192,192}),
+            Text(
+              extent={{-150,90},{150,50}},
+              lineColor={0,0,255},
+              textString="%name")}),
         Documentation(info="<html>
 <p>Periodic pulse source with not limited number of periods.</p>
 <p>A single pulse is described by the following table:</p>
@@ -3619,24 +3635,25 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={
              Ellipse(
-               extent={{-51,50},{49,-50}},
+               extent={{-50,50},{50,-50}},
                lineColor={0,0,255},
                fillColor={255,255,255},
                fillPattern=FillPattern.Solid),
              Line(points={{-90,0},{-50,0}}, color={0,0,255}),
              Line(points={{50,0},{90,0}}, color={0,0,255}),
-             Line(points={{-1,-50},{-1,50}}, color={0,0,255}),
-            Text(
-              extent={{-148,-57},{152,-97}},
-              textString="%name",
-              lineColor={0,0,255}),Line(points={{-44,-39},{-44,81},{56,81},{56,
+             Line(points={{0,-50},{0,50}}, color={0,0,255}),
+                                   Line(points={{-44,-39},{-44,81},{56,81},{56,
                   -39},{-44,-39},{-44,-9},{56,-9},{56,21},{-44,21},{-44,51},{56,
                   51},{56,81},{6,81},{6,-40}}, color={192,192,192}),
                                   Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},
               lineColor={0,0,255},
               fillColor={0,0,255},
-              fillPattern=FillPattern.Solid)}),
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-150,90},{150,50}},
+              lineColor={0,0,255},
+              textString="%name")}),
         Documentation(info="<html>
 <p>This model generates a current  by <strong>linear interpolation</strong> in a given table. The time points and current values are stored in a matrix <strong>table[i,j]</strong>, where the first column table[:,1] contains the time points and the second column contains the current to be interpolated. The table interpolation has the following properties:</p>
 
@@ -3678,18 +3695,13 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={
-            Text(
-              extent={{-150,-56},{150,-96}},
-              textString="%name",
-              lineColor={0,0,255}),
              Ellipse(
-               extent={{-51,50},{49,-50}},
+               extent={{-50,50},{50,-50}},
                lineColor={0,0,255},
                fillColor={255,255,255},
                fillPattern=FillPattern.Solid),
              Line(points={{50,0},{90,0}}, color={0,0,255}),
-             Line(points={{-92,0},{-52,0}},
-                                          color={0,0,255}),
+             Line(points={{-90,0},{-50,0}}, color={0,0,255}),
              Line(points={{0,-50},{0,50}}, color={0,0,255}),
                                   Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},
@@ -3697,9 +3709,13 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-58,53},{48,14}},
+              extent={{-60,-50},{60,-90}},
               lineColor={0,0,255},
-              textString="SFFM")}),
+              textString="SFFM"),
+            Text(
+              extent={{-150,90},{150,50}},
+              lineColor={0,0,255},
+              textString="%name")}),
         Documentation(info="<html>
 <p>The single-frequency frequency modulation source generates a carrier signal of the frequency FC. This signal is modulated by the signal frequency FS. See the formula in the Modelica text.</p>
 <h4>Note:</h4>
