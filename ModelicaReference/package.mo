@@ -5529,51 +5529,97 @@ equivalent to equations in the instantiated parent class are discarded.
 syntactically equivalent are not discarded, hence yield an
 overdetermined system of equations.]</em></p>
 
-<p>Since
-specialized classes of different
-kinds have different properties,
-only specialized classes that are \"in some sense
-compatible\" to
-each other can be derived from each other via inheritance. The
-following table
-shows which kind of specialized class can be used in an extends clauses
-of
-another kind of specialized class:</p>
+<p>Since specialized classes of different kinds have different properties,
+only specialized classes that are \"in some sense compatible\" to each other
+can be derived from each other via inheritance. The following table
+shows which kind of specialized class can be used in an extends clause of
+another kind of specialized class (the \"grey\" cells mark the few exceptional
+cases, where a specialized class can be derived from a specialized class of
+another kind):</p>
 
 <table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" >
+<thead>
 <tr>
-  <td></td><td colspan=7 style=\"text-align:center\"><strong>Base Class</strong></td>
+  <th></th><th colspan=\"11\">Base Class</th>
 </tr>
 <tr>
   <td><strong>Derived Class</strong></td>
   <td>package</td>
+  <td>operator</td>
   <td>function</td>
+  <td>operator function</td>
   <td>type</td>
   <td>record</td>
+  <td>operator record</td>
+  <td>expandable connector</td>
   <td>connector</td>
   <td>block</td>
   <td>model</td>
 </tr>
+</thead>
+<tbody>
 <tr>
   <td>package</td>
+  <td>yes</td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td>operator</td>
+  <td></td>
+  <td>yes</td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td>function</td>
+  <td></td>
+  <td></td>
+  <td>yes</td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td>operator<br>function</td>
+  <td></td>
+  <td></td>
+  <td style=\"background-color:lightgray\">yes</td>
+  <td>yes</td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td>type</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
   <td>yes</td>
   <td></td><td></td><td></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td>function</td>
+  <td>record</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
   <td></td>
   <td>yes</td>
   <td></td><td></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td>type</td>
+  <td>operator<br>record</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
   <td></td>
   <td></td>
   <td>yes</td>
   <td></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td>record</td>
+  <td>exapandable<br>connector</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
   <td></td>
   <td></td>
   <td></td>
@@ -5584,8 +5630,12 @@ another kind of specialized class:</p>
   <td>connector</td>
   <td></td>
   <td></td>
-  <td>yes</td>
-  <td>yes</td>
+  <td></td>
+  <td></td>
+  <td style=\"background-color:lightgray\">yes</td>
+  <td style=\"background-color:lightgray\">yes</td>
+  <td></td>
+  <td style=\"background-color:lightgray\">yes</td>
   <td>yes</td>
   <td></td><td></td>
 </tr>
@@ -5594,7 +5644,11 @@ another kind of specialized class:</p>
   <td></td>
   <td></td>
   <td></td>
-  <td>yes</td>
+  <td></td>
+  <td></td>
+  <td style=\"background-color:lightgray\">yes</td>
+  <td></td>
+  <td></td>
   <td></td>
   <td>yes</td>
   <td></td>
@@ -5604,14 +5658,25 @@ another kind of specialized class:</p>
   <td></td>
   <td></td>
   <td></td>
-  <td>yes</td>
   <td></td>
-  <td>yes</td>
+  <td></td>
+  <td style=\"background-color:lightgray\">yes</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td style=\"background-color:lightgray\">yes</td>
   <td>yes</td>
 </tr>
+</tbody>
 </table>
 
-<p>The specialized classes <code>package</code>,  <code>function</code>,  <code>type</code>, and  <code>record</code> can only be derived from their own kind <em>(e.g., a package can only be base class for packages. All other kinds of classes can use the import statement to use the contents of a package)</em>.</p>
+<p>The specialized classes <code>package</code>, <code>operator</code>,
+<code>function</code>, <code>type</code>, <code>record</code>,
+<code>operator record</code> and <code>expandable connector</code>
+can only be derived from their own kind
+[<em>(e.g., a package can only be base class for packages.
+All other kinds of classes can use the import statement to use the contents
+of a package)</em>] and from <code>class</code>.</p>
 
 </html>"));
 end 'extends';
