@@ -3357,14 +3357,13 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             extent={{-100,-100},{100,100}}), graphics={
             Text(extent={{-94,-106},{106,-66}}, textString="%name=%I"),
             Ellipse(
-              extent={{-51,50},{49,-50}},
+              extent={{-50,50},{50,-50}},
               lineColor={0,0,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Line(points={{-90,0},{-50,0}}, color={0,0,255}),
             Line(points={{50,0},{90,0}}, color={0,0,255}),
-            Line(points={{-1,-50},{-1,50}},
-                                          color={0,0,255}),
+            Line(points={{0,-50},{0,50}}, color={0,0,255}),
                                                       Polygon(
              points={{90,0},{60,10},{60,-10},{90,0}},
              lineColor={0,0,255},
