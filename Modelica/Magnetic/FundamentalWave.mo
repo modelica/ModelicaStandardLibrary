@@ -4101,7 +4101,7 @@ to speed to achieve constant current and torque.</p>
           statorCoreParameters(VRef=100),
           strayLoadParameters(IRef=100),
           brushParameters(ILinear=0.01),
-          ir(fixed=true),
+          ir(each fixed=true),
           wMechanical(fixed=true),
           m=m,
           Rs=smeeData.Rs*m/3,

@@ -109,7 +109,7 @@ of magnitude.
       nPorts=2)
       annotation (Placement(transformation(extent={{-70,-40},{-50,-20}})));
     Modelica.Fluid.Vessels.ClosedVolume volume(
-      medium(Xi(nominal=0.01)),
+      medium(Xi(each nominal=0.01)),
       C_start={1.519E-3},
       V=100,
       redeclare package Medium = Medium,
@@ -119,7 +119,7 @@ of magnitude.
 
     Pipes.DynamicPipe ductOut(
       mCs_scaled(each nominal = 0.01),
-      mediums(each Xi(nominal = 0.01)),
+      mediums(each Xi(each nominal = 0.01)),
       redeclare package Medium = Medium,
       diameter=0.15,
       redeclare model FlowModel =
@@ -165,7 +165,7 @@ of magnitude.
 
     Pipes.DynamicPipe ductIn(
       mCs_scaled(each nominal = 0.01),
-      mediums(each Xi(nominal = 0.01)),
+      mediums(each Xi(each nominal = 0.01)),
       redeclare package Medium = Medium,
       diameter=0.15,
       redeclare model FlowModel =

@@ -2116,10 +2116,10 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
       import Modelica.ComplexMath.arg;
       parameter Integer m=3 "Number of phases";
       output Real abs_u[m] = 'abs'(u) "Absolute of input";
-      output Modelica.SIunits.Angle arg_u[m](displayUnit="deg") = arg(u)
+      output Modelica.SIunits.Angle arg_u[m](each displayUnit="deg") = arg(u)
         "Argument of input";
       output Real abs_y[m] = 'abs'(y) "Absolute of output";
-      output Modelica.SIunits.Angle arg_y[m](displayUnit="deg") = arg(y)
+      output Modelica.SIunits.Angle arg_y[m](each displayUnit="deg") = arg(y)
         "Argument of output";
     protected
       final parameter Complex sTM[m,m]=
