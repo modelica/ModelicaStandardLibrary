@@ -508,8 +508,8 @@ u1, else it is set equal to u3.</p>
   block Hysteresis "Transform Real to Boolean signal with Hysteresis"
 
     extends Modelica.Blocks.Icons.PartialBooleanBlock;
-    parameter Real uLow(start=0) "If y=true and u<=uLow, switch to y=false";
-    parameter Real uHigh(start=1) "If y=false and u>=uHigh, switch to y=true";
+    parameter Real uLow(start=0) "If y=true and u<uLow, switch to y=false";
+    parameter Real uHigh(start=1) "If y=false and u>uHigh, switch to y=true";
     parameter Boolean pre_y_start=false "Value of pre(y) at initial time";
 
     Blocks.Interfaces.RealInput u annotation (Placement(transformation(extent={
