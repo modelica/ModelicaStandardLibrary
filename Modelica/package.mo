@@ -2478,7 +2478,7 @@ that can lead to wrong simulation results):
 <tr><td colspan=\"2\"><strong>Modelica.Media.IdealGases.Common.SingleGasesData</strong></td></tr>
 <tr><td>CH2<br>CH3<br>CH3OOH<br>C2CL2<br>C2CL4<br>C2CL6<br>C2HCL<br>C2HCL3<br>CH2CO_ketene<br>O_CH_2O<br>HO_CO_2OH<br>CH2BrminusCOOH<br>C2H3CL<br>CH2CLminusCOOH<br>HO2<br>HO2minus<br>OD<br>ODminus</td>
     <td>The coefficients for <code>blow</code>, <code>ahigh</code> and <code>bhigh</code> were wrong. This has been corrected.</td></tr>
-<tr><td colspan=\"2\"><strong>Media.IdealGases.Common.MixtureGasNasa</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.IdealGases.Common.MixtureGasNasa</strong></td></tr>
 <tr><td>mixtureViscosityChung</td>
     <td>The computation of the function output <code>etaMixture</code> was wrong. This has been corrected.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Media.Incompressible.TableBased</strong></td></tr>
