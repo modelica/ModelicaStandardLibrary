@@ -114,7 +114,7 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
     class ReleaseNotes "Release Notes"
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
-<h5>Version 3.2.3, 2018-09-26</h5>
+<h5>Version 3.2.3, 2018-12-12</h5>
 <ul>
 <li>Added instantaneous power calculations of DC and AC interface partial models, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2198\">#2198</a></li>
 <li>Replaced Modelica_Electrical_PowerConverters by Modelica.Electrical.PowerConverter, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2196\">#2196</a></li>

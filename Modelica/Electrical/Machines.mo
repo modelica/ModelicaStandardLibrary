@@ -112,7 +112,7 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (preferredView="info",Documentation(info="<html>
 
-<h5>Version 3.2.3, 2018-09-26 (Anton Haumer, Christian Kral)</h5>
+<h5>Version 3.2.3, 2018-12-12 (Anton Haumer, Christian Kral)</h5>
 <ul>
   <li>Shortened default component names, see
       <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2301\">#2301</a></li>
