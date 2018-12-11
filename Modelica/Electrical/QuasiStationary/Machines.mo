@@ -496,9 +496,6 @@ This package contains transformers primary Y connected / secondary y connected i
   D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
-  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -737,9 +734,6 @@ This package contains transformers primary Y connected / secondary d connected i
   D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
-  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -1070,9 +1064,6 @@ This package contains transformers primary Y connected / secondary zig-zag conne
   D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
-  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -1319,9 +1310,6 @@ This package contains transformers primary D connected / secondary y connected i
   D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
-  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -1530,9 +1518,6 @@ This package contains transformers primary D connected / secondary d connected i
   D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
-  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -1829,9 +1814,6 @@ This package contains transformers primary D connected / secondary d connected i
   D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
-  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -2574,6 +2556,12 @@ Transformation of space phasor and zero sequence value to quasi stationary multi
           points={{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{60,
               -100},{-70,-100},{-70,-90}})}), preferredView="info", Documentation(info="<html>
 <p><strong>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></strong>.</p>
+<p>
+Copyright &copy; 1998-2018, Modelica Association and contributors
+</p>
+<p>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+</p>
 <p>This package hosts models for quasi stationary induction machines and transformers.
 </p>
 <h4>Please note</h4>
@@ -2584,6 +2572,5 @@ are operated with sinusoidal voltages and currents represented by time phasors. 
 Quasi stationary DC machine models therefore are part of the
 <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines\">machines library</a>.
 </p>
-
 </html>"));
 end Machines;

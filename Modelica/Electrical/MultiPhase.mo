@@ -721,9 +721,6 @@ This package contains test examples of analog electrical multiphase circuits.
   <li> v1.0 2004/10/01 Anton Haumer</li>
   </ul>
   </dd>
-  <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
-  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
 </html>"));
   end Examples;
@@ -1858,9 +1855,6 @@ This package contains basic analog electrical multiphase components.
   <li> v1.0 2004/10/01 Anton Haumer</li>
   </ul>
   </dd>
-  <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
-  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
@@ -2564,9 +2558,6 @@ like thyristor, diode, switch, transformer.
   <li> v1.0 2004/10/01 Anton Haumer</li>
   </ul>
   </dd>
-  <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
-  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
@@ -3471,9 +3462,6 @@ This package contains multiphase potential, voltage, and current sensors.
       added PowerSensor</li>
   </ul>
   </dd>
-  <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
-  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
 </html>"));
   end Sensors;
@@ -3907,9 +3895,6 @@ This package contains time-dependent and controlled multiphase voltage and curre
   <li> v1.0 2004/10/01 Anton Haumer</li>
   </ul>
   </dd>
-  <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
-  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
 </html>"));
   end Sources;
@@ -4124,9 +4109,6 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
       removed annotation from pin of Interfaces.Plug</li>
   </ul>
   </dd>
-  <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
-  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
 </html>"));
   end Interfaces;
