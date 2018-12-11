@@ -2141,7 +2141,7 @@ end UsersGuide;
 
 
 package Examples
-  "Demonstrate usage of property models (currently: simple tests)"
+  "Demonstrate usage of property models"
 
   extends Modelica.Icons.ExamplesPackage;
 
