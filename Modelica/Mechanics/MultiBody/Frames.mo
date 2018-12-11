@@ -894,8 +894,8 @@ R = Frames.<strong>from_nxy</strong>(n_x, n_y);
 <h4>Description</h4>
 <p>
 It is assumed that the two input vectors n_x and n_y are
-resolved in frame&nbsp;1 and are directed along the x and y axis
-of frame&nbsp;2 (i.e., n_x and n_y are orthogonal to each other)
+resolved in frame&nbsp;1 and are directed along the&nbsp;x and y&nbsp;axis
+of frame&nbsp;2 (i.e., n_x and n_y are orthogonal to each other).
 The function returns the orientation object&nbsp;R to rotate from
 frame&nbsp;1 to frame&nbsp;2.
 </p>
@@ -936,15 +936,15 @@ R = Frames.<strong>from_nxz</strong>(n_x, n_z);
 <h4>Description</h4>
 <p>
 It is assumed that the two input vectors n_x and n_z are
-resolved in frame 1 and are directed along the x and z axis
-of frame 2 (i.e., n_x and n_z are orthogonal to each other).
+resolved in frame&nbsp;1 and are directed along the&nbsp;x and z&nbsp;axis
+of frame&nbsp;2 (i.e., n_x and n_z are orthogonal to each other).
 The function returns the
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>&nbsp;R
-to rotate from frame 1 to frame 2.
+to rotate from frame&nbsp;1 to frame&nbsp;2.
 </p>
 <p>
 The function is robust in the sense that it always returns
-an orientation object R, even if n_z is not orthogonal to n_x.
+an orientation object&nbsp;R, even if n_z is not orthogonal to n_x.
 This is performed in the following way:
 <br>
 If n_x and n_z are not orthogonal to each other, first a unit
@@ -3092,8 +3092,8 @@ T = TransformationMatrices.<strong>from_nxy</strong>(n_x, n_y);
 <h4>Description</h4>
 <p>
 It is assumed that the two input vectors n_x and n_y are
-resolved in frame&nbsp;1 and are directed along the&nbsp;x and&nbsp;y axis
-of frame&nbsp;2 (i.e., n_x and n_y are orthogonal to each other)
+resolved in frame&nbsp;1 and are directed along the&nbsp;x and y&nbsp;axis
+of frame&nbsp;2 (i.e., n_x and n_y are orthogonal to each other).
 The function returns the orientation object&nbsp;T to rotate from
 frame&nbsp;1 to frame&nbsp;2.
 </p>
@@ -3145,8 +3145,8 @@ T = TransformationMatrices.<strong>from_nxz</strong>(n_x, n_z);
 <h4>Description</h4>
 <p>
 It is assumed that the two input vectors n_x and n_z are
-resolved in frame&nbsp;1 and are directed along the&nbsp;x and&nbsp;z axis
-of frame&nbsp;2 (i.e., n_x and n_z are orthogonal to each other)
+resolved in frame&nbsp;1 and are directed along the&nbsp;x and z&nbsp;axis
+of frame&nbsp;2 (i.e., n_x and n_z are orthogonal to each other).
 The function returns the orientation object&nbsp;T to rotate from
 frame&nbsp;1 to frame&nbsp;2.
 </p>
