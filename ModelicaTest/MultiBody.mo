@@ -6137,47 +6137,46 @@ and plot gasForce.press over gasForce.s_rel.
 
       Modelica.Blocks.Interfaces.RealOutput r1[3]
         "Relative position vector frame_b.r_0 - frame_a.r_0 resolved in frame defined by resolveInFrame"
-        annotation (Placement(transformation(extent={{86,48},{66,68}})));
+        annotation (Placement(transformation(extent={{62,40},{42,60}})));
       Modelica.Blocks.Interfaces.RealOutput r2[3]
         "Relative position vector frame_b.r_0 - frame_a.r_0 resolved in frame defined by resolveInFrame"
-        annotation (Placement(transformation(extent={{86,-28},{66,-8}})));
+        annotation (Placement(transformation(extent={{62,-50},{42,-30}})));
       Modelica.Blocks.Interfaces.RealOutput r3[3]
         "Relative position vector frame_b.r_0 - frame_a.r_0 resolved in frame defined by resolveInFrame"
-        annotation (Placement(transformation(extent={{134,20},{114,40}})));
+        annotation (Placement(transformation(extent={{100,0},{80,20}})));
 
       inner Modelica.Mechanics.MultiBody.World world(animateWorld=true,
-          animateGravity=true) annotation (Placement(transformation(extent={{-100,
-                60},{-80,80}})));
+          animateGravity=true) annotation (Placement(transformation(extent={{-120,20},{-100,40}})));
       Modelica.Mechanics.MultiBody.Joints.SphericalSpherical sphericalSpherical(
         m=3,
         kinematicConstraint=false,
-        rodLength=1) annotation (Placement(transformation(extent={{-20,60},{0,
-                80}})));
+        rodLength=1) annotation (Placement(transformation(extent={{-30,70},{-10,90}})));
       Modelica.Mechanics.MultiBody.Joints.Spherical spherical
-        annotation (Placement(transformation(extent={{-78,12},{-58,32}})));
+        annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(r={
             0.5,0,0})
-        annotation (Placement(transformation(extent={{-46,12},{-26,32}})));
+        annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation1(r={
             0.5,0,0})
-        annotation (Placement(transformation(extent={{14,12},{34,32}})));
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       Modelica.Mechanics.MultiBody.Sensors.RelativeSensor rs1(
         final get_r_rel=true,
         get_v_rel=true,
         get_w_rel=true) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={104,48})));
+            origin={80,40})));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox(
         r={0.5,0,0},
         width=0.1,
         height=0.1,
         angles_fixed=true,
         w_0_fixed=true,
-        w_0_start={1,0,0})
-        annotation (Placement(transformation(extent={{40,60},{60,80}})));
+        w_0_start={1,0,0},
+        r_0(start={1,0,0}))
+        annotation (Placement(transformation(extent={{40,70},{60,90}})));
       Modelica.Mechanics.MultiBody.Joints.Spherical spherical1
-        annotation (Placement(transformation(extent={{38,12},{58,32}})));
+        annotation (Placement(transformation(extent={{20,-10},{40,10}})));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox1(
         r={0.5,0,0},
         width=0.1,
@@ -6185,7 +6184,7 @@ and plot gasForce.press over gasForce.s_rel.
         angles_fixed=true,
         w_0_fixed=true,
         w_0_start={1,0,0})
-        annotation (Placement(transformation(extent={{68,12},{88,32}})));
+        annotation (Placement(transformation(extent={{50,-10},{70,10}})));
       Modelica.Mechanics.MultiBody.Parts.Body body(
         r_CM={0,0,0},
         m=3,
@@ -6193,13 +6192,12 @@ and plot gasForce.press over gasForce.s_rel.
         w_0_fixed=true) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={-8,12})));
+            origin={-20,-20})));
       Modelica.Mechanics.MultiBody.Joints.SphericalSpherical
         sphericalSpherical1(
         m=3,
         computeRodLength=true,
-        kinematicConstraint=true) annotation (Placement(transformation(extent={
-                {-18,-48},{2,-28}})));
+        kinematicConstraint=true) annotation (Placement(transformation(extent={{-30,-90},{-10,-70}})));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox2(
         r={0.5,0,0},
         width=0.1,
@@ -6209,21 +6207,21 @@ and plot gasForce.press over gasForce.s_rel.
         w_0_fixed=true,
         r_0(start={1,0,0}, each fixed=true),
         w_0_start={1,0,0})
-        annotation (Placement(transformation(extent={{38,-48},{58,-28}})));
+        annotation (Placement(transformation(extent={{40,-90},{60,-70}})));
       Modelica.Mechanics.MultiBody.Sensors.RelativeSensor rs2(
         final get_r_rel=true,
         get_v_rel=true,
         get_w_rel=true) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={104,-28})));
+            origin={80,-50})));
       Modelica.Mechanics.MultiBody.Sensors.RelativeSensor rs3(
         final get_r_rel=true,
         get_v_rel=true,
         get_w_rel=true) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={154,20})));
+            origin={120,0})));
       Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit
         freeMotionScalarInit(
         use_r=true,
@@ -6232,14 +6230,14 @@ and plot gasForce.press over gasForce.s_rel.
         use_v=true,
         v_rel_a_2(fixed=true),
         v_rel_a_3(fixed=true))
-        annotation (Placement(transformation(extent={{-20,84},{0,104}})));
+        annotation (Placement(transformation(extent={{-30,40},{-10,60}})));
       Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit
         freeMotionScalarInit1(
         use_r=true,
         use_v=true,
         v_rel_a_2(fixed=true),
         v_rel_a_3(fixed=true))
-        annotation (Placement(transformation(extent={{-16,-78},{4,-58}})));
+        annotation (Placement(transformation(extent={{-30,-60},{-10,-40}})));
     equation
       assert(r1[1] < tol2 and r1[2] < tol2 and r1[3] < tol2,
         "Difference in positions between bodies is too much");
@@ -6248,92 +6246,96 @@ and plot gasForce.press over gasForce.s_rel.
       assert(r3[1] < tol1 and r3[2] < tol1 and r3[3] < tol1,
         "Difference in positions between bodies is too much");
       connect(world.frame_b, sphericalSpherical.frame_a)
-        annotation (Line(points={{-80,70},{-36,70},{-20,70}}));
+        annotation (Line(
+          points={{-100,30},{-90,30},{-90,80},{-30,80}},
+          color={95,95,95},
+          thickness=0.5));
       connect(spherical.frame_a, world.frame_b) annotation (Line(
-          points={{-78,22},{-80,22},{-80,70}},
+          points={{-80,0},{-90,0},{-90,30},{-100,30}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedTranslation.frame_a, spherical.frame_b) annotation (Line(
-          points={{-46,22},{-58,22}},
+          points={{-50,0},{-60,0}},
           color={95,95,95},
           thickness=0.5));
       connect(fixedTranslation1.frame_b, spherical1.frame_a) annotation (Line(
-          points={{34,22},{38,22}},
+          points={{10,0},{20,0}},
           color={95,95,95},
           thickness=0.5));
       connect(spherical1.frame_b, bodyBox1.frame_a) annotation (Line(
-          points={{58,22},{68,22}},
+          points={{40,0},{50,0}},
           color={95,95,95},
           thickness=0.5));
       connect(sphericalSpherical.frame_b, bodyBox.frame_a) annotation (Line(
-          points={{0,70},{40,70}},
+          points={{-10,80},{40,80}},
           color={95,95,95},
           thickness=0.5));
       connect(bodyBox.frame_b, rs1.frame_a) annotation (Line(
-          points={{60,70},{104,70},{104,58}},
+          points={{60,80},{80,80},{80,50}},
           color={95,95,95},
           thickness=0.5));
       connect(bodyBox1.frame_b, rs1.frame_b) annotation (Line(
-          points={{88,22},{104,22},{104,38}},
+          points={{70,0},{80,0},{80,30}},
           color={95,95,95},
           thickness=0.5));
       connect(body.frame_a, fixedTranslation.frame_b) annotation (Line(
-          points={{-8,22},{-26,22}},
+          points={{-20,-10},{-20,0},{-30,0}},
           color={95,95,95},
           thickness=0.5));
       connect(body.frame_a, fixedTranslation1.frame_a) annotation (Line(
-          points={{-8,22},{14,22}},
+          points={{-20,-10},{-20,0},{-10,0}},
           color={95,95,95},
           thickness=0.5));
       connect(sphericalSpherical1.frame_a, world.frame_b) annotation (Line(
-          points={{-18,-38},{-80,-38},{-80,70}},
+          points={{-30,-80},{-90,-80},{-90,30},{-100,30}},
           color={95,95,95},
           thickness=0.5));
       connect(sphericalSpherical1.frame_b, bodyBox2.frame_a) annotation (Line(
-          points={{2,-38},{38,-38}},
+          points={{-10,-80},{40,-80}},
           color={95,95,95},
           thickness=0.5));
       connect(bodyBox2.frame_b, rs2.frame_b) annotation (Line(
-          points={{58,-38},{104,-38}},
+          points={{60,-80},{80,-80},{80,-60}},
           color={95,95,95},
           thickness=0.5));
       connect(bodyBox1.frame_b, rs2.frame_a) annotation (Line(
-          points={{88,22},{104,22},{104,-18}},
+          points={{70,0},{80,0},{80,-40}},
           color={95,95,95},
           thickness=0.5));
       connect(bodyBox.frame_b, rs3.frame_a) annotation (Line(
-          points={{60,70},{154,70},{154,30}},
+          points={{60,80},{120,80},{120,10}},
           color={95,95,95},
           thickness=0.5));
       connect(bodyBox2.frame_b, rs3.frame_b) annotation (Line(
-          points={{58,-38},{154,-38},{154,10}},
+          points={{60,-80},{120,-80},{120,-10}},
           color={95,95,95},
           thickness=0.5));
       connect(freeMotionScalarInit.frame_a, world.frame_b) annotation (Line(
-          points={{-20,94},{-52,94},{-52,70},{-80,70}},
+          points={{-30,50},{-50,50},{-50,80},{-90,80},{-90,30},{-100,30}},
           color={95,95,95},
           thickness=0.5));
       connect(freeMotionScalarInit.frame_b, bodyBox.frame_a) annotation (Line(
-          points={{0,94},{20,94},{20,70},{40,70}},
+          points={{-10,50},{10,50},{10,80},{40,80}},
           color={95,95,95},
           thickness=0.5));
       connect(freeMotionScalarInit1.frame_a, world.frame_b) annotation (Line(
-          points={{-16,-68},{-80,-68},{-80,70}},
+          points={{-30,-50},{-50,-50},{-50,-80},{-90,-80},{-90,30},{-100,30}},
           color={95,95,95},
           thickness=0.5));
       connect(freeMotionScalarInit1.frame_b, bodyBox2.frame_a) annotation (Line(
-          points={{4,-68},{22,-68},{22,-38},{38,-38}},
+          points={{-10,-50},{10,-50},{10,-80},{40,-80}},
           color={95,95,95},
           thickness=0.5));
       connect(rs1.r_rel, r1) annotation (Line(
-          points={{93,58},{76,58}}, color={0,0,127}));
+          points={{69,50},{52,50}}, color={0,0,127}));
       connect(rs2.r_rel, r2) annotation (Line(
-          points={{93,-18},{76,-18}}, color={0,0,127}));
+          points={{69,-40},{52,-40}}, color={0,0,127}));
       connect(rs3.r_rel, r3) annotation (Line(
-          points={{143,30},{124,30}}, color={0,0,127}));
+          points={{109,10},{90,10}},  color={0,0,127}));
       annotation (experiment(StopTime=2, Tolerance=1e-006), Diagram(
-            coordinateSystem(extent={{-120,-100},{200,100}},
-              preserveAspectRatio=false)));
+            coordinateSystem(extent={{-120,-100},{140,100}},
+              preserveAspectRatio=false)),
+        Icon(coordinateSystem(extent={{-100,-100},{100,100}})));
     end SphericalSpherical2;
 
     model UniversalSpherical
