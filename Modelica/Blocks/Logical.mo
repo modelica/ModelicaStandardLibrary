@@ -214,9 +214,10 @@ the output is <strong>false</strong>.
   equation
     y = u > threshold;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics={Text(
-            extent={{-90,-40},{60,40}},
-            textString=">")}), Documentation(info="<html>
+              {100,100}}), graphics={
+          Line(
+            points={{-54,20},{-8,0},{-54,-20}},
+            thickness=0.5)}), Documentation(info="<html>
 <p>
 The output is <strong>true</strong> if the Real input is greater than
 parameter <strong>threshold</strong>, otherwise
@@ -232,9 +233,12 @@ the output is <strong>false</strong>.
   equation
     y = u >= threshold;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics={Text(
-            extent={{-90,-40},{60,40}},
-            textString=">=")}), Documentation(info="<html>
+              {100,100}}), graphics={
+          Line(
+            points={{-54,20},{-8,0},{-54,-20}},
+            thickness=0.5),
+          Line(points={{-54,-30},{-8,-30}}, thickness=0.5)}),
+      Documentation(info="<html>
 <p>
 The output is <strong>true</strong> if the Real input is greater than or equal to
 parameter <strong>threshold</strong>, otherwise
@@ -249,9 +253,8 @@ the output is <strong>false</strong>.
   equation
     y = u < threshold;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics={Text(
-            extent={{-90,-40},{60,40}},
-            textString="<")}), Documentation(info="<html>
+              {100,100}}), graphics={
+          Line(points={{-8,20},{-54,0},{-8,-20}}, thickness=0.5)}), Documentation(info="<html>
 <p>
 The output is <strong>true</strong> if the Real input is less than
 parameter <strong>threshold</strong>, otherwise
@@ -266,9 +269,10 @@ the output is <strong>false</strong>.
   equation
     y = u <= threshold;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics={Text(
-            extent={{-90,-40},{60,40}},
-            textString="<=")}), Documentation(info="<html>
+              {100,100}}), graphics={
+          Line(points={{-8,20},{-54,0},{-8,-20}}, thickness=0.5),
+          Line(points={{-54,-30},{-8,-30}}, thickness=0.5)}),
+      Documentation(info="<html>
 <p>
 The output is <strong>true</strong> if the Real input is less than or equal to
 parameter <strong>threshold</strong>, otherwise
@@ -287,7 +291,7 @@ the output is <strong>false</strong>.
           Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,127}),
           Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,127}),
           Line(
-            points={{-54,22},{-8,2},{-54,-18}},
+            points={{-54,20},{-8,0},{-54,-20}},
             thickness=0.5)}), Documentation(info="<html>
 <p>
 The output is <strong>true</strong> if Real input u1 is greater than
@@ -307,11 +311,10 @@ Real input u2, otherwise the output is <strong>false</strong>.
           Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,127}),
           Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,127}),
           Line(
-            points={{-54,22},{-8,2},{-54,-18}},
+            points={{-54,20},{-8,0},{-54,-20}},
             thickness=0.5),
-          Line(
-            points={{-52,-36},{-6,-14}},
-            thickness=0.5)}), Documentation(info="<html>
+          Line(points={{-54,-30},{-8,-30}}, thickness=0.5)}),
+      Documentation(info="<html>
 <p>
 The output is <strong>true</strong> if Real input u1 is greater than or equal to
 Real input u2, otherwise the output is <strong>false</strong>.
@@ -328,9 +331,7 @@ Real input u2, otherwise the output is <strong>false</strong>.
               -100},{100,100}}), graphics={
           Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,127}),
           Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,127}),
-          Line(
-            points={{-6,18},{-50,-2},{-6,-20}},
-            thickness=0.5)}), Documentation(info="<html>
+          Line(points={{-8,20},{-54,0},{-8,-20}}, thickness=0.5)}), Documentation(info="<html>
 <p>
 The output is <strong>true</strong> if Real input u1 is less than
 Real input u2, otherwise the output is <strong>false</strong>.
@@ -347,12 +348,9 @@ Real input u2, otherwise the output is <strong>false</strong>.
               -100},{100,100}}), graphics={
           Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,127}),
           Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,127}),
-          Line(
-            points={{-10,20},{-54,0},{-10,-18}},
-            thickness=0.5),
-          Line(
-            points={{-54,-18},{-14,-34}},
-            thickness=0.5)}), Documentation(info="<html>
+          Line(points={{-8,20},{-54,0},{-8,-20}}, thickness=0.5),
+          Line(points={{-54,-30},{-8,-30}}, thickness=0.5)}),
+      Documentation(info="<html>
 <p>
 The output is <strong>true</strong> if Real input u1 is less than or equal to
 Real input u2, otherwise the output is <strong>false</strong>.
