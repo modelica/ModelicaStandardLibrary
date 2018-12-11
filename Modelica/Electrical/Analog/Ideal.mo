@@ -1629,13 +1629,6 @@ Christoph Clau&szlig;
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden
 </dd>
-<dt>
-<strong>Copyright:</strong>
-</dt>
-<dd>
-Copyright &copy; 1998-2018, Modelica Association and contributors<br>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
-</dd>
 </dl>
 </html>"), Icon(graphics={
         Line(points={{-90,0},{-40,0}}),
