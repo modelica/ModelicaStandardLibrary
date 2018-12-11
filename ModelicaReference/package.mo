@@ -757,13 +757,13 @@ documentation_annotation:
 The \"Documentation\" annotation can contain the \"info\" annotation giving a textual description, the \"revisions\" annotation giving a list of revisions and other annotations defined by a tool [The \"revisions\" documentation may be omitted in printed documentation]. How the tool interprets the information in \"Documentation\" is unspecified. Within a string of the \"Documentation\" annotation, the tags &lt;HTML&gt; and &lt;/HTML&gt; or &lt;html&gt; and &lt;/html&gt; define the start and end of content that is HTML encoded. Links to Modelica classes may be defined with the HTML link command using scheme \"Modelica\", e.g.,
 </p>
 <pre>
-    &lt;a href=\"modelica://MultiBody.Tutorial\"&gt;MultiBody.Tutorial&lt;/a&gt;
+    &lt;a href=\"modelica://ExamplePackage.Tutorial\"&gt;ExamplePackage.Tutorial&lt;/a&gt;
 </pre>
 <p>
 Together with scheme \"Modelica\" the (URI)  fragment specifiers #diagram, #info, #text, #icon may be used to reference different layers. Example:
 </p>
 <pre>
-   &lt;a href=\"modelica://MultiBody.Joints.Revolute#info\"&gt;Revolute&lt;/a&gt;
+   &lt;a href=\"modelica://ExamplePackage.SimpleModel#info\"&gt;SimpleModel&lt;/a&gt;
 </pre>
 </html>"));
   end Documentation;
