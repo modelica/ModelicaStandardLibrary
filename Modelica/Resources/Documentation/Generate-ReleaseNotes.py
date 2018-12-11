@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-Copyright (C) 2018 ESI ITI GmbH
+Copyright (C) 2018, Modelica Association and contributors
 All rights reserved.
 
 Generate MSL release notes from closed GitHub issues:

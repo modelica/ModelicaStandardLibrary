@@ -1,6 +1,6 @@
 /* ModelicaStrings.c - External functions for Modelica.Functions.Strings
 
-   Copyright (C) 2002-2018, Modelica Association and DLR
+   Copyright (C) 2002-2018, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without

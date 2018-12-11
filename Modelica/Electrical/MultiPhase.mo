@@ -722,11 +722,8 @@ This package contains test examples of analog electrical multiphase circuits.
   </ul>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
 </html>"));
   end Examples;
@@ -1862,11 +1859,8 @@ This package contains basic analog electrical multiphase components.
   </ul>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
@@ -2571,11 +2565,8 @@ like thyristor, diode, switch, transformer.
   </ul>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
@@ -3481,11 +3472,8 @@ This package contains multiphase potential, voltage, and current sensors.
   </ul>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
 </html>"));
   end Sensors;
@@ -3920,11 +3908,8 @@ This package contains time-dependent and controlled multiphase voltage and curre
   </ul>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
 </html>"));
   end Sources;
@@ -4140,17 +4125,14 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
   </ul>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
 </html>"));
   end Interfaces;
   annotation (Documentation(info="<html>
 <p>
-Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.
+Copyright &copy; 1998-2018, Modelica Association and contributors
 </p>
 <p>
 <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>

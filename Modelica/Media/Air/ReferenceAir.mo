@@ -2131,7 +2131,6 @@ Nitrogen, Oxygen, Argon, and Air</strong>. International Journal of Thermophysic
 </dd>
 </dl>
 
-
 <h4>Verification</h4>
 <p>
 The verification report for the development of this library is provided
@@ -2147,11 +2146,7 @@ This library was developed by XRG Simulation GmbH as part of the <a href=\"http:
 Some parts of this library refer to the ThermoFluid library developed at Lund University (<a href=\"http://thermofluid.sourceforge.net/\">http://thermofluid.sourceforge.net</a>).
 </p>
 
-<h4>Disclaimer</h4>
-<p>
-In no event will XRG Simulation GmbH be liable for any direct, indirect, incidental, special, exemplary, or consequential damages, arising in any way out of the use of this software, even if advised of the possibility of such damage.
-</p>
-<h4> Copyright &copy; 2013-2018, XRG Simulation GmbH </h4>
+<h4>Copyright &copy; 2013-2018, Modelica Association and contributors</h4>
 
 </html>"));
 end ReferenceAir;

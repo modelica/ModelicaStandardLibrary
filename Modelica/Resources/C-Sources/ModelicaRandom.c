@@ -1,6 +1,6 @@
 /* ModelicaRandom.c - External functions for Modelica.Math.Random library
 
-   Copyright (C) 2015-2018, Modelica Association and DLR
+   Copyright (C) 2015-2018, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without

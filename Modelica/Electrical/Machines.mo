@@ -6801,11 +6801,8 @@ This package contains test examples of electric machines.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.00 2004/09/16 Anton Haumer</li>
@@ -7333,11 +7330,8 @@ These models use package SpacePhasors.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.02 2004/09/19 Anton Haumer</li>
@@ -8391,11 +8385,8 @@ These models use package SpacePhasors.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.02  2004/09/19 Anton Haumer</li>
@@ -9076,11 +9067,8 @@ This package contains models of DC machines:
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.02 2004/09/19 Anton Haumer</li>
@@ -9163,11 +9151,8 @@ where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v2.3.0 2010/02/16 Anton Haumer<br>
@@ -9441,11 +9426,8 @@ This package contains transformers primary Y connected / secondary y connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -9678,11 +9660,8 @@ This package contains transformers primary Y connected / secondary d connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -10007,11 +9986,8 @@ This package contains transformers primary Y connected / secondary zig-zag conne
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -10252,11 +10228,8 @@ This package contains transformers primary D connected / secondary y connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -10459,11 +10432,8 @@ This package contains transformers primary D connected / secondary d connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -10758,11 +10728,8 @@ This package contains transformers primary D connected / secondary d connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -10830,7 +10797,7 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.
+Copyright &copy; 1998-2018, Modelica Association and contributors
 </p>
 
 <p>
@@ -11730,11 +11697,8 @@ These models use package SpacePhasors.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.00 2004/09/16 Anton Haumer</li>
@@ -11773,11 +11737,8 @@ The induction machine models use package SpacePhasors.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.00  2004/09/16 Anton Haumer</li>
@@ -12283,11 +12244,8 @@ This package contains sensors that are useful when modelling machines.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.03 2004/09/24 Anton Haumer</li>
@@ -12436,11 +12394,8 @@ a ground has to be used where necessary for currents flowing back.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.00 2004/09/16 Anton Haumer</li>
@@ -12700,11 +12655,8 @@ the first element representing the real part and the second element representing
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.00 2004/09/16 Anton Haumer</li>
@@ -12901,11 +12853,8 @@ the first element representing the real part and the second element representing
   </dd>
 
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
 </html>"));
     end Functions;
@@ -12930,11 +12879,8 @@ You may have a look at a short summary of space phasor theory at <a href=\"https
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.00 2004/09/16 Anton Haumer</li>
@@ -13461,11 +13407,8 @@ This package contains loss models used for induction machine models.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v2.4.0 2010/04/20 Anton Haumer<br>
@@ -13697,11 +13640,8 @@ This package contains loss models used for DC machine models.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v2.4.0 2010/04/20 Anton Haumer<br>
@@ -13721,11 +13661,8 @@ This package contains loss models and their parameter records used for machine m
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v2.4.0 2010/04/20 Anton Haumer<br>
@@ -16108,11 +16045,8 @@ This package contains the space phasor connector and partial models for machine 
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.00 2004/09/16 Anton Haumer</li>
@@ -17716,11 +17650,8 @@ This package contains utility components for testing examples.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Copyright:</strong></dt>
-  <dd>Copyright &copy; 1998-2018, Modelica Association and Anton Haumer.<br>
-  <em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-  under the terms of the <strong>Modelica license</strong>, see the license conditions
-  and the accompanying <strong>disclaimer</strong> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</em></dd>
+  <dd>Copyright &copy; 1998-2018, Modelica Association and contributors<br>
+  <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em></dd>
 </dl>
   <ul>
   <li> v1.00 2004/09/16 Anton Haumer</li>
@@ -17741,7 +17672,7 @@ This package contains utility components for testing examples.
     Documentation(info="<html>
 <p><strong>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></strong>.</p>
 <p>
-Copyright &copy; 1998-2018, Modelica Association, Anton Haumer, Christian Kral and AIT.
+Copyright &copy; 1998-2018, Modelica Association and contributors
 </p>
 <p>
 <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>

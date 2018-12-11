@@ -1,6 +1,6 @@
 /* ModelicaStandardTablesUsertab.c - A dummy usertab function
 
-   Copyright (C) 2013-2018, Modelica Association, DLR, and ESI ITI GmbH
+   Copyright (C) 2013-2018, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
