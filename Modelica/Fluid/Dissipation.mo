@@ -13046,7 +13046,7 @@ Modelica&reg;. Generally the pressure loss calculations are based on incompressi
 The library is a non-commercial product of XRG Simulation GmbH.
 </p>
 
-<h4>  Acknowledgements </h4>
+<h4>Acknowledgements</h4>
 
 <p>
 The following people contributed to the Fluid.Dissipation library (alphabetical list):
@@ -13060,17 +13060,11 @@ project EuroSysLib-D by German Federal Ministry of Education and Research (promo
 reference 01IS07022B). The project was started in October 2007 and ended in June 2010.
 </p>
 
-<h4>  License condition </h4>
 <p>
-<strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
 Copyright &copy; 2007-2018, Modelica Association and contributors
 </p>
 
-<p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
-</p>
-
-<h4>  Contact </h4>
+<h4>Contact </h4>
 
 XRG Simulation GmbH<br>
 Harburger Schlossstra&szlig;e 6-12<br>

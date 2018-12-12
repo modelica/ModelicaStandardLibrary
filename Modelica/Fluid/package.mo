@@ -1737,11 +1737,7 @@ The following parts are useful, when newly starting with this library:
      contains examples that demonstrate the usage of this library.</li>
 </ul>
 <p>
-<strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
 Copyright &copy; 2002-2018, Modelica Association and contributors
-</p>
-<p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>"));
 end Fluid;

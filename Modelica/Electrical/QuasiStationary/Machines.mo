@@ -2553,9 +2553,6 @@ Transformation of space phasor and zero sequence value to quasi stationary multi
 <p>
 Copyright &copy; 1998-2018, Modelica Association and contributors
 </p>
-<p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
-</p>
 <p>This package hosts models for quasi stationary induction machines and transformers.
 </p>
 <h4>Please note</h4>

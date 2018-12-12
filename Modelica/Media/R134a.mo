@@ -9425,6 +9425,8 @@ This library was developed by XRG Simulation GmbH as part of the <a href=\"http:
 Some parts of this library refer to the ThermoFluid library developed at Lund University (<a href=\"http://thermofluid.sourceforge.net/\">http://thermofluid.sourceforge.net</a>).
 </p>
 
-<h4>Copyright &copy; 2013-2018, Modelica Association and contributors</h4>
+<p>
+Copyright &copy; 2013-2018, Modelica Association and contributors
+</p>
 </html>"));
 end R134a;

@@ -4116,9 +4116,6 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
 <p>
 Copyright &copy; 1998-2018, Modelica Association and contributors
 </p>
-<p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
-</p>
 </html>", revisions="<html>
   <ul>
   <li>v1.0 2004/10/01 Anton Haumer</li>
