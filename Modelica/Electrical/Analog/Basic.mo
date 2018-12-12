@@ -1950,6 +1950,10 @@ Christoph Clau&szlig;
     D-01069 Dresden<br>
 </dd>
 </dl>
+
+<p>
+Copyright &copy; 1998-2018, Modelica Association and contributors
+</p>
 </html>"), Icon(graphics={
         Line(points={{-12,60},{-12,-60}}),
         Line(points={{-80,0},{-12,0}}),

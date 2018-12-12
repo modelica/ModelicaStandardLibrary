@@ -807,5 +807,9 @@ Christoph Clau&szlig;
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+
+<p>
+Copyright &copy; 1998-2018, Modelica Association and contributors
+</p>
 </html>"));
 end Interfaces;

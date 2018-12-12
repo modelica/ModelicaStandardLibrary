@@ -13064,7 +13064,7 @@ reference 01IS07022B). The project was started in October 2007 and ended in June
 Copyright &copy; 2007-2018, Modelica Association and contributors
 </p>
 
-<h4>Contact </h4>
+<h4>Contact</h4>
 
 XRG Simulation GmbH<br>
 Harburger Schlossstra&szlig;e 6-12<br>
