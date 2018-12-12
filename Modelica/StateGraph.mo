@@ -2788,7 +2788,7 @@ package Temporary
     "Components that will be provided by other libraries in the future"
 type SetRealParameter = Real "Define Real parameter (GUI not yet satisfactory)"
   annotation (
-  obsolete = "Obsolete type due to experimental design", 
+  obsolete = "Obsolete type due to experimental design",
   Dialog,
   defaultComponentName="name",
   defaultComponentPrefixes="parameter",

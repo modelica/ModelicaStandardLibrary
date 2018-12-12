@@ -2385,7 +2385,7 @@ have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and wi
 <tr><td>BJT</td>
     <td>Use BJT2 instead.</td></tr>
 <tr><td>Bjt3.*</td>
-    <td>Use revised classes instead.</td></tr>	
+    <td>Use revised classes instead.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
 <tr><td>Examples.Loops.Utilities.GasForce</td>
     <td>Use Examples.Loops.Utilities.GasForce2 instead.</td></tr>

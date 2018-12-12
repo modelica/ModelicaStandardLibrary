@@ -576,8 +576,8 @@ extends Modelica.Icons.ExamplesPackage;
     extends Modelica.Icons.Example;
     parameter Real eps=1e-13 "Threshold for comparison of floating-point numbers";
   equation
-    assert(Modelica.Math.isEqual(11., Modelica.Utilities.Examples.calculator("2+3*(4-1)"), eps), "Test of Modelica.Utilities.Examples.calculator failed!"); 
-    assert(Modelica.Math.isEqual(0.5, Modelica.Utilities.Examples.calculator("sin(pi/6)"), eps), "Test of Modelica.Utilities.Examples.calculator failed!"); 
+    assert(Modelica.Math.isEqual(11., Modelica.Utilities.Examples.calculator("2+3*(4-1)"), eps), "Test of Modelica.Utilities.Examples.calculator failed!");
+    assert(Modelica.Math.isEqual(0.5, Modelica.Utilities.Examples.calculator("sin(pi/6)"), eps), "Test of Modelica.Utilities.Examples.calculator failed!");
     annotation (experiment(StopTime=0));
   end TestExamplesCalculator;
 
