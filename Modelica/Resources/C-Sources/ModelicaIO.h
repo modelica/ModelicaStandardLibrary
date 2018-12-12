@@ -1,6 +1,6 @@
 /* ModelicaIO.h - Array I/O functions header
 
-   Copyright (C) 2016-2018, Modelica Association and ESI ITI GmbH
+   Copyright (C) 2016-2018, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without

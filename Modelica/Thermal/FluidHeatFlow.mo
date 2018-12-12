@@ -28,9 +28,8 @@ email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.co
 <h4>Acknowledgements</h4>
 
 <p>
-Copyright &copy; 1998-2018, Modelica Association, Anton Haumer, Christian Kral and AIT.
+Copyright &copy; 1998-2018, Modelica Association and contributors
 </p>
-
 </html>"));
     end Contact;
 
@@ -3124,10 +3123,7 @@ Since mixing may occur, the outlet temperature may be different from the connect
 Outlet temperature is defined by variable T of the corresponding component.</li>
 </ul>
 <p>
-Copyright &copy; 1998-2018, Modelica Association, Anton Haumer, Christian Kral and AIT.
-</p>
-<p>
-<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+Copyright &copy; 1998-2018, Modelica Association and contributors
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Polygon(

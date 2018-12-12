@@ -1,6 +1,6 @@
 /* ModelicaFFT.h - FFT functions header
 
-   Copyright (C) 2015-2018, Modelica Association and DLR
+   Copyright (C) 2015-2018, Modelica Association and contributors
    Copyright (C) 2003-2010, Mark Borgerding
    All rights reserved.
 

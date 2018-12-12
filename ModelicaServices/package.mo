@@ -268,7 +268,7 @@ This ModelicaServices package provides only \"dummy\" models that do nothing.
 
 <p>
 <strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
-Copyright &copy; 2009-2018, DLR and Dassault Syst&egrave;mes AB.
+Copyright &copy; 2009-2018, Modelica Association and contributors
 </p>
 
 <p>

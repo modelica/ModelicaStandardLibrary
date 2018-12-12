@@ -800,16 +800,6 @@ Christoph Clau&szlig;
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden
 </dd>
-<dt>
-<strong>Copyright:</strong>
-</dt>
-<dd>
-Copyright &copy; 1998-2018, Modelica Association and Fraunhofer-Gesellschaft.<br>
-<em>The Modelica package is <strong>free</strong> software; it can be redistributed and/or modified
-under the terms of the <strong>Modelica license</strong>, see the license conditions
-and the accompanying <strong>disclaimer</strong> in the documentation of package
-Modelica in file \"Modelica/package.mo\".</em>
-</dd>
 </dl>
 
 <ul>
@@ -817,5 +807,9 @@ Modelica in file \"Modelica/package.mo\".</em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+
+<p>
+Copyright &copy; 1998-2018, Modelica Association and contributors
+</p>
 </html>"));
 end Interfaces;
