@@ -22,7 +22,7 @@ Overview:</p>
 500 issues (including pull requests)</a> have been addressed for
 this release.</li>
 <li><strong>94</strong> component models and blocks,
-<strong>34</strong> example models and <strong>9</strong> functions
+<strong>36</strong> example models and <strong>9</strong> functions
 are newly included.</li>
 <li>The license has been changed to BSD 3-clause, visit: <a href="https://modelica.org/licenses/modelica-3-clause-bsd">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</li>
 </ul>
@@ -68,6 +68,10 @@ in various domains.</td>
 <td colspan="2"><strong>Modelica.Blocks.Math</strong></td>
 </tr>
 <tr>
+<td width="150">Power</td>
+<td>Computes the power of the input signal.</td>
+</tr>
+<tr>
 <td width="150">WrapAngle</td>
 <td>Wraps the angle signal at the input to the interval ]-π, π] or
 [0, 2π[.</td>
@@ -85,6 +89,19 @@ from the hypotenuse and the other leg.</td>
 <td width="150">RealFFT</td>
 <td>This block samples the input and calculates the FFT, writing
 the result to a mat file when the simulation terminates.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Modelica.Blocks.Routing</strong></td>
+</tr>
+<tr>
+<td width="150">Multiplex</td>
+<td>Multiplexer block for <em>arbitrary</em> number of input
+signals</td>
+</tr>
+<tr>
+<td width="150">DeMultiplex</td>
+<td>Demultiplexer block for <em>arbitrary</em> number of output
+signals</td>
 </tr>
 <tr>
 <td colspan="2"><strong>Modelica.Blocks.Tables</strong></td>
@@ -413,6 +430,33 @@ ReceiveInteger</td>
 <td>Use expandable connectors instead.</td>
 </tr>
 <tr>
+<td colspan="2"><strong>Modelica.StateGraph.Temporary</strong></td>
+</tr>
+<tr>
+<td>SetRealParameter</td>
+<td>Use parameter Real instead.</td>
+</tr>
+<tr>
+<td>anyTrue</td>
+<td>Use Modelica.Math.BooleanVectors.anyTrue instead.</td>
+</tr>
+<tr>
+<td>allTrue</td>
+<td>Use Modelica.Math.BooleanVectors.allTrue instead instead.</td>
+</tr>
+<tr>
+<td>RadioButton</td>
+<td>Use future model from Modelica.Blocks.Interaction instead.</td>
+</tr>
+<tr>
+<td>NumericValue</td>
+<td>Use Modelica.Blocks.Interaction.Show.RealValue instead.</td>
+</tr>
+<tr>
+<td>IndicatorLamp</td>
+<td>Use Modelica.Blocks.Interaction.Show.BooleanValue instead.</td>
+</tr>
+<tr>
 <td colspan="2">
 <strong>Modelica.Electrical.Digital.Converters</strong></td>
 </tr>
@@ -427,6 +471,18 @@ LogicToXO1Z</td>
 <tr>
 <td>BasicMachines.Components.BasicTransformer</td>
 <td>Use Interfaces.PartialBasicTransformer instead.</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Modelica.Electrical.Spice3.Internal</strong></td>
+</tr>
+<tr>
+<td>BJT</td>
+<td>Use BJT2 instead.</td>
+</tr>
+<tr>
+<td>Bjt3.*</td>
+<td>Use revised classes instead.</td>
 </tr>
 <tr>
 <td colspan="2"><strong>Modelica.Mechanics.MultiBody</strong></td>
@@ -499,6 +555,17 @@ Info</td>
 <td>Use (substitute) icons from Modelica.Icons,
 Modelica.Mechanics.Rotational.Icons or
 Modelica.Electrical.Machines.Icons instead.</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Modelica.SIunits.Conversions.NonSIunits</strong></td>
+</tr>
+<tr>
+<td>FirstOrderTemperaturCoefficient<br />
+SecondOrderTemperaturCoefficient</td>
+<td>Use Modelica.SIunits.LinearTemperatureCoefficientResistance or
+Modelica.SIunits.QuadraticTemperatureCoefficientResistance
+instead.</td>
 </tr>
 </table>
 <p><br />
@@ -610,6 +677,25 @@ to wrong simulation results):</p>
 longer be determined. This has been corrected.</td>
 </tr>
 <tr>
+<td colspan="2"><strong>Modelica.Media.Air</strong></td>
+</tr>
+<tr>
+<td>MoistAir.molarMass<br />
+ReferenceMoistAir.molarMass</td>
+<td>The computation of the function output <code>MM</code> was
+wrong. This has been corrected.</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Modelica.Media.IdealGases.Common.Functions</strong></td>
+</tr>
+<tr>
+<td>thermalConductivityEstimate</td>
+<td>The computation of the function output <code>lambda</code> was
+wrong for the modified Eucken correlation, i.e., if
+<code>method</code> is set to 2. This has been corrected.</td>
+</tr>
+<tr>
 <td colspan="2">
 <strong>Modelica.Media.IdealGases.Common.SingleGasesData</strong></td>
 </tr>
@@ -637,6 +723,24 @@ ODminus</td>
 </tr>
 <tr>
 <td colspan="2">
+<strong>Modelica.Media.IdealGases.Common.MixtureGasNasa</strong></td>
+</tr>
+<tr>
+<td>mixtureViscosityChung</td>
+<td>The computation of the function output <code>etaMixture</code>
+was wrong. This has been corrected.</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Modelica.Media.Incompressible.TableBased</strong></td>
+</tr>
+<tr>
+<td>BaseProperties</td>
+<td>The unit of the gas constant <code>R</code> for table based
+media was not correctly considered. This has been corrected.</td>
+</tr>
+<tr>
+<td colspan="2">
 <strong>Modelica.Math.Random.Utilities</strong></td>
 </tr>
 <tr>
@@ -647,7 +751,6 @@ of 1. This has been corrected.</td>
 </tr>
 </table>
 <hr />
-Generated at 2018-09-26T08:30:06Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.13.0~dev-1432-g3445e57
+Generated at 2018-12-12T12:21:24Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-8-g9eb6d39</a>
 </body>
 </html>
