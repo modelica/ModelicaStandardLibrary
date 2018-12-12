@@ -1,15 +1,15 @@
 <svg width="263" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 	<g id="Modelica.Blocks.Math.Min" class="component">
-		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		<text x="141.5" y="128.8" text-anchor="middle" fill="#A0A0A4" font-size="76.0px" font-family="sans-serif">min()</text>
 		<g id="u1" class="port">
-			<polygon points="1.5,21.5 41.5,41.5 1.5,61.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="1.5,21.5 41.5,41.5 1.5,61.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="u2" class="port">
-			<polygon points="1.5,141.5 41.5,161.5 1.5,181.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="1.5,141.5 41.5,161.5 1.5,181.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="y" class="port">
-			<polygon points="241.5,91.5 261.5,101.5 241.5,111.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="241.5,91.5 261.5,101.5 241.5,111.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

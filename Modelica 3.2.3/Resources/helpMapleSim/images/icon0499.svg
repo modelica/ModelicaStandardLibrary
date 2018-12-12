@@ -1,19 +1,5 @@
-<svg width="223" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Digital.Examples.Utilities.Counter" class="component">
-		<polygon points="201.5,181.5 221.5,181.5 221.5,21.5 201.5,21.5" fill="#7F007F" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="21.5,201.5 201.5,201.5 201.5,1.5 21.5,1.5" fill="#FFFFAA" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="51.5" y="36.4" text-anchor="middle" fill="#000000" font-size="12.5px" font-family="sans-serif">ENABLE</text>
-		<text x="188.5" y="113.4" text-anchor="middle" fill="#000000" font-size="26.6px" font-family="sans-serif">Q</text>
-		<text x="111.5" y="90.2" text-anchor="middle" fill="#000000" font-size="23.2px" font-family="sans-serif">Counter</text>
-		<text x="51.5" y="176.9" text-anchor="middle" fill="#000000" font-size="13.9px" font-family="sans-serif">COUNT</text>
-		<g id="enable" class="port">
-			<polygon points="1.5,41.5 21.5,41.5 21.5,21.5 1.5,21.5" fill="#7F007F" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="count" class="port">
-			<polygon points="1.5,181.5 21.5,181.5 21.5,161.5 1.5,161.5" fill="#7F007F" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="q" class="port">
-			<polygon points="201.5,21.5 221.5,101.5 201.5,181.5" fill="#FFFFFF" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
+<svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.Digital.Interfaces.DigitalInput" class="component">
+		<polygon points="1.5,201.5 201.5,201.5 201.5,1.5 1.5,1.5" fill="#7F007F" stroke="#7F007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 	</g>
 </svg>

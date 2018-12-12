@@ -36,6 +36,7 @@ simulate them according to the provided description in the models.
 <table border="1" cellspacing="0" cellpadding="3">
 <tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Backlash"><code>Backlash</code></a></td><td>Example to demonstrate backlash</td></tr>
 <tr><td><a href="#CoupledClutches"><code>CoupledClutches</code></a></td><td>Drive train with 3 dynamically coupled clutches</td></tr>
+<tr><td><a href="#EddyCurrentBrake"><code>EddyCurrentBrake</code></a></td><td>Demonstrate the usage of the rotational eddy current brake</td></tr>
 <tr><td><a href="#ElasticBearing"><code>ElasticBearing</code></a></td><td>Example to show possible usage of support flange</td></tr>
 <tr><td><a href="#First"><code>First</code></a></td><td>First example: simple drive train</td></tr>
 <tr><td><a href="#FirstGrounded"><code>FirstGrounded</code></a></td><td>First example: simple drive train with grounded elements</td></tr>
@@ -49,7 +50,6 @@ simulate them according to the provided description in the models.
 <tr><td><a href="#OneWayClutchDisengaged"><code>OneWayClutchDisengaged</code></a></td><td>Drive train with disengaged one-way clutch</td></tr>
 <tr><td><a href="#RollingWheel"><code>RollingWheel</code></a></td><td>Demonstrate coupling Rotational - Translational</td></tr>
 <tr><td><a href="#SimpleGearShift"><code>SimpleGearShift</code></a></td><td>Simple Gearshift</td></tr>
-<tr><td><a href="#TestEddyCurrentBrake"><code>TestEddyCurrentBrake</code></a></td><td>Test of rotational eddy current brake</td></tr>
 <tr><td><a href="../../../Mechanics/Rotational/Examples/Utilities/index.html"><code>Utilities</code></a> &hellip;</td><td>Utility classes used by rotational example models</td></tr>
 </table>
 <hr><a name="First"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
@@ -298,12 +298,12 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 <li>At time = 2 s, the brake frees the ring of the planetary, whereas the clutch blocks the ring and the sun. Thus we obtain a gearRatio = 1.</li>
 </ul>
 <p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
-<hr><a name="TestEddyCurrentBrake"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
-Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;TestEddyCurrentBrake<br><span class="subtitle">Test of rotational eddy current brake</span></h2></a>
+<hr><a name="EddyCurrentBrake"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;EddyCurrentBrake<br><span class="subtitle">Demonstrate the usage of the rotational eddy current brake</span></h2></a>
 <h3>Information</h3>
 <p>
 
-A rotating inertia gets decelerated by an eddy current brake. The loss power is fed to a heat capacitor.
+An eddy current brake reduces the speed of a rotating inertia. Kinetic energy is converted to thermal energy which leads to a temperature increase of the thermal capacitance of the brake, which can be assumed as adiabatic during the rather short time span of the braking.
 <p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
 <hr><a name="GenerationOfFMUs"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Rotational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;GenerationOfFMUs<br><span class="subtitle">Example to demonstrate variants to generate FMUs (Functional Mock-up Units)</span></h2></a>
@@ -387,5 +387,5 @@ and <code>inertiaOut.w</code> to each other.
 </p>
 <p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
 <hr style="border-color:#999" />
-<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-22 14:47:45 EDT by <i>MapleSim</i>.</p>
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-12-12 12:12:56 EST by <a href="http://maplesim.com"><i>MapleSim</i></a>.</p>
 </body></html>

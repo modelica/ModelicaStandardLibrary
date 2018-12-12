@@ -1,20 +1,20 @@
 <svg width="283" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 	<g id="Modelica.ComplexBlocks.ComplexMath.ComplexToReal" class="component">
-		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		<text x="201.5" y="60.7" text-anchor="middle" fill="#00007F" font-size="53.1px" font-family="sans-serif">re</text>
 		<text x="201.5" y="180.7" text-anchor="middle" fill="#00007F" font-size="53.1px" font-family="sans-serif">im</text>
-		<polygon points="181.5,101.5 161.5,81.5 161.5,91.5 131.5,91.5 131.5,111.5 161.5,111.5 161.5,121.5" fill="#55AAFF" stroke="#0080FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="181.5,101.5 161.5,81.5 161.5,91.5 131.5,91.5 131.5,111.5 161.5,111.5 161.5,121.5" fill="#55AAFF" stroke="#0080FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		<text x="81.5" y="158.1" text-anchor="middle" fill="#55AAFF" font-size="159.4px" font-family="sans-serif">C</text>
 		<g id="re" class="port">
-			<polygon points="241.5,21.5 281.5,41.5 241.5,61.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="241.5,21.5 281.5,41.5 241.5,61.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="im" class="port">
-			<polygon points="241.5,141.5 281.5,161.5 241.5,181.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="241.5,141.5 281.5,161.5 241.5,181.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="u" class="port">
-			<polygon points="3.0,120.0 4.6,121.1 6.5,121.5 6.5,121.5 11.3,121.5 21.5,121.5 21.5,121.5 31.7,121.5 36.5,121.5 36.5,121.5 38.4,121.1 40.0,120.0 40.0,120.0 41.1,118.4 41.5,116.5 41.5,116.5 41.5,111.7 41.5,101.5 41.5,101.5 41.5,91.3 41.5,86.5 41.5,86.5 41.1,84.6 40.0,83.0 40.0,83.0 38.4,81.9 36.5,81.5 36.5,81.5 31.7,81.5 21.5,81.5 21.5,81.5 11.3,81.5 6.5,81.5 6.5,81.5 4.6,81.9 3.0,83.0 3.0,83.0 1.9,84.6 1.5,86.5 1.5,86.5 1.5,91.3 1.5,101.5 1.5,101.5 1.5,111.7 1.5,116.5 1.5,116.5 1.9,118.4" fill="#A0A0A4" stroke="#A0A0A4" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="3.0,120.0 4.6,121.1 6.5,121.5 6.5,121.5 11.3,121.5 21.5,121.5 21.5,121.5 31.7,121.5 36.5,121.5 36.5,121.5 38.4,121.1 40.0,120.0 40.0,120.0 41.1,118.4 41.5,116.5 41.5,116.5 41.5,111.7 41.5,101.5 41.5,101.5 41.5,91.3 41.5,86.5 41.5,86.5 41.1,84.6 40.0,83.0 40.0,83.0 38.4,81.9 36.5,81.5 36.5,81.5 31.7,81.5 21.5,81.5 21.5,81.5 11.3,81.5 6.5,81.5 6.5,81.5 4.6,81.9 3.0,83.0 3.0,83.0 1.9,84.6 1.5,86.5 1.5,86.5 1.5,91.3 1.5,101.5 1.5,101.5 1.5,111.7 1.5,116.5 1.5,116.5 1.9,118.4" fill="#A0A0A4" stroke="#A0A0A4" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 			<text x="21.5" y="111.4" text-anchor="middle" fill="#FFFFFF" font-size="26.6px" font-family="sans-serif">C</text>
-			<polygon points="1.5,81.5 41.5,101.5 1.5,121.5" fill="#55AAFF" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="1.5,81.5 41.5,101.5 1.5,121.5" fill="#55AAFF" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

@@ -1,32 +1,25 @@
-<svg width="283" height="243" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.LimitedPI" class="component">
-		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="61.5,11.5 53.5,33.5 69.5,33.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="61.5,23.5 61.5,191.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="51.5,181.5 223.5,181.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="231.5,181.5 209.5,173.5 209.5,189.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="171.5" y="156.0" text-anchor="middle" fill="#C0C0C0" font-size="82.4px" font-family="sans-serif">P</text>
-		<polyline points="61.5,181.5 61.5,77.5 197.5,77.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<g id="u" class="port">
-			<polygon points="1.5,81.5 41.5,101.5 1.5,121.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+<svg width="253" height="225" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.IdealDcDc" class="component">
+		<polygon points="41.5,211.5 241.5,211.5 241.5,11.5 41.5,11.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="241.5,11.5 161.5,91.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="121.5,131.5 41.5,211.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<text x="141.5" y="51.4" text-anchor="middle" fill="#808080" font-size="26.6px" font-family="sans-serif">Bat</text>
+		<text x="141.5" y="128.6" text-anchor="middle" fill="#0000FF" font-size="47.0px" font-family="sans-serif">IdealDcDc</text>
+		<text x="141.5" y="191.4" text-anchor="middle" fill="#808080" font-size="26.6px" font-family="sans-serif">Mot</text>
+		<g id="pin_nBat" class="port">
+			<polygon points="31.5,1.5 51.5,1.5 51.5,21.5 31.5,21.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
-		<g id="y" class="port">
-			<polygon points="241.5,91.5 261.5,101.5 241.5,111.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="pin_pBat" class="port">
+			<polygon points="231.5,1.5 251.5,1.5 251.5,21.5 231.5,21.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
-		<g id="u_m" class="port">
-			<polygon points="61.5,241.5 81.5,201.5 101.5,241.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="pin_nMot" class="port">
+			<polygon points="31.5,221.5 51.5,221.5 51.5,201.5 31.5,201.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
-		<g id="feedForward" class="port">
-			<polygon points="121.5,241.5 141.5,201.5 161.5,241.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="pin_pMot" class="port">
+			<polygon points="231.5,223.5 251.5,223.5 251.5,203.5 231.5,203.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
-		<g id="kFF" class="port">
-			<polygon points="181.5,241.5 201.5,201.5 221.5,241.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="yMaxVar" class="port">
-			<polygon points="281.5,21.5 241.5,41.5 281.5,61.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="yMinVar" class="port">
-			<polygon points="281.5,141.5 241.5,161.5 281.5,181.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="vRef" class="port">
+			<polygon points="1.5,91.5 41.5,111.5 1.5,131.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

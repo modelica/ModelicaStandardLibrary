@@ -1,19 +1,24 @@
 <svg width="223" height="253" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor" class="component">
-		<polyline points="171.5,141.5 201.5,141.5" fill-opacity="0" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="21.5,141.5 51.5,141.5" fill-opacity="0" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="41.5,171.5 181.5,171.5 181.5,111.5 41.5,111.5" fill="#FFFFFF" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+	<g id="Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance" class="component">
+		<polyline points="171.5,141.5 201.5,141.5" fill-opacity="0" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="21.5,141.5 51.5,141.5" fill-opacity="0" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="41.5,171.5 181.5,171.5 181.5,111.5 41.5,111.5" fill="#FFFFFF" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="41.5,171.5 181.5,111.5 181.5,171.5" fill="#55AAFF" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		<g id="pin_p" class="port">
-			<polygon points="1.5,151.5 21.5,151.5 21.5,131.5 1.5,131.5" fill="#55AAFF" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="1.5,151.5 21.5,151.5 21.5,131.5 1.5,131.5" fill="#55AAFF" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="pin_n" class="port">
-			<polygon points="201.5,151.5 221.5,151.5 221.5,131.5 201.5,131.5" fill="#FFFFFF" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="201.5,151.5 221.5,151.5 221.5,131.5 201.5,131.5" fill="#FFFFFF" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="heatPort" class="port">
-			<polygon points="101.5,251.5 121.5,251.5 121.5,231.5 101.5,231.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="101.5,251.5 121.5,251.5 121.5,231.5 101.5,231.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
-		<g id="R_ref" class="port">
-			<polygon points="131.5,1.5 111.5,41.5 91.5,1.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="Z_ref" class="port">
+			<polygon points="93.0,3.0 91.9,4.6 91.5,6.5 91.5,6.5 91.5,11.3 91.5,21.5 91.5,21.5 91.5,31.7 91.5,36.5 91.5,36.5 91.9,38.4 93.0,40.0 93.0,40.0 94.6,41.1 96.5,41.5 96.5,41.5 101.3,41.5 111.5,41.5 111.5,41.5 121.7,41.5 126.5,41.5 126.5,41.5 128.4,41.1 130.0,40.0 130.0,40.0 131.1,38.4 131.5,36.5 131.5,36.5 131.5,31.7 131.5,21.5 131.5,21.5 131.5,11.3 131.5,6.5 131.5,6.5 131.1,4.6 130.0,3.0 130.0,3.0 128.4,1.9 126.5,1.5 126.5,1.5 121.7,1.5 111.5,1.5 111.5,1.5 101.3,1.5 96.5,1.5 96.5,1.5 94.6,1.9" fill="#A0A0A4" stroke="#A0A0A4" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+			<g class="transform" transform="rotate(-450.0 121.4 21.5)">
+				<text x="121.4" y="21.5" text-anchor="middle" fill="#FFFFFF" font-size="26.6px" font-family="sans-serif">C</text>
+			</g>
+			<polygon points="131.5,1.5 111.5,41.5 91.5,1.5" fill="#55AAFF" stroke="#55AAFF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

@@ -1,16 +1,16 @@
 <svg width="248" height="207" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 	<g id="ObsoleteModelica3.Mechanics.MultiBody.Forces.WorldForceAndTorque" class="component">
-		<polygon points="39.5,205.5 243.5,205.5 243.5,1.5 39.5,1.5" fill-opacity="0" stroke="#FF0000" stroke-dasharray="3 4" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="39.5,205.5 243.5,205.5 243.5,1.5 39.5,1.5" fill-opacity="0" stroke="#FF0000" stroke-dasharray="3 4" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		<text x="126.5" y="78.8" text-anchor="middle" fill="#C0C0C0" font-size="50.5px" font-family="sans-serif">world</text>
-		<polygon points="41.5,93.5 191.5,93.5 191.5,72.5 235.5,103.5 191.5,134.5 191.5,113.5 41.5,113.5" fill="#000000" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="43.5,89.5 49.5,76.5 57.5,61.5 69.5,41.5 78.5,29.5 91.5,17.5 108.5,8.5 121.5,5.5 135.5,5.5 150.5,9.5 162.5,16.5 175.5,24.5 187.5,34.5 195.5,42.5 201.5,49.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="240.5,82.5 215.5,23.5 181.5,58.5" fill="#000000" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="41.5,93.5 191.5,93.5 191.5,72.5 235.5,103.5 191.5,134.5 191.5,113.5 41.5,113.5" fill="#000000" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="43.5,89.5 49.5,76.5 57.5,61.5 69.5,41.5 78.5,29.5 91.5,17.5 108.5,8.5 121.5,5.5 135.5,5.5 150.5,9.5 162.5,16.5 175.5,24.5 187.5,34.5 195.5,42.5 201.5,49.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="240.5,82.5 215.5,23.5 181.5,58.5" fill="#000000" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		<g id="frame_b" class="port">
-			<polygon points="239.9,105.1 243.1,105.1 243.1,101.9 239.9,101.9" fill-opacity="0" stroke="#5F5F5F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-			<polygon points="236.7,119.5 246.3,119.5 246.3,87.5 236.7,87.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="239.9,105.1 243.1,105.1 243.1,101.9 239.9,101.9" fill-opacity="0" stroke="#5F5F5F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+			<polygon points="236.7,119.5 246.3,119.5 246.3,87.5 236.7,87.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="load" class="port">
-			<polygon points="1.5,83.5 41.5,103.5 1.5,123.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="1.5,83.5 41.5,103.5 1.5,123.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

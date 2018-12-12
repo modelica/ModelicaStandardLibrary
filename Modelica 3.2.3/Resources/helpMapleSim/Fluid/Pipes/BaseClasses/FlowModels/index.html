@@ -36,7 +36,7 @@ Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../i
 <tr><td><a href="#PartialStaggeredFlowModel"><code>PartialStaggeredFlowModel</code></a></td><td>Base class for momentum balances in flow models</td></tr>
 <tr><td><a href="#TurbulentPipeFlow"><code>TurbulentPipeFlow</code></a></td><td>TurbulentPipeFlow: Quadratic turbulent flow in circular tubes (using mu to regularize laminar region)</td></tr>
 </table>
-<hr><a name="PartialStaggeredFlowModel"><h2><embed class="icon" src="../../../../images/icon1336.svg" width="203" height="203" />
+<hr><a name="PartialStaggeredFlowModel"><h2><embed class="icon" src="../../../../images/icon1330.svg" width="203" height="203" />
 Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Pipes</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">FlowModels</a>.&#8203;PartialStaggeredFlowModel<br><span class="subtitle">Base class for momentum balances in flow models</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -84,7 +84,7 @@ e.g., with numerical smoothing or by raising events as appropriate.
 <tr><td><code><a href="../../../../SIunits/index.html#ReynoldsNumber">ReynoldsNumber</a></code></td><td><code>Re_turbulent</code></td><td><code>4000</code></td><td>Start of turbulent regime, depending on type of flow device</td></tr>
 <tr><td><code>Boolean</code></td><td><code>show_Res</code></td><td><code>false</code></td><td>= true, if Reynolds numbers are included for plotting</td></tr>
 </table>
-<hr><a name="NominalLaminarFlow"><h2><embed class="icon" src="../../../../images/icon1337.svg" width="203" height="203" />
+<hr><a name="NominalLaminarFlow"><h2><embed class="icon" src="../../../../images/icon1331.svg" width="203" height="203" />
 Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Pipes</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">FlowModels</a>.&#8203;NominalLaminarFlow<br><span class="subtitle">NominalLaminarFlow: Linear laminar flow for given nominal values</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -116,7 +116,7 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
 <tr><td><code><a href="../../../../SIunits/index.html#AbsolutePressure">AbsolutePressure</a></code></td><td><code>dp_nominal</code></td><td>&nbsp;</td><td>Nominal pressure loss</td></tr>
 <tr><td><code><a href="../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nominal</code></td><td>&nbsp;</td><td>Mass flow rate for dp_nominal</td></tr>
 </table>
-<hr><a name="PartialGenericPipeFlow"><h2><embed class="icon" src="../../../../images/icon1338.svg" width="203" height="203" />
+<hr><a name="PartialGenericPipeFlow"><h2><embed class="icon" src="../../../../images/icon1332.svg" width="203" height="203" />
 Partial Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Pipes</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">FlowModels</a>.&#8203;PartialGenericPipeFlow<br><span class="subtitle">GenericPipeFlow: Pipe flow pressure loss and gravity with replaceable WallFriction package</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -165,7 +165,7 @@ simulation and/or might give a more robust simulation.
 <tr><td><code><a href="../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_nominal</code></td><td>&nbsp;</td><td>Nominal mass flow rate</td></tr>
 <tr><td><code><a href="../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * m_flow_nominal else system.m_flow_small</code></td><td>Within regularization if |m_flows| &lt; m_flow_small (may be wider for large discontinuities in static head)</td></tr>
 </table>
-<hr><a name="NominalTurbulentPipeFlow"><h2><embed class="icon" src="../../../../images/icon1339.svg" width="203" height="203" />
+<hr><a name="NominalTurbulentPipeFlow"><h2><embed class="icon" src="../../../../images/icon1333.svg" width="203" height="203" />
 Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Pipes</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">FlowModels</a>.&#8203;NominalTurbulentPipeFlow<br><span class="subtitle">NominalTurbulentPipeFlow: Quadratic turbulent flow in circular tubes for given nominal values</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -222,7 +222,7 @@ and can be related to <code>m_flow_small</code> and <code>dp_small</code>.
 <tr><td><code><a href="../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * m_flow_nominal else system.m_flow_small</code></td><td>Within regularization if |m_flows| &lt; m_flow_small (may be wider for large discontinuities in static head)</td></tr>
 <tr><td><code><a href="../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_turbulent</code></td><td><code>if system.use_eps_Re then 0.1 * m_flow_nominal else system.m_flow_small</code></td><td>Turbulent flow starting from |m_flows| &gt; m_flow_turbulent (may be wider for large discontinuities in static head)</td></tr>
 </table>
-<hr><a name="TurbulentPipeFlow"><h2><embed class="icon" src="../../../../images/icon1340.svg" width="203" height="203" />
+<hr><a name="TurbulentPipeFlow"><h2><embed class="icon" src="../../../../images/icon1334.svg" width="203" height="203" />
 Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Pipes</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">FlowModels</a>.&#8203;TurbulentPipeFlow<br><span class="subtitle">TurbulentPipeFlow: Quadratic turbulent flow in circular tubes (using mu to regularize laminar region)</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -257,7 +257,7 @@ The turbulent pressure loss correlation might be useful to optimize models that 
 <tr><td><code><a href="../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * m_flow_nominal else system.m_flow_small</code></td><td>Within regularization if |m_flows| &lt; m_flow_small (may be wider for large discontinuities in static head)</td></tr>
 <tr><td><code>Boolean</code></td><td><code>use_Re</code></td><td><code>system.&#8203;use_eps_Re</code></td><td>= true, if turbulent region is defined by Re, otherwise by m_flow_small</td></tr>
 </table>
-<hr><a name="DetailedPipeFlow"><h2><embed class="icon" src="../../../../images/icon1341.svg" width="203" height="203" />
+<hr><a name="DetailedPipeFlow"><h2><embed class="icon" src="../../../../images/icon1335.svg" width="203" height="203" />
 Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Pipes</a>.&#8203;<a href="../index.html">BaseClasses</a>.&#8203;<a href="index.html">FlowModels</a>.&#8203;DetailedPipeFlow<br><span class="subtitle">DetailedPipeFlow: Detailed characteristic for laminar and turbulent flow</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -321,5 +321,5 @@ b has the same sign of the change of density.</p>
 <tr><td><code><a href="../../../../SIunits/index.html#MassFlowRate">MassFlowRate</a></code></td><td><code>m_flow_small</code></td><td><code>if system.use_eps_Re then system.eps_m_flow * m_flow_nominal else system.m_flow_small</code></td><td>Within regularization if |m_flows| &lt; m_flow_small (may be wider for large discontinuities in static head)</td></tr>
 </table>
 <hr style="border-color:#999" />
-<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-22 14:48:15 EDT by <i>MapleSim</i>.</p>
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-12-12 12:13:24 EST by <a href="http://maplesim.com"><i>MapleSim</i></a>.</p>
 </body></html>

@@ -37,6 +37,7 @@ simulate them according to the provided description in the models.
 <tr><th>Name</th><th>Description</th></tr><tr><td><a href="#Accelerate"><code>Accelerate</code></a></td><td>Use of model accelerate</td></tr>
 <tr><td><a href="#Brake"><code>Brake</code></a></td><td>Demonstrate braking of a translational moving mass</td></tr>
 <tr><td><a href="#Damper"><code>Damper</code></a></td><td>Use of damper models</td></tr>
+<tr><td><a href="#EddyCurrentBrake"><code>EddyCurrentBrake</code></a></td><td>Demonstrate the usage of the translational eddy current brake</td></tr>
 <tr><td><a href="#ElastoGap"><code>ElastoGap</code></a></td><td>Demonstrate usage of ElastoGap</td></tr>
 <tr><td><a href="#Friction"><code>Friction</code></a></td><td>Use of model Stop</td></tr>
 <tr><td><a href="#GenerationOfFMUs"><code>GenerationOfFMUs</code></a></td><td>Example to demonstrate variants to generate FMUs (Functional Mock-up Units)</td></tr>
@@ -46,7 +47,6 @@ simulate them according to the provided description in the models.
 <tr><td><a href="#PreLoad"><code>PreLoad</code></a></td><td>Preload of a spool using ElastoGap models</td></tr>
 <tr><td><a href="#Sensors"><code>Sensors</code></a></td><td>Sensors for translational systems</td></tr>
 <tr><td><a href="#SignConvention"><code>SignConvention</code></a></td><td>Examples for the used sign conventions</td></tr>
-<tr><td><a href="#TestEddyCurrentBrake"><code>TestEddyCurrentBrake</code></a></td><td>Test of translational eddy current brake</td></tr>
 <tr><td><a href="../../../Mechanics/Translational/Examples/Utilities/index.html"><code>Utilities</code></a> &hellip;</td><td>Utility classes used by translational example models</td></tr>
 <tr><td><a href="#WhyArrows"><code>WhyArrows</code></a></td><td>Use of arrows in Mechanics.Translational</td></tr>
 </table>
@@ -314,12 +314,12 @@ elements and transported to the environment
 is present in variable convection.fluid.
 </p>
 <p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
-<hr><a name="TestEddyCurrentBrake"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
-Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;TestEddyCurrentBrake<br><span class="subtitle">Test of translational eddy current brake</span></h2></a>
+<hr><a name="EddyCurrentBrake"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
+Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;EddyCurrentBrake<br><span class="subtitle">Demonstrate the usage of the translational eddy current brake</span></h2></a>
 <h3>Information</h3>
 <p>
 
-A moving mass gets decelerated by an eddy current brake. The loss power is fed to a heat capacitor.
+An eddy current brake reduces the speed of a moving mass. Kinetic energy is converted to thermal energy which leads to a temperature increase of the thermal capacitance of the brake, which can be assumed as adiabatic during the rather short time span of the braking.
 <p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
 <hr><a name="GenerationOfFMUs"><h2><embed class="icon" src="../../../images/icon0008.svg" width="203" height="203" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">Translational</a>.&#8203;<a href="index.html">Examples</a>.&#8203;GenerationOfFMUs<br><span class="subtitle">Example to demonstrate variants to generate FMUs (Functional Mock-up Units)</span></h2></a>
@@ -367,5 +367,5 @@ force law in a target system between two masses.
 </p>
 <p>Extends from <code><a href="../../../Icons/index.html#Example">Modelica.&#8203;Icons.&#8203;Example</a></code> (Icon for runnable examples).</p>
 <hr style="border-color:#999" />
-<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-22 14:47:47 EDT by <i>MapleSim</i>.</p>
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-12-12 12:12:58 EST by <a href="http://maplesim.com"><i>MapleSim</i></a>.</p>
 </body></html>

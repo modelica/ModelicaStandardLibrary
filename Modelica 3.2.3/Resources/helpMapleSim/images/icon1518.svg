@@ -1,11 +1,11 @@
 <svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Math.atan" class="component">
-		<polygon points="1.5,201.5 201.5,201.5 201.5,1.5 1.5,1.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="101.5,181.5 101.5,33.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="101.5,11.5 93.5,33.5 109.5,33.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="11.5,101.5 169.5,101.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="191.5,101.5 169.5,93.5 169.5,109.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="21.5,181.5 48.8,176.7 64.1,171.2 74.6,164.5 81.8,156.7 87.4,147.3 91.4,137.9 95.5,125.4 100.3,106.6 106.7,80.5 110.8,67.4 114.8,57.3 119.6,48.6 126.0,40.7 134.9,33.9 148.5,27.9 171.0,22.9 181.5,21.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="51.5" y="71.5" text-anchor="middle" fill="#C0C0C0" font-size="38.2px" font-family="sans-serif">atan</text>
+	<g id="Modelica.Math.acosh" class="component">
+		<polygon points="1.5,201.5 201.5,201.5 201.5,1.5 1.5,1.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="21.5,181.5 21.5,33.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="21.5,11.5 13.5,33.5 29.5,33.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="11.5,181.5 169.5,181.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="191.5,181.5 169.5,173.5 169.5,189.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="35.5,181.5 36.3,167.5 37.1,161.8 38.7,153.7 41.1,144.9 45.1,133.9 51.6,120.8 60.4,107.2 72.5,92.7 88.6,77.7 109.5,62.3 136.8,46.5 171.4,30.7 195.5,21.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<text x="132.5" y="138.8" text-anchor="middle" fill="#C0C0C0" font-size="30.6px" font-family="sans-serif">arcosh</text>
 	</g>
 </svg>

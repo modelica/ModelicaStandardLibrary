@@ -1,44 +1,35 @@
-<svg width="263" height="223" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.DcdcInverter" class="component">
-		<polygon points="41.5,211.5 241.5,211.5 241.5,11.5 41.5,11.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="141.5" y="124.5" text-anchor="middle" fill="#0000FF" font-size="35.4px" font-family="sans-serif">DcdcInverter</text>
-		<text x="141.5" y="51.4" text-anchor="middle" fill="#808080" font-size="26.6px" font-family="sans-serif">Bat</text>
-		<text x="141.5" y="191.4" text-anchor="middle" fill="#808080" font-size="26.6px" font-family="sans-serif">Mot</text>
-		<polyline points="121.5,131.5 41.5,211.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="241.5,11.5 161.5,91.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="43.5,209.5 239.5,209.5 239.5,13.5 43.5,13.5" fill-opacity="0" stroke="#D943B4" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="121.5,131.5 43.5,209.5" fill-opacity="0" stroke="#D943B4" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="239.5,13.5 161.5,91.5" fill-opacity="0" stroke="#D943B4" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="51.5" y="61.4" text-anchor="middle" fill="#808080" font-size="26.6px" font-family="sans-serif">v</text>
-		<text x="231.5" y="181.4" text-anchor="middle" fill="#808080" font-size="26.6px" font-family="sans-serif">v</text>
-		<text x="231.5" y="61.4" text-anchor="middle" fill="#808080" font-size="26.6px" font-family="sans-serif">i</text>
-		<text x="51.5" y="181.4" text-anchor="middle" fill="#808080" font-size="26.6px" font-family="sans-serif">i</text>
-		<g id="pin_pBat" class="port">
-			<polygon points="191.5,1.5 211.5,1.5 211.5,21.5 191.5,21.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="pin_nBat" class="port">
-			<polygon points="71.5,1.5 91.5,1.5 91.5,21.5 71.5,21.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="pin_pMot" class="port">
-			<polygon points="191.5,221.5 211.5,221.5 211.5,201.5 191.5,201.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="pin_nMot" class="port">
-			<polygon points="71.5,221.5 91.5,221.5 91.5,201.5 71.5,201.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="vRef" class="port">
-			<polygon points="1.5,91.5 41.5,111.5 1.5,131.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="vDC" class="port">
-			<polygon points="41.5,61.5 21.5,51.5 41.5,41.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="iDC" class="port">
-			<polygon points="241.5,61.5 261.5,51.5 241.5,41.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="vMot" class="port">
-			<polygon points="241.5,181.5 261.5,171.5 241.5,161.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="iMot" class="port">
-			<polygon points="41.5,181.5 21.5,171.5 41.5,161.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
+<svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines" class="component">
+		<defs>
+			<linearGradient id="cyl2" x1="0" y1="0" x2="0" y2="1">
+				<stop offset="0%" stop-color="#C8C8C8" />
+				<stop offset="5%" stop-color="#D1D1D1" />
+				<stop offset="10%" stop-color="#D9D9D9" />
+				<stop offset="15%" stop-color="#E0E0E0" />
+				<stop offset="20%" stop-color="#E7E7E7" />
+				<stop offset="25%" stop-color="#ECECEC" />
+				<stop offset="30%" stop-color="#F0F0F0" />
+				<stop offset="35%" stop-color="#F4F4F4" />
+				<stop offset="40%" stop-color="#F6F6F6" />
+				<stop offset="45%" stop-color="#F8F8F8" />
+				<stop offset="50%" stop-color="#F8F8F8" />
+				<stop offset="55%" stop-color="#F8F8F8" />
+				<stop offset="60%" stop-color="#F6F6F6" />
+				<stop offset="65%" stop-color="#F4F4F4" />
+				<stop offset="70%" stop-color="#F0F0F0" />
+				<stop offset="75%" stop-color="#ECECEC" />
+				<stop offset="80%" stop-color="#E7E7E7" />
+				<stop offset="85%" stop-color="#E0E0E0" />
+				<stop offset="90%" stop-color="#D9D9D9" />
+				<stop offset="95%" stop-color="#D1D1D1" />
+				<stop offset="100%" stop-color="#C8C8C8" />
+			</linearGradient>
+		</defs>
+		<polygon points="8.8,194.2 11.0,196.1 13.3,197.8 15.7,199.1 18.2,200.2 20.8,200.9 23.6,201.4 26.5,201.5 26.5,201.5 50.4,201.5 101.5,201.5 101.5,201.5 152.6,201.5 176.5,201.5 176.5,201.5 179.4,201.4 182.2,200.9 184.8,200.2 187.3,199.1 189.7,197.8 192.0,196.1 194.2,194.2 194.2,194.2 196.1,192.0 197.8,189.7 199.1,187.3 200.2,184.8 200.9,182.2 201.4,179.4 201.5,176.5 201.5,176.5 201.5,152.6 201.5,101.5 201.5,101.5 201.5,50.4 201.5,26.5 201.5,26.5 201.4,23.6 200.9,20.8 200.2,18.2 199.1,15.7 197.8,13.3 196.1,11.0 194.2,8.8 194.2,8.8 192.0,6.9 189.7,5.2 187.3,3.9 184.8,2.8 182.2,2.1 179.4,1.6 176.5,1.5 176.5,1.5 152.6,1.5 101.5,1.5 101.5,1.5 50.4,1.5 26.5,1.5 26.5,1.5 23.6,1.6 20.8,2.1 18.2,2.8 15.7,3.9 13.3,5.2 11.0,6.9 8.8,8.8 8.8,8.8 6.9,11.0 5.2,13.3 3.9,15.7 2.8,18.2 2.1,20.8 1.6,23.6 1.5,26.5 1.5,26.5 1.5,50.4 1.5,101.5 1.5,101.5 1.5,152.6 1.5,176.5 1.5,176.5 1.6,179.4 2.1,182.2 2.8,184.8 3.9,187.3 5.2,189.7 6.9,192.0" fill="url(#cyl2)" stroke="#C8C8C8" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="8.8,194.2 11.0,196.1 13.3,197.8 15.7,199.1 18.2,200.2 20.8,200.9 23.6,201.4 26.5,201.5 26.5,201.5 50.4,201.5 101.5,201.5 101.5,201.5 152.6,201.5 176.5,201.5 176.5,201.5 179.4,201.4 182.2,200.9 184.8,200.2 187.3,199.1 189.7,197.8 192.0,196.1 194.2,194.2 194.2,194.2 196.1,192.0 197.8,189.7 199.1,187.3 200.2,184.8 200.9,182.2 201.4,179.4 201.5,176.5 201.5,176.5 201.5,152.6 201.5,101.5 201.5,101.5 201.5,50.4 201.5,26.5 201.5,26.5 201.4,23.6 200.9,20.8 200.2,18.2 199.1,15.7 197.8,13.3 196.1,11.0 194.2,8.8 194.2,8.8 192.0,6.9 189.7,5.2 187.3,3.9 184.8,2.8 182.2,2.1 179.4,1.6 176.5,1.5 176.5,1.5 152.6,1.5 101.5,1.5 101.5,1.5 50.4,1.5 26.5,1.5 26.5,1.5 23.6,1.6 20.8,2.1 18.2,2.8 15.7,3.9 13.3,5.2 11.0,6.9 8.8,8.8 8.8,8.8 6.9,11.0 5.2,13.3 3.9,15.7 2.8,18.2 2.1,20.8 1.6,23.6 1.5,26.5 1.5,26.5 1.5,50.4 1.5,101.5 1.5,101.5 1.5,152.6 1.5,176.5 1.5,176.5 1.6,179.4 2.1,182.2 2.8,184.8 3.9,187.3 5.2,189.7 6.9,192.0" fill-opacity="0" stroke="#808080" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="91.5,141.5 91.4,138.9 91.1,136.4 90.5,133.8 89.7,131.4 88.8,129.0 87.6,126.7 86.2,124.5 84.7,122.4 82.9,120.5 81.1,118.8 79.0,117.2 76.9,115.7 74.6,114.5 72.2,113.5 69.8,112.7 67.3,112.1 64.7,111.7 62.1,111.5 59.6,111.6 57.0,111.8 54.5,112.3 52.0,113.0 49.6,114.0 47.3,115.1 45.0,116.4 42.9,117.9 41.0,119.6 39.2,121.5 37.5,123.5 36.1,125.6 34.8,127.8 33.7,130.2 32.9,132.6 32.2,135.1 31.7,137.6 31.5,140.2 31.5,142.8 31.7,145.4 32.2,147.9 32.9,150.4 33.7,152.8 34.8,155.2 36.1,157.4 37.5,159.5 39.2,161.5 41.0,163.4 42.9,165.1 45.0,166.6 47.3,167.9 49.6,169.0 52.0,170.0 54.5,170.7 57.0,171.2 59.6,171.4 62.1,171.5 64.7,171.3 67.3,170.9 69.8,170.3 72.2,169.5 74.6,168.5 76.9,167.3 79.0,165.8 81.1,164.2 82.9,162.5 84.7,160.6 86.2,158.5 87.6,156.3 88.8,154.0 89.7,151.6 90.5,149.2 91.1,146.6 91.4,144.1" fill="#4C4C4C" stroke-opacity="0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="171.5,141.5 171.4,138.9 171.1,136.4 170.5,133.8 169.7,131.4 168.8,129.0 167.6,126.7 166.2,124.5 164.7,122.4 162.9,120.5 161.1,118.8 159.0,117.2 156.9,115.7 154.6,114.5 152.2,113.5 149.8,112.7 147.3,112.1 144.7,111.7 142.1,111.5 139.6,111.6 137.0,111.8 134.5,112.3 132.0,113.0 129.6,114.0 127.3,115.1 125.0,116.4 122.9,117.9 121.0,119.6 119.2,121.5 117.5,123.5 116.1,125.6 114.8,127.8 113.7,130.2 112.9,132.6 112.2,135.1 111.7,137.6 111.5,140.2 111.5,142.8 111.7,145.4 112.2,147.9 112.9,150.4 113.7,152.8 114.8,155.2 116.1,157.4 117.5,159.5 119.2,161.5 121.0,163.4 122.9,165.1 125.0,166.6 127.3,167.9 129.6,169.0 132.0,170.0 134.5,170.7 137.0,171.2 139.6,171.4 142.1,171.5 144.7,171.3 147.3,170.9 149.8,170.3 152.2,169.5 154.6,168.5 156.9,167.3 159.0,165.8 161.1,164.2 162.9,162.5 164.7,160.6 166.2,158.5 167.6,156.3 168.8,154.0 169.7,151.6 170.5,149.2 171.1,146.6 171.4,144.1" fill="#000000" stroke-opacity="0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="171.5,61.5 171.4,58.9 171.1,56.4 170.5,53.8 169.7,51.4 168.8,49.0 167.6,46.7 166.2,44.5 164.7,42.4 162.9,40.5 161.1,38.8 159.0,37.2 156.9,35.7 154.6,34.5 152.2,33.5 149.8,32.7 147.3,32.1 144.7,31.7 142.1,31.5 139.6,31.6 137.0,31.8 134.5,32.3 132.0,33.0 129.6,34.0 127.3,35.1 125.0,36.4 122.9,37.9 121.0,39.6 119.2,41.5 117.5,43.5 116.1,45.6 114.8,47.8 113.7,50.2 112.9,52.6 112.2,55.1 111.7,57.6 111.5,60.2 111.5,62.8 111.7,65.4 112.2,67.9 112.9,70.4 113.7,72.8 114.8,75.2 116.1,77.4 117.5,79.5 119.2,81.5 121.0,83.4 122.9,85.1 125.0,86.6 127.3,87.9 129.6,89.0 132.0,90.0 134.5,90.7 137.0,91.2 139.6,91.4 142.1,91.5 144.7,91.3 147.3,90.9 149.8,90.3 152.2,89.5 154.6,88.5 156.9,87.3 159.0,85.8 161.1,84.2 162.9,82.5 164.7,80.6 166.2,78.5 167.6,76.3 168.8,74.0 169.7,71.6 170.5,69.2 171.1,66.6 171.4,64.1" fill="#808080" stroke-opacity="0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="91.5,61.5 91.4,58.9 91.1,56.4 90.5,53.8 89.7,51.4 88.8,49.0 87.6,46.7 86.2,44.5 84.7,42.4 82.9,40.5 81.1,38.8 79.0,37.2 76.9,35.7 74.6,34.5 72.2,33.5 69.8,32.7 67.3,32.1 64.7,31.7 62.1,31.5 59.6,31.6 57.0,31.8 54.5,32.3 52.0,33.0 49.6,34.0 47.3,35.1 45.0,36.4 42.9,37.9 41.0,39.6 39.2,41.5 37.5,43.5 36.1,45.6 34.8,47.8 33.7,50.2 32.9,52.6 32.2,55.1 31.7,57.6 31.5,60.2 31.5,62.8 31.7,65.4 32.2,67.9 32.9,70.4 33.7,72.8 34.8,75.2 36.1,77.4 37.5,79.5 39.2,81.5 41.0,83.4 42.9,85.1 45.0,86.6 47.3,87.9 49.6,89.0 52.0,90.0 54.5,90.7 57.0,91.2 59.6,91.4 62.1,91.5 64.7,91.3 67.3,90.9 69.8,90.3 72.2,89.5 74.6,88.5 76.9,87.3 79.0,85.8 81.1,84.2 82.9,82.5 84.7,80.6 86.2,78.5 87.6,76.3 88.8,74.0 89.7,71.6 90.5,69.2 91.1,66.6 91.4,64.1" fill="#FFFFFF" stroke="#808080" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 	</g>
 </svg>

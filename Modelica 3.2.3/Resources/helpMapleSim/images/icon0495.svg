@@ -1,24 +1,28 @@
-<svg width="223" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Digital.Examples.Utilities.HalfAdder" class="component">
-		<polygon points="21.5,201.5 201.5,201.5 201.5,1.5 21.5,1.5" fill="#FFFFAA" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+<svg width="225" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.Digital.Examples.Utilities.FullAdder" class="component">
+		<polygon points="21.5,201.5 201.5,201.5 201.5,1.5 21.5,1.5" fill="#FFFFAA" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		<text x="36.5" y="41.4" text-anchor="middle" fill="#000000" font-size="26.6px" font-family="sans-serif">a</text>
-		<text x="36.5" y="181.4" text-anchor="middle" fill="#000000" font-size="26.6px" font-family="sans-serif">b</text>
+		<text x="36.5" y="81.4" text-anchor="middle" fill="#000000" font-size="26.6px" font-family="sans-serif">b</text>
+		<text x="36.5" y="176.7" text-anchor="middle" fill="#000000" font-size="13.3px" font-family="sans-serif">c_in</text>
+		<text x="186.5" y="176.6" text-anchor="middle" fill="#000000" font-size="13.0px" font-family="sans-serif">c_out</text>
 		<text x="186.5" y="41.4" text-anchor="middle" fill="#000000" font-size="26.6px" font-family="sans-serif">s</text>
-		<text x="186.5" y="181.4" text-anchor="middle" fill="#000000" font-size="26.6px" font-family="sans-serif">c</text>
 		<text x="111.5" y="98.8" text-anchor="middle" fill="#000000" font-size="132.8px" font-family="sans-serif">+</text>
-		<polyline points="51.5,1.5 51.5,201.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="171.5,1.5 171.5,201.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="51.5,1.5 51.5,201.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="171.5,1.5 171.5,201.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<g id="a" class="port">
+			<polygon points="21.5,21.5 1.5,21.5 1.5,41.5 21.5,41.5" fill="#7F007F" stroke="#7F007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
 		<g id="b" class="port">
-			<polygon points="1.5,181.5 21.5,181.5 21.5,161.5 1.5,161.5" fill="#7F007F" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="21.5,61.5 1.5,61.5 1.5,81.5 21.5,81.5" fill="#7F007F" stroke="#7F007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
+		<g id="c_in" class="port">
+			<polygon points="21.5,161.5 1.5,161.5 1.5,181.5 21.5,181.5" fill="#7F007F" stroke="#7F007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="s" class="port">
-			<polygon points="201.5,21.5 221.5,31.5 201.5,41.5" fill="#FFFFFF" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="201.5,41.5 223.5,31.5 201.5,21.5" fill="#FFFFFF" stroke="#7F007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
-		<g id="a" class="port">
-			<polygon points="1.5,41.5 21.5,41.5 21.5,21.5 1.5,21.5" fill="#7F007F" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="c" class="port">
-			<polygon points="201.5,161.5 221.5,171.5 201.5,181.5" fill="#FFFFFF" stroke="#7F007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="c_out" class="port">
+			<polygon points="201.5,181.5 221.5,171.5 201.5,161.5" fill="#FFFFFF" stroke="#7F007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

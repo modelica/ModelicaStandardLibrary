@@ -20,7 +20,7 @@ td code, th code { font-size: 13px }
 hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
 </style>
 <body>
-<a name="Frames"><h1><embed class="icon" src="../../../images/icon1088.svg" width="203" height="203" />
+<a name="Frames"><h1><embed class="icon" src="../../../images/icon1082.svg" width="203" height="203" />
 Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;Frames<br><span class="subtitle">Functions to transform rotational frame quantities</span></h1></a>
 <h3>Information</h3>
 <p>
@@ -236,7 +236,7 @@ The used variables have the following declaration:
 <tr><td><a href="#to_vector"><code>to_vector</code></a></td><td>Map rotation object into vector</td></tr>
 <tr><td><a href="../../../Mechanics/MultiBody/Frames/TransformationMatrices/index.html"><code>TransformationMatrices</code></a> &hellip;</td><td>Functions for transformation matrices</td></tr>
 </table>
-<hr><a name="Orientation"><h2><embed class="icon" src="../../../images/icon0566.svg" width="203" height="203" />
+<hr><a name="Orientation"><h2><embed class="icon" src="../../../images/icon0563.svg" width="203" height="203" />
 Record <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Frames</a>.&#8203;Orientation<br><span class="subtitle">Orientation object defining rotation from a frame 1 into a frame 2</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -961,8 +961,8 @@ R = Frames.<strong>from_nxy</strong>(n_x, n_y);
 <h4>Description</h4>
 <p>
 It is assumed that the two input vectors n_x and n_y are
-resolved in frame&nbsp;1 and are directed along the x and y axis
-of frame&nbsp;2 (i.e., n_x and n_y are orthogonal to each other)
+resolved in frame&nbsp;1 and are directed along the&nbsp;x and y&nbsp;axis
+of frame&nbsp;2 (i.e., n_x and n_y are orthogonal to each other).
 The function returns the orientation object&nbsp;R to rotate from
 frame&nbsp;1 to frame&nbsp;2.
 </p>
@@ -1005,15 +1005,15 @@ R = Frames.<strong>from_nxz</strong>(n_x, n_z);
 <h4>Description</h4>
 <p>
 It is assumed that the two input vectors n_x and n_z are
-resolved in frame 1 and are directed along the x and z axis
-of frame 2 (i.e., n_x and n_z are orthogonal to each other).
+resolved in frame&nbsp;1 and are directed along the&nbsp;x and z&nbsp;axis
+of frame&nbsp;2 (i.e., n_x and n_z are orthogonal to each other).
 The function returns the
 <a href="index.html#Orientation">orientation object</a>&nbsp;R
-to rotate from frame 1 to frame 2.
+to rotate from frame&nbsp;1 to frame&nbsp;2.
 </p>
 <p>
 The function is robust in the sense that it always returns
-an orientation object R, even if n_z is not orthogonal to n_x.
+an orientation object&nbsp;R, even if n_z is not orthogonal to n_x.
 This is performed in the following way:
 <br>
 If n_x and n_z are not orthogonal to each other, first a unit
@@ -1373,5 +1373,5 @@ A unit vector&nbsp;e is returned depending on whether x-, y-, or z-axis is requi
 <tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code>Real</code></td><td><code>e[3]</code></td><td>Unit axis vector</td></tr>
 </table>
 <hr style="border-color:#999" />
-<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-22 14:47:31 EDT by <i>MapleSim</i>.</p>
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-12-12 12:12:44 EST by <a href="http://maplesim.com"><i>MapleSim</i></a>.</p>
 </body></html>

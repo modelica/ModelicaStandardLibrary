@@ -1,15 +1,14 @@
 <svg width="223" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Analog.Examples.Utilities.NonlinearResistor" class="component">
-		<polygon points="41.5,131.5 181.5,131.5 181.5,71.5 41.5,71.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="21.5,101.5 41.5,101.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="181.5,101.5 201.5,101.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="61.5,161.5 161.5,41.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="161.5,41.5 149.5,49.5 155.5,55.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<g id="p" class="port">
-			<polygon points="1.5,111.5 21.5,111.5 21.5,91.5 1.5,91.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+	<g id="p" class="port">
+		<polygon points="1.5,135.5 21.5,135.5 21.5,115.5 1.5,115.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<g id="n1" class="port">
+			<polygon points="201.5,115.5 221.5,115.5 221.5,95.5 201.5,95.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
-		<g id="n" class="port">
-			<polygon points="221.5,111.5 201.5,111.5 201.5,91.5 221.5,91.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="n2" class="port">
+			<polygon points="201.5,161.5 221.5,161.5 221.5,141.5 201.5,141.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
+		<g id="control" class="port">
+			<polygon points="135.5,75.5 155.5,75.5 155.5,55.5 135.5,55.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

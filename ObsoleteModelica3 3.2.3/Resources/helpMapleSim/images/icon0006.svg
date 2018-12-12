@@ -1,13 +1,13 @@
 <svg width="283" height="207" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 	<g id="ObsoleteModelica3.Blocks.Math.TwoInputs" class="component">
-		<polygon points="41.2,203.5 241.2,203.5 241.2,3.5 41.2,3.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="39.2,205.5 243.2,205.5 243.2,1.5 39.2,1.5" fill-opacity="0" stroke="#FF0000" stroke-dasharray="3 4" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="41.2,203.5 241.2,203.5 241.2,3.5 41.2,3.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="39.2,205.5 243.2,205.5 243.2,1.5 39.2,1.5" fill-opacity="0" stroke="#FF0000" stroke-dasharray="3 4" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		<text x="141.2" y="150.8" text-anchor="middle" fill="#00007F" font-size="132.8px" font-family="sans-serif">=</text>
 		<g id="u1" class="port">
-			<polygon points="1.5,83.5 41.2,103.0 1.5,122.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="1.5,83.5 41.2,103.0 1.5,122.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="u2" class="port">
-			<polygon points="281.2,123.5 241.2,103.5 281.2,83.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="281.2,123.5 241.2,103.5 281.2,83.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

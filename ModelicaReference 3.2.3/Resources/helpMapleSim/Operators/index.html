@@ -427,7 +427,7 @@ If a user wants to avoid events entirely, he/she may enclose the right-hand side
 Equations like (2) might be used for monitoring purposes (e.g. plots), in order to inspect what the <em>actual</em> enthalpy of the fluid flowing through a port is.
 In this case, the user will probably want to see the change due to flow reversal at the exact instant, so an event should be generated.
 If the user does not bother, then he/she should enclose the right-hand side of (2) with  <code><strong>noEvent()</strong></code>.
-Since the output of <code><strong>actualStream()</strong></code> will be discontinuous, it should not be used by itself to model physical behaviour (e.g., to compute densities used in momentum balances) -  <code><strong>inStream()</strong></code> should be used for this purpose.The operator  <code><strong>actualStream()</strong></code> should be used to model physical behaviour only when multiplied by the corresponding flow variable (like in the above energy balance equation), because this removes the discontinuity.
+Since the output of <code><strong>actualStream()</strong></code> will be discontinuous, it should not be used by itself to model physical behaviour (e.g., to compute densities used in momentum balances) -  <code><strong>inStream()</strong></code> should be used for this purpose. The operator  <code><strong>actualStream()</strong></code> should be used to model physical behaviour only when multiplied by the corresponding flow variable (like in the above energy balance equation), because this removes the discontinuity.
 </p>
 <p>Extends from <code><a href="../Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
 <hr><a name="'array()'"><h2><embed class="icon" src="../images/icon0001.svg" width="203" height="203" />
@@ -2748,5 +2748,5 @@ elements equal to zero (ni >= 0).
 </p>
 <p>Extends from <code><a href="../Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
 <hr style="border-color:#999" />
-<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-22 14:49:36 EDT by <i>MapleSim</i>.</p>
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-12-12 12:14:38 EST by <a href="http://maplesim.com"><i>MapleSim</i></a>.</p>
 </body></html>

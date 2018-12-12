@@ -1,11 +1,11 @@
 <svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Math.sinh" class="component">
-		<polygon points="1.5,201.5 201.5,201.5 201.5,1.5 1.5,1.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="101.5,181.5 101.5,33.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="101.5,11.5 93.5,33.5 109.5,33.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="11.5,101.5 169.5,101.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="191.5,101.5 169.5,93.5 169.5,109.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="21.5,181.5 25.5,166.9 30.3,152.9 36.0,140.3 42.4,129.6 50.4,120.2 60.1,112.9 73.8,107.0 97.1,102.2 126.0,96.9 140.5,91.4 150.9,84.3 159.0,75.6 165.4,65.7 171.0,54.1 175.9,41.1 179.9,27.7 181.5,21.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="49.5" y="60.6" text-anchor="middle" fill="#C0C0C0" font-size="41.4px" font-family="sans-serif">sinh</text>
+	<g id="Modelica.Math.log10" class="component">
+		<polygon points="1.5,201.5 201.5,201.5 201.5,1.5 1.5,1.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="21.5,181.5 21.5,33.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="21.5,11.5 13.5,33.5 29.5,33.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="11.5,101.5 169.5,101.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="191.5,101.5 169.5,93.5 169.5,109.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="21.7,181.5 22.3,152.1 23.1,138.5 23.9,129.5 24.7,122.8 26.3,112.9 28.7,102.8 32.0,93.4 36.8,83.6 44.0,73.5 54.5,63.4 69.7,53.4 91.4,43.5 123.6,33.5 170.2,23.4 181.5,21.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<text x="116.5" y="157.0" text-anchor="middle" fill="#C0C0C0" font-size="38.0px" font-family="sans-serif">log10</text>
 	</g>
 </svg>

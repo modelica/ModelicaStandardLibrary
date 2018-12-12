@@ -20,7 +20,7 @@ td code, th code { font-size: 13px }
 hr { border: 0; border-bottom: 1px dotted darkred; clear: right }
 </style>
 <body>
-<a name="Sensors"><h1><embed class="icon" src="../../../images/icon0459.svg" width="203" height="203" />
+<a name="Sensors"><h1><embed class="icon" src="../../../images/icon0458.svg" width="203" height="203" />
 Package <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;Sensors<br><span class="subtitle">Sensors to measure variables</span></h1></a>
 <h3>Information</h3>
 <p>
@@ -56,7 +56,7 @@ coordinate system.
 <tr><td><a href="#TransformAbsoluteVector"><code>TransformAbsoluteVector</code></a></td><td>Transform absolute vector in to another frame</td></tr>
 <tr><td><a href="#TransformRelativeVector"><code>TransformRelativeVector</code></a></td><td>Transform relative vector in to another frame</td></tr>
 </table>
-<hr><a name="AbsoluteSensor"><h2><embed class="icon" src="../../../images/icon1147.svg" width="223" height="223" />
+<hr><a name="AbsoluteSensor"><h2><embed class="icon" src="../../../images/icon1141.svg" width="223" height="223" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;AbsoluteSensor<br><span class="subtitle">Measure absolute kinematic quantities of frame connector</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -193,7 +193,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 <tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Coordinate system a of which the absolute kinematic quantities are measured</td></tr>
 <tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_resolve">Frame_resolve</a></code></td><td><code>frame_resolve</code></td><td>If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the output signals are resolved in this frame</td></tr>
 </table>
-<hr><a name="RelativeSensor"><h2><embed class="icon" src="../../../images/icon1148.svg" width="223" height="223" />
+<hr><a name="RelativeSensor"><h2><embed class="icon" src="../../../images/icon1142.svg" width="223" height="223" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;RelativeSensor<br><span class="subtitle">Measure relative kinematic quantities between two frame connectors</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -349,7 +349,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 <tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>w_rel[3]</code></td><td>Relative angular velocity vector</td></tr>
 <tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>z_rel[3]</code></td><td>Relative angular acceleration vector</td></tr>
 </table>
-<hr><a name="AbsolutePosition"><h2><embed class="icon" src="../../../images/icon1149.svg" width="228" height="208" />
+<hr><a name="AbsolutePosition"><h2><embed class="icon" src="../../../images/icon1143.svg" width="228" height="208" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;AbsolutePosition<br><span class="subtitle">Measure absolute position vector of the origin of a frame connector</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -403,7 +403,7 @@ r = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0);
 <tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>r[3]</code></td><td>Absolute position vector resolved in frame defined by resolveInFrame</td></tr>
 <tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_resolve">Frame_resolve</a></code></td><td><code>frame_resolve</code></td><td>Coordinate system in which output vector r is optionally resolved</td></tr>
 </table>
-<hr><a name="AbsoluteVelocity"><h2><embed class="icon" src="../../../images/icon1150.svg" width="228" height="208" />
+<hr><a name="AbsoluteVelocity"><h2><embed class="icon" src="../../../images/icon1144.svg" width="228" height="208" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;AbsoluteVelocity<br><span class="subtitle">Measure absolute velocity vector of origin of frame connector</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -458,7 +458,7 @@ v  = MultiBody.Frames.resolve2(frame_a.R, v0);
 <tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>v[3]</code></td><td>Absolute velocity vector resolved in frame defined by resolveInFrame</td></tr>
 <tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_resolve">Frame_resolve</a></code></td><td><code>frame_resolve</code></td><td>Coordinate system in which output vector v is optionally resolved</td></tr>
 </table>
-<hr><a name="AbsoluteAngles"><h2><embed class="icon" src="../../../images/icon1151.svg" width="228" height="203" />
+<hr><a name="AbsoluteAngles"><h2><embed class="icon" src="../../../images/icon1145.svg" width="228" height="203" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;AbsoluteAngles<br><span class="subtitle">Measure absolute angles between frame connector and the world frame</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -507,7 +507,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 <tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_a">Frame_a</a></code></td><td><code>frame_a</code></td><td>Coordinate system a of which the absolute kinematic quantities are measured</td></tr>
 <tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>angles[3]</code></td><td>Angles to rotate world frame into frame_a via 'sequence'</td></tr>
 </table>
-<hr><a name="AbsoluteAngularVelocity"><h2><embed class="icon" src="../../../images/icon1152.svg" width="228" height="208" />
+<hr><a name="AbsoluteAngularVelocity"><h2><embed class="icon" src="../../../images/icon1146.svg" width="228" height="208" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;AbsoluteAngularVelocity<br><span class="subtitle">Measure absolute angular velocity of frame connector</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -562,7 +562,7 @@ w = MultiBody.Frames.angularVelocity2(frame_a.R);
 <tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>w[3]</code></td><td>Absolute angular velocity vector of frame_a with respect to world frame, resolved in frame defined by resolveInFrame</td></tr>
 <tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_resolve">Frame_resolve</a></code></td><td><code>frame_resolve</code></td><td>Coordinate system in which w is optionally resolved</td></tr>
 </table>
-<hr><a name="RelativePosition"><h2><embed class="icon" src="../../../images/icon1153.svg" width="213" height="223" />
+<hr><a name="RelativePosition"><h2><embed class="icon" src="../../../images/icon1147.svg" width="213" height="223" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;RelativePosition<br><span class="subtitle">Measure relative position vector between the origins of two frame connectors</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -620,7 +620,7 @@ r_rel = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
 <tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>r_rel[3]</code></td><td>Relative position vector resolved in frame defined by resolveInFrame</td></tr>
 <tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_resolve">Frame_resolve</a></code></td><td><code>frame_resolve</code></td><td>Coordinate system in which r_rel is optionally resolved</td></tr>
 </table>
-<hr><a name="RelativeVelocity"><h2><embed class="icon" src="../../../images/icon1153.svg" width="213" height="223" />
+<hr><a name="RelativeVelocity"><h2><embed class="icon" src="../../../images/icon1147.svg" width="213" height="223" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;RelativeVelocity<br><span class="subtitle">Measure relative velocity vector between the origins of two frame connectors</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -686,7 +686,7 @@ v_rel   = MultiBody.Frames.resolveRelative(frame_a.R, frame_b.R, v_rel_a);
 <tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>v_rel[3]</code></td><td>Relative velocity vector resolved in frame defined by resolveInFrame</td></tr>
 <tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_resolve">Frame_resolve</a></code></td><td><code>frame_resolve</code></td><td>Coordinate system in which v_rel is optionally resolved</td></tr>
 </table>
-<hr><a name="RelativeAngles"><h2><embed class="icon" src="../../../images/icon1154.svg" width="213" height="223" />
+<hr><a name="RelativeAngles"><h2><embed class="icon" src="../../../images/icon1148.svg" width="213" height="223" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;RelativeAngles<br><span class="subtitle">Measure relative angles between two frame connectors</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -736,7 +736,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 <tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system b</td></tr>
 <tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>angles[3]</code></td><td>Angles to rotate frame_a into frame_b via 'sequence'</td></tr>
 </table>
-<hr><a name="RelativeAngularVelocity"><h2><embed class="icon" src="../../../images/icon1153.svg" width="213" height="223" />
+<hr><a name="RelativeAngularVelocity"><h2><embed class="icon" src="../../../images/icon1147.svg" width="213" height="223" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;RelativeAngularVelocity<br><span class="subtitle">Measure relative angular velocity between two frame connectors</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -798,7 +798,7 @@ w_rel = MultiBody.Frames.angularVelocity1(R_rel);
 <tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>w_rel[3]</code></td><td>Relative angular velocity vector between frame_a and frame_b resolved in frame defined by resolveInFrame</td></tr>
 <tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_resolve">Frame_resolve</a></code></td><td><code>frame_resolve</code></td><td>Coordinate system in which w_rel is optionally resolved</td></tr>
 </table>
-<hr><a name="Distance"><h2><embed class="icon" src="../../../images/icon1155.svg" width="213" height="223" />
+<hr><a name="Distance"><h2><embed class="icon" src="../../../images/icon1149.svg" width="213" height="223" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;Distance<br><span class="subtitle">Measure the distance between the origins of two frame connectors</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -849,7 +849,7 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
 <tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
 <tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>distance</code></td><td>Distance between the origin of frame_a and the origin of frame_b</td></tr>
 </table>
-<hr><a name="CutForce"><h2><embed class="icon" src="../../../images/icon1156.svg" width="213" height="223" />
+<hr><a name="CutForce"><h2><embed class="icon" src="../../../images/icon1150.svg" width="213" height="223" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;CutForce<br><span class="subtitle">Measure cut force vector</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -909,7 +909,7 @@ with negative sign at frame_a.
 <tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system b</td></tr>
 <tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_resolve">Frame_resolve</a></code></td><td><code>frame_resolve</code></td><td>Output vectors are optionally resolved in this frame (cut-force/-torque are set to zero)</td></tr>
 </table>
-<hr><a name="CutTorque"><h2><embed class="icon" src="../../../images/icon1156.svg" width="213" height="223" />
+<hr><a name="CutTorque"><h2><embed class="icon" src="../../../images/icon1150.svg" width="213" height="223" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;CutTorque<br><span class="subtitle">Measure cut torque vector</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -969,7 +969,7 @@ with negative sign at frame_a.
 <tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system b</td></tr>
 <tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_resolve">Frame_resolve</a></code></td><td><code>frame_resolve</code></td><td>Output vectors are optionally resolved in this frame (cut-force/-torque are set to zero)</td></tr>
 </table>
-<hr><a name="CutForceAndTorque"><h2><embed class="icon" src="../../../images/icon1157.svg" width="213" height="223" />
+<hr><a name="CutForceAndTorque"><h2><embed class="icon" src="../../../images/icon1151.svg" width="213" height="223" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;CutForceAndTorque<br><span class="subtitle">Measure cut force and cut torque vector</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -1032,7 +1032,7 @@ with negative sign at frame_a.
 <tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system b</td></tr>
 <tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_resolve">Frame_resolve</a></code></td><td><code>frame_resolve</code></td><td>Output vectors are optionally resolved in this frame (cut-force/-torque are set to zero)</td></tr>
 </table>
-<hr><a name="Power"><h2><embed class="icon" src="../../../images/icon1158.svg" width="213" height="223" />
+<hr><a name="Power"><h2><embed class="icon" src="../../../images/icon1152.svg" width="213" height="223" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;Power<br><span class="subtitle">Measure power flowing from frame_a to frame_b</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -1048,7 +1048,7 @@ as output signal <strong>power</strong>.
 <tr><td><code><a href="../../../Mechanics/MultiBody/Interfaces/index.html#Frame_b">Frame_b</a></code></td><td><code>frame_b</code></td><td>Coordinate system b fixed to the component with one cut-force and cut-torque</td></tr>
 <tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>power</code></td><td>Power at frame_a as output signal</td></tr>
 </table>
-<hr><a name="TransformAbsoluteVector"><h2><embed class="icon" src="../../../images/icon1159.svg" width="213" height="263" />
+<hr><a name="TransformAbsoluteVector"><h2><embed class="icon" src="../../../images/icon1153.svg" width="213" height="263" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;TransformAbsoluteVector<br><span class="subtitle">Transform absolute vector in to another frame</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -1073,7 +1073,7 @@ transformed output vector as "Real r_out[3]";
 <tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>r_in[3]</code></td><td>Input vector resolved in frame defined by frame_r_in</td></tr>
 <tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>r_out[3]</code></td><td>Input vector r_in resolved in frame defined by frame_r_out</td></tr>
 </table>
-<hr><a name="TransformRelativeVector"><h2><embed class="icon" src="../../../images/icon1160.svg" width="213" height="263" />
+<hr><a name="TransformRelativeVector"><h2><embed class="icon" src="../../../images/icon1154.svg" width="213" height="263" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;TransformRelativeVector<br><span class="subtitle">Transform relative vector in to another frame</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -1100,7 +1100,7 @@ transformed output vector as "Real r_out[3]";
 <tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>r_in[3]</code></td><td>Input vector resolved in frame defined by frame_r_in</td></tr>
 <tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>r_out[3]</code></td><td>Input vector r_in resolved in frame defined by frame_r_out</td></tr>
 </table>
-<hr><a name="TansformAbsoluteVector"><h2><embed class="icon" src="../../../images/icon1172.svg" width="213" height="263" />
+<hr><a name="TansformAbsoluteVector"><h2><embed class="icon" src="../../../images/icon1166.svg" width="213" height="263" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;TansformAbsoluteVector<br><span class="subtitle">Obsolete model will be removed in future versions, use TransformAbsoluteVector instead!</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -1119,7 +1119,7 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 <tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>r_in[3]</code></td><td>Input vector resolved in frame defined by frame_r_in</td></tr>
 <tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>r_out[3]</code></td><td>Input vector r_in resolved in frame defined by frame_r_out</td></tr>
 </table>
-<hr><a name="TansformRelativeVector"><h2><embed class="icon" src="../../../images/icon1173.svg" width="213" height="263" />
+<hr><a name="TansformRelativeVector"><h2><embed class="icon" src="../../../images/icon1167.svg" width="213" height="263" />
 Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.html">Mechanics</a>.&#8203;<a href="../index.html">MultiBody</a>.&#8203;<a href="index.html">Sensors</a>.&#8203;TansformRelativeVector<br><span class="subtitle">Obsolete model will be removed in future versions, use TransformRelativeVector instead!</span></h2></a>
 <h3>Information</h3>
 <p>
@@ -1140,5 +1140,5 @@ Model <a href="../../../index.html">Modelica</a>.&#8203;<a href="../../index.htm
 <tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../Blocks/Interfaces/index.html#RealOutput">RealOutput</a></code></td><td><code>r_out[3]</code></td><td>Input vector r_in resolved in frame defined by frame_r_out</td></tr>
 </table>
 <hr style="border-color:#999" />
-<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-22 14:47:42 EDT by <i>MapleSim</i>.</p>
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-12-12 12:12:54 EST by <a href="http://maplesim.com"><i>MapleSim</i></a>.</p>
 </body></html>

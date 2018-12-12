@@ -1,22 +1,21 @@
-<svg width="223" height="223" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Spice3.Semiconductors.M_NMOS" class="component">
-		<polyline points="111.5,19.5 111.5,71.5 99.5,71.5 99.5,151.5 111.5,151.5 111.5,205.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="19.5,111.5 91.5,111.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="99.5,111.5 205.5,111.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="91.5,71.5 91.5,151.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="161.5" y="180.4" text-anchor="middle" fill="#0000FF" font-size="23.9px" font-family="sans-serif">M_NMOS</text>
-		<polygon points="151.5,111.5 171.5,106.5 171.5,116.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<g id="G" class="port">
-			<polygon points="1.5,123.5 21.5,123.5 21.5,101.5 1.5,101.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+<svg width="219" height="223" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.Spice3.Semiconductors.Q_NPNBJT" class="component">
+		<polyline points="87.5,51.5 87.5,171.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="87.5,111.5 21.5,111.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="141.5,17.5 87.5,71.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="87.5,151.5 139.5,203.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="115.5,179.5 109.5,166.5 103.5,173.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<g id="B" class="port">
+			<polygon points="1.5,121.5 21.5,121.5 21.5,101.5 1.5,101.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
-		<g id="D" class="port">
-			<polygon points="101.5,21.5 121.5,21.5 121.5,1.5 101.5,1.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="C" class="port">
+			<polygon points="127.5,21.5 147.5,21.5 147.5,1.5 127.5,1.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
+		<g id="E" class="port">
+			<polygon points="127.5,221.5 147.5,221.5 147.5,201.5 127.5,201.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="S" class="port">
-			<polygon points="101.5,221.5 121.5,221.5 121.5,201.5 101.5,201.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="B" class="port">
-			<polygon points="201.5,121.5 221.5,121.5 221.5,101.5 201.5,101.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="197.5,121.5 217.5,121.5 217.5,101.5 197.5,101.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

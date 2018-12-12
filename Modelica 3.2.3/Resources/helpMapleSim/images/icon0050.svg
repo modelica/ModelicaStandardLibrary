@@ -1,5 +1,5 @@
 <svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 	<g id="Modelica.Blocks.Interfaces.RealOutput" class="component">
-		<polygon points="1.5,1.5 201.5,101.5 1.5,201.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="1.5,1.5 201.5,101.5 1.5,201.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 	</g>
 </svg>

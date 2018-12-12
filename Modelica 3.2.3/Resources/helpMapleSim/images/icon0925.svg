@@ -1,26 +1,42 @@
-<svg width="223" height="223" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid" class="component">
-		<polygon points="21.5,211.5 201.5,211.5 201.5,11.5 21.5,11.5" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="107.5,141.5 201.5,141.5 201.5,81.5 107.5,81.5" fill="#FF8000" stroke="#FF8000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="21.5,141.5 71.5,141.5 71.5,81.5 21.5,81.5" fill="#FF8000" stroke="#FF8000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="21.5,211.5 31.5,211.5 31.5,11.5 21.5,11.5" fill="#FF8000" stroke="#FF8000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="21.5,21.5 201.5,21.5 201.5,11.5 21.5,11.5" fill="#FF8000" stroke="#FF8000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="21.5,211.5 201.5,211.5 201.5,201.5 21.5,201.5" fill="#FF8000" stroke="#FF8000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="191.5,71.5 201.5,71.5 201.5,11.5 191.5,11.5" fill="#FF8000" stroke="#FF8000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="191.5,211.5 201.5,211.5 201.5,151.5 191.5,151.5" fill="#FF8000" stroke="#FF8000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="41.5,71.5 181.5,71.5 181.5,31.5 41.5,31.5" fill="#FFD5AA" stroke="#FFD5AA" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="41.5,191.5 181.5,191.5 181.5,151.5 41.5,151.5" fill="#FFD5AA" stroke="#FFD5AA" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="115.5,81.5 115.5,79.5 113.5,73.5 107.5,63.5 97.5,51.5 89.5,39.5 87.5,31.5 87.5,21.5" fill-opacity="0" stroke="#FF8000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="133.5,81.5 133.5,79.5 131.5,73.5 125.5,63.5 115.5,51.5 107.5,39.5 105.5,31.5 105.5,21.5" fill-opacity="0" stroke="#FF8000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="151.5,81.5 151.5,79.5 149.5,73.5 143.5,63.5 133.5,51.5 125.5,39.5 123.5,31.5 123.5,21.5" fill-opacity="0" stroke="#FF8000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+<svg width="235" height="223" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter" class="component">
+		<polyline points="87.5,11.5 27.5,11.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="87.5,211.5 27.5,211.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="117.5,31.5 17.5,31.5" fill-opacity="0" stroke="#0000FF" stroke-dasharray="3 4" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="17.5,31.5 17.5,191.5" fill-opacity="0" stroke="#0000FF" stroke-dasharray="3 4" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="117.5,191.5 17.5,191.5" fill-opacity="0" stroke="#0000FF" stroke-dasharray="3 4" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="217.5,31.5 117.5,31.5" fill-opacity="0" stroke="#FF7F00" stroke-dasharray="3 4" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="217.5,191.5 117.5,191.5" fill-opacity="0" stroke="#FF7F00" stroke-dasharray="3 4" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="217.5,31.5 217.5,191.5" fill-opacity="0" stroke="#FF7F00" stroke-dasharray="3 4" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="181.5,111.5 181.4,108.6 181.0,105.7 180.4,102.8 179.5,100.0 178.4,97.3 177.1,94.7 175.5,92.2 173.8,89.9 171.8,87.7 169.7,85.7 167.4,83.9 164.9,82.3 162.3,80.9 159.7,79.7 156.9,78.8 154.0,78.1 151.2,77.7 148.2,77.5 145.3,77.6 142.4,77.9 139.5,78.4 136.7,79.3 134.0,80.3 131.4,81.6 128.8,83.1 126.5,84.8 124.2,86.7 122.2,88.8 120.3,91.0 118.7,93.5 117.2,96.0 116.0,98.7 115.0,101.4 114.3,104.2 113.8,107.1 113.5,110.0 113.5,113.0 113.8,115.9 114.3,118.8 115.0,121.6 116.0,124.3 117.2,127.0 118.7,129.5 120.3,132.0 122.2,134.2 124.2,136.3 126.5,138.2 128.8,139.9 131.4,141.4 134.0,142.7 136.7,143.7 139.5,144.6 142.4,145.1 145.3,145.4 148.2,145.5 151.2,145.3 154.0,144.9 156.9,144.2 159.7,143.3 162.3,142.1 164.9,140.7 167.4,139.1 169.7,137.3 171.8,135.3 173.8,133.1 175.5,130.8 177.1,128.3 178.4,125.7 179.5,123.0 180.4,120.2 181.0,117.3 181.4,114.4" fill-opacity="0" stroke="#FF7F00" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="147.5,211.5 147.5,145.5" fill-opacity="0" stroke="#FF7F00" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="135.5,111.5 159.5,111.5" fill-opacity="0" stroke="#FF7F00" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="159.5,101.5 159.5,123.5" fill-opacity="0" stroke="#FF7F00" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="147.5,77.5 147.5,11.5" fill-opacity="0" stroke="#FF7F00" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="147.5,11.5 207.5,11.5" fill-opacity="0" stroke="#FF7F00" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="147.5,211.5 207.5,211.5" fill-opacity="0" stroke="#FF7F00" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="135.5,101.5 135.5,123.5" fill-opacity="0" stroke="#FF7F00" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="7.5,81.5 7.5,141.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="7.5,141.5 13.5,121.5 1.5,121.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="227.5,79.5 227.5,139.5" fill-opacity="0" stroke="#FF8000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="227.5,139.5 233.5,119.5 221.5,119.5" fill="#FF8000" stroke="#FF8000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="87.5,51.5 90.5,52.0 92.1,52.4 93.8,53.2 95.6,54.4 97.5,56.0 97.5,56.0 98.9,57.5 100.1,59.4 100.9,61.5 101.3,63.8 101.5,66.5 101.5,66.5 101.3,69.2 100.9,71.5 100.1,73.6 98.9,75.5 97.5,77.0 97.5,77.0 95.6,78.6 93.8,79.8 92.1,80.6 90.5,81.0 87.5,81.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="87.5,81.5 90.5,82.0 92.1,82.4 93.8,83.2 95.6,84.4 97.5,86.0 97.5,86.0 98.9,87.5 100.1,89.4 100.9,91.5 101.3,93.8 101.5,96.5 101.5,96.5 101.3,99.2 100.9,101.5 100.1,103.6 98.9,105.5 97.5,107.0 97.5,107.0 95.6,108.6 93.8,109.8 92.1,110.6 90.5,111.0 87.5,111.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="87.5,111.5 90.5,112.0 92.1,112.4 93.8,113.2 95.6,114.4 97.5,116.0 97.5,116.0 98.9,117.5 100.1,119.4 100.9,121.5 101.3,123.8 101.5,126.5 101.5,126.5 101.3,129.2 100.9,131.5 100.1,133.6 98.9,135.5 97.5,137.0 97.5,137.0 95.6,138.6 93.8,139.8 92.1,140.6 90.5,141.0 87.5,141.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="87.5,141.5 90.5,142.0 92.1,142.4 93.8,143.2 95.6,144.4 97.5,146.0 97.5,146.0 98.9,147.5 100.1,149.4 100.9,151.5 101.3,153.8 101.5,156.5 101.5,156.5 101.3,159.2 100.9,161.5 100.1,163.6 98.9,165.5 97.5,167.0 97.5,167.0 95.6,168.6 93.8,169.8 92.1,170.6 90.5,171.0 87.5,171.5" fill-opacity="0" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="87.5,51.5 87.5,11.5" fill-opacity="0" stroke="#1C6CC8" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="87.5,211.5 87.5,171.5" fill-opacity="0" stroke="#1C6CC8" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<g id="port_p" class="port">
+			<polygon points="207.5,21.5 227.5,21.5 227.5,1.5 207.5,1.5" fill="#FF7F00" stroke="#FF7F00" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
+		<g id="port_n" class="port">
+			<polygon points="227.5,221.5 207.5,221.5 207.5,201.5 227.5,201.5" fill="#FFFFFF" stroke="#FF7F00" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
 		<g id="p" class="port">
-			<polygon points="1.5,21.5 21.5,21.5 21.5,1.5 1.5,1.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="27.5,21.5 7.5,21.5 7.5,1.5 27.5,1.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="n" class="port">
-			<polygon points="21.5,221.5 1.5,221.5 1.5,201.5 21.5,201.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="flange" class="port">
-			<polygon points="201.5,121.5 221.5,121.5 221.5,101.5 201.5,101.5" fill="#FFFFFF" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="7.5,221.5 27.5,221.5 27.5,201.5 7.5,201.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

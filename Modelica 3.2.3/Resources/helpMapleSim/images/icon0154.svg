@@ -1,19 +1,19 @@
 <svg width="463" height="243" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 	<g id="Modelica.Blocks.Math.InverseBlockConstraints" class="component">
-		<polyline points="421.5,121.5 441.5,121.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="41.5,121.5 61.5,121.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="51.5,241.5 431.5,241.5 431.5,1.5 51.5,1.5" fill-opacity="0" stroke="#878787" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polyline points="421.5,121.5 441.5,121.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="41.5,121.5 61.5,121.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="51.5,241.5 431.5,241.5 431.5,1.5 51.5,1.5" fill-opacity="0" stroke="#878787" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		<g id="u1" class="port">
-			<polygon points="1.5,101.5 41.5,121.5 1.5,141.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="1.5,101.5 41.5,121.5 1.5,141.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="u2" class="port">
-			<polygon points="101.5,101.5 61.5,121.5 101.5,141.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="101.5,101.5 61.5,121.5 101.5,141.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="y1" class="port">
-			<polygon points="441.5,111.5 461.5,121.5 441.5,131.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="441.5,111.5 461.5,121.5 441.5,131.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="y2" class="port">
-			<polygon points="421.5,111.5 401.5,121.5 421.5,131.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="421.5,111.5 401.5,121.5 421.5,131.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

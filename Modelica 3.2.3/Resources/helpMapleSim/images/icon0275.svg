@@ -1,25 +1,25 @@
 <svg width="223" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 	<g id="Modelica.Blocks.Sources.KinematicPTP2" class="component">
-		<polygon points="1.5,201.5 201.5,201.5 201.5,1.5 1.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="21.5,23.5 21.5,183.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="21.5,11.5 13.5,33.5 29.5,33.5 21.5,13.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="11.5,101.5 118.5,101.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="21.5,101.5 31.5,101.5 31.5,31.5 51.5,31.5 51.5,101.5 86.5,101.5 86.5,171.5 106.5,171.5 106.5,101.5 119.5,101.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="1.5,201.5 201.5,201.5 201.5,1.5 1.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="21.5,23.5 21.5,183.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="21.5,11.5 13.5,33.5 29.5,33.5 21.5,13.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="11.5,101.5 118.5,101.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="21.5,101.5 31.5,101.5 31.5,31.5 51.5,31.5 51.5,101.5 86.5,101.5 86.5,171.5 106.5,171.5 106.5,101.5 119.5,101.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		<text x="165.5" y="28.2" text-anchor="middle" fill="#000000" font-size="30.4px" font-family="sans-serif">q</text>
 		<text x="169.5" y="80.2" text-anchor="middle" fill="#000000" font-size="30.4px" font-family="sans-serif">qd</text>
 		<text x="167.0" y="139.2" text-anchor="middle" fill="#000000" font-size="26.4px" font-family="sans-serif">qdd</text>
 		<text x="134.0" y="192.3" text-anchor="middle" fill="#000000" font-size="22.3px" font-family="sans-serif">moving</text>
 		<g id="q" class="port">
-			<polygon points="201.5,11.5 221.5,21.5 201.5,31.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="201.5,11.5 221.5,21.5 201.5,31.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="qd" class="port">
-			<polygon points="201.5,61.5 221.5,71.5 201.5,81.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="201.5,61.5 221.5,71.5 201.5,81.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="qdd" class="port">
-			<polygon points="201.5,121.5 221.5,131.5 201.5,141.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="201.5,121.5 221.5,131.5 201.5,141.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="moving" class="port">
-			<polygon points="201.5,171.5 221.5,181.5 201.5,191.5" fill="#FFFFFF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="201.5,171.5 221.5,181.5 201.5,191.5" fill="#FFFFFF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

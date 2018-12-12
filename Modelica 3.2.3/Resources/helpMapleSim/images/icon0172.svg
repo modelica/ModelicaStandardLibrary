@@ -1,17 +1,17 @@
 <svg width="263" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 	<g id="Modelica.Blocks.Math.Asin" class="component">
-		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="141.5,11.5 133.5,33.5 149.5,33.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="141.5,181.5 141.5,33.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="61.5,181.5 61.9,177.9 62.2,175.6 62.6,173.5 63.1,171.6 63.1,171.6 63.8,169.7 64.7,167.5 65.9,165.0 65.9,165.0 66.8,163.3 67.8,161.6 68.9,159.8 70.2,158.0 71.6,156.1 71.6,156.1 73.1,154.1 74.9,152.0 76.9,149.8 79.2,147.5 81.6,145.0 81.6,145.0 84.4,142.4 87.6,139.6 91.2,136.6 95.2,133.4 99.6,130.0 99.6,130.0 106.9,124.8 116.8,117.8 129.6,109.2 145.1,99.0 145.1,99.0 160.5,88.7 173.0,80.3 182.4,73.6 189.0,68.7 189.0,68.7 192.8,65.6 196.3,62.6 199.4,59.8 202.2,57.2 204.6,54.8 204.6,54.8 206.4,52.8 208.1,50.9 209.6,49.1 211.0,47.4 212.3,45.7 213.4,44.0 213.4,44.0 214.9,41.8 216.2,39.8 217.2,38.1 217.9,36.6 217.9,36.6 218.5,35.1 219.1,33.1 219.7,30.6 220.3,27.8 221.5,21.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="51.5,101.5 209.5,101.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="231.5,101.5 209.5,93.5 209.5,109.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="141.5,11.5 133.5,33.5 149.5,33.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="141.5,181.5 141.5,33.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="61.5,181.5 61.9,177.9 62.2,175.6 62.6,173.5 63.1,171.6 63.1,171.6 63.8,169.7 64.7,167.5 65.9,165.0 65.9,165.0 66.8,163.3 67.8,161.6 68.9,159.8 70.2,158.0 71.6,156.1 71.6,156.1 73.1,154.1 74.9,152.0 76.9,149.8 79.2,147.5 81.6,145.0 81.6,145.0 84.4,142.4 87.6,139.6 91.2,136.6 95.2,133.4 99.6,130.0 99.6,130.0 106.9,124.8 116.8,117.8 129.6,109.2 145.1,99.0 145.1,99.0 160.5,88.7 173.0,80.3 182.4,73.6 189.0,68.7 189.0,68.7 192.8,65.6 196.3,62.6 199.4,59.8 202.2,57.2 204.6,54.8 204.6,54.8 206.4,52.8 208.1,50.9 209.6,49.1 211.0,47.4 212.3,45.7 213.4,44.0 213.4,44.0 214.9,41.8 216.2,39.8 217.2,38.1 217.9,36.6 217.9,36.6 218.5,35.1 219.1,33.1 219.7,30.6 220.3,27.8 221.5,21.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="51.5,101.5 209.5,101.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="231.5,101.5 209.5,93.5 209.5,109.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		<text x="89.5" y="62.6" text-anchor="middle" fill="#C0C0C0" font-size="41.4px" font-family="sans-serif">asin</text>
 		<g id="u" class="port">
-			<polygon points="1.5,81.5 41.5,101.5 1.5,121.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="1.5,81.5 41.5,101.5 1.5,121.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="y" class="port">
-			<polygon points="241.5,91.5 261.5,101.5 241.5,111.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="241.5,91.5 261.5,101.5 241.5,111.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

@@ -34,8 +34,9 @@ It is based on the
 </p>
 
 <p>
-<strong>Copyright &copy; 2003-2018, Modelica Association, DLR, Dietmar Winkler, and Maplesoft.</strong>
+Copyright &copy; 2003-2018, Modelica Association and contributors
 </p>
+
 <p>
 <em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href="https://modelica.org/licenses/modelica-3-clause-bsd">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
@@ -857,89 +858,181 @@ equivalent to equations in the instantiated parent class are discarded.
 syntactically equivalent are not discarded, hence yield an
 overdetermined system of equations.]</em></p>
 
-<p>Since
-specialized classes of different
-kinds have different properties,
-only specialized classes that are "in some sense
-compatible" to
-each other can be derived from each other via inheritance. The
-following table
-shows which kind of specialized class can be used in an extends clauses
-of
-another kind of specialized class:</p>
+<p>Since specialized classes of different kinds have different properties,
+only specialized classes that are "in some sense compatible" to each other
+can be derived from each other via inheritance. The following table
+shows which kind of specialized class can be used in an extends clause of
+another kind of specialized class (the "grey" cells mark the few exceptional
+cases, where a specialized class can be derived from a specialized class of
+another kind):</p>
 
 <table border="1" cellpadding="1" cellspacing="1" >
+<thead>
 <tr>
-  <td></td><td colspan=7 style="text-align:center"><strong>Base Class</strong></td>
+  <th></th><th colspan="12">Base Class</th>
 </tr>
 <tr>
   <td><strong>Derived Class</strong></td>
   <td>package</td>
+  <td>operator</td>
   <td>function</td>
+  <td>operator function</td>
   <td>type</td>
   <td>record</td>
+  <td>operator record</td>
+  <td>expandable connector</td>
   <td>connector</td>
   <td>block</td>
   <td>model</td>
+  <td>class</td>
 </tr>
+</thead>
+<tbody>
 <tr>
   <td>package</td>
   <td>yes</td>
-  <td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td style="background-color:lightgray">yes</td>
+</tr>
+<tr>
+  <td>operator</td>
+  <td></td>
+  <td>yes</td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td style="background-color:lightgray">yes</td>
 </tr>
 <tr>
   <td>function</td>
   <td></td>
+  <td></td>
   <td>yes</td>
-  <td></td><td></td><td></td><td></td><td></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td style="background-color:lightgray">yes</td>
+</tr>
+<tr>
+  <td>operator<br>function</td>
+  <td></td>
+  <td></td>
+  <td style="background-color:lightgray">yes</td>
+  <td>yes</td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td style="background-color:lightgray">yes</td>
 </tr>
 <tr>
   <td>type</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td>yes</td>
+  <td></td><td></td><td></td><td></td><td></td><td></td>
+  <td style="background-color:lightgray">yes</td>
+</tr>
+<tr>
+  <td>record</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td>yes</td>
+  <td></td><td></td><td></td><td></td><td></td>
+  <td style="background-color:lightgray">yes</td>
+</tr>
+<tr>
+  <td>operator<br>record</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
   <td></td>
   <td></td>
   <td>yes</td>
   <td></td><td></td><td></td><td></td>
+  <td style="background-color:lightgray">yes</td>
 </tr>
 <tr>
-  <td>record</td>
+  <td>exapandable<br>connector</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
   <td></td>
   <td></td>
   <td></td>
   <td>yes</td>
   <td></td><td></td><td></td>
+  <td style="background-color:lightgray">yes</td>
 </tr>
 <tr>
   <td>connector</td>
   <td></td>
   <td></td>
-  <td>yes</td>
-  <td>yes</td>
+  <td></td>
+  <td></td>
+  <td style="background-color:lightgray">yes</td>
+  <td style="background-color:lightgray">yes</td>
+  <td style="background-color:lightgray">yes</td>
+  <td style="background-color:lightgray">yes</td>
   <td>yes</td>
   <td></td><td></td>
+  <td style="background-color:lightgray">yes</td>
 </tr>
 <tr>
   <td>block</td>
   <td></td>
   <td></td>
   <td></td>
-  <td>yes</td>
+  <td></td>
+  <td></td>
+  <td style="background-color:lightgray">yes</td>
+  <td></td>
+  <td></td>
   <td></td>
   <td>yes</td>
   <td></td>
+  <td style="background-color:lightgray">yes</td>
 </tr>
 <tr>
   <td>model</td>
   <td></td>
   <td></td>
   <td></td>
+  <td></td>
+  <td></td>
+  <td style="background-color:lightgray">yes</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td style="background-color:lightgray">yes</td>
   <td>yes</td>
+  <td style="background-color:lightgray">yes</td>
+</tr>
+<tr>
+  <td>class</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
   <td></td>
   <td>yes</td>
-  <td>yes</td>
 </tr>
+</tbody>
 </table>
 
-<p>The specialized classes <code>package</code>,  <code>function</code>,  <code>type</code>, and  <code>record</code> can only be derived from their own kind <em>(e.g., a package can only be base class for packages. All other kinds of classes can use the import statement to use the contents of a package)</em>.</p>
+<p>The specialized classes <code>package</code>, <code>operator</code>,
+<code>function</code>, <code>type</code>, <code>record</code>,
+<code>operator record</code> and <code>expandable connector</code>
+can only be derived from their own kind
+[<em>(e.g., a package can only be base class for packages.
+All other kinds of classes can use the import statement to use the contents
+of a package)</em>] and from <code>class</code>.</p>
 
 <p>Extends from <code><a href="Icons/index.html#Information">ModelicaReference.&#8203;Icons.&#8203;Information</a></code> (Icon for general information packages).</p>
 <hr><a name="'flow'"><h2><embed class="icon" src="images/icon0001.svg" width="203" height="203" />
@@ -2140,5 +2233,5 @@ Class <a href="index.html">ModelicaReference</a>.&#8203;Contact<br><span class="
 
 <p>Extends from <code><a href="Icons/index.html#Contact">ModelicaReference.&#8203;Icons.&#8203;Contact</a></code> (Icon for contact information).</p>
 <hr style="border-color:#999" />
-<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-22 14:49:36 EDT by <i>MapleSim</i>.</p>
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-12-12 12:14:38 EST by <a href="http://maplesim.com"><i>MapleSim</i></a>.</p>
 </body></html>

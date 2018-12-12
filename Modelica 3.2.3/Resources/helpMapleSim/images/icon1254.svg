@@ -1,218 +1,31 @@
-<svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Mechanics.Rotational.Icons.Gear" class="component">
-		<defs>
-			<linearGradient id="cyl2" x1="0" y1="0" x2="0" y2="1">
-				<stop offset="0%" stop-color="#000000" />
-				<stop offset="5%" stop-color="#303030" />
-				<stop offset="10%" stop-color="#5C5C5C" />
-				<stop offset="15%" stop-color="#828282" />
-				<stop offset="20%" stop-color="#A3A3A3" />
-				<stop offset="25%" stop-color="#BFBFBF" />
-				<stop offset="30%" stop-color="#D6D6D6" />
-				<stop offset="35%" stop-color="#E8E8E8" />
-				<stop offset="40%" stop-color="#F5F5F5" />
-				<stop offset="45%" stop-color="#FCFCFC" />
-				<stop offset="50%" stop-color="#FFFFFF" />
-				<stop offset="55%" stop-color="#FCFCFC" />
-				<stop offset="60%" stop-color="#F5F5F5" />
-				<stop offset="65%" stop-color="#E8E8E8" />
-				<stop offset="70%" stop-color="#D6D6D6" />
-				<stop offset="75%" stop-color="#BFBFBF" />
-				<stop offset="80%" stop-color="#A3A3A3" />
-				<stop offset="85%" stop-color="#828282" />
-				<stop offset="90%" stop-color="#5C5C5C" />
-				<stop offset="95%" stop-color="#303030" />
-				<stop offset="100%" stop-color="#000000" />
-			</linearGradient>
-		</defs>
-		<polygon points="51.5,81.5 81.5,81.5 81.5,1.5 51.5,1.5" fill="url(#cyl2)" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<defs>
-			<linearGradient id="cyl3" x1="0" y1="0" x2="0" y2="1">
-				<stop offset="0%" stop-color="#000000" />
-				<stop offset="5%" stop-color="#303030" />
-				<stop offset="10%" stop-color="#5C5C5C" />
-				<stop offset="15%" stop-color="#828282" />
-				<stop offset="20%" stop-color="#A3A3A3" />
-				<stop offset="25%" stop-color="#BFBFBF" />
-				<stop offset="30%" stop-color="#D6D6D6" />
-				<stop offset="35%" stop-color="#E8E8E8" />
-				<stop offset="40%" stop-color="#F5F5F5" />
-				<stop offset="45%" stop-color="#FCFCFC" />
-				<stop offset="50%" stop-color="#FFFFFF" />
-				<stop offset="55%" stop-color="#FCFCFC" />
-				<stop offset="60%" stop-color="#F5F5F5" />
-				<stop offset="65%" stop-color="#E8E8E8" />
-				<stop offset="70%" stop-color="#D6D6D6" />
-				<stop offset="75%" stop-color="#BFBFBF" />
-				<stop offset="80%" stop-color="#A3A3A3" />
-				<stop offset="85%" stop-color="#828282" />
-				<stop offset="90%" stop-color="#5C5C5C" />
-				<stop offset="95%" stop-color="#303030" />
-				<stop offset="100%" stop-color="#000000" />
-			</linearGradient>
-		</defs>
-		<polygon points="51.5,122.5 81.5,122.5 81.5,80.5 51.5,80.5" fill="url(#cyl3)" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="21.5,81.5 41.5,81.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="21.5,121.5 41.5,121.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="31.5,121.5 31.5,187.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="101.5,61.5 101.5,187.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="91.5,61.5 111.5,61.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="91.5,21.5 111.5,21.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="161.5,121.5 181.5,121.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="161.5,81.5 181.5,81.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="171.5,121.5 171.5,187.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="171.5,187.5 31.5,187.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<defs>
-			<linearGradient id="cyl14" x1="0" y1="0" x2="0" y2="1">
-				<stop offset="0%" stop-color="#404040" />
-				<stop offset="5%" stop-color="#585858" />
-				<stop offset="10%" stop-color="#6E6E6E" />
-				<stop offset="15%" stop-color="#818181" />
-				<stop offset="20%" stop-color="#919191" />
-				<stop offset="25%" stop-color="#9F9F9F" />
-				<stop offset="30%" stop-color="#ABABAB" />
-				<stop offset="35%" stop-color="#B4B4B4" />
-				<stop offset="40%" stop-color="#BABABA" />
-				<stop offset="45%" stop-color="#BEBEBE" />
-				<stop offset="50%" stop-color="#BFBFBF" />
-				<stop offset="55%" stop-color="#BEBEBE" />
-				<stop offset="60%" stop-color="#BABABA" />
-				<stop offset="65%" stop-color="#B4B4B4" />
-				<stop offset="70%" stop-color="#ABABAB" />
-				<stop offset="75%" stop-color="#9F9F9F" />
-				<stop offset="80%" stop-color="#919191" />
-				<stop offset="85%" stop-color="#818181" />
-				<stop offset="90%" stop-color="#6E6E6E" />
-				<stop offset="95%" stop-color="#585858" />
-				<stop offset="100%" stop-color="#404040" />
-			</linearGradient>
-		</defs>
-		<polygon points="1.5,111.5 51.5,111.5 51.5,91.5 1.5,91.5" fill="url(#cyl14)" stroke="#404040" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<defs>
-			<linearGradient id="cyl15" x1="0" y1="0" x2="0" y2="1">
-				<stop offset="0%" stop-color="#404040" />
-				<stop offset="5%" stop-color="#585858" />
-				<stop offset="10%" stop-color="#6E6E6E" />
-				<stop offset="15%" stop-color="#818181" />
-				<stop offset="20%" stop-color="#919191" />
-				<stop offset="25%" stop-color="#9F9F9F" />
-				<stop offset="30%" stop-color="#ABABAB" />
-				<stop offset="35%" stop-color="#B4B4B4" />
-				<stop offset="40%" stop-color="#BABABA" />
-				<stop offset="45%" stop-color="#BEBEBE" />
-				<stop offset="50%" stop-color="#BFBFBF" />
-				<stop offset="55%" stop-color="#BEBEBE" />
-				<stop offset="60%" stop-color="#BABABA" />
-				<stop offset="65%" stop-color="#B4B4B4" />
-				<stop offset="70%" stop-color="#ABABAB" />
-				<stop offset="75%" stop-color="#9F9F9F" />
-				<stop offset="80%" stop-color="#919191" />
-				<stop offset="85%" stop-color="#818181" />
-				<stop offset="90%" stop-color="#6E6E6E" />
-				<stop offset="95%" stop-color="#585858" />
-				<stop offset="100%" stop-color="#404040" />
-			</linearGradient>
-		</defs>
-		<polygon points="151.5,111.5 201.5,111.5 201.5,91.5 151.5,91.5" fill="url(#cyl15)" stroke="#404040" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="51.5,122.5 81.5,122.5 81.5,118.5 51.5,118.5" fill="#999999" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="51.5,112.5 81.5,112.5 81.5,106.5 51.5,106.5" fill="#CCCCCC" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="51.5,84.5 81.5,84.5 81.5,80.5 51.5,80.5" fill="#CCCCCC" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="51.5,96.5 81.5,96.5 81.5,90.5 51.5,90.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<defs>
-			<linearGradient id="cyl20" x1="0" y1="0" x2="0" y2="1">
-				<stop offset="0%" stop-color="#404040" />
-				<stop offset="5%" stop-color="#585858" />
-				<stop offset="10%" stop-color="#6E6E6E" />
-				<stop offset="15%" stop-color="#818181" />
-				<stop offset="20%" stop-color="#919191" />
-				<stop offset="25%" stop-color="#9F9F9F" />
-				<stop offset="30%" stop-color="#ABABAB" />
-				<stop offset="35%" stop-color="#B4B4B4" />
-				<stop offset="40%" stop-color="#BABABA" />
-				<stop offset="45%" stop-color="#BEBEBE" />
-				<stop offset="50%" stop-color="#BFBFBF" />
-				<stop offset="55%" stop-color="#BEBEBE" />
-				<stop offset="60%" stop-color="#BABABA" />
-				<stop offset="65%" stop-color="#B4B4B4" />
-				<stop offset="70%" stop-color="#ABABAB" />
-				<stop offset="75%" stop-color="#9F9F9F" />
-				<stop offset="80%" stop-color="#919191" />
-				<stop offset="85%" stop-color="#818181" />
-				<stop offset="90%" stop-color="#6E6E6E" />
-				<stop offset="95%" stop-color="#585858" />
-				<stop offset="100%" stop-color="#404040" />
-			</linearGradient>
-		</defs>
-		<polygon points="81.5,51.5 121.5,51.5 121.5,31.5 81.5,31.5" fill="url(#cyl20)" stroke="#404040" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="51.5,5.5 81.5,5.5 81.5,1.5 51.5,1.5" fill="#999999" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="51.5,17.5 81.5,17.5 81.5,11.5 51.5,11.5" fill="#CCCCCC" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="51.5,55.5 81.5,55.5 81.5,47.5 51.5,47.5" fill="#CCCCCC" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="51.5,81.5 81.5,81.5 81.5,77.5 51.5,77.5" fill="#666666" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="51.5,71.5 81.5,71.5 81.5,65.5 51.5,65.5" fill="#999999" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="51.5,35.5 81.5,35.5 81.5,27.5 51.5,27.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<defs>
-			<linearGradient id="cyl27" x1="0" y1="0" x2="0" y2="1">
-				<stop offset="0%" stop-color="#000000" />
-				<stop offset="5%" stop-color="#303030" />
-				<stop offset="10%" stop-color="#5C5C5C" />
-				<stop offset="15%" stop-color="#828282" />
-				<stop offset="20%" stop-color="#A3A3A3" />
-				<stop offset="25%" stop-color="#BFBFBF" />
-				<stop offset="30%" stop-color="#D6D6D6" />
-				<stop offset="35%" stop-color="#E8E8E8" />
-				<stop offset="40%" stop-color="#F5F5F5" />
-				<stop offset="45%" stop-color="#FCFCFC" />
-				<stop offset="50%" stop-color="#FFFFFF" />
-				<stop offset="55%" stop-color="#FCFCFC" />
-				<stop offset="60%" stop-color="#F5F5F5" />
-				<stop offset="65%" stop-color="#E8E8E8" />
-				<stop offset="70%" stop-color="#D6D6D6" />
-				<stop offset="75%" stop-color="#BFBFBF" />
-				<stop offset="80%" stop-color="#A3A3A3" />
-				<stop offset="85%" stop-color="#828282" />
-				<stop offset="90%" stop-color="#5C5C5C" />
-				<stop offset="95%" stop-color="#303030" />
-				<stop offset="100%" stop-color="#000000" />
-			</linearGradient>
-		</defs>
-		<polygon points="121.5,62.5 151.5,62.5 151.5,20.5 121.5,20.5" fill="url(#cyl27)" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="121.5,62.5 151.5,62.5 151.5,58.5 121.5,58.5" fill="#999999" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="121.5,52.5 151.5,52.5 151.5,46.5 121.5,46.5" fill="#CCCCCC" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="121.5,24.5 151.5,24.5 151.5,20.5 121.5,20.5" fill="#CCCCCC" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="121.5,36.5 151.5,36.5 151.5,30.5 121.5,30.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<defs>
-			<linearGradient id="cyl32" x1="0" y1="0" x2="0" y2="1">
-				<stop offset="0%" stop-color="#000000" />
-				<stop offset="5%" stop-color="#303030" />
-				<stop offset="10%" stop-color="#5C5C5C" />
-				<stop offset="15%" stop-color="#828282" />
-				<stop offset="20%" stop-color="#A3A3A3" />
-				<stop offset="25%" stop-color="#BFBFBF" />
-				<stop offset="30%" stop-color="#D6D6D6" />
-				<stop offset="35%" stop-color="#E8E8E8" />
-				<stop offset="40%" stop-color="#F5F5F5" />
-				<stop offset="45%" stop-color="#FCFCFC" />
-				<stop offset="50%" stop-color="#FFFFFF" />
-				<stop offset="55%" stop-color="#FCFCFC" />
-				<stop offset="60%" stop-color="#F5F5F5" />
-				<stop offset="65%" stop-color="#E8E8E8" />
-				<stop offset="70%" stop-color="#D6D6D6" />
-				<stop offset="75%" stop-color="#BFBFBF" />
-				<stop offset="80%" stop-color="#A3A3A3" />
-				<stop offset="85%" stop-color="#828282" />
-				<stop offset="90%" stop-color="#5C5C5C" />
-				<stop offset="95%" stop-color="#303030" />
-				<stop offset="100%" stop-color="#000000" />
-			</linearGradient>
-		</defs>
-		<polygon points="121.5,141.5 151.5,141.5 151.5,61.5 121.5,61.5" fill="url(#cyl32)" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="121.5,65.5 151.5,65.5 151.5,61.5 121.5,61.5" fill="#999999" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="121.5,77.5 151.5,77.5 151.5,71.5 121.5,71.5" fill="#CCCCCC" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="121.5,115.5 151.5,115.5 151.5,107.5 121.5,107.5" fill="#CCCCCC" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="121.5,141.5 151.5,141.5 151.5,137.5 121.5,137.5" fill="#666666" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="121.5,131.5 151.5,131.5 151.5,125.5 121.5,125.5" fill="#999999" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="121.5,95.5 151.5,95.5 151.5,87.5 121.5,87.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="51.5,122.5 81.5,122.5 81.5,1.5 51.5,1.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="121.5,141.5 151.5,141.5 151.5,20.5 121.5,20.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+<svg width="283" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Mechanics.Translational.Examples.Utilities.SpringDamper" class="component">
+		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<text x="141.5" y="165.6" text-anchor="middle" fill="#878787" font-size="33.0px" font-family="sans-serif">to FMU</text>
+		<text x="47.5" y="35.0" text-anchor="start" fill="#000000" font-size="39.9px" font-family="sans-serif">s1</text>
+		<image x="69" y="55" width="157" height="91" xlink:href="data:image/png;base64,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" />
+		<text x="237.5" y="35.0" text-anchor="end" fill="#000000" font-size="39.9px" font-family="sans-serif">s2</text>
+		<text x="237.5" y="83.0" text-anchor="end" fill="#000000" font-size="39.9px" font-family="sans-serif">v2</text>
+		<text x="235.5" y="191.0" text-anchor="end" fill="#000000" font-size="39.9px" font-family="sans-serif">f2</text>
+		<text x="47.5" y="85.0" text-anchor="start" fill="#000000" font-size="39.9px" font-family="sans-serif">v1</text>
+		<text x="51.5" y="195.0" text-anchor="start" fill="#000000" font-size="39.9px" font-family="sans-serif">f1</text>
+		<g id="s1" class="port">
+			<polygon points="1.5,1.5 41.5,21.5 1.5,41.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
+		<g id="v1" class="port">
+			<polygon points="1.5,31.5 41.5,51.5 1.5,71.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
+		<g id="f1" class="port">
+			<polygon points="41.5,171.5 21.5,181.5 41.5,191.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
+		<g id="s2" class="port">
+			<polygon points="281.5,1.5 241.5,21.5 281.5,41.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
+		<g id="v2" class="port">
+			<polygon points="281.5,31.5 241.5,51.5 281.5,71.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
+		<g id="f2" class="port">
+			<polygon points="241.5,171.5 261.5,181.5 241.5,191.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
 	</g>
 </svg>

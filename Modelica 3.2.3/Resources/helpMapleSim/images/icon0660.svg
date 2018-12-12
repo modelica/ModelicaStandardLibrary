@@ -1,35 +1,19 @@
-<svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Machines.Utilities.ParameterRecords" class="component">
-		<defs>
-			<linearGradient id="cyl2" x1="0" y1="0" x2="0" y2="1">
-				<stop offset="0%" stop-color="#C8C8C8" />
-				<stop offset="5%" stop-color="#D1D1D1" />
-				<stop offset="10%" stop-color="#D9D9D9" />
-				<stop offset="15%" stop-color="#E0E0E0" />
-				<stop offset="20%" stop-color="#E7E7E7" />
-				<stop offset="25%" stop-color="#ECECEC" />
-				<stop offset="30%" stop-color="#F0F0F0" />
-				<stop offset="35%" stop-color="#F4F4F4" />
-				<stop offset="40%" stop-color="#F6F6F6" />
-				<stop offset="45%" stop-color="#F8F8F8" />
-				<stop offset="50%" stop-color="#F8F8F8" />
-				<stop offset="55%" stop-color="#F8F8F8" />
-				<stop offset="60%" stop-color="#F6F6F6" />
-				<stop offset="65%" stop-color="#F4F4F4" />
-				<stop offset="70%" stop-color="#F0F0F0" />
-				<stop offset="75%" stop-color="#ECECEC" />
-				<stop offset="80%" stop-color="#E7E7E7" />
-				<stop offset="85%" stop-color="#E0E0E0" />
-				<stop offset="90%" stop-color="#D9D9D9" />
-				<stop offset="95%" stop-color="#D1D1D1" />
-				<stop offset="100%" stop-color="#C8C8C8" />
-			</linearGradient>
-		</defs>
-		<polygon points="8.8,194.2 11.0,196.1 13.3,197.8 15.7,199.1 18.2,200.2 20.8,200.9 23.6,201.4 26.5,201.5 26.5,201.5 50.4,201.5 101.5,201.5 101.5,201.5 152.6,201.5 176.5,201.5 176.5,201.5 179.4,201.4 182.2,200.9 184.8,200.2 187.3,199.1 189.7,197.8 192.0,196.1 194.2,194.2 194.2,194.2 196.1,192.0 197.8,189.7 199.1,187.3 200.2,184.8 200.9,182.2 201.4,179.4 201.5,176.5 201.5,176.5 201.5,152.6 201.5,101.5 201.5,101.5 201.5,50.4 201.5,26.5 201.5,26.5 201.4,23.6 200.9,20.8 200.2,18.2 199.1,15.7 197.8,13.3 196.1,11.0 194.2,8.8 194.2,8.8 192.0,6.9 189.7,5.2 187.3,3.9 184.8,2.8 182.2,2.1 179.4,1.6 176.5,1.5 176.5,1.5 152.6,1.5 101.5,1.5 101.5,1.5 50.4,1.5 26.5,1.5 26.5,1.5 23.6,1.6 20.8,2.1 18.2,2.8 15.7,3.9 13.3,5.2 11.0,6.9 8.8,8.8 8.8,8.8 6.9,11.0 5.2,13.3 3.9,15.7 2.8,18.2 2.1,20.8 1.6,23.6 1.5,26.5 1.5,26.5 1.5,50.4 1.5,101.5 1.5,101.5 1.5,152.6 1.5,176.5 1.5,176.5 1.6,179.4 2.1,182.2 2.8,184.8 3.9,187.3 5.2,189.7 6.9,192.0" fill="url(#cyl2)" stroke="#C8C8C8" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="8.8,194.2 11.0,196.1 13.3,197.8 15.7,199.1 18.2,200.2 20.8,200.9 23.6,201.4 26.5,201.5 26.5,201.5 50.4,201.5 101.5,201.5 101.5,201.5 152.6,201.5 176.5,201.5 176.5,201.5 179.4,201.4 182.2,200.9 184.8,200.2 187.3,199.1 189.7,197.8 192.0,196.1 194.2,194.2 194.2,194.2 196.1,192.0 197.8,189.7 199.1,187.3 200.2,184.8 200.9,182.2 201.4,179.4 201.5,176.5 201.5,176.5 201.5,152.6 201.5,101.5 201.5,101.5 201.5,50.4 201.5,26.5 201.5,26.5 201.4,23.6 200.9,20.8 200.2,18.2 199.1,15.7 197.8,13.3 196.1,11.0 194.2,8.8 194.2,8.8 192.0,6.9 189.7,5.2 187.3,3.9 184.8,2.8 182.2,2.1 179.4,1.6 176.5,1.5 176.5,1.5 152.6,1.5 101.5,1.5 101.5,1.5 50.4,1.5 26.5,1.5 26.5,1.5 23.6,1.6 20.8,2.1 18.2,2.8 15.7,3.9 13.3,5.2 11.0,6.9 8.8,8.8 8.8,8.8 6.9,11.0 5.2,13.3 3.9,15.7 2.8,18.2 2.1,20.8 1.6,23.6 1.5,26.5 1.5,26.5 1.5,50.4 1.5,101.5 1.5,101.5 1.5,152.6 1.5,176.5 1.5,176.5 1.6,179.4 2.1,182.2 2.8,184.8 3.9,187.3 5.2,189.7 6.9,192.0" fill-opacity="0" stroke="#808080" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="28.8,174.2 31.0,176.1 33.3,177.8 35.7,179.1 38.2,180.2 40.8,180.9 43.6,181.4 46.5,181.5 46.5,181.5 65.4,181.5 101.5,181.5 101.5,181.5 137.6,181.5 156.5,181.5 156.5,181.5 159.4,181.4 162.2,180.9 164.8,180.2 167.3,179.1 169.7,177.8 172.0,176.1 174.2,174.2 174.2,174.2 176.1,172.0 177.8,169.7 179.1,167.3 180.2,164.8 180.9,162.2 181.4,159.4 181.5,156.5 181.5,156.5 181.5,142.6 181.5,121.5 181.5,121.5 181.5,100.4 181.5,86.5 181.5,86.5 181.4,83.6 180.9,80.8 180.2,78.2 179.1,75.7 177.8,73.3 176.1,71.0 174.2,68.8 174.2,68.8 172.0,66.9 169.7,65.2 167.3,63.9 164.8,62.8 162.2,62.1 159.4,61.6 156.5,61.5 156.5,61.5 137.6,61.5 101.5,61.5 101.5,61.5 65.4,61.5 46.5,61.5 46.5,61.5 43.6,61.6 40.8,62.1 38.2,62.8 35.7,63.9 33.3,65.2 31.0,66.9 28.8,68.8 28.8,68.8 26.9,71.0 25.2,73.3 23.9,75.7 22.8,78.2 22.1,80.8 21.6,83.6 21.5,86.5 21.5,86.5 21.5,100.4 21.5,121.5 21.5,121.5 21.5,142.6 21.5,156.5 21.5,156.5 21.6,159.4 22.1,162.2 22.8,164.8 23.9,167.3 25.2,169.7 26.9,172.0" fill="#FFD788" stroke="#404040" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="21.5,101.5 181.5,101.5" fill-opacity="0" stroke="#404040" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="21.5,141.5 181.5,141.5" fill-opacity="0" stroke="#404040" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="101.5,61.5 101.5,181.5" fill-opacity="0" stroke="#404040" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+<svg width="263" height="243" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.Machines.Utilities.CurrentController" class="component">
+		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<text x="101.5" y="61.4" text-anchor="middle" fill="#0000FF" font-size="26.6px" font-family="sans-serif">id_rms</text>
+		<text x="101.5" y="156.8" text-anchor="middle" fill="#0000FF" font-size="20.3px" font-family="sans-serif">iq_rms</text>
+		<g id="y" class="port">
+			<polygon points="241.5,91.5 261.5,101.5 241.5,111.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
+		<g id="id_rms" class="port">
+			<polygon points="1.5,21.5 41.5,41.5 1.5,61.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
+		<g id="iq_rms" class="port">
+			<polygon points="1.5,141.5 41.5,161.5 1.5,181.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
+		<g id="phi" class="port">
+			<polygon points="161.5,241.5 141.5,201.5 121.5,241.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
 	</g>
 </svg>

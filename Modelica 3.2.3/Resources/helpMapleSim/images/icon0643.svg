@@ -1,27 +1,21 @@
 <svg width="223" height="223" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortSMPM" class="component">
-		<polygon points="1.5,221.5 221.5,221.5 221.5,1.5 1.5,1.5" fill="#5F5F5F" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="191.5,111.5 191.2,104.6 190.3,97.8 188.8,91.1 186.8,84.5 184.2,78.1 181.1,72.0 177.4,66.2 173.3,60.7 168.7,55.5 163.7,50.8 158.2,46.6 152.5,42.8 146.4,39.5 140.1,36.8 133.6,34.6 126.9,33.0 120.1,32.0 113.2,31.5 106.3,31.7 99.5,32.4 92.7,33.7 86.1,35.6 79.7,38.1 73.5,41.1 67.6,44.6 62.0,48.6 56.8,53.1 52.0,58.1 47.6,63.4 43.7,69.0 40.3,75.0 37.4,81.3 35.1,87.8 33.3,94.4 32.2,101.2 31.6,108.1 31.6,114.9 32.2,121.8 33.3,128.6 35.1,135.2 37.4,141.7 40.3,148.0 43.7,154.0 47.6,159.6 52.0,164.9 56.8,169.9 62.0,174.4 67.6,178.4 73.5,181.9 79.7,184.9 86.1,187.4 92.7,189.3 99.5,190.6 106.3,191.3 113.2,191.5 120.1,191.0 126.9,190.0 133.6,188.4 140.1,186.2 146.4,183.5 152.5,180.2 158.2,176.4 163.7,172.2 168.7,167.5 173.3,162.3 177.4,156.8 181.1,151.0 184.2,144.9 186.8,138.5 188.8,131.9 190.3,125.2 191.2,118.4" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<g id="heatPortStatorWinding" class="port">
-			<polygon points="91.5,101.5 111.5,101.5 111.5,81.5 91.5,81.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+	<g id="Modelica.Electrical.Machines.Interfaces.DCMachines.PartialThermalPortDCMachines" class="component">
+		<polygon points="1.5,221.5 221.5,221.5 221.5,1.5 1.5,1.5" fill="#5F5F5F" stroke="#BF0000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="191.5,111.5 191.2,104.6 190.3,97.8 188.8,91.1 186.8,84.5 184.2,78.1 181.1,72.0 177.4,66.2 173.3,60.7 168.7,55.5 163.7,50.8 158.2,46.6 152.5,42.8 146.4,39.5 140.1,36.8 133.6,34.6 126.9,33.0 120.1,32.0 113.2,31.5 106.3,31.7 99.5,32.4 92.7,33.7 86.1,35.6 79.7,38.1 73.5,41.1 67.6,44.6 62.0,48.6 56.8,53.1 52.0,58.1 47.6,63.4 43.7,69.0 40.3,75.0 37.4,81.3 35.1,87.8 33.3,94.4 32.2,101.2 31.6,108.1 31.6,114.9 32.2,121.8 33.3,128.6 35.1,135.2 37.4,141.7 40.3,148.0 43.7,154.0 47.6,159.6 52.0,164.9 56.8,169.9 62.0,174.4 67.6,178.4 73.5,181.9 79.7,184.9 86.1,187.4 92.7,189.3 99.5,190.6 106.3,191.3 113.2,191.5 120.1,191.0 126.9,190.0 133.6,188.4 140.1,186.2 146.4,183.5 152.5,180.2 158.2,176.4 163.7,172.2 168.7,167.5 173.3,162.3 177.4,156.8 181.1,151.0 184.2,144.9 186.8,138.5 188.8,131.9 190.3,125.2 191.2,118.4" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<g id="heatPortArmature" class="port">
+			<polygon points="91.5,101.5 111.5,101.5 111.5,81.5 91.5,81.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
-		<g id="heatPortStatorCore" class="port">
-			<polygon points="111.5,101.5 131.5,101.5 131.5,81.5 111.5,81.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="heatPortRotorCore" class="port">
-			<polygon points="111.5,141.5 131.5,141.5 131.5,121.5 111.5,121.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="heatPortCore" class="port">
+			<polygon points="111.5,101.5 131.5,101.5 131.5,81.5 111.5,81.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="heatPortStrayLoad" class="port">
-			<polygon points="111.5,121.5 131.5,121.5 131.5,101.5 111.5,101.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="111.5,121.5 131.5,121.5 131.5,101.5 111.5,101.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="heatPortFriction" class="port">
-			<polygon points="101.5,161.5 121.5,161.5 121.5,141.5 101.5,141.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="111.5,141.5 131.5,141.5 131.5,121.5 111.5,121.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
-		<g id="heatPortRotorWinding" class="port">
-			<polygon points="91.5,141.5 111.5,141.5 111.5,121.5 91.5,121.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="heatPortPermanentMagnet" class="port">
-			<polygon points="91.5,121.5 111.5,121.5 111.5,101.5 91.5,101.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="heatPortBrush" class="port">
+			<polygon points="101.5,81.5 121.5,81.5 121.5,61.5 101.5,61.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

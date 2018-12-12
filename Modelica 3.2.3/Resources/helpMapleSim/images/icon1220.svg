@@ -1,171 +1,29 @@
-<svg width="233" height="218" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Mechanics.Rotational.Components.IdealRollingWheel" class="component">
-		<polyline points="201.5,211.5 211.5,201.5" fill-opacity="0" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="211.5,211.5 221.5,201.5" fill-opacity="0" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="221.5,211.5 231.5,201.5" fill-opacity="0" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="201.5,201.5 231.5,201.5" fill-opacity="0" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="1.5,211.5 11.5,201.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="11.5,211.5 21.5,201.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="21.5,211.5 31.5,201.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="1.5,201.5 31.5,201.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<defs>
-			<linearGradient id="cyl10" x1="0" y1="0" x2="0" y2="1">
-				<stop offset="0%" stop-color="#404040" />
-				<stop offset="5%" stop-color="#585858" />
-				<stop offset="10%" stop-color="#6E6E6E" />
-				<stop offset="15%" stop-color="#818181" />
-				<stop offset="20%" stop-color="#929292" />
-				<stop offset="25%" stop-color="#A0A0A0" />
-				<stop offset="30%" stop-color="#ACACAC" />
-				<stop offset="35%" stop-color="#B4B4B4" />
-				<stop offset="40%" stop-color="#BBBBBB" />
-				<stop offset="45%" stop-color="#BFBFBF" />
-				<stop offset="50%" stop-color="#C0C0C0" />
-				<stop offset="55%" stop-color="#BFBFBF" />
-				<stop offset="60%" stop-color="#BBBBBB" />
-				<stop offset="65%" stop-color="#B4B4B4" />
-				<stop offset="70%" stop-color="#ACACAC" />
-				<stop offset="75%" stop-color="#A0A0A0" />
-				<stop offset="80%" stop-color="#929292" />
-				<stop offset="85%" stop-color="#818181" />
-				<stop offset="90%" stop-color="#6E6E6E" />
-				<stop offset="95%" stop-color="#585858" />
-				<stop offset="100%" stop-color="#404040" />
-			</linearGradient>
-		</defs>
-		<polygon points="16.5,111.5 70.5,111.5 70.5,91.5 16.5,91.5" fill="url(#cyl10)" stroke="#404040" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<defs>
-			<linearGradient id="cyl11" x1="0" y1="0" x2="0" y2="1">
-				<stop offset="0%" stop-color="#404040" />
-				<stop offset="5%" stop-color="#646464" />
-				<stop offset="10%" stop-color="#858585" />
-				<stop offset="15%" stop-color="#A1A1A1" />
-				<stop offset="20%" stop-color="#BABABA" />
-				<stop offset="25%" stop-color="#CFCFCF" />
-				<stop offset="30%" stop-color="#E0E0E0" />
-				<stop offset="35%" stop-color="#EEEEEE" />
-				<stop offset="40%" stop-color="#F7F7F7" />
-				<stop offset="45%" stop-color="#FDFDFD" />
-				<stop offset="50%" stop-color="#FFFFFF" />
-				<stop offset="55%" stop-color="#FDFDFD" />
-				<stop offset="60%" stop-color="#F7F7F7" />
-				<stop offset="65%" stop-color="#EEEEEE" />
-				<stop offset="70%" stop-color="#E0E0E0" />
-				<stop offset="75%" stop-color="#CFCFCF" />
-				<stop offset="80%" stop-color="#BABABA" />
-				<stop offset="85%" stop-color="#A1A1A1" />
-				<stop offset="90%" stop-color="#858585" />
-				<stop offset="95%" stop-color="#646464" />
-				<stop offset="100%" stop-color="#404040" />
-			</linearGradient>
-		</defs>
-		<polygon points="126.5,101.5 126.4,94.6 126.1,87.8 125.5,81.1 124.7,74.5 123.8,68.1 122.6,62.0 121.2,56.2 119.7,50.7 117.9,45.5 116.1,40.8 114.0,36.6 111.9,32.8 109.6,29.5 107.2,26.8 104.8,24.6 102.3,23.0 99.7,22.0 97.1,21.5 94.6,21.7 92.0,22.4 89.5,23.7 87.0,25.6 84.6,28.1 82.3,31.1 80.0,34.6 77.9,38.6 76.0,43.1 74.2,48.1 72.5,53.4 71.1,59.0 69.8,65.0 68.7,71.3 67.9,77.8 67.2,84.4 66.7,91.2 66.5,98.1 66.5,104.9 66.7,111.8 67.2,118.6 67.9,125.2 68.7,131.7 69.8,138.0 71.1,144.0 72.5,149.6 74.2,154.9 76.0,159.9 77.9,164.4 80.0,168.4 82.3,171.9 84.6,174.9 87.0,177.4 89.5,179.3 92.0,180.6 94.6,181.3 97.1,181.5 99.7,181.0 102.3,180.0 104.8,178.4 107.2,176.2 109.6,173.5 111.9,170.2 114.0,166.4 116.1,162.2 117.9,157.5 119.7,152.3 121.2,146.8 122.6,141.0 123.8,134.9 124.7,128.5 125.5,121.9 126.1,115.2 126.4,108.4" fill="url(#cyl11)" stroke="#404040" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<defs>
-			<linearGradient id="cyl12" x1="0" y1="0" x2="0" y2="1">
-				<stop offset="0%" stop-color="#404040" />
-				<stop offset="5%" stop-color="#646464" />
-				<stop offset="10%" stop-color="#858585" />
-				<stop offset="15%" stop-color="#A1A1A1" />
-				<stop offset="20%" stop-color="#BABABA" />
-				<stop offset="25%" stop-color="#CFCFCF" />
-				<stop offset="30%" stop-color="#E0E0E0" />
-				<stop offset="35%" stop-color="#EEEEEE" />
-				<stop offset="40%" stop-color="#F7F7F7" />
-				<stop offset="45%" stop-color="#FDFDFD" />
-				<stop offset="50%" stop-color="#FFFFFF" />
-				<stop offset="55%" stop-color="#FDFDFD" />
-				<stop offset="60%" stop-color="#F7F7F7" />
-				<stop offset="65%" stop-color="#EEEEEE" />
-				<stop offset="70%" stop-color="#E0E0E0" />
-				<stop offset="75%" stop-color="#CFCFCF" />
-				<stop offset="80%" stop-color="#BABABA" />
-				<stop offset="85%" stop-color="#A1A1A1" />
-				<stop offset="90%" stop-color="#858585" />
-				<stop offset="95%" stop-color="#646464" />
-				<stop offset="100%" stop-color="#404040" />
-			</linearGradient>
-		</defs>
-		<polygon points="96.5,181.5 128.5,181.5 128.5,21.5 96.5,21.5" fill="url(#cyl12)" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="160.5,101.5 160.4,94.6 160.1,87.8 159.5,81.1 158.7,74.5 157.8,68.1 156.6,62.0 155.2,56.2 153.7,50.7 151.9,45.5 150.1,40.8 148.0,36.6 145.9,32.8 143.6,29.5 141.2,26.8 138.8,24.6 136.3,23.0 133.7,22.0 131.1,21.5 128.6,21.7 126.0,22.4 123.5,23.7 121.0,25.6 118.6,28.1 116.3,31.1 114.0,34.6 111.9,38.6 110.0,43.1 108.2,48.1 106.5,53.4 105.1,59.0 103.8,65.0 102.7,71.3 101.9,77.8 101.2,84.4 100.7,91.2 100.5,98.1 100.5,104.9 100.7,111.8 101.2,118.6 101.9,125.2 102.7,131.7 103.8,138.0 105.1,144.0 106.5,149.6 108.2,154.9 110.0,159.9 111.9,164.4 114.0,168.4 116.3,171.9 118.6,174.9 121.0,177.4 123.5,179.3 126.0,180.6 128.6,181.3 131.1,181.5 133.7,181.0 136.3,180.0 138.8,178.4 141.2,176.2 143.6,173.5 145.9,170.2 148.0,166.4 150.1,162.2 151.9,157.5 153.7,152.3 155.2,146.8 156.6,141.0 157.8,134.9 158.7,128.5 159.5,121.9 160.1,115.2 160.4,108.4" fill="#808080" stroke="#404040" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="150.5,101.5 150.4,97.0 150.2,92.6 149.9,88.2 149.4,83.9 148.9,79.8 148.2,75.8 147.3,72.0 146.4,68.5 145.4,65.1 144.2,62.1 143.0,59.3 141.7,56.8 140.4,54.7 138.9,52.9 137.5,51.5 136.0,50.5 134.4,49.8 132.9,49.5 131.3,49.6 129.8,50.1 128.3,50.9 126.8,52.2 125.3,53.8 124.0,55.7 122.6,58.0 121.4,60.6 120.2,63.6 119.1,66.8 118.1,70.2 117.2,73.9 116.5,77.8 115.8,81.9 115.3,86.1 114.9,90.4 114.6,94.8 114.5,99.3 114.5,103.7 114.6,108.2 114.9,112.6 115.3,116.9 115.8,121.1 116.5,125.2 117.2,129.1 118.1,132.8 119.1,136.2 120.2,139.4 121.4,142.4 122.6,145.0 124.0,147.3 125.3,149.2 126.8,150.8 128.3,152.1 129.8,152.9 131.3,153.4 132.9,153.5 134.4,153.2 136.0,152.5 137.5,151.5 138.9,150.1 140.4,148.3 141.7,146.2 143.0,143.7 144.2,140.9 145.4,137.9 146.4,134.5 147.3,131.0 148.2,127.2 148.9,123.2 149.4,119.1 149.9,114.8 150.2,110.4 150.4,106.0" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<defs>
-			<linearGradient id="cyl15" x1="0" y1="0" x2="0" y2="1">
-				<stop offset="0%" stop-color="#404040" />
-				<stop offset="5%" stop-color="#585858" />
-				<stop offset="10%" stop-color="#6E6E6E" />
-				<stop offset="15%" stop-color="#818181" />
-				<stop offset="20%" stop-color="#929292" />
-				<stop offset="25%" stop-color="#A0A0A0" />
-				<stop offset="30%" stop-color="#ACACAC" />
-				<stop offset="35%" stop-color="#B4B4B4" />
-				<stop offset="40%" stop-color="#BBBBBB" />
-				<stop offset="45%" stop-color="#BFBFBF" />
-				<stop offset="50%" stop-color="#C0C0C0" />
-				<stop offset="55%" stop-color="#BFBFBF" />
-				<stop offset="60%" stop-color="#BBBBBB" />
-				<stop offset="65%" stop-color="#B4B4B4" />
-				<stop offset="70%" stop-color="#ACACAC" />
-				<stop offset="75%" stop-color="#A0A0A0" />
-				<stop offset="80%" stop-color="#929292" />
-				<stop offset="85%" stop-color="#818181" />
-				<stop offset="90%" stop-color="#6E6E6E" />
-				<stop offset="95%" stop-color="#585858" />
-				<stop offset="100%" stop-color="#404040" />
-			</linearGradient>
-		</defs>
-		<polygon points="136.5,101.5 136.5,100.6 136.4,99.8 136.4,98.9 136.3,98.1 136.1,97.3 136.0,96.6 135.8,95.8 135.6,95.1 135.4,94.5 135.1,93.9 134.8,93.4 134.5,92.9 134.2,92.5 133.9,92.2 133.6,91.9 133.3,91.7 132.9,91.6 132.6,91.5 132.2,91.5 131.9,91.6 131.6,91.8 131.2,92.0 130.9,92.3 130.6,92.7 130.3,93.1 130.0,93.6 129.8,94.2 129.5,94.8 129.3,95.5 129.1,96.2 128.9,96.9 128.8,97.7 128.7,98.5 128.6,99.4 128.5,100.2 128.5,101.1 128.5,101.9 128.5,102.8 128.6,103.6 128.7,104.5 128.8,105.3 128.9,106.1 129.1,106.8 129.3,107.5 129.5,108.2 129.8,108.8 130.0,109.4 130.3,109.9 130.6,110.3 130.9,110.7 131.2,111.0 131.6,111.2 131.9,111.4 132.2,111.5 132.6,111.5 132.9,111.4 133.3,111.3 133.6,111.1 133.9,110.8 134.2,110.5 134.5,110.1 134.8,109.6 135.1,109.1 135.4,108.5 135.6,107.9 135.8,107.2 136.0,106.4 136.1,105.7 136.3,104.9 136.4,104.1 136.4,103.2 136.5,102.4" fill="url(#cyl15)" stroke="#404040" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<defs>
-			<linearGradient id="cyl16" x1="0" y1="0" x2="0" y2="1">
-				<stop offset="0%" stop-color="#404040" />
-				<stop offset="5%" stop-color="#585858" />
-				<stop offset="10%" stop-color="#6E6E6E" />
-				<stop offset="15%" stop-color="#818181" />
-				<stop offset="20%" stop-color="#929292" />
-				<stop offset="25%" stop-color="#A0A0A0" />
-				<stop offset="30%" stop-color="#ACACAC" />
-				<stop offset="35%" stop-color="#B4B4B4" />
-				<stop offset="40%" stop-color="#BBBBBB" />
-				<stop offset="45%" stop-color="#BFBFBF" />
-				<stop offset="50%" stop-color="#C0C0C0" />
-				<stop offset="55%" stop-color="#BFBFBF" />
-				<stop offset="60%" stop-color="#BBBBBB" />
-				<stop offset="65%" stop-color="#B4B4B4" />
-				<stop offset="70%" stop-color="#ACACAC" />
-				<stop offset="75%" stop-color="#A0A0A0" />
-				<stop offset="80%" stop-color="#929292" />
-				<stop offset="85%" stop-color="#818181" />
-				<stop offset="90%" stop-color="#6E6E6E" />
-				<stop offset="95%" stop-color="#585858" />
-				<stop offset="100%" stop-color="#404040" />
-			</linearGradient>
-		</defs>
-		<polygon points="132.5,111.5 176.5,111.5 176.5,91.5 132.5,91.5" fill="url(#cyl16)" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="180.5,101.5 180.5,100.6 180.4,99.8 180.4,98.9 180.3,98.1 180.1,97.3 180.0,96.6 179.8,95.8 179.6,95.1 179.4,94.5 179.1,93.9 178.8,93.4 178.5,92.9 178.2,92.5 177.9,92.2 177.6,91.9 177.3,91.7 176.9,91.6 176.6,91.5 176.2,91.5 175.9,91.6 175.6,91.8 175.2,92.0 174.9,92.3 174.6,92.7 174.3,93.1 174.0,93.6 173.8,94.2 173.5,94.8 173.3,95.5 173.1,96.2 172.9,96.9 172.8,97.7 172.7,98.5 172.6,99.4 172.5,100.2 172.5,101.1 172.5,101.9 172.5,102.8 172.6,103.6 172.7,104.5 172.8,105.3 172.9,106.1 173.1,106.8 173.3,107.5 173.5,108.2 173.8,108.8 174.0,109.4 174.3,109.9 174.6,110.3 174.9,110.7 175.2,111.0 175.6,111.2 175.9,111.4 176.2,111.5 176.6,111.5 176.9,111.4 177.3,111.3 177.6,111.1 177.9,110.8 178.2,110.5 178.5,110.1 178.8,109.6 179.1,109.1 179.4,108.5 179.6,107.9 179.8,107.2 180.0,106.4 180.1,105.7 180.3,104.9 180.4,104.1 180.4,103.2 180.5,102.4" fill="#C0C0C0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="196.5,91.5 196.5,75.5 176.5,75.5 176.5,81.5 186.5,81.5 186.5,121.5 176.5,121.5 176.5,127.5 196.5,127.5 196.5,111.5 206.5,111.5 206.5,91.5" fill="#007F00" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="16.5,121.5 56.5,121.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="16.5,121.5 16.5,201.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="16.5,81.5 56.5,81.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="216.5,191.5 76.5,191.5" fill-opacity="0" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="186.5,127.5 186.5,151.5 216.5,151.5 216.5,201.5" fill-opacity="0" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="96.5,21.5 131.5,21.5" fill-opacity="0" stroke="#404040" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="96.5,181.5 131.5,181.5" fill-opacity="0" stroke="#404040" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="132.5,91.5 176.5,91.5" fill-opacity="0" stroke="#404040" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="132.5,111.5 176.5,111.5" fill-opacity="0" stroke="#404040" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<g id="flangeR" class="port">
-			<polygon points="26.5,101.5 26.5,100.6 26.4,99.8 26.2,98.9 25.9,98.1 25.6,97.3 25.2,96.6 24.7,95.8 24.2,95.1 23.6,94.5 23.0,93.9 22.3,93.4 21.6,92.9 20.9,92.5 20.1,92.2 19.3,91.9 18.4,91.7 17.6,91.6 16.7,91.5 15.9,91.5 15.0,91.6 14.2,91.8 13.3,92.0 12.5,92.3 11.8,92.7 11.0,93.1 10.3,93.6 9.7,94.2 9.1,94.8 8.5,95.5 8.0,96.2 7.6,96.9 7.2,97.7 7.0,98.5 6.7,99.4 6.6,100.2 6.5,101.1 6.5,101.9 6.6,102.8 6.7,103.6 7.0,104.5 7.2,105.3 7.6,106.1 8.0,106.8 8.5,107.5 9.1,108.2 9.7,108.8 10.3,109.4 11.0,109.9 11.8,110.3 12.5,110.7 13.3,111.0 14.2,111.2 15.0,111.4 15.9,111.5 16.7,111.5 17.6,111.4 18.4,111.3 19.3,111.1 20.1,110.8 20.9,110.5 21.6,110.1 22.3,109.6 23.0,109.1 23.6,108.5 24.2,107.9 24.7,107.2 25.2,106.4 25.6,105.7 25.9,104.9 26.2,104.1 26.4,103.2 26.5,102.4" fill="#5F5F5F" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+<svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Mechanics.Rotational.Components.GeneralTorqueToAngleAdaptor" class="component">
+		<polygon points="84.4,198.6 86.0,199.9 87.7,200.8 89.5,201.3 91.5,201.5 91.5,201.5 96.1,201.5 101.5,201.5 101.5,201.5 106.9,201.5 111.5,201.5 111.5,201.5 113.5,201.3 115.3,200.8 117.0,199.9 118.6,198.6 118.6,198.6 120.2,196.5 121.2,194.1 121.5,191.5 121.5,191.5 121.5,166.9 121.5,101.5 121.5,101.5 121.5,36.1 121.5,11.5 121.5,11.5 121.2,8.9 120.2,6.5 118.6,4.4 118.6,4.4 117.0,3.1 115.3,2.2 113.5,1.7 111.5,1.5 111.5,1.5 106.9,1.5 101.5,1.5 101.5,1.5 96.1,1.5 91.5,1.5 91.5,1.5 89.5,1.7 87.7,2.2 86.0,3.1 84.4,4.4 84.4,4.4 82.8,6.5 81.8,8.9 81.5,11.5 81.5,11.5 81.5,36.1 81.5,101.5 81.5,101.5 81.5,166.9 81.5,191.5 81.5,191.5 81.8,194.1 82.8,196.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<text x="101.5" y="25.7" text-anchor="middle" fill="#000000" font-size="15.8px" font-family="sans-serif">"phi"</text>
+		<text x="101.5" y="187.4" text-anchor="middle" fill="#000000" font-size="15.4px" font-family="sans-serif">"tau"</text>
+		<polygon points="84.4,198.6 86.0,199.9 87.7,200.8 89.5,201.3 91.5,201.5 91.5,201.5 96.1,201.5 101.5,201.5 101.5,201.5 106.9,201.5 111.5,201.5 111.5,201.5 113.5,201.3 115.3,200.8 117.0,199.9 118.6,198.6 118.6,198.6 120.2,196.5 121.2,194.1 121.5,191.5 121.5,191.5 121.5,166.9 121.5,101.5 121.5,101.5 121.5,36.1 121.5,11.5 121.5,11.5 121.2,8.9 120.2,6.5 118.6,4.4 118.6,4.4 117.0,3.1 115.3,2.2 113.5,1.7 111.5,1.5 111.5,1.5 106.9,1.5 101.5,1.5 101.5,1.5 96.1,1.5 91.5,1.5 91.5,1.5 89.5,1.7 87.7,2.2 86.0,3.1 84.4,4.4 84.4,4.4 82.8,6.5 81.8,8.9 81.5,11.5 81.5,11.5 81.5,36.1 81.5,101.5 81.5,101.5 81.5,166.9 81.5,191.5 81.5,191.5 81.8,194.1 82.8,196.5" fill-opacity="0" stroke="#5F5F5F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<g id="p" class="port">
+			<polygon points="121.5,11.5 141.5,21.5 121.5,31.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
-		<g id="flangeT" class="port">
-			<polygon points="206.5,91.5 226.5,91.5 226.5,111.5 206.5,111.5" fill="#FFFFFF" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="pder" class="port">
+			<polygon points="121.5,41.5 141.5,51.5 121.5,61.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
-		<g id="supportR" class="port">
-			<polygon points="26.5,201.5 26.5,200.6 26.4,199.8 26.2,198.9 25.9,198.1 25.6,197.3 25.2,196.6 24.7,195.8 24.2,195.1 23.6,194.5 23.0,193.9 22.3,193.4 21.6,192.9 20.9,192.5 20.1,192.2 19.3,191.9 18.4,191.7 17.6,191.6 16.7,191.5 15.9,191.5 15.0,191.6 14.2,191.8 13.3,192.0 12.5,192.3 11.8,192.7 11.0,193.1 10.3,193.6 9.7,194.2 9.1,194.8 8.5,195.5 8.0,196.2 7.6,196.9 7.2,197.7 7.0,198.5 6.7,199.4 6.6,200.2 6.5,201.1 6.5,201.9 6.6,202.8 6.7,203.6 7.0,204.5 7.2,205.3 7.6,206.1 8.0,206.8 8.5,207.5 9.1,208.2 9.7,208.8 10.3,209.4 11.0,209.9 11.8,210.3 12.5,210.7 13.3,211.0 14.2,211.2 15.0,211.4 15.9,211.5 16.7,211.5 17.6,211.4 18.4,211.3 19.3,211.1 20.1,210.8 20.9,210.5 21.6,210.1 22.3,209.6 23.0,209.1 23.6,208.5 24.2,207.9 24.7,207.2 25.2,206.4 25.6,205.7 25.9,204.9 26.2,204.1 26.4,203.2 26.5,202.4" fill="#5F5F5F" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-			<polygon points="1.5,216.5 31.5,216.5 31.5,186.5 1.5,186.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-			<polygon points="26.5,201.5 26.5,200.6 26.4,199.8 26.2,198.9 25.9,198.1 25.6,197.3 25.2,196.6 24.7,195.8 24.2,195.1 23.6,194.5 23.0,193.9 22.3,193.4 21.6,192.9 20.9,192.5 20.1,192.2 19.3,191.9 18.4,191.7 17.6,191.6 16.7,191.5 15.9,191.5 15.0,191.6 14.2,191.8 13.3,192.0 12.5,192.3 11.8,192.7 11.0,193.1 10.3,193.6 9.7,194.2 9.1,194.8 8.5,195.5 8.0,196.2 7.6,196.9 7.2,197.7 7.0,198.5 6.7,199.4 6.6,200.2 6.5,201.1 6.5,201.9 6.6,202.8 6.7,203.6 7.0,204.5 7.2,205.3 7.6,206.1 8.0,206.8 8.5,207.5 9.1,208.2 9.7,208.8 10.3,209.4 11.0,209.9 11.8,210.3 12.5,210.7 13.3,211.0 14.2,211.2 15.0,211.4 15.9,211.5 16.7,211.5 17.6,211.4 18.4,211.3 19.3,211.1 20.1,210.8 20.9,210.5 21.6,210.1 22.3,209.6 23.0,209.1 23.6,208.5 24.2,207.9 24.7,207.2 25.2,206.4 25.6,205.7 25.9,204.9 26.2,204.1 26.4,203.2 26.5,202.4" fill="#5F5F5F" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="pder2" class="port">
+			<polygon points="121.5,71.5 141.5,81.5 121.5,91.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
-		<g id="supportT" class="port">
-			<polygon points="225.5,210.5 207.5,210.5 207.5,192.5 225.5,192.5" fill="#AFAFAF" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-			<polygon points="231.5,216.5 201.5,216.5 201.5,186.5 231.5,186.5" fill="#AFBEAF" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-			<polygon points="225.5,210.5 207.5,210.5 207.5,192.5 225.5,192.5" fill="#007F00" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="f" class="port">
+			<polygon points="141.5,171.5 121.5,181.5 141.5,191.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
+		<g id="fder" class="port">
+			<polygon points="141.5,141.5 121.5,151.5 141.5,161.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
+		<g id="fder2" class="port">
+			<polygon points="141.5,111.5 121.5,121.5 141.5,131.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
+		<g id="flange" class="port">
+			<polygon points="91.5,101.5 91.5,100.6 91.4,99.8 91.2,98.9 90.9,98.1 90.6,97.3 90.2,96.6 89.7,95.8 89.2,95.1 88.6,94.5 88.0,93.9 87.3,93.4 86.6,92.9 85.9,92.5 85.1,92.2 84.3,91.9 83.4,91.7 82.6,91.6 81.7,91.5 80.9,91.5 80.0,91.6 79.2,91.8 78.3,92.0 77.5,92.3 76.8,92.7 76.0,93.1 75.3,93.6 74.7,94.2 74.1,94.8 73.5,95.5 73.0,96.2 72.6,96.9 72.2,97.7 72.0,98.5 71.7,99.4 71.6,100.2 71.5,101.1 71.5,101.9 71.6,102.8 71.7,103.6 72.0,104.5 72.2,105.3 72.6,106.1 73.0,106.8 73.5,107.5 74.1,108.2 74.7,108.8 75.3,109.4 76.0,109.9 76.8,110.3 77.5,110.7 78.3,111.0 79.2,111.2 80.0,111.4 80.9,111.5 81.7,111.5 82.6,111.4 83.4,111.3 84.3,111.1 85.1,110.8 85.9,110.5 86.6,110.1 87.3,109.6 88.0,109.1 88.6,108.5 89.2,107.9 89.7,107.2 90.2,106.4 90.6,105.7 90.9,104.9 91.2,104.1 91.4,103.2 91.5,102.4" fill="#5F5F5F" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

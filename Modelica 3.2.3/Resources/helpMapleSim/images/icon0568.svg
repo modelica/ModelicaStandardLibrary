@@ -1,16 +1,28 @@
-<svg width="203" height="213" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.Battery" class="component">
-		<text x="101.5" y="191.4" text-anchor="middle" fill="#0000FF" font-size="26.6px" font-family="sans-serif">V0=V0</text>
-		<polygon points="31.5,31.5 51.5,31.5 51.5,21.5 31.5,21.5" fill-opacity="0" stroke="#1C6CC8" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="151.5,31.5 171.5,31.5 171.5,21.5 151.5,21.5" fill="#0000FF" stroke="#1C6CC8" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="4.4,148.6 6.5,150.2 8.9,151.2 11.5,151.5 11.5,151.5 36.1,151.5 101.5,151.5 101.5,151.5 166.9,151.5 191.5,151.5 191.5,151.5 194.1,151.2 196.5,150.2 198.6,148.6 198.6,148.6 199.9,147.0 200.8,145.3 201.3,143.5 201.5,141.5 201.5,141.5 201.5,126.9 201.5,91.5 201.5,91.5 201.5,56.1 201.5,41.5 201.5,41.5 201.3,39.5 200.8,37.7 199.9,36.0 198.6,34.4 198.6,34.4 197.0,33.1 195.3,32.2 193.5,31.7 191.5,31.5 191.5,31.5 166.9,31.5 101.5,31.5 101.5,31.5 36.1,31.5 11.5,31.5 11.5,31.5 9.5,31.7 7.7,32.2 6.0,33.1 4.4,34.4 4.4,34.4 3.1,36.0 2.2,37.7 1.7,39.5 1.5,41.5 1.5,41.5 1.5,56.1 1.5,91.5 1.5,91.5 1.5,126.9 1.5,141.5 1.5,141.5 1.7,143.5 2.2,145.3 3.1,147.0" fill="#0000FF" stroke="#1C6CC8" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="9.5,143.5 97.5,143.5 97.5,39.5 9.5,39.5" fill="#D7D7D7" stroke="#1C6CC8" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="105.5,143.5 193.5,143.5 193.5,39.5 105.5,39.5" fill="#D7D7D7" stroke="#1C6CC8" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<g id="pin_p" class="port">
-			<polygon points="151.5,1.5 171.5,1.5 171.5,21.5 151.5,21.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+<svg width="253" height="223" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.SwitchingDcDc" class="component">
+		<polygon points="43.5,209.5 239.5,209.5 239.5,13.5 43.5,13.5" fill="#FFFFFF" stroke="#D943B4" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="239.5,13.5 161.5,91.5" fill-opacity="0" stroke="#D943B4" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="121.5,131.5 43.5,209.5" fill-opacity="0" stroke="#D943B4" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<text x="141.5" y="51.4" text-anchor="middle" fill="#808080" font-size="26.6px" font-family="sans-serif">Bat</text>
+		<text x="141.5" y="119.3" text-anchor="middle" fill="#0000FF" font-size="31.1px" font-family="sans-serif">SwitchingDcDc</text>
+		<text x="141.5" y="191.4" text-anchor="middle" fill="#808080" font-size="26.6px" font-family="sans-serif">Mot</text>
+		<g id="pin_nBat" class="port">
+			<polygon points="31.5,1.5 51.5,1.5 51.5,21.5 31.5,21.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
-		<g id="pin_n" class="port">
-			<polygon points="31.5,1.5 51.5,1.5 51.5,21.5 31.5,21.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="pin_pBat" class="port">
+			<polygon points="231.5,1.5 251.5,1.5 251.5,21.5 231.5,21.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
+		<g id="pin_pMot" class="port">
+			<polygon points="231.5,221.5 251.5,221.5 251.5,201.5 231.5,201.5" fill="#0000FF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
+		<g id="pin_nMot" class="port">
+			<polygon points="31.5,221.5 51.5,221.5 51.5,201.5 31.5,201.5" fill="#FFFFFF" stroke="#0000FF" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
+		<g id="vRef" class="port">
+			<polygon points="1.5,91.5 41.5,111.5 1.5,131.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
+		<g id="vMax" class="port">
+			<polygon points="1.5,31.5 41.5,51.5 1.5,71.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

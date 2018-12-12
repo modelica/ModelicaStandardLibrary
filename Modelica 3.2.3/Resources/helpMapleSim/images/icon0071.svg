@@ -1,13 +1,13 @@
 <svg width="323" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 	<g id="Modelica.Blocks.Interfaces.PartialIntegerSISO" class="component">
-		<polygon points="81.5,201.5 281.5,201.5 281.5,1.5 81.5,1.5" fill="#FFD5AA" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="84.5,200.0 280.0,200.0 280.0,4.5" fill-opacity="0" stroke="#806B55" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="83.0,198.5 83.0,3.0 278.5,3.0" fill-opacity="0" stroke="#FFEAD5" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="81.5,201.5 281.5,201.5 281.5,1.5 81.5,1.5" fill="#FFD5AA" stroke="#000000" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="84.5,200.0 280.0,200.0 280.0,4.5" fill-opacity="0" stroke="#806B55" stroke-width="3.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="83.0,198.5 83.0,3.0 278.5,3.0" fill-opacity="0" stroke="#FFEAD5" stroke-width="3.0" stroke-linecap="butt" stroke-linejoin="round" />
 		<g id="u" class="port">
-			<polygon points="1.5,61.5 81.5,101.5 1.5,141.5" fill="#FF7F00" stroke="#FF7F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="1.5,61.5 81.5,101.5 1.5,141.5" fill="#FF7F00" stroke="#FF7F00" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="y" class="port">
-			<polygon points="281.5,81.5 321.5,101.5 281.5,121.5" fill="#FFFFFF" stroke="#FF7F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="281.5,81.5 321.5,101.5 281.5,121.5" fill="#FFFFFF" stroke="#FF7F00" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

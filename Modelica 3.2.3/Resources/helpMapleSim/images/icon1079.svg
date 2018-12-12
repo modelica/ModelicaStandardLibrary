@@ -1,27 +1,21 @@
-<svg width="213" height="243" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Mechanics.MultiBody.Forces.Torque" class="component">
-		<polygon points="8.3,239.5 205.3,239.5 205.3,42.5 8.3,42.5" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="112.8" y="111.2" text-anchor="middle" fill="#C0C0C0" font-size="33.2px" font-family="sans-serif">resolve</text>
-		<polygon points="206.3,121.5 190.3,89.5 175.3,102.5" fill="#000000" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="146.3,41.5 182.3,95.5" fill-opacity="0" stroke="#5F5F5F" stroke-dasharray="1 2" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="7.3,121.5 20.3,88.5 36.3,99.5" fill="#000000" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="46.3,41.5 146.3,41.5" fill-opacity="0" stroke="#5F5F5F" stroke-dasharray="1 2" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="27.3,94.5 36.3,80.5 47.3,69.5 61.3,60.5 74.3,57.5 86.3,56.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="183.3,96.5 172.3,81.5 161.3,72.5 155.3,67.5 147.3,61.5 137.3,57.5 126.3,56.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+<svg width="218" height="213" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Mechanics.MultiBody.Forces.Damper" class="component">
+		<polyline points="10.5,101.5 51.5,101.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="51.5,131.5 51.5,71.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="51.5,131.5 171.5,131.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="51.5,71.5 171.5,71.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="51.5,131.5 141.5,131.5 141.5,71.5 51.5,71.5" fill="#C0C0C0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="141.5,101.5 211.5,101.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		<g id="frame_a" class="port">
-			<polygon points="4.7,143.1 7.9,143.1 7.9,139.9 4.7,139.9" fill-opacity="0" stroke="#5F5F5F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-			<polygon points="1.5,157.5 11.1,157.5 11.1,125.5 1.5,125.5" fill="#C0C0C0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="9.9,103.1 13.1,103.1 13.1,99.9 9.9,99.9" fill-opacity="0" stroke="#5F5F5F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+			<polygon points="6.7,117.5 16.3,117.5 16.3,85.5 6.7,85.5" fill="#C0C0C0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="frame_b" class="port">
-			<polygon points="204.7,143.1 207.9,143.1 207.9,139.9 204.7,139.9" fill-opacity="0" stroke="#5F5F5F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-			<polygon points="201.5,157.5 211.1,157.5 211.1,125.5 201.5,125.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="209.9,103.1 213.1,103.1 213.1,99.9 209.9,99.9" fill-opacity="0" stroke="#5F5F5F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+			<polygon points="206.7,117.5 216.3,117.5 216.3,85.5 206.7,85.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
-		<g id="frame_resolve" class="port">
-			<polygon points="147.9,43.1 147.9,39.9 144.7,39.9 144.7,43.1" fill-opacity="0" stroke="#5F5F5F" stroke-dasharray="1 2" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-			<polygon points="162.3,46.3 162.3,36.7 130.3,36.7 130.3,46.3" fill="#FFFFFF" stroke="#5F5F5F" stroke-dasharray="1 2" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="torque" class="port">
-			<polygon points="66.3,1.5 46.3,41.5 26.3,1.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="heatPort" class="port">
+			<polygon points="1.5,211.5 21.5,211.5 21.5,191.5 1.5,191.5" fill="#BF0000" stroke="#BF0000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

@@ -1,8 +1,5 @@
 <svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.StateGraph.Examples.Utilities.Source" class="component">
-		<polygon points="21.5,141.5 181.5,141.5 181.5,61.5 21.5,61.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<g id="outflow1" class="port">
-			<polygon points="91.5,141.5 101.5,161.5 111.5,141.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
+	<g id="Modelica.StateGraph.Interfaces.Step_out" class="component">
+		<polygon points="1.5,201.5 201.5,201.5 201.5,1.5 1.5,1.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 	</g>
 </svg>

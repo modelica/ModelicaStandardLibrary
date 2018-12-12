@@ -1,16 +1,13 @@
-<svg width="203" height="243" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.StateGraph.TransitionWithSignal" class="component">
-		<polygon points="91.5,201.5 111.5,201.5 111.5,1.5 91.5,1.5" fill="#000000" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="71.5,101.5 91.5,101.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="108.5,189.5 108.5,188.9 108.4,188.3 108.3,187.7 108.1,187.1 107.9,186.6 107.6,186.0 107.3,185.5 106.9,185.1 106.5,184.6 106.1,184.2 105.6,183.8 105.1,183.5 104.6,183.2 104.0,183.0 103.4,182.8 102.8,182.6 102.3,182.5 101.7,182.5 101.0,182.5 100.4,182.6 99.9,182.7 99.3,182.9 98.7,183.1 98.2,183.3 97.7,183.6 97.2,184.0 96.7,184.4 96.3,184.8 95.9,185.3 95.6,185.8 95.3,186.3 95.0,186.9 94.8,187.4 94.7,188.0 94.6,188.6 94.5,189.2 94.5,189.8 94.6,190.4 94.7,191.0 94.8,191.6 95.0,192.1 95.3,192.7 95.6,193.2 95.9,193.7 96.3,194.2 96.7,194.6 97.2,195.0 97.7,195.4 98.2,195.7 98.7,195.9 99.3,196.1 99.9,196.3 100.4,196.4 101.0,196.5 101.7,196.5 102.3,196.5 102.8,196.4 103.4,196.2 104.0,196.0 104.6,195.8 105.1,195.5 105.6,195.2 106.1,194.8 106.5,194.4 106.9,193.9 107.3,193.5 107.6,193.0 107.9,192.4 108.1,191.9 108.3,191.3 108.4,190.7 108.5,190.1" fill="#000000" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<g id="condition" class="port">
-			<polygon points="81.5,241.5 101.5,201.5 121.5,241.5" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="inPort" class="port">
-			<polygon points="51.5,91.5 71.5,101.5 51.5,111.5" fill="#000000" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="outPort" class="port">
-			<polygon points="111.5,106.5 121.5,106.5 121.5,96.5 111.5,96.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
+<svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.StateGraph.StateGraphRoot" class="component">
+		<polygon points="1.5,201.5 201.5,201.5 201.5,1.5 1.5,1.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<text x="103.5" y="66.6" text-anchor="middle" fill="#000000" font-size="58.5px" font-family="sans-serif">root</text>
+		<polygon points="19.5,141.5 57.5,141.5 57.5,107.5 19.5,107.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="101.5,91.5 101.5,161.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="149.5,141.5 187.5,141.5 187.5,107.5 149.5,107.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="89.5,117.5 101.5,123.5 89.5,129.5" fill="#000000" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="57.5,123.5 89.5,123.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="137.5,117.5 149.5,123.5 137.5,129.5" fill="#000000" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="101.5,123.5 137.5,123.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 	</g>
 </svg>

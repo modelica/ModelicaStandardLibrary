@@ -1,16 +1,229 @@
-<svg width="213" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Mechanics.MultiBody.Joints.Planar" class="component">
-		<polygon points="76.3,161.5 96.3,161.5 96.3,41.5 76.3,41.5" fill="#C0C0C0" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="116.3,161.5 136.3,161.5 136.3,41.5 116.3,41.5" fill="#C0C0C0" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="6.3,111.5 76.3,111.5 76.3,91.5 6.3,91.5" fill="#C0C0C0" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="136.3,111.5 206.3,111.5 206.3,91.5 136.3,91.5" fill="#C0C0C0" stroke-opacity="0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+<svg width="213" height="208" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Mechanics.MultiBody.Joints.GearConstraint" class="component">
+		<defs>
+			<linearGradient id="cyl2" x1="0" y1="0" x2="0" y2="1">
+				<stop offset="0%" stop-color="#000000" />
+				<stop offset="5%" stop-color="#303030" />
+				<stop offset="10%" stop-color="#5C5C5C" />
+				<stop offset="15%" stop-color="#828282" />
+				<stop offset="20%" stop-color="#A3A3A3" />
+				<stop offset="25%" stop-color="#BFBFBF" />
+				<stop offset="30%" stop-color="#D6D6D6" />
+				<stop offset="35%" stop-color="#E8E8E8" />
+				<stop offset="40%" stop-color="#F5F5F5" />
+				<stop offset="45%" stop-color="#FCFCFC" />
+				<stop offset="50%" stop-color="#FFFFFF" />
+				<stop offset="55%" stop-color="#FCFCFC" />
+				<stop offset="60%" stop-color="#F5F5F5" />
+				<stop offset="65%" stop-color="#E8E8E8" />
+				<stop offset="70%" stop-color="#D6D6D6" />
+				<stop offset="75%" stop-color="#BFBFBF" />
+				<stop offset="80%" stop-color="#A3A3A3" />
+				<stop offset="85%" stop-color="#828282" />
+				<stop offset="90%" stop-color="#5C5C5C" />
+				<stop offset="95%" stop-color="#303030" />
+				<stop offset="100%" stop-color="#000000" />
+			</linearGradient>
+		</defs>
+		<polygon points="56.3,81.5 86.3,81.5 86.3,1.5 56.3,1.5" fill="url(#cyl2)" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<defs>
+			<linearGradient id="cyl3" x1="0" y1="0" x2="0" y2="1">
+				<stop offset="0%" stop-color="#000000" />
+				<stop offset="5%" stop-color="#303030" />
+				<stop offset="10%" stop-color="#5C5C5C" />
+				<stop offset="15%" stop-color="#828282" />
+				<stop offset="20%" stop-color="#A3A3A3" />
+				<stop offset="25%" stop-color="#BFBFBF" />
+				<stop offset="30%" stop-color="#D6D6D6" />
+				<stop offset="35%" stop-color="#E8E8E8" />
+				<stop offset="40%" stop-color="#F5F5F5" />
+				<stop offset="45%" stop-color="#FCFCFC" />
+				<stop offset="50%" stop-color="#FFFFFF" />
+				<stop offset="55%" stop-color="#FCFCFC" />
+				<stop offset="60%" stop-color="#F5F5F5" />
+				<stop offset="65%" stop-color="#E8E8E8" />
+				<stop offset="70%" stop-color="#D6D6D6" />
+				<stop offset="75%" stop-color="#BFBFBF" />
+				<stop offset="80%" stop-color="#A3A3A3" />
+				<stop offset="85%" stop-color="#828282" />
+				<stop offset="90%" stop-color="#5C5C5C" />
+				<stop offset="95%" stop-color="#303030" />
+				<stop offset="100%" stop-color="#000000" />
+			</linearGradient>
+		</defs>
+		<polygon points="56.3,122.5 86.3,122.5 86.3,80.5 56.3,80.5" fill="url(#cyl3)" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="26.3,81.5 46.3,81.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="26.3,121.5 46.3,121.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="36.3,121.5 36.3,187.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="106.3,61.5 106.3,201.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="96.3,61.5 116.3,61.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="96.3,21.5 116.3,21.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="166.3,121.5 186.3,121.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="166.3,81.5 186.3,81.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="176.3,121.5 176.3,187.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<defs>
+			<linearGradient id="cyl13" x1="0" y1="0" x2="0" y2="1">
+				<stop offset="0%" stop-color="#404040" />
+				<stop offset="5%" stop-color="#585858" />
+				<stop offset="10%" stop-color="#6E6E6E" />
+				<stop offset="15%" stop-color="#818181" />
+				<stop offset="20%" stop-color="#919191" />
+				<stop offset="25%" stop-color="#9F9F9F" />
+				<stop offset="30%" stop-color="#ABABAB" />
+				<stop offset="35%" stop-color="#B4B4B4" />
+				<stop offset="40%" stop-color="#BABABA" />
+				<stop offset="45%" stop-color="#BEBEBE" />
+				<stop offset="50%" stop-color="#BFBFBF" />
+				<stop offset="55%" stop-color="#BEBEBE" />
+				<stop offset="60%" stop-color="#BABABA" />
+				<stop offset="65%" stop-color="#B4B4B4" />
+				<stop offset="70%" stop-color="#ABABAB" />
+				<stop offset="75%" stop-color="#9F9F9F" />
+				<stop offset="80%" stop-color="#919191" />
+				<stop offset="85%" stop-color="#818181" />
+				<stop offset="90%" stop-color="#6E6E6E" />
+				<stop offset="95%" stop-color="#585858" />
+				<stop offset="100%" stop-color="#404040" />
+			</linearGradient>
+		</defs>
+		<polygon points="6.3,111.5 56.3,111.5 56.3,91.5 6.3,91.5" fill="url(#cyl13)" stroke="#404040" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<defs>
+			<linearGradient id="cyl14" x1="0" y1="0" x2="0" y2="1">
+				<stop offset="0%" stop-color="#404040" />
+				<stop offset="5%" stop-color="#585858" />
+				<stop offset="10%" stop-color="#6E6E6E" />
+				<stop offset="15%" stop-color="#818181" />
+				<stop offset="20%" stop-color="#919191" />
+				<stop offset="25%" stop-color="#9F9F9F" />
+				<stop offset="30%" stop-color="#ABABAB" />
+				<stop offset="35%" stop-color="#B4B4B4" />
+				<stop offset="40%" stop-color="#BABABA" />
+				<stop offset="45%" stop-color="#BEBEBE" />
+				<stop offset="50%" stop-color="#BFBFBF" />
+				<stop offset="55%" stop-color="#BEBEBE" />
+				<stop offset="60%" stop-color="#BABABA" />
+				<stop offset="65%" stop-color="#B4B4B4" />
+				<stop offset="70%" stop-color="#ABABAB" />
+				<stop offset="75%" stop-color="#9F9F9F" />
+				<stop offset="80%" stop-color="#919191" />
+				<stop offset="85%" stop-color="#818181" />
+				<stop offset="90%" stop-color="#6E6E6E" />
+				<stop offset="95%" stop-color="#585858" />
+				<stop offset="100%" stop-color="#404040" />
+			</linearGradient>
+		</defs>
+		<polygon points="156.3,111.5 206.3,111.5 206.3,91.5 156.3,91.5" fill="url(#cyl14)" stroke="#404040" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="56.3,122.5 86.3,122.5 86.3,118.5 56.3,118.5" fill="#999999" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="56.3,112.5 86.3,112.5 86.3,106.5 56.3,106.5" fill="#CCCCCC" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="56.3,84.5 86.3,84.5 86.3,80.5 56.3,80.5" fill="#CCCCCC" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="56.3,96.5 86.3,96.5 86.3,90.5 56.3,90.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<defs>
+			<linearGradient id="cyl19" x1="0" y1="0" x2="0" y2="1">
+				<stop offset="0%" stop-color="#404040" />
+				<stop offset="5%" stop-color="#585858" />
+				<stop offset="10%" stop-color="#6E6E6E" />
+				<stop offset="15%" stop-color="#818181" />
+				<stop offset="20%" stop-color="#919191" />
+				<stop offset="25%" stop-color="#9F9F9F" />
+				<stop offset="30%" stop-color="#ABABAB" />
+				<stop offset="35%" stop-color="#B4B4B4" />
+				<stop offset="40%" stop-color="#BABABA" />
+				<stop offset="45%" stop-color="#BEBEBE" />
+				<stop offset="50%" stop-color="#BFBFBF" />
+				<stop offset="55%" stop-color="#BEBEBE" />
+				<stop offset="60%" stop-color="#BABABA" />
+				<stop offset="65%" stop-color="#B4B4B4" />
+				<stop offset="70%" stop-color="#ABABAB" />
+				<stop offset="75%" stop-color="#9F9F9F" />
+				<stop offset="80%" stop-color="#919191" />
+				<stop offset="85%" stop-color="#818181" />
+				<stop offset="90%" stop-color="#6E6E6E" />
+				<stop offset="95%" stop-color="#585858" />
+				<stop offset="100%" stop-color="#404040" />
+			</linearGradient>
+		</defs>
+		<polygon points="86.3,51.5 126.3,51.5 126.3,31.5 86.3,31.5" fill="url(#cyl19)" stroke="#404040" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="56.3,5.5 86.3,5.5 86.3,1.5 56.3,1.5" fill="#999999" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="56.3,17.5 86.3,17.5 86.3,11.5 56.3,11.5" fill="#CCCCCC" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="56.3,55.5 86.3,55.5 86.3,47.5 56.3,47.5" fill="#CCCCCC" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="56.3,81.5 86.3,81.5 86.3,77.5 56.3,77.5" fill="#666666" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="56.3,71.5 86.3,71.5 86.3,65.5 56.3,65.5" fill="#999999" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="56.3,35.5 86.3,35.5 86.3,27.5 56.3,27.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<defs>
+			<linearGradient id="cyl26" x1="0" y1="0" x2="0" y2="1">
+				<stop offset="0%" stop-color="#000000" />
+				<stop offset="5%" stop-color="#303030" />
+				<stop offset="10%" stop-color="#5C5C5C" />
+				<stop offset="15%" stop-color="#828282" />
+				<stop offset="20%" stop-color="#A3A3A3" />
+				<stop offset="25%" stop-color="#BFBFBF" />
+				<stop offset="30%" stop-color="#D6D6D6" />
+				<stop offset="35%" stop-color="#E8E8E8" />
+				<stop offset="40%" stop-color="#F5F5F5" />
+				<stop offset="45%" stop-color="#FCFCFC" />
+				<stop offset="50%" stop-color="#FFFFFF" />
+				<stop offset="55%" stop-color="#FCFCFC" />
+				<stop offset="60%" stop-color="#F5F5F5" />
+				<stop offset="65%" stop-color="#E8E8E8" />
+				<stop offset="70%" stop-color="#D6D6D6" />
+				<stop offset="75%" stop-color="#BFBFBF" />
+				<stop offset="80%" stop-color="#A3A3A3" />
+				<stop offset="85%" stop-color="#828282" />
+				<stop offset="90%" stop-color="#5C5C5C" />
+				<stop offset="95%" stop-color="#303030" />
+				<stop offset="100%" stop-color="#000000" />
+			</linearGradient>
+		</defs>
+		<polygon points="126.3,62.5 156.3,62.5 156.3,20.5 126.3,20.5" fill="url(#cyl26)" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="126.3,62.5 156.3,62.5 156.3,58.5 126.3,58.5" fill="#999999" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="126.3,52.5 156.3,52.5 156.3,46.5 126.3,46.5" fill="#CCCCCC" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="126.3,24.5 156.3,24.5 156.3,20.5 126.3,20.5" fill="#CCCCCC" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="126.3,36.5 156.3,36.5 156.3,30.5 126.3,30.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<defs>
+			<linearGradient id="cyl31" x1="0" y1="0" x2="0" y2="1">
+				<stop offset="0%" stop-color="#000000" />
+				<stop offset="5%" stop-color="#303030" />
+				<stop offset="10%" stop-color="#5C5C5C" />
+				<stop offset="15%" stop-color="#828282" />
+				<stop offset="20%" stop-color="#A3A3A3" />
+				<stop offset="25%" stop-color="#BFBFBF" />
+				<stop offset="30%" stop-color="#D6D6D6" />
+				<stop offset="35%" stop-color="#E8E8E8" />
+				<stop offset="40%" stop-color="#F5F5F5" />
+				<stop offset="45%" stop-color="#FCFCFC" />
+				<stop offset="50%" stop-color="#FFFFFF" />
+				<stop offset="55%" stop-color="#FCFCFC" />
+				<stop offset="60%" stop-color="#F5F5F5" />
+				<stop offset="65%" stop-color="#E8E8E8" />
+				<stop offset="70%" stop-color="#D6D6D6" />
+				<stop offset="75%" stop-color="#BFBFBF" />
+				<stop offset="80%" stop-color="#A3A3A3" />
+				<stop offset="85%" stop-color="#828282" />
+				<stop offset="90%" stop-color="#5C5C5C" />
+				<stop offset="95%" stop-color="#303030" />
+				<stop offset="100%" stop-color="#000000" />
+			</linearGradient>
+		</defs>
+		<polygon points="126.3,141.5 156.3,141.5 156.3,61.5 126.3,61.5" fill="url(#cyl31)" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="126.3,65.5 156.3,65.5 156.3,61.5 126.3,61.5" fill="#999999" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="126.3,77.5 156.3,77.5 156.3,71.5 126.3,71.5" fill="#CCCCCC" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="126.3,115.5 156.3,115.5 156.3,107.5 126.3,107.5" fill="#CCCCCC" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="126.3,131.5 156.3,131.5 156.3,125.5 126.3,125.5" fill="#999999" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="126.3,95.5 156.3,95.5 156.3,87.5 126.3,87.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="56.3,122.5 86.3,122.5 86.3,1.5 56.3,1.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="126.3,141.5 156.3,141.5 156.3,20.5 126.3,20.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="176.3,187.5 36.3,187.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		<g id="frame_a" class="port">
-			<polygon points="4.7,103.1 7.9,103.1 7.9,99.9 4.7,99.9" fill-opacity="0" stroke="#5F5F5F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-			<polygon points="1.5,117.5 11.1,117.5 11.1,85.5 1.5,85.5" fill="#C0C0C0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="4.7,103.1 7.9,103.1 7.9,99.9 4.7,99.9" fill-opacity="0" stroke="#5F5F5F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+			<polygon points="1.5,117.5 11.1,117.5 11.1,85.5 1.5,85.5" fill="#C0C0C0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="frame_b" class="port">
-			<polygon points="204.7,103.1 207.9,103.1 207.9,99.9 204.7,99.9" fill-opacity="0" stroke="#5F5F5F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-			<polygon points="201.5,117.5 211.1,117.5 211.1,85.5 201.5,85.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="204.7,103.1 207.9,103.1 207.9,99.9 204.7,99.9" fill-opacity="0" stroke="#5F5F5F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+			<polygon points="201.5,117.5 211.1,117.5 211.1,85.5 201.5,85.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		</g>
+		<g id="bearing" class="port">
+			<polygon points="107.9,203.1 107.9,199.9 104.7,199.9 104.7,203.1" fill-opacity="0" stroke="#5F5F5F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+			<polygon points="122.3,206.3 122.3,196.7 90.3,196.7 90.3,206.3" fill="#C0C0C0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

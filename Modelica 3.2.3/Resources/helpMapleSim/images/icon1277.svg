@@ -1,29 +1,36 @@
-<svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Mechanics.Translational.Components.GeneralPositionToForceAdaptor" class="component">
-		<polygon points="84.4,198.6 86.0,199.9 87.7,200.8 89.5,201.3 91.5,201.5 91.5,201.5 96.1,201.5 101.5,201.5 101.5,201.5 106.9,201.5 111.5,201.5 111.5,201.5 113.5,201.3 115.3,200.8 117.0,199.9 118.6,198.6 118.6,198.6 120.2,196.5 121.2,194.1 121.5,191.5 121.5,191.5 121.5,166.9 121.5,101.5 121.5,101.5 121.5,36.1 121.5,11.5 121.5,11.5 121.2,8.9 120.2,6.5 118.6,4.4 118.6,4.4 117.0,3.1 115.3,2.2 113.5,1.7 111.5,1.5 111.5,1.5 106.9,1.5 101.5,1.5 101.5,1.5 96.1,1.5 91.5,1.5 91.5,1.5 89.5,1.7 87.7,2.2 86.0,3.1 84.4,4.4 84.4,4.4 82.8,6.5 81.8,8.9 81.5,11.5 81.5,11.5 81.5,36.1 81.5,101.5 81.5,101.5 81.5,166.9 81.5,191.5 81.5,191.5 81.8,194.1 82.8,196.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="101.5" y="31.3" text-anchor="middle" fill="#000000" font-size="26.3px" font-family="sans-serif">"s"</text>
-		<text x="101.5" y="191.4" text-anchor="middle" fill="#000000" font-size="26.6px" font-family="sans-serif">"f"</text>
-		<polygon points="84.4,198.6 86.0,199.9 87.7,200.8 89.5,201.3 91.5,201.5 91.5,201.5 96.1,201.5 101.5,201.5 101.5,201.5 106.9,201.5 111.5,201.5 111.5,201.5 113.5,201.3 115.3,200.8 117.0,199.9 118.6,198.6 118.6,198.6 120.2,196.5 121.2,194.1 121.5,191.5 121.5,191.5 121.5,166.9 121.5,101.5 121.5,101.5 121.5,36.1 121.5,11.5 121.5,11.5 121.2,8.9 120.2,6.5 118.6,4.4 118.6,4.4 117.0,3.1 115.3,2.2 113.5,1.7 111.5,1.5 111.5,1.5 106.9,1.5 101.5,1.5 101.5,1.5 96.1,1.5 91.5,1.5 91.5,1.5 89.5,1.7 87.7,2.2 86.0,3.1 84.4,4.4 84.4,4.4 82.8,6.5 81.8,8.9 81.5,11.5 81.5,11.5 81.5,36.1 81.5,101.5 81.5,101.5 81.5,166.9 81.5,191.5 81.5,191.5 81.8,194.1 82.8,196.5" fill-opacity="0" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<g id="p" class="port">
-			<polygon points="61.5,11.5 81.5,21.5 61.5,31.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+<svg width="223" height="223" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Modelica.Mechanics.Translational.Sensors.MultiSensor" class="component">
+		<polygon points="41.5,161.5 181.5,161.5 181.5,81.5 41.5,81.5" fill="#F5F5F5" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="111.5,141.5 101.5,117.5 121.5,117.5" fill="#000000" stroke-opacity="0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="111.5,101.5 111.5,117.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="41.5,101.5 111.5,101.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="61.5,141.5 61.5,161.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="81.5,141.5 81.5,161.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="101.5,141.5 101.5,161.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="121.5,141.5 121.5,161.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="141.5,141.5 141.5,161.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="161.5,141.5 161.5,161.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="60.5,67.5 140.5,67.5" fill-opacity="0" stroke="#5F7F5F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="170.5,67.5 140.5,57.5 140.5,77.5" fill="#5F7F5F" stroke="#5F7F5F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="41.5,101.5 11.5,101.5" fill-opacity="0" stroke="#007F00" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="181.5,101.5 211.5,101.5" fill-opacity="0" stroke="#007F00" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="51.5,201.5 51.5,161.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="111.5,201.5 111.5,161.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="171.5,201.5 171.5,161.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<g id="flange_a" class="port">
+			<polygon points="1.5,111.5 21.5,111.5 21.5,91.5 1.5,91.5" fill="#007F00" stroke="#007F00" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
-		<g id="pder" class="port">
-			<polygon points="61.5,41.5 81.5,51.5 61.5,61.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="flange_b" class="port">
+			<polygon points="201.5,111.5 221.5,111.5 221.5,91.5 201.5,91.5" fill="#FFFFFF" stroke="#007F00" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
-		<g id="pder2" class="port">
-			<polygon points="61.5,71.5 81.5,81.5 61.5,91.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="power" class="port">
+			<polygon points="41.5,201.5 51.5,221.5 61.5,201.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="f" class="port">
-			<polygon points="81.5,171.5 61.5,181.5 81.5,191.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="101.5,201.5 111.5,221.5 121.5,201.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
-		<g id="fder" class="port">
-			<polygon points="81.5,141.5 61.5,151.5 81.5,161.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="fder2" class="port">
-			<polygon points="81.5,111.5 61.5,121.5 81.5,131.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		</g>
-		<g id="flange" class="port">
-			<polygon points="111.5,111.5 131.5,111.5 131.5,91.5 111.5,91.5" fill="#FFFFFF" stroke="#007F00" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<g id="v" class="port">
+			<polygon points="181.5,201.5 171.5,221.5 161.5,201.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>

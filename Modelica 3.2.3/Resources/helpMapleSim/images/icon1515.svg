@@ -1,11 +1,11 @@
 <svg width="203" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="Modelica.Math.tan" class="component">
-		<polygon points="1.5,201.5 201.5,201.5 201.5,1.5 1.5,1.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="101.5,181.5 101.5,33.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="101.5,11.5 93.5,33.5 109.5,33.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="11.5,101.5 169.5,101.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="191.5,101.5 169.5,93.5 169.5,109.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="21.5,181.5 23.1,169.9 24.7,161.2 27.1,151.5 30.3,142.4 34.4,134.5 40.8,126.3 50.4,118.7 65.7,111.5 97.1,102.6 134.9,92.4 150.9,85.3 160.6,78.3 167.0,70.9 171.9,62.4 175.1,54.1 177.5,45.4 179.1,37.7 181.5,21.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<text x="47.5" y="72.9" text-anchor="middle" fill="#C0C0C0" font-size="53.7px" font-family="sans-serif">tan</text>
+	<g id="Modelica.Math.cosh" class="component">
+		<polygon points="1.5,201.5 201.5,201.5 201.5,1.5 1.5,1.5" fill="#FFFFFF" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="101.5,181.5 101.5,33.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="101.5,11.5 93.5,33.5 109.5,33.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="11.5,187.6 169.5,187.6" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="191.5,187.6 169.5,179.6 169.5,195.6" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="21.5,21.5 23.9,40.4 27.1,62.2 30.3,80.8 34.4,100.2 38.4,116.1 43.2,131.3 48.8,145.0 55.3,156.6 62.5,165.8 71.3,173.2 82.6,178.6 97.1,181.4 112.4,180.6 125.2,176.7 135.7,170.2 143.7,162.1 150.1,152.7 155.8,141.5 160.6,129.0 164.6,116.1 168.6,100.2 172.7,80.8 175.9,62.2 179.1,40.4 181.5,21.5" fill-opacity="0" stroke="#000000" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<text x="136.5" y="70.1" text-anchor="middle" fill="#C0C0C0" font-size="31.5px" font-family="sans-serif">cosh</text>
 	</g>
 </svg>

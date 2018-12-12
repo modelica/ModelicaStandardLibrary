@@ -33,46 +33,7 @@ Package <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../i
 <tr><td><a href="#RadioButton"><code>RadioButton</code></a></td><td>Button that sets its output to true when pressed and is reset when an element of 'reset' becomes true</td></tr>
 <tr><td><a href="#TankController"><code>TankController</code></a></td><td>Controller for tank system</td></tr>
 </table>
-<hr><a name="TankController"><h2><embed class="icon" src="../../../../images/icon1311.svg" width="233" height="223" />
-Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ControlledTankSystem</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;TankController<br><span class="subtitle">Controller for tank system</span></h2></a>
-<p>Extends from <code><a href="../../../../StateGraph/Interfaces/index.html#PartialStateGraphIcon">Modelica.&#8203;StateGraph.&#8203;Interfaces.&#8203;PartialStateGraphIcon</a></code> (Icon for a StateGraph object).</p>
-<h3>Parameters</h3>
-<table border="1" cellspacing="0" cellpadding="3">
-<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code><a href="../../../../SIunits/index.html#Height">Height</a></code></td><td><code>maxLevel</code></td><td>&nbsp;</td><td>Fill level of tank 1</td></tr>
-<tr><td><code><a href="../../../../SIunits/index.html#Height">Height</a></code></td><td><code>minLevel</code></td><td>&nbsp;</td><td>Lowest level of tank 1 and 2</td></tr>
-<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>waitTime</code></td><td>&nbsp;</td><td>Wait time, between operations</td></tr>
-</table>
-<h3>Connectors</h3>
-<table border="1" cellspacing="0" cellpadding="3">
-<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>start</code></td><td>&nbsp</td></tr>
-<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>stop</code></td><td>&nbsp</td></tr>
-<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanInput">BooleanInput</a></code></td><td><code>shut</code></td><td>&nbsp</td></tr>
-<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>level1</code></td><td>&nbsp</td></tr>
-<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>level2</code></td><td>&nbsp</td></tr>
-<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>valve1</code></td><td>&nbsp</td></tr>
-<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>valve2</code></td><td>&nbsp</td></tr>
-<tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>valve3</code></td><td>&nbsp</td></tr>
-</table>
-<hr><a name="NormalOperation"><h2><embed class="icon" src="../../../../images/icon0341.svg" width="353" height="323" />
-Model <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ControlledTankSystem</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;NormalOperation<br><span class="subtitle">Normal operation of tank system (button start pressed)</span></h2></a>
-<p>Extends from <code><a href="../../../../StateGraph/index.html#PartialCompositeStep">Modelica.&#8203;StateGraph.&#8203;PartialCompositeStep</a></code> (Superclass of a subgraph, i.e., a composite step that has internally a StateGraph).</p>
-<h3>Parameters</h3>
-<table border="1" cellspacing="0" cellpadding="3">
-<tr><th>Type</th><th>Name</th><th>Default</th><th>Description</th></tr><tr><td><code>Integer</code></td><td><code>nSuspend</code></td><td><code>1</code></td><td>Number of suspend ports</td></tr>
-<tr><td><code>Integer</code></td><td><code>nResume</code></td><td><code>1</code></td><td>Number of resume ports</td></tr>
-<tr><td><code><a href="../../../../SIunits/index.html#Height">Height</a></code></td><td><code>maxLevel</code></td><td>&nbsp;</td><td>Fill level of tank 1</td></tr>
-<tr><td><code><a href="../../../../SIunits/index.html#Height">Height</a></code></td><td><code>minLevel</code></td><td>&nbsp;</td><td>Lowest level of tank 1 and 2</td></tr>
-<tr><td><code><a href="../../../../SIunits/index.html#Time">Time</a></code></td><td><code>waitTime</code></td><td>&nbsp;</td><td>Wait time between operations</td></tr>
-</table>
-<h3>Connectors</h3>
-<table border="1" cellspacing="0" cellpadding="3">
-<tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><a href="../../../../StateGraph/Interfaces/index.html#Step_in">Step_in</a></code></td><td><code>inPort</code></td><td>&nbsp</td></tr>
-<tr><td><code><a href="../../../../StateGraph/Interfaces/index.html#Step_out">Step_out</a></code></td><td><code>outPort</code></td><td>&nbsp</td></tr>
-<tr><td><code><a href="../../../../StateGraph/Interfaces/index.html#CompositeStep_suspend">CompositeStep_suspend</a></code></td><td><code>suspend[nSuspend]</code></td><td>&nbsp</td></tr>
-<tr><td><code><a href="../../../../StateGraph/Interfaces/index.html#CompositeStep_resume">CompositeStep_resume</a></code></td><td><code>resume[nResume]</code></td><td>&nbsp</td></tr>
-<tr><td><code><b>input</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#RealInput">RealInput</a></code></td><td><code>level1</code></td><td>&nbsp</td></tr>
-</table>
-<hr><a name="RadioButton"><h2><embed class="icon" src="../../../../images/icon0363.svg" width="223" height="203" />
+<hr><a name="RadioButton"><h2><embed class="icon" src="../../../../images/icon1305.svg" width="223" height="203" />
 Block <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../index.html">Fluid</a>.&#8203;<a href="../../index.html">Examples</a>.&#8203;<a href="../index.html">ControlledTankSystem</a>.&#8203;<a href="index.html">Utilities</a>.&#8203;RadioButton<br><span class="subtitle">Button that sets its output to true when pressed and is reset when an element of 'reset' becomes true</span></h2></a>
 <h3>Parameters</h3>
 <table border="1" cellspacing="0" cellpadding="3">
@@ -83,5 +44,5 @@ Block <a href="../../../../index.html">Modelica</a>.&#8203;<a href="../../../ind
 <tr><th>Type</th><th>Name</th><th>Description</th></tr><tr><td><code><b>output</b>&nbsp;</code><code><a href="../../../../Blocks/Interfaces/index.html#BooleanOutput">BooleanOutput</a></code></td><td><code>on</code></td><td>&nbsp</td></tr>
 </table>
 <hr style="border-color:#999" />
-<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-10-22 14:47:54 EDT by <i>MapleSim</i>.</p>
+<p style="font-size:80%;color:#999;margin-top:12px">Generated 2018-12-12 12:13:04 EST by <a href="http://maplesim.com"><i>MapleSim</i></a>.</p>
 </body></html>

@@ -1,10 +1,10 @@
 <svg width="263" height="203" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 	<g id="Modelica.Blocks.Continuous.Filter" class="component">
-		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="61.5,21.5 61.5,189.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="61.5,9.5 53.5,31.5 69.5,31.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="51.5,179.5 223.5,179.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polygon points="231.5,179.5 209.5,171.5 209.5,187.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="41.5,201.5 241.5,201.5 241.5,1.5 41.5,1.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="61.5,21.5 61.5,189.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="61.5,9.5 53.5,31.5 69.5,31.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="51.5,179.5 223.5,179.5" fill-opacity="0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polygon points="231.5,179.5 209.5,171.5 209.5,187.5" fill="#C0C0C0" stroke="#C0C0C0" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		<text x="152.5" y="48.8" text-anchor="middle" fill="#C0C0C0" font-size="50.5px" font-family="sans-serif">2</text>
 		<defs>
 			<pattern id="pat8" patternUnits="userSpaceOnUse" width="14" height="14">
@@ -12,13 +12,13 @@
 				<path d="M-1,13 l2,2 M0,0 l14,14 M13,-1 l2,2" stroke="#A0A0A4" stroke-width="1" />
 			</pattern>
 		</defs>
-		<polygon points="61.5,179.5 163.5,179.5 163.5,91.5 61.5,91.5" fill="url(#pat8)" stroke="#A0A0A4" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
-		<polyline points="61.5,73.5 115.5,73.5 119.0,73.6 122.5,73.7 125.8,74.0 129.1,74.4 132.2,75.0 135.3,75.6 138.2,76.4 141.1,77.3 143.8,78.3 146.5,79.4 149.0,80.6 151.5,82.0 153.8,83.5 156.1,85.0 158.2,86.7 160.3,88.6 162.2,90.5 164.1,92.6 165.8,94.8 167.5,97.1 169.0,99.5 170.5,102.0 171.8,104.7 173.1,107.4 174.2,110.3 175.3,113.3 176.2,116.4 177.1,119.7 177.8,123.0 178.5,126.5 187.5,179.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+		<polygon points="61.5,179.5 163.5,179.5 163.5,91.5 61.5,91.5" fill="url(#pat8)" stroke="#A0A0A4" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
+		<polyline points="61.5,73.5 115.5,73.5 119.0,73.6 122.5,73.7 125.8,74.0 129.1,74.4 132.2,75.0 135.3,75.6 138.2,76.4 141.1,77.3 143.8,78.3 146.5,79.4 149.0,80.6 151.5,82.0 153.8,83.5 156.1,85.0 158.2,86.7 160.3,88.6 162.2,90.5 164.1,92.6 165.8,94.8 167.5,97.1 169.0,99.5 170.5,102.0 171.8,104.7 173.1,107.4 174.2,110.3 175.3,113.3 176.2,116.4 177.1,119.7 177.8,123.0 178.5,126.5 187.5,179.5" fill-opacity="0" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		<g id="u" class="port">
-			<polygon points="1.5,81.5 41.5,101.5 1.5,121.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="1.5,81.5 41.5,101.5 1.5,121.5" fill="#00007F" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 		<g id="y" class="port">
-			<polygon points="241.5,91.5 261.5,101.5 241.5,111.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round" />
+			<polygon points="241.5,91.5 261.5,101.5 241.5,111.5" fill="#FFFFFF" stroke="#00007F" stroke-width="1.0" stroke-linecap="butt" stroke-linejoin="round" />
 		</g>
 	</g>
 </svg>
