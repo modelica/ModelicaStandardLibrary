@@ -14,7 +14,7 @@
 <td style="vertical-align: middle; text-align: center;"><b>Modelica322 with alias name: Modelica 3.2.2</b>
 </td>
 </tr>
-<td> Version: 3.2.3</td><td> Version: 3.2.2</td><tr><td> Version date: 2018-09-26</td><td> Version date: 2016-04-03</td><tr></tbody></table><br><br>
+<td> Version: 3.2.3</td><td> Version: 3.2.2</td><tr><td> Version date: 2018-12-12</td><td> Version date: 2016-04-03</td><tr></tbody></table><br><br>
 <big style="font-family: Arial;">model Blocks.Examples.PID_Controller</big><br><br>
 <table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
  cellpadding="5">
@@ -13308,6 +13308,36 @@ style="vertical-align: middle; text-align: left;">  end if;<br> ... <br>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Media.IdealGases.Common.Functions.thermalConductivityEstimate</big><br><br>
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">algorithm<br>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(0, 153, 0); font-weight: bold;">  </span>lambda := if method == 1 then eta*(Cp - data.R + (9/4)*data.R)<br>  <span style="color: rgb(0, 153, 0); font-weight: bold;">           </span><span style="color: rgb(0, 153, 0); font-weight: bold;">              else eta*(Cp - data.R)*(1.32 + 1.77/((Cp/data.R) - 1.0));</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">lambda := if method == 1 then eta*(Cp - data.R + (9/4)*data.R) <span style="color: rgb(102, 0, 204); font-weight: bold;">else eta*(Cp -<br> </span> <span style="color: rgb(102, 0, 204); font-weight: bold;">data.R)*(1.32 + 1.77/((Cp/Modelica322.Constants.R) - 1.0));</span>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">
+</td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">function Media.IdealGases.Common.MixtureGasNasa.specificEntropy</big><br><br>
 <table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
  cellpadding="5">
@@ -13323,6 +13353,83 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
 </tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">Y<br></td><td style="text-align: left; vertical-align: middle;">each unit="mol/mol"<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;">unit="mol/mol"<br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Media.IdealGases.Common.MixtureGasNasa.mixtureViscosityChung</big><br><br>
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;"><br> ... <br>mum =  (sigmam3*(sum(sum(y[i]*y[j]*mu[i]^2*mu[j]^2/sigma[i,j]^3 for j in 1:n) for i in 1:n)))^(1/4);
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">Vcm =  sigmam3/(0.<span style="color: rgb(0, 153, 0); font-weight: bold;">809)^3 </span><span style="color: rgb(0, 153, 0); font-weight: bold;">"eq. (4)";</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">Vcm =  sigmam3/(0.<span style="color: rgb(102, 0, 204); font-weight: bold;">809)^3;</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">Tcm =  1.<span style="color: rgb(0, 153, 0); font-weight: bold;">2593*edivkm </span><span style="color: rgb(0, 153, 0); font-weight: bold;">"eq. (5)";</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">Tcm =  1.<span style="color: rgb(102, 0, 204); font-weight: bold;">2593*edivkm;</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">murm =  131.<span style="color: rgb(0, 153, 0); font-weight: bold;">3*mum/(Vcm*Tcm)^(1/2) </span><span style="color: rgb(0, 153, 0); font-weight: bold;">"eq. (8)";</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">murm =  131.<span style="color: rgb(102, 0, 204); font-weight: bold;">3*mum/(Vcm*Tcm)^(1/2);</span>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">kappam =  (sigmam3*(sum(sum(y[i]*y[j]*kappaij[i,j] for j in 1:n) for i in 1:n)));
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">Fcm =  1 - 0.275*wm + 0.059035*murm^4 + <span style="color: rgb(0, 153, 0); font-weight: bold;">kappam </span><span style="color: rgb(0, 153, 0); font-weight: bold;">"eq. (7)";</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">Fcm =  1 - 0.275*wm + 0.059035*murm^4 + <span style="color: rgb(102, 0, 204); font-weight: bold;">kappam;</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">Tmstar =  <span style="color: rgb(0, 153, 0); font-weight: bold;">T/edivkm </span><span style="color: rgb(0, 153, 0); font-weight: bold;">"eq. (3)";</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">Tmstar =  <span style="color: rgb(102, 0, 204); font-weight: bold;">T/edivkm;</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">omegav = 1.16145*(Tmstar)^(-0.14874) + 0.<span style="color: rgb(0, 153, 0); font-weight: bold;">52487*Modelica323.</span><span style="color: rgb(0, 153, 0); font-weight: bold;">Math.</span>exp(-0.<span style="color: rgb(0, 153, 0); font-weight: bold;">77320*<br> </span><span style="color: rgb(0, 153, 0); font-weight: bold;"> Tmstar) </span>+ 2.<span style="color: rgb(0, 153, 0); font-weight: bold;">16178*Modelica323.</span><span style="color: rgb(0, 153, 0); font-weight: bold;">Math.</span>exp(-2.<span style="color: rgb(0, 153, 0); font-weight: bold;">43787*Tmstar) </span><span style="color: rgb(0, 153, 0); font-weight: bold;">"eq. (2)";</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">omegav = <span style="color: rgb(102, 0, 204); font-weight: bold;"> </span>1.16145*(Tmstar)^(-0.14874) + 0.<span style="color: rgb(102, 0, 204); font-weight: bold;">52487*Math.</span>exp(-0.<span style="color: rgb(102, 0, 204); font-weight: bold;">77320*Tmstar) </span>+ 2.<span style="color: rgb(102, 0, 204); font-weight: bold;">16178*Math.</span>exp(-2.<span style="color: rgb(102, 0, 204); font-weight: bold;">43787*Tmstar);</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">etam =  26.<span style="color: rgb(0, 153, 0); font-weight: bold;">69*Fcm*(Mm*T)^(1/2)/(sigmam3^(2/3)*omegav) </span><span style="color: rgb(0, 153, 0); font-weight: bold;">"eq. (1)";</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">etam =  26.<span style="color: rgb(102, 0, 204); font-weight: bold;">69*Fcm*(Mm*T)^(1/2)/(sigmam3^(2/3)*omegav);</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">etaMixture =  <span style="color: rgb(0, 153, 0); font-weight: bold;">etam*1e-7;</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">etaMixture =  <span style="color: rgb(102, 0, 204); font-weight: bold;">etam*1e7;</span>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">
+</td>
+</tr>
+<br></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
@@ -15228,7 +15335,7 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 <tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Mechanics.MultiBody.Visualizers.Rectangle</td>
 <td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
 </tr><tr>
-<tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Mechanics.Rotational.Examples.TestEddyCurrentBrake</td>
+<tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Mechanics.Rotational.Examples.EddyCurrentBrake</td>
 <td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
 </tr><tr>
 <tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Mechanics.Rotational.Examples.OneWayClutch</td>
@@ -15264,7 +15371,7 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 <tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Mechanics.Translational.Examples.Utilities.SpringDamperNoRelativeStates</td>
 <td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
 </tr><tr>
-<tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Mechanics.Translational.Examples.TestEddyCurrentBrake</td>
+<tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Mechanics.Translational.Examples.EddyCurrentBrake</td>
 <td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
 </tr><tr>
 <tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Mechanics.Translational.Examples.GenerationOfFMUs</td>
