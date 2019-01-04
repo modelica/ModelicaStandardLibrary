@@ -2551,7 +2551,7 @@ Transformation of space phasor and zero sequence value to quasi stationary multi
               -100},{-70,-100},{-70,-90}})}), preferredView="info", Documentation(info="<html>
 <p><strong>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></strong>.</p>
 <p>
-Copyright &copy; 1998-2018, Modelica Association and contributors
+Copyright &copy; 1998-2019, Modelica Association and contributors
 </p>
 <p>This package hosts models for quasi stationary induction machines and transformers.
 </p>

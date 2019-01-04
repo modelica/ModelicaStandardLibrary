@@ -3035,7 +3035,7 @@ are nearly always needed).
 </p>
 
 <p>
-Copyright &copy; 1998-2018, Modelica Association and contributors
+Copyright &copy; 1998-2019, Modelica Association and contributors
 </p>
 </html>"), Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
       Rectangle(

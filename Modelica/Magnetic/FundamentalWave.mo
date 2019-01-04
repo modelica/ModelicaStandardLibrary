@@ -9377,7 +9377,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 </html>", info="<html>
   <p><strong>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></strong>.</p>
 <p>
-Copyright &copy; 2009-2018, Modelica Association and contributors
+Copyright &copy; 2009-2019, Modelica Association and contributors
 </p>
 </html>"),
     Icon(graphics={

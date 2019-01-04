@@ -8095,7 +8095,7 @@ This library contains components for modelling of electromagnetic devices with l
 </p>
 
 <p>
-Copyright &copy; 2005-2018, Modelica Association and contributors
+Copyright &copy; 2005-2019, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <p>

@@ -1,6 +1,6 @@
 /* ModelicaMatIO.c - MAT file I/O functions
 
-   Copyright (C) 2013-2018, Modelica Association and contributors
+   Copyright (C) 2013-2019, Modelica Association and contributors
    Copyright (C) 2005-2013, Christopher C. Hulbert
    All rights reserved.
 

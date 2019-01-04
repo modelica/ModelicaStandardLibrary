@@ -4114,7 +4114,7 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
   end Interfaces;
   annotation (Documentation(info="<html>
 <p>
-Copyright &copy; 1998-2018, Modelica Association and contributors
+Copyright &copy; 1998-2019, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
   <ul>
