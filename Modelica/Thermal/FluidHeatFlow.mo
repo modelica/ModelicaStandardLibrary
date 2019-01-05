@@ -28,7 +28,7 @@ email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.co
 <h4>Acknowledgements</h4>
 
 <p>
-Copyright &copy; 1998-2018, Modelica Association and contributors
+Copyright &copy; 1998-2019, Modelica Association and contributors
 </p>
 </html>"));
     end Contact;
@@ -3123,7 +3123,7 @@ Since mixing may occur, the outlet temperature may be different from the connect
 Outlet temperature is defined by variable T of the corresponding component.</li>
 </ul>
 <p>
-Copyright &copy; 1998-2018, Modelica Association and contributors
+Copyright &copy; 1998-2019, Modelica Association and contributors
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Polygon(

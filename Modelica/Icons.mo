@@ -979,7 +979,7 @@ This icon of an <strong>electrical motor</strong> model will be removed in futur
 </dl>
 
 <p>
-Copyright &copy; 1998-2018, Modelica Association and contributors
+Copyright &copy; 1998-2019, Modelica Association and contributors
 </p>
 </html>"));
 end Icons;

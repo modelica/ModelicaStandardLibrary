@@ -771,7 +771,7 @@ of data points.
 </p>
 
 <p>
-Copyright &copy; 2004-2018, Modelica Association and contributors
+Copyright &copy; 2004-2019, Modelica Association and contributors
 </p>
 </html>",     revisions="<html>
 <ul>

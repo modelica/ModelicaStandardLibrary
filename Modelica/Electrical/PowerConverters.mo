@@ -7369,7 +7369,7 @@ This library provides power converters for DC and AC single and multi phase elec
 </ul>
 
 <p>
-Copyright &copy; 2013-2018, Modelica Association and contributors
+Copyright &copy; 2013-2019, Modelica Association and contributors
 </p>
 </html>"),
     Icon(graphics={

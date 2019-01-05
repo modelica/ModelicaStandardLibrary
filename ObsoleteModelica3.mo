@@ -3462,7 +3462,7 @@ marked in the icon layer with a red box.
 </p>
 
 <p>
-Copyright &copy; 2007-2018, Modelica Association and contributors
+Copyright &copy; 2007-2019, Modelica Association and contributors
 </p>
 
 <p>

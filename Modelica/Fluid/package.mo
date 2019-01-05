@@ -1737,7 +1737,7 @@ The following parts are useful, when newly starting with this library:
      contains examples that demonstrate the usage of this library.</li>
 </ul>
 <p>
-Copyright &copy; 2002-2018, Modelica Association and contributors
+Copyright &copy; 2002-2019, Modelica Association and contributors
 </p>
 </html>"));
 end Fluid;

@@ -7925,7 +7925,7 @@ If <em>control</em> is true, plug_sp and plug_sn are delta connected and they ar
   annotation (preferredView="info", Documentation(info="<html>
   <p><strong>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></strong>.</p>
 <p>
-Copyright &copy; 2013-2018, Modelica Association and contributors
+Copyright &copy; 2013-2019, Modelica Association and contributors
 </p>
 </html>"),
     Icon(graphics={

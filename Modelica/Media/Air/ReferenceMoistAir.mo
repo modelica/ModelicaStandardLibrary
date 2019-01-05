@@ -4700,7 +4700,7 @@ Some parts of this library refer to the ThermoFluid library developed at Lund Un
 </p>
 
 <p>
-Copyright &copy; 2013-2018, Modelica Association and contributors
+Copyright &copy; 2013-2019, Modelica Association and contributors
 </p>
 </html>"));
 end ReferenceMoistAir;

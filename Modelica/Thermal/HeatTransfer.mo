@@ -3334,7 +3334,7 @@ Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
   </dd>
 </dl>
 <p>
-Copyright &copy; 2001-2018, Modelica Association and contributors
+Copyright &copy; 2001-2019, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <ul>
