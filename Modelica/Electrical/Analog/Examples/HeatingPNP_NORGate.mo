@@ -61,17 +61,17 @@ model HeatingPNP_NORGate "Heating PNP NOR Gate"
   annotation (Placement(transformation(extent={{-10,16},{10,36}})));
   Modelica.Electrical.Analog.Basic.Ground Gnd4
   annotation (Placement(transformation(extent={{30,-52},{50,-32}})));
-  Modelica.Electrical.Analog.Basic.Capacitor C1(C=CapVal)
+  Modelica.Electrical.Analog.Basic.Capacitor C1(final C=CapVal)
   annotation (Placement(transformation(
         origin={-70,38},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Capacitor C2(C=CapVal)
+  Modelica.Electrical.Analog.Basic.Capacitor C2(final C=CapVal)
   annotation (Placement(transformation(
         origin={60,42},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Capacitor C3(C=CapVal)
+  Modelica.Electrical.Analog.Basic.Capacitor C3(final C=CapVal)
   annotation (Placement(transformation(
         origin={-16,-40},
         extent={{-10,-10},{10,10}},
@@ -87,11 +87,11 @@ model HeatingPNP_NORGate "Heating PNP NOR Gate"
     Br=1,
     Is=1e-14,
     Vak=0,
-    Tauf=tauVal,
-    Taur=tauVal,
-    Ccs=CapVal,
-    Cje=CapVal,
-    Cjc=CapVal,
+    final Tauf=tauVal,
+    final Taur=tauVal,
+    final Ccs=CapVal,
+    final Cje=CapVal,
+    final Cjc=CapVal,
     Phie=1,
     Me=0.5,
     Phic=1,
@@ -107,11 +107,11 @@ model HeatingPNP_NORGate "Heating PNP NOR Gate"
     Br=1,
     Is=1e-14,
     Vak=0,
-    Tauf=tauVal,
-    Taur=tauVal,
-    Ccs=CapVal,
-    Cje=CapVal,
-    Cjc=CapVal,
+    final Tauf=tauVal,
+    final Taur=tauVal,
+    final Ccs=CapVal,
+    final Cje=CapVal,
+    final Cjc=CapVal,
     Phie=1,
     Me=0.5,
     Phic=1,
