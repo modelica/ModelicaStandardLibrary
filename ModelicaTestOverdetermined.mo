@@ -610,8 +610,8 @@ The initial equations are consistent however and a tool shall reduce them approp
        preferredView="info",
        versionBuild=1,
        version="3.2.3",
-       versionDate="2018-12-12",
-       dateModified = "2018-12-12 12:00:00Z",
+       versionDate="2019-01-23",
+       dateModified = "2019-01-23 12:00:00Z",
        revisionId="$Id::                                       $",
        uses(Modelica(version="3.2.3")),
     Documentation(info="<html>

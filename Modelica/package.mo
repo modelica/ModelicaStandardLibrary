@@ -2135,16 +2135,16 @@ There are some special guidelines for changes to the maintenance branch.
      needs to be updated.<br>
      Example:
          <pre>  annotation(version      = \"3.2.3\",
-             versionDate  = \"2018-12-12\",
+             versionDate  = \"2019-01-23\",
              versionBuild = 2,
-             dateModified = \"2018-12-12 07:40:19Z\",
+             dateModified = \"2019-01-23 07:40:19Z\",
              revisionId   = \"$F&#8203;ormat:%h %ci$\")</pre>
      The \"revisionId\" field is a special annotation to mark a properly released (maintenance) version from unreleased commits.<br>
      Example:
      <blockquote>
         Running the export command \"<code>git archive -o msl.zip v3.2.3</code>\" will
         expand the above \"revisionId\" place holder to something like:
-        <pre>revisionId = \"c04e23a0d 2018-12-12 12:00:00 +0200$\"</pre>
+        <pre>revisionId = \"c04e23a0d 2019-01-23 12:00:00 +0200$\"</pre>
      </blockquote>
      </li>
 </ul>
@@ -2170,7 +2170,7 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
-class Version_3_2_3 "Version 3.2.3 (December 12, 2018)"
+class Version_3_2_3 "Version 3.2.3 (January 23, 2019)"
   extends Modelica.Icons.ReleaseNotes;
 
  annotation (Documentation(info="<html>
@@ -7776,7 +7776,7 @@ main version number is not changed.
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_3\">Version 3.2.3</a></td><td>December 12, 2018</td></tr>
+<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_3\">Version 3.2.3</a></td><td>January 23, 2019</td></tr>
 <tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_2\">Version 3.2.2</a></td><td>April 3, 2016</td></tr>
 <tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_1\">Version 3.2.1</a></td><td>August 14, 2013</td></tr>
 <tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2\">Version 3.2</a></td><td>Oct. 25, 2010</td></tr>
@@ -8355,8 +8355,8 @@ annotation (
 preferredView="info",
 version="3.2.3",
 versionBuild=1,
-versionDate="2018-12-12",
-dateModified = "2018-12-12 12:00:00Z",
+versionDate="2019-01-23",
+dateModified = "2019-01-23 12:00:00Z",
 revisionId="$Format:%h %ci$",
 uses(Complex(version="3.2.3"), ModelicaServices(version="3.2.3")),
 conversion(

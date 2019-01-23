@@ -3422,8 +3422,8 @@ to the left and/or the right flange.
   annotation (uses(Modelica(version="3.2.3")),
               version="3.2.3",
               versionBuild=1,
-              versionDate="2018-12-12",
-              dateModified = "2018-12-12 12:00:00Z",
+              versionDate="2019-01-23",
+              dateModified = "2019-01-23 12:00:00Z",
               revisionId="$Format:%h %ci$",
 Documentation(info="<html>
 <p>
