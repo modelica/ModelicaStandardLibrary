@@ -1,5 +1,5 @@
 setModelicaPath(".");
-setLanguageStandard("3.4");
+setLanguageStandard("3.3");
 loadModel(ModelicaTest);
 loadModel(ModelicaTestOverdetermined);
 loadModel(ObsoleteModelica3);
