@@ -3,13 +3,13 @@ model Rectifier "B6 diode bridge"
   extends Modelica.Icons.Example;
   import Modelica.Electrical.Analog.Ideal;
   parameter SI.Voltage VAC=400 "RMS line-to-line";
-  parameter SI.Frequency f=50 "line frequency";
-  parameter SI.Inductance LAC=60E-6 "line inductor";
-  parameter SI.Resistance Ron=1E-3 "diode forward resistance";
-  parameter SI.Conductance Goff=1E-3 "diode backward conductance";
-  parameter SI.Voltage Vknee=2 "diode threshold voltage";
+  parameter SI.Frequency f=50 "Line frequency";
+  parameter SI.Inductance LAC=60E-6 "Line inductor";
+  parameter SI.Resistance Ron=1E-3 "Diode forward resistance";
+  parameter SI.Conductance Goff=1E-3 "Diode backward conductance";
+  parameter SI.Voltage Vknee=2 "Diode threshold voltage";
   parameter SI.Capacitance CDC=15E-3 "DC capacitance";
-  parameter SI.Current IDC=500 "load current";
+  parameter SI.Current IDC=500 "Load current";
   output SI.Voltage uDC;
   output SI.Current iAC[3];
   output SI.Voltage uAC[3];
@@ -153,7 +153,7 @@ equation
   connect(SignalCurrent1.n, Capacitor2.n)
     annotation (Line(points={{60,-10},{60,-50},{40,-50}}, color={0,0,255}));
   connect(Constant1.y, SignalCurrent1.i)
-    annotation (Line(points={{79,0},{79,0},{67,0}}, color={0,0,255}));
+    annotation (Line(points={{79,0},{79,0},{72,0}}, color={0,0,255}));
   connect(Inductor1.n, IdealDiode1.p)
     annotation (Line(points={{-40,20},{-20,20},{-20,30}}, color={0,0,255}));
   connect(Inductor2.n, IdealDiode2.p)

@@ -1,8 +1,8 @@
 within Modelica.Electrical.Analog.Examples;
 model HeatingPNP_NORGate "Heating PNP NOR Gate"
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Capacitance CapVal=0 annotation (Evaluate=true);
-  parameter Modelica.SIunits.Time tauVal=0 annotation (Evaluate=true);
+  parameter Modelica.SIunits.Capacitance CapVal=0 "Value for capacitances" annotation (Evaluate=true);
+  parameter Modelica.SIunits.Time tauVal=0 "Value for ideal forward and reverse transit time of semiconductors" annotation (Evaluate=true);
 
   Modelica.Thermal.HeatTransfer.Components.HeatCapacitor HeatCapacitor1(C=0.1)
   annotation (Placement(transformation(

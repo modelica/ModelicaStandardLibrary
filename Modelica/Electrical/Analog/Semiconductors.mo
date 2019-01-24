@@ -477,8 +477,8 @@ model NPN "Simple BJT according to Ebers-Moll"
   parameter SI.Conductance Gbc=1e-15 "Base-collector conductance";
   parameter SI.Conductance Gbe=1e-15 "Base-emitter conductance";
   parameter SI.Voltage Vt=0.02585 "Voltage equivalent of temperature";
-  parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
-  parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
+  parameter Real EMin=-100 "If x < EMin, the exp(x) function is linearized";
+  parameter Real EMax=40 "If x > EMax, the exp(x) function is linearized";
   parameter SI.Voltage IC=0 "Initial value" annotation(Dialog(enable=UIC));
   parameter Boolean UIC = false "Decision if initial value should be used";
 
@@ -603,8 +603,8 @@ model PNP "Simple BJT according to Ebers-Moll"
   parameter SI.Conductance Gbc=1e-15 "Base-collector conductance";
   parameter SI.Conductance Gbe=1e-15 "Base-emitter conductance";
   parameter SI.Voltage Vt=0.02585 "Voltage equivalent of temperature";
-  parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
-  parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
+  parameter Real EMin=-100 "If x < EMin, the exp(x) function is linearized";
+  parameter Real EMax=40 "If x > EMax, the exp(x) function is linearized";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
 
   SI.Voltage vbc "Base-collector voltage";
@@ -1030,8 +1030,8 @@ end HeatingDiode;
           parameter Real Mc=0.333 "Base-collector gradation exponent";
           parameter SI.Conductance Gbc=1e-15 "Base-collector conductance";
           parameter SI.Conductance Gbe=1e-15 "Base-emitter conductance";
-          parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
-          parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
+          parameter Real EMin=-100 "If x < EMin, the exp(x) function is linearized";
+          parameter Real EMax=40 "If x > EMax, the exp(x) function is linearized";
           parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature";
           parameter Real XTI=3 "Temperature exponent for effect on Is";
           parameter Real XTB=0 "Forward and reverse beta temperature exponent";
@@ -1142,8 +1142,8 @@ end HeatingDiode;
           parameter Real Mc=0.333 "Base-collector gradation exponent";
           parameter SI.Conductance Gbc=1e-15 "Base-collector conductance";
           parameter SI.Conductance Gbe=1e-15 "Base-emitter conductance";
-          parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
-          parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
+          parameter Real EMin=-100 "If x < EMin, the exp(x) function is linearized";
+          parameter Real EMax=40 "If x > EMax, the exp(x) function is linearized";
           parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature";
           parameter Real XTI=3 "Temperature exponent for effect on Is";
           parameter Real XTB=0 "Forward and reverse beta temperature exponent";

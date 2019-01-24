@@ -1605,10 +1605,10 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
           extent={{-20,-20},{20,20}},
           rotation=270)));
     parameter SI.Capacitance Cmin=Modelica.Constants.eps
-      "lower bound for variable capacitance";
+      "Lower bound for variable capacitance";
     SI.ElectricCharge Q;
     parameter SI.Voltage IC=0 "Initial Value";
-    parameter Boolean UIC=false;
+    parameter Boolean UIC=false "Decision if initial value IC shall be used";
   initial equation
     if UIC then
       v = IC;
@@ -1663,9 +1663,9 @@ C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Mo
           origin={0,120})));
     SI.MagneticFlux Psi;
     parameter SI.Inductance Lmin=Modelica.Constants.eps
-      "lower bound for variable inductance";
+      "Lower bound for variable inductance";
     parameter SI.Current IC=0 "Initial Value";
-    parameter Boolean UIC=false;
+    parameter Boolean UIC=false "Decision if initial value IC shall be used";
   initial equation
     if UIC then
       i = IC;
@@ -1727,7 +1727,7 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
     parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
-    parameter Boolean useRinput=false "use input for 0<r<1 (else constant)"
+    parameter Boolean useRinput=false "Use input for 0<r<1 (else constant)"
       annotation (
       Evaluate=true,
       HideResult=true,
