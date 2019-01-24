@@ -35,9 +35,6 @@ pre {white-space: pre; overflow-x : hidden;}
 .ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
 .ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-<style type="text/css">
-.ModelicaKeyword { color: red; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
-</style>
 </head>
 <body>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -350,7 +347,6 @@ pre {white-space: pre; overflow-x : hidden;}
 <li><strong>Discontinuities</strong> are allowed, by providing the same time point twice in the table.</li>
 <li>Values <strong>outside</strong> of the table range, are computed by <strong>extrapolation</strong> through the last or first two points of the table.</li>
 <li>If the table has only <strong>one row</strong>, no interpolation is performed and the voltage value is just returned independently of the actual time instant, i.e., this is a constant voltage source.</li>
-<li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined by the table can be shifted both in time and in the voltage.</li>
 <li>The table is implemented in a numerically sound way by generating <strong>time events</strong> at interval boundaries.
     This generates continuously differentiable values for the integrator.</li>
 </ul>
@@ -632,7 +628,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 <li><strong>Discontinuities</strong> are allowed, by providing the same time point twice in the table.</li>
 <li>Values <strong>outside</strong> of the table range, are computed by <strong>extrapolation</strong> through the last or first two points of the table.</li>
 <li>If the table has only <strong>one row</strong>, no interpolation is performed and the current value is just returned independently of the actual time instant, i.e., this is a constant current source.</li>
-<li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined by the table can be shifted both in time and in the current.</li>
 <li>The table is implemented in a numerically sound way by generating <strong>time events</strong> at interval boundaries.
     This generates continuously differentiable values for the integrator.</li>
 </ul>
@@ -655,7 +650,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
 <h3>Parameters</h3>
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>table[:, :]</td><td>Table matrix (time = first column, voltage = second column)</td></tr>
+<tr><td>table[:, :]</td><td>Table matrix (time = first column, current = second column)</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
@@ -699,7 +694,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
 <tr><td>n</td><td>Negative electrical pin</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Mon Oct  1 14:50:56 2018.
+<a href="http://www.3ds.com/">Automatically generated</a> Thu Jan 24 11:19:50 2019.
 </address>
 </body>
 </html>

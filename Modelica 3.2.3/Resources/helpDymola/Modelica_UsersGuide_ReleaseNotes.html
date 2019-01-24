@@ -35,9 +35,6 @@ pre {white-space: pre; overflow-x : hidden;}
 .ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
 .ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-<style type="text/css">
-.ModelicaKeyword { color: red; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
-</style>
 </head>
 <body>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -62,7 +59,7 @@ main version number is not changed.
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><td><a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_3_2_3"
->Version 3.2.3</a></td><td>September 26, 2018</td></tr>
+>Version 3.2.3</a></td><td>January 23, 2019</td></tr>
 <tr><td><a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_3_2_2"
 >Version 3.2.2</a></td><td>April 3, 2016</td></tr>
 <tr><td><a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_3_2_1"
@@ -109,7 +106,7 @@ main version number is not changed.
 <td><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_3_2_3" width="20" height="20" align="top">&nbsp;<a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_3_2_3"
 >Version_3_2_3</a>
 </td>
-<td>Version 3.2.3 (September 26, 2018)</td>
+<td>Version 3.2.3 (January 23, 2019)</td>
 </tr>
 <tr>
 <td><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_3_2_2" width="20" height="20" align="top">&nbsp;<a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_3_2_2"
@@ -275,16 +272,16 @@ There are some special guidelines for changes to the maintenance branch.
      needs to be updated.<br>
      Example:
          <pre>  annotation(version      = "3.2.3",
-             versionDate  = "2018-09-26",
+             versionDate  = "2019-01-23",
              versionBuild = 2,
-             dateModified = "2018-12-12 07:40:19Z",
+             dateModified = "2019-01-23 07:40:19Z",
              revisionId   = "$F&#8203;ormat:%h %ci$")</pre>
      The "revisionId" field is a special annotation to mark a properly released (maintenance) version from unreleased commits.<br>
      Example:
      <blockquote>
         Running the export command "<code>git archive -o msl.zip v3.2.3</code>" will
         expand the above "revisionId" place holder to something like:
-        <pre>revisionId = "c04e23a0d 2018-09-26 12:00:00 +0200$"</pre>
+        <pre>revisionId = "c04e23a0d 2019-01-23 12:00:00 +0200$"</pre>
      </blockquote>
      </li>
 </ul>
@@ -327,9 +324,9 @@ and will interpret it in the same way. Short Overview:
 </p>
 
 <ul>
-<li>About <a  >500 issues (including pull requests)</a>
+<li>About <a  >557 issues (including pull requests)</a>
     have been addressed for this release.</li>
-<li><strong>94</strong> component models and blocks, <strong>34</strong> example models and <strong>9</strong> functions are newly included.</li>
+<li><strong>94</strong> component models and blocks, <strong>36</strong> example models and <strong>9</strong> functions are newly included.</li>
 <li>The license has been changed to BSD 3-clause, visit: <a href="https://modelica.org/licenses/modelica-3-clause-bsd">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</li>
 </ul>
 
@@ -371,6 +368,8 @@ to <font color="blue"><strong>existing</strong></font> libraries:
     <td> Partial adaptors for generation of FMUs, optionally taking first and second derivative into account,
          for consistent components in various domains.</td></tr>
 <tr><td colspan="2"><strong>Modelica.Blocks.Math</strong></td></tr>
+<tr><td width="150">Power</td>
+    <td>Computes the power of the input signal.</td></tr>
 <tr><td width="150">WrapAngle</td>
     <td> Wraps the angle signal at the input to the interval ]-&pi;, &pi;] or [0, 2&pi;[.</td></tr>
 <tr><td width="150">Pythagoras</td>
@@ -379,6 +378,11 @@ to <font color="blue"><strong>existing</strong></font> libraries:
     <td> This block calculates THD of the signal at the input.</td></tr>
 <tr><td width="150">RealFFT</td>
     <td> This block samples the input and calculates the FFT, writing the result to a mat file when the simulation terminates.</td></tr>
+<tr><td colspan="2"><strong>Modelica.Blocks.Routing</strong></td></tr>
+<tr><td width="150">Multiplex</td>
+    <td>Multiplexer block for <em>arbitrary</em> number of input signals</td></tr>
+<tr><td width="150">DeMultiplex</td>
+    <td>Demultiplexer block for <em>arbitrary</em> number of output signals</td></tr>
 <tr><td colspan="2"><strong>Modelica.Blocks.Tables</strong></td></tr>
 <tr><td width="150">CombiTable2Dv</td>
     <td>Variant of CombiTable2D (table look-up in two dimensions) with vector inputs and vector output</td></tr>
@@ -502,12 +506,30 @@ have been marked as <font color="blue"><strong>obsolete</strong></font> and will
 <tr><td colspan="2"><strong>Modelica.Blocks.Interfaces.Adaptors</strong></td></tr>
 <tr><td>SendReal<br>SendBoolean<br>SendInteger<br>ReceiveReal<br>ReceiveBoolean<br>ReceiveInteger</td>
     <td>Use expandable connectors instead.</td></tr>
+<tr><td colspan="2"><strong>Modelica.StateGraph.Temporary</strong></td></tr>
+<tr><td>SetRealParameter</td>
+    <td>Use parameter Real instead.</td></tr>
+<tr><td>anyTrue</td>
+    <td>Use Modelica.Math.BooleanVectors.anyTrue instead.</td></tr>
+<tr><td>allTrue</td>
+    <td>Use Modelica.Math.BooleanVectors.allTrue instead instead.</td></tr>
+<tr><td>RadioButton</td>
+    <td>Use future model from Modelica.Blocks.Interaction instead.</td></tr>
+<tr><td>NumericValue</td>
+    <td>Use Modelica.Blocks.Interaction.Show.RealValue instead.</td></tr>
+<tr><td>IndicatorLamp</td>
+    <td>Use Modelica.Blocks.Interaction.Show.BooleanValue instead.</td></tr>
 <tr><td colspan="2"><strong>Modelica.Electrical.Digital.Converters</strong></td></tr>
 <tr><td>LogicToXO1<br>LogicToXO1Z</td>
     <td>Use LogicToX01 or LogicToX01Z instead.</td></tr>
 <tr><td colspan="2"><strong>Modelica.Electrical.Machines</strong></td></tr>
 <tr><td>BasicMachines.Components.BasicTransformer</td>
     <td>Use Interfaces.PartialBasicTransformer instead.</td></tr>
+<tr><td colspan="2"><strong>Modelica.Electrical.Spice3.Internal</strong></td></tr>
+<tr><td>BJT</td>
+    <td>Use BJT2 instead.</td></tr>
+<tr><td>Bjt3.*</td>
+    <td>Use revised classes instead.</td></tr>
 <tr><td colspan="2"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
 <tr><td>Examples.Loops.Utilities.GasForce</td>
     <td>Use Examples.Loops.Utilities.GasForce2 instead.</td></tr>
@@ -534,6 +556,9 @@ have been marked as <font color="blue"><strong>obsolete</strong></font> and will
 <tr><td colspan="2"><strong>Modelica.Icons</strong></td></tr>
 <tr><td>Library<br>Library2<br>GearIcon<br>MotorIcon<br>Info</td>
     <td>Use (substitute) icons from Modelica.Icons, Modelica.Mechanics.Rotational.Icons or Modelica.Electrical.Machines.Icons instead.</td></tr>
+<tr><td colspan="2"><strong>Modelica.SIunits.Conversions.NonSIunits</strong></td></tr>
+<tr><td>FirstOrderTemperaturCoefficient<br>SecondOrderTemperaturCoefficient</td>
+    <td>Use Modelica.SIunits.LinearTemperatureCoefficientResistance or Modelica.SIunits.QuadraticTemperatureCoefficientResistance instead.</td></tr>
 </table>
 
 <p><br>
@@ -588,9 +613,21 @@ that can lead to wrong simulation results):
 <tr><td colspan="2"><strong>Modelica.Blocks.Sources</strong></td></tr>
 <tr><td>TimeTable</td>
     <td>The derivative of the <code>TimeTable</code> output could no longer be determined. This has been corrected.</td></tr>
+<tr><td colspan="2"><strong>Modelica.Media.Air</strong></td></tr>
+<tr><td>MoistAir.molarMass<br>ReferenceMoistAir.molarMass</td>
+    <td>The computation of the function output <code>MM</code> was wrong. This has been corrected.</td></tr>
+<tr><td colspan="2"><strong>Modelica.Media.IdealGases.Common.Functions</strong></td></tr>
+<tr><td>thermalConductivityEstimate</td>
+    <td>The computation of the function output <code>lambda</code> was wrong for the modified Eucken correlation, i.e., if <code>method</code> is set to 2. This has been corrected.</td></tr>
 <tr><td colspan="2"><strong>Modelica.Media.IdealGases.Common.SingleGasesData</strong></td></tr>
 <tr><td>CH2<br>CH3<br>CH3OOH<br>C2CL2<br>C2CL4<br>C2CL6<br>C2HCL<br>C2HCL3<br>CH2CO_ketene<br>O_CH_2O<br>HO_CO_2OH<br>CH2BrminusCOOH<br>C2H3CL<br>CH2CLminusCOOH<br>HO2<br>HO2minus<br>OD<br>ODminus</td>
     <td>The coefficients for <code>blow</code>, <code>ahigh</code> and <code>bhigh</code> were wrong. This has been corrected.</td></tr>
+<tr><td colspan="2"><strong>Modelica.Media.IdealGases.Common.MixtureGasNasa</strong></td></tr>
+<tr><td>mixtureViscosityChung</td>
+    <td>The computation of the function output <code>etaMixture</code> was wrong. This has been corrected.</td></tr>
+<tr><td colspan="2"><strong>Modelica.Media.Incompressible.TableBased</strong></td></tr>
+<tr><td>BaseProperties</td>
+    <td>The unit of the gas constant <code>R</code> for table based media was not correctly considered. This has been corrected.</td></tr>
 <tr><td colspan="2"><strong>Modelica.Math.Random.Utilities</strong></td></tr>
 <tr><td>impureRandomInteger</td>
     <td>The function output <code>y</code> was not computed to yield a discrete uniform distribution for a minimum value <code>imin</code> of 1. This has been corrected.</td></tr>
@@ -2616,17 +2653,17 @@ Note:
 </p>
 <ul>
 <li> Libraries
-     <a href="https://www.modelica.org/libraries/Modelica_FundamentalWave">Modelica_FundamentalWave</a>
+     <a href="https://github.com/modelica-deprecated/Modelica_FundamentalWave">Modelica_FundamentalWave</a>
      and
-     <a href="https://www.modelica.org/libraries/Modelica_QuasiStationary">Modelica_QuasiStationary</a>
+     <a href="https://github.com/modelica-deprecated/Modelica_Quasistationary">Modelica_QuasiStationary</a>
      are included in this version in an improved form.</li>
 <li> From library
-     <a href="https://www.modelica.org/libraries/Modelica_LinearSystems2">Modelica_LinearSystems2</a>,
+     <a href="https://github.com/modelica/Modelica_LinearSystems2">Modelica_LinearSystems2</a>,
      the sublibraries
      Math.Complex, Math.Vectors and Math.Matrices are included in this version
      in an improved form.</li>
 <li> From library
-     <a href="https://www.modelica.org/libraries/Modelica_StateGraph2">Modelica_StateGraph2</a>,
+     <a href="https://github.com/modelica/Modelica_StateGraph2">Modelica_StateGraph2</a>,
      the sublibrary Blocks is included in this version in an improved form.</li>
 </ul>
 
@@ -5970,7 +6007,7 @@ First official release of the library.
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
 >Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Mon Oct  1 14:50:43 2018.
+<a href="http://www.3ds.com/">Automatically generated</a> Thu Jan 24 11:19:44 2019.
 </address>
 </body>
 </html>
