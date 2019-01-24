@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-Copyright (C) 2018, Modelica Association and contributors
+Copyright (C) 2018-2019, Modelica Association and contributors
 All rights reserved.
 
 Generate MSL release notes from closed GitHub issues:
@@ -135,11 +135,11 @@ def main(dir, milestone, version):
 if __name__ == '__main__':
     module_dir, module_name = os.path.split(__file__)
     if len(sys.argv) == 1:
-        milestone = 12
-        version = '3.2.3'
+        milestone = 4
+        version = '4.0.0'
     elif len(sys.argv) == 2:
         milestone = sys.argv[1]
-        version = '3.2.3'
+        version = '4.0.0'
     elif len(sys.argv) > 2:
         milestone = sys.argv[1]
         version = sys.argv[2]
