@@ -1,15 +1,16 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>ModelicaReference.Annotations.derivative</title>
 </head>
 <body>
-<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Annotations.html">Annotations</a>.<span class="omc-h1">derivative</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Annotations.html">Annotations</a>.<span class="omc-h1">derivative</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>Define derivative of function</p>
 <h4>Examples</h4>
 <pre>
@@ -43,22 +44,22 @@ as follows:</p>
 <ul>
 <li>First are all inputs to the original function, and after all
 them we will in order append one derivative for each input
-containing reals.<br />
-&nbsp;</li>
+containing reals.<br/>
+ </li>
 <li>The outputs are constructed by starting with an empty list and
 then in order appending one derivative for each output containing
-reals.<br />
-&nbsp;</li>
+reals.<br/>
+ </li>
 <li>If the Modelica function call is a nth derivative (n&gt;=1),
 i.e., this function call has been derived from an (n-1)th
 derivative, an annotation(order=n+1)=?, specifies the (n+1)th
 derivative, and the (n+1)th derivative call is constructed as
-follows:<br />
-&nbsp;</li>
+follows:<br/>
+ </li>
 <li>The input arguments are appended with the (n+1)th derivative,
 which are constructed in order from the nth order
-derivatives.<br />
-&nbsp;</li>
+derivatives.<br/>
+ </li>
 <li>The output arguments are similar to the output argument for the
 nth derivative, but each output is one higher in derivative
 order.</li>
@@ -112,7 +113,7 @@ predefined types. The function must have at least one input
 containing reals. The output list of the derivative function may
 not be empty.</p>
 <ul>
-<li>zeroDerivative=input_var1<br />
+<li>zeroDerivative=input_var1<br/>
 The derivative function is only valid if input_var1 is independent
 of the variables the function call is differentiated with respect
 to (i.e., that the derivative of input_var1 is "zero"). The
@@ -152,7 +153,7 @@ algorithm
 end f_general_der;
 
 </pre></li>
-<li>noDerivative(input_var2 = f(input_var1, ...) )<br />
+<li>noDerivative(input_var2 = f(input_var1, ...) )<br/>
 The derivative function is only valid if the input argument
 input_var2 is computed as f(input_var1, ...). The derivative of
 input_var2 is excluded from the argument list of the
@@ -188,7 +189,7 @@ end f_der;
 This is useful if g represents the major computational effort of
 fg).</li>
 </ul>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

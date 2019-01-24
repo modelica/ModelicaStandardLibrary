@@ -1,15 +1,16 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.Blocks.Examples.BusUsage</title>
 </head>
 <body>
-<h1><a href="Icons/4faefde5ce1c405350a3326a5b176dd8460ea820.svg"><img class="svgiconhead" src="Icons/4faefde5ce1c405350a3326a5b176dd8460ea820.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Examples.html">Examples</a>.<span class="omc-h1">BusUsage</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/9613424dab7c82fc89a816f199d44a2d1d668d80.svg"><img class="svgiconhead" src="Icons/9613424dab7c82fc89a816f199d44a2d1d668d80.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Examples.html">Examples</a>.<span class="omc-h1">BusUsage</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p><strong>Signal bus concept</strong></p>
 <p>In technical systems, such as vehicles, robots or satellites,
 many signals are exchanged between components. In a simulation
@@ -23,7 +24,7 @@ data buses to exchange data between components. For the same
 reasons, it is often better to use a "signal bus" concept also in a
 Modelica model. This is demonstrated at hand of this model
 (Modelica.Blocks.Examples.BusUsage):</p>
-<img src="../../../Modelica%203.2.3/Resources/Images/Blocks/BusUsage.png" alt="BusUsage.png" />
+<img alt="BusUsage.png" src="../../../Modelica%203.2.3/Resources/Images/Blocks/BusUsage.png"/>
 <ul>
 <li>Connector instance "controlBus" is a hierarchical connector
 that is used to exchange signals between different components. It
@@ -61,7 +62,7 @@ connecting line has the color of the "ControlBus" with double width
 the content of the connector is constructed by the variables
 connected to instances of this connector. For example, if "sine.y"
 is connected to the "controlBus", a pop-up menu may appear:</p>
-<img src="../../../Modelica%203.2.3/Resources/Images/Blocks/BusUsage2.png" alt="BusUsage2.png" />
+<img alt="BusUsage2.png" src="../../../Modelica%203.2.3/Resources/Images/Blocks/BusUsage2.png"/>
 <p>The "Add variable/New name" field allows the user to define the
 name of the signal on the "controlBus". When typing "realSignal1"
 as "New name", a connection of the form:</p>
@@ -86,11 +87,11 @@ the "ControlBus" and of the "SubControlBus" are given. For example
 </pre>
 <p>Consequently, when connecting now from "sine.y" to "controlBus",
 the menu looks differently:</p>
-<img src="../../../Modelica%203.2.3/Resources/Images/Blocks/BusUsage3.png" alt="BusUsage3.png" />
+<img alt="BusUsage3.png" src="../../../Modelica%203.2.3/Resources/Images/Blocks/BusUsage3.png"/>
 <p>Note, even if the signals from "Internal.StandardControlBus" are
 listed, these are just potential signals. The user might still add
 different signal names.</p>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

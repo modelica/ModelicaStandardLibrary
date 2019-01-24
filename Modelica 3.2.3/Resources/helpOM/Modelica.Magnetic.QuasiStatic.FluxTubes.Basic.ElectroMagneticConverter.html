@@ -1,48 +1,49 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>
 Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter</title>
 </head>
 <body>
-<h1><a href="Icons/2f30970dd972c4e34885f9f07e66073cd5c8044d.svg"><img class="svgiconhead" src="Icons/2f30970dd972c4e34885f9f07e66073cd5c8044d.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Magnetic.html">Magnetic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.QuasiStatic.html">QuasiStatic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.QuasiStatic.FluxTubes.html">FluxTubes</a>.<a class="omc-h1-a" href="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.html">Basic</a>.<span class="omc-h1">ElectroMagneticConverter</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/647394484b5609e80fe27c2450e1069bab2d122d.svg"><img class="svgiconhead" src="Icons/647394484b5609e80fe27c2450e1069bab2d122d.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Magnetic.html">Magnetic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.QuasiStatic.html">QuasiStatic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.QuasiStatic.FluxTubes.html">FluxTubes</a>.<a class="omc-h1-a" href="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.html">Basic</a>.<span class="omc-h1">ElectroMagneticConverter</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>The electro magnetic energy conversion is given by
 <strong>Ampere</strong>'s law and <strong>Faraday</strong>'s law
 respectively:</p>
 <dl>
-<dd><img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FluxTubes/converter.png" /></dd>
+<dd><img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FluxTubes/converter.png"/></dd>
 </dl>
-<p>In this equation <img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FluxTubes/V_m.png" />
+<p>In this equation <img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FluxTubes/V_m.png"/>
  is the magnetomotive force that is supplied to the connected
-magnetic circuit, <img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FluxTubes/Phi.png" />
+magnetic circuit, <img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FluxTubes/Phi.png"/>
  is the magnetic flux through the associated branch of this
 magnetic circuit. The negative sign of the induced voltage
-<img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FluxTubes/v.png" />
+<img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FluxTubes/v.png"/>
  is due to <strong>Lenz</strong>'s law.</p>
 <p>The static inductance is calculated from the flux linkage</p>
 <dl>
-<dd><img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FluxTubes/Psi-N-Phi.png" /></dd>
+<dd><img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FluxTubes/Psi-N-Phi.png"/></dd>
 </dl>
-<p>and the current <img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FluxTubes/i.png" />
+<p>and the current <img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FluxTubes/i.png"/>
 :</p>
 <dl>
-<dd><img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FluxTubes/L_stat-Psi-i.png" /></dd>
+<dd><img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FluxTubes/L_stat-Psi-i.png"/></dd>
 </dl>
 <p>This quantity is calculated for information only.</p>
 <h5>Note</h5>
-<p><img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FluxTubes/L_stat.png" />
+<p><img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FluxTubes/L_stat.png"/>
 is set to</p>
 <dl>
-<dd><img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FluxTubes/L_stat-Psi-eps.png" /></dd>
+<dd><img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FluxTubes/L_stat-Psi-eps.png"/></dd>
 </dl>
-<p>if <img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FluxTubes/i-lt-eps.png" />
+<p>if <img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/QuasiStatic/FluxTubes/i-lt-eps.png"/>
 .</p>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

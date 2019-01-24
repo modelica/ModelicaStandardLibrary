@@ -1,16 +1,17 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>
 Modelica.Mechanics.Translational.Components.MassWithStopAndFriction</title>
 </head>
 <body>
-<h1><a href="Icons/2cca034f05e3d4fee629f76a6abf4847c1ae0366.svg"><img class="svgiconhead" src="Icons/2cca034f05e3d4fee629f76a6abf4847c1ae0366.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.html">Translational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.Components.html">Components</a>.<span class="omc-h1">MassWithStopAndFriction</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/2cca034f05e3d4fee629f76a6abf4847c1ae0366.svg"><img class="svgiconhead" src="Icons/2cca034f05e3d4fee629f76a6abf4847c1ae0366.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.html">Translational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.Components.html">Components</a>.<span class="omc-h1">MassWithStopAndFriction</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>This element describes the <em>Stribeck friction
 characteristics</em> of a sliding mass, i. e. the frictional force
 acting between the sliding mass and the support. Included is a
@@ -22,7 +23,7 @@ v by:</p>
 <pre>
 f = F_Coulomb + F_prop * v + F_Stribeck * exp (-fexp * v)
 </pre></blockquote>
-<p><img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/Translational/Stribeck.png" /></p>
+<p><img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/Translational/Stribeck.png"/></p>
 <p>The distance between the left and the right connector is given
 by parameter L. The position of the center of gravity, coordinate
 s, is in the middle between the two flanges.</p>
@@ -76,16 +77,16 @@ especially (Armstrong and Canudas de Wit 1996):</p>
 <dl>
 <dt>Armstrong B. (1991):</dt>
 <dd><em>Control of Machines with Friction</em>. Kluwer Academic
-Press, Boston MA.<br /></dd>
+Press, Boston MA.<br/></dd>
 <dt>Armstrong B., and Canudas de Wit C. (1996):</dt>
 <dd><em>Friction Modeling and Compensation.</em> The Control
 Handbook, edited by W.S.Levine, CRC Press, pp.
-1369-1382.<br /></dd>
+1369-1382.<br/></dd>
 <dt>Canudas de Wit C., Olsson H., Åström K.J., and Lischinsky P.
 (1995):</dt>
 <dd><em>A new model for control of systems with friction.</em> IEEE
 Transactions on Automatic Control, Vol. 40, No. 3, pp.
-419-425.<br /></dd>
+419-425.<br/></dd>
 </dl>
 <h4>Optional heatPort</h4>
 <p>The dissipated energy is transported in form of heat to the
@@ -106,11 +107,11 @@ impact).</p>
 </tr>
 <tr>
 <td><a href="Modelica.Mechanics.Translational.Components.MassWithStopAndFriction.PartialFrictionWithStop.html">
-<img class="svgiconsmall" src="Icons/3ba024304a2c5636967b173dbae149d925262ff4.svg" /></a>&nbsp;<a href="Modelica.Mechanics.Translational.Components.MassWithStopAndFriction.PartialFrictionWithStop.html">PartialFrictionWithStop</a></td>
+<img class="svgiconsmall" src="Icons/3ba024304a2c5636967b173dbae149d925262ff4.svg"/></a> <a href="Modelica.Mechanics.Translational.Components.MassWithStopAndFriction.PartialFrictionWithStop.html">PartialFrictionWithStop</a></td>
 <td>Base model of Coulomb friction elements with stop</td>
 </tr>
 </table>
-<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
 <h4>Release Notes:</h4>
 <ul>
 <li><em>First Version from December 7, 1999 by P. Beater (based on
@@ -124,7 +125,7 @@ between the stops.</em></li>
 <li><em>June 10, 2002 by P. Beater, StateSelect.always for
 variables s and v (instead of fixed=true).</em></li>
 </ul>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

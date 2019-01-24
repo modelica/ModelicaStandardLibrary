@@ -1,15 +1,16 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.Fluid</title>
 </head>
 <body>
-<h1><a href="Icons/16c6c345a80156f5b0705753dfa2cc9c51920933.svg"><img class="svgiconhead" src="Icons/16c6c345a80156f5b0705753dfa2cc9c51920933.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<span class="omc-h1">Fluid</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/16c6c345a80156f5b0705753dfa2cc9c51920933.svg"><img class="svgiconhead" src="Icons/16c6c345a80156f5b0705753dfa2cc9c51920933.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<span class="omc-h1">Fluid</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>Library <strong>Modelica.Fluid</strong> is a
 <strong>free</strong> Modelica package providing components for
 <strong>1-dimensional thermo-fluid flow</strong> in networks of
@@ -26,7 +27,7 @@ demonstrated with a simple heating system with a closed flow cycle.
 By just changing one configuration parameter in the system object
 the equations are changed between steady-state and dynamic
 simulation with fixed or steady-state initial conditions.</p>
-<p><img src="../../../Modelica%203.2.3/Resources/Images/Fluid/UsersGuide/HeatingSystem.png" border="1" alt="HeatingSystem.png" /></p>
+<p><img alt="HeatingSystem.png" border="1" src="../../../Modelica%203.2.3/Resources/Images/Fluid/UsersGuide/HeatingSystem.png"/></p>
 <p>With respect to previous versions, the design of the connectors
 has been changed in a non-backward compatible way, using the
 recently developed concept of stream connectors that results in
@@ -42,7 +43,7 @@ summarizes the changes of the library releases.</li>
 <li><a href="Modelica.Fluid.Examples.html">Modelica.Fluid.Examples</a>
 contains examples that demonstrate the usage of this library.</li>
 </ul>
-<p>Copyright © 2002-2018, Modelica Association and contributors</p>
+<p>Copyright © 2002-2019, Modelica Association and contributors</p>
 <h2>Contents</h2>
 <table>
 <tr>
@@ -50,74 +51,74 @@ contains examples that demonstrate the usage of this library.</li>
 <th>Description</th>
 </tr>
 <tr>
-<td><a href="Modelica.Fluid.UsersGuide.html"><img class="svgiconsmall" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a href="Modelica.Fluid.UsersGuide.html">UsersGuide</a></td>
+<td><a href="Modelica.Fluid.UsersGuide.html"><img class="svgiconsmall" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a href="Modelica.Fluid.UsersGuide.html">UsersGuide</a></td>
 <td>User's Guide</td>
 </tr>
 <tr>
-<td><a href="Modelica.Fluid.Examples.html"><img class="svgiconsmall" src="Icons/ed64af07e87d570ce7126538bd50680280004c73.svg" /></a>&nbsp;<a href="Modelica.Fluid.Examples.html">Examples</a></td>
+<td><a href="Modelica.Fluid.Examples.html"><img class="svgiconsmall" src="Icons/ed64af07e87d570ce7126538bd50680280004c73.svg"/></a> <a href="Modelica.Fluid.Examples.html">Examples</a></td>
 <td>Demonstration of the usage of the library</td>
 </tr>
 <tr>
-<td><a href="Modelica.Fluid.System.html"><img class="svgiconsmall" src="Icons/6d60b5d9fc981f5aac42e815d8d00b9ea489291c.svg" /></a>&nbsp;<a href="Modelica.Fluid.System.html">System</a></td>
+<td><a href="Modelica.Fluid.System.html"><img class="svgiconsmall" src="Icons/6d60b5d9fc981f5aac42e815d8d00b9ea489291c.svg"/></a> <a href="Modelica.Fluid.System.html">System</a></td>
 <td>System properties and default values (ambient, flow direction,
 initialization)</td>
 </tr>
 <tr>
-<td><a href="Modelica.Fluid.Vessels.html"><img class="svgiconsmall" src="Icons/9b87e99753a1d017dd6abcd8e995916dab379bf5.svg" /></a>&nbsp;<a href="Modelica.Fluid.Vessels.html">Vessels</a></td>
+<td><a href="Modelica.Fluid.Vessels.html"><img class="svgiconsmall" src="Icons/9b87e99753a1d017dd6abcd8e995916dab379bf5.svg"/></a> <a href="Modelica.Fluid.Vessels.html">Vessels</a></td>
 <td>Devices for storing fluid</td>
 </tr>
 <tr>
-<td><a href="Modelica.Fluid.Pipes.html"><img class="svgiconsmall" src="Icons/9b87e99753a1d017dd6abcd8e995916dab379bf5.svg" /></a>&nbsp;<a href="Modelica.Fluid.Pipes.html">Pipes</a></td>
+<td><a href="Modelica.Fluid.Pipes.html"><img class="svgiconsmall" src="Icons/9b87e99753a1d017dd6abcd8e995916dab379bf5.svg"/></a> <a href="Modelica.Fluid.Pipes.html">Pipes</a></td>
 <td>Devices for conveying fluid</td>
 </tr>
 <tr>
-<td><a href="Modelica.Fluid.Machines.html"><img class="svgiconsmall" src="Icons/9b87e99753a1d017dd6abcd8e995916dab379bf5.svg" /></a>&nbsp;<a href="Modelica.Fluid.Machines.html">Machines</a></td>
+<td><a href="Modelica.Fluid.Machines.html"><img class="svgiconsmall" src="Icons/9b87e99753a1d017dd6abcd8e995916dab379bf5.svg"/></a> <a href="Modelica.Fluid.Machines.html">Machines</a></td>
 <td>Devices for converting between energy held in a fluid and
 mechanical energy</td>
 </tr>
 <tr>
-<td><a href="Modelica.Fluid.Valves.html"><img class="svgiconsmall" src="Icons/9b87e99753a1d017dd6abcd8e995916dab379bf5.svg" /></a>&nbsp;<a href="Modelica.Fluid.Valves.html">Valves</a></td>
+<td><a href="Modelica.Fluid.Valves.html"><img class="svgiconsmall" src="Icons/9b87e99753a1d017dd6abcd8e995916dab379bf5.svg"/></a> <a href="Modelica.Fluid.Valves.html">Valves</a></td>
 <td>Components for the regulation and control of fluid flow</td>
 </tr>
 <tr>
-<td><a href="Modelica.Fluid.Fittings.html"><img class="svgiconsmall" src="Icons/9b87e99753a1d017dd6abcd8e995916dab379bf5.svg" /></a>&nbsp;<a href="Modelica.Fluid.Fittings.html">Fittings</a></td>
+<td><a href="Modelica.Fluid.Fittings.html"><img class="svgiconsmall" src="Icons/9b87e99753a1d017dd6abcd8e995916dab379bf5.svg"/></a> <a href="Modelica.Fluid.Fittings.html">Fittings</a></td>
 <td>Adaptors for connections of fluid components and the regulation
 of fluid flow</td>
 </tr>
 <tr>
-<td><a href="Modelica.Fluid.Sources.html"><img class="svgiconsmall" src="Icons/a757591b5408d8b98935b8a8ec09694824df720f.svg" /></a>&nbsp;<a href="Modelica.Fluid.Sources.html">Sources</a></td>
+<td><a href="Modelica.Fluid.Sources.html"><img class="svgiconsmall" src="Icons/4aa22ca028219e43e1790198e88411939058adb5.svg"/></a> <a href="Modelica.Fluid.Sources.html">Sources</a></td>
 <td>Define fixed or prescribed boundary conditions</td>
 </tr>
 <tr>
-<td><a href="Modelica.Fluid.Sensors.html"><img class="svgiconsmall" src="Icons/169cabccc4bcd2180dcb2e3dc32b0d8db30eaf70.svg" /></a>&nbsp;<a href="Modelica.Fluid.Sensors.html">Sensors</a></td>
+<td><a href="Modelica.Fluid.Sensors.html"><img class="svgiconsmall" src="Icons/b5990c20ef66e1d83aa2d78a21869d08fd5ac1ad.svg"/></a> <a href="Modelica.Fluid.Sensors.html">Sensors</a></td>
 <td>Ideal sensor components to extract signals from a fluid
 connector</td>
 </tr>
 <tr>
-<td><a href="Modelica.Fluid.Interfaces.html"><img class="svgiconsmall" src="Icons/2c8d2cd0448e069175e82f18bde9546f5f2b6fdb.svg" /></a>&nbsp;<a href="Modelica.Fluid.Interfaces.html">Interfaces</a></td>
+<td><a href="Modelica.Fluid.Interfaces.html"><img class="svgiconsmall" src="Icons/2c8d2cd0448e069175e82f18bde9546f5f2b6fdb.svg"/></a> <a href="Modelica.Fluid.Interfaces.html">Interfaces</a></td>
 <td>Interfaces for steady state and unsteady, mixed-phase,
 multi-substance, incompressible and compressible flow</td>
 </tr>
 <tr>
-<td><a href="Modelica.Fluid.Types.html"><img class="svgiconsmall" src="Icons/21be45d4d421821b1034d2d9c4d5c95a9ed71340.svg" /></a>&nbsp;<a href="Modelica.Fluid.Types.html">Types</a></td>
+<td><a href="Modelica.Fluid.Types.html"><img class="svgiconsmall" src="Icons/21be45d4d421821b1034d2d9c4d5c95a9ed71340.svg"/></a> <a href="Modelica.Fluid.Types.html">Types</a></td>
 <td>Common types for fluid models</td>
 </tr>
 <tr>
-<td><a href="Modelica.Fluid.Dissipation.html"><img class="svgiconsmall" src="Icons/559d492bd269441f8aef74c32970ed0c83ba36a5.svg" /></a>&nbsp;<a href="Modelica.Fluid.Dissipation.html">Dissipation</a></td>
+<td><a href="Modelica.Fluid.Dissipation.html"><img class="svgiconsmall" src="Icons/559d492bd269441f8aef74c32970ed0c83ba36a5.svg"/></a> <a href="Modelica.Fluid.Dissipation.html">Dissipation</a></td>
 <td>Functions for convective heat transfer and pressure loss
 characteristics</td>
 </tr>
 <tr>
-<td><a href="Modelica.Fluid.Utilities.html"><img class="svgiconsmall" src="Icons/f06f3476c3faa728c4b42075b6abe01cb7a5b78f.svg" /></a>&nbsp;<a href="Modelica.Fluid.Utilities.html">Utilities</a></td>
+<td><a href="Modelica.Fluid.Utilities.html"><img class="svgiconsmall" src="Icons/79f380bf5856ef4d7daa1091352b16b16ad01669.svg"/></a> <a href="Modelica.Fluid.Utilities.html">Utilities</a></td>
 <td>Utility models to construct fluid components (should not be
 used directly)</td>
 </tr>
 <tr>
-<td><a href="Modelica.Fluid.Icons.html"><img class="svgiconsmall" src="Icons/67e162a86c2cb167d72ce000ad74066f52b795c1.svg" /></a>&nbsp;<a href="Modelica.Fluid.Icons.html">Icons</a></td>
+<td><a href="Modelica.Fluid.Icons.html"><img class="svgiconsmall" src="Icons/67e162a86c2cb167d72ce000ad74066f52b795c1.svg"/></a> <a href="Modelica.Fluid.Icons.html">Icons</a></td>
 <td></td>
 </tr>
 </table>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

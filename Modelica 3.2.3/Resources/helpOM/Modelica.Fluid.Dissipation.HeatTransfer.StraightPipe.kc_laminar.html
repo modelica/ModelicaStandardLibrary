@@ -1,16 +1,17 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>
 Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar</title>
 </head>
 <body>
-<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.HeatTransfer.html">HeatTransfer</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.html">StraightPipe</a>.<span class="omc-h1">kc_laminar</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.HeatTransfer.html">HeatTransfer</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.html">StraightPipe</a>.<span class="omc-h1">kc_laminar</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>Calculation of mean convective heat transfer coefficient
 <strong>kc</strong> of a straight pipe at an uniform wall
 temperature <strong>or</strong> uniform heat flux
@@ -19,7 +20,7 @@ temperature <strong>or</strong> uniform heat flux
 additionally a failure status is observed in this function to check
 if the intended boundary conditions are fulfilled. <a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_laminar.html">
 See more information</a> .</p>
-<h4><a name="interface" id="interface">Interface</a></h4>
+<h4><a id="interface" name="interface">Interface</a></h4>
 <blockquote>
 <pre>function kc_laminar
   extends Modelica.Icons.Function;
@@ -38,10 +39,10 @@ See more information</a> .</p>
   output Real failureStatus "0== boundary conditions fulfilled | 1== failure &gt;&gt; check if still meaningful results" annotation(
     Dialog(group = "Output"));
 end kc_laminar;</pre></blockquote>
-<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
 <p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero
 mass flow rate.</p>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

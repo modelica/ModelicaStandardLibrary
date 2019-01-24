@@ -1,15 +1,16 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.Media.UsersGuide.MediumUsage.Constants</title>
 </head>
 <body>
-<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.MediumUsage.html">MediumUsage</a>.<span class="omc-h1">Constants</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.MediumUsage.html">MediumUsage</a>.<span class="omc-h1">Constants</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>Every medium model provides the following
 <strong>constants</strong>. For example, if a medium is declared
 as:</p>
@@ -18,7 +19,7 @@ as:</p>
 </pre>
 <p>then constants "Medium.mediumName", "Medium.nX", etc. are
 defined:</p>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <td><strong>Type</strong></td>
 <td><strong>Name</strong></td>
@@ -112,7 +113,7 @@ substance, then nXi = 0.</td>
 <td>= <strong>true</strong>, if the medium has a single substance,
 or if the medium model has multiple substances and contains the
 equation sum(X) = 1. In both cases, nXi = nS - 1 (unless fixedX =
-true).<br />
+true).<br/>
 = <strong>false</strong>, if the medium has multiple substances and
 does not contain the equation sum(X)=1, i.e., nXi = nX = nS (unless
 fixedX = true).</td>
@@ -122,7 +123,7 @@ fixedX = true).</td>
 <td>fixedX</td>
 <td>= <strong>false</strong>: the composition of the medium can
 vary, and is determined by nXi independent mass fractions (see
-reducedX above).<br />
+reducedX above).<br/>
 = <strong>true</strong>: the composition of the medium is always
 reference_X, and nXi = 0.</td>
 </tr>
@@ -135,7 +136,7 @@ provided for every substance of a medium.</td>
 </table>
 <p>The record FluidConstants that is defined in PartialMedium
 contains the following elements</p>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <td><strong>Type</strong></td>
 <td><strong>Name</strong></td>
@@ -170,7 +171,7 @@ contains the following elements</p>
 <p>This record is extended in the partial packages further down the
 hierarchy (such as PartialTwoPhaseMedium or PartialMixtureMedium)
 and may contain some or all of the following elements</p>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <td>Temperature</td>
 <td>criticalTemperature</td>
@@ -293,7 +294,7 @@ known</td>
 (s_f) (s_m - s_f)</td>
 </tr>
 </table>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

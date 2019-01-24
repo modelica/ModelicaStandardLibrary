@@ -1,16 +1,17 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>
 Modelica.Math.FastFourierTransform.Internal.rawRealFFT</title>
 </head>
 <body>
-<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.FastFourierTransform.html">FastFourierTransform</a>.<a class="omc-h1-a" href="Modelica.Math.FastFourierTransform.Internal.html">Internal</a>.<span class="omc-h1">rawRealFFT</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.FastFourierTransform.html">FastFourierTransform</a>.<a class="omc-h1-a" href="Modelica.Math.FastFourierTransform.Internal.html">Internal</a>.<span class="omc-h1">rawRealFFT</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <h4>Syntax</h4>
 <blockquote>
 <p>(info, amplitudes, phases) = <strong>rawRealFFT</strong>(u);</p>
@@ -38,14 +39,14 @@ Mark Borgerding used in this function.</p>
 <h4>References</h4>
 <dl>
 <dt>Mark Borgerding (2010):</dt>
-<dd><strong>KissFFT, version 1.3.0</strong>. <a href="http://sourceforge.net/projects/kissfft/">http://sourceforge.net/projects/kissfft/</a>.<br />
+<dd><strong>KissFFT, version 1.3.0</strong>. <a href="http://sourceforge.net/projects/kissfft/">http://sourceforge.net/projects/kissfft/</a>.<br/>
 
-&nbsp;</dd>
+ </dd>
 <dt>James W. Cooley, John W. Tukey (1965):</dt>
 <dd><strong>An algorithm for the machine calculation of complex
 Fourier series</strong>. Math. Comput. 19: 297-301.
-doi:10.2307/2003354.<br />
-&nbsp;</dd>
+doi:10.2307/2003354.<br/>
+ </dd>
 <dt>Martin R. Kuhn, Martin Otter, Tim Giese (2015):</dt>
 <dd><strong>Model Based Specifications in Aircraft Systems
 Design</strong>. Modelica 2015 Conference, Versailles, France, pp.
@@ -54,7 +55,7 @@ Design</strong>. Modelica 2015 Conference, Versailles, France, pp.
 <h4>Example</h4>
 <blockquote>(info, A, phases) = realFFT({0,0.1,0.2,0.4,0.5,
 0.6})</blockquote>
-<h4><a name="interface" id="interface">Interface</a></h4>
+<h4><a id="interface" name="interface">Interface</a></h4>
 <blockquote>
 <pre>function rawRealFFT
   extends Modelica.Icons.Function;
@@ -63,8 +64,8 @@ Design</strong>. Modelica 2015 Conference, Versailles, France, pp.
   output Real amplitudes[div(size(u, 1), 2) + 1] "Amplitudes of FFT";
   output Real phases[div(size(u, 1), 2) + 1] "Phases of FFT";
 end rawRealFFT;</pre></blockquote>
-<h2><a name="revisions" id="revisions">Revisions</a></h2>
-<table border="1" cellspacing="0" cellpadding="2">
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <th>Date</th>
 <th align="left">Description</th>
@@ -76,7 +77,7 @@ end rawRealFFT;</pre></blockquote>
 Dynamics and Control</a>.</td>
 </tr>
 </table>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

@@ -1,15 +1,16 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.Fluid.Vessels.BaseClasses.VesselPortsData</title>
 </head>
 <body>
-<h1><a href="Icons/ede086cf3f564f2625b25d46f85f45b65dac1d28.svg"><img class="svgiconhead" src="Icons/ede086cf3f564f2625b25d46f85f45b65dac1d28.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Vessels.html">Vessels</a>.<a class="omc-h1-a" href="Modelica.Fluid.Vessels.BaseClasses.html">BaseClasses</a>.<span class="omc-h1">VesselPortsData</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/ede086cf3f564f2625b25d46f85f45b65dac1d28.svg"><img class="svgiconhead" src="Icons/ede086cf3f564f2625b25d46f85f45b65dac1d28.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Vessels.html">Vessels</a>.<a class="omc-h1-a" href="Modelica.Fluid.Vessels.BaseClasses.html">BaseClasses</a>.<span class="omc-h1">VesselPortsData</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <h4>Vessel Port Data</h4>
 <p>This record describes the <strong>ports</strong> of a
 <strong>vessel</strong>. The variables in it are mostly
@@ -25,13 +26,13 @@ mounted into a vessel such that the entrance into it is at a
 distance</strong> <code>b</code> from the wall (inside) the
 following table can be used. Herein, δ is the tube wall thickness
 (Idelchik, p. 160, Diagram 3-1, paragraph 1).</p>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <caption align="bottom">Pressure loss coefficients for outlets,
 entrance at a distance from wall</caption>
 <tr>
 <td></td>
 <td></td>
-<th colspan="5" align="center">b / D_hyd</th>
+<th align="center" colspan="5">b / D_hyd</th>
 </tr>
 <tr>
 <td></td>
@@ -89,12 +90,12 @@ entrance at a distance from wall</caption>
 then its pressure loss coefficient can be established from the
 following table. Herein, r is the radius of the bellmouth inlet
 surface (Idelchik, p. 164 f., Diagram 3-4, paragraph b)</p>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <caption align="bottom">Pressure loss coefficients for outlets,
 bellmouth flush with wall</caption>
 <tr>
 <td></td>
-<th colspan="6" align="center">r / D_hyd</th>
+<th align="center" colspan="6">r / D_hyd</th>
 </tr>
 <tr>
 <td></td>
@@ -120,12 +121,12 @@ bellmouth flush with wall</caption>
 wall</strong> then its pressure loss coefficient can be established
 from the following table. Herein, r is the radius of the bellmouth
 inlet surface (Idelchik, p. 164 f., Diagram 3-4, paragraph a)</p>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <caption align="bottom">Pressure loss coefficients for outlets,
 bellmouth at a distance of wall</caption>
 <tr>
 <td></td>
-<th colspan="6" align="center">r / D_hyd</th>
+<th align="center" colspan="6">r / D_hyd</th>
 </tr>
 <tr>
 <td></td>
@@ -154,12 +155,12 @@ loss coefficient will be according to the following table
 0</code> and Idelchik, p. 640, Diagram 11-1, graph a). According to
 the text, <code>m = 9</code> is appropriate for fully developed
 turbulent flow.</p>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <caption align="bottom">Pressure loss coefficients for inlets,
 circular tube flush with wall</caption>
 <tr>
 <td></td>
-<th colspan="6" align="center">m</th>
+<th align="center" colspan="6">m</th>
 </tr>
 <tr>
 <td></td>
@@ -184,12 +185,12 @@ circular tube flush with wall</caption>
 the inlet pressure loss coefficient will be according to the
 following table (Idelchik, p. 209 f., Diagram 4-2 with <code>m =
 7</code>).</p>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <caption align="bottom">Pressure loss coefficients for inlets,
 circular tube flush with wall</caption>
 <tr>
 <td></td>
-<th colspan="6" align="center">A_port / A_vessel</th>
+<th align="center" colspan="6">A_port / A_vessel</th>
 </tr>
 <tr>
 <td></td>
@@ -217,7 +218,7 @@ circular tube flush with wall</caption>
 <strong>Handbook of Hydraulic Resistance</strong></a>. 3rd edition,
 Begell House, ISBN 0-8493-9908-4</dd>
 </dl>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

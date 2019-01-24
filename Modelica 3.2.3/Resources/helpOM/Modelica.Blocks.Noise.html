@@ -1,15 +1,16 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.Blocks.Noise</title>
 </head>
 <body>
-<h1><a href="Icons/6e58c10e208f326ba386136d0c36b7a06cf0ba81.svg"><img class="svgiconhead" src="Icons/6e58c10e208f326ba386136d0c36b7a06cf0ba81.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<span class="omc-h1">Noise</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/6e58c10e208f326ba386136d0c36b7a06cf0ba81.svg"><img class="svgiconhead" src="Icons/6e58c10e208f326ba386136d0c36b7a06cf0ba81.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<span class="omc-h1">Noise</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>This sublibrary contains blocks that generate
 <strong>reproducible noise</strong> with pseudo random numbers.
 Reproducibility is important when designing control systems, either
@@ -40,7 +41,7 @@ level of the model.</p>
 <p>When using a noise block of this package, at a minimum the
 following parameters must be defined:</p>
 <blockquote>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <th>Parameter</th>
 <th>Description</th>
@@ -65,13 +66,13 @@ desired range and distribution.</td>
 In the next diagram, a simulation result is shown for
 samplePeriod=0.02 s and uniform distribution with y_min=-1,
 y_max=3:</p>
-<blockquote><img src="../../../Modelica%203.2.3/Resources/Images/Blocks/NoiseExamples/UniformNoise.png" /></blockquote>
+<blockquote><img src="../../../Modelica%203.2.3/Resources/Images/Blocks/NoiseExamples/UniformNoise.png"/></blockquote>
 <h4>Advanced tab: General settings</h4>
 <p>In the <strong>Advanced</strong> tab of the parameter menu,
 further options can be set in the noise blocks as shown in the next
 table:</p>
 <blockquote>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <th>Parameter</th>
 <th>Description</th>
@@ -79,7 +80,7 @@ table:</p>
 <tr>
 <td>enableNoise</td>
 <td>= true, if noise is generated at the output of the block (this
-is the default).<br />
+is the default).<br/>
 = false, if noise generation is switched off and the constant value
 y_off is provided as output.</td>
 </tr>
@@ -98,7 +99,7 @@ number generator has its own state. This state must be properly
 initialized, depending on the desired situation. For this purpose
 the following parameters can be defined:</p>
 <blockquote>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <th>Parameter</th>
 <th>Description</th>
@@ -114,7 +115,7 @@ default setting and therefore the globalSeed component defines
 whether every new simulation run shall provide the same noise (e.g.
 for a parameter optimization of controller parameters), or whether
 every new simulation run shall provide different noise (e.g. for a
-Monte Carlo simulation).<br />
+Monte Carlo simulation).<br/>
 = false, if the seed defined by globalSeed is ignored. For example,
 if aerodynamic turbulence is modelled with a noise block and this
 turbulence model shall be used for all simulation runs of a Monte
@@ -126,7 +127,7 @@ Carlo simulation, then useGlobalSeed has to be set to false.</td>
 the random number generator for a specific block instance.
 Instances using the same local seed produce exactly the same random
 number values (so the same noise, if the other settings of the
-instances are the same).<br />
+instances are the same).<br/>
 If <strong>useAutomaticLocalSeed = true</strong>, the local seed is
 determined automatically from an impure random number generator
 that produces Integer random values (<a href="Modelica.Math.Random.Utilities.impureRandomInteger.html">impureRandomInteger</a>).
@@ -137,7 +138,7 @@ or removed). It is planned to change the automatic local seed
 function in a future version of package Modelica, once Modelica
 Language 3.3 language elements can be used (by using a hash value
 of the instance name of the model that is inquired with the
-Modelica Language 3.3 function getInstanceName()).<br />
+Modelica Language 3.3 function getInstanceName()).<br/>
 If <strong>useAutomaticLocalSeed = false</strong>, the local seed
 is defined explicitly by parameter fixedLocalSeed. It is then
 guaranteed that the generated noise remains always the same
@@ -193,10 +194,10 @@ appropriate <strong>distribution</strong> or <strong>truncated
 distribution</strong>. For an example of a truncated distribution,
 see the following diagram of the probability density function of a
 normal distribution compared with its truncated version:</p>
-<blockquote><img src="../../../Modelica%203.2.3/Resources/Images/Math/Distributions/TruncatedNormal.density.png" /></blockquote>
+<blockquote><img src="../../../Modelica%203.2.3/Resources/Images/Math/Distributions/TruncatedNormal.density.png"/></blockquote>
 <p>The corresponding inverse cumulative distribution functions are
 shown in the next diagram:</p>
-<blockquote><img src="../../../Modelica%203.2.3/Resources/Images/Math/Distributions/TruncatedNormal.quantile.png" /></blockquote>
+<blockquote><img src="../../../Modelica%203.2.3/Resources/Images/Math/Distributions/TruncatedNormal.quantile.png"/></blockquote>
 <p>When providing an x-value between 0.0 .. 1.0 from a random
 number generator, then the truncated inverse cumulative probability
 density function of a normal distribution transforms this value
@@ -216,30 +217,30 @@ distributions are given in the documentation of package <a href="Modelica.Math.D
 <th>Description</th>
 </tr>
 <tr>
-<td><a href="Modelica.Blocks.Noise.GlobalSeed.html"><img class="svgiconsmall" src="Icons/8ad83df4271048c613df832ca6c7aa75d1b1b545.svg" /></a>&nbsp;<a href="Modelica.Blocks.Noise.GlobalSeed.html">GlobalSeed</a></td>
+<td><a href="Modelica.Blocks.Noise.GlobalSeed.html"><img class="svgiconsmall" src="Icons/8ad83df4271048c613df832ca6c7aa75d1b1b545.svg"/></a> <a href="Modelica.Blocks.Noise.GlobalSeed.html">GlobalSeed</a></td>
 <td>Defines global settings for the blocks of sublibrary Noise,
 especially a global seed value is defined</td>
 </tr>
 <tr>
-<td><a href="Modelica.Blocks.Noise.UniformNoise.html"><img class="svgiconsmall" src="Icons/960a8168e88e9d5125fc52219ff67310c4540407.svg" /></a>&nbsp;<a href="Modelica.Blocks.Noise.UniformNoise.html">UniformNoise</a></td>
+<td><a href="Modelica.Blocks.Noise.UniformNoise.html"><img class="svgiconsmall" src="Icons/960a8168e88e9d5125fc52219ff67310c4540407.svg"/></a> <a href="Modelica.Blocks.Noise.UniformNoise.html">UniformNoise</a></td>
 <td>Noise generator with uniform distribution</td>
 </tr>
 <tr>
-<td><a href="Modelica.Blocks.Noise.NormalNoise.html"><img class="svgiconsmall" src="Icons/44a01ee3184f1b6c95f63160123d201313d526dc.svg" /></a>&nbsp;<a href="Modelica.Blocks.Noise.NormalNoise.html">NormalNoise</a></td>
+<td><a href="Modelica.Blocks.Noise.NormalNoise.html"><img class="svgiconsmall" src="Icons/44a01ee3184f1b6c95f63160123d201313d526dc.svg"/></a> <a href="Modelica.Blocks.Noise.NormalNoise.html">NormalNoise</a></td>
 <td>Noise generator with normal distribution</td>
 </tr>
 <tr>
-<td><a href="Modelica.Blocks.Noise.TruncatedNormalNoise.html"><img class="svgiconsmall" src="Icons/d223b6dd8f4fcfd3383307365e81c1143bebdf9f.svg" /></a>&nbsp;<a href="Modelica.Blocks.Noise.TruncatedNormalNoise.html">TruncatedNormalNoise</a></td>
+<td><a href="Modelica.Blocks.Noise.TruncatedNormalNoise.html"><img class="svgiconsmall" src="Icons/96277739117564751c74115e3d72cfdf0db7d64a.svg"/></a> <a href="Modelica.Blocks.Noise.TruncatedNormalNoise.html">TruncatedNormalNoise</a></td>
 <td>Noise generator with truncated normal distribution</td>
 </tr>
 <tr>
-<td><a href="Modelica.Blocks.Noise.BandLimitedWhiteNoise.html"><img class="svgiconsmall" src="Icons/01b1ee6c9007be35efb2a1ad60972162a07ea9ac.svg" /></a>&nbsp;<a href="Modelica.Blocks.Noise.BandLimitedWhiteNoise.html">BandLimitedWhiteNoise</a></td>
+<td><a href="Modelica.Blocks.Noise.BandLimitedWhiteNoise.html"><img class="svgiconsmall" src="Icons/4a0612ccb9447b8e8664f2602020a6bb7606a64b.svg"/></a> <a href="Modelica.Blocks.Noise.BandLimitedWhiteNoise.html">BandLimitedWhiteNoise</a></td>
 <td>Noise generator to produce band-limited white noise with normal
 distribution</td>
 </tr>
 </table>
-<h2><a name="revisions" id="revisions">Revisions</a></h2>
-<table border="1" cellspacing="0" cellpadding="2">
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <th>Date</th>
 <th align="left">Description</th>
@@ -249,9 +250,9 @@ distribution</td>
 <td>
 <table border="0">
 <tr>
-<td><img src="../../../Modelica%203.2.3/Resources/Images/Blocks/Noise/dlr_logo.png" /></td>
+<td><img src="../../../Modelica%203.2.3/Resources/Images/Blocks/Noise/dlr_logo.png"/></td>
 <td valign="bottom">Initial version implemented by A. Klöckner, F.
-v.d. Linden, D. Zimmer, M. Otter.<br />
+v.d. Linden, D. Zimmer, M. Otter.<br/>
 <a href="http://www.dlr.de/rmc/sr/en">DLR Institute of System
 Dynamics and Control</a></td>
 </tr>
@@ -259,7 +260,7 @@ Dynamics and Control</a></td>
 </td>
 </tr>
 </table>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

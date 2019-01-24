@@ -1,15 +1,16 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.UsersGuide.ReleaseNotes.Version_2_2_2</title>
 </head>
 <body>
-<h1><a href="Icons/7e5916c8ded3e7489f5937a6ee55f7f07d893583.svg"><img class="svgiconhead" src="Icons/7e5916c8ded3e7489f5937a6ee55f7f07d893583.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>.<span class="omc-h1">Version_2_2_2</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/7e5916c8ded3e7489f5937a6ee55f7f07d893583.svg"><img class="svgiconhead" src="Icons/7e5916c8ded3e7489f5937a6ee55f7f07d893583.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>.<span class="omc-h1">Version_2_2_2</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>Version 2.2.2 is backward compatible to version 2.2.1 and 2.2
 with the following exceptions:</p>
 <ul>
@@ -32,10 +33,10 @@ function.</p>
 <p>In this version, <strong>no</strong> new libraries have been
 added. The <strong>documentation</strong> of the whole library was
 improved.</p>
-<p><br />
+<p><br/>
 The following <font color="blue"><strong>new
 components</strong></font> have been added to <font color="blue"><strong>existing</strong></font> libraries:</p>
-<table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
+<table border="1" cellpadding="2" cellspacing="0" style="border-collapse:collapse;">
 <tr>
 <td colspan="2"><strong>Blocks.Logical.</strong></td>
 </tr>
@@ -47,8 +48,8 @@ components</strong></font> have been added to <font color="blue"><strong>existin
 <td colspan="2"><strong>Blocks.Routing.</strong></td>
 </tr>
 <tr>
-<td>RealPassThrough<br />
-IntegerPassThrough<br />
+<td>RealPassThrough<br/>
+IntegerPassThrough<br/>
 BooleanPassThrough</td>
 <td>Pass a signal from input to output (useful in combination with
 a bus due to restrictions of expandable connectors).</td>
@@ -286,7 +287,7 @@ atmospheric pressure from temperature</td>
 <td>Model to generate plot data for psychrometric chart</td>
 </tr>
 <tr>
-<td colspan="2"><strong>Media.CompressibleLiquids.</strong><br />
+<td colspan="2"><strong>Media.CompressibleLiquids.</strong><br/>
 New sub-library for simple compressible liquid models</td>
 </tr>
 <tr>
@@ -306,10 +307,10 @@ New sub-library for simple compressible liquid models</td>
 <td>Type for temperature difference</td>
 </tr>
 </table>
-<p><br />
+<p><br/>
 The following <font color="blue"><strong>existing
 components</strong></font> have been <font color="blue"><strong>improved</strong></font>:</p>
-<table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
+<table border="1" cellpadding="2" cellspacing="0" style="border-collapse:collapse;">
 <tr>
 <td colspan="2"><strong>Blocks.Examples.</strong></td>
 </tr>
@@ -335,7 +336,7 @@ fixed=0).</td>
 <td colspan="2"><strong>Electrical.</strong></td>
 </tr>
 <tr>
-<td>Analog<br />
+<td>Analog<br/>
 MultiPhase</td>
 <td>Improved some icons.</td>
 </tr>
@@ -370,7 +371,7 @@ via pre(x) (previously "x" was used).</td>
 <td colspan="2"><strong>Electrical.Digital.Sources.</strong></td>
 </tr>
 <tr>
-<td>Clock<br />
+<td>Clock<br/>
 Step</td>
 <td>Changed if-conditions from "xxx &lt; time" to "time &gt;= xxx"
 (according to the Modelica specification, in the second case a time
@@ -382,9 +383,9 @@ faster simulation).</td>
 <strong>Electrical.Digital.Converters.</strong></td>
 </tr>
 <tr>
-<td>BooleanToLogic<br />
-LogicToBoolean<br />
-RealToLogic<br />
+<td>BooleanToLogic<br/>
+LogicToBoolean<br/>
+RealToLogic<br/>
 LogicToReal</td>
 <td>Changed from "algorithm" to "equation" section to allow better
 symbolic preprocessing</td>
@@ -550,15 +551,15 @@ no equation is provided for it in PartialMedium.</td>
 <td>"max" value changed from 1.7 to 500000</td>
 </tr>
 <tr>
-<td>setState_pTX<br />
-setState_phX<br />
-setState_psX<br />
-setState_dTX<br />
-specificEnthalpy_pTX<br />
-temperature_phX<br />
-density_phX<br />
-temperature_psX<br />
-density_psX<br />
+<td>setState_pTX<br/>
+setState_phX<br/>
+setState_psX<br/>
+setState_dTX<br/>
+specificEnthalpy_pTX<br/>
+temperature_phX<br/>
+density_phX<br/>
+temperature_psX<br/>
+density_psX<br/>
 specificEnthalpy_psX</td>
 <td>Introduced default value "reference_X" for input argument
 "X".</td>
@@ -568,9 +569,9 @@ specificEnthalpy_psX</td>
 <strong>Media.Interfaces.PartialSimpleMedium.</strong></td>
 </tr>
 <tr>
-<td>setState_pTX<br />
-setState_phX<br />
-setState_psX<br />
+<td>setState_pTX<br/>
+setState_phX<br/>
+setState_psX<br/>
 setState_dTX</td>
 <td>Introduced default value "reference_X" for input argument
 "X".</td>
@@ -580,9 +581,9 @@ setState_dTX</td>
 <strong>Media.Interfaces.PartialSimpleIdealGasMedium.</strong></td>
 </tr>
 <tr>
-<td>setState_pTX<br />
-setState_phX<br />
-setState_psX<br />
+<td>setState_pTX<br/>
+setState_phX<br/>
+setState_psX<br/>
 setState_dTX</td>
 <td>Introduced default value "reference_X" for input argument
 "X".</td>
@@ -591,8 +592,8 @@ setState_dTX</td>
 <td colspan="2"><strong>Media.Air.MoistAir.</strong></td>
 </tr>
 <tr>
-<td>setState_pTX<br />
-setState_phX<br />
+<td>setState_pTX<br/>
+setState_phX<br/>
 setState_dTX</td>
 <td>Introduced default value "reference_X" for input argument
 "X".</td>
@@ -602,9 +603,9 @@ setState_dTX</td>
 <strong>Media.IdealGases.Common.SingleGasNasa.</strong></td>
 </tr>
 <tr>
-<td>setState_pTX<br />
-setState_phX<br />
-setState_psX<br />
+<td>setState_pTX<br/>
+setState_phX<br/>
+setState_psX<br/>
 setState_dTX</td>
 <td>Introduced default value "reference_X" for input argument
 "X".</td>
@@ -614,10 +615,10 @@ setState_dTX</td>
 <strong>Media.IdealGases.Common.MixtureGasNasa.</strong></td>
 </tr>
 <tr>
-<td>setState_pTX<br />
-setState_phX<br />
-setState_psX<br />
-setState_dTX<br />
+<td>setState_pTX<br/>
+setState_phX<br/>
+setState_psX<br/>
+setState_dTX<br/>
 h_TX</td>
 <td>Introduced default value "reference_X" for input argument
 "X".</td>
@@ -626,7 +627,7 @@ h_TX</td>
 <td colspan="2"><strong>Media.Common.</strong></td>
 </tr>
 <tr>
-<td>IF97PhaseBoundaryProperties<br />
+<td>IF97PhaseBoundaryProperties<br/>
 gibbsToBridgmansTables</td>
 <td>Introduced unit for variables vt, vp.</td>
 </tr>
@@ -643,10 +644,10 @@ gibbsToBridgmansTables</td>
 <strong>Media.Common.ThermoFluidSpecial.</strong></td>
 </tr>
 <tr>
-<td>gibbsToProps_ph<br />
-gibbsToProps_ph<br />
-gibbsToBoundaryProps<br />
-gibbsToProps_dT<br />
+<td>gibbsToProps_ph<br/>
+gibbsToProps_ph<br/>
+gibbsToBoundaryProps<br/>
+gibbsToProps_dT<br/>
 gibbsToProps_pT</td>
 <td>Introduced unit for variables vt, vp.</td>
 </tr>
@@ -687,11 +688,11 @@ of the HeatPort as linear combination of the flowPort_a (tapT=0)
 and flowPort_b (tapT=1) temperatures.</td>
 </tr>
 </table>
-<p><br />
+<p><br/>
 The following <font color="red"><strong>critical
 errors</strong></font> have been fixed (i.e., errors that can lead
 to wrong simulation results):</p>
-<table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
+<table border="1" cellpadding="2" cellspacing="0" style="border-collapse:collapse;">
 <tr>
 <td colspan="2">
 <strong>Electrical.Machines.BasicMachines.Components.</strong></td>
@@ -731,7 +732,7 @@ assert(..)) with an explanation how to fix this.</td>
 <strong>Media.Interfaces.PartialPureSubstance.</strong></td>
 </tr>
 <tr>
-<td>pressure_dT<br />
+<td>pressure_dT<br/>
 specificEnthalpy_dT</td>
 <td>Changed wrong call from "setState_pTX" to "setState_dTX"</td>
 </tr>
@@ -740,7 +741,7 @@ specificEnthalpy_dT</td>
 <strong>Media.Interfaces.PartialTwoPhaseMedium.</strong></td>
 </tr>
 <tr>
-<td>pressure_dT<br />
+<td>pressure_dT<br/>
 specificEnthalpy_dT</td>
 <td>Changed wrong call from "setState_pTX" to "setState_dTX"</td>
 </tr>
@@ -749,9 +750,9 @@ specificEnthalpy_dT</td>
 <strong>Media.Common.ThermoFluidSpecial.</strong></td>
 </tr>
 <tr>
-<td>gibbsToProps_dT<br />
-helmholtzToProps_ph<br />
-helmholtzToProps_pT<br />
+<td>gibbsToProps_dT<br/>
+helmholtzToProps_ph<br/>
+helmholtzToProps_pT<br/>
 helmholtzToProps_dT</td>
 <td>Bugs in equations corrected</td>
 </tr>
@@ -759,7 +760,7 @@ helmholtzToProps_dT</td>
 <td colspan="2"><strong>Media.Common.</strong></td>
 </tr>
 <tr>
-<td>helmholtzToBridgmansTables<br />
+<td>helmholtzToBridgmansTables<br/>
 helmholtzToExtraDerivs</td>
 <td>Bugs in equations corrected</td>
 </tr>
@@ -775,9 +776,9 @@ helmholtzToExtraDerivs</td>
 <td colspan="2"><strong>Media.Water.IF97_Utilities.</strong></td>
 </tr>
 <tr>
-<td>BaseIF97.Inverses.dtofps3<br />
-isentropicExponent_props_ph<br />
-isentropicExponent_props_pT<br />
+<td>BaseIF97.Inverses.dtofps3<br/>
+isentropicExponent_props_ph<br/>
+isentropicExponent_props_pT<br/>
 isentropicExponent_props_dT</td>
 <td>Bugs in equations corrected</td>
 </tr>
@@ -807,23 +808,23 @@ algorithm.</li>
 <strong>Media.Water.IF97_Utilities.BaseIF97.Regions.</strong></td>
 </tr>
 <tr>
-<td>region_ph<br />
+<td>region_ph<br/>
 region_ps</td>
 <td>Bug in region determination corrected.</td>
 </tr>
 <tr>
-<td>boilingcurve_p<br />
+<td>boilingcurve_p<br/>
 dewcurve_p</td>
 <td>Bug in equation of plim corrected.</td>
 </tr>
 </table>
-<p><br />
+<p><br/>
 The following <font color="red"><strong>uncritical
 errors</strong></font> have been fixed (i.e., errors that do
 <font color="red"><strong>not</strong></font> lead to wrong
 simulation results, but, e.g., units are wrong or errors in
 documentation):</p>
-<table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
+<table border="1" cellpadding="2" cellspacing="0" style="border-collapse:collapse;">
 <tr>
 <td colspan="2"><strong>Blocks.</strong></td>
 </tr>
@@ -844,7 +845,7 @@ discontinuous.</td>
 <td colspan="2"><strong>Blocks.Math.UnitConversions.</strong></td>
 </tr>
 <tr>
-<td>block_To_kWh<br />
+<td>block_To_kWh<br/>
 block_From_kWh</td>
 <td>Corrected unit from "kWh" to (syntactically correct)
 "kW.h".</td>
@@ -898,7 +899,7 @@ SIunits.Conductance.</td>
 <strong>Electrical.MultiPhase.Interfaces.</strong></td>
 </tr>
 <tr>
-<td>Plug<br /></td>
+<td>Plug<br/></td>
 <td>Made used "pin" connectors non-graphical (otherwise, there are
 difficulties to connect to Plug).</td>
 </tr>
@@ -980,7 +981,7 @@ e_rel_0".</td>
 <strong>Mechanics.MultiBody.Joints.Assemblies.</strong></td>
 </tr>
 <tr>
-<td>JointUSP<br />
+<td>JointUSP<br/>
 JointSSP</td>
 <td>Corrected wrong unit: "SIunits.Position aux" to "Real"</td>
 </tr>
@@ -1030,7 +1031,7 @@ incompatibilities)</td>
 <td colspan="2"><strong>Mechanics.Rotational.</strong></td>
 </tr>
 <tr>
-<td>OneWayClutch<br />
+<td>OneWayClutch<br/>
 LossyGear</td>
 <td>Rewrote equations with new variables "unitAngularAcceleration"
 and "unitTorque" in order that the equations are correct with
@@ -1063,7 +1064,7 @@ SIunits.Velocity</td>
 <strong>Media.Examples.Tests.Components.</strong></td>
 </tr>
 <tr>
-<td>PartialTestModel<br />
+<td>PartialTestModel<br/>
 PartialTestModel2</td>
 <td>Corrected unit of h_start from "SIunits.Density" to
 "SIunits.SpecificEnthalpy"</td>
@@ -1073,7 +1074,7 @@ PartialTestModel2</td>
 <strong>Media.Examples.SolveOneNonlinearEquation.</strong></td>
 </tr>
 <tr>
-<td>Inverse_sh_T InverseIncompressible_sh_T<br />
+<td>Inverse_sh_T InverseIncompressible_sh_T<br/>
 Inverse_sh_TX</td>
 <td>Rewrote equations so that dimensional (unit) analysis is
 correct"</td>
@@ -1092,7 +1093,7 @@ correct"</td>
 <strong>Media.Interfaces.PartialTwoPhaseMedium.</strong></td>
 </tr>
 <tr>
-<td>dBubbleDensity_dPressure<br />
+<td>dBubbleDensity_dPressure<br/>
 dDewDensity_dPressure</td>
 <td>Changed wrong type of ddldp from "DerDensityByEnthalpy" to
 "DerDensityByPressure".</td>
@@ -1136,19 +1137,19 @@ dT".</td>
 <strong>Media.Water.IF97_Utilities.BaseIF97.Basic.</strong></td>
 </tr>
 <tr>
-<td>p1_hs<br />
-h2ab_s<br />
-p2a_hs<br />
-p2b_hs<br />
-p2c_hs<br />
-h3ab_p<br />
-T3a_ph<br />
-T3b_ph<br />
-v3a_ph<br />
-v3b_ph<br />
-T3a_ps<br />
-T3b_ps<br />
-v3a_ps<br />
+<td>p1_hs<br/>
+h2ab_s<br/>
+p2a_hs<br/>
+p2b_hs<br/>
+p2c_hs<br/>
+h3ab_p<br/>
+T3a_ph<br/>
+T3b_ph<br/>
+v3a_ph<br/>
+v3b_ph<br/>
+T3a_ps<br/>
+T3b_ps<br/>
+v3a_ps<br/>
 v3b_ps</td>
 <td>Changed wrong unit of variables h/hstar, s, sstar from
 "SIunits.Enthalpy" to "SIunits.SpecificEnthalpy",
@@ -1169,7 +1170,7 @@ v3b_ps</td>
 <strong>Media.Water.IF97_Utilities.BaseIF97.Inverses.</strong></td>
 </tr>
 <tr>
-<td>tofps5<br />
+<td>tofps5<br/>
 tofpst5</td>
 <td>Changed wrong unit of pros from "SIunits.SpecificEnthalpy" to
 "SIunits.SpecificEntropy".</td>
@@ -1185,13 +1186,13 @@ tofpst5</td>
 <td colspan="2"><strong>Thermal.</strong></td>
 </tr>
 <tr>
-<td>FluidHeatFlow<br />
+<td>FluidHeatFlow<br/>
 HeatTransfer</td>
 <td>Corrected wrong unit "SIunits.Temperature" of difference
 temperature variables with "SIunits.TemperatureDifference".</td>
 </tr>
 </table>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

@@ -1,59 +1,60 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.Magnetic.FundamentalWave.UsersGuide.Concept</title>
 </head>
 <body>
-<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Magnetic.html">Magnetic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FundamentalWave.html">FundamentalWave</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FundamentalWave.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">Concept</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Magnetic.html">Magnetic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FundamentalWave.html">FundamentalWave</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FundamentalWave.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">Concept</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <h4>Overview of the concept of fundamental waves</h4>
 <p>The exact magnetic field in the air gap of an electric machine
 is usually determined by an electro magnetic finite element
 analysis. The waveform of the magnetic field, e.g., the magnetic
-potential difference <img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FundamentalWave/V_m_phi.png" />
+potential difference <img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FundamentalWave/V_m_phi.png"/>
 , consists of a spatial fundamental wave - with respect to an
 equivalent two pole machine - and additional harmonic waves of
 different order. The fundamental wave is however dominant in the
 air gap of an electric machine.</p>
-<table border="0" cellspacing="0" cellpadding="2">
+<table border="0" cellpadding="2" cellspacing="0">
 <caption align="bottom"><strong>Fig. 1:</strong> Field lines of a
 four pole induction machine</caption>
 <tr>
-<td><img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Concept/aimc_fem.png" /></td>
+<td><img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Concept/aimc_fem.png"/></td>
 </tr>
 </table>
 <p>In the fundamental wave theory only a pure sinusoidal
 distribution of magnetic quantities is assumed. It is thus assumed
 that all other harmonic wave effects are not taken into
 account.</p>
-<table border="0" cellspacing="0" cellpadding="2">
+<table border="0" cellpadding="2" cellspacing="0">
 <caption align="bottom"><strong>Fig. 2:</strong> Magnetic potential
-difference of a four pole machine, where <img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FundamentalWave/varphi.png" />
+difference of a four pole machine, where <img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FundamentalWave/varphi.png"/>
  is the angle of the spatial domain with respect to one pole
 pair</caption>
 <tr>
-<td><img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Concept/four_pole_V_m.png" /></td>
+<td><img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Concept/four_pole_V_m.png"/></td>
 </tr>
 </table>
 <p>The waveforms of the magnetic field quantities, e.g., the
-magnetic potential difference <img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FundamentalWave/V_m_phi.png" />
-, can be represented by complex phasor, e.g., <img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FundamentalWave/V_m.png" />
+magnetic potential difference <img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FundamentalWave/V_m_phi.png"/>
+, can be represented by complex phasor, e.g., <img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FundamentalWave/V_m.png"/>
  according to:</p>
-<p>&nbsp;&nbsp;<img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FundamentalWave/V_m_real_complex.png" /></p>
+<p>  <img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FundamentalWave/V_m_real_complex.png"/></p>
 <p>It is important to note that the magnetic potential used in this
 library <strong>always</strong> refers to an equivalent two pole
 machine.</p>
-<table border="0" cellspacing="0" cellpadding="2">
+<table border="0" cellpadding="2" cellspacing="0">
 <caption align="bottom"><strong>Fig. 3:</strong> Spatial
 distribution of the magnetic potential difference (red shade =
 positive sine wave, blue shade = negative sine wave) including
 complex phasor representing this spatial distribution</caption>
 <tr>
-<td><img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Concept/electrical_reference_V_m.png" /></td>
+<td><img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Concept/electrical_reference_V_m.png"/></td>
 </tr>
 </table>
 <p>The potential and flow quantities of this library are the
@@ -64,7 +65,7 @@ potential and flux, such a complex phasor representation can be
 used. This way, the FundamentalWave library can be seen as a
 spatial extension of the <a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a> library.</p>
 <p>The specific arrangement of windings in electric machines with
-<img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FundamentalWave/p.png" />
+<img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FundamentalWave/p.png"/>
  pole pairs give rise to sinusoidal dominant magnetic potential
 wave. The spatial period of this wave is determined by one pole
 pair [<a href="Modelica.Magnetic.FundamentalWave.UsersGuide.References.html">Mueller70</a>,
@@ -113,7 +114,7 @@ considered in an extension to this library</li>
 waves of the electro magnetic quantities. This library has no
 limitations with respect to the waveforms of the time domain
 signals of any voltages, currents, etc.</p>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

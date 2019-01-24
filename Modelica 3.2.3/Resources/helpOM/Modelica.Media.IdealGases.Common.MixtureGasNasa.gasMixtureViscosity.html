@@ -1,19 +1,20 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>
 Modelica.Media.IdealGases.Common.MixtureGasNasa.gasMixtureViscosity</title>
 </head>
 <body>
-<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.html">IdealGases</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.Common.html">Common</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.Common.MixtureGasNasa.html">MixtureGasNasa</a>.<span class="omc-h1">gasMixtureViscosity</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.html">IdealGases</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.Common.html">Common</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.Common.MixtureGasNasa.html">MixtureGasNasa</a>.<span class="omc-h1">gasMixtureViscosity</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>Simplification of the kinetic theory (Chapman and Enskog theory)
-approach neglecting the second-order effects.<br />
-<br />
+approach neglecting the second-order effects.<br/>
+<br/>
 This equation has been extensively tested (Amdur and Mason, 1958;
 Bromley and Wilke, 1951; Cheung, 1958; Dahler, 1959; Gandhi and
 Saxena, 1964; Ranz and Brodowsky, 1962; Saxena and Gambhir, 1963a;
@@ -23,15 +24,15 @@ very good results obtained. For some systems containing hydrogen as
 one component, less satisfactory agreement was noted. Wilke's
 method predicted mixture viscosities that were larger than
 experimental for the H2-N2 system, but for H2-NH3, it
-underestimated the viscosities.<br />
+underestimated the viscosities.<br/>
 Gururaja, et al. (1967) found that this method also overpredicted
 in the H2-O2 case but was quite accurate for the H2-CO2
-system.<br />
+system.<br/>
 Wilke's approximation has proved reliable even for polar-polar gas
 mixtures of aliphatic alcohols (Reid and Belenyessy, 1960). The
 principal reservation appears to lie in those cases where
-Mi&gt;&gt;Mj and etai&gt;&gt;etaj.<br /></p>
-<h4><a name="interface" id="interface">Interface</a></h4>
+Mi&gt;&gt;Mj and etai&gt;&gt;etaj.<br/></p>
+<h4><a id="interface" name="interface">Interface</a></h4>
 <blockquote>
 <pre>function gasMixtureViscosity
   extends Modelica.Icons.Function;
@@ -40,7 +41,7 @@ Mi&gt;&gt;Mj and etai&gt;&gt;etaj.<br /></p>
   input DynamicViscosity[size(yi, 1)] eta "Pure component viscosities";
   output DynamicViscosity etam "Viscosity of the mixture";
 end gasMixtureViscosity;</pre></blockquote>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

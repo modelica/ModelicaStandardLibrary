@@ -1,15 +1,16 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.Fluid.UsersGuide.Overview</title>
 </head>
 <body>
-<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">Overview</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">Overview</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>The Modelica.Fluid library provides basic interfaces and
 components to model 1-dimensional thermo-fluid flow in networks of
 pipes. It is not the intention that this library covers all
@@ -32,8 +33,8 @@ from Modelica.Media can be utilized when connecting components. For
 one substance media, the additional arrays for multiple substance
 media have zero dimension and are therefore removed from the code
 during translation. The general connector definition therefore does
-not introduce an overhead for special cases.<br />
-&nbsp;</li>
+not introduce an overhead for special cases.<br/>
+ </li>
 <li>All the components of the Modelica.Fluid library are designed
 that they can be utilized for all media models from Modelica.Media
 if this is possible. For example, all media can be utilized for the
@@ -41,8 +42,8 @@ Modelica.Fluid.Sensors/Sources components. For some components only
 special media are possible, since additional functionality is
 required. For example, Modelica.Fluid.Components.Evaporator
 requires a two phase medium (extending from
-Modelica.Media.Interfaces.PartialTwoPhaseMedium).<br />
-&nbsp;</li>
+Modelica.Media.Interfaces.PartialTwoPhaseMedium).<br/>
+ </li>
 <li>In order to simplify the initialization in the components,
 there is the restriction that only media models are supported that
 have T, (p,T), (p,h), (T,X), (p,T,X) or (p,h,X) as independent
@@ -50,24 +51,24 @@ variables. Other media models would be possible, e.g., with (T,d)
 as independent variables. However, this requires to rewrite the
 code for the component initialization. (Note, T is temperature, p
 is pressure, d is density, h is specific enthalpy, and X is a mass
-fraction vector).<br />
-&nbsp;</li>
+fraction vector).<br/>
+ </li>
 <li>All components work for <strong>incompressible</strong> and
 <strong>compressible</strong> media. This is implemented by a small
 change in the initialization of a component, if the medium is
 incompressible. Otherwise, the equations of the components are not
-influenced by this property.<br />
-&nbsp;</li>
+influenced by this property.<br/>
+ </li>
 <li>All components allow fluid flow in both directions, i.e.,
 <strong>reversing flow</strong> is supported. However, it is
 possible to declare that the flow through a component only has the
-design direction, in order to obtain faster simulation code.<br />
-&nbsp;</li>
+design direction, in order to obtain faster simulation code.<br/>
+ </li>
 <li>Two or more components can be connected together. This means
 that the pressures of all connected ports are equal and the mass
 flow rates sum up to zero. Specific enthalpy, mass fractions and
-trace substances are mixed according to the mass flow rates.<br />
-&nbsp;</li>
+trace substances are mixed according to the mass flow rates.<br/>
+ </li>
 <li>The <strong>momentum balance</strong> and the <strong>energy
 balance</strong> are only fulfilled exactly if <strong>two ports of
 equal diameter</strong> are connected. In all other cases, the
@@ -80,18 +81,18 @@ consider the <a href="Modelica.Fluid.Examples.Explanatory.MomentumBalanceFitting
 Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings</a>
 model (and its documentation) to see one case where the momentum
 balance essentially depends on kinetic pressure, so it is necessary
-to use explicit fittings in order to obtain correct results.<br />
-&nbsp;</li>
+to use explicit fittings in order to obtain correct results.<br/>
+ </li>
 <li>Given the above-mentioned limitations, there is no restriction
 how components can be connected together. The resulting simulation
 performance however often strongly depends on the model structure
 and modeling assumptions made. In particular the direct connection
 of fluid volumes generally results in high-index DAEs for the
 pressures. The direct connection of flow models generally results
-in systems of implicit nonlinear algebraic equations.<br />
-&nbsp;</li>
+in systems of implicit nonlinear algebraic equations.<br/>
+ </li>
 </ul>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

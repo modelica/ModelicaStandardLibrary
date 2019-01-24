@@ -1,15 +1,16 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.Electrical.Machines.Losses.Friction</title>
 </head>
 <body>
-<h1><a href="Icons/0468729caa1e44ebb24d995b31ed5c3a5767ae32.svg"><img class="svgiconhead" src="Icons/0468729caa1e44ebb24d995b31ed5c3a5767ae32.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.html">Machines</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Losses.html">Losses</a>.<span class="omc-h1">Friction</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/b93167e744521e97163e6425e2767937b2c11906.svg"><img class="svgiconhead" src="Icons/b93167e744521e97163e6425e2767937b2c11906.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.html">Machines</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Losses.html">Losses</a>.<span class="omc-h1">Friction</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>The friction losses are considered by the equations</p>
 <pre>
    tau / tauRef = (+w / wRef) ^ power_w    for w &gt; +wLinear
@@ -35,9 +36,9 @@ approximated by a linear curve</p>
 <p>in the range <code>-wLinear ≤ w ≤ wLinear</code> with
 <code>wLinear = 0.001 * wRef</code>. The relationship of torque and
 angular velocity is depicted in Fig. 1</p>
-<table border="0" cellspacing="0" cellpadding="1">
+<table border="0" cellpadding="1" cellspacing="0">
 <tr>
-<td><img src="../../../Modelica%203.2.3/Resources/Images/Electrical/Machines/frictiontorque.png" alt="frictiontorque.png" /></td>
+<td><img alt="frictiontorque.png" src="../../../Modelica%203.2.3/Resources/Images/Electrical/Machines/frictiontorque.png"/></td>
 </tr>
 <tr>
 <td><strong>Fig. 1:</strong> Friction loss torque versus angular
@@ -49,7 +50,7 @@ velocity for <code>power_w = 2</code></td>
 FrictionParameters</a></p>
 <p>If it is desired to neglect friction losses, set
 <code>frictionParameters.PRef = 0</code> (this is the default).</p>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

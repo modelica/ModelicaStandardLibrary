@@ -1,46 +1,47 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.UsersGuide.ReleaseNotes.Version_2_2_1</title>
 </head>
 <body>
-<h1><a href="Icons/7e5916c8ded3e7489f5937a6ee55f7f07d893583.svg"><img class="svgiconhead" src="Icons/7e5916c8ded3e7489f5937a6ee55f7f07d893583.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>.<span class="omc-h1">Version_2_2_1</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/7e5916c8ded3e7489f5937a6ee55f7f07d893583.svg"><img class="svgiconhead" src="Icons/7e5916c8ded3e7489f5937a6ee55f7f07d893583.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>.<span class="omc-h1">Version_2_2_1</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>Version 2.2.1 is backward compatible to version 2.2.</p>
 <p>In this version, <strong>no</strong> new libraries have been
 added. The following major improvements have been made:</p>
 <ul>
 <li>The <strong>Documentation</strong> of the Modelica standard
-library was considerably improved:<br />
+library was considerably improved:<br/>
 In Dymola 6, the new feature was introduced to automatically add
 tables for class content and component interface definitions
 (parameters and connectors) to the info layer. For this reason, the
 corresponding (partial) tables previously present in the Modelica
 Standard Library have been removed. The new feature of Dymola 6 has
 the significant advantage that all tables are now guaranteed to be
-up-to-date.<br />
+up-to-date.<br/>
 Additionally, the documentation has been improved by adding
 appropriate description texts to parameters, connector instances,
 function input and output arguments etc., in order that the
 automatically generated tables do not have empty entries. Also new
 User's Guides for sublibraries Rotational and SIunits have been
 added and the User's Guide on top level (Modelica.UsersGuide) has
-been improved.<br />
-&nbsp;</li>
+been improved.<br/>
+ </li>
 <li>Initialization options have been added to the
 Modelica.Blocks.<strong>Continuous</strong> blocks (NoInit,
 SteadyState, InitialState, InitialOutput). If InitialOutput is
 selected, the block output is provided as initial condition. The
 states of the block are then initialized as close as possible to
 steady state. Furthermore, the Continuous.LimPID block has been
-significantly improved and much better documented.<br />
-&nbsp;</li>
+significantly improved and much better documented.<br/>
+ </li>
 <li>The Modelica.<strong>Media</strong> library has been
-significantly improved:<br />
+significantly improved:<br/>
 New functions setState_pTX, setState_phX, setState_psX,
 setState_dTX have been added to PartialMedium to compute the
 independent medium variables (= state of medium) from p,T,X, or
@@ -52,7 +53,7 @@ not make sense for a particular medium).</li>
 </ul>
 <p>The following <strong>new components</strong> have been added to
 <strong>existing</strong> libraries:</p>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <td colspan="2"><strong>Modelica.Blocks.Examples.</strong></td>
 </tr>
@@ -116,7 +117,7 @@ either star (wye) ? or delta ? connection</td>
 <tr>
 <td>equalityLeastSquares</td>
 <td>Solve a linear equality constrained least squares
-problem:<br />
+problem:<br/>
 min|A*x-a|^2 subject to B*x=b</td>
 </tr>
 <tr>
@@ -210,7 +211,7 @@ enthalpy, and mass fractions.</td>
 handling.</td>
 </tr>
 <tr>
-<td>Resistance<br />
+<td>Resistance<br/>
 Conductance</td>
 <td>Attribute 'min=0' removed from these types.</td>
 </tr>
@@ -254,7 +255,7 @@ semiLinear.</td>
 </table>
 <p>The following <strong>components</strong> have been
 improved:</p>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <td colspan="2"><strong>Modelica.</strong></td>
 </tr>
@@ -267,8 +268,8 @@ Library improved.</td>
 <td colspan="2"><strong>Modelica.Blocks.Interfaces.</strong></td>
 </tr>
 <tr>
-<td>RealInput<br />
-BooleanInput<br />
+<td>RealInput<br/>
+BooleanInput<br/>
 IntegerInput</td>
 <td>When dragging one of these connectors the width and height is a
 factor of 2 larger as a standard icon. Previously, these connectors
@@ -291,8 +292,8 @@ during initialization</td>
 significantly improved.</td>
 </tr>
 <tr>
-<td>Nonlinear.Limiter<br />
-Nonlinear.VariableLimiter<br />
+<td>Nonlinear.Limiter<br/>
+Nonlinear.VariableLimiter<br/>
 Nonlinear.Deadzone</td>
 <td>New parameter limitsAtInit/deadZoneAtInit to switch off the
 limits or the dead zone during initialization</td>
@@ -318,8 +319,8 @@ current sources).</td>
 <strong>Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.</strong></td>
 </tr>
 <tr>
-<td>SM_PermanentMagnetDamperCage<br />
-SM_ElectricalExcitedDamperCage<br />
+<td>SM_PermanentMagnetDamperCage<br/>
+SM_ElectricalExcitedDamperCage<br/>
 SM_ReluctanceRotorDamperCage</td>
 <td>The user can choose "DamperCage = false" (default: true) to
 remove all equations for the damper cage from the model.</td>
@@ -359,7 +360,7 @@ of all components is changed that are not explicitly set
 differently. Since specularCoefficient is a variable (and no
 parameter), it can be changed during simulation. Since
 annotation(Dialog) is set, this variable still appears in the
-parameter menus.<br />
+parameter menus.<br/>
 Previously, a constant specularCoefficient of 0.7 was used for all
 components.</li>
 <li>Variable <strong>color</strong> of all components is no longer
@@ -397,8 +398,8 @@ and world.defaultNm_to_m (=1000). This allows to change the scaling
 factors for all forces and torques in the world object.</td>
 </tr>
 <tr>
-<td>Interfaces.Frame.a<br />
-Interfaces.Frame.b<br />
+<td>Interfaces.Frame.a<br/>
+Interfaces.Frame.b<br/>
 Interfaces.Frame_resolve</td>
 <td>The Frame connectors are now centered around the origin to ease
 the usage. The shape was changed, such that the icon is a factor of
@@ -466,7 +467,7 @@ flow.</td>
 <strong>Modelica.Thermal.FluidHeatFlow.Components.</strong></td>
 </tr>
 <tr>
-<td>IsolatedPipe<br />
+<td>IsolatedPipe<br/>
 HeatedPipe</td>
 <td>Added geodetic height as a source of pressure change; feeds
 friction losses as calculated by simple friction to the energy
@@ -519,19 +520,19 @@ initialization)</td>
 </tr>
 </table>
 <p>The following <strong>errors</strong> have been fixed:</p>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <td colspan="2"><strong>Modelica.Blocks.Tables.</strong></td>
 </tr>
 <tr>
-<td>CombiTable1D<br />
-CombiTable1Ds<br />
+<td>CombiTable1D<br/>
+CombiTable1Ds<br/>
 CombiTable2D</td>
 <td>Parameter "tableOnFile" determines now whether a table is read
 from file or used from parameter "table". Previously, if "fileName"
 was not "NoName", a table was always read from file "fileName",
 independently of the setting of "tableOnFile". This has been
-corrected.<br />
+corrected.<br/>
 Furthermore, the initialization of a table is now performed in a
 when-clause and no longer in a parameter declaration, because some
 tools evaluate the parameter declaration in some situation more
@@ -551,13 +552,13 @@ Modelica.Blocks.Tables as outlined above.</td>
 <strong>Modelica.Electrical.Analog.Semiconductors.</strong></td>
 </tr>
 <tr>
-<td>PMOS<br />
-NMOS<br />
-HeatingPMOS<br />
+<td>PMOS<br/>
+NMOS<br/>
+HeatingPMOS<br/>
 HeatingNMOS</td>
 <td>The Drain-Source-Resistance RDS had actually a resistance of
 RDS/v, with v=Beta*(W+dW)/(L+dL). The correct formula is without
-the division by "v". This has now been corrected.<br />
+the division by "v". This has now been corrected.<br/>
 This bug fix should not have an essential effect in most
 applications. In the default case (Beta=1e-5), the
 Drain-Source-Resistance was a factor of 1e5 too large and had in
@@ -586,7 +587,7 @@ closed. This has been corrected by adding a "Streams.close(..)"
 after reading the file content.</td>
 </tr>
 </table>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

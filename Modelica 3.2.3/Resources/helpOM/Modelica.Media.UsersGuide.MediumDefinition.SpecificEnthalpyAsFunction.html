@@ -1,16 +1,17 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>
 Modelica.Media.UsersGuide.MediumDefinition.SpecificEnthalpyAsFunction</title>
 </head>
 <body>
-<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.MediumDefinition.html">MediumDefinition</a>.<span class="omc-h1">SpecificEnthalpyAsFunction</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.MediumDefinition.html">MediumDefinition</a>.<span class="omc-h1">SpecificEnthalpyAsFunction</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>If pressure p and specific enthalpy h are <strong>not</strong>
 used as independent medium variables, the specific enthalpy should
 be computed by a Modelica function that has as input arguments only
@@ -40,18 +41,18 @@ component to define the mixing equations must be introduced.</p>
 <p>The mass and momentum balance equations in a component are
 derived from the partial differential equations along the flow
 direction of a pipe:</p>
-<p><img src="../../../Modelica%203.2.3/Resources/Images/Media/UsersGuide/BalanceEquations1.png" /></p>
+<p><img src="../../../Modelica%203.2.3/Resources/Images/Media/UsersGuide/BalanceEquations1.png"/></p>
 <p>Note, F<sub>F</sub> is the fanning friction factor. The energy
 balance can be given in different forms. Usually, it is given
 as:</p>
-<p><img src="../../../Modelica%203.2.3/Resources/Images/Media/UsersGuide/EnergyBalance1.png" /></p>
+<p><img src="../../../Modelica%203.2.3/Resources/Images/Media/UsersGuide/EnergyBalance1.png"/></p>
 <p>This form describes the change of the internal energy, kinetic
 energy and potential energy of a volume as function of the in and
 out flowing fluid. Multiplying the momentum balance with the flow
 velocity v and subtracting it from the energy balance above,
 results in the following alternative form of the energy
 balance:</p>
-<p><img src="../../../Modelica%203.2.3/Resources/Images/Media/UsersGuide/EnergyBalance2.png" /></p>
+<p><img src="../../../Modelica%203.2.3/Resources/Images/Media/UsersGuide/EnergyBalance2.png"/></p>
 <p>This form has the advantage that the kinetic and potential
 energy is no longer part of the energy balance and therefore the
 energy balance is substantially simpler (e.g., additional
@@ -141,7 +142,7 @@ argument are the same, the second arguments T1 and T2 must also be
 identical and therefore T2 := T1. This type of analysis seems to be
 only possible, if the specific enthalpy is defined as a function of
 the independent medium variables.</p>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

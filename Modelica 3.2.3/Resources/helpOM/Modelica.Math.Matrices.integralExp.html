@@ -1,15 +1,16 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.Math.Matrices.integralExp</title>
 </head>
 <body>
-<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<span class="omc-h1">integralExp</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<span class="omc-h1">integralExp</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <h4>Syntax</h4>
 <blockquote>
 <pre>
@@ -43,10 +44,10 @@ simply <strong>Ψ</strong>*B.</p>
 into a diagonal transformation matrix <em>D</em>. This reduce the
 effort of following calculations. Afterwards the result have to be
 re-balanced by transformation D*A<small>transf</small>
-*inv(D).<br />
-Scaling halfen T&nbsp; k-times, until the norm of A*T is less than
+*inv(D).<br/>
+Scaling halfen T  k-times, until the norm of A*T is less than
 0.5. This guarantees minimum rounding errors in the following
-series expansion. The re-scaling based on the equation&nbsp;
+series expansion. The re-scaling based on the equation 
 exp(A*2T) = exp(AT)^2. The needed re-scaling formula for psi thus
 becomes:</p>
 <pre>
@@ -69,7 +70,7 @@ sampling instants. Zero-order-hold sampling is described in</p>
 <dl>
 <dt>K. J. Åström, B. Wittenmark:</dt>
 <dd><strong>Computer Controlled Systems - Theory and
-Design</strong><br />
+Design</strong><br/>
 Third Edition, p. 32</dd>
 </dl>
 <pre><strong>Syntax:</strong>
@@ -82,10 +83,10 @@ Third Edition, p. 32</dd>
 <dl>
 <dt>H. D. Joos, G. Grübel:</dt>
 <dd><strong>RASP'91 Regulator Analysis and Synthesis
-Programs</strong><br />
+Programs</strong><br/>
 DLR - Control Systems Group 1991</dd>
 </dl>
-<h4><a name="interface" id="interface">Interface</a></h4>
+<h4><a id="interface" name="interface">Interface</a></h4>
 <blockquote>
 <pre>function integralExp
   extends Modelica.Icons.Function;
@@ -95,13 +96,13 @@ DLR - Control Systems Group 1991</dd>
   output Real phi[size(A, 1), size(A, 1)] "= exp(A*T)";
   output Real gamma[size(A, 1), size(B, 2)] "= integral(phi)*B";
 end integralExp;</pre></blockquote>
-<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
 <p><strong>Release Notes:</strong></p>
 <ul>
-<li><em>July 5, 2002</em> by H. D. Joos and Nico Walther<br />
+<li><em>July 5, 2002</em> by H. D. Joos and Nico Walther<br/>
 Implemented.</li>
 </ul>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

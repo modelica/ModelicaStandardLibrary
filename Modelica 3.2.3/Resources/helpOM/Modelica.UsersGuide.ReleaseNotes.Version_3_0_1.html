@@ -1,15 +1,16 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.UsersGuide.ReleaseNotes.Version_3_0_1</title>
 </head>
 <body>
-<h1><a href="Icons/7e5916c8ded3e7489f5937a6ee55f7f07d893583.svg"><img class="svgiconhead" src="Icons/7e5916c8ded3e7489f5937a6ee55f7f07d893583.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>.<span class="omc-h1">Version_3_0_1</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/7e5916c8ded3e7489f5937a6ee55f7f07d893583.svg"><img class="svgiconhead" src="Icons/7e5916c8ded3e7489f5937a6ee55f7f07d893583.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>.<span class="omc-h1">Version_3_0_1</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>This Modelica package is provided under the Modelica License 2
 and no longer under Modelica License 1.1. There are the following
 reasons why the Modelica Association changes from Modelica License
@@ -43,16 +44,16 @@ license (including a commercial license).</li>
 We hope that this compromise between open source contributors,
 commercial Modelica environments and Modelica users will motivate
 even more people to provide their Modelica packages freely under
-the Modelica License 2.<br />
-<br /></li>
+the Modelica License 2.<br/>
+<br/></li>
 <li>There are several new provisions that shall make law suites
 against licensors and licensees more unlikely (so the small risk is
 further reduced).</li>
 </ol>
-<p><br />
+<p><br/>
 The following <font color="blue"><strong>new
 components</strong></font> have been added to <font color="blue"><strong>existing</strong></font> libraries:</p>
-<table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
+<table border="1" cellpadding="2" cellspacing="0" style="border-collapse:collapse;">
 <tr>
 <td colspan="2"><strong>Electrical.Analog.Basic.</strong></td>
 </tr>
@@ -89,7 +90,7 @@ component.</td>
 <tr>
 <td>ThermoStates</td>
 <td>Enumeration type for independent variables to identify the
-independent variables of the medium (pT, ph, phX, pTX, dTX).<br />
+independent variables of the medium (pT, ph, phX, pTX, dTX).<br/>
 An implementation of this enumeration is provided for every medium.
 (This is useful for fluid libraries that do not use the
 PartialMedium.BaseProperties model).</td>
@@ -97,10 +98,10 @@ PartialMedium.BaseProperties model).</td>
 <tr>
 <td>setSmoothState</td>
 <td>Function that returns the thermodynamic state which smoothly
-approximates: if x &gt; 0 then state_a else state_b.<br />
+approximates: if x &gt; 0 then state_a else state_b.<br/>
 (This is useful for pressure drop components in fluid libraries
 where the upstream density and/or viscosity has to be computed and
-these properties should be smooth a zero mass flow rate)<br />
+these properties should be smooth a zero mass flow rate)<br/>
 An implementation of this function is provided for every
 medium.</td>
 </tr>
@@ -134,10 +135,10 @@ change. This is only correct as long as there is no liquid in the
 stream.</td>
 </tr>
 </table>
-<p><br />
+<p><br/>
 The following <font color="blue"><strong>existing
 components</strong></font> have been <font color="blue"><strong>changed</strong></font> (in a <font color="blue"><strong>backward compatible</strong></font> way):</p>
-<table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
+<table border="1" cellpadding="2" cellspacing="0" style="border-collapse:collapse;">
 <tr>
 <td colspan="2">
 <strong>Mechanics.Rotational.Interfaces.</strong></td>
@@ -178,10 +179,10 @@ number of iterations is much smaller.</td>
 <td colspan="2"><strong>Media.Examples.</strong></td>
 </tr>
 <tr>
-<td>SimpleLiquidWater<br />
-IdealGasH20<br />
-WaterIF97<br />
-MixtureGases<br />
+<td>SimpleLiquidWater<br/>
+IdealGasH20<br/>
+WaterIF97<br/>
+MixtureGases<br/>
 MoistAir</td>
 <td>Added equations to test the new setSmoothState(..) functions
 including the analytic derivatives of these functions.</td>
@@ -191,9 +192,9 @@ including the analytic derivatives of these functions.</td>
 <strong>Media.Interfaces.PartialLinearFluid.</strong></td>
 </tr>
 <tr>
-<td>setState_pTX<br />
-setState_phX<br />
-setState_psX<br />
+<td>setState_pTX<br/>
+setState_phX<br/>
+setState_psX<br/>
 setState_dTX</td>
 <td>Rewritten function in one statement so that it is usually
 inlined.</td>
@@ -216,11 +217,11 @@ functions.</td>
 from 200..6000 to 240 ..400 K.</td>
 </tr>
 </table>
-<p><br />
+<p><br/>
 The following <font color="red"><strong>critical
 errors</strong></font> have been fixed (i.e., errors that can lead
 to wrong simulation results):</p>
-<table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
+<table border="1" cellpadding="2" cellspacing="0" style="border-collapse:collapse;">
 <tr>
 <td colspan="2"><strong>Mechanics.MultiBody.Forces</strong></td>
 </tr>
@@ -234,7 +235,7 @@ independently of the setting of this parameter.</td>
 <td>WorldForceAndTorque</td>
 <td>Parameter "ResolveInFrame" was not propagated and therefore
 always the default (resolved in world frame) was used,
-independently of the setting of this parameter.<br />
+independently of the setting of this parameter.<br/>
 Furthermore, internally WorldTorque was used instead of
 Internal.BasicWorldTorque and therefore the visualization of
 worldTorque was performed twice.</td>
@@ -283,7 +284,7 @@ performs the transformation. This has been corrected.</td>
 <strong>Mechanics.Translational.Components.</strong></td>
 </tr>
 <tr>
-<td>SupportFriction<br />
+<td>SupportFriction<br/>
 Brake</td>
 <td>The sign of the friction force was wrong and therefore friction
 accelerated instead of decelerated. This was fixed.</td>
@@ -297,7 +298,7 @@ corrected.</td>
 <td colspan="2"><strong>Media.Interfaces.</strong></td>
 </tr>
 <tr>
-<td>PartialSimpleMedium<br />
+<td>PartialSimpleMedium<br/>
 PartialSimpleIdealGasMedium</td>
 <td>BaseProperties.p was not defined as preferred state and
 BaseProperties.T was always defined as preferred state. This has
@@ -310,13 +311,13 @@ model relies on default initial values, the result could be not as
 expected.</td>
 </tr>
 </table>
-<p><br />
+<p><br/>
 The following <font color="red"><strong>uncritical
 errors</strong></font> have been fixed (i.e., errors that do
 <font color="red"><strong>not</strong></font> lead to wrong
 simulation results, but, e.g., units are wrong or errors in
 documentation):</p>
-<table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
+<table border="1" cellpadding="2" cellspacing="0" style="border-collapse:collapse;">
 <tr>
 <td colspan="2"><strong>Blocks.Math.</strong></td>
 </tr>
@@ -328,8 +329,8 @@ documentation):</p>
 <td colspan="2"><strong>Blocks.Sources.</strong></td>
 </tr>
 <tr>
-<td>RealExpression<br />
-IntegerExpression<br />
+<td>RealExpression<br/>
+IntegerExpression<br/>
 BooleanExpression</td>
 <td>Changed annotation preserveAspectRatio from true to false.</td>
 </tr>
@@ -363,14 +364,14 @@ could simulate the model, there is no difference).</td>
 <strong>Media.Interfaces.PartialSimpleMedium</strong></td>
 </tr>
 <tr>
-<td>pressure<br />
-temperature<br />
-density<br />
+<td>pressure<br/>
+temperature<br/>
+density<br/>
 specificEnthalpy</td>
 <td>Missing functions added.</td>
 </tr>
 </table>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

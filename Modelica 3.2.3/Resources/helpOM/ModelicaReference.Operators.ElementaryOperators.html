@@ -1,20 +1,21 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>ModelicaReference.Operators.ElementaryOperators</title>
 </head>
 <body>
-<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Operators.html">Operators</a>.<span class="omc-h1">ElementaryOperators</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Operators.html">Operators</a>.<span class="omc-h1">ElementaryOperators</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>Elementary operators are overloaded and operate on variables of
 type Real, Integer, Boolean, and String, as well as on scalars or
 arrays.</p>
 <h4>Syntax</h4>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <td colspan="3"><strong>Arithmetic Operators (operate on Real,
 Integer scalars or arrays)</strong></td>
@@ -26,26 +27,26 @@ Integer scalars or arrays)</strong></td>
 </tr>
 <tr>
 <td>+, -, .+, .-</td>
-<td>a + b<br />
+<td>a + b<br/>
 a .+ b</td>
 <td>addition and subtraction; element-wise on arrays</td>
 </tr>
 <tr>
 <td>*</td>
 <td>a * b</td>
-<td>multiplication;<br />
-scalar*array: element-wise multiplication<br />
-vector*vector: element-wise multiplication (result: scalar)<br />
-matrix*matrix: matrix product<br />
-vector*matrix: row-matrix*matrix (result: vector)<br />
+<td>multiplication;<br/>
+scalar*array: element-wise multiplication<br/>
+vector*vector: element-wise multiplication (result: scalar)<br/>
+matrix*matrix: matrix product<br/>
+vector*matrix: row-matrix*matrix (result: vector)<br/>
 matrix*vector: matrix*column-matrix (result: vector)</td>
 </tr>
 <tr>
 <td>/</td>
 <td>a / b</td>
-<td>division of two scalars or an array by a scalar;<br />
-division of an array by a scalar is defined element-wise.<br />
-The result is always of real type. In order to get integer<br />
+<td>division of two scalars or an array by a scalar;<br/>
+division of an array by a scalar is defined element-wise.<br/>
+The result is always of real type. In order to get integer<br/>
 division with truncation use the function div.</td>
 </tr>
 <tr>
@@ -70,8 +71,8 @@ scalars and arrays</td>
 <td>assignment operator; element-wise on arrays</td>
 </tr>
 </table>
-&nbsp;
-<table border="1" cellspacing="0" cellpadding="2">
+ 
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <td colspan="3"><strong>Relational Operators (operate on Real,
 Integer, Boolean, String scalars)</strong></td>
@@ -112,8 +113,8 @@ Integer, Boolean, String scalars)</strong></td>
 <td>greater than or equal</td>
 </tr>
 </table>
-&nbsp;
-<table border="1" cellspacing="0" cellpadding="2">
+ 
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <td colspan="3"><strong>Boolean Operators (operate on scalars or
 element-wise on arrays)</strong></td>
@@ -139,8 +140,8 @@ element-wise on arrays)</strong></td>
 <td>logical not</td>
 </tr>
 </table>
-&nbsp;
-<table border="1" cellspacing="0" cellpadding="2">
+ 
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <td colspan="3"><strong>Other Operators</strong></td>
 </tr>
@@ -162,7 +163,7 @@ rows</td>
 </tr>
 <tr>
 <td>"..."</td>
-<td>"string value"<br />
+<td>"string value"<br/>
 "string "value""</td>
 <td>String literal (" is used inside a string for ")</td>
 </tr>
@@ -207,11 +208,11 @@ table:</p>
 </tr>
 <tr>
 <td>array construct/concat</td>
-<td>{<em>expressions</em>}<br />
-[<em>expressions</em>]<br />
+<td>{<em>expressions</em>}<br/>
+[<em>expressions</em>]<br/>
 [<em>expressions</em>; <em>expressions</em>...]</td>
-<td><code>{2,3}<br />
-[5,6]<br />
+<td><code>{2,3}<br/>
+[5,6]<br/>
 [2,3; 7,8]</code></td>
 </tr>
 <tr>
@@ -220,27 +221,27 @@ table:</p>
 <td><code>2^3</code></td>
 </tr>
 <tr>
-<td>multiplicative and<br />
+<td>multiplicative and<br/>
 array elementwise multiplicative</td>
-<td><code>*&nbsp;&nbsp;/&nbsp;&nbsp;.*&nbsp;&nbsp;./</code></td>
-<td><code>2*3&nbsp;&nbsp; 2/3<br />
+<td><code>*  /  .*  ./</code></td>
+<td><code>2*3   2/3<br/>
 [1,2;3,4].*[2,3;5,6]</code></td>
 </tr>
 <tr>
-<td>additive and<br />
+<td>additive and<br/>
 array elementwise additive</td>
 <td>
-<code>+&nbsp;&nbsp;-&nbsp;&nbsp;+<em>expr</em>&nbsp;&nbsp;-<em>expr</em><br />
+<code>+  -  +<em>expr</em>  -<em>expr</em><br/>
 
-.+&nbsp;&nbsp;.-</code></td>
-<td><code>a+b, a-b, +a, -a<br />
+.+  .-</code></td>
+<td><code>a+b, a-b, +a, -a<br/>
 [1,2;3,4].+[2,3;5,6]</code></td>
 </tr>
 <tr>
 <td>relational</td>
 <td>
-<code>&lt;&nbsp;&nbsp;&lt;=&nbsp;&nbsp;&gt;&nbsp;&nbsp;&gt;=&nbsp;&nbsp;==&nbsp;&nbsp;&lt;&gt;</code></td>
-<td><code>a&lt;b,&nbsp;a&lt;=b, a&gt;b, ...</code></td>
+<code>&lt;  &lt;=  &gt;  &gt;=  ==  &lt;&gt;</code></td>
+<td><code>a&lt;b, a&lt;=b, a&gt;b, ...</code></td>
 </tr>
 <tr>
 <td><code>...</code></td>
@@ -249,7 +250,7 @@ array elementwise additive</td>
 </tr>
 <tr>
 <td>unary negation</td>
-<td><code>not&nbsp;<em>expr</em></code></td>
+<td><code>not <em>expr</em></code></td>
 <td><code>not b1</code></td>
 </tr>
 <tr>
@@ -265,18 +266,18 @@ array elementwise additive</td>
 <tr>
 <td>array range</td>
 <td>
-<em>expr</em>&nbsp;<code>:</code>&nbsp;<em>expr</em>&nbsp;<code>:</code>&nbsp;<em>expr</em></td>
+<em>expr</em> <code>:</code> <em>expr</em> <code>:</code> <em>expr</em></td>
 <td><code>1:5:100</code>, start:step:stop</td>
 </tr>
 <tr>
 <td>conditional</td>
 <td>
-<code>if</code>&nbsp;<em>expr</em>&nbsp;<code>then</code>&nbsp;<em>expr</em>&nbsp;<code>else</code>&nbsp;<em>expr</em></td>
+<code>if</code> <em>expr</em> <code>then</code> <em>expr</em> <code>else</code> <em>expr</em></td>
 <td><code>if b then 3 else x</code></td>
 </tr>
 <tr>
 <td>named argument</td>
-<td><em>ident&nbsp;</em><code>=</code>&nbsp;<em>expr</em></td>
+<td><em>ident </em><code>=</code> <em>expr</em></td>
 <td><code>x = 2.26</code></td>
 </tr>
 </table>
@@ -296,7 +297,7 @@ expressions):</p>
   ++2    // =  2 in Mathematica/MATLAB; is illegal in Modelica
   2--2   // =  4 in Mathematica/MATLAB; is illegal in Modelica
 </pre>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

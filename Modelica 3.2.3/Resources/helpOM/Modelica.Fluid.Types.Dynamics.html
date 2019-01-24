@@ -1,18 +1,19 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.Fluid.Types.Dynamics</title>
 </head>
 <body>
-<h1><a href="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg"><img class="svgiconhead" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Types.html">Types</a>.<span class="omc-h1">Dynamics</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg"><img class="svgiconhead" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Types.html">Types</a>.<span class="omc-h1">Dynamics</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>Enumeration to define the formulation of balance equations (to
 be selected via choices menu):</p>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <th><strong>Dynamics.</strong></th>
 <th><strong>Meaning</strong></th>
@@ -37,7 +38,7 @@ be selected via choices menu):</p>
 <p>The enumeration "Dynamics" is used for the mass, energy and
 momentum balance equations respectively. The exact meaning for the
 three balance equations is stated in the following tables:</p>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <td colspan="3"><strong>Mass balance</strong></td>
 </tr>
@@ -55,16 +56,16 @@ three balance equations is stated in the following tables:</p>
 <td>FixedInitial</td>
 <td>no restrictions</td>
 <td><strong>if</strong> Medium.singleState
-<strong>then</strong><br />
-&nbsp;&nbsp;no initial condition<br />
+<strong>then</strong><br/>
+  no initial condition<br/>
 <strong>else</strong> p=p_start</td>
 </tr>
 <tr>
 <td>SteadyStateInitial</td>
 <td>no restrictions</td>
 <td><strong>if</strong> Medium.singleState
-<strong>then</strong><br />
-&nbsp;&nbsp;no initial condition<br />
+<strong>then</strong><br/>
+  no initial condition<br/>
 <strong>else</strong> <strong>der</strong>(p)=0</td>
 </tr>
 <tr>
@@ -73,8 +74,8 @@ three balance equations is stated in the following tables:</p>
 <td>no initial conditions</td>
 </tr>
 </table>
-&nbsp;<br />
-<table border="1" cellspacing="0" cellpadding="2">
+ <br/>
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <td colspan="3"><strong>Energy balance</strong></td>
 </tr>
@@ -104,8 +105,8 @@ three balance equations is stated in the following tables:</p>
 <td>no initial conditions</td>
 </tr>
 </table>
-&nbsp;<br />
-<table border="1" cellspacing="0" cellpadding="2">
+ <br/>
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <td colspan="3"><strong>Momentum balance</strong></td>
 </tr>
@@ -143,11 +144,11 @@ medium is only described by one state (+ the mass fractions in case
 of a multi-substance fluid). In such a case one initial condition
 less must be provided. For example, incompressible media have
 Medium.singleState = <strong>true</strong>.</p>
-<h4><a name="definition" id="definition">Definition</a></h4>
+<h4><a id="definition" name="definition">Definition</a></h4>
 <blockquote>
 <pre>
 type Dynamics = enumeration(DynamicFreeInitial "DynamicFreeInitial -- Dynamic balance, Initial guess value", FixedInitial "FixedInitial -- Dynamic balance, Initial value fixed", SteadyStateInitial "SteadyStateInitial -- Dynamic balance, Steady state initial with guess value", SteadyState "SteadyState -- Steady state balance, Initial guess value");</pre></blockquote>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

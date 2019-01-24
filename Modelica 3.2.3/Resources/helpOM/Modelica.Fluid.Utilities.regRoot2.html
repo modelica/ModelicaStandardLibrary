@@ -1,15 +1,16 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.Fluid.Utilities.regRoot2</title>
 </head>
 <body>
-<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Utilities.html">Utilities</a>.<span class="omc-h1">regRoot2</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Utilities.html">Utilities</a>.<span class="omc-h1">regRoot2</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>Approximates the function</p>
 <pre>
    y = <strong>if</strong> x ≥ 0 <strong>then</strong> <strong>sqrt</strong>(k1*x) <strong>else</strong> -<strong>sqrt</strong>(k2*<strong>abs</strong>(x)), with k1, k2 ≥ 0
@@ -32,19 +33,19 @@ that the polynomials are strict monotonically increasing
 </ul>
 <p>Typical screenshots for two different configurations are shown
 below. The first one with k1=k2=1:</p>
-<p><img src="../../../Modelica%203.2.3/Resources/Images/Fluid/Components/regRoot2_a.png" alt="regRoot2_a.png" /></p>
+<p><img alt="regRoot2_a.png" src="../../../Modelica%203.2.3/Resources/Images/Fluid/Components/regRoot2_a.png"/></p>
 <p>and the second one with k1=1 and k2=3:</p>
-<p><img src="../../../Modelica%203.2.3/Resources/Images/Fluid/Components/regRoot2_b.png" alt="regRoot2_b.png" /></p>
+<p><img alt="regRoot2_b.png" src="../../../Modelica%203.2.3/Resources/Images/Fluid/Components/regRoot2_b.png"/></p>
 <p>The (smooth) derivative of the function with k1=1, k2=3 is shown
 in the next figure:</p>
-<p><img src="../../../Modelica%203.2.3/Resources/Images/Fluid/Components/regRoot2_c.png" alt="regRoot2_c.png" /></p>
+<p><img alt="regRoot2_c.png" src="../../../Modelica%203.2.3/Resources/Images/Fluid/Components/regRoot2_c.png"/></p>
 <p><strong>Literature</strong></p>
 <dl>
 <dt>Fritsch F.N. and Carlson R.E. (1980):</dt>
 <dd><strong>Monotone piecewise cubic interpolation</strong>. SIAM
 J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
 </dl>
-<h4><a name="interface" id="interface">Interface</a></h4>
+<h4><a id="interface" name="interface">Interface</a></h4>
 <blockquote>
 <pre>function regRoot2
   extends Modelica.Icons.Function;
@@ -56,14 +57,14 @@ J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
   input Real yd0(min = 0) = 1 "Desired derivative at x=0: dy/dx = yd0";
   output Real y "ordinate value";
 end regRoot2;</pre></blockquote>
-<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
 <ul>
-<li><em>Sept., 2019</em> by <a href="mailto:Martin.Otter@DLR.de">Martin Otter</a>:<br />
+<li><em>Sept., 2019</em> by <a href="mailto:Martin.Otter@DLR.de">Martin Otter</a>:<br/>
 Improved so that k1=0 and/or k2=0 is also possible.</li>
-<li><em>Nov., 2005</em> by <a href="mailto:Martin.Otter@DLR.de">Martin Otter</a>:<br />
+<li><em>Nov., 2005</em> by <a href="mailto:Martin.Otter@DLR.de">Martin Otter</a>:<br/>
 Designed and implemented.</li>
 </ul>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

@@ -1,15 +1,16 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.Mechanics.MultiBody.Sensors.Distance</title>
 </head>
 <body>
-<h1><a href="Icons/378b4db0522741ad89ad1506e587c3db4fede80c.svg"><img class="svgiconhead" src="Icons/378b4db0522741ad89ad1506e587c3db4fede80c.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Sensors.html">Sensors</a>.<span class="omc-h1">Distance</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/378b4db0522741ad89ad1506e587c3db4fede80c.svg"><img class="svgiconhead" src="Icons/378b4db0522741ad89ad1506e587c3db4fede80c.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Sensors.html">Sensors</a>.<span class="omc-h1">Distance</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>The <strong>distance</strong> between the origins of frame_a and
 of frame_b are determined and provided at the output signal
 connector <strong>distance</strong>. This distance is always
@@ -21,7 +22,7 @@ input signal using the der(..) operator).</p>
 shown. The light blue coordinate system is frame_a, the dark blue
 coordinate system is frame_b, and the yellow arrow is the animated
 sensor.</p>
-<p><img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/Sensors/Distance.png" /></p>
+<p><img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/Sensors/Distance.png"/></p>
 <p>If the distance is smaller as parameter <strong>s_small</strong>
 (in the "advanced" menu), it is approximated such that its
 derivative is finite for zero distance. Without such an
@@ -36,7 +37,7 @@ sqrt() and the polynomial at s_small. Furthermore, the polynomial
 passes through zero. The effect is, that the distance function is
 continuous and differentiable everywhere. The derivative at zero
 distance is 3/(2*s_small).</p>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

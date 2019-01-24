@@ -1,15 +1,16 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.Media.Water.IF97_Utilities.BaseIF97</title>
 </head>
 <body>
-<h1><a href="Icons/18f85713b799c9265a689dbd6af5286d753ae121.svg"><img class="svgiconhead" src="Icons/18f85713b799c9265a689dbd6af5286d753ae121.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.Water.html">Water</a>.<a class="omc-h1-a" href="Modelica.Media.Water.IF97_Utilities.html">IF97_Utilities</a>.<span class="omc-h1">BaseIF97</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/18f85713b799c9265a689dbd6af5286d753ae121.svg"><img class="svgiconhead" src="Icons/18f85713b799c9265a689dbd6af5286d753ae121.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.Water.html">Water</a>.<a class="omc-h1-a" href="Modelica.Media.Water.IF97_Utilities.html">IF97_Utilities</a>.<span class="omc-h1">BaseIF97</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <style type="text/css">
 /*<![CDATA[*/
 .nobr
@@ -27,10 +28,10 @@ Jens Wagner</li>
 functions: <em>December, 2002</em> by <a href="mailto:Hubertus.Tummescheit@modelon.se">Hubertus Tummescheit</a>
 and moved to Modelica properties library.</li>
 </ul>
-<address>Author: Hubertus Tummescheit,<br />
-Modelon AB<br />
-Ideon Science Park<br />
-SE-22370 Lund, Sweden<br />
+<address>Author: Hubertus Tummescheit,<br/>
+Modelon AB<br/>
+Ideon Science Park<br/>
+SE-22370 Lund, Sweden<br/>
 email: hubertus@modelon.se</address>
 <p>In September 1997, the International Association for the
 Properties of Water and Steam (<a href="http://www.iapws.org">IAPWS</a>) adopted a new formulation for the
@@ -74,8 +75,8 @@ IF97.pdf</a> in order to improve performance for dynamic
 simulations. Input variables for calculating the properties are
 only implemented for a limited number of variable pairs which make
 sense as dynamic states: (p,h), (p,T), (p,s) and (d,T).</p>
-<hr size="3" width="70%" />
-<h4><a name="regions" id="regions">1. Structure and Regions of
+<hr size="3" width="70%"/>
+<h4><a id="regions" name="regions">1. Structure and Regions of
 IAPWS-IF97</a></h4>
 <p>The IAPWS Industrial Formulation 1997 consists of a set of
 equations for different regions which cover the following range of
@@ -106,11 +107,11 @@ curve, corresponding to region 4, by a saturation-pressure equation
 high-temperature region 5 is also covered by a <span class="nobr"><em>g</em>( <em>p</em>,<em>T</em> )</span> equation. These 5
 equations, shown in rectangular boxes in Fig. 1, form the so-called
 <em>basic equations</em>.</p>
-<table border="0" cellspacing="0" cellpadding="2">
+<table border="0" cellpadding="2" cellspacing="0">
 <caption align="bottom">Figure 1: Regions and equations of
 IAPWS-IF97</caption>
 <tr>
-<td><img src="../../../Modelica%203.2.3/Resources/Images/Media/Water/if97.png" alt="Regions and equations of IAPWS-IF97" /></td>
+<td><img alt="Regions and equations of IAPWS-IF97" src="../../../Modelica%203.2.3/Resources/Images/Media/Water/if97.png"/></td>
 </tr>
 </table>
 <p>In addition to these basic equations, so-called <em>backward
@@ -121,8 +122,8 @@ regions 1 and 2, and <span class="nobr"><em>T</em><sub>s</sub>(
 <em>p</em> )</span> for region 4. These backward equations, marked
 in grey in Fig. 1, were developed in such a way that they are
 numerically very consistent with the corresponding basic equation.
-Thus, properties as functions of&nbsp; <em>p</em>,<em>h</em> and
-of&nbsp; <em>p</em>,<em>s</em> for regions 1 and 2, and of
+Thus, properties as functions of  <em>p</em>,<em>h</em> and
+of  <em>p</em>,<em>s</em> for regions 1 and 2, and of
 <em>p</em> for region 4 can be calculated without any iteration. As
 a result of this special concept for the development of the new
 industrial standard IAPWS-IF97, the most important properties can
@@ -135,7 +136,7 @@ IF97.pdf</a>. Comprehensive information on IAPWS-IF97
 boundaries, and the increase of computing speed in comparison with
 IFC-67, etc.) can be taken from <a href="../../../Modelica%203.2.3/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf">
 IF97.pdf</a> or [2].</p>
-<p><a name="steamprop" id="steamprop">[1]<em>Wagner, W., Kruse,
+<p><a id="steamprop" name="steamprop">[1]<em>Wagner, W., Kruse,
 A.</em> Properties of Water and Steam / Zustandsgrößen von Wasser
 und Wasserdampf / IAPWS-IF97. Springer-Verlag, Berlin,
 1998.</a></p>
@@ -146,153 +147,153 @@ J., and Willkommen, Th.</em> The IAPWS Industrial Formulation 1997
 for the Thermodynamic Properties of Water and Steam. ASME Journal
 of Engineering for Gas Turbines and Power 122 (2000), 150 -
 182.</p>
-<hr size="3" width="90%" />
+<hr size="3" width="90%"/>
 <h4>2. Calculable Properties</h4>
 <table border="1" cellpadding="2" cellspacing="0">
 <tbody>
 <tr>
-<td bgcolor="#CCCCCC"><br /></td>
-<td bgcolor="#CCCCCC"><strong>Common name</strong><br /></td>
-<td bgcolor="#CCCCCC"><strong>Abbreviation</strong><br /></td>
-<td bgcolor="#CCCCCC"><strong>Unit</strong><br /></td>
+<td bgcolor="#CCCCCC"><br/></td>
+<td bgcolor="#CCCCCC"><strong>Common name</strong><br/></td>
+<td bgcolor="#CCCCCC"><strong>Abbreviation</strong><br/></td>
+<td bgcolor="#CCCCCC"><strong>Unit</strong><br/></td>
 </tr>
 <tr>
-<td>&nbsp;1<br /></td>
+<td> 1<br/></td>
 <td>Pressure</td>
-<td>p<br /></td>
-<td>Pa<br /></td>
+<td>p<br/></td>
+<td>Pa<br/></td>
 </tr>
 <tr>
-<td>&nbsp;2<br /></td>
+<td> 2<br/></td>
 <td>Temperature</td>
-<td>T<br /></td>
-<td>K<br /></td>
+<td>T<br/></td>
+<td>K<br/></td>
 </tr>
 <tr>
-<td>&nbsp;3<br /></td>
+<td> 3<br/></td>
 <td>Density</td>
-<td>d<br /></td>
-<td>kg/m<sup>3</sup><br /></td>
+<td>d<br/></td>
+<td>kg/m<sup>3</sup><br/></td>
 </tr>
 <tr>
-<td>&nbsp;4<br /></td>
+<td> 4<br/></td>
 <td>Specific volume</td>
-<td>v<br /></td>
-<td>m<sup>3</sup>/kg<br /></td>
+<td>v<br/></td>
+<td>m<sup>3</sup>/kg<br/></td>
 </tr>
 <tr>
-<td>&nbsp;5<br /></td>
+<td> 5<br/></td>
 <td>Specific enthalpy</td>
-<td>h<br /></td>
-<td>J/kg<br /></td>
+<td>h<br/></td>
+<td>J/kg<br/></td>
 </tr>
 <tr>
-<td>&nbsp;6<br /></td>
+<td> 6<br/></td>
 <td>Specific entropy</td>
-<td>s<br /></td>
-<td>J/(kg K)<br /></td>
+<td>s<br/></td>
+<td>J/(kg K)<br/></td>
 </tr>
 <tr>
-<td>&nbsp;7<br /></td>
-<td>Specific internal energy<br /></td>
-<td>u<br /></td>
-<td>J/kg<br /></td>
+<td> 7<br/></td>
+<td>Specific internal energy<br/></td>
+<td>u<br/></td>
+<td>J/kg<br/></td>
 </tr>
 <tr>
-<td>&nbsp;8<br /></td>
+<td> 8<br/></td>
 <td>Specific isobaric heat capacity</td>
-<td>c<sub>p</sub><br /></td>
-<td>J/(kg K)<br /></td>
+<td>c<sub>p</sub><br/></td>
+<td>J/(kg K)<br/></td>
 </tr>
 <tr>
-<td>&nbsp;9<br /></td>
+<td> 9<br/></td>
 <td>Specific isochoric heat capacity</td>
-<td>c<sub>v</sub><br /></td>
-<td>J/(kg K)<br /></td>
+<td>c<sub>v</sub><br/></td>
+<td>J/(kg K)<br/></td>
 </tr>
 <tr>
-<td>10<br /></td>
+<td>10<br/></td>
 <td>Isentropic exponent, kappa<span class="nobr">=<font face="Symbol">-</font>(v/p) (dp/dv)<sub>s</sub></span></td>
-<td>kappa (<font face="Symbol">k</font>)<br /></td>
-<td>1<br /></td>
+<td>kappa (<font face="Symbol">k</font>)<br/></td>
+<td>1<br/></td>
 </tr>
 <tr>
-<td>11<br /></td>
-<td>Speed of sound<br /></td>
-<td>a<br /></td>
-<td>m/s<br /></td>
+<td>11<br/></td>
+<td>Speed of sound<br/></td>
+<td>a<br/></td>
+<td>m/s<br/></td>
 </tr>
 <tr>
-<td>12<br /></td>
-<td>Dryness fraction<br /></td>
-<td>x<br /></td>
-<td>kg/kg<br /></td>
+<td>12<br/></td>
+<td>Dryness fraction<br/></td>
+<td>x<br/></td>
+<td>kg/kg<br/></td>
 </tr>
 <tr>
-<td>13<br /></td>
+<td>13<br/></td>
 <td>Specific Helmholtz free energy, f = u - Ts</td>
-<td>f<br /></td>
-<td>J/kg<br /></td>
+<td>f<br/></td>
+<td>J/kg<br/></td>
 </tr>
 <tr>
-<td>14<br /></td>
+<td>14<br/></td>
 <td>Specific Gibbs free energy, g = h - Ts</td>
-<td>g<br /></td>
-<td>J/kg<br /></td>
+<td>g<br/></td>
+<td>J/kg<br/></td>
 </tr>
 <tr>
-<td>15<br /></td>
+<td>15<br/></td>
 <td>Isenthalpic exponent, <span class="nobr">theta =
 -(v/p)(dp/dv)<sub>h</sub></span></td>
-<td>theta (<font face="Symbol">q</font>)<br /></td>
-<td>1<br /></td>
+<td>theta (<font face="Symbol">q</font>)<br/></td>
+<td>1<br/></td>
 </tr>
 <tr>
-<td>16<br /></td>
+<td>16<br/></td>
 <td>Isobaric volume expansion coefficient, alpha = v<sup>-1</sup>
 (dv/dT)<sub>p</sub></td>
-<td>alpha (<font face="Symbol">a</font>)<br /></td>
-<td>1/K<br /></td>
+<td>alpha (<font face="Symbol">a</font>)<br/></td>
+<td>1/K<br/></td>
 </tr>
 <tr>
-<td>17<br /></td>
+<td>17<br/></td>
 <td>Isochoric pressure coefficient, <span class="nobr">beta =
 p<sup><font face="Symbol">-</font>1</sup>(dp/dT)<sub>v</sub></span></td>
-<td>beta (<font face="Symbol">b</font>)<br /></td>
-<td>1/K<br /></td>
+<td>beta (<font face="Symbol">b</font>)<br/></td>
+<td>1/K<br/></td>
 </tr>
 <tr>
-<td>18<br /></td>
+<td>18<br/></td>
 <td>Isothermal compressibility, <span class="nobr">gamma =
 <font face="Symbol">-</font>v<sup><font face="Symbol">-</font>1</sup>(dv/dp)<sub>T</sub></span></td>
-<td>gamma (<font face="Symbol">g</font>)<br /></td>
-<td>1/Pa<br /></td>
+<td>gamma (<font face="Symbol">g</font>)<br/></td>
+<td>1/Pa<br/></td>
 </tr>
-<!-- &lt;tr&gt;&lt;td&gt;f&lt;/td&gt;&lt;td&gt;Fugacity&lt;/td&gt;&lt;/tr&gt; -->
+<!-- <tr><td>f</td><td>Fugacity</td></tr> -->
 <tr>
-<td>19<br /></td>
+<td>19<br/></td>
 <td>Dynamic viscosity</td>
-<td>eta (<font face="Symbol">h</font>)<br /></td>
-<td>Pa s<br /></td>
+<td>eta (<font face="Symbol">h</font>)<br/></td>
+<td>Pa s<br/></td>
 </tr>
 <tr>
-<td>20<br /></td>
+<td>20<br/></td>
 <td>Kinematic viscosity</td>
-<td>nu (<font face="Symbol">n</font>)<br /></td>
-<td>m<sup>2</sup>/s<br /></td>
+<td>nu (<font face="Symbol">n</font>)<br/></td>
+<td>m<sup>2</sup>/s<br/></td>
 </tr>
-<!-- &lt;tr&gt;&lt;td&gt;Pr&lt;/td&gt;&lt;td&gt;Prandtl number&lt;/td&gt;&lt;/tr&gt; -->
+<!-- <tr><td>Pr</td><td>Prandtl number</td></tr> -->
 <tr>
-<td>21<br /></td>
+<td>21<br/></td>
 <td>Thermal conductivity</td>
-<td>lambda (<font face="Symbol">l</font>)<br /></td>
-<td>W/(m K)<br /></td>
+<td>lambda (<font face="Symbol">l</font>)<br/></td>
+<td>W/(m K)<br/></td>
 </tr>
 <tr>
-<td>22<br /></td>
+<td>22<br/></td>
 <td>Surface tension</td>
-<td>sigma (<font face="Symbol">s</font>)<br /></td>
-<td>N/m<br /></td>
+<td>sigma (<font face="Symbol">s</font>)<br/></td>
+<td>N/m<br/></td>
 </tr>
 </tbody>
 </table>
@@ -309,7 +310,7 @@ sub-package.</p>
 records comprising both the properties of general interest and the
 entries to the thermodynamic Jacobian. If additional properties are
 needed the low level functions in BaseIF97 provide more choice.</p>
-<hr size="3" width="90%" />
+<hr size="3" width="90%"/>
 <h4>Additional functions</h4>
 <ul>
 <li>Function <strong>boundaryvals_p</strong> computes the
@@ -333,76 +334,76 @@ to Bridgmans tables for all one-phase regions of IF97 using inputs
 <th>Description</th>
 </tr>
 <tr>
-<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.IterationData.html"><img class="svgiconsmall" src="Icons/ede086cf3f564f2625b25d46f85f45b65dac1d28.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.IterationData.html">IterationData</a></td>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.IterationData.html"><img class="svgiconsmall" src="Icons/ede086cf3f564f2625b25d46f85f45b65dac1d28.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.IterationData.html">IterationData</a></td>
 <td>Constants for iterations internal to some functions</td>
 </tr>
 <tr>
-<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.data.html"><img class="svgiconsmall" src="Icons/ede086cf3f564f2625b25d46f85f45b65dac1d28.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.data.html">data</a></td>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.data.html"><img class="svgiconsmall" src="Icons/ede086cf3f564f2625b25d46f85f45b65dac1d28.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.data.html">data</a></td>
 <td>Constant IF97 data and region limits</td>
 </tr>
 <tr>
-<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.getTstar.html"><img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.getTstar.html">getTstar</a></td>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.getTstar.html"><img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.getTstar.html">getTstar</a></td>
 <td>Get normalization temperature for region 1, 2 or 5</td>
 </tr>
 <tr>
-<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.getpstar.html"><img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.getpstar.html">getpstar</a></td>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.getpstar.html"><img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.getpstar.html">getpstar</a></td>
 <td>Get normalization pressure for region 1, 2 or 5</td>
 </tr>
 <tr>
-<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.critical.html"><img class="svgiconsmall" src="Icons/ede086cf3f564f2625b25d46f85f45b65dac1d28.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.critical.html">critical</a></td>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.critical.html"><img class="svgiconsmall" src="Icons/ede086cf3f564f2625b25d46f85f45b65dac1d28.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.critical.html">critical</a></td>
 <td>Critical point data</td>
 </tr>
 <tr>
-<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.triple.html"><img class="svgiconsmall" src="Icons/ede086cf3f564f2625b25d46f85f45b65dac1d28.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.triple.html">triple</a></td>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.triple.html"><img class="svgiconsmall" src="Icons/ede086cf3f564f2625b25d46f85f45b65dac1d28.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.triple.html">triple</a></td>
 <td>Triple point data</td>
 </tr>
 <tr>
-<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.html"><img class="svgiconsmall" src="Icons/8d190c3d03b50847ccb877befff0f7f6c87aa3cd.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.html">Regions</a></td>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.html"><img class="svgiconsmall" src="Icons/8d190c3d03b50847ccb877befff0f7f6c87aa3cd.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.html">Regions</a></td>
 <td>Functions to find the current region for given pairs of input
 variables</td>
 </tr>
 <tr>
-<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.html"><img class="svgiconsmall" src="Icons/8d190c3d03b50847ccb877befff0f7f6c87aa3cd.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.html">Basic</a></td>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.html"><img class="svgiconsmall" src="Icons/8d190c3d03b50847ccb877befff0f7f6c87aa3cd.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.html">Basic</a></td>
 <td>Base functions as described in IAWPS/IF97</td>
 </tr>
 <tr>
-<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries.html"><img class="svgiconsmall" src="Icons/8d190c3d03b50847ccb877befff0f7f6c87aa3cd.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries.html">IceBoundaries</a></td>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries.html"><img class="svgiconsmall" src="Icons/8d190c3d03b50847ccb877befff0f7f6c87aa3cd.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.IceBoundaries.html">IceBoundaries</a></td>
 <td>The melting line and sublimation line curves from IAPWS</td>
 </tr>
 <tr>
-<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.html"><img class="svgiconsmall" src="Icons/8d190c3d03b50847ccb877befff0f7f6c87aa3cd.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.html">Transport</a></td>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.html"><img class="svgiconsmall" src="Icons/8d190c3d03b50847ccb877befff0f7f6c87aa3cd.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.html">Transport</a></td>
 <td>Transport properties for water according to IAPWS/IF97</td>
 </tr>
 <tr>
-<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.html"><img class="svgiconsmall" src="Icons/8d190c3d03b50847ccb877befff0f7f6c87aa3cd.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.html">Isentropic</a></td>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.html"><img class="svgiconsmall" src="Icons/8d190c3d03b50847ccb877befff0f7f6c87aa3cd.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.html">Isentropic</a></td>
 <td>Functions for calculating the isentropic enthalpy from pressure
 p and specific entropy s</td>
 </tr>
 <tr>
-<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.html"><img class="svgiconsmall" src="Icons/8d190c3d03b50847ccb877befff0f7f6c87aa3cd.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.html">Inverses</a></td>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.html"><img class="svgiconsmall" src="Icons/8d190c3d03b50847ccb877befff0f7f6c87aa3cd.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.html">Inverses</a></td>
 <td>Efficient inverses for selected pairs of variables</td>
 </tr>
 <tr>
-<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.ByRegion.html"><img class="svgiconsmall" src="Icons/8d190c3d03b50847ccb877befff0f7f6c87aa3cd.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.ByRegion.html">ByRegion</a></td>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.ByRegion.html"><img class="svgiconsmall" src="Icons/8d190c3d03b50847ccb877befff0f7f6c87aa3cd.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.ByRegion.html">ByRegion</a></td>
 <td>Simple explicit functions for one region only</td>
 </tr>
 <tr>
-<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase.html"><img class="svgiconsmall" src="Icons/8d190c3d03b50847ccb877befff0f7f6c87aa3cd.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase.html">TwoPhase</a></td>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase.html"><img class="svgiconsmall" src="Icons/8d190c3d03b50847ccb877befff0f7f6c87aa3cd.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.TwoPhase.html">TwoPhase</a></td>
 <td>Steam properties in the two-phase region and on the phase
 boundaries</td>
 </tr>
 <tr>
-<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_ph.html"><img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_ph.html">extraDerivs_ph</a></td>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_ph.html"><img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_ph.html">extraDerivs_ph</a></td>
 <td>Function to calculate some extra thermophysical properties in
 regions 1, 2, 3 and 5 as f(p,h)</td>
 </tr>
 <tr>
-<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_pT.html"><img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_pT.html">extraDerivs_pT</a></td>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_pT.html"><img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.extraDerivs_pT.html">extraDerivs_pT</a></td>
 <td>Function to calculate some extra thermophysical properties in
 regions 1, 2, 3 and 5 as f(p,T)</td>
 </tr>
 </table>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

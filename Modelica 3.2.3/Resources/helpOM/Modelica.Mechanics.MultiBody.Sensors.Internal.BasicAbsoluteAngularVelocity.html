@@ -1,25 +1,26 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>
 Modelica.Mechanics.MultiBody.Sensors.Internal.BasicAbsoluteAngularVelocity</title>
 </head>
 <body>
-<h1><a href="Icons/d7fd81f1a724cba268f61e77f3334ffc451ae3cc.svg"><img class="svgiconhead" src="Icons/d7fd81f1a724cba268f61e77f3334ffc451ae3cc.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Sensors.html">Sensors</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Sensors.Internal.html">Internal</a>.<span class="omc-h1">BasicAbsoluteAngularVelocity</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/4db2b336958614d487ccc8d4e69c6da275b0c2c4.svg"><img class="svgiconhead" src="Icons/4db2b336958614d487ccc8d4e69c6da275b0c2c4.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Sensors.html">Sensors</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Sensors.Internal.html">Internal</a>.<span class="omc-h1">BasicAbsoluteAngularVelocity</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>This basic sensor is aimed to be used within advanced sensors
 where the absolute angular velocity of frame_a should be
 determined. This vector is provided at the output signal
-connector&nbsp;<strong>w</strong>.</p>
+connector <strong>w</strong>.</p>
 <p>Via parameter <strong>resolveInFrame</strong> it is defined, in
 which frame the angular velocity is resolved:</p>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
-<th><strong>resolveInFrame =<br />
+<th><strong>resolveInFrame =<br/>
 Types.ResolveInFrameA.</strong></th>
 <th><strong>Meaning</strong></th>
 </tr>
@@ -38,7 +39,7 @@ Types.ResolveInFrameA.</strong></th>
 </table>
 <p>In this basic sensor model, <strong>the connector frame_resolve
 is always enabled and must be connected</strong>. If resolveInFrame
-= Types.ResolveInFrameA.frame_resolve, the vector&nbsp;w is
+= Types.ResolveInFrameA.frame_resolve, the vector w is
 resolved in the frame to which frame_resolve is connected.</p>
 <h4>Example</h4>
 <p>If resolveInFrame = Types.ResolveInFrameA.frame_a, the output
@@ -47,7 +48,7 @@ vector is computed as:</p>
 <pre>
 w = MultiBody.Frames.angularVelocity2(frame_a.R);
 </pre></blockquote>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

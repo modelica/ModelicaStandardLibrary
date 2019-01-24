@@ -1,15 +1,16 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.Media.UsersGuide.MediumUsage.BasicUsage</title>
 </head>
 <body>
-<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.MediumUsage.html">MediumUsage</a>.<span class="omc-h1">BasicUsage</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.MediumUsage.html">MediumUsage</a>.<span class="omc-h1">BasicUsage</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <h4>Basic usage of medium model</h4>
 <p>Media models in Modelica.Media are provided by packages,
 inheriting from the partial package
@@ -36,7 +37,7 @@ Every instance of BaseProperties for any medium model provides
 variables</strong> that are declared in the medium model (nXi is
 the number of independent mass fractions, see explanation
 below):</p>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <td><strong>Variable</strong></td>
 <td><strong>Unit</strong></td>
@@ -76,7 +77,7 @@ below):</p>
 <td>X[nX]</td>
 <td>kg/kg</td>
 <td>All mass fractions m_i/m. X is defined in BaseProperties
-by:<br />
+by:<br/>
 X = <strong>if</strong> reducedX <strong>then</strong> vector([Xi;
 1-<strong>sum</strong>(Xi)]) <strong>else</strong> Xi</td>
 </tr>
@@ -107,11 +108,11 @@ Xi (see explanation below) and will decide internally which of
 these two compositions is provided by the user. The four
 fundamental setState_XXX functions are provided in
 PartialMedium</p>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <td><strong>Function</strong></td>
 <td><strong>Description</strong></td>
-<td><strong>Short-form for<br />
+<td><strong>Short-form for<br/>
 single component medium</strong></td>
 </tr>
 <tr>
@@ -158,7 +159,7 @@ package. Via the annotation "choicesAllMatching = true" it is
 defined that the tool should display a selection box with all
 loaded packages that inherit from PartialMedium. An example is
 given in the next figure:</p>
-<p><img src="../../../Modelica%203.2.3/Resources/Images/Media/UsersGuide/mediumMenu.png" alt="medium selection menu" /></p>
+<p><img alt="medium selection menu" src="../../../Modelica%203.2.3/Resources/Images/Media/UsersGuide/mediumMenu.png"/></p>
 <p>A selected medium model leads, e.g., to the following
 equation:</p>
 <pre>
@@ -253,7 +254,7 @@ component library, "Xi" has the annotation "HideResult=true",
 meaning, that this variable is not shown in the plot window. Only X
 is shown in the plot window and this vector always contains all
 mass fractions.</p>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

@@ -1,15 +1,16 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.Fluid.Utilities.regFun3</title>
 </head>
 <body>
-<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Utilities.html">Utilities</a>.<span class="omc-h1">regFun3</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Utilities.html">Utilities</a>.<span class="omc-h1">regFun3</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>Approximates a function in a region between <code>x0</code> and
 <code>x1</code> such that</p>
 <ul>
@@ -34,10 +35,10 @@ limit of <code>x1-x0 -&gt; 0</code> or <code>y1-y0 -&gt;
 <p>Typical screenshots for two different configurations are shown
 below. The first one illustrates five different settings of
 <code>xi</code> and <code>yid</code>:</p>
-<p><img src="../../../Modelica%203.2.3/Resources/Images/Fluid/Components/regFun3_a.png" alt="regFun3_a.png" /></p>
+<p><img alt="regFun3_a.png" src="../../../Modelica%203.2.3/Resources/Images/Fluid/Components/regFun3_a.png"/></p>
 <p>The second graph shows the continuous derivative of this
 regularization function:</p>
-<p><img src="../../../Modelica%203.2.3/Resources/Images/Fluid/Components/regFun3_b.png" alt="regFun3_a.png" /></p>
+<p><img alt="regFun3_a.png" src="../../../Modelica%203.2.3/Resources/Images/Fluid/Components/regFun3_b.png"/></p>
 <p><strong>Literature</strong></p>
 <dl>
 <dt>Gasparo M. G. and Morandi R. (1991):</dt>
@@ -45,7 +46,7 @@ regularization function:</p>
 slopes</strong>. Computing, Vol. 46, Issue 4, December 1991, pp.
 355 - 365.</dd>
 </dl>
-<h4><a name="interface" id="interface">Interface</a></h4>
+<h4><a id="interface" name="interface">Interface</a></h4>
 <blockquote>
 <pre>function regFun3
   extends Modelica.Icons.Function;
@@ -59,15 +60,15 @@ slopes</strong>. Computing, Vol. 46, Issue 4, December 1991, pp.
   output Real y "Ordinate value";
   output Real c "Slope of linear section between two cubic polynomials or dummy linear section slope if single cubic is used";
 end regFun3;</pre></blockquote>
-<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
 <ul>
-<li><em>May 2008</em> by <a href="mailto:Michael.Sielemann@dlr.de">Michael Sielemann</a>:<br />
+<li><em>May 2008</em> by <a href="mailto:Michael.Sielemann@dlr.de">Michael Sielemann</a>:<br/>
 Designed and implemented.</li>
-<li><em>February 2011</em> by <a href="mailto:Michael.Sielemann@dlr.de">Michael Sielemann</a>:<br />
+<li><em>February 2011</em> by <a href="mailto:Michael.Sielemann@dlr.de">Michael Sielemann</a>:<br/>
 If the inflection point of the cubic S0 was at +/- infinity, the
 test criteria of <em>[Gasparo and Morandi, 1991]</em> result in
 division by zero. This case is handled properly now.</li>
-<li><em>March 2013</em> by <a href="mailto:Michael.Sielemann@dlr.de">Michael Sielemann</a>:<br />
+<li><em>March 2013</em> by <a href="mailto:Michael.Sielemann@dlr.de">Michael Sielemann</a>:<br/>
 If the arguments prescribed a degenerate case with points
 <code>(x0,y0)</code> and <code>(x1,y1)</code> on horizontal line,
 then return value <code>c</code> was undefined. This was corrected.
@@ -75,7 +76,7 @@ Furthermore, an additional term was included for the computation of
 <code>y</code> in this case to assist automatic
 differentiation.</li>
 </ul>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

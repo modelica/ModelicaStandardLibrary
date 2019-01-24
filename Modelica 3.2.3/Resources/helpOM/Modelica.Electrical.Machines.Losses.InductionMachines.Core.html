@@ -1,16 +1,17 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>
 Modelica.Electrical.Machines.Losses.InductionMachines.Core</title>
 </head>
 <body>
-<h1><a href="Icons/89252607191c3bb7935fe0bd1c25a9be195d1bbe.svg"><img class="svgiconhead" src="Icons/89252607191c3bb7935fe0bd1c25a9be195d1bbe.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.html">Machines</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Losses.html">Losses</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Losses.InductionMachines.html">InductionMachines</a>.<span class="omc-h1">Core</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/89252607191c3bb7935fe0bd1c25a9be195d1bbe.svg"><img class="svgiconhead" src="Icons/89252607191c3bb7935fe0bd1c25a9be195d1bbe.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.html">Machines</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Losses.html">Losses</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Losses.InductionMachines.html">InductionMachines</a>.<span class="omc-h1">Core</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>Core losses can be separated into <strong>eddy current</strong>
 and <strong>hysteresis</strong> losses. The total core losses can
 thus be expressed as</p>
@@ -26,8 +27,8 @@ frequency.</p>
 considered</strong> since complex numbers are not provided in
 Modelica. Therefore, implicitly <code>ratioHysteresis = 0</code> is
 set. For the voltage and frequency range with respect to
-Fig.&nbsp;1, the dependency of total core losses on the parameter
-<code>ratioHysteresis</code> is depicted in Fig.&nbsp;2. The
+Fig. 1, the dependency of total core losses on the parameter
+<code>ratioHysteresis</code> is depicted in Fig. 2. The
 current implementation has thus the drawback over a model that
 considers <code>ratioHysteresis &gt; 0</code>:</p>
 <ul>
@@ -36,17 +37,17 @@ considers <code>ratioHysteresis &gt; 0</code>:</p>
 <li>overestimation of the losses in the field weakening region
 (<code>w</code> &gt; <code>wRef</code>)</li>
 </ul>
-<table border="0" cellspacing="0" cellpadding="1">
+<table border="0" cellpadding="1" cellspacing="0">
 <tr>
-<td><img src="../../../Modelica%203.2.3/Resources/Images/Electrical/Machines/corelossesVw.png" alt="corelossesVw.png" /></td>
+<td><img alt="corelossesVw.png" src="../../../Modelica%203.2.3/Resources/Images/Electrical/Machines/corelossesVw.png"/></td>
 </tr>
 <tr>
 <td><strong>Fig. 1:</strong> Voltage versus angular velocity</td>
 </tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="1">
+<table border="0" cellpadding="1" cellspacing="0">
 <tr>
-<td><img src="../../../Modelica%203.2.3/Resources/Images/Electrical/Machines/corelossesPcw.png" alt="corelossesPcw.png" /></td>
+<td><img alt="corelossesPcw.png" src="../../../Modelica%203.2.3/Resources/Images/Electrical/Machines/corelossesPcw.png"/></td>
 </tr>
 <tr>
 <td><strong>Fig. 2:</strong> Core losses versus angular velocity
@@ -60,7 +61,7 @@ due to compatibility reasons.</p>
 <h4>See also</h4>
 <p><a href="Modelica.Electrical.Machines.Losses.CoreParameters.html">Core
 loss parameters</a></p>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

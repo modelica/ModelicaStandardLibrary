@@ -1,16 +1,17 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>
 Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</title>
 </head>
 <body>
-<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.html">Tutorial</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.html">LoopStructures</a>.<span class="omc-h1">AnalyticLoopHandling</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.html">Tutorial</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.html">LoopStructures</a>.<span class="omc-h1">AnalyticLoopHandling</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>It is well known that the non-linear algebraic equations of most
 mechanical loops in technical devices can be solved analytically.
 It is, however, difficult to perform this fully automatically and
@@ -51,13 +52,13 @@ freedom or <strong>3</strong> degrees of freedom (for usage in
 planar loops).</p>
 <p>As an example, a variant of the four bar mechanism is given in
 the figure below.</p>
-<blockquote><img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/FourbarAnalytic2.png" /></blockquote>
+<blockquote><img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/FourbarAnalytic2.png"/></blockquote>
 <p>Here, the mechanism is modeled with six revolute joints and one
 prismatic joint. In the figure below, the five revolute joints and
 the prismatic joint are collected together in an assembly object
 called "jointSSP" from <a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP.html">
 MultiBody.Joints.Assemblies.JointSSP</a>.</p>
-<blockquote><img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/FourbarAnalytic1.png" /></blockquote>
+<blockquote><img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/FourbarAnalytic1.png"/></blockquote>
 <p>The JointSSP joint aggregation has a frame at the outer
 spherical joint (frame_a) and a frame at the prismatic joint
 (frame_b). JointSSP, as all other objects from the
@@ -104,7 +105,7 @@ that are orthogonal to the revolute joints can be treated
 analytically. The currently supported combinations are listed in
 the table below.</p>
 <div align="left">
-<table border="1" cellspacing="0" cellpadding="0">
+<table border="1" cellpadding="0" cellspacing="0">
 <tr>
 <td colspan="2"><strong>3-dimensional Loops:</strong></td>
 </tr>
@@ -155,7 +156,7 @@ replaced by a universal joint. This approximation is fine as long
 as the mass and inertia of the rod is not significant.</p>
 <p>Let us discuss item (a) in more detail: The MacPherson
 suspension in the next figure has three frame connectors.</p>
-<blockquote><img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/MacPherson1.png" /></blockquote>
+<blockquote><img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/MacPherson1.png"/></blockquote>
 <p>The lower left one (frameChassis) is fixed to the vehicle
 chassis. The upper left one (frameSteering) is driven by the
 steering mechanism, i.e. the movement of both frames are given. The
@@ -186,21 +187,21 @@ solve these coupled loops analytically.</p>
 <p>Another example is the model of the V6 engine, see next figure
 for an animation view and the original definition of one cylinder
 with elementary joints.</p>
-<blockquote><img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_3.png" width="303" height="136" /></blockquote>
-<blockquote><img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_2.png" /></blockquote>
+<blockquote><img height="136" src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_3.png" width="303"/></blockquote>
+<blockquote><img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_2.png"/></blockquote>
 <p>Here, it is sufficient to rewrite the basic cylinder model by
 replacing the joints with a JointRRP object that has two revolute
 and one prismatic joint, as can be seen in next figure.</p>
-<blockquote><img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_4.png" /></blockquote>
+<blockquote><img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_4.png"/></blockquote>
 <p>Since 6 cylinders are connected together, 6 coupled loops with 6
 JointRRP objects are present. This model is available as <a href="Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic.html">
 MultiBody.Examples.Loops.EngineV6_analytic</a>.</p>
 <p>The composition diagram of the connected 6 cylinders is shown in
 the next figure</p>
-<blockquote><img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_1.png" /></blockquote>
+<blockquote><img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_1.png"/></blockquote>
 <p>It can be seen that the revolute joint of the crank shaft (joint
 "bearing" in left part of figure) might be selected as degree of
-freedom. Then, the&nbsp;4 connector frames of all cylinders can be
+freedom. Then, the 4 connector frames of all cylinders can be
 computed. As a result, the computations of the cylinders are
 decoupled from each other. Within one cylinder the position of
 frame_a and frame_b of the jointRRP assembly can be computed and
@@ -214,7 +215,7 @@ with 6 algebraic loops and 5 non-linear equations per loop.
 Additionally, a linear system of equations of order 43 is present.
 The simulation time is about 5 times faster with the analytic loop
 handling.</p>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

@@ -1,29 +1,30 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>
 Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation.equalityConstraint</title>
 </head>
 <body>
-<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Frames.Quaternions.html">Quaternions</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation.html">Orientation</a>.<span class="omc-h1">equalityConstraint</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Frames.Quaternions.html">Quaternions</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation.html">Orientation</a>.<span class="omc-h1">equalityConstraint</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <h4>Syntax</h4>
 <blockquote>
 <pre>
 residue = Orientation.<strong>equalityConstraint</strong>(Q1, Q2);
 </pre></blockquote>
 <h4>Description</h4>
-<p>This function returns the Real residue vector with&nbsp;3
+<p>This function returns the Real residue vector with 3
 elements. This vector has zero elements if quaternions objects Q1
 and Q2 are identical, i.e. they describe the same orientation. The
 residue vector is determined by the relative quaternion object
 between Q1 and Q2 to formulate the residue in such a way that only
 identical orientation objects lead to a zero residue vector.</p>
-<h4><a name="interface" id="interface">Interface</a></h4>
+<h4><a id="interface" name="interface">Interface</a></h4>
 <blockquote>
 <pre>encapsulated function equalityConstraint
   import Modelica;
@@ -33,7 +34,7 @@ identical orientation objects lead to a zero residue vector.</p>
   input Quaternions.Orientation Q2 "Quaternions orientation object to rotate frame 0 into frame 2";
   output Real residue[3] "Zero vector if Q1 and Q2 are identical (the first three elements of the relative transformation (is {0,0,0} for the null rotation, guarded by atan2 to make the mirrored solution invalid";
 end equalityConstraint;</pre></blockquote>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

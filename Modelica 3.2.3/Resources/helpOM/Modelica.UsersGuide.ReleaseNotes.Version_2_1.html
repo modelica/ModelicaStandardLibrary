@@ -1,15 +1,16 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.UsersGuide.ReleaseNotes.Version_2_1</title>
 </head>
 <body>
-<h1><a href="Icons/7e5916c8ded3e7489f5937a6ee55f7f07d893583.svg"><img class="svgiconhead" src="Icons/7e5916c8ded3e7489f5937a6ee55f7f07d893583.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>.<span class="omc-h1">Version_2_1</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/7e5916c8ded3e7489f5937a6ee55f7f07d893583.svg"><img class="svgiconhead" src="Icons/7e5916c8ded3e7489f5937a6ee55f7f07d893583.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>.<span class="omc-h1">Version_2_1</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>This is a major change with respect to previous versions of the
 Modelica Standard Library, because <strong>many new
 libraries</strong> and components are included and because the
@@ -27,7 +28,7 @@ blocks in the Modelica.Blocks library are now scalar blocks. As a
 result, the parameters of the Blocks are scalars and no vectors any
 more. For example, a parameter "amplitude" that might had a value
 of "{1}" previously, has now a value of "1". This simplifies the
-understanding and usage especially for beginners.<br />
+understanding and usage especially for beginners.<br/>
 If a vector of blocks is needed, this can be easily accomplished by
 adding a dimension to the instance. For example "Constant
 const[3](k={1,2,3})" defines three Constant blocks. An additional
@@ -42,11 +43,11 @@ manually converted. In any case you should make a back-up copy of
 your model before automatic conversion is performed.</p>
 <p>The following <strong>new libraries</strong> have been
 added:</p>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <td><a href="Modelica.Electrical.Digital.html">Modelica.Electrical.Digital</a></td>
 <td>Digital electrical components based on 2-,3-,4-, and 9-valued
-logic<br />
+logic<br/>
 according to the VHDL standard</td>
 </tr>
 <tr>
@@ -57,21 +58,21 @@ models</td>
 <tr>
 <td><a href="Modelica.Math.Matrices.html">Modelica.Math.Matrices</a></td>
 <td>Functions operating on matrices such as solve() (A*x=b),
-leastSquares(),<br />
+leastSquares(),<br/>
 norm(), LU(), QR(), eigenValues(), singularValues(), exp(),
 ...</td>
 </tr>
 <tr>
 <td><a href="Modelica.StateGraph.html">Modelica.StateGraph</a></td>
 <td>Modeling of <strong>discrete event</strong> and
-<strong>reactive</strong> systems in a convenient way using<br />
+<strong>reactive</strong> systems in a convenient way using<br/>
 <strong>hierarchical state machines</strong> and
 <strong>Modelica</strong> as <strong>action
-language</strong>.<br />
+language</strong>.<br/>
 It is based on JGrafchart and Grafcet and has a similar modeling
-power as<br />
+power as<br/>
 StateCharts. It avoids deficiencies of usually used action
-languages.<br />
+languages.<br/>
 This library makes the ModelicaAdditions.PetriNets library
 obsolete.</td>
 </tr>
@@ -101,45 +102,45 @@ standard library have been improved and added as <strong>new
 libraries</strong> (models using the previous libraries are
 automatically converted to the new sublibraries inside package
 Modelica):</p>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <td><a href="Modelica.Blocks.Discrete.html">Modelica.Blocks.Discrete</a></td>
-<td>Discrete input/output blocks with fixed sample period<br />
+<td>Discrete input/output blocks with fixed sample period<br/>
 (from ModelicaAdditions.Blocks.Discrete)</td>
 </tr>
 <tr>
 <td><a href="Modelica.Blocks.Logical.html">Modelica.Blocks.Logical</a></td>
-<td>Logical components with Boolean input and output signals<br />
+<td>Logical components with Boolean input and output signals<br/>
 (from ModelicaAdditions.Blocks.Logical)</td>
 </tr>
 <tr>
 <td><a href="Modelica.Blocks.Nonlinear.html">Modelica.Blocks.Nonlinear</a></td>
 <td>Discontinuous or non-differentiable algebraic control blocks
-such as variable limiter,<br />
+such as variable limiter,<br/>
 fixed, variable and Pade delay etc. (from
 ModelicaAdditions.Blocks.Nonlinear)</td>
 </tr>
 <tr>
 <td><a href="Modelica.Blocks.Routing.html">Modelica.Blocks.Routing</a></td>
 <td>Blocks to combine and extract signals, such as
-multiplexer<br />
+multiplexer<br/>
 (from ModelicaAdditions.Blocks.Multiplexer)</td>
 </tr>
 <tr>
 <td><a href="Modelica.Blocks.Tables.html">Modelica.Blocks.Tables</a></td>
 <td>One and two-dimensional interpolation in tables. CombiTimeTable
-is available<br />
+is available<br/>
 in Modelica.Blocks.Sources (from ModelicaAdditions.Tables)</td>
 </tr>
 <tr>
 <td><a href="Modelica.Mechanics.MultiBody.html">Modelica.Mechanics.MultiBody</a></td>
 <td>Components to model the movement of 3-dimensional mechanical
-systems. Contains<br />
+systems. Contains<br/>
 body, joint, force and sensor components, analytic handling of
-kinematic loops,<br />
+kinematic loops,<br/>
 force elements with mass, series/parallel connection of 3D force
-elements etc.<br />
-(from MultiBody 1.0 where the new signal connectors are used;<br />
+elements etc.<br/>
+(from MultiBody 1.0 where the new signal connectors are used;<br/>
 makes the ModelicaAdditions.MultiBody library obsolete)</td>
 </tr>
 </table>
@@ -149,14 +150,14 @@ replaced by much more powerful libraries (MultiBody,
 StateGraph).</p>
 <p>The following <strong>new components</strong> have been added to
 <strong>existing</strong> libraries.</p>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <td colspan="2"><strong>Modelica.Blocks.Logical.</strong></td>
 </tr>
 <tr>
 <td>Pre</td>
 <td>y = pre(u): Breaks algebraic loops by an infinitesimal
-small<br />
+small<br/>
 time delay (event iteration continues until u = pre(u))</td>
 </tr>
 <tr>
@@ -190,7 +191,7 @@ u2</td>
 </tr>
 <tr>
 <td>Timer</td>
-<td>Timer measuring the time from the time instant where the<br />
+<td>Timer measuring the time from the time instant where the<br/>
 Boolean input became true</td>
 </tr>
 <tr>
@@ -272,16 +273,16 @@ torque)</td>
 </table>
 <p>The following <strong>bugs</strong> have been
 <strong>corrected</strong>:</p>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <td colspan="2">
 <strong>Modelica.Mechanics.MultiBody.Forces.</strong></td>
 </tr>
 <tr>
-<td>LineForceWithMass<br />
+<td>LineForceWithMass<br/>
 Spring</td>
 <td>If mass of the line force or spring component is not zero,
-the<br />
+the<br/>
 mass was (implicitly) treated as "mass*mass" instead of as
 "mass"</td>
 </tr>
@@ -292,7 +293,7 @@ mass was (implicitly) treated as "mass*mass" instead of as
 <tr>
 <td>Speed</td>
 <td>If parameter exact=<strong>false</strong>, the filter was
-wrong<br />
+wrong<br/>
 (position was filtered and not the speed input signal)</td>
 </tr>
 </table>
@@ -315,7 +316,7 @@ can be better seen, especially when printed.</li>
 from blue to dark blue in order to distinguish them from electrical
 signals.</li>
 </ul>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

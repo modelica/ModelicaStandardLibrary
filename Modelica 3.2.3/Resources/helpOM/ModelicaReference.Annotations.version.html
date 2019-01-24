@@ -1,15 +1,16 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>ModelicaReference.Annotations.version</title>
 </head>
 <body>
-<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Annotations.html">Annotations</a>.<span class="omc-h1">version</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Annotations.html">Annotations</a>.<span class="omc-h1">version</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>Define version information of package</p>
 <h4>Examples</h4>
 <pre><strong>package</strong> Modelica
@@ -40,13 +41,13 @@ changes are required when upgrading.</p>
 <ul>
 <li>Main release versions:
 <pre>""" UNSIGNED_INTEGER { "." UNSIGNED_INTEGER } """</pre>
-Example: <code>"2.1"</code><br />
-&nbsp;</li>
+Example: <code>"2.1"</code><br/>
+ </li>
 <li>Pre-release versions:
 <pre>
 """ UNSIGNED_INTEGER { "." UNSIGNED_INTEGER } " " {S-CHAR} """</pre>
-Example: <code>"2.1 Beta 1"</code><br />
-&nbsp;</li>
+Example: <code>"2.1 Beta 1"</code><br/>
+ </li>
 <li>Un-ordered versions:
 <pre> """ NON-DIGIT {S-CHAR} """ </pre>
 Example: <code>"Test 1"</code></li>
@@ -59,24 +60,24 @@ internally ordered alphabetically.</p>
 earlier versions of this class are defined using one or more of the
 following annotations:</p>
 <ul>
-<li><code>version = CURRENT-VERSION-NUMBER</code><br />
+<li><code>version = CURRENT-VERSION-NUMBER</code><br/>
 Defines the version number of the model or package. All classes
-within this top-level class have this version number.<br />
-&nbsp;</li>
+within this top-level class have this version number.<br/>
+ </li>
 <li><code>conversion ( noneFromVersion =
-VERSION-NUMBER)</code><br />
+VERSION-NUMBER)</code><br/>
 Defines that user models using the VERSION-NUMBER can be upgraded
 to the CURRENT-VERSION-NUMBER of the current class without any
-changes.<br />
-&nbsp;</li>
+changes.<br/>
+ </li>
 <li><code>conversion ( from (version = VERSION-NUMBER, script =
-"?") )</code><br />
+"?") )</code><br/>
 Defines that user models using the VERSION-NUMBER can be upgraded
 to the CURRENT-VERSION-NUMBER of the current class by applying the
 given script. The semantics of the conversion script is not
-defined.<br />
-&nbsp;</li>
-<li><code>uses(IDENT (version = VERSION-NUMBER) )</code><br />
+defined.<br/>
+ </li>
+<li><code>uses(IDENT (version = VERSION-NUMBER) )</code><br/>
 Defines that classes within this top-level class uses version
 VERSION-NUMBER of classes within the top-level class IDENT. The
 annotations uses and conversion may contain several different
@@ -86,13 +87,13 @@ sub-entries.</li>
 stored in one of the following ways in a directory given in the
 MODELICAPATH:</p>
 <ul>
-<li>The file IDENT ".mo"<br />
+<li>The file IDENT ".mo"<br/>
 Example: Modelica.mo</li>
-<li>The file IDENT " " VERSION-NUMBER ".mo"<br />
+<li>The file IDENT " " VERSION-NUMBER ".mo"<br/>
 Example: Modelica 2.1.mo</li>
-<li>The directory IDENT<br />
+<li>The directory IDENT<br/>
 Example: Modelica</li>
-<li>The directory IDENT " " VERSION-NUMBER<br />
+<li>The directory IDENT " " VERSION-NUMBER<br/>
 Example: Modelica 2.1</li>
 </ul>
 <p>This allows a tool to access multiple versions of the same
@@ -104,7 +105,7 @@ package.</p>
 <li><a href="ModelicaReference.Annotations.uses.html">uses</a></li>
 <li><a href="ModelicaReference.Annotations.version.html">version</a></li>
 </ul>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

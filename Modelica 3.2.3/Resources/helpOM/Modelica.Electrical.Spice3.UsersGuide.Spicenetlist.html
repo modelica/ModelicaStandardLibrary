@@ -1,21 +1,22 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.Electrical.Spice3.UsersGuide.Spicenetlist</title>
 </head>
 <body>
-<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.html">Spice3</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">Spicenetlist</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.html">Spice3</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">Spicenetlist</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <h4>Translation of SPICE3 netlists to Modelica</h4>
 <p>Since SPICE3 netlists are available for nearly every electrical
 circuit a desirable feature would be to translate SPICE3 netlists
 to Modelica. With the help of the example of an inverter circuits a
 possible way of the translation will be explained.</p>
-<table cellspacing="0" cellpadding="0" border="1">
+<table border="1" cellpadding="0" cellspacing="0">
 <caption>Table 1: Translation of the SPICE3 netlist (left side) to
 Modelica (right side)</caption>
 <tr>
@@ -107,7 +108,7 @@ because a single number is no name in Modelica.</li>
 <li>According to the netlist the internal pins have to be connected
 with the components, e.g., <code>connect(Mp1.D, n11)</code>.</li>
 <li>In the last step the external pins have to be allocated ant
-connected to the according internal pin. In Table&nbsp;1 this is
+connected to the according internal pin. In Table 1 this is
 done as follows:
 <pre>
 Spice3.Interfaces.Pin p_in, p_out;
@@ -115,7 +116,7 @@ connect(p_in, n1);
 connect(p_out, n2);
 </pre></li>
 </ol>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

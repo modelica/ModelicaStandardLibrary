@@ -1,15 +1,16 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.Media.UsersGuide.MediumUsage.ShortPipe</title>
 </head>
 <body>
-<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.MediumUsage.html">MediumUsage</a>.<span class="omc-h1">ShortPipe</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.MediumUsage.html">MediumUsage</a>.<span class="omc-h1">ShortPipe</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>Fluid libraries have components with two ports that store
 neither mass nor energy and fulfill the momentum equation between
 their two ports, e.g., a short pipe. In most cases this means that
@@ -74,7 +75,7 @@ port2.h, port3.h, ..., port1.H_flow, port2.H_flow, port3.H_flow,
 .... The rules for the semiLinear(..) operator allow the following
 solution of this linear system of equations:</p>
 <ul>
-<li>n = 2 (two components are connected):<br />
+<li>n = 2 (two components are connected):<br/>
 The linear system of equations can be analytically solved with the
 result
 <pre>
@@ -83,7 +84,7 @@ result
      </pre>
 Therefore, no problems with zero mass flow rate are present.</li>
 <li>n &gt; 2 (more than two components are connected
-together):<br />
+together):<br/>
 The linear system of equations is solved numerically during
 simulation. For m_flow = 0, the linear system becomes singular and
 has an infinite number of solutions. The simulator could use the
@@ -92,7 +93,7 @@ step ("least squares solution"). Physically, the solution is
 determined by diffusion which is usually neglected. If diffusion is
 included, the linear system is regular.</li>
 </ul>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

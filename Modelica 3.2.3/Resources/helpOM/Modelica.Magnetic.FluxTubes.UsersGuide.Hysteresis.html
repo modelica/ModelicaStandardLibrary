@@ -1,15 +1,16 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis</title>
 </head>
 <body>
-<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Magnetic.html">Magnetic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">Hysteresis</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Magnetic.html">Magnetic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">Hysteresis</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <h4>Introduction</h4>
 <p>The elements provided in the package Shapes.HysteresisAndMagnets
 allow for consideration of ferromagnetic and dynamic hysteresis
@@ -24,7 +25,7 @@ for three different excitation frequencies. Thereby, the 0 Hz
 hysteresis loop represents the static ferromagnetic hysteresis of
 the core material. The widening of the loops for higher frequencies
 is due to eddy currents induced in the core material.</p>
-<table cellspacing="0" cellpadding="2" border="0">
+<table border="0" cellpadding="2" cellspacing="0">
 <caption align="bottom"><strong>Fig. 1:</strong> Inductor with
 ferromagnetic core and hysteresis effects; (a) diagram of the
 network model; (b) simulated hysteresis characteristics of the core
@@ -32,7 +33,7 @@ for different excitation frequencies of 0, 10 and 100 Hz (the
 example model can be found at: <a href="Modelica.Magnetic.FluxTubes.Examples.Hysteresis.InductorWithHysteresis.html">
 Examples.Hysteresis.InductorWithHysteresis</a>)</caption>
 <tr>
-<td><img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/InductorWithHysteresis_DiagramAndSim.png" /></td>
+<td><img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/InductorWithHysteresis_DiagramAndSim.png"/></td>
 </tr>
 </table>
 <p>Several models to describe the static hysteresis behavior of
@@ -43,15 +44,15 @@ Tellinen hysteresis model</a> and the more accurate but complex
 Preisach hysteresis model</a>. Click the links for a short
 description of both models.</p>
 <h4>Flux tube elements of the Package HysteresisAndMagnets</h4>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <th>Name / Icon</th>
 <th>Description</th>
 </tr>
 <tr>
 <td><a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenSoft.html">
-GenericHystTellinenSoft</a><br />
-<img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenS.png" />
+GenericHystTellinenSoft</a><br/>
+<img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenS.png"/>
 </td>
 <td>Flux tube element for modeling soft magnetic materials with
 ferromagnetic and dynamic hysteresis (eddy currents). The
@@ -64,8 +65,8 @@ relatively fast and robust.</td>
 </tr>
 <tr>
 <td><a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenHard.html">
-GenericHystTellinenHard</a><br />
-<img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenH.png" />
+GenericHystTellinenHard</a><br/>
+<img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenH.png"/>
 </td>
 <td>Flux tube element for modeling the ferromagnetic (static)
 hysteresis of hard magnetic materials. The ferromagnetic hysteresis
@@ -76,8 +77,8 @@ parameters.</td>
 </tr>
 <tr>
 <td><a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett.html">
-GenericHystTellinenEverett</a><br />
-<img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenE.png" />
+GenericHystTellinenEverett</a><br/>
+<img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenE.png"/>
 </td>
 <td>Flux tube element for modeling soft magnetic materials with
 ferromagnetic and dynamic hysteresis (eddy currents). The
@@ -92,8 +93,8 @@ FluxTubes.Material.HysteresisEverettParameter</a>.</td>
 </tr>
 <tr>
 <td><a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenTable.html">
-GenericHystTellinenTable</a><br />
-<img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenT.png" />
+GenericHystTellinenTable</a><br/>
+<img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenT.png"/>
 </td>
 <td>Flux tube element for modeling magnetic materials with
 ferromagnetic and dynamic hysteresis (eddy currents). The
@@ -106,8 +107,8 @@ FluxTubes.Material.HysteresisTableData</a>.</td>
 </tr>
 <tr>
 <td><a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystPreisachEverett.html">
-GenericHystPreisachEverett</a><br />
-<img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystPreisachE.png" />
+GenericHystPreisachEverett</a><br/>
+<img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystPreisachE.png"/>
 </td>
 <td>Flux tube element for modeling magnetic materials with
 ferromagnetic and dynamic hysteresis (eddy currents). The
@@ -120,8 +121,8 @@ FluxTubes.Material.HysteresisEverettParameter</a>.</td>
 </tr>
 <tr>
 <td><a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenPermanentMagnet.html">
-GenericHystTellinenPermanentMagnet</a><br />
-<img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenPM.png" />
+GenericHystTellinenPermanentMagnet</a><br/>
+<img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenPM.png"/>
 </td>
 <td>Flux tube element for modeling the hard magnetic hysteresis of
 permanent magnets. The model is similar to <a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenHard.html">
@@ -131,8 +132,8 @@ diagram.</td>
 </tr>
 <tr>
 <td><a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericLinearPermanentMagnet.html">
-GenericLinearPermanentMagnet</a><br />
-<img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericLinearPM.png" />
+GenericLinearPermanentMagnet</a><br/>
+<img src="../../../Modelica%203.2.3/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericLinearPM.png"/>
 </td>
 <td>Simple model of a linear permanent Magnet. Typical
 characteristics of common permanent magnetic materials can be found
@@ -147,21 +148,21 @@ at <a href="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.html">FluxTubes.Ma
 </tr>
 <tr>
 <td><a href="Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.html">
-<img class="svgiconsmall" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a href="Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.html">StaticHysteresis</a></td>
+<img class="svgiconsmall" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a href="Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.html">StaticHysteresis</a></td>
 <td>Static Hysteresis</td>
 </tr>
 <tr>
 <td><a href="Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.DynamicHysteresis.html">
-<img class="svgiconsmall" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a href="Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.DynamicHysteresis.html">DynamicHysteresis</a></td>
+<img class="svgiconsmall" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a href="Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.DynamicHysteresis.html">DynamicHysteresis</a></td>
 <td>Dynamic Hysteresis (Eddy Currents)</td>
 </tr>
 <tr>
 <td><a href="Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.HysteresisLosses.html">
-<img class="svgiconsmall" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a href="Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.HysteresisLosses.html">HysteresisLosses</a></td>
+<img class="svgiconsmall" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a href="Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.HysteresisLosses.html">HysteresisLosses</a></td>
 <td>Hysteresis losses</td>
 </tr>
 </table>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

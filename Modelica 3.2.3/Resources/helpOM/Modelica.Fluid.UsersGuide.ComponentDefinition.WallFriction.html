@@ -1,16 +1,17 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>
 Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction</title>
 </head>
 <body>
-<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Fluid.UsersGuide.ComponentDefinition.html">ComponentDefinition</a>.<span class="omc-h1">WallFriction</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Fluid.UsersGuide.ComponentDefinition.html">ComponentDefinition</a>.<span class="omc-h1">WallFriction</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>One important special case for a pressure loss is the friction
 at the wall of a pipe under the assumption of quasi steady state
 flow (i.e., the mass flow rate varies only slowly). In this section
@@ -57,7 +58,7 @@ to growth of surface asperities during service, see <em>[Idelchik
 </ul>
 <p>The first form with λ is used and presented in textbooks, see
 "blue" curve in the next figure:</p>
-<p><img src="../../../Modelica%203.2.3/Resources/Images/Fluid/Components/PipeFriction1.png" alt="PipeFriction1" /></p>
+<p><img alt="PipeFriction1" src="../../../Modelica%203.2.3/Resources/Images/Fluid/Components/PipeFriction1.png"/></p>
 <p>This form is not suited for a simulation program since λ = 64/Re
 if Re &lt; 2000, i.e., a division by zero occurs for zero mass flow
 rate because Re = 0 in this case. More useful for a simulation
@@ -65,7 +66,7 @@ model is the friction coefficient λ2 = λ*Re^2, because λ2 = 64*Re
 if Re &lt; 2000 and therefore no problems for zero mass flow rate
 occur. The characteristic of λ2 is shown in the next figure and is
 used in Modelica.Fluid:</p>
-<p><img src="../../../Modelica%203.2.3/Resources/Images/Fluid/Components/PipeFriction2.png" alt="PipeFriction2" /></p>
+<p><img alt="PipeFriction2" src="../../../Modelica%203.2.3/Resources/Images/Fluid/Components/PipeFriction2.png"/></p>
 <p>The pressure loss characteristic is divided into three
 regions:</p>
 <ul>
@@ -76,8 +77,8 @@ under the assumptions of steady flow, constant pressure gradient
 and constant density and viscosity (= Hagen-Poiseuille flow)
 leading to λ2 = 64*Re. Therefore:
 <pre> dp = 128*μ*L/(π*D^4*ρ)*m_flow </pre>
-<br />
-&nbsp;</li>
+<br/>
+ </li>
 <li><strong>Region 3</strong>: For <strong>Re ≥ 4000</strong>, the
 flow is <strong>turbulent</strong>. Depending on the calculation
 direction (see "inverse formulation" below) either of two explicit
@@ -90,7 +91,7 @@ gives an implicit relationship between Re and λ. Inserting λ2 =
 <pre>Re = -2*sqrt(λ2)*lg(2.51/sqrt(λ2) + 0.27*<font face="Symbol">D</font>)</pre>
 Finally, the mass flow rate m_flow is computed from Re via m_flow =
 Re*π*D*μ/4*sign(dp). These are the <strong>red</strong> curves in
-the diagrams above.<br />
+the diagrams above.<br/>
 If the mass flow rate is assumed known (and therefore implicitly
 also the Reynolds number), then λ2 is computed by an approximation
 of the inverse of the Colebrook-White equation <em>[Swamee and Jain
@@ -98,20 +99,20 @@ of the inverse of the Colebrook-White equation <em>[Swamee and Jain
 <pre> λ2 = 0.25*(Re/lg(<font face="Symbol">D</font>/3.7 + 5.74/Re^0.9))^2 </pre>
 The pressure drop is then computed as dp = k2*λ2*sign(m_flow).
 These are the <strong>blue</strong> curves in the diagrams
-above.<br />
-&nbsp;</li>
+above.<br/>
+ </li>
 <li><strong>Region 2</strong>: For <strong>2000 ≤ Re ≤
 4000</strong> there is a transition region between laminar and
 turbulent flow. The value of λ2 depends on more factors as just the
 Reynolds number and the relative roughness, therefore only crude
-approximations are possible in this area.<br />
+approximations are possible in this area.<br/>
 The deviation from the laminar region depends on the relative
 roughness. A laminar flow at Re=2000 is only reached for smooth
 pipes. The deviation Reynolds number Re1 is computed according to
 <em>[Samoilenko 1968; Idelchik 1994, p. 81, sect. 2.1.21]</em> as:
 <pre>Re1 = 745*e^(if <font face="Symbol">D</font> ≤ 0.0065 then 1 else 0.0065/<font face="Symbol">D</font>)</pre>
 These are the <strong>blue</strong> curves in the diagrams
-above.<br />
+above.<br/>
 Between Re1=Re1(<font face="Symbol">d</font>/D) and Re2=4000, λ2 is
 approximated by a cubic polynomial in the "lg(λ2) - lg(Re)" chart
 (see figures above) such that the first derivative is continuous at
@@ -128,7 +129,7 @@ region.</li>
 to be estimated. In <em>[Idelchik 1994, pp. 105-109, Table 2-5;
 Miller 1990, p. 190, Table 8-1]</em> many examples are given. As a
 short summary:</p>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <td><strong>Smooth pipes</strong></td>
 <td>Drawn brass, copper, aluminium, glass, etc.</td>
@@ -229,7 +230,7 @@ Proc. ASCE, J.Hydraul. Div., 102 (HY5), pp. 657-664.</dd>
 turbulent gas flow</strong>. Inzh. Fiz. Zh., vol. 2, no. 11, pp.
 81-85.</dd>
 </dl>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

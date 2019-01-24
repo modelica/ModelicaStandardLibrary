@@ -1,21 +1,22 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.Electrical.Analog.Basic.M_Transformer</title>
 </head>
 <body>
-<h1><a href="Icons/98eca594fb620baf2674bebe836b76721b2df23a.svg"><img class="svgiconhead" src="Icons/98eca594fb620baf2674bebe836b76721b2df23a.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.html">Analog</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.Basic.html">Basic</a>.<span class="omc-h1">M_Transformer</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/98eca594fb620baf2674bebe836b76721b2df23a.svg"><img class="svgiconhead" src="Icons/98eca594fb620baf2674bebe836b76721b2df23a.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.html">Analog</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.Basic.html">Basic</a>.<span class="omc-h1">M_Transformer</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>The model <em>M_Transformer</em> is a model of a transformer
 with the possibility to choose the number of inductors. Inside the
 model, an inductance matrix is built based on the inductance of the
 inductors and the coupling inductances between the inductors given
 as a parameter vector from the user of the model.</p>
-<p>An example shows that approach:<br />
+<p>An example shows that approach:<br/>
 The user chooses a model with <strong>three</strong> inductors,
 that means the parameter <em><strong>N</strong></em> has to be
 <strong>3</strong>. Then he has to specify the inductances of the
@@ -29,14 +30,14 @@ specified in the parameter vector <em>L</em>. The length
 <p>The following example shows how the parameter vector is used to
 fill in the inductance matrix. To specify the inductance matrix of
 a three inductances transformer (<em>N=3</em>):</p>
-<p><img src="../../../Modelica%203.2.3/Resources/Images/Electrical/Analog/Basic/M_Transformer-eq.png" alt="L_m" /></p>
+<p><img alt="L_m" src="../../../Modelica%203.2.3/Resources/Images/Electrical/Analog/Basic/M_Transformer-eq.png"/></p>
 <p>the user has to allocate the parameter vector <em>L[6]</em> ,
 since <em>Nv=(N*(N+1))/2=(3*(3+1))/2=6</em>. The parameter vector
 must be filled like this: <em>L=[1,0.1,0.2,2,0.3,3]</em> .</p>
 <p>Inside the model, two loops are used to fill the inductance
 matrix to guarantee that it is filled in a symmetric way.</p>
-<h2><a name="revisions" id="revisions">Revisions</a></h2>
-<table border="1" cellspacing="0" cellpadding="2">
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <th>Version</th>
 <th>Revision</th>
@@ -67,7 +68,7 @@ guidelines.</td>
 <td>Initially implemented</td>
 </tr>
 </table>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

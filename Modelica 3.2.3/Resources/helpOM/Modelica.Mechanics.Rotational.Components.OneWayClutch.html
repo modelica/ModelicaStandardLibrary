@@ -1,39 +1,40 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>
 Modelica.Mechanics.Rotational.Components.OneWayClutch</title>
 </head>
 <body>
-<h1><a href="Icons/f5ae0b79f10687df3af1bc4be4261238486e582f.svg"><img class="svgiconhead" src="Icons/f5ae0b79f10687df3af1bc4be4261238486e582f.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.html">Rotational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.Components.html">Components</a>.<span class="omc-h1">OneWayClutch</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/f5ae0b79f10687df3af1bc4be4261238486e582f.svg"><img class="svgiconhead" src="Icons/f5ae0b79f10687df3af1bc4be4261238486e582f.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.html">Rotational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.Components.html">Components</a>.<span class="omc-h1">OneWayClutch</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>This component models a <strong>one-way clutch</strong>, i.e., a
 component with two flanges where friction is present between the
 two flanges and these flanges are pressed together via a normal
 force. These flanges may be sliding with respect to each other.</p>
-<p>A one-way-clutch is an element where a&nbsp;clutch is connected
-in parallel to a&nbsp;free wheel. This special element is provided,
+<p>A one-way-clutch is an element where a clutch is connected
+in parallel to a free wheel. This special element is provided,
 because such a parallel connection introduces an ambiguity into the
 model (the constraint torques are not uniquely defined when both
 elements are stuck) and this element resolves it by introducing
 <strong>one</strong> constraint torque only instead of two
 constraints.</p>
 <p>Note, initial values have to be chosen for the model such that
-the relative speed of the one-way-clutch ≥&nbsp;0. Otherwise, the
+the relative speed of the one-way-clutch ≥ 0. Otherwise, the
 configuration is physically not possible and an error occurs.</p>
-<p>The normal force&nbsp;fn has to be provided as input signal
+<p>The normal force fn has to be provided as input signal
 f_normalized in a normalized form
-(0&nbsp;≤&nbsp;f_normalized&nbsp;≤&nbsp;1),
-fn&nbsp;=&nbsp;fn_max&nbsp;*&nbsp;f_normalized, where fn_max has to
+(0 ≤ f_normalized ≤ 1),
+fn = fn_max * f_normalized, where fn_max has to
 be provided as parameter.</p>
 <p>The friction in the clutch is modeled in the following way. When
 the relative angular velocity is positive, the friction torque is a
 function of the velocity dependent friction coefficient mue(w_rel),
-of the normal force&nbsp;fn, and of a geometry constant cgeo which
+of the normal force fn, and of a geometry constant cgeo which
 takes into account the geometry of the device and the assumptions
 on the friction distributions:</p>
 <blockquote>
@@ -54,10 +55,10 @@ way:</p>
 <strong>cgeo</strong> = <strong>N</strong>*(<strong>r0</strong> + <strong>ri</strong>)/2
 </pre></blockquote>
 <p>where <strong>ri</strong> is the inner radius,
-<strong>ro</strong> is the outer radius and&nbsp;<strong>N</strong>
+<strong>ro</strong> is the outer radius and <strong>N</strong>
 is the number of friction interfaces,</p>
 <p>The positive part of the friction characteristic
-<strong>mue</strong>(w_rel), w_rel&nbsp;&gt;=&nbsp;0, is defined
+<strong>mue</strong>(w_rel), w_rel &gt;= 0, is defined
 via table mue_pos (first column = w_rel, second column = mue).
 Currently, only linear interpolation in the table is supported.</p>
 <p>When the relative angular velocity w_rel becomes zero, the
@@ -84,7 +85,7 @@ Data Flow Principle</strong>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
 <p>See also the discussion <a href="Modelica.Mechanics.Rotational.UsersGuide.StateSelection.html">
 State Selection</a> in the User's Guide of the Rotational
 library.</p>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

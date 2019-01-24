@@ -1,15 +1,16 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.Thermal.FluidHeatFlow</title>
 </head>
 <body>
-<h1><a href="Icons/170f9ed9102f76cf62d48c98b56c9d8910974fb6.svg"><img class="svgiconhead" src="Icons/170f9ed9102f76cf62d48c98b56c9d8910974fb6.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Thermal.html">Thermal</a>.<span class="omc-h1">FluidHeatFlow</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/41e08d43f6e02ab33af0f320c9ab2d549f7db990.svg"><img class="svgiconhead" src="Icons/41e08d43f6e02ab33af0f320c9ab2d549f7db990.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Thermal.html">Thermal</a>.<span class="omc-h1">FluidHeatFlow</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>This package contains very simple-to-use components to model
 coolant flows as needed to simulate cooling e.g., of electric
 machines:</p>
@@ -46,13 +47,13 @@ height difference rho*g*h (if h &gt; 0).</li>
 <li>A user-defined part (0..1) of the friction losses (V_flow*dp)
 are fed to the medium.</li>
 <li><strong>Note:</strong> Connected flowPorts have the same
-temperature (mixing temperature)!<br />
+temperature (mixing temperature)!<br/>
 Since mixing may occur, the outlet temperature may be different
-from the connector's temperature.<br />
+from the connector's temperature.<br/>
 Outlet temperature is defined by variable T of the corresponding
 component.</li>
 </ul>
-<p>Copyright © 1998-2018, Modelica Association and contributors</p>
+<p>Copyright © 1998-2019, Modelica Association and contributors</p>
 <h2>Contents</h2>
 <table>
 <tr>
@@ -60,36 +61,36 @@ component.</li>
 <th>Description</th>
 </tr>
 <tr>
-<td><a href="Modelica.Thermal.FluidHeatFlow.UsersGuide.html"><img class="svgiconsmall" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a href="Modelica.Thermal.FluidHeatFlow.UsersGuide.html">UsersGuide</a></td>
+<td><a href="Modelica.Thermal.FluidHeatFlow.UsersGuide.html"><img class="svgiconsmall" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a href="Modelica.Thermal.FluidHeatFlow.UsersGuide.html">UsersGuide</a></td>
 <td>User's Guide</td>
 </tr>
 <tr>
-<td><a href="Modelica.Thermal.FluidHeatFlow.Examples.html"><img class="svgiconsmall" src="Icons/ed64af07e87d570ce7126538bd50680280004c73.svg" /></a>&nbsp;<a href="Modelica.Thermal.FluidHeatFlow.Examples.html">Examples</a></td>
+<td><a href="Modelica.Thermal.FluidHeatFlow.Examples.html"><img class="svgiconsmall" src="Icons/ed64af07e87d570ce7126538bd50680280004c73.svg"/></a> <a href="Modelica.Thermal.FluidHeatFlow.Examples.html">Examples</a></td>
 <td>Examples that demonstrate the usage of the FluidHeatFlow
 components</td>
 </tr>
 <tr>
-<td><a href="Modelica.Thermal.FluidHeatFlow.Components.html"><img class="svgiconsmall" src="Icons/892bb029cd80a507d63bd7572d32ec4fcb0eff71.svg" /></a>&nbsp;<a href="Modelica.Thermal.FluidHeatFlow.Components.html">Components</a></td>
+<td><a href="Modelica.Thermal.FluidHeatFlow.Components.html"><img class="svgiconsmall" src="Icons/892bb029cd80a507d63bd7572d32ec4fcb0eff71.svg"/></a> <a href="Modelica.Thermal.FluidHeatFlow.Components.html">Components</a></td>
 <td>Basic components (pipes, valves)</td>
 </tr>
 <tr>
-<td><a href="Modelica.Thermal.FluidHeatFlow.Media.html"><img class="svgiconsmall" src="Icons/df85da4d01eb2078232bcc10e86c6b81244a7b96.svg" /></a>&nbsp;<a href="Modelica.Thermal.FluidHeatFlow.Media.html">Media</a></td>
+<td><a href="Modelica.Thermal.FluidHeatFlow.Media.html"><img class="svgiconsmall" src="Icons/ee5def8ba63b88fb9b718b47529ded7821d5f3ab.svg"/></a> <a href="Modelica.Thermal.FluidHeatFlow.Media.html">Media</a></td>
 <td>Medium properties</td>
 </tr>
 <tr>
-<td><a href="Modelica.Thermal.FluidHeatFlow.Sensors.html"><img class="svgiconsmall" src="Icons/169cabccc4bcd2180dcb2e3dc32b0d8db30eaf70.svg" /></a>&nbsp;<a href="Modelica.Thermal.FluidHeatFlow.Sensors.html">Sensors</a></td>
+<td><a href="Modelica.Thermal.FluidHeatFlow.Sensors.html"><img class="svgiconsmall" src="Icons/b5990c20ef66e1d83aa2d78a21869d08fd5ac1ad.svg"/></a> <a href="Modelica.Thermal.FluidHeatFlow.Sensors.html">Sensors</a></td>
 <td>Ideal sensors to measure port properties</td>
 </tr>
 <tr>
-<td><a href="Modelica.Thermal.FluidHeatFlow.Sources.html"><img class="svgiconsmall" src="Icons/a757591b5408d8b98935b8a8ec09694824df720f.svg" /></a>&nbsp;<a href="Modelica.Thermal.FluidHeatFlow.Sources.html">Sources</a></td>
+<td><a href="Modelica.Thermal.FluidHeatFlow.Sources.html"><img class="svgiconsmall" src="Icons/4aa22ca028219e43e1790198e88411939058adb5.svg"/></a> <a href="Modelica.Thermal.FluidHeatFlow.Sources.html">Sources</a></td>
 <td>Ideal fluid sources, e.g., ambient, volume flow</td>
 </tr>
 <tr>
-<td><a href="Modelica.Thermal.FluidHeatFlow.Interfaces.html"><img class="svgiconsmall" src="Icons/2c8d2cd0448e069175e82f18bde9546f5f2b6fdb.svg" /></a>&nbsp;<a href="Modelica.Thermal.FluidHeatFlow.Interfaces.html">Interfaces</a></td>
+<td><a href="Modelica.Thermal.FluidHeatFlow.Interfaces.html"><img class="svgiconsmall" src="Icons/2c8d2cd0448e069175e82f18bde9546f5f2b6fdb.svg"/></a> <a href="Modelica.Thermal.FluidHeatFlow.Interfaces.html">Interfaces</a></td>
 <td>Connectors and partial models</td>
 </tr>
 </table>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

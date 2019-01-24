@@ -1,45 +1,46 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>
 Modelica.Electrical.Analog.Ideal.ControlledIdealIntermediateSwitch</title>
 </head>
 <body>
-<h1><a href="Icons/576c74abe4399c62f3a7f9157c8aa5648cb49ddb.svg"><img class="svgiconhead" src="Icons/576c74abe4399c62f3a7f9157c8aa5648cb49ddb.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.html">Analog</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.Ideal.html">Ideal</a>.<span class="omc-h1">ControlledIdealIntermediateSwitch</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/576c74abe4399c62f3a7f9157c8aa5648cb49ddb.svg"><img class="svgiconhead" src="Icons/576c74abe4399c62f3a7f9157c8aa5648cb49ddb.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.html">Analog</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.Ideal.html">Ideal</a>.<span class="omc-h1">ControlledIdealIntermediateSwitch</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>The intermediate switch has four switching contact pins p1, p2,
 n1, and n2. The switching behaviour is controlled by the control
 pin. If its voltage exceeds the value of the parameter level, the
 pin p1 is connected to pin n2, and the pin p2 is connected to the
 pin n1. Otherwise, the pin p1 is connected to the pin n1, and the
 pin p2 is connected to the pin n2.</p>
-<p><img src="../../../Modelica%203.2.3/Resources/Images/Electrical/Analog/ControlledIdealIntermediateSwitch1.png" alt="ControlledIdealIntermediateSwitch1.png" /></p>
+<p><img alt="ControlledIdealIntermediateSwitch1.png" src="../../../Modelica%203.2.3/Resources/Images/Electrical/Analog/ControlledIdealIntermediateSwitch1.png"/></p>
 <p>In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff and the closed switch has
 a (very low) resistance Ron.</p>
-<p><img src="../../../Modelica%203.2.3/Resources/Images/Electrical/Analog/ControlledIdealIntermediateSwitch2.png" alt="ControlledIdealIntermediateSwitch2.png" /></p>
+<p><img alt="ControlledIdealIntermediateSwitch2.png" src="../../../Modelica%203.2.3/Resources/Images/Electrical/Analog/ControlledIdealIntermediateSwitch2.png"/></p>
 <p>The limiting case is also allowed, i.e., the resistance Ron of
 the closed switch could be exactly zero and the conductance Goff of
 the open switch could be also exactly zero. Note, there are
 circuits, where a description with zero Ron or zero Goff is not
 possible.</p>
-<p><br />
+<p><br/>
 <strong>Please note:</strong> In case of useHeatPort=true the
 temperature dependence of the electrical behavior is
 <strong>not</strong> modelled. The parameters are not temperature
 dependent.</p>
-<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
 <ul>
-<li><em>March 11, 2009</em> by Christoph Clauss<br />
-conditional heat port added<br /></li>
-<li><em>1998</em> by Christoph Clauss<br />
-initially implemented<br /></li>
+<li><em>March 11, 2009</em> by Christoph Clauss<br/>
+conditional heat port added<br/></li>
+<li><em>1998</em> by Christoph Clauss<br/>
+initially implemented<br/></li>
 </ul>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

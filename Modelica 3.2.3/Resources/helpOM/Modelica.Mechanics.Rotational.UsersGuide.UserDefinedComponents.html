@@ -1,22 +1,23 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>
 Modelica.Mechanics.Rotational.UsersGuide.UserDefinedComponents</title>
 </head>
 <body>
-<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.html">Rotational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">UserDefinedComponents</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.html">Rotational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">UserDefinedComponents</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <p>In this section some hints are given to define your own
 1-dimensional rotational components which are compatible with the
 elements of this package. It is convenient to define a new
 component by inheritance from one of the following base classes,
 which are defined in sublibrary Interfaces:</p>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border="1" cellpadding="2" cellspacing="0">
 <tr>
 <th>Name</th>
 <th>Description</th>
@@ -81,7 +82,7 @@ cut-torques or angular velocities have to be expressed according to
 this definition. Examples for such a definition are given in the
 following figure for an inertia component and a planetary
 gearbox:</p>
-<p><img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/Rotational/driveAxis.png" alt="driveAxis" /></p>
+<p><img alt="driveAxis" src="../../../Modelica%203.2.3/Resources/Images/Mechanics/Rotational/driveAxis.png"/></p>
 <p>As can be seen, all vectors are directed into the direction of
 the rotation axis. The angles in the flanges are defined
 correspondingly. For example, the angle <code>sun.phi</code> in the
@@ -91,7 +92,7 @@ along the axis of rotation.</p>
 <p>On first view, one may assume that the selected local coordinate
 system has an influence on the usage of the component. But this is
 not the case, as shown in the next figure:</p>
-<p><img src="../../../Modelica%203.2.3/Resources/Images/Mechanics/Rotational/inertias.png" alt="inertias" /></p>
+<p><img alt="inertias" src="../../../Modelica%203.2.3/Resources/Images/Mechanics/Rotational/inertias.png"/></p>
 <p>In the figure the <strong>local</strong> axes of rotation of the
 components are shown. The connection of two inertias in the left
 and in the right part of the figure are completely equivalent,
@@ -118,7 +119,7 @@ determination by aligning coordinate systems and then using the
 vector direction of the local coordinate systems, often requires a
 re-drawing of the diagram and is therefore less convenient to
 use.</p>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>

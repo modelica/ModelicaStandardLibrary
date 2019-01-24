@@ -1,16 +1,17 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
 <title>
 Modelica.Math.Matrices.Utilities.eigenvaluesHessenberg</title>
 </head>
 <body>
-<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.Utilities.html">Utilities</a>.<span class="omc-h1">eigenvaluesHessenberg</span></h1>
-<h2><a name="info" id="info">Information</a></h2>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.Utilities.html">Utilities</a>.<span class="omc-h1">eigenvaluesHessenberg</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
 <h4>Syntax</h4>
 <blockquote>
 <pre>
@@ -25,7 +26,7 @@ decomposition. This step can be skipped if the matrix has already
 Hessenberg form.</p>
 <p>The function uses the LAPACK-routine dhseqr. Output
 <code>info</code> is 0 for a successful call of this
-function.<br />
+function.<br/>
 See <a href="Modelica.Math.Matrices.LAPACK.dhseqr.html">Matrices.LAPACK.dhseqr</a>
 for details</p>
 <h4>Example</h4>
@@ -44,11 +45,11 @@ for details</p>
             -0.8769,   -1.0444]
   // = {10.7538,  -0.8769 +- i*1.0444}
 </pre></blockquote>
-<br />
+<br/>
 <h4>See also</h4>
 <p><a href="Modelica.Math.Matrices.eigenValues.html">Matrices.eigenValues</a>,
 <a href="Modelica.Math.Matrices.hessenberg.html">Matrices.hessenberg</a></p>
-<h4><a name="interface" id="interface">Interface</a></h4>
+<h4><a id="interface" name="interface">Interface</a></h4>
 <blockquote>
 <pre>function eigenvaluesHessenberg
   extends Modelica.Icons.Function;
@@ -57,11 +58,11 @@ for details</p>
   output Real ev[size(H, 1), 2] "Eigenvalues";
   output Integer info = 0;
 end eigenvaluesHessenberg;</pre></blockquote>
-<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
 <ul>
 <li><em>2010/04/30</em> by Marcus Baur, DLR-RM</li>
 </ul>
-<hr />
-Generated at 2018-12-17T10:58:42Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-43-g4ff0ebd</a>
+<hr/>
+Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
 </body>
 </html>
