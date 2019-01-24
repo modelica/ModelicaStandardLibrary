@@ -5299,6 +5299,8 @@ in the User's Guide of the Rotational library.
         coordinateSystem(preserveAspectRatio=true,
           extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
+        Line(points={{-100,0},{100,0}},
+          pattern=LinePattern.Dot),
         Ellipse(
           lineColor={52,219,218},
           fillColor={52,219,218},
@@ -5307,10 +5309,6 @@ in the User's Guide of the Rotational library.
         Text(lineColor={0,0,255},
           extent={{-40,-40},{40,40}},
           textString="S"),
-        Line(points={{-92.0,0.0},{-42.0,0.0}},
-          pattern=LinePattern.Dot),
-        Line(points={{40.0,0.0},{90.0,0.0}},
-          pattern=LinePattern.Dot),
         Text(
           extent={{-150,90},{150,50}},
           textString="%name",
