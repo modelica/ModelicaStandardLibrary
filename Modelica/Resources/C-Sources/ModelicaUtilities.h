@@ -33,7 +33,7 @@
 
    These functions are defined in section 12.8.6 of the
    Modelica Specification 3.0 and section 12.9.6 of the
-   Modelica Specification 3.1 and 3.2.
+   Modelica Specification 3.1 and later.
 
    A generic C-implementation of these functions cannot be given,
    because it is tool dependent how strings are output in a
@@ -150,6 +150,20 @@ never returns to the calling function, but handles the error
 similarly to an assert in the Modelica code.
 */
 
+void ModelicaWarning(const char *string);
+/*
+Output the warning message string (no format control).
+*/
+
+void ModelicaFormatWarning(const char *string, ...) MODELICA_FORMATATTR_PRINTF;
+/*
+Output the warning message under the same format control as the C-function printf.
+*/
+
+void ModelicaVFormatWarning(const char *string, va_list args) MODELICA_FORMATATTR_VPRINTF;
+/*
+Output the warning message under the same format control as the C-function vprintf.
+*/
 
 MODELICA_NORETURN void ModelicaFormatError(const char *string, ...) MODELICA_NORETURNATTR MODELICA_FORMATATTR_PRINTF;
 /*
