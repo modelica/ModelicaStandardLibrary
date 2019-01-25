@@ -1731,7 +1731,7 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
       "Ideal linear electrical capacitors with variable capacitance"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Capacitance Cmin[m]=fill(Modelica.Constants.eps,
-          m) "minimum Capacitance";
+          m) "Minimum capacitance";
       Modelica.Blocks.Interfaces.RealInput C[m](each unit="F") annotation (
           Placement(transformation(
             origin={0,120},
@@ -1777,7 +1777,7 @@ Cmin is a parameter with default value Modelica.Constants.eps.
       "Ideal linear electrical inductors with variable inductance"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Inductance Lmin[m]=fill(Modelica.Constants.eps,
-          m) "minimum Inductance";
+          m) "Minimum inductance";
       Modelica.Blocks.Interfaces.RealInput L[m](each unit="H") annotation (
           Placement(transformation(
             origin={0,120},

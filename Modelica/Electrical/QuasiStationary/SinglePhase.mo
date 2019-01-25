@@ -2386,7 +2386,7 @@ Additionally, the frequency of the voltage source is defined by a real signal in
       parameter Modelica.SIunits.Time startTime=0 "Start time of frequency sweep";
       parameter Modelica.SIunits.Time duration(start=1) "Duration of frequency sweep";
       parameter Modelica.SIunits.Voltage V(start=1) "RMS voltage of the source";
-      parameter Modelica.SIunits.Angle phi=0 "phase shift of the source";
+      parameter Modelica.SIunits.Angle phi=0 "Phase shift of the source";
       Modelica.SIunits.Frequency f = voltageSource.f "Actual frequency";
       ComplexBlocks.Sources.LogFrequencySweep logFrequencySweep(
         final wMin=fStart,
