@@ -1,4 +1,4 @@
-// Convert from Modelica 3.2.3 to Modelica 3.2.4
+// Convert from Modelica 3.2.3 to Modelica 4.0.0
 
 // clear
 convertClear();
