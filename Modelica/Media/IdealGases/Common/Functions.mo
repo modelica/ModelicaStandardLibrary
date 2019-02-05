@@ -119,7 +119,7 @@ package Functions
 
   algorithm
     h := data.R*((-data.alow[1] + T*(data.
-      blow[1] + data.alow[2]*(if T>0 then Math.log(T) else -Modelica.Constants.inf) + T*(1.*data.alow[3] + T*(0.5*data.
+      blow[1] + data.alow[2]*(if T>0 then Math.log(T) else Modelica.Constants.inf) + T*(1.*data.alow[3] + T*(0.5*data.
       alow[4] + T*(1/3*data.alow[5] + T*(0.25*data.alow[6] + 0.2*data.alow[7]*T))))))
       /T) + (if
       exclEnthForm then -data.Hf else 0.0) + (if (refChoice
