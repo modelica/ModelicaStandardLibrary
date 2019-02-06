@@ -2521,11 +2521,11 @@ Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction, see details b
             <li> About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-4.html\">10 tickets</a>
                  have been fixed for this maintenance release. Critical tickets:</li>
 
-            <li> Ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1768\">1768</a>
+            <li> Ticket <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1768\">1768</a>
                  fixes an issue with block <a href=\"modelica://Modelica.Blocks.Sources.CombiTimeTable\">CombiTimeTable</a>
                  (wrong output when using fixed time step integrator with time step greater than table resolution).</li>
 
-            <li> Ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1758\">1758</a>
+            <li> Ticket <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1758\">1758</a>
                  states that simulation of
                  <a href=\"modelica://Modelica.Fluid.Examples.HeatingSystem\">Modelica.Fluid.Examples.HeatingSystem</a>
                  fails in Dymola 2016 if option \"pedantic mode for checking Modelica semantics\" is set.
@@ -2534,7 +2534,7 @@ Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction, see details b
                  in a cyclic dependency of parameters if only incident information is taken into account.
                  According to Modelica Specification 3.2 revision 2 this is not allowed
                  (and therefore Dymola 2016 correctly reports errors if the pedantic flag is set).
-                 In ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1320\">1320</a>
+                 In ticket <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1320\">1320</a>
                  this issue was resolved for Modelica Specification 3.3 revision 1 by allowing
                  cyclic parameter definitions if the cycles disappear when evaluating parameters
                  that have annotation Evaluate=true. Modelica.Fluid is correct with respect
@@ -2546,12 +2546,12 @@ Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction, see details b
                  the pedantic flag in Dymola 2016 needs to be switched off, when using the
                  Modelica.Fluid library in version 3.2.1 build 4 and any previous version).</li>
 
-            <li> In ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1757\">1757</a> it is (correctly) stated
+            <li> In ticket <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1757\">1757</a> it is (correctly) stated
                  that the example model <a href=\"modelica://Modelica.Media.Examples.PsychrometricData\">PsychrometricData</a>
                  was moved from Modelica.Media.Air.MoistAir.PsychrometricData and that this is a non-backwards compatible change.
                  This non-backwards compatible change is accepted, because it fixes a circular dependency (a model references
                  a package in which it resides), for details see ticket
-                 <a href=\"https://trac.modelica.org/Modelica/ticket/1679\">1679</a>.
+                 <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1679\">1679</a>.
                  Fixing this ticket is seen as of much higher priority, as the small drawback that
                  an example model is moved (and the probability is very high that this moved model is not
                  used in any user model).<br>&nbsp;
@@ -2576,8 +2576,8 @@ Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction, see details b
 </li>
 <li> In version 3.2.1 Build.3 a new argument crossArea was introduced in the functions of
 Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction to fix a subtle bug for the
-calculation of pipe friction for non-circular pipes, see <a href=\"https://trac.modelica.org/Modelica/ticket/1601\">#1601</a>
-and <a href=\"https://trac.modelica.org/Modelica/ticket/1656\">#1656</a>.
+calculation of pipe friction for non-circular pipes, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1601\">#1601</a>
+and <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1656\">#1656</a>.
 If a user utilized a pipe model of Modelica.Fluid.Pipes, this does not matter because the pipe models have been
 improved in a fully backwards compatible way. However, if the user constructed an own pipe model based on
 the partial package PartialWallFriction and calls the functions defined in PartialWallFriction with
@@ -2603,16 +2603,16 @@ summarized in the following two comparison tables:
 This release of package Modelica, and the accompanying ModelicaTest, has been tested with the
 following tools (the tools are listed alphabetically. At the time of the test, some of the
 tools might not yet supported the complete Modelica package. For more details of the tests
-see <a href=\"https://trac.modelica.org/Modelica/ticket/1867\">#1867</a>):
+see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1867\">#1867</a>):
 </p>
 
 <ul>
 <li> <strong>Dymola 2017 Beta.1</strong> (Windows 64 bit, \"Check\" with pedantic flag, that is checking strict
      Modelica compliance, and \"Check with Simulation\").<br>
-     <a href=\"https://trac.modelica.org/Modelica/ticket/1924\">#1924</a>:
+     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1924\">#1924</a>:
      Regression testing of 3.2.2+build.0-beta.2 using Dymola 2017 Dev 4 with respect to
      3.2.1+build.4 reference files<br>
-     <a href=\"https://trac.modelica.org/Modelica/ticket/1949\">#1949</a>:
+     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1949\">#1949</a>:
      Regression testing of 3.2.2+build.0-beta.3 using Dymola 2017 Beta 1 with respect to
      3.2.1+build.4 reference files</li>
 <li> <strong>LMS Imagine.Lab Amesim 14.2</strong> and <strong>LMS Imagine.Lab Amesim 15 (development build)</strong>.
@@ -2784,7 +2784,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.Examples.Utilities.</strong></td></tr>
 <tr><td width=\"150\">SpringDamperNoRelativeStates</td>
-    <td>Introduced to fix ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1375\">1375</a></td></tr>
+    <td>Introduced to fix ticket <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1375\">1375</a></td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.Components.</strong></td></tr>
 <tr><td width=\"150\">ElastoBacklash2</td>
@@ -2795,11 +2795,11 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 
 <tr><td colspan=\"2\"><strong>Modelica.Fluid.Examples.</strong></td></tr>
 <tr><td width=\"150\">NonCircularPipes</td>
-    <td>Introduced to check the fix of ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1601\">1681</a></td></tr>
+    <td>Introduced to check the fix of ticket <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1601\">1681</a></td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Media.Examples.</strong></td></tr>
 <tr><td width=\"150\">PsychrometricData</td>
-    <td>Introduced to fix ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1679\">1679</a></td></tr>
+    <td>Introduced to fix ticket <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1679\">1679</a></td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Math.Matrices.</strong></td></tr>
 <tr><td width=\"150\">balanceABC</td>
@@ -2974,7 +2974,7 @@ tools might not yet supported the complete Modelica package):
 <li> CyModelica</li>
 <li> Dymola 2014 (Windows 64 bit)<br>
      Regression test results with regards to Modelica 3.2 are available
-     in ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1114\">#1114</a>.</li>
+     in ticket <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1114\">#1114</a>.</li>
 <li> Dymola 2014 FD01 development with pedantic flag (Windows 64 bit)<br>
      (\"pedantic flag\" means that strict Modelica compliance is checked.
      Dymola 2014 fails with pedantic flag, e.g., because the annotation DocumentationClass
@@ -3649,7 +3649,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
                       of single elements of the relevant vectors<br>
                       (e.g., initialize r_rel_a[2] but not the other elements of r_rel_a;<br>
                       this new component fixes ticket
-                      <a href=\"https://trac.modelica.org/Modelica/ticket/274\">#274</a>) </td></tr>
+                      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/274\">#274</a>) </td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Visualizers.</strong></td></tr>
 <tr><td> Torus </td>
@@ -3680,7 +3680,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
     <td> Visualizing a moveable, parameterized surface;<br>
                       the surface characteristic is provided by a function<br>
                       (this new component fixes ticket
-                       <a href=\"https://trac.modelica.org/Modelica/ticket/181\">#181</a>)</td></tr>
+                       <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/181\">#181</a>)</td></tr>
 <tr><td> PipeWithScalarField </td>
     <td> Visualizing a pipe with a scalar field.</td></tr>
 
@@ -3963,7 +3963,7 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
                       New constant C_nominal introduced to provide nominal values for
                       trace substances (utilized in Modelica.Fluid to avoid numerical problems;
                       this fixes ticket
-                      <a href=\"https://trac.modelica.org/Modelica/ticket/393\">#393</a>).</td>
+                      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/393\">#393</a>).</td>
                       </tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.</strong></td></tr>
@@ -3996,7 +3996,7 @@ that can lead to wrong simulation results):
 <tr><td> BodyBox<br>
                       BodyCylinder </td>
     <td> Fixes ticket
-                      <a href=\"https://trac.modelica.org/Modelica/ticket/373\">#373</a>:
+                      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/373\">#373</a>:
                       The \"Center of Mass\" was calculated as normalize(r)*length/2. This is
                       only correct if the box/cylinder is attached between frame_a and frame_b.
                       If this is not the case, the calculation is wrong.
@@ -4006,7 +4006,7 @@ that can lead to wrong simulation results):
                       BodyBox<br>
                       BodyCylinder </td>
     <td> Fixes ticket
-                      <a href=\"https://trac.modelica.org/Modelica/ticket/300\">#300</a>:
+                      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/300\">#300</a>:
                       If parameter enforceStates=true, an error occurred.
                       This has been fixed.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.Rotational.Components.</strong></td></tr>
@@ -4014,7 +4014,7 @@ that can lead to wrong simulation results):
     <td> In cases where the driving flange is not obvious, the component could
                       lead to a non-convergent event iteration. This has been fixed
                       (a detailed description is provided in ticket
-                      <a href=\"https://trac.modelica.org/Modelica/ticket/108\">#108</a>
+                      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/108\">#108</a>
                       and in the
                       <a href=\"modelica://Modelica/Resources/Documentation/Mechanics/Lossy-Gear-Bug_Solution.pdf\">attachment</a>
                       of this ticket).</td></tr>
@@ -4075,310 +4075,310 @@ have been fixed:
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica</strong></td></tr>
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/155\">#155</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/155\">#155</a></td>
     <td>Wrong usage of \"fillColor\" and \"fillPattern\" annotations for lines</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/211\">#211</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/211\">#211</a></td>
     <td>Undefined function realString used in MSL</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/216\">#216</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/216\">#216</a></td>
     <td>Make MSL version 3.2 more Modelica 3.1 conform</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/218\">#218</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/218\">#218</a></td>
     <td>Replace `Modelica://`-URIs by `modelica://`-URIs</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/271\">#271</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/271\">#271</a></td>
     <td>Documentation URI errors in MSL 3.1</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/292\">#292</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/292\">#292</a></td>
     <td>Remove empty \"\" annotations\"</td>
 </tr>
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/294\">#294</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/294\">#294</a></td>
     <td>Typo 'w.r.t' --> 'w.r.t.'</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/296\">#296</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/296\">#296</a></td>
     <td>Unify disclaimer message and improve bad style \"here\" links</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/333\">#333</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/333\">#333</a></td>
     <td>Fix real number formats of the form `.[0-9]+`</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/347\">#347</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/347\">#347</a></td>
     <td>invalid URI in MSL 3.2</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/355\">#355</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/355\">#355</a></td>
     <td>Non-standard annotations</td>
 </tr>
 
 <tr><td colspan=\"2\"><br><strong>Modelica.Blocks</strong></td></tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/227\">#227</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/227\">#227</a></td>
     <td>Enhance unit deduction functionality by adding 'unit=\"1\"' to some blocks\"</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/349\">#349</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/349\">#349</a></td>
     <td>Incorrect annotation in Blocks/Continuous.mo</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/374\">#374</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/374\">#374</a></td>
     <td>Parameter with no value at all in Modelica.Blocks.Continuous.TransferFunction</td>
 </tr>
 
 <tr><td colspan=\"2\"><br><strong>Modelica.Constants</strong></td></tr>
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/356\">#356</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/356\">#356</a></td>
     <td>Add Euler-Mascheroni constant to Modelica.Constants</td>
 </tr>
 
 <tr><td colspan=\"2\"><br><strong>Modelica.Electrical.Analog</strong></td></tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/346\">#346</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/346\">#346</a></td>
     <td>Multiple text in Modelica.Electrical.Analog.Basic.Conductor</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/363\">#363</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/363\">#363</a></td>
     <td>Mixture of Real and Integer in index expressions in Modelica.Electrical.Analog.Lines</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/384\">#384</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/384\">#384</a></td>
     <td>Incomplete annotations in some examples</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/396\">#396</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/396\">#396</a></td>
     <td>Bug in Modelica.Electrical.Analog.Ideal.ControlledIdealIntermediateSwitch</td>
 </tr>
 
 <tr><td colspan=\"2\"><br><strong>Modelica.Machines</strong></td></tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/276\">#276</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/276\">#276</a></td>
     <td>Improve/fix documentation of Modelica.Electrical.Machines</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/288\">#288</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/288\">#288</a></td>
     <td>Describe thermal concept of machines</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/301\">#301</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/301\">#301</a></td>
     <td>Documentation of Electrical.Machines.Examples needs update</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/306\">#306</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/306\">#306</a></td>
     <td>Merge content of `Modelica.Electrical.Machines.Icons` into `Modelica.Icons`</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/362\">#362</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/362\">#362</a></td>
     <td>Incomplete example model for DC machines</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/375\">#375</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/375\">#375</a></td>
     <td>Strangeness with final parameters with no value but a start value</td>
 </tr>
 
 <tr><td colspan=\"2\"><br><strong>Modelica.Electrical.MultiPhase</strong></td></tr>
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/173\">#173</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/173\">#173</a></td>
     <td>m-phase mutual inductor</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/200\">#200</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/200\">#200</a></td>
     <td>adjust Multiphase to Analog</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/277\">#277</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/277\">#277</a></td>
     <td>Improve/fix documentation of Modelica.Electrical.Multiphase</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/352\">#352</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/352\">#352</a></td>
     <td>Odd annotation in Modelica.Electrical.MultiPhase.Sources.SignalVoltage</td>
 </tr>
 
 <tr><td colspan=\"2\"><br><strong>Modelica.Fluid</strong></td></tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/215\">#215</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/215\">#215</a></td>
     <td>Bug in Modelica.Fluid.Pipes.DynamicPipe</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/219\">#219</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/219\">#219</a></td>
     <td>Fluid.Examples.HeatExchanger: Heat transfer is switched off and cannot be enabled</td>
 </tr>
 
 <tr><td colspan=\"2\"><br><strong>Modelica.Math</strong></td></tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/348\">#348</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/348\">#348</a></td>
     <td>Small error in documentation</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/371\">#371</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/371\">#371</a></td>
     <td>Modelica.Math functions declared as \"C\" not \"builtin\"\"</td>
 </tr>
 
 <tr><td colspan=\"2\"><br><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/50\">#50</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/50\">#50</a></td>
     <td>Error in LineForce handling of potential root</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/71\">#71</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/71\">#71</a></td>
     <td>Make MultiBody.World replaceable</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/181\">#181</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/181\">#181</a></td>
     <td>3d surface visualisation</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/210\">#210</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/210\">#210</a></td>
     <td>Description of internal gear wheel missing</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/242\">#242</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/242\">#242</a></td>
     <td>Missing each qualifier for modifiers in MultiBody.</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/251\">#251</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/251\">#251</a></td>
     <td>Using enforceStates=true for BodyShape causes errors</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/255\">#255</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/255\">#255</a></td>
     <td>Error in Revolute's handling of non-normalized axis of rotations</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/268\">#268</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/268\">#268</a></td>
     <td>Non-standard annotation in MultiBody,Examples.Systems.RobotR3</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/269\">#269</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/269\">#269</a></td>
     <td>What is the purpose of MultiBody.Examples.Systems.RobotR3.Components.InternalConnectors?</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/272\">#272</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/272\">#272</a></td>
     <td>Function World.gravityAcceleration should not be protected</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/274\">#274</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/274\">#274</a></td>
     <td>Convenient and mighty  initialization of frame kinematics</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/286\">#286</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/286\">#286</a></td>
     <td>Typo in Multibody/Frames.mo</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/300\">#300</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/300\">#300</a></td>
     <td>enforceStates parameter managed incorrectly in BodyShape, BodyBox, BodyCylinder</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/320\">#320</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/320\">#320</a></td>
     <td>Replace non-standard annotation by `showStartAttribute`</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/373\">#373</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/373\">#373</a></td>
     <td>Error in Modelica Mechanics</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/389\">#389</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/389\">#389</a></td>
     <td>Shape.rxvisobj wrongly referenced in Arrow/DoubleArrow</td>
 </tr>
 
 <tr><td colspan=\"2\"><br><strong>Modelica.Mechanics.Rotational</strong></td></tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/108\">#108</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/108\">#108</a></td>
     <td>Problem with model \"Lossy Gear\" and approach to a solution</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/278\">#278</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/278\">#278</a></td>
     <td>Improve/fix documentation of Modelica.Mechanics.Rotational</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/381\">#381</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/381\">#381</a></td>
     <td>Bug in Modelica.Mechanics.Rotational.Gearbox</td>
 </tr>
 
 <tr><td colspan=\"2\"><br><strong>Modelica.Mechanics.Translational</strong></td></tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/279\">#279</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/279\">#279</a></td>
     <td>Improve/fix documentation of Modelica.Mechanics.Translational</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/310\">#310</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/310\">#310</a></td>
     <td>Erroneous image links in `Modelica.Mechanics.Translational`</td>
 </tr>
 
 <tr><td colspan=\"2\"><br><strong>Modelica.Media</strong></td></tr>
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/72\">#72</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/72\">#72</a></td>
     <td>PartialMedium functions not provided for all media in  Modelica.Media</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/217\">#217</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/217\">#217</a></td>
     <td>Missing image file Air.png</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/224\">#224</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/224\">#224</a></td>
     <td>dpT calculation in waterBaseProp_dT</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/393\">#393</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/393\">#393</a></td>
     <td>Provide C_nominal in Modelica.Media to allow propagating
                      value and avoid wrong numerical results</td>
 </tr>
@@ -4386,72 +4386,72 @@ have been fixed:
 <tr><td colspan=\"2\"><br><strong>Modelica.StateGraph</strong></td></tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/206\">#206</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/206\">#206</a></td>
     <td>Syntax error in StateGraph.mo</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/261\">#261</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/261\">#261</a></td>
     <td>Modelica.StateGraph should mention the availability of Modelica_StateGraph2</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/354\">#354</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/354\">#354</a></td>
     <td>Bad annotation in Modelica.StateGraph.Temporary.NumericValue</td>
 </tr>
 
 <tr><td colspan=\"2\"><br><strong>Modelica.Thermal.FluidHeatFlow</strong></td></tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/280\">#280</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/280\">#280</a></td>
     <td>Improve/fix documentation of Modelica.Thermal.FluidHeatFlow</td>
 </tr>
 
 <tr><td colspan=\"2\"><br><strong>Modelica.Thermal.HeatTransfer</strong></td></tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/281\">#281</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/281\">#281</a></td>
     <td>Improve/fix documentation of Modelica.Thermal.HeatTransfer</td>
 </tr>
 
 <tr><td colspan=\"2\"><br><strong>Modelica.UsersGuide</strong></td></tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/198\">#198</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/198\">#198</a></td>
     <td>Name of components in MSL not according to naming conventions</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/204\">#204</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/204\">#204</a></td>
     <td>Minor correction to User's Guide's section on version management</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/244\">#244</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/244\">#244</a></td>
     <td>Update the contacts section of the User's Guide</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/267\">#267</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/267\">#267</a></td>
     <td>MSL-Documentation: Shouldn't equations be numbered on the right hand side?</td>
 </tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/299\">#299</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/299\">#299</a></td>
     <td>SVN keyword expansion messed up the User's guide section on version management</td>
 </tr>
 
 <tr><td colspan=\"2\"><br><strong>Modelica.Utilities</strong></td></tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/249\">#249</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/249\">#249</a></td>
     <td>Documentation error in ModelicaUtilities.h</td>
 </tr>
 
 <tr><td colspan=\"2\"><br><strong>ModelicaServices</strong></td></tr>
 
 <tr><td>
-    <a href=\"https://trac.modelica.org/Modelica/ticket/248\">#248</a></td>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/248\">#248</a></td>
     <td>No uses statement on ModelicaServices in MSL 3.1</td>
 </tr>
 

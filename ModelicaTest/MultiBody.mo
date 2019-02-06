@@ -8775,7 +8775,7 @@ often possible to use the FreeMotion joint such that the singularity
                 arrow={Arrow.None,Arrow.Filled})}),
           Documentation(info="<html>
 <p>
-This test model was proposed in ticket <a href=\"https://trac.modelica.org/Modelica/ticket/951\">#951 (comment:4)</a>.
+This test model was proposed in ticket <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/951\">#951 (comment:4)</a>.
 </p>
 </html>"));
       end GearConstraint4;

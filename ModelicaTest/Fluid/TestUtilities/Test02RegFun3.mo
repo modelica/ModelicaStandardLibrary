@@ -1,6 +1,6 @@
 within ModelicaTest.Fluid.TestUtilities;
 model Test02RegFun3
-  "Test case 2 from https://trac.modelica.org/Modelica/ticket/495"
+  "Test case 2 from https://github.com/modelica/ModelicaStandardLibrary/issues/495"
   extends Modelica.Icons.Example;
   Real x;
 
