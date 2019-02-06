@@ -8366,10 +8366,10 @@ conversion(
  noneFromVersion="3.1",
  noneFromVersion="3.0.1",
  noneFromVersion="3.0",
- from(version="2.1", script="modelica://Modelica/Resources/Scripts/Dymola/ConvertModelica_from_2.2.2_to_3.0.mos"),
- from(version="2.2", script="modelica://Modelica/Resources/Scripts/Dymola/ConvertModelica_from_2.2.2_to_3.0.mos"),
- from(version="2.2.1", script="modelica://Modelica/Resources/Scripts/Dymola/ConvertModelica_from_2.2.2_to_3.0.mos"),
- from(version="2.2.2", script="modelica://Modelica/Resources/Scripts/Dymola/ConvertModelica_from_2.2.2_to_3.0.mos")),
+ from(version="2.1", script="modelica://Modelica/Resources/Scripts/Conversion/ConvertModelica_from_2.2.2_to_3.0.mos"),
+ from(version="2.2", script="modelica://Modelica/Resources/Scripts/Conversion/ConvertModelica_from_2.2.2_to_3.0.mos"),
+ from(version="2.2.1", script="modelica://Modelica/Resources/Scripts/Conversion/ConvertModelica_from_2.2.2_to_3.0.mos"),
+ from(version="2.2.2", script="modelica://Modelica/Resources/Scripts/Conversion/ConvertModelica_from_2.2.2_to_3.0.mos")),
 Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
   Polygon(
     origin={-6.9888,20.048},
