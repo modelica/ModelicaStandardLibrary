@@ -1,6 +1,7 @@
 setModelicaPath(".");
 setLanguageStandard("3.3");
 loadModel(ModelicaTest);
+loadModel(ModelicaTestConversion4)
 loadModel(ModelicaTestOverdetermined);
 loadModel(ObsoleteModelica3);
 
@@ -11,7 +12,7 @@ if numError<>0 or numWarning<>0 then
 end if;
 
 names := {typeNameString(cl) for cl in getClassNames(sort=true)};
-b := sum(names) == "ComplexModelicaModelicaServicesModelicaTestModelicaTestOverdeterminedObsoleteModelica3";
+b := sum(names) == "ComplexModelicaModelicaServicesModelicaTestModelicaTestConversion4ModelicaTestOverdeterminedObsoleteModelica3";
 
 if b and numError==0 and numWarning==0 then
   exit(0);
