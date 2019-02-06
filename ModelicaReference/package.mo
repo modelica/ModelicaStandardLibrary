@@ -7015,7 +7015,7 @@ end Icons;
 
 annotation (
   DocumentationClass=true,
-  version="3.2.3",
+  version="4.0.0-dev",
   versionBuild=1,
   versionDate="2019-01-23",
   dateModified = "2019-01-23 12:00:00Z",

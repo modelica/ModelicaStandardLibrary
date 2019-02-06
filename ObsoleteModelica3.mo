@@ -3419,8 +3419,8 @@ to the left and/or the right flange.
       end Gear;
     end Rotational;
   end Mechanics;
-  annotation (uses(Modelica(version="3.2.3")),
-              version="3.2.3",
+  annotation (uses(Modelica(version="4.0.0-dev")),
+              version="4.0.0-dev",
               versionBuild=1,
               versionDate="2019-01-23",
               dateModified = "2019-01-23 12:00:00Z",

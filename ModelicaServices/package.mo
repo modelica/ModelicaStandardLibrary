@@ -211,12 +211,12 @@ Specification (version &ge; 3.3).
 
   annotation (
     preferredView="info",
-    version="3.2.3",
+    version="4.0.0-dev",
     versionBuild=1,
     versionDate="2019-01-23",
     dateModified = "2019-01-23 12:00:00Z",
     revisionId="$Format:%h %ci$",
-    uses(Modelica(version="3.2.3")),
+    uses(Modelica(version="4.0.0-dev")),
     conversion(
       noneFromVersion="1.0",
       noneFromVersion="1.1",
