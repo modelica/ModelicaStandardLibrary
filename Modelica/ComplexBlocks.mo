@@ -2401,7 +2401,7 @@ value of the additional u index:</p>
 
     model ComplexPassThrough
       "Pass a Complex signal through without modification"
-      extends Modelica.Blocks.Interfaces.SISO;
+      extends Modelica.ComplexBlocks.Interfaces.ComplexSISO;
     equation
       y = u;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -2409,7 +2409,7 @@ value of the additional u index:</p>
                 color={0,0,127})}),
                         Documentation(info="<html>
 <p>
-Passes a Complex signal through without modification.  Enables signals to be read out of one bus, have their name changed and be sent back to a bus.
+Passes a Complex signal through without modification. Enables signals to be read out of one bus, have their name changed and be sent back to a bus.
 </p>
 </html>"));
     end ComplexPassThrough;
