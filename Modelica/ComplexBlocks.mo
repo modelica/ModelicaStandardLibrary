@@ -195,7 +195,7 @@ Connector with one output signal of type Complex.
 </html>"));
 
     partial block ComplexSO "Single Output continuous control block"
-      extends Modelica.Blocks.Icons.Block;
+      extends Modelica.ComplexBlocks.Icons.ComplexBlock;
       ComplexOutput y "Connector of Complex output signal" annotation (
           Placement(transformation(extent={{100,-10},{120,10}})));
       annotation (Documentation(info="<html>
@@ -206,7 +206,7 @@ Block has one continuous Complex output signal.
     end ComplexSO;
 
     partial block ComplexMO "Multiple Output continuous control block"
-      extends Modelica.Blocks.Icons.Block;
+      extends Modelica.ComplexBlocks.Icons.ComplexBlock;
       parameter Integer nout(min=1) = 1 "Number of outputs";
       ComplexOutput y[nout] "Connector of Complex output signals" annotation (
           Placement(transformation(extent={{100,-10},{120,10}})));
@@ -219,7 +219,7 @@ Block has one continuous Complex output signal vector.
 
     partial block ComplexSISO
       "Single Input Single Output continuous control block"
-      extends Modelica.Blocks.Icons.Block;
+      extends Modelica.ComplexBlocks.Icons.ComplexBlock;
       ComplexInput u "Connector of Complex input signal" annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}})));
       ComplexOutput y "Connector of Complex output signal" annotation (
@@ -239,7 +239,7 @@ Block has one continuous Complex input and one continuous Complex output signal.
 
     partial block ComplexSI2SO
       "2 Single Input / 1 Single Output continuous control block"
-      extends Modelica.Blocks.Icons.Block;
+      extends Modelica.ComplexBlocks.Icons.ComplexBlock;
       ComplexInput u1 "Connector of Complex input signal 1" annotation (
           Placement(transformation(extent={{-140,40},{-100,80}})));
       ComplexInput u2 "Connector of Complex input signal 2" annotation (
@@ -267,7 +267,7 @@ continuous Complex output signal y.
 
     partial block ComplexSIMO
       "Single Input Multiple Output continuous control block"
-      extends Modelica.Blocks.Icons.Block;
+      extends Modelica.ComplexBlocks.Icons.ComplexBlock;
       parameter Integer nout=1 "Number of outputs";
 
       ComplexInput u "Connector of Complex input signal" annotation (Placement(
@@ -292,7 +292,7 @@ vector of continuous Complex output signals.
 
     partial block ComplexMISO
       "Multiple Input Single Output continuous control block"
-      extends Modelica.Blocks.Icons.Block;
+      extends Modelica.ComplexBlocks.Icons.ComplexBlock;
       parameter Integer nin=1 "Number of inputs";
       ComplexInput u[nin] "Connector of Complex input signals" annotation (
           Placement(transformation(extent={{-140,-20},{-100,20}})));
@@ -316,7 +316,7 @@ one continuous Complex output signal.
 
     partial block ComplexMIMO
       "Multiple Input Multiple Output continuous control block"
-      extends Modelica.Blocks.Icons.Block;
+      extends Modelica.ComplexBlocks.Icons.ComplexBlock;
       parameter Integer nin=1 "Number of inputs";
       parameter Integer nout=1 "Number of outputs";
       ComplexInput u[nin] "Connector of Complex input signals" annotation (
@@ -340,7 +340,7 @@ The signal sizes of the input and output vector may be different.
 
     partial block ComplexMIMOs
       "Multiple Input Multiple Output continuous control block with same number of inputs and outputs"
-      extends Modelica.Blocks.Icons.Block;
+      extends Modelica.ComplexBlocks.Icons.ComplexBlock;
       parameter Integer n=1 "Number of inputs (= number of outputs)";
       ComplexInput u[n] "Connector of Complex input signals" annotation (
           Placement(transformation(extent={{-140,-20},{-100,20}})));
@@ -364,7 +364,7 @@ where the signal sizes of the input and output vector are identical.
 
     partial block ComplexMI2MO
       "2 Multiple Input / Multiple Output continuous control block"
-      extends Modelica.Blocks.Icons.Block;
+      extends Modelica.ComplexBlocks.Icons.ComplexBlock;
       parameter Integer n=1 "Dimension of input and output vectors.";
       ComplexInput u1[n] "Connector 1 of Complex input signals" annotation (
           Placement(transformation(extent={{-140,40},{-100,80}})));
@@ -692,7 +692,7 @@ result in the following equation:
     end Add;
 
     block Add3 "Output the sum of the three inputs"
-      extends Modelica.Blocks.Icons.Block;
+      extends Modelica.ComplexBlocks.Icons.ComplexBlock;
 
       parameter Complex k1=Complex(1, 0) "Gain of upper input";
       parameter Boolean useConjugateInput1=false
@@ -1816,7 +1816,7 @@ An error occurs if the elements of the input <code>u</code> is zero.
     end PolarToComplex;
 
     block ComplexToReal "Converts complex to Cartesian representation"
-      extends Modelica.Blocks.Icons.Block;
+      extends Modelica.ComplexBlocks.Icons.ComplexBlock;
       Blocks.Interfaces.RealOutput re annotation (Placement(transformation(
               extent={{100,40},{140,80}}), iconTransformation(extent={{100,40},
                 {140,80}})));
@@ -1852,7 +1852,7 @@ An error occurs if the elements of the input <code>u</code> is zero.
     end ComplexToReal;
 
     block ComplexToPolar "Converts complex to polar representation"
-      extends Modelica.Blocks.Icons.Block;
+      extends Modelica.ComplexBlocks.Icons.ComplexBlock;
       Blocks.Interfaces.RealOutput len annotation (Placement(transformation(
               extent={{100,40},{140,80}}), iconTransformation(extent={{100,40},
                 {140,80}})));
@@ -2401,7 +2401,7 @@ value of the additional u index:</p>
 
     model ComplexPassThrough
       "Pass a Complex signal through without modification"
-      extends Modelica.Blocks.Interfaces.SISO;
+      extends Modelica.ComplexBlocks.Interfaces.ComplexSISO;
     equation
       y = u;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -2409,7 +2409,7 @@ value of the additional u index:</p>
                 color={0,0,127})}),
                         Documentation(info="<html>
 <p>
-Passes a Complex signal through without modification.  Enables signals to be read out of one bus, have their name changed and be sent back to a bus.
+Passes a Complex signal through without modification. Enables signals to be read out of one bus, have their name changed and be sent back to a bus.
 </p>
 </html>"));
     end ComplexPassThrough;
@@ -2776,6 +2776,29 @@ The output is the decimal power of this logarithmic ramp.
             Line(points={{-70,-56},{-70,68}}, color={135,135,135})}));
     end LogFrequencySweep;
   end Sources;
+  package Icons "Icons for ComplexBlocks"
+    extends Modelica.Icons.IconsPackage;
+    partial block ComplexBlock "Basic graphical layout of Complex input/output block"
+      annotation(
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+              100,100}}), graphics={Rectangle(
+            extent={{-100,-100},{100,100}},
+            lineColor={85,170,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid), Text(
+            extent={{-150,150},{150,110}},
+            textString="%name",
+            lineColor={0,0,255})}),
+      Documentation(info="<html>
+<p>
+Block that has only the basic icon for an Complex input/output
+block (no declarations, no equations). Most blocks
+of package Modelica.ComplexBlocks inherit directly or indirectly
+from this block.
+</p>
+</html>"));
+    end ComplexBlock;
+  end Icons;
   annotation (Documentation(info="<html>
 <p>This library hosts blocks using Complex inputs and outputs.</p>
 <p>It depends on the implementation of Complex.</p>
