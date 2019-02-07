@@ -1,9 +1,5 @@
 // Convert from Modelica 2.2.2 to Modelica 3.0
 
-// clear
-convertClear();
-
-
 // Change references to classes that are removed from Modelica Standard Library
 convertClass("Modelica.Icons.Enumeration",
              "ObsoleteModelica3.Icons.Enumeration")
