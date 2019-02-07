@@ -453,13 +453,13 @@ ideal AC DC converter</a>, which is used in the
     see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2202\">#2202</a></li>
 <li>Added linear multi phase mutual inductor model, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2200\">#2200</a></li>
 <li>Added complex impedance and admittance models of single phase and multi phase package, see ticket
-    <a href=\"https://trac.modelica.org/Modelica/ticket/1870\">#1870</a></li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1870\">#1870</a></li>
 <li>Added magnitude and argument of complex voltages and currents in interface and sensor models, see ticket
-    <a href=\"https://trac.modelica.org/Modelica/ticket/1405\">#1405</a></li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1405\">#1405</a></li>
 <li>Added active, reactive and apparent power and power factor in interface models, see ticket
-    <a href=\"https://trac.modelica.org/Modelica/ticket/1405\">#1405</a></li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1405\">#1405</a></li>
 <li>Added complex single and multi phase impedance and admittance models (ticket
-    <a href=\"https://trac.modelica.org/Modelica/ticket/1367\">#1367</a>)</li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1367\">#1367</a>)</li>
 <li>Updated documentation on temperature dependency of resistance and conductance models</li>
 <li>Rewrote source models to simplify initialization (
     <a href=\"https://trac.modelica.org/Modelica/changeset/7031\">r7031</a>)</li>
