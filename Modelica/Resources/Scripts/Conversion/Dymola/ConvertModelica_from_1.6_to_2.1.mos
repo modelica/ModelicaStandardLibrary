@@ -16,9 +16,6 @@
 //   June 30: Modelica and ModelicaAdditions conversion defined
 //            (for scalar signals the conversion should work)
 //   June 27: first version implemented (by Martin Otter)
-clear
-
-convertClear();
 
 // inPort.signal[1] -> u
 convertElement({"Modelica.Blocks.Interfaces.SISO",

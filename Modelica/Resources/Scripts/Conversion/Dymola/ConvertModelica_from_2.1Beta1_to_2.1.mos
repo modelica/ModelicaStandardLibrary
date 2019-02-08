@@ -1,8 +1,3 @@
-
-clear
-
-convertClear();
-
 convertClass  ("Modelica.Electrical.Analog.Ideal.IdealSwitch",
                "Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch");
 convertElement("Modelica.Electrical.Analog.Ideal.IdealSwitch", "off" , "control");
