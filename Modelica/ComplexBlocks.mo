@@ -652,7 +652,7 @@ result in the following equation:
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(points={{50,0},{100,0}},
               color={0,0,255}),Line(points={{-100,60},{-74,24},{-44,24}}, color=
-               {0,0,127}),Line(points={{-100,-60},{-74,-28},{-42,-28}}, color={
+               {0,0,127}),Line(points={{-100,-60},{-74,-24},{-44,-24}}, color={
               0,0,127}),Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}),
               Line(points={{50,0},{100,0}}, color={0,0,127}),Text(
                   extent={{-40,40},{40,-40}},
@@ -680,7 +680,7 @@ result in the following equation:
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(points={{50,0},{100,0}},
               color={0,0,255}),Line(points={{-100,60},{-74,24},{-44,24}}, color=
-               {0,0,127}),Line(points={{-100,-60},{-74,-28},{-42,-28}}, color={
+               {0,0,127}),Line(points={{-100,-60},{-74,-24},{-44,-24}}, color={
               0,0,127}),Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}),
               Line(points={{50,0},{100,0}}, color={0,0,127}),Text(
                   extent={{-40,40},{40,-40}},
