@@ -638,57 +638,28 @@ result in the following equation:
 
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Text(
-                  extent={{-98,-52},{7,-92}},
-                  textString="%k2"),Text(
-                  extent={{-100,90},{5,50}},
-                  textString="%k1"),   Line(points={{-100,60},{-40,60},{-30,40}},
-              color={0,0,255}),Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,
-              0,255}),Line(points={{-100,-60},{-40,-60},{-30,-40}}, color={0,0,255}),
-              Line(points={{-15,-25.99},{15,25.99}}),
-              Rectangle(
-                  extent={{-100,-100},{100,100}},
-                  lineColor={0,0,127},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Line(points={{50,0},{100,0}},
-              color={0,0,255}),Line(points={{-100,60},{-74,24},{-44,24}}, color=
-               {0,0,127}),Line(points={{-100,-60},{-74,-24},{-44,-24}}, color={
-              0,0,127}),Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}),
-              Line(points={{50,0},{100,0}}, color={0,0,127}),Text(
-                  extent={{-40,40},{40,-40}},
-                  textString="+"),Text(
-                  extent={{-100,52},{5,92}},
-                  textString="%k1"),Text(
-                  extent={{-100,-52},{5,-92}},
-                  textString="%k2")}),
+                100,100}}), graphics={Text(extent={{-98,-52},{5,-92}},
+                textString="%k2"), Text(extent={{-98,92},{5,52}}, textString="%k1"),
+                Line(points={{50,0},{100,0}},color={0,0,255}),
+                Line(points={{-100,60},{-74,24},{-44,24}},color={0,0,127}),
+                Line(points={{-100,-60},{-74,-24},{-44,-24}},color={0,0,127}),
+                Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}),
+                Line(points={{50,0},{100,0}}, color={0,0,127}),
+                Text(extent={{-40,40},{40,-40}},textString="+")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Rectangle(
                   extent={{-100,-100},{100,100}},
                   lineColor={0,0,255},
                   fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-98,-52},{7,-92}},
-                  textString="%k2"),Text(
-                  extent={{-100,90},{5,50}},
-                  textString="%k1"),Line(points={{-100,60},{-40,60},{-30,40}},
-              color={0,0,255}),Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,
-              0,255}),Line(points={{-100,-60},{-40,-60},{-30,-40}}, color={0,0,255}),
-              Line(points={{-15,-25.99},{15,25.99}}),
-              Rectangle(
-                  extent={{-100,-100},{100,100}},
-                  lineColor={0,0,127},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Line(points={{50,0},{100,0}},
-              color={0,0,255}),Line(points={{-100,60},{-74,24},{-44,24}}, color=
-               {0,0,127}),Line(points={{-100,-60},{-74,-24},{-44,-24}}, color={
-              0,0,127}),Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}),
-              Line(points={{50,0},{100,0}}, color={0,0,127}),Text(
-                  extent={{-40,40},{40,-40}},
-                  textString="+"),Text(
-                  extent={{-100,52},{5,92}},
-                  textString="k1"),Text(
-                  extent={{-100,-52},{5,-92}},
-                  textString="k2")}));
+                  fillPattern=FillPattern.Solid),
+                  Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,255}),
+                  Line(points={{50,0},{100,0}},color={0,0,255}),
+                  Line(points={{-100,60},{-74,24},{-44,24}},color={0,0,255}),
+                  Line(points={{-100,-60},{-74,-24},{-44,-24}}, color={0,0,255}),
+                  Line(points={{50,0},{100,0}},color={0,0,255}),
+                  Text(extent={{-40,40},{40,-40}},textString="+"),
+                  Text(extent={{-100,52},{5,92}}, textString="k1"),
+                  Text(extent={{-100,-52},{5,-92}}, textString="k2")}));
     end Add;
 
     block Add3 "Output the sum of the three inputs"
@@ -750,41 +721,20 @@ three input signals <code>u1</code>, <code>u2</code> and <code>u3</code>. Option
 
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Text(
-                  extent={{-100,50},{5,90}},
-                  textString="%k1"),Text(
-                  extent={{-100,-20},{5,20}},
-                  textString="%k2"),Text(
-                  extent={{-100,-50},{5,-90}},
-                  textString="%k3"),Text(
-                  extent={{10,40},{90,-40}},
-                  textString="+")}),
+                100,100}}), graphics={Text(extent={{-98,50},{5,90}}, textString="%k1"),
+                Text(extent={{-98,-20},{5,20}}, textString="%k2"),
+                Text(extent={{-98,-50},{5,-90}}, textString="%k3"),
+                Text(extent={{10,40},{90,-40}}, textString="+")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Rectangle(
                   extent={{-100,-100},{100,100}},
                   lineColor={0,0,255},
                   fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-100,50},{5,90}},
-                  textString="%k1"),Text(
-                  extent={{-100,-20},{5,20}},
-                  textString="%k2"),Text(
-                  extent={{-100,-50},{5,-90}},
-                  textString="%k3"),Text(
-                  extent={{2,36},{100,-44}},
-                  textString="+"),Rectangle(
-                  extent={{-100,-100},{100,100}},
-                  lineColor={0,0,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-100,50},{5,90}},
-                  textString="k1"),Text(
-                  extent={{-100,-20},{5,20}},
-                  textString="k2"),Text(
-                  extent={{-100,-50},{5,-90}},
-                  textString="k3"),Text(
-                  extent={{10,40},{90,-40}},
-                  textString="+")}));
+                  fillPattern=FillPattern.Solid),
+                  Text(extent={{10,40},{90,-40}}, textString="+"),
+                  Text(extent={{-100,50},{5,90}}, textString="k1"),
+                  Text(extent={{-100,-20},{5,20}}, textString="k2"),
+                  Text(extent={{-100,-50},{5,-90}}, textString="k3")}));
     end Add3;
 
     block Product "Output product of the two inputs"
