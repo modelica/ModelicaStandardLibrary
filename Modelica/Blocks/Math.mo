@@ -1094,8 +1094,8 @@ by <em>dividing</em> the two inputs <strong>u1</strong> and <strong>u2</strong>:
           Ellipse(fillPattern=FillPattern.Solid, extent={{-5,20},{5,30}}),
           Ellipse(fillPattern=FillPattern.Solid, extent={{-5,-30},{5,-20}}),
           Ellipse(lineColor={0,0,127}, extent={{-50,-50},{50,50}}),
-          Line(points={{-100,60},{-66,60},{-40,30}}, color={0,0,127}),
-          Line(points={{-100,-60},{0,-60},{0,-50}}, color={0,0,127}),
+          Line(points={{-100,60},{-40,60},{-30,40}}, color={0,0,127}),
+          Line(points={{-100,-60},{-40,-60},{-30,-40}}, color={0,0,127}),
           Text(
             extent={{-60,94},{90,54}},
             lineColor={128,128,128},
@@ -1112,8 +1112,8 @@ by <em>dividing</em> the two inputs <strong>u1</strong> and <strong>u2</strong>:
               fillPattern=FillPattern.Solid),Ellipse(
               extent={{-5,-20},{5,-30}},
               fillPattern=FillPattern.Solid),Ellipse(extent={{-50,50},{50,-50}},
-            lineColor={0,0,255}),Line(points={{-100,60},{-66,60},{-40,30}},
-            color={0,0,255}),Line(points={{-100,-60},{0,-60},{0,-50}}, color={0,
+            lineColor={0,0,255}),Line(points={{-100,60},{-40,60},{-30,40}},
+            color={0,0,255}),Line(points={{-100,-60},{-40,-60},{-30,-40}},color={0,
             0,255})}));
   end Division;
 

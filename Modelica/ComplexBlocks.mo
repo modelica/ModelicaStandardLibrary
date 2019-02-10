@@ -859,8 +859,8 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
                   extent={{-5,-20},{5,-30}},
                   fillPattern=FillPattern.Solid),Ellipse(extent={{-50,50},{50,-50}},
                 lineColor={0,0,127}),
-              Line(points={{-100,60},{-66,60},{-40,30}},
-              color={0,0,127}),Line(points={{-100,-60},{0,-60},{0,-50}}, color=
+              Line(points={{-100,60},{-40,60},{-30,40}},
+              color={0,0,127}),Line(points={{-100,-60},{-40,-60},{-30,-40}}, color=
               {0,0,127}),
             Text(
               extent={{-60,94},{90,54}},
@@ -878,8 +878,8 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
                   fillPattern=FillPattern.Solid),Ellipse(
                   extent={{-5,-20},{5,-30}},
                   fillPattern=FillPattern.Solid),Ellipse(extent={{-50,50},{50,-50}},
-              lineColor={0,0,255}),Line(points={{-100,60},{-66,60},{-40,30}},
-              color={0,0,255}),Line(points={{-100,-60},{0,-60},{0,-50}}, color=
+              lineColor={0,0,255}),Line(points={{-100,60},{-40,60},{-30,40}},
+              color={0,0,255}),Line(points={{-100,-60},{-40,-60},{-30,-40}},color=
               {0,0,255})}));
     end Division;
 
