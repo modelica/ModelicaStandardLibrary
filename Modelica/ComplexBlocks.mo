@@ -655,7 +655,7 @@ result in the following equation:
                {0,0,127}),Line(points={{-100,-60},{-74,-28},{-42,-28}}, color={
               0,0,127}),Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}),
               Line(points={{50,0},{100,0}}, color={0,0,127}),Text(
-                  extent={{-38,34},{38,-34}},
+                  extent={{-40,40},{40,-40}},
                   textString="+"),Text(
                   extent={{-100,52},{5,92}},
                   textString="%k1"),Text(
@@ -683,7 +683,7 @@ result in the following equation:
                {0,0,127}),Line(points={{-100,-60},{-74,-28},{-42,-28}}, color={
               0,0,127}),Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}),
               Line(points={{50,0},{100,0}}, color={0,0,127}),Text(
-                  extent={{-38,34},{38,-34}},
+                  extent={{-40,40},{40,-40}},
                   textString="+"),Text(
                   extent={{-100,52},{5,92}},
                   textString="k1"),Text(
@@ -757,7 +757,7 @@ three input signals <code>u1</code>, <code>u2</code> and <code>u3</code>. Option
                   textString="%k2"),Text(
                   extent={{-100,-50},{5,-90}},
                   textString="%k3"),Text(
-                  extent={{2,36},{100,-44}},
+                  extent={{10,40},{90,-40}},
                   textString="+")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Rectangle(
@@ -783,7 +783,7 @@ three input signals <code>u1</code>, <code>u2</code> and <code>u3</code>. Option
                   textString="k2"),Text(
                   extent={{-100,-50},{5,-90}},
                   textString="k3"),Text(
-                  extent={{2,36},{100,-44}},
+                  extent={{10,40},{90,-40}},
                   textString="+")}));
     end Add3;
 
