@@ -1888,19 +1888,20 @@ An error occurs if the elements of the input <code>u</code> is zero.
     end ComplexToPolar;
 
     block Bode "Calculate quantities to plot Bode diagram"
+      extends Modelica.ComplexBlocks.Icons.ComplexBlock;
       parameter Boolean useDivisor = true "Use divisor input, if true" annotation(Evaluate = true, HideResult = true, choices(  checkBox = true));
       constant Modelica.SIunits.AmplitudeLevelDifference dB = 20 "Amplitude level difference";
       Interfaces.ComplexInput u "Dividend if useDivisor == true" annotation (Placement(transformation(extent={{-140,40},{-100,80}}),   iconTransformation(extent={{-140,40},{-100,80}})));
       Interfaces.ComplexInput divisor if useDivisor "Divisor" annotation (Placement(transformation(extent={{-140,-80},{-100,-40}}), iconTransformation(extent={{-140,-80},{-100,-40}})));
       Blocks.Interfaces.RealOutput abs_y "Absolute value of ratio u / divisor" annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={-60,-110}),                                                                              iconTransformation(
+            origin={-60,-110}), iconTransformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-60,-110})));
       Blocks.Interfaces.RealOutput arg_y(unit="rad") "Angle of ratio u / divisor" annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={60,-110}),                                                                                iconTransformation(
+            origin={60,-110}), iconTransformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={60,-110})));
@@ -1937,11 +1938,7 @@ An error occurs if the elements of the input <code>u</code> is zero.
       connect(gain.y, dB_y) annotation (Line(points={{31,-70},{40,-70},{40,-90},{0,-90},{0,-110}},color={0,0,127}));
       connect(limiter.y, log10_y.u) annotation (Line(points={{-29,-70},{-22,-70}}, color={0,0,127}));
       connect(complexToPolar.len, limiter.u) annotation (Line(points={{-6,-32},{-6,-40},{-60,-40},{-60,-70},{-52,-70}}, color={0,0,127}));
-      annotation (Icon(graphics={Rectangle(
-            extent={{-100,-100},{100,100}},
-            lineColor={0,0,127},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+      annotation (Icon(graphics={
             Line(points={{-78,44},{80,44}}, color={135,135,135}),
             Line(points={{-78,34},{80,34}}, color={135,135,135}),
             Line(points={{-78,20},{80,20}}, color={135,135,135}),
