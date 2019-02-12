@@ -54,13 +54,13 @@
 #define MATIO_MINOR_VERSION 5
 
 /* Matio release level number */
-#define MATIO_RELEASE_LEVEL 12
+#define MATIO_RELEASE_LEVEL 13
 
 /* Matio version number */
-#define MATIO_VERSION 1512
+#define MATIO_VERSION 1513
 
 /* Matio version string */
-#define MATIO_VERSION_STR "1.5.12"
+#define MATIO_VERSION_STR "1.5.13"
 
 /* Default file format */
 #define MAT_FT_DEFAULT MAT_FT_MAT5
@@ -132,6 +132,27 @@ typedef uint8_t mat_uint8_t;
 #endif
 #endif
 #define mat_uint8_t unsigned char
+#endif
+
+/*
+  The following macros handle format attributes for type-checks against a
+  format string.
+*/
+
+#if defined(__GNUC__) && __GNUC__ >= 3
+#define MATIO_FORMATATTR_PRINTF1 __attribute__((format(printf, 1, 2)))
+#define MATIO_FORMATATTR_VPRINTF __attribute__((format(printf, 1, 0)))
+#elif defined(__clang__)
+#if __has_attribute(format)
+#define MATIO_FORMATATTR_PRINTF1 __attribute__((format(printf, 1, 2)))
+#define MATIO_FORMATATTR_VPRINTF __attribute__((format(printf, 1, 0)))
+#else
+#define MATIO_FORMATATTR_PRINTF1
+#define MATIO_FORMATATTR_VPRINTF
+#endif
+#else
+#define MATIO_FORMATATTR_PRINTF1
+#define MATIO_FORMATATTR_VPRINTF
 #endif
 
 #endif /* MATIO_PUBCONF_H */
@@ -326,10 +347,10 @@ typedef struct mat_sparse_t {
 MATIO_EXTERN void Mat_GetLibraryVersion(int *major,int *minor,int *release);
 
 /* io.c */
-MATIO_EXTERN char  *strdup_vprintf(const char *format, va_list ap);
-MATIO_EXTERN char  *strdup_printf(const char *format, ...);
-MATIO_EXTERN void   Mat_Critical( const char *format, ... );
-MATIO_EXTERN void   Mat_Warning( const char *format, ... );
+MATIO_EXTERN char  *strdup_vprintf(const char *format, va_list ap) MATIO_FORMATATTR_VPRINTF;
+MATIO_EXTERN char  *strdup_printf(const char *format, ...) MATIO_FORMATATTR_PRINTF1;
+MATIO_EXTERN void   Mat_Critical(const char *format, ...) MATIO_FORMATATTR_PRINTF1;
+MATIO_EXTERN void   Mat_Warning(const char *format, ...) MATIO_FORMATATTR_PRINTF1;
 MATIO_EXTERN size_t Mat_SizeOf(enum matio_types data_type);
 MATIO_EXTERN size_t Mat_SizeOfClass(int class_type);
 
