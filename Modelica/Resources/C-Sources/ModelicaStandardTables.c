@@ -215,6 +215,11 @@ enum TableSource {
     TABLESOURCE_FUNCTION_TRANSPOSE
 };
 
+enum CleanUp {
+    NO_CLEANUP = 0,
+    DO_CLEANUP
+};
+
 /* ----- Internal table memory ----- */
 
 /* 3 (of 4) 1D cubic Hermite spline coefficients (per interval) */
@@ -455,15 +460,15 @@ static int isValidName(_In_z_ const char* name) MODELICA_NONNULLATTR;
   /* Check, whether a file or table name is valid */
 
 static int isValidCombiTimeTable(CombiTimeTable* tableID,
-                                 _In_z_ const char* tableName, int cleanUp);
+                                 _In_z_ const char* tableName, enum CleanUp cleanUp);
   /* Check, whether a CombiTimeTable is well parameterized */
 
 static int isValidCombiTable1D(CombiTable1D* tableID,
-                               _In_z_ const char* tableName, int cleanUp);
+                               _In_z_ const char* tableName, enum CleanUp cleanUp);
   /* Check, whether a CombiTable1D is well parameterized */
 
 static int isValidCombiTable2D(CombiTable2D* tableID,
-                               _In_z_ const char* tableName, int cleanUp);
+                               _In_z_ const char* tableName, enum CleanUp cleanUp);
   /* Check, whether a CombiTable2D is well parameterized */
 
 static enum TableSource getTableSource(_In_z_ const char* fileName,
@@ -715,9 +720,7 @@ void* ModelicaStandardTables_CombiTimeTable_init2(_In_z_ const char* fileName,
         }
     }
 
-    if (isValidCombiTimeTable(tableID, tableName,
-        1 /* Clean up if called from constructor */) == 0) {
-        /* ModelicaStandardTables_CombiTimeTable_close(tableID); */
+    if (isValidCombiTimeTable(tableID, tableName, DO_CLEANUP) == 0) {
         return NULL;
     }
 
@@ -1666,8 +1669,7 @@ double ModelicaStandardTables_CombiTimeTable_read(void* _tableID, int force,
             if (NULL == tableID->table) {
                 return 0.; /* Error */
             }
-            if (isValidCombiTimeTable(tableID, tableName,
-                0 /* No clean up */) == 0) {
+            if (isValidCombiTimeTable(tableID, tableName, NO_CLEANUP) == 0) {
                 return 0.; /* Error */
             }
             if (tableID->nRow <= 2) {
@@ -1876,9 +1878,7 @@ void* ModelicaStandardTables_CombiTable1D_init2(_In_z_ const char* fileName,
         }
     }
 
-    if (isValidCombiTable1D(tableID, tableName,
-        1 /* Clean up if called from constructor */) == 0) {
-        /* ModelicaStandardTables_CombiTable1D_close(tableID); */
+    if (isValidCombiTable1D(tableID, tableName, DO_CLEANUP) == 0) {
         return NULL;
     }
 
@@ -2304,8 +2304,7 @@ double ModelicaStandardTables_CombiTable1D_read(void* _tableID, int force,
             if (NULL == tableID->table) {
                 return 0.; /* Error */
             }
-            if (isValidCombiTable1D(tableID, tableName,
-                0 /* No clean up */) == 0) {
+            if (isValidCombiTable1D(tableID, tableName, NO_CLEANUP) == 0) {
                 return 0.; /* Error */
             }
             if (tableID->nRow <= 2) {
@@ -2496,9 +2495,7 @@ void* ModelicaStandardTables_CombiTable2D_init2(_In_z_ const char* fileName,
             return NULL;
     }
 
-    if (isValidCombiTable2D(tableID, tableName,
-        1 /* Clean up if called from constructor */) == 0) {
-        /* ModelicaStandardTables_CombiTable2D_close(tableID); */
+    if (isValidCombiTable2D(tableID, tableName, DO_CLEANUP) == 0) {
         return NULL;
     }
 
@@ -4484,8 +4481,7 @@ double ModelicaStandardTables_CombiTable2D_read(void* _tableID, int force,
             if (NULL == tableID->table) {
                 return 0.; /* Error */
             }
-            if (isValidCombiTable2D(tableID, tableName,
-                0 /* No clean up */) == 0) {
+            if (isValidCombiTable2D(tableID, tableName, NO_CLEANUP) == 0) {
                 return 0.; /* Error */
             }
             if (tableID->smoothness == AKIMA_C1 &&
@@ -4595,7 +4591,7 @@ static int isValidName(_In_z_ const char* name) {
 }
 
 static int isValidCombiTimeTable(CombiTimeTable* tableID,
-                                 _In_z_ const char* _tableName, int cleanUp) {
+                                 _In_z_ const char* _tableName, enum CleanUp cleanUp) {
     int isValid = 1;
     if (NULL != tableID) {
         const size_t nRow = tableID->nRow;
@@ -4606,7 +4602,7 @@ static int isValidCombiTimeTable(CombiTimeTable* tableID,
 
         /* Check dimensions */
         if (nRow < 1 || nCol < 2) {
-            if (1 == cleanUp) {
+            if (DO_CLEANUP == cleanUp) {
                 ModelicaStandardTables_CombiTimeTable_close(tableID);
             }
             ModelicaFormatError(
@@ -4621,7 +4617,7 @@ static int isValidCombiTimeTable(CombiTimeTable* tableID,
         for (iCol = 0; iCol < tableID->nCols; ++iCol) {
             const size_t col = (size_t)tableID->cols[iCol];
             if (col < 1 || col > tableID->nCol) {
-                if (1 == cleanUp) {
+                if (DO_CLEANUP == cleanUp) {
                     ModelicaStandardTables_CombiTimeTable_close(tableID);
                 }
                 ModelicaFormatError("The column index %d is out of range "
@@ -4638,7 +4634,7 @@ static int isValidCombiTimeTable(CombiTimeTable* tableID,
                 const double tMax = TABLE_COL0(nRow - 1);
                 const double T = tMax - tMin;
                 if (T <= 0) {
-                    if (1 == cleanUp) {
+                    if (DO_CLEANUP == cleanUp) {
                         ModelicaStandardTables_CombiTimeTable_close(tableID);
                     }
                     ModelicaFormatError(
@@ -4660,7 +4656,7 @@ static int isValidCombiTimeTable(CombiTimeTable* tableID,
                     double t0 = TABLE_COL0(i);
                     double t1 = TABLE_COL0(i + 1);
                     if (t0 >= t1) {
-                        if (1 == cleanUp) {
+                        if (DO_CLEANUP == cleanUp) {
                             ModelicaStandardTables_CombiTimeTable_close(tableID);
                         }
                         ModelicaFormatError(
@@ -4680,7 +4676,7 @@ static int isValidCombiTimeTable(CombiTimeTable* tableID,
                     double t0 = TABLE_COL0(i);
                     double t1 = TABLE_COL0(i + 1);
                     if (t0 > t1) {
-                        if (1 == cleanUp) {
+                        if (DO_CLEANUP == cleanUp) {
                             ModelicaStandardTables_CombiTimeTable_close(tableID);
                         }
                         ModelicaFormatError(
@@ -4702,7 +4698,7 @@ static int isValidCombiTimeTable(CombiTimeTable* tableID,
 }
 
 static int isValidCombiTable1D(CombiTable1D* tableID,
-                               _In_z_ const char* _tableName, int cleanUp) {
+                               _In_z_ const char* _tableName, enum CleanUp cleanUp) {
     int isValid = 1;
     if (NULL != tableID) {
         const size_t nRow = tableID->nRow;
@@ -4713,7 +4709,7 @@ static int isValidCombiTable1D(CombiTable1D* tableID,
 
         /* Check dimensions */
         if (nRow < 1 || nCol < 2) {
-            if (1 == cleanUp) {
+            if (DO_CLEANUP == cleanUp) {
                 ModelicaStandardTables_CombiTable1D_close(tableID);
             }
             ModelicaFormatError(
@@ -4728,7 +4724,7 @@ static int isValidCombiTable1D(CombiTable1D* tableID,
         for (iCol = 0; iCol < tableID->nCols; ++iCol) {
             const size_t col = (size_t)tableID->cols[iCol];
             if (col < 1 || col > tableID->nCol) {
-                if (1 == cleanUp) {
+                if (DO_CLEANUP == cleanUp) {
                     ModelicaStandardTables_CombiTable1D_close(tableID);
                 }
                 ModelicaFormatError("The column index %d is out of range "
@@ -4745,7 +4741,7 @@ static int isValidCombiTable1D(CombiTable1D* tableID,
                 double x0 = TABLE_COL0(i);
                 double x1 = TABLE_COL0(i + 1);
                 if (x0 >= x1) {
-                    if (1 == cleanUp) {
+                    if (DO_CLEANUP == cleanUp) {
                         ModelicaStandardTables_CombiTable1D_close(tableID);
                     }
                     ModelicaFormatError(
@@ -4765,7 +4761,7 @@ static int isValidCombiTable1D(CombiTable1D* tableID,
 }
 
 static int isValidCombiTable2D(CombiTable2D* tableID,
-                               _In_z_ const char* _tableName, int cleanUp) {
+                               _In_z_ const char* _tableName, enum CleanUp cleanUp) {
     int isValid = 1;
     if (NULL != tableID) {
         const size_t nRow = tableID->nRow;
@@ -4775,7 +4771,7 @@ static int isValidCombiTable2D(CombiTable2D* tableID,
 
         /* Check dimensions */
         if (nRow < 2 || nCol < 2) {
-            if (1 == cleanUp) {
+            if (DO_CLEANUP == cleanUp) {
                 ModelicaStandardTables_CombiTable2D_close(tableID);
             }
             ModelicaFormatError(
@@ -4794,7 +4790,7 @@ static int isValidCombiTable2D(CombiTable2D* tableID,
                 double x0 = TABLE_COL0(i);
                 double x1 = TABLE_COL0(i + 1);
                 if (x0 >= x1) {
-                    if (1 == cleanUp) {
+                    if (DO_CLEANUP == cleanUp) {
                         ModelicaStandardTables_CombiTable2D_close(tableID);
                     }
                     ModelicaFormatError(
@@ -4813,7 +4809,7 @@ static int isValidCombiTable2D(CombiTable2D* tableID,
                 double y0 = TABLE_ROW0(i);
                 double y1 = TABLE_ROW0(i + 1);
                 if (y0 >= y1) {
-                    if (1 == cleanUp) {
+                    if (DO_CLEANUP == cleanUp) {
                         ModelicaStandardTables_CombiTable2D_close(tableID);
                     }
                     ModelicaFormatError(
