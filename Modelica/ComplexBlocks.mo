@@ -1987,8 +1987,8 @@ An error occurs if the elements of the input <code>u</code> is zero.
               lineThickness=0.5,
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid,
-              lineColor={128,128,128},
-              textString="angle"),
+              textString="∠",
+              lineColor={128,128,128}),
             Text(
               visible = useDivisor,
               extent={{-56,94},{94,54}},

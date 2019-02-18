@@ -2580,7 +2580,7 @@ This sensor can be used to measure the complex magnetic flux <code>Phi</code> of
         annotation (Icon(coordinateSystem(
                 preserveAspectRatio=false), graphics={
                                         Text(extent={{-29,-11},{30,-70}},
-                textString="mu")}), Diagram(
+                textString="μ")}), Diagram(
               coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>
@@ -2633,7 +2633,7 @@ This sensor is used to determined the effective fundamental wave permeability of
                 extent={{60,-60},{-60,60}},
                 fillColor={255,170,85},
                 fillPattern=FillPattern.Solid,
-                textString="mu")}),
+                textString="μ")}),
         Documentation(info="<html>
 <p>This model determines the absolute and relative permeability from two real inputs:</p>
 <ul>
