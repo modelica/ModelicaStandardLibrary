@@ -802,18 +802,20 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
 
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(points={{50,0},{100,0}}, color={0,0,127}),
+                100,100}}), graphics={
+              Line(points={{-100,60},{-60,60},{0,0}}, color={0,0,127}),
+              Line(points={{-100,-60},{-60,-60},{0,0}}, color={0,0,127}),
+              Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Line(points={{50,0},{100,0}}, color={0,0,127}),
               Line(points={{-30,0},{30,0}}),Ellipse(
                   extent={{-5,20},{5,30}},
                   fillPattern=FillPattern.Solid),Ellipse(
                   extent={{-5,-20},{5,-30}},
-                  fillPattern=FillPattern.Solid),Ellipse(extent={{-50,50},{50,-50}},
-                lineColor={0,0,127}),
-              Line(points={{-100,60},{-40,60},{-30,40}},
-              color={0,0,127}),Line(points={{-100,-60},{-40,-60},{-30,-40}}, color=
-              {0,0,127}),
+                  fillPattern=FillPattern.Solid),
             Text(
-              extent={{-60,94},{90,54}},
+              extent={{-60,90},{90,50}},
               lineColor={128,128,128},
               textString="u1 / u2")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},

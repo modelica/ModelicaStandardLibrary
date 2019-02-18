@@ -1089,15 +1089,17 @@ by <em>dividing</em> the two inputs <strong>u1</strong> and <strong>u2</strong>:
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
+          Line(points={{-100,60},{-60,60},{0,0}}, color={0,0,127}),
+          Line(points={{-100,-60},{-60,-60},{0,0}}, color={0,0,127}),
+          Ellipse(lineColor={0,0,127}, extent={{-50,-50},{50,50}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Line(points={{50,0},{100,0}}, color={0,0,127}),
           Line(points={{-30,0},{30,0}}),
           Ellipse(fillPattern=FillPattern.Solid, extent={{-5,20},{5,30}}),
           Ellipse(fillPattern=FillPattern.Solid, extent={{-5,-30},{5,-20}}),
-          Ellipse(lineColor={0,0,127}, extent={{-50,-50},{50,50}}),
-          Line(points={{-100,60},{-40,60},{-30,40}}, color={0,0,127}),
-          Line(points={{-100,-60},{-40,-60},{-30,-40}}, color={0,0,127}),
           Text(
-            extent={{-60,94},{90,54}},
+            extent={{-60,90},{90,50}},
             lineColor={128,128,128},
             textString="u1 / u2")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
