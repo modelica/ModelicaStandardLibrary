@@ -9,7 +9,7 @@ package Types "Common types for fluid models"
       final quantity="HydraulicResistance",
       final unit="Pa.s/kg") "Real type for hydraulic resistance";
 
-  type Roughness = Modelica.Icons.TypeReal (final quantity="Length", final unit="m", displayUnit="mm")
+  type Roughness = Modelica.Icons.TypeReal (final quantity="Length", final unit="m", displayUnit="mm", min=0)
     "Real type for roughness of a pipe"
     annotation (Documentation(info="<html>
 <p>
