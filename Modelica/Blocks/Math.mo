@@ -938,10 +938,10 @@ Example:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-100,60},{-74,24},{-44,24}}, color={0,0,127}),
-          Line(points={{-100,-60},{-74,-28},{-42,-28}}, color={0,0,127}),
+          Line(points={{-100,-60},{-74,-24},{-44,-24}}, color={0,0,127}),
           Ellipse(lineColor={0,0,127}, extent={{-50,-50},{50,50}}),
           Line(points={{50,0},{100,0}}, color={0,0,127}),
-          Text(extent={{-38,-34},{38,34}}, textString="+"),
+          Text(extent={{-40,40},{40,-40}}, textString="+"),
           Text(extent={{-100,52},{5,92}}, textString="%k1"),
           Text(extent={{-100,-92},{5,-52}}, textString="%k2")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -951,10 +951,10 @@ Example:
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Line(points={{50,0},{100,0}},
             color={0,0,255}),Line(points={{-100,60},{-74,24},{-44,24}}, color={
-            0,0,127}),Line(points={{-100,-60},{-74,-28},{-42,-28}}, color={0,0,127}),
+            0,0,127}),Line(points={{-100,-60},{-74,-24},{-44,-24}}, color={0,0,127}),
             Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}),Line(
             points={{50,0},{100,0}}, color={0,0,127}),Text(
-              extent={{-36,38},{40,-30}},
+              extent={{-40,40},{40,-40}},
               textString="+"),Text(
               extent={{-100,52},{5,92}},
               textString="k1"),Text(
@@ -1012,7 +1012,7 @@ Example:
             extent={{-100,-50},{5,-90}},
             textString="%k3"),
           Text(
-            extent={{2,36},{100,-44}},
+            extent={{10,40},{90,-40}},
             textString="+")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
@@ -1026,7 +1026,7 @@ Example:
               textString="k2"),Text(
               extent={{-100,-50},{5,-90}},
               textString="k3"),Text(
-              extent={{2,46},{100,-34}},
+              extent={{10,40},{90,-40}},
               textString="+")}));
   end Add3;
 
@@ -1089,15 +1089,17 @@ by <em>dividing</em> the two inputs <strong>u1</strong> and <strong>u2</strong>:
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
+          Line(points={{-100,60},{-60,60},{0,0}}, color={0,0,127}),
+          Line(points={{-100,-60},{-60,-60},{0,0}}, color={0,0,127}),
+          Ellipse(lineColor={0,0,127}, extent={{-50,-50},{50,50}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Line(points={{50,0},{100,0}}, color={0,0,127}),
           Line(points={{-30,0},{30,0}}),
           Ellipse(fillPattern=FillPattern.Solid, extent={{-5,20},{5,30}}),
           Ellipse(fillPattern=FillPattern.Solid, extent={{-5,-30},{5,-20}}),
-          Ellipse(lineColor={0,0,127}, extent={{-50,-50},{50,50}}),
-          Line(points={{-100,60},{-66,60},{-40,30}}, color={0,0,127}),
-          Line(points={{-100,-60},{0,-60},{0,-50}}, color={0,0,127}),
           Text(
-            extent={{-60,94},{90,54}},
+            extent={{-60,90},{90,50}},
             lineColor={128,128,128},
             textString="u1 / u2")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -1112,8 +1114,8 @@ by <em>dividing</em> the two inputs <strong>u1</strong> and <strong>u2</strong>:
               fillPattern=FillPattern.Solid),Ellipse(
               extent={{-5,-20},{5,-30}},
               fillPattern=FillPattern.Solid),Ellipse(extent={{-50,50},{50,-50}},
-            lineColor={0,0,255}),Line(points={{-100,60},{-66,60},{-40,30}},
-            color={0,0,255}),Line(points={{-100,-60},{0,-60},{0,-50}}, color={0,
+            lineColor={0,0,255}),Line(points={{-100,60},{-40,60},{-30,40}},
+            color={0,0,255}),Line(points={{-100,-60},{-40,-60},{-30,-40}},color={0,
             0,255})}));
   end Division;
 
