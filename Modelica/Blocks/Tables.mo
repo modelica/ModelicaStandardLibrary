@@ -673,9 +673,6 @@ Example:
 </pre></li>
 <li>If the table has only <strong>one element</strong>, the table value is returned,
     independent of the value of the input signal.</li>
-<li>If the input signal <strong>u1</strong> or <strong>u2</strong> is <strong>outside</strong> of the defined
-    <strong>interval</strong>, the corresponding value is also determined by linear
-    interpolation through the last or first two points of the table.</li>
 <li>The grid values (first column and first row) have to be strictly
     increasing.</li>
 </ul>
@@ -856,9 +853,6 @@ Example:
 </pre></li>
 <li>If the table has only <strong>one element</strong>, the table value is returned,
     independent of the value of the input signal.</li>
-<li>If the input signal <strong>u1</strong> or <strong>u2</strong> is <strong>outside</strong> of the defined
-    <strong>interval</strong>, the corresponding value is also determined by linear
-    interpolation through the last or first two points of the table.</li>
 <li>The grid values (first column and first row) have to be strictly
     increasing.</li>
 </ul>
