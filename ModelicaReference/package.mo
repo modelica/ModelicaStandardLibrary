@@ -871,9 +871,12 @@ Evaluate is for example used for axis of rotation parameters in the Modelica.Mec
 </html>"));
   end Evaluate;
 
-  class experiment "experiment"
+  record experiment "experiment"
     extends ModelicaReference.Icons.Information;
-
+      Real StartTime(unit = "s") "Default start time of simulation";
+      Real StopTime(unit = "s") "Default stop time of simulation";
+      Real Interval(unit = "s", min = 0) "Resolution for the result grid";
+      Real Tolerance(unit = "1", min = 0) "Default relative integration tolerance";
     annotation (Documentation(info="<html>
 <p>
 Define default experiment parameters
