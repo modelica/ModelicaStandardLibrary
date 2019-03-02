@@ -1932,7 +1932,6 @@ in the other flange connector.
     r_rel_0 = lineForce.r_rel_0;
     e_rel_0 = lineForce.e_rel_0;
 
-  equation
     connect(lineForce.frame_a, frame_a)
       annotation (Line(
         points={{-20,0},{-100,0}},
