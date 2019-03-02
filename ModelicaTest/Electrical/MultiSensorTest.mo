@@ -1,5 +1,5 @@
 within ModelicaTest.Electrical;
-model MulitSensorTest
+model MultiSensorTest
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   parameter Integer m = 3 "Number of phases";
@@ -172,4 +172,4 @@ equation
   connect(multiSensorA.power, meanpowerA.u) annotation (Line(points={{9,74},{0,74},
           {0,88},{-30,88},{-30,80},{-38,80}}, color={0,0,127}));
   annotation (experiment(StopTime=0.1));
-end MulitSensorTest;
+end MultiSensorTest;
