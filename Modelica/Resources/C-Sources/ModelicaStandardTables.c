@@ -549,11 +549,11 @@ void* ModelicaStandardTables_CombiTimeTable_init(_In_z_ const char* tableName,
                                                  _In_ double* table, size_t nRow,
                                                  size_t nColumn,
                                                  double startTime,
-                                                 _In_ int* cols,
+                                                 _In_ int* columns,
                                                  size_t nCols, int smoothness,
                                                  int extrapolation) {
     return ModelicaStandardTables_CombiTimeTable_init2(fileName,
-        tableName, table, nRow, nColumn, startTime, cols, nCols, smoothness,
+        tableName, table, nRow, nColumn, startTime, columns, nCols, smoothness,
         extrapolation, startTime, ALWAYS, 1 /* verbose */);
 }
 
@@ -562,7 +562,7 @@ void* ModelicaStandardTables_CombiTimeTable_init2(_In_z_ const char* fileName,
                                                   _In_ double* table, size_t nRow,
                                                   size_t nColumn,
                                                   double startTime,
-                                                  _In_ int* cols,
+                                                  _In_ int* columns,
                                                   size_t nCols, int smoothness,
                                                   int extrapolation,
                                                   double shiftTime,
@@ -711,7 +711,7 @@ void* ModelicaStandardTables_CombiTimeTable_init2(_In_z_ const char* fileName,
     if (nCols > 0) {
         tableID->cols = (int*)malloc(tableID->nCols*sizeof(int));
         if (NULL != tableID->cols) {
-            memcpy(tableID->cols, cols, tableID->nCols*sizeof(int));
+            memcpy(tableID->cols, columns, tableID->nCols*sizeof(int));
         }
         else {
             ModelicaStandardTables_CombiTimeTable_close(tableID);
@@ -1716,10 +1716,10 @@ void* ModelicaStandardTables_CombiTable1D_init(_In_z_ const char* tableName,
                                                _In_z_ const char* fileName,
                                                _In_ double* table, size_t nRow,
                                                size_t nColumn,
-                                               _In_ int* cols,
+                                               _In_ int* columns,
                                                size_t nCols, int smoothness) {
     return ModelicaStandardTables_CombiTable1D_init2(fileName, tableName,
-        table, nRow, nColumn, cols, nCols, smoothness, LAST_TWO_POINTS,
+        table, nRow, nColumn, columns, nCols, smoothness, LAST_TWO_POINTS,
         1 /* verbose */);
 }
 
@@ -1727,7 +1727,7 @@ void* ModelicaStandardTables_CombiTable1D_init2(_In_z_ const char* fileName,
                                                 _In_z_ const char* tableName,
                                                 _In_ double* table, size_t nRow,
                                                 size_t nColumn,
-                                                _In_ int* cols,
+                                                _In_ int* columns,
                                                 size_t nCols, int smoothness,
                                                 int extrapolation,
                                                 int verbose) {
@@ -1869,7 +1869,7 @@ void* ModelicaStandardTables_CombiTable1D_init2(_In_z_ const char* fileName,
     if (nCols > 0) {
         tableID->cols = (int*)malloc(tableID->nCols*sizeof(int));
         if (NULL != tableID->cols) {
-            memcpy(tableID->cols, cols, tableID->nCols*sizeof(int));
+            memcpy(tableID->cols, columns, tableID->nCols*sizeof(int));
         }
         else {
             ModelicaStandardTables_CombiTable1D_close(tableID);
