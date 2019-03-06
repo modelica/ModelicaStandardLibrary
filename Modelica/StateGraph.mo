@@ -2962,7 +2962,8 @@ value, still requires to go in to the text layer.
 
   end IndicatorLamp;
 
-  annotation (Documentation(info="<html>
+  annotation (obsolete = "Obsolete package due to experimental design",
+  Documentation(info="<html>
 <p>
 This library is just temporarily present. The components of
 this library will be present in the future in the Modelica
@@ -2972,7 +2973,6 @@ standard library (with the new block connectors) and in the
 </html>"));
 end Temporary;
 annotation (
-  obsolete = "Obsolete package due to experimental design",
   Documentation(info="<html>
 <p>
 Note, there is a much improved version of this library called
