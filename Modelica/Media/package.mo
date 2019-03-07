@@ -3964,7 +3964,7 @@ is given to compare the approximation.
         annotation (Documentation(info="<html>
 
 </html>"),
-        obsolete = "Obsolete connector - use Modelica.Examples.Utilities.FluidPort instead");
+        obsolete = "Obsolete connector - use Modelica.Media.Examples.Utilities.FluidPort instead");
       end FluidPort;
 
       connector FluidPort_a "Fluid connector with filled icon"
@@ -3993,7 +3993,7 @@ is given to compare the approximation.
                         fillPattern=FillPattern.Solid)}),
           Documentation(info="<html>Modelica.Media.Examples.Tests.Components.FluidPort_a
 </html>"),
-        obsolete = "Obsolete connector - use Modelica.Examples.Utilities.FluidPort_a instead");
+        obsolete = "Obsolete connector - use Modelica.Media.Examples.Utilities.FluidPort_a instead");
       end FluidPort_a;
 
       connector FluidPort_b "Fluid connector with outlined icon"
@@ -4031,7 +4031,7 @@ is given to compare the approximation.
           Documentation(info="<html>
 
 </html>"),
-        obsolete = "Obsolete connector - use Modelica.Examples.Utilities.FluidPort_b instead");
+        obsolete = "Obsolete connector - use Modelica.Media.Examples.Utilities.FluidPort_b instead");
       end FluidPort_b;
 
       model PortVolume
@@ -4130,7 +4130,7 @@ between the internal ports without storing these quantities during the
 transport.
 </p>
 </html>"),
-        obsolete = "Obsolete model - use Modelica.Examples.Utilities.PortVolume instead");
+        obsolete = "Obsolete model - use Modelica.Media.Examples.Utilities.PortVolume instead");
       end PortVolume;
 
       model FixedMassFlowRate
@@ -4209,7 +4209,7 @@ transport.
                         fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 
 </html>"),
-        obsolete = "Obsolete model - use Modelica.Examples.Utilities.FixedMassFlowRate instead");
+        obsolete = "Obsolete model - use Modelica.Media.Examples.Utilities.FixedMassFlowRate instead");
       end FixedMassFlowRate;
 
       model FixedAmbient
@@ -4296,7 +4296,7 @@ the port into the ambient, the ambient definitions,
 with exception of ambient pressure, do not have an effect.
 </p>
 </html>"),
-        obsolete = "Obsolete model - use Modelica.Examples.Utilities.FixedAmbient instead");
+        obsolete = "Obsolete model - use Modelica.Media.Examples.Utilities.FixedAmbient instead");
       end FixedAmbient;
 
       model ShortPipe "Simple pressure loss in pipe"
@@ -4361,7 +4361,7 @@ with pressure loss due to friction. It is assumed that
 no mass or energy is stored in the pipe.
 </p>
 </html>"),
-        obsolete = "Obsolete model - use Modelica.Examples.Utilities.ShortPipe instead");
+        obsolete = "Obsolete model - use Modelica.Media.Examples.Utilities.ShortPipe instead");
       end ShortPipe;
 
       partial model PartialTestModel "Basic test model to test a medium"
@@ -4415,7 +4415,7 @@ no mass or energy is stored in the pipe.
         annotation (Documentation(info="<html>
 
 </html>"),
-        obsolete = "Obsolete model - use Modelica.Examples.Utilities.PartialTestModel instead");
+        obsolete = "Obsolete model - use Modelica.Media.Examples.Utilities.PartialTestModel instead");
       end PartialTestModel;
 
       partial model PartialTestModel2
@@ -4482,12 +4482,12 @@ no mass or energy is stored in the pipe.
         annotation (Documentation(info="<html>
 
 </html>"),
-        obsolete = "Obsolete model - use Modelica.Examples.Utilities.PartialTestModel2 instead");
+        obsolete = "Obsolete model - use Modelica.Media.Examples.Utilities.PartialTestModel2 instead");
       end PartialTestModel2;
       annotation (Documentation(info="<html>
 
 </html>"),
-        obsolete = "Obsolete package - use Modelica.Examples.Utilities instead");
+        obsolete = "Obsolete package - use Modelica.Media.Examples.Utilities instead");
     end Components;
 
     package MediaTestModels "Test models to test all media"
