@@ -2027,9 +2027,9 @@ frame_b of the joint.
       annotation (Placement(transformation(extent={{20,-30},{40,-10}})));
     Modelica.Blocks.Continuous.Der derz[3] if use_w and use_z
       annotation (Placement(transformation(extent={{20,20},{40,40}})));
-    Modelica.Mechanics.MultiBody.Sensors.Internal.ZeroForceAndTorque zeroForceAndTorque1
+    Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque zeroForceAndTorque1
       annotation (Placement(transformation(extent={{-80,-50},{-60,-30}})));
-    Modelica.Mechanics.MultiBody.Sensors.Internal.ZeroForceAndTorque zeroForceAndTorque2
+    Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque zeroForceAndTorque2
       annotation (Placement(transformation(extent={{80,-50},{60,-30}})));
     Modelica.Mechanics.MultiBody.Visualizers.SignalArrow arrow(
       diameter=arrowDiameter,

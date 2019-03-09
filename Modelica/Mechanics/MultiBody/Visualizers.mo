@@ -1207,7 +1207,7 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
       redeclare function surfaceCharacteristic = Advanced.SurfaceCharacteristics.rectangle (
         lu=length_u, lv=length_v)) if world.enableAnimation and animation
       annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-    Sensors.Internal.ZeroForceAndTorque zeroForceAndTorque annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+    Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque zeroForceAndTorque annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
 
   equation
     connect(frame_a, zeroForceAndTorque.frame_a) annotation (Line(
