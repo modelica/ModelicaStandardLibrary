@@ -1088,16 +1088,36 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
       <th>Not to be used</th>
     </tr>
     <tr>
+      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=151-11-09\">electromagnetic</a></td>
+      <td>electro magnetic, electro-magnetic</td>
+    </tr>
+    <tr>
+      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=151-11-10\">electromechanical</a></td>
+      <td>electro mechanical, electro-mechanical</td>
+    </tr>
+    <tr>
+      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=151-15-21\">no-load</a></td>
+      <td>noload, no load</td>
+    </tr>
+    <tr>
       <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=141-01-03\">polyphase</a></td>
       <td>multi phase, multi-phase, multiphase</td>
     </tr>
-     <tr>
-      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=411-31-13\">single-phase</a></td>
-      <td>single phase, singlephase, one phase, one-phase, onephase, 1 phase, 1-phase</td>
-    </tr>
-     <tr>
+    <tr>
       <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=113-04-08\">quasi-static</a></td>
       <td>quasistatic, quasi static</td>
+    </tr>
+    <tr>
+      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=351-47-17\">set-point</a></td>
+      <td>set point, setpoint</td>
+    </tr>
+    <tr>
+      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=151-12-04\">short-circuit</a></td>
+      <td>shortcircuit, short circuit</td>
+    </tr>
+    <tr>
+      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=411-31-13\">single-phase</a></td>
+      <td>single phase, singlephase, one phase, one-phase, onephase, 1 phase, 1-phase</td>
     </tr>
      <tr>
       <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=811-12-22\">three-phase</a></td>
@@ -1120,7 +1140,7 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
       <th>To be used</th>
       <th>Not to be used</th>
     </tr>
-     <tr>
+    <tr>
       <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=151-11-09\">electromagnetic</a></td>
       <td>electro magnetic</td>
     </tr>
