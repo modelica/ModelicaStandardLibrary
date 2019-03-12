@@ -4734,7 +4734,7 @@ blocks of Modelica.Blocks.Source.
       parameter Modelica.SIunits.Force f_nominal
         "Nominal force (if negative, force is acting as load in positive direction of motion)";
       parameter Boolean ForceDirection=true
-        "Same direction of force in both directions of movement";
+        "Same direction of force in both directions of motion";
       parameter Modelica.SIunits.Velocity v_nominal(min=Modelica.Constants.eps)
         "Nominal speed";
       Modelica.SIunits.Velocity v
@@ -4767,7 +4767,7 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
       parameter Modelica.SIunits.Force f_nominal
         "Nominal force (if negative, force is acting as load in positive direction of motion)";
       parameter Boolean ForceDirection=true
-        "Same direction of force in both directions of movement";
+        "Same direction of force in both directions of motion";
       parameter Modelica.SIunits.Velocity v_nominal(min=Modelica.Constants.eps)
         "Nominal speed";
       Modelica.SIunits.Velocity v
