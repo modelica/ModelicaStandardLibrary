@@ -1142,7 +1142,7 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
   </tr>
   <tr>
     <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=151-11-09\">electromagnetic</a></td>
-    <td>electro magnetic</td>
+    <td>electro magnetic, electro-magnetic</td>
   </tr>
   <tr>
     <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=121-11-60\">magnetomotive force</a></td>
