@@ -2184,10 +2184,21 @@ and will interpret it in the same way. Short Overview:
 </p>
 
 <ul>
-<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3/ResolvedGitHubIssues.html\">557 issues (including pull requests)</a>
-    have been addressed for this release.</li>
-<li><strong>94</strong> component models and blocks, <strong>36</strong> example models and <strong>9</strong> functions are newly included.</li>
-<li>The license has been changed to BSD 3-clause, visit: <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</li>
+<li>This version of the Modelica package is <strong>fully compatible</strong> to Modelica Specification <strong>3.2 revision 2</strong>.<br>&nbsp;</li>
+<li>About <strong>560</strong> issues (including pull requests) have been addressed for this release.
+    <ul>
+    <li><strong>Version 3.2.3</strong> with respect to 3.2.2:
+        <ul>
+        <li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3/ResolvedGitHubIssues.html\">557 issues (including pull requests)</a> have been have been addressed for this release.</li>
+        <li><strong>94</strong> component models and blocks, <strong>36</strong> example models and <strong>9</strong> functions are newly included.</li>
+        <li>The license has been changed to BSD 3-clause, visit: <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.<br>&nbsp;</li>
+        </ul>
+    </li>
+    <li><strong>Version 3.2.3 Build 2</strong> with respect to 3.2.3:<br>
+        About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3+build.2\ResolvedGitHubIssues.html\">5 issues (including pull requests)</a>
+        have been addressed for this maintenance release.<br>&nbsp;</li>
+    </ul>
+    </li>
 </ul>
 
 <p>
@@ -2447,6 +2458,9 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 <tr><td colspan=\"2\"><strong>Modelica.Blocks</strong></td></tr>
 <tr><td>Interfaces.PartialNoise<br>Noise.UniformNoise<br>Noise.NormalNoise<br>Noise.TruncatedNormalNoise<br>Noise.BandLimitedWhiteNoise</td>
     <td>As a side-effect of the corrected computation in Modelica.Math.Random.Utilities.impureRandomInteger the <code>localSeed</code> parameter is computed differently if <code>useAutomaticLocalSeed</code> is set to true.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.ComplexBlocks.Routing</strong></td></tr>
+<tr><td>ComplexPassThrough</td>
+    <td>Fixed the connector types from Real to Complex</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
 <tr><td>World</td>
     <td>Added new parameter <code>animateGround</code> for optional ground plane visualization.<br>
