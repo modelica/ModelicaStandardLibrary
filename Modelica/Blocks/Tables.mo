@@ -955,7 +955,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
               100,100}})));
     end CombiTable2DBase;
 
-    function readTimeTableData "Read table data from text or MATLAB MAT-file"
+    impure function readTimeTableData "Read table data from text or MATLAB MAT-file"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID "External table object";
       input Boolean forceRead = false
@@ -965,7 +965,6 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         "= true: Print info message; = false: No info message";
       external"C" readSuccess = ModelicaStandardTables_CombiTimeTable_read(tableID, forceRead, verboseRead)
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
-      annotation(__ModelicaAssociation_Impure=true);
     end readTimeTableData;
 
     function getTimeTableValue
@@ -1078,7 +1077,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getTimeTableTmax;
 
-    function readTable1DData "Read table data from text or MATLAB MAT-file"
+    impure function readTable1DData "Read table data from text or MATLAB MAT-file"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID "External table object";
       input Boolean forceRead = false
@@ -1088,7 +1087,6 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       output Real readSuccess "Table read success";
       external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID, forceRead, verboseRead)
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
-      annotation(__ModelicaAssociation_Impure=true);
     end readTable1DData;
 
     function getNextTimeEvent
@@ -1191,7 +1189,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getTable1DAbscissaUmax;
 
-    function readTable2DData "Read table data from text or MATLAB MAT-file"
+    impure function readTable2DData "Read table data from text or MATLAB MAT-file"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID "External table object";
       input Boolean forceRead = false
@@ -1201,7 +1199,6 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       output Real readSuccess "Table read success";
       external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID, forceRead, verboseRead)
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
-      annotation(__ModelicaAssociation_Impure=true);
     end readTable2DData;
 
     function getTable2DValue "Interpolate 2-dim. table defined by matrix"
