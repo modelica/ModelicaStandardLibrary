@@ -632,7 +632,7 @@ See detailed example model:
   package Internal
     "Internal library that should not be used directly by a user"
     extends Modelica.Icons.InternalPackage;
-    function rawRealFFT "Compute raw Fast Fourier Transform for real signal vector"
+    pure function rawRealFFT "Compute raw Fast Fourier Transform for real signal vector"
       extends Modelica.Icons.Function;
       input Real  u[:]
         "Signal for which FFT shall be computed (size(nu,1) MUST be EVEN and should be an integer multiple of 2,3,5, that is size(nu,1) = 2^a*3^b*5^c, with a,b,c Integer >= 0)";

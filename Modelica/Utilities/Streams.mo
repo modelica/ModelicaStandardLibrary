@@ -42,7 +42,7 @@ Streams.print(\"x = \" + String(y), \"mytestfile.txt\");
 </html>"));
   end print;
 
-  function readFile
+  impure function readFile
     "Read content of a file and return it in a vector of strings"
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be read"
@@ -117,7 +117,7 @@ separated by LF or CR-LF.
 </html>"));
   end countLines;
 
-  function error "Print error message and cancel all actions - in case of an unrecoverable error"
+  impure function error "Print error message and cancel all actions - in case of an unrecoverable error"
     extends Modelica.Icons.Function;
     input String string "String to be printed to error message window";
     external "C" ModelicaError(string) annotation(Library="ModelicaExternalC");
@@ -166,7 +166,7 @@ file is already closed or does not exist.
 </html>"));
   end close;
 
-  function readMatrixSize "Read dimensions of a Real matrix from a MATLAB MAT file"
+  impure function readMatrixSize "Read dimensions of a Real matrix from a MATLAB MAT file"
     extends Modelica.Icons.Function;
     input String fileName "File where external data is stored" annotation(Dialog(loadSelector(filter="MATLAB MAT files (*.mat)", caption="Open MATLAB MAT file")));
     input String matrixName "Name / identifier of the 2D Real array on the file";
@@ -200,7 +200,7 @@ See <a href=\"modelica://Modelica.Utilities.Examples.ReadRealMatrixFromFile\">Ex
 </html>"));
   end readMatrixSize;
 
-  function readRealMatrix "Read Real matrix from MATLAB MAT file"
+  impure function readRealMatrix "Read Real matrix from MATLAB MAT file"
     extends Modelica.Icons.Function;
     input String fileName "File where external data is stored" annotation(Dialog(loadSelector(filter="MATLAB MAT files (*.mat)", caption="Open MATLAB MAT file")));
     input String matrixName "Name / identifier of the 2D Real array on the file";

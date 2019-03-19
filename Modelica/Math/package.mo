@@ -1385,7 +1385,7 @@ has a unique solution.
 </html>"));
   end equalityLeastSquares;
 
-  function LU "LU decomposition of square or rectangular matrix"
+  pure function LU "LU decomposition of square or rectangular matrix"
     extends Modelica.Icons.Function;
     input Real A[:, :] "Square or rectangular matrix";
     output Real LU[size(A, 1), size(A, 2)]=A
@@ -4851,7 +4851,7 @@ A_fud  = [-1, 2, -3;
     "Interface to LAPACK library (should usually not directly be used but only indirectly via Modelica.Math.Matrices)"
     extends Modelica.Icons.FunctionsPackage;
 
-    function dgeev
+    pure function dgeev
       "Compute eigenvalues and (right) eigenvectors for real nonsymmetric matrix A"
 
       extends Modelica.Icons.Function;
@@ -4986,7 +4986,7 @@ Lapack documentation
 "));
     end dgeev;
 
-    function dgeev_eigenValues
+    pure function dgeev_eigenValues
       "Compute eigenvalues for real nonsymmetric matrix A"
 
       extends Modelica.Icons.Function;
@@ -5125,7 +5125,7 @@ Lapack documentation
 "));
     end dgeev_eigenValues;
 
-    function dgelsy
+    pure function dgelsy
       "Compute the minimum-norm solution to a real linear least squares problem with rank deficient A"
 
       extends Modelica.Icons.Function;
@@ -5275,7 +5275,7 @@ Lapack documentation
 "));
     end dgelsy;
 
-    function dgelsy_vec
+    pure function dgelsy_vec
       "Compute the minimum-norm solution to a real linear least squares problem with rank deficient A"
 
       extends Modelica.Icons.Function;
@@ -5425,7 +5425,7 @@ Lapack documentation
 "));
     end dgelsy_vec;
 
-    function dgels_vec
+    pure function dgels_vec
       "Solve overdetermined or underdetermined real linear equations A*x=b with a b vector"
 
       extends Modelica.Icons.Function;
@@ -5561,7 +5561,7 @@ Lapack documentation
 "));
     end dgels_vec;
 
-    function dgesv
+    pure function dgesv
       "Solve real system of linear equations A*X=B with a B matrix"
       extends Modelica.Icons.Function;
       input Real A[:, size(A, 1)];
@@ -5639,7 +5639,7 @@ Lapack documentation
 "));
     end dgesv;
 
-    function dgesv_vec
+    pure function dgesv_vec
       "Solve real system of linear equations A*x=b with a b vector"
       extends Modelica.Icons.Function;
       input Real A[:, size(A, 1)];
@@ -5669,7 +5669,7 @@ For details of the arguments, see documentation of dgesv.
 "));
     end dgesv_vec;
 
-    function dgglse_vec
+    pure function dgglse_vec
       "Solve a linear equality constrained least squares problem"
       extends Modelica.Icons.Function;
       input Real A[:, :] "Minimize |A*x - c|^2";
@@ -5800,7 +5800,7 @@ For details of the arguments, see documentation of dgesv.
 "));
     end dgglse_vec;
 
-    function dgtsv
+    pure function dgtsv
       "Solve real system of linear equations A*X=B with B matrix and tridiagonal A"
 
       extends Modelica.Icons.Function;
@@ -5887,7 +5887,7 @@ For details of the arguments, see documentation of dgesv.
 "));
     end dgtsv;
 
-    function dgtsv_vec
+    pure function dgtsv_vec
       "Solve real system of linear equations A*x=b with b vector and tridiagonal A"
 
       extends Modelica.Icons.Function;
@@ -5920,7 +5920,7 @@ For details of the arguments, see documentation of dgtsv.
 "));
     end dgtsv_vec;
 
-    function dgbsv
+    pure function dgbsv
       "Solve real system of linear equations A*X=B with a B matrix"
       extends Modelica.Icons.Function;
       input Integer n "Number of equations";
@@ -6032,7 +6032,7 @@ For details of the arguments, see documentation of dgtsv.
 "));
     end dgbsv;
 
-    function dgbsv_vec
+    pure function dgbsv_vec
       "Solve real system of linear equations A*x=b with a b vector"
       extends Modelica.Icons.Function;
       input Integer n "Number of equations";
@@ -6065,7 +6065,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgbsv_vec;
 
-    function dgesvd "Determine singular value decomposition"
+    pure function dgesvd "Determine singular value decomposition"
       extends Modelica.Icons.Function;
       input Real A[:, :];
       output Real sigma[min(size(A, 1), size(A, 2))];
@@ -6213,7 +6213,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgesvd;
 
-    function dgesvd_sigma "Determine singular values"
+    pure function dgesvd_sigma "Determine singular values"
       extends Modelica.Icons.Function;
       input Real A[:, :];
       output Real sigma[min(size(A, 1), size(A, 2))];
@@ -6361,7 +6361,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgesvd_sigma;
 
-    function dgetrf
+    pure function dgetrf
       "Compute LU factorization of square or rectangular matrix A (A = P*L*U)"
 
       extends Modelica.Icons.Function;
@@ -6427,7 +6427,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgetrf;
 
-    function dgetrs
+    pure function dgetrs
       "Solve a system of linear equations with the LU decomposition from dgetrf"
 
       extends Modelica.Icons.Function;
@@ -6503,7 +6503,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgetrs;
 
-    function dgetrs_vec
+    pure function dgetrs_vec
       "Solve a system of linear equations with the LU decomposition from dgetrf"
 
       extends Modelica.Icons.Function;
@@ -6580,7 +6580,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgetrs_vec;
 
-    function dgetri
+    pure function dgetri
       "Compute the inverse of a matrix using the LU factorization from dgetrf"
 
       extends Modelica.Icons.Function;
@@ -6654,7 +6654,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgetri;
 
-    function dgeqp3 "Compute QR factorization with column pivoting of square or rectangular matrix A"
+    pure function dgeqp3 "Compute QR factorization with column pivoting of square or rectangular matrix A"
 
       extends Modelica.Icons.Function;
       input Real A[:, :] "Square or rectangular matrix";
@@ -6756,7 +6756,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgeqp3;
 
-    function dorgqr
+    pure function dorgqr
       "Generate a Real orthogonal matrix Q which is defined as the product of elementary reflectors as returned from dgeqrf"
 
       extends Modelica.Icons.Function;
@@ -6843,7 +6843,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dorgqr;
 
-    function dgees
+    pure function dgees
       "Compute real Schur form T of real nonsymmetric matrix A, and, optionally, the matrix of Schur vectors Z as well as the eigenvalues"
       extends Modelica.Icons.Function;
 
@@ -6999,7 +6999,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgees;
 
-    function dtrsen "Reorder the real Schur factorization of a real matrix"
+    pure function dtrsen "Reorder the real Schur factorization of a real matrix"
       extends Modelica.Icons.Function;
 
       input String job="N" "Specifies the usage of a condition number";
@@ -7257,7 +7257,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dtrsen;
 
-    function dgesvx
+    pure function dgesvx
       "Solve real system of linear equations op(A)*X=B, op(A) is A or A' according to the Boolean input transposed"
       extends Modelica.Icons.Function;
       input Real A[:, size(A, 1)] "Real square matrix A";
@@ -7536,7 +7536,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgesvx;
 
-    function dtrsyl
+    pure function dtrsyl
       "Solve the real Sylvester matrix equation op(A)*X + X*op(B) = scale*C or op(A)*X - X*op(B) = scale*C"
       extends Modelica.Icons.Function;
 
@@ -7652,7 +7652,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dtrsyl;
 
-    function dhseqr
+    pure function dhseqr
       "Compute eigenvalues of a matrix H using lapack routine DHSEQR for Hessenberg form matrix"
       extends Modelica.Icons.Function;
 
@@ -7844,7 +7844,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dhseqr;
 
-    function dlange "Norm of a matrix"
+    pure function dlange "Norm of a matrix"
       extends Modelica.Icons.Function;
 
       input Real A[:, :] "Real matrix A";
@@ -7917,7 +7917,7 @@ For details of the arguments, see documentation of dgbsv.
 
     end dlange;
 
-    function dgecon
+    pure function dgecon
       "Estimate the reciprocal of the condition number of a general real matrix A"
       extends Modelica.Icons.Function;
 
@@ -7993,7 +7993,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgecon;
 
-    function dgehrd
+    pure function dgehrd
       "Reduce a real general matrix A to upper Hessenberg form H by an orthogonal similarity transformation:  Q' * A * Q = H"
       extends Modelica.Icons.Function;
 
@@ -8112,7 +8112,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgehrd;
 
-    function dgeqrf "Compute a QR factorization without pivoting"
+    pure function dgeqrf "Compute a QR factorization without pivoting"
       extends Modelica.Icons.Function;
 
       input Real A[:, :] "Square or rectangular matrix";
@@ -8203,7 +8203,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgeqrf;
 
-    function dgeevx
+    pure function dgeevx
       "Compute the eigenvalues and the (real) left and right eigenvectors of matrix A, using lapack routine dgeevx"
       extends Modelica.Icons.Function;
 
@@ -8435,7 +8435,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgeevx;
 
-    function dgesdd "Determine singular value decomposition"
+    pure function dgesdd "Determine singular value decomposition"
       extends Modelica.Icons.Function;
       input Real A[:, :];
       output Real sigma[min(size(A, 1), size(A, 2))];
@@ -8600,7 +8600,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgesdd;
 
-    function dggev
+    pure function dggev
       "Compute generalized eigenvalues, as well as the left and right eigenvectors for a (A,B) system"
       extends Modelica.Icons.Function;
 
@@ -8769,7 +8769,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dggev;
 
-    function dggevx
+    pure function dggevx
       "Compute generalized eigenvalues for a (A,B) system, using lapack routine dggevx"
       extends Modelica.Icons.Function;
 
@@ -9073,7 +9073,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dggevx;
 
-    function dhgeqz "Compute generalized eigenvalues for a (A,B) system"
+    pure function dhgeqz "Compute generalized eigenvalues for a (A,B) system"
       extends Modelica.Icons.Function;
 
       input Real A[:, size(A, 1)];
@@ -9312,7 +9312,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dhgeqz;
 
-    function dormhr
+    pure function dormhr
       "Overwrite the general real M-by-N matrix C with Q * C or C * Q or Q' * C or C * Q', where Q is an orthogonal matrix as returned by dgehrd"
       extends Modelica.Icons.Function;
 
@@ -9440,7 +9440,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dormhr;
 
-    function dormqr
+    pure function dormqr
       "Overwrite the general real M-by-N matrix C with Q * C or C * Q or Q' * C or C * Q', where Q is an orthogonal matrix of a QR factorization as returned by dgeqrf"
       extends Modelica.Icons.Function;
 
@@ -9562,7 +9562,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dormqr;
 
-    function dtrevc
+    pure function dtrevc
       "Compute the right and/or left eigenvectors of a real upper quasi-triangular matrix T"
       extends Modelica.Icons.Function;
 
@@ -9730,7 +9730,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dtrevc;
 
-    function dpotrf
+    pure function dpotrf
       "Compute the Cholesky factorization of a real symmetric positive definite matrix A"
       extends Modelica.Icons.Function;
 
@@ -9797,7 +9797,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dpotrf;
 
-    function dtrsm
+    pure function dtrsm
       "Solve one of the matrix equations op( A )*X = alpha*B, or X*op( A ) = alpha*B, where A is triangular matrix. BLAS routine"
       extends Modelica.Icons.Function;
 
@@ -9947,7 +9947,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dtrsm;
 
-    function dorghr
+    pure function dorghr
       "Generate a real orthogonal matrix Q which is defined as the product of IHI-ILO elementary reflectors of order N, as returned by DGEHRD"
       extends Modelica.Icons.Function;
 

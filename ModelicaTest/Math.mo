@@ -1195,7 +1195,7 @@ extends Modelica.Icons.ExamplesPackage;
 </html>"));
     end truncatedDistributions;
 
-    function automaticGlobalSeed "Test automatic global seed"
+    impure function automaticGlobalSeed "Test automatic global seed"
       extends Modelica.Icons.Function;
       output Integer seed "Automatically generated seed";
       external "C" seed = ModelicaRandom_automaticGlobalSeed()

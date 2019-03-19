@@ -131,7 +131,7 @@ All returned values are of type Integer and have the following meaning:
   impure function getPid "Retrieve the current process id"
     extends Modelica.Icons.Function;
     output Integer pid "Process ID";
-    external "C" pid=  ModelicaInternal_getpid() annotation(Library="ModelicaExternalC");
+    external "C" pid = ModelicaInternal_getpid() annotation(Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>

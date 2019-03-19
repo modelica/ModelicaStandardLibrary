@@ -2,11 +2,11 @@ within Modelica.Utilities;
 package Strings "Operations on strings"
   extends Modelica.Icons.FunctionsPackage;
 
-  function length "Return length of string"
+  pure function length "Return length of string"
     extends Modelica.Icons.Function;
     input String string;
     output Integer result "Number of characters of string";
-  external "C" result=  ModelicaStrings_length(string) annotation(Library="ModelicaExternalC");
+  external "C" result = ModelicaStrings_length(string) annotation(Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -19,8 +19,7 @@ Returns the number of characters of \"string\".
 </html>"));
   end length;
 
-  function substring "Return a substring defined by start and end index"
-
+  pure function substring "Return a substring defined by start and end index"
     extends Modelica.Icons.Function;
     input String string "String from which a substring is inquired";
     input Integer startIndex(min=1)
@@ -28,8 +27,7 @@ Returns the number of characters of \"string\".
     input Integer endIndex(min=1) "Character position of substring end";
     output String result
       "String containing substring string[startIndex:endIndex]";
-  external "C" result =
-                      ModelicaStrings_substring(string,startIndex,endIndex) annotation(Library="ModelicaExternalC");
+  external "C" result = ModelicaStrings_substring(string,startIndex,endIndex) annotation(Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -81,13 +79,13 @@ defined by the optional argument \"string\".
 </html>"));
   end repeat;
 
-  function compare "Compare two strings lexicographically"
+  pure function compare "Compare two strings lexicographically"
     extends Modelica.Icons.Function;
     input String string1;
     input String string2;
     input Boolean caseSensitive=true "= false, if case of letters is ignored";
     output Modelica.Utilities.Types.Compare result "Result of comparison";
-  external "C" result=  ModelicaStrings_compare(string1, string2, caseSensitive) annotation(Library="ModelicaExternalC");
+  external "C" result = ModelicaStrings_compare(string1, string2, caseSensitive) annotation(Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -451,7 +449,7 @@ s2 = Strings.sort(s1);
 </html>"));
   end sort;
 
-  function hashString "Create a hash value of a string"
+  pure function hashString "Create a hash value of a string"
     extends Modelica.Icons.Function;
     input String string "The string to create a hash from";
     output Integer hash "The hash value of string";
@@ -1023,7 +1021,7 @@ part of the string is printed.
   package Advanced "Advanced scanning functions"
     extends Modelica.Icons.FunctionsPackage;
 
-    function scanReal "Scan a signed real number"
+    pure function scanReal "Scan a signed real number"
       extends Modelica.Icons.Function;
       input String string;
       input Integer startIndex(min=1)=1 "Index where scanning starts";
@@ -1070,7 +1068,7 @@ shall not start with '+' or '-'. The default of \"unsigned\" is <strong>false</s
 </html>"));
     end scanReal;
 
-    function scanInteger "Scan signed integer number"
+    pure function scanInteger "Scan signed integer number"
       extends Modelica.Icons.Function;
       input String string;
       input Integer startIndex(min=1)=1;
@@ -1116,7 +1114,7 @@ shall not start with '+' or '-'. The default of \"unsigned\" is <strong>false</s
 </html>"));
     end scanInteger;
 
-    function scanString "Scan string"
+    pure function scanString "Scan string"
       extends Modelica.Icons.Function;
       input String string;
       input Integer startIndex(min=1)=1 "Index where scanning starts";
@@ -1150,7 +1148,7 @@ the second output argument is an empty string.
 </html>"));
     end scanString;
 
-    function scanIdentifier "Scan simple identifiers"
+    pure function scanIdentifier "Scan simple identifiers"
       extends Modelica.Icons.Function;
       input String string;
       input Integer startIndex(min=1)=1 "Index where scanning starts";
@@ -1186,7 +1184,7 @@ the second output argument is an empty string.
 </html>"));
     end scanIdentifier;
 
-    function skipWhiteSpace "Scan white space"
+    pure function skipWhiteSpace "Scan white space"
       extends Modelica.Icons.Function;
       input String string;
       input Integer startIndex(min=1)=1;
