@@ -840,7 +840,7 @@ in terms of tables, functions or polynomial coefficients.
 The common meaning of <em>incompressible</em> is that properties like density
 and enthalpy are independent of pressure. Thus properties are conveniently
 described as functions of temperature, e.g., as polynomials density(T) and cp(T).
-However, enthalpy can not be independent of pressure since h = u - p/d. For liquids
+However, enthalpy can not be independent of pressure since h = u + p/d. For liquids
 it is anyway
 common to neglect this dependence since for constant density the neglected term
 is (p - p0)/d, which in comparison with cp is very small for most liquids. For
