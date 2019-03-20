@@ -2195,7 +2195,7 @@ and will interpret it in the same way. Short Overview:
         </ul>
     </li>
     <li><strong>Version 3.2.3 Build 2</strong> with respect to 3.2.3:<br>
-        About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3+build.2\ResolvedGitHubIssues.html\">5 issues (including pull requests)</a>
+        About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3+build.2/ResolvedGitHubIssues.html\">5 issues (including pull requests)</a>
         have been addressed for this maintenance release.<br>&nbsp;</li>
     </ul>
     </li>
