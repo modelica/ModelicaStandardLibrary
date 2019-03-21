@@ -3553,7 +3553,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
         Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
 
       parameter Real mu_pos[:, 2]=[0, 0.5]
-        "Positive sliding friction coefficient as function of w_rel (w_rel>=0; unit=rad/s)";
+        "Positive sliding friction coefficient [-] as function of w_rel [rad/s] (w_rel>=0)";
       parameter Real peak(final min=1) = 1
         "Peak for maximum value of mu at w==0 (mu0_max = peak*mu_pos[1,2])";
       parameter Real cgeo(final min=0) = 1
