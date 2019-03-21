@@ -2858,7 +2858,7 @@ where the different effects are visualized:
       extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
 
       parameter Real f_pos[:, 2]=[0, 1]
-        "Positive sliding friction characteristic [N] as function of v (col. 1, v>=0)";
+        "Positive sliding friction characteristic [N] as function of v [m/s] (v>=0)";
       parameter Real peak(final min=1) = 1
         "Peak for maximum friction force at v==0 (f0_max = peak*f_pos[1,2])";
       extends Translational.Interfaces.PartialFriction;

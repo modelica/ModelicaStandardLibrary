@@ -3374,7 +3374,7 @@ in the User's Guide of the Rotational library.
         Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
 
       parameter Real tau_pos[:, 2]=[0, 1]
-        "Positive sliding friction characteristic (unit=N.m) as function of w (w>=0; unit=rad/s)";
+        "Positive sliding friction characteristic [N.m] as function of w [rad/s] (w>=0)";
       parameter Real peak(final min=1) = 1
         "Peak for maximum friction torque at w==0 (tau0_max = peak*tau_pos[1,2])";
 
