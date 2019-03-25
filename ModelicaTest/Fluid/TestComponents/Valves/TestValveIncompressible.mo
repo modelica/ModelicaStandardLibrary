@@ -73,8 +73,7 @@ equation
   connect(Opening.y, V1.opening)
   annotation (Line(points={{-71,84},{-40,84},{-40,48}}, color={0,0,255}));
   connect(SourceP1.ports[1], V1.port_a)
-                                   annotation (Line(points={{-80,40},{-50,40}},
-        color={0,127,255}));
+                                   annotation (Line(points={{-80,40},{-50,40}}, color={0,127,255}));
   connect(Opening.y, V2.opening) annotation (Line(points={{-71,84},{-64,84},
           {-64,20},{-40,20},{-40,8}}, color={0,0,127}));
   connect(Opening.y, V3.opening) annotation (Line(points={{-71,84},{-64,84},
@@ -82,14 +81,11 @@ equation
   connect(SourceP2.ports[1], V2.port_a)
     annotation (Line(points={{-80,0},{-50,0}}, color={0,127,255}));
   connect(V2.port_b,SinkP2.ports[1])
-                                  annotation (Line(points={{-30,0},{2,0}},
-        color={0,127,255}));
+                                  annotation (Line(points={{-30,0},{2,0}}, color={0,127,255}));
   connect(SourceP3.ports[1], V3.port_a)
-                                    annotation (Line(points={{-80,-40},{-50,-40}},
-        color={0,127,255}));
+                                    annotation (Line(points={{-80,-40},{-50,-40}}, color={0,127,255}));
   connect(V3.port_b, SinkP3.ports[1])
-                                  annotation (Line(points={{-30,-40},{2,-40}},
-        color={0,127,255}));
+                                  annotation (Line(points={{-30,-40},{2,-40}}, color={0,127,255}));
 annotation (
  experiment(StopTime=4, Tolerance=1e-006));
 end TestValveIncompressible;

@@ -15,8 +15,7 @@ package Routing "Library of blocks to combine and extract signals"
           Line(points={{0,0},{100,10}}, color={0,0,127}),
           Line(points={{0,0},{100,-10}}, color={0,0,127}),
           Ellipse(
-            extent={{-14,16},{16,-14}},
-            lineColor={0,0,0},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
@@ -47,8 +46,7 @@ This block replicates the input signal to an array of <code>nout</code> identica
           Line(points={{0,0},{100,10}}, color={255,127,0}),
           Line(points={{0,0},{100,-10}}, color={255,127,0}),
           Ellipse(
-            extent={{-14,16},{16,-14}},
-            lineColor={0,0,0},
+            extent={{-15,15},{15,-15}},
             fillColor={255,127,0},
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
@@ -79,8 +77,7 @@ This block replicates the Integer input signal to an array of <code>nout</code> 
           Line(points={{0,0},{100,10}}, color={255,0,255}),
           Line(points={{0,0},{100,-10}}, color={255,0,255}),
           Ellipse(
-            extent={{-14,16},{16,-14}},
-            lineColor={0,0,0},
+            extent={{-15,15},{15,-15}},
             fillColor={255,0,255},
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
@@ -119,8 +116,7 @@ equation
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
-          Line(points={{-72,2},{-60.1395,12.907},{-49.1395,12.907}}, color={0,0,
-                127}),
+          Line(points={{-72,2},{-60.1395,12.907},{-49.1395,12.907}}, color={0,0,127}),
           Line(points={{-73,4},{-59,40},{-49,40}}, color={0,0,127}),
           Line(points={{-113,0},{-76.0373,-0.0180176}}, color={0,0,127}),
           Ellipse(
@@ -185,7 +181,6 @@ equation
           Line(points={{49,-30},{60,-30},{74,-4}}, color={0,0,127}),
           Text(
             extent={{-150,-150},{150,-110}},
-            lineColor={0,0,0},
             textString="extract=%extract")}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -204,10 +199,8 @@ equation
             points={{-94.4104,1.90792},{-94.4104,-2.09208},{-90.4104,-0.0920762},
                 {-94.4104,1.90792}},
             lineColor={0,0,255},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
-          Line(points={{-72,2},{-60.1395,12.907},{-49.1395,12.907}}, color={0,0,
-                255}),
+          Line(points={{-72,2},{-60.1395,12.907},{-49.1395,12.907}}, color={0,0,255}),
           Line(points={{-73,4},{-59,40},{-49,40}}, color={0,0,255}),
           Line(points={{-112,0},{-75.0373,-0.0180176}}, color={0,0,255}),
           Ellipse(
@@ -304,7 +297,7 @@ block Extractor
   parameter Boolean allowOutOfRange=false "Index may be out of range";
   parameter Real outOfRangeValue=1e10 "Output signal if index is out of range";
 
-  Modelica.Blocks.Interfaces.IntegerInput index             annotation (Placement(
+  Modelica.Blocks.Interfaces.IntegerInput index annotation (Placement(
           transformation(
           origin={0,-120},
           extent={{-20,-20},{20,20}},
@@ -336,10 +329,8 @@ equation
             points={{-84.4104,1.9079},{-84.4104,-2.09208},{-80.4104,-0.09208},{
                 -84.4104,1.9079}},
             lineColor={0,0,127},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
-          Line(points={{-62,2},{-50.1395,12.907},{-39.1395,12.907}}, color={0,0,
-                127}),
+          Line(points={{-62,2},{-50.1395,12.907},{-39.1395,12.907}}, color={0,0,127}),
           Line(points={{-63,4},{-49,40},{-39,40}}, color={0,0,127}),
           Line(points={{-102,0},{-65.0373,-0.01802}}, color={0,0,127}),
           Ellipse(
@@ -400,10 +391,59 @@ value of the additional u index:</p>
 </html>"));
 end Extractor;
 
+  block Multiplex "Multiplexer block for arbitrary number of input connectors"
+    extends Modelica.Blocks.Icons.Block;
+    parameter Integer n(min=0)=0 "Dimension of input signal connector" annotation(Dialog(connectorSizing=true), HideResult=true);
+    Modelica.Blocks.Interfaces.RealVectorInput u[n]
+      "Connector of Real input signals" annotation(Placement(transformation(extent={{-120,70},{-80,-70}})));
+    Modelica.Blocks.Interfaces.RealOutput y[n+0]
+      "Connector of Real output signals" annotation(Placement(transformation(extent={{100,-10},{120,10}})));
+
+    equation
+      y = u;
+    annotation(
+      defaultComponentName="mux",
+      Documentation(info="<html>
+<p>
+The output connector is the <strong>concatenation</strong> of the input connectors.
+</p>
+</html>"),
+      Icon(
+        coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}}),
+        graphics={
+          Line(points={{8,0},{102,0}}, color={0,0,127}),
+          Line(points={{-100,70},{-60,70},{-4,4}}, color={0,0,127}),
+          Line(points={{-100,0},{-12,0}}, color={0,0,127}),
+          Line(points={{-100,-70},{-60,-70},{-4,-4}}, color={0,0,127}),
+          Ellipse(
+            extent={{-15,15},{15,-15}},
+            fillColor={0,0,127},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,127}),
+          Line(points={{-100,0},{-6,0}}, color={0,0,127}),
+          Text(
+            extent={{-140,-90},{150,-50}},
+            textString="n=%n")}),
+      Diagram(
+        coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}}),
+        graphics={
+          Line(points={{8,0},{102,0}}, color={0,0,127}),
+          Ellipse(
+            extent={{-15,15},{15,-15}},
+            fillColor={0,0,127},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,127}),
+          Line(points={{-100,0},{-6,0}},color={0,0,127})}));
+  end Multiplex;
+
   block Multiplex2 "Multiplexer block for two input connectors"
     extends Modelica.Blocks.Icons.Block;
-    parameter Integer n1=1 "dimension of input signal connector 1";
-    parameter Integer n2=1 "dimension of input signal connector 2";
+    parameter Integer n1=1 "Dimension of input signal connector 1";
+    parameter Integer n2=1 "Dimension of input signal connector 2";
     Modelica.Blocks.Interfaces.RealInput u1[n1]
       "Connector of Real input signals 1" annotation (Placement(transformation(
             extent={{-140,40},{-100,80}})));
@@ -419,39 +459,39 @@ end Extractor;
     annotation (
       Documentation(info="<html>
 <p>
-The output connector is the <b>concatenation</b> of the two input connectors.
+The output connector is the <strong>concatenation</strong> of the two input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1 and n2.
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{8,0},{102,0}}, color={0,0,127}),
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
-          Line(points={{-98,60},{-60,60},{-4,6}}, color={0,0,127}),
-          Line(points={{-98,-60},{-60,-60},{-4,-4}}, color={0,0,127})}),
+          Line(points={{-100,60},{-60,60},{0,0}}, color={0,0,127}),
+          Line(points={{-100,-60},{-60,-60},{0,0}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-98,60},{-60,60},{-4,6}}, color={0,0,255}),
-          Line(points={{-98,-60},{-60,-60},{-4,-4}}, color={0,0,255}),
-          Line(points={{8,0},{102,0}}, color={0,0,255}),
+          Line(points={{-100,60},{-60,60},{0,0}}, color={0,0,127}),
+          Line(points={{-100,-60},{-60,-60},{0,0}}, color={0,0,127}),
+          Line(points={{8,0},{102,0}}, color={0,0,127}),
           Ellipse(
-            extent={{-14,16},{16,-14}},
-            fillColor={0,0,255},
+            extent={{-15,15},{15,-15}},
+            fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255})}));
+            lineColor={0,0,127})}));
   end Multiplex2;
 
   block Multiplex3 "Multiplexer block for three input connectors"
     extends Modelica.Blocks.Icons.Block;
-    parameter Integer n1=1 "dimension of input signal connector 1";
-    parameter Integer n2=1 "dimension of input signal connector 2";
-    parameter Integer n3=1 "dimension of input signal connector 3";
+    parameter Integer n1=1 "Dimension of input signal connector 1";
+    parameter Integer n2=1 "Dimension of input signal connector 2";
+    parameter Integer n3=1 "Dimension of input signal connector 3";
     Modelica.Blocks.Interfaces.RealInput u1[n1]
       "Connector of Real input signals 1" annotation (Placement(transformation(
             extent={{-140,50},{-100,90}})));
@@ -470,41 +510,41 @@ explicitly defined via parameters n1 and n2.
     annotation (
       Documentation(info="<html>
 <p>
-The output connector is the <b>concatenation</b> of the three input connectors.
+The output connector is the <strong>concatenation</strong> of the three input connectors.
 Note, that the dimensions of the input connector signals have to be
-explicitly defined via parameters n1, n2 and n3.
-</html>"),   Icon(coordinateSystem(
+explicitly defined via parameters n1, n2 and n3.</p>
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{8,0},{102,0}}, color={0,0,127}),
-          Line(points={{-100,70},{-60,70},{-4,6}}, color={0,0,127}),
+          Line(points={{-100,70},{-60,70},{0,0}}, color={0,0,127}),
           Line(points={{-100,0},{-12,0}}, color={0,0,127}),
-          Line(points={{-100,-70},{-62,-70},{-4,-4}}, color={0,0,127}),
+          Line(points={{-100,-70},{-60,-70},{0,0}}, color={0,0,127}),
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-100,70},{-60,70},{-4,6}}, color={0,0,255}),
-          Line(points={{-100,-70},{-62,-70},{-4,-4}}, color={0,0,255}),
-          Line(points={{8,0},{102,0}}, color={0,0,255}),
+          Line(points={{-100,70},{-60,70},{0,0}}, color={0,0,127}),
+          Line(points={{-100,-70},{-60,-70},{0,0}}, color={0,0,127}),
+          Line(points={{8,0},{102,0}}, color={0,0,127}),
           Ellipse(
-            extent={{-14,16},{16,-14}},
-            fillColor={0,0,255},
+            extent={{-15,15},{15,-15}},
+            fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{-100,0},{-12,0}}, color={0,0,255})}));
+            lineColor={0,0,127}),
+          Line(points={{-100,0},{-12,0}}, color={0,0,127})}));
   end Multiplex3;
 
   block Multiplex4 "Multiplexer block for four input connectors"
     extends Modelica.Blocks.Icons.Block;
-    parameter Integer n1=1 "dimension of input signal connector 1";
-    parameter Integer n2=1 "dimension of input signal connector 2";
-    parameter Integer n3=1 "dimension of input signal connector 3";
-    parameter Integer n4=1 "dimension of input signal connector 4";
+    parameter Integer n1=1 "Dimension of input signal connector 1";
+    parameter Integer n2=1 "Dimension of input signal connector 2";
+    parameter Integer n3=1 "Dimension of input signal connector 3";
+    parameter Integer n4=1 "Dimension of input signal connector 4";
     Modelica.Blocks.Interfaces.RealInput u1[n1]
       "Connector of Real input signals 1" annotation (Placement(transformation(
             extent={{-140,70},{-100,110}})));
@@ -526,17 +566,17 @@ explicitly defined via parameters n1, n2 and n3.
     annotation (
       Documentation(info="<html>
 <p>
-The output connector is the <b>concatenation</b> of the four input connectors.
+The output connector is the <strong>concatenation</strong> of the four input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1, n2, n3 and n4.
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{8,0},{102,0}}, color={0,0,127}),
           Line(points={{-100,90},{-60,90},{-3,4}}, color={0,0,127}),
-          Line(points={{-100,30},{-60,30},{-9,0}}, color={0,0,127}),
-          Line(points={{-99,-30},{-59,-30},{-10,-5}}, color={0,0,127}),
+          Line(points={{-100,30},{-60,30},{0,0}}, color={0,0,127}),
+          Line(points={{-100,-30},{-60,-30},{0,0}}, color={0,0,127}),
           Line(points={{-100,-90},{-60,-90},{-5,-6}}, color={0,0,127}),
           Ellipse(
             extent={{-15,15},{15,-15}},
@@ -546,25 +586,25 @@ explicitly defined via parameters n1, n2, n3 and n4.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-100,90},{-60,90},{-3,4}}, color={0,0,255}),
-          Line(points={{-100,-90},{-60,-90},{-5,-6}}, color={0,0,255}),
-          Line(points={{8,0},{102,0}}, color={0,0,255}),
+          Line(points={{-100,90},{-60,90},{0,0}}, color={0,0,127}),
+          Line(points={{-100,-90},{-60,-90},{0,0}}, color={0,0,127}),
+          Line(points={{8,0},{102,0}}, color={0,0,127}),
           Ellipse(
             extent={{-15,15},{15,-15}},
-            fillColor={0,0,255},
+            fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{-100,30},{-60,30},{-9,0}}, color={0,0,255}),
-          Line(points={{-99,-30},{-59,-30},{-10,-5}}, color={0,0,255})}));
+            lineColor={0,0,127}),
+          Line(points={{-100,30},{-60,30},{0,0}}, color={0,0,127}),
+          Line(points={{-100,-30},{-59,-30},{0,0}}, color={0,0,127})}));
   end Multiplex4;
 
   block Multiplex5 "Multiplexer block for five input connectors"
     extends Modelica.Blocks.Icons.Block;
-    parameter Integer n1=1 "dimension of input signal connector 1";
-    parameter Integer n2=1 "dimension of input signal connector 2";
-    parameter Integer n3=1 "dimension of input signal connector 3";
-    parameter Integer n4=1 "dimension of input signal connector 4";
-    parameter Integer n5=1 "dimension of input signal connector 5";
+    parameter Integer n1=1 "Dimension of input signal connector 1";
+    parameter Integer n2=1 "Dimension of input signal connector 2";
+    parameter Integer n3=1 "Dimension of input signal connector 3";
+    parameter Integer n4=1 "Dimension of input signal connector 4";
+    parameter Integer n5=1 "Dimension of input signal connector 5";
     Modelica.Blocks.Interfaces.RealInput u1[n1]
       "Connector of Real input signals 1" annotation (Placement(transformation(
             extent={{-140,80},{-100,120}})));
@@ -589,19 +629,19 @@ explicitly defined via parameters n1, n2, n3 and n4.
     annotation (
       Documentation(info="<html>
 <p>
-The output connector is the <b>concatenation</b> of the five input connectors.
+The output connector is the <strong>concatenation</strong> of the five input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1, n2, n3, n4 and n5.
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{8,0},{102,0}}, color={0,0,255}),
-          Line(points={{-100,100},{-60,100},{-4,6}}, color={0,0,127}),
-          Line(points={{-99,50},{-60,50},{-8,5}}, color={0,0,127}),
+          Line(points={{8,0},{102,0}}, color={0,0,127}),
+          Line(points={{-100,100},{-60,100},{0,0}}, color={0,0,127}),
+          Line(points={{-100,50},{-60,50},{-4,0}}, color={0,0,127}),
           Line(points={{-100,0},{-7,0}}, color={0,0,127}),
-          Line(points={{-99,-50},{-60,-50},{-9,-6}}, color={0,0,127}),
-          Line(points={{-100,-100},{-60,-100},{-4,-4}}, color={0,0,127}),
+          Line(points={{-100,-50},{-60,-50},{-4,0}}, color={0,0,127}),
+          Line(points={{-100,-100},{-60,-100},{0,0}}, color={0,0,127}),
           Ellipse(
             extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
@@ -610,27 +650,27 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-100,100},{-60,100},{-4,6}}, color={0,0,255}),
-          Line(points={{-100,-100},{-60,-100},{-4,-4}}, color={0,0,255}),
-          Line(points={{8,0},{102,0}}, color={0,0,255}),
+          Line(points={{-100,100},{-60,100},{0,0}}, color={0,0,127}),
+          Line(points={{-100,-100},{-60,-100},{0,0}}, color={0,0,127}),
+          Line(points={{8,0},{102,0}}, color={0,0,127}),
           Ellipse(
             extent={{-15,15},{15,-15}},
-            fillColor={0,0,255},
+            fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{-99,50},{-60,50},{-8,5}}, color={0,0,255}),
-          Line(points={{-100,0},{-7,0}}, color={0,0,255}),
-          Line(points={{-99,-50},{-60,-50},{-9,-6}}, color={0,0,255})}));
+            lineColor={0,0,127}),
+          Line(points={{-100,50},{-60,50},{-4,0}}, color={0,0,127}),
+          Line(points={{-100,0},{-7,0}}, color={0,0,127}),
+          Line(points={{-100,-50},{-60,-50},{-4,0}}, color={0,0,127})}));
   end Multiplex5;
 
   block Multiplex6 "Multiplexer block for six input connectors"
     extends Modelica.Blocks.Icons.Block;
-    parameter Integer n1=1 "dimension of input signal connector 1";
-    parameter Integer n2=1 "dimension of input signal connector 2";
-    parameter Integer n3=1 "dimension of input signal connector 3";
-    parameter Integer n4=1 "dimension of input signal connector 4";
-    parameter Integer n5=1 "dimension of input signal connector 5";
-    parameter Integer n6=1 "dimension of input signal connector 6";
+    parameter Integer n1=1 "Dimension of input signal connector 1";
+    parameter Integer n2=1 "Dimension of input signal connector 2";
+    parameter Integer n3=1 "Dimension of input signal connector 3";
+    parameter Integer n4=1 "Dimension of input signal connector 4";
+    parameter Integer n5=1 "Dimension of input signal connector 5";
+    parameter Integer n6=1 "Dimension of input signal connector 6";
     Modelica.Blocks.Interfaces.RealInput u1[n1]
       "Connector of Real input signals 1" annotation (Placement(transformation(
             extent={{-124,73},{-100,97}})));
@@ -659,11 +699,11 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
     annotation (
       Documentation(info="<html>
 <p>
-The output connector is the <b>concatenation</b> of the six input connectors.
+The output connector is the <strong>concatenation</strong> of the six input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{8,0},{102,0}}, color={0,0,127}),
@@ -672,33 +712,82 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
-          Line(points={{-99,85},{-61,85},{-3,11}}, color={0,0,127}),
-          Line(points={{-100,51},{-61,51},{-7,6}}, color={0,0,127}),
-          Line(points={{-101,17},{-60,17},{-9,2}}, color={0,0,127}),
-          Line(points={{-100,-18},{-60,-18},{-11,-4}}, color={0,0,127}),
-          Line(points={{-99,-50},{-60,-50},{-9,-6}}, color={0,0,127}),
-          Line(points={{-100,-85},{-60,-85},{-3,-10}}, color={0,0,255})}),
+          Line(points={{-100,85},{-60,85},{-3,10}}, color={0,0,127}),
+          Line(points={{-100,51},{-60,51},{-7,6}}, color={0,0,127}),
+          Line(points={{-100,-17},{-60,-17},{-10,-2}}, color={0,0,127}),
+          Line(points={{-100,17},{-60,17},{-10,2}}, color={0,0,127}),
+          Line(points={{-100,-51},{-60,-51},{-7,-6}}, color={0,0,127}),
+          Line(points={{-100,-85},{-60,-85},{-3,-10}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-99,85},{-61,85},{-3,11}}, color={0,0,255}),
-          Line(points={{-100,-85},{-60,-85},{-3,-10}}, color={0,0,255}),
-          Line(points={{8,0},{102,0}}, color={0,0,255}),
+          Line(points={{-100,85},{-60,85},{-3,10}}, color={0,0,127}),
+          Line(points={{-100,-85},{-60,-85},{-3,-10}}, color={0,0,127}),
+          Line(points={{8,0},{102,0}}, color={0,0,127}),
           Ellipse(
             extent={{-15,15},{15,-15}},
-            fillColor={0,0,255},
+            fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{-100,51},{-61,51},{-7,6}}, color={0,0,255}),
-          Line(points={{-99,-50},{-60,-50},{-9,-6}}, color={0,0,255}),
-          Line(points={{-101,17},{-60,17},{-9,2}}, color={0,0,255}),
-          Line(points={{-100,-18},{-60,-18},{-11,-4}}, color={0,0,255})}));
+            lineColor={0,0,127}),
+          Line(points={{-100,51},{-60,51},{-7,6}}, color={0,0,127}),
+          Line(points={{-100,-51},{-60,-51},{-7,-6}}, color={0,0,127}),
+          Line(points={{-100,17},{-60,17},{-10,2}}, color={0,0,127}),
+          Line(points={{-100,-17},{-60,-17},{-10,-2}}, color={0,0,127})}));
   end Multiplex6;
+
+  block DeMultiplex "DeMultiplexer block for arbitrary number of output connectors"
+    extends Modelica.Blocks.Icons.Block;
+    parameter Integer n(min=0)=0 "Dimension of output signal connector" annotation(Dialog(connectorSizing=true), HideResult=true);
+    Modelica.Blocks.Interfaces.RealInput u[n+0]
+      "Connector of Real input signals" annotation(Placement(transformation(extent={{-140,-20},{-100,20}})));
+    Modelica.Blocks.Interfaces.RealVectorOutput y[n]
+      "Connector of Real output signals"annotation(Placement(transformation(extent={{80,70},{120,-70}})));
+
+    equation
+      y = u;
+    annotation(
+      defaultComponentName="demux",
+      Documentation(info="<html>
+<p>
+The input connector is <strong>split</strong> up into output connectors.
+</p>
+</html>"),
+      Icon(
+        coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}}),
+        graphics={
+          Line(points={{8,0},{102,0}}, color={0,0,127}),
+          Ellipse(
+            extent={{-15,15},{15,-15}},
+            fillColor={0,0,127},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,127}),
+          Line(points={{-100,0},{-6,0}}, color={0,0,127}),
+          Line(points={{100,70},{60,70},{4,4}}, color={0,0,127}),
+          Line(points={{0,0},{100,0}}, color={0,0,127}),
+          Line(points={{100,-70},{60,-70},{4,-4}}, color={0,0,127}),
+          Text(
+            extent={{-140,-90},{150,-50}},
+            textString="n=%n")}),
+      Diagram(
+        coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}}),
+        graphics={
+          Line(points={{8,0},{102,0}}, color={0,0,127}),
+          Ellipse(
+            extent={{-15,15},{15,-15}},
+            fillColor={0,0,127},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,127}),
+          Line(points={{-100,0},{-6,0}},color={0,0,127})}));
+  end DeMultiplex;
 
   block DeMultiplex2 "DeMultiplexer block for two output connectors"
     extends Modelica.Blocks.Icons.Block;
-    parameter Integer n1=1 "dimension of output signal connector 1";
-    parameter Integer n2=1 "dimension of output signal connector 2";
+    parameter Integer n1=1 "Dimension of output signal connector 1";
+    parameter Integer n2=1 "Dimension of output signal connector 2";
     Modelica.Blocks.Interfaces.RealInput u[n1 + n2]
       "Connector of Real input signals" annotation (Placement(transformation(
             extent={{-140,-20},{-100,20}})));
@@ -714,40 +803,40 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
     annotation (
       Documentation(info="<html>
 <p>
-The input connector is <b>split</b> up into two output connectors.
+The input connector is <strong>split</strong> up into two output connectors.
 Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1 and n2.
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}),
         graphics={
-          Line(points={{100,60},{60,60},{10,8}}, color={0,0,127}),
+          Line(points={{100,60},{60,60},{0,0}}, color={0,0,127}),
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
-          Line(points={{100,-60},{60,-60},{8,-8}}, color={0,0,127}),
+          Line(points={{100,-60},{60,-60},{0,0}}, color={0,0,127}),
           Line(points={{-100,0},{-6,0}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{100,60},{60,60},{10,8}}, color={0,0,255}),
-          Line(points={{100,-60},{60,-60},{8,-8}}, color={0,0,255}),
-          Line(points={{-100,0},{-6,0}}, color={0,0,255}),
+          Line(points={{100,60},{60,60},{0,0}}, color={0,0,127}),
+          Line(points={{100,-60},{60,-60},{0,0}}, color={0,0,127}),
+          Line(points={{-100,0},{-6,0}}, color={0,0,127}),
           Ellipse(
-            extent={{-14,16},{16,-14}},
-            fillColor={0,0,255},
+            extent={{-15,15},{15,-15}},
+            fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255})}));
+            lineColor={0,0,127})}));
   end DeMultiplex2;
 
   block DeMultiplex3 "DeMultiplexer block for three output connectors"
     extends Modelica.Blocks.Icons.Block;
-    parameter Integer n1=1 "dimension of output signal connector 1";
-    parameter Integer n2=1 "dimension of output signal connector 2";
-    parameter Integer n3=1 "dimension of output signal connector 3";
+    parameter Integer n1=1 "Dimension of output signal connector 1";
+    parameter Integer n2=1 "Dimension of output signal connector 2";
+    parameter Integer n3=1 "Dimension of output signal connector 3";
     Modelica.Blocks.Interfaces.RealInput u[n1 + n2 + n3]
       "Connector of Real input signals" annotation (Placement(transformation(
             extent={{-140,-20},{-100,20}})));
@@ -766,43 +855,43 @@ explicitly defined via parameters n1 and n2.
     annotation (
       Documentation(info="<html>
 <p>
-The input connector is <b>split</b> into three output connectors.
+The input connector is <strong>split</strong> into three output connectors.
 Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1, n2 and n3.
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
+            lineColor={0,0,127}),
           Line(points={{-100,0},{-6,0}}, color={0,0,127}),
-          Line(points={{100,70},{60,70},{4,5}}, color={0,0,127}),
-          Line(points={{0,0},{101,0}}, color={0,0,127}),
-          Line(points={{100,-70},{61,-70},{5,-5}}, color={0,0,127})}),
+          Line(points={{100,70},{60,70},{0,0}}, color={0,0,127}),
+          Line(points={{0,0},{100,0}}, color={0,0,127}),
+          Line(points={{100,-70},{60,-70},{0,0}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{100,70},{60,70},{4,5}}, color={0,0,255}),
-          Line(points={{100,-70},{61,-70},{5,-5}}, color={0,0,255}),
-          Line(points={{-100,0},{-6,0}}, color={0,0,255}),
+          Line(points={{100,70},{60,70},{0,0}}, color={0,0,127}),
+          Line(points={{100,-70},{60,-70},{0,0}}, color={0,0,127}),
+          Line(points={{-100,0},{-6,0}}, color={0,0,127}),
           Ellipse(
-            extent={{-16,15},{14,-15}},
-            fillColor={0,0,255},
+            extent={{-15,15},{15,-15}},
+            fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{0,0},{101,0}}, color={0,0,255})}));
+            lineColor={0,0,127}),
+          Line(points={{0,0},{100,0}}, color={0,0,127})}));
   end DeMultiplex3;
 
   block DeMultiplex4 "DeMultiplexer block for four output connectors"
 
     extends Modelica.Blocks.Icons.Block;
-    parameter Integer n1=1 "dimension of output signal connector 1";
-    parameter Integer n2=1 "dimension of output signal connector 2";
-    parameter Integer n3=1 "dimension of output signal connector 3";
-    parameter Integer n4=1 "dimension of output signal connector 4";
+    parameter Integer n1=1 "Dimension of output signal connector 1";
+    parameter Integer n2=1 "Dimension of output signal connector 2";
+    parameter Integer n3=1 "Dimension of output signal connector 3";
+    parameter Integer n4=1 "Dimension of output signal connector 4";
     Modelica.Blocks.Interfaces.RealInput u[n1 + n2 + n3 + n4]
       "Connector of Real input signals" annotation (Placement(transformation(
             extent={{-140,-20},{-100,20}})));
@@ -824,45 +913,45 @@ explicitly defined via parameters n1, n2 and n3.
     annotation (
       Documentation(info="<html>
 <p>
-The input connector is <b>split</b> into four output connectors.
+The input connector is <strong>split</strong> into four output connectors.
 Note, that the dimensions of the output connector signals have to be
-explicitly defined via parameters n1, n2, n3 and n4.
-</html>"),   Icon(coordinateSystem(
+explicitly defined via parameters n1, n2, n3 and n4.</p>
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
           Line(points={{-100,0},{-6,0}}, color={0,0,127}),
-          Line(points={{100,90},{60,90},{6,5}}, color={0,0,127}),
-          Line(points={{100,30},{60,30},{9,2}}, color={0,0,127}),
-          Line(points={{100,-30},{60,-30},{8,-4}}, color={0,0,127}),
-          Line(points={{99,-90},{60,-90},{6,-6}}, color={0,0,127})}),
+          Line(points={{100,90},{60,90},{0,0}}, color={0,0,127}),
+          Line(points={{100,30},{60,30},{0,0}}, color={0,0,127}),
+          Line(points={{100,-30},{60,-30},{0,0}}, color={0,0,127}),
+          Line(points={{100,-90},{60,-90},{0,0}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{100,90},{60,90},{6,5}}, color={0,0,255}),
-          Line(points={{99,-90},{60,-90},{6,-6}}, color={0,0,255}),
-          Line(points={{-100,0},{-6,0}}, color={0,0,255}),
-          Line(points={{100,30},{60,30},{9,2}}, color={0,0,255}),
-          Line(points={{100,-30},{60,-30},{8,-4}}, color={0,0,255}),
+          Line(points={{100,90},{60,90},{0,0}}, color={0,0,127}),
+          Line(points={{100,-90},{60,-90},{0,0}}, color={0,0,127}),
+          Line(points={{-100,0},{-6,0}}, color={0,0,127}),
+          Line(points={{100,30},{60,30},{0,0}}, color={0,0,127}),
+          Line(points={{100,-30},{60,-30},{0,0}}, color={0,0,127}),
           Ellipse(
-            extent={{-16,15},{14,-15}},
-            fillColor={0,0,255},
+            extent={{-15,15},{15,-15}},
+            fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255})}));
+            lineColor={0,0,127})}));
   end DeMultiplex4;
 
   block DeMultiplex5 "DeMultiplexer block for five output connectors"
 
     extends Modelica.Blocks.Icons.Block;
-    parameter Integer n1=1 "dimension of output signal connector 1";
-    parameter Integer n2=1 "dimension of output signal connector 2";
-    parameter Integer n3=1 "dimension of output signal connector 3";
-    parameter Integer n4=1 "dimension of output signal connector 4";
-    parameter Integer n5=1 "dimension of output signal connector 5";
+    parameter Integer n1=1 "Dimension of output signal connector 1";
+    parameter Integer n2=1 "Dimension of output signal connector 2";
+    parameter Integer n3=1 "Dimension of output signal connector 3";
+    parameter Integer n4=1 "Dimension of output signal connector 4";
+    parameter Integer n5=1 "Dimension of output signal connector 5";
     Modelica.Blocks.Interfaces.RealInput u[n1 + n2 + n3 + n4 + n5]
       "Connector of Real input signals" annotation (Placement(transformation(
             extent={{-140,-20},{-100,20}})));
@@ -887,47 +976,47 @@ explicitly defined via parameters n1, n2, n3 and n4.
     annotation (
       Documentation(info="<html>
 <p>
-The input connector is <b>split</b> into five output connectors.
+The input connector is <strong>split</strong> into five output connectors.
 Note, that the dimensions of the output connector signals have to be
-explicitly defined via parameters n1, n2, n3, n4 and n5.
-</html>"),   Icon(coordinateSystem(
+explicitly defined via parameters n1, n2, n3, n4 and n5.</p>
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
           Line(points={{-100,0},{-6,0}}, color={0,0,127}),
-          Line(points={{99,80},{60,80},{6,5}}, color={0,0,127}),
-          Line(points={{100,40},{60,40},{10,3}}, color={0,0,127}),
+          Line(points={{100,80},{60,80},{0,0}}, color={0,0,127}),
+          Line(points={{100,40},{60,40},{8,4}}, color={0,0,127}),
           Line(points={{100,0},{10,0}}, color={0,0,127}),
-          Line(points={{100,-40},{61,-40},{11,-7}}, color={0,0,127}),
-          Line(points={{100,-80},{60,-80},{7,-5}}, color={0,0,127})}),
+          Line(points={{100,-40},{60,-40},{8,-4}}, color={0,0,127}),
+          Line(points={{100,-80},{60,-80},{0,0}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{99,80},{60,80},{6,5}}, color={0,0,255}),
-          Line(points={{100,-80},{60,-80},{7,-5}}, color={0,0,255}),
-          Line(points={{-100,0},{-6,0}}, color={0,0,255}),
+          Line(points={{100,80},{60,80},{0,0}}, color={0,0,127}),
+          Line(points={{100,-80},{60,-80},{0,0}},  color={0,0,127}),
+          Line(points={{-100,0},{-6,0}}, color={0,0,127}),
           Ellipse(
-            extent={{-14,15},{16,-15}},
-            fillColor={0,0,255},
+            extent={{-15,15},{15,-15}},
+            fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{100,40},{60,40},{10,3}}, color={0,0,255}),
-          Line(points={{100,0},{10,0}}, color={0,0,255}),
-          Line(points={{100,-40},{61,-40},{11,-7}}, color={0,0,255})}));
+            lineColor={0,0,127}),
+          Line(points={{100,40},{60,40},{8,4}}, color={0,0,127}),
+          Line(points={{100,0},{10,0}}, color={0,0,127}),
+          Line(points={{100,-40},{60,-40},{8,-4}}, color={0,0,127})}));
   end DeMultiplex5;
 
   block DeMultiplex6 "DeMultiplexer block for six output connectors"
     extends Modelica.Blocks.Icons.Block;
-    parameter Integer n1=1 "dimension of output signal connector 1";
-    parameter Integer n2=1 "dimension of output signal connector 2";
-    parameter Integer n3=1 "dimension of output signal connector 3";
-    parameter Integer n4=1 "dimension of output signal connector 4";
-    parameter Integer n5=1 "dimension of output signal connector 5";
-    parameter Integer n6=1 "dimension of output signal connector 6";
+    parameter Integer n1=1 "Dimension of output signal connector 1";
+    parameter Integer n2=1 "Dimension of output signal connector 2";
+    parameter Integer n3=1 "Dimension of output signal connector 3";
+    parameter Integer n4=1 "Dimension of output signal connector 4";
+    parameter Integer n5=1 "Dimension of output signal connector 5";
+    parameter Integer n6=1 "Dimension of output signal connector 6";
     Modelica.Blocks.Interfaces.RealInput u[n1 + n2 + n3 + n4 + n5 + n6]
       "Connector of Real input signals" annotation (Placement(transformation(
             extent={{-140,-20},{-100,20}})));
@@ -955,39 +1044,39 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
     annotation (
       Documentation(info="<html>
 <p>
-The input connector is <b>split</b> into six output connectors.
+The input connector is <strong>split</strong> into six output connectors.
 Note, that the dimensions of the output connector signals have to be
-explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
-</html>"),   Icon(coordinateSystem(
+explicitly defined via parameters n1, n2, n3, n4, n5 and n6.</p>
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
-            extent={{-14,16},{16,-14}},
+            extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
           Line(points={{-100,0},{-6,0}}, color={0,0,127}),
-          Line(points={{99,90},{60,90},{5,10}}, color={0,0,127}),
-          Line(points={{100,53},{60,53},{8,6}}, color={0,0,127}),
-          Line(points={{100,18},{59,18},{7,2}}, color={0,0,127}),
-          Line(points={{100,-19},{60,-19},{13,-2}}, color={0,0,127}),
-          Line(points={{99,-54},{60,-54},{9,-1}}, color={0,0,127}),
-          Line(points={{100,-91},{60,-91},{3,-7}}, color={0,0,127})}),
+          Line(points={{100,90},{60,90},{0,4}}, color={0,0,127}),
+          Line(points={{100,54},{60,54},{8,6}}, color={0,0,127}),
+          Line(points={{100,18},{60,18},{10,2}}, color={0,0,127}),
+          Line(points={{100,-18},{60,-18},{10,-2}}, color={0,0,127}),
+          Line(points={{100,-54},{60,-54},{8,-6}}, color={0,0,127}),
+          Line(points={{100,-90},{60,-90},{0,-4}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{99,90},{60,90},{5,10}}, color={0,0,255}),
-          Line(points={{100,-91},{60,-91},{3,-7}}, color={0,0,255}),
-          Line(points={{-100,0},{-6,0}}, color={0,0,255}),
+          Line(points={{100,90},{60,90},{0,4}}, color={0,0,127}),
+          Line(points={{100,-90},{60,-90},{0,-4}}, color={0,0,127}),
+          Line(points={{-100,0},{-6,0}}, color={0,0,127}),
           Ellipse(
-            extent={{-14,15},{16,-15}},
-            fillColor={0,0,255},
+            extent={{-15,15},{15,-15}},
+            fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{100,53},{60,53},{8,6}}, color={0,0,255}),
-          Line(points={{99,-54},{60,-54},{9,-1}}, color={0,0,255}),
-          Line(points={{100,18},{59,18},{7,2}}, color={0,0,255}),
-          Line(points={{100,-19},{60,-19},{13,-2}}, color={0,0,255})}));
+            lineColor={0,0,127}),
+          Line(points={{100,54},{60,54},{8,6}}, color={0,0,127}),
+          Line(points={{100,-54},{60,-54},{8,-6}}, color={0,0,127}),
+          Line(points={{100,18},{60,18},{10,2}}, color={0,0,127}),
+          Line(points={{100,-18},{60,-18},{10,-2}}, color={0,0,127})}));
   end DeMultiplex6;
 
   model RealPassThrough "Pass a Real signal through without modification"
@@ -1026,7 +1115,7 @@ Passes a Real signal through without modification.  Enables signals to be read o
     extends Modelica.Blocks.Interfaces.BooleanSISO;
   equation
     y = u;
-    annotation (                         Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>Passes a Boolean signal through without modification.  Enables signals to be read out of one bus, have their name changed and be sent back to a bus.</p>
 </html>"),
       Icon(

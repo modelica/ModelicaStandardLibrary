@@ -44,18 +44,15 @@ different icons.
             lineColor={95,95,95},
             lineThickness=0.5), Rectangle(
             extent={{-30,100},{30,-100}},
-            lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
      Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           initialScale=0.16), graphics={Text(
-            extent={{-140,-50},{140,-88}},
-            lineColor={0,0,0},
+            extent={{-140,-50},{140,-90}},
             textString="%name"), Rectangle(
             extent={{-12,40},{12,-40}},
-            lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
@@ -81,18 +78,15 @@ This component has a filled rectangular icon.
             lineColor={95,95,95},
             lineThickness=0.5), Rectangle(
             extent={{-30,100},{30,-100}},
-            lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid)}),
      Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           initialScale=0.16), graphics={Text(
-            extent={{-140,-50},{140,-88}},
-            lineColor={0,0,0},
+            extent={{-140,-50},{140,-90}},
             textString="%name"), Rectangle(
             extent={{-12,40},{12,-40}},
-            lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
@@ -125,8 +119,7 @@ and the cut-torque is acting. This component has a non-filled rectangular icon.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             initialScale=0.16), graphics={Text(
-              extent={{-140,-50},{140,-88}},
-              lineColor={0,0,0},
+              extent={{-140,-50},{140,-90}},
               textString="%name"), Rectangle(
               extent={{-12,40},{12,-40}},
               lineColor={95,95,95},
@@ -194,7 +187,6 @@ This component has a non-filled rectangular icon.
             thickness=0.5),
           Text(
             extent={{-158,-66},{158,-124}},
-            lineColor={0,0,0},
             textString="%name"),
           Rectangle(
             extent={{-60,60},{60,-60}},
@@ -240,7 +232,7 @@ to the FlangeWithBearing connector.
       "1-dim. rotational flange"
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     Frame_a frame if includeBearingConnector
-      "3-dim. frame in which the 1-dim. shaft is mounted"             annotation (Placement(
+      "3-dim. frame in which the 1-dim. shaft is mounted" annotation (Placement(
           transformation(
           origin={0,-100},
           extent={{-16,-16},{16,16}},
@@ -284,13 +276,11 @@ connector.
     "Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected"
 
     Interfaces.Frame_a frame_a
-      "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (Placement(transformation(extent={{
-              -116,-16},{-84,16}})));
+      "Coordinate system a fixed to the component with one cut-force and cut-torque"
+      annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
     Interfaces.Frame_b frame_b
-      "Coordinate system fixed to the component with one cut-force and cut-torque"
-                               annotation (Placement(transformation(extent={{84,
-              -16},{116,16}})));
+      "Coordinate system b fixed to the component with one cut-force and cut-torque"
+      annotation (Placement(transformation(extent={{84,-16},{116,16}})));
   protected
     outer Modelica.Mechanics.MultiBody.World world;
   equation
@@ -365,14 +355,14 @@ joint aggregation models.
     "Base model for components providing one frame_a connector + outer world + assert to guarantee that the component is connected"
 
     Interfaces.Frame_a frame_a
-      "Coordinate system fixed to the component with one cut-force and cut-torque"                        annotation (Placement(
+      "Coordinate system fixed to the component with one cut-force and cut-torque" annotation (Placement(
           transformation(extent={{-116,-16},{-84,16}})));
   protected
     outer Modelica.Mechanics.MultiBody.World world;
   equation
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of component is not connected");
-    annotation (                      Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>
 This partial model provides one frame_a connector, access to the world
 object and an assert to check that the frame_a connector is connected.
@@ -432,13 +422,13 @@ needed and if this connector should be connected for a correct model.
       "Connector frame_b of joint object is not connected");
     annotation (Documentation(info="<html>
 <p>
-All <b>elementary joints</b> should inherit from this base model, i.e.,
+All <strong>elementary joints</strong> should inherit from this base model, i.e.,
 joints that are directly defined by equations, provided they compute
 either the rotation object of frame_b from the rotation object of frame_a
 and from relative quantities (or vice versa), or there is a constraint
 equation between the rotation objects of the two frames.
 In other cases, a joint object should inherit from
-<b>Interfaces.PartialTwoFrames</b> (e.g., joint Spherical, because there
+<strong>Interfaces.PartialTwoFrames</strong> (e.g., joint Spherical, because there
 is no constraint between the rotation objects of frame_a and frame_b
 or joint Cylindrical because it is not an elementary joint).
 </p>
@@ -452,39 +442,19 @@ object and an assert to check that both frame connectors are connected.
 
   partial model PartialForce
     "Base model for force elements (provide frame_b.f and frame_b.t in subclasses)"
-
-    Interfaces.Frame_a frame_a
-      "Coordinate system fixed to the joint with one cut-force and cut-torque"
-                               annotation (Placement(transformation(extent={{
-              -116,-16},{-84,16}})));
-    Interfaces.Frame_b frame_b
-      "Coordinate system fixed to the joint with one cut-force and cut-torque"
-                               annotation (Placement(transformation(extent={{84,
-              -16},{116,16}})));
-
+    extends PartialTwoFrames;
     SI.Position r_rel_b[3]
       "Position vector from origin of frame_a to origin of frame_b, resolved in frame_b";
-  protected
-    outer Modelica.Mechanics.MultiBody.World world;
   equation
-    assert(cardinality(frame_a) > 0,
-      "Connector frame_a of force object is not connected");
-    assert(cardinality(frame_b) > 0,
-      "Connector frame_b of force object is not connected");
-
-    /* Determine relative position vector
-     between frame_a and frame_b
-  */
+    // Determine relative position vector between frame_a and frame_b
     r_rel_b = Frames.resolve2(frame_b.R, frame_b.r_0 - frame_a.r_0);
 
-    /* Force and torque balance between frame_a and frame_b */
-    zeros(3) = frame_a.f + Frames.resolveRelative(frame_b.f, frame_b.R, frame_a.
-       R);
-    zeros(3) = frame_a.t + Frames.resolveRelative(frame_b.t + cross(r_rel_b,
-      frame_b.f), frame_b.R, frame_a.R);
+    // Force and torque balance between frame_a and frame_b
+    zeros(3) = frame_a.f + Frames.resolveRelative(frame_b.f, frame_b.R, frame_a.R);
+    zeros(3) = frame_a.t + Frames.resolveRelative(frame_b.t + cross(r_rel_b, frame_b.f), frame_b.R, frame_a.R);
     annotation (Documentation(info="<html>
 <p>
-All <b>3-dimensional force</b> and <b>torque elements</b>
+All <strong>3-dimensional force</strong> and <strong>torque elements</strong>
 should be based on this superclass.
 This model defines frame_a and frame_b, computes the relative
 translation and rotation between the two frames and calculates
@@ -505,32 +475,25 @@ to which this force element is attached at frame_b, then
 the definition should be:
 </p>
 <pre>
-   <b>model</b> Constant_x_Force
+   <strong>model</strong> Constant_x_Force
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialForce;
-   <b>equation</b>
+   <strong>equation</strong>
       frame_b.f = {-100, 0, 0};
       frame_b.t = zeros(3);
-   <b>end</b> Constant_x_Force;
+   <strong>end</strong> Constant_x_Force;
 </pre>
 <p>
 Note, that frame_b.f and frame_b.t are flow variables and therefore
 the negative value of frame_b.f and frame_b.t is acting at the part
 to which this force element is connected.
 </p>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics={Text(
-            extent={{-136,42},{-100,17}},
-            lineColor={128,128,128},
-            textString="a"), Text(
-            extent={{102,44},{138,19}},
-            lineColor={128,128,128},
-            textString="b")}));
+</html>"));
   end PartialForce;
 
-  partial model PartialLineForce "Base model for line force elements"
-
-    parameter SI.Position s_small=1.E-6
-      "Prevent zero-division if relative distance s=0"
+  partial model LineForceBase "Base model for line force elements"
+    extends PartialTwoFrames;
+    parameter SI.Distance s_small=1e-10
+      "Prevent zero-division if distance between frame_a and frame_b is zero"
       annotation (Dialog(tab="Advanced"));
     parameter Boolean fixedRotationAtFrame_a=false
       "=true, if rotation frame_a.R is fixed (to directly connect line forces)"
@@ -539,40 +502,39 @@ to which this force element is connected.
       "=true, if rotation frame_b.R is fixed (to directly connect line forces)"
        annotation (Evaluate=true, choices(checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
 
-    Interfaces.Frame_a frame_a
-      "Coordinate system fixed to the force element with one cut-force and cut-torque"
-                               annotation (Placement(transformation(extent={{
-              -116,-16},{-84,16}})));
-    Interfaces.Frame_b frame_b
-      "Coordinate system fixed to the force element with one cut-force and cut-torque"
-                               annotation (Placement(transformation(extent={{84,
-              -16},{116,16}})));
-    SI.Force f
-      "Line force acting on frame_a and on frame_b (positive, if acting on frame_b and directed from frame_a to frame_b)";
+    SI.Distance length
+      "Distance between the origin of frame_a and the origin of frame_b";
     SI.Position s
       "(Guarded) distance between the origin of frame_a and the origin of frame_b (>= s_small))";
-    Real e_a[3](each final unit="1")
-      "Unit vector on the line connecting the origin of frame_a with the origin of frame_b resolved in frame_a (directed from frame_a to frame_b)";
-    Modelica.SIunits.Position r_rel_a[3]
-      "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
-  protected
-    outer Modelica.Mechanics.MultiBody.World world;
+    SI.Position r_rel_0[3]
+      "Position vector from frame_a to frame_b resolved in world frame";
+    Real e_rel_0[3](each final unit="1")
+      "Unit vector in direction from frame_a to frame_b, resolved in world frame";
   equation
-    assert(cardinality(frame_a) > 0,
-      "Connector frame_a of line force object is not connected");
-    assert(cardinality(frame_b) > 0,
-      "Connector frame_b of line force object is not connected");
+    assert(noEvent(length > s_small), "
+The distance between the origin of frame_a and the origin of frame_b
+of a line force component became smaller as parameter s_small
+(= a small number, defined in the \"Advanced\" menu). The distance is
+set to s_small, although it is smaller, to avoid a division by zero
+when computing the direction of the line force. Possible reasons
+for this situation:
+- At initial time the distance may already be zero: Change the initial
+  positions of the bodies connected by this element.
+- Hardware stops are not modeled or are modeled not stiff enough.
+  Include stops, e.g., stiff springs, or increase the stiffness
+  if already present.
+- Another error in your model may lead to unrealistically large forces
+  and torques that would in reality destroy the stops.
+- The flange_b connector might be defined by a pre-defined motion,
+  e.g., with Modelica.Mechanics.Translational.Position and the
+  predefined flange_b.s is zero or negative.
+");
 
-    // Determine distance s and n_a
-    r_rel_a = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
-    s = noEvent(max(Modelica.Math.Vectors.length(
-                                  r_rel_a), s_small));
-    e_a = r_rel_a/s;
-
-    /* Determine forces and torques at frame_a and frame_b */
-    frame_a.f = -e_a*f;
-    frame_b.f = -Frames.resolve2(Frames.relativeRotation(frame_a.R, frame_b.R),
-       frame_a.f);
+    // Determine relative position vector between the two frames
+    r_rel_0 = frame_b.r_0 - frame_a.r_0;
+    length = Modelica.Math.Vectors.length(r_rel_0);
+    s = Frames.Internal.maxWithoutEvent(length, s_small);
+    e_rel_0 = r_rel_0/s;
 
     // Additional equations, if direct connections of line forces
     if fixedRotationAtFrame_a then
@@ -591,32 +553,65 @@ to which this force element is connected.
 
     annotation (Documentation(info="<html>
 <p>
-All <b>line force</b> elements should be based on this base model.
-This model defines frame_a and frame_b, computes the relative
-distance <b>s</b> and provides the force and torque
+All <strong>line force</strong> elements should be based on this base model.
+This model defines frame_a and frame_b and computes the (guarded) relative
+distance <strong>s</strong>. An assertion is raised if the relative
+distance <strong>length</strong> became smaller as parameter <strong>s_small</strong>.
+</p>
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+              {100,100}}), graphics={
+          Ellipse(visible=fixedRotationAtFrame_a, extent={{-70,30},{-130,-30}}, lineColor={255,0,0}),
+          Text(visible=fixedRotationAtFrame_a,
+            extent={{-62,50},{-140,30}},
+            lineColor={255,0,0},
+            textString="R=0"),
+          Ellipse(visible=fixedRotationAtFrame_b, extent={{70,30},{130,-30}}, lineColor={255,0,0}),
+          Text(visible=fixedRotationAtFrame_b,
+            extent={{62,50},{140,30}},
+            lineColor={255,0,0},
+            textString="R=0")}));
+  end LineForceBase;
+
+  partial model PartialLineForce "Base model for massless line force elements"
+    extends LineForceBase;
+
+    Modelica.SIunits.Position r_rel_a[3]
+      "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
+    Real e_a[3](each final unit="1")
+      "Unit vector on the line connecting the origin of frame_a with the origin of frame_b resolved in frame_a (directed from frame_a to frame_b)";
+    SI.Force f
+      "Line force acting on frame_a and on frame_b (positive, if acting on frame_b and directed from frame_a to frame_b)";
+  equation
+    // Determine relative position vector between the two frames
+    r_rel_a = Frames.resolve2(frame_a.R, r_rel_0);
+    e_a = r_rel_a/s;
+
+    // Determine forces and torques at frame_a and frame_b
+    frame_a.f = -e_a*f;
+    frame_b.f = -Frames.resolve2(Frames.relativeRotation(frame_a.R, frame_b.R), frame_a.f);
+
+    annotation (Documentation(info="<html>
+<p>
+All massless <strong>line force</strong> elements should be based on this base model.
+This model defines frame_a and frame_b, computes the (guarded) relative
+distance <strong>s</strong> and provides the force and torque
 balance of the cut-forces and cut-torques at frame_a and
-frame_b, respectively. In sub-models, only the line force <b>f</b>,
+frame_b, respectively. In sub-models, only the line force <strong>f</strong>,
 acting at frame_b on the line from frame_a to frame_b, as a function
-of the relative distance <b>s</b> and its derivative <b>der</b>(<b>s</b>)
+of the relative distance <strong>s</strong> and its derivative <strong>der</strong>(<strong>s</strong>)
 has to be defined. Example:
 </p>
 <pre>
-   <b>model</b> Spring
-      <b>parameter</b> Real c \"spring constant\",
-      <b>parameter</b> Real s_unstretched \"unstretched spring length\";
-      <b>extends</b> Modelica.Mechanics.MultiBody.Interfaces.PartialLineForce;
-   <b>equation</b>
+   <strong>model</strong> Spring
+      <strong>parameter</strong> Real c \"spring constant\",
+      <strong>parameter</strong> Real s_unstretched \"unstretched spring length\";
+      <strong>extends</strong> Modelica.Mechanics.MultiBody.Interfaces.PartialLineForce;
+   <strong>equation</strong>
       f = c*(s-s_unstretched);
-   <b>end</b> Spring;
+   <strong>end</strong> Spring;
 </pre>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics={Text(
-            extent={{-136,-44},{-100,-19}},
-            lineColor={128,128,128},
-            textString="a"), Text(
-            extent={{100,-42},{136,-17}},
-            lineColor={128,128,128},
-            textString="b"),
+              {100,100}}), graphics={
           Ellipse(visible=fixedRotationAtFrame_a, extent={{-70,30},{-130,-30}}, lineColor={255,0,0}),
           Text(visible=fixedRotationAtFrame_a,
             extent={{-62,50},{-140,30}},
@@ -654,7 +649,7 @@ output port in order to measure an absolute quantity in the frame connector
 and to provide the measured signal as output for further processing
 with the blocks of package Modelica.Blocks.
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-70,0},{-100,0}}),
@@ -698,7 +693,7 @@ between the two frames or the cut-forces/torques in the frame and
 to provide the measured signals as output for further processing
 with the blocks of package Modelica.Blocks.
 </p>
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-70,0},{-101,0}}),
@@ -722,7 +717,7 @@ with the blocks of package Modelica.Blocks.
     "Base model for visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)"
 
     Interfaces.Frame_a frame_a
-      "Coordinate system in which visualization data is resolved"                          annotation (Placement(
+      "Coordinate system in which visualization data is resolved" annotation (Placement(
           transformation(extent={{-116,-16},{-84,16}})));
   protected
     outer Modelica.Mechanics.MultiBody.World world;
@@ -750,11 +745,20 @@ It is used by inheritance from all visualizer objects.
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-74,24},{80,-20}},
-            lineColor={0,0,0},
-            textString="r = 0")}));
+            textString="r = 0")}), Documentation(info="<html>
+<p>
+Element consisting of a frame (frame_resolve) that is fixed in the world
+frame and has it's position and orientation identical with the world, i.e.
+the position vector from origin of world frame to frame_resolve is zero vector
+and the relative orientation between those two frames is identity matrix.
+</p>
+<p>
+This component provides no visualization.
+</p>
+</html>"));
   end ZeroPosition;
 
-  partial function partialGravityAcceleration
+  partial function partialGravityAcceleration "Interface for the gravity function used in the World object"
     extends Modelica.Icons.Function;
      input Modelica.SIunits.Position r[3]
       "Position vector from world frame to actual point, resolved in world frame";
@@ -771,7 +775,7 @@ gravity acceleration at this point, resolved in the world frame.
 </html>"));
   end partialGravityAcceleration;
 
-  partial function partialSurfaceCharacteristic
+  partial function partialSurfaceCharacteristic "Interface for a function returning surface characteristics"
     extends Modelica.Icons.Function;
      input Integer nu "Number of points in u-Dimension";
      input Integer nv "Number of points in v-Dimension";
@@ -786,6 +790,12 @@ gravity acceleration at this point, resolved in the world frame.
      output Real C[if multiColoredSurface then nu else 0,
                    if multiColoredSurface then nv else 0,3]
       "[nu,nv,3] Color array, defining the color for each surface point";
+    annotation (Documentation(info="<html>
+<p>This partial function defines the interface of a function that returns
+surface characteristics for an object visualization, see e.g.
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus\">Visualizers.Advanced.SurfaceCharacteristics.torus</a>.
+</p>
+</html>"));
   end partialSurfaceCharacteristic;
 
   partial function partialColorMap
@@ -802,7 +812,7 @@ a color map. Predefined color map functions are defined in package
 </html>"));
   end partialColorMap;
 
-  annotation ( Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
 This package contains connectors and partial models (i.e., models
 that are only used to build other models) of the MultiBody library.

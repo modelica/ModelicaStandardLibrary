@@ -45,25 +45,25 @@ package Vectors "Library of functions operating on vectors"
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Vectors.<b>toString</b>(v);
-Vectors.<b>toString</b>(v,name=\"\",significantDigits=6);
+Vectors.<strong>toString</strong>(v);
+Vectors.<strong>toString</strong>(v,name=\"\",significantDigits=6);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-The function call \"<code>Vectors.<b>toString</b>(v)</code>\" returns the string representation of vector <b>v</b>.
+The function call \"<code>Vectors.<strong>toString</strong>(v)</code>\" returns the string representation of vector <strong>v</strong>.
 With the optional arguments \"name\" and \"significantDigits\" a name and the number of the digits are defined.
 The default values of \"name\" and \"significantDigits\" are \"\" and 6 respectively. If name==\"\" (empty string) then the prefix \"&lt;name&gt; =\" is left out at the output-string.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
   v = {2.12, -4.34, -2.56, -1.67};
-  <b>toString</b>(v);
+  <strong>toString</strong>(v);
                          // = \"
                          //           2.12
                          //          -4.34
                          //          -2.56
                          //          -1.67\"
-  <b>toString</b>(v,\"vv\",1);
+  <strong>toString</strong>(v,\"vv\",1);
                          // = \"vv =
                          //           2
                          //          -4
@@ -107,15 +107,15 @@ The default values of \"name\" and \"significantDigits\" are \"\" and 6 respecti
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Vectors.<b>isEqual</b>(v1, v2);
-Vectors.<b>isEqual</b>(v1, v2, eps=0);
+Vectors.<strong>isEqual</strong>(v1, v2);
+Vectors.<strong>isEqual</strong>(v1, v2, eps=0);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-The function call \"<code>Vectors.isEqual(v1, v2)</code>\" returns <b>true</b>,
+The function call \"<code>Vectors.isEqual(v1, v2)</code>\" returns <strong>true</strong>,
 if the two Real vectors v1 and v2 have the same dimensions and
 the same elements. Otherwise the function
-returns <b>false</b>. Two elements e1 and e2 of the two vectors
+returns <strong>false</strong>. Two elements e1 and e2 of the two vectors
 are checked on equality by the test \"abs(e1-e2) &le; eps\", where \"eps\"
 can be provided as third argument of the function. Default is \"eps = 0\".
 </p>
@@ -125,11 +125,11 @@ can be provided as third argument of the function. Default is \"eps = 0\".
   Real v2[4] = {1, 2, 3, 4};
   Real v3[3] = {1, 2, 3.0001};
   Boolean result;
-<b>algorithm</b>
-  result := Vectors.isEqual(v1,v2);     // = <b>false</b>
-  result := Vectors.isEqual(v1,v3);     // = <b>false</b>
-  result := Vectors.isEqual(v1,v1);     // = <b>true</b>
-  result := Vectors.isEqual(v1,v3,0.1); // = <b>true</b>
+<strong>algorithm</strong>
+  result := Vectors.isEqual(v1,v2);     // = <strong>false</strong>
+  result := Vectors.isEqual(v1,v3);     // = <strong>false</strong>
+  result := Vectors.isEqual(v1,v1);     // = <strong>true</strong>
+  result := Vectors.isEqual(v1,v3,0.1); // = <strong>true</strong>
 </pre></blockquote>
 <h4>See also</h4>
 <p>
@@ -165,51 +165,51 @@ can be provided as third argument of the function. Default is \"eps = 0\".
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Vectors.<b>norm</b>(v);
-Vectors.<b>norm</b>(v,p=2);   // 1 &le; p &le; &#8734;
+Vectors.<strong>norm</strong>(v);
+Vectors.<strong>norm</strong>(v,p=2);   // 1 &le; p &le; &#8734;
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-The function call \"<code>Vectors.<b>norm</b>(v)</code>\" returns the
-<b>Euclidean norm</b> \"<code>sqrt(v*v)</code>\" of vector v.
+The function call \"<code>Vectors.<strong>norm</strong>(v)</code>\" returns the
+<strong>Euclidean norm</strong> \"<code>sqrt(v*v)</code>\" of vector v.
 With the optional
 second argument \"p\", any other p-norm can be computed:
 </p>
 <center>
-<IMG src=\"modelica://Modelica/Resources/Images/Math/Vectors/vectorNorm.png\" ALT=\"function Vectors.norm\">
+<img src=\"modelica://Modelica/Resources/Images/Math/Vectors/vectorNorm.png\" alt=\"function Vectors.norm\">
 </center>
 <p>
 Besides the Euclidean norm (p=2), also the 1-norm and the
 infinity-norm are sometimes used:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>1-norm</b></td>
-      <td valign=\"top\">= sum(abs(v))</td>
-      <td valign=\"top\"><b>norm</b>(v,1)</td>
+  <tr><td><strong>1-norm</strong></td>
+      <td>= sum(abs(v))</td>
+      <td><strong>norm</strong>(v,1)</td>
   </tr>
-  <tr><td valign=\"top\"><b>2-norm</b></td>
-      <td valign=\"top\">= sqrt(v*v)</td>
-      <td valign=\"top\"><b>norm</b>(v) or <b>norm</b>(v,2)</td>
+  <tr><td><strong>2-norm</strong></td>
+      <td>= sqrt(v*v)</td>
+      <td><strong>norm</strong>(v) or <strong>norm</strong>(v,2)</td>
   </tr>
-  <tr><td valign=\"top\"><b>infinity-norm</b></td>
-      <td valign=\"top\">= max(abs(v))</td>
-      <td valign=\"top\"><b>norm</b>(v,Modelica.Constants.<b>inf</b>)</td>
+  <tr><td><strong>infinity-norm</strong></td>
+      <td>= max(abs(v))</td>
+      <td><strong>norm</strong>(v,Modelica.Constants.<strong>inf</strong>)</td>
   </tr>
 </table>
 <p>
 Note, for any vector norm the following inequality holds:
 </p>
 <blockquote><pre>
-<b>norm</b>(v1+v2,p) &le; <b>norm</b>(v1,p) + <b>norm</b>(v2,p)
+<strong>norm</strong>(v1+v2,p) &le; <strong>norm</strong>(v1,p) + <strong>norm</strong>(v2,p)
 </pre></blockquote>
 <h4>Example</h4>
 <blockquote><pre>
   v = {2, -4, -2, -1};
-  <b>norm</b>(v,1);    // = 9
-  <b>norm</b>(v,2);    // = 5
-  <b>norm</b>(v);      // = 5
-  <b>norm</b>(v,10.5); // = 4.00052597412635
-  <b>norm</b>(v,Modelica.Constants.inf);  // = 4
+  <strong>norm</strong>(v,1);    // = 9
+  <strong>norm</strong>(v,2);    // = 5
+  <strong>norm</strong>(v);      // = 5
+  <strong>norm</strong>(v,10.5); // = 4.00052597412635
+  <strong>norm</strong>(v,Modelica.Constants.inf);  // = 4
 </pre></blockquote>
 <h4>See also</h4>
 <p>
@@ -228,12 +228,12 @@ Note, for any vector norm the following inequality holds:
     annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Vectors.<b>length</b>(v);
+Vectors.<strong>length</strong>(v);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-The function call \"<code>Vectors.<b>length</b>(v)</code>\" returns the
-<b>Euclidean length</b> \"<code>sqrt(v*v)</code>\" of vector v.
+The function call \"<code>Vectors.<strong>length</strong>(v)</code>\" returns the
+<strong>Euclidean length</strong> \"<code>sqrt(v*v)</code>\" of vector v.
 The function call is equivalent to Vectors.norm(v). The advantage of
 length(v) over norm(v)\"is that function length(..) is implemented
 in one statement and therefore the function is usually automatically
@@ -243,7 +243,7 @@ not the case with function norm(..).
 <h4>Example</h4>
 <blockquote><pre>
   v = {2, -4, -2, -1};
-  <b>length</b>(v);  // = 5
+  <strong>length</strong>(v);  // = 5
 </pre></blockquote>
 <h4>See also</h4>
 <p>
@@ -269,20 +269,20 @@ not the case with function norm(..).
     annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Vectors.<b>normalize</b>(v);
-Vectors.<b>normalize</b>(v,eps=100*Modelica.Constants.eps);
+Vectors.<strong>normalize</strong>(v);
+Vectors.<strong>normalize</strong>(v,eps=100*Modelica.Constants.eps);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-The function call \"<code>Vectors.<b>normalize</b>(v)</code>\" returns the
-<b>unit vector</b> \"<code>v/length(v)</code>\" of vector v.
+The function call \"<code>Vectors.<strong>normalize</strong>(v)</code>\" returns the
+<strong>unit vector</strong> \"<code>v/length(v)</code>\" of vector v.
 If length(v) is close to zero (more precisely, if length(v) &lt; eps),
 v/eps is returned in order to avoid
 a division by zero. For many applications this is useful, because
-often the unit vector <b>e</b> = <b>v</b>/length(<b>v</b>) is used to compute
-a vector x*<b>e</b>, where the scalar x is in the order of length(<b>v</b>),
-i.e., x*<b>e</b> is small, when length(<b>v</b>) is small and then
-it is fine to replace <b>e</b> by <b>v</b> to avoid a division by zero.
+often the unit vector <strong>e</strong> = <strong>v</strong>/length(<strong>v</strong>) is used to compute
+a vector x*<strong>e</strong>, where the scalar x is in the order of length(<strong>v</strong>),
+i.e., x*<strong>e</strong> is small, when length(<strong>v</strong>) is small and then
+it is fine to replace <strong>e</strong> by <strong>v</strong> to avoid a division by zero.
 </p>
 <p>
 Since the function has the \"Inline\" annotation, it
@@ -290,8 +290,8 @@ is usually inlined and symbolic processing is applied.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  <b>normalize</b>({1,2,3});  // = {0.267, 0.534, 0.802}
-  <b>normalize</b>({0,0,0});  // = {0,0,0}
+  <strong>normalize</strong>({1,2,3});  // = {0.267, 0.534, 0.802}
+  <strong>normalize</strong>({0,0,0});  // = {0,0,0}
 </pre></blockquote>
 <h4>See also</h4>
 <p>
@@ -316,12 +316,12 @@ algorithm
     Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Vectors.<b>normalizeWithAssert</b>(v);
+Vectors.<strong>normalizeWithAssert</strong>(v);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-The function call \"<code>Vectors.<b>normalizeWithAssert</b>(v)</code>\" returns the
-<b>unit vector</b> \"<code>v/sqrt(v*v)</code>\" of vector v.
+The function call \"<code>Vectors.<strong>normalizeWithAssert</strong>(v)</code>\" returns the
+<strong>unit vector</strong> \"<code>v/sqrt(v*v)</code>\" of vector v.
 If vector v is a zero vector, an assert is triggered.
 </p>
 <p>
@@ -330,8 +330,8 @@ is usually inlined and symbolic processing is applied.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  <b>normalizeWithAssert</b>({1,2,3});  // = {0.267, 0.534, 0.802}
-  <b>normalizeWithAssert</b>({0,0,0});  // error (an assert is triggered)
+  <strong>normalizeWithAssert</strong>({1,2,3});  // = {0.267, 0.534, 0.802}
+  <strong>normalizeWithAssert</strong>({0,0,0});  // error (an assert is triggered)
 </pre></blockquote>
 <h4>See also</h4>
 <p>
@@ -351,16 +351,16 @@ end normalizeWithAssert;
     annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Vectors.<b>reverse</b>(v);
+Vectors.<strong>reverse</strong>(v);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-The function call \"<code>Vectors.<b>reverse</b>(v)</code>\" returns the
+The function call \"<code>Vectors.<strong>reverse</strong>(v)</code>\" returns the
 vector elements in reverse order.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  <b>reverse</b>({1,2,3,4});  // = {4,3,2,1}
+  <strong>reverse</strong>({1,2,3,4});  // = {4,3,2,1}
 </pre></blockquote>
 </html>"));
   end reverse;
@@ -424,14 +424,14 @@ vector elements in reverse order.
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-           sorted_v = Vectors.<b>sort</b>(v);
-(sorted_v, indices) = Vectors.<b>sort</b>(v, ascending=true);
+           sorted_v = Vectors.<strong>sort</strong>(v);
+(sorted_v, indices) = Vectors.<strong>sort</strong>(v, ascending=true);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Function <b>sort</b>(..) sorts a Real vector v
+Function <strong>sort</strong>(..) sorts a Real vector v
 in ascending order and returns the result in sorted_v.
-If the optional argument \"ascending\" is <b>false</b>, the vector
+If the optional argument \"ascending\" is <strong>false</strong>, the vector
 is sorted in descending order. In the optional second
 output argument the indices of the sorted vector with respect
 to the original vector are given, such that sorted_v = v[indices].
@@ -470,12 +470,12 @@ to the original vector are given, such that sorted_v = v[indices].
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Vectors.<b>find</b>(e, v);
-Vectors.<b>find</b>(e, v, eps=0);
+Vectors.<strong>find</strong>(e, v);
+Vectors.<strong>find</strong>(e, v, eps=0);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-The function call \"<code>Vectors.find(e, v)</code>\" returns the index of the first occurrence of input e in vector <b>v</b>.
+The function call \"<code>Vectors.find(e, v)</code>\" returns the index of the first occurrence of input e in vector <strong>v</strong>.
 The test of equality is performed by \"abs(e-v[i]) &le; eps\", where \"eps\"
 can be provided as third argument of the function. Default is \"eps = 0\".
 </p>
@@ -485,10 +485,10 @@ can be provided as third argument of the function. Default is \"eps = 0\".
   Real e1 = 2;
   Real e2 = 3.01;
   Boolean result;
-<b>algorithm</b>
-  result := Vectors.find(e1,v);          // = <b>2</b>
-  result := Vectors.find(e2,v);          // = <b>0</b>
-  result := Vectors.find(e2,v,eps=0.1);  // = <b>3</b>
+<strong>algorithm</strong>
+  result := Vectors.find(e1,v);          // = <strong>2</strong>
+  result := Vectors.find(e2,v);          // = <strong>0</strong>
+  result := Vectors.find(e2,v,eps=0.1);  // = <strong>3</strong>
 </pre></blockquote>
 <h4>See also</h4>
 <p>
@@ -545,13 +545,14 @@ can be provided as third argument of the function. Default is \"eps = 0\".
       iNew := i;
     end if;
 
-    annotation (Documentation(info="<html>
+    annotation (smoothOrder( normallyConstant=x, normallyConstant=y)=100,
+      Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 // Real    x[:], y[:], xi, yi;
 // Integer iLast, iNew;
-        yi = Vectors.<b>interpolate</b>(x,y,xi);
-(yi, iNew) = Vectors.<b>interpolate</b>(x,y,xi,iLast=1);
+        yi = Vectors.<strong>interpolate</strong>(x,y,xi);
+(yi, iNew) = Vectors.<strong>interpolate</strong>(x,y,xi,iLast=1);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -575,7 +576,7 @@ with the largest index.
   Real x1[:] = { 0,  2,  4,  6,  8, 10};
   Real x2[:] = { 1,  2,  3,  3,  4,  5};
   Real y[:]  = {10, 20, 30, 40, 50, 60};
-<b>algorithm</b>
+<strong>algorithm</strong>
   (yi, iNew) := Vectors.interpolate(x1,y,5);  // yi = 35, iNew=3
   (yi, iNew) := Vectors.interpolate(x2,y,4);  // yi = 50, iNew=5
   (yi, iNew) := Vectors.interpolate(x2,y,3);  // yi = 40, iNew=4
@@ -611,7 +612,7 @@ with the largest index.
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Vectors.<b>relNodePositions</b>(nNodes);
+Vectors.<strong>relNodePositions</strong>(nNodes);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -628,7 +629,7 @@ at the left and at the right side of the pipe), see next figure:
 
 <blockquote><pre>
   Real xsi[7];
-<b>algorithm</b>
+<strong>algorithm</strong>
   xsi = relNodePositions(7);  // xsi = {0, 0.1, 0.3, 0.5, 0.7, 0.9, 1}
 </pre></blockquote>
 
@@ -667,30 +668,30 @@ at the left and at the right side of the pipe), see next figure:
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Vectors.Utilities.<b>householderVector</b>(a,b);
+Vectors.Utilities.<strong>householderVector</strong>(a,b);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
 The function call \"<code>householderVector(a, b)</code>\" returns the normalized Householder vector
-<b>u</b> for Householder reflection of input vector <b>a</b> onto vector <b>b</b>, i.e., Householder vector <b>u</b> is the normal
-vector of the reflection plane. Algebraically, the reflection is performed by transformation matrix <b>Q</b>
+<strong>u</strong> for Householder reflection of input vector <strong>a</strong> onto vector <strong>b</strong>, i.e., Householder vector <strong>u</strong> is the normal
+vector of the reflection plane. Algebraically, the reflection is performed by transformation matrix <strong>Q</strong>
 </p>
 <blockquote>
 <p>
-<b>Q</b> = <b>I</b> - 2*<b>u</b>*<b>u</b>',
-</p>
-</blockquote>
-i.e., vector <b>a</b> is mapped to
-<blockquote>
-<p>
-<b>a</b> -> <b>Q</b>*<b>a</b>=c*<b>b</b>
+<strong>Q</strong> = <strong>I</strong> - 2*<strong>u</strong>*<strong>u</strong>',
 </p>
 </blockquote>
-with scalar c, |c| = ||<b>a</b>|| / ||<b>b</b>||. <b>Q</b>*<b>a</b> is the reflection of <b>a</b> about the hyperplane orthogonal to <b>u</b>.
-<b>Q</b> is an orthogonal matrix, i.e.
+i.e., vector <strong>a</strong> is mapped to
 <blockquote>
 <p>
-    <b>Q</b> = inv(<b>Q</b>) = <b>Q</b>'
+<strong>a</strong> -> <strong>Q</strong>*<strong>a</strong>=c*<strong>b</strong>
+</p>
+</blockquote>
+with scalar c, |c| = ||<strong>a</strong>|| / ||<strong>b</strong>||. <strong>Q</strong>*<strong>a</strong> is the reflection of <strong>a</strong> about the hyperplane orthogonal to <strong>u</strong>.
+<strong>Q</strong> is an orthogonal matrix, i.e.
+<blockquote>
+<p>
+    <strong>Q</strong> = inv(<strong>Q</strong>) = <strong>Q</strong>'
 </p>
 </blockquote>
 <h4>Example</h4>
@@ -698,7 +699,7 @@ with scalar c, |c| = ||<b>a</b>|| / ||<b>b</b>||. <b>Q</b>*<b>a</b> is the refle
   a = {2, -4, -2, -1};
   b = {1, 0, 0, 0};
 
-  u = <b>householderVector</b>(a,b);    // {0.837, -0.478, -0.239, -0.119}
+  u = <strong>householderVector</strong>(a,b);    // {0.837, -0.478, -0.239, -0.119}
                                // Computation (identity(4) - 2*matrix(u)*transpose(matrix(u)))*a results in
                                // {-5, 0, 0, 0} = -5*b
 </pre></blockquote>
@@ -708,7 +709,7 @@ with scalar c, |c| = ||<b>a</b>|| / ||<b>b</b>||. <b>Q</b>*<b>a</b> is the refle
 <a href=\"modelica://Modelica.Math.Matrices.Utilities.householderSimilarityTransformation\">Matrices.Utilities.householderSimilarityTransformation</a>
 </html>", revisions="<html>
 <ul>
-<li><i>2010/04/30 </i>
+<li><em>2010/04/30 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 
@@ -739,29 +740,29 @@ with scalar c, |c| = ||<b>a</b>|| / ||<b>b</b>||. <b>Q</b>*<b>a</b> is the refle
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Vectors.Utilities.<b>householderReflection</b>(a,u);
+Vectors.Utilities.<strong>householderReflection</strong>(a,u);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
 Function \"<code>householderReflection(a, u)</code>\" performs the reflection of vector
-<b>a</b> about a plane orthogonal to vector <b>u</b> (Householder vector).
+<strong>a</strong> about a plane orthogonal to vector <strong>u</strong> (Householder vector).
 Algebraically the operation is defined by
 </p>
 <blockquote>
 <p>
-<b>b</b>=<b>Q</b>*<b>a</b>
+<strong>b</strong>=<strong>Q</strong>*<strong>a</strong>
 </p>
 </blockquote>
 with
 <blockquote>
 <p>
-   <b>Q</b> = <b>I</b> - 2*<b>u</b>*<b>u</b>',
+   <strong>Q</strong> = <strong>I</strong> - 2*<strong>u</strong>*<strong>u</strong>',
 </p>
 </blockquote>
-where <b>Q</b> is an orthogonal matrix, i.e.
+where <strong>Q</strong> is an orthogonal matrix, i.e.
 <blockquote>
 <p>
-    <b>Q</b> = inv(<b>Q</b>) = <b>Q</b>'
+    <strong>Q</strong> = inv(<strong>Q</strong>) = <strong>Q</strong>'
 </p>
 </blockquote>
 <h4>Example</h4>
@@ -769,7 +770,7 @@ where <b>Q</b> is an orthogonal matrix, i.e.
   a = {2, -4, -2, -1};
   u = {0.837, -0.478, -0.239, -0.119};
 
-  <b>householderReflection</b>(a,u);    //  = {-5.0, -0.001, -0.0005, -0.0044}
+  <strong>householderReflection</strong>(a,u);    //  = {-5.0, -0.001, -0.0005, -0.0044}
 </pre></blockquote>
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Vectors.Utilities.householderVector\">Utilities.householderVector</a><br>
@@ -778,7 +779,7 @@ where <b>Q</b> is an orthogonal matrix, i.e.
 
 </html>", revisions="<html>
 <ul>
-<li><i>2010/04/30 </i>
+<li><em>2010/04/30 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -818,7 +819,7 @@ where <b>Q</b> is an orthogonal matrix, i.e.
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-  r = Vectors.Utilities.<b>roots</b>(p);
+  r = Vectors.Utilities.<strong>roots</strong>(p);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -828,16 +829,16 @@ This function computes the roots of a polynomial P of x
   P = p[1]*x^n + p[2]*x^(n-1) + ... + p[n-1]*x + p[n+1];
 </pre></blockquote>
 <p>
-with the coefficient vector <b>p</b>. It is assumed that the first element of <b>p</b> is not zero, i.e., that the polynomial is of order size(p,1)-1.
+with the coefficient vector <strong>p</strong>. It is assumed that the first element of <strong>p</strong> is not zero, i.e., that the polynomial is of order size(p,1)-1.
 </p>
 <p>
-To compute the roots, the eigenvalues of the corresponding companion matrix <b>C</b>
+To compute the roots, the eigenvalues of the corresponding companion matrix <strong>C</strong>
 </p>
 <blockquote><pre>
          |-p[2]/p[1]  -p[3]/p[1]  ...  -p[n-2]/p[1]  -p[n-1]/p[1]  -p[n]/p[1] |
          |    1            0                0               0           0     |
          |    0            1      ...       0               0           0     |
-  <b>C</b> =    |    .            .      ...       .               .           .     |
+  <strong>C</strong> =    |    .            .      ...       .               .           .     |
          |    .            .      ...       .               .           .     |
          |    0            0      ...       0               1           0     |
 </pre></blockquote>
@@ -849,7 +850,7 @@ provides efficient eigenvalue computation for those matrices.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  r = <b>roots</b>({1,2,3});
+  r = <strong>roots</strong>({1,2,3});
   // r = [-1.0,  1.41421356237309;
   //      -1.0, -1.41421356237309]
   // which corresponds to the roots: -1.0 +/- j*1.41421356237309
@@ -890,7 +891,7 @@ This library provides functions operating on vectors:
        zero-division for zero vector.</li>
 
 <li> <a href=\"modelica://Modelica.Math.Vectors.reverse\">reverse</a>(v)
-     - reverses the vector elements of v. </li>
+     - reverses the vector elements of v.</li>
 
 <li> <a href=\"modelica://Modelica.Math.Vectors.sort\">sort</a>(v)
      - sorts the elements of vector v in ascending or descending order.</li>
@@ -1019,13 +1020,13 @@ Matrices.leastSquares and Matrices.leastSquares2.
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Matrices.<b>toString</b>(A);
-Matrices.<b>toString</b>(A, name=\"\", significantDigits=6);
+Matrices.<strong>toString</strong>(A);
+Matrices.<strong>toString</strong>(A, name=\"\", significantDigits=6);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-The function call \"<code>Matrices.<b>toString</b>(A)</code>\" returns the
-string representation of matrix <b>A</b>.
+The function call \"<code>Matrices.<strong>toString</strong>(A)</code>\" returns the
+string representation of matrix <strong>A</strong>.
 With the optional arguments \"name\" and \"significantDigits\", a name and the number of the digits are defined.
 The default values of name and significantDigits are \"\" and 6 respectively. If name==\"\" then the
 prefix \"&lt;name&gt; =\" is left out.
@@ -1091,15 +1092,15 @@ prefix \"&lt;name&gt; =\" is left out.
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Matrices.<b>isEqual</b>(M1, M2);
-Matrices.<b>isEqual</b>(M1, M2, eps=0);
+Matrices.<strong>isEqual</strong>(M1, M2);
+Matrices.<strong>isEqual</strong>(M1, M2, eps=0);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-The function call \"<code>Matrices.isEqual(M1, M2)</code>\" returns <b>true</b>,
+The function call \"<code>Matrices.isEqual(M1, M2)</code>\" returns <strong>true</strong>,
 if the two Real matrices M1 and M2 have the same dimensions and
 the same elements. Otherwise the function
-returns <b>false</b>. Two elements e1 and e2 of the two matrices
+returns <strong>false</strong>. Two elements e1 and e2 of the two matrices
 are checked on equality by the test \"abs(e1-e2) &le; eps\", where \"eps\"
 can be provided as third argument of the function. Default is \"eps = 0\".
 </p>
@@ -1109,11 +1110,11 @@ can be provided as third argument of the function. Default is \"eps = 0\".
   Real A2[3,2] = [1,2; 3,4; 5,6];
   Real A3[2,2] = [1,2, 3,4.0001];
   Boolean result;
-<b>algorithm</b>
-  result := Matrices.isEqual(M1,M2);     // = <b>false</b>
-  result := Matrices.isEqual(M1,M3);     // = <b>false</b>
-  result := Matrices.isEqual(M1,M1);     // = <b>true</b>
-  result := Matrices.isEqual(M1,M3,0.1); // = <b>true</b>
+<strong>algorithm</strong>
+  result := Matrices.isEqual(M1,M2);     // = <strong>false</strong>
+  result := Matrices.isEqual(M1,M3);     // = <strong>false</strong>
+  result := Matrices.isEqual(M1,M1);     // = <strong>true</strong>
+  result := Matrices.isEqual(M1,M3,0.1); // = <strong>true</strong>
 </pre></blockquote>
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Vectors.isEqual\">Vectors.isEqual</a>,
@@ -1139,20 +1140,20 @@ no or infinitely many solutions (A is singular).");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Matrices.<b>solve</b>(A,b);
+Matrices.<strong>solve</strong>(A,b);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
 This function call returns the
-solution <b>x</b> of the linear system of equations
+solution <strong>x</strong> of the linear system of equations
 </p>
 <blockquote>
 <p>
-<b>A</b>*<b>x</b> = <b>b</b>
+<strong>A</strong>*<strong>x</strong> = <strong>b</strong>
 </p>
 </blockquote>
 <p>
-If a unique solution <b>x</b> does not exist (since <b>A</b> is singular),
+If a unique solution <strong>x</strong> does not exist (since <strong>A</strong> is singular),
 an assertion is triggered. If this is not desired, use instead
 <a href=\"modelica://Modelica.Math.Matrices.leastSquares\">Matrices.leastSquares</a>
 and inquire the singularity of the solution with the return argument rank
@@ -1170,7 +1171,7 @@ i.e., by Gaussian elimination with partial pivoting.
                  2,1,4];
   Real b[3] = {10,22,12};
   Real x[3];
-<b>algorithm</b>
+<strong>algorithm</strong>
   x := Matrices.solve(A,b);  // x = {3,2,1}
 </pre></blockquote>
 <h4>See also</h4>
@@ -1198,20 +1199,20 @@ no or infinitely many solutions (A is singular).");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Matrices.<b>solve2</b>(A,b);
+Matrices.<strong>solve2</strong>(A,b);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
 This function call returns the
-solution <b>X</b> of the linear system of equations
+solution <strong>X</strong> of the linear system of equations
 </p>
 <blockquote>
 <p>
-<b>A</b>*<b>X</b> = <b>B</b>
+<strong>A</strong>*<strong>X</strong> = <strong>B</strong>
 </p>
 </blockquote>
 <p>
-If a unique solution <b>X</b> does not exist (since <b>A</b> is singular),
+If a unique solution <strong>X</strong> does not exist (since <strong>A</strong> is singular),
 an assertion is triggered. If this is not desired, use instead
 <a href=\"modelica://Modelica.Math.Matrices.leastSquares2\">Matrices.leastSquares2</a>
 and inquire the singularity of the solution with the return argument rank
@@ -1231,7 +1232,7 @@ i.e., by Gaussian elimination with partial pivoting.
                  22, 44;
                  12, 24];
   Real X[3,2];
-<b>algorithm</b>
+<strong>algorithm</strong>
   X := Matrices.solve2(A, B);  /* X = [3, 6;
                                        2, 4;
                                        1, 2] */
@@ -1275,7 +1276,7 @@ i.e., by Gaussian elimination with partial pivoting.
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-x = Matrices.<b>leastSquares</b>(A,b);
+x = Matrices.<strong>leastSquares</strong>(A,b);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -1287,24 +1288,24 @@ square sense (A may be rank deficient):
 </pre>
 
 <p>
-Several different cases can be distinguished (note, <b>rank</b> is an
+Several different cases can be distinguished (note, <strong>rank</strong> is an
 output argument of this function):
 </p>
 
 <p>
-<b>size(A,1) = size(A,2)</b>
+<strong>size(A,1) = size(A,2)</strong>
 </p>
 
 <p> A solution is returned for a regular, as well as a singular matrix A:
 </p>
 
 <ul>
-<li> <b>rank</b> = size(A,1):<br>
-     A is <b>regular</b> and the returned solution x fulfills the equation
+<li> <strong>rank</strong> = size(A,1):<br>
+     A is <strong>regular</strong> and the returned solution x fulfills the equation
      A*x = b uniquely.</li>
 
-<li> <b>rank</b> &lt; size(A,1):<br>
-     A is <b>singular</b> and no unique solution for equation A*x = b exists.
+<li> <strong>rank</strong> &lt; size(A,1):<br>
+     A is <strong>singular</strong> and no unique solution for equation A*x = b exists.
      <ul>
      <li>  If an infinite number of solutions exists, the one is selected that fulfills
            the equation and at the same time has the minimum norm |x| for all solution
@@ -1315,7 +1316,7 @@ output argument of this function):
 </ul>
 
 <p>
-<b>size(A,1) &gt; size(A,2):</b>
+<strong>size(A,1) &gt; size(A,2):</strong>
 </p>
 
 <p>
@@ -1328,16 +1329,16 @@ minimum norm |x| is selected. This gives a unique solution that minimizes both
 </p>
 
 <p>
-<b>size(A,1) &lt; size(A,2):</b>
+<strong>size(A,1) &lt; size(A,2):</strong>
 </p>
 
 <ul>
-<li> <b>rank</b> = size(A,1):<br>
+<li> <strong>rank</strong> = size(A,1):<br>
      There are an infinite number of solutions that fulfill the equation A*x = b.
      From this infinite number, the unique solution is selected that minimizes |x|.
      </li>
 
-<li> <b>rank</b> &lt; size(A,1):<br>
+<li> <strong>rank</strong> &lt; size(A,1):<br>
      There is either no solution of equation A*x = b, or there are again an infinite
      number of solutions. The unique solution x is returned that minimizes
       both |A*x - b| and |x|.</li>
@@ -1361,7 +1362,7 @@ The function first computes a QR factorization with column pivoting:
 
 <p>
 with R11 defined as the largest leading submatrix whose estimated
-condition number is less than 1/rcond.  The order of R11, <b>rank</b>,
+condition number is less than 1/rcond.  The order of R11, <strong>rank</strong>,
 is the effective rank of A.
 </p>
 
@@ -1393,7 +1394,7 @@ where Q1 consists of the first \"rank\" columns of Q.
 
 <p>
 <a href=\"modelica://Modelica.Math.Matrices.leastSquares2\">Matrices.leastSquares2</a>
-(same as leastSquares, but with a right hand side matrix), <br>
+(same as leastSquares, but with a right hand side matrix),<br>
 <a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>
 (for square, regular matrices A)
 </p>
@@ -1425,7 +1426,7 @@ equations with function \"Matrices.leastSquares2\" failed.");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-X = Matrices.<b>leastSquares2</b>(A,B);
+X = Matrices.<strong>leastSquares2</strong>(A,B);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -1437,24 +1438,24 @@ square sense (A may be rank deficient):
 </pre>
 
 <p>
-Several different cases can be distinguished (note, <b>rank</b> is an
+Several different cases can be distinguished (note, <strong>rank</strong> is an
 output argument of this function):
 </p>
 
 <p>
-<b>size(A,1) = size(A,2)</b>
+<strong>size(A,1) = size(A,2)</strong>
 </p>
 
 <p> A solution is returned for a regular, as well as a singular matrix A:
 </p>
 
 <ul>
-<li> <b>rank</b> = size(A,1):<br>
-     A is <b>regular</b> and the returned solution X fulfills the equation
+<li> <strong>rank</strong> = size(A,1):<br>
+     A is <strong>regular</strong> and the returned solution X fulfills the equation
      A*X = B uniquely.</li>
 
-<li> <b>rank</b> &lt; size(A,1):<br>
-     A is <b>singular</b> and no unique solution for equation A*X = B exists.
+<li> <strong>rank</strong> &lt; size(A,1):<br>
+     A is <strong>singular</strong> and no unique solution for equation A*X = B exists.
      <ul>
      <li>  If an infinite number of solutions exists, the one is selected that fulfills
            the equation and at the same time has the minimum norm |x| for all solution
@@ -1465,7 +1466,7 @@ output argument of this function):
 </ul>
 
 <p>
-<b>size(A,1) &gt; size(A,2):</b>
+<strong>size(A,1) &gt; size(A,2):</strong>
 </p>
 
 <p>
@@ -1478,16 +1479,16 @@ minimum norm |X| is selected. This gives a unique solution that minimizes both
 </p>
 
 <p>
-<b>size(A,1) &lt; size(A,2):</b>
+<strong>size(A,1) &lt; size(A,2):</strong>
 </p>
 
 <ul>
-<li> <b>rank</b> = size(A,1):<br>
+<li> <strong>rank</strong> = size(A,1):<br>
      There are an infinite number of solutions that fulfill the equation A*X = B.
      From this infinite number, the unique solution is selected that minimizes |X|.
      </li>
 
-<li> <b>rank</b> &lt; size(A,1):<br>
+<li> <strong>rank</strong> &lt; size(A,1):<br>
      There is either no solution of equation A*X = B, or there are again an infinite
      number of solutions. The unique solution X is returned that minimizes
       both |A*X - B| and |X|.</li>
@@ -1511,7 +1512,7 @@ The function first computes a QR factorization with column pivoting:
 
 <p>
 with R11 defined as the largest leading submatrix whose estimated
-condition number is less than 1/rcond.  The order of R11, <b>rank</b>,
+condition number is less than 1/rcond.  The order of R11, <strong>rank</strong>,
 is the effective rank of A.
 </p>
 
@@ -1543,7 +1544,7 @@ where Q1 consists of the first \"rank\" columns of Q.
 
 <p>
 <a href=\"modelica://Modelica.Math.Matrices.leastSquares\">Matrices.leastSquares</a>
-(same as leastSquares2, but with a right hand side vector), <br>
+(same as leastSquares2, but with a right hand side vector),<br>
 <a href=\"modelica://Modelica.Math.Matrices.solve2\">Matrices.solve2</a>
 (for square, regular matrices A)
 </p>
@@ -1581,16 +1582,16 @@ with function \"Matrices.equalityLeastSquares\" failed.");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-x = Matrices.<b>equalityLeastSquares</b>(A,a,B,b);
+x = Matrices.<strong>equalityLeastSquares</strong>(A,a,B,b);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
 This function returns the
-solution <b>x</b> of the linear equality-constrained least squares problem:
+solution <strong>x</strong> of the linear equality-constrained least squares problem:
 </p>
 <blockquote>
 <p>
-min|<b>A</b>*<b>x</b> - <b>a</b>|^2 over <b>x</b>, subject to <b>B</b>*<b>x</b> = <b>b</b>
+min|<strong>A</strong>*<strong>x</strong> - <strong>a</strong>|^2 over <strong>x</strong>, subject to <strong>B</strong>*<strong>x</strong> = <strong>b</strong>
 </p>
 </blockquote>
 
@@ -1636,8 +1637,8 @@ has a unique solution.
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-(LU, pivots)       = Matrices.<b>LU</b>(A);
-(LU, pivots, info) = Matrices.<b>LU</b>(A);
+(LU, pivots)       = Matrices.<strong>LU</strong>(A);
+(LU, pivots, info) = Matrices.<strong>LU</strong>(A);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -1646,34 +1647,34 @@ LU decomposition of a \"Real[m,n]\" matrix A, i.e.,
 </p>
 <blockquote>
 <p>
-<b>P</b>*<b>L</b>*<b>U</b> = <b>A</b>
+<strong>P</strong>*<strong>L</strong>*<strong>U</strong> = <strong>A</strong>
 </p>
 </blockquote>
 <p>
-where <b>P</b> is a permutation matrix (implicitly
+where <strong>P</strong> is a permutation matrix (implicitly
 defined by vector <code>pivots</code>),
-<b>L</b> is a lower triangular matrix with unit
+<strong>L</strong> is a lower triangular matrix with unit
 diagonal elements (lower trapezoidal if m &gt; n), and
-<b>U</b> is an upper triangular matrix (upper trapezoidal if m &lt; n).
-Matrices <b>L</b> and <b>U</b> are stored in the returned
-matrix <code>LU</code> (the diagonal of <b>L</b> is not stored).
+<strong>U</strong> is an upper triangular matrix (upper trapezoidal if m &lt; n).
+Matrices <strong>L</strong> and <strong>U</strong> are stored in the returned
+matrix <code>LU</code> (the diagonal of <strong>L</strong> is not stored).
 With the companion function
 <a href=\"modelica://Modelica.Math.Matrices.LU_solve\">Matrices.LU_solve</a>,
 this decomposition can be used to solve
-linear systems (<b>P</b>*<b>L</b>*<b>U</b>)*<b>x</b> = <b>b</b> with different right
-hand side vectors <b>b</b>. If a linear system of equations with
-just one right hand side vector <b>b</b> shall be solved, it is
+linear systems (<strong>P</strong>*<strong>L</strong>*<strong>U</strong>)*<strong>x</strong> = <strong>b</strong> with different right
+hand side vectors <strong>b</strong>. If a linear system of equations with
+just one right hand side vector <strong>b</strong> shall be solved, it is
 more convenient to just use the function
 <a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>.
 </p>
 <p>
 The optional third (Integer) output argument has the following meaning:</p>
 <table border=0 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\">info = 0:</td>
-      <td valign=\"top\">successful exit</td></tr>
-  <tr><td valign=\"top\">info &gt; 0:</td>
-      <td valign=\"top\">if info = i, U[i,i] is exactly zero. The factorization
-          has been completed, <br>
+  <tr><td>info = 0:</td>
+      <td>successful exit</td></tr>
+  <tr><td>info &gt; 0:</td>
+      <td>if info = i, U[i,i] is exactly zero. The factorization
+          has been completed,<br>
           but the factor U is exactly
           singular, and division by zero will occur<br> if it is used
           to solve a system of equations.</td></tr>
@@ -1697,7 +1698,7 @@ matrix A was interchanged with row pivots[i].
   Integer pivots[3];
   Real    x1[3];
   Real    x2[3];
-<b>algorithm</b>
+<strong>algorithm</strong>
   (LU, pivots) := Matrices.LU(A);
   x1 := Matrices.LU_solve(LU, pivots, b1);  // x1 = {3,2,1}
   x2 := Matrices.LU_solve(LU, pivots, b2);  // x2 = {1,0,2}
@@ -1733,24 +1734,24 @@ is singular, i.e., no unique solution exists.");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Matrices.<b>LU_solve</b>(LU, pivots, b);
+Matrices.<strong>LU_solve</strong>(LU, pivots, b);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
 This function call returns the
-solution <b>x</b> of the linear systems of equations
+solution <strong>x</strong> of the linear systems of equations
 </p>
 <blockquote>
 <p>
-<b>P</b>*<b>L</b>*<b>U</b>*<b>x</b> = <b>b</b>;
+<strong>P</strong>*<strong>L</strong>*<strong>U</strong>*<strong>x</strong> = <strong>b</strong>;
 </p>
 </blockquote>
 <p>
-where <b>P</b> is a permutation matrix (implicitly
+where <strong>P</strong> is a permutation matrix (implicitly
 defined by vector <code>pivots</code>),
-<b>L</b> is a lower triangular matrix with unit
+<strong>L</strong> is a lower triangular matrix with unit
 diagonal elements (lower trapezoidal if m &gt; n), and
-<b>U</b> is an upper triangular matrix (upper trapezoidal if m &lt; n).
+<strong>U</strong> is an upper triangular matrix (upper trapezoidal if m &lt; n).
 The matrices of this decomposition are computed with function
 <a href=\"modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a> that
 returns arguments <code>LU</code> and <code>pivots</code>
@@ -1763,7 +1764,7 @@ more convenient to just use the function
 <a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>.
 </p>
 <p>
-If a unique solution <b>x</b> does not exist (since the
+If a unique solution <strong>x</strong> does not exist (since the
 LU decomposition is singular), an exception is raised.
 </p>
 <p>
@@ -1785,7 +1786,7 @@ matrix A was interchanged with row pivots[i].
   Integer pivots[3];
   Real    x1[3];
   Real    x2[3];
-<b>algorithm</b>
+<strong>algorithm</strong>
   (LU, pivots) := Matrices.LU(A);
   x1 := Matrices.LU_solve(LU, pivots, b1);  // x1 = {3,2,1}
   x2 := Matrices.LU_solve(LU, pivots, b2);  // x2 = {1,0,2}
@@ -1820,37 +1821,37 @@ is singular, i.e., no unique solution exists.");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Matrices.<b>LU_solve2</b>(LU, pivots, B);
+Matrices.<strong>LU_solve2</strong>(LU, pivots, B);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
 This function call returns the
-solution <b>X</b> of the linear systems of equations
+solution <strong>X</strong> of the linear systems of equations
 </p>
 <blockquote>
 <p>
-<b>P</b>*<b>L</b>*<b>U</b>*<b>X</b> = <b>B</b>;
+<strong>P</strong>*<strong>L</strong>*<strong>U</strong>*<strong>X</strong> = <strong>B</strong>;
 </p>
 </blockquote>
 <p>
-where <b>P</b> is a permutation matrix (implicitly
+where <strong>P</strong> is a permutation matrix (implicitly
 defined by vector <code>pivots</code>),
-<b>L</b> is a lower triangular matrix with unit
+<strong>L</strong> is a lower triangular matrix with unit
 diagonal elements (lower trapezoidal if m &gt; n), and
-<b>U</b> is an upper triangular matrix (upper trapezoidal if m &lt; n).
+<strong>U</strong> is an upper triangular matrix (upper trapezoidal if m &lt; n).
 The matrices of this decomposition are computed with function
 <a href=\"modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a> that
 returns arguments <code>LU</code> and <code>pivots</code>
 used as input arguments of <code>Matrices.LU_solve2</code>.
 With <code>Matrices.LU</code> and <code>Matrices.LU_solve2</code>
 it is possible to efficiently solve linear systems
-with different right hand side <b>matrices</b>. If a linear system of equations with
+with different right hand side <strong>matrices</strong>. If a linear system of equations with
 just one right hand side matrix shall be solved, it is
 more convenient to just use the function
 <a href=\"modelica://Modelica.Math.Matrices.solve2\">Matrices.solve2</a>.
 </p>
 <p>
-If a unique solution <b>X</b> does not exist (since the
+If a unique solution <strong>X</strong> does not exist (since the
 LU decomposition is singular), an exception is raised.
 </p>
 <p>
@@ -1876,7 +1877,7 @@ matrix A was interchanged with row pivots[i].
   Integer pivots[3];
   Real    X1[3,2];
   Real    X2[3,2];
-<b>algorithm</b>
+<strong>algorithm</strong>
   (LU, pivots) := Matrices.LU(A);
   X1 := Matrices.LU_solve2(LU, pivots, B1);  /* X1 = [3, 6;
                                                       2, 4;
@@ -1907,12 +1908,10 @@ matrix A was interchanged with row pivots[i].
   algorithm
     if size(A, 1) > 0 then
       if onlyEigenvalues then
-        (eigenvalues[:, 1],eigenvalues[:, 2],info) := LAPACK.dgeev_eigenValues(
-          A);
+        (eigenvalues[:, 1],eigenvalues[:, 2],info) := LAPACK.dgeev_eigenValues(A);
         eigenvectors := zeros(size(A, 1), size(A, 1));
       else
-        (eigenvalues[:, 1],eigenvalues[:, 2],eigenvectors,info) := LAPACK.dgeev(
-          A);
+        (eigenvalues[:, 1],eigenvalues[:, 2],eigenvectors,info) := LAPACK.dgeev(A);
       end if;
       assert(info == 0, "Calculating the eigen values with function
 \"Matrices.eigenvalues\" is not possible, since the
@@ -1921,14 +1920,14 @@ numerical algorithm does not converge.");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-                eigenvalues = Matrices.<b>eigenValues</b>(A);
-(eigenvalues, eigenvectors) = Matrices.<b>eigenValues</b>(A);
+                eigenvalues = Matrices.<strong>eigenValues</strong>(A);
+(eigenvalues, eigenvectors) = Matrices.<strong>eigenValues</strong>(A);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
 This function call returns the eigenvalues and
 optionally the (right) eigenvectors of a square matrix
-<b>A</b>. The first column of \"eigenvalues\" contains the real and the
+<strong>A</strong>. The first column of \"eigenvalues\" contains the real and the
 second column contains the imaginary part of the eigenvalues.
 If the i-th eigenvalue has no imaginary part, then eigenvectors[:,i] is
 the corresponding real eigenvector. If the i-th eigenvalue
@@ -1956,8 +1955,8 @@ the same).
   Real A[3,3] = [1,2,3;
                  3,4,5;
                  2,1,4];
-  Real eval;
-<b>algorithm</b>
+  Real eval[3,2];
+<strong>algorithm</strong>
   eval := Matrices.eigenValues(A);  // eval = [-0.618, 0;
                                     //          8.0  , 0;
                                     //          1.618, 0];
@@ -2003,21 +2002,21 @@ i.e., matrix A has the 3 real eigenvalues -0.618, 8, 1.618.
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Matrices.<b>eigenValueMatrix</b>(eigenvalues);
+Matrices.<strong>eigenValueMatrix</strong>(eigenvalues);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-The function call returns a block diagonal matrix <b>J</b>
+The function call returns a block diagonal matrix <strong>J</strong>
 from the two-column matrix <code>eigenvalues</code>
 (computed by function
 <a href=\"modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>).
 Matrix <code>eigenvalues</code> must have the real part of the
 eigenvalues in the first column and the imaginary part in the
 second column. If an eigenvalue i has a vanishing imaginary
-part, then <b>J</b>[i,i] = eigenvalues[i,1], i.e., the diagonal
-element of <b>J</b> is the real eigenvalue.
+part, then <strong>J</strong>[i,i] = eigenvalues[i,1], i.e., the diagonal
+element of <strong>J</strong> is the real eigenvalue.
 Otherwise, eigenvalue i and conjugate complex eigenvalue i+1
-are used to construct a 2 by 2 diagonal block of <b>J</b>:
+are used to construct a 2 by 2 diagonal block of <strong>J</strong>:
 </p>
 <blockquote>
 <pre>
@@ -2054,8 +2053,8 @@ singular value decomposition did not converge");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-         sigma = Matrices.<b>singularValues</b>(A);
-(sigma, U, VT) = Matrices.<b>singularValues</b>(A);
+         sigma = Matrices.<strong>singularValues</strong>(A);
+(sigma, U, VT) = Matrices.<strong>singularValues</strong>(A);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -2064,15 +2063,15 @@ singular vectors of matrix A. Basically the singular
 value decomposition of A is computed, i.e.,
 </p>
 <blockquote><pre>
-<b>A</b> = <b>U</b> <b><font face=\"Symbol\">S</font></b> <b>V</b><sup>T</sup>
+<strong>A</strong> = <strong>U</strong> <strong><font face=\"Symbol\">S</font></strong> <strong>V</strong><sup>T</sup>
   = U*Sigma*VT
 </pre></blockquote>
 <p>
-where <b>U</b> and <b>V</b> are orthogonal matrices (<b>UU</b><sup>T</sup>=<b>I,
-</b><b>VV</b><sup>T</sup>=<b>I</b>). <b><font face=\"Symbol\">S
-</font></b> = [diagonal(<font face=\"Symbol\">s</font><sub>i</sub>), zeros(n,m-n)], if n=size(A,1) &le;
+where <strong>U</strong> and <strong>V</strong> are orthogonal matrices (<strong>UU</strong><sup>T</sup>=<strong>I,
+</strong><strong>VV</strong><sup>T</sup>=<strong>I</strong>). <strong><font face=\"Symbol\">S
+</font></strong> = [diagonal(<font face=\"Symbol\">s</font><sub>i</sub>), zeros(n,m-n)], if n=size(A,1) &le;
 m=size(A,2)) or [diagonal(<font face=\"Symbol\">s</font><sub>i</sub>); zeros(n-m,m)], if n &gt;
-m=size(A,2)). <b><font face=\"Symbol\">S</font></b> has the same size as matrix A with
+m=size(A,2)). <strong><font face=\"Symbol\">S</font></strong> has the same size as matrix A with
 nonnegative diagonal elements in decreasing order and with all other elements zero
 (<font face=\"Symbol\">s</font><sub>1</sub> is the largest element). The function
 returns the singular values <font face=\"Symbol\">s</font><sub>i</sub>
@@ -2136,54 +2135,54 @@ This is not allowed when calling Modelica.Matrices.QR(A).");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-(Q,R,p) = Matrices.<b>QR</b>(A);
+(Q,R,p) = Matrices.<strong>QR</strong>(A);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
 This function returns the QR decomposition of
-a rectangular matrix <b>A</b> (the number of columns of <b>A</b>
+a rectangular matrix <strong>A</strong> (the number of columns of <strong>A</strong>
 must be less than or equal to the number of rows):
 </p>
 <blockquote>
 <p>
-<b>Q</b>*<b>R</b> = <b>A</b>[:,<b>p</b>]
+<strong>Q</strong>*<strong>R</strong> = <strong>A</strong>[:,<strong>p</strong>]
 </p>
 </blockquote>
 <p>
-where <b>Q</b> is a rectangular matrix that has orthonormal columns and
-has the same size as A (<b>Q</b><sup>T</sup><b>Q</b>=<b>I</b>),
-<b>R</b> is a square, upper triangular matrix and <b>p</b> is a permutation
-vector. Matrix <b>R</b> has the following important properties:
+where <strong>Q</strong> is a rectangular matrix that has orthonormal columns and
+has the same size as A (<strong>Q</strong><sup>T</sup><strong>Q</strong>=<strong>I</strong>),
+<strong>R</strong> is a square, upper triangular matrix and <strong>p</strong> is a permutation
+vector. Matrix <strong>R</strong> has the following important properties:
 </p>
 <ul>
-<li> The absolute value of a diagonal element of <b>R</b> is the largest
+<li> The absolute value of a diagonal element of <strong>R</strong> is the largest
      value in this row, i.e.,
      abs(R[i,i]) &ge; abs(R[i,j]).</li>
-<li> The diagonal elements of <b>R</b> are sorted according to size, such that
+<li> The diagonal elements of <strong>R</strong> are sorted according to size, such that
      the largest absolute value is abs(R[1,1]) and
-     abs(R[i,i]) &ge; abs(R[j,j]) with i &lt; j. </li>
+     abs(R[i,i]) &ge; abs(R[j,j]) with i &lt; j.</li>
 </ul>
 <p>
 This means that if abs(R[i,i]) &le; &epsilon; then abs(R[j,k]) &le; &epsilon;
-for j &ge; i, i.e., the i-th row up to the last row of <b>R</b> have
+for j &ge; i, i.e., the i-th row up to the last row of <strong>R</strong> have
 small elements and can be treated as being zero.
 This allows to, e.g., estimate the row-rank
-of <b>R</b> (which is the same row-rank as <b>A</b>). Furthermore,
-<b>R</b> can be partitioned in two parts
+of <strong>R</strong> (which is the same row-rank as <strong>A</strong>). Furthermore,
+<strong>R</strong> can be partitioned in two parts
 </p>
 <blockquote>
 <pre>
-   <b>A</b>[:,<b>p</b>] = <b>Q</b> * [<b>R</b><sub>1</sub>, <b>R</b><sub>2</sub>;
-                 <b>0</b>,  <b>0</b>]
+   <strong>A</strong>[:,<strong>p</strong>] = <strong>Q</strong> * [<strong>R</strong><sub>1</sub>, <strong>R</strong><sub>2</sub>;
+                 <strong>0</strong>,  <strong>0</strong>]
 </pre>
 </blockquote>
 <p>
-where <b>R</b><sub>1</sub> is a regular, upper triangular matrix.
+where <strong>R</strong><sub>1</sub> is a regular, upper triangular matrix.
 </p>
 <p>
 Note, the solution is computed with the LAPACK functions \"dgeqpf\"
 and \"dorgqr\", i.e., by Householder transformations with
-column pivoting. If <b>Q</b> is not needed, the function may be
+column pivoting. If <strong>Q</strong> is not needed, the function may be
 called as: <code>(,R,p) = QR(A)</code>.
 </p>
 <h4>Example</h4>
@@ -2192,7 +2191,7 @@ called as: <code>(,R,p) = QR(A)</code>.
                  3,4,5;
                  2,1,4];
   Real R[3,3];
-<b>algorithm</b>
+<strong>algorithm</strong>
   (,R) := Matrices.QR(A);  // R = [-7.07.., -4.24.., -3.67..;
                                     0     , -1.73.., -0.23..;
                                     0     ,  0     ,  0.65..];
@@ -2202,7 +2201,6 @@ called as: <code>(,R,p) = QR(A)</code>.
 
   function hessenberg "Return upper Hessenberg form of a matrix"
     extends Modelica.Icons.Function;
-    import Modelica;
     import Modelica.Math.Matrices;
 
     input Real A[:, size(A, 1)] "Square matrix A";
@@ -2230,15 +2228,15 @@ called as: <code>(,R,p) = QR(A)</code>.
 
 <h4>Syntax</h4>
 <blockquote><pre>
-         H = Matrices.<b>hessenberg</b>(A);
-    (H, U) = Matrices.<b>hessenberg</b>(A);
+         H = Matrices.<strong>hessenberg</strong>(A);
+    (H, U) = Matrices.<strong>hessenberg</strong>(A);
  </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-Function <b>hessenberg</b> computes the Hessenberg matrix <b>H</b> of matrix <b>A</b> as well as the orthogonal transformation matrix <b>U</b> that holds <b>H</b> = <b>U</b>'*<b>A</b>*<b>U</b>.
+Function <strong>hessenberg</strong> computes the Hessenberg matrix <strong>H</strong> of matrix <strong>A</strong> as well as the orthogonal transformation matrix <strong>U</strong> that holds <strong>H</strong> = <strong>U</strong>'*<strong>A</strong>*<strong>U</strong>.
 The Hessenberg form of a matrix is computed by repeated Householder similarity transformation. The elementary reflectors and the corresponding scalar factors are provided
-by function \"Utilities.toUpperHessenberg()\". The transformation matrix <b>U</b> is then computed by
+by function \"Utilities.toUpperHessenberg()\". The transformation matrix <strong>U</strong> is then computed by
 <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dorghr\">LAPACK.dorghr</a>.
 </p>
 
@@ -2275,7 +2273,7 @@ by function \"Utilities.toUpperHessenberg()\". The transformation matrix <b>U</b
 
 </html>", revisions="<html>
 <ul>
-<li><i>2010/05/31 </i>
+<li><em>2010/05/31 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -2321,23 +2319,23 @@ by function \"Utilities.toUpperHessenberg()\". The transformation matrix <b>U</b
 <h4>Syntax</h4>
 
 <blockquote><pre>
-                            S = Matrices.<b>realSchur</b>(A);
-(S, QZ, alphaReal, alphaImag) = Matrices.<b>realSchur</b>(A);
+                            S = Matrices.<strong>realSchur</strong>(A);
+(S, QZ, alphaReal, alphaImag) = Matrices.<strong>realSchur</strong>(A);
 </pre></blockquote>
 
 <h4>Description</h4>
 
 <p>
-Function <b>realSchur</b> calculates the real Schur form of a real square matrix <b>A</b>, i.e.
+Function <strong>realSchur</strong> calculates the real Schur form of a real square matrix <strong>A</strong>, i.e.
 </p>
 
 <blockquote><pre>
- <b>A</b> = <b>QZ</b>*<b>S</b>*transpose(<b>QZ</b>)
+ <strong>A</strong> = <strong>QZ</strong>*<strong>S</strong>*transpose(<strong>QZ</strong>)
 </pre></blockquote>
 
 <p>
-with the real nxn matrices <b>S</b> and <b>QZ</b>. <b>S</b> is a block upper triangular matrix with 1x1 and 2x2 blocks in the diagonal. <b>QZ</b> is an orthogonal matrix.
-The 1x1 blocks contains the real eigenvalues of <b>A</b>. The 2x2 blocks [s11, s12; s21, s11] represents the conjugated complex pairs of eigenvalues, whereas the real parts of the eigenvalues
+with the real nxn matrices <strong>S</strong> and <strong>QZ</strong>. <strong>S</strong> is a block upper triangular matrix with 1x1 and 2x2 blocks in the diagonal. <strong>QZ</strong> is an orthogonal matrix.
+The 1x1 blocks contains the real eigenvalues of <strong>A</strong>. The 2x2 blocks [s11, s12; s21, s11] represents the conjugated complex pairs of eigenvalues, whereas the real parts of the eigenvalues
 are the elements of the diagonal (s11). The imaginary parts are the positive and negative square roots of the product of the two elements s12 and s21 (imag = +-sqrt(s12*s21)).
 </p>
 
@@ -2353,7 +2351,7 @@ The calculation in lapack.dgees is performed stepwise, i.e., using the internal 
    Real alphaReal[3];
    Real alphaImag[3];
 
-<b>algorithm</b>
+<strong>algorithm</strong>
   (T, Z, alphaReal, alphaImag):=Modelica.Math.Matrices.realSchur(A);
 //   T = [16.12, 4.9,   1.59E-015;
 //        0,    -1.12, -1.12E-015;
@@ -2370,7 +2368,7 @@ The calculation in lapack.dgees is performed stepwise, i.e., using the internal 
 
 </html>", revisions="<html>
 <ul>
-<li><i>2010/05/31 </i>
+<li><em>2010/05/31 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -2427,13 +2425,13 @@ The calculation in lapack.dgees is performed stepwise, i.e., using the internal 
 <h4>Syntax</h4>
 
 <blockquote><pre>
-         H = Matrices.<b>cholesky</b>(A);
-         H = Matrices.<b>cholesky</b>(A, upper=true);
+         H = Matrices.<strong>cholesky</strong>(A);
+         H = Matrices.<strong>cholesky</strong>(A, upper=true);
  </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-Function <b>cholesky</b> computes the Cholesky factorization of a real symmetric positive definite matrix A.
+Function <strong>cholesky</strong> computes the Cholesky factorization of a real symmetric positive definite matrix A.
 The optional Boolean input \"upper\" specifies whether the upper or the lower triangular matrix is returned, i.e.
 </p>
 
@@ -2472,7 +2470,7 @@ The computation is performed by <a href=\"modelica://Modelica.Math.Matrices.LAPA
 
 </html>", revisions="<html>
 <ul>
-<li><i>2010/05/31 </i>
+<li><em>2010/05/31 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 
@@ -2536,7 +2534,7 @@ The computation is performed by <a href=\"modelica://Modelica.Math.Matrices.LAPA
 
 <h4>Syntax</h4>
 <blockquote><pre>
-(D,B) = Matrices.<b>balance</b>(A);
+(D,B) = Matrices.<strong>balance</strong>(A);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -2578,7 +2576,7 @@ The Algorithm is taken from
 </p>
 <dl>
 <dt>H. D. Joos, G. Gr&uuml;bel:</dt>
-<dd><b>RASP'91 Regulator Analysis and Synthesis Programs</b><br>
+<dd><strong>RASP'91 Regulator Analysis and Synthesis Programs</strong><br>
     DLR - Control Systems Group 1991</dd>
 </dl>
 <p>
@@ -2588,7 +2586,7 @@ which based on the <code>balance</code> function from EISPACK.
 </html>", revisions="<html>
 <h4>Release Notes:</h4>
 <ul>
-<li><i>July 5, 2002</i>
+<li><em>July 5, 2002</em>
        by H. D. Joos and Nico Walther<br>
        Implemented.
 </li>
@@ -2656,13 +2654,13 @@ which based on the <code>balance</code> function from EISPACK.
         end if;
       end for;
     end while;
-    annotation (Documentation(info="<html><
+    annotation (Documentation(info="<html>
 
 <h4>Syntax</h4>
 <blockquote><pre>
-(scale,As,Bs,Cs) = Matrices.<b>balanceABC</b>(A,B,C);
-(scale,As,Bs)    = Matrices.<b>balanceABC</b>(A,B);
-(scale,As,,Cs)   = Matrices.<b>balanceABC</b>(A,C=C);
+(scale,As,Bs,Cs) = Matrices.<strong>balanceABC</strong>(A,B,C);
+(scale,As,Bs)    = Matrices.<strong>balanceABC</strong>(A,B);
+(scale,As,,Cs)   = Matrices.<strong>balanceABC</strong>(A,C=C);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -2730,7 +2728,7 @@ The algorithm is taken from
 </p>
 <dl>
 <dt>H. D. Joos, G. Gr&uuml;bel:</dt>
-<dd><b>RASP'91 Regulator Analysis and Synthesis Programs</b><br>
+<dd><strong>RASP'91 Regulator Analysis and Synthesis Programs</strong><br>
     DLR - Control Systems Group 1991</dd>
 </dl>
 <p>
@@ -2738,7 +2736,7 @@ which is based on the <code>balance</code> function from EISPACK.
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>Sept. 14, 2014</i>
+<li><em>Sept. 14, 2014</em>
        by Martin Otter: Implemented.
 </li>
 </ul>
@@ -2756,12 +2754,12 @@ which is based on the <code>balance</code> function from EISPACK.
     annotation (Inline=true,Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-  r = Matrices.<b>trace</b>(A);
+  r = Matrices.<strong>trace</strong>(A);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-This function computes the trace, i.e., the sum of the elements in the diagonal of matrix <b>A</b>.
+This function computes the trace, i.e., the sum of the elements in the diagonal of matrix <strong>A</strong>.
 </p>
 
 <h4>Example</h4>
@@ -2777,7 +2775,7 @@ This function computes the trace, i.e., the sum of the elements in the diagonal 
 
 </html>", revisions="<html>
 <ul>
-<li><i>2010/05/31 </i>
+<li><em>2010/05/31 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -2800,7 +2798,7 @@ This function computes the trace, i.e., the sum of the elements in the diagonal 
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-result = Matrices.<b>det</b>(A);
+result = Matrices.<strong>det</strong>(A);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -2847,7 +2845,7 @@ as by computing the determinant. Examples:
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-invA = Matrices.<b>inv</b>(A);
+invA = Matrices.<strong>inv</strong>(A);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -2900,8 +2898,8 @@ x = inv(A)*b, because this is much more efficient and much more reliable.
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-result = Matrices.<b>rank</b>(A);
-result = Matrices.<b>rank</b>(A,eps=0);
+result = Matrices.<strong>rank</strong>(A);
+result = Matrices.<strong>rank</strong>(A,eps=0);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -2955,13 +2953,13 @@ To be more precise:
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-r = Matrices.<b>conditionNumber</b>(A);
+r = Matrices.<strong>conditionNumber</strong>(A);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-This function calculates the condition number (norm(A) * norm(inv(A))) of a general real matrix <b>A</b>, in either the 1-norm, 2-norm or the infinity-norm.
-In the case of 2-norm the result is the ratio of the largest to the smallest singular value of <b>A</b>.
+This function calculates the condition number (norm(A) * norm(inv(A))) of a general real matrix <strong>A</strong>, in either the 1-norm, 2-norm or the infinity-norm.
+In the case of 2-norm the result is the ratio of the largest to the smallest singular value of <strong>A</strong>.
 For more details, see <a href=\"http://en.wikipedia.org/wiki/Condition_number\">http://en.wikipedia.org/wiki/Condition_number</a>.
 </p>
 
@@ -2983,7 +2981,7 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Condition_number\">
 
 </html>", revisions="<html>
 <ul>
-<li><i>2010/05/31 </i>
+<li><em>2010/05/31 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -3018,14 +3016,14 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Condition_number\">
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-r = Matrices.<b>rcond</b>(A);
+r = Matrices.<strong>rcond</strong>(A);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-This function estimates the reciprocal of the condition number (norm(A) * norm(inv(A))) of a general real matrix <b>A</b>, in either the 1-norm or
+This function estimates the reciprocal of the condition number (norm(A) * norm(inv(A))) of a general real matrix <strong>A</strong>, in either the 1-norm or
 the infinity-norm, using the LAPACK function <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgecon\">DGECON</a>.
-If rcond(A) is near 1.0, <b>A</b> is well conditioned and <b>A</b> is ill conditioned if rcond(A) is near zero.
+If rcond(A) is near 1.0, <strong>A</strong> is well conditioned and <strong>A</strong> is ill conditioned if rcond(A) is near zero.
 </p>
 
 <h4>Example</h4>
@@ -3046,7 +3044,7 @@ If rcond(A) is near 1.0, <b>A</b> is well conditioned and <b>A</b> is ill condit
 
 </html>", revisions="<html>
 <ul>
-<li><i>2010/05/31 </i>
+<li><em>2010/05/31 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -3083,8 +3081,8 @@ If rcond(A) is near 1.0, <b>A</b> is well conditioned and <b>A</b> is ill condit
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Matrices.<b>norm</b>(A);
-Matrices.<b>norm</b>(A, p=2);
+Matrices.<strong>norm</strong>(A);
+Matrices.<strong>norm</strong>(A, p=2);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -3106,7 +3104,7 @@ Note, for any matrices A1, A2 the following inequality holds:
 </p>
 
 <blockquote><pre>
-Matrices.<b>norm</b>(A1+A2,p) &le; Matrices.<b>norm</b>(A1,p) + Matrices.<b>norm</b>(A2,p)
+Matrices.<strong>norm</strong>(A1+A2,p) &le; Matrices.<strong>norm</strong>(A1,p) + Matrices.<strong>norm</strong>(A2,p)
 </pre></blockquote>
 
 <p>
@@ -3114,7 +3112,7 @@ Note, for any matrix A and vector v the following inequality holds:
 </p>
 
 <blockquote><pre>
-Vectors.<b>norm</b>(A*v,p) &le; Matrices.<b>norm</b>(A,p)*Vectors.<b>norm</b>(A,p)
+Vectors.<strong>norm</strong>(A*v,p) &le; Matrices.<strong>norm</strong>(A,p)*Vectors.<strong>norm</strong>(A,p)
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -3136,13 +3134,13 @@ Vectors.<b>norm</b>(A*v,p) &le; Matrices.<b>norm</b>(A,p)*Vectors.<b>norm</b>(A,
     annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-  r = Matrices.<b>frobeniusNorm</b>(A);
+  r = Matrices.<strong>frobeniusNorm</strong>(A);
 </pre></blockquote>
 
 <h4>Description</h4>
 
 <p>
-This function computes the Frobenius norm of a general real matrix <b>A</b>, i.e., the square root of the sum of the squares of all elements.
+This function computes the Frobenius norm of a general real matrix <strong>A</strong>, i.e., the square root of the sum of the squares of all elements.
 </p>
 
 <h4>Example</h4>
@@ -3164,7 +3162,7 @@ This function computes the Frobenius norm of a general real matrix <b>A</b>, i.e
 
 </html>", revisions="<html>
 <ul>
-<li><i>2010/05/31 </i>
+<li><em>2010/05/31 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -3208,46 +3206,46 @@ This function computes the Frobenius norm of a general real matrix <b>A</b>, i.e
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-           Z = Matrices.<b>nullspace</b>(A);
-(Z, nullity) = Matrices.<b>nullspace</b>(A);
+           Z = Matrices.<strong>nullspace</strong>(A);
+(Z, nullity) = Matrices.<strong>nullspace</strong>(A);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-This function calculates an orthonormal basis <b>Z</b>=[<b>z</b>_1, <b>z</b>_2, ...] of the nullspace of a matrix <b>A</b>, i.e., <b>A</b>*<b>z</b>_i=<b>0</b>.
+This function calculates an orthonormal basis <strong>Z</strong>=[<strong>z</strong>_1, <strong>z</strong>_2, ...] of the nullspace of a matrix <strong>A</strong>, i.e., <strong>A</strong>*<strong>z</strong>_i=<strong>0</strong>.
 </p>
 
 <p>
-The nullspace is obtained by SVD method. That is, matrix <b>A</b> is decomposed into the matrices <b>S</b>, <b>U</b>, <b>V</b>:
-</p>
-
-<blockquote><pre>
- <b>A</b> = <b>U</b>*<b>S</b>*transpose(<b>V</b>)
-</pre></blockquote>
-
-<p>
-with the orthonormal matrices <b>U</b> and <b>V</b> and the matrix <b>S</b> with
+The nullspace is obtained by SVD method. That is, matrix <strong>A</strong> is decomposed into the matrices <strong>S</strong>, <strong>U</strong>, <strong>V</strong>:
 </p>
 
 <blockquote><pre>
- <b>S</b> = [<b>S</b>1, <b>0</b>]
- <b>S</b>1 = [diag(s); <b>0</b>]
+ <strong>A</strong> = <strong>U</strong>*<strong>S</strong>*transpose(<strong>V</strong>)
 </pre></blockquote>
 
 <p>
-and the singular values <b>s</b>={s1, s2, ..., sr} of <b>A</b> and r=rank(<b>A</b>). Note, that <b>S</b> has the same size as <b>A</b>. Since <b>U</b> and <b>V</b> are orthonormal we may write
+with the orthonormal matrices <strong>U</strong> and <strong>V</strong> and the matrix <strong>S</strong> with
 </p>
 
 <blockquote><pre>
- transpose(<b>U</b>)*<b>A</b>*<b>V</b> = [<b>S</b>1, <b>0</b>].
+ <strong>S</strong> = [<strong>S</strong>1, <strong>0</strong>]
+ <strong>S</strong>1 = [diag(s); <strong>0</strong>]
 </pre></blockquote>
 
 <p>
-Matrix <b>S</b>1 obviously has full column rank and therefore, the left n-r rows (n is the number of columns of <b>A</b> or <b>S</b>) of matrix <b>V</b> span a nullspace of <b>A</b>.
+and the singular values <strong>s</strong>={s1, s2, ..., sr} of <strong>A</strong> and r=rank(<strong>A</strong>). Note, that <strong>S</strong> has the same size as <strong>A</strong>. Since <strong>U</strong> and <strong>V</strong> are orthonormal we may write
+</p>
+
+<blockquote><pre>
+ transpose(<strong>U</strong>)*<strong>A</strong>*<strong>V</strong> = [<strong>S</strong>1, <strong>0</strong>].
+</pre></blockquote>
+
+<p>
+Matrix <strong>S</strong>1 obviously has full column rank and therefore, the left n-r rows (n is the number of columns of <strong>A</strong> or <strong>S</strong>) of matrix <strong>V</strong> span a nullspace of <strong>A</strong>.
 </p>
 
 <p>
-The nullity of matrix <b>A</b> is the dimension of the nullspace of <b>A</b>. In view of the above, it becomes clear that nullity holds
+The nullity of matrix <strong>A</strong> is the dimension of the nullspace of <strong>A</strong>. In view of the above, it becomes clear that nullity holds
 </p>
 <blockquote><pre>
  nullity = n - r
@@ -3256,8 +3254,8 @@ The nullity of matrix <b>A</b> is the dimension of the nullspace of <b>A</b>. In
 with
 </p>
 <blockquote><pre>
- n = number of columns of matrix <b>A</b>
- r = rank(<b>A</b>)
+ n = number of columns of matrix <strong>A</strong>
+ r = rank(<strong>A</strong>)
 </pre></blockquote>
 
 <h4>Example</h4>
@@ -3283,7 +3281,7 @@ with
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>2010/05/31 </i>
+<li><em>2010/05/31 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -3368,25 +3366,25 @@ with
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-phi = Matrices.<b>exp</b>(A);
-phi = Matrices.<b>exp</b>(A,T=1);
+phi = Matrices.<strong>exp</strong>(A);
+phi = Matrices.<strong>exp</strong>(A,T=1);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-This function computes the exponential e<sup><b>A</b>T</sup> of matrix <b>A</b>, i.e.
+This function computes the exponential e<sup><strong>A</strong>T</sup> of matrix <strong>A</strong>, i.e.
 </p>
 <blockquote>
-<pre>                            (<b>A</b>T)^2   (<b>A</b>T)^3
-     <font size=4> <b>&Phi;</b></font> = e^(<b>A</b>T) = <b>I</b> + <b>A</b>T + ------ + ------ + ....
+<pre>                            (<strong>A</strong>T)^2   (<strong>A</strong>T)^3
+     <font size=4> <strong>&Phi;</strong></font> = e^(<strong>A</strong>T) = <strong>I</strong> + <strong>A</strong>T + ------ + ------ + ....
                               2!       3!
 </pre></blockquote>
 
-<p>where e=2.71828..., <b>A</b> is an n x n matrix with real elements and T is a real number,
+<p>where e=2.71828..., <strong>A</strong> is an n x n matrix with real elements and T is a real number,
 e.g., the sampling time.
-<b>A</b> may be singular. With the exponential of a matrix it is, e.g., possible
+<strong>A</strong> may be singular. With the exponential of a matrix it is, e.g., possible
 to compute the solution of a linear system of differential equations</p>
-<pre>    der(<b>x</b>) = <b>A</b>*<b>x</b>   ->   <b>x</b>(t0 + T) = e^(<b>A</b>T)*x(t0)
+<pre>    der(<strong>x</strong>) = <strong>A</strong>*<strong>x</strong>   ->   <strong>x</strong>(t0 + T) = e^(<strong>A</strong>T)*x(t0)
 </pre>
 
 <h4>Algorithmic details:</h4>
@@ -3394,20 +3392,20 @@ to compute the solution of a linear system of differential equations</p>
 <p>The algorithm is taken from</p>
 <dl>
 <dt>H. D. Joos, G. Gr&uuml;bel:</dt>
-<dd><b>RASP'91 Regulator Analysis and Synthesis Programs</b><br>
+<dd><strong>RASP'91 Regulator Analysis and Synthesis Programs</strong><br>
     DLR - Control Systems Group 1991</dd>
 </dl>
 <p>The following steps are performed to calculate the exponential of A:</p>
 <ol>
-  <li>Matrix <b>A</b> is balanced <br>
-  (= is transformed with a diagonal matrix <b>D</b>, such that inv(<b>D</b>)*<b>A</b>*<b>D</b>
-  has a smaller condition as <b>A</b>).</li>
+  <li>Matrix <strong>A</strong> is balanced<br>
+  (= is transformed with a diagonal matrix <strong>D</strong>, such that inv(<strong>D</strong>)*<strong>A</strong>*<strong>D</strong>
+  has a smaller condition as <strong>A</strong>).</li>
   <li>The scalar T is divided by a multiple of 2 such that norm(
-       inv(<b>D</b>)*<b>A</b>*<b>D</b>*T/2^k ) &lt; 0.5. Note, that (1) and (2) are implemented such that no round-off errors
+       inv(<strong>D</strong>)*<strong>A</strong>*<strong>D</strong>*T/2^k ) &lt; 0.5. Note, that (1) and (2) are implemented such that no round-off errors
   are introduced.</li>
   <li>The matrix from (2) is approximated by explicitly performing the Taylor
   series expansion with a variable number of terms.
-  Truncation occurs if a new term does no longer contribute to the value of <b>&Phi;</b>
+  Truncation occurs if a new term does no longer contribute to the value of <strong>&Phi;</strong>
   from the previous iteration.</li>
   <li>The resulting matrix is transformed back, by reverting the steps of (2)
   and (1).</li>
@@ -3419,13 +3417,13 @@ pp. 801-836, 1979' or in the documentation of m-file expm2 in MATLAB version 6
 (<a href=\"http://www.mathworks.com\">http://www.mathworks.com</a>) where it is
 stated that 'As a practical numerical method, this is often slow and inaccurate'.
 These statements are valid for a direct implementation of the Taylor series
-expansion, but <i>not</i> for the implementation variant used in this function.
+expansion, but <em>not</em> for the implementation variant used in this function.
 </p>
 
 </html>", revisions="<html>
-<p><b>Release Notes:</b></p>
+<p><strong>Release Notes:</strong></p>
 <ul>
-<li><i>July 5, 2002</i>
+<li><em>July 5, 2002</em>
        by H. D. Joos and Nico Walther<br>
        Implemented.
 </li>
@@ -3517,28 +3515,28 @@ expansion, but <i>not</i> for the implementation variant used in this function.
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-(phi,gamma) = Matrices.<b>integralExp</b>(A,B);
-(phi,gamma) = Matrices.<b>integralExp</b>(A,B,T=1);
+(phi,gamma) = Matrices.<strong>integralExp</strong>(A,B);
+(phi,gamma) = Matrices.<strong>integralExp</strong>(A,B,T=1);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-This function computes the exponential phi = e^(<b>A</b>T) of matrix <b>A</b>
+This function computes the exponential phi = e^(<strong>A</strong>T) of matrix <strong>A</strong>
 and the integral gamma = integral(phi*dt)*B.
 </p>
 
 <p>
 The function uses a Taylor series expansion with Balancing and
-scaling/squaring to approximate the integral <b>&Psi;</b> of the matrix
-exponential <b>&Phi;</b>=e^(AT):
+scaling/squaring to approximate the integral <strong>&Psi;</strong> of the matrix
+exponential <strong>&Phi;</strong>=e^(AT):
 </p>
 <pre>                                 AT^2   A^2 * T^3          A^k * T^(k+1)
-        <b>&Psi;</b> = int(e^(As))ds = IT + ---- + --------- + ... + --------------
+        <strong>&Psi;</strong> = int(e^(As))ds = IT + ---- + --------- + ... + --------------
                                   2!        3!                (k+1)!
 </pre>
 <p>
-<b>&Phi;</b> is calculated through <b>&Phi;</b> = I + A*<b>&Psi;</b>, so A may be singular. <b>&Gamma;</b> is
-simply <b>&Psi;</b>*B.
+<strong>&Phi;</strong> is calculated through <strong>&Phi;</strong> = I + A*<strong>&Psi;</strong>, so A may be singular. <strong>&Gamma;</strong> is
+simply <strong>&Psi;</strong>*B.
 </p>
 <p>The algorithm runs in the following steps:</p>
 <ol>
@@ -3548,8 +3546,8 @@ simply <b>&Psi;</b>*B.
   <li>Re-scaling</li>
   <li>Re-Balancing</li>
 </ol>
-<p>Balancing put the bad condition of a square matrix <i>A</i> into a diagonal
-transformation matrix <i>D</i>. This reduce the effort of following calculations.
+<p>Balancing put the bad condition of a square matrix <em>A</em> into a diagonal
+transformation matrix <em>D</em>. This reduce the effort of following calculations.
 Afterwards the result have to be re-balanced by transformation D*A<small>transf</small>
 *inv(D).<br>
 Scaling halfen T&nbsp; k-times, until the norm of A*T is less than 0.5. This
@@ -3557,9 +3555,9 @@ guarantees minimum rounding errors in the following series
 expansion. The re-scaling based on the equation&nbsp; exp(A*2T) = exp(AT)^2.
 The needed re-scaling formula for psi thus becomes:
 </p>
-<pre>         <b>&Phi;</b> = <b>&Phi;</b>'*<b>&Phi;</b>'
-   I + A*<b>&Psi;</b> = I + 2A*<b>&Psi;</b>' + A^2*<b>&Psi;</b>'^2
-         <b>&Psi;</b> = A*<b>&Psi;</b>'^2 + 2*<b>&Psi;</b>'
+<pre>         <strong>&Phi;</strong> = <strong>&Phi;</strong>'*<strong>&Phi;</strong>'
+   I + A*<strong>&Psi;</strong> = I + 2A*<strong>&Psi;</strong>' + A^2*<strong>&Psi;</strong>'^2
+         <strong>&Psi;</strong> = A*<strong>&Psi;</strong>'^2 + 2*<strong>&Psi;</strong>'
 </pre>
 <p>
 where psi' is the scaled result from the series expansion while psi is the
@@ -3569,7 +3567,7 @@ re-scaled matrix.
 The function is normally used to discretize a state-space system as the
 zero-order-hold equivalent:
 </p>
-<pre>      x(k+1) = <b>&Phi;</b>*x(k) + <b>&Gamma;</b>*u(k)
+<pre>      x(k+1) = <strong>&Phi;</strong>*x(k) + <strong>&Gamma;</strong>*u(k)
         y(k) = C*x(k) + D*u(k)
 </pre>
 <p>
@@ -3579,11 +3577,11 @@ signal u is constant between the sampling instants. Zero-order-hold sampling
 is described in
 </p>
 <dl>
-<dt>K. J. Astroem, B. Wittenmark:</dt>
-<dd><b>Computer Controlled Systems - Theory and Design</b><br>
+<dt>K. J. &Aring;str&ouml;m, B. Wittenmark:</dt>
+<dd><strong>Computer Controlled Systems - Theory and Design</strong><br>
     Third Edition, p. 32</dd>
 </dl>
-<pre><b>Syntax:</b>
+<pre><strong>Syntax:</strong>
       (phi,gamma) = Matrices.expIntegral(A,B,T)
                        A,phi: [n,n] square matrices
                      B,gamma: [n,m] input matrix
@@ -3594,13 +3592,13 @@ The Algorithm to calculate psi is taken from
 </p>
 <dl>
 <dt>H. D. Joos, G. Gr&uuml;bel:</dt>
-<dd><b>RASP'91 Regulator Analysis and Synthesis Programs</b><br>
+<dd><strong>RASP'91 Regulator Analysis and Synthesis Programs</strong><br>
     DLR - Control Systems Group 1991</dd>
 </dl>
 </html>", revisions="<html>
-<p><b>Release Notes:</b></p>
+<p><strong>Release Notes:</strong></p>
 <ul>
-<li><i>July 5, 2002</i>
+<li><em>July 5, 2002</em>
        by H. D. Joos and Nico Walther<br>
        Implemented.
 </li>
@@ -3637,13 +3635,13 @@ The Algorithm to calculate psi is taken from
 
     annotation (Documentation(info="<html>
 <blockquote><pre>
-(phi,gamma,gamma1) = Matrices.<b>integralExp</b>(A,B);
-(phi,gamma,gamma1) = Matrices.<b>integralExp</b>(A,B,T=1);
+(phi,gamma,gamma1) = Matrices.<strong>integralExp</strong>(A,B);
+(phi,gamma,gamma1) = Matrices.<strong>integralExp</strong>(A,B,T=1);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-This function computes the exponential phi = e^(<b>A</b>T) of matrix <b>A</b>
+This function computes the exponential phi = e^(<strong>A</strong>T) of matrix <strong>A</strong>
 and the integral gamma = integral(phi*dt)*B and the integral
 integral((T-t)*exp(A*t)*dt)*B, where A is a square (n,n) matrix and
 B, gamma, and gamma1 are (n,m) matrices.
@@ -3670,15 +3668,15 @@ is, e.g., described in
 </p>
 
 <dl>
-<dt>K. J. Astroem, B. Wittenmark:</dt>
-<dd><b>Computer Controlled Systems - Theory and Design</b><br>
+<dt>K. J. &Aring;str&ouml;m, B. Wittenmark:</dt>
+<dd><strong>Computer Controlled Systems - Theory and Design</strong><br>
     Third Edition, p. 256</dd>
 </dl>
 
 </html>", revisions="<html>
-<p><b>Release Notes:</b></p>
+<p><strong>Release Notes:</strong></p>
 <ul>
-<li><i>July 31, 2002</i>
+<li><em>July 31, 2002</em>
        by Nico Walther<br>
        Realized.
 </li>
@@ -3827,17 +3825,17 @@ is, e.g., described in
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-         X = Matrices.<b>continuousLyapunov</b>(A, C);
-         X = Matrices.<b>continuousLyapunov</b>(A, C, ATisSchur, eps);
+         X = Matrices.<strong>continuousLyapunov</strong>(A, C);
+         X = Matrices.<strong>continuousLyapunov</strong>(A, C, ATisSchur, eps);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-This function computes the solution <b>X</b> of the continuous-time Lyapunov equation
+This function computes the solution <strong>X</strong> of the continuous-time Lyapunov equation
 </p>
 
 <blockquote><pre>
- <b>X</b>*<b>A</b> + <b>A</b>'*<b>X</b> = <b>C</b>
+ <strong>X</strong>*<strong>A</strong> + <strong>A</strong>'*<strong>X</strong> = <strong>C</strong>
 </pre></blockquote>
 
 <p>
@@ -3849,14 +3847,14 @@ In a nutshell, the problem is reduced to the corresponding problem
 </p>
 
 <blockquote><pre>
- <b>Y</b>*<b>R</b>' + <b>R</b>*<b>Y</b> = <b>D</b>
+ <strong>Y</strong>*<strong>R</strong>' + <strong>R</strong>*<strong>Y</strong> = <strong>D</strong>
 </pre></blockquote>
 
 <p>
-with <b>R</b>=<b>U</b>'*<b>A'</b>*<b>U</b> is the real Schur form of <b>A</b>' and <b>D</b>=<b>U</b>'*<b>C</b>*<b>U</b> and <b>Y</b>=<b>U</b>'*<b>X</b>*<b>U</b>
-are the corresponding transformations of <b>C</b> and <b>X</b>. This problem is solved sequentially for the 1x1 or 2x2 Schur blocks by exploiting the block triangular form of <b>R</b>.
-Finally the solution of the original problem is recovered as <b>X</b>=<b>U</b>*<b>Y</b>*<b>U</b>'.<br>
-The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in the case that <b>A</b>' has already Schur form.
+with <strong>R</strong>=<strong>U</strong>'*<strong>A'</strong>*<strong>U</strong> is the real Schur form of <strong>A</strong>' and <strong>D</strong>=<strong>U</strong>'*<strong>C</strong>*<strong>U</strong> and <strong>Y</strong>=<strong>U</strong>'*<strong>X</strong>*<strong>U</strong>
+are the corresponding transformations of <strong>C</strong> and <strong>X</strong>. This problem is solved sequentially for the 1x1 or 2x2 Schur blocks by exploiting the block triangular form of <strong>R</strong>.
+Finally the solution of the original problem is recovered as <strong>X</strong>=<strong>U</strong>*<strong>Y</strong>*<strong>U</strong>'.<br>
+The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in the case that <strong>A</strong>' has already Schur form.
 </p>
 
 <h4>References</h4>
@@ -3896,7 +3894,7 @@ The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
 
 </html>", revisions="<html>
 <ul>
-<li><i>2010/05/31 </i>
+<li><em>2010/05/31 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -3965,17 +3963,17 @@ The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
     annotation (Documentation(info="<html>
  <h4>Syntax</h4>
 <blockquote><pre>
-         X = Matrices.<b>continuousSylvester</b>(A, B, C);
-         X = Matrices.<b>continuousSylvester</b>(A, B, C, AisSchur, BisSchur);
+         X = Matrices.<strong>continuousSylvester</strong>(A, B, C);
+         X = Matrices.<strong>continuousSylvester</strong>(A, B, C, AisSchur, BisSchur);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-Function <b>continuousSylvester</b> computes the solution <b>X</b> of the continuous-time Sylvester equation
+Function <strong>continuousSylvester</strong> computes the solution <strong>X</strong> of the continuous-time Sylvester equation
 </p>
 
 <blockquote><pre>
- <b>A</b>*<b>X</b> + <b>X</b>*<b>B</b> = <b>C</b>.
+ <strong>A</strong>*<strong>X</strong> + <strong>X</strong>*<strong>B</strong> = <strong>C</strong>.
 </pre></blockquote>
 
 <p>
@@ -3986,14 +3984,14 @@ using the Schur method for Sylvester equations proposed by Bartels and Stewart [
 In a nutshell, the problem is reduced to the corresponding problem
 </p>
 <blockquote><pre>
- <b>S</b>*<b>Y</b> + <b>Y</b>*<b>T</b> = <b>D</b>.
+ <strong>S</strong>*<strong>Y</strong> + <strong>Y</strong>*<strong>T</strong> = <strong>D</strong>.
 </pre></blockquote>
 <p>
-with <b>S</b>=<b>U</b>'*<b>A</b>*<b>U</b> is the real Schur of <b>A</b>,  <b>T</b>=<b>V</b>'*<b>T</b>*<b>V</b> is the real Schur form of <b>B</b> and
-<b>D</b>=<b>U</b>'*<b>C</b>*<b>V</b> and <b>Y</b>=<b>U</b>*<b>X</b>*<b>V</b>'
-are the corresponding transformations of <b>C</b> and <b>X</b>. This problem is solved sequentially by exploiting the block triangular form of <b>S</b> and <b>T</b>.
-Finally the solution of the original problem is recovered as <b>X</b>=<b>U</b>'*<b>Y</b>*<b>V</b>.<br>
-The Boolean inputs \"AisSchur\" and \"BisSchur\" indicate to omit one or both of the transformation to Schur in the case that <b>A</b> and/or <b>B</b> have already Schur form.
+with <strong>S</strong>=<strong>U</strong>'*<strong>A</strong>*<strong>U</strong> is the real Schur of <strong>A</strong>,  <strong>T</strong>=<strong>V</strong>'*<strong>T</strong>*<strong>V</strong> is the real Schur form of <strong>B</strong> and
+<strong>D</strong>=<strong>U</strong>'*<strong>C</strong>*<strong>V</strong> and <strong>Y</strong>=<strong>U</strong>*<strong>X</strong>*<strong>V</strong>'
+are the corresponding transformations of <strong>C</strong> and <strong>X</strong>. This problem is solved sequentially by exploiting the block triangular form of <strong>S</strong> and <strong>T</strong>.
+Finally the solution of the original problem is recovered as <strong>X</strong>=<strong>U</strong>'*<strong>Y</strong>*<strong>V</strong>.<br>
+The Boolean inputs \"AisSchur\" and \"BisSchur\" indicate to omit one or both of the transformation to Schur in the case that <strong>A</strong> and/or <strong>B</strong> have already Schur form.
 </p>
 
 <p>
@@ -4044,7 +4042,7 @@ for more information.
 
 </html>", revisions="<html>
 <ul>
-<li><i>2010/05/31 </i>
+<li><em>2010/05/31 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -4077,9 +4075,9 @@ for more information.
 
   public
     output Real X[size(A, 1), size(A, 2)] "stabilizing solution of CARE";
-    output Real alphaReal[size(H, 1)]
+    output Real alphaReal[2*size(A, 1)]
       "Real parts of eigenvalue=alphaReal+i*alphaImag";
-    output Real alphaImag[size(H, 1)]
+    output Real alphaImag[2*size(A, 1)]
       "Imaginary parts of eigenvalue=alphaReal+i*alphaImag";
   algorithm
     if n > 1 then
@@ -4131,32 +4129,32 @@ for more information.
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-                                X = Matrices.<b>continuousRiccati</b>(A, B, R, Q);
-        (X, alphaReal, alphaImag) = Matrices.<b>continuousRiccati</b>(A, B, R, Q, true);
+                                X = Matrices.<strong>continuousRiccati</strong>(A, B, R, Q);
+        (X, alphaReal, alphaImag) = Matrices.<strong>continuousRiccati</strong>(A, B, R, Q, true);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-Function <b>continuousRiccati</b> computes the solution <b>X</b> of the continuous-time algebraic Riccati equation
+Function <strong>continuousRiccati</strong> computes the solution <strong>X</strong> of the continuous-time algebraic Riccati equation
 </p>
 
 <blockquote><pre>
- <b>A</b>'*<b>X</b> + <b>X</b>*<b>A</b> - <b>X</b>*<b>G</b>*<b>X</b> + <b>Q</b> = <b>0</b>
+ <strong>A</strong>'*<strong>X</strong> + <strong>X</strong>*<strong>A</strong> - <strong>X</strong>*<strong>G</strong>*<strong>X</strong> + <strong>Q</strong> = <strong>0</strong>
 </pre></blockquote>
 
 <p>
-with <code><b>G</b> = <b>B</b>*inv(<b>R</b>)*<b>B</b>'</code>
+with <code><strong>G</strong> = <strong>B</strong>*inv(<strong>R</strong>)*<strong>B</strong>'</code>
 using the Schur vector approach proposed by Laub [1].
 </p>
 
 <p>
-It is assumed that <b>Q</b> is symmetric and positive semidefinite and <b>R</b> is symmetric, nonsingular and positive definite,
-(<b>A</b>,<b>B</b>) is stabilizable and (<b>A</b>,<b>Q</b>) is detectable.
+It is assumed that <strong>Q</strong> is symmetric and positive semidefinite and <strong>R</strong> is symmetric, nonsingular and positive definite,
+(<strong>A</strong>,<strong>B</strong>) is stabilizable and (<strong>A</strong>,<strong>Q</strong>) is detectable.
 </p>
 
-<p><b>
+<p><strong>
 These assumptions are not checked in this function !!
-</b><br>
+</strong><br>
 </p>
 
 <p>
@@ -4164,7 +4162,7 @@ The assumptions guarantee that the Hamiltonian matrix
 </p>
 
 <blockquote><pre>
-<b>H</b> = [<b>A</b>, -<b>G</b>; -<b>Q</b>, -<b>A</b>']
+<strong>H</strong> = [<strong>A</strong>, -<strong>G</strong>; -<strong>Q</strong>, -<strong>A</strong>']
 </pre></blockquote>
 
 <p>
@@ -4173,26 +4171,26 @@ to an ordered real Schur form
 </p>
 
 <blockquote><pre>
-<b>U</b>'*<b>H</b>*<b>U</b> = <b>S</b> = [<b>S</b>11, <b>S</b>12; <b>0</b>, <b>S</b>22]
+<strong>U</strong>'*<strong>H</strong>*<strong>U</strong> = <strong>S</strong> = [<strong>S</strong>11, <strong>S</strong>12; <strong>0</strong>, <strong>S</strong>22]
 </pre></blockquote>
 
 <p>
-with orthogonal similarity transformation <b>U</b>. <b>S</b> is ordered in such a way,
-that <b>S</b>11 contains the n stable eigenvalues of the closed loop system with system matrix
-<b>A</b> - <b>B</b>*inv(<b>R</b>)*<b>B</b>'*<b>X</b>.
-If <b>U</b> is partitioned to
+with orthogonal similarity transformation <strong>U</strong>. <strong>S</strong> is ordered in such a way,
+that <strong>S</strong>11 contains the n stable eigenvalues of the closed loop system with system matrix
+<strong>A</strong> - <strong>B</strong>*inv(<strong>R</strong>)*<strong>B</strong>'*<strong>X</strong>.
+If <strong>U</strong> is partitioned to
 </p>
 
 <blockquote><pre>
-<b>U</b> = [<b>U</b>11, <b>U</b>12; <b>U</b>21, <b>U</b>22]
+<strong>U</strong> = [<strong>U</strong>11, <strong>U</strong>12; <strong>U</strong>21, <strong>U</strong>22]
 </pre></blockquote>
 
 <p>
-with dimensions according to <b>S</b>, the solution <b>X</b> is calculated by
+with dimensions according to <strong>S</strong>, the solution <strong>X</strong> is calculated by
 </p>
 
 <blockquote><pre>
-<b>X</b>*<b>U</b>11 = <b>U</b>21.
+<strong>X</strong>*<strong>U</strong>11 = <strong>U</strong>21.
 </pre></blockquote>
 
 <p>
@@ -4202,11 +4200,11 @@ for more information.
 </p>
 
 <h4>References</h4>
-<PRE>
+<pre>
   [1] Laub, A.J.
       A Schur Method for Solving Algebraic Riccati equations.
       IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
-</PRE>
+</pre>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -4236,7 +4234,7 @@ X = [2.0, 1.0;
 </p>
 
 </html>", revisions="<html><ul>
-<li><i>2010/05/31 </i>
+<li><em>2010/05/31 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -4335,17 +4333,17 @@ X = [2.0, 1.0;
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-         X = Matrices.<b>discreteLyapunov</b>(A, C);
-         X = Matrices.<b>discreteLyapunov</b>(A, C, ATisSchur, sgn, eps);
+         X = Matrices.<strong>discreteLyapunov</strong>(A, C);
+         X = Matrices.<strong>discreteLyapunov</strong>(A, C, ATisSchur, sgn, eps);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-This function computes the solution <b>X</b> of the discrete-time Lyapunov equation
+This function computes the solution <strong>X</strong> of the discrete-time Lyapunov equation
 </p>
 
 <blockquote><pre>
- <b>A</b>'*<b>X</b>*<b>A</b> + sgn*<b>X</b> = <b>C</b>
+ <strong>A</strong>'*<strong>X</strong>*<strong>A</strong> + sgn*<strong>X</strong> = <strong>C</strong>
 </pre></blockquote>
 
 <p>
@@ -4353,7 +4351,7 @@ where sgn=1 or sgn =-1. For sgn = -1, the discrete Lyapunov equation is a specia
 </p>
 
 <blockquote><pre>
- <b>A</b>*<b>X</b>*<b>B</b> - <b>X</b> + <b>Q</b> = <b>0</b>.
+ <strong>A</strong>*<strong>X</strong>*<strong>B</strong> - <strong>X</strong> + <strong>Q</strong> = <strong>0</strong>.
 </pre></blockquote>
 
 <p>
@@ -4365,22 +4363,22 @@ In a nutshell, the problem is reduced to the corresponding problem
 </p>
 
 <blockquote><pre>
- <b>R</b>*<b>Y</b>*<b>R</b>' + sgn*<b>Y</b> = <b>D</b>.
+ <strong>R</strong>*<strong>Y</strong>*<strong>R</strong>' + sgn*<strong>Y</strong> = <strong>D</strong>.
 </pre></blockquote>
 
 <p>
-with <b>R</b>=<b>U</b>'*<b>A'</b>*<b>U</b> is the real Schur form of <b>A</b>' and <b>D</b>=<b>U</b>'*<b>C</b>*<b>U</b> and <b>Y</b>=<b>U</b>'*<b>X</b>*<b>U</b>
-are the corresponding transformations of <b>C</b> and <b>X</b>. This problem is solved sequentially by exploiting the block triangular form of <b>R</b>.
-Finally the solution of the original problem is recovered as <b>X</b>=<b>U</b>*<b>Y</b>*<b>U</b>'.<br>
-The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in the case that <b>A</b>' has already Schur form.
+with <strong>R</strong>=<strong>U</strong>'*<strong>A'</strong>*<strong>U</strong> is the real Schur form of <strong>A</strong>' and <strong>D</strong>=<strong>U</strong>'*<strong>C</strong>*<strong>U</strong> and <strong>Y</strong>=<strong>U</strong>'*<strong>X</strong>*<strong>U</strong>
+are the corresponding transformations of <strong>C</strong> and <strong>X</strong>. This problem is solved sequentially by exploiting the block triangular form of <strong>R</strong>.
+Finally the solution of the original problem is recovered as <strong>X</strong>=<strong>U</strong>*<strong>Y</strong>*<strong>U</strong>'.<br>
+The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in the case that <strong>A</strong>' has already Schur form.
 </p>
 
 <h4>References</h4>
-<PRE>
+<pre>
   [1] Bartels, R.H. and Stewart G.W.
       Algorithm 432: Solution of the matrix equation AX + XB = C.
       Comm. ACM., Vol. 15, pp. 820-826, 1972.
-</PRE>
+</pre>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -4413,7 +4411,7 @@ The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
 
 </html>", revisions="<html>
 <ul>
-<li><i>2010/05/31 </i>
+<li><em>2010/05/31 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -4542,17 +4540,17 @@ The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-         X = Matrices.<b>discreteSylvester</b>(A, B, C);
-         X = Matrices.<b>discreteSylvester</b>(A, B, C, AisHess, BTisSchur, sgn, eps);
+         X = Matrices.<strong>discreteSylvester</strong>(A, B, C);
+         X = Matrices.<strong>discreteSylvester</strong>(A, B, C, AisHess, BTisSchur, sgn, eps);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-Function <b>discreteSylvester</b> computes the solution <b>X</b> of the discrete-time Sylvester equation
+Function <strong>discreteSylvester</strong> computes the solution <strong>X</strong> of the discrete-time Sylvester equation
 </p>
 
 <blockquote><pre>
- <b>A</b>*<b>X</b>*<b>B</b> + sgn*<b>X</b> = <b>C</b>.
+ <strong>A</strong>*<strong>X</strong>*<strong>B</strong> + sgn*<strong>X</strong> = <strong>C</strong>.
 
 </pre></blockquote>
 
@@ -4562,31 +4560,31 @@ For sgn = -1, the discrete Sylvester equation is also known as Stein equation:
 </p>
 
 <blockquote><pre>
- <b>A</b>*<b>X</b>*<b>B</b> - <b>X</b> + <b>Q</b> = <b>0</b>.
+ <strong>A</strong>*<strong>X</strong>*<strong>B</strong> - <strong>X</strong> + <strong>Q</strong> = <strong>0</strong>.
 </pre></blockquote>
 
 <p>
 In a nutshell, the problem is reduced to the corresponding problem
 </p>
 <blockquote><pre>
- <b>H</b>*<b>Y</b>*<b>S</b>' + sgn*<b>Y</b> = <b>F</b>.
+ <strong>H</strong>*<strong>Y</strong>*<strong>S</strong>' + sgn*<strong>Y</strong> = <strong>F</strong>.
 </pre></blockquote>
 
 <p>
-with <b>H</b>=<b>U</b>'*<b>A</b>*<b>U</b> is the Hessenberg form of <b>A</b> and <b>S</b>=<b>V</b>'*<b>B</b>'*<b>V</b> is the real Schur form of <b>B</b>',
-<b>F</b>=<b>U</b>'*<b>C</b>*<b>V</b> and <b>Y</b>=<b>U</b>*<b>X</b>*<b>V</b>'
-are appropriate transformations of <b>C</b> and <b>X</b>. This problem is solved sequentially by exploiting the specific forms of <b>S</b> and <b>H</b>.
-Finally the solution of the original problem is recovered as <b>X</b>=<b>U</b>'*<b>Y</b>*<b>V</b>.<br>
-The Boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of the transformation to Hessenberg form or Schur form respectively in the case that <b>A</b> and/or <b>B</b> have already Hessenberg form or Schur respectively.
+with <strong>H</strong>=<strong>U</strong>'*<strong>A</strong>*<strong>U</strong> is the Hessenberg form of <strong>A</strong> and <strong>S</strong>=<strong>V</strong>'*<strong>B</strong>'*<strong>V</strong> is the real Schur form of <strong>B</strong>',
+<strong>F</strong>=<strong>U</strong>'*<strong>C</strong>*<strong>V</strong> and <strong>Y</strong>=<strong>U</strong>*<strong>X</strong>*<strong>V</strong>'
+are appropriate transformations of <strong>C</strong> and <strong>X</strong>. This problem is solved sequentially by exploiting the specific forms of <strong>S</strong> and <strong>H</strong>.
+Finally the solution of the original problem is recovered as <strong>X</strong>=<strong>U</strong>'*<strong>Y</strong>*<strong>V</strong>.<br>
+The Boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of the transformation to Hessenberg form or Schur form respectively in the case that <strong>A</strong> and/or <strong>B</strong> have already Hessenberg form or Schur respectively.
 </p>
 
 <h4>References</h4>
-<PRE>
+<pre>
   [1] Golub, G.H., Nash, S. and Van Loan, C.F.
       A Hessenberg-Schur method for the problem AX + XB = C.
       IEEE Transaction on Automatic Control, AC-24, no. 6, pp. 909-913, 1979.
 
-</PRE>
+</pre>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -4619,7 +4617,7 @@ The Boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of
 
 </html>", revisions="<html>
 <ul>
-<li><i>2010/05/31 </i>
+<li><em>2010/05/31 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -4658,9 +4656,9 @@ The Boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of
   public
     output Real X[size(A, 1), size(A, 2)]
       "orthogonal matrix of the Schur vectors associated to ordered rsf";
-    output Real alphaReal[size(H, 1)]
+    output Real alphaReal[2*size(A, 1)]
       "Real part of eigenvalue=alphaReal+i*alphaImag";
-    output Real alphaImag[size(H, 1)]
+    output Real alphaImag[2*size(A, 1)]
       "Imaginary part of eigenvalue=alphaReal+i*alphaImag";
   algorithm
     (LU,p) := Modelica.Math.Matrices.LU(AT);
@@ -4718,18 +4716,18 @@ no or infinitely many solutions (input A is singular).");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-                                 X = Matrices.<b>discreteRiccati</b>(A, B, R, Q);
-         (X, alphaReal, alphaImag) = Matrices.<b>discreteRiccati</b>(A, B, R, Q, true);
+                                 X = Matrices.<strong>discreteRiccati</strong>(A, B, R, Q);
+         (X, alphaReal, alphaImag) = Matrices.<strong>discreteRiccati</strong>(A, B, R, Q, true);
 </pre></blockquote>
 
 <h4>Description</h4>
 
 <p>
-Function <b>discreteRiccati</b> computes the solution <b>X</b> of the discrete-time algebraic Riccati equation
+Function <strong>discreteRiccati</strong> computes the solution <strong>X</strong> of the discrete-time algebraic Riccati equation
 </p>
 
 <blockquote><pre>
- <b>A</b>'*<b>X</b>*<b>A</b> - <b>X</b> - <b>A</b>'*<b>X</b>*<b>B</b>*inv(<b>R</b> + <b>B</b>'*<b>X</b>*<b>B</b>)*<b>B</b>'*<b>X</b>*<b>A</b> + <b>Q</b> = <b>0</b>
+ <strong>A</strong>'*<strong>X</strong>*<strong>A</strong> - <strong>X</strong> - <strong>A</strong>'*<strong>X</strong>*<strong>B</strong>*inv(<strong>R</strong> + <strong>B</strong>'*<strong>X</strong>*<strong>B</strong>)*<strong>B</strong>'*<strong>X</strong>*<strong>A</strong> + <strong>Q</strong> = <strong>0</strong>
 </pre></blockquote>
 
 <p>
@@ -4737,26 +4735,26 @@ using the Schur vector approach proposed by Laub [1].
 </p>
 
 <p>
-It is assumed that <b>Q</b> is symmetric and positive semidefinite and <b>R</b> is symmetric, nonsingular and positive definite,
-(<b>A</b>,<b>B</b>) is stabilizable and (<b>A</b>,<b>Q</b>) is detectable. Using this method, <b>A</b> has also to be invertible.
+It is assumed that <strong>Q</strong> is symmetric and positive semidefinite and <strong>R</strong> is symmetric, nonsingular and positive definite,
+(<strong>A</strong>,<strong>B</strong>) is stabilizable and (<strong>A</strong>,<strong>Q</strong>) is detectable. Using this method, <strong>A</strong> has also to be invertible.
 </p>
 
 <p>
-<b>These assumptions are not checked in this function !!!</b>
+<strong>These assumptions are not checked in this function !!!</strong>
 </p>
 
 <p>
 The assumptions guarantee that the Hamiltonian matrix.
 </p>
 <blockquote><pre>
-<b>H</b> = [<b>A</b> + <b>G</b>*<b>T</b>*<b>Q</b>, -<b>G</b>*<b>T</b>; -<b>T</b>*<b>Q</b>, <b>T</b>]
+<strong>H</strong> = [<strong>A</strong> + <strong>G</strong>*<strong>T</strong>*<strong>Q</strong>, -<strong>G</strong>*<strong>T</strong>; -<strong>T</strong>*<strong>Q</strong>, <strong>T</strong>]
 </pre></blockquote>
 <p>
 with
 </p>
 <blockquote><pre>
      -T
-<b>T</b> = <b>A</b>
+<strong>T</strong> = <strong>A</strong>
 </pre></blockquote>
 
 <p>
@@ -4765,7 +4763,7 @@ and
 
 <blockquote><pre>
        -1
-<b>G</b> = <b>B</b>*<b>R</b> *<b>B</b>'
+<strong>G</strong> = <strong>B</strong>*<strong>R</strong> *<strong>B</strong>'
 </pre></blockquote>
 
 <p>
@@ -4774,41 +4772,41 @@ to an ordered real Schur form
 </p>
 
 <blockquote><pre>
-<b>U</b>'*<b>H</b>*<b>U</b> = <b>S</b> = [<b>S11</b>, <b>S12</b>; <b>0</b>, <b>S22</b>]
+<strong>U</strong>'*<strong>H</strong>*<strong>U</strong> = <strong>S</strong> = [<strong>S11</strong>, <strong>S12</strong>; <strong>0</strong>, <strong>S22</strong>]
 </pre></blockquote>
 
 <p>
-with orthogonal similarity transformation <b>U</b>. <b>S</b> is ordered in such a way,
-that <b>S11</b> contains the n stable eigenvalues of the closed loop system with system matrix
+with orthogonal similarity transformation <strong>U</strong>. <strong>S</strong> is ordered in such a way,
+that <strong>S11</strong> contains the n stable eigenvalues of the closed loop system with system matrix
 </p>
 
 <blockquote><pre>
                   -1
-<b>A</b> - <b>B</b>*(<b>R</b> + <b>B</b>'*<b>X</b>*<b>B</b>)  *<b>B</b>'*<b>X</b>*<b>A</b>
+<strong>A</strong> - <strong>B</strong>*(<strong>R</strong> + <strong>B</strong>'*<strong>X</strong>*<strong>B</strong>)  *<strong>B</strong>'*<strong>X</strong>*<strong>A</strong>
 </pre></blockquote>
 
 <p>
-If <b>U</b> is partitioned to
+If <strong>U</strong> is partitioned to
 </p>
 
 <blockquote><pre>
-<b>U</b> = [<b>U11</b>, <b>U12</b>; <b>U21</b>, <b>U22</b>]
+<strong>U</strong> = [<strong>U11</strong>, <strong>U12</strong>; <strong>U21</strong>, <strong>U22</strong>]
 </pre></blockquote>
 
 <p>
-according to <b>S</b>, the solution <b>X</b> can be calculated by
+according to <strong>S</strong>, the solution <strong>X</strong> can be calculated by
 </p>
 
 <blockquote><pre>
-<b>X</b>*<b>U11</b> = <b>U21</b>.
+<strong>X</strong>*<strong>U11</strong> = <strong>U21</strong>.
 </pre></blockquote>
 
 <h4>References</h4>
-<PRE>
+<pre>
   [1] Laub, A.J.
       A Schur Method for Solving Algebraic Riccati equations.
       IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
-</PRE>
+</pre>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -4837,7 +4835,7 @@ X = [14.5623, 9.7082;
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>2010/05/31 </i>
+<li><em>2010/05/31 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -4957,24 +4955,24 @@ X = [14.5623, 9.7082;
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-           sorted_M = Matrices.<b>sort</b>(M);
-(sorted_M, indices) = Matrices.<b>sort</b>(M, sortRows=true, ascending=true);
+           sorted_M = Matrices.<strong>sort</strong>(M);
+(sorted_M, indices) = Matrices.<strong>sort</strong>(M, sortRows=true, ascending=true);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-Function <b>sort</b>(..) sorts the rows of a Real matrix M
+Function <strong>sort</strong>(..) sorts the rows of a Real matrix M
 in ascending order and returns the result in sorted_M.
-If the optional argument \"sortRows\" is <b>false</b>, the columns
+If the optional argument \"sortRows\" is <strong>false</strong>, the columns
 of the matrix are sorted.
-If the optional argument \"ascending\" is <b>false</b>, the rows or
+If the optional argument \"ascending\" is <strong>false</strong>, the rows or
 columns are sorted in descending order. In the optional second
 output argument, the indices of the sorted rows or columns with respect
 to the original matrix are given, such that
 </p>
 
 <pre>
-   sorted_M = <b>if</b> sortedRow <b>then</b> M[indices,:] <b>else</b> M[:,indices];
+   sorted_M = <strong>if</strong> sortedRow <strong>then</strong> M[indices,:] <strong>else</strong> M[:,indices];
 </pre>
 
 <h4>Example</h4>
@@ -4998,12 +4996,12 @@ to the original matrix are given, such that
     annotation (Inline=true, Documentation(info="<html>
  <h4>Syntax</h4>
 <blockquote><pre>
-         A_flr = Matrices.<b>flipLeftRight</b>(A);
+         A_flr = Matrices.<strong>flipLeftRight</strong>(A);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-Function <b>flipLeftRight</b> computes from matrix <b>A</b> a matrix <b>A_flr</b> with flipped columns, i.e., <b>A_flr</b>[:,i]=<b>A</b>[:,n-i+1], i=1,..., n.
+Function <strong>flipLeftRight</strong> computes from matrix <strong>A</strong> a matrix <strong>A_flr</strong> with flipped columns, i.e., <strong>A_flr</strong>[:,i]=<strong>A</strong>[:,n-i+1], i=1,..., n.
 </p>
 
 <h4>Example</h4>
@@ -5028,7 +5026,7 @@ Function <b>flipLeftRight</b> computes from matrix <b>A</b> a matrix <b>A_flr</b
 
 </html>", revisions="<html>
 <ul>
-<li><i>2010/05/31 </i>
+<li><em>2010/05/31 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -5044,12 +5042,12 @@ Function <b>flipLeftRight</b> computes from matrix <b>A</b> a matrix <b>A_flr</b
     annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-         A_fud = Matrices.<b>flipUpDown</b>(A);
+         A_fud = Matrices.<strong>flipUpDown</strong>(A);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> with flipped rows, i.e., <b>A_fud</b>[i,:]=<b>A</b>[n-i+1,:], i=1,..., n.
+Function <strong>flipUpDown</strong> computes from matrix <strong>A</strong> a matrix <strong>A_fud</strong> with flipped rows, i.e., <strong>A_fud</strong>[i,:]=<strong>A</strong>[n-i+1,:], i=1,..., n.
 </p>
 
 <h4>Example</h4>
@@ -5074,7 +5072,7 @@ Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> w
 
 </html>", revisions="<html>
 <ul>
-<li><i>2010/05/31 </i>
+<li><em>2010/05/31 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -5938,7 +5936,7 @@ Lapack documentation
 
     This routine is basically identical to the original xGELSX except
     three differences:
-      o The call to the subroutine xGEQPF has been substituted by the
+      o The call to the subroutine xGEQPF has been substituted by
         the call to the subroutine xGEQP3. This subroutine is a Blas-3
         version of the QR factorization with column pivoting.
       o Matrix B (the right hand side) is updated with Blas-3.
@@ -6088,7 +6086,7 @@ Lapack documentation
 
     This routine is basically identical to the original xGELSX except
     three differences:
-      o The call to the subroutine xGEQPF has been substituted by the
+      o The call to the subroutine xGEQPF has been substituted by
         the call to the subroutine xGEQP3. This subroutine is a Blas-3
         version of the QR factorization with column pivoting.
       o Matrix B (the right hand side) is updated with Blas-3.
@@ -7796,7 +7794,7 @@ For details of the arguments, see documentation of dgbsv.
 
     T must be in Schur canonical form (as returned by DHSEQR), that is,
     block upper triangular with 1-by-1 and 2-by-2 diagonal blocks; each
-    2-by-2 diagonal block has its diagonal elemnts equal and its
+    2-by-2 diagonal block has its diagonal elements equal and its
     off-diagonal elements of opposite sign.
 
     Arguments
@@ -8511,7 +8509,7 @@ For details of the arguments, see documentation of dgbsv.
 
     LDZ   (input) INTEGER
           The leading dimension of the array Z.  if COMPZ = 'I' or
-          COMPZ = 'V', then LDZ>=MAX(1,N).  Otherwize, LDZ>=1.
+          COMPZ = 'V', then LDZ>=MAX(1,N).  Otherwise, LDZ>=1.
 
     WORK  (workspace/output) DOUBLE PRECISION array, dimension (LWORK)
           On exit, if INFO = 0, WORK(1) returns an estimate of
@@ -10868,38 +10866,38 @@ This package contains a direct interface to the LAPACK subroutines
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-           X = Matrices.Utilities.<b>continuousRiccatiIterative</b>(A, B, R, Q, X0);
-      (X, r) = Matrices.Utilities.<b>continuousRiccatiIterative</b>(A, B, R, Q, X0, maxSteps, eps);
+           X = Matrices.Utilities.<strong>continuousRiccatiIterative</strong>(A, B, R, Q, X0);
+      (X, r) = Matrices.Utilities.<strong>continuousRiccatiIterative</strong>(A, B, R, Q, X0, maxSteps, eps);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
 This function provides a Newton-like method for solving continuous algebraic Riccati equations (care). It utilizes Exact Line Search to improve the sometimes erratic
-convergence of Newton's method. Exact line search in this case means means, that at each iteration <code>i</code> a Newton step <code><b>delta</b>_i</code>
+convergence of Newton's method. Exact line search in this case means, that at each iteration <code>i</code> a Newton step <code><strong>delta</strong>_i</code>
 </p>
 <blockquote><pre>
-  <b>X</b>_i+1 = <b>X</b>_i + <b>delta</b>_i
+  <strong>X</strong>_i+1 = <strong>X</strong>_i + <strong>delta</strong>_i
 </pre></blockquote>
 <p>
 is taken in the direction to minimize the Frobenius norm of the residual
 </p>
 <blockquote><pre>
-    r = || <b>X</b>_i+1*<b>A</b> +<b>A</b>'*<b>X</b>_i+1 - <b>X</b>_i+1*<b>G</b>*<b>X</b>_i+1 + <b>Q</b> ||.
+    r = || <strong>X</strong>_i+1*<strong>A</strong> +<strong>A</strong>'*<strong>X</strong>_i+1 - <strong>X</strong>_i+1*<strong>G</strong>*<strong>X</strong>_i+1 + <strong>Q</strong> ||.
 </pre></blockquote>
 <p>
 with
 </p>
 <blockquote><pre>
         -1
-  G = <b>B</b>*<b>R</b> *<b>B</b>'
+  G = <strong>B</strong>*<strong>R</strong> *<strong>B</strong>'
 </pre></blockquote>
 <p>
 
 The inputs \"maxSteps\" and \"eps\" specify the termination of the iteration. The iteration is terminated if either
-maxSteps iteration steps have been performed or the relative change <b>delta</b>_i/<b>X</b>_i became smaller than eps.
+maxSteps iteration steps have been performed or the relative change <strong>delta</strong>_i/<strong>X</strong>_i became smaller than eps.
 </p>
 <p>
 
-With an appropriate initial value <b>X</b>0 a sufficiently accurate solution might be reach within a few iteration steps. Although a Lyapunov equation
+With an appropriate initial value <strong>X</strong>0 a sufficiently accurate solution might be reach within a few iteration steps. Although a Lyapunov equation
 of order <code>n</code> (n is the order of the Riccati equation) is to be solved at each iteration step, the algorithm might be faster
 than a direct method like <a href=\"modelica://Modelica.Math.Matrices.continuousRiccati\">Matrices.continuousRiccati</a>, since direct methods have to solve the 2*n-order Hamiltonian
 system equation.<br>
@@ -10907,14 +10905,14 @@ system equation.<br>
 The algorithm is taken from [1] and [2].
 </p>
 <h4>References</h4>
-<PRE>
+<pre>
   [1] Benner, P., Byers, R.
       An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
       IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
   [2] Datta, B.N.
       Numerical Methods for Linear Control Systems
       Elsevier Academic Press, 2004.
-</PRE>
+</pre>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -10956,7 +10954,7 @@ The algorithm is taken from [1] and [2].
 <a href=\"modelica://Modelica.Math.Matrices.continuousRiccati\">Matrices.continuousRiccati</a>
 </html>", revisions="<html>
 <ul>
-<li><i>2010/04/30 </i>
+<li><em>2010/04/30 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -11032,29 +11030,29 @@ The algorithm is taken from [1] and [2].
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-           X = Matrices.Utilities.<b>discreteRiccatiIterative</b>(A, B, R, Q, X0);
-      (X, r) = Matrices.Utilities.<b>discreteRiccatiIterative</b>(A, B, R, Q, X0, maxSteps, eps);
+           X = Matrices.Utilities.<strong>discreteRiccatiIterative</strong>(A, B, R, Q, X0);
+      (X, r) = Matrices.Utilities.<strong>discreteRiccatiIterative</strong>(A, B, R, Q, X0, maxSteps, eps);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
 This function provides a Newton-like method for solving discrete-time algebraic Riccati equations. It uses Exact Line Search to improve the sometimes erratic
-convergence of Newton's method. Exact line search in this case means means, that at each iteration <code>i</code> a Newton step <code><b>delta</b>_i</code>
+convergence of Newton's method. Exact line search in this case means, that at each iteration <code>i</code> a Newton step <code><strong>delta</strong>_i</code>
 </p>
 <blockquote><pre>
-  <b>X</b>_i+1 = <b>X</b>_i + <b>delta</b>_i
+  <strong>X</strong>_i+1 = <strong>X</strong>_i + <strong>delta</strong>_i
 </pre></blockquote>
 <p>
 is taken in the direction to minimize the Frobenius norm of the residual
 </p>
 <blockquote><pre>
-  r = || <b>A</b>'<b>X</b>_i+1*<b>A</b> - <b>X</b>_i+1 - <b>A</b>'<b>X</b>_i+1*<b>G</b>_i*<b>X</b>_i+1*<b>A</b> + <b>Q</b> ||
+  r = || <strong>A</strong>'<strong>X</strong>_i+1*<strong>A</strong> - <strong>X</strong>_i+1 - <strong>A</strong>'<strong>X</strong>_i+1*<strong>G</strong>_i*<strong>X</strong>_i+1*<strong>A</strong> + <strong>Q</strong> ||
 </pre></blockquote>
 <p>
 with
 </p>
 <blockquote><pre>
                        -1
-  G_i = <b>B</b>*(<b>R</b> + <b>B</b>'*<b>X</b>_i*<b>B</b>) *<b>B</b>'
+  G_i = <strong>B</strong>*(<strong>R</strong> + <strong>B</strong>'*<strong>X</strong>_i*<strong>B</strong>) *<strong>B</strong>'
 </pre></blockquote>
 <p>
 
@@ -11062,11 +11060,11 @@ Output <code>r</code> is the norm of the residual of the last iteration.<br>
 </p>
 <p>
 The inputs \"maxSteps\" and \"eps\" specify the termination of the iteration. The iteration is terminated if either
-maxSteps iteration steps have been performed or the relative change <b>delta</b>_i/<b>X</b>_i became smaller than eps.
+maxSteps iteration steps have been performed or the relative change <strong>delta</strong>_i/<strong>X</strong>_i became smaller than eps.
 </p>
 <p>
 
-With an appropriate initial value <b>X</b>0 a sufficiently accurate solution might be reach with a few iteration steps. Although a Lyapunov equation of
+With an appropriate initial value <strong>X</strong>0 a sufficiently accurate solution might be reach with a few iteration steps. Although a Lyapunov equation of
 order <code>n</code> (n is the order of the Riccati equation) is to be solved at each iteration step, the algorithm might be faster
 than a direct method like <a href=\"modelica://Modelica.Math.Matrices.discreteRiccati\">Matrices.discreteRiccati</a>, since direct methods have to solve the 2*n-order Hamiltonian
 system equation.
@@ -11074,14 +11072,14 @@ system equation.
 The algorithm is taken from [1] and [2].
 </p>
 <h4>References</h4>
-<PRE>
+<pre>
   [1] Benner, P., Byers, R.
       An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
       IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
   [2] Datta, B.N.
       Numerical Methods for Linear Control Systems
       Elsevier Academic Press, 2004.
-</PRE>
+</pre>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -11118,7 +11116,7 @@ The algorithm is taken from [1] and [2].
 <a href=\"modelica://Modelica.Math.Matrices.discreteRiccati\">Matrices.discreteRiccati</a>
 </html>", revisions="<html>
 <ul>
-<li><i>2010/04/30 </i>
+<li><em>2010/04/30 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -11148,21 +11146,21 @@ The algorithm is taken from [1] and [2].
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Matrices.<b>householderReflection</b>(A,u);
+Matrices.<strong>householderReflection</strong>(A,u);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
 This function computes the Householder reflection (transformation)
 </p>
 <blockquote>
- <b>Ar</b> = <b>Q</b>*<b>A</b>
+ <strong>Ar</strong> = <strong>Q</strong>*<strong>A</strong>
 </blockquote>
 with
 <blockquote>
- <b>Q</b> = <b>I</b> -2*<b>u</b>*<b>u</b>'/(<b>u</b>'*<b>u</b>)
+ <strong>Q</strong> = <strong>I</strong> -2*<strong>u</strong>*<strong>u</strong>'/(<strong>u</strong>'*<strong>u</strong>)
 </blockquote>
 <p>
-where <b>u</b> is Householder vector, i.e., the normal vector of the reflection plane.
+where <strong>u</strong> is Householder vector, i.e., the normal vector of the reflection plane.
 </p>
 <p>
 Householder reflection is widely used in numerical linear algebra, e.g., to perform QR decompositions.
@@ -11196,7 +11194,7 @@ Householder reflection is widely used in numerical linear algebra, e.g., to perf
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>2010/04/30 </i>
+<li><em>2010/04/30 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -11206,7 +11204,6 @@ Householder reflection is widely used in numerical linear algebra, e.g., to perf
       "Perform the similarity transformation S*A*S of matrix A with symmetric householder matrix S = I - 2u*u'"
       extends Modelica.Icons.Function;
 
-      import Modelica;
       import Modelica.Math.Vectors;
 
       input Real A[:, size(A, 1)] "Square matrix A";
@@ -11235,18 +11232,18 @@ Householder reflection is widely used in numerical linear algebra, e.g., to perf
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-  As = Matrices.<b>householderSimilarityTransformation</b>(A,u);
+  As = Matrices.<strong>householderSimilarityTransformation</strong>(A,u);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
 This function computes the Householder similarity transformation
 </p>
 <blockquote>
- <b>As</b> = <b>S</b>*<b>A</b>*<b>S</b>
+ <strong>As</strong> = <strong>S</strong>*<strong>A</strong>*<strong>S</strong>
 </blockquote>
 with
 <blockquote>
- <b>S</b> = <b>I</b> -2*<b>u</b>*<b>u</b>'/(<b>u</b>'*<b>u</b>).
+ <strong>S</strong> = <strong>I</strong> -2*<strong>u</strong>*<strong>u</strong>'/(<strong>u</strong>'*<strong>u</strong>).
 </blockquote>
 <p>
 This transformation is widely used for transforming non-symmetric matrices to a Hessenberg form.
@@ -11281,7 +11278,7 @@ This transformation is widely used for transforming non-symmetric matrices to a 
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>2010/04/30 </i>
+<li><em>2010/04/30 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -11314,34 +11311,35 @@ This transformation is widely used for transforming non-symmetric matrices to a 
 
     algorithm
       if n > 0 then
-        (Aout,tau,info) := LAPACK.dgehrd(
-                A,
-                ilo,
-                ihi);
-        H[1:2, 1:ihi] := Aout[1:2, 1:ihi];
-        H[1:2, ihi + 1:n] := A[1:2, ihi + 1:n];
-
-        for i in 3:n loop
-          H[i, i - 1:ihi] := Aout[i, i - 1:ihi];
-          H[i, ihi + 1:n] := A[i, ihi + 1:n];
-        end for;
-
-        for i in 1:min(n - 2, ihi) loop
-          V[i + 1, i] := 1.0;
-          V[i + 2:n, i] := Aout[i + 2:n, i];
-        end for;
-        V[n, n - 1] := 1;
+        if n == 1 then
+          H := A;
+          V := {{0.0}};
+          tau := zeros(0);
+          info := 0;
+        else
+          (Aout, tau, info) := LAPACK.dgehrd(A, ilo, ihi);
+          H := zeros(size(H, 1), size(H, 2));
+          H[1:2, 1:n] := Aout[1:2, 1:n];
+          for i in 3:n loop
+            H[i, (i - 1):n] := Aout[i, (i - 1):n];
+          end for;
+          V := zeros(size(V, 1), size(V, 2));
+          for i in ilo:min(n - 2, ihi) loop
+            V[i + 1, i] := 1.0;
+            V[(i + 2):n, i] := Aout[(i + 2):n, i];
+          end for;
+          V[n, n - 1] := 1;
+        end if;
       end if;
-
-      annotation (Documentation(info="<html>
+    annotation (Documentation(info="<html>
    <h4>Syntax</h4>
 <blockquote><pre>
-         H = Matrices.Utilities.<b>toUpperHessenberg</b>(A);
-         (H, V, tau, info) = Matrices.Utilities.<b>toUpperHessenberg</b>(A,ilo, ihi);
+         H = Matrices.Utilities.<strong>toUpperHessenberg</strong>(A);
+         (H, V, tau, info) = Matrices.Utilities.<strong>toUpperHessenberg</strong>(A,ilo, ihi);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Function <b>toUpperHessenberg</b> computes a upper Hessenberg form <b>H</b> of a matrix <b>A</b> by orthogonal similarity transformation:  <b>Q</b>' * <b>A</b> * <b>Q</b> = <b>H</b>.
+Function <strong>toUpperHessenberg</strong> computes a upper Hessenberg form <strong>H</strong> of a matrix <strong>A</strong> by orthogonal similarity transformation:  <strong>Q</strong>' * <strong>A</strong> * <strong>Q</strong> = <strong>H</strong>.
 With the optional inputs ilo and ihi, also partial transformation is possible. The function calls LAPACK function DGEHRD.
 See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.LAPACK.dgehrd</a> for more information about the additional outputs V, tau, info and inputs ilo, ihi.
 </p>
@@ -11365,7 +11363,7 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.LAPACK.
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.hessenberg\">Matrices.hessenberg</a>
 </html>", revisions="<html><ul>
-<li><i>2010/04/30 </i>
+<li><em>2010/04/30 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -11397,8 +11395,8 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.LAPACK.
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-           ev = Matrices.Utilities.<b>eigenvaluesHessenberg</b>(H);
-   (ev, info) = Matrices.Utilities.<b>eigenvaluesHessenberg</b>(H);
+           ev = Matrices.Utilities.<strong>eigenvaluesHessenberg</strong>(H);
+   (ev, info) = Matrices.Utilities.<strong>eigenvaluesHessenberg</strong>(H);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -11436,7 +11434,7 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dhseqr\">Matrices.LAPACK.
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>2010/04/30 </i>
+<li><em>2010/04/30 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -11491,21 +11489,21 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dhseqr\">Matrices.LAPACK.
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-              To = Matrices.Utilities.<b>reorderRSF</b>(T, Q, alphaReal, alphaImag);
-(To, Qo, wr, wi) = Matrices.Utilities.<b>reorderRSF</b>(T, Q, alphaReal, alphaImag, iscontinuous);
+              To = Matrices.Utilities.<strong>reorderRSF</strong>(T, Q, alphaReal, alphaImag);
+(To, Qo, wr, wi) = Matrices.Utilities.<strong>reorderRSF</strong>(T, Q, alphaReal, alphaImag, iscontinuous);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Function <b>reorderRSF</b>() reorders a real Schur form such that the stable eigenvalues of
-the system are in the 1-by-1 and 2-by-2 diagonal blocks of the block <b>upper</b> triangular matrix.
+Function <strong>reorderRSF</strong>() reorders a real Schur form such that the stable eigenvalues of
+the system are in the 1-by-1 and 2-by-2 diagonal blocks of the block <strong>upper</strong> triangular matrix.
 If the Schur form is referenced to a continuous system the staple eigenvalues are in the left complex half plane.
 The stable eigenvalues of a discrete system are inside the complex unit circle.<br>
 This function is used for example to solve algebraic Riccati equations
 (<a href=\"modelica://Modelica.Math.Matrices.continuousRiccati\">continuousRiccati</a>,
 <a href=\"modelica://Modelica.Math.Matrices.discreteRiccati\">discreteRiccati</a>). In this context the Schur form
-as well as the corresponding eigenvalues and the transformation matrix <b>Q</b> are known, why the eigenvalues and the transformation matrix are inputs to <b>reorderRSF()</b>.<br>
+as well as the corresponding eigenvalues and the transformation matrix <strong>Q</strong> are known, why the eigenvalues and the transformation matrix are inputs to <strong>reorderRSF()</strong>.<br>
 
-The Schur vector matrix <b>Qo</b> is also reordered according to <b>To</b>. The vectors <b>wr</b> and <b>wi</b> contains the real and imaginary parts of the
+The Schur vector matrix <strong>Qo</strong> is also reordered according to <strong>To</strong>. The vectors <strong>wr</strong> and <strong>wi</strong> contains the real and imaginary parts of the
 reordered eigenvalues respectively.
 </p>
 
@@ -11527,7 +11525,7 @@ See also <a href=\"modelica://Modelica.Math.Matrices.realSchur\">Matrices.realSc
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>2010/04/30 </i>
+<li><em>2010/04/30 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -11580,7 +11578,7 @@ See also <a href=\"modelica://Modelica.Math.Matrices.realSchur\">Matrices.realSc
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-           tk = Matrices.Utilities.<b>findLocal_tk</b>(Rk, Vk);
+           tk = Matrices.Utilities.<strong>findLocal_tk</strong>(Rk, Vk);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -11598,18 +11596,18 @@ With t_k_min the norm of the next residual of the algorithm will be minimized.<b
 See [1] for more information
 </p>
 <h4>References</h4>
-<PRE>
+<pre>
   [1] Benner, P., Byers, R.
       An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
       IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
-</PRE>
+</pre>
 
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.Utilities.continuousRiccatiIterative\">Matrices.Utilities.continuousRiccatiIterative</a><br>
 <a href=\"modelica://Modelica.Math.Matrices.Utilities.discreteRiccatiIterative\">Matrices.Utilities.discreteRiccatiIterative</a><br>
 </html>", revisions="<html>
 <ul>
-<li><i>2010/04/30 </i>
+<li><em>2010/04/30 </em>
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
@@ -11635,7 +11633,7 @@ Most functions are solely an interface to the external
 Note: A' is a short hand notation of transpose(A):
 </p>
 
-<p><b>Basic Information</b></p>
+<p><strong>Basic Information</strong></p>
 <ul>
 <li> <a href=\"modelica://Modelica.Math.Matrices.toString\">toString</a>(A)
      - returns the string representation of matrix A.</li>
@@ -11644,7 +11642,7 @@ Note: A' is a short hand notation of transpose(A):
      - returns true if matrices M1 and M2 have the same size and the same elements.</li>
 </ul>
 
-<p><b>Linear Equations</b></p>
+<p><strong>Linear Equations</strong></p>
 <ul>
 <li> <a href=\"modelica://Modelica.Math.Matrices.solve\">solve</a>(A,b)
      - returns solution x of the linear equation A*x=b (where b is a vector,
@@ -11678,7 +11676,7 @@ Note: A' is a short hand notation of transpose(A):
        matrix and an LU decomposition from \"LU(..)\".</li>
 </ul>
 
-<p><b>Matrix Factorizations</b></p>
+<p><strong>Matrix Factorizations</strong></p>
 <ul>
 <li> (eval,evec) = <a href=\"modelica://Modelica.Math.Matrices.eigenValues\">eigenValues</a>(A)
      - returns eigen values \"eval\" and eigen vectors \"evec\" for a real,
@@ -11710,7 +11708,7 @@ Note: A' is a short hand notation of transpose(A):
        with Aimproved = inv(diagonal(D))*A*diagonal(D).</li>
 </ul>
 
-<p><b>Matrix Properties</b></p>
+<p><strong>Matrix Properties</strong></p>
 <ul>
 <li> <a href=\"modelica://Modelica.Math.Matrices.trace\">trace</a>(A)
      - returns the trace of square matrix A, i.e., the sum of the diagonal elements.</li>
@@ -11740,7 +11738,7 @@ Note: A' is a short hand notation of transpose(A):
      - returns the null space of matrix A.</li>
 </ul>
 
-<p><b>Matrix Exponentials</b></p>
+<p><strong>Matrix Exponentials</strong></p>
 <ul>
 <li> <a href=\"modelica://Modelica.Math.Matrices.exp\">exp</a>(A)
      - returns the exponential e^A of a matrix A by adaptive Taylor series
@@ -11756,7 +11754,7 @@ Note: A' is a short hand notation of transpose(A):
        for a discretized system with first order hold.</li>
 </ul>
 
-<p><b>Matrix Equations</b></p>
+<p><strong>Matrix Equations</strong></p>
 <ul>
 <li> <a href=\"modelica://Modelica.Math.Matrices.continuousLyapunov\">continuousLyapunov</a>(A,C)
      - returns solution X of the continuous-time Lyapunov equation X*A + A'*X = C</li>
@@ -11779,7 +11777,7 @@ Note: A' is a short hand notation of transpose(A):
        A'*X*A - X - A'*X*B*inv(R + B'*X*B)*B'*X*A + Q = 0</li>
 </ul>
 
-<p><b>Matrix Manipulation</b></p>
+<p><strong>Matrix Manipulation</strong></p>
 <ul>
 <li> <a href=\"modelica://Modelica.Math.Matrices.sort\">sort</a>(M)
      - returns the sorted rows or columns of matrix M in ascending or descending order.</li>
@@ -11829,7 +11827,6 @@ package Icons "Icons for Math"
               100}}), graphics={
           Rectangle(
             extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{-80,-80},{-80,68}}, color={192,192,192}),
@@ -11843,8 +11840,8 @@ package Icons "Icons for Math"
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={95,
-            95,95}),Line(points={{-80,-80},{-88,-80}}, color={95,95,95}),Line(
+              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={95,95,95}),
+            Line(points={{-80,-80},{-88,-80}}, color={95,95,95}),Line(
             points={{-80,-90},{-80,84}}, color={95,95,95}),Text(
                 extent={{-75,104},{-55,84}},
                 lineColor={95,95,95},
@@ -11869,7 +11866,6 @@ It is expected, that an x-axis is added and a plot of the function.
               100}}), graphics={
           Rectangle(
             extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{0,-80},{0,68}}, color={192,192,192}),
@@ -11915,14 +11911,14 @@ algorithm
   annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Math.<b>isEqual</b>(s1, s2);
-Math.<b>isEqual</b>(s1, s2, eps=0);
+Math.<strong>isEqual</strong>(s1, s2);
+Math.<strong>isEqual</strong>(s1, s2, eps=0);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-The function call \"<code>Math.isEqual(s1, s2)</code>\" returns <b>true</b>,
+The function call \"<code>Math.isEqual(s1, s2)</code>\" returns <strong>true</strong>,
 if the two Real scalars s1 and s2 are identical. Otherwise the function
-returns <b>false</b>. The equality check is performed by
+returns <strong>false</strong>. The equality check is performed by
 \"abs(s1-s2) &le; eps\", where \"eps\"
 can be provided as third argument of the function. Default is \"eps = 0\".
 </p>
@@ -11932,10 +11928,10 @@ can be provided as third argument of the function. Default is \"eps = 0\".
   Real s2 = 2.0;
   Real s3 = 2.000001;
   Boolean result;
-<b>algorithm</b>
-  result := Math.isEqual(s1,s2);     // = <b>true</b>
-  result := Math.isEqual(s1,s3);     // = <b>false</b>
-  result := Math.isEqual(s1,s3,0.1); // = <b>true</b>
+<strong>algorithm</strong>
+  result := Math.isEqual(s1,s2);     // = <strong>true</strong>
+  result := Math.isEqual(s1,s3);     // = <strong>false</strong>
+  result := Math.isEqual(s1,s3,0.1); // = <strong>true</strong>
 </pre></blockquote>
 <h4>See also</h4>
 <p>
@@ -12240,8 +12236,8 @@ external "builtin" y = acos(u);
           textString="acos")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-80},{84,-80}}, color={95,95,
-          95}),Polygon(
+        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-80},{84,-80}}, color={95,95,95}),
+          Polygon(
             points={{98,-80},{82,-74},{82,-86},{98,-80}},
             lineColor={95,95,95},
             fillColor={95,95,95},
@@ -12397,8 +12393,8 @@ external "builtin" y = atan2(u1, u2);
             lineColor={0,0,255}),Text(
             extent={{0,55},{20,42}},
             textString="pi/2",
-            lineColor={0,0,255}),Line(points={{0,40},{-8,40}}, color={192,192,
-          192}),Line(points={{0,-40},{-8,-40}}, color={192,192,192}),Text(
+            lineColor={0,0,255}),Line(points={{0,40},{-8,40}}, color={192,192,192}),
+          Line(points={{0,-40},{-8,-40}}, color={192,192,192}),Text(
             extent={{0,-23},{20,-42}},
             textString="-pi/2",
             lineColor={0,0,255}),Text(
@@ -12474,8 +12470,8 @@ algorithm
           textString="atan3")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-86},{84,-86}}, color={95,95,
-          95}),Polygon(
+        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-86},{84,-86}}, color={95,95,95}),
+          Polygon(
             points={{98,-86},{82,-80},{82,-92},{98,-86}},
             lineColor={95,95,95},
             fillColor={95,95,95},
@@ -12498,8 +12494,8 @@ algorithm
             lineColor={0,0,255}),Text(
             extent={{-52,-72},{-10,-88}},
             textString="(2*N-3)*pi",
-            lineColor={0,0,255}),Line(points={{0,40},{-8,40}}, color={192,192,
-          192}),Line(points={{0,-40},{-8,-40}}, color={192,192,192}),Text(
+            lineColor={0,0,255}),Line(points={{0,40},{-8,40}}, color={192,192,192}),
+          Line(points={{0,-40},{-8,-40}}, color={192,192,192}),Text(
             extent={{38,-68},{78,-84}},
             lineColor={95,95,95},
             textString="u1, u2, y0"),Line(
@@ -12509,8 +12505,8 @@ algorithm
             color={175,175,175})}),
     Documentation(info="<html>
 <p>
-This function returns y = <b>atan3</b>(u1,u2,y0) such that
-<b>tan</b>(y) = u1/u2 and
+This function returns y = <strong>atan3</strong>(u1,u2,y0) such that
+<strong>tan</strong>(y) = u1/u2 and
 y is in the range: -pi &lt; y-y0 &le; pi.<br>
 u2 may be zero, provided u1 is not zero. The difference to
 Modelica.Math.atan2(..) is the optional third argument y0 that
@@ -12694,8 +12690,8 @@ external "builtin" y = tanh(u);
           textString="tanh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,
-          95}),Polygon(
+        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
+          Polygon(
             points={{96,0},{80,6},{80,-6},{96,0}},
             lineColor={95,95,95},
             fillColor={95,95,95},
@@ -12828,8 +12824,8 @@ algorithm
           textString="arcosh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-70},{84,-70}}, color={95,95,
-          95}),Polygon(
+        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-70},{84,-70}}, color={95,95,95}),
+          Polygon(
             points={{100,-70},{84,-64},{84,-76},{100,-70}},
             lineColor={95,95,95},
             fillColor={95,95,95},
@@ -13087,15 +13083,13 @@ end log10;
 
 partial function baseIcon1
   "This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisLeft instead."
-  import Modelica;
-  // extends Modelica.Icons.ObsoleteModel;
+  extends Modelica.Icons.ObsoleteModel;
 
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
         Rectangle(
           extent={{-100,100},{100,-100}},
-          lineColor={0,0,0},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),
         Line(points={{-80,-80},{-80,68}}, color={192,192,192}),
@@ -13123,21 +13117,20 @@ partial function baseIcon1
 <p>This icon will be removed in future versions of the Modelica Standard Library.
 Instead the icon <a href=\"modelica://Modelica.Math.Icons.AxisLeft\">Modelica.Math.Icons.AxisLeft</a> shall be used.
 </p>
-</html>"));
+</html>"),
+  obsolete = "Obsolete function - use Modelica.Math.Icons.AxisLeft instead");
 end baseIcon1;
 
 
 partial function baseIcon2
   "This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisCenter instead."
-  import Modelica;
-  // extends Modelica.Icons.ObsoleteModel;
+  extends Modelica.Icons.ObsoleteModel;
 
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
         Rectangle(
           extent={{-100,100},{100,-100}},
-          lineColor={0,0,0},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),
         Line(points={{0,-80},{0,68}}, color={192,192,192}),
@@ -13164,7 +13157,8 @@ partial function baseIcon2
 <p>This icon will be removed in future versions of the Modelica Standard Library.
 Instead the icon <a href=\"modelica://Modelica.Math.Icons.AxisCenter\">Modelica.Math.Icons.AxisCenter</a> shall be used.
 </p>
-</html>"));
+</html>"),
+  obsolete = "Obsolete function - use Modelica.Math.Icons.AxisCenter instead");
 end baseIcon2;
 
 
@@ -13225,7 +13219,8 @@ algorithm
 
   annotation (Documentation(info="<html>
 
-</html>"));
+</html>"),
+  obsolete = "Obsolete function");
 end tempInterpol1;
 
 
@@ -13287,7 +13282,8 @@ algorithm
 
   annotation (Documentation(info="<html>
 
-</html>"));
+</html>"),
+  obsolete = "Obsolete function");
 end tempInterpol2;
 
 
@@ -13299,7 +13295,7 @@ annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
             {51.9,-71.5},{57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, color={
             0,0,0}, smooth=Smooth.Bezier)}), Documentation(info="<html>
 <p>
-This package contains <b>basic mathematical functions</b> (such as sin(..)),
+This package contains <strong>basic mathematical functions</strong> (such as sin(..)),
 as well as functions operating on
 <a href=\"modelica://Modelica.Math.Vectors\">vectors</a>,
 <a href=\"modelica://Modelica.Math.Matrices\">matrices</a>,
@@ -13307,36 +13303,32 @@ as well as functions operating on
 <a href=\"modelica://Modelica.Math.BooleanVectors\">Boolean vectors</a>.
 </p>
 
-<dl>
-<dt><b>Main Authors:</b></dt>
-<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and
-    Marcus Baur<br>
-    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik<br>
-    Postfach 1116<br>
-    D-82230 Wessling<br>
-    Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br></dd>
-</dl>
+<h4>Main Authors</h4>
+<p><a href=\"http://www.robotic.dlr.de/Martin.Otter/\"><strong>Martin Otter</strong></a>
+and <strong>Marcus Baur</strong><br>
+Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e.V. (DLR)<br>
+Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)<br>
+Forschungszentrum Oberpfaffenhofen<br>
+D-82234 Wessling<br>
+Germany<br>
+email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a>
+</p>
 
 <p>
-Copyright &copy; 1998-2016, Modelica Association and DLR.
-</p>
-<p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+Copyright &copy; 1998-2019, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>August 24, 2016</i>
+<li><em>August 24, 2016</em>
        by Christian Kral: added wrapAngle</li>
-<li><i>October 21, 2002</i>
+<li><em>October 21, 2002</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
        and Christian Schweiger:<br>
        Function tempInterpol2 added.</li>
-<li><i>Oct. 24, 1999</i>
+<li><em>Oct. 24, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Icons for icon and diagram level introduced.</li>
-<li><i>June 30, 1999</i>
+<li><em>June 30, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Realized.</li>
 </ul>

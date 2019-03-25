@@ -40,11 +40,10 @@ equation
   annotation (Line(points={{0,50},{20,50}}, color={0,0,255}));
   connect(HeatingDiode1.heatPort, ThermalConductor1.port_a)
                                                           annotation (Line(
-        points={{-10,40},{-10,0},{-20,0}},            color={191,0,0}));
+        points={{-10,40},{-10,0},{-20,0}}, color={191,0,0}));
   connect(ThermalConductor1.port_b, HeatCapacitor1.port)
                                                        annotation (Line(points={{-20,-20},
-          {-20,-25.75},{-20,-40}},
-        color={191,0,0}));
+          {-20,-25.75},{-20,-40}}, color={191,0,0}));
   connect(R.p, Capacitor1.p)
   annotation (Line(points={{20,80},{20,50}}, color={0,0,255}));
   connect(R.n, Capacitor1.n)
@@ -64,9 +63,9 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
 </p>
 </html>",
    revisions="<html>
-<p><b>Release Notes:</b></p>
+<p><strong>Release Notes:</strong></p>
 <ul>
-<li><i>Mai 6, 2004   </i>
+<li><em>Mai 6, 2004   </em>
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>

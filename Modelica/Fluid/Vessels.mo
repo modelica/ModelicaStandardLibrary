@@ -24,11 +24,9 @@ package Vessels "Devices for storing fluid"
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}), graphics={Ellipse(
             extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={170,213,255}), Text(
             extent={{-150,12},{150,-18}},
-            lineColor={0,0,0},
             textString="V=%V")}),
       Documentation(info="<html>
 <p>
@@ -41,7 +39,7 @@ Ideal heat transfer is assumed per default; the thermal port temperature is equa
 <p>
 If <code>use_portsData=true</code>, the port pressures represent the pressures just after the outlet (or just before the inlet) in the attached pipe.
 The hydraulic resistances <code>portsData.zeta_in</code> and <code>portsData.zeta_out</code> determine the dissipative pressure drop between volume and port depending on
-the direction of mass flow. See <a href=\"modelica://Modelica.Fluid.Vessels.BaseClasses.VesselPortsData\">VesselPortsData</a> and <i>[Idelchik, Handbook of Hydraulic Resistance, 2004]</i>.
+the direction of mass flow. See <a href=\"modelica://Modelica.Fluid.Vessels.BaseClasses.VesselPortsData\">VesselPortsData</a> and <em>[Idelchik, Handbook of Hydraulic Resistance, 2004]</em>.
 </p>
 </html>"));
     end ClosedVolume;
@@ -122,18 +120,14 @@ initial equation
           Rectangle(
             extent=DynamicSelect({{-100,-100},{100,10}}, {{-100,-100},{100,(-100
                  + 200*level/height)}}),
-            lineColor={0,0,0},
             fillColor={85,170,255},
             fillPattern=FillPattern.VerticalCylinder),
-          Line(points={{-100,100},{-100,-100},{100,-100},{100,100}}, color={0,0,
-                0}),
+          Line(points={{-100,100},{-100,-100},{100,-100},{100,100}}),
           Text(
             extent={{-95,60},{95,40}},
-            lineColor={0,0,0},
             textString="level ="),
           Text(
             extent={{-95,-24},{95,-44}},
-            lineColor={0,0,0},
             textString=DynamicSelect("%level_start", String(
                 level,
                 minimumLength=1,
@@ -144,7 +138,7 @@ Model of a tank that is open to the ambient at the fixed pressure
 <code>p_ambient</code>.
 </p>
 <p>
-The vector of connectors <b>ports</b> represents fluid ports at configurable heights, relative to the bottom of tank.
+The vector of connectors <strong>ports</strong> represents fluid ports at configurable heights, relative to the bottom of tank.
 Fluid can flow either out of or in to each port.
 </p>
 The following assumptions are made:
@@ -156,7 +150,7 @@ The following assumptions are made:
 <p>
 The port pressures represent the pressures just after the outlet (or just before the inlet) in the attached pipe.
 The hydraulic resistances <code>portsData.zeta_in</code> and <code>portsData.zeta_out</code> determine the dissipative pressure drop between tank and port depending on
-the direction of mass flow. See <a href=\"modelica://Modelica.Fluid.Vessels.BaseClasses.VesselPortsData\">VesselPortsData</a> and <i>[Idelchik, Handbook of Hydraulic Resistance, 2004]</i>.
+the direction of mass flow. See <a href=\"modelica://Modelica.Fluid.Vessels.BaseClasses.VesselPortsData\">VesselPortsData</a> and <em>[Idelchik, Handbook of Hydraulic Resistance, 2004]</em>.
 </p>
 <p>
 With the setting <code>use_portsData=false</code>, the port pressure represents the static head
@@ -166,18 +160,18 @@ Heights of ports as well as kinetic and potential energy of fluid entering or le
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>Dec. 12, 2008</i> by Ruediger Franke: move port definitions
+<li><em>Dec. 12, 2008</em> by R&uuml;diger Franke: move port definitions
    to BaseClasses.PartialLumpedVessel; also use energy and mass balance from common base class</li>
-<li><i>Dec. 8, 2008</i> by Michael Wetter (LBNL):<br>
+<li><em>Dec. 8, 2008</em> by Michael Wetter (LBNL):<br>
 Implemented trace substances.</li>
-<li><i>Jan. 6, 2006</i> by Katja Poschlad, Manuel Remelhe (AST Uni Dortmund),
+<li><em>Jan. 6, 2006</em> by Katja Poschlad, Manuel Remelhe (AST Uni Dortmund),
    Martin Otter (DLR):<br>
    Implementation based on former tank model.</li>
-<li><i>Oct. 29, 2007</i> by Carsten Heinrich (ILK Dresden):<br>
+<li><em>Oct. 29, 2007</em> by Carsten Heinrich (ILK Dresden):<br>
 Adapted to the new fluid library interfaces:
 <ul> <li>FluidPorts_b is used instead of FluidPort_b (due to it is defined as an array of ports)</li>
     <li>Port name changed from port to ports</li></ul>Updated documentation.</li>
-<li><i>Apr. 25, 2006</i> by Katrin Pr&ouml;l&szlig; (TUHH):<br>
+<li><em>Apr. 25, 2006</em> by Katrin Pr&ouml;l&szlig; (TUHH):<br>
 Limitation to bottom ports only, added inlet and outlet loss factors.</li>
 </ul>
 </html>"));
@@ -409,15 +403,14 @@ of the modeller. Increase nPorts to add an additional port.
         end for;
 
         connect(heatPort, heatTransfer.heatPorts[1]) annotation (Line(
-            points={{-100,0},{-87,0},{-87,0},{-74,0}},
-            color={191,0,0}));
+            points={{-100,0},{-87,0},{-87,0},{-74,0}}, color={191,0,0}));
        annotation (
         Documentation(info="<html>
 <p>
 This base class extends PartialLumpedVolume with a vector of fluid ports and a replaceable wall HeatTransfer model.
 </p>
 <p>
-The following modeling assumption are made:
+The following modeling assumption are made:</p>
 <ul>
 <li>homogeneous medium, i.e., phase separation is not taken into account,</li>
 <li>no kinetic energy in the fluid, i.e., kinetic energy dissipates into the internal energy,</li>
@@ -426,7 +419,7 @@ The following modeling assumption are made:
     If <code>fluidlevel &lt; portsData_height[i]</code> and <code>ports[i].p &lt; vessel_ps_static[i]</code> mass flow at the port is set to 0.</li>
 </ul>
 <p>
-Each port has a (hydraulic) diameter and a height above the bottom of the vessel, which can be configured using the <b><code>portsData</code></b> record.
+Each port has a (hydraulic) diameter and a height above the bottom of the vessel, which can be configured using the <strong><code>portsData</code></strong> record.
 Alternatively the impact of port geometries can be neglected with <code>use_portsData=false</code>. This might be useful for early
 design studies. Note that this means to assume an infinite port diameter at the bottom of the vessel.
 Pressure drops and heights of the ports as well as kinetic and potential energy fluid entering or leaving the vessel are neglected then.
@@ -471,12 +464,12 @@ should be used if these values are needed.
 </p>
 </html>",       revisions="<html>
 <ul>
-<li><i>Jan. 2009</i> by R&uuml;diger Franke: extended with
+<li><em>Jan. 2009</em> by R&uuml;diger Franke: extended with
    <ul><li>portsData record and threat configurable port heights,</li>
        <li>consideration of kinetic and potential energy of fluid entering or leaving in energy balance</li>
    </ul>
 </li>
-<li><i>Dec. 2008</i> by R&uuml;diger Franke: derived from OpenTank, in order to make general use of configurable port diameters</li>
+<li><em>Dec. 2008</em> by R&uuml;diger Franke: derived from OpenTank, in order to make general use of configurable port diameters</li>
 </ul>
 </html>"),Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                 {100,100}}), graphics={Text(
@@ -497,11 +490,9 @@ Base class for vessel heat transfer models.
 </html>"),Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                   {100,100}}), graphics={Ellipse(
                 extent={{-60,64},{60,-56}},
-                lineColor={0,0,0},
                 fillPattern=FillPattern.Sphere,
                 fillColor={232,0,0}), Text(
                 extent={{-38,26},{40,-14}},
-                lineColor={0,0,0},
                 textString="%name")}));
     end PartialVesselHeatTransfer;
 
@@ -552,17 +543,17 @@ Heat transfer correlations for pipe models
       annotation (preferredView="info", Documentation(info="<html>
 <h4>Vessel Port Data</h4>
 <p>
-This record describes the <b>ports</b> of a <b>vessel</b>. The variables in it are mostly self-explanatory (see list below); only the &zeta;
+This record describes the <strong>ports</strong> of a <strong>vessel</strong>. The variables in it are mostly self-explanatory (see list below); only the &zeta;
 loss factors are discussed further. All data is quoted from Idelchik (1994).
 </p>
 
 <h4>Outlet Coefficients</h4>
 
 <p>
-If a <b>straight pipe with constant cross section is mounted flush with the wall</b>, its outlet pressure loss coefficient will be <code>&zeta; = 0.5</code> (Idelchik, p. 160, Diagram 3-1, paragraph 2).
+If a <strong>straight pipe with constant cross section is mounted flush with the wall</strong>, its outlet pressure loss coefficient will be <code>&zeta; = 0.5</code> (Idelchik, p. 160, Diagram 3-1, paragraph 2).
 </p>
 <p>
-If a <b>straight pipe with constant cross section is mounted into a vessel such that the entrance into it is at a distance</b> <code>b</code> from the wall (inside) the following table can be used. Herein, &delta; is the tube wall thickness (Idelchik, p. 160, Diagram 3-1, paragraph 1).
+If a <strong>straight pipe with constant cross section is mounted into a vessel such that the entrance into it is at a distance</strong> <code>b</code> from the wall (inside) the following table can be used. Herein, &delta; is the tube wall thickness (Idelchik, p. 160, Diagram 3-1, paragraph 1).
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -591,7 +582,7 @@ If a <b>straight pipe with constant cross section is mounted into a vessel such 
 </table>
 
 <p>
-If a <b>straight pipe with a circular bellmouth inlet (collector) without baffle is mounted flush with the wall</b> then its pressure loss coefficient can be established from the following table. Herein, r is the radius of the bellmouth inlet surface (Idelchik, p. 164 f., Diagram 3-4, paragraph b)
+If a <strong>straight pipe with a circular bellmouth inlet (collector) without baffle is mounted flush with the wall</strong> then its pressure loss coefficient can be established from the following table. Herein, r is the radius of the bellmouth inlet surface (Idelchik, p. 164 f., Diagram 3-4, paragraph b)
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -608,7 +599,7 @@ If a <b>straight pipe with a circular bellmouth inlet (collector) without baffle
 </table>
 
 <p>
-If a <b>straight pipe with a circular bellmouth inlet (collector) without baffle is mounted at a distance from a wall</b> then its pressure loss coefficient can be established from the following table. Herein, r is the radius of the bellmouth inlet surface (Idelchik, p. 164 f., Diagram 3-4, paragraph a)
+If a <strong>straight pipe with a circular bellmouth inlet (collector) without baffle is mounted at a distance from a wall</strong> then its pressure loss coefficient can be established from the following table. Herein, r is the radius of the bellmouth inlet surface (Idelchik, p. 164 f., Diagram 3-4, paragraph a)
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -627,7 +618,7 @@ If a <b>straight pipe with a circular bellmouth inlet (collector) without baffle
 <h4>Inlet Coefficients</h4>
 
 <p>
-If a <b>straight pipe with constant circular cross section is mounted flush with the wall</b>, its vessel inlet pressure loss coefficient will be according to the following table (Idelchik, p. 209 f., Diagram 4-2 with <code>A_port/A_vessel = 0</code> and Idelchik, p. 640, Diagram 11-1, graph a). According to the text, <code>m = 9</code> is appropriate for fully developed turbulent flow.
+If a <strong>straight pipe with constant circular cross section is mounted flush with the wall</strong>, its vessel inlet pressure loss coefficient will be according to the following table (Idelchik, p. 209 f., Diagram 4-2 with <code>A_port/A_vessel = 0</code> and Idelchik, p. 640, Diagram 11-1, graph a). According to the text, <code>m = 9</code> is appropriate for fully developed turbulent flow.
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -663,8 +654,8 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
 <h4>References</h4>
 
 <dl><dt>Idelchik I.E. (1994):</dt>
-    <dd><a href=\"http://www.bookfinder.com/dir/i/Handbook_of_Hydraulic_Resistance/0849399084/\"><b>Handbook
-        of Hydraulic Resistance</b></a>. 3rd edition, Begell House, ISBN
+    <dd><a href=\"http://www.bookfinder.com/dir/i/Handbook_of_Hydraulic_Resistance/0849399084/\"><strong>Handbook
+        of Hydraulic Resistance</strong></a>. 3rd edition, Begell House, ISBN
         0-8493-9908-4</dd>
 </dl>
 </html>"));
@@ -680,21 +671,17 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
             initialScale=0.2), graphics={
             Text(extent={{-75,130},{75,100}}, textString="%name"),
             Rectangle(
-              extent={{-25,100},{25,-100}},
-              lineColor={0,0,0}),
+              extent={{-25,100},{25,-100}}),
             Ellipse(
               extent={{-22,100},{-10,-100}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{-6,100},{6,-100}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{10,100},{22,-100}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid)}),
            Icon(coordinateSystem(
@@ -708,17 +695,14 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{-44,200},{-20,-200}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{-12,200},{12,-200}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{20,200},{44,-200}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid)}));
     end VesselFluidPorts_a;
@@ -733,11 +717,9 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
             initialScale=0.2), graphics={
             Text(extent={{-75,130},{75,100}}, textString="%name"),
             Rectangle(
-              extent={{-25,100},{25,-100}},
-              lineColor={0,0,0}),
+              extent={{-25,100},{25,-100}}),
             Ellipse(
               extent={{-22,100},{-10,-100}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
@@ -747,12 +729,10 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{-6,100},{6,-100}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{10,100},{22,-100}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
@@ -776,17 +756,14 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{-44,200},{-20,-200}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{-12,200},{12,-200}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{20,200},{44,-200}},
-              lineColor={0,0,0},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid),
             Ellipse(

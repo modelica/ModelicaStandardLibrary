@@ -308,7 +308,7 @@ Example:
 
      Medium.Density rho;
 
-     <b>equation</b>
+     <strong>equation</strong>
 
      rho = Medium.density(setState_phX(p, h, fill(0, Medium.nX)));
 </pre>
@@ -357,7 +357,7 @@ Example:
 
      Medium.SpecficEntropy s;
 
-     <b>equation</b>
+     <strong>equation</strong>
 
      s = Medium.specificEntropy(setState_dTX(d, T, fill(0, Medium.nX)));
 </pre>
@@ -406,7 +406,7 @@ Example:
 
      Medium.SpecficEnthalpy h;
 
-     <b>equation</b>
+     <strong>equation</strong>
 
      h = Medium.specificEnthalpy(setState_psX(p, s, fill(0, Medium.nX)));
 </pre>
@@ -440,7 +440,7 @@ Example:
 
      Medium.Density rho;
 
-     <b>equation</b>
+     <strong>equation</strong>
 
      rho = Medium.density(setState_pTX(p, T, fill(0, Medium.nX)));
 </pre>
@@ -467,6 +467,7 @@ Please note, that in contrast to setState_phX, setState_dTX and setState_psX thi
 </p>
 <p>
 Example:
+</p>
 <pre>
     Medium.AbsolutePressure p=3e5;
     // Viscosity on the liquid phase boundary
@@ -500,6 +501,7 @@ Example:
 </p>
 <p>
 Example:
+</p>
 <pre>
     Medium.AbsolutePressure p=3e5;
     // Viscosity on the vapor phase boundary
@@ -534,9 +536,9 @@ Example:
               getPhase_ph(p, h)));
 
       annotation (Inline=true, Documentation(info="<html>
-<p> This function calculates the density of R134a from the state variables p (absolute pressure) and h (specific enthalpy). The density is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
+<p> This function calculates the density of R134a from the state variables p (absolute pressure) and h (specific enthalpy). The density is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
 
-<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)d-Diagram-R134a.png\"/> </p>
+<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)d-Diagram-R134a.png\"/></p>
 
 </html>"));
     end density_ph;
@@ -554,7 +556,7 @@ This function calculates the density of R134a from the state record
 by the fundamental equation of state of Tillner-Roth and Baehr (1994).
 </p>
 
-<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)d-Diagram-R134a.png\"/> </p>
+<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)d-Diagram-R134a.png\"/></p>
 </html>"));
     end density;
 
@@ -576,9 +578,9 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
               getPhase_ph(p, h)));
 
       annotation (Inline=true, Documentation(info="<html>
-<p> This function calculates the Kelvin temperature of R134a from the state variables p (absolute pressure) and h (specific enthalpy). The temperature is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
+<p> This function calculates the Kelvin temperature of R134a from the state variables p (absolute pressure) and h (specific enthalpy). The temperature is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
 
-<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)h-Diagram-R134a.png\"/> </p>
+<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)h-Diagram-R134a.png\"/></p>
 
 
 </html>"));
@@ -591,8 +593,8 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
       T := state.T;
 
       annotation (Inline=true, Documentation(info="<html>
-<p> This function calculates the Kelvin temperature of R134a from the state record (e.g., use setState_phX function for input). The temperature is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
-<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)h-Diagram-R134a.png\"/> </p>
+<p> This function calculates the Kelvin temperature of R134a from the state record (e.g., use setState_phX function for input). The temperature is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
+<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)h-Diagram-R134a.png\"/></p>
 </html>"));
     end temperature;
 
@@ -600,8 +602,8 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
     algorithm
       p := state.p;
       annotation (Inline=true, Documentation(info="<html>
-<p>This function is included for the sake of completness.</p>
-<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)h-Diagram-R134a.png\"/> </p>
+<p>This function is included for the sake of completeness.</p>
+<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)h-Diagram-R134a.png\"/></p>
 </html>"));
     end pressure;
 
@@ -611,8 +613,8 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
       u := specificEnthalpy(state) - pressure(state)/density(state);
 
       annotation (Inline=true, Documentation(info="<html>
-<p> This function calculates the specific internal energy of R134a from the state record (e.g., use setState_phX function for input). The specific internal energy is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
-<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)u-Diagram-R134a.png\"/> </p>
+<p> This function calculates the specific internal energy of R134a from the state record (e.g., use setState_phX function for input). The specific internal energy is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
+<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)u-Diagram-R134a.png\"/></p>
 
 </html>"));
     end specificInternalEnergy;
@@ -624,8 +626,8 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
       h := state.h;
 
       annotation (Inline=true, Documentation(info="<html>
-<p>This function is included for the sake of completness.</p>
-<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)h-Diagram-R134a.png\"/> </p>
+<p>This function is included for the sake of completeness.</p>
+<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)h-Diagram-R134a.png\"/></p>
 </html>"));
     end specificEnthalpy;
 
@@ -655,8 +657,8 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
       end if;
 
       annotation (Documentation(info="<html>
-<p> This function calculates the specific entropy of R134a from the state record (e.g., use setState_phX function for input). The specific entropy is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
-<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)s-Diagram-R134a.png\"/> </p>
+<p> This function calculates the specific entropy of R134a from the state record (e.g., use setState_phX function for input). The specific entropy is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
+<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)s-Diagram-R134a.png\"/></p>
 </html>"));
     end specificEntropy;
 
@@ -686,7 +688,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
-<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)Tsat-Diagram-R134a.png\"/> </p>
+<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)Tsat-Diagram-R134a.png\"/></p>
 </html>"));
     end saturationTemperature;
 
@@ -1337,7 +1339,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
-<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)Tsat-Diagram-R134a.png\"/> </p>
+<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)Tsat-Diagram-R134a.png\"/></p>
 </html>"));
     end saturationPressure;
 
@@ -1354,11 +1356,11 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
         f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta));
 
       annotation (Documentation(info="<html>
-<p> This function calculates the specific heat capacity of R134a at <b>constant pressure</b> from the state record (e.g., use setState_phX function for input). The specific heat capacity is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
+<p> This function calculates the specific heat capacity of R134a at <strong>constant pressure</strong> from the state record (e.g., use setState_phX function for input). The specific heat capacity is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
 <h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
-<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)cp-Diagram-R134a.png\"/> </p>
+<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)cp-Diagram-R134a.png\"/></p>
 </html>"));
     end specificHeatCapacityCp;
 
@@ -1393,11 +1395,11 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       end if;
 
       annotation (Documentation(info="<html>
-<p> This function calculates the specific heat capacity of R134a at <b>constant volume</b> from the state record (e.g., use setState_phX function for input). The specific heat capacity is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
+<p> This function calculates the specific heat capacity of R134a at <strong>constant volume</strong> from the state record (e.g., use setState_phX function for input). The specific heat capacity is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
 <p>
 Please note, that the function can also be called in the two-phase region, but the output is not continuous for a phase transition (see Tillner-Roth and Baehr, 1994). Values in two-phase region are considerably higher than in one-phase domain. The following figure just shows one-phase properties.
 </p>
-<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)cv-Diagram-R134a.png\"/> </p>
+<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)cv-Diagram-R134a.png\"/></p>
 </html>"));
     end specificHeatCapacityCv;
 
@@ -1451,16 +1453,16 @@ Please note, that the function can also be called in the two-phase region, but t
       eta := (eta_star + eta_res*1e3)*1e-06;
 
       annotation (Documentation(info="<html>
-<p> This function calculates the dynamic viscosity of R134a from the state record (e.g., use setState_phX function for input). The dynamic viscosity is modelled by the corresponding states method of Klein, McLinden and Laesecke (1997). </p>
+<p> This function calculates the dynamic viscosity of R134a from the state record (e.g., use setState_phX function for input). The dynamic viscosity is modelled by the corresponding states method of Klein, McLinden and Laesecke (1997).</p>
 <h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
 <h4>References</h4>
 <dl><dt>Klein, McLinden and Laesecke: </dt>
-<dd><b>An improved extended corresponding states method for estimation of viscosity of pure refrigerants and mixtures</b>.
+<dd><strong>An improved extended corresponding states method for estimation of viscosity of pure refrigerants and mixtures</strong>.
 Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
 </dl>
-<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)eta-Diagram-R134a.png\"/> </p>
+<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)eta-Diagram-R134a.png\"/></p>
 </html>"));
     end dynamicViscosity;
 
@@ -1536,17 +1538,17 @@ Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
       lambda := max(lambda_dg + lambda_reduced + lambda_crit, 1e-8);
 
       annotation (Documentation(info="<html>
-<p> This function calculates the thermal conductivity of R134a from the state record (e.g., use setState_phX function for input). The thermal conductivity is modelled by the corresponding states model of McLinden, Klein. and Perkins (2000). </p>
+<p> This function calculates the thermal conductivity of R134a from the state record (e.g., use setState_phX function for input). The thermal conductivity is modelled by the corresponding states model of McLinden, Klein. and Perkins (2000).</p>
 <h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
 <h4>References</h4>
 <dl><dt>McLinden, Klein. and Perkins: </dt>
-<dd><b>An extended corresponding states model for the thermal conductivity
-of refrigerants and refrigerant mixtures</b>.
+<dd><strong>An extended corresponding states model for the thermal conductivity
+of refrigerants and refrigerant mixtures</strong>.
 Int. J. Refrig., 23 (2000) 43-63.</dd>
 </dl>
-<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)lambda-Diagram-R134a.png\"/> </p>
+<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)lambda-Diagram-R134a.png\"/></p>
 </html>"));
     end thermalConductivity;
 
@@ -1554,7 +1556,7 @@ Int. J. Refrig., 23 (2000) 43-63.</dd>
       "Surface tension as a function of temperature (below critical point)"
 
     protected
-      Real tau "Reduced temperatur";
+      Real tau "Reduced temperature";
       R134aData.CoeffsSurfaceTension coeff "Polynomial coefficients";
       Modelica.SIunits.Temperature Tc=374.21 "Critical temperature";
 
@@ -1571,16 +1573,16 @@ Int. J. Refrig., 23 (2000) 43-63.</dd>
       end if;
 
       annotation (Documentation(info="<html>
-<p> This function calculates the surface tension of R134a from the saturation record (e.g., use setSat_T function for input). The property is modelled by an approach of Okada and Higashi (1994). </p>
+<p> This function calculates the surface tension of R134a from the saturation record (e.g., use setSat_T function for input). The property is modelled by an approach of Okada and Higashi (1994).</p>
 <h4> Restrictions</h4>
 <p>This property is only defined in two-phase region.
 </p>
 <h4>References</h4>
 <dl><dt>Okada and Higashi: </dt>
-<dd><b>Surface tension correlation of HFC-134a and HCFC-123</b>.
+<dd><strong>Surface tension correlation of HFC-134a and HCFC-123</strong>.
 Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, Italy, pp. 541-548, 1994.</dd>
 </dl>
-<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/Tsigma-Diagram-R134a.png\"/> </p>
+<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/Tsigma-Diagram-R134a.png\"/></p>
 </html>"));
     end surfaceTension;
 
@@ -1600,11 +1602,11 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
           *f.fdelta - f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau)))^0.5;
       end if;
       annotation (Documentation(info="<html>
-<p> This function calculates the velocity of sound of R134a from the state record (e.g., use setState_phX function for input). The velocity of sound is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
+<p> This function calculates the velocity of sound of R134a from the state record (e.g., use setState_phX function for input). The velocity of sound is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
 <h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
-<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)a-Diagram-R134a.png\"/> </p>
+<p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)a-Diagram-R134a.png\"/></p>
 </html>"));
     end velocityOfSound;
 
@@ -1622,7 +1624,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
           *f.fdeltadelta));
       end if;
       annotation (Documentation(info="<html>
-<p> This function calculates the isothermal compressibility of R134a from the state record (e.g., use setState_phX function for input). The isothermal compressibility is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
+<p> This function calculates the isothermal compressibility of R134a from the state record (e.g., use setState_phX function for input). The isothermal compressibility is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
 <h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
@@ -1643,7 +1645,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
           *isothermalCompressibility(state);
       end if;
       annotation (Documentation(info="<html>
-<p> This function calculates the isobaric expansion coefficient of R134a from the state record (e.g., use setState_phX function for input). The isobaric expansion coefficient is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
+<p> This function calculates the isobaric expansion coefficient of R134a from the state record (e.g., use setState_phX function for input). The isobaric expansion coefficient is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
 <h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
@@ -1658,7 +1660,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
          else 1e-6)*velocityOfSound(state)^2;
 
       annotation (Inline=true, Documentation(info="<html>
-<p> This function calculates the isentropic exponent of R134a from the state record (e.g., use setState_phX function for input). The isentropic exponent is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
+<p> This function calculates the isentropic exponent of R134a from the state record (e.g., use setState_phX function for input). The isentropic exponent is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
 <h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
@@ -2493,7 +2495,7 @@ This function integrates the derivative of temperature w.r.t. time in order to a
       Real dp "Pressure difference";
       SI.Density deld "Density step";
       Modelica.Media.Common.HelmholtzDerivs f
-        "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+        "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
       Modelica.Media.Common.NewtonDerivatives_pT nDerivs
         "Derivatives needed in Newton iteration";
       Boolean found "Flag for iteration success";
@@ -2598,32 +2600,32 @@ The functions provided by this package shall be used inside of the restricted li
 </p>
 <ul>
  <li>
-      <b> 0.0039 bar &le; p &le; 700 bar </b>
+      <strong> 0.0039 bar &le; p &le; 700 bar </strong>
  </li>
  <li>
-      <b> 169.85 Kelvin &le; T &le; 455 Kelvin  </b>
+      <strong> 169.85 Kelvin &le; T &le; 455 Kelvin  </strong>
  </li>
  <li>
-      <b> explicit for pressure and specific enthalpy </b>
+      <strong> explicit for pressure and specific enthalpy </strong>
  </li>
 </ul>
 
-<p><b>References</b> </p>
+<p><strong>References</strong></p>
 <dl><dt>Baehr, H.D. and Tillner-Roth, R.: </dt>
-<dd><b>Thermodynamic Properties of Environmentally Acceptable Refrigerants -
-Equations of State and Tables for Ammonia, R22, R134a, R152a, and R123</b>. Springer-Verlag, Berlin (Germany), 1994.</dd>
+<dd><strong>Thermodynamic Properties of Environmentally Acceptable Refrigerants -
+Equations of State and Tables for Ammonia, R22, R134a, R152a, and R123</strong>. Springer-Verlag, Berlin (Germany), 1994.</dd>
 </dl>
 <dl><dt>Klein, McLinden and Laesecke: </dt>
-<dd><b>An improved extended corresponding states method for estimation of viscosity of pure refrigerants and mixtures</b>.
+<dd><strong>An improved extended corresponding states method for estimation of viscosity of pure refrigerants and mixtures</strong>.
 Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
 </dl>
 <dl><dt>McLinden, Klein. and Perkins: </dt>
-<dd><b>An extended corresponding states model for the thermal conductivity
-of refrigerants and refrigerant mixtures</b>.
+<dd><strong>An extended corresponding states model for the thermal conductivity
+of refrigerants and refrigerant mixtures</strong>.
 Int. J. Refrig., 23 (2000) 43-63.</dd>
 </dl>
 <dl><dt>Okada and Higashi: </dt>
-<dd><b>Surface tension correlation of HFC-134a and HCFC-123</b>.
+<dd><strong>Surface tension correlation of HFC-134a and HCFC-123</strong>.
 Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, Italy, pp. 541-548, 1994.</dd>
 </dl>
 </html>"));
@@ -9379,32 +9381,32 @@ The functions provided by this package shall be used inside of the restricted li
 </p>
 <ul>
  <li>
-      <b> 0.0039 bar &le; p &le; 700 bar </b>
+      <strong> 0.0039 bar &le; p &le; 700 bar </strong>
  </li>
  <li>
-      <b> 169.85 Kelvin &le; T &le; 455 Kelvin  </b>
+      <strong> 169.85 Kelvin &le; T &le; 455 Kelvin  </strong>
  </li>
  <li>
-      <b> explicit for pressure and specific enthalpy </b>
+      <strong> explicit for pressure and specific enthalpy </strong>
  </li>
 </ul>
 
-<p><b>References</b> </p>
+<p><strong>References</strong></p>
 <dl><dt>Baehr, H.D. and Tillner-Roth, R.: </dt>
-<dd><b>Thermodynamic Properties of Environmentally Acceptable Refrigerants -
-Equations of State and Tables for Ammonia, R22, R134a, R152a, and R123</b>. Springer-Verlag, Berlin (Germany), 1994.</dd>
+<dd><strong>Thermodynamic Properties of Environmentally Acceptable Refrigerants -
+Equations of State and Tables for Ammonia, R22, R134a, R152a, and R123</strong>. Springer-Verlag, Berlin (Germany), 1994.</dd>
 </dl>
 <dl><dt>Klein, McLinden and Laesecke: </dt>
-<dd><b>An improved extended corresponding states method for estimation of viscosity of pure refrigerants and mixtures</b>.
+<dd><strong>An improved extended corresponding states method for estimation of viscosity of pure refrigerants and mixtures</strong>.
 Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
 </dl>
 <dl><dt>McLinden, Klein. and Perkins: </dt>
-<dd><b>An extended corresponding states model for the thermal conductivity
-of refrigerants and refrigerant mixtures</b>.
+<dd><strong>An extended corresponding states model for the thermal conductivity
+of refrigerants and refrigerant mixtures</strong>.
 Int. J. Refrig., 23 (2000) 43-63.</dd>
 </dl>
 <dl><dt>Okada and Higashi: </dt>
-<dd><b>Surface tension correlation of HFC-134a and HCFC-123</b>.
+<dd><strong>Surface tension correlation of HFC-134a and HCFC-123</strong>.
 Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, Italy, pp. 541-548, 1994.</dd>
 </dl>
 
@@ -9423,10 +9425,8 @@ This library was developed by XRG Simulation GmbH as part of the <a href=\"http:
 Some parts of this library refer to the ThermoFluid library developed at Lund University (<a href=\"http://thermofluid.sourceforge.net/\">http://thermofluid.sourceforge.net</a>).
 </p>
 
-<h4>Disclaimer</h4>
 <p>
-In no event will XRG Simulation GmbH be liable for any direct, indirect, incidental, special, exemplary, or consequential damages, arising in any way out of the use of this software, even if advised of the possibility of such damage.
+Copyright &copy; 2013-2019, Modelica Association and contributors
 </p>
-<h4> Copyright &copy; 2013-2016, XRG Simulation GmbH </h4>
 </html>"));
 end R134a;

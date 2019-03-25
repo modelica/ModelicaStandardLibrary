@@ -79,29 +79,22 @@ model TestWaterPumpDCMotorHeatTransfer
     annotation (Placement(transformation(extent={{-1,-20},{19,-40}})));
 equation
   connect(Valve.port_b,Sink.ports[1])    annotation (Line(points={{49,10},{60,
-          10}},
-        color={0,127,255}));
+          10}}, color={0,127,255}));
   connect(Valve.port_a,pump.port_b)      annotation (Line(points={{31,10},{20,
-          10}},                             color={0,127,255}));
+          10}}, color={0,127,255}));
   connect(pump.port_a,Source.ports[1])
                                      annotation (Line(points={{-10,10},{-20,10},
-          {-20,-50},{-30,-50}},
-                              color={0,127,255}));
+          {-20,-50},{-30,-50}}, color={0,127,255}));
   connect(valveOpening.y, Valve.opening) annotation (Line(
-      points={{49,50},{40,50},{40,18}},
-      color={0,0,127}));
+      points={{49,50},{40,50},{40,18}}, color={0,0,127}));
   connect(motor.pin_ap, stepVoltage.p) annotation (Line(
-      points={{-34.8,52},{-34,52},{-34,60},{-80,60},{-80,50}},
-      color={0,0,255}));
+      points={{-34.8,52},{-34,52},{-34,60},{-80,60},{-80,50}}, color={0,0,255}));
   connect(stepVoltage.n, motor.pin_an) annotation (Line(
-      points={{-80,30},{-62,30},{-62,52},{-49.2,52}},
-      color={0,0,255}));
+      points={{-80,30},{-62,30},{-62,52},{-49.2,52}}, color={0,0,255}));
   connect(stepVoltage.n, ground.p) annotation (Line(
-      points={{-80,30},{-80,24}},
-      color={0,0,255}));
+      points={{-80,30},{-80,24}}, color={0,0,255}));
   connect(pump.heatPort, housing.port) annotation (Line(
-      points={{11,1},{20,1},{20,-20},{9,-20}},
-      color={191,0,0}));
+      points={{11,1},{20,1},{20,-20},{9,-20}}, color={191,0,0}));
   connect(pump.shaft, motor.flange) annotation (Line(
       points={{5,25},{5,40},{-30,40}}));
 annotation (

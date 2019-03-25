@@ -217,17 +217,13 @@ is forced back to its limit after a transient phase.
 
   equation
     connect(step.y, CriticalDamping.u) annotation (Line(
-        points={{-39,50},{-22,50}},
-        color={0,0,127}));
+        points={{-39,50},{-22,50}}, color={0,0,127}));
     connect(step.y, Bessel.u) annotation (Line(
-        points={{-39,50},{-32,50},{-32,10},{-22,10}},
-        color={0,0,127}));
+        points={{-39,50},{-32,50},{-32,10},{-22,10}}, color={0,0,127}));
     connect(Butterworth.u, step.y) annotation (Line(
-        points={{-22,-30},{-32,-30},{-32,50},{-39,50}},
-        color={0,0,127}));
+        points={{-22,-30},{-32,-30},{-32,50},{-39,50}}, color={0,0,127}));
     connect(ChebyshevI.u, step.y) annotation (Line(
-        points={{-22,-70},{-32,-70},{-32,50},{-39,50}},
-        color={0,0,127}));
+        points={{-22,-70},{-32,-70},{-32,50},{-39,50}}, color={0,0,127}));
     annotation (
       experiment(StopTime=0.9),
       Documentation(info="<html>
@@ -271,17 +267,13 @@ The default setting uses low pass filters of order 3 with a cut-off frequency of
       annotation (Placement(transformation(extent={{62,40},{82,60}})));
   equation
     connect(step.y, Bessel.u) annotation (Line(
-        points={{-59,50},{-42,50}},
-        color={0,0,127}));
+        points={{-59,50},{-42,50}}, color={0,0,127}));
     connect(Bessel.y, der1.u) annotation (Line(
-        points={{-19,50},{-8,50}},
-        color={0,0,127}));
+        points={{-19,50},{-8,50}}, color={0,0,127}));
     connect(der1.y, der2.u) annotation (Line(
-        points={{15,50},{28,50}},
-        color={0,0,127}));
+        points={{15,50},{28,50}}, color={0,0,127}));
     connect(der2.y, der3.u) annotation (Line(
-        points={{51,50},{60,50}},
-        color={0,0,127}));
+        points={{51,50},{60,50}}, color={0,0,127}));
     annotation (
       experiment(StopTime=0.9),
       Documentation(info="<html>
@@ -314,14 +306,11 @@ discontinuous control signal.
       annotation (Placement(transformation(extent={{-20,62},{0,82}})));
   equation
     connect(step.y, filter_fac5.u) annotation (Line(
-        points={{-39,30},{-30,30},{-30,-10},{-22,-10}},
-        color={0,0,127}));
+        points={{-39,30},{-30,30},{-30,-10},{-22,-10}}, color={0,0,127}));
     connect(step.y, filter_fac4.u) annotation (Line(
-        points={{-39,30},{-22,30}},
-        color={0,0,127}));
+        points={{-39,30},{-22,30}}, color={0,0,127}));
     connect(step.y, filter_fac3.u) annotation (Line(
-        points={{-39,30},{-30,30},{-30,72},{-22,72}},
-        color={0,0,127}));
+        points={{-39,30},{-30,30},{-30,72},{-22,72}}, color={0,0,127}));
     annotation (experiment(StopTime=4), Documentation(info="<html>
 <p>
 Filters are usually parameterized with the cut-off frequency.
@@ -391,6 +380,68 @@ reached with different precisions. This is summarized in the following table:
 </html>"));
   end FilterWithRiseTime;
 
+  model SlewRateLimiter
+    "Demonstrate usage of Nonlinear.SlewRateLimiter"
+    extends Modelica.Icons.Example;
+    parameter Modelica.SIunits.Velocity vMax=2 "Max. velocity";
+    parameter Modelica.SIunits.Acceleration aMax=20 "Max. acceleration";
+    Modelica.SIunits.Position s=positionStep.y "Reference position";
+    Modelica.SIunits.Position sSmoothed=positionSmoothed.y "Smoothed position";
+    Modelica.SIunits.Velocity vLimited=limit_a.y "Limited velocity";
+    Modelica.SIunits.Acceleration aLimited=a.y "Limited acceleration";
+    Modelica.Blocks.Sources.Step positionStep(startTime=0.1)
+      annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+    Modelica.Blocks.Nonlinear.SlewRateLimiter limit_v(
+      initType=Modelica.Blocks.Types.Init.InitialOutput,
+      Rising=vMax,
+      y_start=positionStep.offset,
+      Td=0.0001)
+      annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
+    Modelica.Blocks.Continuous.Der v
+      annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+    Modelica.Blocks.Nonlinear.SlewRateLimiter limit_a(
+      initType=Modelica.Blocks.Types.Init.InitialOutput,
+      y_start=0,
+      Rising=20,
+      Td=0.0001)
+                annotation (Placement(transformation(extent={{10,-10},{30,10}})));
+    Modelica.Blocks.Continuous.Integrator positionSmoothed(
+      k=1,
+      initType=Modelica.Blocks.Types.Init.InitialOutput,
+      y_start=positionStep.offset)
+      annotation (Placement(transformation(extent={{50,-10},{70,10}})));
+    Modelica.Blocks.Continuous.Der a
+      annotation (Placement(transformation(extent={{50,-40},{70,-20}})));
+  equation
+    connect(positionStep.y, limit_v.u)
+      annotation (Line(points={{-59,0},{-52,0}}, color={0,0,127}));
+    connect(limit_v.y, v.u)
+      annotation (Line(points={{-29,0},{-22,0}}, color={0,0,127}));
+    connect(v.y, limit_a.u)
+      annotation (Line(points={{1,0},{8,0}}, color={0,0,127}));
+    connect(limit_a.y, positionSmoothed.u)
+      annotation (Line(points={{31,0},{39.5,0},{48,0}}, color={0,0,127}));
+    connect(limit_a.y, a.u) annotation (Line(points={{31,0},{40,0},{40,-30},{48,-30}},
+          color={0,0,127}));
+
+    annotation (experiment(StopTime=1.0, Interval=0.001), Documentation(info="<html>
+<p>
+This example demonstrates how to use the Nonlinear.SlewRateLimiter block to limit a position step with regards to velocity and acceleration:
+</p>
+<ul>
+<li> The Sources.Step block <code>positionStep</code> demands an unphysical position step.</li>
+<li> The first SlewRateLimiter block  <code>limit_v</code> limits velocity.</li>
+<li> The first Der block <code>v</code> calculates velocity from the smoothed position signal.</li>
+<li> The second SlewRateLimiter block <code>limit_a</code> limits acceleration of the smoothed velocity signal.</li>
+<li> The second Der block <code>a</code> calculates acceleration from the smoothed velocity signal.</li>
+<li> The Integrator block <code>positionSmoothed</code> calculates smoothed position from the smoothed velocity signal.</li>
+</ul>
+<p>
+A position controlled drive with limited velocity and limited acceleration (i.e. torque) is able to follow the smoothed reference position.
+</p>
+</html>"));
+  end SlewRateLimiter;
+
   model InverseModel "Demonstrates the construction of an inverse model"
     extends Modelica.Icons.Example;
 
@@ -417,26 +468,19 @@ reached with different precisions. This is summarized in the following table:
       annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
   equation
     connect(firstOrder1.y, inverseBlockConstraints.u2) annotation (Line(
-        points={{-1,30},{-6,30}},
-        color={0,0,127}));
+        points={{-1,30},{-6,30}}, color={0,0,127}));
     connect(inverseBlockConstraints.y2, firstOrder1.u) annotation (Line(
-        points={{27,30},{22,30}},
-        color={0,0,127}));
+        points={{27,30},{22,30}}, color={0,0,127}));
     connect(firstOrder2.y, feedback.u1) annotation (Line(
-        points={{-1,-10},{-42,-10}},
-        color={0,0,127}));
+        points={{-1,-10},{-42,-10}}, color={0,0,127}));
     connect(sine.y, criticalDamping.u) annotation (Line(
-        points={{-59,30},{-42,30}},
-        color={0,0,127}));
+        points={{-59,30},{-42,30}}, color={0,0,127}));
     connect(criticalDamping.y, inverseBlockConstraints.u1) annotation (Line(
-        points={{-19,30},{-12,30}},
-        color={0,0,127}));
+        points={{-19,30},{-12,30}}, color={0,0,127}));
     connect(sine.y, feedback.u2) annotation (Line(
-        points={{-59,30},{-50,30},{-50,-2}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,-2}}, color={0,0,127}));
     connect(inverseBlockConstraints.y1, firstOrder2.u) annotation (Line(
-        points={{31,30},{40,30},{40,-10},{22,-10}},
-        color={0,0,127}));
+        points={{31,30},{40,30},{40,-10},{22,-10}}, color={0,0,127}));
     annotation (Documentation(info="<html>
 <p>
 This example demonstrates how to construct an inverse model in Modelica
@@ -486,7 +530,7 @@ of this example:
 <p>
 Here the first order block \"firstOrder1\" shall be inverted. This is performed
 by connecting its inputs and outputs with an instance of block
-Modelica.Blocks.Math.<b>InverseBlockConstraints</b>. By this connection,
+Modelica.Blocks.Math.<strong>InverseBlockConstraints</strong>. By this connection,
 the inputs and outputs are exchanged. The goal is to compute the input of the
 \"firstOrder1\" block so that its output follows a given sine signal.
 For this, the sine signal \"sin\" is first filtered with a \"CriticalDamping\"
@@ -572,8 +616,8 @@ model.
 This example demonstrates a network of logical blocks. Note, that
 the Boolean values of the input and output signals are visualized
 in the diagram animation, by the small \"circles\" close to the connectors.
-If a \"circle\" is \"white\", the signal is <b>false</b>. It a
-\"circle\" is \"green\", the signal is <b>true</b>.
+If a \"circle\" is \"white\", the signal is <strong>false</strong>. It a
+\"circle\" is \"green\", the signal is <strong>true</strong>.
 </p>
 </html>"));
   end LogicalNetwork1;
@@ -618,41 +662,29 @@ model RealNetwork1 "Demonstrates the usage of blocks from Modelica.Blocks.Math"
     annotation (Placement(transformation(extent={{58,-16},{78,4}})));
 equation
   connect(booleanPulse1.y, multiSwitch.u[1]) annotation (Line(
-      points={{9,-20},{18,-20},{18,-48},{28,-48},{28,-48.5}},
-      color={255,0,255}));
+      points={{9,-20},{18,-20},{18,-48},{28,-48},{28,-48.5}}, color={255,0,255}));
   connect(booleanPulse2.y, multiSwitch.u[2]) annotation (Line(
-      points={{9,-60},{18,-60},{18,-52},{28,-52},{28,-51.5}},
-      color={255,0,255}));
+      points={{9,-60},{18,-60},{18,-52},{28,-52},{28,-51.5}}, color={255,0,255}));
   connect(sine.y, add.u[1]) annotation (Line(
-      points={{-75,70},{-46.5,70},{-46.5,72.1},{-14,72.1}},
-      color={0,0,127}));
+      points={{-75,70},{-46.5,70},{-46.5,72.1},{-14,72.1}}, color={0,0,127}));
   connect(integerStep.y, add.u[2]) annotation (Line(
-      points={{-39,40},{-28,40},{-28,67.9},{-14,67.9}},
-      color={0,0,127}));
+      points={{-39,40},{-28,40},{-28,67.9},{-14,67.9}}, color={0,0,127}));
   connect(add.y, showValue.numberPort) annotation (Line(
-      points={{-0.98,70},{64.5,70}},
-      color={0,0,127}));
+      points={{-0.98,70},{64.5,70}}, color={0,0,127}));
   connect(integerStep.y, product.u[1]) annotation (Line(
-      points={{-39,40},{-20,40},{-20,32.1},{6,32.1}},
-      color={0,0,127}));
+      points={{-39,40},{-20,40},{-20,32.1},{6,32.1}}, color={0,0,127}));
   connect(integerConstant.y, product.u[2]) annotation (Line(
-      points={{-39,0},{-20,0},{-20,27.9},{6,27.9}},
-      color={0,0,127}));
+      points={{-39,0},{-20,0},{-20,27.9},{6,27.9}}, color={0,0,127}));
   connect(product.y, showValue1.numberPort) annotation (Line(
-      points={{19.02,30},{62.5,30}},
-      color={0,0,127}));
+      points={{19.02,30},{62.5,30}}, color={0,0,127}));
   connect(add.y, linearDependency1.u1) annotation (Line(
-      points={{-0.98,70},{20,70},{20,96},{38,96}},
-      color={0,0,127}));
+      points={{-0.98,70},{20,70},{20,96},{38,96}}, color={0,0,127}));
   connect(product.y, linearDependency1.u2) annotation (Line(
-      points={{19.02,30},{30,30},{30,84},{38,84}},
-      color={0,0,127}));
+      points={{19.02,30},{30,30},{30,84},{38,84}}, color={0,0,127}));
   connect(add.y, minMax.u[1]) annotation (Line(
-      points={{-0.98,70},{48,70},{48,-2.5},{58,-2.5}},
-      color={0,0,127}));
+      points={{-0.98,70},{48,70},{48,-2.5},{58,-2.5}}, color={0,0,127}));
   connect(product.y, minMax.u[2]) annotation (Line(
-      points={{19.02,30},{40,30},{40,-9.5},{58,-9.5}},
-      color={0,0,127}));
+      points={{19.02,30},{40,30},{40,-9.5},{58,-9.5}}, color={0,0,127}));
   annotation (
     experiment(StopTime=10),
     Documentation(info="<html>
@@ -669,8 +701,8 @@ Note, that
 
 <li> the Boolean values of the input and output signals are visualized
      in the diagram animation, by the small \"circles\" close to the connectors.
-     If a \"circle\" is \"white\", the signal is <b>false</b>. If a
-     \"circle\" is \"green\", the signal is <b>true</b>.</li>
+     If a \"circle\" is \"white\", the signal is <strong>false</strong>. If a
+     \"circle\" is \"green\", the signal is <strong>true</strong>.</li>
 </ul>
 
 </html>"));
@@ -716,44 +748,31 @@ end RealNetwork1;
       annotation (Placement(transformation(extent={{40,-84},{60,-64}})));
   equation
     connect(sine.y, realToInteger.u) annotation (Line(
-        points={{-79,70},{-62,70}},
-        color={0,0,127}));
+        points={{-79,70},{-62,70}}, color={0,0,127}));
     connect(realToInteger.y, sum.u[1]) annotation (Line(
-        points={{-39,70},{-32,70},{-32,72},{-14,72},{-14,72.8}},
-        color={255,127,0}));
+        points={{-39,70},{-32,70},{-32,72},{-14,72},{-14,72.8}}, color={255,127,0}));
     connect(integerStep.y, sum.u[2]) annotation (Line(
-        points={{-39,40},{-28,40},{-28,70},{-14,70}},
-        color={255,127,0}));
+        points={{-39,40},{-28,40},{-28,70},{-14,70}}, color={255,127,0}));
     connect(integerConstant.y, sum.u[3]) annotation (Line(
-        points={{-39,0},{-22,0},{-22,67.2},{-14,67.2}},
-        color={255,127,0}));
+        points={{-39,0},{-22,0},{-22,67.2},{-14,67.2}}, color={255,127,0}));
     connect(sum.y, showValue.numberPort) annotation (Line(
-        points={{-1.1,70},{38.5,70}},
-        color={255,127,0}));
+        points={{-1.1,70},{38.5,70}}, color={255,127,0}));
     connect(sum.y, product.u[1]) annotation (Line(
-        points={{-1.1,70},{4,70},{4,32.1},{16,32.1}},
-        color={255,127,0}));
+        points={{-1.1,70},{4,70},{4,32.1},{16,32.1}}, color={255,127,0}));
     connect(integerStep.y, product.u[2]) annotation (Line(
-        points={{-39,40},{-8,40},{-8,27.9},{16,27.9}},
-        color={255,127,0}));
+        points={{-39,40},{-8,40},{-8,27.9},{16,27.9}}, color={255,127,0}));
     connect(product.y, showValue1.numberPort) annotation (Line(
-        points={{28.9,30},{38.5,30}},
-        color={255,127,0}));
+        points={{28.9,30},{38.5,30}}, color={255,127,0}));
     connect(integerConstant.y, triggeredAdd.u) annotation (Line(
-        points={{-39,0},{13.6,0}},
-        color={255,127,0}));
+        points={{-39,0},{13.6,0}}, color={255,127,0}));
     connect(booleanPulse1.y, triggeredAdd.trigger) annotation (Line(
-        points={{9,-20},{18.4,-20},{18.4,-7.2}},
-        color={255,0,255}));
+        points={{9,-20},{18.4,-20},{18.4,-7.2}}, color={255,0,255}));
     connect(triggeredAdd.y, showValue2.numberPort) annotation (Line(
-        points={{29.2,0},{38.5,0}},
-        color={255,127,0}));
+        points={{29.2,0},{38.5,0}}, color={255,127,0}));
     connect(booleanPulse1.y, multiSwitch1.u[1]) annotation (Line(
-        points={{9,-20},{18,-20},{18,-48},{28,-48},{28,-48.5}},
-        color={255,0,255}));
+        points={{9,-20},{18,-20},{18,-48},{28,-48},{28,-48.5}}, color={255,0,255}));
     connect(booleanPulse2.y, multiSwitch1.u[2]) annotation (Line(
-        points={{9,-60},{18,-60},{18,-52},{28,-52},{28,-51.5}},
-        color={255,0,255}));
+        points={{9,-60},{18,-60},{18,-52},{28,-52},{28,-51.5}}, color={255,0,255}));
     annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>
 This example demonstrates a network of Integer blocks.
@@ -768,8 +787,8 @@ Note, that
 
 <li> the Boolean values of the input and output signals are visualized
      in the diagram animation, by the small \"circles\" close to the connectors.
-     If a \"circle\" is \"white\", the signal is <b>false</b>. If a
-     \"circle\" is \"green\", the signal is <b>true</b>.</li>
+     If a \"circle\" is \"white\", the signal is <strong>false</strong>. If a
+     \"circle\" is \"green\", the signal is <strong>true</strong>.</li>
 
 </ul>
 
@@ -837,92 +856,63 @@ Note, that
       annotation (Placement(transformation(extent={{40,-98},{54,-84}})));
   equation
     connect(booleanPulse1.y, and1.u[1]) annotation (Line(
-        points={{-79,70},{-68,70},{-68,72.8},{-58,72.8}},
-        color={255,0,255}));
+        points={{-79,70},{-68,70},{-68,72.8},{-58,72.8}}, color={255,0,255}));
     connect(booleanStep.y, and1.u[2]) annotation (Line(
-        points={{-79,38},{-64,38},{-64,70},{-58,70}},
-        color={255,0,255}));
+        points={{-79,38},{-64,38},{-64,70},{-58,70}}, color={255,0,255}));
     connect(booleanPulse2.y, and1.u[3]) annotation (Line(
-        points={{-79,6},{-62,6},{-62,67.2},{-58,67.2}},
-        color={255,0,255}));
+        points={{-79,6},{-62,6},{-62,67.2},{-58,67.2}}, color={255,0,255}));
     connect(and1.y, or1.u[1]) annotation (Line(
-        points={{-45.1,70},{-36.4,70},{-36.4,70.1},{-28,70.1}},
-        color={255,0,255}));
+        points={{-45.1,70},{-36.4,70},{-36.4,70.1},{-28,70.1}}, color={255,0,255}));
     connect(booleanPulse2.y, or1.u[2]) annotation (Line(
-        points={{-79,6},{-40,6},{-40,65.9},{-28,65.9}},
-        color={255,0,255}));
+        points={{-79,6},{-40,6},{-40,65.9},{-28,65.9}}, color={255,0,255}));
     connect(or1.y, xor1.u[1]) annotation (Line(
-        points={{-15.1,68},{-8,68},{-8,68.1},{-2,68.1}},
-        color={255,0,255}));
+        points={{-15.1,68},{-8,68},{-8,68.1},{-2,68.1}}, color={255,0,255}));
     connect(booleanPulse2.y, xor1.u[2]) annotation (Line(
-        points={{-79,6},{-12,6},{-12,63.9},{-2,63.9}},
-        color={255,0,255}));
+        points={{-79,6},{-12,6},{-12,63.9},{-2,63.9}}, color={255,0,255}));
     connect(and1.y, showValue.activePort) annotation (Line(
-        points={{-45.1,70},{-42,70},{-42,84},{-37.5,84}},
-        color={255,0,255}));
+        points={{-45.1,70},{-42,70},{-42,84},{-37.5,84}}, color={255,0,255}));
     connect(or1.y, showValue2.activePort) annotation (Line(
-        points={{-15.1,68},{-12,68},{-12,84},{-3.5,84}},
-        color={255,0,255}));
+        points={{-15.1,68},{-12,68},{-12,84},{-3.5,84}}, color={255,0,255}));
     connect(xor1.y, showValue3.activePort) annotation (Line(
-        points={{10.9,66},{22.5,66}},
-        color={255,0,255}));
+        points={{10.9,66},{22.5,66}}, color={255,0,255}));
     connect(xor1.y, nand1.u[1]) annotation (Line(
-        points={{10.9,66},{16,66},{16,48.1},{22,48.1}},
-        color={255,0,255}));
+        points={{10.9,66},{16,66},{16,48.1},{22,48.1}}, color={255,0,255}));
     connect(booleanPulse2.y, nand1.u[2]) annotation (Line(
-        points={{-79,6},{16,6},{16,44},{22,44},{22,43.9}},
-        color={255,0,255}));
+        points={{-79,6},{16,6},{16,44},{22,44},{22,43.9}}, color={255,0,255}));
     connect(nand1.y, or2.u[1]) annotation (Line(
-        points={{34.9,46},{46,46},{46,46.1}},
-        color={255,0,255}));
+        points={{34.9,46},{46,46},{46,46.1}}, color={255,0,255}));
     connect(booleanPulse2.y, or2.u[2]) annotation (Line(
-        points={{-79,6},{42,6},{42,41.9},{46,41.9}},
-        color={255,0,255}));
+        points={{-79,6},{42,6},{42,41.9},{46,41.9}}, color={255,0,255}));
     connect(or2.y, nor1.u) annotation (Line(
-        points={{58.9,44},{66.4,44}},
-        color={255,0,255}));
+        points={{58.9,44},{66.4,44}}, color={255,0,255}));
     connect(nor1.y, showValue4.activePort) annotation (Line(
-        points={{76.8,44},{88.5,44}},
-        color={255,0,255}));
+        points={{76.8,44},{88.5,44}}, color={255,0,255}));
     connect(booleanPulse2.y, rising.u) annotation (Line(
-        points={{-79,6},{-62,6},{-62,-11},{-57.6,-11}},
-        color={255,0,255}));
+        points={{-79,6},{-62,6},{-62,-11},{-57.6,-11}}, color={255,0,255}));
     connect(rising.y, set1.u[1]) annotation (Line(
-        points={{-47.2,-11},{-38.6,-11},{-38.6,-11.5},{-30,-11.5}},
-        color={255,0,255}));
+        points={{-47.2,-11},{-38.6,-11},{-38.6,-11.5},{-30,-11.5}}, color={255,0,255}));
     connect(falling.y, set1.u[2]) annotation (Line(
-        points={{-47.2,-28},{-40,-28},{-40,-14.5},{-30,-14.5}},
-        color={255,0,255}));
+        points={{-47.2,-28},{-40,-28},{-40,-14.5},{-30,-14.5}}, color={255,0,255}));
     connect(booleanPulse2.y, falling.u) annotation (Line(
-        points={{-79,6},{-62,6},{-62,-28},{-57.6,-28}},
-        color={255,0,255}));
+        points={{-79,6},{-62,6},{-62,-28},{-57.6,-28}}, color={255,0,255}));
     connect(booleanTable.y, onDelay.u) annotation (Line(
-        points={{-79,-90},{-57.6,-90}},
-        color={255,0,255}));
+        points={{-79,-90},{-57.6,-90}}, color={255,0,255}));
     connect(booleanPulse2.y, changing.u) annotation (Line(
-        points={{-79,6},{-62,6},{-62,-55},{-57.6,-55}},
-        color={255,0,255}));
+        points={{-79,6},{-62,6},{-62,-55},{-57.6,-55}}, color={255,0,255}));
     connect(integerConstant.y, triggeredAdd.u) annotation (Line(
-        points={{1,-50},{11.6,-50}},
-        color={255,127,0}));
+        points={{1,-50},{11.6,-50}}, color={255,127,0}));
     connect(changing.y, triggeredAdd.trigger) annotation (Line(
-        points={{-47.2,-55},{-30,-55},{-30,-74},{16.4,-74},{16.4,-57.2}},
-        color={255,0,255}));
+        points={{-47.2,-55},{-30,-55},{-30,-74},{16.4,-74},{16.4,-57.2}}, color={255,0,255}));
     connect(triggeredAdd.y, showValue1.numberPort) annotation (Line(
-        points={{27.2,-50},{38.5,-50}},
-        color={255,127,0}));
+        points={{27.2,-50},{38.5,-50}}, color={255,127,0}));
     connect(set1.y, showValue5.activePort) annotation (Line(
-        points={{11,-13},{22.5,-13}},
-        color={255,0,255}));
+        points={{11,-13},{22.5,-13}}, color={255,0,255}));
     connect(onDelay.y, showValue6.activePort) annotation (Line(
-        points={{-47.2,-90},{-33.5,-90}},
-        color={255,0,255}));
+        points={{-47.2,-90},{-33.5,-90}}, color={255,0,255}));
     connect(sampleTriggerSet.y, rSFlipFlop.S) annotation (Line(
-        points={{54.7,-69},{60,-69},{60,-74},{68,-74}},
-        color={255,0,255}));
+        points={{54.7,-69},{60,-69},{60,-74},{68,-74}}, color={255,0,255}));
     connect(sampleTriggerReset.y, rSFlipFlop.R) annotation (Line(
-        points={{54.7,-91},{60,-91},{60,-86},{68,-86}},
-        color={255,0,255}));
+        points={{54.7,-91},{60,-91},{60,-86},{68,-86}}, color={255,0,255}));
     annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>
 This example demonstrates a network of Boolean blocks
@@ -937,8 +927,8 @@ Note, that
 
 <li> the Boolean values of the input and output signals are visualized
      in the diagram animation, by the small \"circles\" close to the connectors.
-     If a \"circle\" is \"white\", the signal is <b>false</b>. If a
-     \"circle\" is \"green\", the signal is <b>true</b>.</li>
+     If a \"circle\" is \"white\", the signal is <strong>false</strong>. If a
+     \"circle\" is \"green\", the signal is <strong>true</strong>.</li>
 
 </ul>
 
@@ -969,14 +959,11 @@ Note, that
       annotation (Placement(transformation(extent={{48,64},{60,76}})));
   equation
     connect(integerTable.y, integerValue.numberPort) annotation (Line(
-        points={{-59,30},{-41.5,30}},
-        color={255,127,0}));
+        points={{-59,30},{-41.5,30}}, color={255,127,0}));
     connect(timeTable.y, realValue.numberPort) annotation (Line(
-        points={{-59,70},{-41.5,70}},
-        color={0,0,127}));
+        points={{-59,70},{-41.5,70}}, color={0,0,127}));
     connect(booleanTable.y, booleanValue.activePort) annotation (Line(
-        points={{-59,-10},{-41.5,-10}},
-        color={255,0,255}));
+        points={{-59,-10},{-41.5,-10}}, color={255,0,255}));
     annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>
 This example demonstrates a network of blocks
@@ -1014,23 +1001,19 @@ to show how diagram animations can be constructed.
   equation
 
     connect(sine.y, controlBus.realSignal1) annotation (Line(
-        points={{-39,50},{12,50},{12,14},{30,14},{30,10}},
-        color={0,0,127}));
+        points={{-39,50},{12,50},{12,14},{30,14},{30,10}}, color={0,0,127}));
     connect(booleanStep.y, controlBus.booleanSignal) annotation (Line(
-        points={{-37,10},{30,10}},
-        color={255,0,255}));
+        points={{-37,10},{30,10}}, color={255,0,255}));
     connect(integerStep.y, controlBus.integerSignal) annotation (Line(
-        points={{-39,-30},{0,-30},{0,6},{32,6},{32,10},{30,10}},
-        color={255,127,0}));
+        points={{-39,-30},{0,-30},{0,6},{32,6},{32,10},{30,10}}, color={255,127,0}));
     connect(part.subControlBus, controlBus.subControlBus) annotation (Line(
         points={{-40,-70},{30,-70},{30,10}},
         color={255,204,51},
         thickness=0.5));
     connect(gain.u, controlBus.realSignal1) annotation (Line(
-        points={{-38,80},{20,80},{20,18},{32,18},{32,10},{30,10}},
-        color={0,0,127}));
+        points={{-38,80},{20,80},{20,18},{32,18},{32,10},{30,10}}, color={0,0,127}));
     annotation (Documentation(info="<html>
-<p><b>Signal bus concept</b></p>
+<p><strong>Signal bus concept</strong></p>
 <p>
 In technical systems, such as vehicles, robots or satellites, many signals
 are exchanged between components. In a simulation system, these signals
@@ -1053,27 +1036,27 @@ at hand of this model (Modelica.Blocks.Examples.BusUsage):
 <ul>
 <li> Connector instance \"controlBus\" is a hierarchical connector that is
      used to exchange signals between different components. It is
-     defined as \"expandable connector\" in order that <b>no</b> central definition
+     defined as \"expandable connector\" in order that <strong>no</strong> central definition
      of the connector is needed but is automatically constructed by the
      signals connected to it (see also Modelica specification 2.2.1).</li>
 <li> Input/output signals can be directly connected to the \"controlBus\".</li>
 <li> A component, such as \"part\", can be directly connected to the \"controlBus\",
      provided it has also a bus connector, or the \"part\" connector is a
-     sub-connector contained in the \"controlBus\". </li>
+     sub-connector contained in the \"controlBus\".</li>
 </ul>
 
 <p>
 The control and sub-control bus icons are provided within Modelica.Icons.
 In <a href=\"modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces\">Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces</a>
 the buses for this example are defined. Both the \"ControlBus\" and the \"SubControlBus\" are
-<b>expandable</b> connectors that do not define any variable. For example,
+<strong>expandable</strong> connectors that do not define any variable. For example,
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.ControlBus#text\">Interfaces.ControlBus</a>
 is defined as:
 </p>
-<pre>  <b>expandable connector</b> ControlBus
-      <b>extends</b> Modelica.Icons.ControlBus;
-      <b>annotation</b> ();
-  <b>end</b> ControlBus;
+<pre>  <strong>expandable connector</strong> ControlBus
+      <strong>extends</strong> Modelica.Icons.ControlBus;
+      <strong>annotation</strong> ();
+  <strong>end</strong> ControlBus;
 </pre>
 <p>
 Note, the \"annotation\" in the connector is important since the color
@@ -1086,10 +1069,9 @@ the color of the \"ControlBus\" with double width (due to \"thickness=0.5\").
 </p>
 
 <p>
-An <b>expandable</b> connector is a connector where the content of the connector
+An <strong>expandable</strong> connector is a connector where the content of the connector
 is constructed by the variables connected to instances of this connector.
-For example, if \"sine.y\" is connected to the \"controlBus\", the following
-menu pops-up in Dymola:
+For example, if \"sine.y\" is connected to the \"controlBus\", a pop-up menu may appear:
 </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Blocks/BusUsage2.png\"
@@ -1100,29 +1082,27 @@ The \"Add variable/New name\" field allows the user to define the name of the si
 the \"controlBus\". When typing \"realSignal1\" as \"New name\", a connection of the form:
 </p>
 
-<pre>     <b>connect</b>(sine.y, controlBus.realSignal1)
+<pre>     <strong>connect</strong>(sine.y, controlBus.realSignal1)
 </pre>
 
 <p>
 is generated and the \"controlBus\" contains the new signal \"realSignal1\". Modelica tools
-may give more support in order to list potential signals for a connection.
-For example, in Dymola all variables are listed in the menu that are contained in
-connectors which are derived by inheritance from \"controlBus\". Therefore, in
+may give more support in order to list potential signals for a connection. Therefore, in
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces\">BusUsage_Utilities.Interfaces</a>
 the expected implementation of the \"ControlBus\" and of the \"SubControlBus\" are given.
 For example \"Internal.ControlBus\" is defined as:
 </p>
 
-<pre>  <b>expandable connector</b> StandardControlBus
-    <b>extends</b> BusUsage_Utilities.Interfaces.ControlBus;
+<pre>  <strong>expandable connector</strong> StandardControlBus
+    <strong>extends</strong> BusUsage_Utilities.Interfaces.ControlBus;
 
-    <b>import</b> SI = Modelica.SIunits;
+    <strong>import</strong> SI = Modelica.SIunits;
     SI.AngularVelocity    realSignal1   \"First Real signal\";
     SI.Velocity           realSignal2   \"Second Real signal\";
     Integer               integerSignal \"Integer signal\";
     Boolean               booleanSignal \"Boolean signal\";
     StandardSubControlBus subControlBus \"Combined signal\";
-  <b>end</b> StandardControlBus;
+  <strong>end</strong> StandardControlBus;
 </pre>
 
 <p>
@@ -1140,6 +1120,119 @@ just potential signals. The user might still add different signal names.
 
 </html>"), experiment(StopTime=2));
   end BusUsage;
+
+  model Rectifier6pulseFFT "Example of FFT block"
+    extends Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse;
+    Modelica.Blocks.Math.RealFFT realFFT(
+      startTime=0.04,
+      f_max=2000,
+      f_res=5,
+      resultFileName="rectifier6pulseFFTresult.mat")
+                                               annotation (Placement(
+          transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=270,
+          origin={-70,-30})));
+  equation
+    connect(currentSensor.i[1], realFFT.u)
+      annotation (Line(points={{-70,-11},{-70,-18}}, color={0,0,127}));
+    annotation (experiment(StopTime=2.5, Interval=0.0001),
+      Documentation(info="<html>
+<p>
+This example is based on a <a href=\"modelica://Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse\">6-pulse rectifier example</a>,
+calculating the harmonics with the <a href=\"modelica://Modelica.Blocks.Math.RealFFT\">FFT block</a>.
+</p>
+<p>
+As expected, one can see the 5<sup>th</sup>, 7<sup>th</sup>, 11<sup>th</sup>, 13<sup>th</sup>, 17<sup>th</sup>, 19<sup>th</sup>, 23<sup>th</sup>, 25<sup>th</sup>, ... harmonic in the result.
+</p>
+</html>"));
+  end Rectifier6pulseFFT;
+
+  model Rectifier12pulseFFT "Example of FFT block"
+    extends Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulse;
+    Modelica.Blocks.Math.RealFFT realFFT(
+      startTime=0.04,
+      f_max=2000,
+      f_res=5,
+      resultFileName="rectifier12pulseFFTresult.mat")
+                                                annotation (Placement(
+          transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=270,
+          origin={-70,-30})));
+  equation
+    connect(currentSensor.i[1], realFFT.u) annotation (Line(points={{-70,-11},{
+            -70,-14.5},{-70,-18}}, color={0,0,127}));
+    annotation (experiment(StopTime=2.5, Interval=0.0001),
+      Documentation(info="<html>
+<p>
+This example is based on a <a href=\"modelica://Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulse\">12-pulse rectifier example</a>,
+calculating the harmonics with the <a href=\"modelica://Modelica.Blocks.Math.RealFFT\">FFT block</a>.
+</p>
+<p>
+As expected, one can see the 11<sup>th</sup>, 13<sup>th</sup>, 23<sup>th</sup>, 25<sup>th</sup>, ... harmonic in the result.
+</p>
+</html>"));
+  end Rectifier12pulseFFT;
+
+  model TotalHarmonicDistortion "Calculation of total harmonic distortion of voltage"
+    import Modelica;
+    extends Modelica.Icons.Example;
+    parameter Modelica.SIunits.Frequency f1 = 50 "Fundamental wave frequency";
+    parameter Modelica.SIunits.Voltage V1 = 100 "Fundamental wave RMS voltage";
+    parameter Modelica.SIunits.Voltage V3 = 20 "Third harmonic wave RMS voltage";
+    final parameter Real THD1 = V3/V1 "Theoretically obtained THD with respect to fundamental wave";
+    final parameter Real THDrms = V3/sqrt(V1^2+V3^2) "Theoretically obtained THD with respect to RMS";
+    Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
+    Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage3(V=sqrt(2)*V3, freqHz=3*f1,
+      startTime=0.02)                                           annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=270,
+          origin={-40,10})));
+    Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage1(V=sqrt(2)*V1, freqHz=f1,
+      startTime=0.02)                                           annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=270,
+          origin={-40,-20})));
+    Modelica.Electrical.Analog.Sensors.VoltageSensor voltageSensor annotation (Placement(transformation(
+          extent={{-10,10},{10,-10}},
+          rotation=270,
+          origin={0,0})));
+    Modelica.Blocks.Math.TotalHarmonicDistortion thd1(f=f1) annotation (Placement(transformation(extent={{30,10},{50,30}})));
+    Modelica.Blocks.Math.TotalHarmonicDistortion thdRMS(f=f1, useFirstHarmonic=false) annotation (Placement(transformation(extent={{30,-30},{50,-10}})));
+  equation
+    connect(voltageSensor.p, sineVoltage3.p) annotation (Line(points={{0,10},{0,30},{-40,30},{-40,20}}, color={0,0,255}));
+    connect(sineVoltage3.n, sineVoltage1.p) annotation (Line(points={{-40,0},{-40,-10}}, color={0,0,255}));
+    connect(sineVoltage1.n, ground.p) annotation (Line(points={{-40,-30},{-40,-40}}, color={0,0,255}));
+    connect(ground.p, voltageSensor.n) annotation (Line(points={{-40,-40},{-40,-30},{0,-30},{0,-10}}, color={0,0,255}));
+    connect(thd1.u, voltageSensor.v) annotation (Line(points={{28,20},{20,20},{20,0},{11,0}}, color={0,0,127}));
+    connect(voltageSensor.v, thdRMS.u) annotation (Line(points={{11,0},{20,0},{20,-20},{28,-20}}, color={0,0,127}));
+    annotation (experiment(
+        StopTime=0.1,
+        Interval=0.0001,
+        Tolerance=1e-06), Documentation(info="<html>
+<p>This example compares the result of the
+<a href=\"modelica://Modelica.Blocks.Math.TotalHarmonicDistortion\">total harmonic distortion (THD)</a>
+with respect to the fundamental wave and with respect to the total root mean square (RMS).
+In this simulation model a non-sinusoidal voltage
+wave form is created by the superposition two voltage waves:</p>
+
+<ul>
+<li>Fundamental wave with RMS voltage <code>V1</code> and frequency <code>f1</code></li>
+<li>Third harmonic wave with RMS voltage <code>V3</code> and frequency <code>3*f1</code></li>
+</ul>
+
+<p>This simulation model compares numerically determined THD values with results, obtained by
+theoretical calculations:</p>
+
+<ul>
+<li>Compare the numerically determined THD value <code>thd1.y</code> and the theoretical value <code>THD1</code>,
+    both with respect to the fundamental wave; also plot <code>thd1.valid</code></li>
+<li>Compare the numerically determined THD value <code>thdRMS.y</code> and the theoretical value <code>THDrms</code>,
+    both with respect to the RMS value; also plot <code>thdRMS.valid</code></li>
+</ul>
+</html>"));
+  end TotalHarmonicDistortion;
 
   package NoiseExamples
     "Library of examples to demonstrate the usage of package Blocks.Noise"
@@ -1161,7 +1254,7 @@ just potential signals. The user might still add different signal names.
         useAutomaticLocalSeed=false,
         fixedLocalSeed=10)
         annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
-     annotation (experiment(StopTime=2),    Documentation(info="<html>
+     annotation (experiment(StopTime=2), Documentation(info="<html>
 <p>
 This example demonstrates the most simple usage of the
 <a href=\"modelica://Modelica.Blocks.Noise.UniformNoise\">Noise.UniformNoise</a>
@@ -1169,12 +1262,12 @@ block:
 </p>
 
 <ul>
-<li> <b>globalSeed</b> is the <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Noise.GlobalSeed</a>
+<li> <strong>globalSeed</strong> is the <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Noise.GlobalSeed</a>
      block with default options (just dragged from sublibrary Noise).</li>
-<li> <b>uniformNoise1</b> is an instance of
+<li> <strong>uniformNoise1</strong> is an instance of
      <a href=\"modelica://Modelica.Blocks.Noise.UniformNoise\">Noise.UniformNoise</a> with
      samplePeriod = 0.02 s and a Uniform distribution with limits y_min=-1, y_max=3.</li>
-<li> <b>uniformNoise2</b> is identical to uniformNoise1 with the exception that
+<li> <strong>uniformNoise2</strong> is identical to uniformNoise1 with the exception that
       useAutomaticLocalSeed=false and fixedLocalSeed=10.</li>
 </ul>
 
@@ -1191,11 +1284,11 @@ The result of a simulation is shown in the next diagram:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1210,7 +1303,6 @@ The result of a simulation is shown in the next diagram:
 
     model AutomaticSeed
       "Demonstrates noise with startTime and automatic local seed for UniformNoise"
-      import Modelica;
        extends Modelica.Icons.Example;
        parameter Modelica.SIunits.Time startTime = 0.5 "Start time of noise";
        parameter Real y_off = -1.0 "Output of block before startTime";
@@ -1260,10 +1352,10 @@ The result of a simulation is shown in the next diagram:
         useAutomaticLocalSeed=false,y_min=-1, y_max=3,
         fixedLocalSeed=3)
         annotation (Placement(transformation(extent={{0,-60},{20,-40}})));
-     annotation (experiment(StopTime=2),    Documentation(info="<html>
+     annotation (experiment(StopTime=2), Documentation(info="<html>
 <p>
 This example demonstrates manual and automatic seed selection of
-<a href=\"Modelica.Blocks.Noise.UniformNoise\">UniformNoise</a> blocks, as well
+<a href=\"modelica://Modelica.Blocks.Noise.UniformNoise\">UniformNoise</a> blocks, as well
 as starting the noise at startTime = 0.5 s with an output value of y = -1 before this
 time. All noise blocks in this example generate uniform noise in the
 band y_min=-1 .. y_max=3 with samplePeriod = 0.01 s.
@@ -1298,11 +1390,11 @@ manualSeed2 will produce exactly the same noise.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1344,7 +1436,7 @@ manualSeed2 will produce exactly the same noise.
         y_min=y_min,
         y_max=y_max)
         annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
-     annotation (experiment(StopTime=2),    Documentation(info="<html>
+     annotation (experiment(StopTime=2), Documentation(info="<html>
 <p>
 This example demonstrates different noise distributions methods that can be selected
 for a Noise block. Both noise blocks use samplePeriod = 0.02 s, y_min=-1, y_max=3, and have
@@ -1360,17 +1452,17 @@ Simulation results are shown in the next diagram:
 
 <p>
 As can be seen, uniform noise is distributed evenly between -1 and 3, and
-truncated normal distriution has more values centered around the mean value 1.
+truncated normal distribution has more values centered around the mean value 1.
 </p>
 </html>",     revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1425,44 +1517,33 @@ truncated normal distriution has more values centered around the mean value 1.
         annotation (Placement(transformation(extent={{40,-60},{60,-80}})));
     equation
       connect(noise.y, mean.u) annotation (Line(
-          points={{-59,70},{-42,70}},
-          color={0,0,127}));
+          points={{-59,70},{-42,70}}, color={0,0,127}));
       connect(noise.y, variance.u) annotation (Line(
-          points={{-59,70},{-52,70},{-52,10},{-42,10}},
-          color={0,0,127}));
+          points={{-59,70},{-52,70},{-52,10},{-42,10}}, color={0,0,127}));
       connect(mean.y, meanError.u1) annotation (Line(
-          points={{-19,70},{42,70}},
-          color={0,0,127}));
+          points={{-19,70},{42,70}}, color={0,0,127}));
       connect(theoreticalMean.y, meanError.u2) annotation (Line(
-          points={{11,50},{50,50},{50,62}},
-          color={0,0,127}));
+          points={{11,50},{50,50},{50,62}}, color={0,0,127}));
       connect(theoreticalSigma.y, theoreticalVariance.u[1]) annotation (Line(
-          points={{11,-30},{24,-30},{24,-27.9},{28,-27.9}},
-          color={0,0,127}));
+          points={{11,-30},{24,-30},{24,-27.9},{28,-27.9}}, color={0,0,127}));
       connect(theoreticalSigma.y, theoreticalVariance.u[2]) annotation (Line(
-          points={{11,-30},{24,-30},{24,-32.1},{28,-32.1}},
-          color={0,0,127}));
+          points={{11,-30},{24,-30},{24,-32.1},{28,-32.1}}, color={0,0,127}));
       connect(variance.y, varianceError.u1) annotation (Line(
-          points={{-19,10},{42,10}},
-          color={0,0,127}));
+          points={{-19,10},{42,10}}, color={0,0,127}));
       connect(theoreticalVariance.y, varianceError.u2) annotation (Line(
-          points={{41.02,-30},{50,-30},{50,2}},
-          color={0,0,127}));
+          points={{41.02,-30},{50,-30},{50,2}}, color={0,0,127}));
       connect(noise.y, standardDeviation.u) annotation (Line(
-          points={{-59,70},{-52,70},{-52,-70},{-42,-70}},
-          color={0,0,127}));
+          points={{-59,70},{-52,70},{-52,-70},{-42,-70}}, color={0,0,127}));
       connect(standardDeviation.y, sigmaError.u1) annotation (Line(
-          points={{-19,-70},{42,-70}},
-          color={0,0,127}));
+          points={{-19,-70},{42,-70}}, color={0,0,127}));
       connect(theoreticalSigma.y, sigmaError.u2) annotation (Line(
-          points={{11,-30},{18,-30},{18,-42},{50,-42},{50,-62}},
-          color={0,0,127}));
+          points={{11,-30},{18,-30},{18,-42},{50,-42},{50,-62}}, color={0,0,127}));
      annotation (experiment(StopTime=20, Interval=0.4e-2, Tolerance=1e-009),
         Documentation(info="<html>
 <p>
 This example demonstrates statistical properties of the
 <a href=\"modelica://Modelica.Blocks.Noise.UniformNoise\">Blocks.Noise.UniformNoise</a> block
-using a <b>uniform</b> random number distribution.
+using a <strong>uniform</strong> random number distribution.
 Block &quot;noise&quot; defines a band of 0 .. 6 and from the generated noise the mean and the variance
 is computed with blocks of package <a href=\"modelica://Modelica.Blocks.Math\">Blocks.Math</a>.
 Simulation results are shown in the next diagram:
@@ -1482,11 +1563,11 @@ distribution have good statistical properties.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1540,44 +1621,33 @@ distribution have good statistical properties.
         annotation (Placement(transformation(extent={{40,-60},{60,-80}})));
     equation
       connect(noise.y, mean.u) annotation (Line(
-          points={{-59,70},{-42,70}},
-          color={0,0,127}));
+          points={{-59,70},{-42,70}}, color={0,0,127}));
       connect(noise.y, variance.u) annotation (Line(
-          points={{-59,70},{-52,70},{-52,10},{-42,10}},
-          color={0,0,127}));
+          points={{-59,70},{-52,70},{-52,10},{-42,10}}, color={0,0,127}));
       connect(mean.y, meanError.u1) annotation (Line(
-          points={{-19,70},{42,70}},
-          color={0,0,127}));
+          points={{-19,70},{42,70}}, color={0,0,127}));
       connect(theoreticalMean.y, meanError.u2) annotation (Line(
-          points={{11,50},{50,50},{50,62}},
-          color={0,0,127}));
+          points={{11,50},{50,50},{50,62}}, color={0,0,127}));
       connect(theoreticalSigma.y, theoreticalVariance.u[1]) annotation (Line(
-          points={{11,-30},{24,-30},{24,-27.9},{28,-27.9}},
-          color={0,0,127}));
+          points={{11,-30},{24,-30},{24,-27.9},{28,-27.9}}, color={0,0,127}));
       connect(theoreticalSigma.y, theoreticalVariance.u[2]) annotation (Line(
-          points={{11,-30},{24,-30},{24,-32.1},{28,-32.1}},
-          color={0,0,127}));
+          points={{11,-30},{24,-30},{24,-32.1},{28,-32.1}}, color={0,0,127}));
       connect(variance.y, varianceError.u1) annotation (Line(
-          points={{-19,10},{42,10}},
-          color={0,0,127}));
+          points={{-19,10},{42,10}}, color={0,0,127}));
       connect(theoreticalVariance.y, varianceError.u2) annotation (Line(
-          points={{41.02,-30},{50,-30},{50,2}},
-          color={0,0,127}));
+          points={{41.02,-30},{50,-30},{50,2}}, color={0,0,127}));
       connect(noise.y, standardDeviation.u) annotation (Line(
-          points={{-59,70},{-52,70},{-52,-70},{-42,-70}},
-          color={0,0,127}));
+          points={{-59,70},{-52,70},{-52,-70},{-42,-70}}, color={0,0,127}));
       connect(standardDeviation.y, sigmaError.u1) annotation (Line(
-          points={{-19,-70},{42,-70}},
-          color={0,0,127}));
+          points={{-19,-70},{42,-70}}, color={0,0,127}));
       connect(theoreticalSigma.y, sigmaError.u2) annotation (Line(
-          points={{11,-30},{18,-30},{18,-42},{50,-42},{50,-62}},
-          color={0,0,127}));
+          points={{11,-30},{18,-30},{18,-42},{50,-42},{50,-62}}, color={0,0,127}));
      annotation (experiment(StopTime=20, Interval=0.4e-2, Tolerance=1e-009),
     Documentation(info="<html>
 <p>
 This example demonstrates statistical properties of the
 <a href=\"modelica://Modelica.Blocks.Noise.NormalNoise\">Blocks.Noise.NormalNoise</a> block
-using a <b>normal</b> random number distribution with mu=3, sigma=1.
+using a <strong>normal</strong> random number distribution with mu=3, sigma=1.
 From the generated noise the mean and the variance
 is computed with blocks of package <a href=\"modelica://Modelica.Blocks.Math\">Blocks.Math</a>.
 Simulation results are shown in the next diagram:
@@ -1597,11 +1667,11 @@ distribution have good statistical properties.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1638,20 +1708,15 @@ distribution have good statistical properties.
         annotation (Placement(transformation(extent={{10,-40},{30,-20}})));
     equation
       connect(clock.y, add.u1) annotation (Line(
-      points={{-59,20},{-53.5,20},{-53.5,6},{-48,6}},
-      color={0,0,127}));
+      points={{-59,20},{-53.5,20},{-53.5,6},{-48,6}}, color={0,0,127}));
       connect(const.y, add.u2) annotation (Line(
-      points={{-59,-20},{-54,-20},{-54,-6},{-48,-6}},
-      color={0,0,127}));
+      points={{-59,-20},{-54,-20},{-54,-6},{-48,-6}}, color={0,0,127}));
       connect(add.y, uniformDensity.u) annotation (Line(
-      points={{-25,0},{-14,0},{-14,30},{8,30}},
-      color={0,0,127}));
+      points={{-25,0},{-14,0},{-14,30},{8,30}}, color={0,0,127}));
       connect(add.y, normalDensity.u) annotation (Line(
-      points={{-25,0},{8,0}},
-      color={0,0,127}));
+      points={{-25,0},{8,0}}, color={0,0,127}));
       connect(add.y, weibullDensity.u) annotation (Line(
-      points={{-25,0},{-14,0},{-14,-30},{8,-30}},
-      color={0,0,127}));
+      points={{-25,0},{-14,0},{-14,-30},{8,-30}}, color={0,0,127}));
      annotation (experiment(StopTime=20, Interval=2e-2),
         Documentation(info="<html>
 <p>
@@ -1669,11 +1734,11 @@ inputs:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1696,7 +1761,7 @@ inputs:
 
       Utilities.ImpureRandom impureRandom(samplePeriod=0.01)
         annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
-     annotation (experiment(StopTime=2),    Documentation(info="<html>
+     annotation (experiment(StopTime=2), Documentation(info="<html>
 <p>
 This example demonstrates how to use the
 <a href=\"modelica://Modelica.Math.Random.Utilities.impureRandom\">impureRandom(..)</a> function
@@ -1712,11 +1777,11 @@ generator. Simulation results are shown in the next figure:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1768,33 +1833,25 @@ generator. Simulation results are shown in the next figure:
         annotation (Placement(transformation(extent={{60,60},{80,80}})));
     equation
       connect(controller.y1, motor.iq_rms1) annotation (Line(
-          points={{-81,50},{-94,50},{-94,6},{-88,6}},
-          color={0,0,127}));
+          points={{-81,50},{-94,50},{-94,6},{-88,6}}, color={0,0,127}));
       connect(motor.phi, controller.positionMeasured) annotation (Line(
-          points={{-71,8},{-66,8},{-66,20},{-50,20},{-50,44},{-58,44}},
-          color={0,0,127}));
+          points={{-71,8},{-66,8},{-66,20},{-50,20},{-50,44},{-58,44}}, color={0,0,127}));
       connect(motor.flange, gearbox.flange_a) annotation (Line(
           points={{-66,0},{-60,0}}));
       connect(gearbox.flange_b, idealGearR2T.flangeR) annotation (Line(
           points={{-40,0},{-32,0}}));
       connect(constantForce.flange, mass.flange_b) annotation (Line(
-          points={{76,0},{70,0}},
-          color={0,127,0}));
+          points={{76,0},{70,0}}, color={0,127,0}));
       connect(speed.y, slewRateLimiter.u) annotation (Line(
-          points={{-1,50},{-18,50}},
-          color={0,0,127}));
+          points={{-1,50},{-18,50}}, color={0,0,127}));
       connect(slewRateLimiter.y, controller.positionReference) annotation (Line(
-          points={{-41,50},{-50,50},{-50,56},{-58,56}},
-          color={0,0,127}));
+          points={{-41,50},{-50,50},{-50,56},{-58,56}}, color={0,0,127}));
       connect(rodMass.flange_a, idealGearR2T.flangeT) annotation (Line(
-          points={{-4,0},{-12,0}},
-          color={0,127,0}));
+          points={{-4,0},{-12,0}}, color={0,127,0}));
       connect(rodMass.flange_b, elastoGap.flange_a) annotation (Line(
-          points={{16,0},{22,0}},
-          color={0,127,0}));
+          points={{16,0},{22,0}}, color={0,127,0}));
       connect(elastoGap.flange_b, mass.flange_a) annotation (Line(
-          points={{42,0},{50,0}},
-          color={0,127,0}));
+          points={{42,0},{50,0}}, color={0,127,0}));
       annotation (
         experiment(StopTime=8, Interval = 0.01, Tolerance=1e-005),
         Documentation(info="<html>
@@ -1837,11 +1894,11 @@ enableNoise = false in the globalSeed component.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1882,11 +1939,9 @@ enableNoise = false in the globalSeed component.
         annotation (Placement(transformation(extent={{40,60},{60,80}})));
     equation
       connect(whiteNoise.y, Hw.u) annotation (Line(
-          points={{-39,10},{-12,10}},
-          color={0,0,127}));
+          points={{-39,10},{-12,10}}, color={0,0,127}));
       connect(Hw.y, compareToSpeed.u) annotation (Line(
-          points={{11,10},{38,10}},
-          color={0,0,127}));
+          points={{11,10},{38,10}}, color={0,0,127}));
       annotation (experiment(StopTime=100),
      Documentation(info="<html>
 <p>
@@ -1914,10 +1969,10 @@ The spectrum is parametrized with the following parameters:
 </p>
 
 <ul>
-<li> Lw is the turbulence scale. <br>In low altitudes, it is equal to the flight altitude.</li>
-<li> sigma is the turbulence intensity. <br>In low altitudes, it is equal to 1/10 of the
+<li> Lw is the turbulence scale.<br>In low altitudes, it is equal to the flight altitude.</li>
+<li> sigma is the turbulence intensity.<br>In low altitudes, it is equal to 1/10 of the
      wind speed at 20 ft altitude, which is 30 kts for medium turbulence.</li>
-<li> Omega is the spatial frequency. <br> The turbulence model is thus defined in space and the aircraft experiences turbulence as it flies through the defined wind field.</li>
+<li> Omega is the spatial frequency.<br> The turbulence model is thus defined in space and the aircraft experiences turbulence as it flies through the defined wind field.</li>
 <li> Omega = s/V will be used to transform the spatial definition into a temporal definition, which can be realized as a state space system.</li>
 <li> V is the airspeed of the aircraft.<br>It is approximately 150 kts during the approach (i.e. at low altitudes).</li>
 </ul>
@@ -1987,7 +2042,7 @@ Reference
                 lineColor={192,192,192},
                 fillColor={192,192,192},
                 fillPattern=FillPattern.Solid),
-              Line(points={{0,76},{0,-72}},     color={192,192,192}),
+              Line(points={{0,76},{0,-72}}, color={192,192,192}),
               Line(points={{-86,-82},{72,-82}},
                                             color={192,192,192}),
               Polygon(
@@ -2010,7 +2065,7 @@ Reference
 <p>
 This block determines the probability density y of a uniform distribution for the given input signal u
 (for details of this density function see
-<a href=\"Modelica.Math.Distributions.Uniform.density\">Math.Distributions.Uniform.density</a>).
+<a href=\"modelica://Modelica.Math.Distributions.Uniform.density\">Math.Distributions.Uniform.density</a>).
 </p>
 
 <p>
@@ -2021,11 +2076,11 @@ This block is demonstrated in the example
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2058,7 +2113,7 @@ This block is demonstrated in the example
                 lineColor={192,192,192},
                 fillColor={192,192,192},
                 fillPattern=FillPattern.Solid),
-              Line(points={{0,76},{0,-72}},     color={192,192,192}),
+              Line(points={{0,76},{0,-72}}, color={192,192,192}),
               Line(points={{-86,-82},{72,-82}},
                                             color={192,192,192}),
               Polygon(
@@ -2081,7 +2136,7 @@ This block is demonstrated in the example
 <p>
 This block determines the probability density y of a normal distribution for the given input signal u
 (for details of this density function see
-<a href=\"Modelica.Math.Distributions.Normal.density\">Math.Distributions.Normal.density</a>).
+<a href=\"modelica://Modelica.Math.Distributions.Normal.density\">Math.Distributions.Normal.density</a>).
 </p>
 
 <p>
@@ -2092,11 +2147,11 @@ This block is demonstrated in the example
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2130,7 +2185,7 @@ This block is demonstrated in the example
                 lineColor={192,192,192},
                 fillColor={192,192,192},
                 fillPattern=FillPattern.Solid),
-              Line(points={{0,76},{0,-72}},     color={192,192,192}),
+              Line(points={{0,76},{0,-72}}, color={192,192,192}),
               Line(points={{-86,-82},{72,-82}},
                                             color={192,192,192}),
               Polygon(
@@ -2153,7 +2208,7 @@ This block is demonstrated in the example
 <p>
 This block determines the probability density y of a Weibull distribution for the given input signal u
 (for details of this density function see
-<a href=\"Modelica.Math.Distributions.Weibull.density\">Math.Distributions.Weibull.density</a>).
+<a href=\"modelica://Modelica.Math.Distributions.Weibull.density\">Math.Distributions.Weibull.density</a>).
 </p>
 
 <p>
@@ -2164,11 +2219,11 @@ This block is demonstrated in the example
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2205,11 +2260,11 @@ random number generator. This block is used in the example
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2360,75 +2415,58 @@ random number generator. This block is used in the example
           connect(rotorDisplacementAngle.plug_n, smpm.plug_sn) annotation (Line(
                 points={{26,-30},{26,-20},{-16,-20},{-16,-30}}, color={0,0,255}));
           connect(rotorDisplacementAngle.plug_p, smpm.plug_sp) annotation (Line(
-                points={{14,-30},{6,-30},{-4,-30}},
-                                            color={0,0,255}));
+                points={{14,-30},{6,-30},{-4,-30}}, color={0,0,255}));
           connect(terminalBox.plug_sn, smpm.plug_sn) annotation (Line(
-              points={{-16,-26},{-16,-30}},
-              color={0,0,255}));
+              points={{-16,-26},{-16,-30}}, color={0,0,255}));
           connect(terminalBox.plug_sp, smpm.plug_sp) annotation (Line(
-              points={{-4,-26},{-4,-30}},
-              color={0,0,255}));
+              points={{-4,-26},{-4,-30}}, color={0,0,255}));
           connect(smpm.flange, rotorDisplacementAngle.flange) annotation (Line(
               points={{0,-40},{6,-40},{10,-40}}));
           connect(signalCurrent.plug_p, star.plug_p) annotation (Line(
-              points={{-10,60},{-10,90}},
-              color={0,0,255}));
+              points={{-10,60},{-10,90}}, color={0,0,255}));
           connect(angleSensor.flange, rotorDisplacementAngle.flange) annotation (Line(
               points={{10,-10},{10,-40}}));
           connect(angleSensor.phi, currentController.phi) annotation (Line(
-              points={{10,11},{10,30},{-40,30},{-40,38}},
-              color={0,0,127}));
+              points={{10,11},{10,30},{-40,30},{-40,38}}, color={0,0,127}));
           connect(groundM.p, terminalBox.starpoint) annotation (Line(
-              points={{-70,-28},{-19,-28},{-19,-24}},
-              color={0,0,255}));
+              points={{-70,-28},{-19,-28},{-19,-24}}, color={0,0,255}));
           connect(smpm.flange, torqueSensor.flange_a) annotation (Line(
               points={{0,-40},{40,-40}}));
           connect(voltageQuasiRMSSensor.plug_p, terminalBox.plugSupply) annotation (
               Line(
-              points={{-20,-10},{-10,-10},{-10,-24}},
-              color={0,0,255}));
+              points={{-20,-10},{-10,-10},{-10,-24}}, color={0,0,255}));
           connect(starM.plug_p, voltageQuasiRMSSensor.plug_n) annotation (Line(
-              points={{-50,-10},{-40,-10}},
-              color={0,0,255}));
+              points={{-50,-10},{-40,-10}}, color={0,0,255}));
           connect(starM.pin_n, groundM.p) annotation (Line(
-              points={{-70,-10},{-70,-28}},
-              color={0,0,255}));
+              points={{-70,-10},{-70,-28}}, color={0,0,255}));
           connect(currentController.y, signalCurrent.i) annotation (Line(
-              points={{-29,50},{-24,50},{-17,50}},
-              color={0,0,127}));
+              points={{-29,50},{-24,50},{-17,50}}, color={0,0,127}));
           connect(speedSensor.flange, smpm.flange) annotation (Line(
               points={{30,-10},{30,-40},{0,-40}}));
           connect(torqueSensor.flange_b, inertiaLoad.flange_a) annotation (Line(
               points={{60,-40},{60,-40},{70,-40}}));
           connect(signalCurrent.plug_n, currentQuasiRMSSensor.plug_p) annotation (
              Line(
-              points={{-10,40},{-10,10}},
-              color={0,0,255}));
+              points={{-10,40},{-10,10}}, color={0,0,255}));
           connect(currentQuasiRMSSensor.plug_n, voltageQuasiRMSSensor.plug_p)
             annotation (Line(
-              points={{-10,-10},{-20,-10}},
-              color={0,0,255}));
+              points={{-10,-10},{-20,-10}}, color={0,0,255}));
           connect(id.y, currentController.id_rms) annotation (Line(
-              points={{-69,70},{-60,70},{-60,56},{-52,56}},
-              color={0,0,127}));
+              points={{-69,70},{-60,70},{-60,56},{-52,56}}, color={0,0,127}));
           connect(currentController.iq_rms, iq_rms1) annotation (Line(
-              points={{-52,44},{-100,44},{-100,60},{-120,60}},
-              color={0,0,127}));
+              points={{-52,44},{-100,44},{-100,60},{-120,60}}, color={0,0,127}));
           connect(inertiaLoad.flange_b, flange) annotation (Line(
               points={{90,-40},{90,-40},{90,0},{100,0}}));
           connect(angleSensor.phi, addNoise.u2) annotation (Line(
-              points={{10,11},{10,30},{50,30},{50,74},{58,74}},
-              color={0,0,127}));
+              points={{10,11},{10,30},{50,30},{50,74},{58,74}}, color={0,0,127}));
           connect(addNoise.y, phi) annotation (Line(
-              points={{81,80},{110,80}},
-              color={0,0,127}));
+              points={{81,80},{110,80}}, color={0,0,127}));
           connect(uniformNoise.y, addNoise.u1) annotation (Line(
-              points={{47,86},{58,86}},
-              color={0,0,127}));
+              points={{47,86},{58,86}}, color={0,0,127}));
           connect(speedSensor.w, w) annotation (Line(points={{30,11},{30,11},{30,10},{70,
                   10}}, color={0,0,127}));
           connect(angleSensor.phi, phi_motor) annotation (Line(points={{10,11},{10,11},{
-                  10,22},{10,30},{70,30}},  color={0,0,127}));
+                  10,22},{10,30},{70,30}}, color={0,0,127}));
           annotation (
             Documentation(info="<html>
 <p>
@@ -2454,11 +2492,11 @@ actuator example
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2468,19 +2506,19 @@ actuator example
 </td></tr>
 
 </table>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
                     100}}), graphics={Rectangle(
                   extent={{40,50},{-100,100}},
                   fillColor={255,170,85},
                   fillPattern=FillPattern.Solid,
-                  pattern=LinePattern.None,
-                  lineColor={0,0,0}),           Text(
+                  pattern=LinePattern.None), Text(
                 extent={{-150,150},{150,110}},
                 textString="%name",
                 lineColor={0,0,255})}));
         end MotorWithCurrentControl;
 
         model Controller "Simple position controller for actuator"
+          extends Modelica.Blocks.Icons.Block;
 
           Modelica.Blocks.Continuous.PI speed_PI(k=10, T=5e-2,
             initType=Modelica.Blocks.Types.Init.InitialOutput)
@@ -2508,53 +2546,38 @@ actuator example
             annotation (Placement(transformation(extent={{68,-10},{88,10}})));
         equation
           connect(speedFeedback.y, speed_PI.u) annotation (Line(
-              points={{29,0},{36,0}},
-              color={0,0,127}));
+              points={{29,0},{36,0}}, color={0,0,127}));
           connect(positionFeedback.u2, positionToSpeed.u) annotation (Line(
-              points={{-80,52},{-80,-60},{-62,-60}},
-              color={0,0,127}));
+              points={{-80,52},{-80,-60},{-62,-60}}, color={0,0,127}));
           connect(positionReference, positionFeedback.u1) annotation (Line(
-              points={{-120,60},{-88,60}},
-              color={0,0,127}));
+              points={{-120,60},{-88,60}}, color={0,0,127}));
           connect(positionFeedback.y, position_PI.u) annotation (Line(
-              points={{-71,60},{-62,60}},
-              color={0,0,127}));
+              points={{-71,60},{-62,60}}, color={0,0,127}));
           connect(position_PI.y, speedFeedback.u1) annotation (Line(
-              points={{-39,60},{0,60},{0,0},{12,0}},
-              color={0,0,127}));
+              points={{-39,60},{0,60},{0,0},{12,0}}, color={0,0,127}));
           connect(speed_PI.y, busdelay.u) annotation (Line(
-              points={{59,0},{66,0}},
-              color={0,0,127}));
+              points={{59,0},{66,0}}, color={0,0,127}));
           connect(y1, busdelay.y) annotation (Line(
-              points={{110,0},{89,0}},
-              color={0,0,127}));
+              points={{110,0},{89,0}}, color={0,0,127}));
           connect(positionMeasured, positionToSpeed.u) annotation (Line(
-              points={{-120,-60},{-62,-60}},
-              color={0,0,127}));
+              points={{-120,-60},{-62,-60}}, color={0,0,127}));
           connect(positionToSpeed.y, speedFeedback.u2) annotation (Line(
-              points={{-39,-60},{20,-60},{20,-8}},
-              color={0,0,127}));
-          annotation ( Icon(coordinateSystem(
+              points={{-39,-60},{20,-60},{20,-8}}, color={0,0,127}));
+          annotation (Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
-                Rectangle(extent={{-100,100},{100,-100}}, lineColor={0,0,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),
                 Text(
                   extent={{-40,50},{40,-30}},
                   lineColor={0,0,255},
-                  textString="PI"),             Text(
-                extent={{-150,150},{150,110}},
-                textString="%name",
-                lineColor={0,0,255})}),
+                  textString="PI")}),
             Documentation(revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2577,11 +2600,11 @@ actuator example
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2607,11 +2630,11 @@ This package contains utility models that are used for the examples.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2633,11 +2656,11 @@ to utilize the blocks from sublibrary
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -2727,16 +2750,14 @@ This package contains the bus definitions needed for the
             rotation=270)));
       Sources.RealExpression realExpression(y=time) annotation (Placement(
             transformation(extent={{-6,0},{20,20}})));
-      Sources.BooleanExpression booleanExpression(y=time > 0.5) annotation (
+      Sources.BooleanExpression booleanExpression(y=time >= 0.5) annotation (
           Placement(transformation(extent={{-6,-30},{20,-10}})));
     equation
       connect(realExpression.y, subControlBus.myRealSignal) annotation (Line(
-          points={{21.3,10},{88,10},{88,6},{98,6},{98,0},{100,0}},
-          color={0,0,127}));
+          points={{21.3,10},{88,10},{88,6},{98,6},{98,0},{100,0}}, color={0,0,127}));
       connect(booleanExpression.y, subControlBus.myBooleanSignal) annotation (
           Line(
-          points={{21.3,-20},{60,-20},{60,0},{100,0}},
-          color={255,0,255}));
+          points={{21.3,-20},{60,-20},{60,0},{100,0}}, color={255,0,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
               extent={{-100,60},{100,-60}},
@@ -2760,64 +2781,6 @@ This package contains utility models and bus definitions needed for the
 </p>
 </html>"));
   end BusUsage_Utilities;
-
-  model Rectifier6pulseFFT "Example of FFT block"
-    extends Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse;
-    Modelica.Blocks.Math.RealFFT realFFT(
-      startTime=0.04,
-      f_max=2000,
-      f_res=5,
-      resultFileName="rectifier6pulseFFTresult.mat")
-                                               annotation (Placement(
-          transformation(
-          extent={{-10,-10},{10,10}},
-          rotation=270,
-          origin={-70,-30})));
-  equation
-    connect(currentSensor.i[1], realFFT.u)
-      annotation (Line(points={{-70,-11},{-70,-18}}, color={0,0,127}));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-          coordinateSystem(preserveAspectRatio=false)),
-      experiment(StopTime=2.5, Interval=0.0001),
-      Documentation(info="<html>
-<p>
-This example is based on a <a href=\"modelica://Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse\">6-pulse rectifier example</a>,
-calculating the harmonics with the <a href=\"modelica://Modelica.Blocks.Math.RealFFT\">FFT block</a>.
-</p>
-<p>
-As expected, one can see the 5<sup>th</sup>, 7<sup>th</sup>, 11<sup>th</sup>, 13<sup>th</sup>, 17<sup>th</sup>, 19<sup>th</sup>, 23<sup>th</sup>, 25<sup>th</sup>, ... harmonic in the result.
-</p>
-</html>"));
-  end Rectifier6pulseFFT;
-
-  model Rectifier12pulseFFT "Example of FFT block"
-    extends Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulse;
-    Modelica.Blocks.Math.RealFFT realFFT(
-      startTime=0.04,
-      f_max=2000,
-      f_res=5,
-      resultFileName="rectifier12pulseFFTresult.mat")
-                                                annotation (Placement(
-          transformation(
-          extent={{-10,-10},{10,10}},
-          rotation=270,
-          origin={-70,-30})));
-  equation
-    connect(currentSensor.i[1], realFFT.u) annotation (Line(points={{-70,-11},{
-            -70,-14.5},{-70,-18}}, color={0,0,127}));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-          coordinateSystem(preserveAspectRatio=false)),
-      experiment(StopTime=2.5, Interval=0.0001),
-      Documentation(info="<html>
-<p>
-This example is based on a <a href=\"modelica://Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulse\">12-pulse rectifier example</a>,
-calculating the harmonics with the <a href=\"modelica://Modelica.Blocks.Math.RealFFT\">FFT block</a>.
-</p>
-<p>
-As expected, one can see the 11<sup>th</sup>, 13<sup>th</sup>, 23<sup>th</sup>, 25<sup>th</sup>, ... harmonic in the result.
-</p>
-</html>"));
-  end Rectifier12pulseFFT;
   annotation (Documentation(info="<html>
 <p>
 This package contains example models to demonstrate the
@@ -2857,23 +2820,20 @@ This library contains input/output blocks to build up block diagrams.
 </p>
 
 <dl>
-<dt><b>Main Author:</b></dt>
+<dt><strong>Main Author:</strong></dt>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e. V. (DLR)<br>
     Oberpfaffenhofen<br>
     Postfach 1116<br>
     D-82230 Wessling<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br></dd>
+    email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a><br></dd>
 </dl>
 <p>
-Copyright &copy; 1998-2016, Modelica Association and DLR.
-</p>
-<p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+Copyright &copy; 1998-2019, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>June 23, 2004</i>
+<li><em>June 23, 2004</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Introduced new block connectors and adapted all blocks to the new connectors.
        Included subpackages Continuous, Discrete, Logical, Nonlinear from
@@ -2882,12 +2842,12 @@ Copyright &copy; 1998-2016, Modelica Association and DLR.
        and in the new package Modelica.Blocks.Tables.
        Added new blocks to Blocks.Sources and Blocks.Logical.
        </li>
-<li><i>October 21, 2002</i>
+<li><em>October 21, 2002</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
        and Christian Schweiger:<br>
        New subpackage Examples, additional components.
        </li>
-<li><i>June 20, 2000</i>
+<li><em>June 20, 2000</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and
        Michael Tiller:<br>
        Introduced a replaceable signal type into
@@ -2901,12 +2861,12 @@ Copyright &copy; 1998-2016, Modelica Association and DLR.
    Sine sin1(outPort(redeclare type SignalType=Modelica.SIunits.Torque))
 </pre>
       </li>
-<li><i>Sept. 18, 1999</i>
+<li><em>Sept. 18, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Renamed to Blocks. New subpackages Math, Nonlinear.
        Additional components in subpackages Interfaces, Continuous
-       and Sources. </li>
-<li><i>June 30, 1999</i>
+       and Sources.</li>
+<li><em>June 30, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Realized a first version, based on an existing Dymola library
        of Dieter Moormann and Hilding Elmqvist.</li>

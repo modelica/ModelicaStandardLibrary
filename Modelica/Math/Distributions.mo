@@ -15,12 +15,12 @@ package Distributions "Library of distribution functions"
       annotation (Inline=true,Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Uniform.<b>density</b>(u, u_min=0, u_max=1);
+Uniform.<strong>density</strong>(u, u_min=0, u_max=1);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-This function computes the probability density function according to a <b>uniform</b> distribution in a band.
+This function computes the probability density function according to a <strong>uniform</strong> distribution in a band.
 Plot of the function:
 </p>
 
@@ -48,11 +48,11 @@ For more details, see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -77,13 +77,13 @@ For more details, see
       annotation (Inline=true,Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Uniform.<b>cumulative</b>(u, u_min=0, u_max=1);
+Uniform.<strong>cumulative</strong>(u, u_min=0, u_max=1);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
 This function computes the cumulative distribution function
-according to a <b>uniform</b> distribution in a band.
+according to a <strong>uniform</strong> distribution in a band.
 The returned value y is in the range:
 </p>
 
@@ -119,11 +119,11 @@ For more details, see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -145,12 +145,12 @@ For more details, see
       annotation (Inline=true,Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Uniform.<b>quantile</b>(u, y_min=0, y_max=1);
+Uniform.<strong>quantile</strong>(u, y_min=0, y_max=1);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-This function computes the inverse cumulative distribution function (= quantile) according to a <b>uniform</b>
+This function computes the inverse cumulative distribution function (= quantile) according to a <strong>uniform</strong>
 distribution in a band. Input argument u must be in the range:
 </p>
 
@@ -198,11 +198,11 @@ For more details, see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -226,7 +226,7 @@ This package provides
 <li> quantile (= inverse cumulative distribution function).</li>
 </ul>
 <p>
-of the <b>uniform</b> distribution. Examples:
+of the <strong>uniform</strong> distribution. Examples:
 </p>
 
 <blockquote>
@@ -249,11 +249,11 @@ For more details of this distribution see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -279,13 +279,13 @@ For more details of this distribution see
       annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Normal.<b>density</b>(u, mu=0, sigma=1);
+Normal.<strong>density</strong>(u, mu=0, sigma=1);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-This function computes the probability density function according to a <b>normal</b> distribution
-with mean value <b>mu</b> and standard deviation <b>sigma</b> (variance = sigma<sup>2</sup>).
+This function computes the probability density function according to a <strong>normal</strong> distribution
+with mean value <strong>mu</strong> and standard deviation <strong>sigma</strong> (variance = sigma<sup>2</sup>).
 Plot of the function:
 </p>
 
@@ -313,11 +313,11 @@ For more details, see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -342,13 +342,13 @@ For more details, see
       annotation (Inline=true,Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Normal.<b>cumulative</b>(u, mu=0, sigma=1);
+Normal.<strong>cumulative</strong>(u, mu=0, sigma=1);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-This function computes the cumulative distribution function according to a <b>normal</b> distribution
-with mean value <b>mu</b> and standard deviation <b>sigma</b> (variance = sigma<sup>2</sup>).
+This function computes the cumulative distribution function according to a <strong>normal</strong> distribution
+with mean value <strong>mu</strong> and standard deviation <strong>sigma</strong> (variance = sigma<sup>2</sup>).
 The returned value y is in the range:
 </p>
 
@@ -384,11 +384,11 @@ For more details, see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -413,13 +413,13 @@ For more details, see
 
 <h4>Syntax</h4>
 <blockquote><pre>
-Normal.<b>quantile</b>(u, y_min=0, y_max=1);
+Normal.<strong>quantile</strong>(u, y_min=0, y_max=1);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-This function computes the inverse cumulative distribution function (= quantile) according to a <b>normal</b> distribution
-with mean value <b>mu</b> and standard deviation <b>sigma</b> (variance = sigma<sup>2</sup>).
+This function computes the inverse cumulative distribution function (= quantile) according to a <strong>normal</strong> distribution
+with mean value <strong>mu</strong> and standard deviation <strong>sigma</strong> (variance = sigma<sup>2</sup>).
 Input argument u must be in the range:
 </p>
 
@@ -468,11 +468,11 @@ For more details, see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -506,7 +506,7 @@ This package provides
 <li> quantile (= inverse cumulative distribution function).</li>
 </ul>
 <p>
-of the <b>normal</b> distribution. Examples:
+of the <strong>normal</strong> distribution. Examples:
 </p>
 
 <blockquote>
@@ -529,11 +529,11 @@ For more details of this distribution see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -572,16 +572,16 @@ For more details of this distribution see
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Normal.<b>density</b>(u, u_min=0, u_max=1, mu=0, sigma=1);
+Normal.<strong>density</strong>(u, u_min=0, u_max=1, mu=0, sigma=1);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
 This function computes the probability density function according to a
-<b>truncated normal</b> distribution with
-minimum value <b>u_min</b>, maximum value <b>u_max</b>,
-mean value of original distribution <b>mu</b> and
-standard deviation of original distribution <b>sigma</b> (variance = sigma<sup>2</sup>).
+<strong>truncated normal</strong> distribution with
+minimum value <strong>u_min</strong>, maximum value <strong>u_max</strong>,
+mean value of original distribution <strong>mu</strong> and
+standard deviation of original distribution <strong>sigma</strong> (variance = sigma<sup>2</sup>).
 Plot of the function:
 </p>
 
@@ -612,11 +612,11 @@ of truncated distributions, see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -656,16 +656,16 @@ of truncated distributions, see
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Normal.<b>cumulative</b>(u, u_min=0, u_max=1, mu=0, sigma=1);
+Normal.<strong>cumulative</strong>(u, u_min=0, u_max=1, mu=0, sigma=1);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
 This function computes the cumulative distribution function according to a
-<b>truncated normal</b> distribution with
-minimum value <b>u_min</b>, maximum value <b>u_max</b>,
-mean value of original distribution <b>mu</b> and
-standard deviation of original distribution <b>sigma</b> (variance = sigma<sup>2</sup>).
+<strong>truncated normal</strong> distribution with
+minimum value <strong>u_min</strong>, maximum value <strong>u_max</strong>,
+mean value of original distribution <strong>mu</strong> and
+standard deviation of original distribution <strong>sigma</strong> (variance = sigma<sup>2</sup>).
 The returned value y is in the range:
 </p>
 
@@ -704,11 +704,11 @@ of truncated distributions, see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -744,16 +744,16 @@ of truncated distributions, see
 
 <h4>Syntax</h4>
 <blockquote><pre>
-Normal.<b>quantile</b>(u, y_min=0, y_max=1, mu=0, sigma=1);
+Normal.<strong>quantile</strong>(u, y_min=0, y_max=1, mu=0, sigma=1);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
 This function computes the inverse cumulative distribution function (= quantile) according to a
-<b>truncated normal</b> distribution with
-minimum value <b>u_min</b>, maximum value <b>u_max</b>,
-mean value of original distribution <b>mu</b> and
-standard deviation of original distribution <b>sigma</b> (variance = sigma<sup>2</sup>).
+<strong>truncated normal</strong> distribution with
+minimum value <strong>u_min</strong>, maximum value <strong>u_max</strong>,
+mean value of original distribution <strong>mu</strong> and
+standard deviation of original distribution <strong>sigma</strong> (variance = sigma<sup>2</sup>).
 Input argument u must be in the range:
 </p>
 
@@ -805,11 +805,11 @@ of truncated distributions, see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -851,7 +851,7 @@ This package provides
 <li> quantile (= inverse cumulative distribution function).</li>
 </ul>
 <p>
-of the <b>truncated normal</b> distribution. Examples:
+of the <strong>truncated normal</strong> distribution. Examples:
 </p>
 
 <blockquote>
@@ -877,11 +877,11 @@ of truncated distributions, see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -909,13 +909,13 @@ of truncated distributions, see
 
 <h4>Syntax</h4>
 <blockquote><pre>
-Weibull.<b>density</b>(u, lambda=1, k=1);
+Weibull.<strong>density</strong>(u, lambda=1, k=1);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-This function computes the probability density function according to a <b>Weibull</b> distribution
-with scale parameter <b>lambda</b> and shape parameter <b>k</b>. Equation:
+This function computes the probability density function according to a <strong>Weibull</strong> distribution
+with scale parameter <strong>lambda</strong> and shape parameter <strong>k</strong>. Equation:
 </p>
 
 <blockquote><pre>
@@ -950,11 +950,11 @@ For more details, see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -980,14 +980,14 @@ For more details, see
       annotation (Inline=true,Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Weibull.<b>cumulative</b>(u, lambda=1, k=1);
+Weibull.<strong>cumulative</strong>(u, lambda=1, k=1);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
 This function computes the cumulative distribution function
-according to a <b>Weibull</b> distribution
-with scale parameter <b>lambda</b> and shape parameter <b>k</b>. Equation:
+according to a <strong>Weibull</strong> distribution
+with scale parameter <strong>lambda</strong> and shape parameter <strong>k</strong>. Equation:
 </p>
 
 <blockquote><pre>
@@ -1030,11 +1030,11 @@ For more details, see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1059,19 +1059,18 @@ For more details, see
 
 <h4>Syntax</h4>
 <blockquote><pre>
-Weibull.<b>quantile</b>(u, lambda=1, k=1);
+Weibull.<strong>quantile</strong>(u, lambda=1, k=1);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-This function computes the inverse cumulative distribution function (= quantile) according to a <b>Weibull</b> distribution
-with scale parameter <b>lambda</b> and shape parameter <b>k</b>. Equation:
+This function computes the inverse cumulative distribution function (= quantile) according to a <strong>Weibull</strong> distribution
+with scale parameter <strong>lambda</strong> and shape parameter <strong>k</strong>. Equation:
 </p>
 
 <blockquote><pre>
 y := lambda * (-log( 1-u)) ^(1/k);
 </pre></blockquote>
-</p>
 
 <p>
 Input argument u must be in the range:
@@ -1110,11 +1109,11 @@ For more details, see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1143,7 +1142,7 @@ This package provides
 <li> quantile (= inverse cumulative distribution function).</li>
 </ul>
 <p>
-of the <b>Weibull</b> distribution. Examples:
+of the <strong>Weibull</strong> distribution. Examples:
 </p>
 
 <blockquote>
@@ -1166,11 +1165,11 @@ For more details of this distribution see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1209,16 +1208,16 @@ For more details of this distribution see
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Weibull.<b>density</b>(u, u_min=0, u_max=1, lambda=1, k=1);
+Weibull.<strong>density</strong>(u, u_min=0, u_max=1, lambda=1, k=1);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
 This function computes the probability density function according to a
-<b>truncated Weibull</b> distribution with
-minimum value <b>u_min</b>, maximum value <b>u_max</b>,
-scale parameter of original distribution <b>lambda</b> and
-shape parameter of original distribution <b>k</b>.
+<strong>truncated Weibull</strong> distribution with
+minimum value <strong>u_min</strong>, maximum value <strong>u_max</strong>,
+scale parameter of original distribution <strong>lambda</strong> and
+shape parameter of original distribution <strong>k</strong>.
 Plot of the function:
 </p>
 
@@ -1249,11 +1248,11 @@ of truncated distributions, see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1292,16 +1291,16 @@ of truncated distributions, see
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Weibull.<b>cumulative</b>(u, u_min=0, u_max=1, lambda=1, k=1);
+Weibull.<strong>cumulative</strong>(u, u_min=0, u_max=1, lambda=1, k=1);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
 This function computes the cumulative distribution function according to a
-<b>truncated Weibull</b> distribution with
-minimum value <b>u_min</b>, maximum value <b>u_max</b>,
-scale parameter of original distribution <b>lambda</b> and
-shape parameter of original distribution <b>k</b>.
+<strong>truncated Weibull</strong> distribution with
+minimum value <strong>u_min</strong>, maximum value <strong>u_max</strong>,
+scale parameter of original distribution <strong>lambda</strong> and
+shape parameter of original distribution <strong>k</strong>.
 The returned value y is in the range:
 </p>
 
@@ -1340,11 +1339,11 @@ of truncated distributions, see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1381,16 +1380,16 @@ of truncated distributions, see
 
 <h4>Syntax</h4>
 <blockquote><pre>
-Weibull.<b>quantile</b>(u, y_min=0, y_max=1, lambda=1, k=1);
+Weibull.<strong>quantile</strong>(u, y_min=0, y_max=1, lambda=1, k=1);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
 This function computes the inverse cumulative distribution function (= quantile) according to a
-<b>truncated Weibull</b> distribution with
-minimum value <b>u_min</b>, maximum value <b>u_max</b>,
-scale parameter of original distribution <b>lambda</b> and
-shape parameter of original distribution <b>k</b>.
+<strong>truncated Weibull</strong> distribution with
+minimum value <strong>u_min</strong>, maximum value <strong>u_max</strong>,
+scale parameter of original distribution <strong>lambda</strong> and
+shape parameter of original distribution <strong>k</strong>.
 Input argument u must be in the range:
 </p>
 
@@ -1441,11 +1440,11 @@ of truncated distributions, see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1484,7 +1483,7 @@ This package provides
 <li> quantile (= inverse cumulative distribution function).</li>
 </ul>
 <p>
-of the <b>truncated Weibull</b> distribution. Examples:
+of the <strong>truncated Weibull</strong> distribution. Examples:
 </p>
 
 <blockquote>
@@ -1510,11 +1509,11 @@ of truncated distributions, see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1544,11 +1543,11 @@ arguments of the probability density functions.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1575,11 +1574,11 @@ arguments of the cumulative distribution functions.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1607,11 +1606,11 @@ arguments of the quantile functions.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1638,11 +1637,11 @@ arguments of the probability density functions of truncated distributions.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1669,11 +1668,11 @@ arguments of the cumulative distribution functions for a truncated distribution.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1700,11 +1699,11 @@ arguments of the quantile functions for truncated distributions.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1726,11 +1725,11 @@ truncated distribution functions.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1840,15 +1839,15 @@ cdf_max = Distributions.XXX.cumulative(u_max,...);
 </pre>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><th><b><i>Function</i></b></th><th><b><i>Transformation</i></b></th></tr>
+  <tr><th><strong><em>Function</em></strong></th><th><strong><em>Transformation</em></strong></th></tr>
   <tr><td>density(u,u_min,u_max,...)</td>
-      <td>= <b>if</b> u &ge; u_min <b>and</b> u&le;u_max <b>then</b> pdf / (cdf_max - cdf_min) <b>else</b> 0</td>
+      <td>= <strong>if</strong> u &ge; u_min <strong>and</strong> u&le;u_max <strong>then</strong> pdf / (cdf_max - cdf_min) <strong>else</strong> 0</td>
   </tr>
   <tr><td>cumulative(u,u_min,u_max,...)</td>
-      <td>= <b>if</b> u &le; u_min <b>then</b> 0
-            <b>else if</b> u &lt; u_max <b>then</b>
+      <td>= <strong>if</strong> u &le; u_min <strong>then</strong> 0
+            <strong>else if</strong> u &lt; u_max <strong>then</strong>
               (cdf - cdf_min))/(cdf_max - cdf_min)
-            <b>else</b> 1</td>
+            <strong>else</strong> 1</td>
   </tr>
   <tr><td>quantile(u,u_min,u_max,...)</td>
       <td>= Distributions.XXX.quantile( cdf_min + u*(cdf_max - cdf_min), ... )</td>
@@ -1869,11 +1868,11 @@ compared with its truncated distribution:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by

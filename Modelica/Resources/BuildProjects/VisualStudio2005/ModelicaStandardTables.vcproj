@@ -275,6 +275,10 @@
 				RelativePath="..\..\C-Sources\ModelicaStandardTables.c"
 				>
 			</File>
+			<File
+				RelativePath="..\..\C-Sources\ModelicaStandardTablesUsertab.c"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -282,7 +286,7 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\..\C-Sources\ModelicaMatIO.h"
+				RelativePath="..\..\C-Sources\ModelicaIO.h"
 				>
 			</File>
 			<File

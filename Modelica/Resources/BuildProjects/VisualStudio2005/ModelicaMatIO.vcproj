@@ -275,6 +275,10 @@
 				RelativePath="..\..\C-Sources\ModelicaMatIO.c"
 				>
 			</File>
+			<File
+				RelativePath="..\..\C-Sources\snprintf.c"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"

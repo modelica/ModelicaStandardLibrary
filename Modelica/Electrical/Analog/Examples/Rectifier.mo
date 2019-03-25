@@ -3,13 +3,13 @@ model Rectifier "B6 diode bridge"
   extends Modelica.Icons.Example;
   import Modelica.Electrical.Analog.Ideal;
   parameter SI.Voltage VAC=400 "RMS line-to-line";
-  parameter SI.Frequency f=50 "line frequency";
-  parameter SI.Inductance LAC=60E-6 "line inductor";
-  parameter SI.Resistance Ron=1E-3 "diode forward resistance";
-  parameter SI.Conductance Goff=1E-3 "diode backward conductance";
-  parameter SI.Voltage Vknee=2 "diode threshold voltage";
+  parameter SI.Frequency f=50 "Line frequency";
+  parameter SI.Inductance LAC=60E-6 "Line inductor";
+  parameter SI.Resistance Ron=1E-3 "Diode forward resistance";
+  parameter SI.Conductance Goff=1E-3 "Diode backward conductance";
+  parameter SI.Voltage Vknee=2 "Diode threshold voltage";
   parameter SI.Capacitance CDC=15E-3 "DC capacitance";
-  parameter SI.Current IDC=500 "load current";
+  parameter SI.Current IDC=500 "Load current";
   output SI.Voltage uDC;
   output SI.Current iAC[3];
   output SI.Voltage uAC[3];
@@ -123,25 +123,23 @@ equation
   connect(SineVoltage1.p, Inductor1.p)
     annotation (Line(points={{-70,20},{-60,20}}, color={0,0,255}));
   connect(SineVoltage2.p, Inductor2.p)
-    annotation (Line(points={{-70,0},{-67.5,0},{-65,0},{-60,0}},
-                                               color={0,0,255}));
+    annotation (Line(points={{-70,0},{-67.5,0},{-65,0},{-60,0}}, color={0,0,255}));
   connect(SineVoltage3.p, Inductor3.p)
     annotation (Line(points={{-70,-20},{-60,-20}}, color={0,0,255}));
   connect(IdealDiode1.p, IdealDiode4.n)
     annotation (Line(points={{-20,30},{-20,-30}}, color={0,0,255}));
   connect(IdealDiode2.p, IdealDiode5.n)
-    annotation (Line(points={{0,30},{0,16},{0,0},{0,-30}},
-                               color={0,0,255}));
+    annotation (Line(points={{0,30},{0,16},{0,0},{0,-30}}, color={0,0,255}));
   connect(IdealDiode3.p, IdealDiode6.n)
     annotation (Line(points={{20,30},{20,-30}}, color={0,0,255}));
   connect(IdealDiode1.n, IdealDiode2.n)
-    annotation (Line(points={{-20,50},{0,50}},            color={0,0,255}));
+    annotation (Line(points={{-20,50},{0,50}}, color={0,0,255}));
   connect(IdealDiode2.n, IdealDiode3.n)
-    annotation (Line(points={{0,50},{20,50}},            color={0,0,255}));
+    annotation (Line(points={{0,50},{20,50}}, color={0,0,255}));
   connect(IdealDiode4.p, IdealDiode5.p)
-    annotation (Line(points={{-20,-50},{0,-50}},             color={0,0,255}));
+    annotation (Line(points={{-20,-50},{0,-50}}, color={0,0,255}));
   connect(IdealDiode5.p, IdealDiode6.p)
-    annotation (Line(points={{0,-50},{20,-50}},             color={0,0,255}));
+    annotation (Line(points={{0,-50},{20,-50}}, color={0,0,255}));
   connect(Capacitor2.n, IdealDiode6.p)
     annotation (Line(points={{40,-50},{20,-50}}, color={0,0,255}));
   connect(IdealDiode3.n, Capacitor1.p)
@@ -155,13 +153,11 @@ equation
   connect(SignalCurrent1.n, Capacitor2.n)
     annotation (Line(points={{60,-10},{60,-50},{40,-50}}, color={0,0,255}));
   connect(Constant1.y, SignalCurrent1.i)
-    annotation (Line(points={{79,0},{79,0},{67,0}},                       color=
-         {0,0,255}));
+    annotation (Line(points={{79,0},{79,0},{72,0}}, color={0,0,255}));
   connect(Inductor1.n, IdealDiode1.p)
     annotation (Line(points={{-40,20},{-20,20},{-20,30}}, color={0,0,255}));
   connect(Inductor2.n, IdealDiode2.p)
-    annotation (Line(points={{-40,0},{0,0},{0,30}},
-        color={0,0,255}));
+    annotation (Line(points={{-40,0},{0,0},{0,30}}, color={0,0,255}));
   connect(Inductor3.n, IdealDiode3.p)
     annotation (Line(points={{-40,-20},{20,-20},{20,30}}, color={0,0,255}));
 annotation (
@@ -169,22 +165,18 @@ annotation (
             100}}), graphics={
         Text(
           extent={{-80,90},{80,70}},
-          lineColor={0,0,0},
           textString="Rectifier"),
         Line(points={{-16,18},{-16,2},{-18,6},{-14,6},{-16,2}}),
         Line(points={{-30,22},{-26,20},{-30,18},{-30,22}}),
         Line(points={{32,30},{32,-30},{30,-26},{34,-26},{32,-30}}),
         Text(
           extent={{-38,16},{-22,8}},
-          lineColor={0,0,0},
           textString="iAC"),
         Text(
           extent={{-14,8},{2,0}},
-          lineColor={0,0,0},
           textString="uAC"),
         Text(
           extent={{22,-16},{38,-24}},
-          lineColor={0,0,0},
           textString="uDC")}),
   experiment(StopTime=0.1, Interval=1e-005),
   Documentation(info="<html>
@@ -197,9 +189,9 @@ DC capacitors start at ideal no-load voltage, thus making easier initial transie
 <br>Try different load currents iDC = 0..approximately 500 A. You may watch losses (of the whole diode bridge) trying different diode parameters.</p>
 </html>",
    revisions="<html>
-<p><b>Release Notes:</b></p>
+<p><strong>Release Notes:</strong></p>
 <ul>
-<li><i>Mai 7, 2004   </i>
+<li><em>Mai 7, 2004   </em>
        by Anton Haumer<br> realized<br>
        </li>
 </ul>

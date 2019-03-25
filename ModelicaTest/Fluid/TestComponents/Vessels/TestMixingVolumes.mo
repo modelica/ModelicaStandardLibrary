@@ -43,20 +43,15 @@ model TestMixingVolumes
 equation
   connect(flowSource2.ports[1], mixingVolume1.ports[2])
                                                   annotation (Line(points={{-78,34},
-          {-52,34},{-20,34},{-20,40}},
-                           color={0,127,255}));
+          {-52,34},{-20,34},{-20,40}}, color={0,127,255}));
   connect(mixingVolume2.ports[2],sink2. ports[1])
                                             annotation (Line(points={{20,40},{
-          20,40},{80,40}},
-                   color={0,127,255}));
+          20,40},{80,40}}, color={0,127,255}));
   connect(Tmix_in.port, mixingVolume1.ports[1]) annotation (Line(
-      points={{-50,50},{-50,36},{-22,36},{-22,40},{-22.6667,40}},
-      color={0,127,255}));
+      points={{-50,50},{-50,36},{-22,36},{-22,40},{-22.6667,40}}, color={0,127,255}));
   connect(Tmix_out.port, mixingVolume2.ports[1]) annotation (Line(
-      points={{50,50},{50,40},{17.3333,40}},
-      color={0,127,255}));
+      points={{50,50},{50,40},{17.3333,40}}, color={0,127,255}));
   connect(mixingVolume1.ports[3], mixingVolume2.ports[3]) annotation (Line(
-      points={{-17.3333,40},{-17.3333,36},{22.6667,36},{22.6667,40}},
-      color={0,127,255}));
+      points={{-17.3333,40},{-17.3333,36},{22.6667,36},{22.6667,40}}, color={0,127,255}));
   annotation (                       experiment(StopTime=10));
 end TestMixingVolumes;

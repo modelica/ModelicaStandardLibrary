@@ -1,7 +1,6 @@
 within ;
-package ModelicaTest "Library to test components of package Modelica - Version 3.2.2"
+package ModelicaTest "Library to test components of package Modelica - Version 3.2.3"
 extends Modelica.Icons.Package;
-
 
 function testAllFunctions "Runs all test cases for functions"
   extends Modelica.Icons.Function;
@@ -49,18 +48,17 @@ algorithm
   ok := true;
 end testAllFunctions;
 
-
   annotation (preferredView="info",
-       version="3.2.2",
-       versionBuild=0,
-       versionDate="2016-03-11",
-       dateModified = "2016-03-11 08:44:41Z",
-       revisionId="$Id::                                       $",
-       uses(Modelica(version="3.2.2")),
+       version="4.0.0-dev",
+       versionBuild=1,
+       versionDate="2019-01-23",
+       dateModified = "2019-01-23 12:00:00Z",
+       revisionId="$Format:%h %ci$",
+       uses(Modelica(version="4.0.0-dev")),
     Documentation(info="<html>
 <p>
 This library provides models and functions to test components of
-<b>package Modelica</b> (the Modelica Standard Library).
+<strong>package Modelica</strong> (the Modelica Standard Library).
 </p>
 
 <p>
@@ -77,7 +75,7 @@ way:
 <li> Models that are added to this library should have the annotation
      (with an appropriate StopTime):
      <pre>
-         <b>annotation</b>(experiment(StopTime=1.1));
+         <strong>annotation</strong>(experiment(StopTime=1.1));
      </pre>
      This gives the tool vendors the possibility to automatically identify
      the models that shall be simulated and, e.g., that shall be used in an automatic
@@ -85,10 +83,11 @@ way:
 </ul>
 
 <p>
-Copyright &copy; 1998-2016, Modelica Association.
+Copyright &copy; 1998-2019, Modelica Association and contributors
 </p>
+
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>"),
     Icon(graphics={Polygon(

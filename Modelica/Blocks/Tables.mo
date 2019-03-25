@@ -32,105 +32,25 @@ package Tables
     parameter Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints
       "Extrapolation of data outside the definition range"
       annotation (Dialog(group="Table data interpretation"));
-    final parameter Real u_min(fixed=false)
+    parameter Boolean verboseExtrapolation=false
+      "= true, if warning messages are to be printed if table input is outside the definition range"
+      annotation (Dialog(group="Table data interpretation", enable=extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
+    final parameter Real u_min=Internal.getTable1DAbscissaUmin(tableID)
       "Minimum abscissa value defined in table";
-    final parameter Real u_max(fixed=false)
+    final parameter Real u_max=Internal.getTable1DAbscissaUmax(tableID)
       "Maximum abscissa value defined in table";
   protected
-    Modelica.Blocks.Types.ExternalCombiTable1D tableID=
+    parameter Modelica.Blocks.Types.ExternalCombiTable1D tableID=
         Modelica.Blocks.Types.ExternalCombiTable1D(
           if tableOnFile then tableName else "NoName",
           if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
           table,
           columns,
           smoothness,
-          extrapolation) "External table object";
-    parameter Real tableOnFileRead(fixed=false)
-      "= 1, if table was successfully read from file";
-
-    function readTableData "Read table data from ASCII text or MATLAB MAT-file"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Boolean forceRead = false
-        "= true: Force reading of table data; = false: Only read, if not yet read.";
-      input Boolean verboseRead
-        "= true: Print info message; = false: No info message";
-      output Real readSuccess "Table read success";
-      external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID, forceRead, verboseRead)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-      annotation(__ModelicaAssociation_Impure=true);
-    end readTableData;
-
-    function getTableValue "Interpolate 1-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Integer icol;
-      input Real u;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real y;
-      external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-      annotation (derivative(noDerivative=tableAvailable) = getDerTableValue);
-    end getTableValue;
-
-    function getTableValueNoDer
-      "Interpolate 1-dim. table defined by matrix (but do not provide a derivative function)"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Integer icol;
-      input Real u;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real y;
-      external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getTableValueNoDer;
-
-    function getDerTableValue
-      "Derivative of interpolated 1-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Integer icol;
-      input Real u;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      input Real der_u;
-      output Real der_y;
-      external"C" der_y = ModelicaStandardTables_CombiTable1D_getDerValue(tableID, icol, u, der_u)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getDerTableValue;
-
-    function getTableAbscissaUmin
-      "Return minimum abscissa value of 1-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real uMin "Minimum abscissa value in table";
-      external"C" uMin = ModelicaStandardTables_CombiTable1D_minimumAbscissa(tableID)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getTableAbscissaUmin;
-
-    function getTableAbscissaUmax
-      "Return maximum abscissa value of 1-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real uMax "Maximum abscissa value in table";
-      external"C" uMax = ModelicaStandardTables_CombiTimeTable_maximumTime(tableID)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getTableAbscissaUmax;
-
-  initial algorithm
-    if tableOnFile then
-      tableOnFileRead := readTableData(tableID, false, verboseRead);
-    else
-      tableOnFileRead := 1.;
-    end if;
-    u_min := getTableAbscissaUmin(tableID, tableOnFileRead);
-    u_max := getTableAbscissaUmax(tableID, tableOnFileRead);
+          extrapolation,
+          if tableOnFile then verboseRead else false) "External table object";
+    function readTableData = // No longer used, but kept for backward compatibility
+      Modelica.Blocks.Tables.Internal.readTable1DData "Read table data from text or MATLAB MAT-file";
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -139,22 +59,38 @@ package Tables
       assert(size(table, 1) > 0 and size(table, 2) > 0,
         "tableOnFile = false and parameter table is an empty matrix");
     end if;
+
+    if verboseExtrapolation and (
+      extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or
+      extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint) then
+      for i in 1:n loop
+        assert(noEvent(u[i] >= u_min), "
+Extrapolation warning: The value u[" + String(i) +"] (=" + String(u[i]) + ") must be greater or equal
+than the minimum abscissa value u_min (=" + String(u_min) + ") defined in the table.
+", level=AssertionLevel.warning);
+        assert(noEvent(u[i] <= u_max), "
+Extrapolation warning: The value u[" + String(i) +"] (=" + String(u[i]) + ") must be less or equal
+than the maximum abscissa value u_max (=" + String(u_max) + ") defined in the table.
+", level=AssertionLevel.warning);
+      end for;
+    end if;
+
     if smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then
       for i in 1:n loop
-        y[i] = getTableValueNoDer(tableID, i, u[i], tableOnFileRead);
+        y[i] = Internal.getTable1DValueNoDer(tableID, i, u[i]);
       end for;
     else
       for i in 1:n loop
-        y[i] = getTableValue(tableID, i, u[i], tableOnFileRead);
+        y[i] = Internal.getTable1DValue(tableID, i, u[i]);
       end for;
     end if;
     annotation (
       Documentation(info="<html>
 <p>
-<strong>Constant</strong>, <strong>linear</strong> or <strong>cubic Hermite
+<strong>Univariate constant</strong>, <strong>linear</strong> or <strong>cubic Hermite
 spline interpolation</strong> in <strong>one</strong> dimension of a
 <strong>table</strong>.
-Via parameter <b>columns</b> it can be defined how many columns of the
+Via parameter <strong>columns</strong> it can be defined how many columns of the
 table are interpolated. If, e.g., columns={2,4}, it is assumed that 2 input
 and 2 output signals are present and that the first output interpolates
 the first input via column 2 and the second output interpolates the
@@ -176,8 +112,8 @@ other columns contain the data to be interpolated. Example:
        e.g., the input u =-1.0, the output y = -1.0 (i.e., extrapolation).
 </pre>
 <ul>
-<li>The interpolation is <b>efficient</b>, because a search for a new interpolation
-    starts at the interval used in the last call.</li>
+<li>The interpolation interval is found by a binary search where the interval used in the
+    last call is used as start interval.</li>
 <li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
 <pre>
   smoothness = 1: Linear interpolation
@@ -204,7 +140,7 @@ other columns contain the data to be interpolated. Example:
                 = 3: Periodically repeat the table data (periodical function).
                 = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></li>
-<li>If the table has only <b>one row</b>, the table value is returned,
+<li>If the table has only <strong>one row</strong>, the table value is returned,
     independent of the value of the input signal.</li>
 <li>The grid values (first column) have to be strictly increasing.</li>
 </ul>
@@ -212,15 +148,15 @@ other columns contain the data to be interpolated. Example:
 The table matrix can be defined in the following ways:
 </p>
 <ol>
-<li> Explicitly supplied as <b>parameter matrix</b> \"table\",
-     and the other parameters have the following values:
+<li>Explicitly supplied as <strong>parameter matrix</strong> \"table\",
+    and the other parameters have the following values:
 <pre>
    tableName is \"NoName\" or has only blanks,
    fileName  is \"NoName\" or has only blanks.
 </pre></li>
-<li><b>Read</b> from a <b>file</b> \"fileName\" where the matrix is stored as
-    \"tableName\". Both ASCII and MAT-file format is possible.
-    (The ASCII format is described below).
+<li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
+    \"tableName\". Both text and MATLAB MAT-file format is possible.
+    (The text format is described below).
     The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
@@ -247,7 +183,7 @@ When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of t
 source code are removed by the C-preprocessor, such that no access to files takes place.
 </p>
 <p>
-If tables are read from an ASCII-file, the file needs to have the
+If tables are read from a text file, the file needs to have the
 following structure (\"-----\" is not part of the file content):
 </p>
 <pre>
@@ -280,6 +216,7 @@ Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
 Number separators are spaces, tab (\\t), comma (,), or semicolon (;).
 Several matrices may be defined one after another. Line comments start
 with the hash symbol (#) and can appear everywhere.
+Text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the text file is ignored.
 Other characters, like trailing non comments, are not allowed in the file.
 </p>
 <p>
@@ -315,7 +252,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           Line(points={{60,0},{100,0}}, color={0,0,255}),
           Text(
             extent={{-100,100},{100,64}},
-            textString="1 dimensional linear table interpolation",
+            textString="Univariate constant, linear or cubic Hermite spline table interpolation",
             lineColor={0,0,255}),
           Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{-28,
                 -40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,-20},
@@ -324,22 +261,18 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           Line(points={{0,40},{0,-40}}),
           Rectangle(
             extent={{-54,40},{-28,20}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{-54,20},{-28,0}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{-54,0},{-28,-20}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{-54,-20},{-28,-40}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Text(
@@ -390,105 +323,25 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     parameter Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints
       "Extrapolation of data outside the definition range"
       annotation (Dialog(group="Table data interpretation"));
-    final parameter Real u_min(fixed=false)
+    parameter Boolean verboseExtrapolation=false
+      "= true, if warning messages are to be printed if table input is outside the definition range"
+      annotation (Dialog(group="Table data interpretation", enable=extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
+    final parameter Real u_min=Internal.getTable1DAbscissaUmin(tableID)
       "Minimum abscissa value defined in table";
-    final parameter Real u_max(fixed=false)
+    final parameter Real u_max=Internal.getTable1DAbscissaUmax(tableID)
       "Maximum abscissa value defined in table";
   protected
-    Modelica.Blocks.Types.ExternalCombiTable1D tableID=
+    parameter Modelica.Blocks.Types.ExternalCombiTable1D tableID=
         Modelica.Blocks.Types.ExternalCombiTable1D(
           if tableOnFile then tableName else "NoName",
           if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
           table,
           columns,
           smoothness,
-          extrapolation) "External table object";
-    parameter Real tableOnFileRead(fixed=false)
-      "= 1, if table was successfully read from file";
-
-    function readTableData "Read table data from ASCII text or MATLAB MAT-file"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Boolean forceRead = false
-        "= true: Force reading of table data; = false: Only read, if not yet read.";
-      input Boolean verboseRead
-        "= true: Print info message; = false: No info message";
-      output Real readSuccess "Table read success";
-      external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID, forceRead, verboseRead)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-      annotation(__ModelicaAssociation_Impure=true);
-    end readTableData;
-
-    function getTableValue "Interpolate 1-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Integer icol;
-      input Real u;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real y;
-      external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-      annotation (derivative(noDerivative=tableAvailable) = getDerTableValue);
-    end getTableValue;
-
-    function getTableValueNoDer
-      "Interpolate 1-dim. table defined by matrix (but do not provide a derivative function)"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Integer icol;
-      input Real u;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real y;
-      external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getTableValueNoDer;
-
-    function getDerTableValue
-      "Derivative of interpolated 1-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Integer icol;
-      input Real u;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      input Real der_u;
-      output Real der_y;
-      external"C" der_y = ModelicaStandardTables_CombiTable1D_getDerValue(tableID, icol, u, der_u)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getDerTableValue;
-
-    function getTableAbscissaUmin
-      "Return minimum abscissa value of 1-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real uMin "Minimum abscissa value in table";
-      external"C" uMin = ModelicaStandardTables_CombiTable1D_minimumAbscissa(tableID)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getTableAbscissaUmin;
-
-    function getTableAbscissaUmax
-      "Return maximum abscissa value of 1-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real uMax "Maximum abscissa value in table";
-      external"C" uMax = ModelicaStandardTables_CombiTimeTable_maximumTime(tableID)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getTableAbscissaUmax;
-
-  initial algorithm
-    if tableOnFile then
-      tableOnFileRead := readTableData(tableID, false, verboseRead);
-    else
-      tableOnFileRead := 1.;
-    end if;
-    u_min := getTableAbscissaUmin(tableID, tableOnFileRead);
-    u_max := getTableAbscissaUmax(tableID, tableOnFileRead);
+          extrapolation,
+          if tableOnFile then verboseRead else false) "External table object";
+    function readTableData = // No longer used, but kept for backward compatibility
+      Modelica.Blocks.Tables.Internal.readTable1DData "Read table data from text or MATLAB MAT-file";
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -497,22 +350,36 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       assert(size(table, 1) > 0 and size(table, 2) > 0,
         "tableOnFile = false and parameter table is an empty matrix");
     end if;
+
+    if verboseExtrapolation and (
+      extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or
+      extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint) then
+      assert(noEvent(u >= u_min), "
+Extrapolation warning: The value u (=" + String(u) + ") must be greater or equal
+than the minimum abscissa value u_min (=" + String(u_min) + ") defined in the table.
+", level=AssertionLevel.warning);
+      assert(noEvent(u <= u_max), "
+Extrapolation warning: The value u (=" + String(u) + ") must be less or equal
+than the maximum abscissa value u_max (=" + String(u_max) + ") defined in the table.
+", level=AssertionLevel.warning);
+    end if;
+
     if smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then
       for i in 1:nout loop
-        y[i] = getTableValueNoDer(tableID, i, u, tableOnFileRead);
+        y[i] = Internal.getTable1DValueNoDer(tableID, i, u);
       end for;
     else
       for i in 1:nout loop
-        y[i] = getTableValue(tableID, i, u, tableOnFileRead);
+        y[i] = Internal.getTable1DValue(tableID, i, u);
       end for;
     end if;
     annotation (
       Documentation(info="<html>
 <p>
-<strong>Constant</strong>, <strong>linear</strong> or <strong>cubic Hermite
+<strong>Univariate constant</strong>, <strong>linear</strong> or <strong>cubic Hermite
 spline interpolation</strong> in <strong>one</strong> dimension of a
 <strong>table</strong>.
-Via parameter <b>columns</b> it can be defined how many columns of the
+Via parameter <strong>columns</strong> it can be defined how many columns of the
 table are interpolated. If, e.g., columns={2,4}, it is assumed that
 2 output signals are present and that the first output interpolates
 via column 2 and the second output interpolates via column 4 of the
@@ -534,8 +401,8 @@ other columns contain the data to be interpolated. Example:
        e.g., the input u =-1.0, the output y = -1.0 (i.e., extrapolation).
 </pre>
 <ul>
-<li>The interpolation is <b>efficient</b>, because a search for a new interpolation
-    starts at the interval used in the last call.</li>
+<li>The interpolation interval is found by a binary search where the interval used in the
+    last call is used as start interval.</li>
 <li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
 <pre>
   smoothness = 1: Linear interpolation
@@ -562,7 +429,7 @@ other columns contain the data to be interpolated. Example:
                 = 3: Periodically repeat the table data (periodical function).
                 = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></li>
-<li>If the table has only <b>one row</b>, the table value is returned,
+<li>If the table has only <strong>one row</strong>, the table value is returned,
     independent of the value of the input signal.</li>
 <li>The grid values (first column) have to be strictly increasing.</li>
 </ul>
@@ -570,15 +437,15 @@ other columns contain the data to be interpolated. Example:
 The table matrix can be defined in the following ways:
 </p>
 <ol>
-<li>Explicitly supplied as <b>parameter matrix</b> \"table\",
+<li>Explicitly supplied as <strong>parameter matrix</strong> \"table\",
     and the other parameters have the following values:
 <pre>
    tableName is \"NoName\" or has only blanks,
    fileName  is \"NoName\" or has only blanks.
 </pre></li>
-<li><b>Read</b> from a <b>file</b> \"fileName\" where the matrix is stored as
-    \"tableName\". Both ASCII and MAT-file format is possible.
-    (The ASCII format is described below).
+<li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
+    \"tableName\". Both text and MATLAB MAT-file format is possible.
+    (The text format is described below).
     The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
@@ -605,7 +472,7 @@ When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of t
 source code are removed by the C-preprocessor, such that no access to files takes place.
 </p>
 <p>
-If tables are read from an ASCII-file, the file needs to have the
+If tables are read from a text file, the file needs to have the
 following structure (\"-----\" is not part of the file content):
 </p>
 <pre>
@@ -638,6 +505,7 @@ Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
 Number separators are spaces, tab (\\t), comma (,), or semicolon (;).
 Several matrices may be defined one after another. Line comments start
 with the hash symbol (#) and can appear everywhere.
+Text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the text file is ignored.
 Other characters, like trailing non comments, are not allowed in the file.
 </p>
 <p>
@@ -673,7 +541,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           Line(points={{60,0},{100,0}}, color={0,0,255}),
           Text(
             extent={{-100,100},{100,64}},
-            textString="1 dimensional linear table interpolation",
+            textString="Univariate constant, linear or cubic Hermite spline table interpolation",
             lineColor={0,0,255}),
           Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{-28,
                 -40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,-20},
@@ -682,22 +550,18 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           Line(points={{0,40},{0,-40}}),
           Rectangle(
             extent={{-54,40},{-28,20}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{-54,20},{-28,0}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{-54,0},{-28,-20}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{-54,-20},{-28,-40}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Text(
@@ -720,109 +584,35 @@ MATLAB is a registered trademark of The MathWorks, Inc.
 
   block CombiTable2D "Table look-up in two dimensions (matrix/file)"
     extends Modelica.Blocks.Interfaces.SI2SO;
-    parameter Boolean tableOnFile=false
-      "= true, if table is defined on file or in function usertab"
-      annotation (Dialog(group="Table data definition"));
-    parameter Real table[:, :] = fill(0.0, 0, 2)
-      "Table matrix (grid u1 = first column, grid u2 = first row; e.g., table=[0, 0; 0, 1])"
-      annotation (Dialog(group="Table data definition",enable=not tableOnFile));
-    parameter String tableName="NoName"
-      "Table name on file or in function usertab (see docu)"
-      annotation (Dialog(group="Table data definition",enable=tableOnFile));
-    parameter String fileName="NoName" "File where matrix is stored"
-      annotation (Dialog(
-        group="Table data definition",
-        enable=tableOnFile,
-        loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat)",
-            caption="Open file in which table is present")));
-    parameter Boolean verboseRead=true
-      "= true, if info message that file is loading is to be printed"
-      annotation (Dialog(group="Table data definition",enable=tableOnFile));
-    parameter Modelica.Blocks.Types.Smoothness smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments
-      "Smoothness of table interpolation"
-      annotation (Dialog(group="Table data interpretation"));
-  protected
-    Modelica.Blocks.Types.ExternalCombiTable2D tableID=
-        Modelica.Blocks.Types.ExternalCombiTable2D(
-          if tableOnFile then tableName else "NoName",
-          if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
-          table,
-          smoothness) "External table object";
-    parameter Real tableOnFileRead(fixed=false)
-      "= 1, if table was successfully read from file";
-
-    function readTableData "Read table data from ASCII text or MATLAB MAT-file"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-      input Boolean forceRead = false
-        "= true: Force reading of table data; = false: Only read, if not yet read.";
-      input Boolean verboseRead
-        "= true: Print info message; = false: No info message";
-      output Real readSuccess "Table read success";
-      external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID, forceRead, verboseRead)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-      annotation(__ModelicaAssociation_Impure=true);
-    end readTableData;
-
-    function getTableValue "Interpolate 2-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-      input Real u1;
-      input Real u2;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real y;
-      external"C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-      annotation (derivative(noDerivative=tableAvailable) = getDerTableValue);
-    end getTableValue;
-
-    function getTableValueNoDer
-      "Interpolate 2-dim. table defined by matrix (but do not provide a derivative function)"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-      input Real u1;
-      input Real u2;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real y;
-      external"C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getTableValueNoDer;
-
-    function getDerTableValue
-      "Derivative of interpolated 2-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-      input Real u1;
-      input Real u2;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      input Real der_u1;
-      input Real der_u2;
-      output Real der_y;
-      external"C" der_y = ModelicaStandardTables_CombiTable2D_getDerValue(tableID, u1, u2, der_u1, der_u2)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getDerTableValue;
-
-  initial algorithm
-    if tableOnFile then
-      tableOnFileRead := readTableData(tableID, false, verboseRead);
-    else
-      tableOnFileRead := 1.;
-    end if;
+    extends Internal.CombiTable2DBase;
+    function readTableData = // No longer used, but kept for backward compatibility
+      Modelica.Blocks.Tables.Internal.readTable2DData "Read table data from text or MATLAB MAT-file";
   equation
-    if tableOnFile then
-      assert(tableName <> "NoName",
-        "tableOnFile = true and no table name given");
-    else
-      assert(size(table, 1) > 0 and size(table, 2) > 0,
-        "tableOnFile = false and parameter table is an empty matrix");
+    if verboseExtrapolation and (
+      extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or
+      extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint) then
+      assert(noEvent(u1 >= u_min[1]), "
+Extrapolation warning: The value u1 (=" + String(u1) + ") must be greater or equal
+than the minimum abscissa value u_min[1] (=" + String(u_min[1]) + ") defined in the table.
+", level=AssertionLevel.warning);
+      assert(noEvent(u1 <= u_max[1]), "
+Extrapolation warning: The value u1 (=" + String(u1) + ") must be less or equal
+than the maximum abscissa value u_max[1] (=" + String(u_max[1]) + ") defined in the table.
+", level=AssertionLevel.warning);
+      assert(noEvent(u2 >= u_min[2]), "
+Extrapolation warning: The value u2 (=" + String(u2) + ") must be greater or equal
+than the minimum abscissa value u_min[2] (=" + String(u_min[2]) + ") defined in the table.
+", level=AssertionLevel.warning);
+      assert(noEvent(u2 <= u_max[2]), "
+Extrapolation warning: The value u2 (=" + String(u2) + ") must be less or equal
+than the maximum abscissa value u_max[2] (=" + String(u_max[2]) + ") defined in the table.
+", level=AssertionLevel.warning);
     end if;
+
     if smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then
-      y = getTableValueNoDer(tableID, u1, u2, tableOnFileRead);
+      y = Internal.getTable2DValueNoDer(tableID, u1, u2);
     else
-      y = getTableValue(tableID, u1, u2, tableOnFileRead);
+      y = Internal.getTable2DValue(tableID, u1, u2);
     end if;
     annotation (
       Documentation(info="<html>
@@ -833,9 +623,9 @@ The grid points and function values are stored in a matrix \"table[i,j]\",
 where:
 </p>
 <ul>
-<li> the first column \"table[2:,1]\" contains the u[1] grid points,</li>
-<li> the first row \"table[1,2:]\" contains the u[2] grid points,</li>
-<li> the other rows and columns contain the data to be interpolated.</li>
+<li>the first column \"table[2:,1]\" contains the u1 grid points,</li>
+<li>the first row \"table[1,2:]\" contains the u2 grid points,</li>
+<li>the other rows and columns contain the data to be interpolated.</li>
 </ul>
 <p>
 Example:
@@ -853,12 +643,12 @@ Example:
       table = [0.0,   1.0,   2.0,   3.0;
                1.0,   1.0,   3.0,   5.0;
                2.0,   2.0,   4.0,   6.0]
-   If, e.g., the input u is [1.0;1.0], the output y is 1.0,
-       e.g., the input u is [2.0;1.5], the output y is 3.0.
+   If, e.g., the input u1 is 1.0, input u2 is 1.0 and smoothness is LinearSegments, the output y is 1.0,
+       e.g., the input u1 is 2.0, input u2 is 1.5 and smoothness is LinearSegments, the output y is 3.0.
 </pre>
 <ul>
-<li>The interpolation is <b>efficient</b>, because a search for a new
-    interpolation starts at the interval used in the last call.</li>
+<li>The interpolation interval is found by a binary search where the interval used in the
+    last call is used as start interval.</li>
 <li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
 <pre>
   smoothness = 1: Bilinear interpolation
@@ -868,11 +658,21 @@ Example:
              = 4: Fritsch-Butland interpolation: Not supported
              = 5: Steffen interpolation: Not supported
 </pre></li>
-<li>If the table has only <b>one element</b>, the table value is returned,
+<li>Values <strong>outside</strong> of the table range, are computed by
+    extrapolation according to the setting of parameter <strong>extrapolation</strong>:
+<pre>
+  extrapolation = 1: Hold the first or last values of the table,
+                     if outside of the table scope.
+                = 2: Extrapolate by using the derivative at the first/last table
+                     points if outside of the table scope.
+                     (If smoothness is LinearSegments or ConstantSegments
+                     this means to extrapolate linearly through the first/last
+                     two table points.).
+                = 3: Periodically repeat the table data (periodical function).
+                = 4: No extrapolation, i.e. extrapolation triggers an error
+</pre></li>
+<li>If the table has only <strong>one element</strong>, the table value is returned,
     independent of the value of the input signal.</li>
-<li>If the input signal <b>u1</b> or <b>u2</b> is <b>outside</b> of the defined
-    <b>interval</b>, the corresponding value is also determined by linear
-    interpolation through the last or first two points of the table.</li>
 <li>The grid values (first column and first row) have to be strictly
     increasing.</li>
 </ul>
@@ -880,15 +680,15 @@ Example:
 The table matrix can be defined in the following ways:
 </p>
 <ol>
-<li>Explicitly supplied as <b>parameter matrix</b> \"table\",
+<li>Explicitly supplied as <strong>parameter matrix</strong> \"table\",
     and the other parameters have the following values:
 <pre>
    tableName is \"NoName\" or has only blanks,
    fileName  is \"NoName\" or has only blanks.
 </pre></li>
-<li><b>Read</b> from a <b>file</b> \"fileName\" where the matrix is stored as
-    \"tableName\". Both ASCII and MAT-file format is possible.
-    (The ASCII format is described below).
+<li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
+    \"tableName\". Both text and MATLAB MAT-file format is possible.
+    (The text format is described below).
     The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
@@ -915,7 +715,7 @@ When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of t
 source code are removed by the C-preprocessor, such that no access to files takes place.
 </p>
 <p>
-If tables are read from an ASCII-file, the file needs to have the
+If tables are read from a text file, the file needs to have the
 following structure (\"-----\" is not part of the file content):
 </p>
 <pre>
@@ -946,18 +746,251 @@ Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
 Number separators are spaces, tab (\\t), comma (,), or semicolon (;).
 Several matrices may be defined one after another. Line comments start
 with the hash symbol (#) and can appear everywhere.
+Text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the text file is ignored.
 Other characters, like trailing non comments, are not allowed in the file.
 The matrix elements are interpreted in exactly the same way
 as if the matrix is given as a parameter. For example, the first
 column \"table2D_1[2:,1]\" contains the u[1] grid points,
 and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
 </p>
-
 <p>
 MATLAB is a registered trademark of The MathWorks, Inc.
 </p>
-</html>"),
-      Icon(
+</html>"));
+  end CombiTable2D;
+
+  block CombiTable2Dv "Table look-up in two dimensions (matrix/file) with vector inputs and vector output of size n"
+    extends Modelica.Blocks.Interfaces.MI2MO;
+    extends Internal.CombiTable2DBase;
+  equation
+    if verboseExtrapolation and (
+      extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or
+      extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint) then
+      for j in 1:n loop
+        assert(noEvent(u1[j] >= u_min[1]), "
+Extrapolation warning: The value u1[" + String(j) + "] (=" + String(u1[j]) + ") must be greater or equal
+than the minimum abscissa value u_min[1] (=" + String(u_min[1]) + ") defined in the table.
+", level=AssertionLevel.warning);
+        assert(noEvent(u1[j] <= u_max[1]), "
+Extrapolation warning: The value u1[" + String(j) + "] (=" + String(u1[j]) + ") must be less or equal
+than the maximum abscissa value u_max[1] (=" + String(u_max[1]) + ") defined in the table.
+", level=AssertionLevel.warning);
+        assert(noEvent(u2[j] >= u_min[2]), "
+Extrapolation warning: The value u2[" + String(j) + "] (=" + String(u2[j]) + ") must be greater or equal
+than the minimum abscissa value u_min[2] (=" + String(u_min[2]) + ") defined in the table.
+", level=AssertionLevel.warning);
+        assert(noEvent(u2[j] <= u_max[2]), "
+Extrapolation warning: The value u2[" + String(j) + "] (=" + String(u2[j]) + ") must be less or equal
+than the maximum abscissa value u_max[2] (=" + String(u_max[2]) + ") defined in the table.
+", level=AssertionLevel.warning);
+      end for;
+    end if;
+
+    if smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then
+      for j in 1:n loop
+        y[j] = Modelica.Blocks.Tables.Internal.getTable2DValueNoDer(tableID, u1[j], u2[j]);
+      end for;
+    else
+      for j in 1:n loop
+        y[j] = Modelica.Blocks.Tables.Internal.getTable2DValue(tableID, u1[j], u2[j]);
+      end for;
+    end if;
+  annotation(Documentation(info="<html>
+<p>
+<strong>Bivariate constant</strong>, <strong>bilinear</strong> or <strong>bivariate
+Akima interpolation</strong> of a <strong>two-dimensional table</strong>.
+The grid points and function values are stored in a matrix \"table[i,j]\",
+where:
+</p>
+<ul>
+<li>the first column \"table[2:,1]\" contains the u1 grid points,</li>
+<li>the first row \"table[1,2:]\" contains the u2 grid points,</li>
+<li>the other rows and columns contain the data to be interpolated.</li>
+</ul>
+<p>
+Example:
+</p>
+<pre>
+           |       |       |       |
+           |  1.0  |  2.0  |  3.0  |  // u2
+       ----*-------*-------*-------*
+       1.0 |  1.0  |  3.0  |  5.0  |
+       ----*-------*-------*-------*
+       2.0 |  2.0  |  4.0  |  6.0  |
+       ----*-------*-------*-------*
+     // u1
+   is defined as
+      table = [0.0,   1.0,   2.0,   3.0;
+               1.0,   1.0,   3.0,   5.0;
+               2.0,   2.0,   4.0,   6.0]
+   If, e.g., the input u1 is {1.0}, input u2 is {1.0} and smoothness is LinearSegments, the output y is {1.0},
+       e.g., the input u1 is {2.0}, input u2 is {1.5} and smoothness is LinearSegments, the output y is {3.0}.
+</pre>
+<ul>
+<li>The interpolation interval is found by a binary search where the interval used in the
+    last call is used as start interval.</li>
+<li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
+<pre>
+  smoothness = 1: Bilinear interpolation
+             = 2: Bivariate Akima interpolation: Smooth interpolation by bicubic Hermite
+                  splines such that der(y) is continuous, also if extrapolated.
+             = 3: Constant segments
+             = 4: Fritsch-Butland interpolation: Not supported
+             = 5: Steffen interpolation: Not supported
+</pre></li>
+<li>Values <strong>outside</strong> of the table range, are computed by
+    extrapolation according to the setting of parameter <strong>extrapolation</strong>:
+<pre>
+  extrapolation = 1: Hold the first or last values of the table,
+                     if outside of the table scope.
+                = 2: Extrapolate by using the derivative at the first/last table
+                     points if outside of the table scope.
+                     (If smoothness is LinearSegments or ConstantSegments
+                     this means to extrapolate linearly through the first/last
+                     two table points.).
+                = 3: Periodically repeat the table data (periodical function).
+                = 4: No extrapolation, i.e. extrapolation triggers an error
+</pre></li>
+<li>If the table has only <strong>one element</strong>, the table value is returned,
+    independent of the value of the input signal.</li>
+<li>The grid values (first column and first row) have to be strictly
+    increasing.</li>
+</ul>
+<p>
+The table matrix can be defined in the following ways:
+</p>
+<ol>
+<li>Explicitly supplied as <strong>parameter matrix</strong> \"table\",
+    and the other parameters have the following values:
+<pre>
+   tableName is \"NoName\" or has only blanks,
+   fileName  is \"NoName\" or has only blanks.
+</pre></li>
+<li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
+    \"tableName\". Both text and MATLAB MAT-file format is possible.
+    (The text format is described below).
+    The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
+    The library supports at least v4, v6 and v7 whereas v7.3 is optional.
+    It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
+    by command
+<pre>
+   save tables.mat tab1 tab2 tab3
+</pre>
+    or Scilab by command
+<pre>
+   savematfile tables.mat tab1 tab2 tab3
+</pre>
+    when the three tables tab1, tab2, tab3 should be used from the model.<br>
+    Note, a fileName can be defined as URI by using the helper function
+    <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
+<li>Statically stored in function \"usertab\" in file \"usertab.c\".
+    The matrix is identified by \"tableName\". Parameter
+    fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
+    preferred as otherwise the table is reallocated and transposed.
+    See the <a href=\"modelica://Modelica.Blocks.Tables\">Tables</a> package
+    documentation for more details.</li>
+</ol>
+<p>
+When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of the
+source code are removed by the C-preprocessor, such that no access to files takes place.
+</p>
+<p>
+If tables are read from a text file, the file needs to have the
+following structure (\"-----\" is not part of the file content):
+</p>
+<pre>
+-----------------------------------------------------
+#1
+double table2D_1(3,4)   # comment line
+0.0  1.0  2.0  3.0  # u[2] grid points
+1.0  1.0  3.0  5.0
+2.0  2.0  4.0  6.0
+
+double table2D_2(4,4)   # comment line
+0.0  1.0  2.0  3.0  # u[2] grid points
+1.0  1.0  3.0  5.0
+2.0  2.0  4.0  6.0
+3.0  3.0  5.0  7.0
+-----------------------------------------------------
+</pre>
+<p>
+Note, that the first two characters in the file need to be
+\"#1\" (a line comment defining the version number of the file format).
+Afterwards, the corresponding matrix has to be declared
+with type (= \"double\" or \"float\"), name and actual dimensions.
+Finally, in successive rows of the file, the elements of the matrix
+have to be given. The elements have to be provided as a sequence of
+numbers in row-wise order (therefore a matrix row can span several
+lines in the file and need not start at the beginning of a line).
+Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
+Number separators are spaces, tab (\\t), comma (,), or semicolon (;).
+Several matrices may be defined one after another. Line comments start
+with the hash symbol (#) and can appear everywhere.
+Text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the text file is ignored.
+Other characters, like trailing non comments, are not allowed in the file.
+The matrix elements are interpreted in exactly the same way
+as if the matrix is given as a parameter. For example, the first
+column \"table2D_1[2:,1]\" contains the u[1] grid points,
+and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
+</p>
+<p>
+MATLAB is a registered trademark of The MathWorks, Inc.
+</p>
+</html>"));
+  end CombiTable2Dv;
+
+  package Internal "Internal external object definitions for table functions that should not be directly utilized by the user"
+    extends Modelica.Icons.InternalPackage;
+    partial block CombiTable2DBase "Base class for variants of CombiTable2D"
+      parameter Boolean tableOnFile=false
+        "= true, if table is defined on file or in function usertab"
+        annotation (Dialog(group="Table data definition"));
+      parameter Real table[:, :] = fill(0.0, 0, 2)
+        "Table matrix (grid u1 = first column, grid u2 = first row; e.g., table=[0, 0; 0, 1])"
+        annotation (Dialog(group="Table data definition",enable=not tableOnFile));
+      parameter String tableName="NoName"
+        "Table name on file or in function usertab (see docu)"
+        annotation (Dialog(group="Table data definition",enable=tableOnFile));
+      parameter String fileName="NoName" "File where matrix is stored"
+        annotation (Dialog(
+          group="Table data definition",
+          enable=tableOnFile,
+          loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat)",
+              caption="Open file in which table is present")));
+      parameter Boolean verboseRead=true
+        "= true, if info message that file is loading is to be printed"
+        annotation (Dialog(group="Table data definition",enable=tableOnFile));
+      parameter Modelica.Blocks.Types.Smoothness smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments
+        "Smoothness of table interpolation"
+        annotation (Dialog(group="Table data interpretation"));
+      parameter Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints
+        "Extrapolation of data outside the definition range"
+        annotation (Dialog(group="Table data interpretation"));
+      parameter Boolean verboseExtrapolation=false
+        "= true, if warning messages are to be printed if table input is outside the definition range"
+        annotation (Dialog(group="Table data interpretation", enable=extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
+      final parameter Real u_min[2]=getTable2DAbscissaUmin(tableID)
+        "Minimum abscissa value defined in table";
+      final parameter Real u_max[2]=getTable2DAbscissaUmax(tableID)
+        "Maximum abscissa value defined in table";
+      protected
+        parameter Modelica.Blocks.Types.ExternalCombiTable2D tableID=
+          Modelica.Blocks.Types.ExternalCombiTable2D(
+            if tableOnFile then tableName else "NoName",
+            if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
+            table,
+            smoothness,
+            extrapolation,
+            if tableOnFile then verboseRead else false) "External table object";
+      equation
+        if tableOnFile then
+          assert(tableName <> "NoName",
+            "tableOnFile = true and no table name given");
+        else
+          assert(size(table, 1) > 0 and size(table, 2) > 0,
+            "tableOnFile = false and parameter table is an empty matrix");
+        end if;
+      annotation(Icon(
       coordinateSystem(preserveAspectRatio=true,
         extent={{-100.0,-100.0},{100.0,100.0}}),
         graphics={
@@ -997,7 +1030,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           Line(points={{60,0},{100,0}}, color={0,0,255}),
           Text(
             extent={{-100,100},{100,64}},
-            textString="2 dimensional linear table interpolation",
+            textString="Bivariate constant, bilinear or bivariate Akima table interpolation",
             lineColor={0,0,255}),
           Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{-28,
                 -40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,-20},
@@ -1006,32 +1039,26 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           Line(points={{0,40},{0,-40}}),
           Rectangle(
             extent={{-54,20},{-28,0}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{-54,0},{-28,-20}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{-54,-20},{-28,-40}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{-28,40},{0,20}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{0,40},{28,20}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{28,40},{54,20}},
-            lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Line(points={{-54,40},{-28,20}}),
@@ -1048,11 +1075,227 @@ MATLAB is a registered trademark of The MathWorks, Inc.
             extent={{-2,12},{32,-22}},
             textString="y",
             lineColor={0,0,255})}));
-  end CombiTable2D;
+    end CombiTable2DBase;
+
+    function readTimeTableData "Read table data from text or MATLAB MAT-file"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Boolean forceRead = false
+        "= true: Force reading of table data; = false: Only read, if not yet read.";
+      output Real readSuccess "Table read success";
+      input Boolean verboseRead = true
+        "= true: Print info message; = false: No info message";
+      external"C" readSuccess = ModelicaStandardTables_CombiTimeTable_read(tableID, forceRead, verboseRead)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+      annotation(__ModelicaAssociation_Impure=true);
+    end readTimeTableData;
+
+    function getTimeTableValue
+      "Interpolate 1-dim. table where first column is time"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Integer icol;
+      input Real timeIn;
+      discrete input Real nextTimeEvent;
+      discrete input Real pre_nextTimeEvent;
+      output Real y;
+      external"C" y = ModelicaStandardTables_CombiTimeTable_getValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+      annotation (derivative(
+          noDerivative=nextTimeEvent,
+          noDerivative=pre_nextTimeEvent) = getDerTimeTableValue);
+    end getTimeTableValue;
+
+    function getTimeTableValueNoDer
+      "Interpolate 1-dim. table where first column is time (but do not provide a derivative function)"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Integer icol;
+      input Real timeIn;
+      discrete input Real nextTimeEvent;
+      discrete input Real pre_nextTimeEvent;
+      output Real y;
+      external"C" y = ModelicaStandardTables_CombiTimeTable_getValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getTimeTableValueNoDer;
+
+    function getDerTimeTableValue
+      "Derivative of interpolated 1-dim. table where first column is time"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Integer icol;
+      input Real timeIn;
+      discrete input Real nextTimeEvent;
+      discrete input Real pre_nextTimeEvent;
+      input Real der_timeIn;
+      output Real der_y;
+      external"C" der_y = ModelicaStandardTables_CombiTimeTable_getDerValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent, der_timeIn)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getDerTimeTableValue;
+
+    function getTimeTableTmin
+      "Return minimum abscissa value of 1-dim. table where first column is time"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      output Real timeMin "Minimum abscissa value in table";
+      external"C" timeMin = ModelicaStandardTables_CombiTimeTable_minimumTime(tableID)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getTimeTableTmin;
+
+    function getTimeTableTmax
+      "Return maximum abscissa value of 1-dim. table where first column is time"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      output Real timeMax "Maximum abscissa value in table";
+      external"C" timeMax = ModelicaStandardTables_CombiTimeTable_maximumTime(tableID)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getTimeTableTmax;
+
+    function readTable1DData "Read table data from text or MATLAB MAT-file"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Boolean forceRead = false
+        "= true: Force reading of table data; = false: Only read, if not yet read.";
+      input Boolean verboseRead = true
+        "= true: Print info message; = false: No info message";
+      output Real readSuccess "Table read success";
+      external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID, forceRead, verboseRead)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+      annotation(__ModelicaAssociation_Impure=true);
+    end readTable1DData;
+
+    function getNextTimeEvent
+      "Return next time event value of 1-dim. table where first column is time"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Real timeIn;
+      output Real nextTimeEvent "Next time event in table";
+      external"C" nextTimeEvent = ModelicaStandardTables_CombiTimeTable_nextTimeEvent(tableID, timeIn)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getNextTimeEvent;
+
+    function getTable1DValue "Interpolate 1-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Integer icol;
+      input Real u;
+      output Real y;
+      external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+      annotation (derivative = getDerTable1DValue);
+    end getTable1DValue;
+
+    function getTable1DValueNoDer
+      "Interpolate 1-dim. table defined by matrix (but do not provide a derivative function)"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Integer icol;
+      input Real u;
+      output Real y;
+      external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getTable1DValueNoDer;
+
+    function getDerTable1DValue
+      "Derivative of interpolated 1-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Integer icol;
+      input Real u;
+      input Real der_u;
+      output Real der_y;
+      external"C" der_y = ModelicaStandardTables_CombiTable1D_getDerValue(tableID, icol, u, der_u)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getDerTable1DValue;
+
+    function getTable1DAbscissaUmin
+      "Return minimum abscissa value of 1-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      output Real uMin "Minimum abscissa value in table";
+      external"C" uMin = ModelicaStandardTables_CombiTable1D_minimumAbscissa(tableID)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getTable1DAbscissaUmin;
+
+    function getTable1DAbscissaUmax
+      "Return maximum abscissa value of 1-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      output Real uMax "Maximum abscissa value in table";
+      external"C" uMax = ModelicaStandardTables_CombiTable1D_maximumAbscissa(tableID)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getTable1DAbscissaUmax;
+
+    function readTable2DData "Read table data from text or MATLAB MAT-file"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
+      input Boolean forceRead = false
+        "= true: Force reading of table data; = false: Only read, if not yet read.";
+      input Boolean verboseRead = true
+        "= true: Print info message; = false: No info message";
+      output Real readSuccess "Table read success";
+      external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID, forceRead, verboseRead)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+      annotation(__ModelicaAssociation_Impure=true);
+    end readTable2DData;
+
+    function getTable2DValue "Interpolate 2-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
+      input Real u1;
+      input Real u2;
+      output Real y;
+      external"C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+      annotation (derivative = getDerTable2DValue);
+    end getTable2DValue;
+
+    function getTable2DValueNoDer
+      "Interpolate 2-dim. table defined by matrix (but do not provide a derivative function)"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
+      input Real u1;
+      input Real u2;
+      output Real y;
+      external"C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getTable2DValueNoDer;
+
+    function getDerTable2DValue
+      "Derivative of interpolated 2-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
+      input Real u1;
+      input Real u2;
+      input Real der_u1;
+      input Real der_u2;
+      output Real der_y;
+      external"C" der_y = ModelicaStandardTables_CombiTable2D_getDerValue(tableID, u1, u2, der_u1, der_u2)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getDerTable2DValue;
+
+    function getTable2DAbscissaUmin
+      "Return minimum abscissa value of 2-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
+      output Real uMin[2] "Minimum abscissa value in table";
+      external"C" ModelicaStandardTables_CombiTable2D_minimumAbscissa(tableID, uMin)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getTable2DAbscissaUmin;
+
+    function getTable2DAbscissaUmax
+      "Return maximum abscissa value of 2-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
+      output Real uMax[2] "Maximum abscissa value in table";
+      external"C" ModelicaStandardTables_CombiTable2D_maximumAbscissa(tableID, uMax)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getTable2DAbscissaUmax;
+  end Internal;
   annotation (Documentation(info="<html>
 <p>This package contains blocks for one- and two-dimensional interpolation in tables.</p>
 <h4>Special interest topic: Statically stored tables for real-time simulation targets</h4>
-<p>Especially for use on real-time platform targets (e.g., HIL-simulators) with <b>no file system</b>, it is possible to statically
+<p>Especially for use on real-time platform targets (e.g., HIL-simulators) with <strong>no file system</strong>, it is possible to statically
 store tables using a function &quot;usertab&quot; in a file conventionally named &quot;usertab.c&quot;. This can be more efficient than providing the tables as Modelica parameter arrays.</p>
 <p>This is achieved by providing the tables in a specific structure as C-code and compiling that C-code together with the rest of the simulation model into a binary
 that can be executed on the target platform. The &quot;Resources/Data/Tables/&quot; subdirectory of the MSL installation directory contains the files
@@ -1087,8 +1330,7 @@ double mydummyfunc(double* dummy_in) {
   end getUsertab;
 equation
   connect(clock.y,t_new. u[1]) annotation (Line(
-      points={{-59,10},{-42,10}},
-      color={0,0,127}));
+      points={{-59,10},{-42,10}}, color={0,0,127}));
   annotation (experiment(StartTime=0, StopTime=5), uses(Modelica(version=\"3.2.2\")));
 end Test25_usertab;
 </pre>

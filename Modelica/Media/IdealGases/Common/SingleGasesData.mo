@@ -17298,11 +17298,11 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     bhigh={15275.10023,-74.8199549},
     R=67.47511012572349);
 
-  annotation ( Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>This package contains ideal gas models for the 1241 ideal gases from</p>
 <blockquote>
-  <p>McBride B.J., Zehe M.J., and Gordon S. (2002): <b>NASA Glenn Coefficients
-  for Calculating Thermodynamic Properties of Individual Species</b>. NASA
+  <p>McBride B.J., Zehe M.J., and Gordon S. (2002): <strong>NASA Glenn Coefficients
+  for Calculating Thermodynamic Properties of Individual Species</strong>. NASA
   report TP-2002-211556</p>
 </blockquote>
 

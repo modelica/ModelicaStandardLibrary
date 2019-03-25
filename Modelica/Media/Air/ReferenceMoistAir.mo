@@ -51,7 +51,7 @@ package ReferenceMoistAir
           StateSelect.default),
     final standardOrderComponents=true) "Moist air base properties record"
 
-    MassFraction x_water "Mass of total water/mass of dry air";
+    Real x_water "Mass of total water/mass of dry air";
     Real phi "Relative humidity";
 
   protected
@@ -60,7 +60,7 @@ package ReferenceMoistAir
     MassFraction X_air "Mass fraction of air";
     MassFraction X_sat
       "Steam water mass fraction of saturation boundary in kg_water/kg_moistair";
-    MassFraction x_sat
+    Real x_sat
       "Steam water mass content of saturation boundary in kg_water/kg_dryair";
     AbsolutePressure p_steam_sat "partial saturation pressure of steam";
   equation
@@ -71,8 +71,8 @@ package ReferenceMoistAir
     MM = 1/(Xi[Water]/MMX[Water] + (1.0 - Xi[Water])/MMX[Air]);
 
     p_steam_sat = Modelica.Media.Air.ReferenceMoistAir.Utilities.pds_pT(p, T);
-    X_sat = k_mair/(p/p_steam_sat - 1 + k_mair);
-    X_liquid = Xi[Water] - X_sat;
+    X_sat = Modelica.Media.Air.ReferenceMoistAir.Xsaturation(state);
+    X_liquid = max(Xi[Water] - X_sat, 0.0);
     X_steam = Xi[Water] - X_liquid;
     X_air = 1 - Xi[Water];
 
@@ -94,13 +94,16 @@ package ReferenceMoistAir
     state.X = X;
 
     // these x are per unit mass of DRY air!
-    x_sat = k_mair*p_steam_sat/max(100*Constants.eps, p - p_steam_sat);
-    x_water = Xi[Water]/max(X_air, 100*Constants.eps);
+    x_sat = Modelica.Media.Air.ReferenceMoistAir.xsaturation(state);
+    x_water = Modelica.Media.Air.ReferenceMoistAir.waterContent_X(state.X);
     phi = Modelica.Media.Air.ReferenceMoistAir.Utilities.phi_pTX(
         p,
         T,
         Xi);
 
+    annotation (Documentation(revisions="<html>
+2017-04-13 Stefan Wischhusen: Resolved a problem for high saturation pressures and temperatures.
+</html>"));
   end BaseProperties;
 
   redeclare function extends setState_pTX
@@ -250,9 +253,12 @@ package ReferenceMoistAir
     Real xw;
     Real xws;
   algorithm
-    xw := state.X[1]/(1 - state.X[1]);
+    xw := state.X[1]/max(100*Modelica.Constants.eps, (1 - state.X[1]));
     xws := Utilities.xws_pT(state.p, state.T);
     X := if (xw <= xws) then xw/(1 + xw) else xws/(1 + xw);
+    annotation (Documentation(revisions="<html>
+2017-04-13 Stefan Wischhusen: Guard introduced against division by zero.
+</html>"));
   end massFractionWaterVapor;
 
   function massFractionWaterNonVapor
@@ -264,9 +270,12 @@ package ReferenceMoistAir
     Real xw;
     Real xws;
   algorithm
-    xw := state.X[1]/(1 - state.X[1]);
+    xw := state.X[1]/max(100*Modelica.Constants.eps, (1 - state.X[1]));
     xws := Utilities.xws_pT(state.p, state.T);
     X := if (xw <= xws) then 0 else (xw - xws)/(1 + xw);
+    annotation (Documentation(revisions="<html>
+2017-04-13 Stefan Wischhusen: Guard introduced against division by zero.
+</html>"));
   end massFractionWaterNonVapor;
 
   redeclare function extends massFractionSaturation
@@ -307,7 +316,10 @@ package ReferenceMoistAir
     input MassFraction[:] X "Mass fractions";
     output Real xw "Water content in kg(water)/kg(dry air)";
   algorithm
-    xw := X[1]/(1 - X[1]);
+    xw := X[1]/max(100*Modelica.Constants.eps, (1 - X[1]));
+    annotation (Documentation(revisions="<html>
+2017-04-13 Stefan Wischhusen: Guard introduced against division by zero.
+</html>"));
   end waterContent_X;
 
   redeclare function extends relativeHumidity "Return relative humidity"
@@ -620,7 +632,7 @@ package ReferenceMoistAir
 
   redeclare function extends molarMass "Return the molar mass of the medium"
   algorithm
-    MM := 1/(state.X[1]*steam.MM + state.X[2]*dryair.MM);
+    MM := 1/(state.X[1]/steam.MM + state.X[2]/dryair.MM);
   end molarMass;
 
   redeclare function extends dynamicViscosity
@@ -1721,7 +1733,7 @@ package ReferenceMoistAir
         input Modelica.SIunits.Pressure p "Pressure";
         input Modelica.SIunits.Temperature T "Temperature (K)";
         output Modelica.Media.Common.GibbsDerivs g
-          "Dimensionless Gibbs function and dervatives w.r.t. pi and tau";
+          "Dimensionless Gibbs function and derivatives w.r.t. pi and tau";
       protected
         Real tau2 "Dimensionless temperature";
         Real[55] o "Vector of auxiliary variables";
@@ -2432,12 +2444,15 @@ package ReferenceMoistAir
 
       protected
         record MyComplex "Complex number with function"
+          extends Modelica.Icons.Record;
           Real re "Real part of complex number" annotation (Dialog);
           Real im "Imaginary part of complex number" annotation (Dialog);
         end MyComplex;
 
         package MyComplexF
+          extends Modelica.Icons.FunctionsPackage;
           function toReal "Extract Real part from Complex number"
+            extends Modelica.Icons.Function;
             input MyComplex c "Complex number";
             output Real result=c.re "Real number";
           algorithm
@@ -2448,6 +2463,7 @@ package ReferenceMoistAir
           end toReal;
 
           function '-' "Subtract two complex numbers"
+            extends Modelica.Icons.Function;
             input MyComplex c1 "Complex number 1";
             input MyComplex c2 "Complex number 2";
             output MyComplex c3 "= c1 - c2";
@@ -2459,6 +2475,7 @@ package ReferenceMoistAir
           end '-';
 
           function '*' "Multiplication"
+            extends Modelica.Icons.Function;
             input MyComplex c1 "Complex number 1";
             input MyComplex c2 "Complex number 2";
             output MyComplex c3 "= c1*c2";
@@ -2471,6 +2488,7 @@ package ReferenceMoistAir
           end '*';
 
           function '+' "Add two complex numbers"
+            extends Modelica.Icons.Function;
             input MyComplex c1 "Complex number 1";
             input MyComplex c2 "Complex number 2";
             output MyComplex c3 "= c1 + c2";
@@ -2482,6 +2500,7 @@ package ReferenceMoistAir
           end '+';
 
           function '/' "Divide two complex numbers"
+            extends Modelica.Icons.Function;
             input MyComplex c1 "Complex number 1";
             input MyComplex c2 "Complex number 2";
             output MyComplex c3 "= c1/c2";
@@ -2494,6 +2513,7 @@ package ReferenceMoistAir
           end '/';
 
           function '^' "Complex power of complex number"
+            extends Modelica.Icons.Function;
             input MyComplex c1 "Complex number";
             input MyComplex c2 "Complex exponent";
             output MyComplex c3 "= c1^c2";
@@ -2510,6 +2530,7 @@ package ReferenceMoistAir
           end '^';
 
           function 'log' "Logarithm of complex number"
+            extends Modelica.Icons.Function;
             import Modelica.Math.atan3;
             input MyComplex c1 "Complex number";
             output MyComplex c2 "= log(c1)";
@@ -2811,7 +2832,7 @@ package ReferenceMoistAir
         input Modelica.SIunits.Temperature T "Temperature";
         output Common.AuxiliaryProperties aux "Auxiliary record";
       protected
-        Common.GibbsDerivs2 g "Gibbs function and dervatives w.r.t. p and T";
+        Common.GibbsDerivs2 g "Gibbs function and derivatives w.r.t. p and T";
       algorithm
         aux.p := p;
         aux.T := T;
@@ -3195,12 +3216,16 @@ package ReferenceMoistAir
       if (T <= Tlim) then
         pds := Modelica.Media.Air.ReferenceMoistAir.Utilities.f_pT(p, T)*pds;
       else
-        pds := -1;
+        // pds := -1;
+        pds := p;
       end if;
       annotation (
         derivative=pds_pT_der,
         Inline=false,
-        LateInline=true);
+        LateInline=true,
+        Documentation(revisions="<html>
+2017-04-13 Stefan Wischhusen: Partial steam pressure cannot become higher than absolute pressure p.
+</html>"));
     end pds_pT;
 
     function pd_pTX "partial pressure of steam"
@@ -3233,7 +3258,7 @@ package ReferenceMoistAir
         LateInline=true);
     end pd_pTX;
 
-    function xws_pT "Humidity ration (absolute) of saturated humid air"
+    function xws_pT "Humidity ratio (absolute) of saturated humid air"
       extends Modelica.Icons.Function;
 
       input Modelica.SIunits.AbsolutePressure p "Pressure";
@@ -3250,12 +3275,16 @@ package ReferenceMoistAir
         Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Tsub(
         p) else
         Modelica.Media.Air.ReferenceMoistAir.Utilities.Water95_Utilities.Tsat(p);
-      xws := if (T <= Tlim) then Modelica.Media.Air.ReferenceMoistAir.k_mair*
-        pds/(p - pds) else -1;
+    //   xws := if (T <= Tlim) then Modelica.Media.Air.ReferenceMoistAir.k_mair*
+    //     pds/(p - pds) else -1;
+      xws := if (pds < p) then pds*Modelica.Media.Air.ReferenceMoistAir.k_mair/(p - pds) else Modelica.Constants.inf;
       annotation (
         derivative=xws_pT_der,
         Inline=false,
-        LateInline=true);
+        LateInline=true,
+        Documentation(revisions="<html>
+2017-04-13 Stefan Wischhusen: New formula for xws.
+</html>"));
     end xws_pT;
 
     function phi_pTX "Relative humidity"
@@ -3285,13 +3314,18 @@ package ReferenceMoistAir
         end if;
         pds := Modelica.Media.Air.ReferenceMoistAir.Utilities.f_pT(p, T)*pds;
         pd := xw/(Modelica.Media.Air.ReferenceMoistAir.k_mair + xw)*p;
-        if (pd <= pds) then
-          phi := pd/pds;
-        else
-          phi := -1;
-        end if;
+    //     if (pd <= pds) then
+    //       phi := pd/pds;
+    //     else
+    //       phi := -1;
+    //     end if;
+        phi := pd/max(100*Modelica.Constants.eps, pds);
       end if;
-      annotation (Inline=false, LateInline=true);
+
+      annotation(Inline=false, LateInline=true,
+        Documentation(revisions="<html>
+2017-04-13 Stefan Wischhusen: New calculation for phi.
+</html>"));
     end phi_pTX;
 
     function cp_pTX "Specific isobaric heat capacity"
@@ -3798,8 +3832,11 @@ package ReferenceMoistAir
           xw*xw_der)*p + xw/(Modelica.Media.Air.ReferenceMoistAir.k_mair + xw)*
           p_der;
         xws := Modelica.Media.Air.ReferenceMoistAir.Utilities.xws_pT(p, T);
-        pd_der := if ((xw <= xws) or (xws == -1)) then pd_der else pds_der;
+        pd_der := if (xw <= xws) then pd_der else pds_der;
       end if;
+      annotation (Documentation(revisions="<html>
+2017-04-13 Stefan Wischhusen: Changed derivative function.
+</html>"));
     end pd_pTX_der;
 
     function xws_pT_der
@@ -3827,12 +3864,15 @@ package ReferenceMoistAir
         Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Tsub(
         p) else
         Modelica.Media.Air.ReferenceMoistAir.Utilities.Water95_Utilities.Tsat(p);
-      if (T <= Tlim) then
+      if (pds < p) then
         xws_der := Modelica.Media.Air.ReferenceMoistAir.k_mair*((pds_der*(p -
           pds) + pds*pds_der)/(p - pds)^2);
       else
         xws_der := 0;
       end if;
+      annotation (Documentation(revisions="<html>
+2017-04-13 Stefan Wischhusen: Changed derivative function.
+</html>"));
     end xws_pT_der;
 
     function pds_pT_der "Derivative of saturation partial pressure of steam"
@@ -3866,8 +3906,11 @@ package ReferenceMoistAir
       if (T <= Tlim) then
         pds_der := pds_der;
       else
-        pds_der := 0;
+        pds_der := p_der;
       end if;
+      annotation (Documentation(revisions="<html>
+2017-04-13 Stefan Wischhusen: Changed derivative if pds=p.
+</html>"));
     end pds_pT_der;
 
     function rho_pTX_der
@@ -4460,32 +4503,32 @@ The functions provided by this package shall be used inside of the restricted li
 
 <ul>
 <li>
-<b>611.2 Pa &le; p &le; 10 MPa</b>
+<strong>611.2 Pa &le; p &le; 10 MPa</strong>
 </li>
 <li>
-<b>143.15 K &le; T &le; 2000 K</b>
+<strong>143.15 K &le; T &le; 2000 K</strong>
 </li>
 </ul>
 
 <h4>Usage</h4>
 <p>
-The package MoistAir can be used as any other medium model (see <a href=\"modelica://Modelica.Media.UsersGuide\">User's Guide of Media Library</a> for further information). The package defines two boolean constants <b>useEnhancementFactor</b> and <b>useDissociation</b>, which give the user fine grained control of the calculations.
+The package MoistAir can be used as any other medium model (see <a href=\"modelica://Modelica.Media.UsersGuide\">User's Guide of Media Library</a> for further information). The package defines two boolean constants <strong>useEnhancementFactor</strong> and <strong>useDissociation</strong>, which give the user fine grained control of the calculations.
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr>
-<td valign=\"top\"><b>Constant</b></td>
-<td valign=\"top\"><b>Default Value</b></td>
-<td valign=\"top\"><b>Meaning</b></td>
+<td><strong>Constant</strong></td>
+<td><strong>Default Value</strong></td>
+<td><strong>Meaning</strong></td>
 </tr>
 <tr>
-<td valign=\"top\">useEnhancementFactor</td>
-<td valign=\"top\">false</td>
-<td valign=\"top\">The enhancement factor is used in the calculation of the saturation partial pressure of water in moist air. It is always very close to 1 except for high pressures (&gt;2 MPa) and low temperatures (&lt;233.15 K). For pressures less than 1 MPa this factor can be safely set to 1. Its calculation is very expensive, since it can only be calculated by an iterative method.</td>
+<td>useEnhancementFactor</td>
+<td>false</td>
+<td>The enhancement factor is used in the calculation of the saturation partial pressure of water in moist air. It is always very close to 1 except for high pressures (&gt;2 MPa) and low temperatures (&lt;233.15 K). For pressures less than 1 MPa this factor can be safely set to 1. Its calculation is very expensive, since it can only be calculated by an iterative method.</td>
 </tr>
 <tr>
-<td valign=\"top\">useDissociation</td>
-<td valign=\"top\">true</td>
-<td valign=\"top\">The effect of dissociation is taken into account for temperatures greater than 773.15 K.</td>
+<td>useDissociation</td>
+<td>true</td>
+<td>The effect of dissociation is taken into account for temperatures greater than 773.15 K.</td>
 </tr>
 </table>
 
@@ -4542,7 +4585,7 @@ Ideal mixture of dry air and steam
 
 <h5>Supersaturated humid air (liquid fog and ice fog)</h5>
 <p>
-<b>Liquid fog (x<sub>w</sub> &gt; x<sub>wsw</sub>) and T &ge; 273.16 K</b>
+<strong>Liquid fog (x<sub>w</sub> &gt; x<sub>wsw</sub>) and T &ge; 273.16 K</strong>
 </p>
 
 <p>
@@ -4557,7 +4600,7 @@ Ideal mixture of saturated humid air and water
 </ul>
 
 <p>
-<b>Ice fog (x<sub>w</sub> &gt; x<sub>wsw</sub>) and T &lt; 273.16 K</b>
+<strong>Ice fog (x<sub>w</sub> &gt; x<sub>wsw</sub>) and T &lt; 273.16 K</strong>
 </p>
 
 <p>
@@ -4594,49 +4637,49 @@ calculated by the package Modelica.Media.Air.ReferenceAir, because there no diss
 
 <h4>References</h4>
 <dl>
-<dd>[1] <b>Thermodynamic Properties of Air and Mixtures of Nitrogen, Argon,
-and Oxygen From 60 to 2000 K at Pressures to 2000 MPa</b>. J. Phys. Chem. Ref. Data, Vol. 29, No. 3, 2000.
+<dd>[1] <strong>Thermodynamic Properties of Air and Mixtures of Nitrogen, Argon,
+and Oxygen From 60 to 2000 K at Pressures to 2000 MPa</strong>. J. Phys. Chem. Ref. Data, Vol. 29, No. 3, 2000.
 </dd>
-<dd>[2] <b>Viscosity and Thermal Conductivity Equations for
-Nitrogen, Oxygen, Argon, and Air</b>. International Journal of Thermophysics, Vol. 25, No. 1, January 2004
+<dd>[2] <strong>Viscosity and Thermal Conductivity Equations for
+Nitrogen, Oxygen, Argon, and Air</strong>. International Journal of Thermophysics, Vol. 25, No. 1, January 2004
 </dd>
-<dd>[3] <b>Revised Release on the IAPWS Formulation 1995 for the Thermodynamic
-Properties of Ordinary Water Substance for General and Scientific Use</b>. 2009 International Association for the Properties of Water and Steam.
+<dd>[3] <strong>Revised Release on the IAPWS Formulation 1995 for the Thermodynamic
+Properties of Ordinary Water Substance for General and Scientific Use</strong>. 2009 International Association for the Properties of Water and Steam.
 </dd>
-<dd>[4] <b>Revised Release on the IAPWS Industrial Formulation 1997
-for the Thermodynamic Properties of Water and Steam</b>. 2007 International Association for the Properties of Water and Steam.
+<dd>[4] <strong>Revised Release on the IAPWS Industrial Formulation 1997
+for the Thermodynamic Properties of Water and Steam</strong>. 2007 International Association for the Properties of Water and Steam.
 </dd>
-<dd>[5] <b>Release on the IAPWS Formulation 2008 for the Viscosity of Ordinary Water Substance</b>. 2008 International Association for the Properties of Water and Steam
+<dd>[5] <strong>Release on the IAPWS Formulation 2008 for the Viscosity of Ordinary Water Substance</strong>. 2008 International Association for the Properties of Water and Steam
 </dd>
-<dd>[6] <b>Release on the IAPWS Formulation 2011 for the Thermal Conductivity of
-Ordinary Water Substance</b>. 2011 International Association for the Properties of Water and Steam.
+<dd>[6] <strong>Release on the IAPWS Formulation 2011 for the Thermal Conductivity of
+Ordinary Water Substance</strong>. 2011 International Association for the Properties of Water and Steam.
 </dd>
-<dd>[7] <b>Revised Release on the Equation of State 2006 for H2O Ice Ih</b>. 2009 International Association for the Properties of Water and Steam.
+<dd>[7] <strong>Revised Release on the Equation of State 2006 for H2O Ice Ih</strong>. 2009 International Association for the Properties of Water and Steam.
 </dd>
-<dd>[8] <b>Revised Release on the Pressure along the Melting and
-Sublimation Curves of Ordinary Water Substance</b>. 2011 International Association for the Properties of Water and Steam.
+<dd>[8] <strong>Revised Release on the Pressure along the Melting and
+Sublimation Curves of Ordinary Water Substance</strong>. 2011 International Association for the Properties of Water and Steam.
 </dd>
-<dd>[9] <b>Determination of Thermodynamic and Transport Properties
-of Humid Air for Power-Cycle Calculations</b>. 2009 PTB, Braunschweig, Germany.
+<dd>[9] <strong>Determination of Thermodynamic and Transport Properties
+of Humid Air for Power-Cycle Calculations</strong>. 2009 PTB, Braunschweig, Germany.
 </dd>
-<dd>[10] <b>Berechnung der thermodynamischen Zustandsfunktionen von
-feuchter Luft in energietechnischen Prozessmodellierungen</b>. 2001 Diplomarbeit, Zittau.
+<dd>[10] <strong>Berechnung der thermodynamischen Zustandsfunktionen von
+feuchter Luft in energietechnischen Prozessmodellierungen</strong>. 2001 Diplomarbeit, Zittau.
 </dd>
-<dd>[11] <b>Thermodynamische Stoffwerte von feuchter Luft und Verbrennungsgasen</b>. 2003 VDI-Richtlinie 4670.
+<dd>[11] <strong>Thermodynamische Stoffwerte von feuchter Luft und Verbrennungsgasen</strong>. 2003 VDI-Richtlinie 4670.
 </dd>
-<dd>[12] <b>W&auml;rme&uuml;bertragung in Dampferzeugern und W&auml;rmetauschern</b>. 1985 FDBR-Fachbuchreihe, Bd. 2, Vulkan Verlag Essen.
+<dd>[12] <strong>W&auml;rme&uuml;bertragung in Dampferzeugern und W&auml;rmetauschern</strong>. 1985 FDBR-Fachbuchreihe, Bd. 2, Vulkan Verlag Essen.
 </dd>
 </dl>
 
 <h4>References</h4>
 <dl>
 <dt>Lemmon, E. W., Jacobsen, R. T., Penoncello, S. G., Friend, D. G.:</dt>
-<dd><b>Thermodynamic Properties of Air and Mixtures of Nitrogen, Argon,
-and Oxygen From 60 to 2000 K at Pressures to 2000 MPa</b>. J. Phys. Chem. Ref. Data, Vol. 29, No. 3, 2000.
+<dd><strong>Thermodynamic Properties of Air and Mixtures of Nitrogen, Argon,
+and Oxygen From 60 to 2000 K at Pressures to 2000 MPa</strong>. J. Phys. Chem. Ref. Data, Vol. 29, No. 3, 2000.
 </dd>
 <dt>Lemmon, E. W., Jacobsen, R. T.:</dt>
-<dd><b>Viscosity and Thermal Conductivity Equations for
-Nitrogen, Oxygen, Argon, and Air</b>. International Journal of Thermophysics, Vol. 25, No. 1, January 2004
+<dd><strong>Viscosity and Thermal Conductivity Equations for
+Nitrogen, Oxygen, Argon, and Air</strong>. International Journal of Thermophysics, Vol. 25, No. 1, January 2004
 </dd>
 </dl>
 
@@ -4656,10 +4699,8 @@ This library was developed by XRG Simulation GmbH as part of the <a href=\"http:
 Some parts of this library refer to the ThermoFluid library developed at Lund University (<a href=\"http://thermofluid.sourceforge.net/\">http://thermofluid.sourceforge.net</a>).
 </p>
 
-<h4>Disclaimer</h4>
 <p>
-In no event will XRG Simulation GmbH be liable for any direct, indirect, incidental, special, exemplary, or consequential damages, arising in any way out of the use of this software, even if advised of the possibility of such damage.
+Copyright &copy; 2013-2019, Modelica Association and contributors
 </p>
-<h4> Copyright &copy; 2013-2016, XRG Simulation GmbH </h4>
 </html>"));
 end ReferenceMoistAir;

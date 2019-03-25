@@ -8,11 +8,6 @@ package AST_BatchPlant
     replaceable package BatchMedium = Modelica.Media.Water.StandardWater constrainedby
       Modelica.Media.Interfaces.PartialTwoPhaseMedium "Component media";
 
-  /*
-  replaceable package BatchMedium =Modelica.Media.Electrolytes.WaterNaCl extends
-    Modelica.Media.Interfaces.PartialTwoPhaseMedium "Component media";
-*/
-
     parameter Modelica.SIunits.Length pipeDiameter = 0.01;
 
     BaseClasses.TankWith3InletOutletArraysWithEvaporatorCondensor B5(
@@ -63,7 +58,7 @@ package AST_BatchPlant
         Transition3(enableTimer=true, waitTime=60), Transition7(
         condition=true,
         enableTimer=true,
-        waitTime=300))       annotation (Placement(transformation(extent={{60,38},
+        waitTime=300)) annotation (Placement(transformation(extent={{60,38},
               {100,78}})));
 
     Modelica.Fluid.Valves.ValveDiscrete V11(
@@ -324,7 +319,7 @@ package AST_BatchPlant
       T_start=298,
       redeclare model HeatTransfer =
           Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer (k=
-              4.9))      annotation (Placement(transformation(extent={{-110,
+              4.9)) annotation (Placement(transformation(extent={{-110,
               -140},{-70,-100}})));
     Pipes.DynamicPipe pipeB1B2(
       redeclare package Medium = BatchMedium,
@@ -379,7 +374,7 @@ package AST_BatchPlant
       redeclare package Medium = BatchMedium,
       diameter=pipeDiameter,
       height_ab=3,
-      length=3)    annotation (Placement(transformation(
+      length=3) annotation (Placement(transformation(
           origin={-180,10},
           extent={{-10,10},{10,-10}},
           rotation=90)));
@@ -387,7 +382,7 @@ package AST_BatchPlant
       redeclare package Medium = BatchMedium,
       diameter=pipeDiameter,
       height_ab=3,
-      length=3)    annotation (Placement(transformation(
+      length=3) annotation (Placement(transformation(
           origin={160,10},
           extent={{-10,10},{10,-10}},
           rotation=90)));
@@ -407,7 +402,7 @@ package AST_BatchPlant
       T_start=298,
       redeclare model HeatTransfer =
           Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer (k=
-              4.9))      annotation (Placement(transformation(extent={{80,-80},
+              4.9)) annotation (Placement(transformation(extent={{80,-80},
               {40,-40}})));
     Fittings.MultiPort multiPort(redeclare package Medium = BatchMedium,
         nPorts_b=3) annotation (Placement(transformation(
@@ -456,16 +451,15 @@ package AST_BatchPlant
     CoolingB7.Q_flow = if controller.actuators.T7_Cooling then -2000 else 0;
 
     connect(V24.port_b, P2.port_a) annotation (Line(points={{100,-250},{120,
-            -250}},                 color={0,127,255}));
+            -250}}, color={0,127,255}));
     connect(V15.port_a, B5.BottomFluidPort[1]) annotation (Line(points={{-90,-72},
-            {-90,-60.4}},      color={0,127,255}));
+            {-90,-60.4}}, color={0,127,255}));
     connect(P1_on.y, P1.N_in) annotation (Line(points={{-143,-220},{-150,-220},
-            {-150,-240}},     color={0,0,127}));
+            {-150,-240}}, color={0,0,127}));
     connect(P2_on.y, P2.N_in) annotation (Line(points={{121,-220},{130,-220},{
-            130,-240}},      color={0,0,127}));
+            130,-240}}, color={0,0,127}));
     connect(B4.ports[1], V12.port_b) annotation (Line(points={{-90,29},{-90,21},
-            {-90,12}},
-          color={0,127,255}));
+            {-90,12}}, color={0,127,255}));
     connect(CoolingB7.port, B7.heatPort) annotation (Line(points={{-130,-120},{
             -110,-120}}, color={191,0,0}));
     connect(pipeB1B2.port_a, V4.port_b) annotation (Line(points={{0,240},{20,
@@ -473,8 +467,7 @@ package AST_BatchPlant
     connect(B5.TopFluidPort[1], V12.port_a) annotation (Line(points={{-90,-19.6},
             {-90,-8}}, color={0,0,255}));
     connect(V15.port_b, B7.topPorts[1]) annotation (Line(points={{-90,-92},{
-            -90,-96},{-90,-99},{-90,-99}},
-                    color={0,127,255}));
+            -90,-96},{-90,-99},{-90,-99}}, color={0,127,255}));
     connect(pipePump1B1.port_a, V22.port_b) annotation (Line(points={{-180,0},{
             -180,-160}}, color={0,127,255}));
     connect(V25.port_b, pipePump2B2.port_a) annotation (Line(points={{160,-160},
@@ -485,121 +478,83 @@ package AST_BatchPlant
             -60}}, color={191,0,0}));
     connect(HeatB5.port, B5.heatPort) annotation (Line(points={{-130,-40},{-110,
             -40}}, color={191,0,0}));
-    connect(V1.port_b, volume2.port_1)     annotation (Line(
-        points={{-180,120},{-180,210}},
-        color={0,127,255}));
-    connect(volume8.port_2, V4.port_a)     annotation (Line(
-        points={{160,230},{160,240},{40,240}},
-        color={0,127,255}));
-    connect(volume8.port_1, V5.port_b)     annotation (Line(
-        points={{160,210},{160,120}},
-        color={0,127,255}));
-    connect(volume5.port_1, V21.port_b)     annotation (Line(
-        points={{50,-250},{40,-250}},
-        color={0,127,255}));
-    connect(volume5.port_2, V24.port_a)     annotation (Line(
-        points={{70,-250},{80,-250}},
-        color={0,127,255}));
+    connect(V1.port_b, volume2.port_1) annotation (Line(
+        points={{-180,120},{-180,210}}, color={0,127,255}));
+    connect(volume8.port_2, V4.port_a) annotation (Line(
+        points={{160,230},{160,240},{40,240}}, color={0,127,255}));
+    connect(volume8.port_1, V5.port_b) annotation (Line(
+        points={{160,210},{160,120}}, color={0,127,255}));
+    connect(volume5.port_1, V21.port_b) annotation (Line(
+        points={{50,-250},{40,-250}}, color={0,127,255}));
+    connect(volume5.port_2, V24.port_a) annotation (Line(
+        points={{70,-250},{80,-250}}, color={0,127,255}));
     connect(P2.port_b, V25.port_a) annotation (Line(
-        points={{140,-250},{160,-250},{160,-180}},
-        color={0,127,255}));
+        points={{140,-250},{160,-250},{160,-180}}, color={0,127,255}));
     connect(V22.port_a, P1.port_b) annotation (Line(
-        points={{-180,-180},{-180,-250},{-160,-250}},
-        color={0,127,255}));
+        points={{-180,-180},{-180,-250},{-160,-250}}, color={0,127,255}));
     connect(V5.port_a, pipePump2B2.port_b) annotation (Line(
-        points={{160,100},{160,20}},
-        color={0,127,255}));
+        points={{160,100},{160,20}}, color={0,127,255}));
     connect(V1.port_a, pipePump1B1.port_b) annotation (Line(
-        points={{-180,100},{-180,20}},
-        color={0,127,255}));
+        points={{-180,100},{-180,20}}, color={0,127,255}));
     connect(P1.port_a, V23.port_b) annotation (Line(
-        points={{-140,-250},{-120,-250}},
-        color={0,127,255}));
+        points={{-140,-250},{-120,-250}}, color={0,127,255}));
     connect(V23.port_a, volume4.port_1) annotation (Line(
-        points={{-100,-250},{-30,-250}},
-        color={0,127,255}));
+        points={{-100,-250},{-30,-250}}, color={0,127,255}));
     connect(volume4.port_2, V21.port_a) annotation (Line(
-        points={{-10,-250},{20,-250}},
-        color={0,127,255}));
+        points={{-10,-250},{20,-250}}, color={0,127,255}));
     connect(multiPort.port_a, volume4.port_3) annotation (Line(
-        points={{-20,-232},{-20,-240}},
-        color={0,127,255}));
+        points={{-20,-232},{-20,-240}}, color={0,127,255}));
     connect(multiPort.ports_b[3], V19.port_b) annotation (Line(
-        points={{-17.3333,-224},{-17.3333,-200},{0,-200}},
-        color={0,127,255}));
+        points={{-17.3333,-224},{-17.3333,-200},{0,-200}}, color={0,127,255}));
     connect(V18.port_b, multiPort.ports_b[1]) annotation (Line(
-        points={{-40,-200},{-22.6667,-200},{-22.6667,-224}},
-        color={0,127,255}));
+        points={{-40,-200},{-22.6667,-200},{-22.6667,-224}}, color={0,127,255}));
     connect(V10.port_b, multiPort.ports_b[2]) annotation (Line(
-        points={{-21,-180},{-20,-180},{-20,-224}},
-        color={0,127,255}));
+        points={{-21,-180},{-20,-180},{-20,-224}}, color={0,127,255}));
     connect(V11.port_b, B4.topPorts[1]) annotation (Line(
-        points={{-70,90},{-90,90},{-90,71}},
-        color={0,127,255}));
+        points={{-70,90},{-90,90},{-90,71}}, color={0,127,255}));
     connect(B3.ports[1], V11.port_a) annotation (Line(
-        points={{-12,99},{-12,90},{-50,90}},
-        color={0,127,255}));
+        points={{-12,99},{-12,90},{-50,90}}, color={0,127,255}));
     connect(V20.port_b, volume5.port_3) annotation (Line(
-        points={{60,-220},{60,-240}},
-        color={0,127,255}));
+        points={{60,-220},{60,-240}}, color={0,127,255}));
     connect(V2.port_b, pipeB1B2.port_b) annotation (Line(
-        points={{-40,240},{-20,240}},
-        color={0,127,255}));
+        points={{-40,240},{-20,240}}, color={0,127,255}));
     connect(volume2.port_2, V2.port_a) annotation (Line(
-        points={{-180,230},{-180,240},{-60,240}},
-        color={0,127,255}));
+        points={{-180,230},{-180,240},{-60,240}}, color={0,127,255}));
     connect(volume2.port_3, V3.port_a) annotation (Line(
-        points={{-170,220},{-150,220}},
-        color={0,127,255}));
+        points={{-170,220},{-150,220}}, color={0,127,255}));
     connect(V3.port_b, B1.topPorts[1]) annotation (Line(
-        points={{-130,220},{-120,220},{-120,230},{-90,230},{-90,221}},
-        color={0,127,255}));
+        points={{-130,220},{-120,220},{-120,230},{-90,230},{-90,221}}, color={0,127,255}));
     connect(volume8.port_3, V6.port_a) annotation (Line(
-        points={{150,220},{130,220}},
-        color={0,127,255}));
+        points={{150,220},{130,220}}, color={0,127,255}));
     connect(V6.port_b, B2.topPorts[1]) annotation (Line(
-        points={{110,220},{100,220},{100,230},{70,230},{70,221}},
-        color={0,127,255}));
+        points={{110,220},{100,220},{100,230},{70,230},{70,221}}, color={0,127,255}));
     connect(B2.ports[1], V9.port_a) annotation (Line(
-        points={{70,179},{70,175},{70,175},{70,170}},
-        color={0,127,255}));
+        points={{70,179},{70,175},{70,175},{70,170}}, color={0,127,255}));
     connect(V9.port_b, pipeB2B3.port_a) annotation (Line(
-        points={{70,150},{70,144},{50,144}},
-        color={0,127,255}));
+        points={{70,150},{70,144},{50,144}}, color={0,127,255}));
     connect(pipeB2B3.port_b, B3.topPorts[2]) annotation (Line(
-        points={{30,144},{-8,144},{-8,141},{-8,141}},
-        color={0,127,255}));
+        points={{30,144},{-8,144},{-8,141},{-8,141}}, color={0,127,255}));
     connect(B1.ports[1], V8.port_a) annotation (Line(
-        points={{-90,179},{-90,175},{-90,175},{-90,170}},
-        color={0,127,255}));
+        points={{-90,179},{-90,175},{-90,175},{-90,170}}, color={0,127,255}));
     connect(V8.port_b, pipeB1B3.port_a) annotation (Line(
-        points={{-90,150},{-90,144},{-70,144}},
-        color={0,127,255}));
+        points={{-90,150},{-90,144},{-70,144}}, color={0,127,255}));
     connect(B3.topPorts[1], pipeB1B3.port_b) annotation (Line(
-        points={{-12,141},{-12,141},{-12,144},{-50,144}},
-        color={0,127,255}));
+        points={{-12,141},{-12,141},{-12,144},{-50,144}}, color={0,127,255}));
     connect(B7.ports[1], pipeB7Pump.port_a) annotation (Line(
-        points={{-90,-141},{-90,-150},{-90,-150},{-90,-160}},
-        color={0,127,255}));
+        points={{-90,-141},{-90,-150},{-90,-150},{-90,-160}}, color={0,127,255}));
     connect(pipeB7Pump.port_b, V18.port_a) annotation (Line(
-        points={{-90,-180},{-90,-200},{-60,-200}},
-        color={0,127,255}));
+        points={{-90,-180},{-90,-200},{-60,-200}}, color={0,127,255}));
     connect(B6.ports[1], pipeB6Pump.port_a) annotation (Line(
-        points={{60,-81},{60,-90},{60,-90},{60,-100}},
-        color={0,127,255}));
+        points={{60,-81},{60,-90},{60,-90},{60,-100}}, color={0,127,255}));
     connect(pipeB6Pump.port_b, V20.port_a) annotation (Line(
-        points={{60,-120},{60,-200}},
-        color={0,127,255}));
+        points={{60,-120},{60,-200}}, color={0,127,255}));
     connect(V19.port_a, pipeB6Pump.port_b) annotation (Line(
-        points={{20,-200},{30,-200},{30,-160},{60,-160},{60,-120}},
-        color={0,127,255}));
+        points={{20,-200},{30,-200},{30,-160},{60,-160},{60,-120}}, color={0,127,255}));
     connect(pipeB1B1.port_b, V10.port_a) annotation (Line(
-        points={{-8,0},{-8,-80},{-21,-80},{-21,-160}},
-        color={0,127,255}));
+        points={{-8,0},{-8,-80},{-21,-80},{-21,-160}}, color={0,127,255}));
     connect(B3.ports[2], pipeB1B1.port_a) annotation (Line(
-        points={{-8,99},{-8,20},{-8,20}},
-        color={0,127,255}));
-    annotation (      experiment(StopTime=3600),
+        points={{-8,99},{-8,20},{-8,20}}, color={0,127,255}));
+    annotation (experiment(StopTime=3600),
       __Dymola_Commands(file=
             "modelica://Modelica/Resources/Scripts/Dymola/Fluid/AST_BatchPlant_StandardWater/plot level.mos"
           "plot level"),
@@ -627,13 +582,11 @@ package AST_BatchPlant
             extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,40},{100,-40}},
-              lineColor={0,0,0},
               fillColor={235,235,235},
               fillPattern=FillPattern.Solid,
               borderPattern=BorderPattern.Raised),
             Text(
               extent={{-96,15},{96,-15}},
-              lineColor={0,0,0},
               textString="%u"),
             Text(extent={{-150,90},{140,50}}, textString="%name")}),
         Documentation(info="<html>
@@ -667,7 +620,7 @@ package AST_BatchPlant
         "Initialization option"
         annotation(Dialog(tab = "Initialization"));
       parameter Boolean use_T_start=true
-        "Use T_start if true, otherwise h_start"                                    annotation(Dialog(tab = "Initialization"), Evaluate = true);
+        "Use T_start if true, otherwise h_start" annotation(Dialog(tab = "Initialization"), Evaluate = true);
       parameter Medium.Temperature T_start=if use_T_start then 293.15 else
           Medium.temperature_phX(p_ambient, h_start, X_start)
         "Start value of temperature"
@@ -828,11 +781,11 @@ package AST_BatchPlant
               points={{-70,-81},{-70,-102},{-100,-102}}, color={0,0,255}));
       end for;
       for i in 1:n_TopPorts loop
-        connect(InnerTankTop[i].port, TopFluidPort[i])  annotation (Line(points=
+        connect(InnerTankTop[i].port, TopFluidPort[i]) annotation (Line(points=
                {{-130,59},{-92,59},{-92,102},{-100,102}}, color={0,0,255}));
       end for;
       for i in 1:n_SidePorts loop
-        connect(InnerTankSide[i].port, SideFluidPort[i])  annotation (Line(
+        connect(InnerTankSide[i].port, SideFluidPort[i]) annotation (Line(
               points={{-10,-1},{24,-1},{24,0},{10,0}}, color={0,0,255}));
       end for;
 
@@ -924,8 +877,7 @@ package AST_BatchPlant
 
     equation
       connect(heatPort, heatTransfer.heatPorts[1]) annotation (Line(
-          points={{-200,0},{-87,0},{-87,0},{-74,0}},
-          color={191,0,0}));
+          points={{-200,0},{-87,0},{-87,0},{-74,0}}, color={191,0,0}));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-200,-100},{
                 200,100}}), graphics={
@@ -937,7 +889,6 @@ package AST_BatchPlant
             Rectangle(
               extent=DynamicSelect({{-200,-100},{0,0}}, {{-200,-100},{0,(-100
                    + 200*level/height)}}),
-              lineColor={0,0,0},
               fillColor={85,170,255},
               fillPattern=FillPattern.VerticalCylinder),
             Line(points={{-200,100},{-200,-100},{0,-100},{0,100}}),
@@ -947,7 +898,6 @@ package AST_BatchPlant
               textString="%name"),
             Polygon(
               points={{0,100},{200,70},{200,50},{200,50},{0,80},{0,100}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={0,0,255}),
             Polygon(
@@ -955,16 +905,13 @@ package AST_BatchPlant
                   {130,60},{144,70},{152,60},{168,66},{180,54},{196,74},{190,76},
                   {180,64},{170,70},{156,66},{148,76},{132,68},{120,80},{100,74},
                   {88,88},{70,78},{50,92},{32,82},{28,100},{20,98},{20,98}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={170,255,255}),
             Text(
               extent={{-193,30},{-3,10}},
-              lineColor={0,0,0},
               textString="level ="),
             Text(
               extent={{-195,-38},{-5,-58}},
-              lineColor={0,0,0},
               textString=DynamicSelect("%level_start", String(
                       level,
                       minimumLength=1,
@@ -974,9 +921,9 @@ package AST_BatchPlant
 (Assumption: The gas is condensed immediately afterwards so that a liquid boiling fluid is created.)</p>
 <p>The tank can be initialized with the following options:</p>
 <ul>
-<li>GuessValues: no explicit initial conditions
-<li>InitialValues: initial values of temperature (or specific enthalpy), composition and level are specified
-<li>SteadyStateHydraulic: initial values of temperature (or specific enthalpy) and composition are specified; the initial level is determined so that levels and pressure are at steady state.
+<li>GuessValues: no explicit initial conditions</li>
+<li>InitialValues: initial values of temperature (or specific enthalpy), composition and level are specified</li>
+<li>SteadyStateHydraulic: initial values of temperature (or specific enthalpy) and composition are specified; the initial level is determined so that levels and pressure are at steady state.</li>
 </ul>
 <p>
 Full steady state initialization is not supported, because the corresponding initial equations for temperature/enthalpy are undetermined (the flow rate through the port at steady state is zero).
@@ -1003,7 +950,7 @@ Full steady state initialization is not supported, because the corresponding ini
         input Real p_ambient;
         input Real h;
         input Medium.MassFraction Xi[Medium.nXi]
-        "Actual mass fractions of fluid in tank"                    annotation(Dialog);
+        "Actual mass fractions of fluid in tank" annotation(Dialog);
         input Real pipeArea;
         output Real H_flow;
         output Real m_flow;
@@ -1126,8 +1073,7 @@ Full steady state initialization is not supported, because the corresponding ini
             origin={-2,-150},
             extent={{-10,-10},{10,10}},
             rotation=180)));
-      Modelica.Blocks.Sources.BooleanExpression BooleanExpression1(y=time >
-            2500)
+      Modelica.Blocks.Sources.BooleanExpression BooleanExpression1(y=time >= 2500)
         annotation (Placement(transformation(extent={{-104,-148},{-18,-116}})));
       inner Modelica.StateGraph.StateGraphRoot stateGraphRoot
         annotation (Placement(transformation(extent={{-180,140},{-160,160}})));
@@ -1234,8 +1180,7 @@ Full steady state initialization is not supported, because the corresponding ini
       connect(TransitionWithSignal1.inPort, Parallel1.outPort) annotation (Line(
             points={{2,-150},{208,-150},{208,-50},{197.7,-50}}));
       connect(TransitionWithSignal1.outPort, InitialStep1.inPort[1]) annotation (Line(
-            points={{-3.5,-150},{-194,-150},{-194,100},{-181,100}}, color={0,0,
-              0}));
+            points={{-3.5,-150},{-194,-150},{-194,100},{-181,100}}));
       connect(BooleanExpression1.y, TransitionWithSignal1.condition) annotation (Line(
             points={{-13.7,-132},{-2,-132},{-2,-138}}, color={255,0,255}));
       annotation (
@@ -1251,19 +1196,15 @@ Full steady state initialization is not supported, because the corresponding ini
               lineColor={0,0,255},
               textString="%name"),
             Line(points={{-48,0},{0,0}}),
-            Rectangle(extent={{-170,60},{-50,-60}}, lineColor={0,0,0}),
+            Rectangle(extent={{-170,60},{-50,-60}}),
             Line(points={{0,40},{0,-40}}),
             Line(points={{0,0},{26,0}}),
             Polygon(
               points={{26,10},{50,0},{26,-10},{26,10}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
-            Rectangle(extent={{50,60},{170,-60}}, lineColor={0,0,0}),
+            Rectangle(extent={{50,60},{170,-60}}),
             Polygon(
               points={{-24,10},{0,0},{-24,-10},{-24,10}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
             Diagram(coordinateSystem(
               preserveAspectRatio=false, extent={{-200,-160},{200,160}})));
@@ -1388,7 +1329,6 @@ Full steady state initialization is not supported, because the corresponding ini
         annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={Polygon(
                 points={{-100,100},{100,0},{-100,-100},{-100,100}},
-                lineColor={0,0,0},
                 lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid)}),
@@ -1396,7 +1336,6 @@ Full steady state initialization is not supported, because the corresponding ini
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Polygon(
                 points={{0,50},{100,0},{0,-50},{0,50}},
-                lineColor={0,0,0},
                 lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid)}));
@@ -1420,7 +1359,6 @@ Full steady state initialization is not supported, because the corresponding ini
         annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={Polygon(
                 points={{-100,100},{-100,-100},{100,0},{-100,100}},
-                lineColor={0,0,0},
                 lineThickness=0.5,
                 fillColor={215,215,215},
                 fillPattern=FillPattern.Solid)}),
@@ -1428,7 +1366,6 @@ Full steady state initialization is not supported, because the corresponding ini
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Polygon(
                 points={{0,50},{0,-50},{100,0},{0,50}},
-                lineColor={0,0,0},
                 lineThickness=0.5,
                 fillColor={215,215,215},
                 fillPattern=FillPattern.Solid)}));
@@ -1442,7 +1379,6 @@ Full steady state initialization is not supported, because the corresponding ini
         SteadyStateMomentum "SteadyStateMomentum: Steady state momentum",
         SteadyStateHydraulic
           "SteadyStateHydraulic -- Hydraulic steady state (der(p)=0), guess value for p, initial values for T or h, X, C",
-
         SteadyState
           "SteadyState -- Steady state (guess values for p, T or h, X, C)")
       "Enumeration to define initialization options"
@@ -1453,7 +1389,7 @@ Integer type that can have the following values
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>Types.Init.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><strong>Types.Init.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>GuessValues</td>
     <td>GuessValues -- Guess values (not fixed) for p, T or h, X, C</td></tr>
 
@@ -1720,8 +1656,7 @@ end for;
 
   equation
       connect(heatPort, heatTransfer.heatPorts[1]) annotation (Line(
-          points={{-100,0},{-87,0},{-87,0},{-74,0}},
-          color={191,0,0}));
+          points={{-100,0},{-87,0},{-87,0},{-74,0}}, color={191,0,0}));
       annotation (defaultComponentName="tank",
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -1735,7 +1670,6 @@ end for;
             Rectangle(
               extent=DynamicSelect({{-100,-100},{100,0}}, {{-100,-100},{100,(-100
                    + 200*level/height)}}),
-              lineColor={0,0,0},
               fillColor={85,170,255},
               fillPattern=FillPattern.VerticalCylinder),
             Text(
@@ -1744,13 +1678,10 @@ end for;
               textString="%name"),
             Text(
               extent={{-95,41},{95,21}},
-              lineColor={0,0,0},
               textString="level ="),
-            Line(points={{-100,100},{-100,-100},{100,-100},{100,100}}, color={0,
-                  0,0}),
+            Line(points={{-100,100},{-100,-100},{100,-100},{100,100}}),
             Text(
               extent={{-95,-39},{95,-59}},
-              lineColor={0,0,0},
               textString=DynamicSelect("%level_start", String(
                     level,
                     minimumLength=1,
@@ -1764,14 +1695,14 @@ assumed to have uniform temperature and mass fractions.
 </p>
 
 <p>
-At the top of the tank over the maximal fill level <b>height</b>
-a vector of FluidPorts, called <b>topPorts</b>, is present.
+At the top of the tank over the maximal fill level <strong>height</strong>
+a vector of FluidPorts, called <strong>topPorts</strong>, is present.
 The assumption is made that fluid flows always in to the tank via these
 ports (and never back in to the connector).
 </p>
 
 <p>
-The vector of connectors <b>ports</b> are fluid ports at the bottom
+The vector of connectors <strong>ports</strong> are fluid ports at the bottom
 and side of the tank at a definable height. Fluid can flow either out
 of or in to this port. The fluid level of the tank may be below
 one of these ports. This case is approximated by introducing a
@@ -1788,19 +1719,19 @@ assertion is triggered.
 When the diagram layer is open in the plot environment, the
 level of the tank is dynamically visualized. Note, the speed
 of the diagram animation in Dymola can be set via command
-<b>animationSpeed</b>(), e.g., animationSpeed(speed = 10)
+<strong>animationSpeed</strong>(), e.g., animationSpeed(speed = 10)
 </p>
 </html>",   revisions="<html>
 <ul>
-<li><i>Dec. 12, 2008</i> by Ruediger Franke: replace energy and mass balances with
+<li><em>Dec. 12, 2008</em> by R&uuml;diger Franke: replace energy and mass balances with
    common definition in BaseClasses.PartialLumpedVolume</li>
-<li><i>Dec. 8, 2008</i> by Michael Wetter (LBNL):<br>
+<li><em>Dec. 8, 2008</em> by Michael Wetter (LBNL):<br>
 Implemented trace substances and missing equation for outflow of multi substance media at top port.</li>
-<li><i>Jul. 29, 2006</i> by Martin Otter (DLR):<br>
+<li><em>Jul. 29, 2006</em> by Martin Otter (DLR):<br>
    Improved handling of ports that are above the fluid level and
    simpler implementation.</li>
 
-<li><i>Jan. 6, 2006</i> by Katja Poschlad, Manuel Remelhe (AST Uni Dortmund),
+<li><em>Jan. 6, 2006</em> by Katja Poschlad, Manuel Remelhe (AST Uni Dortmund),
    Martin Otter (DLR):<br>
    Implementation based on former tank model but with several improvements
    (top, bottom, side ports; correctly treating kinetic energy for outlet
@@ -1863,17 +1794,14 @@ Implemented trace substances and missing equation for outflow of multi substance
             20,10; 50,10; 50,0; 60,0; 60,20; 70,20; 80,55; 80,0; 100,0])
         annotation (Placement(transformation(extent={{-60,60},{-40,80}})));
     equation
-      connect(flowSource.ports[1], tank.topPorts[1])  annotation (Line(points={{8,52},{
-              20,52},{20,41}},        color={0,127,255}));
+      connect(flowSource.ports[1], tank.topPorts[1]) annotation (Line(points={{8,52},{
+              20,52},{20,41}}, color={0,127,255}));
       connect(tank.ports[1], pipe.port_a) annotation (Line(
-          points={{20,-1},{20,-8}},
-          color={0,127,255}));
+          points={{20,-1},{20,-8}}, color={0,127,255}));
       connect(pipe.port_b, ambient_fixed.ports[1]) annotation (Line(
-          points={{20,-28},{20,-40},{6,-40}},
-          color={0,127,255}));
+          points={{20,-28},{20,-40},{6,-40}}, color={0,127,255}));
       connect(timeTable.y, flowSource.m_flow_in) annotation (Line(
-          points={{-39,70},{-24,70},{-24,60},{-12,60}},
-          color={0,0,127}));
+          points={{-39,70},{-24,70},{-24,60},{-12,60}}, color={0,0,127}));
       annotation (experiment(StopTime=100));
     end OneTank;
 
@@ -1914,7 +1842,7 @@ Implemented trace substances and missing equation for outflow of multi substance
         redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         length=1,
-        diameter=0.1)  annotation (Placement(transformation(extent={{-30,-30},{
+        diameter=0.1) annotation (Placement(transformation(extent={{-30,-30},{
                 -10,-10}})));
     equation
       connect(tank1.ports[1], pipe.port_a) annotation (Line(points={{-60,-1},{-60,
@@ -1989,10 +1917,9 @@ Implemented trace substances and missing equation for outflow of multi substance
       connect(flowSource.ports[1], pipe.port_b) annotation (Line(points={{0,50},{40,
               50},{40,20}}, color={0,127,255}));
       connect(valveDiscrete.port_b, tank1.ports[1]) annotation (Line(points={{-20,-40},
-              {-20,-30},{-20,-21},{-22,-21}},
-                               color={0,127,255}));
+              {-20,-30},{-20,-21},{-22,-21}}, color={0,127,255}));
       connect(pipe.port_a, tank1.ports[2]) annotation (Line(points={{40,0},{40,-28},
-              {-18,-28},{-18,-20},{-18,-21}},                color={0,127,255}));
+              {-18,-28},{-18,-20},{-18,-21}}, color={0,127,255}));
       annotation (experiment(StopTime=35));
     end TankWithEmptyingPipe1;
 
@@ -2053,8 +1980,7 @@ Implemented trace substances and missing equation for outflow of multi substance
         annotation (Placement(transformation(extent={{0,-100},{20,-80}})));
     equation
       connect(tank1.ports[1], pipe1.port_b) annotation (Line(points={{-22,-21},{
-              -22,-35},{-20,-35},{-20,-50}},
-                         color={0,127,255}));
+              -22,-35},{-20,-35},{-20,-50}}, color={0,127,255}));
       connect(ambient_fixed.ports[1], pipe1.port_a) annotation (Line(points={{-40,-90},
               {-20,-90},{-20,-70}}, color={0,127,255}));
       connect(tank1.ports[2], pipe2.port_b) annotation (Line(points={{-18,-21},{
@@ -2143,16 +2069,14 @@ Implemented trace substances and missing equation for outflow of multi substance
                      annotation (Placement(transformation(extent={{-20,10},{0,30}})));
     equation
       connect(tank1.ports[1], pipe1.port_b) annotation (Line(points={{-62,-1},{
-              -62,-15},{-60,-15},{-60,-30}},
-                         color={0,127,255}));
+              -62,-15},{-60,-15},{-60,-30}}, color={0,127,255}));
       connect(ambient_fixed1.ports[1], pipe1.port_a)
                                                 annotation (Line(points={{-80,-70},
               {-60,-70},{-60,-50}}, color={0,127,255}));
       connect(ambient_fixed2.ports[1], pipe2.port_a) annotation (Line(points={{20,-70},
               {40,-70},{40,-50}}, color={0,127,255}));
       connect(tank2.ports[1], pipe2.port_b)
-        annotation (Line(points={{38,-1},{38,-15},{40,-15},{40,-30}},
-                                                    color={0,127,255}));
+        annotation (Line(points={{38,-1},{38,-15},{40,-15},{40,-30}}, color={0,127,255}));
       connect(pipe3.port_a, tank1.ports[2]) annotation (Line(points={{-20,20},{
               -30,20},{-30,-10},{-58,-10},{-58,0},{-58,0},{-58,-1}}, color={0,127,
               255}));
@@ -2236,21 +2160,21 @@ Implemented trace substances and missing equation for outflow of multi substance
       Pipes.StaticPipe pipe1(         redeclare package Medium = Medium,
           height_ab=2,
         length=2,
-        diameter=0.1)  annotation (Placement(transformation(
+        diameter=0.1) annotation (Placement(transformation(
             origin={70,30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Pipes.StaticPipe pipe2(         redeclare package Medium = Medium,
           height_ab=2,
         length=2,
-        diameter=0.1)  annotation (Placement(transformation(
+        diameter=0.1) annotation (Placement(transformation(
             origin={0,-22},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Pipes.StaticPipe pipe3(         redeclare package Medium = Medium,
           height_ab=2,
         length=2,
-        diameter=0.1)  annotation (Placement(transformation(
+        diameter=0.1) annotation (Placement(transformation(
             origin={-60,10},
             extent={{-10,-10},{10,10}},
             rotation=90)));
@@ -2260,27 +2184,20 @@ Implemented trace substances and missing equation for outflow of multi substance
       connect(open.y, valveDiscrete.open) annotation (Line(points={{-77,-78},{-68,
               -78}}, color={255,0,255}));
       connect(valveDiscrete.port_b,tank3. ports[1]) annotation (Line(points={{-60,-68},
-              {-60,-59},{-60,-51},{-62,-51}},
-                               color={0,127,255}));
+              {-60,-59},{-60,-51},{-62,-51}}, color={0,127,255}));
       connect(pipe1.port_b, tank1.ports[1]) annotation (Line(points={{70,40},{
-              70,45},{70,49}},
-                    color={0,127,255}));
+              70,45},{70,49}}, color={0,127,255}));
       connect(pipe2.port_a, tank3.ports[2]) annotation (Line(points={{
-              0,-32},{0,-48},{0,-60},{-58,-60},{-58,-51}},
-                          color={0,127,255}));
+              0,-32},{0,-48},{0,-60},{-58,-60},{-58,-51}}, color={0,127,255}));
       connect(pipe3.port_a, tank3.topPorts[1])
                                               annotation (Line(points={{-60,0},
-              {-60,-5},{-60,-9}},
-                        color={0,127,255}));
+              {-60,-5},{-60,-9}}, color={0,127,255}));
       connect(pipe3.port_b, tank2.ports[1]) annotation (Line(points={{-60,20},{
-              -60,26},{-30,26},{-30,0},{-2,0},{-2,9},{-2.66667,9}},
-                                                             color={0,127,255}));
+              -60,26},{-30,26},{-30,0},{-2,0},{-2,9},{-2.66667,9}}, color={0,127,255}));
       connect(pipe1.port_a, tank2.ports[3]) annotation (Line(points={{70,20},{
-              70,0},{2,0},{2,9},{2.66667,9}},
-                                     color={0,127,255}));
+              70,0},{2,0},{2,9},{2.66667,9}}, color={0,127,255}));
       connect(pipe2.port_b, tank2.ports[2]) annotation (Line(
-          points={{0,-12},{0,9}},
-          color={0,127,255}));
+          points={{0,-12},{0,9}}, color={0,127,255}));
       annotation (experiment(StopTime=120));
     end TanksWithEmptyingPipe2;
   end Test;

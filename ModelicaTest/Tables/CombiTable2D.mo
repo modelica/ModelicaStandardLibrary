@@ -1,5 +1,5 @@
 within ModelicaTest.Tables;
-package CombiTable2D
+package CombiTable2D "Test models for Modelica.Blocks.Tables.CombiTable2D"
   import Modelica.Utilities.Files.loadResource;
   extends Modelica.Icons.ExamplesPackage;
 
@@ -37,11 +37,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-52,30},{-52,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-52,30},{-52,16},{-42,16}}, color={0,0,127}));
     connect(const.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-52,-10},{-52,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-52,-10},{-52,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test1;
 
@@ -62,11 +60,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
   equation
     connect(clock.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-52,-10},{-52,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-52,-10},{-52,4},{-42,4}}, color={0,0,127}));
     connect(const.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test2;
 
@@ -87,11 +83,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-52,30},{-52,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-52,30},{-52,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-52,-10},{-52,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-52,-10},{-52,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test3;
 
@@ -111,11 +105,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(const.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test4;
 
@@ -135,11 +127,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(const.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-52,30},{-52,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-52,30},{-52,16},{-42,16}}, color={0,0,127}));
     connect(clock.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50.5,-10},{-50.5,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50.5,-10},{-50.5,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test5;
 
@@ -159,11 +149,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-52,-10},{-52,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-52,-10},{-52,4},{-42,4}}, color={0,0,127}));
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-52,30},{-52,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-52,30},{-52,16},{-42,16}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test6;
 
@@ -184,11 +172,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(const.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test7;
 
@@ -209,11 +195,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(const.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-52,30},{-52,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-52,30},{-52,16},{-42,16}}, color={0,0,127}));
     connect(clock.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test8;
 
@@ -234,11 +218,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test9;
 
@@ -254,11 +236,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test10;
 
@@ -274,11 +254,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test11;
 
@@ -294,11 +272,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test12;
 
@@ -327,11 +303,9 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test14;
 
@@ -340,7 +314,7 @@ package CombiTable2D
   protected
     parameter String fileName=loadResource(
         "modelica://Modelica/Resources/Data/Tables/test_v4.mat");
-    Modelica.Blocks.Types.ExternalCombiTable2D tableID=
+    parameter Modelica.Blocks.Types.ExternalCombiTable2D tableID=
         Modelica.Blocks.Types.ExternalCombiTable2D(
           "akima2D",
           fileName,
@@ -351,44 +325,18 @@ package CombiTable2D
           Modelica.Blocks.Types.Smoothness.ConstantSegments)
       "External table object";
 
-    function readTableData "Read table data from ASCII text or MATLAB MAT-file"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-      input Integer forceRead "Force reading of table data";
-      input Boolean verboseRead = true "Verbose read";
-      output Real readSuccess "Table read success";
-      external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID,
-        forceRead, verboseRead) annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-      annotation(__ModelicaAssociation_Impure=true);
-    end readTableData;
-
-    function getTableValue "Interpolate 2-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-      input Real u1;
-      input Real u2;
-      output Real y;
-    external"C" y = ModelicaStandardTables_CombiTable2D_getValue(
-            tableID,
-            u1,
-            u2) annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getTableValue;
-
     function tableSurface
       "Function defining the surface characteristic of a 2D surface"
-      extends
-        Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
+      import Modelica.Blocks.Tables.Internal;
+      extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
           final multiColoredSurface=false);
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-    protected
-      Real tableOnFileRead;
     algorithm
-      tableOnFileRead := readTableData(tableID, 0);
       for i in 1:nu loop
         for j in 1:nv loop
           X[i, j] := (i - 1)/2;
           Y[i, j] := (j - 1)/2;
-          Z[i, j] := getTableValue(
+          Z[i, j] := Internal.getTable2DValue(
                 tableID,
                 X[i, j],
                 Y[i, j]);
@@ -416,7 +364,7 @@ package CombiTable2D
   protected
     parameter String fileName=loadResource(
         "modelica://Modelica/Resources/Data/Tables/test_v4.mat");
-    Modelica.Blocks.Types.ExternalCombiTable2D tableID=
+    parameter Modelica.Blocks.Types.ExternalCombiTable2D tableID=
         Modelica.Blocks.Types.ExternalCombiTable2D(
           "akima2D",
           fileName,
@@ -427,44 +375,18 @@ package CombiTable2D
           Modelica.Blocks.Types.Smoothness.LinearSegments)
       "External table object";
 
-    function readTableData "Read table data from ASCII text or MATLAB MAT-file"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-      input Integer forceRead "Force reading of table data";
-      input Boolean verboseRead = true "Verbose read";
-      output Real readSuccess "Table read success";
-      external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID,
-        forceRead, verboseRead) annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-      annotation(__ModelicaAssociation_Impure=true);
-    end readTableData;
-
-    function getTableValue "Interpolate 2-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-      input Real u1;
-      input Real u2;
-      output Real y;
-    external"C" y = ModelicaStandardTables_CombiTable2D_getValue(
-            tableID,
-            u1,
-            u2) annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getTableValue;
-
     function tableSurface
       "Function defining the surface characteristic of a 2D surface"
-      extends
-        Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
+      import Modelica.Blocks.Tables.Internal;
+      extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
           final multiColoredSurface=false);
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-    protected
-      Real tableOnFileRead;
     algorithm
-      tableOnFileRead := readTableData(tableID, 0);
       for i in 1:nu loop
         for j in 1:nv loop
           X[i, j] := (i - 1)/2;
           Y[i, j] := (j - 1)/2;
-          Z[i, j] := getTableValue(
+          Z[i, j] := Internal.getTable2DValue(
                 tableID,
                 X[i, j],
                 Y[i, j]);
@@ -492,7 +414,7 @@ package CombiTable2D
   protected
     parameter String fileName=loadResource(
         "modelica://Modelica/Resources/Data/Tables/test_v4.mat");
-    Modelica.Blocks.Types.ExternalCombiTable2D tableID=
+    parameter Modelica.Blocks.Types.ExternalCombiTable2D tableID=
         Modelica.Blocks.Types.ExternalCombiTable2D(
           "akima2D",
           fileName,
@@ -502,29 +424,6 @@ package CombiTable2D
             2),
           Modelica.Blocks.Types.Smoothness.ContinuousDerivative)
       "External table object";
-
-    function readTableData "Read table data from ASCII text or MATLAB MAT-file"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-      input Integer forceRead "Force reading of table data";
-      input Boolean verboseRead = true "Verbose read";
-      output Real readSuccess "Table read success";
-      external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID,
-        forceRead, verboseRead) annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-      annotation(__ModelicaAssociation_Impure=true);
-    end readTableData;
-
-    function getTableValue "Interpolate 2-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-      input Real u1;
-      input Real u2;
-      output Real y;
-    external"C" y = ModelicaStandardTables_CombiTable2D_getValue(
-            tableID,
-            u1,
-            u2) annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getTableValue;
 
     function calcColor "Color Calculation"
       extends Modelica.Icons.Function;
@@ -553,19 +452,16 @@ package CombiTable2D
 
     function tableSurface
       "Function defining the surface characteristic of a 2D surface"
-      extends
-        Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
+      import Modelica.Blocks.Tables.Internal;
+      extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
           final multiColoredSurface=true);
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-    protected
-      Real tableOnFileRead;
     algorithm
-      tableOnFileRead := readTableData(tableID, 0);
       for i in 1:nu loop
         for j in 1:nv loop
           X[i, j] := i - 1;
           Y[i, j] := j - 1;
-          Z[i, j] := getTableValue(
+          Z[i, j] := Internal.getTable2DValue(
                 tableID,
                 X[i, j],
                 Y[i, j]);
@@ -614,11 +510,9 @@ double mydummyfunc(double dummy_in) {
       annotation (Placement(transformation(extent={{-20,-40},{10,-20}})));
   equation
     connect(ramp1.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     connect(ramp.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-52,30},{-52,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-52,30},{-52,16},{-42,16}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=1.0));
   end Test18_usertab;
 
@@ -931,28 +825,23 @@ double mydummyfunc(double dummy_in) {
         coordinateSystem(preserveAspectRatio=false),
         graphics={
                 Rectangle(
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid,
                   extent={{20,30},{45,15}}),
                 Text(
                   textString="1L",
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.Solid,
                   extent={{25,35},{40,30}}),
                 Text(
                   textString="1R",
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.Solid,
                   extent={{25,15},{40,10}}),
                 Text(
                   textString="2L",
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.Solid,
                   extent={{10,25},{25,20}}),
                 Text(
                   textString="2R",
-                  lineColor={0,0,0},
                   fillPattern=FillPattern.Solid,
                   extent={{40,25},{55,20}})}),
       experiment(StartTime=0, StopTime=1));
@@ -1061,11 +950,9 @@ double mydummyfunc(double dummy_in) {
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=1));
   end Test24;
 
@@ -1080,11 +967,9 @@ double mydummyfunc(double dummy_in) {
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=1));
   end Test25;
 
@@ -1099,11 +984,9 @@ double mydummyfunc(double dummy_in) {
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=1));
   end Test26;
 
@@ -1118,11 +1001,9 @@ double mydummyfunc(double dummy_in) {
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=1));
   end Test27;
 
@@ -1137,11 +1018,9 @@ double mydummyfunc(double dummy_in) {
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=1));
   end Test28;
 
@@ -1156,11 +1035,9 @@ double mydummyfunc(double dummy_in) {
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=1));
   end Test29;
 
@@ -1175,11 +1052,27 @@ double mydummyfunc(double dummy_in) {
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1) annotation (Line(
-        points={{-59,30},{-50,30},{-50,16},{-42,16}},
-        color={0,0,127}));
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
     connect(clock2.y, t_new.u2) annotation (Line(
-        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
-        color={0,0,127}));
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=1));
   end Test30;
+
+  model Test31 "Text file with UTF-8 BOM and comments (Ticket #2404)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+        tableOnFile=true,
+        tableName="akima2D",
+        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_utf8.txt")));
+    Modelica.Blocks.Sources.Clock clock1
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.Clock clock2
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
+  equation
+    connect(clock1.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
+    connect(clock2.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
+    annotation (experiment(StartTime=0, StopTime=60));
+  end Test31;
 end CombiTable2D;

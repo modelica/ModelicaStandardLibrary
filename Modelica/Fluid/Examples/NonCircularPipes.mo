@@ -35,9 +35,9 @@ model NonCircularPipes "Comparing a circular with a non-circular pipe"
     annotation(Placement(transformation(origin = {-20, -40}, extent = {{-10, -10}, {10, 10}})));
 equation
   connect(boundary.ports[1], circular_pipe.port_a) annotation(Line(points={{-70,2},
-          {-60,2},{-60,40},{-30,40}},                                                                                   color = {0, 127, 255}));
+          {-60,2},{-60,40},{-30,40}}, color = {0, 127, 255}));
   connect(boundary.ports[2], annulus_pipe.port_a) annotation(Line(points={{-70,-2},
-          {-60,-2},{-60,-40},{-30,-40}},                                                                                 color = {0, 127, 255}));
+          {-60,-2},{-60,-40},{-30,-40}}, color = {0, 127, 255}));
   connect(circular_pipe.port_b, massflowsink1.ports[1]) annotation(Line(points = {{-10, 40}, {30, 40}}, color = {0, 127, 255}));
   connect(annulus_pipe.port_b, massflowsink2.ports[1]) annotation(Line(points = {{-10, -40}, {30, -40}}, color = {0, 127, 255}));
   annotation(experiment(StopTime=1),

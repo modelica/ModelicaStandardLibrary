@@ -36,17 +36,17 @@ annotation (
 <p>
 This package contains components to model the movement
 of 1-dim. rotational, 1-dim. translational, and
-3-dim. <b>mechanical systems</b>.
+3-dim. <strong>mechanical systems</strong>.
 </p>
 
 <p>
-Note, all <b>dissipative</b> components of the Modelica.Mechanics library have
-an optional <b>heatPort</b> connector to which the
+Note, all <strong>dissipative</strong> components of the Modelica.Mechanics library have
+an optional <strong>heatPort</strong> connector to which the
 dissipated energy is transported in form of heat. This connector is enabled
 via parameter \"useHeatPort\". If the heatPort connector is enabled,
 it must be connected, and if it is not enabled, it must not be connected.
 Independently, whether the heatPort is enabled or not,
-the dissipated power is available from variable \"<b>lossPower</b>\" (which is
+the dissipated power is available from variable \"<strong>lossPower</strong>\" (which is
 positive if heat is flowing out of the heatPort).
 </p>
 </html>"));

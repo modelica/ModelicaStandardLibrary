@@ -6,7 +6,7 @@ block MultiSwitch
     "Set Integer expression that is associated with the first active input signal"
 
   input Integer expr[nu]=fill(0, nu)
-      "y = if u[i] then expr[i] elseif use_pre_as_default then pre(y) else y_default"            annotation(Dialog);
+      "y = if u[i] then expr[i] elseif use_pre_as_default then pre(y) else y_default" annotation(Dialog);
   parameter Integer y_default=0
       "Default value of output y if use_pre_as_default=false, as well as pre(y) at initial time";
 
@@ -31,12 +31,11 @@ equation
                                                   u);
   y = if firstActiveIndex > 0 then expr[firstActiveIndex] else
       if use_pre_as_default then pre(y) else y_default;
-  annotation (defaultComponentName="multiSwitch1",             Icon(coordinateSystem(
+  annotation (defaultComponentName="multiSwitch1", Icon(coordinateSystem(
         preserveAspectRatio=false,
         extent={{-100,-100},{300,100}}), graphics={
             Text(
               extent={{310,-25},{410,-45}},
-              lineColor={0,0,0},
               textString=DynamicSelect(" ", String(
                   y,
                   minimumLength=1,
@@ -44,16 +43,13 @@ equation
             Text(
               visible=not use_pre_as_default,
               extent={{-100,-60},{300,-90}},
-              lineColor={0,0,0},
               textString="else: %y_default"),
             Text(
               visible=use_pre_as_default,
               extent={{-100,-50},{300,-80}},
-              lineColor={0,0,0},
               textString="else: pre(y)"),
             Rectangle(
               extent={{-100,-40},{300,40}},
-              lineColor={0,0,0},
               fillColor={255,213,170},
               fillPattern=FillPattern.Solid,
               borderPattern=BorderPattern.Raised),
@@ -63,22 +59,21 @@ equation
               lineColor={0,0,255}),
             Text(
               extent={{-80,15},{290,-15}},
-              lineColor={0,0,0},
               textString="%expr")}),
     Documentation(info="<html>
 <p>
 This block has a vector of Boolean input signals u[nu] and a vector of
 (time varying) Integer expressions expr[nu]. The output signal y is
 set to expr[i], if i is the first element in the input vector u that is true. If all input signals are
-false, y is set to parameter \"y_default\" or the last value is kept, if use_pre_as_default = <b>true</b>.
+false, y is set to parameter \"y_default\" or the last value is kept, if use_pre_as_default = <strong>true</strong>.
 </p>
 
 <blockquote><pre>
   // Conceptual equation (not valid Modelica)
   i = 'first element of u[:] that is true';
-  y = <b>if</b> i==0 <b>then</b> (<b>if</b> use_pre_as_default <b>then</b> pre(y)
-                                          <b>else</b> y_default)
-      <b>else</b> expr[i];
+  y = <strong>if</strong> i==0 <strong>then</strong> (<strong>if</strong> use_pre_as_default <strong>then</strong> pre(y)
+                                          <strong>else</strong> y_default)
+      <strong>else</strong> expr[i];
 </pre></blockquote>
 
 <p>
@@ -108,10 +103,8 @@ end MultiSwitch;
     end if;
     annotation (Icon(graphics={Text(
               extent={{-200,-110},{200,-140}},
-              lineColor={0,0,0},
               textString="%k"), Text(
               extent={{-72,68},{92,-68}},
-              lineColor={0,0,0},
               textString="+")}), Documentation(info="<html>
 <p>
 This blocks computes the scalar Integer output \"y\" as sum of the elements of the
@@ -152,7 +145,6 @@ the output is set to zero: y=0.
 
     annotation (Icon(graphics={Text(
               extent={{-74,50},{94,-94}},
-              lineColor={0,0,0},
               textString="*")}), Documentation(info="<html>
 <p>
 This blocks computes the scalar Integer output \"y\" as product of the elements of the
@@ -190,7 +182,7 @@ the output is set to zero: y=0.
           annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Boolean use_set = false
       "=true, if set port enabled and used as default value when reset"
-          annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+          annotation(Dialog(enable=use_reset), Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Integer y_start = 0
       "Initial and reset value of y if set port is not used";
 
@@ -232,7 +224,7 @@ the output is set to zero: y=0.
     when {trigger, local_reset} then
        y = if local_reset then local_set else pre(y) + u;
     end when;
-    annotation (       Icon(coordinateSystem(
+    annotation (Icon(coordinateSystem(
             preserveAspectRatio=false, extent={{-100,-100},{100,100}},
           initialScale=0.06), graphics={
             Line(
@@ -252,7 +244,6 @@ the output is set to zero: y=0.
             Text(
               visible=use_reset,
               extent={{-28,-62},{94,-86}},
-              lineColor={0,0,0},
               textString="reset")}),
       Documentation(info="<html>
 <p>
@@ -288,8 +279,8 @@ The usage is demonstrated, e.g., in example
   end TriggeredAdd;
   annotation (Documentation(info="<html>
 <p>
-This package contains basic <b>mathematical operations</b>
-on <b>Integer</b> signals.
+This package contains basic <strong>mathematical operations</strong>
+on <strong>Integer</strong> signals.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
             {100,100}}), graphics={Line(

@@ -48,19 +48,16 @@ model TestWaterPumpVariableSpeed
                                    annotation (Placement(transformation(extent={{64,-4},
             {84,16}})));
 equation
-  connect(Valve.port_b,Sink.ports[1])    annotation (Line(points={{2,36},{14,36}},
-        color={0,127,255}));
+  connect(Valve.port_b,Sink.ports[1])    annotation (Line(points={{2,36},{14,36}}, color={0,127,255}));
   connect(Valve.port_a,pump.port_b)      annotation (Line(points={{-16,36},{-26,
-          36},{-26,30},{-36,30}},           color={0,127,255}));
+          36},{-26,30},{-36,30}}, color={0,127,255}));
   connect(pump.port_a,Source.ports[1])
                                      annotation (Line(points={{-64,30},{-64,30},
-          {-80,30}},          color={0,127,255}));
+          {-80,30}}, color={0,127,255}));
   connect(N_pump.y, pump.N_in) annotation (Line(
-      points={{-79,70},{-50,70},{-50,44}},
-      color={0,0,127}));
+      points={{-79,70},{-50,70},{-50,44}}, color={0,0,127}));
   connect(valveOpening.y, Valve.opening) annotation (Line(
-      points={{-19,70},{-7,70},{-7,44}},
-      color={0,0,127}));
+      points={{-19,70},{-7,70},{-7,44}}, color={0,0,127}));
 annotation (
   experiment(StopTime=10, Tolerance=1e-006),
   Documentation(info=""));

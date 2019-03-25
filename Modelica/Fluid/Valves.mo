@@ -58,8 +58,7 @@ package Valves "Components for the regulation and control of fluid flow"
     annotation (
     Documentation(info="<html>
 <p>
-Valve model according to the IEC 534/ISA S.75 standards for valve sizing, incompressible fluids.<
-/p>
+Valve model according to the IEC 534/ISA S.75 standards for valve sizing, incompressible fluids.</p>
 
 <p>
 The parameters of this model are explained in detail in
@@ -76,7 +75,7 @@ If <code>checkValve</code> is false, the valve supports reverse flow, with a sym
 </p>
 
 <p>
-The treatment of parameters <b>Kv</b> and <b>Cv</b> is
+The treatment of parameters <strong>Kv</strong> and <strong>Cv</strong> is
 explained in detail in the
 <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
 </p>
@@ -84,7 +83,7 @@ explained in detail in the
 </html>",
       revisions="<html>
 <ul>
-<li><i>2 Nov 2005</i>
+<li><em>2 Nov 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Adapted from the ThermoPower library.</li>
 </ul>
@@ -167,13 +166,13 @@ The parameters of this model are explained in detail in
 (the base model for valves).
 </p>
 
-<p>The model operating range includes choked flow operation, which takes place for low outlet pressures due to flashing in the vena contracta; otherwise, non-choking conditions are assumed.
-<p>This model requires a two-phase medium model, to describe the liquid and (possible) two-phase conditions.
-<p>The default liquid pressure recovery coefficient <code>Fl</code> is constant and given by the parameter <code>Fl_nominal</code>. The relative change (per unit) of the recovery coefficient can be specified as a given function of the valve opening by replacing the <code>FlCharacteristic</code> function.
+<p>The model operating range includes choked flow operation, which takes place for low outlet pressures due to flashing in the vena contracta; otherwise, non-choking conditions are assumed.</p>
+<p>This model requires a two-phase medium model, to describe the liquid and (possible) two-phase conditions.</p>
+<p>The default liquid pressure recovery coefficient <code>Fl</code> is constant and given by the parameter <code>Fl_nominal</code>. The relative change (per unit) of the recovery coefficient can be specified as a given function of the valve opening by replacing the <code>FlCharacteristic</code> function.</p>
 <p>If <code>checkValve</code> is false, the valve supports reverse flow, with a symmetric flow characteristic curve. Otherwise, reverse flow is stopped (check valve behaviour).</p>
 
 <p>
-The treatment of parameters <b>Kv</b> and <b>Cv</b> is
+The treatment of parameters <strong>Kv</strong> and <strong>Cv</strong> is
 explained in detail in the
 <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
 </p>
@@ -181,7 +180,7 @@ explained in detail in the
 </html>",
         revisions="<html>
 <ul>
-<li><i>2 Nov 2005</i>
+<li><em>2 Nov 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Adapted from the ThermoPower library.</li>
 </ul>
@@ -278,11 +277,11 @@ The parameters of this model are explained in detail in
 
 <p>This model can be used with gases and vapours, with arbitrary pressure ratio between inlet and outlet.</p>
 
-<p>The product Fk*xt is given by the parameter <code>Fxt_full</code>, and is assumed constant by default. The relative change (per unit) of the xt coefficient with the valve opening can be specified by replacing the <code>xtCharacteristic</code> function.
+<p>The product Fk*xt is given by the parameter <code>Fxt_full</code>, and is assumed constant by default. The relative change (per unit) of the xt coefficient with the valve opening can be specified by replacing the <code>xtCharacteristic</code> function.</p>
 <p>If <code>checkValve</code> is false, the valve supports reverse flow, with a symmetric flow characteristic curve. Otherwise, reverse flow is stopped (check valve behaviour).</p>
 
 <p>
-The treatment of parameters <b>Kv</b> and <b>Cv</b> is
+The treatment of parameters <strong>Kv</strong> and <strong>Cv</strong> is
 explained in detail in the
 <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
 </p>
@@ -290,7 +289,7 @@ explained in detail in the
 </html>",
       revisions="<html>
 <ul>
-<li><i>2 Nov 2005</i>
+<li><em>2 Nov 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Adapted from the ThermoPower library.</li>
 </ul>
@@ -330,8 +329,6 @@ explained in detail in the
           Line(points={{0,50},{0,0}}),
           Rectangle(
             extent={{-20,60},{20,50}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{-100,50},{100,-50},{100,50},{0,0},{-100,-50},{-100,50}},
@@ -345,7 +342,7 @@ explained in detail in the
             lineColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Polygon(points={{-100,50},{100,-50},{100,50},{0,0},{-100,-50},{-100,
-                50}}, lineColor={0,0,0})}),
+                50}})}),
     Documentation(info="<html>
 <p>This very simple model provides a pressure drop which is proportional to the flowrate and to the <code>opening</code> input, without computing any fluid property. It can be used for testing purposes, when
 a simple model of a variable pressure loss is needed.</p>
@@ -354,7 +351,7 @@ a simple model of a variable pressure loss is needed.</p>
 </html>",
       revisions="<html>
 <ul>
-<li><i>2 Nov 2005</i>
+<li><em>2 Nov 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Adapted from the ThermoPower library.</li>
 </ul>
@@ -391,18 +388,15 @@ a simple model of a variable pressure loss is needed.</p>
           Line(points={{0,50},{0,0}}),
           Rectangle(
             extent={{-20,60},{20,50}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{-100,50},{100,-50},{100,50},{0,0},{-100,-50},{-100,50}},
             fillColor=DynamicSelect({255,255,255}, if open > 0.5 then {0,255,0} else
                       {255,255,255}),
-            lineColor={0,0,0},
             fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
 <p>
-This very simple model provides a (small) pressure drop which is proportional to the flowrate if the Boolean open signal is <b>true</b>. Otherwise, the mass flow rate is zero. If opening_min > 0, a small leakage mass flow rate occurs when open = <b>false</b>.
+This very simple model provides a (small) pressure drop which is proportional to the flowrate if the Boolean open signal is <strong>true</strong>. Otherwise, the mass flow rate is zero. If opening_min > 0, a small leakage mass flow rate occurs when open = <strong>false</strong>.
 </p>
 <p>This model can be used for simplified modelling of on-off valves, when it is not important to accurately describe the pressure loss when the valve is open. Although the medium model is not used to determine the pressure loss, it must be nevertheless be specified, so that the fluid ports can be connected to other components using the same medium model.</p>
 <p>The model is adiabatic (no heat losses to the ambient) and neglects changes in kinetic energy from the inlet to the outlet.</p>
@@ -413,7 +407,7 @@ it is open.
 </html>",
       revisions="<html>
 <ul>
-<li><i>Nov 2005</i>
+<li><em>Nov 2005</em>
     by Katja Poschlad (based on ValveLinear).</li>
 </ul>
 </html>"));
@@ -434,7 +428,7 @@ it is open.
         "Selection of flow coefficient"
        annotation(Dialog(group = "Flow Coefficient"));
       parameter SI.Area Av(
-        fixed=if CvData == Modelica.Fluid.Types.CvTypes.Av then true else false,
+        fixed= CvData == Modelica.Fluid.Types.CvTypes.Av,
         start=m_flow_nominal/(sqrt(rho_nominal*dp_nominal))*valveCharacteristic(
             opening_nominal)) "Av (metric) flow coefficient"
        annotation(Dialog(group = "Flow Coefficient",
@@ -520,7 +514,7 @@ The block passes its input signal as output signal
 as long as the input is above uMin. If this is not the case,
 y=uMin is passed as output.
 </p>
-</html>"),     Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
         Line(points={{0,-90},{0,68}}, color={192,192,192}),
@@ -538,8 +532,7 @@ y=uMin is passed as output.
         Line(points={{-80,-70},{-50,-70},{50,70},{64,90}}),
         Text(
           extent={{-150,-150},{150,-110}},
-          lineColor={0,0,0},
-                textString="uMin=%uMin"),
+          textString="uMin=%uMin"),
         Text(
           extent={{-150,150},{150,110}},
           textString="%name",
@@ -593,8 +586,7 @@ y=uMin is passed as output.
       port_b.h_outflow = inStream(port_a.h_outflow);
 
       connect(filter.y, opening_filtered) annotation (Line(
-          points={{48.7,51},{60,51},{60,50},{70,50}},
-          color={0,0,127}));
+          points={{48.7,51},{60,51},{60,50},{70,50}}, color={0,0,127}));
 
       if filteredOpening then
          connect(filter.y, opening_actual);
@@ -603,11 +595,9 @@ y=uMin is passed as output.
       end if;
 
       connect(minLimiter.y, filter.u) annotation (Line(
-          points={{24.7,51},{32.6,51}},
-          color={0,0,127}));
+          points={{24.7,51},{32.6,51}}, color={0,0,127}));
       connect(minLimiter.u, opening) annotation (Line(
-          points={{8.6,51},{0,51},{0,90}},
-          color={0,0,127}));
+          points={{8.6,51},{0,51},{0,90}}, color={0,0,127}));
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -615,8 +605,6 @@ y=uMin is passed as output.
             Line(points={{0,52},{0,0}}),
             Rectangle(
               extent={{-20,60},{20,52}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Polygon(
               points={{-100,50},{100,-50},{100,50},{0,0},{-100,-50},{-100,50}},
@@ -631,7 +619,7 @@ y=uMin is passed as output.
               lineColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Polygon(points={{-100,50},{100,-50},{100,50},{0,0},{-100,-50},{-100,
-                  50}}, lineColor={0,0,0}),
+                  50}}),
             Ellipse(visible=filteredOpening,
               extent={{-40,94},{40,14}},
               lineColor={0,0,127},
@@ -648,15 +636,15 @@ y=uMin is passed as output.
 <p>The model optionally supports reverse flow conditions (assuming symmetrical behaviour) or check valve operation, and has been suitably regularized, compared to the equations in the standard, in order to avoid numerical singularities around zero pressure drop operating conditions.</p>
 <p>The model assumes adiabatic operation (no heat losses to the ambient); changes in kinetic energy
 from inlet to outlet are neglected in the energy balance.</p>
-<p><b>Modelling options</b></p>
-<p>The following options are available to specify the valve flow coefficient in fully open conditions:
-<ul><li><code>CvData = Modelica.Fluid.Types.CvTypes.Av</code>: the flow coefficient is given by the metric <code>Av</code> coefficient (m^2).
-<li><code>CvData = Modelica.Fluid.Types.CvTypes.Kv</code>: the flow coefficient is given by the metric <code>Kv</code> coefficient (m^3/h).
-<li><code>CvData = Modelica.Fluid.Types.CvTypes.Cv</code>: the flow coefficient is given by the US <code>Cv</code> coefficient (USG/min).
-<li><code>CvData = Modelica.Fluid.Types.CvTypes.OpPoint</code>: the flow is computed from the nominal operating point specified by <code>p_nominal</code>, <code>dp_nominal</code>, <code>m_flow_nominal</code>, <code>rho_nominal</code>, <code>opening_nominal</code>.
+<p><strong>Modelling options</strong></p>
+<p>The following options are available to specify the valve flow coefficient in fully open conditions:</p>
+<ul><li><code>CvData = Modelica.Fluid.Types.CvTypes.Av</code>: the flow coefficient is given by the metric <code>Av</code> coefficient (m^2).</li>
+<li><code>CvData = Modelica.Fluid.Types.CvTypes.Kv</code>: the flow coefficient is given by the metric <code>Kv</code> coefficient (m^3/h).</li>
+<li><code>CvData = Modelica.Fluid.Types.CvTypes.Cv</code>: the flow coefficient is given by the US <code>Cv</code> coefficient (USG/min).</li>
+<li><code>CvData = Modelica.Fluid.Types.CvTypes.OpPoint</code>: the flow is computed from the nominal operating point specified by <code>p_nominal</code>, <code>dp_nominal</code>, <code>m_flow_nominal</code>, <code>rho_nominal</code>, <code>opening_nominal</code>.</li>
 </ul>
-<p>The nominal pressure drop <code>dp_nominal</code> must always be specified; to avoid numerical singularities, the flow characteristic is modified for pressure drops less than <code>b*dp_nominal</code> (the default value is 1% of the nominal pressure drop). Increase this parameter if numerical problems occur in valves with very low pressure drops.
-<p>If <code>checkValve</code> is true, then the flow is stopped when the outlet pressure is higher than the inlet pressure; otherwise, reverse flow takes place. Use this option only when needed, as it increases the numerical complexity of the problem.
+<p>The nominal pressure drop <code>dp_nominal</code> must always be specified; to avoid numerical singularities, the flow characteristic is modified for pressure drops less than <code>b*dp_nominal</code> (the default value is 1% of the nominal pressure drop). Increase this parameter if numerical problems occur in valves with very low pressure drops.</p>
+<p>If <code>checkValve</code> is true, then the flow is stopped when the outlet pressure is higher than the inlet pressure; otherwise, reverse flow takes place. Use this option only when needed, as it increases the numerical complexity of the problem.</p>
 <p>The valve opening characteristic <code>valveCharacteristic</code>, linear by default, can be replaced by any user-defined function. Quadratic and equal percentage with customizable rangeability are already provided by the library. The characteristics for constant port_a.p and port_b.p pressures with continuously changing opening are shown in the next two figures:
 </p>
 
@@ -668,14 +656,14 @@ from inlet to outlet are neglected in the energy balance.</p>
 </blockquote>
 
 <p>
-The treatment of parameters <b>Kv</b> and <b>Cv</b> is
+The treatment of parameters <strong>Kv</strong> and <strong>Cv</strong> is
 explained in detail in the
 <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
 </p>
 
 <p>
 With the optional parameter \"filteredOpening\", the opening can be filtered with a
-<b>second order, criticalDamping</b> filter so that the
+<strong>second order, criticalDamping</strong> filter so that the
 opening demand is delayed by parameter \"riseTime\". The filtered opening is then available
 via the output signal \"opening_filtered\" and is used to control the valve equations.
 This approach approximates the driving device of a valve. The \"riseTime\" parameter
@@ -691,8 +679,8 @@ a step input of opening. The icon of a valve changes in the following way
 </blockquote>
 
 <p>
-If \"filteredOpening = <b>true</b>\", the input signal \"opening\" is limited
-by parameter <b>leakageOpening</b>, i.e., if \"opening\" becomes smaller as
+If \"filteredOpening = <strong>true</strong>\", the input signal \"opening\" is limited
+by parameter <strong>leakageOpening</strong>, i.e., if \"opening\" becomes smaller as
 \"leakageOpening\", then \"leakageOpening\" is used instead of \"opening\" as input
 for the filter. The reason is that \"opening=0\" might structurally change the equations of the
 fluid network leading to a singularity. If a small leakage flow is introduced
@@ -701,7 +689,7 @@ fluid network leading to a singularity. If a small leakage flow is introduced
 
 <p>
 In the next figure, \"opening\" and \"filtered_opening\" are shown in the case that
-filteredOpening = <b>true</b>, riseTime = 1 s, and leakageOpening = 0.02.
+filteredOpening = <strong>true</strong>, riseTime = 1 s, and leakageOpening = 0.02.
 </p>
 
 <blockquote>
@@ -711,12 +699,12 @@ filteredOpening = <b>true</b>, riseTime = 1 s, and leakageOpening = 0.02.
 
 </html>", revisions="<html>
 <ul>
-<li><i>Sept. 5, 2010</i>
+<li><em>Sept. 5, 2010</em>
     by <a href=\"mailto:martin.otter@dlr.de\">Martin Otter</a>:<br>
     Optional filtering of opening introduced, based on a proposal
     from Mike Barth (Universitaet der Bundeswehr Hamburg) +
     Documentation improved.</li>
-<li><i>2 Nov 2005</i>
+<li><em>2 Nov 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Adapted from the ThermoPower library.</li>
 </ul>
@@ -774,10 +762,10 @@ m_flow =                  rc * Av * sqrt(rho * dp)
               pos/delta*rangeability^(delta-1);
       annotation (Documentation(info="<html>
 This characteristic is such that the relative change of the flow coefficient is proportional to the change in the opening position:
-<p> d(rc)/d(pos) = k d(pos).
-<p> The constant k is expressed in terms of the rangeability, i.e., the ratio between the maximum and the minimum useful flow coefficient:
-<p> rangeability = exp(k) = rc(1.0)/rc(0.0).
-<p> The theoretical characteristic has a non-zero opening when pos = 0; the implemented characteristic is modified so that the valve closes linearly when pos &lt; delta.
+<p> d(rc)/d(pos) = k d(pos).</p>
+<p> The constant k is expressed in terms of the rangeability, i.e., the ratio between the maximum and the minimum useful flow coefficient:</p>
+<p> rangeability = exp(k) = rc(1.0)/rc(0.0).</p>
+<p> The theoretical characteristic has a non-zero opening when pos = 0; the implemented characteristic is modified so that the valve closes linearly when pos &lt; delta.</p>
 </html>"));
     end equalPercentage;
 

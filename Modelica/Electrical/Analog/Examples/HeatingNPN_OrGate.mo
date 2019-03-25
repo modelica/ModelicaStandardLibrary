@@ -1,8 +1,8 @@
 within Modelica.Electrical.Analog.Examples;
 model HeatingNPN_OrGate "Heating NPN Or Gate"
   extends Modelica.Icons.Example;
-  parameter SI.Capacitance CapVal=0 annotation(Evaluate=true);
-  parameter SI.Time tauVal=0 annotation(Evaluate=true);
+  parameter SI.Capacitance CapVal=0 "Value for capacitances" annotation(Evaluate=true);
+  parameter SI.Time tauVal=0 "Value for ideal forward and reverse transit time of semiconductors"  annotation(Evaluate=true);
 
   Modelica.Thermal.HeatTransfer.Components.HeatCapacitor HeatCapacitor1(C=0.1)
   annotation (Placement(transformation(
@@ -89,7 +89,7 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
   Semiconductors.HeatingNPN T1(
     Bf=100,
     Br=1,
-    Is=1.e-14,
+    Is=1e-14,
     Vak=0,
     Tauf=tauVal,
     Taur=tauVal,
@@ -100,8 +100,8 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
     Me=0.5,
     Phic=1,
     Mc=0.5,
-    Gbc=1.e-12,
-    Gbe=1.e-12,
+    Gbc=1e-12,
+    Gbe=1e-12,
     EMax=40,
     vt_t(start=0.01, fixed=false),
     useHeatPort=true, ibe(start=0), vbc(start=0))
@@ -109,7 +109,7 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
   Semiconductors.HeatingNPN T2(
     Bf=100,
     Br=1,
-    Is=1.e-14,
+    Is=1e-14,
     Vak=0,
     Tauf=tauVal,
     Taur=tauVal,
@@ -120,8 +120,8 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
     Me=0.5,
     Phic=1,
     Mc=0.5,
-    Gbc=1.e-12,
-    Gbe=1.e-12,
+    Gbc=1e-12,
+    Gbe=1e-12,
     EMax=40,
     vt_t(start=0.01, fixed=false),
     useHeatPort=true, ibe(start=0), vbc(start=0))
@@ -155,21 +155,19 @@ equation
   connect(C1.p, R1.n)
                     annotation (Line(points={{-70,48},{-70,58}}, color={0,0,255}));
   connect(Gnd5.p, C3.n)
-  annotation (Line(points={{-16,-56},{-16,-50}},           color={0,0,255}));
+  annotation (Line(points={{-16,-56},{-16,-50}}, color={0,0,255}));
   connect(T1.B, R1.n)
   annotation (Line(points={{-20,58},{-70,58}}, color={0,0,255}));
   connect(T1.E, Gnd3.p)
-  annotation (Line(points={{0,53},{0,48.75},{0,44.5},{0,36}},
-                                           color={0,0,255}));
+  annotation (Line(points={{0,52},{0,52},{0,44.5},{0,36}},    color={0,0,255}));
   connect(RI.p, T1.C)
-                    annotation (Line(points={{60,68},{30,68},{30,63},{0,63}},
-        color={0,0,255}));
+                    annotation (Line(points={{60,68},{30,68},{30,64},{0,64}}, color={0,0,255}));
   connect(T2.B, R2.n)
   annotation (Line(points={{20,-12},{-16,-12}}, color={0,0,255}));
   connect(T2.E, Gnd4.p)
-  annotation (Line(points={{40,-17},{40,-32}}, color={0,0,255}));
+  annotation (Line(points={{40,-18},{40,-32}}, color={0,0,255}));
   connect(T2.C, RI.p)
-  annotation (Line(points={{40,-7},{40,68},{60,68}}, color={0,0,255}));
+  annotation (Line(points={{40,-6},{40,68},{60,68}}, color={0,0,255}));
   connect(TC1.port_b, HeatCapacitor1.port)
                                          annotation (Line(points={{90,-60},{84,
           -60},{84,-74},{76,-74}}, color={191,0,0}));
@@ -185,7 +183,7 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-100,100},{-6,72}},
           textString="Heating \"NPN or\" Gate",
-          lineColor={0,0,255})}),    Documentation(info="<html>
+          lineColor={0,0,255})}), Documentation(info="<html>
 <p>The heating &quot;NPN or&quot; gate shows a heat flow always if a transistor is leading.</p>
 <p>Simulate until T=200 s. Plot in separate windows:
 <br>V1.v and V2.v and C2.v
@@ -193,9 +191,9 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
 <br>T1.heatPort.Q_flow and T2.heatPort.Q_flow</p>
 </html>",
    revisions="<html>
-<p><b>Release Notes:</b></p>
+<p><strong>Release Notes:</strong></p>
 <ul>
-<li><i>Mai 6, 2004   </i>
+<li><em>Mai 6, 2004   </em>
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>

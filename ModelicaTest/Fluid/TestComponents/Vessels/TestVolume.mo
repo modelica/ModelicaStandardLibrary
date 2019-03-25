@@ -35,13 +35,10 @@ equation
   connect(Valve.port_b, Sink.ports[1])
     annotation (Line(points={{22,10},{40,10}}, color={0,127,255}));
   connect(Step1.y, Valve.opening) annotation (Line(points={{-19,58},{12,58},{
-          12,18}},
-                color={0,0,127}));
+          12,18}}, color={0,0,127}));
   connect(FlowSource.ports[1], Volume.ports[1]) annotation (Line(
-      points={{-62,10},{-32,10},{-32,14}},
-      color={0,127,255}));
+      points={{-62,10},{-32,10},{-32,14}}, color={0,127,255}));
   connect(Volume.ports[2], Valve.port_a) annotation (Line(
-      points={{-28,14},{-28,10},{2,10}},
-      color={0,127,255}));
+      points={{-28,14},{-28,10},{2,10}}, color={0,127,255}));
   annotation (                       experiment(StopTime=5));
 end TestVolume;

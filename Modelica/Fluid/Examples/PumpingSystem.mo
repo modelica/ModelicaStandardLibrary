@@ -93,11 +93,10 @@ model PumpingSystem "Model of a pumping system for drinking water"
                                    annotation (Placement(transformation(extent=
             {{60,-96},{80,-76}})));
 equation
-  connect(userValve.port_b, sink.ports[1])     annotation (Line(points={{74,-30},
-          {77,-30},{77,-28},{80,-28}},
-                    color={0,127,255}));
+  connect(userValve.port_b, sink.ports[1]) annotation (Line(points={{74,-30},
+          {77,-30},{77,-28},{80,-28}}, color={0,127,255}));
   connect(source.ports[1], pumps.port_a) annotation (Line(points={{-80,-70},{
-          -74,-70},{-68,-70}},               color={0,127,255}));
+          -74,-70},{-68,-70}}, color={0,127,255}));
   connect(valveOpening.y, userValve.opening) annotation (Line(points={{77,10},{
           98,10},{98,-12},{66,-12},{66,-23.6}}, color={0,0,127}));
   connect(RelativePressureSetPoint.y, controller.reference)
@@ -107,26 +106,24 @@ equation
     annotation (Line(points={{-19,70},{-2,70}}, color={255,0,255}));
   connect(reservoirPressure.p_rel, controller.u) annotation (Line(points={{20,
           -13},{20,50},{-52,50},{-52,64},{-42,64}}, color={0,0,127}));
-  connect(reservoirPressure.port_b, sink.ports[2])    annotation (Line(
+  connect(reservoirPressure.port_b, sink.ports[2]) annotation (Line(
       points={{30,-22},{44,-22},{44,-48},{80,-48},{80,-32}},
       color={0,127,255},
       pattern=LinePattern.Dot));
   connect(PumpRPMGenerator.y, PT1.u)
     annotation (Line(points={{21,70},{38,70}}, color={0,0,127}));
   connect(PT1.y, pumps.N_in) annotation (Line(points={{61,70},{74,70},{74,30},{
-          -58,30},{-58,-60}},          color={0,0,127}));
-  connect(pipe.port_a, pumps.port_b)         annotation (Line(points={{-30,-60},
-          {-30,-70},{-48,-70}},                color={0,127,255}));
+          -58,30},{-58,-60}}, color={0,0,127}));
+  connect(pipe.port_a, pumps.port_b) annotation (Line(points={{-30,-60},
+          {-30,-70},{-48,-70}}, color={0,127,255}));
   connect(reservoir.ports[1], pipe.port_b) annotation (Line(
-      points={{-12.6667,-16},{-12.6667,-30},{-30,-30},{-30,-40}},
-      color={0,127,255}));
+      points={{-12.6667,-16},{-12.6667,-30},{-30,-30},{-30,-40}}, color={0,127,255}));
   connect(reservoir.ports[3], reservoirPressure.port_a) annotation (Line(
       points={{-7.33333,-16},{-7,-16},{-7,-22},{10,-22}},
       color={0,127,255},
       pattern=LinePattern.Dot));
   connect(reservoir.ports[2], userValve.port_a) annotation (Line(
-      points={{-10,-16},{-10,-30},{58,-30}},
-      color={0,127,255}));
+      points={{-10,-16},{-10,-30},{58,-30}}, color={0,127,255}));
   annotation (
     Documentation(info="<html>
 <p>
@@ -138,21 +135,18 @@ The water controller is a simple on-off controller, regulating on the gauge pres
 <p>
 Simulate for 2000 s. When the valve is opened at time t=200, the pump starts turning on and off to keep the reservoir level around 2 meters, which roughly corresponds to a gauge pressure of 200 mbar.
 </p>
-<p>
-If using Dymola, turn off \"Equidistant time grid\" to avoid numerical errors.
-</p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/PumpingSystem.png\" border=\"1\"
      alt=\"PumpingSystem.png\">
 </html>", revisions="<html>
 <ul>
-<li><i>Jan 2009</i>
+<li><em>Jan 2009</em>
     by R&uuml;diger Franke:<br>
        Reduce diameters of pipe and reservoir ports; use separate port for measurement of reservoirPressure, avoiding disturbances due to pressure losses.</li>
-<li><i>1 Oct 2007</i>
+<li><em>1 Oct 2007</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Parameters updated.</li>
-<li><i>2 Nov 2005</i>
+<li><em>2 Nov 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Created.</li>
 </ul>

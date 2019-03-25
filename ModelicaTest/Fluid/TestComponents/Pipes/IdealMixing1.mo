@@ -79,34 +79,25 @@ model IdealMixing1 "Test properties of ideal mixing"
     annotation (Placement(transformation(extent={{-10,-60},{10,-80}})));
 equation
   connect(pipeFriction1.port_b, pipeFriction2.port_a) annotation (Line(
-      points={{-12,-30},{12,-30}},
-      color={0,127,255}));
+      points={{-12,-30},{12,-30}}, color={0,127,255}));
   connect(pipeFriction3.port_a, pipeFriction1.port_b) annotation (Line(
-      points={{0,-10},{0,-10},{0,-30},{-12,-30}},
-      color={0,127,255}));
+      points={{0,-10},{0,-10},{0,-30},{-12,-30}}, color={0,127,255}));
   connect(boundary1.ports[1], pipeFriction1.port_a)
                                                 annotation (Line(
-      points={{-48,-30},{-32,-30}},
-      color={0,127,255}));
+      points={{-48,-30},{-32,-30}}, color={0,127,255}));
   connect(boundary2.ports[1], pipeFriction2.port_b)
                                                 annotation (Line(
-      points={{46,-30},{32,-30}},
-      color={0,127,255}));
+      points={{46,-30},{32,-30}}, color={0,127,255}));
   connect(boundary3.ports[1], pipeFriction3.port_b)
                                                 annotation (Line(
-      points={{0,20},{0,10},{1.1119e-15,10}},
-      color={0,127,255}));
+      points={{0,20},{0,10},{1.1119e-15,10}}, color={0,127,255}));
   connect(sine1.y, boundary1.p_in) annotation (Line(
-      points={{-79,-10},{-76,-10},{-76,-22},{-70,-22}},
-      color={0,0,127}));
+      points={{-79,-10},{-76,-10},{-76,-22},{-70,-22}}, color={0,0,127}));
   connect(sine2.y, boundary1.T_in) annotation (Line(
-      points={{-79,-48},{-76,-48},{-76,-26},{-70,-26}},
-      color={0,0,127}));
+      points={{-79,-48},{-76,-48},{-76,-26},{-70,-26}}, color={0,0,127}));
   connect(sine3.y, boundary3.p_in) annotation (Line(
-      points={{0,59},{0,50.5},{-8,50.5},{-8,42}},
-      color={0,0,127}));
+      points={{0,59},{0,50.5},{-8,50.5},{-8,42}}, color={0,0,127}));
   connect(temperature.port, pipeFriction3.port_a) annotation (Line(
-      points={{0,-60},{0,-10},{0,-10}},
-      color={0,127,255}));
+      points={{0,-60},{0,-10},{0,-10}}, color={0,127,255}));
   annotation (experiment(StopTime=10));
 end IdealMixing1;

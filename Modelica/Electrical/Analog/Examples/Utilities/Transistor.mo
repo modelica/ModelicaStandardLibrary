@@ -26,7 +26,7 @@ model Transistor "Transistor with resistance an capacitance"
     Gbc=1e-15,
     Gbe=1e-15,
     Vt=0.02585,
-    UIC=true)   annotation (Placement(transformation(extent={{-20,-20},{20,20}})));
+    UIC=true) annotation (Placement(transformation(extent={{-20,-20},{20,20}})));
   Basic.Ground Ground1 annotation (Placement(transformation(extent={{-50,-80},{
             -30,-60}})));
   Interfaces.Pin c annotation (Placement(transformation(extent={{90,50},{110,70}})));
@@ -57,7 +57,7 @@ equation
         Line(points={{60,60},{40,60},{-10,10}}, color={0,0,255}),
         Line(points={{-10,-10},{40,-60},{60,-60}}, color={0,0,255}),
         Text(
-          extent={{-150,120},{150,90}},
+          extent={{-150,130},{150,90}},
           lineColor={0,0,255},
           textString="%name")}),
     Documentation(info="<html>

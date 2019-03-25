@@ -1,15 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 <title>Modelica.UsersGuide.ReleaseNotes.Version_3_2_1</title>
 </head>
 <body>
-<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>.<span class="omc-h1">Version_3_2_1</span></h1>
+<h1>ReleaseNotes.<span class="omc-h1">Version_3_2_1</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <p>Version 3.2.1 is backward compatible to version 3.2, that is
 models developed with versions 3.0, 3.0.1, 3.1, or 3.2 will work
@@ -19,8 +18,9 @@ compatibility. The goal is that all <a href="https://www.modelica.org/tools">Mod
 this package and will interpret it in the same way. Short
 Overview:</p>
 <ul>
-<li>This version of the Modelica package is <b>fully compatible</b>
-to Modelica Specification <b>3.2 revision 2</b>.<br />
+<li>This version of the Modelica package is <strong>fully
+compatible</strong> to Modelica Specification <strong>3.2 revision
+2</strong>.<br />
 (Especially, some operators used in package Modelica, such as
 "rooted", have been standardized in 3.2 rev. 2, as well as vendor
 specific annotations. Furthermore, ambiguous/unclear descriptions
@@ -29,12 +29,11 @@ improvement in packages Modelica and ModelicaTest is that the
 initialization has been fully defined in all example models, in
 order that all tools can produce the same result without relying on
 tool heuristics).</li>
-<li>About <a href="../../../Modelica%203.2.2/Resources/Documentation/Version-3.2.1/ResolvedTracTickets.html">
+<li>About <a href="../Documentation/Version-3.2.1/ResolvedTracTickets.html">
 400 tickets</a> have been fixed for this release, and especially
 all compliance issues and all relevant defect issues.</li>
-<li>An open source implementation of the <b>table blocks</b> has
-been provided by <a href="http://www.itisim.com">ITI GmbH</a>. This
-work has been <a href="https://www.modelica.org/news_items/call-texts-to-improve-modelica-2012/2012-12-20-Call-for-quotation-for-MSL-tables.pdf/at_download/file">
+<li>An open source implementation of the <strong>table
+blocks</strong> has been provided by <a href="http://www.itisim.com">ITI GmbH</a>. This work has been <a href="https://www.modelica.org/news_items/call-texts-to-improve-modelica-2012/2012-12-20-Call-for-quotation-for-MSL-tables.pdf/at_download/file">
 paid by Modelica Association</a>. As a result, all parts of package
 Modelica are now available in a free implementation. Additionally
 new features have been added to the table blocks by this
@@ -48,25 +47,26 @@ implementation:
 realtime systems without file system)</li>
 </ul>
 </li>
-<li><b>Icons</b> have been re-designed by Wolfram Research to
-provide a more modern view.</li>
-<li>The <b>Modelica.Media.Air.MoistAir</b> media model has been
-improved so that it can be used in a temperature range of 190 ...
-647 K (previously: 240 ... 400 K).</li>
-<li>New media models for air (<b>ReferenceAir</b> with a large
-operating range: 30 ... 2000 K, 0 ... 2000 MPa), for moist air
-(<b>ReferenceMoistAir</b> with a large operating range: 143.15 ...
-2000 K, 0 .. 10 MPa; but 1-2 orders of magnitude slower as
-Modelica.Media.Air.MoistAir), and the refrigerant <b>R134a</b> are
-included in the Modelica.Media library in order to improve the
-modeling of air conditioning systems especially in aircraft. These
-models have been developed by <a href="http://www.xrg-simulation.de/">XRG Simulation GmbH</a> as part of
-the <a href="http://www.cleansky.eu/">Clean Sky</a> JTI project
-(Project number: 296369; Theme: JTI-CS-2011-1-SGO-02-026). The
-partial financial support by the European Union for this
+<li><strong>Icons</strong> have been re-designed by Wolfram
+Research to provide a more modern view.</li>
+<li>The <strong>Modelica.Media.Air.MoistAir</strong> media model
+has been improved so that it can be used in a temperature range of
+190 ... 647 K (previously: 240 ... 400 K).</li>
+<li>New media models for air (<strong>ReferenceAir</strong> with a
+large operating range: 30 ... 2000 K, 0 ... 2000 MPa), for moist
+air (<strong>ReferenceMoistAir</strong> with a large operating
+range: 143.15 ... 2000 K, 0 .. 10 MPa; but 1-2 orders of magnitude
+slower as Modelica.Media.Air.MoistAir), and the refrigerant
+<strong>R134a</strong> are included in the Modelica.Media library
+in order to improve the modeling of air conditioning systems
+especially in aircraft. These models have been developed by
+<a href="http://www.xrg-simulation.de/">XRG Simulation GmbH</a> as
+part of the <a href="http://www.cleansky.eu/">Clean Sky</a> JTI
+project (Project number: 296369; Theme: JTI-CS-2011-1-SGO-02-026).
+The partial financial support by the European Union for this
 development is highly appreciated.</li>
-<li><b>60</b> models and blocks and <b>90</b> functions are newly
-included, for details see below.</li>
+<li><strong>60</strong> models and blocks and <strong>90</strong>
+functions are newly included, for details see below.</li>
 </ul>
 <p>This release of package Modelica, and the accompanying
 ModelicaTest, has been tested with the following tools (the tools
@@ -134,221 +134,219 @@ x64))<br />
 &nbsp;&nbsp;&nbsp;Microtec PowerPC Compiler 3.7 (for DS1005)</li>
 </ul>
 <p>The exact difference between package Modelica version 3.2 and
-version 3.2.1 is summarized in a <a href="../../../Modelica%203.2.2/Resources/Documentation/Version-3.2.1/DifferencesTo32.html">
+version 3.2.1 is summarized in a <a href="../Documentation/Version-3.2.1/DifferencesTo32.html">
 comparison table</a>.</p>
-<p>About <b>400</b> trac tickets have been fixed for this release.
-An overview is given <a href="../../../Modelica%203.2.2/Resources/Documentation/Version-3.2.1/ResolvedTracTickets.html">
+<p>About <strong>400</strong> trac tickets have been fixed for this
+release. An overview is given <a href="../Documentation/Version-3.2.1/ResolvedTracTickets.html">
 here</a>. Clicking on a ticket gives all information about it.</p>
 <p><br />
-The following <b style="color:blue">new components</b> have been
-added to <b style="color:blue">existing</b> libraries:</p>
+The following <font color="blue"><strong>new
+components</strong></font> have been added to <font color="blue"><strong>existing</strong></font> libraries:</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Logical.</b></td>
+<td colspan="2"><strong>Modelica.Blocks.Logical.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">RSFlipFlop</td>
-<td valign="top">Basic RS flip flop</td>
+<td width="150">RSFlipFlop</td>
+<td>Basic RS flip flop</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Math.</b></td>
+<td colspan="2"><strong>Modelica.Blocks.Math.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">MinMax</td>
-<td valign="top">Output the minimum and the maximum element of the
-input vector</td>
+<td width="150">MinMax</td>
+<td>Output the minimum and the maximum element of the input
+vector</td>
 </tr>
 <tr>
-<td valign="top" width="150">LinearDependency</td>
-<td valign="top">Output a linear combination of the two inputs</td>
+<td width="150">LinearDependency</td>
+<td>Output a linear combination of the two inputs</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Nonlinear.</b></td>
+<td colspan="2"><strong>Modelica.Blocks.Nonlinear.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">SlewRateLimiter</td>
-<td valign="top">Limit the slew rate of a signal</td>
-</tr>
-<tr>
-<td colspan="2"><b>Modelica.Electrical.Digital.Memories</b></td>
-</tr>
-<tr>
-<td valign="top" width="150">DLATRAM</td>
-<td valign="top">Level sensitive Random Access Memory</td>
-</tr>
-<tr>
-<td valign="top" width="150">DLATROM</td>
-<td valign="top">Level sensitive Read Only Memory</td>
+<td width="150">SlewRateLimiter</td>
+<td>Limit the slew rate of a signal</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Electrical.Digital.Multiplexers</b></td>
+<strong>Modelica.Electrical.Digital.Memories</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">MUX2x1</td>
-<td valign="top">A two inputs MULTIPLEXER for multiple value logic
-(2 data inputs, 1 select input, 1 output)</td>
+<td width="150">DLATRAM</td>
+<td>Level sensitive Random Access Memory</td>
+</tr>
+<tr>
+<td width="150">DLATROM</td>
+<td>Level sensitive Read Only Memory</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.</b></td>
+<strong>Modelica.Electrical.Digital.Multiplexers</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">AIMC_Initialize</td>
-<td valign="top">Steady-State Initialization example of
+<td width="150">MUX2x1</td>
+<td>A two inputs MULTIPLEXER for multiple value logic (2 data
+inputs, 1 select input, 1 output)</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.</strong></td>
+</tr>
+<tr>
+<td width="150">AIMC_Initialize</td>
+<td>Steady-State Initialization example of
 AsynchronousInductionMachineSquirrelCage</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.</b></td>
+<strong>Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">SMPM_VoltageSource</td>
-<td valign="top">PermanentMagnetSynchronousInductionMachine example
-fed by FOC</td>
-</tr>
-<tr>
-<td colspan="2">
-<b>Modelica.Electrical.MultiPhase.Examples.</b></td>
-</tr>
-<tr>
-<td valign="top" width="150">TestSensors</td>
-<td valign="top">Example for multiphase quasiRMS sensors: A
-sinusoidal source feeds a load consisting of resistor and
-inductor</td>
-</tr>
-<tr>
-<td colspan="2"><b>Modelica.Electrical.MultiPhase.Sensors.</b></td>
-</tr>
-<tr>
-<td valign="top" width="150">VoltageQuasiRMSSensor</td>
-<td valign="top">Continuous quasi voltage RMS sensor for multi
-phase system</td>
-</tr>
-<tr>
-<td valign="top" width="150">CurrentQuasiRMSSensor</td>
-<td valign="top">Continuous quasi current RMS sensor for multi
-phase system</td>
-</tr>
-<tr>
-<td colspan="2"><b>Modelica.Electrical.MultiPhase.Blocks.</b></td>
-</tr>
-<tr>
-<td valign="top" width="150">QuasiRMS</td>
-<td valign="top">Determine quasi RMS value of a multi-phase
-system</td>
+<td width="150">SMPM_VoltageSource</td>
+<td>PermanentMagnetSynchronousInductionMachine example fed by
+FOC</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Electrical.MultiPhase.Functions.</b></td>
+<strong>Modelica.Electrical.MultiPhase.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">quasiRMS</td>
-<td valign="top">Calculate continuous quasi RMS value of input</td>
+<td width="150">TestSensors</td>
+<td>Example for multiphase quasiRMS sensors: A sinusoidal source
+feeds a load consisting of resistor and inductor</td>
 </tr>
 <tr>
-<td valign="top" width="150">activePower</td>
-<td valign="top">Calculate active power of voltage and current
-input</td>
+<td colspan="2">
+<strong>Modelica.Electrical.MultiPhase.Sensors.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">symmetricOrientation</td>
-<td valign="top">Orientations of the resulting fundamental wave
-field phasors</td>
+<td width="150">VoltageQuasiRMSSensor</td>
+<td>Continuous quasi voltage RMS sensor for multi phase system</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Electrical.Spice3.Examples.</b></td>
+<td width="150">CurrentQuasiRMSSensor</td>
+<td>Continuous quasi current RMS sensor for multi phase system</td>
 </tr>
 <tr>
-<td valign="top" width="150">CoupledInductors<br />
+<td colspan="2">
+<strong>Modelica.Electrical.MultiPhase.Blocks.</strong></td>
+</tr>
+<tr>
+<td width="150">QuasiRMS</td>
+<td>Determine quasi RMS value of a multi-phase system</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Modelica.Electrical.MultiPhase.Functions.</strong></td>
+</tr>
+<tr>
+<td width="150">quasiRMS</td>
+<td>Calculate continuous quasi RMS value of input</td>
+</tr>
+<tr>
+<td width="150">activePower</td>
+<td>Calculate active power of voltage and current input</td>
+</tr>
+<tr>
+<td width="150">symmetricOrientation</td>
+<td>Orientations of the resulting fundamental wave field
+phasors</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Modelica.Electrical.Spice3.Examples.</strong></td>
+</tr>
+<tr>
+<td width="150">CoupledInductors<br />
 CascodeCircuit<br />
 Spice3BenchmarkDifferentialPair<br />
 Spice3BenchmarkMosfetCharacterization<br />
 Spice3BenchmarkRtlInverter<br />
 Spice3BenchmarkFourBitBinaryAdder</td>
-<td valign="top">Spice3 examples and benchmarks from the SPICE3
-Version e3 User's Manual</td>
-</tr>
-<tr>
-<td colspan="2"><b>Modelica.Electrical.Spice3.Basic.</b></td>
-</tr>
-<tr>
-<td valign="top" width="150">K_CoupledInductors</td>
-<td valign="top">Inductive coupling via coupling factor K</td>
+<td>Spice3 examples and benchmarks from the SPICE3 Version e3
+User's Manual</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Electrical.Spice3.Semiconductors.</b></td>
+<strong>Modelica.Electrical.Spice3.Basic.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">M_NMOS2<br />
+<td width="150">K_CoupledInductors</td>
+<td>Inductive coupling via coupling factor K</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Modelica.Electrical.Spice3.Semiconductors.</strong></td>
+</tr>
+<tr>
+<td width="150">M_NMOS2<br />
 M_PMOS2<br />
 ModelcardMOS2</td>
-<td valign="top">N/P channel MOSFET transistor with fixed level
-2</td>
+<td>N/P channel MOSFET transistor with fixed level 2</td>
 </tr>
 <tr>
-<td valign="top" width="150">J_NJFJFE<br />
+<td width="150">J_NJFJFE<br />
 J_PJFJFE<br />
 ModelcardJFET</td>
-<td valign="top">N/P-channel junction field-effect transistor</td>
+<td>N/P-channel junction field-effect transistor</td>
 </tr>
 <tr>
-<td valign="top" width="150">C_Capacitor<br />
+<td width="150">C_Capacitor<br />
 ModelcardCAPACITOR</td>
-<td valign="top">Semiconductor capacitor model</td>
+<td>Semiconductor capacitor model</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.</b></td>
+<strong>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">AIMC_DOL_MultiPhase<br />
+<td width="150">AIMC_DOL_MultiPhase<br />
 AIMS_Start_MultiPhase<br />
 SMPM_Inverter_MultiPhase<br />
 SMEE_Generator_MultiPhase<br />
 SMR_Inverter_MultiPhase</td>
-<td valign="top">Multi-phase machine examples</td>
+<td>Multi-phase machine examples</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Fluid.Sensors.</b></td>
+<td colspan="2"><strong>Modelica.Fluid.Sensors.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">MassFractions<br />
+<td width="150">MassFractions<br />
 MassFractionsTwoPort</td>
-<td valign="top">Ideal mass fraction sensors</td>
+<td>Ideal mass fraction sensors</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Media.</b></td>
+<td colspan="2"><strong>Modelica.Media.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">R134a</td>
-<td valign="top">R134a (Tetrafluoroethane) medium model in the
-range (0.0039 bar .. 700 bar, 169.85 K .. 455 K)</td>
+<td width="150">R134a</td>
+<td>R134a (Tetrafluoroethane) medium model in the range (0.0039 bar
+.. 700 bar, 169.85 K .. 455 K)</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Media.Air.</b></td>
+<td colspan="2"><strong>Modelica.Media.Air.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">ReferenceAir</td>
-<td valign="top">Detailed dry air model with a large operating
-range (130 ... 2000 K, 0 ... 2000 MPa) based on Helmholtz equations
-of state</td>
+<td width="150">ReferenceAir</td>
+<td>Detailed dry air model with a large operating range (130 ...
+2000 K, 0 ... 2000 MPa) based on Helmholtz equations of state</td>
 </tr>
 <tr>
-<td valign="top" width="150">ReferenceMoistAir</td>
-<td valign="top">Detailed moist air model (143.15 ... 2000 K)</td>
+<td width="150">ReferenceMoistAir</td>
+<td>Detailed moist air model (143.15 ... 2000 K)</td>
 </tr>
 <tr>
-<td valign="top" width="150">MoistAir</td>
-<td valign="top">Temperature range of functions of MoistAir medium
-enlarged from 240 - 400 K to 190 - 647 K.</td>
+<td width="150">MoistAir</td>
+<td>Temperature range of functions of MoistAir medium enlarged from
+240 - 400 K to 190 - 647 K.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Media.Air.MoistAir.</b></td>
+<td colspan="2"><strong>Modelica.Media.Air.MoistAir.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">velocityOfSound<br />
+<td width="150">velocityOfSound<br />
 isobaricExpansionCoefficient<br />
 isothermalCompressibility<br />
 density_derp_h<br />
@@ -362,111 +360,111 @@ setState_psX<br />
 s_pTX<br />
 s_pTX_der<br />
 isentropicEnthalpy</td>
-<td valign="top">Functions returning additional properties of the
-moist air medium model</td>
+<td>Functions returning additional properties of the moist air
+medium model</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Thermal.HeatTransfer.Components.</b></td>
+<strong>Modelica.Thermal.HeatTransfer.Components.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">ThermalResistor</td>
-<td valign="top">Lumped thermal element transporting heat without
-storing it (dT = R*Q_flow)</td>
+<td width="150">ThermalResistor</td>
+<td>Lumped thermal element transporting heat without storing it (dT
+= R*Q_flow)</td>
 </tr>
 <tr>
-<td valign="top" width="150">ConvectiveResistor</td>
-<td valign="top">Lumped thermal element for heat convection (dT =
+<td width="150">ConvectiveResistor</td>
+<td>Lumped thermal element for heat convection (dT =
 Rc*Q_flow)</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.MultiBody.Examples.Constraints.</b></td>
+<strong>Modelica.MultiBody.Examples.Constraints.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">PrismaticConstraint<br />
+<td width="150">PrismaticConstraint<br />
 RevoluteConstraint<br />
 SphericalConstraint<br />
 UniversalConstraint</td>
-<td valign="top">Demonstrates the use of the new Joints.Constraints
-joints by comparing them with the standard joints.</td>
+<td>Demonstrates the use of the new Joints.Constraints joints by
+comparing them with the standard joints.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.MultiBody.Joints.Constraints.</b></td>
+<td colspan="2">
+<strong>Modelica.MultiBody.Joints.Constraints.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">Prismatic<br />
+<td width="150">Prismatic<br />
 Revolute<br />
 Spherical<br />
 Universal</td>
-<td valign="top">Joint elements formulated as kinematic
-constraints. These elements are designed to break kinematic loops
-and result usually in numerically more efficient and reliable loop
-handling as the (standard) automatic handling.</td>
+<td>Joint elements formulated as kinematic constraints. These
+elements are designed to break kinematic loops and result usually
+in numerically more efficient and reliable loop handling as the
+(standard) automatic handling.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Mechanics.Rotational.</b></td>
+<td colspan="2">
+<strong>Modelica.Mechanics.Rotational.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">MultiSensor</td>
-<td valign="top">Ideal sensor to measure the torque and power
-between two flanges and the absolute angular velocity</td>
+<td width="150">MultiSensor</td>
+<td>Ideal sensor to measure the torque and power between two
+flanges and the absolute angular velocity</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Mechanics.Translational.</b></td>
+<td colspan="2">
+<strong>Modelica.Mechanics.Translational.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">MultiSensor</td>
-<td valign="top">Ideal sensor to measure the absolute velocity,
-force and power between two flanges</td>
+<td width="150">MultiSensor</td>
+<td>Ideal sensor to measure the absolute velocity, force and power
+between two flanges</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Math.</b></td>
+<td colspan="2"><strong>Modelica.Math.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">isPowerOf2</td>
-<td valign="top">Determine if the integer input is a power of
-2</td>
+<td width="150">isPowerOf2</td>
+<td>Determine if the integer input is a power of 2</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Math.Vectors.</b></td>
+<td colspan="2"><strong>Modelica.Math.Vectors.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">normalizedWithAssert</td>
-<td valign="top">Return normalized vector such that length = 1
-(trigger an assert for zero vector)</td>
+<td width="150">normalizedWithAssert</td>
+<td>Return normalized vector such that length = 1 (trigger an
+assert for zero vector)</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Math.BooleanVectors.</b></td>
+<td colspan="2"><strong>Modelica.Math.BooleanVectors.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">countTrue</td>
-<td valign="top">Returns the number of true entries in a Boolean
+<td width="150">countTrue</td>
+<td>Returns the number of true entries in a Boolean vector</td>
+</tr>
+<tr>
+<td width="150">enumerate</td>
+<td>Enumerates the true entries in a Boolean vector (0 for false
+entries)</td>
+</tr>
+<tr>
+<td width="150">index</td>
+<td>Returns the indices of the true entries of a Boolean
 vector</td>
 </tr>
 <tr>
-<td valign="top" width="150">enumerate</td>
-<td valign="top">Enumerates the true entries in a Boolean vector (0
-for false entries)</td>
+<td colspan="2"><strong>Modelica.Utilities.Files.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">index</td>
-<td valign="top">Returns the indices of the true entries of a
-Boolean vector</td>
+<td width="150">loadResource</td>
+<td>Return the absolute path name of a URI or local file name</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Utilities.Files.</b></td>
+<td colspan="2"><strong>Modelica.SIunits.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">loadResource</td>
-<td valign="top">Return the absolute path name of a URI or local
-file name</td>
-</tr>
-<tr>
-<td colspan="2"><b>Modelica.SIunits.</b></td>
-</tr>
-<tr>
-<td valign="top" width="150">PressureDifference<br />
+<td width="150">PressureDifference<br />
 MolarDensity<br />
 MolarEnergy<br />
 MolarEnthalpy<br />
@@ -475,11 +473,11 @@ ChargeAging<br />
 PerUnit<br />
 DerPressureByDensity<br />
 DerPressureByTemperature</td>
-<td valign="top">New SI unit types</td>
+<td>New SI unit types</td>
 </tr>
 </table>
 <hr />
-Generated at 2016-07-13T15:55:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.11.0~dev-38-g67b62bf
+Generated at 2018-08-07T07:53:32Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1195-g6d891ea
 </body>
 </html>

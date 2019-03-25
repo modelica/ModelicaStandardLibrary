@@ -16,7 +16,7 @@ Equality constraint for the reference angle, according to the Modelica Specifica
 </html>"));
     end equalityConstraint;
     annotation (Documentation(info="<html>
-Reference angle, used in the AC connectors.
+Reference angle, used in the quasi static AC connectors.
 </html>"));
   end Reference;
   annotation (Documentation(info="<html>

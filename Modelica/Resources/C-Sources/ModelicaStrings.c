@@ -1,6 +1,6 @@
 /* ModelicaStrings.c - External functions for Modelica.Functions.Strings
 
-   Copyright (C) 2002-2016, Modelica Association and DLR
+   Copyright (C) 2002-2019, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -12,6 +12,10 @@
    2. Redistributions in binary form must reproduce the above copyright
       notice, this list of conditions and the following disclaimer in the
       documentation and/or other materials provided with the distribution.
+
+   3. Neither the name of the copyright holder nor the names of its
+      contributors may be used to endorse or promote products derived from
+      this software without specific prior written permission.
 
    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
    ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -25,22 +29,12 @@
    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-/* The functions are mostly non-portable. The following #define's are used
-   to define the system calls of the operating system
+/* Release Notes:
+      Jun. 16, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Utilize hash macros of uthash.h for ModelicaStrings_hashString
+                     (ticket #2250)
 
-   _MSC_VER       : Microsoft Visual C++
-   __GNUC__       : GNU C compiler
-   NO_LOCALE      : locale.h is not present (e.g. on AVR).
-   MODELICA_EXPORT: Prefix used for function calls. If not defined, blank is used
-                    Useful definitions:
-                    - "static" that is all functions become static
-                      (useful if file is included with other C-sources for an
-                       embedded system)
-                    - "__declspec(dllexport)" if included in a DLL and the
-                      functions shall be visible outside of the DLL
-
-   Release Notes:
-      Nov. 23, 2016: by Martin Sjölund, SICS East Swedish ICT AB
+      Nov. 23, 2016: by Martin Sjoelund, SICS East Swedish ICT AB
                      Added NO_LOCALE define flag, in case the OS does
                      not have this (for example when using GCC compiler,
                      but not libc). Also added autoconf detection for
@@ -69,7 +63,7 @@
       Sep. 24, 2004: by Martin Otter, DLR
                      Final cleaning up of the code
 
-      Sep.  9, 2004: by Dag Bruck, Dynasim AB
+      Sep.  9, 2004: by Dag Brueck, Dynasim AB
                      Implementation of scan functions
 
       Aug. 19, 2004: by Martin Otter, DLR
@@ -80,63 +74,25 @@
                      Implemented a first version
 */
 
-#if !defined(MODELICA_EXPORT)
-#   define MODELICA_EXPORT
-#endif
 #if defined(__gnu_linux__)
 #define _GNU_SOURCE 1
 #endif
 
-#include "ModelicaUtilities.h"
+#include "ModelicaStrings.h"
+
 #include <ctype.h>
-#include <stdlib.h>
 #include <string.h>
 #if !defined(NO_LOCALE)
 #include <locale.h>
 #endif
 
-/*
- * Non-null pointers and esp. null-terminated strings need to be passed to
- * external functions.
- *
- * The following macros handle nonnull attributes for GNU C and Microsoft SAL.
- */
-#if defined(__GNUC__)
-#define MODELICA_NONNULLATTR __attribute__((nonnull))
-#if defined(__GNUC_MINOR__) && (__GNUC__ > 3 && __GNUC_MINOR__ > 8)
-#define MODELICA_RETURNNONNULLATTR __attribute__((returns_nonnull))
-#else
-#define MODELICA_RETURNNONNULLATTR
-#endif
-#elif defined(__ATTR_SAL)
-#define MODELICA_NONNULLATTR
-#define MODELICA_RETURNNONNULLATTR _Ret_z_ /* _Ret_notnull_ and null-terminated */
-#else
-#define MODELICA_NONNULLATTR
-#define MODELICA_RETURNNONNULLATTR
-#endif
-#if !defined(__ATTR_SAL)
-#define _In_z_
-#define _Out_
-#endif
+#include "ModelicaUtilities.h"
+#define HASH_FUNCTION HASH_AP
+#include "uthash.h"
+#undef uthash_fatal /* Ensure that nowhere in this file uses uthash_fatal by accident */
 
-MODELICA_EXPORT MODELICA_RETURNNONNULLATTR const char* ModelicaStrings_substring(
-    _In_z_ const char* string, int startIndex, int endIndex) MODELICA_NONNULLATTR;
-MODELICA_EXPORT int ModelicaStrings_length(_In_z_ const char* string) MODELICA_NONNULLATTR;
-MODELICA_EXPORT int ModelicaStrings_skipWhiteSpace(_In_z_ const char* string,
-    int i) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaStrings_scanIdentifier(_In_z_ const char* string,
-    int startIndex, _Out_ int* nextIndex, _Out_ const char** identifier) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaStrings_scanInteger(_In_z_ const char* string,
-    int startIndex, int unsignedNumber, _Out_ int* nextIndex,
-    _Out_ int* integerNumber) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaStrings_scanReal(_In_z_ const char* string, int startIndex,
-    int unsignedNumber, _Out_ int* nextIndex, _Out_ double* number) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaStrings_scanString(_In_z_ const char* string, int startIndex,
-    _Out_ int* nextIndex, _Out_ const char** result) MODELICA_NONNULLATTR;
-MODELICA_EXPORT int ModelicaStrings_hashString(_In_z_ const char* str) MODELICA_NONNULLATTR;
-
-MODELICA_EXPORT const char* ModelicaStrings_substring(const char* string, int startIndex, int endIndex) {
+_Ret_z_ const char* ModelicaStrings_substring(_In_z_ const char* string,
+                                      int startIndex, int endIndex) {
     /* Return string1(startIndex:endIndex) if endIndex >= startIndex,
        or return string1(startIndex:startIndex), if endIndex = 0.
        An assert is triggered, if startIndex/endIndex are not valid.
@@ -168,18 +124,18 @@ MODELICA_EXPORT const char* ModelicaStrings_substring(const char* string, int st
 
     /* Allocate memory and copy string */
     len2 = endIndex - startIndex + 1;
-    substring = ModelicaAllocateString(len2);
-    strncpy(substring, &string[startIndex-1], len2);
+    substring = ModelicaAllocateString((size_t)len2);
+    strncpy(substring, &string[startIndex-1], (size_t)len2);
     substring[len2] = '\0';
     return substring;
 }
 
-MODELICA_EXPORT int ModelicaStrings_length(const char* string) {
+int ModelicaStrings_length(_In_z_ const char* string) {
     /* Return the number of characters "string" */
     return (int) strlen(string);
 }
 
-MODELICA_EXPORT int ModelicaStrings_compare(const char* string1, const char* string2, int caseSensitive) {
+int ModelicaStrings_compare(_In_z_ const char* string1, _In_z_ const char* string2, int caseSensitive) {
     /* Compare two strings, optionally ignoring case */
     int result;
     if (string1 == 0 || string2 == 0) {
@@ -211,7 +167,7 @@ MODELICA_EXPORT int ModelicaStrings_compare(const char* string1, const char* str
 
 #define MAX_TOKEN_SIZE 100
 
-MODELICA_EXPORT int ModelicaStrings_skipWhiteSpace(const char* string, int i) {
+int ModelicaStrings_skipWhiteSpace(_In_z_ const char* string, int i) {
     /* Return index in string after skipping ws, or position of terminating nul. */
     while (string[i-1] != '\0' && isspace((unsigned char)string[i-1])) {
         ++i;
@@ -280,7 +236,9 @@ static int MatchUnsignedInteger(const char* string, int start) {
 
 /* --------------- end of utility functions used in scanXXX functions ----------- */
 
-MODELICA_EXPORT void ModelicaStrings_scanIdentifier(const char* string, int startIndex, int* nextIndex, const char** identifier) {
+void ModelicaStrings_scanIdentifier(_In_z_ const char* string,
+                                    int startIndex, _Out_ int* nextIndex,
+                                    _Out_ const char** identifier) {
     int token_start = ModelicaStrings_skipWhiteSpace(string, startIndex);
     /* Index of first char of token, after ws. */
 
@@ -295,8 +253,8 @@ MODELICA_EXPORT void ModelicaStrings_scanIdentifier(const char* string, int star
         }
 
         {
-            char* s = ModelicaAllocateString(token_length);
-            strncpy(s, string+token_start-1, token_length);
+            char* s = ModelicaAllocateString((size_t)token_length);
+            strncpy(s, string+token_start-1, (size_t)token_length);
             s[token_length] = '\0';
             *nextIndex = token_start + token_length;
             *identifier = s;
@@ -310,8 +268,9 @@ MODELICA_EXPORT void ModelicaStrings_scanIdentifier(const char* string, int star
     return;
 }
 
-MODELICA_EXPORT void ModelicaStrings_scanInteger(const char* string, int startIndex, int unsignedNumber,
-                                 int* nextIndex, int* integerNumber) {
+void ModelicaStrings_scanInteger(_In_z_ const char* string,
+                                 int startIndex, int unsignedNumber,
+                                 _Out_ int* nextIndex, _Out_ int* integerNumber) {
     int sign = 0;
     /* Number of characters used for sign. */
 
@@ -330,8 +289,7 @@ MODELICA_EXPORT void ModelicaStrings_scanInteger(const char* string, int startIn
             /* check if the scanned string is no Real number */
             int next = token_start + sign + number_length - 1;
             if ( string[next] == '\0' ||
-                (string[next] != '\0' && string[next] != '.'
-                                      && string[next] != 'e'
+                (string[next] != '.'  && string[next] != 'e'
                                       && string[next] != 'E') ) {
 #if defined(NO_LOCALE)
 #elif defined(_MSC_VER) && _MSC_VER >= 1400
@@ -346,7 +304,7 @@ MODELICA_EXPORT void ModelicaStrings_scanInteger(const char* string, int startIn
                 int x;
                 /* For receiving the result. */
 
-                strncpy(buf, string+token_start-1, sign + number_length);
+                strncpy(buf, string+token_start-1, (size_t)(sign + number_length));
                 buf[sign + number_length] = '\0';
 #if !defined(NO_LOCALE) && (defined(_MSC_VER) && _MSC_VER >= 1400)
                 x = (int)_strtol_l(buf, &endptr, 10, loc);
@@ -363,9 +321,6 @@ MODELICA_EXPORT void ModelicaStrings_scanInteger(const char* string, int startIn
                     return;
                 }
             }
-            else {
-                ++number_length;
-            }
         }
     }
 
@@ -375,8 +330,9 @@ MODELICA_EXPORT void ModelicaStrings_scanInteger(const char* string, int startIn
     return;
 }
 
-MODELICA_EXPORT void ModelicaStrings_scanReal(const char* string, int startIndex, int unsignedNumber,
-                              int* nextIndex, double* number) {
+void ModelicaStrings_scanReal(_In_z_ const char* string, int startIndex,
+                              int unsignedNumber, _Out_ int* nextIndex,
+                              _Out_ double* number) {
     /*
     Grammar of real number:
 
@@ -460,7 +416,7 @@ MODELICA_EXPORT void ModelicaStrings_scanReal(const char* string, int startIndex
         double x;
         /* For receiving the result. */
 
-        strncpy(buf, string+token_start-1, total_length);
+        strncpy(buf, string+token_start-1, (size_t)total_length);
         buf[total_length] = '\0';
 #if !defined(NO_LOCALE) && (defined(_MSC_VER) && _MSC_VER >= 1400)
         x = _strtod_l(buf, &endptr, loc);
@@ -496,8 +452,8 @@ Modelica_ERROR:
     return;
 }
 
-MODELICA_EXPORT void ModelicaStrings_scanString(const char* string, int startIndex,
-                                int* nextIndex, const char** result) {
+void ModelicaStrings_scanString(_In_z_ const char* string, int startIndex,
+                                _Out_ int* nextIndex, _Out_ const char** result) {
     int i, token_start, past_token, token_length;
 
     token_length = 0;
@@ -526,8 +482,8 @@ MODELICA_EXPORT void ModelicaStrings_scanString(const char* string, int startInd
     token_length = past_token-token_start-2;
 
     if (token_length > 0) {
-        char* s = ModelicaAllocateString(token_length);
-        strncpy(s, string+token_start, token_length);
+        char* s = ModelicaAllocateString((size_t)token_length);
+        strncpy(s, string+token_start, (size_t)token_length);
         s[token_length] = '\0';
         *result = s;
         *nextIndex = past_token;
@@ -540,35 +496,50 @@ Modelica_ERROR:
     return;
 }
 
-MODELICA_EXPORT int ModelicaStrings_hashString(const char* inStr) {
-    /* Compute an unsigned int hash code from a character string
-     *
-     * Author: Arash Partow - 2002                                            *
-     * URL: http://www.partow.net                                             *
-     * URL: http://www.partow.net/programming/hashfunctions/index.html        *
-     *                                                                        *
-     * Copyright notice:                                                      *
-     * Free use of the General Purpose Hash Function Algorithms Library is    *
-     * permitted under the guidelines and in accordance with the most current *
-     * version of the Common Public License.                                  *
-     * http://www.opensource.org/licenses/cpl1.0.php                          *
-     */
-    unsigned int hash = 0xAAAAAAAA;
-    unsigned int i    = 0;
-    unsigned int len  = (unsigned int)strlen(inStr);
-    const unsigned char *str = (const unsigned char*)(inStr);
-    /* Use unsigned char to be independent of compiler settings */
+/* AP hash function macro variant of the one listed at
+   http://www.partow.net/programming/hashfunctions/index.html#APHashFunction
 
+   Copyright (C) 2002, Arash Partow
+
+   Permission is hereby granted, free of charge, to any person obtaining a copy
+   of this software and associated documentation files (the "Software"), to deal
+   in the Software without restriction, including without limitation the rights
+   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   copies of the Software, and to permit persons to whom the Software is
+   furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in all
+   copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   SOFTWARE.
+*/
+#define HASH_AP(key, keylen, hash) \
+do { \
+    unsigned _hb_keylen = (unsigned)keylen; \
+    const unsigned char *_hb_key = (const unsigned char*)(key); \
+    unsigned int i; \
+    hash = 0xAAAAAAAA; \
+    for (i = 0; i < _hb_keylen; _hb_key++, i++) { \
+        hash ^= ((i & 1) == 0) ? (  (hash <<  7) ^ (*_hb_key) * (hash >> 3)) : \
+                                 (~((hash << 11) + ((*_hb_key) ^ (hash >> 5)))); \
+    } \
+} while (0)
+
+int ModelicaStrings_hashString(_In_z_ const char* str) {
+    /* Compute an unsigned int hash code from a character string */
+    size_t len = strlen(str);
     union hash_tag {
         unsigned int iu;
         int          is;
     } h;
 
-    for(i = 0; i < len; str++, i++) {
-        hash ^= ((i & 1) == 0) ? (  (hash <<  7) ^  (*str) * (hash >> 3)) :
-                                 (~((hash << 11) + ((*str) ^ (hash >> 5))));
-    }
+    HASH_VALUE(str, len, h.iu);
 
-    h.iu = hash;
     return h.is;
 }

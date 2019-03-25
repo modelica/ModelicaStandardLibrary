@@ -1,20 +1,19 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 <title>Modelica.UsersGuide.ReleaseNotes.Version_3_0</title>
 </head>
 <body>
-<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>.<span class="omc-h1">Version_3_0</span></h1>
+<h1>ReleaseNotes.<span class="omc-h1">Version_3_0</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
-<p>Version 3.0 is <b>not</b> backward compatible to previous
-versions. A conversion script is provided to transform models and
-libraries of previous versions to the new version. Therefore,
-conversion should be automatic.</p>
+<p>Version 3.0 is <strong>not</strong> backward compatible to
+previous versions. A conversion script is provided to transform
+models and libraries of previous versions to the new version.
+Therefore, conversion should be automatic.</p>
 <p>The following changes are present for the whole library:</p>
 <ul>
 <li>In the Modelica language version 3.0, several restrictions have
@@ -55,9 +54,9 @@ renamed to "HideResult").<br />
 <li>All emulated enumerations (defined via packages and constants)
 have been replaced by "real" enumerations. User models are
 automatically correctly converted, provided the user models used
-the package constants previously. <b>Existing models that use
+the package constants previously. <strong>Existing models that use
 directly literal values for enumerations, might give in some cases
-wrong results</b> (if the first constant of the emulated
+wrong results</strong> (if the first constant of the emulated
 enumeration had value zero, whereas the first value of an
 enumeration is one).<br />
 &nbsp;</li>
@@ -80,13 +79,13 @@ The changes with respect to the cardinality(..) operator are
 usually not backward compatible. This is the reason for the changes
 of the Rotational and Translational library (see below).<br />
 &nbsp;</li>
-<li>The design of the <b>Rotational</b> and <b>Translational</b>
-libraries have been changed (especially to remove the
-cardinality(..) operator, see above):
+<li>The design of the <strong>Rotational</strong> and
+<strong>Translational</strong> libraries have been changed
+(especially to remove the cardinality(..) operator, see above):
 <ul>
-<li>Components have a <b>useSupport</b> flag to enable or disable a
-support flange. If the support flange is enabled, it must be
-connected. If it is disabled, it must not be connected and the
+<li>Components have a <strong>useSupport</strong> flag to enable or
+disable a support flange. If the support flange is enabled, it must
+be connected. If it is disabled, it must not be connected and the
 component is then internally grounded. The grounding is visualized
 in the icon.</li>
 <li>The relative angle/distance and the relative speed of all
@@ -127,8 +126,7 @@ start/fixed values in the parameter menu.<br />
 <li>Nearly all parameters defined in the Modelica Standard Library
 had been defined with a default equation, e.g.,
 <pre>
-   <b>parameter</b> Modelica.SIunits.Resistance R=1; 
-</pre>
+<strong>parameter</strong> Modelica.SIunits.Resistance R=1; </pre>
 Physical parameters, such as a resistance, mass, gear ratio, do not
 have a meaningful default and in nearly all cases, the user of the
 corresponding component has to provide values for such parameters.
@@ -141,8 +139,7 @@ Standard Library have been changed, so that the previous default
 becomes a start value. For example, the above declaration is
 changed to:
 <pre>
-   <b>parameter</b> Modelica.SIunits.Resistance R(start=1);  
-</pre>
+<strong>parameter</strong> Modelica.SIunits.Resistance R(start=1);  </pre>
 This is a backward compatible change and completely equivalent from
 the perspective of the Modelica language. It is, however, advised
 that tools will print a warning or optionally an error message, if
@@ -153,53 +150,52 @@ equation is defined, but only a start value. This shows clearly to
 the modeler that a value has to be provided.</li>
 </ul>
 <p><br />
-The following <b style="color:blue">new components</b> have been
-added to <b style="color:blue">existing</b> libraries (note, the
-names in parentheses are the new sublibrary names that are
-introduced in version 3.0):</p>
+The following <font color="blue"><strong>new
+components</strong></font> have been added to <font color="blue"><strong>existing</strong></font> libraries (note, the names
+in parentheses are the new sublibrary names that are introduced in
+version 3.0):</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
-<td colspan="2"><b>Blocks.Examples.</b></td>
+<td colspan="2"><strong>Blocks.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top">InverseModel</td>
-<td valign="top">Demonstrates the construction of an inverse
-model.</td>
+<td>InverseModel</td>
+<td>Demonstrates the construction of an inverse model.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Blocks.Math.</b></td>
+<td colspan="2"><strong>Blocks.Math.</strong></td>
 </tr>
 <tr>
-<td valign="top">InverseBlockConstraints</td>
-<td valign="top">Construct inverse model by requiring that two
-inputs and two outputs are identical (replaces the previously,
-unbalanced, TwoInputs and TwoOutputs blocks).</td>
+<td>InverseBlockConstraints</td>
+<td>Construct inverse model by requiring that two inputs and two
+outputs are identical (replaces the previously, unbalanced,
+TwoInputs and TwoOutputs blocks).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Electrical.Machines.Utilities</b></td>
+<td colspan="2"><strong>Electrical.Machines.Utilities</strong></td>
 </tr>
 <tr>
-<td valign="top">TransformerData</td>
-<td valign="top">A record that calculates required impedances
-(parameters) from nominal data of transformers.</td>
+<td>TransformerData</td>
+<td>A record that calculates required impedances (parameters) from
+nominal data of transformers.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Mechanics.MultiBody.Examples.Rotational3DEffects</b></td>
+<strong>Mechanics.MultiBody.Examples.Rotational3DEffects</strong></td>
 </tr>
 <tr>
-<td valign="top">GyroscopicEffects<br />
+<td>GyroscopicEffects<br />
 ActuatedDrive<br />
 MovingActuatedDrive<br />
 GearConstraint</td>
-<td valign="top">New examples to demonstrate the usage of the
-Rotational library in combination with multi-body components.</td>
+<td>New examples to demonstrate the usage of the Rotational library
+in combination with multi-body components.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.MultiBody.Sensors</b></td>
+<td colspan="2"><strong>Mechanics.MultiBody.Sensors</strong></td>
 </tr>
 <tr>
-<td valign="top">AbsolutePosition<br />
+<td>AbsolutePosition<br />
 AbsoluteVelocity<br />
 AbsoluteAngles<br />
 AbsoluteAngularVelocity<br />
@@ -207,64 +203,68 @@ RelativePosition<br />
 RelativeVelocity<br />
 RelativeAngles<br />
 RelativeAngularVelocity</td>
-<td valign="top">New sensors to measure one vector.</td>
+<td>New sensors to measure one vector.</td>
 </tr>
 <tr>
-<td valign="top">TransformAbsoluteVector<br />
+<td>TransformAbsoluteVector<br />
 TransformRelativeVector</td>
-<td valign="top">Transform absolute and/or relative vector into
-another frame.</td>
+<td>Transform absolute and/or relative vector into another
+frame.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.Rotational.(Components)</b></td>
+<td colspan="2">
+<strong>Mechanics.Rotational.(Components)</strong></td>
 </tr>
 <tr>
-<td valign="top">Disc</td>
-<td valign="top">Right flange is rotated by a fixed angle with
-respect to left flange</td>
+<td>Disc</td>
+<td>Right flange is rotated by a fixed angle with respect to left
+flange</td>
 </tr>
 <tr>
-<td valign="top">IdealRollingWheel</td>
-<td valign="top">Simple 1-dim. model of an ideal rolling wheel
-without inertia</td>
+<td>IdealRollingWheel</td>
+<td>Simple 1-dim. model of an ideal rolling wheel without
+inertia</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.Translational.Sensors</b></td>
+<td colspan="2">
+<strong>Mechanics.Translational.Sensors</strong></td>
 </tr>
 <tr>
-<td valign="top">RelPositionSensor<br />
+<td>RelPositionSensor<br />
 RelSpeedSensor<br />
 RelAccSensor<br />
 PowerSensor</td>
-<td valign="top">Relative position sensor, i.e., distance between
-two flanges<br />
+<td>Relative position sensor, i.e., distance between two
+flanges<br />
 Relative speed sensor<br />
 Relative acceleration sensor<br />
 Ideal power sensor</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.Translational(.Components)</b></td>
+<td colspan="2">
+<strong>Mechanics.Translational(.Components)</strong></td>
 </tr>
 <tr>
-<td valign="top">SupportFriction<br />
+<td>SupportFriction<br />
 Brake<br />
 InitializeFlange</td>
-<td valign="top">Model of friction due to support<br />
+<td>Model of friction due to support<br />
 Model of a brake, base on Coulomb friction<br />
 Initializes a flange with pre-defined position, speed and
 acceleration .</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.Translational(.Sources)</b></td>
+<td colspan="2">
+<strong>Mechanics.Translational(.Sources)</strong></td>
 </tr>
 <tr>
-<td valign="top">Force2<br />
+<td>Force2<br />
 LinearSpeedDependentForce<br />
 QuadraticSpeedDependentForce<br />
 ConstantForce<br />
 ConstantSpeed<br />
 ForceStep</td>
-<td valign="top">Force acting on 2 flanges<br />
+<td>Force acting on 2 flanges<br />
 Force linearly dependent on flange speed<br />
 Force quadratic dependent on flange speed<br />
 Constant force source<br />
@@ -273,116 +273,113 @@ Force step</td>
 </tr>
 </table>
 <p><br />
-The following <b style="color:blue">existing components</b> have
-been <b style="color:blue">changed</b> in a <b style="color:blue">non-backward compatible</b> way (the conversion script
-transforms models and libraries of previous versions to the new
-version. Therefore, conversion should be automatic):</p>
+The following <font color="blue"><strong>existing
+components</strong></font> have been <font color="blue"><strong>changed</strong></font> in a <font color="blue"><strong>non-backward compatible</strong></font> way (the
+conversion script transforms models and libraries of previous
+versions to the new version. Therefore, conversion should be
+automatic):</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
-<td colspan="2"><b>Blocks.Continuous.</b></td>
+<td colspan="2"><strong>Blocks.Continuous.</strong></td>
 </tr>
 <tr>
-<td valign="top">CriticalDamping</td>
-<td valign="top">New parameter "normalized" to define whether
-filter is provided in normalized or non-normalized form. Default is
-"normalized = true". The previous implementation was a
-non-normalized filter. The conversion script automatically
-introduces the modifier "normalized=false" for existing
-models.</td>
+<td>CriticalDamping</td>
+<td>New parameter "normalized" to define whether filter is provided
+in normalized or non-normalized form. Default is "normalized =
+true". The previous implementation was a non-normalized filter. The
+conversion script automatically introduces the modifier
+"normalized=false" for existing models.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Blocks.Interfaces.</b></td>
+<td colspan="2"><strong>Blocks.Interfaces.</strong></td>
 </tr>
 <tr>
-<td valign="top">RealInput<br />
+<td>RealInput<br />
 RealOutput</td>
-<td valign="top">Removed "SignalType", since extending from a
-replaceable class and this is not allowed in Modelica 3.<br />
+<td>Removed "SignalType", since extending from a replaceable class
+and this is not allowed in Modelica 3.<br />
 The conversion script removes modifiers to SignalType.</td>
 </tr>
 <tr>
-<td valign="top">RealSignal<br />
+<td>RealSignal<br />
 IntegerSignal<br />
 BooleanSignal</td>
-<td valign="top">Moved to library ObsoleteModelica3, since these
-connectors are no longer allowed in Modelica 3<br />
+<td>Moved to library ObsoleteModelica3, since these connectors are
+no longer allowed in Modelica 3<br />
 (prefixes input and/or output are required).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Blocks.Interfaces.Adaptors.</b></td>
+<td colspan="2"><strong>Blocks.Interfaces.Adaptors.</strong></td>
 </tr>
 <tr>
-<td valign="top">AdaptorReal<br />
+<td>AdaptorReal<br />
 AdaptorBoolean<br />
 AdaptorInteger</td>
-<td valign="top">Moved to library ObsoleteModelica3, since the
-models are not "balanced". These are completely obsolete
-adaptors<br />
+<td>Moved to library ObsoleteModelica3, since the models are not
+"balanced". These are completely obsolete adaptors<br />
 between the Real, Boolean, Integer signal connectors of version 1.6
 and version ≥ 2.1 of the Modelica Standard Library.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Blocks.Math.</b></td>
+<td colspan="2"><strong>Blocks.Math.</strong></td>
 </tr>
 <tr>
-<td valign="top">ConvertAllUnits</td>
-<td valign="top">Moved to library ObsoleteModelica3, since
-extending from a replaceable class and this is not allowed in
-Modelica 3.<br />
+<td>ConvertAllUnits</td>
+<td>Moved to library ObsoleteModelica3, since extending from a
+replaceable class and this is not allowed in Modelica 3.<br />
 It would be possible to rewrite this model to use a replaceable
 component. However, the information about the conversion<br />
 cannot be visualized in the icon in this case.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Blocks.Math.UnitConversions.</b></td>
+<td colspan="2"><strong>Blocks.Math.UnitConversions.</strong></td>
 </tr>
 <tr>
-<td valign="top">TwoInputs<br />
+<td>TwoInputs<br />
 TwoOutputs</td>
-<td valign="top">Moved to library ObsoleteModelica3, since the
-models are not "balanced". A new component<br />
+<td>Moved to library ObsoleteModelica3, since the models are not
+"balanced". A new component<br />
 "InverseBlockConstraints" is provided instead that has the same
 feature, but is "balanced".</td>
 </tr>
 <tr>
-<td colspan="2"><b>Electrical.Analog.Baisc.</b></td>
+<td colspan="2"><strong>Electrical.Analog.Baisc.</strong></td>
 </tr>
 <tr>
-<td valign="top">HeatingResistor</td>
-<td valign="top">The heatPort has to be connected; otherwise the
-component Resistor (without heatPort) has to be used.<br />
+<td>HeatingResistor</td>
+<td>The heatPort has to be connected; otherwise the component
+Resistor (without heatPort) has to be used.<br />
 cardinality() is only used to check whether the heatPort is
 connected.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Electrical.MultiPhase.Examples.</b></td>
+<td colspan="2">
+<strong>Electrical.MultiPhase.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top"></td>
-<td valign="top">Changed the instance names of components used in
-the examples to more up-to-date style.</td>
+<td></td>
+<td>Changed the instance names of components used in the examples
+to more up-to-date style.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Electrical.Machines.</b></td>
+<td colspan="2"><strong>Electrical.Machines.</strong></td>
 </tr>
 <tr>
-<td valign="top"></td>
-<td valign="top">Moved package
-<code>Machines.Examples.Utilities</code> to
+<td></td>
+<td>Moved package <code>Machines.Examples.Utilities</code> to
 <code>Machines.Utilities</code></td>
 </tr>
 <tr>
-<td valign="top"></td>
-<td valign="top">Removed all nonSIunits; especially in
-DCMachines<br />
+<td></td>
+<td>Removed all nonSIunits; especially in DCMachines<br />
 parameter NonSIunits.AngularVelocity_rpm rpmNominal was replaced
 by<br />
 parameter SIunits.AngularVelocity wNominal</td>
 </tr>
 <tr>
-<td valign="top"></td>
-<td valign="top">Changed the following component variable and
-parameter names to be more concise:<br />
+<td></td>
+<td>Changed the following component variable and parameter names to
+be more concise:<br />
 Removed suffix "DamperCage" from all synchronous induction machines
 since the user can choose whether the damper cage is present or
 not.<br />
@@ -405,89 +402,88 @@ V0 ............... VsOpenCicuit (SMPM)<br />
 Ie0 .............. IeOpenCicuit (SMEE)</code></td>
 </tr>
 <tr>
-<td valign="top">Interfaces.</td>
-<td valign="top">Moved as much code as possible from specific
-machine models to partials to reduce redundant code.</td>
+<td>Interfaces.</td>
+<td>Moved as much code as possible from specific machine models to
+partials to reduce redundant code.</td>
 </tr>
 <tr>
-<td valign="top">Interfaces.Adapter</td>
-<td valign="top">Removed to avoid cardinality; instead, the
-following solution has been implemented:</td>
+<td>Interfaces.Adapter</td>
+<td>Removed to avoid cardinality; instead, the following solution
+has been implemented:</td>
 </tr>
 <tr>
-<td valign="top">Sensors.RotorDisplacementAngle<br />
+<td>Sensors.RotorDisplacementAngle<br />
 Interfaces.PartialBasicMachine</td>
-<td valign="top">Introduced <code>parameter Boolean
-useSupport=false "enable / disable (=fixed stator)
-support"</code><br />
+<td>Introduced <code>parameter Boolean useSupport=false "enable /
+disable (=fixed stator) support"</code><br />
 The rotational support connector is only present with
 <code>useSupport = true;</code><br />
 otherwise the stator is fixed internally.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Electrical.Machines.Examples.</b></td>
+<td colspan="2"><strong>Electrical.Machines.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top"></td>
-<td valign="top">Changed the names of the examples to more
-meaningful names.<br />
+<td></td>
+<td>Changed the names of the examples to more meaningful
+names.<br />
 Changed the instance names of components used in the examples to
 more up-to-date style.</td>
 </tr>
 <tr>
-<td valign="top">SMEE_Generator</td>
-<td valign="top">Initialization of <code>smee.phiMechanical</code>
-with <code>fixed=true</code></td>
+<td>SMEE_Generator</td>
+<td>Initialization of <code>smee.phiMechanical</code> with
+<code>fixed=true</code></td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.MultiBody.</b></td>
+<td colspan="2"><strong>Mechanics.MultiBody.</strong></td>
 </tr>
 <tr>
-<td valign="top">World</td>
-<td valign="top">Changed default value of parameter
-driveTrainMechanics3D from false to true.<br />
+<td>World</td>
+<td>Changed default value of parameter driveTrainMechanics3D from
+false to true.<br />
 3-dim. effects in Rotor1D, Mounting1D and BevelGear1D are therefore
 taken<br />
 into account by default (previously this was only the case, if
 world.driveTrainMechanics3D was explicitly set).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.MultiBody.Forces.</b></td>
+<td colspan="2"><strong>Mechanics.MultiBody.Forces.</strong></td>
 </tr>
 <tr>
-<td valign="top">FrameForce<br />
+<td>FrameForce<br />
 FrameTorque<br />
 FrameForceAndTorque</td>
-<td valign="top">Models removed, since functionality now available
-via Force, Torque, ForceAndTorque</td>
+<td>Models removed, since functionality now available via Force,
+Torque, ForceAndTorque</td>
 </tr>
 <tr>
-<td valign="top">WorldForce<br />
+<td>WorldForce<br />
 WorldTorque<br />
 WorldForceAndTorque<br />
 Force<br />
 Torque<br />
 ForceAndTorque</td>
-<td valign="top">Connector frame_resolve is optionally enabled via
-parameter resolveInFrame<br />
+<td>Connector frame_resolve is optionally enabled via parameter
+resolveInFrame<br />
 . Forces and torques and be resolved in all meaningful frames
 defined by enumeration resolveInFrame.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.MultiBody.Frames.</b></td>
+<td colspan="2"><strong>Mechanics.MultiBody.Frames.</strong></td>
 </tr>
 <tr>
-<td valign="top">length<br />
+<td>length<br />
 normalize</td>
-<td valign="top">Removed functions, since available also in
+<td>Removed functions, since available also in
 Modelica.Math.Vectors<br />
 The conversion script changes the references correspondingly.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.MultiBody.Joints.</b></td>
+<td colspan="2"><strong>Mechanics.MultiBody.Joints.</strong></td>
 </tr>
 <tr>
-<td valign="top">Prismatic<br />
+<td>Prismatic<br />
 ActuatedPrismatic<br />
 Revolute<br />
 ActuatedRevolute<br />
@@ -496,8 +492,8 @@ Universal<br />
 Planar<br />
 Spherical<br />
 FreeMotion</td>
-<td valign="top">Changed initialization, by replacing initial value
-parameters with start/fixed attributes.<br />
+<td>Changed initialization, by replacing initial value parameters
+with start/fixed attributes.<br />
 When start/fixed attributes are properly supported in the parameter
 menu by a Modelica tool,<br />
 the initialization is considerably simplified for the user and the
@@ -508,10 +504,10 @@ The conversion script automatically transforms from the "old" to
 the "new" forms.</td>
 </tr>
 <tr>
-<td valign="top">Revolute<br />
+<td>Revolute<br />
 ActuatedRevolute</td>
-<td valign="top">Parameter "planarCutJoint" in the "Advanced" menu
-of "Revolute" and of "ActuatedRevolute" removed.<br />
+<td>Parameter "planarCutJoint" in the "Advanced" menu of "Revolute"
+and of "ActuatedRevolute" removed.<br />
 A new joint "RevolutePlanarLoopConstraint" introduced that defines
 the constraints of a revolute joint<br />
 as cut-joint in a planar loop. This change was needed in order that
@@ -522,64 +518,65 @@ joint<br />
 can be enabled with parameter useAxisFlange.</td>
 </tr>
 <tr>
-<td valign="top">Prismatic<br />
+<td>Prismatic<br />
 ActuatedPrismatic</td>
-<td valign="top">ActuatedPrismatic joint removed. Flange connectors
-of Prismatic joint<br />
+<td>ActuatedPrismatic joint removed. Flange connectors of Prismatic
+joint<br />
 can be enabled with parameter useAxisFlange.</td>
 </tr>
 <tr>
-<td valign="top">Assemblies</td>
-<td valign="top">Assembly joint implementation slightly changed, so
-that annotation "structurallyIncomplete"<br />
+<td>Assemblies</td>
+<td>Assembly joint implementation slightly changed, so that
+annotation "structurallyIncomplete"<br />
 could be removed (all Assembly joint models are now
 "balanced").</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.MultiBody.Joints.Internal</b></td>
+<td colspan="2">
+<strong>Mechanics.MultiBody.Joints.Internal</strong></td>
 </tr>
 <tr>
-<td valign="top">RevoluteWithLengthConstraint<br />
+<td>RevoluteWithLengthConstraint<br />
 PrismaticWithLengthConstraint</td>
-<td valign="top">These joints should not be used by a user of the
-MultiBody library. They are only provided to built-up the
+<td>These joints should not be used by a user of the MultiBody
+library. They are only provided to built-up the
 MultiBody.Joints.Assemblies.JointXYZ joints. These two joints have
 been changed in a slightly not backward compatible way, in order
 that the usage in the Assemblies.JointXYZ joints results in
-balanced models (<b>no conversion is provided for this change since
-the user should not have used these joints and the conversion would
-be too complicated</b>): In releases before version 3.0 of the
-Modelica Standard Library, it was possible to activate the
+balanced models (<strong>no conversion is provided for this change
+since the user should not have used these joints and the conversion
+would be too complicated</strong>): In releases before version 3.0
+of the Modelica Standard Library, it was possible to activate the
 torque/force projection equation (= cut-torque/-force projected to
 the rotation/translation axis must be identical to the drive
 torque/force of flange axis) via parameter
-<b>axisTorqueBalance</b>. This is no longer possible, since
-otherwise this model would not be "balanced" (= same number of
-unknowns as equations). Instead, when using this model in version
-3.0 and later versions, the torque/force projection equation must
-be provided in the Advanced menu of joints
+<strong>axisTorqueBalance</strong>. This is no longer possible,
+since otherwise this model would not be "balanced" (= same number
+of unknowns as equations). Instead, when using this model in
+version 3.0 and later versions, the torque/force projection
+equation must be provided in the Advanced menu of joints
 Joints.SphericalSpherical and Joints.UniversalSpherical via the new
 parameter "constraintResidue".</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.MultiBody.Parts.</b></td>
+<td colspan="2"><strong>Mechanics.MultiBody.Parts.</strong></td>
 </tr>
 <tr>
-<td valign="top">BodyBox<br />
+<td>BodyBox<br />
 BodyCylinder</td>
-<td valign="top">Changed unit of parameter density from g/cm3 to
-the SI unit kg/m3 in order to allow stricter unit checking.<br />
+<td>Changed unit of parameter density from g/cm3 to the SI unit
+kg/m3 in order to allow stricter unit checking.<br />
 The conversion script multiplies previous density values with
 1000.</td>
 </tr>
 <tr>
-<td valign="top">Body<br />
+<td>Body<br />
 BodyShape<br />
 BodyBox<br />
 BodyCylinder<br />
 PointMass Rotor1D</td>
-<td valign="top">Changed initialization, by replacing initial value
-parameters with start/fixed attributes.<br />
+<td>Changed initialization, by replacing initial value parameters
+with start/fixed attributes.<br />
 When start/fixed attributes are properly supported in the parameter
 menu by a Modelica tool,<br />
 the initialization is considerably simplified for the user and the
@@ -588,14 +585,13 @@ The conversion script automatically transforms from the "old" to
 the "new" form of initialization.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.MultiBody.Sensors.</b></td>
+<td colspan="2"><strong>Mechanics.MultiBody.Sensors.</strong></td>
 </tr>
 <tr>
-<td valign="top">AbsoluteSensor<br />
+<td>AbsoluteSensor<br />
 RelativeSensor<br />
 CutForceAndTorque</td>
-<td valign="top">New design of sensor components: Via Boolean
-parameters<br />
+<td>New design of sensor components: Via Boolean parameters<br />
 signal connectors for the respective vectors are
 enabled/disabled.<br />
 It is not possible to automatically convert models to this new
@@ -605,27 +601,26 @@ ObsoleteModelice3.<br />
 This means that these models must be manually adapted.</td>
 </tr>
 <tr>
-<td valign="top">CutForce<br />
+<td>CutForce<br />
 CutTorque</td>
-<td valign="top">Slightly new design. The force and/or torque
-component can be resolved in world, frame_a, or
-frame_resolved.<br />
+<td>Slightly new design. The force and/or torque component can be
+resolved in world, frame_a, or frame_resolved.<br />
 Existing models are automatically converted.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.Rotational.</b></td>
+<td colspan="2"><strong>Mechanics.Rotational.</strong></td>
 </tr>
 <tr>
-<td valign="top"></td>
-<td valign="top">Moved components to structured sub-packages
-(Sources, Components)</td>
+<td></td>
+<td>Moved components to structured sub-packages (Sources,
+Components)</td>
 </tr>
 <tr>
-<td valign="top">Inertia<br />
+<td>Inertia<br />
 SpringDamper<br />
 RelativeStates</td>
-<td valign="top">Changed initialization, by replacing initial value
-parameters with start/fixed attributes.<br />
+<td>Changed initialization, by replacing initial value parameters
+with start/fixed attributes.<br />
 When start/fixed attributes are properly supported in the parameter
 menu by a Modelica tool,<br />
 the initialization is considerably simplified for the user and the
@@ -638,19 +633,19 @@ The conversion script automatically transforms from the "old" to
 the "new" forms.</td>
 </tr>
 <tr>
-<td valign="top">LossyGear<br />
+<td>LossyGear<br />
 GearBox</td>
-<td valign="top">Renamed gear ratio parameter "i" to "ratio", in
-order to have a consistent naming convention.<br />
+<td>Renamed gear ratio parameter "i" to "ratio", in order to have a
+consistent naming convention.<br />
 Existing models are automatically converted.</td>
 </tr>
 <tr>
-<td valign="top">SpringDamper<br />
+<td>SpringDamper<br />
 ElastoBacklash<br />
 Clutch<br />
 OneWayClutch</td>
-<td valign="top">Relative quantities (phi_rel, w_rel) are used as
-states, if possible (due to StateSelect.prefer).<br />
+<td>Relative quantities (phi_rel, w_rel) are used as states, if
+possible (due to StateSelect.prefer).<br />
 In most cases, relative states in drive trains are better suited as
 absolute states.<br />
 This change might give changes in the selected states of existing
@@ -661,21 +656,21 @@ since the default initialization heuristic may give different
 initial values.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.Translational.</b></td>
+<td colspan="2"><strong>Mechanics.Translational.</strong></td>
 </tr>
 <tr>
-<td valign="top"></td>
-<td valign="top">Moved components to structured sub-packages
-(Sources, Components)</td>
+<td></td>
+<td>Moved components to structured sub-packages (Sources,
+Components)</td>
 </tr>
 <tr>
-<td valign="top"></td>
-<td valign="top">Adaptions corresponding to Rotational</td>
+<td></td>
+<td>Adaptions corresponding to Rotational</td>
 </tr>
 <tr>
-<td valign="top">Stop</td>
-<td valign="top">Renamed to Components.MassWithStopAndFriction to
-be more concise.<br />
+<td>Stop</td>
+<td>Renamed to Components.MassWithStopAndFriction to be more
+concise.<br />
 MassWithStopAndFriction is not available with a support
 connector,<br />
 since the reaction force can't be modeled in a meaningful way due
@@ -684,74 +679,73 @@ Until a sound implementation of a hard stop is available, the old
 model may be used.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.</b></td>
+<td colspan="2"><strong>Media.</strong></td>
 </tr>
 <tr>
-<td valign="top">constant nX<br />
+<td>constant nX<br />
 constant nXi<br />
 constant reference_X<br />
 BaseProperties</td>
-<td valign="top">The package constant nX = nS, now always, even for
-single species media. This also allows to define mixtures with only
-1 element. The package constant nXi=if fixedX then 0 else if
-reducedX or nS==1 then nS - 1 else nS. This required that all
-BaseProperties for single species media get an additional equation
-to define the composition X as {1.0} (or reference_X, which is
-{1.0} for single species). This will also mean that all user
-defined single species media need to be updated by that
-equation.</td>
+<td>The package constant nX = nS, now always, even for single
+species media. This also allows to define mixtures with only 1
+element. The package constant nXi=if fixedX then 0 else if reducedX
+or nS==1 then nS - 1 else nS. This required that all BaseProperties
+for single species media get an additional equation to define the
+composition X as {1.0} (or reference_X, which is {1.0} for single
+species). This will also mean that all user defined single species
+media need to be updated by that equation.</td>
 </tr>
 <tr>
-<td colspan="2"><b>SIunits.</b></td>
+<td colspan="2"><strong>SIunits.</strong></td>
 </tr>
 <tr>
-<td valign="top">CelsiusTemperature</td>
-<td valign="top">Removed, since no SI unit. The conversion script
-changes references to
-SIunits.Conversions.NonSIunits.Temperature_degC</td>
+<td>CelsiusTemperature</td>
+<td>Removed, since no SI unit. The conversion script changes
+references to SIunits.Conversions.NonSIunits.Temperature_degC</td>
 </tr>
 <tr>
-<td valign="top">ThermodynamicTemperature<br />
+<td>ThermodynamicTemperature<br />
 TemperatureDifference</td>
-<td valign="top">Added annotation "absoluteValue=true/false" in
-order that unit checking is possible<br />
+<td>Added annotation "absoluteValue=true/false" in order that unit
+checking is possible<br />
 (the unit checker needs to know for a unit that has an offset,
 whether it is used as absolute or as a relative number)</td>
 </tr>
 <tr>
-<td colspan="2"><b>SIunits.Conversions.NonSIunits.</b></td>
+<td colspan="2">
+<strong>SIunits.Conversions.NonSIunits.</strong></td>
 </tr>
 <tr>
-<td valign="top">Temperature_degC<br />
+<td>Temperature_degC<br />
 Temperature_degF<br />
 Temperature_degRk</td>
-<td valign="top">Added annotation "absoluteValue=true" in order
-that unit checking is possible<br />
+<td>Added annotation "absoluteValue=true" in order that unit
+checking is possible<br />
 (the unit checker needs to know for a unit that has an offset,
 whether it is used as absolute or as a relative number)</td>
 </tr>
 <tr>
-<td colspan="2"><b>StateGraph.Examples.</b></td>
+<td colspan="2"><strong>StateGraph.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top">ControlledTanks</td>
-<td valign="top">The connectors of the ControlledTanks did not
-fulfill the new restrictions of Modelica 3. This has been
-fixed.</td>
+<td>ControlledTanks</td>
+<td>The connectors of the ControlledTanks did not fulfill the new
+restrictions of Modelica 3. This has been fixed.</td>
 </tr>
 <tr>
-<td valign="top">Utilities</td>
-<td valign="top">Replacing inflow, outflow by connectors inflow1,
-inflow2, outflow1, outflow2 with appropriate input/output prefixes
-in order to fulfill the restrictions of Modelica 3 to arrive at
-balanced models. No conversion is provided, since too difficult and
-since the non-backward compatible change is in an example.</td>
+<td>Utilities</td>
+<td>Replacing inflow, outflow by connectors inflow1, inflow2,
+outflow1, outflow2 with appropriate input/output prefixes in order
+to fulfill the restrictions of Modelica 3 to arrive at balanced
+models. No conversion is provided, since too difficult and since
+the non-backward compatible change is in an example.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Thermal.FluidHeatFlow.Sensors.</b></td>
+<td colspan="2">
+<strong>Thermal.FluidHeatFlow.Sensors.</strong></td>
 </tr>
 <tr>
-<td valign="top"><br />
+<td><br />
 pSensor<br />
 TSensor<br />
 dpSensor<br />
@@ -759,7 +753,7 @@ dTSensor<br />
 m_flowSensor<br />
 V_flowSensor<br />
 H_flowSensor</td>
-<td valign="top">renamed to:<br />
+<td>renamed to:<br />
 PressureSensor<br />
 TemperatureSensor<br />
 RelPressureSensor<br />
@@ -769,50 +763,51 @@ VolumeFlowSensor<br />
 EnthalpyFlowSensor</td>
 </tr>
 <tr>
-<td colspan="2"><b>Thermal.FluidHeatFlow.Sources.</b></td>
+<td colspan="2">
+<strong>Thermal.FluidHeatFlow.Sources.</strong></td>
 </tr>
 <tr>
-<td valign="top">Ambient<br />
+<td>Ambient<br />
 PrescribedAmbient</td>
-<td valign="top">available as one combined component Ambient<br />
+<td>available as one combined component Ambient<br />
 Boolean parameters usePressureInput and useTemperatureInput decide
 whether pressure and/or temperature are constant or prescribed</td>
 </tr>
 <tr>
-<td valign="top">ConstantVolumeFlow<br />
+<td>ConstantVolumeFlow<br />
 PrescribedVolumeFlow</td>
-<td valign="top">available as one combined component
-VolumeFlow<br />
+<td>available as one combined component VolumeFlow<br />
 Boolean parameter useVolumeFlowInput decides whether volume flow is
 constant or prescribed</td>
 </tr>
 <tr>
-<td valign="top">ConstantPressureIncrease<br />
+<td>ConstantPressureIncrease<br />
 PrescribedPressureIncrease</td>
-<td valign="top">available as one combined component
-PressureIncrease<br />
+<td>available as one combined component PressureIncrease<br />
 Boolean parameter usePressureIncreaseInput decides whether pressure
 increase is constant or prescribed</td>
 </tr>
 <tr>
-<td colspan="2"><b>Thermal.FluidHeatFlow.Examples.</b></td>
+<td colspan="2">
+<strong>Thermal.FluidHeatFlow.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top"></td>
-<td valign="top">Changed the instance names of components used in
-the examples to more up-to-date style.</td>
+<td></td>
+<td>Changed the instance names of components used in the examples
+to more up-to-date style.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Thermal.HeatTransfer.(Components)</b></td>
+<td colspan="2">
+<strong>Thermal.HeatTransfer.(Components)</strong></td>
 </tr>
 <tr>
-<td valign="top">HeatCapacitor</td>
-<td valign="top">Initialization changed: SteadyStateStart removed.
-Instead start/fixed values for T and der_T<br />
+<td>HeatCapacitor</td>
+<td>Initialization changed: SteadyStateStart removed. Instead
+start/fixed values for T and der_T<br />
 (initial temperature and its derivative).</td>
 </tr>
 <tr>
-<td valign="top"><br />
+<td><br />
 <br />
 HeatCapacitor<br />
 ThermalConductor<br />
@@ -827,7 +822,7 @@ FixedTemperature<br />
 PrescribedTemperature<br />
 FixedHeatFlow<br />
 PrescribedHeatFlow</td>
-<td valign="top">Moved components to sub-packages:<br />
+<td>Moved components to sub-packages:<br />
 <br />
 Components.HeatCapacitor<br />
 Components.ThermalConductor<br />
@@ -844,281 +839,282 @@ Sources.FixedHeatFlow<br />
 Sources.PrescribedHeatFlow</td>
 </tr>
 <tr>
-<td colspan="2"><b>Thermal.FluidHeatFlow.Examples.</b></td>
+<td colspan="2">
+<strong>Thermal.FluidHeatFlow.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top"></td>
-<td valign="top">Changed the instance names of components used in
-the examples to more up-to-date style.</td>
+<td></td>
+<td>Changed the instance names of components used in the examples
+to more up-to-date style.</td>
 </tr>
 </table>
 <p><br />
-The following <b style="color:blue">existing components</b> have
-been <b style="color:blue">improved</b> in a <b style="color:blue">backward compatible</b> way:</p>
+The following <font color="blue"><strong>existing
+components</strong></font> have been <font color="blue"><strong>improved</strong></font> in a <font color="blue"><strong>backward compatible</strong></font> way:</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
-<td valign="top"><b>Modelica.*</b></td>
-<td valign="top">Parameter declarations, input and output function
-arguments without description strings improved<br />
+<td><strong>Modelica.*</strong></td>
+<td>Parameter declarations, input and output function arguments
+without description strings improved<br />
 by providing meaningful description texts.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Continuous.</b></td>
+<td colspan="2"><strong>Modelica.Blocks.Continuous.</strong></td>
 </tr>
 <tr>
-<td valign="top">TransferFunction</td>
-<td valign="top">Internal scaling of the controller canonical
-states introduced in order to enlarge the range of transfer
-functions where the default relative tolerance of the simulator is
-sufficient.</td>
+<td>TransferFunction</td>
+<td>Internal scaling of the controller canonical states introduced
+in order to enlarge the range of transfer functions where the
+default relative tolerance of the simulator is sufficient.</td>
 </tr>
 <tr>
-<td valign="top">Butterworth<br />
+<td>Butterworth<br />
 CriticalDamping</td>
-<td valign="top">Documentation improved and plots of the filter
-characteristics added.</td>
+<td>Documentation improved and plots of the filter characteristics
+added.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Electrical.Analog.Basic.</b></td>
+<td colspan="2"><strong>Electrical.Analog.Basic.</strong></td>
 </tr>
 <tr>
-<td valign="top">EMF</td>
-<td valign="top">New parameter "useSupport" to optionally enable a
-support connector.</td>
+<td>EMF</td>
+<td>New parameter "useSupport" to optionally enable a support
+connector.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Icons.</b></td>
+<td colspan="2"><strong>Icons.</strong></td>
 </tr>
 <tr>
-<td valign="top">TranslationalSensor<br />
+<td>TranslationalSensor<br />
 RotationalSensor</td>
-<td valign="top">Removed drawing from the diagram layer (kept
-drawing only in icon layer),<br />
+<td>Removed drawing from the diagram layer (kept drawing only in
+icon layer),<br />
 in order that this icon can be used in situations where components
 are dragged in the diagram layer.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Math.Vectors.</b></td>
+<td colspan="2"><strong>Math.Vectors.</strong></td>
 </tr>
 <tr>
-<td valign="top">normalize</td>
-<td valign="top">Implementation changed, so that the result is
-awalys continuous<br />
+<td>normalize</td>
+<td>Implementation changed, so that the result is awalys
+continuous<br />
 (previously, this was not the case for small vectors:
 normalize(eps,eps)).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.MultiBody.</b></td>
+<td colspan="2"><strong>Mechanics.MultiBody.</strong></td>
 </tr>
 <tr>
-<td valign="top"></td>
-<td valign="top">Renamed non-standard keywords defineBranch,
-defineRoot, definePotentialRoot, isRooted to the standard
-names:<br />
+<td></td>
+<td>Renamed non-standard keywords defineBranch, defineRoot,
+definePotentialRoot, isRooted to the standard names:<br />
 Connections.branch/.root/.potentialRoot/.isRooted.</td>
 </tr>
 <tr>
-<td valign="top">Frames</td>
-<td valign="top">Added annotation "Inline=true" to all one-line
-functions (which should be all inlined).</td>
+<td>Frames</td>
+<td>Added annotation "Inline=true" to all one-line functions (which
+should be all inlined).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.MultiBody.Parts.</b></td>
+<td colspan="2"><strong>Mechanics.MultiBody.Parts.</strong></td>
 </tr>
 <tr>
-<td valign="top">Mounting1D<br />
+<td>Mounting1D<br />
 Rotor1D<br />
 BevelGear1D</td>
-<td valign="top">Changed implementation so that no longer modifiers
-for connector variables are used,<br />
+<td>Changed implementation so that no longer modifiers for
+connector variables are used,<br />
 because this violates the restrictions on "balanced models" of
 Modelica 3.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.Rotational.</b></td>
+<td colspan="2"><strong>Mechanics.Rotational.</strong></td>
 </tr>
 <tr>
-<td valign="top">InitializeFlange</td>
-<td valign="top">Changed implementation so that counting unknowns
-and equations is possible without actual values of parameters.</td>
+<td>InitializeFlange</td>
+<td>Changed implementation so that counting unknowns and equations
+is possible without actual values of parameters.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Thermal.FluidHeatFlow.Interfaces.Partials.</b></td>
+<strong>Thermal.FluidHeatFlow.Interfaces.Partials.</strong></td>
 </tr>
 <tr>
-<td valign="top">TwoPort</td>
-<td valign="top">Introduced <code>parameter Real tapT(final min=0,
-final max=1)=1</code><br />
+<td>TwoPort</td>
+<td>Introduced <code>parameter Real tapT(final min=0, final
+max=1)=1</code><br />
 that defines the temperature of the heatPort between inlet and
 outlet.</td>
 </tr>
 <tr>
-<td colspan="2"><b>StateGraph.</b></td>
+<td colspan="2"><strong>StateGraph.</strong></td>
 </tr>
 <tr>
-<td valign="top">InitialStep<br />
+<td>InitialStep<br />
 InitialStepWithSignal<br />
 Step<br />
 StepWithSignal</td>
-<td valign="top">Changed implementation so that no longer modifiers
-for output variables are used,<br />
+<td>Changed implementation so that no longer modifiers for output
+variables are used,<br />
 because this violates the restrictions on "balanced models" of
 Modelica 3.</td>
 </tr>
 </table>
 <p><br />
-The following <b style="color:red">critical errors</b> have been
-fixed (i.e., errors that can lead to wrong simulation results):</p>
+The following <font color="red"><strong>critical
+errors</strong></font> have been fixed (i.e., errors that can lead
+to wrong simulation results):</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
-<td colspan="2"><b>Electrical.Analog.Examples.</b></td>
+<td colspan="2"><strong>Electrical.Analog.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top">CauerLowPassSC</td>
-<td valign="top">Wrong calculation of Capacitor1 both in Rn and Rp
-corrected (C=clock/R instead of C=clock*R)</td>
+<td>CauerLowPassSC</td>
+<td>Wrong calculation of Capacitor1 both in Rn and Rp corrected
+(C=clock/R instead of C=clock*R)</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.MultiBody.Parts.</b></td>
+<td colspan="2"><strong>Mechanics.MultiBody.Parts.</strong></td>
 </tr>
 <tr>
-<td valign="top">Rotor1D</td>
-<td valign="top">The 3D reaction torque was not completely correct
-and gave in some situations a wrong result. This bug should not
-influence the movement of a multi-body system, but only the
-constraint torques are sometimes not correct.</td>
+<td>Rotor1D</td>
+<td>The 3D reaction torque was not completely correct and gave in
+some situations a wrong result. This bug should not influence the
+movement of a multi-body system, but only the constraint torques
+are sometimes not correct.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.Rotational.</b></td>
+<td colspan="2"><strong>Mechanics.Rotational.</strong></td>
 </tr>
 <tr>
-<td valign="top">ElastoBacklash</td>
-<td valign="top">If the damping torque was too large, the reaction
-torque could "pull" which is unphysical. The component was newly
-written by limiting the damping torque in such a case so that
-"pulling" torques can no longer occur. Furthermore, during
-initialization the characteristics is made continuous to reduce
-numerical errors. The relative angle and relative angular
-velocities are used as states, if possible (StateSelect.prefer),
-since relative quantities lead usually to better behavior.</td>
+<td>ElastoBacklash</td>
+<td>If the damping torque was too large, the reaction torque could
+"pull" which is unphysical. The component was newly written by
+limiting the damping torque in such a case so that "pulling"
+torques can no longer occur. Furthermore, during initialization the
+characteristics is made continuous to reduce numerical errors. The
+relative angle and relative angular velocities are used as states,
+if possible (StateSelect.prefer), since relative quantities lead
+usually to better behavior.</td>
 </tr>
 <tr>
-<td valign="top">Position<br />
+<td>Position<br />
 Speed<br />
 Accelerate<br />
 Move</td>
-<td valign="top">The movement of the flange was wrongly defined as
-absolute; this is corrected as relative to connector support.<br />
+<td>The movement of the flange was wrongly defined as absolute;
+this is corrected as relative to connector support.<br />
 For Accelerate, it was necessary to rename RealInput a to a_ref, as
 well as the start values phi_start to phi.start and w_start to
 w.start. The conversion script performs the necessary conversion of
 existing models automatically.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Interfaces.</b></td>
+<td colspan="2"><strong>Media.Interfaces.</strong></td>
 </tr>
 <tr>
-<td valign="top">PartialSimpleIdealGasMedium</td>
-<td valign="top">Inconsistency in reference temperature corrected.
-This may give different results for functions:<br />
+<td>PartialSimpleIdealGasMedium</td>
+<td>Inconsistency in reference temperature corrected. This may give
+different results for functions:<br />
 specificEnthalpy, specificInternalEnergy, specificGibbsEnergy,
 specificHelmholtzEnergy.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Air.</b></td>
+<td colspan="2"><strong>Media.Air.</strong></td>
 </tr>
 <tr>
-<td valign="top">specificEntropy</td>
-<td valign="top">Small bug in entropy computation of ideal gas
-mixtures corrected.</td>
+<td>specificEntropy</td>
+<td>Small bug in entropy computation of ideal gas mixtures
+corrected.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.IdealGases.Common.MixtureGasNasa</b></td>
+<td colspan="2">
+<strong>Media.IdealGases.Common.MixtureGasNasa</strong></td>
 </tr>
 <tr>
-<td valign="top">specificEntropy</td>
-<td valign="top">Small bug in entropy computation of ideal gas
-mixtures corrected.</td>
+<td>specificEntropy</td>
+<td>Small bug in entropy computation of ideal gas mixtures
+corrected.</td>
 </tr>
 </table>
 <p><br />
-The following <b style="color:red">uncritical errors</b> have been
-fixed (i.e., errors that do <b style="color:red">not</b> lead to
-wrong simulation results, but, e.g., units are wrong or errors in
+The following <font color="red"><strong>uncritical
+errors</strong></font> have been fixed (i.e., errors that do
+<font color="red"><strong>not</strong></font> lead to wrong
+simulation results, but, e.g., units are wrong or errors in
 documentation):</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
-<td colspan="2"><b>Blocks.Tables.</b></td>
+<td colspan="2"><strong>Blocks.Tables.</strong></td>
 </tr>
 <tr>
-<td valign="top">CombiTable2D</td>
-<td valign="top">Documentation improved.</td>
+<td>CombiTable2D</td>
+<td>Documentation improved.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Electrica.Digital.Gates</b></td>
+<td colspan="2"><strong>Electrica.Digital.Gates</strong></td>
 </tr>
 <tr>
-<td valign="top">AndGate<br />
+<td>AndGate<br />
 NandGate<br />
 OrGate<br />
 NorGate<br />
 XorGate<br />
 XnorGate</td>
-<td valign="top">The number of inputs was not correctly propagated
-to the included base model.<br />
+<td>The number of inputs was not correctly propagated to the
+included base model.<br />
 This gave a translation error, if the number of inputs was changed
 (and not the default used).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Electrica.Digital.Sources</b></td>
+<td colspan="2"><strong>Electrica.Digital.Sources</strong></td>
 </tr>
 <tr>
-<td valign="top">Pulse</td>
-<td valign="top">Model differently implemented, so that warning
-message about "cannot properly initialize" is gone.</td>
+<td>Pulse</td>
+<td>Model differently implemented, so that warning message about
+"cannot properly initialize" is gone.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.Rotational.</b></td>
+<td colspan="2"><strong>Mechanics.Rotational.</strong></td>
 </tr>
 <tr>
-<td valign="top">BearingFriction<br />
+<td>BearingFriction<br />
 Clutch<br />
 OneWayClutch<br />
 Brake<br />
 Gear</td>
-<td valign="top">Declaration of table parameter changed from
-table[:,:] to table[:,2].</td>
+<td>Declaration of table parameter changed from table[:,:] to
+table[:,2].</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.</b></td>
+<strong>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.</strong></td>
 </tr>
 <tr>
-<td valign="top">GasForce</td>
-<td valign="top">Unit of variable "press" corrected (from Pa to
-bar)</td>
+<td>GasForce</td>
+<td>Unit of variable "press" corrected (from Pa to bar)</td>
 </tr>
 <tr>
-<td colspan="2"><b>StateGraph.Examples.</b></td>
+<td colspan="2"><strong>StateGraph.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top">SimpleFriction</td>
-<td valign="top">The internal parameter k is defined and calculated
-with the appropriate unit.</td>
+<td>SimpleFriction</td>
+<td>The internal parameter k is defined and calculated with the
+appropriate unit.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Thermal.FluidHeatFlow.Interfaces.Partials.</b></td>
+<strong>Thermal.FluidHeatFlow.Interfaces.Partials.</strong></td>
 </tr>
 <tr>
-<td valign="top">SimpleFriction</td>
-<td valign="top">The internal parameter k is defined and calculated
-with the appropriate unit.</td>
+<td>SimpleFriction</td>
+<td>The internal parameter k is defined and calculated with the
+appropriate unit.</td>
 </tr>
 </table>
 <hr />
-Generated at 2016-07-13T15:55:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.11.0~dev-38-g67b62bf
+Generated at 2018-08-07T07:53:32Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1195-g6d891ea
 </body>
 </html>

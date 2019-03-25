@@ -7,21 +7,38 @@ package Nonlinear
       block Limiter "Limit the range of a signal"
         parameter Real uMax(start=1) "Upper limits of input signals";
         parameter Real uMin= -uMax "Lower limits of input signals";
-        parameter Boolean strict=false
-      "= true, if strict limits with noEvent(..)"
+        parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
           annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
+        parameter Types.LimiterHomotopy homotopyType = Modelica.Blocks.Types.LimiterHomotopy.Linear "Simplified model for homotopy-based initialization"
+          annotation (Evaluate=true, Dialog(group="Initialization"));
         parameter Boolean limitsAtInit=true
-      "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
+          "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
           annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true));
         extends Interfaces.SISO;
+  protected
+        Real simplifiedExpr "Simplified expression for homotopy-based initialization";
 
       equation
         assert(uMax >= uMin, "Limiter: Limits must be consistent. However, uMax (=" + String(uMax) +
                              ") < uMin (=" + String(uMin) + ")");
+        simplifiedExpr = (if homotopyType == Types.LimiterHomotopy.Linear then u
+                          else if homotopyType == Types.LimiterHomotopy.UpperLimit then uMax
+                          else if homotopyType == Types.LimiterHomotopy.LowerLimit then uMin
+                          else 0);
         if strict then
-           y = homotopy(actual = smooth(0, noEvent(if u > uMax then uMax else if u < uMin then uMin else u)), simplified=u);
+          if homotopyType == Types.LimiterHomotopy.NoHomotopy then
+            y = smooth(0, noEvent(if u > uMax then uMax else if u < uMin then uMin else u));
+          else
+            y = homotopy(actual = smooth(0, noEvent(if u > uMax then uMax else if u < uMin then uMin else u)),
+                         simplified=simplifiedExpr);
+          end if;
         else
-           y = homotopy(actual = smooth(0,if u > uMax then uMax else if u < uMin then uMin else u), simplified=u);
+          if homotopyType == Types.LimiterHomotopy.NoHomotopy then
+            y = smooth(0,if u > uMax then uMax else if u < uMin then uMin else u);
+          else
+            y = homotopy(actual = smooth(0,if u > uMax then uMax else if u < uMin then uMin else u),
+                         simplified=simplifiedExpr);
+          end if;
         end if;
         annotation (
           Documentation(info="<html>
@@ -31,7 +48,21 @@ as long as the input is within the specified upper and lower
 limits. If this is not the case, the corresponding limits are passed
 as output.
 </p>
-</html>"),       Icon(coordinateSystem(
+<p>
+The parameter <code>homotopyType</code> in the Advanced tab specifies the
+simplified behaviour if homotopy-based initialization is used:
+</p>
+<ul>
+<li><code>NoHomotopy</code>: the actual expression with limits is used</li>
+<li><code>Linear</code>: a linear behaviour y = u is assumed (default option)</li>
+<li><code>UpperLimit</code>: it is assumed that the output is stuck at the upper limit u = uMax</li>
+<li><code>LowerLimit</code>: it is assumed that the output is stuck at the lower limit u = uMin</li>
+</ul>
+<p>
+If it is known a priori in which region the input signal will be located, this option can help
+a lot by removing one strong nonlinearity from the initialization problem.
+</p>
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{0,-90},{0,68}}, color={192,192,192}),
@@ -49,12 +80,7 @@ as output.
           Line(points={{-80,-70},{-50,-70},{50,70},{80,70}}),
           Text(
             extent={{-150,-150},{150,-110}},
-            lineColor={0,0,0},
             textString="uMax=%uMax"),
-          Text(
-            extent={{-150,150},{150,110}},
-            textString="%name",
-            lineColor={0,0,255}),
           Line(
             visible=strict,
             points={{50,70},{80,70}},
@@ -100,25 +126,41 @@ as output.
   block VariableLimiter "Limit the range of a signal with variable limits"
     extends Interfaces.SISO;
     parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
-      annotation (Evaluate=true, choices(checkBox=true));
+      annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
+    parameter Types.VariableLimiterHomotopy homotopyType = Modelica.Blocks.Types.VariableLimiterHomotopy.Linear "Simplified model for homotopy-based initialization"
+      annotation (Evaluate=true, Dialog(group="Initialization"));
+    parameter Real ySimplified = 0 "Fixed value of output in simplified model"
+      annotation (Dialog(tab="Advanced", enable=homotopyType == Modelica.Blocks.Types.VariableLimiterHomotopy.Fixed));
     parameter Boolean limitsAtInit=true
       "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
       annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true));
     Interfaces.RealInput limit1
       "Connector of Real input signal used as maximum of input u"
-                                annotation (Placement(transformation(extent={{
-              -140,60},{-100,100}})));
+      annotation (Placement(transformation(extent={{-140,60},{-100,100}})));
     Interfaces.RealInput limit2
       "Connector of Real input signal used as minimum of input u"
-                                annotation (Placement(transformation(extent={{
-              -140,-100},{-100,-60}})));
+      annotation (Placement(transformation(extent={{-140,-100},{-100,-60}})));
+  protected
+    Real simplifiedExpr "Simplified expression for homotopy-based initialization";
   equation
     assert(limit1 >= limit2, "Input signals are not consistent: limit1 < limit2");
-
+    simplifiedExpr = (if homotopyType == Types.VariableLimiterHomotopy.Linear then u
+                      else if homotopyType == Types.VariableLimiterHomotopy.Fixed then ySimplified
+                      else 0);
     if strict then
-       y = homotopy(actual = smooth(0, noEvent(if u > limit1 then limit1 else if u < limit2 then limit2 else u)), simplified=u);
+      if homotopyType == Types.VariableLimiterHomotopy.NoHomotopy then
+        y = smooth(0, noEvent(if u > limit1 then limit1 else if u < limit2 then limit2 else u));
+      else
+        y = homotopy(actual = smooth(0, noEvent(if u > limit1 then limit1 else if u < limit2 then limit2 else u)),
+                     simplified=simplifiedExpr);
+      end if;
     else
-       y = homotopy(actual = smooth(0,if u > limit1 then limit1 else if u < limit2 then limit2 else u), simplified=u);
+      if homotopyType == Types.VariableLimiterHomotopy.NoHomotopy then
+        y = smooth(0,if u > limit1 then limit1 else if u < limit2 then limit2 else u);
+      else
+        y = homotopy(actual = smooth(0,if u > limit1 then limit1 else if u < limit2 then limit2 else u),
+                     simplified=simplifiedExpr);
+      end if;
     end if;
 
     annotation (
@@ -130,7 +172,20 @@ limits specified by the two additional inputs limit1 and
 limit2. If this is not the case, the corresponding limit
 is passed as output.
 </p>
-</html>"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+<p>
+The parameter <code>homotopyType</code> in the Advanced tab specifies the
+simplified behaviour if homotopy-based initialization is used:
+</p>
+<ul>
+<li><code>NoHomotopy</code>: the actual expression with limits is used</li>
+<li><code>Linear</code>: a linear behaviour y = u is assumed (default option)</li>
+<li><code>Fixed</code>: it is assumed that the output is fixed at the value <code>ySimplified</code></li>
+</ul>
+<p>
+If it is known a priori in which region the input signal will be located, this option can help
+a lot by removing one strong nonlinearity from the initialization problem.
+</p>
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{0,-90},{0,68}}, color={192,192,192}),
           Line(points={{-90,0},{68,0}}, color={192,192,192}),
@@ -140,10 +195,6 @@ is passed as output.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-80,-70},{-50,-70},{50,70},{80,70}}),
-          Text(
-            extent={{-150,150},{150,110}},
-            textString="%name",
-            lineColor={0,0,255}),
           Line(points={{-100,80},{66,80},{66,70}}, color={0,0,127}),
           Line(points={{-100,-80},{-64,-80},{-64,-70}}, color={0,0,127}),
           Polygon(points={{-64,-70},{-66,-74},{-62,-74},{-64,-70}}, lineColor={
@@ -203,21 +254,31 @@ is passed as output.
   block SlewRateLimiter "Limits the slew rate of a signal"
     extends Modelica.Blocks.Interfaces.SISO;
     import Modelica.Constants.small;
-    parameter Modelica.SIunits.DampingCoefficient Rising( min= small) = 1
-      "Maximum rising slew rate [+small..+inf)";
-    parameter Modelica.SIunits.DampingCoefficient Falling(max=-small) = -Rising
-      "Maximum falling slew rate (-inf..-small]";
+    parameter Real Rising( min= small) = 1
+      "Maximum rising slew rate [+small..+inf) [1/s]";
+    parameter Real Falling(max=-small) = -Rising
+      "Maximum falling slew rate (-inf..-small] [1/s]";
     parameter Modelica.SIunits.Time Td(min=small) = 0.001
       "Derivative time constant";
+    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.SteadyState
+      "Type of initialization (SteadyState implies y = u)"
+      annotation (Evaluate=true, Dialog(group="Initialization"));
+    parameter Real y_start=0 "Initial or guess value of output (= state)"
+      annotation (Dialog(group="Initialization"));
     parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
       annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
   protected
     Real val=(u-y)/Td;
   initial equation
+    if initType == Modelica.Blocks.Types.Init.SteadyState then
       y = u;
+    elseif initType == Modelica.Blocks.Types.Init.InitialState
+        or initType == Modelica.Blocks.Types.Init.InitialOutput then
+      y = y_start;
+    end if;
   equation
     if strict then
-      der(y) = smooth(1,noEvent(if val<Falling then Falling else if val>Rising then Rising else val));
+      der(y) = smooth(1, (if noEvent(val<Falling) then Falling else if noEvent(val>Rising) then Rising else val));
     else
       der(y) = if val<Falling then Falling else if val>Rising then Rising else val;
     end if;
@@ -254,10 +315,10 @@ with derivative time constant <code>Td</code>. Smaller time constant <code>Td</c
 <th>Comment</th>
 </tr>
 <tr>
-<td valign=\"top\">4954</td>
-<td valign=\"top\">2012-03-02</td>
-<td valign=\"top\">A. Haumer &amp; D. Winkler</td>
-<td valign=\"top\"><p>Initial version based on discussion in ticket <a href=\"https://trac.modelica.org/Modelica/ticket/529\">#529</a></p></td>
+<td>4954</td>
+<td>2012-03-02</td>
+<td>A. Haumer &amp; D. Winkler</td>
+<td><p>Initial version based on discussion in ticket <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/529\">#529</a></p></td>
 </tr>
 </table>
 </html>"));
@@ -267,7 +328,7 @@ with derivative time constant <code>Td</code>. Smaller time constant <code>Td</c
         parameter Real uMax(start=1) "Upper limits of dead zones";
         parameter Real uMin=-uMax "Lower limits of dead zones";
         parameter Boolean deadZoneAtInit = true
-      "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
+          "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
           annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true));
 
         extends Interfaces.SISO;
@@ -288,7 +349,7 @@ If the input is within uMin ... uMax, the output
 is zero. Outside of this zone, the output is a linear
 function of the input with a slope of 1.
 </p>
-</html>"),       Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{0,-90},{0,68}}, color={192,192,192}),
@@ -307,11 +368,7 @@ function of the input with a slope of 1.
           Text(
             extent={{-150,-150},{150,-110}},
             lineColor={160,160,164},
-            textString="uMax=%uMax"),
-          Text(
-            extent={{-150,150},{150,110}},
-            textString="%name",
-            lineColor={0,0,255})}),
+            textString="uMax=%uMax")}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -362,7 +419,7 @@ The Input signal is delayed by a given time instant, or more precisely:
    y = u(time - delayTime) for time &gt; time.start + delayTime
      = u(time.start)       for time &le; time.start + delayTime
 </pre>
-</html>"),   Icon(
+</html>"), Icon(
       coordinateSystem(preserveAspectRatio=true,
         extent={{-100.0,-100.0},{100.0,100.0}}),
         graphics={
@@ -406,7 +463,6 @@ The Input signal is delayed by a given time instant, or more precisely:
                 smooth=Smooth.Bezier),
           Text(
             extent={{-24,98},{-2,78}},
-            lineColor={0,0,0},
             textString="input"),
           Line(points={{-64,0},{-52.7,34.2},{-45.5,53.1},{-39.1,66.4},{-33.4,
                 74.6},{-27.8,79.1},{-22.2,79.8},{-16.6,76.6},{-10.9,69.7},{-5.3,
@@ -445,7 +501,7 @@ The Input signal is delayed by a given time instant, or more precisely:
     parameter Integer m(min=1,max=n) = n
       "Order of numerator (usually m=n, or m=n-1)";
     parameter Boolean balance=false
-      "= true, if state space system is balanced (highly recommeded), otherwise textbook version"
+      "= true, if state space system is balanced (highly recommended), otherwise textbook version"
       annotation(choices(checkBox=true));
     final output Real x[n]
       "State of transfer function from controller canonical form (balance=false), or balanced controller canonical form (balance=true)";
@@ -458,6 +514,7 @@ The Input signal is delayed by a given time instant, or more precisely:
     parameter Real s[n-1](each fixed=false) "State scaling";
 
   function padeCoefficients2
+    extends Modelica.Icons.Function;
     input Real T "delay time";
     input Integer n "order of denominator";
     input Integer m "order of numerator";
@@ -573,11 +630,11 @@ also the default setting of this block. The setting
 </p>
 
 <p>
-It is strongly recommended to always set parameter <b>balance</b> = true,
+It is strongly recommended to always set parameter <strong>balance</strong> = true,
 in order to arrive at a much better reliable numerical computation.
 This is not the default, in order to be backwards compatible, so you have
 to explicitly set it. Besides better numerics, also all states are initialized
-with <b>balance</b> = true (in steady-state, so der(x)=0). Longer explanation:
+with <strong>balance</strong> = true (in steady-state, so der(x)=0). Longer explanation:
 </p>
 
 <p>
@@ -587,7 +644,7 @@ the order of 1 up to the order of O(1/delayTime)^n. For already modest values
 of delayTime and n, this gives largely varying coefficients (for example delayTime=0.001 and n=4
 results in coefficients between 1 and 1e12). In turn, this results
 in a large norm of the system matrix [A,B;C,D] and therefore in unreliable
-numerical computations. When setting parameter <b>balance</b> = true, a state
+numerical computations. When setting parameter <strong>balance</strong> = true, a state
 transformation is performed that considerably reduces the norm of the system matrix.
 This is performed without introducing round-off errors. For details see
 function <a href=\"modelica://Modelica.Math.Matrices.balanceABC\">balanceABC</a>.
@@ -606,13 +663,13 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
 <th>Comment</th>
 </tr>
 <tr>
-<td valign=\"top\">2015-01-05</td>
-<td valign=\"top\">Martin Otter (DLR-SR)</td>
-<td valign=\"top\">Introduced parameter balance=true and a new implementation
+<td>2015-01-05</td>
+<td>Martin Otter (DLR-SR)</td>
+<td>Introduced parameter balance=true and a new implementation
  of the PadeDelay block with an optional, more reliable numerics</td>
 </tr>
 </table>
-</html>"),   Icon(
+</html>"), Icon(
       coordinateSystem(preserveAspectRatio=false,
         extent={{-100,-100},{100,100}}),
         graphics={
@@ -662,7 +719,6 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
                 smooth=Smooth.Bezier),
           Text(
             extent={{-24,98},{-2,78}},
-            lineColor={0,0,0},
             textString="input"),
           Line(points={{-64,0},{-52.7,34.2},{-45.5,53.1},{-39.1,66.4},{-33.4,
                 74.6},{-27.8,79.1},{-22.2,79.8},{-16.6,76.6},{-10.9,69.7},{-5.3,
@@ -696,7 +752,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
     extends Modelica.Blocks.Interfaces.SISO;
     parameter Modelica.SIunits.Duration delayMax(min=0, start=1) "Maximum delay time";
 
-    Modelica.Blocks.Interfaces.RealInput delayTime         annotation (Placement(
+    Modelica.Blocks.Interfaces.RealInput delayTime annotation (Placement(
           transformation(extent={{-140,-80},{-100,-40}})));
   equation
     y = delay(u, delayTime, delayMax);
@@ -773,7 +829,6 @@ the following relationship:
       Line(points={{-80,-88},{-80,86}}, color={192,192,192}),
       Text(
         extent={{-24,98},{-2,78}},
-        lineColor={0,0,0},
         textString="input"),
       Polygon(
         points={{-80,-26},{-88,-24},{-88,-28},{-80,-26}},
@@ -797,15 +852,15 @@ the following relationship:
       annotation (
         Documentation(info="<html>
 <p>
-This package contains <b>discontinuous</b> and
-<b>non-differentiable, algebraic</b> input/output blocks.
+This package contains <strong>discontinuous</strong> and
+<strong>non-differentiable, algebraic</strong> input/output blocks.
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>October 21, 2002</i>
+<li><em>October 21, 2002</em>
        by Christian Schweiger:<br>
        New block VariableLimiter added.</li>
-<li><i>August 22, 1999</i>
+<li><em>August 22, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Realized, based on an existing Dymola library
        of Dieter Moormann and Hilding Elmqvist.

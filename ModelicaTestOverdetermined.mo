@@ -63,19 +63,15 @@ package ModelicaTestOverdetermined
         end if;
         connect(source.ports[1], pipe.port_a)         annotation (Line(
             points={{-60,0},{-55,0},{-55,0},{-50,
-                0},{-50,0},{-40,0}},
-            color={0,127,255}));
+                0},{-50,0},{-40,0}}, color={0,127,255}));
         connect(pipe.port_b, valve.port_a)               annotation (Line(
             points={{-20,0},{-15,0},{-15,0},{-10,
-                0},{-10,0},{0,0}},
-            color={0,127,255}));
+                0},{-10,0},{0,0}}, color={0,127,255}));
         connect(valve.port_b, sink.ports[1])                          annotation (Line(
             points={{20,0},{25,0},{25,0},{30,
-                0},{30,0},{40,0}},
-            color={0,127,255}));
+                0},{30,0},{40,0}}, color={0,127,255}));
         connect(ramp.y, valve.opening)               annotation (Line(
-            points={{25,40},{10,40},{10,8}},
-            color={0,0,127}));
+            points={{25,40},{10,40},{10,8}}, color={0,0,127}));
 
         annotation (Documentation(info="<html>
 All pressure states of the pipe are lumped into one.
@@ -151,19 +147,15 @@ The initial equations are consistent however and a tool shall reduce them approp
         end if;
         connect(source.ports[1], pipe.port_a)         annotation (Line(
             points={{-60,0},{-55,0},{-55,0},{-50,
-                0},{-50,0},{-40,0}},
-            color={0,127,255}));
+                0},{-50,0},{-40,0}}, color={0,127,255}));
         connect(pipe.port_b, valve.port_a)               annotation (Line(
             points={{-20,0},{-15,0},{-15,0},{-10,
-                0},{-10,0},{0,0}},
-            color={0,127,255}));
+                0},{-10,0},{0,0}}, color={0,127,255}));
         connect(valve.port_b, sink.ports[1])                          annotation (Line(
             points={{20,0},{25,0},{25,0},{30,
-                0},{30,0},{40,0}},
-            color={0,127,255}));
+                0},{30,0},{40,0}}, color={0,127,255}));
         connect(ramp.y, valve.opening)               annotation (Line(
-            points={{25,40},{10,40},{10,8}},
-            color={0,0,127}));
+            points={{25,40},{10,40},{10,8}}, color={0,0,127}));
         annotation (Documentation(info="<html>
 The initial values are overdetermined as the first pipe segment is directly connected to a source with fixed pressure.
 The initial equations are consistent however and a tool shall reduce them appropriately.
@@ -247,20 +239,15 @@ The initial equations are consistent however and a tool shall reduce them approp
           annotation (Placement(transformation(extent={{-14,-10},{6,10}})));
       equation
         connect(source.ports[1], pipe1.port_a) annotation (Line(
-            points={{-70,0},{-50,0}},
-            color={0,127,255}));
+            points={{-70,0},{-50,0}}, color={0,127,255}));
         connect(valve.port_b,sink. ports[1])                          annotation (Line(
-            points={{46,0},{66,0}},
-            color={0,127,255}));
+            points={{46,0},{66,0}}, color={0,127,255}));
         connect(ramp.y,valve. opening)               annotation (Line(
-            points={{51,40},{36,40},{36,8}},
-            color={0,0,127}));
+            points={{51,40},{36,40},{36,8}}, color={0,0,127}));
         connect(pipe1.port_b, pipe2.port_a) annotation (Line(
-            points={{-30,0},{-14,0}},
-            color={0,127,255}));
+            points={{-30,0},{-14,0}}, color={0,127,255}));
         connect(pipe2.port_b, valve.port_a) annotation (Line(
-            points={{6,0},{26,0}},
-            color={0,127,255}));
+            points={{6,0},{26,0}}, color={0,127,255}));
       end DynamicPipesSeriesSteadyStateInitial;
 
       model DynamicPipesSeriesLargeNSteadyStateInitial
@@ -388,20 +375,15 @@ The initial equations are consistent however and a tool shall reduce them approp
             annotation (Placement(transformation(extent={{2,24},{22,44}})));
         equation
           connect(source.ports[1], V1.ports[1]) annotation (Line(
-              points={{-60,-10},{-40,-10},{-40,0}},
-              color={0,127,255}));
+              points={{-60,-10},{-40,-10},{-40,0}}, color={0,127,255}));
           connect(V1.ports[2], V2.ports[1]) annotation (Line(
-              points={{-36,0},{-36,-10},{-4,-10},{-4,0}},
-              color={0,127,255}));
+              points={{-36,0},{-36,-10},{-4,-10},{-4,0}}, color={0,127,255}));
           connect(V2.ports[2], valveLinear.port_a) annotation (Line(
-              points={{0,0},{0,-10},{20,-10}},
-              color={0,127,255}));
+              points={{0,0},{0,-10},{20,-10}}, color={0,127,255}));
           connect(valveLinear.port_b, sink.ports[1]) annotation (Line(
-              points={{40,-10},{60,-10}},
-              color={0,127,255}));
+              points={{40,-10},{60,-10}}, color={0,127,255}));
           connect(one.y, valveLinear.opening) annotation (Line(
-              points={{23,34},{30,34},{30,-2}},
-              color={0,0,127}));
+              points={{23,34},{30,34},{30,-2}}, color={0,0,127}));
         end TwoVolumes;
 
         model TwoVolumesEquations
@@ -537,14 +519,11 @@ The initial equations are consistent however and a tool shall reduce them approp
             annotation (Placement(transformation(extent={{-42,-10},{-22,10}})));
         equation
           connect(fixed.flange, spring.flange_a) annotation (Line(
-              points={{-60,0},{-42,0}},
-              color={0,127,0}));
+              points={{-60,0},{-42,0}}, color={0,127,0}));
           connect(spring.flange_b, mass1.flange_a) annotation (Line(
-              points={{-22,0},{-12,0}},
-              color={0,127,0}));
+              points={{-22,0},{-12,0}}, color={0,127,0}));
           connect(mass1.flange_b, mass2.flange_a) annotation (Line(
-              points={{8,0},{26,0}},
-              color={0,127,0}));
+              points={{8,0},{26,0}}, color={0,127,0}));
         end TwoMasses;
 
         model TwoMassesEquations
@@ -629,16 +608,16 @@ The initial equations are consistent however and a tool shall reduce them approp
           fillColor={75,138,73},
           fillPattern=FillPattern.Solid)}),
        preferredView="info",
-       version="3.2.2",
-       versionBuild=0,
-       versionDate="2016-03-11",
-       dateModified = "2016-03-11 08:44:41Z",
+       versionBuild=1,
+       version="4.0.0-dev",
+       versionDate="2019-01-23",
+       dateModified = "2019-01-23 12:00:00Z",
        revisionId="$Id::                                       $",
-       uses(Modelica(version="3.2.2")),
+       uses(Modelica(version="4.0.0-dev")),
     Documentation(info="<html>
 <p>
 This library provides models and functions to test components of
-<b>package Modelica</b> (the Modelica Standard Library).
+<strong>package Modelica</strong> (the Modelica Standard Library).
 All test models in this package define more equations during initialization,
 as necessary. These test models are especially provided for tool vendors
 to improve their tools so that models with consistently overdetermined initialization
@@ -649,10 +628,11 @@ fail during translation but give useful error messages.
 </p>
 
 <p>
-Copyright &copy; 1998-2016, Modelica Association.
+Copyright &copy; 1998-2019, Modelica Association and contributors
 </p>
+
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>"));
 end ModelicaTestOverdetermined;

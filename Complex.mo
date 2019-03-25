@@ -1,6 +1,6 @@
 within ;
 operator record Complex "Complex number with overloaded operators"
-//record Complex "Complex number with overloaded operators"
+
   replaceable Real re "Real part of complex number" annotation(Dialog);
   replaceable Real im "Imaginary part of complex number" annotation(Dialog);
 
@@ -13,7 +13,7 @@ operator record Complex "Complex number with overloaded operators"
     algorithm
 
       annotation(Inline=true, Documentation(info="<html>
-<p>This function returns a Complex number defined by real part <i>re</i> and optional imaginary part <i>im</i> (default=0).</p>
+<p>This function returns a Complex number defined by real part <em>re</em> and optional imaginary part <em>im</em> (default=0).</p>
 </html>"));
     end fromReal;
     annotation (Documentation(info="<html>
@@ -25,7 +25,6 @@ operator record Complex "Complex number with overloaded operators"
             extent={{-100,-100},{100,100}},
             radius=25.0), Rectangle(
             lineColor={128,128,128},
-            fillPattern=FillPattern.None,
             extent={{-100,-100},{100,100}},
             radius=25.0)}));
   end 'constructor';
@@ -75,13 +74,10 @@ operator record Complex "Complex number with overloaded operators"
             radius=25.0),
           Rectangle(
             lineColor={128,128,128},
-            fillPattern=FillPattern.None,
             extent={{-100,-100},{100,100}},
             radius=25.0),
           Line(
-            points={{-50,0},{50,0}},
-            color={0,0,0},
-            smooth=Smooth.None)}));
+            points={{-50,0},{50,0}})}));
   end '-';
 
   encapsulated operator '*' "Multiplication"
@@ -133,25 +129,16 @@ operator record Complex "Complex number with overloaded operators"
             radius=25.0),
           Rectangle(
             lineColor={128,128,128},
-            fillPattern=FillPattern.None,
             extent={{-100,-100},{100,100}},
             radius=25.0),
           Line(
-            points={{-42,36},{39,-34}},
-            color={0,0,0},
-            smooth=Smooth.None),
+            points={{-42,36},{39,-34}}),
           Line(
-            points={{-42,-35},{39,37}},
-            color={0,0,0},
-            smooth=Smooth.None),
+            points={{-42,-35},{39,37}}),
           Line(
-            points={{-55,1},{52,1}},
-            color={0,0,0},
-            smooth=Smooth.None),
+            points={{-55,1},{52,1}}),
           Line(
-            points={{-1.5,55},{-2,-53}},
-            color={0,0,0},
-            smooth=Smooth.None)}));
+            points={{-1.5,55},{-2,-53}})}));
   end '*';
 
   encapsulated operator function '+' "Add two complex numbers"
@@ -248,19 +235,27 @@ operator record Complex "Complex number with overloaded operators"
   end 'String';
 
 
-annotation (Protection(access=Access.hide),
-version="3.2.2",
-versionBuild=0,
-versionDate="2016-01-15",
-dateModified = "2016-01-15 08:44:41Z",
-revisionId="$Id::                                       $",
+annotation (
+version="4.0.0-dev",
+versionBuild=1,
+versionDate="2019-01-23",
+dateModified = "2019-01-23 12:00:00Z",
+revisionId="$Format:%h %ci$",
 conversion(
+ noneFromVersion="3.2.2",
  noneFromVersion="3.2.1",
  noneFromVersion="1.0",
  noneFromVersion="1.1"),
 Documentation(info="<html>
 <p>Complex number defined as a record containing real and imaginary part, utilizing operator overloading.</p>
-</html>"),
+<p>
+<strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
+Copyright &copy; 2010-2019, Modelica Association and <a href=\"modelica://Modelica.UsersGuide.Contact\">contributors</a>
+</p>
+
+<p>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+</p></html>"),
     Icon(graphics={Rectangle(
           lineColor={160,160,164},
           fillColor={160,160,164},

@@ -21,7 +21,7 @@ package Tanks "Library demonstrating the usage of the tank model"
       level_start=8,
       nPorts=1,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
-          0.1)})     annotation (Placement(transformation(extent={{-80,20},{-40,
+          0.1)}) annotation (Placement(transformation(extent={{-80,20},{-40,
               60}})));
     Modelica.Fluid.Vessels.OpenTank tank2(
       crossArea=1,
@@ -31,7 +31,7 @@ package Tanks "Library demonstrating the usage of the tank model"
       level_start=3,
       nPorts=1,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
-          0.1)})     annotation (Placement(transformation(extent={{-20,20},{20,
+          0.1)}) annotation (Placement(transformation(extent={{-20,20},{20,
               60}})));
 
     inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
@@ -45,7 +45,7 @@ package Tanks "Library demonstrating the usage of the tank model"
       level_start=3,
       nPorts=1,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
-          0.1)})     annotation (Placement(transformation(extent={{40,10},{80,
+          0.1)}) annotation (Placement(transformation(extent={{40,10},{80,
               50}})));
     Modelica.Fluid.Pipes.StaticPipe pipe1(                    redeclare package
         Medium =                                                                       Medium,
@@ -78,20 +78,17 @@ package Tanks "Library demonstrating the usage of the tank model"
           rotation=90)));
   equation
     connect(pipe1.port_a, pipe2.port_a) annotation (Line(points={{-60,-20},{-60,
-            -40},{0,-40},{0,-30},{0,-20}},                 color={0,127,255}));
+            -40},{0,-40},{0,-30},{0,-20}}, color={0,127,255}));
     connect(pipe2.port_a, pipe3.port_a) annotation (Line(points={{0,-20},{0,-20},
-            {0,-40},{60,-40},{60,-30}},              color={0,127,255}));
+            {0,-40},{60,-40},{60,-30}}, color={0,127,255}));
     connect(pipe3.port_b, tank3.ports[1])
-      annotation (Line(points={{60,-10},{60,-10},{60,10}},
-                                                color={0,127,255}));
+      annotation (Line(points={{60,-10},{60,-10},{60,10}}, color={0,127,255}));
     connect(pipe1.port_b, tank1.ports[1]) annotation (Line(points={{-60,0},{-60,
-            10},{-60,20}},
-                  color={0,127,255}));
+            10},{-60,20}}, color={0,127,255}));
     connect(pipe2.port_b, tank2.ports[1]) annotation (Line(
-        points={{0,0},{0,20}},
-        color={0,127,255}));
+        points={{0,0},{0,20}}, color={0,127,255}));
 
-    annotation (      experiment(StopTime=200),
+    annotation (experiment(StopTime=200),
       __Dymola_Commands(file=
             "modelica://Modelica/Resources/Scripts/Dymola/Fluid/ThreeTanks/plot level and port.m_flow.mos"
           "plot level and port.m_flow"),
@@ -115,7 +112,7 @@ package Tanks "Library demonstrating the usage of the tank model"
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.1),
           Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.1),
           Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.1, height=
-           10)})
+           6)})
       annotation (Placement(transformation(extent={{-40,20},{0,60}})));
     Modelica.Fluid.Sources.MassFlowSource_T massFlowRate(nPorts=1,
       redeclare package Medium =
@@ -133,7 +130,7 @@ package Tanks "Library demonstrating the usage of the tank model"
       redeclare package Medium =
           Modelica.Media.CompressibleLiquids.LinearColdWater,
       diameter=0.02,
-      height_ab=-20,
+      height_ab=-5,
       length=200) annotation (Placement(transformation(
           origin={0,-30},
           extent={{10,-10},{-10,10}},
@@ -148,7 +145,7 @@ package Tanks "Library demonstrating the usage of the tank model"
       nPorts=2,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
           0.1),Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.1,
-          height=10)})
+          height=6)})
       annotation (Placement(transformation(extent={{40,-60},{80,-20}})));
     Modelica.Blocks.Logical.Hysteresis hysteresis(
       uLow=1.1e5,
@@ -166,7 +163,7 @@ package Tanks "Library demonstrating the usage of the tank model"
           Modelica.Media.CompressibleLiquids.LinearColdWater,
       diameter=0.02,
       length=200,
-      height_ab=-20)
+      height_ab=-5)
                   annotation (Placement(transformation(
           origin={20,-10},
           extent={{10,-10},{-10,10}},
@@ -174,49 +171,38 @@ package Tanks "Library demonstrating the usage of the tank model"
   equation
     connect(massFlowRate.ports[1], upperTank.ports[1])
                                                    annotation (Line(
-        points={{-40,-30},{-25.3333,-30},{-25.3333,20}},
-        color={0,127,255}));
+        points={{-40,-30},{-25.3333,-30},{-25.3333,20}}, color={0,127,255}));
     connect(pressure.p, hysteresis.u) annotation (Line(
-        points={{61,26},{70,26},{70,80},{-150,80},{-150,-20},{-142,-20}},
-        color={0,0,127}));
+        points={{61,26},{70,26},{70,80},{-150,80},{-150,-20},{-142,-20}}, color={0,0,127}));
     connect(hysteresis.y, switch1.u2) annotation (Line(
-        points={{-119,-20},{-102,-20}},
-        color={255,0,255}));
+        points={{-119,-20},{-102,-20}}, color={255,0,255}));
     connect(m_flow_off.y, switch1.u1) annotation (Line(
-        points={{-119,20},{-119,5},{-102,5},{-102,-12}},
-        color={0,0,127}));
+        points={{-119,20},{-119,5},{-102,5},{-102,-12}}, color={0,0,127}));
     connect(m_flow_on.y, switch1.u3) annotation (Line(
-        points={{-119,-50},{-110,-50},{-110,-28},{-102,-28}},
-        color={0,0,127}));
+        points={{-119,-50},{-110,-50},{-110,-28},{-102,-28}}, color={0,0,127}));
     connect(switch1.y, massFlowRate.m_flow_in) annotation (Line(
-        points={{-79,-20},{-70,-20},{-70,-22},{-60,-22}},
-        color={0,0,127}));
+        points={{-79,-20},{-70,-20},{-70,-22},{-60,-22}}, color={0,0,127}));
     connect(upperTank.ports[2], pipe.port_a) annotation (Line(
-        points={{-20,20},{-20,10},{0,10},{0,-20}},
-        color={0,127,255}));
+        points={{-20,20},{-20,10},{0,10},{0,-20}}, color={0,127,255}));
     connect(pipe.port_a, pressure.port) annotation (Line(
-        points={{0,-20},{0,10},{50,10},{50,16}},
-        color={0,127,255}));
+        points={{0,-20},{0,10},{50,10},{50,16}}, color={0,127,255}));
     connect(pipe.port_b, lowerTank.ports[1]) annotation (Line(
-        points={{0,-40},{0,-70},{56,-70},{56,-60}},
-        color={0,127,255}));
+        points={{0,-40},{0,-70},{56,-70},{56,-60}}, color={0,127,255}));
     connect(upperTank.ports[3], overflow.port_a) annotation (Line(
-        points={{-14.6667,20},{0,20},{0,40},{20,40},{20,0}},
-        color={0,127,255}));
+        points={{-14.6667,20},{0,20},{0,40},{20,40},{20,0}}, color={0,127,255}));
     connect(overflow.port_b, lowerTank.ports[2]) annotation (Line(
-        points={{20,-20},{20,-40},{40,-40},{40,-60},{64,-60}},
-        color={0,127,255}));
+        points={{20,-20},{20,-40},{40,-40},{40,-60},{64,-60}}, color={0,127,255}));
 
     annotation (experiment(StopTime=25000, Interval=5.0),
       __Dymola_Commands(file=
             "modelica://Modelica/Resources/Scripts/Dymola/Fluid/TanksWithOverflow/plot level and port.m_flow.mos"
           "plot level and port.m_flow"),
       Documentation(info="<html>
-<p align=justify>The mass flow rate to the upper tank is controlled by the static pressure at its bottom.
+<p>The mass flow rate to the upper tank is controlled by the static pressure at its bottom.
 The fluid flows through a pipe and forced by different heights from the upper tank to the lower tank.
 </p>
 <p>
-Additional fluid flows through an overflow pipe if the level of the upper tank exceeds 10m.
+Additional fluid flows through an overflow pipe if the level of the upper tank exceeds 6m.
 Initially the overflow enters the lower tank above its fluid level; later on the fluid level exceeds the overflow port.
 </p>
 <p>
@@ -241,7 +227,7 @@ simulation accuracy could be increased in order to avoid errors.
       level_start=1,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
           0.1)},
-      height=1.1)             annotation (Placement(transformation(extent={{-40,20},
+      height=1.1) annotation (Placement(transformation(extent={{-40,20},
               {0,60}})));
 
     Modelica.Fluid.Pipes.StaticPipe pipe(
@@ -270,11 +256,9 @@ simulation accuracy could be increased in order to avoid errors.
             extent={{60,60},{80,80}})));
   equation
     connect(tank1.ports[1], pipe.port_a) annotation (Line(
-        points={{-20,20},{-20,5},{-20,-10},{-20,-10}},
-        color={0,127,255}));
+        points={{-20,20},{-20,5},{-20,-10},{-20,-10}}, color={0,127,255}));
     connect(pipe.port_b, tank2.ports[1]) annotation (Line(
-        points={{-20,-30},{-20,-60},{0,-60},{0,-80},{20,-80}},
-        color={0,127,255}));
+        points={{-20,-30},{-20,-60},{0,-60},{0,-80},{20,-80}}, color={0,127,255}));
 
     annotation (
       experiment(StopTime=50),

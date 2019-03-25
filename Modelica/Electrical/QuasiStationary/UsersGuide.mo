@@ -15,10 +15,10 @@ The purely sinusoidal voltage
 </p>
 
 <p>
-<IMG
- BORDER=\"0\"
+<img
+ border=\"0\"
  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Introduction/img1.png\"
- ALT=\"v=\\sqrt{2}V_{\\mathrm{RMS}}\\cos(\\omega t+\\varphi_{v})\">
+ alt=\"v=\\sqrt{2}V_{\\mathrm{RMS}}\\cos(\\omega t+\\varphi_{v})\">
 </p>
 
 <p>
@@ -27,20 +27,20 @@ in the time domain can be represented by a complex
 </p>
 
 <p>
-<IMG
- BORDER=\"0\"
+<img
+ border=\"0\"
  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Introduction/img2.png\"
- ALT=\"\\underline{v}=V_{\\mathrm{RMS}}e^{j\\varphi_{v}}.\">
+ alt=\"\\underline{v}=V_{\\mathrm{RMS}}e^{j\\varphi_{v}}.\">
 </p>
 
 <p>For these quasi stationary
 phasor the following relationship applies:</p>
 
 <p>
-<IMG
- BORDER=\"0\"
+<img
+ border=\"0\"
  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Introduction/img3.png\"
- ALT=\"\\begin{displaymath}
+ alt=\"\\begin{displaymath}
 v=\\mathrm{Re}(\\sqrt{2}\\underline{v}e^{j\\omega t})\\end{displaymath}\">
 </p>
 
@@ -59,10 +59,10 @@ This equation is also illustrated in Fig. 1.
 </table>
 
 <p>
-From the above equation it is obvious that for <i>t</i> = 0
-the time domain voltage is <i>v</i> = cos(<i>&phi;<sub>v</sub></i>).
+From the above equation it is obvious that for <em>t</em> = 0
+the time domain voltage is <em>v</em> = cos(<em>&phi;<sub>v</sub></em>).
 The complex representation of the phasor corresponds with this instance, too, since
-the phasor is leading the real axis by the angle <i>&phi;<sub>v</sub></i>.
+the phasor is leading the real axis by the angle <em>&phi;<sub>v</sub></em>.
 </p>
 
 <p>
@@ -107,10 +107,10 @@ The voltage drop across the resistor
 </p>
 
 <p>
-<IMG
- BORDER=\"0\"
+<img
+ border=\"0\"
  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img1.png\"
- ALT=\"
+ alt=\"
 \\underline{v}_{r}=R\\underline{i}\">
 </p>
 
@@ -119,10 +119,10 @@ and the inductor
 </p>
 
 <p>
-<IMG
- BORDER=\"0\"
+<img
+ border=\"0\"
  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img2.png\"
- ALT=\"
+ alt=\"
 \\underline{v}_{l}=j\\omega L\\underline{i}\">
 </p>
 
@@ -131,10 +131,10 @@ and the capacitor
 </p>
 
 <p>
-<IMG
- BORDER=\"0\"
+<img
+ border=\"0\"
  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img3.png\"
- ALT=\"
+ alt=\"
 \\underline{v}_{l}=j\\omega L\\underline{i}\">
 </p>
 
@@ -143,10 +143,10 @@ add up to the total voltage
 </p>
 
 <p>
-<IMG
- BORDER=\"0\"
+<img
+ border=\"0\"
  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img4.png\"
- ALT=\"
+ alt=\"
 \\underline{v}=\\underline{v}_{r}+\\underline{v}_{l}\">
 </p>
 
@@ -167,7 +167,7 @@ as illustrated in the phasor diagram of Fig. 2.
 <p>Due to the series connection of the resistor, inductor and capacitor, the three currents are all equal:</p>
 
 <p>
-<IMG BORDER=\"0\"
+<img border=\"0\"
  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img5.png\"
  alt=\"img5.png\">
 </p>
@@ -188,8 +188,8 @@ as illustrated in the phasor diagram of Fig. 2.
 
       annotation (Documentation(info="<html>
 
-<p>For periodic waveforms, the average value of the instantaneous power is <b>real power</b> <i>P</i>.
-<b>Reactive power</b> <i>Q</i> is a term
+<p>For periodic waveforms, the average value of the instantaneous power is <strong>real power</strong> <em>P</em>.
+<strong>Reactive power</strong> <em>Q</em> is a term
 associated with inductors and capacitors. For pure inductors and capacitors, real power is equal to zero.
 Yet, there is instantaneous power exchanged with connecting network.
 </p>
@@ -207,9 +207,9 @@ will be investigated.
 The instantaneous voltage and current are in phase:
 </p>
 <p>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_r.png\"
-                   alt=\"v_r.png\"> <br>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_r.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_r.png\"
+                   alt=\"v_r.png\"><br>
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_r.png\"
                    alt=\"i_r.png\">
 </p>
 
@@ -217,7 +217,7 @@ The instantaneous voltage and current are in phase:
 Therefore, the instantaneous power is
 </p>
 <p>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_r.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_r.png\"
                    alt=\"power_r.png\">
 </p>
 
@@ -235,7 +235,7 @@ Therefore, the instantaneous power is
 
 <p>Real power of the resistor is the average of instantaneous power:</p>
 <p>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/p_r.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/p_r.png\"
                    alt=\"p_r.png\">
 </p>
 
@@ -245,9 +245,9 @@ Therefore, the instantaneous power is
 The instantaneous voltage leads the current by a quarter of the period:
 </p>
 <p>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_l.png\"
-                   alt=\"v_l.png\"> <br>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_l.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_l.png\"
+                   alt=\"v_l.png\"><br>
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_l.png\"
                    alt=\"i_l.png\">
 </p>
 
@@ -255,7 +255,7 @@ The instantaneous voltage leads the current by a quarter of the period:
 Therefore, the instantaneous power is
 </p>
 <p>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_l.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_l.png\"
                    alt=\"power_l.png\">
 </p>
 
@@ -273,7 +273,7 @@ Therefore, the instantaneous power is
 
 <p>Reactive power of the inductor is:</p>
 <p>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/q_l.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/q_l.png\"
                    alt=\"q_l.png\">
 </p>
 
@@ -283,9 +283,9 @@ Therefore, the instantaneous power is
 The instantaneous voltage lags the current by a quarter of the period:
 </p>
 <p>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_c.png\"
-                   alt=\"v_c.png\"> <br>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_c.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_c.png\"
+                   alt=\"v_c.png\"><br>
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_c.png\"
                    alt=\"i_c.png\">
 </p>
 
@@ -293,7 +293,7 @@ The instantaneous voltage lags the current by a quarter of the period:
 Therefore, the instantaneous power is
 </p>
 <p>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_c.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_c.png\"
                    alt=\"power_c.png\">
 </p>
 
@@ -311,7 +311,7 @@ Therefore, the instantaneous power is
 
 <p>Reactive power of the capacitor is:</p>
 <p>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/q_c.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/q_c.png\"
                    alt=\"q_c.png\">
 </p>
 
@@ -319,7 +319,7 @@ Therefore, the instantaneous power is
 
 <p>For an arbitrary component with two pins, real and reactive power can be determined by the complex phasors:</p>
 <p>
-<IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/s.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/s.png\"
                    alt=\"s.png\">
 </p>
 
@@ -346,7 +346,7 @@ The reference angle <code>gamma</code>:
 </p>
 <ul>
   <li>defines the angular frequency <code>omega</code> of the voltages and currents
-      of a circuit by means of <code>omega = der(gamma)</code>. </li>
+      of a circuit by means of <code>omega = der(gamma)</code>.</li>
   <li>is not a global quantity since it propagated through the connector.
       Therefore, independent circuits of different frequencies can be modeled in one model.</li>
   <li>is present only once in a multiphase connector;
@@ -384,7 +384,7 @@ voltages and currents. The main characteristics of the library are:
   <li>The electrical components of this library are strictly linear.</li>
   <li>The angular frequency <code>omega</code> of the voltages and currents of
       a circuit are determined from a reference angle <code>gamma</code> by means of
-      <code>omega = der(gamma)</code>. </li>
+      <code>omega = der(gamma)</code>.</li>
   <li>The reference angle <code>gamma</code> is not a global quantity
       since it propagated through the connector.
       Therefore, independent circuits of different frequencies can be modeled in one model.</li>
@@ -425,21 +425,41 @@ ideal AC DC converter</a>, which is used in the
     extends Modelica.Icons.ReleaseNotes;
 
     annotation (Documentation(info="<html>
-<h5>Version 3.2.2, 2017-03-06</h5>
+<h5>Version 3.2.3, 2019-01-23</h5>
 <ul>
-<li>Added polar and power quantities in ideal quasi stationary transformer model, see #2173</li>
+    <li>Added frequency dependent behavior im impedance and admittance models, see
+        <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2451\">#2451</a></li>
+    <li>Added frequency sweep voltage and current sources, see
+        <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2442\">#2442</a>
+    <ul>
+        <li>Single-phase <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.FrequencySweepVoltageSource\">FrequencySweepVoltageSource</a></li>
+        <li>Single-phase <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.FrequencySweepCurrentSource\">FrequencySweepCurrentSource</a></li>
+        <li>Polyphase <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepVoltageSource\">FrequencySweepVoltageSource</a></li>
+        <li>Polyphase <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepCurrentSource\">FrequencySweepCurrentSource</a></li>
+    </ul></li>
+    <li>Shortened default component names, see
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2301\">#2301</a></li>
+    <li>Fixed missing <code>final useConjugateInput = false</code>, see
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2251\">#2251</a>
+    <ul>
+      <li><a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.SymmetricalComponents\">MultiPhase.Blocks.SymmetricalComponents</a></li>
+      <li><a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.FromSymmetricalComponents\">MultiPhase.Blocks.FromSymmetricalComponents</a></li>
+      <li><a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.SingleToMultiPhase\">MultiPhase.Blocks.SingleToMultiPhase</a></li>
+    </ul></li>
+<li>Updated icons of inductors and transformer models, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2210\">#2210</a></li>
+<li>Added polar and power quantities in ideal quasi stationary transformer model, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2173\">#2173</a></li>
 <li>Removed redundant (and not identical) parameter m from
     <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
-    see #2202</li>
-<li>Added linear multi phase mutual inductor model, see #2200</li>
+    see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2202\">#2202</a></li>
+<li>Added linear multi phase mutual inductor model, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2200\">#2200</a></li>
 <li>Added complex impedance and admittance models of single phase and multi phase package, see ticket
-    <a href=\"https://trac.modelica.org/Modelica/ticket/1870\">#1870</a></li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1870\">#1870</a></li>
 <li>Added magnitude and argument of complex voltages and currents in interface and sensor models, see ticket
-    <a href=\"https://trac.modelica.org/Modelica/ticket/1405\">#1405</a></li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1405\">#1405</a></li>
 <li>Added active, reactive and apparent power and power factor in interface models, see ticket
-    <a href=\"https://trac.modelica.org/Modelica/ticket/1405\">#1405</a></li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1405\">#1405</a></li>
 <li>Added complex single and multi phase impedance and admittance models (ticket
-    <a href=\"https://trac.modelica.org/Modelica/ticket/1367\">#1367</a>)</li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1367\">#1367</a>)</li>
 <li>Updated documentation on temperature dependency of resistance and conductance models</li>
 <li>Rewrote source models to simplify initialization (
     <a href=\"https://trac.modelica.org/Modelica/changeset/7031\">r7031</a>)</li>
@@ -459,51 +479,51 @@ ideal AC DC converter</a>, which is used in the
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
-      <td valign=\"top\">[Dorf1993]</td>
-      <td valign=\"top\">R. C. Dorf
-        <i>The Electrical Engineering</i>,
+      <td>[Dorf1993]</td>
+      <td>R. C. Dorf
+        <em>The Electrical Engineering</em>,
         VDE, 1993.</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Boas1966]</td>
-      <td valign=\"top\">M. L. Boas
-        <i>Mathematical Methods in the Physical Sciences</i>,
+      <td>[Boas1966]</td>
+      <td>M. L. Boas
+        <em>Mathematical Methods in the Physical Sciences</em>,
         J. Wiley &amp; Sons, New York, 1966.</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Burton1994]</td>
-      <td valign=\"top\">T. Burton
-        <i>Introduction to Dynamic Systems Analysis</i>,
+      <td>[Burton1994]</td>
+      <td>T. Burton
+        <em>Introduction to Dynamic Systems Analysis</em>,
         McGraw Hill, New York, 1994.</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Landolt1936]</td>
-      <td valign=\"top\">M. Landolt
-        <i>Komplexe Zahlen und Zeiger in der Wechselstromlehre</i>,
+      <td>[Landolt1936]</td>
+      <td>M. Landolt
+        <em>Komplexe Zahlen und Zeiger in der Wechselstromlehre</em>,
         Springer Verlag, Berlin, 1936</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Philippow1967]</td>
-      <td valign=\"top\">E. Philippow
-        <i>Grundlagen der Elektrotechnik</i>,
+      <td>[Philippow1967]</td>
+      <td>E. Philippow
+        <em>Grundlagen der Elektrotechnik</em>,
        Akademischer Verlag, Leipzig, 1967.</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Weyh1967]</td>
-      <td valign=\"top\">Weyh and Benzinger
-        <i>Die Grundlagen der Wechselstromlehre</i>,
+      <td>[Weyh1967]</td>
+      <td>Weyh and Benzinger
+        <em>Die Grundlagen der Wechselstromlehre</em>,
        R. Oldenbourg Verlag, 1967.</td>
     </tr>
 
     <tr>
-      <td valign=\"top\">[Vaske1973]</td>
-      <td valign=\"top\">P. Vaske
-        <i>Berechnung von Drehstromschaltungen</i>,
+      <td>[Vaske1973]</td>
+      <td>P. Vaske
+        <em>Berechnung von Drehstromschaltungen</em>,
        B.G. Teubner Verlag, 1973.</td>
     </tr>
 
@@ -516,39 +536,21 @@ ideal AC DC converter</a>, which is used in the
     extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
+<h4>Library officers and main authors</h4>
 
-<p>This package is developed an maintained by the following contributors</p>
+<p>
+<strong>Anton Haumer</strong><br>
+<a href=\"https://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
+D-93049 Regensburg, Germany<br>
+email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
+</p>
 
-  <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-    <tr>
-      <th></th>
-      <th>Name</th>
-      <th>Affiliation</th>
-    </tr>
-    <tr>
-      <td valign=\"top\">Library officer</td>
-      <td valign=\"top\">
-      <a href=\"mailto:a.haumer@haumer.at\">Anton Haumer</a>
-      </td>
-      <td valign=\"top\">
-        <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
-        3423 St.Andrae-Woerdern<br>
-        Austria
-      </td>
-    </tr>
-    <tr>
-      <td valign=\"top\">Library officer</td>
-      <td valign=\"top\">
-        <a href=\"mailto:dr.christian.kral@gmail.com\">Christian Kral</a>
-      </td>
-      <td valign=\"top\">
-        <a href=\"http://christiankral.net\">Electric Machines, Drives and Systems</a><br>
-        1060 Vienna<br>
-        Austria
-      </td>
-    </tr>
-  </table>
-
+<p>
+<strong>Dr. Christian Kral</strong><br>
+<a href=\"https://christiankral.net/\">Electric Machines, Drives and Systems</a><br>
+A-1060 Vienna, Austria<br>
+email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a>
+</p>
 </html>"));
   end Contact;
 

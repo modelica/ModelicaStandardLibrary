@@ -11,12 +11,12 @@ package MultiPhase "Library for electrical components of one or more phases"
         DocumentationClass=true,
         Documentation(info="<html>
 <p>
-<b>In multiphase systems, the angular displacement of voltages and currents of the phases as well as the spatial displacement of machine windings have to follow the same rules, i.e., they are based on the same
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">orientation function</a>.</b>
+<strong>In multiphase systems, the angular displacement of voltages and currents of the phases as well as the spatial displacement of machine windings have to follow the same rules, i.e., they are based on the same
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">orientation function</a>.</strong>
 </p>
 <h4>Symmetrical three phase system</h4>
 <p>
-A symmetrical three phases system consists of three sinusoidal sine waves with with an angular displacement of 2 &pi; / 3.
+A symmetrical three phases system consists of three sinusoidal sine waves with an angular displacement of 2 &pi; / 3.
 </p>
 <h4>Symmetrical multi phase system</h4>
 <p>
@@ -24,7 +24,7 @@ In symmetrical multi phase systems odd and even phase numbers have to be disting
 </p>
 <h5>Odd number of phases</h5>
 <p>
-For a symmetrical multi phase system with m phases the displacement of the sinewaves is 2 &pi; / m.
+For a symmetrical multi phase system with m phases the displacement of the sine waves is 2 &pi; / m.
 </p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\"><strong>Fig. 1: </strong>Symmetrical (a) three phase and (b) five phase current system</caption>
@@ -44,7 +44,7 @@ The number of phases m can be divided by 2 recursively until the result is eithe
 The number of base systems n<sub>Base</sub> is defined by the number of divisions, i.e., m = n<sub>Base</sub> * m<sub>Base</sub>.
 </p>
 <p>
-For a base system with m<sub>Base</sub> phases the displacement of the sinewaves belongig to that base system is 2 &pi; / m<sub>Base</sub>.
+For a base system with m<sub>Base</sub> phases the displacement of the sine waves belonging to that base system is 2 &pi; / m<sub>Base</sub>.
 </p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\"><strong>Fig. 2: </strong>Symmetrical (a) six and (b) ten phase current system</caption>
@@ -73,7 +73,7 @@ In case of  m<sub>Base</sub> &gt; 2, the components [2..m<sub>Base</sub> - 1] ar
 and the last component [m<sub>Base</sub>] is the zero sequence component.
 </p>
 <p>
-This set of symmterical components is repeated for each of the n<sub>Base</sub> base systems.
+This set of symmetrical components is repeated for each of the n<sub>Base</sub> base systems.
 </p>
 <h4>See also</h4>
 <p>
@@ -86,23 +86,21 @@ This set of symmterical components is repeated for each of the n<sub>Base</sub> 
       extends Modelica.Icons.Contact;
       annotation (preferredView="info",
         DocumentationClass=true, Documentation(info="<html>
-<h4>Contact</h4>
+<h4>Main authors</h4>
 
 <p>
-Christian Kral<br>
+<strong>Dr. Christian Kral</strong><br>
 Electric Machines, Drives and Systems<br>
 1060 Vienna, Austria<br>
-email: <a HREF=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a><br>
+email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a><br>
 </p>
 
 <p>
-Anton Haumer<br>
-<a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
-93049 Regensburg, Germany<br>
-3423 St. Andrae-Woerdern, Austria<br>
-email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
+<strong>Anton Haumer</strong><br>
+<a href=\"https://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
+D-93049 Regensburg, Germany<br>
+email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </p>
-
 </html>"));
     end Contact;
 
@@ -111,18 +109,19 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       annotation (preferredView="info",
         DocumentationClass=true, Documentation(info="<html>
 
-<h5>Version 3.2.2, 2017-03-05 (Anton Haumer, Christian Kral)</h5>
+<h5>Version 3.2.3, 2019-01-23 (Anton Haumer, Christian Kral)</h5>
 <ul>
+  <li>Shortened default component names, see
+      <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2301\">#2301</a></li>
 <li>Removed redundant (and not identical) parameter m from
     <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
-    see #2202</li>
-<li>Changed epsiolon from constant to parameter in 
+    see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2202\">#2202</a></li>
+<li>Changed epsilon from constant to parameter in
     <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
-    see #2200</li>
+    see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2200\">#2200</a></li>
 <li>Added User's Guide</li>
 <li>Added blocks and functions for multiple base systems</li>
 </ul>
-
 
 <h5>Version 1.4.0, 2009-08-26 (Anton Haumer)</h5>
 <ul>
@@ -169,10 +168,10 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
-      <td valign=\"top\">[Vaske1963]</td>
-      <td valign=\"top\">P. Vaske,
+      <td>[Vaske1963]</td>
+      <td>P. Vaske,
         &quot;&Uuml;ber die Drehfelder und Drehmomente symmetrischer Komponenten in Induktionsmaschinen,&quot;
-        (in German), <i>Archiv f&uuml;r Elektrotechnik</i>
+        (in German), <em>Archiv f&uuml;r Elektrotechnik</em>
         vol 2, 1963, pp. 97-117.</td>
     </tr>
 </table>
@@ -377,39 +376,46 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
 
     model Rectifier "Test example with multiphase components"
       extends Modelica.Icons.Example;
-      parameter Integer m=3 "Number of phases";
-      parameter Modelica.SIunits.Voltage V=1 "Amplitude of Star-Voltage";
-      parameter Modelica.SIunits.Frequency f=5 "Frequency";
-      parameter Modelica.SIunits.Inductance L=0.001 "Line Inductance";
+      import Modelica.Electrical.MultiPhase.Functions.factorY2DC;
+      final parameter Integer m=3 "Number of phases";
+      parameter Modelica.SIunits.Voltage V=100 "RMS of Star-Voltage";
+      parameter Modelica.SIunits.Frequency f=50 "Frequency";
+      parameter Modelica.SIunits.Inductance L=0.0001 "Line Inductance";
       parameter Modelica.SIunits.Resistance RL=2 "Load Resistance";
-      parameter Modelica.SIunits.Capacitance C=0.05 "Total DC-Capacitance";
+      parameter Modelica.SIunits.Capacitance C=0.005 "Total DC-Capacitance";
       parameter Modelica.SIunits.Resistance RE=1E6 "Earthing Resistance";
-      parameter Modelica.SIunits.Resistance Ron=1.E-5 "Closed diode resistance";
-      parameter Modelica.SIunits.Conductance Goff=1.E-5
+      parameter Modelica.SIunits.Resistance Ron=1e-5 "Closed diode resistance";
+      parameter Modelica.SIunits.Conductance Goff=1e-5
         "Opened diode conductance";
       parameter Modelica.SIunits.Voltage Vknee=0 "Threshold diode voltage";
-
+      final parameter Modelica.SIunits.Voltage VDC=factorY2DC(m)*V "Estimated average DC voltage";
+      final parameter Modelica.SIunits.Current IDC=VDC/RL "Estimated average DC current";
       Sources.SineVoltage sineVoltage(
         m=m,
-        V=fill(V, m),
-        freqHz=fill(f, m)) annotation (Placement(transformation(extent={{-70,10},
-                {-90,-10}})));
+        freqHz=fill(f, m),
+        V=sqrt(2)*fill(V, m))
+                           annotation (Placement(transformation(extent={{10,10},{-10,
+                -10}},
+            rotation=90,
+            origin={-90,-50})));
       Basic.Star starS(m=m) annotation (Placement(transformation(
-            origin={-90,-50},
+            origin={-90,-80},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Basic.Inductor supplyL(m=m, L=fill(L, m)) annotation (Placement(
-            transformation(extent={{-52,-10},{-32,10}})));
+            transformation(extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-90,-20})));
       Ideal.IdealDiode idealDiode1(
         m=m,
         Ron=fill(Ron, m),
         Goff=fill(Goff, m),
         Vknee=fill(Vknee, m)) annotation (Placement(transformation(
-            origin={10,20},
+            origin={40,20},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Basic.Star star1(m=m) annotation (Placement(transformation(
-            origin={10,50},
+            origin={40,50},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Ideal.IdealDiode idealDiode2(
@@ -417,71 +423,106 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
         Ron=fill(Ron, m),
         Goff=fill(Goff, m),
         Vknee=fill(Vknee, m)) annotation (Placement(transformation(
-            origin={10,-20},
+            origin={40,-20},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Basic.Star star2(m=m) annotation (Placement(transformation(
-            origin={10,-50},
+            origin={40,-50},
             extent={{-10,10},{10,-10}},
             rotation=270)));
       Modelica.Electrical.Analog.Basic.Resistor loadR(R=RL) annotation (
           Placement(transformation(
-            origin={50,0},
+            origin={60,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Electrical.Analog.Basic.Capacitor cDC1(C=2*C) annotation (
           Placement(transformation(
-            origin={70,30},
+            origin={80,30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Electrical.Analog.Basic.Capacitor cDC2(C=2*C) annotation (
           Placement(transformation(
-            origin={70,-30},
+            origin={80,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Electrical.Analog.Basic.Ground groundDC annotation (Placement(
             transformation(extent={{80,-80},{100,-60}})));
+      Machines.Sensors.ElectricalPowerSensor powerSensorSpacePhasor annotation (
+          Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            origin={-40,0})));
+      Sensors.AronSensor aronSensor annotation (Placement(transformation(
+            extent={{10,10},{-10,-10}},
+            rotation=180,
+            origin={-12,0})));
+      Sensors.PowerSensor powerSensor(m=m) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            origin={-70,0})));
+      Sensors.ReactivePowerSensor reactivePowerSensor annotation (Placement(
+            transformation(
+            extent={{10,10},{-10,-10}},
+            rotation=180,
+            origin={20,0})));
     initial equation
-      cDC1.v = 0;
-      cDC2.v = 0;
-      supplyL.i[1:m - 1] = zeros(m - 1) "Y-connection";
-
+      cDC1.v = VDC/2;
+      cDC2.v = VDC/2;
+    //supplyL.i[1:m - 1] = zeros(m - 1) "Y-connection";
+      supplyL.i[2]=-IDC;
+      supplyL.i[3]= IDC;
     equation
       connect(cDC1.n, cDC2.p)
-        annotation (Line(points={{70,20},{70,-20}}, color={0,0,255}));
-      connect(cDC1.n, groundDC.p) annotation (Line(points={{70,20},{70,0},{90,0},
-              {90,-60}}, color={0,0,255}));
+        annotation (Line(points={{80,20},{80,-20}}, color={0,0,255}));
+      connect(cDC1.n, groundDC.p) annotation (Line(points={{80,20},{80,0},{90,0},{90,
+              -60}},     color={0,0,255}));
       connect(starS.plug_p, sineVoltage.plug_n)
-        annotation (Line(points={{-90,-40},{-90,0}}, color={0,0,255}));
+        annotation (Line(points={{-90,-70},{-90,-60}},
+                                                     color={0,0,255}));
       connect(sineVoltage.plug_p, supplyL.plug_p)
-        annotation (Line(points={{-70,0},{-52,0}}, color={0,0,255}));
-      connect(idealDiode1.plug_p, supplyL.plug_n)
-        annotation (Line(points={{10,10},{10,0},{-32,0}}, color={0,0,255}));
-      connect(idealDiode2.plug_n, supplyL.plug_n)
-        annotation (Line(points={{10,-10},{10,0},{-32,0}}, color={0,0,255}));
+        annotation (Line(points={{-90,-40},{-90,-30}},
+                                                   color={0,0,255}));
       connect(idealDiode1.plug_n, star1.plug_p)
-        annotation (Line(points={{10,30},{10,40}}, color={0,0,255}));
-      connect(idealDiode2.plug_p, star2.plug_p) annotation (Line(points={{10,-30},
-              {10,-35},{10,-40}}, color={0,0,255}));
-      connect(star2.pin_n, loadR.n) annotation (Line(points={{10,-60},{50,-60},
-              {50,-10}}, color={0,0,255}));
-      connect(star2.pin_n, cDC2.n) annotation (Line(points={{10,-60},{70,-60},{
-              70,-40}}, color={0,0,255}));
+        annotation (Line(points={{40,30},{40,40}}, color={0,0,255}));
+      connect(idealDiode2.plug_p, star2.plug_p) annotation (Line(points={{40,-30},{40,
+              -40}},              color={0,0,255}));
+      connect(star2.pin_n, loadR.n) annotation (Line(points={{40,-60},{60,-60},{60,-10}},
+                         color={0,0,255}));
+      connect(star2.pin_n, cDC2.n) annotation (Line(points={{40,-60},{80,-60},{80,-40}},
+                        color={0,0,255}));
       connect(star1.pin_n, loadR.p)
-        annotation (Line(points={{10,60},{50,60},{50,10}}, color={0,0,255}));
+        annotation (Line(points={{40,60},{60,60},{60,10}}, color={0,0,255}));
       connect(star1.pin_n, cDC1.p)
-        annotation (Line(points={{10,60},{70,60},{70,40}}, color={0,0,255}));
+        annotation (Line(points={{40,60},{80,60},{80,40}}, color={0,0,255}));
+      connect(idealDiode1.plug_p, idealDiode2.plug_n)
+        annotation (Line(points={{40,10},{40,-10}}, color={0,0,255}));
+      connect(supplyL.plug_n, powerSensor.pc)
+        annotation (Line(points={{-90,-10},{-90,0},{-80,0}}, color={0,0,255}));
+      connect(powerSensor.nc, powerSensorSpacePhasor.plug_p)
+        annotation (Line(points={{-60,0},{-50,0}}, color={0,0,255}));
+      connect(powerSensorSpacePhasor.plug_ni, aronSensor.plug_p)
+        annotation (Line(points={{-30,0},{-22,0}}, color={0,0,255}));
+      connect(aronSensor.plug_n, reactivePowerSensor.plug_p)
+        annotation (Line(points={{-2,0},{10,0}}, color={0,0,255}));
+      connect(idealDiode1.plug_p, reactivePowerSensor.plug_n)
+        annotation (Line(points={{40,10},{40,0},{30,0}}, color={0,0,255}));
+      connect(powerSensor.pc, powerSensor.pv)
+        annotation (Line(points={{-80,0},{-80,10},{-70,10}}, color={0,0,255}));
+      connect(starS.plug_p, powerSensor.nv)
+        annotation (Line(points={{-90,-70},{-70,-70},{-70,-10}}, color={0,0,255}));
+      connect(starS.plug_p, powerSensorSpacePhasor.plug_nv)
+        annotation (Line(points={{-90,-70},{-40,-70},{-40,-10}}, color={0,0,255}));
       annotation (Documentation(info="<html>
 <p>
 Test example with multiphase components:<br>
 Star-connected voltage source feeds via a line reactor a diode bridge rectifier with a DC burden.<br>
-Using f=5 Hz, simulate for 1 second (2 periods) and compare voltages and currents of source and DC burden,
-neglecting initial transient.
+Using f=50 Hz, simulate for 0.1 second and compare voltages and currents of source and DC burden, neglecting initial transient.<br>
+We may also compare: Active power measured by powerSensor, powerSensorSpacePhasor and aronSensor,
+as well as reactive power measured by powerSensorSpacePhasor and reactivePowerSensor.
 </p>
-</html>"), experiment(StopTime=1.0, Interval=0.0001));
+</html>"), experiment(StopTime=0.1, Interval=1e-005));
     end Rectifier;
 
     model TestSensors
+      import Modelica;
       extends Modelica.Icons.Example;
       constant Integer m=3 "Number of phases";
       import Modelica.Constants.pi;
@@ -489,15 +530,17 @@ neglecting initial transient.
         "Nominal RMS voltage per phase";
       parameter Modelica.SIunits.Frequency f=50 "Frequency";
       parameter Modelica.SIunits.Resistance R=1/sqrt(2) "Load resistance";
-      parameter Modelica.SIunits.Inductance L=1/sqrt(2)/(2*pi*f)
-        "Load inductance";
-      final parameter Modelica.SIunits.Current IRMS=VRMS/sqrt(R^2 + (2*pi*f*L)^
-          2) "Steady state RMS current";
+      parameter Modelica.SIunits.Inductance L=1/sqrt(2)/(2*pi*f) "Load inductance";
+      final parameter Modelica.SIunits.Impedance Z=sqrt(R^2 + (2*pi*f*L)^2) "Load impedance";
+      final parameter Modelica.SIunits.Current IRMS=VRMS/Z "Steady state RMS current";
+      final parameter Modelica.SIunits.ActivePower P=3*R*IRMS^2 "Total active power";
+      final parameter Modelica.SIunits.ReactivePower Q=3*(2*pi*f*L)*IRMS^2 "Total reactive power";
+      final parameter Modelica.SIunits.ApparentPower S=3*Z*IRMS^2 "Total apparent power";
       Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
         final m=m,
         V=fill(sqrt(2)*VRMS, m),
         freqHz=fill(f, m)) annotation (Placement(transformation(
-            origin={-20,70},
+            origin={-20,-30},
             extent={{10,-10},{-10,10}},
             rotation=90)));
       Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
@@ -513,55 +556,78 @@ neglecting initial transient.
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={20,-10})));
+            origin={20,-20})));
       Modelica.Electrical.MultiPhase.Basic.Inductor inductor(m=m, L=fill(L, m))
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={20,-40})));
+            origin={20,-50})));
       Modelica.Electrical.MultiPhase.Basic.Star starLoad(m=m) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={20,-70})));
+            origin={20,-80})));
       Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor
         currentQuasiRMSSensor(m=m) annotation (Placement(transformation(
             extent={{-10,10},{10,-10}},
-            rotation=270,
-            origin={20,70})));
+            rotation=90,
+            origin={-20,40})));
       Modelica.Blocks.Math.Feedback feedbackI
-        annotation (Placement(transformation(extent={{70,60},{90,80}})));
+        annotation (Placement(transformation(extent={{-70,30},{-90,50}})));
       Modelica.Blocks.Sources.Constant constI(k=IRMS) annotation (Placement(
             transformation(
             extent={{10,-10},{-10,10}},
             rotation=270,
-            origin={80,40})));
+            origin={-80,10})));
 
       Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensor(m=m) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={-50,70})));
+            origin={-50,-30})));
       Modelica.Blocks.Math.Feedback feedbackV
-        annotation (Placement(transformation(extent={{-70,60},{-90,80}})));
+        annotation (Placement(transformation(extent={{-70,-40},{-90,-20}})));
       Modelica.Blocks.Sources.Constant constV(k=VRMS) annotation (Placement(
             transformation(
             extent={{10,-10},{-10,10}},
             rotation=270,
-            origin={-80,40})));
+            origin={-80,-60})));
       Sensors.PowerSensor powerSensor(m=m) annotation (Placement(transformation(
             extent={{10,-10},{-10,10}},
             rotation=90,
-            origin={20,20})));
+            origin={20,10})));
       Modelica.Blocks.Math.Feedback feedbackP
-        annotation (Placement(transformation(extent={{50,10},{70,30}})));
+        annotation (Placement(transformation(extent={{40,10},{60,30}})));
       Modelica.Blocks.Sources.RealExpression realExpression(y=
             Modelica.Electrical.MultiPhase.Functions.activePower(
             voltageQuasiRMSSensor.v, currentQuasiRMSSensor.i)) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
-            origin={60,-10})));
+            origin={50,-20})));
+      Machines.Sensors.ElectricalPowerSensor powerSensorSpacePhasor annotation (
+          Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-20,70})));
+      Modelica.Blocks.Math.Feedback feedbackSpacePhasor annotation (Placement(
+            transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=180,
+            origin={-60,60})));
+      Sensors.AronSensor aronSensor annotation (Placement(transformation(
+            extent={{10,-10},{-10,10}},
+            rotation=90,
+            origin={20,40})));
+      Modelica.Blocks.Math.Feedback feedbackAron
+        annotation (Placement(transformation(extent={{80,30},{100,50}})));
+      Sensors.ReactivePowerSensor reactivePowerSensor annotation (Placement(
+            transformation(
+            extent={{10,-10},{-10,10}},
+            rotation=90,
+            origin={20,70})));
+      Modelica.Blocks.Math.Feedback feedbackQ
+        annotation (Placement(transformation(extent={{40,80},{60,60}})));
     initial equation
       for k in 1:m - 1 loop
         inductor.i[k] = 0;
@@ -570,61 +636,68 @@ neglecting initial transient.
     equation
       connect(star.pin_n, ground.p)
         annotation (Line(points={{-20,-80},{-20,-90}}, color={0,0,255}));
-      connect(sineVoltage.plug_n, star.plug_p)
-        annotation (Line(points={{-20,60},{-20,-60}}, color={0,0,255}));
 
       connect(resistor.plug_n, inductor.plug_p) annotation (Line(
-          points={{20,-20},{20,-30}},
-          color={0,0,255}));
+          points={{20,-30},{20,-40}}, color={0,0,255}));
       connect(inductor.plug_n, starLoad.plug_p) annotation (Line(
-          points={{20,-50},{20,-60}},
-          color={0,0,255}));
-      connect(currentQuasiRMSSensor.I, feedbackI.u1) annotation (Line(
-          points={{30,70},{72,70}},
-          color={0,0,127}));
-      connect(feedbackI.u2, constI.y) annotation (Line(
-          points={{80,62},{80,51}},
-          color={0,0,127}));
-      connect(sineVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation (
-          Line(
-          points={{-20,80},{-20,90},{20,90},{20,80}},
-          color={0,0,255}));
+          points={{20,-60},{20,-70}}, color={0,0,255}));
       connect(voltageQuasiRMSSensor.plug_n, sineVoltage.plug_n) annotation (
           Line(
-          points={{-50,60},{-20,60}},
-          color={0,0,255}));
+          points={{-50,-40},{-20,-40}},
+                                      color={0,0,255}));
       connect(voltageQuasiRMSSensor.plug_p, sineVoltage.plug_p) annotation (
           Line(
-          points={{-50,80},{-20,80}},
-          color={0,0,255}));
+          points={{-50,-20},{-20,-20}},
+                                      color={0,0,255}));
       connect(feedbackV.u1, voltageQuasiRMSSensor.V) annotation (Line(
-          points={{-72,70},{-60,70}},
-          color={0,0,127}));
+          points={{-72,-30},{-61,-30}},
+                                      color={0,0,127}));
       connect(constV.y, feedbackV.u2) annotation (Line(
-          points={{-80,51},{-80,62}},
-          color={0,0,127}));
+          points={{-80,-49},{-80,-38}},
+                                      color={0,0,127}));
       connect(powerSensor.nc, resistor.plug_p) annotation (Line(
-          points={{20,10},{20,0}},
-          color={0,0,255}));
-      connect(currentQuasiRMSSensor.plug_n, powerSensor.pc) annotation (Line(
-          points={{20,60},{20,30}},
-          color={0,0,255}));
+          points={{20,0},{20,-10}},color={0,0,255}));
       connect(powerSensor.pc, powerSensor.pv) annotation (Line(
-          points={{20,30},{10,30},{10,20}},
-          color={0,0,255}));
+          points={{20,20},{10,20},{10,10}}, color={0,0,255}));
       connect(powerSensor.nv, starLoad.plug_p) annotation (Line(
-          points={{30,20},{30,-60},{20,-60}},
-          color={0,0,255}));
+          points={{30,10},{30,-70},{20,-70}}, color={0,0,255}));
       connect(powerSensor.power, feedbackP.u1) annotation (Line(
-          points={{31,28},{40,28},{40,20},{52,20}},
-          color={0,0,127}));
-      connect(realExpression.y, feedbackP.u2) annotation (Line(
-          points={{60,1},{60,12}},
-          color={0,0,127}));
-      annotation (experiment(StopTime=0.1, Interval=0.0001), Documentation(info=
-             "<html>
+          points={{31,20},{42,20}},                 color={0,0,127}));
+      connect(aronSensor.plug_n, powerSensor.pc)
+        annotation (Line(points={{20,30},{20,20}}, color={0,0,255}));
+      connect(sineVoltage.plug_n, star.plug_p)
+        annotation (Line(points={{-20,-40},{-20,-60}}, color={0,0,255}));
+      connect(feedbackI.u2, constI.y)
+        annotation (Line(points={{-80,32},{-80,21}}, color={0,0,127}));
+      connect(feedbackI.u1, currentQuasiRMSSensor.I)
+        annotation (Line(points={{-72,40},{-31,40}}, color={0,0,127}));
+      connect(currentQuasiRMSSensor.plug_p, sineVoltage.plug_p)
+        annotation (Line(points={{-20,30},{-20,-20}}, color={0,0,255}));
+      connect(feedbackP.u2, realExpression.y)
+        annotation (Line(points={{50,12},{50,-9}},  color={0,0,127}));
+      connect(powerSensorSpacePhasor.plug_p, currentQuasiRMSSensor.plug_n)
+        annotation (Line(points={{-20,60},{-20,50}}, color={0,0,255}));
+      connect(powerSensorSpacePhasor.plug_nv, starLoad.plug_p) annotation (Line(
+            points={{-10,70},{-10,70},{0,70},{0,-70},{20,-70}}, color={0,0,255}));
+      connect(powerSensorSpacePhasor.plug_ni, reactivePowerSensor.plug_p)
+        annotation (Line(points={{-20,80},{20,80}}, color={0,0,255}));
+      connect(reactivePowerSensor.plug_n, aronSensor.plug_p)
+        annotation (Line(points={{20,60},{20,50}}, color={0,0,255}));
+      connect(reactivePowerSensor.reactivePower, feedbackQ.u1)
+        annotation (Line(points={{31,70},{42,70}}, color={0,0,127}));
+      connect(powerSensorSpacePhasor.Q, feedbackQ.u2) annotation (Line(points={{-31,
+              75},{-40,75},{-40,90},{50,90},{50,78}}, color={0,0,127}));
+      connect(aronSensor.power, feedbackAron.u1)
+        annotation (Line(points={{31,40},{82,40}}, color={0,0,127}));
+      connect(feedbackSpacePhasor.u1, powerSensorSpacePhasor.P) annotation (Line(
+            points={{-52,60},{-40,60},{-40,65},{-31,65}}, color={0,0,127}));
+      connect(realExpression.y, feedbackAron.u2)
+        annotation (Line(points={{50,-9},{50,0},{90,0},{90,32}}, color={0,0,127}));
+      connect(realExpression.y, feedbackSpacePhasor.u2) annotation (Line(points={{50,
+              -9},{50,0},{70,0},{70,98},{-60,98},{-60,68}}, color={0,0,127}));
+      annotation (experiment(StopTime=0.1, Interval=0.0001), Documentation(info="<html>
 <p>
-Test multiphase quasiRMS sensors: A sinusoidal source feeds a load consisting of resistor and inductor.
+Test multiphase quasiRMS and power sensors: A sinusoidal source feeds a load consisting of resistor and inductor.
 </p>
 </html>"));
     end TestSensors;
@@ -635,25 +708,19 @@ This package contains test examples of analog electrical multiphase circuits.
 
 </html>", revisions="<html>
 <dl>
-  <dt><b>Main Authors:</b></dt>
+  <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><b>Release Notes:</b></dt>
+  <dt><strong>Release Notes:</strong></dt>
   <dd>
   <ul>
   <li> v1.0 2004/10/01 Anton Haumer</li>
   </ul>
   </dd>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
 </dl>
 </html>"));
   end Examples;
@@ -676,7 +743,7 @@ This package contains test examples of analog electrical multiphase circuits.
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Text(
-              extent={{-100,60},{100,100}},
+              extent={{-150,70},{150,110}},
               textString="%name",
               lineColor={0,0,255}),
             Line(
@@ -692,8 +759,7 @@ This package contains test examples of analog electrical multiphase circuits.
               thickness=0.5,
               color={0,0,255}),
             Text(
-              extent={{-100,-110},{100,-70}},
-              lineColor={0,0,0},
+              extent={{-150,-110},{150,-70}},
               textString="m=%m"),
             Line(points={{-90,0},{-40,0}}, color={0,0,255}),
             Line(points={{80,0},{90,0}}, color={0,0,255})}), Documentation(info=
@@ -731,20 +797,19 @@ Connects all pins of plug_p to pin_n, thus establishing a so-called star-connect
       end for;
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Text(
-              extent={{-100,60},{100,100}},
-              lineColor={0,0,255},
-              textString="%name"),
             Line(
               points={{-40,68},{-40,-70},{79,0},{-40,68},{-40,67}},
               thickness=0.5,
               color={0,0,255}),
-            Text(
-              extent={{-100,-110},{100,-70}},
-              lineColor={0,0,0},
-              textString="m=%m"),
             Line(points={{-90,0},{-40,0}}, color={0,0,255}),
-            Line(points={{80,0},{90,0}}, color={0,0,255})}), Documentation(info=
+            Line(points={{80,0},{90,0}}, color={0,0,255}),
+            Text(
+              extent={{-150,-110},{150,-70}},
+              textString="m=%m"),
+            Text(
+              extent={{-150,70},{150,110}},
+              textString="%name",
+              lineColor={0,0,255})}), Documentation(info=
              "<html>
 <p>
 Connects in a cyclic way plug_n.pin[j] to plug_p.pin[j+1],
@@ -783,14 +848,6 @@ when used in parallel to another component.
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
-            Text(
-              extent={{-100,60},{100,100}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-100,-110},{100,-70}},
-              lineColor={0,0,0},
-              textString="m=%m"),
             Line(
               points={{74,-4},{-6,-4}},
               thickness=0.5,
@@ -816,7 +873,14 @@ when used in parallel to another component.
             Line(
               points={{6,4},{-32,-65}},
               thickness=0.5,
-              color={0,0,255})}),
+              color={0,0,255}),
+            Text(
+              extent={{-150,-110},{150,-70}},
+              textString="m=%m"),
+            Text(
+              extent={{-150,70},{150,110}},
+              textString="%name",
+              lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 Star (wye) connection of a multi phase circuit consisting of multiple base systems (see
@@ -853,14 +917,6 @@ Star (wye) connection of a multi phase circuit consisting of multiple base syste
       end for;
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Text(
-              extent={{-100,60},{100,100}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Text(
-              extent={{-100,-110},{100,-70}},
-              lineColor={0,0,0},
-              textString="m=%m"),
             Line(points={{-90,0},{-46,0}}, color={0,0,255}),
             Line(
               points={{-44,62},{-44,-76},{75,-6},{-44,62},{-44,61}},
@@ -870,7 +926,15 @@ Star (wye) connection of a multi phase circuit consisting of multiple base syste
             Line(
               points={{-36,74},{-36,-64},{83,6},{-36,74},{-36,73}},
               thickness=0.5,
-              color={0,0,255})}), Documentation(info="<html>
+              color={0,0,255}),
+            Text(
+              extent={{-150,-110},{150,-70}},
+              textString="m=%m"),
+            Text(
+              extent={{-150,70},{150,110}},
+              textString="%name",
+              lineColor={0,0,255})}),
+                                  Documentation(info="<html>
 <p>
 Delta (polygon) connection of a multi phase circuit consisting of multiple base systems (see
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi phase guidelines</a>).
@@ -911,19 +975,15 @@ Delta (polygon) connection of a multi phase circuit consisting of multiple base 
             origin={100,0})));
     equation
       connect(plug, multiStar.plug_p) annotation (Line(
-          points={{-100,0},{-100,0},{-60,0},{-60,0}},
-          color={0,0,255}));
+          points={{-100,0},{-100,0},{-60,0},{-60,0}}, color={0,0,255}));
       connect(multiStar.starpoints, resistor.plug_p) annotation (Line(
-          points={{-40,0},{-40,0},{-10,0}},
-          color={0,0,255}));
+          points={{-40,0},{-40,0},{-10,0}}, color={0,0,255}));
       connect(resistor.plug_n, star.plug_p) annotation (Line(
-          points={{10,0},{10,0},{34,0},{34,0},{40,0},{40,0}},
-          color={0,0,255}));
+          points={{10,0},{10,0},{34,0},{34,0},{40,0},{40,0}}, color={0,0,255}));
       connect(star.pin_n, pin) annotation (Line(
           points={{60,0},{60,0},{98,0},{98,0},{100,0},{100,
-              0}},
-          color={0,0,255}));
-      annotation (
+              0}}, color={0,0,255}));
+      annotation (defaultComponentName="multiStar",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -941,13 +1001,12 @@ Delta (polygon) connection of a multi phase circuit consisting of multiple base 
               origin={60,0},
               rotation=90),
             Text(
-              extent={{-100,60},{100,100}},
-              textString="%name",
-              lineColor={0,0,255}),
+              extent={{-150,-90},{150,-50}},
+              textString="R=%R"),
             Text(
-              extent={{-100,-110},{100,-70}},
-              lineColor={0,0,0},
-              textString="R=%R")}),
+              extent={{-150,60},{150,100}},
+              textString="%name",
+              lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 Multi star points are connected by resistors. This model is required to operate multi phase systems with even phase numbers to avoid ideal connections of start points of base systems; see
@@ -971,15 +1030,10 @@ Multi star points are connected by resistors. This model is required to operate 
       for j in 1:m loop
         plug_p.pin[j].i = if j == k then -pin_p.i else 0;
       end for;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="plugToPin", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Text(
-              extent={{-100,100},{100,60}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-100,-60},{100,-100}},
-              lineColor={0,0,0},
+              extent={{-150,-30},{150,-70}},
               textString="k = %k"),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}}),
             Rectangle(
@@ -990,13 +1044,16 @@ Multi star points are connected by resistors. This model is required to operate 
               lineColor={0,0,255}),
             Ellipse(
               extent={{-40,20},{0,-20}},
-              lineColor={0,0,0},
               fillColor={215,215,215},
               fillPattern=FillPattern.Solid),
-            Line(points={{-20,20},{40,20},{40,-20},{-20,-20}})}),
+            Line(points={{-20,20},{40,20},{40,-20},{-20,-20}}),
+            Text(
+              extent={{-150,40},{150,80}},
+              textString="%name",
+              lineColor={0,0,255})}),
           Documentation(info="<html>
 <p>
-Connects pin <i>k</i> of plug_p to pin_p, leaving the other pins of plug_p unconnected.
+Connects pin <em>k</em> of plug_p to pin_p, leaving the other pins of plug_p unconnected.
 </p>
 </html>"));
     end PlugToPin_p;
@@ -1016,16 +1073,8 @@ Connects pin <i>k</i> of plug_p to pin_p, leaving the other pins of plug_p uncon
       for j in 1:m loop
         plug_n.pin[j].i = if j == k then -pin_n.i else 0;
       end for;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="plugToPin", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Text(
-              extent={{-100,100},{100,60}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-100,-60},{100,-100}},
-              lineColor={0,0,0},
-              textString="k = %k"),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}}),
             Rectangle(
               extent={{-20,20},{40,-20}},
@@ -1035,13 +1084,19 @@ Connects pin <i>k</i> of plug_p to pin_p, leaving the other pins of plug_p uncon
               lineColor={0,0,255}),
             Ellipse(
               extent={{-40,20},{0,-20}},
-              lineColor={0,0,0},
               fillColor={215,215,215},
               fillPattern=FillPattern.Solid),
-            Line(points={{-20,20},{40,20},{40,-20},{-20,-20}})}),
+            Line(points={{-20,20},{40,20},{40,-20},{-20,-20}}),
+            Text(
+              extent={{-150,40},{150,80}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-150,-30},{150,-70}},
+              textString="k = %k")}),
           Documentation(info="<html>
 <p>
-Connects pin <i>k</i> of plug_n to pin_n, leaving the other pins of plug_n unconnected.
+Connects pin <em>k</em> of plug_n to pin_n, leaving the other pins of plug_n unconnected.
 </p>
 </html>"));
     end PlugToPin_n;
@@ -1055,25 +1110,24 @@ Connects pin <i>k</i> of plug_n to pin_n, leaving the other pins of plug_n uncon
     equation
       pin_p.v = plug_p.pin.v;
       plug_p.pin.i = -pin_p.i;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="plugToPins", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Text(
-              extent={{-100,100},{100,60}},
-              textString="%name",
-              lineColor={0,0,255}),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}}),
             Rectangle(
               extent={{-20,20},{40,-20}},
               pattern=LinePattern.None,
-              fillColor={170,255,255},
+              fillColor={170,213,255},
               fillPattern=FillPattern.Solid,
               lineColor={0,0,255}),
             Ellipse(
               extent={{-40,20},{0,-20}},
-              lineColor={0,0,0},
-              fillColor={170,255,255},
+              fillColor={170,213,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{-20,20},{40,20},{40,-20},{-20,-20}})}),
+            Line(points={{-20,20},{40,20},{40,-20},{-20,-20}}),
+            Text(
+              extent={{-150,40},{150,80}},
+              textString="%name",
+              lineColor={0,0,255})}),
           Documentation(info="<html>
 <p>
 Connects all pins of plug_p to the pin array pin_p.
@@ -1090,25 +1144,24 @@ Connects all pins of plug_p to the pin array pin_p.
     equation
       pin_n.v = plug_n.pin.v;
       plug_n.pin.i = -pin_n.i;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="plugToPins", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Text(
-              extent={{-100,100},{100,60}},
-              textString="%name",
-              lineColor={0,0,255}),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}}),
             Rectangle(
               extent={{-20,20},{40,-20}},
               pattern=LinePattern.None,
-              fillColor={170,255,255},
+              fillColor={170,213,255},
               fillPattern=FillPattern.Solid,
               lineColor={0,0,255}),
             Ellipse(
               extent={{-40,20},{0,-20}},
-              lineColor={0,0,0},
-              fillColor={170,255,255},
+              fillColor={170,213,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{-20,20},{40,20},{40,-20},{-20,-20}})}),
+            Line(points={{-20,20},{40,20},{40,-20},{-20,-20}}),
+            Text(
+              extent={{-150,40},{150,80}},
+              textString="%name",
+              lineColor={0,0,255})}),
           Documentation(info="<html>
 <p>
 Connects all pins of plug_n to the pin array pin_n.
@@ -1130,17 +1183,15 @@ Connects all pins of plug_n to the pin array pin_n.
         final R=R,
         final T_ref=T_ref,
         final alpha=alpha,
-        each final useHeatPort=useHeatPort,
-        final T=T) annotation (Placement(transformation(extent={{-10,-10},{10,
-                10}})));
+        each final useHeatPort=useHeatPort) annotation (Placement(
+            transformation(extent={{-10,-10},{10,10}})));
     equation
       connect(resistor.p, plug_p.pin)
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(resistor.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(resistor.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
+          points={{0,-10},{0,-100}}, color={191,0,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
@@ -1151,13 +1202,12 @@ Connects all pins of plug_n to the pin array pin_n.
             Line(points={{-90,0},{-70,0}}, color={0,0,255}),
             Line(points={{70,0},{90,0}}, color={0,0,255}),
             Text(
-              extent={{-100,60},{100,100}},
-              textString="%name",
-              lineColor={0,0,255}),
+              extent={{-150,-80},{150,-40}},
+              textString="m=%m"),
             Text(
-              extent={{-100,-100},{100,-60}},
-              lineColor={0,0,0},
-              textString="m=%m")}), Documentation(info="<html>
+              extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
 </p>
@@ -1178,17 +1228,15 @@ Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
         final G=G,
         final T_ref=T_ref,
         final alpha=alpha,
-        each final useHeatPort=useHeatPort,
-        final T=T) annotation (Placement(transformation(extent={{-10,-10},{10,
-                10}})));
+        each final useHeatPort=useHeatPort) annotation (Placement(
+            transformation(extent={{-10,-10},{10,10}})));
     equation
       connect(plug_p.pin, conductor.p)
         annotation (Line(points={{-100,0},{-10,0}}, color={0,0,255}));
       connect(plug_n.pin, conductor.n)
         annotation (Line(points={{100,0},{10,0}}, color={0,0,255}));
       connect(conductor.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
+          points={{0,-10},{0,-100}}, color={191,0,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
@@ -1199,13 +1247,12 @@ Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
             Line(points={{-90,0},{-70,0}}, color={0,0,255}),
             Line(points={{70,0},{90,0}}, color={0,0,255}),
             Text(
-              extent={{-100,60},{100,100}},
-              textString="%name",
-              lineColor={0,0,255}),
+              extent={{-150,-80},{150,-40}},
+              textString="m=%m"),
             Text(
-              extent={{-100,-100},{100,-60}},
-              lineColor={0,0,0},
-              textString="m=%m")}), Documentation(info="<html>
+              extent={{-150,50},{150,90}},
+              textString="%name",
+              lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 Contains m conductors (Modelica.Electrical.Analog.Basic.Conductor)
 </p>
@@ -1225,21 +1272,20 @@ Contains m conductors (Modelica.Electrical.Analog.Basic.Conductor)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Text(
-              extent={{-100,60},{100,100}},
-              textString="%name",
-              lineColor={0,0,255}),
             Line(
               points={{-6,28},{-6,-28}},
               color={0,0,255}),
             Line(
               points={{6,28},{6,-28}},
               color={0,0,255}),
-            Line(points={{-90,0},{-6,0}},  color={0,0,255}),
-            Line(points={{6,0},{90,0}},  color={0,0,255}),
+            Line(points={{-90,0},{-6,0}}, color={0,0,255}),
+            Line(points={{6,0},{90,0}}, color={0,0,255}),
             Text(
-              extent={{-100,-100},{100,-60}},
-              lineColor={0,0,0},
+              extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-150,-80},{150,-40}},
               textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m capacitors (Modelica.Electrical.Analog.Basic.Capacitor)
@@ -1259,24 +1305,30 @@ Contains m capacitors (Modelica.Electrical.Analog.Basic.Capacitor)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
-            Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
-            Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
-            Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),
-            Rectangle(
-              extent={{-60,-30},{60,0}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
             Line(points={{60,0},{90,0}}, color={0,0,255}),
             Line(points={{-90,0},{-60,0}}, color={0,0,255}),
             Text(
-              extent={{-100,60},{100,100}},
+              extent={{-150,90},{150,50}},
               textString="%name",
               lineColor={0,0,255}),
+            Line(
+              points={{-60,0},{-59,6},{-52,14},{-38,14},{-31,6},{-30,0}},
+              color={0,0,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{-30,0},{-29,6},{-22,14},{-8,14},{-1,6},{0,0}},
+              color={0,0,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{0,0},{1,6},{8,14},{22,14},{29,6},{30,0}},
+              color={0,0,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{30,0},{31,6},{38,14},{52,14},{59,6},{60,0}},
+              color={0,0,255},
+              smooth=Smooth.Bezier),
             Text(
-              extent={{-100,-100},{100,-60}},
-              lineColor={0,0,0},
+              extent={{-150,-80},{150,-40}},
               textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m inductors (Modelica.Electrical.Analog.Basic.Inductor)
@@ -1305,37 +1357,42 @@ Contains m inductors (Modelica.Electrical.Analog.Basic.Inductor)
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(saturatingInductor.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="inductor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
-            Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
-            Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
-            Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),
-            Rectangle(
-              extent={{-60,-20},{60,0}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
             Line(points={{60,0},{90,0}}, color={0,0,255}),
             Line(points={{-90,0},{-60,0}}, color={0,0,255}),
             Rectangle(
               extent={{-60,-10},{60,-20}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.Sphere,
               fillColor={0,0,255}),
+            Line(
+              points={{-60,0},{-59,6},{-52,14},{-38,14},{-31,6},{-30,0}},
+              color={0,0,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{-30,0},{-29,6},{-22,14},{-8,14},{-1,6},{0,0}},
+              color={0,0,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{0,0},{1,6},{8,14},{22,14},{29,6},{30,0}},
+              color={0,0,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{30,0},{31,6},{38,14},{52,14},{59,6},{60,0}},
+              color={0,0,255},
+              smooth=Smooth.Bezier),
             Text(
-              extent={{-100,60},{100,100}},
+              extent={{-150,-80},{150,-40}},
+              textString="m=%m"),
+            Text(
+              extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-100,-100},{100,-60}},
-              lineColor={0,0,0},
-              textString="m=%m")}), Documentation(info="<html>
+              lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 Contains m saturating inductors (Modelica.Electrical.Analog.Basic.SaturatingInductor)
 </p>
 <p>
-<b>Attention!!!</b><br>
+<strong>Attention!!!</strong><br>
 Each element of the array of saturatingInductors is only dependent on the current flowing through this element.
 </p>
 </html>"));
@@ -1354,11 +1411,11 @@ Each element of the array of saturatingInductors is only dependent on the curren
       for j in 1:m loop
         v[j] = sum(L[j, k]*der(i[k]) for k in 1:m);
       end for;
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="inductor", Documentation(info="<html>
 <p>
 Model of a multi phase inductor providing a mutual inductance matrix model.
 </p>
-<H4>Implementation</H4>
+<h4>Implementation</h4>
 <pre>
   v[1] = L[1,1]*der(i[1]) + L[1,2]*der(i[2]) + ... + L[1,m]*der(i[m])
   v[2] = L[2,1]*der(i[1]) + L[2,2]*der(i[2]) + ... + L[2,m]*der(i[m])
@@ -1367,37 +1424,58 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
 </pre>
 
 </html>"), Icon(graphics={
-            Ellipse(extent={{30,-50},{60,10}}, lineColor={0,0,255}),
-            Ellipse(extent={{0,-50},{30,10}}, lineColor={0,0,255}),
-            Ellipse(extent={{-30,-50},{0,10}}, lineColor={0,0,255}),
-            Ellipse(extent={{-60,-50},{-30,10}}, lineColor={0,0,255}),
             Line(points={{-80,20},{-80,-20},{-60,-20}}, color={0,0,255}),
             Line(points={{-80,20},{-60,20}}, color={0,0,255}),
-            Ellipse(extent={{-60,-10},{-30,50}}, lineColor={0,0,255}),
-            Ellipse(extent={{-30,-10},{0,50}}, lineColor={0,0,255}),
-            Ellipse(extent={{0,-10},{30,50}}, lineColor={0,0,255}),
-            Ellipse(extent={{30,-10},{60,50}}, lineColor={0,0,255}),
             Line(points={{60,20},{80,20}}, color={0,0,255}),
             Line(points={{80,20},{80,-20},{60,-20}}, color={0,0,255}),
-            Rectangle(
-              extent={{-60,0},{60,20}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{-60,-20},{60,0}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
             Line(points={{-90,0},{-80,0}}, color={0,0,255}),
             Line(points={{80,0},{90,0}}, color={0,0,255}),
+            Line(
+              points={{-60,20},{-59,26},{-52,34},{-38,34},{-31,26},{-30,20}},
+              color={0,0,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{-30,20},{-29,26},{-22,34},{-8,34},{-1,26},{0,20}},
+              color={0,0,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{0,20},{1,26},{8,34},{22,34},{29,26},{30,20}},
+              color={0,0,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{30,20},{31,26},{38,34},{52,34},{59,26},{60,20}},
+              color={0,0,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={0,0,255},
+              smooth=Smooth.Bezier,
+              origin={-45,-27},
+              rotation=180),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={0,0,255},
+              smooth=Smooth.Bezier,
+              origin={-15,-27},
+              rotation=180),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={0,0,255},
+              smooth=Smooth.Bezier,
+              origin={15,-27},
+              rotation=180),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={0,0,255},
+              smooth=Smooth.Bezier,
+              origin={45,-27},
+              rotation=180),
             Text(
-              extent={{100,60},{-100,100}},
+              extent={{-150,50},{150,90}},
               textString="%name",
               lineColor={0,0,255}),
             Text(
-              extent={{-100,-100},{100,-60}},
-              lineColor={0,0,0},
+              extent={{-150,-80},{150,-40}},
               textString="m=%m")}));
     end MutualInductor;
 
@@ -1410,29 +1488,28 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
       m*i0 = sum(i);
       v0 = Lzero*der(i0);
       v = fill(v0, m);
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="inductor", Documentation(info="<html>
 <p>
 Model of a multi phase zero sequence inductor.
 </p>
-<H4>Implementation</H4>
+<h4>Implementation</h4>
 <pre>
   v = Lzero*sum(der(i)) = Lzero*der(sum(i))
 </pre>
 
 </html>"), Icon(graphics={
-            Text(
-              extent={{100,60},{-100,100}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-100,-100},{100,-60}},
-              lineColor={0,0,0},
-              textString="m=%m"),
             Line(points={{-90,0},{-50,0}}, color={0,0,255}),
             Line(points={{52,0},{90,0}}, color={0,0,255}),
             Ellipse(extent={{-50,30},{-8,-32}}, lineColor={0,0,255}),
             Ellipse(extent={{-20,30},{22,-32}}, lineColor={0,0,255}),
-            Ellipse(extent={{10,30},{52,-32}}, lineColor={0,0,255})}));
+            Ellipse(extent={{10,30},{52,-32}}, lineColor={0,0,255}),
+            Text(
+              extent={{-150,50},{150,90}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-150,-80},{150,-40}},
+              textString="m=%m")}));
     end ZeroInductor;
 
     model Transformer "Multiphase Transformer"
@@ -1450,38 +1527,13 @@ Model of a multi phase zero sequence inductor.
                 10}})));
     equation
 
-      connect(plug_p1.pin, transformer.p1) annotation (Line(points={{-100,100},
-              {-10,100},{-10,5}}, color={0,0,255}));
+      connect(plug_p1.pin, transformer.p1) annotation (Line(points={{-100,100},{-10,100},{-10,10}}, color={0,0,255}));
       connect(plug_p2.pin, transformer.p2)
-        annotation (Line(points={{100,100},{10,100},{10,5}}, color={0,0,255}));
-      connect(plug_n1.pin, transformer.n1) annotation (Line(points={{-100,-100},
-              {-10,-100},{-10,-5}}, color={0,0,255}));
-      connect(plug_n2.pin, transformer.n2) annotation (Line(points={{100,-100},
-              {10,-100},{10,-5}}, color={0,0,255}));
+        annotation (Line(points={{100,100},{10,100},{10,10}}, color={0,0,255}));
+      connect(plug_n1.pin, transformer.n1) annotation (Line(points={{-100,-100},{-10,-100},{-10,-10}}, color={0,0,255}));
+      connect(plug_n2.pin, transformer.n2) annotation (Line(points={{100,-100},{10,-100},{10,-10}}, color={0,0,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Ellipse(extent={{-45,-50},{-20,-25}}, lineColor={0,0,255}),
-            Ellipse(extent={{-45,-25},{-20,0}}, lineColor={0,0,255}),
-            Ellipse(extent={{-45,0},{-20,25}}, lineColor={0,0,255}),
-            Ellipse(extent={{-45,25},{-20,50}}, lineColor={0,0,255}),
-            Rectangle(
-              extent={{-72,-60},{-33,60}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-90,50},{-32,50}}, color={0,0,255}),
-            Line(points={{-90,-50},{-32,-50}}, color={0,0,255}),
-            Ellipse(extent={{20,-50},{45,-25}}, lineColor={0,0,255}),
-            Ellipse(extent={{20,-25},{45,0}}, lineColor={0,0,255}),
-            Ellipse(extent={{20,0},{45,25}}, lineColor={0,0,255}),
-            Ellipse(extent={{20,25},{45,50}}, lineColor={0,0,255}),
-            Rectangle(
-              extent={{33,-60},{72,60}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{32,50},{90,50}}, color={0,0,255}),
-            Line(points={{32,-50},{90,-50}}, color={0,0,255}),
             Text(
               extent={{-100,20},{-58,-20}},
               textString="L1",
@@ -1491,17 +1543,68 @@ Model of a multi phase zero sequence inductor.
               textString="L2",
               lineColor={0,0,255}),
             Text(
-              extent={{-20,20},{20,-20}},
+              extent={{-20,-60},{20,-100}},
               textString="M",
               lineColor={0,0,255}),
             Text(
-              extent={{-80,-100},{80,-60}},
-              lineColor={0,0,0},
-              textString="m=%m"),
-            Text(
-              extent={{-100,60},{100,100}},
+              extent={{-150,110},{150,150}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              lineColor={0,0,255}),
+            Line(points={{-40,60},{-40,100},{-90,100}}, color={0,0,255}),
+            Line(points={{40,60},{40,100},{90,100}}, color={0,0,255}),
+            Line(points={{-40,-60},{-40,-100},{-90,-100}}, color={0,0,255}),
+            Line(points={{40,-60},{40,-100},{90,-100}}, color={0,0,255}),
+            Text(
+              extent={{-150,-150},{150,-110}},
+              textString="m=%m"),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={0,0,255},
+              smooth=Smooth.Bezier,
+              origin={-33,45},
+              rotation=270),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={0,0,255},
+              smooth=Smooth.Bezier,
+              origin={-33,15},
+              rotation=270),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={0,0,255},
+              smooth=Smooth.Bezier,
+              origin={-33,-15},
+              rotation=270),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={0,0,255},
+              smooth=Smooth.Bezier,
+              origin={-33,-45},
+              rotation=270),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={0,0,255},
+              smooth=Smooth.Bezier,
+              origin={33,45},
+              rotation=90),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={0,0,255},
+              smooth=Smooth.Bezier,
+              origin={33,15},
+              rotation=90),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={0,0,255},
+              smooth=Smooth.Bezier,
+              origin={33,-15},
+              rotation=90),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={0,0,255},
+              smooth=Smooth.Bezier,
+              origin={33,-45},
+              rotation=90)}), Documentation(info="<html>
 <p>
 Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
 </p>
@@ -1519,26 +1622,27 @@ Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
           final mh=m, T=T_ref);
       Modelica.Blocks.Interfaces.RealInput R[m](each unit="Ohm") annotation (
           Placement(transformation(
-            origin={0,100},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
+            origin={0,120},
+            extent={{-20,-20},{20,20}},
+            rotation=270), iconTransformation(
+            extent={{-20,-20},{20,20}},
+            rotation=270,
+            origin={0,120})));
       Modelica.Electrical.Analog.Basic.VariableResistor variableResistor[m](
         final T_ref=T_ref,
         final alpha=alpha,
-        each final useHeatPort=useHeatPort,
-        final T=T) annotation (Placement(transformation(extent={{-10,-10},{10,
-                10}})));
+        each final useHeatPort=useHeatPort) annotation (Placement(
+            transformation(extent={{-10,-10},{10,10}})));
     equation
       connect(variableResistor.p, plug_p.pin)
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(variableResistor.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(R, variableResistor.R)
-        annotation (Line(points={{0,100},{0,11}}, color={0,0,255}));
+        annotation (Line(points={{0,120},{0,56},{0,12}}, color={0,0,255}));
       connect(variableResistor.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          points={{0,-10},{0,-100}}, color={191,0,0}));
+      annotation (defaultComponentName="resistor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Line(points={{-90,0},{-70,0}}, color={0,0,255}),
             Rectangle(
@@ -1547,23 +1651,21 @@ Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Line(points={{70,0},{90,0}}, color={0,0,255}),
-            Line(points={{0,90},{0,30}}, color={0,0,255}),
             Text(
-              extent={{-100,-90},{100,-50}},
+              extent={{-150,-80},{150,-40}},
+              textString="m=%m"),
+            Text(
+              extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-100,40},{100,80}},
-              lineColor={0,0,0},
-              textString="m=%m")}), Documentation(info="<html>
+              lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor)
 </p>
-<P>
-<b>Attention!!!</b><br>
+<p>
+<strong>Attention!!!</strong><br>
   It is recommended that none of the R_Port signals should not cross the zero value.
   Otherwise depending on the surrounding circuit the probability of singularities is high.
-</P>
+</p>
 </html>"));
     end VariableResistor;
 
@@ -1578,26 +1680,27 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
           final mh=m, T=T_ref);
       Modelica.Blocks.Interfaces.RealInput G[m](each unit="S") annotation (
           Placement(transformation(
-            origin={0,100},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
+            origin={0,120},
+            extent={{-20,-20},{20,20}},
+            rotation=270), iconTransformation(
+            extent={{-20,-20},{20,20}},
+            rotation=270,
+            origin={0,120})));
       Modelica.Electrical.Analog.Basic.VariableConductor variableConductor[m](
         final T_ref=T_ref,
         final alpha=alpha,
-        each final useHeatPort=useHeatPort,
-        final T=T) annotation (Placement(transformation(extent={{-10,-10},{10,
-                10}})));
+        each final useHeatPort=useHeatPort) annotation (Placement(
+            transformation(extent={{-10,-10},{10,10}})));
     equation
       connect(variableConductor.p, plug_p.pin)
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(variableConductor.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(G, variableConductor.G)
-        annotation (Line(points={{0,100},{0,11}}, color={0,0,255}));
+        annotation (Line(points={{0,120},{0,56},{0,12}}, color={0,0,255}));
       connect(variableConductor.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          points={{0,-10},{0,-100}}, color={191,0,0}));
+      annotation (defaultComponentName="conductor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Line(points={{-90,0},{-70,0}}, color={0,0,255}),
             Rectangle(
@@ -1606,23 +1709,21 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Line(points={{70,0},{90,0}}, color={0,0,255}),
-            Line(points={{0,90},{0,30}}, color={0,0,255}),
             Text(
-              extent={{-100,-90},{100,-50}},
+              extent={{-150,-80},{150,-40}},
+              textString="m=%m"),
+            Text(
+              extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-100,40},{100,80}},
-              lineColor={0,0,0},
-              textString="m=%m")}), Documentation(info="<html>
+              lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConductor)
 </p>
-<P>
-<b>Attention!!!</b><br>
+<p>
+<strong>Attention!!!</strong><br>
   It is recommended that none of the G_Port signals should not cross the zero value.
   Otherwise depending on the surrounding circuit the probability of singularities is high.
-</P>
+</p>
 </html>"));
     end VariableConductor;
 
@@ -1630,11 +1731,11 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
       "Ideal linear electrical capacitors with variable capacitance"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Capacitance Cmin[m]=fill(Modelica.Constants.eps,
-          m) "minimum Capacitance";
+          m) "Minimum capacitance";
       Modelica.Blocks.Interfaces.RealInput C[m](each unit="F") annotation (
           Placement(transformation(
-            origin={0,100},
-            extent={{-10,-10},{10,10}},
+            origin={0,120},
+            extent={{-20,-20},{20,20}},
             rotation=270)));
       Modelica.Electrical.Analog.Basic.VariableCapacitor variableCapacitor[m](
           final Cmin=Cmin) annotation (Placement(transformation(extent={{-10,-10},
@@ -1645,32 +1746,30 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
       connect(variableCapacitor.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(C, variableCapacitor.C)
-        annotation (Line(points={{0,100},{0,11}}, color={0,0,255}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+        annotation (Line(points={{0,120},{0,56},{0,12}}, color={0,0,255}));
+      annotation (defaultComponentName="capacitor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Line(points={{0,90},{0,30}}, color={0,0,255}),
-            Text(
-              extent={{-100,-100},{100,-60}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-100,40},{100,80}},
-              lineColor={0,0,0},
-              textString="m=%m"),
-            Line(points={{-90,0},{-6,0}},  color={0,0,255}),
-            Line(points={{6,0},{90,0}},  color={0,0,255}),
+            Line(points={{-90,0},{-6,0}}, color={0,0,255}),
+            Line(points={{6,0},{90,0}}, color={0,0,255}),
             Line(points={{-6,28},{-6,-28}}, color={0,0,255}),
-            Line(points={{6,28},{6,-28}}, color={0,0,255})}),
+            Line(points={{6,28},{6,-28}}, color={0,0,255}),
+            Text(
+              extent={{-150,-80},{150,-40}},
+              textString="m=%m"),
+            Text(
+              extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255})}),
                                   Documentation(info="<html>
 <p>
 Contains m variable capacitors (Modelica.Electrical.Analog.Basic.VariableCapacitor)
 </p>
-<P>
+<p>
 It is required that each C_Port.signal &ge; 0, otherwise an
 assertion is raised. To avoid a variable index system,<br>
 C = Cmin, if 0 &le; C_Port.signal &lt; Cmin, where
 Cmin is a parameter with default value Modelica.Constants.eps.
-</P>
+</p>
 </html>"));
     end VariableCapacitor;
 
@@ -1678,12 +1777,15 @@ Cmin is a parameter with default value Modelica.Constants.eps.
       "Ideal linear electrical inductors with variable inductance"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Inductance Lmin[m]=fill(Modelica.Constants.eps,
-          m) "minimum Inductance";
+          m) "Minimum inductance";
       Modelica.Blocks.Interfaces.RealInput L[m](each unit="H") annotation (
           Placement(transformation(
-            origin={0,100},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
+            origin={0,120},
+            extent={{-20,-20},{20,20}},
+            rotation=270), iconTransformation(
+            extent={{-20,-20},{20,20}},
+            rotation=270,
+            origin={0,120})));
       Modelica.Electrical.Analog.Basic.VariableInductor variableInductor[m](
           final Lmin=Lmin) annotation (Placement(transformation(extent={{-10,-10},
                 {10,10}})));
@@ -1694,38 +1796,43 @@ Cmin is a parameter with default value Modelica.Constants.eps.
       connect(variableInductor.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(L, variableInductor.L)
-        annotation (Line(points={{0,100},{0,10.8}}, color={0,0,255}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+        annotation (Line(points={{0,120},{0,56},{0,12}}, color={0,0,255}));
+      annotation (defaultComponentName="inductor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Text(
-              extent={{-100,-100},{100,-60}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-100,40},{100,80}},
-              lineColor={0,0,0},
-              textString="m=%m"),
             Line(points={{-90,0},{-60,0}}, color={0,0,255}),
             Line(points={{60,0},{90,0}}, color={0,0,255}),
-            Line(points={{0,90},{0,8}}, color={0,0,255}),
-            Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
-            Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
-            Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
-            Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),
-            Rectangle(
-              extent={{-60,-30},{60,0}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+            Line(
+              points={{-60,0},{-59,6},{-52,14},{-38,14},{-31,6},{-30,0}},
+              color={0,0,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{-30,0},{-29,6},{-22,14},{-8,14},{-1,6},{0,0}},
+              color={0,0,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{0,0},{1,6},{8,14},{22,14},{29,6},{30,0}},
+              color={0,0,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{30,0},{31,6},{38,14},{52,14},{59,6},{60,0}},
+              color={0,0,255},
+              smooth=Smooth.Bezier),
+            Text(
+              extent={{-150,-80},{150,-40}},
+              textString="m=%m"),
+            Text(
+              extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 Contains m variable inductors (Modelica.Electrical.Analog.Basic.VariableInductor)
 </p>
-<P>
+<p>
 It is required that each L_Port.signal &ge; 0, otherwise an
 assertion is raised. To avoid a variable index system,<br>
 L = Lmin, if 0 &le; L_Port.signal &lt; Lmin, where
 Lmin is a parameter with default value Modelica.Constants.eps.
-</P>
+</p>
 </html>"));
     end VariableInductor;
     annotation (Documentation(info="<html>
@@ -1735,25 +1842,19 @@ This package contains basic analog electrical multiphase components.
 
 </html>", revisions="<html>
 <dl>
-  <dt><b>Main Authors:</b></dt>
+  <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><b>Release Notes:</b></dt>
+  <dt><strong>Release Notes:</strong></dt>
   <dd>
   <ul>
   <li> v1.0 2004/10/01 Anton Haumer</li>
   </ul>
   </dd>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
 </dl>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
@@ -1776,9 +1877,9 @@ This package contains basic analog electrical multiphase components.
     model IdealDiode "Multiphase ideal diode"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Closed diode resistance";
+            fill(1e-5, m)) "Closed diode resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Opened diode conductance";
+            fill(1e-5, m)) "Opened diode conductance";
       parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m), start=
             zeros(m)) "Threshold voltage";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
@@ -1795,26 +1896,24 @@ This package contains basic analog electrical multiphase components.
       connect(idealDiode.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(idealDiode.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
-      annotation (
+          points={{0,-10},{0,-100}}, color={191,0,0}));
+      annotation (defaultComponentName="diode",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
-            Text(
-              extent={{-100,-50},{100,-90}},
-              textString="%name",
-              lineColor={0,0,255}),
             Line(points={{-90,0},{40,0}}, color={0,0,255}),
             Polygon(
               points={{30,0},{-30,40},{-30,-40},{30,0}},
-              lineColor={0,0,0},
+              lineColor={0,0,255},
               fillColor={255,255,255}),
             Line(points={{30,40},{30,-40}}, color={0,0,255}),
             Line(points={{40,0},{90,0}}, color={0,0,255}),
             Text(
-              extent={{-80,100},{80,60}},
-              lineColor={0,0,0},
-              textString="m=%m")}),
+              extent={{-150,-80},{150,-40}},
+              textString="m=%m"),
+            Text(
+              extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
@@ -1825,9 +1924,9 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
     model IdealThyristor "Multiphase ideal thyristor"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Closed thyristor resistance";
+            fill(1e-5, m)) "Closed thyristor resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Opened thyristor conductance";
+            fill(1e-5, m)) "Opened thyristor conductance";
       parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m), start=
             zeros(m)) "Threshold voltage";
       Boolean off[m] = idealThyristor.off "Alias of boolean thyristor off";
@@ -1835,9 +1934,12 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
           final mh=m, final T=fill(293.15, m));
       Modelica.Blocks.Interfaces.BooleanInput fire[m] annotation (Placement(
             transformation(
-            origin={70,110},
+            origin={100,120},
             extent={{-20,-20},{20,20}},
-            rotation=270)));
+            rotation=270), iconTransformation(
+            extent={{-20,-20},{20,20}},
+            rotation=270,
+            origin={100,118})));
       Modelica.Electrical.Analog.Ideal.IdealThyristor idealThyristor[m](
         final Ron=Ron,
         final Goff=Goff,
@@ -1846,34 +1948,32 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
             transformation(extent={{-10,-10},{10,10}})));
     equation
       connect(plug_p.pin, idealThyristor.p) annotation (Line(points={{-100,0},{
-              -60,0},{-38,0},{-10,0}},
-                        color={0,0,255}));
+              -60,0},{-38,0},{-10,0}}, color={0,0,255}));
       connect(idealThyristor.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      connect(fire, idealThyristor.fire) annotation (Line(points={{70,110},{70,
-              80},{7,80},{7,11}}, color={255,0,255}));
+      connect(fire, idealThyristor.fire) annotation (Line(points={{100,120},{100,80},{10,80},{10,12}}, color={255,0,255}));
       connect(idealThyristor.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          points={{0,-10},{0,-100}}, color={191,0,0}));
+      annotation (defaultComponentName="thyristor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Text(
-              extent={{-100,-50},{100,-90}},
-              textString="%name",
-              lineColor={0,0,255}),
             Line(points={{-90,0},{40,0}}, color={0,0,255}),
             Polygon(
               points={{30,0},{-30,40},{-30,-40},{30,0}},
-              lineColor={0,0,0},
+              lineColor={0,0,255},
               fillColor={255,255,255}),
             Line(points={{30,40},{30,-40}}, color={0,0,255}),
             Line(points={{40,0},{90,0}}, color={0,0,255}),
-            Line(points={{40,50},{60,30}}, color={0,0,255}),
-            Line(points={{30,20},{70,60},{70,90}}, color={0,0,255}),
             Text(
-              extent={{-100,100},{60,60}},
-              lineColor={0,0,0},
-              textString="m=%m")}), Documentation(info="<html>
+              extent={{-150,-80},{150,-40}},
+              textString="m=%m"),
+            Text(
+              extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{40,50},{60,30}}, color={0,0,255}),
+            Line(points={{30,20},{58,48}}, color={0,0,255}),
+            Line(points={{100,90},{100,100}}, color={0,0,255})}),
+                                    Documentation(info="<html>
 <p>
 Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
 </p>
@@ -1883,16 +1983,16 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
     model IdealGTOThyristor "Multiphase ideal GTO thyristor"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Closed thyristor resistance";
+            fill(1e-5, m)) "Closed thyristor resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Opened thyristor conductance";
+            fill(1e-5, m)) "Opened thyristor conductance";
       parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m), start=
             zeros(m)) "Threshold voltage";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
       Modelica.Blocks.Interfaces.BooleanInput fire[m] annotation (Placement(
             transformation(
-            origin={70,110},
+            origin={100,120},
             extent={{-20,-20},{20,20}},
             rotation=270)));
       Modelica.Electrical.Analog.Ideal.IdealGTOThyristor idealGTOThyristor[m](
@@ -1906,30 +2006,40 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(idealGTOThyristor.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      connect(fire, idealGTOThyristor.fire) annotation (Line(points={{70,110},{
-              70,80},{7,80},{7,11}}, color={255,0,255}));
+      connect(fire, idealGTOThyristor.fire) annotation (Line(points={{100,120},{100,80},{10,80},{10,12}}, color={255,0,255}));
       connect(idealGTOThyristor.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          points={{0,-10},{0,-100}}, color={191,0,0}));
+      annotation (defaultComponentName="gto", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Text(
-              extent={{-100,-50},{100,-90}},
-              textString="%name",
-              lineColor={0,0,255}),
             Line(points={{-90,0},{40,0}}, color={0,0,255}),
             Polygon(
               points={{30,0},{-30,40},{-30,-40},{30,0}},
-              lineColor={0,0,0},
+              lineColor={0,0,255},
               fillColor={255,255,255}),
             Line(points={{30,40},{30,-40}}, color={0,0,255}),
             Line(points={{40,0},{90,0}}, color={0,0,255}),
-            Line(points={{40,50},{60,30}}, color={0,0,255}),
-            Line(points={{30,20},{70,60},{70,90}}, color={0,0,255}),
+            Line(points={{100,90},{100,100}}, color={0,0,255}),
             Text(
-              extent={{-100,100},{60,60}},
-              lineColor={0,0,0},
-              textString="m=%m")}), Documentation(info="<html>
+              extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-150,-80},{150,-40}},
+              textString="m=%m"),
+            Line(points={{48,52},{68,32}}, color={0,0,255}),
+            Polygon(
+              points={{44,43},{44,36},{51,36},{44,43}},
+              lineColor={0,0,255},
+              fillPattern=FillPattern.Solid,
+              fillColor={0,0,255}),
+            Polygon(
+              points={{46,33},{53,33},{53,26},{46,33}},
+              lineColor={0,0,255},
+              fillPattern=FillPattern.Solid,
+              fillColor={0,0,255}),
+            Line(points={{30,10},{68,48}}, color={0,0,255}),
+            Line(points={{30,22},{56,48}}, color={0,0,255})}),
+                                    Documentation(info="<html>
 <p>
 Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyristor).
 </p>
@@ -1939,15 +2049,15 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
     model IdealCommutingSwitch "Multiphase ideal commuting switch"
       parameter Integer m(final min=1) = 3 "Number of phases";
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Closed switch resistance";
+            fill(1e-5, m)) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Opened switch conductance";
+            fill(1e-5, m)) "Opened switch conductance";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
       Modelica.Blocks.Interfaces.BooleanInput control[m]
         "true => p--n2 connected, false => p--n1 connected" annotation (
           Placement(transformation(
-            origin={0,80},
+            origin={0,120},
             extent={{-20,-20},{20,20}},
             rotation=270)));
       Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(
@@ -1955,9 +2065,8 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
       Interfaces.NegativePlug plug_n2(final m=m) annotation (Placement(
             transformation(extent={{90,-10},{110,10}})));
       Interfaces.NegativePlug plug_n1(final m=m) annotation (Placement(
-            transformation(extent={{90,40},{110,60}})));
-      Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch
-        idealCommutingSwitch[m](
+            transformation(extent={{90,30},{110,50}}), iconTransformation(extent={{90,30},{110,50}})));
+      Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch idealCommutingSwitch[m](
         final Ron=Ron,
         final Goff=Goff,
         each final useHeatPort=useHeatPort) annotation (Placement(
@@ -1968,32 +2077,26 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
       connect(idealCommutingSwitch.n2, plug_n2.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(idealCommutingSwitch.n1, plug_n1.pin)
-        annotation (Line(points={{10,5},{10,50},{100,50}}, color={0,0,255}));
+        annotation (Line(points={{10,4},{10,40},{100,40}}, color={0,0,255}));
       connect(control, idealCommutingSwitch.control)
-        annotation (Line(points={{0,80},{0,8}}, color={255,0,255}));
+        annotation (Line(points={{0,120},{0,46},{0,12}}, color={255,0,255}));
       connect(idealCommutingSwitch.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          points={{0,-10},{0,-100}}, color={191,0,0}));
+      annotation (defaultComponentName="switch", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
+            Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
+            Line(points={{-90,0},{-44,0}}, color={0,0,255}),
+            Line(points={{-37,2},{40,40}}, color={0,0,255}),
+            Line(points={{40,0},{90,0}}, color={0,0,255}),
+            Line(points={{40,40},{90,40}},
+                                         color={0,0,255}),
             Text(
-              extent={{-100,-50},{100,-90}},
+              extent={{-150,90},{150,50}},
               textString="%name",
               lineColor={0,0,255}),
             Text(
-              extent={{-100,100},{-20,60}},
-              lineColor={0,0,0},
-              textString="m="),
-            Text(
-              extent={{20,100},{100,60}},
-              lineColor={0,0,0},
-              textString="%m"),
-            Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
-            Line(points={{-90,0},{-44,0}}, color={0,0,255}),
-            Line(points={{-37,2},{40,50}}, color={0,0,255}),
-            Line(points={{40,50},{90,50}}, color={0,0,255}),
-            Line(points={{0,90},{0,25}}, color={0,0,255}),
-            Line(points={{40,0},{90,0}}, color={0,0,255})}), Documentation(info=
+              extent={{-150,-80},{150,-40}},
+              textString="m=%m")}), Documentation(info=
              "<html>
 <p>
 Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch).
@@ -2004,27 +2107,26 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
     model IdealIntermediateSwitch "Multiphase ideal intermediate switch"
       parameter Integer m(final min=1) = 3 "Number of phases";
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Closed switch resistance";
+            fill(1e-5, m)) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Opened switch conductance";
+            fill(1e-5, m)) "Opened switch conductance";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
       Modelica.Blocks.Interfaces.BooleanInput control[m]
         "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2 connected"
         annotation (Placement(transformation(
-            origin={0,80},
+            origin={0,120},
             extent={{-20,-20},{20,20}},
             rotation=270)));
       Interfaces.PositivePlug plug_p1(final m=m) annotation (Placement(
-            transformation(extent={{-110,40},{-90,60}})));
+            transformation(extent={{-110,30},{-90,50}}), iconTransformation(extent={{-110,30},{-90,50}})));
       Interfaces.PositivePlug plug_p2(final m=m) annotation (Placement(
             transformation(extent={{-110,-10},{-90,10}})));
       Interfaces.NegativePlug plug_n2(final m=m) annotation (Placement(
             transformation(extent={{90,-10},{110,10}})));
       Interfaces.NegativePlug plug_n1(final m=m) annotation (Placement(
-            transformation(extent={{90,40},{110,60}})));
-      Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch
-        idealIntermediateSwitch[m](
+            transformation(extent={{90,30},{110,50}}), iconTransformation(extent={{90,30},{110,50}})));
+      Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch idealIntermediateSwitch[m](
         final Ron=Ron,
         final Goff=Goff,
         each final useHeatPort=useHeatPort) annotation (Placement(
@@ -2034,37 +2136,29 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
         annotation (Line(points={{-100,0},{-10,0}}, color={0,0,255}));
       connect(idealIntermediateSwitch.n2, plug_n2.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      connect(idealIntermediateSwitch.p1, plug_p1.pin) annotation (Line(points=
-              {{-10,5},{-10,50},{-100,50}}, color={0,0,255}));
+      connect(idealIntermediateSwitch.p1, plug_p1.pin) annotation (Line(points={{-10,4},{-10,40},{-100,40}}, color={0,0,255}));
       connect(idealIntermediateSwitch.n1, plug_n1.pin)
-        annotation (Line(points={{10,5},{10,50},{100,50}}, color={0,0,255}));
+        annotation (Line(points={{10,4},{10,40},{100,40}}, color={0,0,255}));
       connect(control, idealIntermediateSwitch.control)
-        annotation (Line(points={{0,80},{0,8}}, color={255,0,255}));
+        annotation (Line(points={{0,120},{0,64},{0,12}}, color={255,0,255}));
       connect(idealIntermediateSwitch.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          points={{0,-10},{0,-100}}, color={191,0,0}));
+      annotation (defaultComponentName="switch", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
+            Ellipse(extent={{-4,24},{4,16}}, lineColor={0,0,255}),
+            Line(points={{-90,0},{-40,0}}, color={0,0,255}),
+            Line(points={{-90,40},{-40,40}}, color={0,0,255}),
+            Line(points={{-40,0},{40,40}}, color={0,0,255}),
+            Line(points={{-40,40},{40,0}}, color={0,0,255}),
+            Line(points={{40,40},{90,40}}, color={0,0,255}),
+            Line(points={{40,0},{90,0}}, color={0,0,255}),
             Text(
-              extent={{-100,-50},{100,-90}},
+              extent={{-150,90},{150,50}},
               textString="%name",
               lineColor={0,0,255}),
             Text(
-              extent={{-100,100},{-20,60}},
-              lineColor={0,0,0},
-              textString="m="),
-            Text(
-              extent={{20,100},{100,60}},
-              lineColor={0,0,0},
-              textString="%m"),
-            Ellipse(extent={{-4,30},{4,22}}, lineColor={0,0,255}),
-            Line(points={{-90,0},{-44,0}}, color={0,0,255}),
-            Line(points={{-90,50},{-44,50}}, color={0,0,255}),
-            Line(points={{-44,0},{40,50}}, color={0,0,255}),
-            Line(points={{-44,50},{40,0}}, color={0,0,255}),
-            Line(points={{40,50},{90,50}}, color={0,0,255}),
-            Line(points={{0,90},{0,25}}, color={0,0,255}),
-            Line(points={{40,0},{90,0}}, color={0,0,255})}), Documentation(info=
+              extent={{-150,-80},{150,-40}},
+              textString="m=%m")}), Documentation(info=
              "<html>
 <p>
 Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch).
@@ -2074,7 +2168,7 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
 
     model IdealTransformer "Multiphase ideal transformer"
       extends Interfaces.FourPlug;
-      parameter Real n[m](start=fill(1, m)) "Turns ratio";
+      parameter Real n[m](start=fill(1, m)) "Turns ratio primary:secondary voltage";
       parameter Boolean considerMagnetization=false
         "Choice of considering magnetization";
       parameter SIunits.Inductance Lm1[m](start=fill(1, m))
@@ -2085,47 +2179,86 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
         final Lm1=Lm1) annotation (Placement(transformation(extent={{-10,-10},{
                 10,10}})));
     equation
-      connect(plug_p1.pin, idealTransformer.p1) annotation (Line(points={{-100,
-              100},{-10,100},{-10,5}}, color={0,0,255}));
+      connect(plug_p1.pin, idealTransformer.p1) annotation (Line(points={{-100,100},{-10,100},{-10,10}}, color={0,0,255}));
       connect(plug_p2.pin, idealTransformer.p2)
-        annotation (Line(points={{100,100},{10,100},{10,5}}, color={0,0,255}));
-      connect(plug_n1.pin, idealTransformer.n1) annotation (Line(points={{-100,
-              -100},{-10,-100},{-10,-5}}, color={0,0,255}));
-      connect(plug_n2.pin, idealTransformer.n2) annotation (Line(points={{100,-100},
-              {10,-100},{10,-5}}, color={0,0,255}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+        annotation (Line(points={{100,100},{10,100},{10,10}}, color={0,0,255}));
+      connect(plug_n1.pin, idealTransformer.n1) annotation (Line(points={{-100,-100},{-10,-100},{-10,-10}}, color={0,0,255}));
+      connect(plug_n2.pin, idealTransformer.n2) annotation (Line(points={{100,-100},{10,-100},{10,-10}}, color={0,0,255}));
+      annotation (defaultComponentName="transformer", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Text(
-              extent={{-80,100},{80,60}},
-              lineColor={0,0,0},
+              extent={{-150,-110},{150,-150}},
               textString="m=%m"),
+            Line(points={{-40,60},{-40,100},{-90,100}}, color={0,0,255}),
+            Line(points={{40,60},{40,100},{90,100}}, color={0,0,255}),
+            Line(points={{-40,-60},{-40,-100},{-90,-100}}, color={0,0,255}),
+            Line(points={{40,-60},{40,-100},{90,-100}}, color={0,0,255}),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={0,0,255},
+              smooth=Smooth.Bezier,
+              origin={-33,45},
+              rotation=270),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={0,0,255},
+              smooth=Smooth.Bezier,
+              origin={-33,15},
+              rotation=270),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={0,0,255},
+              smooth=Smooth.Bezier,
+              origin={-33,-15},
+              rotation=270),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={0,0,255},
+              smooth=Smooth.Bezier,
+              origin={-33,-45},
+              rotation=270),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={0,0,255},
+              smooth=Smooth.Bezier,
+              origin={33,45},
+              rotation=90),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={0,0,255},
+              smooth=Smooth.Bezier,
+              origin={33,15},
+              rotation=90),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={0,0,255},
+              smooth=Smooth.Bezier,
+              origin={33,-15},
+              rotation=90),
+            Line(
+              points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+              color={0,0,255},
+              smooth=Smooth.Bezier,
+              origin={33,-45},
+              rotation=90),
             Text(
-              extent={{-100,-90},{100,-50}},
+              extent={{-100,20},{-60,-20}},
               lineColor={0,0,255},
-              textString="%name"),
-            Ellipse(extent={{-80,50},{20,-50}}, lineColor={0,0,255}),
-            Ellipse(extent={{-20,50},{80,-50}}, lineColor={0,0,255}),
+              textString="1"),
             Text(
-              extent={{-20,20},{20,-20}},
+              extent={{60,20},{100,-20}},
               lineColor={0,0,255},
-              textString="="),
-            Line(
-              points={{-96,50},{-30,50}},
-              color={0,0,255}),
-            Line(
-              points={{30,50},{96,50}},
-              color={0,0,255}),
-            Line(
-              points={{30,-50},{96,-50}},
-              color={0,0,255}),
-            Line(
-              points={{-96,-50},{-30,-50}},
-              color={0,0,255})}), Documentation(info="<html>
+              textString="2"),
+            Text(
+              extent={{-150,149},{150,109}},
+              textString="%name",
+              lineColor={0,0,255})}),
+                                  Documentation(info="<html>
 <p>
 Contains m ideal transformers (Modelica.Electrical.Analog.Ideal.IdealTransformer).
 </p>
 <p>
-<b>Note:</b> Due to the above equations, also DC signals will be transformed!
+<strong>Note:</strong> Due to the above equations, also DC signals will be transformed!
 </p>
 </html>"));
     end IdealTransformer;
@@ -2142,21 +2275,20 @@ Contains m ideal transformers (Modelica.Electrical.Analog.Ideal.IdealTransformer
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Text(
-              extent={{-100,60},{100,100}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-100,-100},{100,-60}},
-              lineColor={0,0,0},
-              textString="m=%m"),
             Rectangle(
-              extent={{-60,60},{60,-60}},
+              extent={{-80,80},{80,-80}},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid,
               lineColor={0,0,255}),
             Line(points={{-90,0},{-41,0}}, color={0,0,255}),
-            Line(points={{91,0},{40,0}}, color={0,0,255})}), Documentation(info=
+            Line(points={{91,0},{40,0}}, color={0,0,255}),
+            Text(
+              extent={{-150,130},{150,90}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-150,-90},{150,-130}},
+              textString="m=%m")}), Documentation(info=
              "<html>
 <p>
 Contains m idles (Modelica.Electrical.Analog.Ideal.Idle)
@@ -2176,20 +2308,19 @@ Contains m idles (Modelica.Electrical.Analog.Ideal.Idle)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Text(
-              extent={{-100,60},{100,100}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-100,-100},{100,-60}},
-              lineColor={0,0,0},
-              textString="m=%m"),
             Rectangle(
-              extent={{-60,60},{60,-60}},
+              extent={{-80,80},{80,-80}},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid,
               lineColor={0,0,255}),
-            Line(points={{-90,0},{90,0}}, color={0,0,255})}), Documentation(
+            Line(points={{-90,0},{90,0}}, color={0,0,255}),
+            Text(
+              extent={{-150,130},{150,90}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-150,-90},{150,-130}},
+              textString="m=%m")}), Documentation(
             info="<html>
 <p>
 Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
@@ -2200,15 +2331,15 @@ Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
     model IdealOpeningSwitch "Multiphase ideal opener"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Closed switch resistance";
+            fill(1e-5, m)) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Opened switch conductance";
+            fill(1e-5, m)) "Opened switch conductance";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
       Modelica.Blocks.Interfaces.BooleanInput control[m]
         "true => switch open, false => p--n connected" annotation (Placement(
             transformation(
-            origin={0,70},
+            origin={0,120},
             extent={{-20,-20},{20,20}},
             rotation=270)));
       Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch idealOpeningSwitch[m](
@@ -2222,30 +2353,23 @@ Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
       connect(idealOpeningSwitch.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(control, idealOpeningSwitch.control)
-        annotation (Line(points={{0,70},{0,7}}, color={255,0,255}));
+        annotation (Line(points={{0,120},{0,48},{0,12}}, color={255,0,255}));
       connect(idealOpeningSwitch.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          points={{0,-10},{0,-100}}, color={191,0,0}));
+      annotation (defaultComponentName="switch", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Text(
-              extent={{-100,-50},{100,-90}},
-              textString="%name",
-              lineColor={0,0,255}),
             Line(points={{-90,0},{-44,0}}, color={0,0,255}),
             Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
-            Line(points={{-37,2},{40,50}}, color={0,0,255}),
-            Line(points={{0,88},{0,26}}, color={0,0,255}),
+            Line(points={{-37,2},{40,40}}, color={0,0,255}),
             Line(points={{40,0},{90,0}}, color={0,0,255}),
+            Line(points={{40,20},{40,0}}, color={0,0,255}),
             Text(
-              extent={{-100,100},{-20,60}},
-              lineColor={0,0,0},
-              textString="m="),
+              extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255}),
             Text(
-              extent={{20,100},{100,60}},
-              lineColor={0,0,0},
-              textString="%m"),
-            Line(points={{40,20},{40,0}}, color={0,0,255})}), Documentation(
+              extent={{-150,-80},{150,-40}},
+              textString="m=%m")}), Documentation(
             info="<html>
 <p>
 Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch).
@@ -2256,15 +2380,15 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpening
     model IdealClosingSwitch "Multiphase ideal closer"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Closed switch resistance";
+            fill(1e-5, m)) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Opened switch conductance";
+            fill(1e-5, m)) "Opened switch conductance";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
       Modelica.Blocks.Interfaces.BooleanInput control[m]
         "true => p--n connected, false => switch open" annotation (Placement(
             transformation(
-            origin={0,70},
+            origin={0,120},
             extent={{-20,-20},{20,20}},
             rotation=270)));
       Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealClosingSwitch[m](
@@ -2278,29 +2402,23 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpening
       connect(idealClosingSwitch.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(control, idealClosingSwitch.control)
-        annotation (Line(points={{0,70},{0,7}}, color={255,0,255}));
+        annotation (Line(points={{0,120},{0,48},{0,12}}, color={255,0,255}));
       connect(idealClosingSwitch.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          points={{0,-10},{0,-100}}, color={191,0,0}));
+      annotation (defaultComponentName="switch", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Text(
-              extent={{-100,-50},{100,-90}},
-              textString="%name",
-              lineColor={0,0,255}),
             Line(points={{-90,0},{-44,0}}, color={0,0,255}),
             Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
-            Line(points={{-37,2},{40,50}}, color={0,0,255}),
-            Line(points={{0,88},{0,26}}, color={0,0,255}),
+            Line(points={{-37,2},{40,40}}, color={0,0,255}),
             Line(points={{40,0},{90,0}}, color={0,0,255}),
             Text(
-              extent={{-100,100},{-20,60}},
-              lineColor={0,0,0},
-              textString="m="),
+              extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255}),
             Text(
-              extent={{20,100},{100,60}},
-              lineColor={0,0,0},
-              textString="%m")}), Documentation(info="<html>
+              extent={{-150,-80},{150,-40}},
+              textString="m=%m")}),
+                                  Documentation(info="<html>
 <p>
 Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosingSwitch).
 </p><
@@ -2310,9 +2428,9 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
     model OpenerWithArc "Multiphase opener with arc"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Closed switch resistance";
+            fill(1e-5, m)) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Opened switch conductance";
+            fill(1e-5, m)) "Opened switch conductance";
       parameter Modelica.SIunits.Voltage V0[m](start=fill(30, m))
         "Initial arc voltage";
       parameter Modelica.SIunits.VoltageSlope dVdt[m](start=fill(10E3, m))
@@ -2324,7 +2442,7 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
       Modelica.Blocks.Interfaces.BooleanInput control[m]
         "true => switch open, false => p--n connected" annotation (Placement(
             transformation(
-            origin={0,70},
+            origin={0,120},
             extent={{-20,-20},{20,20}},
             rotation=270)));
       Modelica.Electrical.Analog.Ideal.OpenerWithArc openerWithArc[m](
@@ -2341,31 +2459,24 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
       connect(openerWithArc.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(control, openerWithArc.control)
-        annotation (Line(points={{0,70},{0,10}},color={255,0,255}));
+        annotation (Line(points={{0,120},{0,40},{0,11}}, color={255,0,255}));
       connect(openerWithArc.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          points={{0,-10},{0,-100}}, color={191,0,0}));
+      annotation (defaultComponentName="switch", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Text(
-              extent={{-100,-50},{100,-90}},
-              textString="%name",
-              lineColor={0,0,255}),
             Line(points={{-90,0},{-44,0}}, color={0,0,255}),
             Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
-            Line(points={{-37,2},{40,50}}, color={0,0,255}),
-            Line(points={{0,88},{0,26}}, color={0,0,255}),
+            Line(points={{-37,2},{40,42}}, color={0,0,255}),
             Line(points={{40,0},{90,0}}, color={0,0,255}),
-            Text(
-              extent={{-100,100},{-20,60}},
-              lineColor={0,0,0},
-              textString="m="),
-            Text(
-              extent={{20,100},{100,60}},
-              lineColor={0,0,0},
-              textString="%m"),
             Line(points={{40,20},{40,0}}, color={0,0,255}),
-            Line(points={{40,50},{32,34},{48,30},{40,20}}, color={255,0,0})}),
+            Line(points={{40,42},{32,32},{48,28},{40,20}}, color={255,0,0}),
+            Text(
+              extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-150,-80},{150,-40}},
+              textString="m=%m")}),
           Documentation(info="<html>
 <p>Contains m opening switches with arc (Modelica.Electrical.Analog.Ideal.OpenerWithArc).</p>
 </html>"));
@@ -2374,9 +2485,9 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
     model CloserWithArc "Multiphase closer with arc"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Closed switch resistance";
+            fill(1e-5, m)) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
-            fill(1.E-5, m)) "Opened switch conductance";
+            fill(1e-5, m)) "Opened switch conductance";
       parameter Modelica.SIunits.Voltage V0[m](start=fill(30, m))
         "Initial arc voltage";
       parameter Modelica.SIunits.VoltageSlope dVdt[m](start=fill(10E3, m))
@@ -2388,7 +2499,7 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
       Modelica.Blocks.Interfaces.BooleanInput control[m]
         "true => switch open, false => p--n connected" annotation (Placement(
             transformation(
-            origin={0,70},
+            origin={0,120},
             extent={{-20,-20},{20,20}},
             rotation=270)));
       Modelica.Electrical.Analog.Ideal.CloserWithArc closerWithArc[m](
@@ -2405,30 +2516,23 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
       connect(closerWithArc.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(control, closerWithArc.control)
-        annotation (Line(points={{0,70},{0,10}},color={255,0,255}));
+        annotation (Line(points={{0,120},{0,42},{0,11}}, color={255,0,255}));
       connect(closerWithArc.heatPort, heatPort) annotation (Line(
-          points={{0,-10},{0,-100}},
-          color={191,0,0}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          points={{0,-10},{0,-100}}, color={191,0,0}));
+      annotation (defaultComponentName="switch", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Text(
-              extent={{-100,-50},{100,-90}},
-              textString="%name",
-              lineColor={0,0,255}),
             Line(points={{-90,0},{-44,0}}, color={0,0,255}),
             Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
-            Line(points={{-37,2},{40,50}}, color={0,0,255}),
-            Line(points={{0,88},{0,26}}, color={0,0,255}),
+            Line(points={{-37,2},{40,40}}, color={0,0,255}),
             Line(points={{40,0},{90,0}}, color={0,0,255}),
+            Line(points={{40,40},{32,16},{48,24},{40,0}}, color={255,0,0}),
             Text(
-              extent={{-100,100},{-20,60}},
-              lineColor={0,0,0},
-              textString="m="),
+              extent={{-150,90},{150,50}},
+              textString="%name",
+              lineColor={0,0,255}),
             Text(
-              extent={{20,100},{100,60}},
-              lineColor={0,0,0},
-              textString="%m"),
-            Line(points={{40,50},{32,24},{48,28},{40,0}}, color={255,0,0})}),
+              extent={{-150,-80},{150,-40}},
+              textString="m=%m")}),
           Documentation(info="<html>
 <p>Contains m closing switches with arc (Modelica.Electrical.Analog.Ideal.CloserWithArc).</p>
 </html>"));
@@ -2441,25 +2545,19 @@ like thyristor, diode, switch, transformer.
 
 </html>", revisions="<html>
 <dl>
-  <dt><b>Main Authors:</b></dt>
+  <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><b>Release Notes:</b></dt>
+  <dt><strong>Release Notes:</strong></dt>
   <dd>
   <ul>
   <li> v1.0 2004/10/01 Anton Haumer</li>
   </ul>
   </dd>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
 </dl>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
@@ -2487,7 +2585,7 @@ like thyristor, diode, switch, transformer.
     equation
       y = Modelica.Electrical.MultiPhase.Functions.quasiRMS(u);
 
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="rms", Documentation(info="<html>
 <p>
 This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representing an equivalent RMS vector or phasor. If the waveform of the input deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
 </p>
@@ -2519,8 +2617,8 @@ This function determines the continuous quasi <a href=\"Modelica://Modelica.Bloc
 
     function activePower "Calculate active power of voltage and current input"
       extends Modelica.Icons.Function;
-      input Modelica.SIunits.Voltage v[:] "phase voltages";
-      input Modelica.SIunits.Current i[size(v, 1)] "phase currents";
+      input Modelica.SIunits.Voltage v[:] "Phase voltages";
+      input Modelica.SIunits.Current i[size(v, 1)] "Phase currents";
       output Modelica.SIunits.Power p "Active power";
     algorithm
       p := sum(v .* i);
@@ -2577,7 +2675,7 @@ This function determines the orientation angles of the symmetrical winding with 
       Integer nBase=numberOfSymmetricBaseSystems(m);
       Integer mBase=integer(m/nBase);
       Modelica.SIunits.Angle o[m]=symmetricOrientation(m);
-      Modelica.SIunits.Angle oBase[nBase]=o[1:mBase:m];
+      Modelica.SIunits.Angle oBase[numberOfSymmetricBaseSystems(m)]=o[1:mBase:m];
     algorithm
       // Init transformation matrix with zeros
       oM := zeros(m, m);
@@ -2681,12 +2779,12 @@ The back transformation matrix can be used to determine the time phasors from th
     end symmetricBackTransformationMatrix;
 
     function numberOfSymmetricBaseSystems
-      "Determines the number of symmeric base systems of m phase symmetric system"
+      "Determines the number of symmetric base systems of m phase symmetric system"
       extends Modelica.Icons.Function;
       input Integer m=3 "Number of phases";
       output Integer n "Number of symmetric base systems";
     algorithm
-      // Init number of base systmes
+      // Init number of base systems
       n := 1;
       if mod(m, 2) == 0 then
         // Even number of phases
@@ -2813,19 +2911,20 @@ This function determines the indices of non-positive sequence of the symmetrical
       connect(potentialSensor.p, plug_p.pin)
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(potentialSensor.phi, phi) annotation (Line(
-          points={{11,0},{110,0}},
-          color={0,0,127}));
-      annotation (Icon(graphics={Line(points={{70,0},{100,0}}, color={0,0,127}),
-              Line(points={{-70,0},{-90,0}}),Text(
-                  extent={{-100,-70},{100,-110}},
-                  lineColor={0,0,0},
-                  textString="m=%m"),Text(
-                  extent={{-100,60},{100,100}},
+          points={{11,0},{110,0}}, color={0,0,127}));
+      annotation (
+        Icon(graphics={Line(points={{70,0},{100,0}}, color={0,0,127}),
+              Line(points={{-70,0},{-90,0}}),
+            Text(
+              extent={{150,-100},{-150,-70}},
+              textString="m=%m"),
+            Text(
+              extent={{-150,80},{150,120}},
                   textString="%name",
                   lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 Contains m potential sensors (Modelica.Electrical.Analog.Sensors.PotentialSensor),
-thus measuring the m potentials <i>phi[m]</i> of the m pins of plug_p.
+thus measuring the m potentials <em>phi[m]</em> of the m pins of plug_p.
 </p>
 </html>"));
     end PotentialSensor;
@@ -2851,42 +2950,41 @@ thus measuring the m potentials <i>phi[m]</i> of the m pins of plug_p.
       connect(voltageSensor.p, plug_p.pin)
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(voltageSensor.v, v) annotation (Line(
-          points={{0,-10},{0,-110}},
-          color={0,0,127}));
-      annotation (Icon(graphics={Text(
+          points={{0,-11},{0,-110}}, color={0,0,127}));
+      annotation (
+        Icon(graphics={Text(
                   extent={{-29,-11},{30,-70}},
-                  lineColor={0,0,0},
-                  textString="V"),Text(
-                  extent={{-100,60},{100,100}},
-                  textString="%name",
-                  lineColor={0,0,255}),Text(
-                  extent={{-100,-60},{-20,-100}},
-                  lineColor={0,0,0},
-                  textString="m="),Line(points={{-70,0},{-90,0}}),
+                  textString="V"), Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,-100},
-              {0,-70}}, color={0,0,127}),Text(
-                  extent={{20,-60},{100,-100}},
-                  lineColor={0,0,0},
-                  textString="%m")}), Documentation(info="<html>
+              {0,-70}}, color={0,0,127}),
+            Text(
+              extent={{150,-100},{-150,-70}},
+              textString="m=%m"),
+            Text(
+              extent={{-150,80},{150,120}},
+              textString="%name",
+              lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 Contains m voltage sensors (Modelica.Electrical.Analog.Sensors.VoltageSensor),
-thus measuring the m potential differences <i>v[m]</i> between the m pins of plug_p and plug_n.
+thus measuring the m potential differences <em>v[m]</em> between the m pins of plug_p and plug_n.
 </p>
 </html>"));
     end VoltageSensor;
 
     model VoltageQuasiRMSSensor
       "Continuous quasi voltage RMS sensor for multi phase system"
-      import Modelica;
       extends Modelica.Icons.RotationalSensor;
       extends Modelica.Electrical.MultiPhase.Interfaces.TwoPlug;
       parameter Integer m(min=1) = 3 "Number of phases";
 
       Modelica.Blocks.Interfaces.RealOutput V "Continuous quasi RMS of voltage"
         annotation (Placement(transformation(
-            origin={0,-100},
+            origin={-2,-110},
             extent={{-10,-10},{10,10}},
-            rotation=270)));
+            rotation=270), iconTransformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={0,-110})));
       Modelica.Electrical.MultiPhase.Sensors.VoltageSensor voltageSensor(final
           m=m) annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       Modelica.Electrical.MultiPhase.Blocks.QuasiRMS quasiRMS(final m=m)
@@ -2900,23 +2998,18 @@ thus measuring the m potential differences <i>v[m]</i> between the m pins of plu
       connect(voltageSensor.plug_n, plug_n) annotation (Line(points={{10,0},{
               100,0},{100,0}}, color={0,0,255}));
       connect(voltageSensor.v, quasiRMS.u) annotation (Line(
-          points={{0,-11},{0,-38}},
-          color={0,0,127}));
+          points={{0,-11},{0,-38}}, color={0,0,127}));
       connect(quasiRMS.y, V) annotation (Line(
-          points={{0,-61},{0,-100}},
-          color={0,0,127}));
-      annotation (Icon(graphics={Line(points={{0,-70},{0,-90}}, color={0,0,255}),
+          points={{0,-61},{0,-86},{0,-110},{-2,-110}}, color={0,0,127}));
+      annotation (defaultComponentName="voltageRMSSensor", Icon(graphics={Text(
+                  extent={{-160,-70},{160,-100}},
+                  textString="m=%m"),Line(points={{0,-70},{0,-100}}),
               Line(points={{-90,0},{-70,0}}, color={0,0,255}),Line(points={{70,
-              0},{90,0}}, color={0,0,255}),Text(
-                  extent={{-100,60},{100,100}},
+              0},{90,0}}, color={0,0,255}),
+            Text(
+              extent={{-150,80},{150,120}},
                   textString="%name",
-                  lineColor={0,0,255}),Text(
-                  extent={{-100,-60},{-20,-100}},
-                  lineColor={0,0,0},
-                  textString="m="),Text(
-                  extent={{20,-60},{100,-100}},
-                  lineColor={0,0,0},
-                  textString="%m")}), Documentation(revisions="<html>
+              lineColor={0,0,255})}), Documentation(revisions="<html>
 </html>", info="<html>
 <p>
 This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase voltage system, representing an equivalent RMS voltage <code>V</code> vector or phasor. If the voltage waveform deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
@@ -2948,34 +3041,29 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
       connect(currentSensor.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(currentSensor.i, i) annotation (Line(
-          points={{0,-10},{0,-110}},
-          color={0,0,127}));
+          points={{0,-11},{0,-110}}, color={0,0,127}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-29,-11},{30,-70}},
-                  lineColor={0,0,0},
-                  textString="A"),Text(
-                  extent={{-100,60},{100,100}},
-                  textString="%name",
-                  lineColor={0,0,255}),Text(
-                  extent={{-100,-60},{-20,-100}},
-                  lineColor={0,0,0},
-                  textString="m="),Line(points={{-70,0},{-90,0}}),
+                  textString="A"), Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,-100},
-              {0,-70}}, color={0,0,127}),Text(
-                  extent={{20,-60},{100,-100}},
-                  lineColor={0,0,0},
-                  textString="%m")}), Documentation(info="<html>
+              {0,-70}}, color={0,0,127}),
+            Text(
+              extent={{150,-100},{-150,-70}},
+              textString="m=%m"),
+            Text(
+              extent={{-150,80},{150,120}},
+              textString="%name",
+              lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 Contains m current sensors (Modelica.Electrical.Analog.Sensors.CurrentSensor),
-thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to the m pins of plug_n.
+thus measuring the m currents <em>i[m]</em> flowing from the m pins of plug_p to the m pins of plug_n.
 </p>
 </html>"));
     end CurrentSensor;
 
     model CurrentQuasiRMSSensor
       "Continuous quasi current RMS sensor for multi phase system"
-      import Modelica;
       extends Modelica.Icons.RotationalSensor;
       extends Modelica.Electrical.MultiPhase.Interfaces.TwoPlug;
       parameter Integer m(min=1) = 3 "Number of phases";
@@ -2984,7 +3072,10 @@ thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to t
             transformation(
             origin={0,-100},
             extent={{-10,-10},{10,10}},
-            rotation=270)));
+            rotation=270), iconTransformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={0,-110})));
       Modelica.Electrical.MultiPhase.Sensors.CurrentSensor currentSensor(final
           m=m) annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       Modelica.Electrical.MultiPhase.Blocks.QuasiRMS quasiRMS(final m=m)
@@ -2998,24 +3089,20 @@ thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to t
       connect(currentSensor.plug_n, plug_n) annotation (Line(points={{10,0},{
               100,0},{100,0}}, color={0,0,255}));
       connect(currentSensor.i, quasiRMS.u) annotation (Line(
-          points={{0,-11},{0,-38}},
-          color={0,0,127}));
+          points={{0,-11},{0,-38}}, color={0,0,127}));
       connect(quasiRMS.y, I) annotation (Line(
-          points={{0,-61},{0,-100}},
-          color={0,0,127}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          points={{0,-61},{0,-100}}, color={0,0,127}));
+      annotation (defaultComponentName="currentRMSSensor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
-              color={0,0,255}),Line(points={{0,-70},{0,-90}}, color={0,0,255}),
+              color={0,0,255}),Line(points={{0,-70},{0,-100}}),
+                                   Line(points={{70,0},{90,0}}, color={0,0,255}),
               Text(
-                  extent={{-100,60},{100,100}},
+              extent={{150,-100},{-150,-70}},
+              textString="m=%m"),
+            Text(
+              extent={{-150,80},{150,120}},
                   textString="%name",
-                  lineColor={0,0,255}),Text(
-                  extent={{-100,-60},{-20,-100}},
-                  lineColor={0,0,0},
-                  textString="m="),Text(
-                  extent={{20,-60},{100,-100}},
-                  lineColor={0,0,0},
-                  textString="%m"),Line(points={{70,0},{90,0}}, color={0,0,255})}),
+              lineColor={0,0,255})}),
           Documentation(revisions="<html>
 </html>", info="<html>
 <p>
@@ -3044,9 +3131,12 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
               extent={{-10,-90},{10,-110}})));
       Modelica.Blocks.Interfaces.RealOutput power annotation (Placement(
             transformation(
-            origin={-80,-110},
+            origin={-100,-110},
             extent={{10,-10},{-10,10}},
-            rotation=90)));
+            rotation=90), iconTransformation(
+            extent={{10,-10},{-10,10}},
+            rotation=90,
+            origin={-100,-110})));
       MultiPhase.Sensors.VoltageSensor voltageSensor(final m=m) annotation (
           Placement(transformation(
             origin={0,-20},
@@ -3074,26 +3164,28 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
       connect(voltageSensor.plug_n, nv) annotation (Line(points={{0,
               -30},{0,-30},{0,-100}}, color={0,0,255}));
       connect(voltageSensor.v, product.u1) annotation (Line(
-          points={{-11,-20},{-24,-20},{-24,-28}},
-          color={0,0,127}));
+          points={{-11,-20},{-24,-20},{-24,-28}}, color={0,0,127}));
       connect(currentSensor.i, product.u2) annotation (Line(
-          points={{-40,-11},{-40,-20},{-36,-20},{-36,-28}},
-          color={0,0,127}));
+          points={{-40,-11},{-40,-20},{-36,-20},{-36,-28}}, color={0,0,127}));
       connect(product.y, sum.u) annotation (Line(
-          points={{-30,-51},{-30,-58}},
-          color={0,0,127}));
+          points={{-30,-51},{-30,-58}}, color={0,0,127}));
       connect(sum.y, power) annotation (Line(
-          points={{-30,-81},{-30,-90},{-80,-90},{-80,-110}},
-          color={0,0,127}));
-      annotation (Icon(graphics={Line(points={{0,100},{0,70}}, color={0,0,255}),
-              Line(points={{0,-70},{0,-100}}, color={0,0,255}),Line(points={{-80,
-              -100},{-80,0}}, color={0,0,127}),Text(
-                  lineColor={0,0,255},
-                  extent={{-100,60},{100,100}},
-                  textString="%name"),Text(extent={{0,-120},{140,-80}},
-              textString="m=%m"),Ellipse(fillPattern=FillPattern.Solid, extent=
+          points={{-30,-81},{-30,-90},{-100,-90},{-100,-110}}, color={0,0,127}));
+      annotation (
+        Icon(graphics={Line(points={{0,100},{0,70}}, color={0,0,255}),
+              Line(points={{0,-70},{0,-100}}, color={0,0,255}),
+                                 Ellipse(fillPattern=FillPattern.Solid, extent=
               {{-5,-5},{5,5}}),Text(extent={{-29,-70},{30,-11}}, textString="P"),
-              Line(points={{-100,0},{100,0}}, color={0,0,255})}), Documentation(
+              Line(points={{-100,0},{100,0}}, color={0,0,255}),
+            Text(
+              extent={{-150,110},{150,150}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{150,-90},{-150,-70}},
+              textString="m=%m"),
+          Line(points={{-100,-100},{-100,-80},{-58,-38}}, color = {0,0,127})}),
+                                                                  Documentation(
             info="<html><p>
 This power sensor measures instantaneous electrical power of a multiphase system and has a separated voltage and current path. The plugs of the voltage path are <code>pv</code> and <code>nv</code>, the plugs of the current path are <code>pc</code> and <code>nc</code>. The internal resistance of each current path is zero, the internal resistance of each voltage path is infinite.
 </p></html>"));
@@ -3149,10 +3241,6 @@ This power sensor measures instantaneous electrical power of a multiphase system
         Line(points = {{0,-70},{0,-100}}, color = {0,0,255}),
         Line(points = {{-100,0},{100,0}}, color = {0,0,255}),
         Line(points = {{0,70},{0,40}}),
-          Text(
-            extent={{-100,-60},{100,-20}},
-            textString="%name",
-            lineColor={0,0,255}),
           Line(points={{-100,-60},{-80,-60},{-56,-42}},
                                                      color={28,108,200}),
           Line(points={{-60,-100},{-60,-80},{-42,-56}},
@@ -3161,27 +3249,197 @@ This power sensor measures instantaneous electrical power of a multiphase system
                                                   color={28,108,200}),
           Text(
             extent={{-100,-40},{-60,-80}},
-            lineColor={28,108,200},
             textString="p"),
           Text(
             extent={{-80,-60},{-40,-100}},
-            lineColor={28,108,200},
             textString="i"),
           Text(
             extent={{40,-60},{80,-100}},
-            lineColor={28,108,200},
             textString="v"),
-          Line(points={{100,-60},{80,-60},{56,-42}}, color={28,108,200})}),
+          Line(points={{100,-60},{80,-60},{56,-42}}, color={28,108,200}),
+          Text(
+            extent={{-150,110},{150,150}},
+            textString="%name",
+            lineColor={0,0,255})}),
       Documentation(info="<html>
-<p>This multi sensor measures currents, voltages and instantaneous electrical power of a multiphase system and has separated voltage and current paths. 
-The plugs of the voltage paths are pv and nv, the plugs of the current paths are pc and nc. 
+<p>This multi sensor measures currents, voltages and instantaneous electrical power of a multiphase system and has separated voltage and current paths.
+The plugs of the voltage paths are pv and nv, the plugs of the current paths are pc and nc.
 The internal resistance of each current path is zero, the internal resistance of each voltage path is infinite.</p>
 </html>",   revisions="<html>
 <ul>
-<li><i>20170306</i> first implementation by Anton Haumer</li>
+<li><em>20170306</em> first implementation by Anton Haumer</li>
 </ul>
 </html>"));
   end MultiSensor;
+
+    model AronSensor "threephase Aron sensor for active power"
+      import Modelica;
+      extends Modelica.Icons.RotationalSensor;
+      final parameter Integer m(final min=1) = 3 "Number of phases";
+      Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(
+            transformation(extent={{-110,-10},{-90,10}})));
+      Interfaces.NegativePlug plug_n(final m=m) annotation (Placement(
+            transformation(extent={{90,-10},{110,10}})));
+      Modelica.Blocks.Interfaces.RealOutput power "active power" annotation (
+          Placement(transformation(
+            origin={0,-110},
+            extent={{10,-10},{-10,10}},
+            rotation=90)));
+      Basic.PlugToPins_p plugToPins_p(final m=m)
+        annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+      Basic.PlugToPins_n plugToPins_n(final m=m)
+        annotation (Placement(transformation(extent={{80,-10},{60,10}})));
+      Analog.Sensors.PowerSensor powerSensor1
+        annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
+      Analog.Sensors.PowerSensor powerSensor3
+        annotation (Placement(transformation(extent={{20,-30},{40,-50}})));
+      Modelica.Blocks.Math.Add add annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={0,-70})));
+    equation
+      connect(plug_p, plugToPins_p.plug_p)
+        annotation (Line(points={{-100,0},{-72,0}}, color={0,0,255}));
+      connect(plugToPins_n.plug_n, plug_n)
+        annotation (Line(points={{72,0},{100,0}}, color={0,0,255}));
+      connect(plugToPins_p.pin_p[1], powerSensor1.pc) annotation (Line(points={{-68,0},
+              {-68,40},{-40,40}},            color={0,0,255}));
+      connect(powerSensor1.pc, powerSensor1.pv)
+        annotation (Line(points={{-40,40},{-40,50},{-30,50}}, color={0,0,255}));
+      connect(powerSensor1.nc, plugToPins_n.pin_n[1]) annotation (Line(points={{-20,40},
+              {68,40},{68,0}},            color={0,0,255}));
+      connect(plugToPins_p.pin_p[2], plugToPins_n.pin_n[2])
+        annotation (Line(points={{-68,0},{68,0}}, color={0,0,255}));
+      connect(plugToPins_p.pin_p[3], powerSensor3.pc) annotation (Line(points={{-68,0},
+              {-68,-40},{20,-40}},            color={0,0,255}));
+      connect(powerSensor3.pc, powerSensor3.pv)
+        annotation (Line(points={{20,-40},{20,-50},{30,-50}}, color={0,0,255}));
+      connect(powerSensor3.nc, plugToPins_n.pin_n[3]) annotation (Line(points={{40,-40},
+              {68,-40},{68,0}},        color={0,0,255}));
+      connect(powerSensor1.nv, plugToPins_p.pin_p[2])
+        annotation (Line(points={{-30,30},{-30,0},{-68,0}}, color={0,0,255}));
+      connect(powerSensor3.nv, plugToPins_p.pin_p[2])
+        annotation (Line(points={{30,-30},{30,0},{-68,0}}, color={0,0,255}));
+      connect(add.y, power)
+        annotation (Line(points={{0,-81},{0,-110}}, color={0,0,127}));
+      connect(powerSensor1.power, add.u2) annotation (Line(points={{-40,29},{-40,-50},
+              {-6,-50},{-6,-58}}, color={0,0,127}));
+      connect(powerSensor3.power, add.u1) annotation (Line(points={{20,-29},{20,-20},
+              {6,-20},{6,-58}}, color={0,0,127}));
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
+                  extent={{-29,-11},{30,-70}},
+              textString="W"),  Line(points={{-70,0},{-90,0}}),
+              Line(points={{70,0},{90,0}}),Line(points={{0,-100},
+              {0,-70}}, color={0,0,127}),
+            Text(
+              extent={{150,-100},{-150,-70}},
+              textString="m=%m"),
+            Text(
+              extent={{-150,80},{150,120}},
+              textString="%name",
+              lineColor={0,0,255})}), Documentation(info="<html>
+<p>
+Contains 2 power meters (Modelica.Electrical.Analog.Sensors.PowerSensor) to measure total active power in a threephase system.
+</p>
+<p>
+This device works only for sinusoidal voltages and currents in threephase systems without neutral.
+</p>
+<p>
+Elmar Schr&uuml;fer, Leonhard Reindl, Bernhard Zagar: Elektrische Messtechnik. Carl Hanser Verlag.<br>
+Reinhard Lerch: Elektrische Messtechnik. Springer Vieweg.
+</p>
+</html>"));
+    end AronSensor;
+
+    model ReactivePowerSensor "threephase sensor for reactive power"
+      import Modelica;
+      extends Modelica.Icons.RotationalSensor;
+      final parameter Integer m(final min=1) = 3 "Number of phases";
+      Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(
+            transformation(extent={{-110,-10},{-90,10}})));
+      Interfaces.NegativePlug plug_n(final m=m) annotation (Placement(
+            transformation(extent={{90,-10},{110,10}})));
+      Modelica.Blocks.Interfaces.RealOutput reactivePower "reactive power"
+        annotation (Placement(transformation(
+            origin={0,-110},
+            extent={{10,-10},{-10,10}},
+            rotation=90)));
+      Basic.PlugToPins_p plugToPins_p(final m=m)
+        annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+      Basic.PlugToPins_n plugToPins_n(final m=m)
+        annotation (Placement(transformation(extent={{80,-10},{60,10}})));
+      Analog.Sensors.PowerSensor powerSensor1
+        annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+      Analog.Sensors.PowerSensor powerSensor2
+        annotation (Placement(transformation(extent={{10,10},{30,-10}})));
+      Modelica.Blocks.Math.Add3 add(
+        final k1=1/sqrt(3),
+        final k2=1/sqrt(3),
+        final k3=1/sqrt(3))        annotation (Placement(transformation(
+            extent={{-10,10},{10,-10}},
+            rotation=270,
+            origin={0,-80})));
+      Analog.Sensors.PowerSensor powerSensor3
+        annotation (Placement(transformation(extent={{30,-40},{50,-20}})));
+    equation
+      connect(plug_p, plugToPins_p.plug_p)
+        annotation (Line(points={{-100,0},{-72,0}}, color={0,0,255}));
+      connect(plugToPins_n.plug_n, plug_n)
+        annotation (Line(points={{72,0},{100,0}}, color={0,0,255}));
+      connect(add.y, reactivePower)
+        annotation (Line(points={{0,-91},{0,-110}}, color={0,0,127}));
+      connect(plugToPins_p.pin_p[1], powerSensor1.pc)
+        annotation (Line(points={{-68,0},{-68,30},{-40,30}}, color={0,0,255}));
+      connect(powerSensor1.pv, plugToPins_p.pin_p[2]) annotation (Line(points={
+              {-30,40},{-50,40},{-50,0},{-68,0}}, color={0,0,255}));
+      connect(plugToPins_p.pin_p[3], powerSensor1.nv) annotation (Line(points={
+              {-68,0},{-68,-30},{-30,-30},{-30,20}}, color={0,0,255}));
+      connect(plugToPins_p.pin_p[3], powerSensor2.pv) annotation (Line(points={
+              {-68,0},{-68,-30},{20,-30},{20,-10}}, color={0,0,255}));
+      connect(plugToPins_p.pin_p[2], powerSensor2.pc)
+        annotation (Line(points={{-68,0},{10,0}}, color={0,0,255}));
+      connect(powerSensor1.nc, plugToPins_n.pin_n[1])
+        annotation (Line(points={{-20,30},{68,30},{68,0}}, color={0,0,255}));
+      connect(powerSensor2.nc, plugToPins_n.pin_n[2])
+        annotation (Line(points={{30,0},{68,0}}, color={0,0,255}));
+      connect(powerSensor1.nc, powerSensor2.nv)
+        annotation (Line(points={{-20,30},{20,30},{20,10}}, color={0,0,255}));
+      connect(plugToPins_p.pin_p[3], powerSensor3.pc) annotation (Line(points={
+              {-68,0},{-68,-30},{30,-30}}, color={0,0,255}));
+      connect(powerSensor3.nc, plugToPins_n.pin_n[3])
+        annotation (Line(points={{50,-30},{68,-30},{68,0}}, color={0,0,255}));
+      connect(powerSensor1.nc, powerSensor3.pv)
+        annotation (Line(points={{-20,30},{40,30},{40,-20}}, color={0,0,255}));
+      connect(powerSensor3.nv, plugToPins_n.pin_n[2]) annotation (Line(points={
+              {40,-40},{40,-50},{60,-50},{60,0},{68,0}}, color={0,0,255}));
+      connect(powerSensor2.power, add.u2) annotation (Line(points={{10,11},{10,
+              20},{0,20},{0,-66},{0,-66},{0,-68}}, color={0,0,127}));
+      connect(powerSensor1.power, add.u1) annotation (Line(points={{-40,19},{
+              -40,-60},{-8,-60},{-8,-68}}, color={0,0,127}));
+      connect(powerSensor3.power, add.u3) annotation (Line(points={{30,-41},{30,
+              -60},{8,-60},{8,-68}}, color={0,0,127}));
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
+                  extent={{-29,-11},{30,-70}},
+              textString="var"),   Line(points={{-70,0},{-90,0}}),
+              Line(points={{70,0},{90,0}}),Line(points={{0,-100},
+              {0,-70}}, color={0,0,127}),
+            Text(
+              extent={{150,-100},{-150,-70}},
+              textString="m=%m"),
+            Text(
+              extent={{-150,80},{150,120}},
+              textString="%name",
+              lineColor={0,0,255})}), Documentation(info="<html>
+<p>
+Contains 3 power meters (Modelica.Electrical.Analog.Sensors.PowerSensor) to measure total reactive power in a threephase system.
+</p>
+<p>
+Thomas M&uuml;hl: Elektrische Messtechnik. Springer Vieweg.
+</p>
+</html>"));
+    end ReactivePowerSensor;
     annotation (Documentation(info="<html>
 <p>
 This package contains multiphase potential, voltage, and current sensors.
@@ -3189,14 +3447,14 @@ This package contains multiphase potential, voltage, and current sensors.
 
 </html>", revisions="<html>
 <dl>
-  <dt><b>Main Authors:</b></dt>
+  <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><b>Release Notes:</b></dt>
+  <dt><strong>Release Notes:</strong></dt>
   <dd>
   <ul>
   <li>v1.0 2004/10/01 Anton Haumer</li>
@@ -3204,12 +3462,6 @@ This package contains multiphase potential, voltage, and current sensors.
       added PowerSensor</li>
   </ul>
   </dd>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
 </dl>
 </html>"));
   end Sensors;
@@ -3228,7 +3480,7 @@ This package contains multiphase potential, voltage, and current sensors.
       Modelica.Blocks.Interfaces.RealInput v[m](each unit="V")
         "Voltage between pin p and n (= p.v - n.v) as input signal" annotation (
          Placement(transformation(
-            origin={0,70},
+            origin={0,120},
             extent={{-20,-20},{20,20}},
             rotation=270)));
       Modelica.Electrical.Analog.Sources.SignalVoltage signalVoltage[m]
@@ -3239,26 +3491,25 @@ This package contains multiphase potential, voltage, and current sensors.
       connect(signalVoltage.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(v, signalVoltage.v)
-        annotation (Line(points={{0,70},{0,7}}, color={0,0,255}));
-      annotation (Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+        annotation (Line(points={{0,120},{0,12}}, color={0,0,255}));
+      annotation (
+        Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
               Line(points={{50,0},{90,0}}, color={0,0,255}),Ellipse(
                   extent={{-50,50},{50,-50}},
                   lineColor={0,0,255},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(points={{-50,0},{50,0}},
               color={0,0,255}),Text(
-                  extent={{-100,-100},{100,-60}},
+                  extent={{-150,60},{150,100}},
                   textString="%name",
-                  lineColor={0,0,255}),Text(
-                  extent={{20,100},{100,60}},
-                  lineColor={0,0,0},
-                  textString="%m"),Text(
-                  extent={{30,60},{110,0}},
-                  lineColor={0,0,255},
-                  textString="-"),Text(
-                  extent={{-110,60},{-30,0}},
-                  lineColor={0,0,255},
-                  textString="+")}), Documentation(info="<html>
+                  lineColor={0,0,255}),
+            Text(
+              extent={{150,-100},{-150,-60}},
+              textString="m=%m"),
+            Line(points={{-70,30},{-70,10}}, color={0,0,255}),
+            Line(points={{-80,20},{-60,20}}, color={0,0,255}),
+            Line(points={{60,20},{80,20}}, color={0,0,255})}),
+                                     Documentation(info="<html>
 <p>
 Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources.SignalVoltage)
 </p>
@@ -3277,25 +3528,24 @@ Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(constantVoltage.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      annotation (Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+      annotation (
+        Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
               Line(points={{50,0},{90,0}}, color={0,0,255}),Ellipse(
                   extent={{-50,50},{50,-50}},
                   lineColor={0,0,255},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(points={{-50,0},{50,0}},
               color={0,0,255}),Text(
-                  extent={{-100,-100},{100,-60}},
+                  extent={{-150,60},{150,100}},
                   textString="%name",
-                  lineColor={0,0,255}),Text(
-                  extent={{-100,100},{100,60}},
-                  lineColor={0,0,0},
-                  textString="m=%m"),Text(
-                  extent={{30,60},{110,0}},
-                  lineColor={0,0,255},
-                  textString="-"),Text(
-                  extent={{-110,60},{-30,0}},
-                  lineColor={0,0,255},
-                  textString="+")}), Documentation(info="<html>
+                  lineColor={0,0,255}),
+            Text(
+              extent={{150,-100},{-150,-60}},
+              textString="m=%m"),
+            Line(points={{-70,30},{-70,10}}, color={0,0,255}),
+            Line(points={{-80,20},{-60,20}}, color={0,0,255}),
+            Line(points={{60,20},{80,20}}, color={0,0,255})}),
+                                     Documentation(info="<html>
 <p>
 Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.ConstantVoltage)
 </p>
@@ -3325,7 +3575,8 @@ Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.Constant
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(sineVoltage.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-50,0}},
               color={0,0,255}),Line(points={{50,0},{90,0}}, color={0,0,255}),
               Ellipse(
@@ -3340,19 +3591,14 @@ Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.Constant
                 25.7,-64},{30.6,-68.6},{35.5,-70},{40.5,-67.9},{45.4,-62.5},{
                 50.3,-54.1},{55.9,-41.3},{63,-21.7},{70,0}},
                   color={192,192,192},
-                  smooth=Smooth.Bezier),Text(
-                  extent={{-100,-100},{100,-60}},
+                  smooth=Smooth.Bezier),
+                               Text(
+                  extent={{-150,60},{150,100}},
                   textString="%name",
-                  lineColor={0,0,255}),Text(
-                  extent={{-100,100},{100,60}},
-                  lineColor={0,0,0},
-                  textString="m=%m"),Text(
-                  extent={{30,60},{110,0}},
-                  lineColor={0,0,255},
-                  textString="-"),Text(
-                  extent={{-110,60},{-30,0}},
-                  lineColor={0,0,255},
-                  textString="+")}), Documentation(info="<html>
+                  lineColor={0,0,255}),
+            Text(
+              extent={{150,-100},{-150,-60}},
+              textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m sine voltage sources (Modelica.Electrical.Analog.Sources.SineVoltage)
 with a default phase shift determined by
@@ -3384,7 +3630,8 @@ with a default phase shift determined by
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(cosineVoltage.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-50,0}},
               color={0,0,255}),Line(points={{50,0},{90,0}}, color={0,0,255}),
               Ellipse(
@@ -3392,19 +3639,7 @@ with a default phase shift determined by
                   lineColor={0,0,255},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(points={{-50,0},{50,0}},
-              color={0,0,255}),Text(
-                  extent={{-100,-100},{100,-60}},
-                  textString="%name",
-                  lineColor={0,0,255}),Text(
-                  extent={{-100,100},{100,60}},
-                  lineColor={0,0,0},
-                  textString="m=%m"),Text(
-                  extent={{30,60},{110,0}},
-                  lineColor={0,0,255},
-                  textString="-"),Text(
-                  extent={{-110,60},{-30,0}},
-                  lineColor={0,0,255},
-                  textString="+"),Line(
+              color={0,0,255}), Line(
                   points={{-71,70},{-68.4,69.8},{-63.5,67},{-58.6,61},{-53.6,52},
                 {-48,38.6},{-40.98,18.6},{-26.21,-26.9},{-19.9,-44},{-14.2,-56.2},
                 {-9.3,-64},{-4.4,-68.6},{0.5,-70},{5.5,-67.9},{10.4,-62.5},{
@@ -3412,7 +3647,17 @@ with a default phase shift determined by
                   color={192,192,192},
                   smooth=Smooth.Bezier),Line(points={{35,0},{44.8,29.9},{51.2,
               46.5},{56.8,58.1},{61.7,65.2},{66.7,69.2},{71.6,69.8}}, color={
-              192,192,192})}), Documentation(info="<html>
+              192,192,192}), Text(
+                  extent={{-150,60},{150,100}},
+                  textString="%name",
+                  lineColor={0,0,255}),
+            Text(
+              extent={{150,-100},{-150,-60}},
+              textString="m=%m"),
+            Line(points={{-70,30},{-70,10}}, color={0,0,255}),
+            Line(points={{-80,20},{-60,20}}, color={0,0,255}),
+            Line(points={{60,20},{80,20}}, color={0,0,255})}),
+                               Documentation(info="<html>
 <p>
 Contains m cosine voltage sources (Modelica.Electrical.Analog.Sources.CosineVoltage)
 with a default phase shift determined by
@@ -3421,7 +3666,7 @@ with a default phase shift determined by
 </html>"));
     end CosineVoltage;
 
-    model SignalCurrent "Multiphase sine current source"
+    model SignalCurrent "Multiphase signal current source"
       parameter Integer m(min=1) = 3 "Number of phases";
       Modelica.SIunits.Voltage v[m]=plug_p.pin.v - plug_n.pin.v
         "Voltage drops between the two plugs";
@@ -3432,7 +3677,7 @@ with a default phase shift determined by
       Modelica.Blocks.Interfaces.RealInput i[m](each unit="A")
         "Current flowing from pin p to pin n as input signal" annotation (
           Placement(transformation(
-            origin={0,70},
+            origin={0,120},
             extent={{-20,-20},{20,20}},
             rotation=270)));
       Modelica.Electrical.Analog.Sources.SignalCurrent signalCurrent[m]
@@ -3443,27 +3688,26 @@ with a default phase shift determined by
       connect(signalCurrent.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(i, signalCurrent.i)
-        annotation (Line(points={{0,70},{0,7}}, color={0,0,255}));
-      annotation (Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+        annotation (Line(points={{0,120},{0,12}}, color={0,0,255}));
+      annotation (
+        Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
               Line(points={{50,0},{90,0}}, color={0,0,255}),Ellipse(
                   extent={{-50,50},{50,-50}},
                   lineColor={0,0,255},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(points={{0,50},{0,-50}},
-              color={0,0,255}),Text(
-                  extent={{-100,-100},{100,-60}},
-                  textString="%name",
-                  lineColor={0,0,255}),Text(
-                  extent={{-100,100},{-20,60}},
-                  lineColor={0,0,0},
-                  textString="m="),Text(
-                  extent={{20,100},{100,60}},
-                  lineColor={0,0,0},
-                  textString="%m"),Polygon(
+              color={0,0,255}), Polygon(
                   points={{90,0},{60,10},{60,-10},{90,0}},
                   lineColor={0,0,255},
                   fillColor={0,0,255},
-                  fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+                  fillPattern=FillPattern.Solid),
+                               Text(
+                  extent={{-150,60},{150,100}},
+                  textString="%name",
+                  lineColor={0,0,255}),
+            Text(
+              extent={{150,-100},{-150,-60}},
+              textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources.SignalCurrent)
 </p>
@@ -3482,23 +3726,25 @@ Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(constantCurrent.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      annotation (Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+      annotation (
+        Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
               Line(points={{50,0},{90,0}}, color={0,0,255}),Ellipse(
                   extent={{-50,50},{50,-50}},
                   lineColor={0,0,255},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(points={{0,50},{0,-50}},
-              color={0,0,255}),Text(
-                  extent={{-100,-100},{100,-60}},
-                  textString="%name",
-                  lineColor={0,0,255}),Text(
-                  extent={{-100,100},{100,60}},
-                  lineColor={0,0,0},
-                  textString="m=%m"),Polygon(
+              color={0,0,255}), Polygon(
                   points={{90,0},{60,10},{60,-10},{90,0}},
                   lineColor={0,0,255},
                   fillColor={0,0,255},
-                  fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+                  fillPattern=FillPattern.Solid),
+                               Text(
+                  extent={{-150,60},{150,100}},
+                  textString="%name",
+                  lineColor={0,0,255}),
+            Text(
+              extent={{150,-100},{-150,-60}},
+              textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m constant current sources (Modelica.Electrical.Analog.Sources.ConstantCurrent)
 </p>
@@ -3528,7 +3774,8 @@ Contains m constant current sources (Modelica.Electrical.Analog.Sources.Constant
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(sineCurrent.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      annotation (Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+      annotation (
+        Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
               Line(points={{50,0},{90,0}}, color={0,0,255}),Ellipse(
                   extent={{-50,50},{50,-50}},
                   lineColor={0,0,255},
@@ -3541,17 +3788,18 @@ Contains m constant current sources (Modelica.Electrical.Analog.Sources.Constant
                 25.7,-64},{30.6,-68.6},{35.5,-70},{40.5,-67.9},{45.4,-62.5},{
                 50.3,-54.1},{55.9,-41.3},{63,-21.7},{70,0}},
                   color={192,192,192},
-                  smooth=Smooth.Bezier),Text(
-                  extent={{-100,-100},{100,-60}},
-                  textString="%name",
-                  lineColor={0,0,255}),Text(
-                  extent={{-100,100},{100,60}},
-                  lineColor={0,0,0},
-                  textString="m=%m"),Polygon(
+                  smooth=Smooth.Bezier), Polygon(
                   points={{90,0},{60,10},{60,-10},{90,0}},
                   lineColor={0,0,255},
                   fillColor={0,0,255},
-                  fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+                  fillPattern=FillPattern.Solid),
+                               Text(
+                  extent={{-150,60},{150,100}},
+                  textString="%name",
+                  lineColor={0,0,255}),
+            Text(
+              extent={{150,-100},{-150,-60}},
+              textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m sine current sources (Modelica.Electrical.Analog.Sources.SineCurrent)
 with a default phase shift determined by
@@ -3583,19 +3831,14 @@ with a default phase shift determined by
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
       connect(cosineCurrent.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      annotation (Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+      annotation (
+        Icon(graphics={Line(points={{-90,0},{-50,0}}, color={0,0,255}),
               Line(points={{50,0},{90,0}}, color={0,0,255}),Ellipse(
                   extent={{-50,50},{50,-50}},
                   lineColor={0,0,255},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(points={{0,50},{0,-50}},
-              color={0,0,255}),         Text(
-                  extent={{-100,-100},{100,-60}},
-                  textString="%name",
-                  lineColor={0,0,255}),Text(
-                  extent={{-100,100},{100,60}},
-                  lineColor={0,0,0},
-                  textString="m=%m"),Polygon(
+              color={0,0,255}), Polygon(
                   points={{90,0},{60,10},{60,-10},{90,0}},
                   lineColor={0,0,255},
                   fillColor={0,0,255},
@@ -3605,7 +3848,13 @@ with a default phase shift determined by
                   color={192,192,192},
                   smooth=Smooth.Bezier),Line(points={{35,0},{44.8,29.9},{51.2,46.5},{56.8,58.1},{61.7,65.2},{66.7,69.2},{71.6,69.8}},
                                                                       color={
-              192,192,192})}),                      Documentation(info="<html>
+              192,192,192}), Text(
+                  extent={{-150,60},{150,100}},
+                  textString="%name",
+                  lineColor={0,0,255}),
+            Text(
+              extent={{150,-100},{-150,-60}},
+              textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m cosine current sources (Modelica.Electrical.Analog.Sources.CosineCurrent)
 with a default phase shift determined by
@@ -3633,25 +3882,19 @@ This package contains time-dependent and controlled multiphase voltage and curre
 </ul>
 </html>", revisions="<html>
 <dl>
-  <dt><b>Main Authors:</b></dt>
+  <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><b>Release Notes:</b></dt>
+  <dt><strong>Release Notes:</strong></dt>
   <dd>
   <ul>
   <li> v1.0 2004/10/01 Anton Haumer</li>
   </ul>
   </dd>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
 </dl>
 </html>"));
   end Sources;
@@ -3659,9 +3902,9 @@ This package contains time-dependent and controlled multiphase voltage and curre
   package Interfaces "Interfaces for electrical multiphase models"
     extends Modelica.Icons.InterfacesPackage;
 
-    connector Plug "Plug with m pins for an electric component"
+    connector Plug "Polyphase electrical plug with m pins"
       parameter Integer m(final min=1) = 3 "Number of phases";
-      Modelica.Electrical.Analog.Interfaces.Pin pin[m];
+      Modelica.Electrical.Analog.Interfaces.Pin pin[m] "Pins of the plug";
 
       annotation (Documentation(info="<html>
 <p>
@@ -3679,7 +3922,7 @@ Connector Plug is a composite connector containing m Pins (Modelica.Electrical.A
               textString="%name")}));
     end Plug;
 
-    connector PositivePlug "Positive plug with m pins"
+    connector PositivePlug "Positive polyphase electrical plug with m pins"
       extends Plug;
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
@@ -3704,10 +3947,9 @@ connector NegativePlug for the negative plug of an electrical component.<br>
 Connector Plug is a composite connector containing m Pins (Modelica.Electrical.Analog.Interfaces.Pin).
 </p>
 </html>"));
-
     end PositivePlug;
 
-    connector NegativePlug "Negative plug with m pins"
+    connector NegativePlug "Negative polyphase electrical plug with m pins"
       extends Plug;
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
@@ -3751,36 +3993,36 @@ Connector Plug is a composite connector containing m Pins (Modelica.Electrical.A
               extent={{-10,-110},{10,-90}})));
       annotation (Documentation(revisions="<html>
 <ul>
-<li><i>August 26, 2009 </i>by Anton Haumer initially implemented</li>
+<li><em>August 26, 2009 </em>by Anton Haumer initially implemented</li>
 </ul>
 </html>", info="<html>
 <p>
 This partial model provides conditional heat ports for the connection to a thermal network.
 </p>
 <ul>
-<li> If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal
-     loss power flows internally to the ground. In this case, the parameter <b>T</b> specifies
+<li> If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal
+     loss power flows internally to the ground. In this case, the parameter <strong>T</strong> specifies
      the fixed device temperatures.</li>
-<li> If <b>useHeatPort</b> is set to <b>true</b>, all heat ports are available.</li>
+<li> If <strong>useHeatPort</strong> is set to <strong>true</strong>, all heat ports are available.</li>
 </ul>
 </html>"));
     end ConditionalHeatPort;
 
-    partial model TwoPlug "Component with one m-phase electric port"
+    partial model TwoPlug "Component with one polyphase electrical port"
       parameter Integer m(min=1) = 3 "Number of phases";
-      Modelica.SIunits.Voltage v[m] "Voltage drops between the two plugs";
-      Modelica.SIunits.Current i[m] "Currents flowing into positive plugs";
-      PositivePlug plug_p(final m=m) annotation (Placement(transformation(
+      Modelica.SIunits.Voltage v[m] "Voltage drops of the two polyphase plugs";
+      Modelica.SIunits.Current i[m] "Currents flowing into positive polyphase plugs";
+      PositivePlug plug_p(final m=m) "Positive polyphase electrical plug with m pins" annotation (Placement(transformation(
               extent={{-110,-10},{-90,10}})));
-      NegativePlug plug_n(final m=m) annotation (Placement(transformation(
+      NegativePlug plug_n(final m=m) "Negative polyphase electrical plug with m pins" annotation (Placement(transformation(
               extent={{90,-10},{110,10}})));
     equation
       v = plug_p.pin.v - plug_n.pin.v;
       i = plug_p.pin.i;
       annotation (Documentation(info="<html>
 <p>
-Superclass of elements which have <b>two</b> electrical plugs:
-the positive plug connector <i>plug_p</i>, and the negative plug connector <i>plug_n</i>.
+Superclass of elements which have <strong>two</strong> electrical plugs:
+the positive plug connector <em>plug_p</em>, and the negative plug connector <em>plug_n</em>.
 The currents flowing into plug_p are provided explicitly as currents i[m].
 </p>
 </html>"));
@@ -3794,29 +4036,29 @@ The currents flowing into plug_p are provided explicitly as currents i[m].
       plug_p.pin.i + plug_n.pin.i = zeros(m);
       annotation (Documentation(info="<html>
 <p>
-Superclass of elements which have <b>two</b> electrical plugs:
-the positive plug connector <i>plug_p</i>, and the negative plug connector <i>plug_n</i>.
+Superclass of elements which have <strong>two</strong> electrical plugs:
+the positive plug connector <em>plug_p</em>, and the negative plug connector <em>plug_n</em>.
 The currents flowing into plug_p are provided explicitly as currents i[m].
 It is assumed that the currents flowing into plug_p are identical to the currents flowing out of plug_n.
 </p>
 </html>"));
     end OnePort;
 
-    partial model FourPlug "Component with two m-phase electric ports"
+    partial model FourPlug "Component with two polyphase electrical ports"
       parameter Integer m(final min=1) = 3 "Number of phases";
-      Modelica.SIunits.Voltage v1[m] "Voltage drops over the left port";
-      Modelica.SIunits.Voltage v2[m] "Voltage drops over the right port";
+      Modelica.SIunits.Voltage v1[m] "Voltage drops of port 1";
+      Modelica.SIunits.Voltage v2[m] "Voltage drops of port 2";
       Modelica.SIunits.Current i1[m]
-        "Current flowing into positive plug of the left port";
+        "Currents flowing into positive polyphase plug of port 1";
       Modelica.SIunits.Current i2[m]
-        "Current flowing into positive plug of the right port";
-      PositivePlug plug_p1(final m=m) annotation (Placement(transformation(
+        "Currents flowing into positive polyphase plug of port 2";
+      PositivePlug plug_p1(final m=m) "Positive electrical polyphase plug of port 1 with m pins" annotation (Placement(transformation(
               extent={{-110,90},{-90,110}})));
-      PositivePlug plug_p2(final m=m) annotation (Placement(transformation(
+      PositivePlug plug_p2(final m=m) "Positive electrical polyphase plug of port 2 with m pins" annotation (Placement(transformation(
               extent={{90,90},{110,110}})));
-      NegativePlug plug_n1(final m=m) annotation (Placement(transformation(
+      NegativePlug plug_n1(final m=m) "Negative electrical polyphase plug of port 1 with m pins" annotation (Placement(transformation(
               extent={{-110,-110},{-90,-90}})));
-      NegativePlug plug_n2(final m=m) annotation (Placement(transformation(
+      NegativePlug plug_n2(final m=m) "Negative electrical polyphase plug of port 2 with m pins" annotation (Placement(transformation(
               extent={{90,-110},{110,-90}})));
     equation
       v1 = plug_p1.pin.v - plug_n1.pin.v;
@@ -3825,20 +4067,20 @@ It is assumed that the currents flowing into plug_p are identical to the current
       i2 = plug_p2.pin.i;
       annotation (Documentation(info="<html>
 <p>
-Superclass of elements which have <b>four</b> electrical plugs.
+Superclass of elements which have <strong>four</strong> electrical plugs.
 </p>
 </html>"));
     end FourPlug;
 
     partial model TwoPort
-      "Component with two m-phase electric ports, including currents"
+      "Component with two polyphase electrical ports, including currents"
       extends FourPlug;
     equation
       plug_p1.pin.i + plug_n1.pin.i = zeros(m);
       plug_p2.pin.i + plug_n2.pin.i = zeros(m);
       annotation (Documentation(info="<html>
 <p>
-Superclass of elements which have <b>four</b> electrical plugs.
+Superclass of elements which have <strong>four</strong> electrical plugs.
 It is assumed that the currents flowing into plug_p1 are identical to the currents flowing out of plug_n1,
 and that the currents flowing into plug_p2 are identical to the currents flowing out of plug_n2.
 </p>
@@ -3852,14 +4094,14 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
 
 </html>", revisions="<html>
 <dl>
-  <dt><b>Main Authors:</b></dt>
+  <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><b>Release Notes:</b></dt>
+  <dt><strong>Release Notes:</strong></dt>
   <dd>
   <ul>
   <li>v1.0 2004/10/01 Anton Haumer</li>
@@ -3867,21 +4109,12 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
       removed annotation from pin of Interfaces.Plug</li>
   </ul>
   </dd>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
 </dl>
 </html>"));
   end Interfaces;
   annotation (Documentation(info="<html>
 <p>
-Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.
-</p>
-<p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+Copyright &copy; 1998-2019, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
   <ul>

@@ -779,6 +779,13 @@ extends Modelica.Icons.ExamplesPackage;
     annotation (experiment(StopTime=0));
   end TestMatrices3;
 
+  model TestMatricesExamplesSolveLinearEquations
+    extends Modelica.Icons.Example;
+    equation
+      Modelica.Math.Matrices.Examples.solveLinearEquations();
+    annotation (experiment(StopTime=0));
+  end TestMatricesExamplesSolveLinearEquations;
+
   model TestVectors
     extends Modelica.Icons.Example;
 
@@ -815,6 +822,40 @@ extends Modelica.Icons.ExamplesPackage;
 
     annotation (experiment(StopTime=0));
   end TestNonlinear;
+
+  model TestInterpolateParametric "To test smoothOrder in Modelica.Math.Vectors.interpolate"
+    extends Modelica.Icons.Example;
+    parameter Real tabx[:]={0,1,2,3,4,5};
+    parameter Real taby[:]=tabx .* tabx;
+    Real x, y, xIntegrated;
+    Integer i;
+    parameter Real p=1 "So that the variable is integrated";
+  initial equation
+    xIntegrated=x;
+  equation
+    (x,i)=Modelica.Math.Vectors.interpolate(tabx, taby, time);
+    y=der(x);
+    der(xIntegrated)=p*y;
+    assert(abs(x-xIntegrated)<0.1, "Automatically generated derivative should integrate correctly.");
+    annotation (experiment(StopTime=5));
+  end TestInterpolateParametric;
+
+  model TestInterpolateTimeVarying "To test smoothOrder in Modelica.Math.Vectors.interpolate"
+    extends Modelica.Icons.Example;
+    Real tabx[:]={0,1,2,3,4,5}+0.1*time*ones(6);
+    Real taby[:]=tabx .* tabx;
+    Real x, y, xIntegrated;
+    Integer i;
+    parameter Real p=1 "So that the variable is integrated";
+    initial equation
+    xIntegrated=x;
+    equation
+    (x,i)=Modelica.Math.Vectors.interpolate(tabx, taby, time);
+    y=der(x);
+    der(xIntegrated)=p*y;
+    assert(abs(x-xIntegrated)<0.1, "Automatically generated derivative should integrate correctly.");
+    annotation (experiment(StopTime=5));
+  end TestInterpolateTimeVarying;
 
   package Random
     function randomNumbers
@@ -883,17 +924,15 @@ extends Modelica.Icons.ExamplesPackage;
 
       ok :=true;
       annotation (Documentation(info="<html>
-<p>
-</p>
 </html>", revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -974,11 +1013,11 @@ extends Modelica.Icons.ExamplesPackage;
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -996,11 +1035,11 @@ extends Modelica.Icons.ExamplesPackage;
        import Modelica.Utilities.Streams.print;
        import Modelica.Math.Distributions;
        input Integer nPoints = 1000;
-       input Real erfRange = 3.0;
        output Boolean ok;
     protected
        Real eps = 10*Modelica.Constants.eps;
-       Real u[nPoints] = linspace(-erfRange, erfRange, nPoints);
+       Real u[nPoints] = linspace(-1,2, nPoints);
+       Real u0[nPoints] = linspace(-1+eps,2-eps,nPoints);
        Real u1[nPoints] = linspace(0+eps,1-eps,nPoints);
        Real u2[nPoints];
        Real y1[nPoints];
@@ -1010,11 +1049,12 @@ extends Modelica.Icons.ExamplesPackage;
        Integer n;
     algorithm
        print("\n... Check Math.Distributions");
+       assert(nPoints >= 1000, "nPoints >= 1000 required (otherwise approximation of derivative with two-side difference quotient is too crude).");
 
        // check Uniform
-       y1 := Distributions.Uniform.density(u,-1,2);
-       y2 := Distributions.Uniform.cumulative(u,-1,2);
-       y3 := Internal.derTwoSided(u,y2);
+       y1 := Distributions.Uniform.density(u0,-1,2);
+       y2 := Distributions.Uniform.cumulative(u0,-1,2);
+       y3 := Internal.derTwoSided(u0,y2);
        err  := max(abs(y1 - y3));
        print("Uniform.density: err = " + String(err));
        assert( err < 0.2, "Uniform.density not correctly computed");
@@ -1058,11 +1098,11 @@ extends Modelica.Icons.ExamplesPackage;
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1080,7 +1120,6 @@ extends Modelica.Icons.ExamplesPackage;
        extends Modelica.Icons.Function;
        import Modelica.Utilities.Streams.print;
        import Modelica.Math.Distributions;
-       import Modelica;
        input Integer nPoints = 1000;
        input Real erfRange = 3.0;
        output Boolean ok;
@@ -1157,11 +1196,11 @@ extends Modelica.Icons.ExamplesPackage;
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1254,6 +1293,37 @@ extends Modelica.Icons.ExamplesPackage;
       annotation (experiment(StopTime=0));
     end TestTruncatedDistributions;
 
+    model TestRandomIntegers
+      extends Modelica.Icons.Example;
+      parameter Integer id(fixed=false);
+      Integer y;
+      parameter Integer n=3;
+      Integer cnt[n](each start=0, each fixed=true);
+      parameter Real nrSigma=3;
+      Real avg=samples/(n);
+      Real lowBound=avg-nrSigma*sqrt(avg);
+      Real highBound=avg+nrSigma*sqrt(avg);
+      Integer samples(start=0, fixed=true);
+    initial algorithm
+      id := Modelica.Math.Random.Utilities.initializeImpureRandom(123456789);
+    equation
+      when sample(0, 0.001) then
+        y = Modelica.Math.Random.Utilities.impureRandomInteger(id, 1, n);
+        cnt=pre(cnt)+{if i==y then 1 else 0 for i in 1:n};
+        samples=pre(samples)+1;
+      end when;
+      when terminal() then
+        for i in 1:n loop
+          assert(cnt[i]>lowBound,
+          "Number of generated "+String(i)+" is "+String(cnt[i])+" but should be "+String(avg)+"+/-"+String(sqrt(avg)));
+          assert(cnt[i]<highBound,
+          "Number of generated "+String(i)+" is "+String(cnt[i])+" but should be "+String(avg)+"+/-"+String(sqrt(avg)));
+        end for;
+      end when;
+      // Note: This test is probabilistic and should sometimes (but rarely) fail if given different random number sequences
+      annotation (experiment(StopTime=1));
+    end TestRandomIntegers;
+
     package Internal
       "Internal utility functions that should not be directly utilized by the user"
       function erfSimple
@@ -1287,11 +1357,11 @@ Implementation is according to Abramowitz and Stegun
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1360,11 +1430,11 @@ The relative error is less than 1e-9.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1389,11 +1459,11 @@ The relative error is less than 1e-9.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1440,11 +1510,11 @@ For more details of this distribution see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1479,11 +1549,11 @@ For more details of this distribution see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1517,11 +1587,11 @@ For more details of this distribution see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -1537,11 +1607,11 @@ For more details of this distribution see
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by

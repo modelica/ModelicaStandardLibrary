@@ -38,13 +38,10 @@ equation
           -12}}));
   connect(SourceP1.ports[1],V1.port_a)
                                    annotation (Line(points={{-56,-12},{
-          -26,-12}},
-        color={0,127,255}));
+          -26,-12}}, color={0,127,255}));
   connect(downstreamPressure.y, SinkP1.p_in) annotation (Line(
-      points={{35,30},{60,30},{60,-4},{48,-4}},
-      color={0,0,127}));
+      points={{35,30},{60,30},{60,-4},{48,-4}}, color={0,0,127}));
   connect(const.y, V1.opening) annotation (Line(
-      points={{-39,30},{-16,30},{-16,-4}},
-      color={0,0,127}));
+      points={{-39,30},{-16,30},{-16,-4}}, color={0,0,127}));
   annotation ( experiment(StopTime=2));
 end TestCheckValve;

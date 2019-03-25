@@ -14,14 +14,14 @@ algorithm
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-<b>allTrue</b>(b);
+<strong>allTrue</strong>(b);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-Returns <b>true</b> if all elements of the Boolean input vector b are <b>true</b>.
-Otherwise the function returns <b>false</b>. If b is an empty vector,
-i.e., size(b,1)=0, the function returns <b>false</b>.
+Returns <strong>true</strong> if all elements of the Boolean input vector b are <strong>true</strong>.
+Otherwise the function returns <strong>false</strong>. If b is an empty vector,
+i.e., size(b,1)=0, the function returns <strong>false</strong>.
 </p>
 
 <h4>Example</h4>
@@ -29,7 +29,7 @@ i.e., size(b,1)=0, the function returns <b>false</b>.
   Boolean b1[3] = {true, true, true};
   Boolean b2[3] = {false, true, false};
   Boolean r1, r2;
-<b>algorithm</b>
+<strong>algorithm</strong>
   r1 = allTrue(b1);  // r1 = true
   r2 = allTrue(b2);  // r2 = false
 </pre></blockquote>
@@ -61,14 +61,14 @@ algorithm
   annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-<b>anyTrue</b>(b);
+<strong>anyTrue</strong>(b);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-Returns <b>true</b> if at least one elements of the input Boolean vector b is <b>true</b>.
-Otherwise the function returns <b>false</b>. If b is an empty vector,
-i.e., size(b,1)=0, the function returns <b>false</b>.
+Returns <strong>true</strong> if at least one elements of the input Boolean vector b is <strong>true</strong>.
+Otherwise the function returns <strong>false</strong>. If b is an empty vector,
+i.e., size(b,1)=0, the function returns <strong>false</strong>.
 </p>
 
 <h4>Example</h4>
@@ -76,7 +76,7 @@ i.e., size(b,1)=0, the function returns <b>false</b>.
   Boolean b1[3] = {false, false, false};
   Boolean b2[3] = {false, true, false};
   Boolean r1, r2;
-<b>algorithm</b>
+<strong>algorithm</strong>
   r1 = anyTrue(b1);  // r1 = false
   r2 = anyTrue(b2);  // r2 = true
 </pre></blockquote>
@@ -104,12 +104,12 @@ algorithm
     annotation (Inline=true,Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-<b>countTrue</b>(b);
+<strong>countTrue</strong>(b);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-This function returns the number of <b>true</b> entries in a Boolean vector b.
+This function returns the number of <strong>true</strong> entries in a Boolean vector b.
 </p>
 
 <h4>Example</h4>
@@ -152,13 +152,13 @@ algorithm
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-<b>enumerate</b>(b);
+<strong>enumerate</strong>(b);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
 This function returns an integer vector that consecutively numbers
-the <b>true</b> entries in a Boolean vector b.  The <b>false</b> entries are
+the <strong>true</strong> entries in a Boolean vector b.  The <strong>false</strong> entries are
 indicated by 0.
 </p>
 
@@ -193,13 +193,13 @@ algorithm
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-<b>firstTrueIndex</b>(b);
+<strong>firstTrueIndex</strong>(b);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-Returns the index of the first <b>true</b> element of the Boolean vector b.
-If no element is <b>true</b> or b is an empty vector (i.e., size(b,1)=0) the
+Returns the index of the first <strong>true</strong> element of the Boolean vector b.
+If no element is <strong>true</strong> or b is an empty vector (i.e., size(b,1)=0) the
 function returns 0.
 </p>
 
@@ -209,7 +209,7 @@ function returns 0.
   Boolean b2[3] = {false, true, false};
   Boolean b3[4] = {false, true, false, true};
   Integer r1, r2, r3;
-<b>algorithm</b>
+<strong>algorithm</strong>
   r1 = firstTrueIndex(b1);  // r1 = 0
   r2 = firstTrueIndex(b2);  // r2 = 2
   r3 = firstTrueIndex(b3);  // r3 = 2
@@ -248,14 +248,14 @@ algorithm
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-<b>index</b>(b);
+<strong>index</strong>(b);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
 This function returns an integer vector that contains indices to the
-<b>true</b> entries in a Boolean vector b.  The number of entries in
-the integer vector is the number of <b>true</b> entries in b.
+<strong>true</strong> entries in a Boolean vector b.  The number of entries in
+the integer vector is the number of <strong>true</strong> entries in b.
 </p>
 
 <h4>Example</h4>
@@ -286,14 +286,14 @@ algorithm
   annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-<b>oneTrue</b>(b);
+<strong>oneTrue</strong>(b);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-Returns <b>true</b> if exactly one element of the input Boolean vector b is <b>true</b>.
-Otherwise the function returns <b>false</b>. If b is an empty vector,
-i.e., size(b,1)=0, the function returns <b>false</b>.
+Returns <strong>true</strong> if exactly one element of the input Boolean vector b is <strong>true</strong>.
+Otherwise the function returns <strong>false</strong>. If b is an empty vector,
+i.e., size(b,1)=0, the function returns <strong>false</strong>.
 </p>
 
 <h4>Example</h4>
@@ -302,7 +302,7 @@ i.e., size(b,1)=0, the function returns <b>false</b>.
   Boolean b2[3] = {false, true, false};
   Boolean b3[3] = {false, true, true};
   Boolean r1, r2, r3;
-<b>algorithm</b>
+<strong>algorithm</strong>
   r1 = oneTrue(b1);  // r1 = false
   r2 = oneTrue(b2);  // r2 = true
   r3 = oneTrue(b3);  // r3 = false

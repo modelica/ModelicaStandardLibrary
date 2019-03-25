@@ -531,36 +531,36 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
       annotation (Documentation(info="<html>
 <p>
 This model calculates medium properties
-for air in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions.
+for air in the <strong>liquid</strong>, <strong>gas</strong> and <strong>two phase</strong> regions.
 Three variable pairs can be the independent variables of the model:
 </p>
 <ol>
-<li>Pressure <b>p</b> and specific enthalpy <b>h</b> are the most natural choice for general applications. This is the recommended choice for most general purpose applications.</li>
-<li>Pressure <b>p</b> and temperature <b>T</b> are the most natural choice for applications where air is always in the same phase (liquid or gas).</li>
-<li>Density <b>d</b> and temperature <b>T</b> are explicit variables of the Helmholtz function in the near-critical region and can be the best choice for applications with super-critical or near-critical states.</li>
+<li>Pressure <strong>p</strong> and specific enthalpy <strong>h</strong> are the most natural choice for general applications. This is the recommended choice for most general purpose applications.</li>
+<li>Pressure <strong>p</strong> and temperature <strong>T</strong> are the most natural choice for applications where air is always in the same phase (liquid or gas).</li>
+<li>Density <strong>d</strong> and temperature <strong>T</strong> are explicit variables of the Helmholtz function in the near-critical region and can be the best choice for applications with super-critical or near-critical states.</li>
 </ol>
 <p>
 The following quantities are always computed:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>Variable</b></td>
-      <td valign=\"top\"><b>Unit</b></td>
-      <td valign=\"top\"><b>Description</b></td></tr>
-  <tr><td valign=\"top\">T</td>
-      <td valign=\"top\">K</td>
-      <td valign=\"top\">temperature</td></tr>
-  <tr><td valign=\"top\">u</td>
-      <td valign=\"top\">J/kg</td>
-      <td valign=\"top\">specific internal energy</td></tr>
-  <tr><td valign=\"top\">d</td>
-      <td valign=\"top\">kg/m^3</td>
-      <td valign=\"top\">density</td></tr>
-  <tr><td valign=\"top\">p</td>
-      <td valign=\"top\">Pa</td>
-      <td valign=\"top\">pressure</td></tr>
-  <tr><td valign=\"top\">h</td>
-      <td valign=\"top\">J/kg</td>
-      <td valign=\"top\">specific enthalpy</td></tr>
+  <tr><td><strong>Variable</strong></td>
+      <td><strong>Unit</strong></td>
+      <td><strong>Description</strong></td></tr>
+  <tr><td>T</td>
+      <td>K</td>
+      <td>temperature</td></tr>
+  <tr><td>u</td>
+      <td>J/kg</td>
+      <td>specific internal energy</td></tr>
+  <tr><td>d</td>
+      <td>kg/m^3</td>
+      <td>density</td></tr>
+  <tr><td>p</td>
+      <td>Pa</td>
+      <td>pressure</td></tr>
+  <tr><td>h</td>
+      <td>J/kg</td>
+      <td>specific enthalpy</td></tr>
 </table>
 <p>
 In some cases additional medium properties are needed.
@@ -747,7 +747,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           Real dp "Pressure difference";
           SI.Density deld "Density step";
           Modelica.Media.Common.HelmholtzDerivs f
-            "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
           Modelica.Media.Common.NewtonDerivatives_pT nDerivs
             "Derivatives needed in Newton iteration";
           Boolean found=false "Flag for iteration success";
@@ -787,7 +787,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           Real deld "Newton-step in d-direction";
           Real delt "Newton-step in T-direction";
           Modelica.Media.Common.HelmholtzDerivs f
-            "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
           Modelica.Media.Common.NewtonDerivatives_ph nDerivs
             "Derivatives needed in Newton iteration";
           Boolean found=false "Flag for iteration success";
@@ -835,7 +835,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           Real deld "Newton-step in d-direction";
           Real delt "Newton-step in T-direction";
           Modelica.Media.Common.HelmholtzDerivs f
-            "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
           Modelica.Media.Common.NewtonDerivatives_ps nDerivs
             "Derivatives needed in Newton iteration";
           Boolean found=false "Flag for iteration success";
@@ -911,7 +911,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 
         protected
           Modelica.Media.Common.HelmholtzDerivs f
-            "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
           SI.ThermalConductivity lambda_0=0 "Dilute gas thermal conductivity";
           SI.ThermalConductivity lambda_r=0
             "Residual fluid thermal conductivity";
@@ -1000,7 +1000,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         output Common.AuxiliaryProperties aux "Auxiliary record";
       protected
         Modelica.Media.Common.HelmholtzDerivs f
-          "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
       algorithm
         aux.p := p;
         aux.s := s;
@@ -1099,7 +1099,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         output Common.AuxiliaryProperties aux "Auxiliary record";
       protected
         Modelica.Media.Common.HelmholtzDerivs f
-          "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
         Integer error "Error flag for inverse iterations";
       algorithm
         aux.p := p;
@@ -1462,7 +1462,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         output Common.AuxiliaryProperties aux "Auxiliary record";
       protected
         Modelica.Media.Common.HelmholtzDerivs f
-          "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
       algorithm
         aux.p := p;
         aux.T := T;
@@ -1755,7 +1755,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         output Common.AuxiliaryProperties aux "Auxiliary record";
       protected
         Modelica.Media.Common.HelmholtzDerivs f
-          "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
       algorithm
         aux.rho := d;
         aux.T := T;
@@ -2036,7 +2036,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 
     protected
       package ThermoFluidSpecial
-
+        extends Modelica.Icons.FunctionsPackage;
         function air_ph
           "Calculate the property record for dynamic simulation properties using p,h as states"
           extends Modelica.Icons.Function;
@@ -2046,7 +2046,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
             pro "Property record for dynamic simulation";
         protected
           Modelica.Media.Common.HelmholtzDerivs f
-            "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
           Modelica.SIunits.Temperature T "Temperature";
           Modelica.SIunits.Density d "Density";
         algorithm
@@ -2069,7 +2069,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         protected
           Modelica.SIunits.Pressure p "Pressure";
           Modelica.Media.Common.HelmholtzDerivs f
-            "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
         algorithm
           f := Air_Utilities.Basic.Helmholtz(d, T);
           pro := Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_dT(f);
@@ -2086,7 +2086,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         protected
           Modelica.SIunits.Density d "Density";
           Modelica.Media.Common.HelmholtzDerivs f
-            "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
         algorithm
           d := Modelica.Media.Air.ReferenceAir.Air_Utilities.Inverses.dofpT(
                     p=p,
@@ -2112,25 +2112,24 @@ The functions provided by this package shall be used inside of the restricted li
 
 <ul>
 <li>
-<b>p &le; 2000 MPa</b>
+<strong>p &le; 2000 MPa</strong>
 </li>
 <li>
-<b>130 K &le; T &le; 2000 K</b>
+<strong>130 K &le; T &le; 2000 K</strong>
 </li>
 </ul>
 
 <h4>References</h4>
 <dl>
 <dt>Lemmon, E. W., Jacobsen, R. T., Penoncello, S. G., Friend, D. G.:</dt>
-<dd><b>Thermodynamic Properties of Air and Mixtures of Nitrogen, Argon,
-and Oxygen From 60 to 2000 K at Pressures to 2000 MPa</b>. J. Phys. Chem. Ref. Data, Vol. 29, No. 3, 2000.
+<dd><strong>Thermodynamic Properties of Air and Mixtures of Nitrogen, Argon,
+and Oxygen From 60 to 2000 K at Pressures to 2000 MPa</strong>. J. Phys. Chem. Ref. Data, Vol. 29, No. 3, 2000.
 </dd>
 <dt>Lemmon, E. W., Jacobsen, R. T.:</dt>
-<dd><b>Viscosity and Thermal Conductivity Equations for
-Nitrogen, Oxygen, Argon, and Air</b>. International Journal of Thermophysics, Vol. 25, No. 1, January 2004
+<dd><strong>Viscosity and Thermal Conductivity Equations for
+Nitrogen, Oxygen, Argon, and Air</strong>. International Journal of Thermophysics, Vol. 25, No. 1, January 2004
 </dd>
 </dl>
-
 
 <h4>Verification</h4>
 <p>
@@ -2147,11 +2146,8 @@ This library was developed by XRG Simulation GmbH as part of the <a href=\"http:
 Some parts of this library refer to the ThermoFluid library developed at Lund University (<a href=\"http://thermofluid.sourceforge.net/\">http://thermofluid.sourceforge.net</a>).
 </p>
 
-<h4>Disclaimer</h4>
 <p>
-In no event will XRG Simulation GmbH be liable for any direct, indirect, incidental, special, exemplary, or consequential damages, arising in any way out of the use of this software, even if advised of the possibility of such damage.
+Copyright &copy; 2013-2019, Modelica Association and contributors
 </p>
-<h4> Copyright &copy; 2013-2016, XRG Simulation GmbH </h4>
-
 </html>"));
 end ReferenceAir;

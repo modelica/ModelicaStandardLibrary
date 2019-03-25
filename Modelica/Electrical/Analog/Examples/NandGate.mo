@@ -11,9 +11,9 @@ encapsulated model NandGate "CMOS NAND Gate (see Tietze/Schenk, page 157)"
     startTime=20e-9,
     rising=1e-9,
     width=19e-9,
-    falling=1.e-9,
+    falling=1e-9,
     period=40e-9,
-    nperiod=-1)   annotation (Placement(transformation(
+    nperiod=-1) annotation (Placement(transformation(
         origin={-70,20},
         extent={{-10,-10},{10,10}},
         rotation=270)));
@@ -22,9 +22,9 @@ encapsulated model NandGate "CMOS NAND Gate (see Tietze/Schenk, page 157)"
     startTime=10e-9,
     rising=1e-9,
     width=19e-9,
-    falling=1.e-9,
+    falling=1e-9,
     period=40e-9,
-    nperiod=-1)   annotation (Placement(transformation(
+    nperiod=-1) annotation (Placement(transformation(
         origin={-70,-30},
         extent={{-10,-10},{10,10}},
         rotation=270)));
@@ -48,22 +48,21 @@ equation
           80}}, color={0,0,255}));
   connect(VIN1.p, Nand.x1) annotation (Line(points={{-70,30},{-40,30}}, color={0,
           0,255}));
-  connect(VIN2.p, Nand.x2) annotation (Line(points={{-70,-20},{-40,-20}}, color=
-          {0,0,255}));
+  connect(VIN2.p, Nand.x2) annotation (Line(points={{-70,-20},{-40,-20}}, color={0,0,255}));
   annotation (Documentation(info="<html>
 <p>The nand gate is a basic CMOS building block. It consists of four CMOS transistors. The output voltage Nand.y.v is low if and only if the two input voltages at Nand.x1.v and Nand.x2.v are both high. In this way the nand functionality is realized.</p>
 <p>The simulation end time should be set to 1e-7. Please plot the input voltages Nand.x1.v, d Nand.x2.v, and the output voltage Nand.y.v.</p>
-<p><b>Reference:</b></p>
+<p><strong>Reference:</strong></p>
 <p>Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin Heidelberg NewYork 1980, p. 157</p>
 </html>",
    revisions="<html>
 <dl>
 <dt>
-<b>Main Authors:</b>
+<strong>Main Authors:</strong>
 </dt>
 <dd>
 Christoph Clau&szlig;
-    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
+    &lt;<a href=\"mailto:christoph@clauss-it.com\">christoph@clauss-it.com</a>&gt;<br>
     Andr&eacute; Schneider
     &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>

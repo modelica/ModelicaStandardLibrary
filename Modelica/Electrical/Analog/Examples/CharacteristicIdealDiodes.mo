@@ -26,11 +26,11 @@ model CharacteristicIdealDiodes "Characteristic of ideal diodes"
   Modelica.Electrical.Analog.Basic.Ground Ground1 annotation (Placement(
         transformation(extent={{-50,-80},{-30,-60}})));
 
-  Modelica.Electrical.Analog.Basic.Resistor R1(R=1.e-3) annotation (Placement(
+  Modelica.Electrical.Analog.Basic.Resistor R1(R=1e-3) annotation (Placement(
         transformation(extent={{60,40},{80,60}})));
-  Modelica.Electrical.Analog.Basic.Resistor R2(R=1.e-3)
+  Modelica.Electrical.Analog.Basic.Resistor R2(R=1e-3)
     annotation (Placement(transformation(extent={{60,0},{80,20}})));
-  Modelica.Electrical.Analog.Basic.Resistor R3(R=1.e-3) annotation (Placement(
+  Modelica.Electrical.Analog.Basic.Resistor R3(R=1e-3) annotation (Placement(
         transformation(extent={{60,-40},{80,-20}})));
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage2(
     V=10,
@@ -80,18 +80,18 @@ equation
           lineColor={0,0,255})}),
     Documentation(info="<html>
 <p>Three examples of ideal diodes are shown:
-<br>the <b>totally ideal diode</b> (Ideal) with all parameters to be zero,
-the <b>nearly ideal diode</b> with <i>Ron=0.1</i> and <i>Goff=0.1</i>
- and the nearly ideal but <b>displaced diode</b> with <i>Vknee=5</i> and <i>Ron=0.1</i> and <i>Goff=0.1</i>.
+<br>the <strong>totally ideal diode</strong> (Ideal) with all parameters to be zero,
+the <strong>nearly ideal diode</strong> with <em>Ron=0.1</em> and <em>Goff=0.1</em>
+ and the nearly ideal but <strong>displaced diode</strong> with <em>Vknee=5</em> and <em>Ron=0.1</em> and <em>Goff=0.1</em>.
 The resistance and conductance are chosen untypically high since the slopes should be seen in the graphics.
 </p><p>Simulate until T=1 s.
 Plot in separate windows:
 Ideal.i versus Ideal.v, With_Ron_Goff.i versus With_Ron_Goff.v, With_Ron_Goff_Vknee.i versus With_Ron_Goff_Vknee.v
 </p>
 </html>", revisions="<html>
-<p><b>Release Notes:</b></p>
+<p><strong>Release Notes:</strong></p>
 <ul>
-<li><i>Mai 7, 2004   </i>
+<li><em>Mai 7, 2004   </em>
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>
