@@ -26,7 +26,7 @@ package Constants
     "Biggest Integer number such that Integer_inf and -Integer_inf are representable on the machine";
 
   // Constants of nature
-  // (name, value, description from https://www.bipm.org/utils/en/pdf/CGPM/Draft-Resolution-A-EN.pdf, data from 2018)
+  // (name, value, description from https://www.bipm.org/en/CGPM/db/26/1/, effective from May 20, 2019)
   // The values for c, q, h, k, N_A are exact and part of the basis of the SI-system
   // Note that the elementary charge uses the common alternate name q since e was taken.
   // The values for F, R, sigma, mue_0, epsilson_0 are also exact.
