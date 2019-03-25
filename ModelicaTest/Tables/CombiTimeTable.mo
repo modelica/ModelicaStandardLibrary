@@ -1,5 +1,5 @@
 within ModelicaTest.Tables;
-package CombiTimeTable
+package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
   import Modelica.Utilities.Files.loadResource;
   extends Modelica.Icons.ExamplesPackage;
 
@@ -1066,4 +1066,39 @@ double mydummyfunc(double* dummy_in) {
     annotation (experiment(StartTime=0, StopTime=4));
   end Test82;
 */
+  model Test83 "Simulation StartTime = t_max (Ticket #2233)"
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Sources.CombiTimeTable t_new(
+      table=[0,1;0.4,0;1,1],
+      smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
+      extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
+      columns={2}) annotation(Placement(transformation(extent={{-40,0},{-20,20}})));
+    Modelica.Blocks.Sources.BooleanTable booleanTable(table={0,0.4,1}) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
+    annotation (experiment(StartTime=1, StopTime=3));
+  end Test83;
+
+  model Test84 "Text file with UTF-8 BOM and comments (Ticket #2404)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+        tableOnFile=true,
+        tableName="a",
+        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_utf8.txt")));
+    annotation (experiment(StartTime=0, StopTime=100));
+  end Test84;
+
+  model Test85 "Single time event at t_min=t_max > startTime = 0 (Ticket #2724)"
+    extends Modelica.Icons.Example;
+    extends Test0_noDer(t_new(
+      table=[1,10;1,11],
+      smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments));
+    annotation (experiment(StartTime=0, StopTime=3));
+  end Test85;
+
+  model Test86 "Two time events (Ticket #2724)"
+    extends Modelica.Icons.Example;
+    extends Test0_noDer(t_new(
+      table=[1,10;1,11;2,12],
+      smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments));
+    annotation (experiment(StartTime=0, StopTime=3));
+  end Test86;
 end CombiTimeTable;

@@ -16,45 +16,38 @@ model EngineV6
     n={1,0,0},
     cylinderLength=0.02,
     cylinderDiameter=0.06,
-    animation=animation) annotation (Placement(transformation(extent={{-90,20},
-            {-70,0}})));
+    animation=animation) annotation (Placement(transformation(extent={{-80,30},{-60,10}})));
   inner Modelica.Mechanics.MultiBody.World world(animateWorld=false,
       animateGravity =                                                              false)
     annotation (Placement(transformation(extent={{-120,20},{-100,40}})));
   Utilities.Cylinder cylinder1(
     crankAngleOffset=Cv.from_deg(-30),
     cylinderInclination=Cv.from_deg(-30),
-    animation=animation) annotation (Placement(transformation(extent={{-50,4},{
-            -30,34}})));
+    animation=animation) annotation (Placement(transformation(extent={{-50,20},{-30,40}})));
   Utilities.Cylinder cylinder2(
     crankAngleOffset=Cv.from_deg(90),
     cylinderInclination=Cv.from_deg(30),
-    animation=animation) annotation (Placement(transformation(extent={{-20,4},{
-            0,34}})));
+    animation=animation) annotation (Placement(transformation(extent={{-20,20},{0,40}})));
   Utilities.Cylinder cylinder3(
     cylinderInclination=Cv.from_deg(-30),
     animation=animation,
     crankAngleOffset=Cv.from_deg(210))
-                         annotation (Placement(transformation(extent={{10,4},{
-            30,34}})));
+                         annotation (Placement(transformation(extent={{10,20},{30,40}})));
   Utilities.Cylinder cylinder4(
     cylinderInclination=Cv.from_deg(30),
     animation=animation,
     crankAngleOffset=Cv.from_deg(210))
-                         annotation (Placement(transformation(extent={{39,4},{
-            59,34}})));
+                         annotation (Placement(transformation(extent={{40,20},{61,40}})));
   Utilities.Cylinder cylinder5(
     cylinderInclination=Cv.from_deg(-30),
     animation=animation,
     crankAngleOffset=Cv.from_deg(90))
-                         annotation (Placement(transformation(extent={{70,4},{
-            90,34}})));
+                         annotation (Placement(transformation(extent={{70,20},{90,40}})));
   Utilities.Cylinder cylinder6(
     cylinderInclination=Cv.from_deg(30),
     animation=animation,
     crankAngleOffset=Cv.from_deg(-30))
-                         annotation (Placement(transformation(extent={{100,4},{
-            120,34}})));
+                         annotation (Placement(transformation(extent={{100,20},{120,40}})));
   Modelica.Mechanics.Rotational.Components.Inertia load(
                           phi(
       start=0,
@@ -62,92 +55,91 @@ model EngineV6
       start=10,
       fixed=true),
     stateSelect=StateSelect.always,
-    J=1)                               annotation (Placement(transformation(
-          extent={{-44,-30},{-24,-10}})));
+    J=1) annotation (Placement(transformation(
+          extent={{-30,-30},{-10,-10}})));
   Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque load2(
                                                  tau_nominal=-100, w_nominal=
         200,
     useSupport=false)
-             annotation (Placement(transformation(extent={{6,-30},{-14,-10}})));
+             annotation (Placement(transformation(extent={{20,-30},{0,-10}})));
   Rotational.Sensors.TorqueSensor torqueSensor
-    annotation (Placement(transformation(extent={{-72,-30},{-52,-10}})));
+    annotation (Placement(transformation(extent={{-62,-30},{-42,-10}})));
   Blocks.Continuous.CriticalDamping filter(
     n=2,
     initType=Modelica.Blocks.Types.Init.SteadyState,
-    f=5) annotation (Placement(transformation(extent={{-54,-60},{-34,-40}})));
+    f=5) annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
 equation
 
   connect(bearing.frame_b, cylinder1.crank_a)
     annotation (Line(
-      points={{-70,10},{-50,10}},
+      points={{-60,20},{-50,20}},
       color={95,95,95},
       thickness=0.5));
   connect(cylinder1.crank_b, cylinder2.crank_a)
     annotation (Line(
-      points={{-30,10},{-20,10}},
+      points={{-30,20},{-20,20}},
       color={95,95,95},
       thickness=0.5));
   connect(cylinder2.crank_b, cylinder3.crank_a)
     annotation (Line(
-      points={{0,10},{10,10}},
+      points={{0,20},{10,20}},
       color={95,95,95},
       thickness=0.5));
   connect(cylinder3.crank_b, cylinder4.crank_a)
     annotation (Line(
-      points={{30,10},{39,10}},
+      points={{30,20},{40,20}},
       color={95,95,95},
       thickness=0.5));
   connect(cylinder4.crank_b, cylinder5.crank_a)
     annotation (Line(
-      points={{59,10},{70,10}},
+      points={{61,20},{70,20}},
       color={95,95,95},
       thickness=0.5));
   connect(cylinder5.crank_b, cylinder6.crank_a)
     annotation (Line(
-      points={{90,10},{100,10}},
+      points={{90,20},{100,20}},
       color={95,95,95},
       thickness=0.5));
   connect(cylinder5.cylinder_b, cylinder6.cylinder_a)
     annotation (Line(
-      points={{90,32},{100,32}},
+      points={{90,40},{100,40}},
       color={95,95,95},
       thickness=0.5));
   connect(cylinder4.cylinder_b, cylinder5.cylinder_a)
     annotation (Line(
-      points={{59,32},{70,32}},
+      points={{61,40},{70,40}},
       color={95,95,95},
       thickness=0.5));
   connect(cylinder4.cylinder_a, cylinder3.cylinder_b)
     annotation (Line(
-      points={{39,32},{30,32}},
+      points={{40,40},{30,40}},
       color={95,95,95},
       thickness=0.5));
   connect(cylinder3.cylinder_a, cylinder2.cylinder_b)
     annotation (Line(
-      points={{10,32},{0,32}},
+      points={{10,40},{0,40}},
       color={95,95,95},
       thickness=0.5));
   connect(cylinder2.cylinder_a, cylinder1.cylinder_b)
     annotation (Line(
-      points={{-20,32},{-30,32}},
+      points={{-20,40},{-30,40}},
       color={95,95,95},
       thickness=0.5));
   connect(world.frame_b, cylinder1.cylinder_a) annotation (Line(
-      points={{-100,30},{-59,30},{-59,32},{-50,32}},
+      points={{-100,30},{-90,30},{-90,40},{-50,40}},
       color={95,95,95},
       thickness=0.5));
   connect(world.frame_b, bearing.frame_a) annotation (Line(
-      points={{-100,30},{-96,30},{-96,10},{-90,10}},
+      points={{-100,30},{-90,30},{-90,20},{-80,20}},
       color={95,95,95},
       thickness=0.5));
   connect(load2.flange, load.flange_b)
-    annotation (Line(points={{-14,-20},{-24,-20}}));
+    annotation (Line(points={{0,-20},{-10,-20}}));
   connect(torqueSensor.flange_b, load.flange_a)
-    annotation (Line(points={{-52,-20},{-44,-20}}));
-  connect(torqueSensor.tau,filter. u) annotation (Line(points={{-70,-31},{-70,
-          -50},{-56,-50}}, color={0,0,127}));
-  connect(torqueSensor.flange_a, bearing.axis) annotation (Line(points={{-72,
-          -20},{-80,-20},{-80,0}}));
+    annotation (Line(points={{-42,-20},{-30,-20}}));
+  connect(torqueSensor.tau,filter. u) annotation (Line(points={{-60,-31},{-60,-50},{-52,-50}},
+                           color={0,0,127}));
+  connect(torqueSensor.flange_a, bearing.axis) annotation (Line(points={{-62,-20},{-70,-20},{-70,10}}));
   annotation (
     Documentation(info="<html>
 <p>
@@ -159,14 +151,13 @@ An animation of the engine is shown in the figure below.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6.png\" ALT=\"model Examples.Loops.EngineV6\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6.png\" alt=\"model Examples.Loops.EngineV6\">
 </p>
 
 <p>
-Simulate for 3 s with about 50000 output intervals, and plot the variables <b>engineSpeed_rpm</b>,
-<b>engineTorque</b>, and <b>filteredEngineTorque</b>. Note, the result file has
+Simulate for 3 s with about 50000 output intervals, and plot the variables <strong>engineSpeed_rpm</strong>,
+<strong>engineTorque</strong>, and <strong>filteredEngineTorque</strong>. Note, the result file has
 a size of about 300 Mbyte in this case. The default setting of StopTime = 1.01 s (with the default setting of the tool for the number of output points), in order that (automatic) regression testing does not have to cope with a large result file.
 </p>
-</html>"), experiment(StopTime=1.01),    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-140,-100},{140,
-            100}})));
+</html>"), experiment(StopTime=1.01), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-120,-100},{120,100}})));
 end EngineV6;

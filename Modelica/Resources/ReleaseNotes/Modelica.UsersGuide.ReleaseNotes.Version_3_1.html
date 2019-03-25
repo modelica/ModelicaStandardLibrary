@@ -1,15 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 <title>Modelica.UsersGuide.ReleaseNotes.Version_3_1</title>
 </head>
 <body>
-<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>.<span class="omc-h1">Version_3_1</span></h1>
+<h1>ReleaseNotes.<span class="omc-h1">Version_3_1</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <p>Version 3.1 is backward compatible to version 3.0 and 3.0.1,
 i.e., models developed with version 3.0 or 3.0.1 will work without
@@ -31,416 +30,422 @@ implementation of conditional connectors (support and heatPort) in
 the Rotational, Translational and Electrical libraries
 simpler.</li>
 </ul>
-<p>The following <b style="color:blue">new libraries</b> have been
-added:</p>
+<p>The following <font color="blue"><strong>new
+libraries</strong></font> have been added:</p>
 <table border="1" cellspacing="0" cellpadding="2">
 <tr>
-<td valign="top"><a href="Modelica.Fluid.html">Modelica.Fluid</a></td>
-<td valign="top">Components to model 1-dim. thermo-fluid flow in
-networks of vessels, pipes, fluid machines, valves and fittings.
-All media from the Modelica.Media library can be used (so
-incompressible or compressible, single or multiple substance, one
-or two phase medium). The library is using the stream-concept from
-Modelica Specification 3.1.</td>
+<td>Modelica.Fluid</td>
+<td>Components to model 1-dim. thermo-fluid flow in networks of
+vessels, pipes, fluid machines, valves and fittings. All media from
+the Modelica.Media library can be used (so incompressible or
+compressible, single or multiple substance, one or two phase
+medium). The library is using the stream-concept from Modelica
+Specification 3.1.</td>
 </tr>
 <tr>
-<td valign="top"><a href="Modelica.Magnetic.FluxTubes.html">Modelica.Magnetic.FluxTubes</a></td>
-<td valign="top">Components to model magnetic devices based on the
-magnetic flux tubes concepts. Especially to model electro-magnetic
-actuators. Nonlinear shape, force, leakage, and Material models.
-Material data for steel, electric sheet, pure iron, Cobalt iron,
-Nickel iron, NdFeB, Sm2Co17, and more.</td>
+<td>Modelica.Magnetic.FluxTubes</td>
+<td>Components to model magnetic devices based on the magnetic flux
+tubes concepts. Especially to model electro-magnetic actuators.
+Nonlinear shape, force, leakage, and Material models. Material data
+for steel, electric sheet, pure iron, Cobalt iron, Nickel iron,
+NdFeB, Sm2Co17, and more.</td>
 </tr>
 <tr>
-<td valign="top"><a href="ModelicaServices.html">ModelicaServices</a></td>
-<td valign="top">New top level package that shall contain functions
-and models to be used in the Modelica Standard Library that
-requires a tool specific implementation. ModelicaServices is then
-used in the Modelica package. In this first version, the 3-dim.
-animation with model
-Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape was moved
-to ModelicaServices. Tool vendors can now provide their own
+<td><a href="ModelicaServices.html">ModelicaServices</a></td>
+<td>New top level package that shall contain functions and models
+to be used in the Modelica Standard Library that requires a tool
+specific implementation. ModelicaServices is then used in the
+Modelica package. In this first version, the 3-dim. animation with
+model Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape was
+moved to ModelicaServices. Tool vendors can now provide their own
 implementation of the animation.</td>
 </tr>
 </table>
 <p><br />
-The following <b style="color:blue">new components</b> have been
-added to <b style="color:blue">existing</b> libraries:</p>
+The following <font color="blue"><strong>new
+components</strong></font> have been added to <font color="blue"><strong>existing</strong></font> libraries:</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
-<td colspan="2"><b>Modelica.</b></td>
+<td colspan="2"><strong>Modelica.</strong></td>
 </tr>
 <tr>
-<td valign="top">versionBuild<br />
+<td>versionBuild<br />
 versionDate<br />
 dateModified<br />
 revisionId</td>
-<td valign="top">New annotations from Modelica 3.1 for version
-handling added.</td>
+<td>New annotations from Modelica 3.1 for version handling
+added.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.UsersGuide.ReleaseNotes.</b></td>
+<td colspan="2">
+<strong>Modelica.UsersGuide.ReleaseNotes.</strong></td>
 </tr>
 <tr>
-<td valign="top">VersionManagement</td>
-<td valign="top">Copied from info layer of previous ReleaseNotes
-(to make it more visible) and adapted it to the new possibilities
-in Modelica Specification 3.1.</td>
+<td>VersionManagement</td>
+<td>Copied from info layer of previous ReleaseNotes (to make it
+more visible) and adapted it to the new possibilities in Modelica
+Specification 3.1.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Math.</b></td>
+<td colspan="2"><strong>Modelica.Blocks.Math.</strong></td>
 </tr>
 <tr>
-<td valign="top">RectangularToPolar<br />
+<td>RectangularToPolar<br />
 PolarToRectangular</td>
-<td valign="top">New blocks to convert between rectangular and
-polar form of space phasors.</td>
+<td>New blocks to convert between rectangular and polar form of
+space phasors.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Routing.</b></td>
+<td colspan="2"><strong>Modelica.Blocks.Routing.</strong></td>
 </tr>
 <tr>
-<td valign="top">Replicator</td>
-<td valign="top">New block to replicate an input signal to many
-output signals.</td>
+<td>Replicator</td>
+<td>New block to replicate an input signal to many output
+signals.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Electrical.Analog.Examples.</b></td>
+<td colspan="2">
+<strong>Modelica.Electrical.Analog.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top">AmplifierWithOpAmpDetailed<br />
+<td>AmplifierWithOpAmpDetailed<br />
 HeatingResistor<br />
 CompareTransformers<br />
 OvervoltageProtection<br />
 ControlledSwitchWithArc<br />
 SwitchWithArc<br />
 ThyristorBehaviourTest</td>
-<td valign="top">New examples to demonstrate the usage of new
-components.</td>
+<td>New examples to demonstrate the usage of new components.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Electrical.Analog.Basic.</b></td>
+<td colspan="2">
+<strong>Modelica.Electrical.Analog.Basic.</strong></td>
 </tr>
 <tr>
-<td valign="top">OpAmpDetailed<br />
+<td>OpAmpDetailed<br />
 TranslationalEMF<br />
 M_Transformer</td>
-<td valign="top">New detailed model of an operational
-amplifier.<br />
+<td>New detailed model of an operational amplifier.<br />
 New electromotoric force from electrical energy into mechanical
 translational energy.<br />
 Generic transformer with choosable number of inductors</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Electrical.Analog.Ideal.</b></td>
+<td colspan="2">
+<strong>Modelica.Electrical.Analog.Ideal.</strong></td>
 </tr>
 <tr>
-<td valign="top">OpenerWithArc<br />
+<td>OpenerWithArc<br />
 CloserWithArc<br />
 ControlledOpenerWithArc<br />
 ControlledCloserWithArc</td>
-<td valign="top">New switches with simple arc model.</td>
-</tr>
-<tr>
-<td colspan="2"><b>Modelica.Electrical.Analog.Interfaces.</b></td>
-</tr>
-<tr>
-<td valign="top">ConditionalHeatPort</td>
-<td valign="top">New partial model to add a conditional HeatPort to
-an electrical component.</td>
-</tr>
-<tr>
-<td colspan="2"><b>Modelica.Electrical.Analog.Lines.</b></td>
-</tr>
-<tr>
-<td valign="top">M_Oline</td>
-<td valign="top">New multiple line model, both the number of lines
-and the number of segments choosable.</td>
+<td>New switches with simple arc model.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Electrical.Analog.Semiconductors.</b></td>
+<strong>Modelica.Electrical.Analog.Interfaces.</strong></td>
 </tr>
 <tr>
-<td valign="top">ZDiode<br />
+<td>ConditionalHeatPort</td>
+<td>New partial model to add a conditional HeatPort to an
+electrical component.</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Modelica.Electrical.Analog.Lines.</strong></td>
+</tr>
+<tr>
+<td>M_Oline</td>
+<td>New multiple line model, both the number of lines and the
+number of segments choosable.</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Modelica.Electrical.Analog.Semiconductors.</strong></td>
+</tr>
+<tr>
+<td>ZDiode<br />
 Thyristor</td>
-<td valign="top">Zener Diode with 3 working areas and simple
-thyristor model.</td>
+<td>Zener Diode with 3 working areas and simple thyristor
+model.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Electrical.MultiPhase.Ideal.</b></td>
+<td colspan="2">
+<strong>Modelica.Electrical.MultiPhase.Ideal.</strong></td>
 </tr>
 <tr>
-<td valign="top">OpenerWithArc<br />
+<td>OpenerWithArc<br />
 CloserWithArc</td>
-<td valign="top">New switches with simple arc model (as in
+<td>New switches with simple arc model (as in
 Modelica.Electrical.Analog.Ideal.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Mechanics.MultiBody.Examples.Elementary.</b></td>
+<strong>Modelica.Mechanics.MultiBody.Examples.Elementary.</strong></td>
 </tr>
 <tr>
-<td valign="top">RollingWheel<br />
+<td>RollingWheel<br />
 RollingWheelSetDriving<br />
 RollingWheelSetPulling</td>
-<td valign="top">New examples to demonstrate the usage of new
-components.</td>
+<td>New examples to demonstrate the usage of new components.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Mechanics.MultiBody.Joints.</b></td>
+<td colspan="2">
+<strong>Modelica.Mechanics.MultiBody.Joints.</strong></td>
 </tr>
 <tr>
-<td valign="top">RollingWheel<br />
+<td>RollingWheel<br />
 RollingWheelSet</td>
-<td valign="top">New joints (no mass, no inertia) that describe an
-ideal rolling wheel and a ideal rolling wheel set consisting of two
-wheels rolling on the plane z=0.</td>
+<td>New joints (no mass, no inertia) that describe an ideal rolling
+wheel and a ideal rolling wheel set consisting of two wheels
+rolling on the plane z=0.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Mechanics.MultiBody.Parts.</b></td>
+<td colspan="2">
+<strong>Modelica.Mechanics.MultiBody.Parts.</strong></td>
 </tr>
 <tr>
-<td valign="top">RollingWheel<br />
+<td>RollingWheel<br />
 RollingWheelSet</td>
-<td valign="top">New ideal rolling wheel and ideal rolling wheel
-set consisting of two wheels rolling on the plane z=0.</td>
+<td>New ideal rolling wheel and ideal rolling wheel set consisting
+of two wheels rolling on the plane z=0.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Mechanics.MultiBody.Visualizers.</b></td>
+<strong>Modelica.Mechanics.MultiBody.Visualizers.</strong></td>
 </tr>
 <tr>
-<td valign="top">Ground</td>
-<td valign="top">New model to visualize the ground (box at
-z=0).</td>
+<td>Ground</td>
+<td>New model to visualize the ground (box at z=0).</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Mechanics.Rotational.Interfaces.</b></td>
+<strong>Modelica.Mechanics.Rotational.Interfaces.</strong></td>
 </tr>
 <tr>
-<td valign="top">PartialElementaryOneFlangeAndSupport2<br />
+<td>PartialElementaryOneFlangeAndSupport2<br />
 PartialElementaryTwoFlangesAndSupport2</td>
-<td valign="top">New partial model with one and two flanges and the
-support flange with a much simpler implementation as
-previously.</td>
+<td>New partial model with one and two flanges and the support
+flange with a much simpler implementation as previously.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Mechanics.Translational.Interfaces.</b></td>
+<strong>Modelica.Mechanics.Translational.Interfaces.</strong></td>
 </tr>
 <tr>
-<td valign="top">PartialElementaryOneFlangeAndSupport2<br />
+<td>PartialElementaryOneFlangeAndSupport2<br />
 PartialElementaryTwoFlangesAndSupport2</td>
-<td valign="top">New partial model with one and two flanges and the
-support flange with a much simpler implementation as
-previously.</td>
+<td>New partial model with one and two flanges and the support
+flange with a much simpler implementation as previously.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Media.IdealGases.Common.MixtureGasNasa.</b></td>
+<strong>Modelica.Media.IdealGases.Common.MixtureGasNasa.</strong></td>
 </tr>
 <tr>
-<td valign="top">setSmoothState</td>
-<td valign="top">Return thermodynamic state so that it smoothly
-approximates: if x &gt; 0 then state_a else state_b.</td>
+<td>setSmoothState</td>
+<td>Return thermodynamic state so that it smoothly approximates: if
+x &gt; 0 then state_a else state_b.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Utilities.Internal.</b></td>
+<td colspan="2"><strong>Modelica.Utilities.Internal.</strong></td>
 </tr>
 <tr>
-<td valign="top">PartialModelicaServices</td>
-<td valign="top">New package containing the interface description
-of models and functions that require a tool dependent
-implementation (currently only "Shape" for 3-dim. animation, but
-will be extended in the future)</td>
+<td>PartialModelicaServices</td>
+<td>New package containing the interface description of models and
+functions that require a tool dependent implementation (currently
+only "Shape" for 3-dim. animation, but will be extended in the
+future)</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Thermal.HeatTransfer.Components.</b></td>
+<strong>Modelica.Thermal.HeatTransfer.Components.</strong></td>
 </tr>
 <tr>
-<td valign="top">ThermalCollector</td>
-<td valign="top">New auxiliary model to collect the heat flows from
-m heatports to a single heatport; useful for multiphase resistors
-(with heatports) as a junction of the m heatports.</td>
+<td>ThermalCollector</td>
+<td>New auxiliary model to collect the heat flows from m heatports
+to a single heatport; useful for multiphase resistors (with
+heatports) as a junction of the m heatports.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Icons.</b></td>
+<td colspan="2"><strong>Modelica.Icons.</strong></td>
 </tr>
 <tr>
-<td valign="top">VariantLibrary<br />
+<td>VariantLibrary<br />
 BaseClassLibrary<br />
 ObsoleteModel</td>
-<td valign="top">New icons (VariantLibrary and BaseClassLibrary
-have been moved from Modelica_Fluid.Icons to this place).</td>
+<td>New icons (VariantLibrary and BaseClassLibrary have been moved
+from Modelica_Fluid.Icons to this place).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.SIunits.</b></td>
+<td colspan="2"><strong>Modelica.SIunits.</strong></td>
 </tr>
 <tr>
-<td valign="top">ElectricalForceConstant</td>
-<td valign="top">New type added (#190).</td>
+<td>ElectricalForceConstant</td>
+<td>New type added (#190).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.SIunits.Conversions.</b></td>
+<td colspan="2"><strong>Modelica.SIunits.Conversions.</strong></td>
 </tr>
 <tr>
-<td valign="top">from_Hz<br />
+<td>from_Hz<br />
 to_Hz</td>
-<td valign="top">New functions to convert between frequency [Hz]
-and angular velocity [1/s]. (#156)</td>
+<td>New functions to convert between frequency [Hz] and angular
+velocity [1/s]. (#156)</td>
 </tr>
 </table>
 <p><br />
-The following <b style="color:blue">existing components</b> have
-been <b style="color:blue">improved</b> in a <b style="color:blue">backward compatible</b> way:</p>
+The following <font color="blue"><strong>existing
+components</strong></font> have been <font color="blue"><strong>improved</strong></font> in a <font color="blue"><strong>backward compatible</strong></font> way:</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
-<td colspan="2"><b>Modelica.</b></td>
+<td colspan="2"><strong>Modelica.</strong></td>
 </tr>
 <tr>
-<td valign="top">Blocks<br />
+<td>Blocks<br />
 Mechanics<br />
 StateGraph</td>
-<td valign="top">Provided missing parameter values for examples
-(these parameters had only start values)</td>
+<td>Provided missing parameter values for examples (these
+parameters had only start values)</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Electrical.Analog.Basic</b></td>
+<td colspan="2">
+<strong>Modelica.Electrical.Analog.Basic</strong></td>
 </tr>
 <tr>
-<td valign="top">Resistor, Conductor, VariableResistor,
-VariableConductor</td>
-<td valign="top">Conditional heatport added for coupling to thermal
-network.</td>
-</tr>
-<tr>
-<td colspan="2"><b>Modelica.Electrical.Analog.Ideal</b></td>
-</tr>
-<tr>
-<td valign="top">Thyristors, Switches, IdealDiode</td>
-<td valign="top">Conditional heatport added for coupling to thermal
+<td>Resistor, Conductor, VariableResistor, VariableConductor</td>
+<td>Conditional heatport added for coupling to thermal
 network.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Electrical.Analog.Semiconductors</b></td>
+<strong>Modelica.Electrical.Analog.Ideal</strong></td>
 </tr>
 <tr>
-<td valign="top">Diode, ZDiode, PMOS, NMOS, NPN, PNP</td>
-<td valign="top">Conditional heatport added for coupling to thermal
+<td>Thyristors, Switches, IdealDiode</td>
+<td>Conditional heatport added for coupling to thermal
 network.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Electrical.MultiPhase.Basic</b></td>
+<td colspan="2">
+<strong>Modelica.Electrical.Analog.Semiconductors</strong></td>
 </tr>
 <tr>
-<td valign="top">Resistor, Conductor, VariableResistor,
-VariableConductor</td>
-<td valign="top">Conditional heatport added for coupling to thermal
-network (as in Modelica.Electrical.Analog).</td>
-</tr>
-<tr>
-<td colspan="2"><b>Modelica.Electrical.MultiPhase.Ideal</b></td>
-</tr>
-<tr>
-<td valign="top">Thyristors, Switches, IdealDiode</td>
-<td valign="top">Conditional heatport added for coupling to thermal
-network (as in Modelica.Electrical.Analog).</td>
+<td>Diode, ZDiode, PMOS, NMOS, NPN, PNP</td>
+<td>Conditional heatport added for coupling to thermal
+network.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Mechanics.MultiBody.Visualizers.Advanced.</b></td>
+<strong>Modelica.Electrical.MultiPhase.Basic</strong></td>
 </tr>
 <tr>
-<td valign="top">Shape</td>
-<td valign="top">New implementation by inheriting from
-ModelicaServices. This allows a tool vendor to provide its own
-implementation of Shape.</td>
+<td>Resistor, Conductor, VariableResistor, VariableConductor</td>
+<td>Conditional heatport added for coupling to thermal network (as
+in Modelica.Electrical.Analog).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.StateGraph.</b></td>
+<td colspan="2">
+<strong>Modelica.Electrical.MultiPhase.Ideal</strong></td>
 </tr>
 <tr>
-<td valign="top">Examples</td>
-<td valign="top">Introduced "StateGraphRoot" on the top level of
-all example models.</td>
+<td>Thyristors, Switches, IdealDiode</td>
+<td>Conditional heatport added for coupling to thermal network (as
+in Modelica.Electrical.Analog).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.StateGraph.Interfaces.</b></td>
+<td colspan="2">
+<strong>Modelica.Mechanics.MultiBody.Visualizers.Advanced.</strong></td>
 </tr>
 <tr>
-<td valign="top">StateGraphRoot<br />
+<td>Shape</td>
+<td>New implementation by inheriting from ModelicaServices. This
+allows a tool vendor to provide its own implementation of
+Shape.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Modelica.StateGraph.</strong></td>
+</tr>
+<tr>
+<td>Examples</td>
+<td>Introduced "StateGraphRoot" on the top level of all example
+models.</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Modelica.StateGraph.Interfaces.</strong></td>
+</tr>
+<tr>
+<td>StateGraphRoot<br />
 PartialCompositeStep<br />
 CompositeStepState</td>
-<td valign="top">Replaced the wrong Modelica code "flow output Real
-xxx" by "Real dummy; flow Real xxx;". As a side effect, several
-"blocks" had to be changed to "models".</td>
+<td>Replaced the wrong Modelica code "flow output Real xxx" by
+"Real dummy; flow Real xxx;". As a side effect, several "blocks"
+had to be changed to "models".</td>
 </tr>
 <tr>
-<td valign="top">PartialStep</td>
-<td valign="top">Changed model by packing the protected outer
-connector in to a model. Otherwise, there might be differences in
-the sign of the flow variable in Modelica 3.0 and 3.1.</td>
+<td>PartialStep</td>
+<td>Changed model by packing the protected outer connector in to a
+model. Otherwise, there might be differences in the sign of the
+flow variable in Modelica 3.0 and 3.1.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Utilities.Examples.</b></td>
+<td colspan="2"><strong>Modelica.Utilities.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top">expression</td>
-<td valign="top">Changed local variable "operator" to "opString"
-since "operator" is a reserved keyword in Modelica 3.1</td>
+<td>expression</td>
+<td>Changed local variable "operator" to "opString" since
+"operator" is a reserved keyword in Modelica 3.1</td>
 </tr>
 </table>
 <p><br />
-The following <b style="color:red">uncritical errors</b> have been
-fixed (i.e., errors that do <b style="color:red">not</b> lead to
-wrong simulation results, but, e.g., units are wrong or errors in
+The following <font color="red"><strong>uncritical
+errors</strong></font> have been fixed (i.e., errors that do
+<font color="red"><strong>not</strong></font> lead to wrong
+simulation results, but, e.g., units are wrong or errors in
 documentation):</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
-<td colspan="2"><b>Modelica.</b></td>
+<td colspan="2"><strong>Modelica.</strong></td>
 </tr>
 <tr>
-<td valign="top">Many models</td>
-<td valign="top">Removed wrong usages of annotations fillColor and
-fillPattern in text annotations (#155, #185).</td>
+<td>Many models</td>
+<td>Removed wrong usages of annotations fillColor and fillPattern
+in text annotations (#155, #185).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Electrical.Machines</b></td>
+<td colspan="2"><strong>Modelica.Electrical.Machines</strong></td>
 </tr>
 <tr>
-<td valign="top">All machine models</td>
-<td valign="top">The conditional heatports of the instantiated
-resistors (which are new in Modelica.Electrical.Analog and
+<td>All machine models</td>
+<td>The conditional heatports of the instantiated resistors (which
+are new in Modelica.Electrical.Analog and
 Modelica.Electrical.MultiPhase) are finally switched off until a
 thermal connector design for machines is implemented.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Media.Air.MoistAir</b></td>
+<td colspan="2"><strong>Modelica.Media.Air.MoistAir</strong></td>
 </tr>
 <tr>
-<td valign="top">saturationPressureLiquid<br />
+<td>saturationPressureLiquid<br />
 sublimationPressureIce<br />
 saturationPressure</td>
-<td valign="top">For these three functions, an error in the
+<td>For these three functions, an error in the
 <code>derivative</code> annotation was corrected. However, the
 effect of this bug was minor, as a Modelica tool was allowed to
 compute derivatives automatically via the <code>smoothOrder</code>
 annotation.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Math.Matrices.</b></td>
+<td colspan="2"><strong>Modelica.Math.Matrices.</strong></td>
 </tr>
 <tr>
-<td valign="top">eigenValues</td>
-<td valign="top">Wrong documentation corrected (#162)</td>
+<td>eigenValues</td>
+<td>Wrong documentation corrected (#162)</td>
 </tr>
 </table>
 <hr />
-Generated at 2016-07-13T15:55:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.11.0~dev-38-g67b62bf
+Generated at 2018-08-07T07:53:32Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1195-g6d891ea
 </body>
 </html>

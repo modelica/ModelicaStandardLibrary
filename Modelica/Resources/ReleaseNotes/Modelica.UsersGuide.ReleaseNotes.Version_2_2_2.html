@@ -1,15 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 <title>Modelica.UsersGuide.ReleaseNotes.Version_2_2_2</title>
 </head>
 <body>
-<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>.<span class="omc-h1">Version_2_2_2</span></h1>
+<h1>ReleaseNotes.<span class="omc-h1">Version_2_2_2</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <p>Version 2.2.2 is backward compatible to version 2.2.1 and 2.2
 with the following exceptions:</p>
@@ -21,422 +20,418 @@ not yet utilized).</li>
 Modelica.Media.IdealGases.SingleGases that are not type compatible
 to Modelica.Media.Interfaces.PartialMedium, because a
 FluidConstants record definition is missing, for details, see
-<a href="Modelica.Media.IdealGases.html">Modelica.Media.IdealGases</a>
+Modelica.Media.IdealGases
 (this is seen as a bug fix).</li>
 </ul>
 <p>An overview of the differences between version 2.2.2 and the
 previous version 2.2.1 is given below. The exact differences (but
-without differences in the documentation) are available in <a href="../../../Modelica%203.2.2/Resources/Documentation/Differences-Modelica-221-222.html">
+without differences in the documentation) are available in <a href="../Documentation/Differences-Modelica-221-222.html">
 Differences-Modelica-221-222.html</a>. This comparison file was
 generated automatically with Dymola's ModelManagement.compare
 function.</p>
-<p>In this version, <b>no</b> new libraries have been added. The
-<b>documentation</b> of the whole library was improved.</p>
+<p>In this version, <strong>no</strong> new libraries have been
+added. The <strong>documentation</strong> of the whole library was
+improved.</p>
 <p><br />
-The following <b style="color:blue">new components</b> have been
-added to <b style="color:blue">existing</b> libraries:</p>
+The following <font color="blue"><strong>new
+components</strong></font> have been added to <font color="blue"><strong>existing</strong></font> libraries:</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
-<td colspan="2"><b>Blocks.Logical.</b></td>
+<td colspan="2"><strong>Blocks.Logical.</strong></td>
 </tr>
 <tr>
-<td valign="top">TerminateSimulation</td>
-<td valign="top">Terminate a simulation by a given condition.</td>
+<td>TerminateSimulation</td>
+<td>Terminate a simulation by a given condition.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Blocks.Routing.</b></td>
+<td colspan="2"><strong>Blocks.Routing.</strong></td>
 </tr>
 <tr>
-<td valign="top">RealPassThrough<br />
+<td>RealPassThrough<br />
 IntegerPassThrough<br />
 BooleanPassThrough</td>
-<td valign="top">Pass a signal from input to output (useful in
-combination with a bus due to restrictions of expandable
-connectors).</td>
+<td>Pass a signal from input to output (useful in combination with
+a bus due to restrictions of expandable connectors).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Blocks.Sources.</b></td>
+<td colspan="2"><strong>Blocks.Sources.</strong></td>
 </tr>
 <tr>
-<td valign="top">KinematicPTP2</td>
-<td valign="top">Directly gives q,qd,qdd as output (and not just
-qdd as KinematicPTP).</td>
+<td>KinematicPTP2</td>
+<td>Directly gives q,qd,qdd as output (and not just qdd as
+KinematicPTP).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Electrical.Machines.Examples.</b></td>
+<td colspan="2"><strong>Electrical.Machines.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top">TransformerTestbench</td>
-<td valign="top">Transformer Testbench</td>
+<td>TransformerTestbench</td>
+<td>Transformer Testbench</td>
 </tr>
 <tr>
-<td valign="top">Rectifier6pulse</td>
-<td valign="top">6-pulse rectifier with 1 transformer</td>
+<td>Rectifier6pulse</td>
+<td>6-pulse rectifier with 1 transformer</td>
 </tr>
 <tr>
-<td valign="top">Rectifier12pulse</td>
-<td valign="top">12-pulse rectifier with 2 transformers</td>
+<td>Rectifier12pulse</td>
+<td>12-pulse rectifier with 2 transformers</td>
 </tr>
 <tr>
-<td valign="top">AIMC_Steinmetz</td>
-<td valign="top">Asynchronous induction machine squirrel cage with
-Steinmetz connection</td>
+<td>AIMC_Steinmetz</td>
+<td>Asynchronous induction machine squirrel cage with Steinmetz
+connection</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Electrical.Machines.BasicMachines.Components.</b></td>
+<strong>Electrical.Machines.BasicMachines.Components.</strong></td>
 </tr>
 <tr>
-<td valign="top">BasicAIM</td>
-<td valign="top">Partial model for asynchronous induction
-machine</td>
+<td>BasicAIM</td>
+<td>Partial model for asynchronous induction machine</td>
 </tr>
 <tr>
-<td valign="top">BasicSM</td>
-<td valign="top">Partial model for synchronous induction
-machine</td>
+<td>BasicSM</td>
+<td>Partial model for synchronous induction machine</td>
 </tr>
 <tr>
-<td valign="top">PartialAirGap</td>
-<td valign="top">Partial airgap model</td>
+<td>PartialAirGap</td>
+<td>Partial airgap model</td>
 </tr>
 <tr>
-<td valign="top">BasicDCMachine</td>
-<td valign="top">Partial model for DC machine</td>
+<td>BasicDCMachine</td>
+<td>Partial model for DC machine</td>
 </tr>
 <tr>
-<td valign="top">PartialAirGapDC</td>
-<td valign="top">Partial airgap model of a DC machine</td>
+<td>PartialAirGapDC</td>
+<td>Partial airgap model of a DC machine</td>
 </tr>
 <tr>
-<td valign="top">BasicTransformer</td>
-<td valign="top">Partial model of threephase transformer</td>
+<td>BasicTransformer</td>
+<td>Partial model of threephase transformer</td>
 </tr>
 <tr>
-<td valign="top">PartialCore</td>
-<td valign="top">Partial model of transformer core with 3
-windings</td>
+<td>PartialCore</td>
+<td>Partial model of transformer core with 3 windings</td>
 </tr>
 <tr>
-<td valign="top">IdealCore</td>
-<td valign="top">Ideal transformer with 3 windings</td>
+<td>IdealCore</td>
+<td>Ideal transformer with 3 windings</td>
 </tr>
 <tr>
-<td colspan="2"><b>Electrical.Machines.BasicMachines.</b></td>
+<td colspan="2">
+<strong>Electrical.Machines.BasicMachines.</strong></td>
 </tr>
 <tr>
-<td valign="top">Transformers</td>
-<td valign="top">Sub-Library for technical 3phase transformers</td>
+<td>Transformers</td>
+<td>Sub-Library for technical 3phase transformers</td>
 </tr>
 <tr>
-<td colspan="2"><b>Electrical.Machines.Interfaces.</b></td>
+<td colspan="2">
+<strong>Electrical.Machines.Interfaces.</strong></td>
 </tr>
 <tr>
-<td valign="top">Adapter</td>
-<td valign="top">Adapter to model housing of electrical
-machine</td>
+<td>Adapter</td>
+<td>Adapter to model housing of electrical machine</td>
 </tr>
 <tr>
-<td colspan="2"><b>Math.</b></td>
+<td colspan="2"><strong>Math.</strong></td>
 </tr>
 <tr>
-<td valign="top">Vectors</td>
-<td valign="top">New library of functions operating on vectors</td>
+<td>Vectors</td>
+<td>New library of functions operating on vectors</td>
 </tr>
 <tr>
-<td valign="top">atan3</td>
-<td valign="top">Four quadrant inverse tangent (select solution
-that is closest to given angle y0)</td>
+<td>atan3</td>
+<td>Four quadrant inverse tangent (select solution that is closest
+to given angle y0)</td>
 </tr>
 <tr>
-<td valign="top">asinh</td>
-<td valign="top">Inverse of sinh (area hyperbolic sine)</td>
+<td>asinh</td>
+<td>Inverse of sinh (area hyperbolic sine)</td>
 </tr>
 <tr>
-<td valign="top">acosh</td>
-<td valign="top">Inverse of cosh (area hyperbolic cosine)</td>
+<td>acosh</td>
+<td>Inverse of cosh (area hyperbolic cosine)</td>
 </tr>
 <tr>
-<td colspan="2"><b>Math.Vectors</b></td>
+<td colspan="2"><strong>Math.Vectors</strong></td>
 </tr>
 <tr>
-<td valign="top">isEqual</td>
-<td valign="top">Determine if two Real vectors are numerically
-identical</td>
+<td>isEqual</td>
+<td>Determine if two Real vectors are numerically identical</td>
 </tr>
 <tr>
-<td valign="top">norm</td>
-<td valign="top">Return the p-norm of a vector</td>
+<td>norm</td>
+<td>Return the p-norm of a vector</td>
 </tr>
 <tr>
-<td valign="top">length</td>
-<td valign="top">Return length of a vector (better as norm(), if
-further symbolic processing is performed)</td>
+<td>length</td>
+<td>Return length of a vector (better as norm(), if further
+symbolic processing is performed)</td>
 </tr>
 <tr>
-<td valign="top">normalize</td>
-<td valign="top">Return normalized vector such that length = 1 and
-prevent zero-division for zero vector</td>
+<td>normalize</td>
+<td>Return normalized vector such that length = 1 and prevent
+zero-division for zero vector</td>
 </tr>
 <tr>
-<td valign="top">reverse</td>
-<td valign="top">Reverse vector elements (e.g., v[1] becomes last
-element)</td>
+<td>reverse</td>
+<td>Reverse vector elements (e.g., v[1] becomes last element)</td>
 </tr>
 <tr>
-<td valign="top">sort</td>
-<td valign="top">Sort elements of vector in ascending or descending
-order</td>
+<td>sort</td>
+<td>Sort elements of vector in ascending or descending order</td>
 </tr>
 <tr>
-<td colspan="2"><b>Math.Matrices</b></td>
+<td colspan="2"><strong>Math.Matrices</strong></td>
 </tr>
 <tr>
-<td valign="top">solve2</td>
-<td valign="top">Solve real system of linear equations A*X=B with a
-B matrix (Gaussian elimination with partial pivoting)</td>
+<td>solve2</td>
+<td>Solve real system of linear equations A*X=B with a B matrix
+(Gaussian elimination with partial pivoting)</td>
 </tr>
 <tr>
-<td valign="top">LU_solve2</td>
-<td valign="top">Solve real system of linear equations P*L*U*X=B
-with a B matrix and an LU decomposition (from LU(..))</td>
+<td>LU_solve2</td>
+<td>Solve real system of linear equations P*L*U*X=B with a B matrix
+and an LU decomposition (from LU(..))</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.Rotational.</b></td>
+<td colspan="2"><strong>Mechanics.Rotational.</strong></td>
 </tr>
 <tr>
-<td valign="top">InitializeFlange</td>
-<td valign="top">Initialize a flange according to given signals
-(useful if initialization signals are provided by a signal
-bus).</td>
+<td>InitializeFlange</td>
+<td>Initialize a flange according to given signals (useful if
+initialization signals are provided by a signal bus).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Interfaces.PartialMedium.</b></td>
+<td colspan="2">
+<strong>Media.Interfaces.PartialMedium.</strong></td>
 </tr>
 <tr>
-<td valign="top">density_pTX</td>
-<td valign="top">Return density from p, T, and X or Xi</td>
+<td>density_pTX</td>
+<td>Return density from p, T, and X or Xi</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Interfaces.PartialTwoPhaseMedium.</b></td>
+<td colspan="2">
+<strong>Media.Interfaces.PartialTwoPhaseMedium.</strong></td>
 </tr>
 <tr>
-<td valign="top">BaseProperties</td>
-<td valign="top">Base properties (p, d, T, h, u, R, MM, x) of a two
-phase medium</td>
+<td>BaseProperties</td>
+<td>Base properties (p, d, T, h, u, R, MM, x) of a two phase
+medium</td>
 </tr>
 <tr>
-<td valign="top">molarMass</td>
-<td valign="top">Return the molar mass of the medium</td>
+<td>molarMass</td>
+<td>Return the molar mass of the medium</td>
 </tr>
 <tr>
-<td valign="top">saturationPressure_sat</td>
-<td valign="top">Return saturation pressure</td>
+<td>saturationPressure_sat</td>
+<td>Return saturation pressure</td>
 </tr>
 <tr>
-<td valign="top">saturationTemperature_sat</td>
-<td valign="top">Return saturation temperature</td>
+<td>saturationTemperature_sat</td>
+<td>Return saturation temperature</td>
 </tr>
 <tr>
-<td valign="top">saturationTemperature_derp_sat</td>
-<td valign="top">Return derivative of saturation temperature w.r.t.
+<td>saturationTemperature_derp_sat</td>
+<td>Return derivative of saturation temperature w.r.t.
 pressure</td>
 </tr>
 <tr>
-<td valign="top">setState_px</td>
-<td valign="top">Return thermodynamic state from pressure and
-vapour quality</td>
+<td>setState_px</td>
+<td>Return thermodynamic state from pressure and vapour
+quality</td>
 </tr>
 <tr>
-<td valign="top">setState_Tx</td>
-<td valign="top">Return thermodynamic state from temperature and
-vapour quality</td>
+<td>setState_Tx</td>
+<td>Return thermodynamic state from temperature and vapour
+quality</td>
 </tr>
 <tr>
-<td valign="top">vapourQuality</td>
-<td valign="top">Return vapour quality</td>
+<td>vapourQuality</td>
+<td>Return vapour quality</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Interfaces.</b></td>
+<td colspan="2"><strong>Media.Interfaces.</strong></td>
 </tr>
 <tr>
-<td valign="top">PartialLinearFluid</td>
-<td valign="top">Generic pure liquid model with constant cp,
-compressibility and thermal expansion coefficients</td>
+<td>PartialLinearFluid</td>
+<td>Generic pure liquid model with constant cp, compressibility and
+thermal expansion coefficients</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Air.MoistAir.</b></td>
+<td colspan="2"><strong>Media.Air.MoistAir.</strong></td>
 </tr>
 <tr>
-<td valign="top">massFraction_pTphi</td>
-<td valign="top">Return the steam mass fraction from relative
-humidity and T</td>
+<td>massFraction_pTphi</td>
+<td>Return the steam mass fraction from relative humidity and
+T</td>
 </tr>
 <tr>
-<td valign="top">saturationTemperature</td>
-<td valign="top">Return saturation temperature from (partial)
-pressure via numerical inversion of function
-saturationPressure</td>
+<td>saturationTemperature</td>
+<td>Return saturation temperature from (partial) pressure via
+numerical inversion of function saturationPressure</td>
 </tr>
 <tr>
-<td valign="top">enthalpyOfWater</td>
-<td valign="top">Return specific enthalpy of water (solid/liquid)
-near atmospheric pressure from temperature</td>
+<td>enthalpyOfWater</td>
+<td>Return specific enthalpy of water (solid/liquid) near
+atmospheric pressure from temperature</td>
 </tr>
 <tr>
-<td valign="top">enthalpyOfWater_der</td>
-<td valign="top">Return derivative of enthalpyOfWater()"
-function</td>
+<td>enthalpyOfWater_der</td>
+<td>Return derivative of enthalpyOfWater()" function</td>
 </tr>
 <tr>
-<td valign="top">PsychrometricData</td>
-<td valign="top">Model to generate plot data for psychrometric
-chart</td>
+<td>PsychrometricData</td>
+<td>Model to generate plot data for psychrometric chart</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.CompressibleLiquids.</b><br />
+<td colspan="2"><strong>Media.CompressibleLiquids.</strong><br />
 New sub-library for simple compressible liquid models</td>
 </tr>
 <tr>
-<td valign="top">LinearColdWater</td>
-<td valign="top">Cold water model with linear compressibility</td>
+<td>LinearColdWater</td>
+<td>Cold water model with linear compressibility</td>
 </tr>
 <tr>
-<td valign="top">LinearWater_pT_Ambient</td>
-<td valign="top">Liquid, linear compressibility water model at
-1.01325 bar and 25 degree Celsius</td>
+<td>LinearWater_pT_Ambient</td>
+<td>Liquid, linear compressibility water model at 1.01325 bar and
+25 degree Celsius</td>
 </tr>
 <tr>
-<td colspan="2"><b>SIunits.</b></td>
+<td colspan="2"><strong>SIunits.</strong></td>
 </tr>
 <tr>
-<td valign="top">TemperatureDifference</td>
-<td valign="top">Type for temperature difference</td>
+<td>TemperatureDifference</td>
+<td>Type for temperature difference</td>
 </tr>
 </table>
 <p><br />
-The following <b style="color:blue">existing components</b> have
-been <b style="color:blue">improved</b>:</p>
+The following <font color="blue"><strong>existing
+components</strong></font> have been <font color="blue"><strong>improved</strong></font>:</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
-<td colspan="2"><b>Blocks.Examples.</b></td>
+<td colspan="2"><strong>Blocks.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top">BusUsage</td>
-<td valign="top">Example changed from the "old" to the "new" bus
-concept with expandable connectors.</td>
+<td>BusUsage</td>
+<td>Example changed from the "old" to the "new" bus concept with
+expandable connectors.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Blocks.Discrete.</b></td>
+<td colspan="2"><strong>Blocks.Discrete.</strong></td>
 </tr>
 <tr>
-<td valign="top">ZeroOrderHold</td>
-<td valign="top">Sample output ySample moved from "protected" to
-"public" section with new attributes (start=0, fixed=true).</td>
+<td>ZeroOrderHold</td>
+<td>Sample output ySample moved from "protected" to "public"
+section with new attributes (start=0, fixed=true).</td>
 </tr>
 <tr>
-<td valign="top">TransferFunction</td>
-<td valign="top">Discrete state x with new attributes (each
-start=0, each fixed=0).</td>
+<td>TransferFunction</td>
+<td>Discrete state x with new attributes (each start=0, each
+fixed=0).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Electrical.</b></td>
+<td colspan="2"><strong>Electrical.</strong></td>
 </tr>
 <tr>
-<td valign="top">Analog<br />
+<td>Analog<br />
 MultiPhase</td>
-<td valign="top">Improved some icons.</td>
-</tr>
-<tr>
-<td colspan="2"><b>Electrical.Digital.Interfaces.</b></td>
-</tr>
-<tr>
-<td valign="top">MISO</td>
-<td valign="top">Removed "algorithm" from this partial block.</td>
-</tr>
-<tr>
-<td colspan="2"><b>Electrical.Digital.Delay.</b></td>
-</tr>
-<tr>
-<td valign="top">DelayParams</td>
-<td valign="top">Removed "algorithm" from this partial block.</td>
-</tr>
-<tr>
-<td colspan="2"><b>Electrical.Digital.Delay.</b></td>
-</tr>
-<tr>
-<td valign="top">DelayParams</td>
-<td valign="top">Removed "algorithm" from this partial block.</td>
-</tr>
-<tr>
-<td valign="top">TransportDelay</td>
-<td valign="top">If delay time is zero, an infinitely small delay
-is introduced via pre(x) (previously "x" was used).</td>
-</tr>
-<tr>
-<td colspan="2"><b>Electrical.Digital.Sources.</b></td>
-</tr>
-<tr>
-<td valign="top">Clock<br />
-Step</td>
-<td valign="top">Changed if-conditions from "xxx &lt; time" to
-"time &gt;= xxx" (according to the Modelica specification, in the
-second case a time event should be triggered, i.e., this change
-leads potentially to a faster simulation).</td>
-</tr>
-<tr>
-<td colspan="2"><b>Electrical.Digital.Converters.</b></td>
-</tr>
-<tr>
-<td valign="top">BooleanToLogic<br />
-LogicToBoolean<br />
-RealToLogic<br />
-LogicToReal</td>
-<td valign="top">Changed from "algorithm" to "equation" section to
-allow better symbolic preprocessing</td>
-</tr>
-<tr>
-<td colspan="2"><b>Electrical.</b></td>
-</tr>
-<tr>
-<td valign="top">Machines</td>
-<td valign="top">Slightly improved documentation, typos in
-documentation corrected</td>
-</tr>
-<tr>
-<td colspan="2"><b>Electrical.Machines.Examples.</b></td>
-</tr>
-<tr>
-<td valign="top">AIMS_start</td>
-<td valign="top">Changed QuadraticLoadTorque1(TorqueDirection=true)
-to QuadraticLoadTorque1(TorqueDirection=false) since more
-realistic</td>
-</tr>
-<tr>
-<td colspan="2"><b>Electrical.Machines.Interfaces.</b></td>
-</tr>
-<tr>
-<td valign="top">PartialBasicMachine</td>
-<td valign="top">Introduced support flange to model the reaction
-torque to the housing</td>
-</tr>
-<tr>
-<td colspan="2"><b>Electrical.Machines.Sensors.</b></td>
-</tr>
-<tr>
-<td valign="top">Rotorangle</td>
-<td valign="top">Introduced support flange to model the reaction
-torque to the housing</td>
+<td>Improved some icons.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Mechanics.MultiBody.Examples.Elementary.</b></td>
+<strong>Electrical.Digital.Interfaces.</strong></td>
 </tr>
 <tr>
-<td valign="top">PointMassesWithGravity</td>
-<td valign="top">Added two point masses connected by a line force
-to demonstrate additionally how this works. Connections of point
-masses with 3D-elements are demonstrated in the new example
+<td>MISO</td>
+<td>Removed "algorithm" from this partial block.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Electrical.Digital.Delay.</strong></td>
+</tr>
+<tr>
+<td>DelayParams</td>
+<td>Removed "algorithm" from this partial block.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Electrical.Digital.Delay.</strong></td>
+</tr>
+<tr>
+<td>DelayParams</td>
+<td>Removed "algorithm" from this partial block.</td>
+</tr>
+<tr>
+<td>TransportDelay</td>
+<td>If delay time is zero, an infinitely small delay is introduced
+via pre(x) (previously "x" was used).</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Electrical.Digital.Sources.</strong></td>
+</tr>
+<tr>
+<td>Clock<br />
+Step</td>
+<td>Changed if-conditions from "xxx &lt; time" to "time &gt;= xxx"
+(according to the Modelica specification, in the second case a time
+event should be triggered, i.e., this change leads potentially to a
+faster simulation).</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Electrical.Digital.Converters.</strong></td>
+</tr>
+<tr>
+<td>BooleanToLogic<br />
+LogicToBoolean<br />
+RealToLogic<br />
+LogicToReal</td>
+<td>Changed from "algorithm" to "equation" section to allow better
+symbolic preprocessing</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Electrical.</strong></td>
+</tr>
+<tr>
+<td>Machines</td>
+<td>Slightly improved documentation, typos in documentation
+corrected</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Electrical.Machines.Examples.</strong></td>
+</tr>
+<tr>
+<td>AIMS_start</td>
+<td>Changed QuadraticLoadTorque1(TorqueDirection=true) to
+QuadraticLoadTorque1(TorqueDirection=false) since more
+realistic</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Electrical.Machines.Interfaces.</strong></td>
+</tr>
+<tr>
+<td>PartialBasicMachine</td>
+<td>Introduced support flange to model the reaction torque to the
+housing</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Electrical.Machines.Sensors.</strong></td>
+</tr>
+<tr>
+<td>Rotorangle</td>
+<td>Introduced support flange to model the reaction torque to the
+housing</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Mechanics.MultiBody.Examples.Elementary.</strong></td>
+</tr>
+<tr>
+<td>PointMassesWithGravity</td>
+<td>Added two point masses connected by a line force to demonstrate
+additionally how this works. Connections of point masses with
+3D-elements are demonstrated in the new example
 PointMassesWithGravity (there is the difficulty that the
 orientation is not defined in a PointMass object and therefore some
 special handling is needed in case of a connection with
@@ -444,41 +439,43 @@ special handling is needed in case of a connection with
 determined by these elements.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.MultiBody.Examples.Systems.</b></td>
+<td colspan="2">
+<strong>Mechanics.MultiBody.Examples.Systems.</strong></td>
 </tr>
 <tr>
-<td valign="top">RobotR3</td>
-<td valign="top">Changed from the "old" to the "new" bus concept
-with expandable connectors. Replaced the non-standard Modelica
-function "constrain()" by standard Modelica components. As a
-result, the non-standard function constrain() is no longer used in
-the Modelica Standard Library.</td>
+<td>RobotR3</td>
+<td>Changed from the "old" to the "new" bus concept with expandable
+connectors. Replaced the non-standard Modelica function
+"constrain()" by standard Modelica components. As a result, the
+non-standard function constrain() is no longer used in the Modelica
+Standard Library.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.MultiBody.Frames.Orientation.</b></td>
+<td colspan="2">
+<strong>Mechanics.MultiBody.Frames.Orientation.</strong></td>
 </tr>
 <tr>
-<td valign="top">equalityConstraint</td>
-<td valign="top">Use a better residual for the equalityConstraint
-function. As a result, the non-linear equation system of a
-kinematic loop is formulated in a better way (the range where the
-desired result is a unique solution of the non-linear system of
-equations becomes much larger).</td>
+<td>equalityConstraint</td>
+<td>Use a better residual for the equalityConstraint function. As a
+result, the non-linear equation system of a kinematic loop is
+formulated in a better way (the range where the desired result is a
+unique solution of the non-linear system of equations becomes much
+larger).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.MultiBody.</b></td>
+<td colspan="2"><strong>Mechanics.MultiBody.</strong></td>
 </tr>
 <tr>
-<td valign="top">Visualizers.</td>
-<td valign="top">Removed (misleading) annotation
-"structurallyIncomplete" in the models of this sub-library</td>
+<td>Visualizers.</td>
+<td>Removed (misleading) annotation "structurallyIncomplete" in the
+models of this sub-library</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.Rotational.</b></td>
+<td colspan="2"><strong>Mechanics.Rotational.</strong></td>
 </tr>
 <tr>
-<td valign="top">Examples</td>
-<td valign="top">For all models in this sub-library:
+<td>Examples</td>
+<td>For all models in this sub-library:
 <ul>
 <li>Included a housing object in all examples to compute all
 support torques.</li>
@@ -490,68 +487,70 @@ menu parameters of Inertia components.</li>
 </td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.Rotational.Interfaces.</b></td>
+<td colspan="2">
+<strong>Mechanics.Rotational.Interfaces.</strong></td>
 </tr>
 <tr>
-<td valign="top">FrictionBase</td>
-<td valign="top">Introduced "fixed=true" for Boolean variables
-startForward, startBackward, mode.</td>
+<td>FrictionBase</td>
+<td>Introduced "fixed=true" for Boolean variables startForward,
+startBackward, mode.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.Translational.Interfaces.</b></td>
+<td colspan="2">
+<strong>Mechanics.Translational.Interfaces.</strong></td>
 </tr>
 <tr>
-<td valign="top">FrictionBase</td>
-<td valign="top">Introduced "fixed=true" for Boolean variables
-startForward, startBackward, mode.</td>
+<td>FrictionBase</td>
+<td>Introduced "fixed=true" for Boolean variables startForward,
+startBackward, mode.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.UsersGuide.MediumUsage.</b></td>
+<td colspan="2"><strong>Media.UsersGuide.MediumUsage.</strong></td>
 </tr>
 <tr>
-<td valign="top">TwoPhase</td>
-<td valign="top">Improved documentation and demonstrating the newly
-introduced functions</td>
+<td>TwoPhase</td>
+<td>Improved documentation and demonstrating the newly introduced
+functions</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Examples.</b></td>
+<td colspan="2"><strong>Media.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top">WaterIF97</td>
-<td valign="top">Provided (missing) units for variables V, dV,
-H_flow_ext, m, U.</td>
+<td>WaterIF97</td>
+<td>Provided (missing) units for variables V, dV, H_flow_ext, m,
+U.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Interfaces.</b></td>
+<td colspan="2"><strong>Media.Interfaces.</strong></td>
 </tr>
 <tr>
-<td valign="top">PartialMedium</td>
-<td valign="top">Final modifiers are removed from nX and nXi, to
-allow customized medium models such as mixtures of refrigerants
-with oil, etc.</td>
+<td>PartialMedium</td>
+<td>Final modifiers are removed from nX and nXi, to allow
+customized medium models such as mixtures of refrigerants with oil,
+etc.</td>
 </tr>
 <tr>
-<td valign="top">PartialCondensingGases</td>
-<td valign="top">Included attributes "min=1, max=2" for input
-argument FixedPhase for functions setDewState and setBubbleState
-(in order to guarantee that input arguments are correct).</td>
+<td>PartialCondensingGases</td>
+<td>Included attributes "min=1, max=2" for input argument
+FixedPhase for functions setDewState and setBubbleState (in order
+to guarantee that input arguments are correct).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Interfaces.PartialMedium.</b></td>
+<td colspan="2">
+<strong>Media.Interfaces.PartialMedium.</strong></td>
 </tr>
 <tr>
-<td valign="top">BaseProperties</td>
-<td valign="top">New Boolean parameter "standardOrderComponents".
-If true, last element vector X is computed from 1-sum(Xi) (=
-default) otherwise, no equation is provided for it in
-PartialMedium.</td>
+<td>BaseProperties</td>
+<td>New Boolean parameter "standardOrderComponents". If true, last
+element vector X is computed from 1-sum(Xi) (= default) otherwise,
+no equation is provided for it in PartialMedium.</td>
 </tr>
 <tr>
-<td valign="top">IsentropicExponent</td>
-<td valign="top">"max" value changed from 1.7 to 500000</td>
+<td>IsentropicExponent</td>
+<td>"max" value changed from 1.7 to 500000</td>
 </tr>
 <tr>
-<td valign="top">setState_pTX<br />
+<td>setState_pTX<br />
 setState_phX<br />
 setState_psX<br />
 setState_dTX<br />
@@ -561,154 +560,156 @@ density_phX<br />
 temperature_psX<br />
 density_psX<br />
 specificEnthalpy_psX</td>
-<td valign="top">Introduced default value "reference_X" for input
-argument "X".</td>
-</tr>
-<tr>
-<td colspan="2"><b>Media.Interfaces.PartialSimpleMedium.</b></td>
-</tr>
-<tr>
-<td valign="top">setState_pTX<br />
-setState_phX<br />
-setState_psX<br />
-setState_dTX</td>
-<td valign="top">Introduced default value "reference_X" for input
-argument "X".</td>
+<td>Introduced default value "reference_X" for input argument
+"X".</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Media.Interfaces.PartialSimpleIdealGasMedium.</b></td>
+<strong>Media.Interfaces.PartialSimpleMedium.</strong></td>
 </tr>
 <tr>
-<td valign="top">setState_pTX<br />
+<td>setState_pTX<br />
 setState_phX<br />
 setState_psX<br />
 setState_dTX</td>
-<td valign="top">Introduced default value "reference_X" for input
-argument "X".</td>
+<td>Introduced default value "reference_X" for input argument
+"X".</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Air.MoistAir.</b></td>
+<td colspan="2">
+<strong>Media.Interfaces.PartialSimpleIdealGasMedium.</strong></td>
 </tr>
 <tr>
-<td valign="top">setState_pTX<br />
-setState_phX<br />
-setState_dTX</td>
-<td valign="top">Introduced default value "reference_X" for input
-argument "X".</td>
-</tr>
-<tr>
-<td colspan="2"><b>Media.IdealGases.Common.SingleGasNasa.</b></td>
-</tr>
-<tr>
-<td valign="top">setState_pTX<br />
+<td>setState_pTX<br />
 setState_phX<br />
 setState_psX<br />
 setState_dTX</td>
-<td valign="top">Introduced default value "reference_X" for input
-argument "X".</td>
+<td>Introduced default value "reference_X" for input argument
+"X".</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.IdealGases.Common.MixtureGasNasa.</b></td>
+<td colspan="2"><strong>Media.Air.MoistAir.</strong></td>
 </tr>
 <tr>
-<td valign="top">setState_pTX<br />
+<td>setState_pTX<br />
+setState_phX<br />
+setState_dTX</td>
+<td>Introduced default value "reference_X" for input argument
+"X".</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Media.IdealGases.Common.SingleGasNasa.</strong></td>
+</tr>
+<tr>
+<td>setState_pTX<br />
+setState_phX<br />
+setState_psX<br />
+setState_dTX</td>
+<td>Introduced default value "reference_X" for input argument
+"X".</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Media.IdealGases.Common.MixtureGasNasa.</strong></td>
+</tr>
+<tr>
+<td>setState_pTX<br />
 setState_phX<br />
 setState_psX<br />
 setState_dTX<br />
 h_TX</td>
-<td valign="top">Introduced default value "reference_X" for input
-argument "X".</td>
+<td>Introduced default value "reference_X" for input argument
+"X".</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Common.</b></td>
+<td colspan="2"><strong>Media.Common.</strong></td>
 </tr>
 <tr>
-<td valign="top">IF97PhaseBoundaryProperties<br />
+<td>IF97PhaseBoundaryProperties<br />
 gibbsToBridgmansTables</td>
-<td valign="top">Introduced unit for variables vt, vp.</td>
+<td>Introduced unit for variables vt, vp.</td>
 </tr>
 <tr>
-<td valign="top">SaturationProperties</td>
-<td valign="top">Introduced unit for variable dpT.</td>
+<td>SaturationProperties</td>
+<td>Introduced unit for variable dpT.</td>
 </tr>
 <tr>
-<td valign="top">BridgmansTables</td>
-<td valign="top">Introduced unit for dfs, dgs.</td>
+<td>BridgmansTables</td>
+<td>Introduced unit for dfs, dgs.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Common.ThermoFluidSpecial.</b></td>
+<td colspan="2">
+<strong>Media.Common.ThermoFluidSpecial.</strong></td>
 </tr>
 <tr>
-<td valign="top">gibbsToProps_ph<br />
+<td>gibbsToProps_ph<br />
 gibbsToProps_ph<br />
 gibbsToBoundaryProps<br />
 gibbsToProps_dT<br />
 gibbsToProps_pT</td>
-<td valign="top">Introduced unit for variables vt, vp.</td>
+<td>Introduced unit for variables vt, vp.</td>
 </tr>
 <tr>
-<td valign="top">TwoPhaseToProps_ph</td>
-<td valign="top">Introduced unit for variables dht, dhd,
-detph.</td>
+<td>TwoPhaseToProps_ph</td>
+<td>Introduced unit for variables dht, dhd, detph.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.</b></td>
+<td colspan="2"><strong>Media.</strong></td>
 </tr>
 <tr>
-<td valign="top">MoistAir</td>
-<td valign="top">Documentation of moist air model significantly
-improved.</td>
+<td>MoistAir</td>
+<td>Documentation of moist air model significantly improved.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.MoistAir.</b></td>
+<td colspan="2"><strong>Media.MoistAir.</strong></td>
 </tr>
 <tr>
-<td valign="top">enthalpyOfVaporization</td>
-<td valign="top">Replaced by linear correlation since simpler and
-more accurate in the entire region.</td>
+<td>enthalpyOfVaporization</td>
+<td>Replaced by linear correlation since simpler and more accurate
+in the entire region.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Media.Water.IF97_Utilities.BaseIF97.Regions.</b></td>
+<strong>Media.Water.IF97_Utilities.BaseIF97.Regions.</strong></td>
 </tr>
 <tr>
-<td valign="top">drhovl_dp</td>
-<td valign="top">Introduced unit for variable dd_dp.</td>
+<td>drhovl_dp</td>
+<td>Introduced unit for variable dd_dp.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Thermal.</b></td>
+<td colspan="2"><strong>Thermal.</strong></td>
 </tr>
 <tr>
-<td valign="top">FluidHeatFlow</td>
-<td valign="top">Introduced new parameter tapT (0..1) to define the
-temperature of the HeatPort as linear combination of the flowPort_a
-(tapT=0) and flowPort_b (tapT=1) temperatures.</td>
+<td>FluidHeatFlow</td>
+<td>Introduced new parameter tapT (0..1) to define the temperature
+of the HeatPort as linear combination of the flowPort_a (tapT=0)
+and flowPort_b (tapT=1) temperatures.</td>
 </tr>
 </table>
 <p><br />
-The following <b style="color:red">critical errors</b> have been
-fixed (i.e., errors that can lead to wrong simulation results):</p>
+The following <font color="red"><strong>critical
+errors</strong></font> have been fixed (i.e., errors that can lead
+to wrong simulation results):</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
 <td colspan="2">
-<b>Electrical.Machines.BasicMachines.Components.</b></td>
+<strong>Electrical.Machines.BasicMachines.Components.</strong></td>
 </tr>
 <tr>
-<td valign="top">ElectricalExcitation</td>
-<td valign="top">Excitation voltage ve is calculated as
+<td>ElectricalExcitation</td>
+<td>Excitation voltage ve is calculated as
 "spacePhasor_r.v_[1]*TurnsRatio*3/2" instead of
 "spacePhasor_r.v_[1]*TurnsRatio</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.MultiBody.Parts.</b></td>
+<td colspan="2"><strong>Mechanics.MultiBody.Parts.</strong></td>
 </tr>
 <tr>
-<td valign="top">FixedRotation</td>
-<td valign="top">Bug corrected that the torque balance was wrong in
-the following cases (since vector r was not transformed from
-frame_a to frame_b; note this special case occurs very seldom in
-practice):
+<td>FixedRotation</td>
+<td>Bug corrected that the torque balance was wrong in the
+following cases (since vector r was not transformed from frame_a to
+frame_b; note this special case occurs very seldom in practice):
 <ul>
 <li>frame_b is in the spanning tree closer to the root (usually
 this is frame_a).</li>
@@ -717,75 +718,76 @@ this is frame_a).</li>
 </td>
 </tr>
 <tr>
-<td valign="top">PointMass</td>
-<td valign="top">If a PointMass model is connected so that no
-equations are present to compute its orientation object, the
-orientation was arbitrarily set to a unit rotation. In some cases
-this can lead to a wrong overall model, depending on how the
-PointMass model is used. For this reason, such cases lead now to an
-error (via an assert(..)) with an explanation how to fix this.</td>
+<td>PointMass</td>
+<td>If a PointMass model is connected so that no equations are
+present to compute its orientation object, the orientation was
+arbitrarily set to a unit rotation. In some cases this can lead to
+a wrong overall model, depending on how the PointMass model is
+used. For this reason, such cases lead now to an error (via an
+assert(..)) with an explanation how to fix this.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Interfaces.PartialPureSubstance.</b></td>
+<td colspan="2">
+<strong>Media.Interfaces.PartialPureSubstance.</strong></td>
 </tr>
 <tr>
-<td valign="top">pressure_dT<br />
+<td>pressure_dT<br />
 specificEnthalpy_dT</td>
-<td valign="top">Changed wrong call from "setState_pTX" to
-"setState_dTX"</td>
+<td>Changed wrong call from "setState_pTX" to "setState_dTX"</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Interfaces.PartialTwoPhaseMedium.</b></td>
+<td colspan="2">
+<strong>Media.Interfaces.PartialTwoPhaseMedium.</strong></td>
 </tr>
 <tr>
-<td valign="top">pressure_dT<br />
+<td>pressure_dT<br />
 specificEnthalpy_dT</td>
-<td valign="top">Changed wrong call from "setState_pTX" to
-"setState_dTX"</td>
+<td>Changed wrong call from "setState_pTX" to "setState_dTX"</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Common.ThermoFluidSpecial.</b></td>
+<td colspan="2">
+<strong>Media.Common.ThermoFluidSpecial.</strong></td>
 </tr>
 <tr>
-<td valign="top">gibbsToProps_dT<br />
+<td>gibbsToProps_dT<br />
 helmholtzToProps_ph<br />
 helmholtzToProps_pT<br />
 helmholtzToProps_dT</td>
-<td valign="top">Bugs in equations corrected</td>
+<td>Bugs in equations corrected</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Common.</b></td>
+<td colspan="2"><strong>Media.Common.</strong></td>
 </tr>
 <tr>
-<td valign="top">helmholtzToBridgmansTables<br />
+<td>helmholtzToBridgmansTables<br />
 helmholtzToExtraDerivs</td>
-<td valign="top">Bugs in equations corrected</td>
+<td>Bugs in equations corrected</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.IdealGases.Common.SingleGasNasa.</b></td>
+<td colspan="2">
+<strong>Media.IdealGases.Common.SingleGasNasa.</strong></td>
 </tr>
 <tr>
-<td valign="top">density_derp_T</td>
-<td valign="top">Bug in equation of partial derivative
-corrected</td>
+<td>density_derp_T</td>
+<td>Bug in equation of partial derivative corrected</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Water.IF97_Utilities.</b></td>
+<td colspan="2"><strong>Media.Water.IF97_Utilities.</strong></td>
 </tr>
 <tr>
-<td valign="top">BaseIF97.Inverses.dtofps3<br />
+<td>BaseIF97.Inverses.dtofps3<br />
 isentropicExponent_props_ph<br />
 isentropicExponent_props_pT<br />
 isentropicExponent_props_dT</td>
-<td valign="top">Bugs in equations corrected</td>
+<td>Bugs in equations corrected</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Air.MoistAir.</b></td>
+<td colspan="2"><strong>Media.Air.MoistAir.</strong></td>
 </tr>
 <tr>
-<td valign="top">h_pTX</td>
-<td valign="top">Bug in setState_phX due to wrong vector size in
-h_pTX corrected. Furthermore, syntactical errors corrected:
+<td>h_pTX</td>
+<td>Bug in setState_phX due to wrong vector size in h_pTX
+corrected. Furthermore, syntactical errors corrected:
 <ul>
 <li>In function massFractionpTphi an equation sign is used in an
 algorithm.</li>
@@ -794,340 +796,347 @@ algorithm.</li>
 </td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Water.</b></td>
+<td colspan="2"><strong>Media.Water.</strong></td>
 </tr>
 <tr>
-<td valign="top">waterConstants</td>
-<td valign="top">Bug in equation of criticalMolarVolume
-corrected.</td>
+<td>waterConstants</td>
+<td>Bug in equation of criticalMolarVolume corrected.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Media.Water.IF97_Utilities.BaseIF97.Regions.</b></td>
+<strong>Media.Water.IF97_Utilities.BaseIF97.Regions.</strong></td>
 </tr>
 <tr>
-<td valign="top">region_ph<br />
+<td>region_ph<br />
 region_ps</td>
-<td valign="top">Bug in region determination corrected.</td>
+<td>Bug in region determination corrected.</td>
 </tr>
 <tr>
-<td valign="top">boilingcurve_p<br />
+<td>boilingcurve_p<br />
 dewcurve_p</td>
-<td valign="top">Bug in equation of plim corrected.</td>
+<td>Bug in equation of plim corrected.</td>
 </tr>
 </table>
 <p><br />
-The following <b style="color:red">uncritical errors</b> have been
-fixed (i.e., errors that do <b style="color:red">not</b> lead to
-wrong simulation results, but, e.g., units are wrong or errors in
+The following <font color="red"><strong>uncritical
+errors</strong></font> have been fixed (i.e., errors that do
+<font color="red"><strong>not</strong></font> lead to wrong
+simulation results, but, e.g., units are wrong or errors in
 documentation):</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
-<td colspan="2"><b>Blocks.</b></td>
+<td colspan="2"><strong>Blocks.</strong></td>
 </tr>
 <tr>
-<td valign="top">Examples</td>
-<td valign="top">Corrected typos in description texts of bus
-example models.</td>
+<td>Examples</td>
+<td>Corrected typos in description texts of bus example
+models.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Blocks.Continuous.</b></td>
+<td colspan="2"><strong>Blocks.Continuous.</strong></td>
 </tr>
 <tr>
-<td valign="top">LimIntegrator</td>
-<td valign="top">removed incorrect smooth(0,..) because expression
-might be discontinuous.</td>
+<td>LimIntegrator</td>
+<td>removed incorrect smooth(0,..) because expression might be
+discontinuous.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Blocks.Math.UnitConversions.</b></td>
+<td colspan="2"><strong>Blocks.Math.UnitConversions.</strong></td>
 </tr>
 <tr>
-<td valign="top">block_To_kWh<br />
+<td>block_To_kWh<br />
 block_From_kWh</td>
-<td valign="top">Corrected unit from "kWh" to (syntactically
-correct) "kW.h".</td>
+<td>Corrected unit from "kWh" to (syntactically correct)
+"kW.h".</td>
 </tr>
 <tr>
-<td colspan="2"><b>Electrical.Analog.Examples.</b></td>
+<td colspan="2"><strong>Electrical.Analog.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top">HeatingNPN_OrGate</td>
-<td valign="top">Included start values, so that initialization is
+<td>HeatingNPN_OrGate</td>
+<td>Included start values, so that initialization is
 successful</td>
 </tr>
 <tr>
-<td colspan="2"><b>Electrical.Analog.Lines.</b></td>
+<td colspan="2"><strong>Electrical.Analog.Lines.</strong></td>
 </tr>
 <tr>
-<td valign="top">OLine</td>
-<td valign="top">Corrected unit from "Siemens/m" to "S/m".</td>
+<td>OLine</td>
+<td>Corrected unit from "Siemens/m" to "S/m".</td>
 </tr>
 <tr>
-<td valign="top">TLine2</td>
-<td valign="top">Changed wrong type of parameter NL (normalized
-length) from SIunits.Length to Real.</td>
+<td>TLine2</td>
+<td>Changed wrong type of parameter NL (normalized length) from
+SIunits.Length to Real.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Electrical.Digital.Delay.</b></td>
+<td colspan="2"><strong>Electrical.Digital.Delay.</strong></td>
 </tr>
 <tr>
-<td valign="top">TransportDelay</td>
-<td valign="top">Syntax error corrected (":=" in equation section
-is converted by Dymola silently to "=").</td>
+<td>TransportDelay</td>
+<td>Syntax error corrected (":=" in equation section is converted
+by Dymola silently to "=").</td>
 </tr>
 <tr>
-<td colspan="2"><b>Electrical.Digital</b></td>
+<td colspan="2"><strong>Electrical.Digital</strong></td>
 </tr>
 <tr>
-<td valign="top">Converters</td>
-<td valign="top">Syntax error corrected (":=" in equation section
-is converted by Dymola silently to "=").</td>
+<td>Converters</td>
+<td>Syntax error corrected (":=" in equation section is converted
+by Dymola silently to "=").</td>
 </tr>
 <tr>
-<td colspan="2"><b>Electrical.MultiPhase.Basic.</b></td>
+<td colspan="2"><strong>Electrical.MultiPhase.Basic.</strong></td>
 </tr>
 <tr>
-<td valign="top">Conductor</td>
-<td valign="top">Changed wrong type of parameter G from
-SIunits.Resistance to SIunits.Conductance.</td>
-</tr>
-<tr>
-<td colspan="2"><b>Electrical.MultiPhase.Interfaces.</b></td>
-</tr>
-<tr>
-<td valign="top">Plug<br /></td>
-<td valign="top">Made used "pin" connectors non-graphical
-(otherwise, there are difficulties to connect to Plug).</td>
-</tr>
-<tr>
-<td colspan="2"><b>Electrical.MultiPhase.Sources.</b></td>
-</tr>
-<tr>
-<td valign="top">SineCurrent</td>
-<td valign="top">Changed wrong type of parameter offset from
-SIunits.Voltage to SIunits.Current.</td>
-</tr>
-<tr>
-<td colspan="2"><b>Mechanics.MultiBody.Examples.Loops.</b></td>
-</tr>
-<tr>
-<td valign="top">EngineV6</td>
-<td valign="top">Corrected wrong crankAngleOffset of some cylinders
-and improved the example.</td>
+<td>Conductor</td>
+<td>Changed wrong type of parameter G from SIunits.Resistance to
+SIunits.Conductance.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Mechanics.MultiBody.Examples.Loops.Utilities.</b></td>
+<strong>Electrical.MultiPhase.Interfaces.</strong></td>
 </tr>
 <tr>
-<td valign="top">GasForce</td>
-<td valign="top">Wrong units corrected: "SIunitsPosition x,y" to
-"Real x,y"; "SIunits.Pressure press" to
+<td>Plug<br /></td>
+<td>Made used "pin" connectors non-graphical (otherwise, there are
+difficulties to connect to Plug).</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Electrical.MultiPhase.Sources.</strong></td>
+</tr>
+<tr>
+<td>SineCurrent</td>
+<td>Changed wrong type of parameter offset from SIunits.Voltage to
+SIunits.Current.</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Mechanics.MultiBody.Examples.Loops.</strong></td>
+</tr>
+<tr>
+<td>EngineV6</td>
+<td>Corrected wrong crankAngleOffset of some cylinders and improved
+the example.</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Mechanics.MultiBody.Examples.Loops.Utilities.</strong></td>
+</tr>
+<tr>
+<td>GasForce</td>
+<td>Wrong units corrected: "SIunitsPosition x,y" to "Real x,y";
+"SIunits.Pressure press" to
 "SIunits.Conversions.NonSIunits.Pressure_bar"</td>
 </tr>
 <tr>
-<td valign="top">GasForce2</td>
-<td valign="top">Wrong unit corrected: "SIunits.Position x" to
-"Real x".</td>
+<td>GasForce2</td>
+<td>Wrong unit corrected: "SIunits.Position x" to "Real x".</td>
 </tr>
 <tr>
-<td valign="top">EngineV6_analytic</td>
-<td valign="top">Corrected wrong crankAngleOffset of some
-cylinders.</td>
+<td>EngineV6_analytic</td>
+<td>Corrected wrong crankAngleOffset of some cylinders.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.MultiBody.Interfaces.</b></td>
+<td colspan="2">
+<strong>Mechanics.MultiBody.Interfaces.</strong></td>
 </tr>
 <tr>
-<td valign="top">PartialLineForce</td>
-<td valign="top">Corrected wrong unit: "SIunits.Position eRod_a" to
-"Real eRod_a";</td>
+<td>PartialLineForce</td>
+<td>Corrected wrong unit: "SIunits.Position eRod_a" to "Real
+eRod_a";</td>
 </tr>
 <tr>
-<td valign="top">FlangeWithBearingAdaptor</td>
-<td valign="top">If includeBearingConnector = false, connector "fr"
-+ "ame" was not removed. As long as the connecting element to
-"frame" determines the non-flow variables, this is fine. In the
-corrected version, "frame" is conditionally removed in this
-case.</td>
+<td>FlangeWithBearingAdaptor</td>
+<td>If includeBearingConnector = false, connector "fr" + "ame" was
+not removed. As long as the connecting element to "frame"
+determines the non-flow variables, this is fine. In the corrected
+version, "frame" is conditionally removed in this case.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.MultiBody.Forces.</b></td>
+<td colspan="2"><strong>Mechanics.MultiBody.Forces.</strong></td>
 </tr>
 <tr>
-<td valign="top">ForceAndTorque</td>
-<td valign="top">Corrected wrong unit: "SIunits.Force t_b_0" to
-"SIunits.Torque t_b_0".</td>
+<td>ForceAndTorque</td>
+<td>Corrected wrong unit: "SIunits.Force t_b_0" to "SIunits.Torque
+t_b_0".</td>
 </tr>
 <tr>
-<td valign="top">LineForceWithTwoMasses</td>
-<td valign="top">Corrected wrong unit: "SIunits.Position e_rel_0"
-to "Real e_rel_0".</td>
+<td>LineForceWithTwoMasses</td>
+<td>Corrected wrong unit: "SIunits.Position e_rel_0" to "Real
+e_rel_0".</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.MultiBody.Frames.</b></td>
+<td colspan="2"><strong>Mechanics.MultiBody.Frames.</strong></td>
 </tr>
 <tr>
-<td valign="top">axisRotation</td>
-<td valign="top">Corrected wrong unit: "SIunits.Angle der_angle" to
+<td>axisRotation</td>
+<td>Corrected wrong unit: "SIunits.Angle der_angle" to
 "SIunits.AngularVelocity der_angle".</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.MultiBody.Joints.Assemblies.</b></td>
+<td colspan="2">
+<strong>Mechanics.MultiBody.Joints.Assemblies.</strong></td>
 </tr>
 <tr>
-<td valign="top">JointUSP<br />
+<td>JointUSP<br />
 JointSSP</td>
-<td valign="top">Corrected wrong unit: "SIunits.Position aux" to
-"Real"</td>
+<td>Corrected wrong unit: "SIunits.Position aux" to "Real"</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.MultiBody.Sensors.</b></td>
+<td colspan="2"><strong>Mechanics.MultiBody.Sensors.</strong></td>
 </tr>
 <tr>
-<td valign="top">AbsoluteSensor</td>
-<td valign="top">Corrected wrong units: "SIunits.Acceleration
-angles" to "SIunits.Angle angles" and "SIunits.Velocity w_abs_0" to
+<td>AbsoluteSensor</td>
+<td>Corrected wrong units: "SIunits.Acceleration angles" to
+"SIunits.Angle angles" and "SIunits.Velocity w_abs_0" to
 "SIunits.AngularVelocity w_abs_0"</td>
 </tr>
 <tr>
-<td valign="top">RelativeSensor</td>
-<td valign="top">Corrected wrong units: "SIunits.Acceleration
-angles" to "SIunits.Angle angles"</td>
+<td>RelativeSensor</td>
+<td>Corrected wrong units: "SIunits.Acceleration angles" to
+"SIunits.Angle angles"</td>
 </tr>
 <tr>
-<td valign="top">Distance</td>
-<td valign="top">Corrected wrong units: "SIunits.Length L2" to
-"SIunits.Area L2" and SIunits.Length s_small2" to "SIunits.Area
-s_small2"</td>
+<td>Distance</td>
+<td>Corrected wrong units: "SIunits.Length L2" to "SIunits.Area L2"
+and SIunits.Length s_small2" to "SIunits.Area s_small2"</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Mechanics.MultiBody.Visualizers.Advanced.</b></td>
+<strong>Mechanics.MultiBody.Visualizers.Advanced.</strong></td>
 </tr>
 <tr>
-<td valign="top">Shape</td>
-<td valign="top">Changed "MultiBody.Types.Color color" to "Real
-color[3]", since "Types.Color" is "Integer color[3]" and there have
-been backward compatibility problems with models using "color"
-before it was changed to "Types.Color".</td>
+<td>Shape</td>
+<td>Changed "MultiBody.Types.Color color" to "Real color[3]", since
+"Types.Color" is "Integer color[3]" and there have been backward
+compatibility problems with models using "color" before it was
+changed to "Types.Color".</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.Rotational.Interfaces.</b></td>
+<td colspan="2">
+<strong>Mechanics.Rotational.Interfaces.</strong></td>
 </tr>
 <tr>
-<td valign="top">FrictionBase</td>
-<td valign="top">Rewrote equations with new variables
-"unitAngularAcceleration" and "unitTorque" in order that the
-equations are correct with respect to units (previously, variable
-"s" can be both a torque and an angular acceleration and this lead
-to unit incompatibilities)</td>
+<td>FrictionBase</td>
+<td>Rewrote equations with new variables "unitAngularAcceleration"
+and "unitTorque" in order that the equations are correct with
+respect to units (previously, variable "s" can be both a torque and
+an angular acceleration and this lead to unit
+incompatibilities)</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.Rotational.</b></td>
+<td colspan="2"><strong>Mechanics.Rotational.</strong></td>
 </tr>
 <tr>
-<td valign="top">OneWayClutch<br />
+<td>OneWayClutch<br />
 LossyGear</td>
-<td valign="top">Rewrote equations with new variables
-"unitAngularAcceleration" and "unitTorque" in order that the
-equations are correct with respect to units (previously, variable
-"s" can be both a torque and an angular acceleration and this lead
-to unit incompatibilities)</td>
+<td>Rewrote equations with new variables "unitAngularAcceleration"
+and "unitTorque" in order that the equations are correct with
+respect to units (previously, variable "s" can be both a torque and
+an angular acceleration and this lead to unit
+incompatibilities)</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.Translational.Interfaces.</b></td>
+<td colspan="2">
+<strong>Mechanics.Translational.Interfaces.</strong></td>
 </tr>
 <tr>
-<td valign="top">FrictionBase</td>
-<td valign="top">Rewrote equations with new variables
-"unitAngularAcceleration" and "unitTorque" in order that the
-equations are correct with respect to units (previously, variable
-"s" can be both a torque and an angular acceleration and this lead
-to unit incompatibilities)</td>
+<td>FrictionBase</td>
+<td>Rewrote equations with new variables "unitAngularAcceleration"
+and "unitTorque" in order that the equations are correct with
+respect to units (previously, variable "s" can be both a torque and
+an angular acceleration and this lead to unit
+incompatibilities)</td>
 </tr>
 <tr>
-<td colspan="2"><b>Mechanics.Translational.</b></td>
+<td colspan="2"><strong>Mechanics.Translational.</strong></td>
 </tr>
 <tr>
-<td valign="top">Speed</td>
-<td valign="top">Corrected unit of v_ref from SIunits.Position to
+<td>Speed</td>
+<td>Corrected unit of v_ref from SIunits.Position to
 SIunits.Velocity</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Examples.Tests.Components.</b></td>
+<td colspan="2">
+<strong>Media.Examples.Tests.Components.</strong></td>
 </tr>
 <tr>
-<td valign="top">PartialTestModel<br />
+<td>PartialTestModel<br />
 PartialTestModel2</td>
-<td valign="top">Corrected unit of h_start from "SIunits.Density"
-to "SIunits.SpecificEnthalpy"</td>
+<td>Corrected unit of h_start from "SIunits.Density" to
+"SIunits.SpecificEnthalpy"</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Media.Examples.SolveOneNonlinearEquation.</b></td>
+<strong>Media.Examples.SolveOneNonlinearEquation.</strong></td>
 </tr>
 <tr>
-<td valign="top">Inverse_sh_T InverseIncompressible_sh_T<br />
+<td>Inverse_sh_T InverseIncompressible_sh_T<br />
 Inverse_sh_TX</td>
-<td valign="top">Rewrote equations so that dimensional (unit)
-analysis is correct"</td>
+<td>Rewrote equations so that dimensional (unit) analysis is
+correct"</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Incompressible.Examples.</b></td>
+<td colspan="2">
+<strong>Media.Incompressible.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top">TestGlycol</td>
-<td valign="top">Rewrote equations so that dimensional (unit)
-analysis is correct"</td>
+<td>TestGlycol</td>
+<td>Rewrote equations so that dimensional (unit) analysis is
+correct"</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Interfaces.PartialTwoPhaseMedium.</b></td>
+<td colspan="2">
+<strong>Media.Interfaces.PartialTwoPhaseMedium.</strong></td>
 </tr>
 <tr>
-<td valign="top">dBubbleDensity_dPressure<br />
+<td>dBubbleDensity_dPressure<br />
 dDewDensity_dPressure</td>
-<td valign="top">Changed wrong type of ddldp from
-"DerDensityByEnthalpy" to "DerDensityByPressure".</td>
+<td>Changed wrong type of ddldp from "DerDensityByEnthalpy" to
+"DerDensityByPressure".</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Common.ThermoFluidSpecial.</b></td>
+<td colspan="2">
+<strong>Media.Common.ThermoFluidSpecial.</strong></td>
 </tr>
 <tr>
-<td valign="top">ThermoProperties</td>
-<td valign="top">Changed wrong units: "SIunits.DerEnergyByPressure
-dupT" to "Real dupT" and "SIunits.DerEnergyByDensity dudT" to "Real
+<td>ThermoProperties</td>
+<td>Changed wrong units: "SIunits.DerEnergyByPressure dupT" to
+"Real dupT" and "SIunits.DerEnergyByDensity dudT" to "Real
 dudT"</td>
 </tr>
 <tr>
-<td valign="top">ThermoProperties_ph</td>
-<td valign="top">Changed wrong unit from
-"SIunits.DerEnergyByPressure duph" to "Real duph"</td>
+<td>ThermoProperties_ph</td>
+<td>Changed wrong unit from "SIunits.DerEnergyByPressure duph" to
+"Real duph"</td>
 </tr>
 <tr>
-<td valign="top">ThermoProperties_pT</td>
-<td valign="top">Changed wrong unit from
-"SIunits.DerEnergyByPressure dupT" to "Real dupT"</td>
+<td>ThermoProperties_pT</td>
+<td>Changed wrong unit from "SIunits.DerEnergyByPressure dupT" to
+"Real dupT"</td>
 </tr>
 <tr>
-<td valign="top">ThermoProperties_dT</td>
-<td valign="top">Changed wrong unit from
-"SIunits.DerEnergyByDensity dudT" to "Real dudT"</td>
-</tr>
-<tr>
-<td colspan="2"><b>Media.IdealGases.Common.SingleGasNasa.</b></td>
-</tr>
-<tr>
-<td valign="top">cp_Tlow_der</td>
-<td valign="top">Changed wrong unit from "SIunits.Temperature dT"
-to "Real dT".</td>
+<td>ThermoProperties_dT</td>
+<td>Changed wrong unit from "SIunits.DerEnergyByDensity dudT" to
+"Real dudT"</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Media.Water.IF97_Utilities.BaseIF97.Basic.</b></td>
+<strong>Media.IdealGases.Common.SingleGasNasa.</strong></td>
 </tr>
 <tr>
-<td valign="top">p1_hs<br />
+<td>cp_Tlow_der</td>
+<td>Changed wrong unit from "SIunits.Temperature dT" to "Real
+dT".</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Media.Water.IF97_Utilities.BaseIF97.Basic.</strong></td>
+</tr>
+<tr>
+<td>p1_hs<br />
 h2ab_s<br />
 p2a_hs<br />
 p2b_hs<br />
@@ -1141,51 +1150,49 @@ T3a_ps<br />
 T3b_ps<br />
 v3a_ps<br />
 v3b_ps</td>
-<td valign="top">Changed wrong unit of variables h/hstar, s, sstar
-from "SIunits.Enthalpy" to "SIunits.SpecificEnthalpy",
+<td>Changed wrong unit of variables h/hstar, s, sstar from
+"SIunits.Enthalpy" to "SIunits.SpecificEnthalpy",
 "SIunits.SpecificEntropy", "SIunits.SpecificEntropy</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Media.Water.IF97_Utilities.BaseIF97.Transport.</b></td>
+<strong>Media.Water.IF97_Utilities.BaseIF97.Transport.</strong></td>
 </tr>
 <tr>
-<td valign="top">cond_dTp</td>
-<td valign="top">Changed wrong unit of TREL, rhoREL, lambdaREL from
+<td>cond_dTp</td>
+<td>Changed wrong unit of TREL, rhoREL, lambdaREL from
 "SIunits.Temperature", "SIunit.Density",
 "SIunits.ThermalConductivity" to "Real".</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Media.Water.IF97_Utilities.BaseIF97.Inverses.</b></td>
+<strong>Media.Water.IF97_Utilities.BaseIF97.Inverses.</strong></td>
 </tr>
 <tr>
-<td valign="top">tofps5<br />
+<td>tofps5<br />
 tofpst5</td>
-<td valign="top">Changed wrong unit of pros from
-"SIunits.SpecificEnthalpy" to "SIunits.SpecificEntropy".</td>
+<td>Changed wrong unit of pros from "SIunits.SpecificEnthalpy" to
+"SIunits.SpecificEntropy".</td>
 </tr>
 <tr>
-<td colspan="2"><b>Media.Water.IF97_Utilities.</b></td>
+<td colspan="2"><strong>Media.Water.IF97_Utilities.</strong></td>
 </tr>
 <tr>
-<td valign="top">waterBaseProp_ph</td>
-<td valign="top">Improved calculation at the limits of the
-validity.</td>
+<td>waterBaseProp_ph</td>
+<td>Improved calculation at the limits of the validity.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Thermal.</b></td>
+<td colspan="2"><strong>Thermal.</strong></td>
 </tr>
 <tr>
-<td valign="top">FluidHeatFlow<br />
+<td>FluidHeatFlow<br />
 HeatTransfer</td>
-<td valign="top">Corrected wrong unit "SIunits.Temperature" of
-difference temperature variables with
-"SIunits.TemperatureDifference".</td>
+<td>Corrected wrong unit "SIunits.Temperature" of difference
+temperature variables with "SIunits.TemperatureDifference".</td>
 </tr>
 </table>
 <hr />
-Generated at 2016-07-13T15:55:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.11.0~dev-38-g67b62bf
+Generated at 2018-08-07T07:53:32Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1195-g6d891ea
 </body>
 </html>

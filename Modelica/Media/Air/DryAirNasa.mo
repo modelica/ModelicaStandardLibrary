@@ -20,8 +20,8 @@ package DryAirNasa "Air: Detailed dry air model as ideal gas (200..6000 K)"
         Cv.to_degC(1273.15),
         Cv.to_degC(state.T));
     annotation (smoothOrder=2, Documentation(info="<html>
-<p>Dynamic viscosity is computed from temperature using a simple polynomial for dry air. Range of validity is from 123.15 K to 1273.15 K. The influence of pressure is neglected. </p>
-<p>Source: VDI Waermeatlas, 8th edition. </p>
+<p>Dynamic viscosity is computed from temperature using a simple polynomial for dry air. Range of validity is from 123.15 K to 1273.15 K. The influence of pressure is neglected.</p>
+<p>Source: VDI Waermeatlas, 8th edition.</p>
 </html>"));
   end dynamicViscosity;
 
@@ -42,14 +42,14 @@ package DryAirNasa "Air: Detailed dry air model as ideal gas (200..6000 K)"
         Cv.to_degC(state.T));
 
     annotation (smoothOrder=2, Documentation(info="<html>
-<p>Thermal conductivity is computed from temperature using a simple polynomial for dry air. Range of validity is from 123.15 K to 1273.15 K. The influence of pressure is neglected. </p>
-<p>Source: VDI Waermeatlas, 8th edition. </p>
+<p>Thermal conductivity is computed from temperature using a simple polynomial for dry air. Range of validity is from 123.15 K to 1273.15 K. The influence of pressure is neglected.</p>
+<p>Source: VDI Waermeatlas, 8th edition.</p>
 </html>"));
   end thermalConductivity;
 
   annotation (Documentation(info="<html>
 <p>
-    <IMG src=\"modelica://Modelica/Resources/Images/Media/IdealGases/SingleGases/Air.png\">
+    <img src=\"modelica://Modelica/Resources/Images/Media/IdealGases/SingleGases/Air.png\">
 </p>
 
 <p>

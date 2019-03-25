@@ -34,7 +34,7 @@ model PointGravityWithPointMasses
     annotation (Placement(transformation(extent={{20,60},{40,80}})));
   Forces.Spring spring(showMass=false, c=10,
     fixedRotationAtFrame_b=true,
-    fixedRotationAtFrame_a=true)             annotation (Placement(
+    fixedRotationAtFrame_a=true) annotation (Placement(
         transformation(extent={{0,60},{20,80}})));
 equation
 
@@ -52,7 +52,7 @@ equation
 <p>
 This model demonstrates the usage of model Parts.PointMass in a
 point gravity field. The PointMass model has the feature that
-that rotation is not taken into account and can therefore also not be
+the rotation is not taken into account and can therefore also not be
 calculated. This example demonstrates two cases where this does not matter:
 If a PointMass is not connected (body1, body2), the orientation object in
 these point masses is set to a unit rotation.
@@ -63,6 +63,6 @@ These are the two cases where the rotation is automatically set to
 a default value, when the physical system does not provide the equations.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/PointGravityWithPointMasses.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/PointGravityWithPointMasses.png\">
 </html>"));
 end PointGravityWithPointMasses;

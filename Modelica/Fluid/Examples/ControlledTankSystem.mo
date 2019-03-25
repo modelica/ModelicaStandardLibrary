@@ -48,7 +48,7 @@ package ControlledTankSystem
             diameter=0.2,
             height=0,
             zeta_out=0,
-            zeta_in=1)})    annotation (Placement(transformation(extent={{10,30},
+            zeta_in=1)}) annotation (Placement(transformation(extent={{10,30},
               {50,70}})));
     Modelica.Blocks.Sources.RealExpression level1(y=tank1.level)
       annotation (Placement(transformation(extent={{-90,-60},{-55,-40}})));
@@ -81,7 +81,7 @@ package ControlledTankSystem
             diameter=0.2,
             height=0,
             zeta_out=0,
-            zeta_in=1)})   annotation (Placement(transformation(extent={{50,-60},
+            zeta_in=1)}) annotation (Placement(transformation(extent={{50,-60},
               {90,-20}})));
     Modelica.Fluid.Sources.Boundary_pT ambient1(redeclare package Medium =
           Medium,nPorts=1,
@@ -107,35 +107,28 @@ package ControlledTankSystem
     connect(start.on, tankController.start) annotation (Line(points={{-79,30},{
             -70,30},{-70,12},{-62,12}}, color={255,0,255}));
     connect(tankController.valve1, valve1.open) annotation (Line(points={{-19,12},
-            {-10,12},{-10,62}},             color={255,0,255}));
+            {-10,12},{-10,62}}, color={255,0,255}));
     connect(level1.y, tankController.level1) annotation (Line(points={{-53.25,
             -50},{-52,-50},{-52,-22}}, color={0,0,127}));
     connect(tankController.valve2, valve2.open) annotation (Line(points={{-19,0},
-            {-5,0},{26,0}},            color={255,0,255}));
+            {-5,0},{26,0}}, color={255,0,255}));
     connect(tankController.valve3, valve3.open) annotation (Line(points={{-19,-12},
-            {-10,-12},{-10,-50},{35,-50},{35,-72}},
-                                                color={255,0,255}));
+            {-10,-12},{-10,-50},{35,-50},{35,-72}}, color={255,0,255}));
     connect(level2.y, tankController.level2) annotation (Line(points={{-31.15,
             -70},{-28,-70},{-28,-22}}, color={0,0,127}));
 
     connect(source.ports[1], valve1.port_a) annotation (Line(
-        points={{-30,70},{-20,70}},
-        color={0,127,255}));
+        points={{-30,70},{-20,70}}, color={0,127,255}));
     connect(valve3.port_b, ambient1.ports[1]) annotation (Line(
-        points={{25,-80},{10,-80}},
-        color={0,127,255}));
+        points={{25,-80},{10,-80}}, color={0,127,255}));
     connect(tank2.ports[2], valve3.port_a) annotation (Line(
-        points={{74,-60},{74,-80},{45,-80}},
-        color={0,127,255}));
+        points={{74,-60},{74,-80},{45,-80}}, color={0,127,255}));
     connect(valve2.port_b, tank2.ports[1]) annotation (Line(
-        points={{34,-10},{34,-20},{50,-20},{50,-60},{66,-60}},
-        color={0,127,255}));
+        points={{34,-10},{34,-20},{50,-20},{50,-60},{66,-60}}, color={0,127,255}));
     connect(valve1.port_b, tank1.ports[1]) annotation (Line(
-        points={{0,70},{10,70},{10,30},{26,30}},
-        color={0,127,255}));
+        points={{0,70},{10,70},{10,30},{26,30}}, color={0,127,255}));
     connect(tank1.ports[2], valve2.port_a) annotation (Line(
-        points={{34,30},{34,10}},
-        color={0,127,255}));
+        points={{34,30},{34,10}}, color={0,127,255}));
     annotation (
       experiment(StopTime=900),
       Documentation(info="<html>
@@ -150,10 +143,10 @@ The basic operation is to fill and empty the two tanks:
 <ol>
 <li> Valve 1 is opened and tank 1 is filled.</li>
 <li> When tank 1 reaches its fill level limit,
-     valve 1 is closed. </li>
+     valve 1 is closed.</li>
 <li> After a waiting time, valve 2 is
      opened and the fluid flows from tank 1 into tank 2.</li>
-<li> When tank 1 reaches its minimum level, valve 2 is closed. </li>
+<li> When tank 1 reaches its minimum level, valve 2 is closed.</li>
 <li> After a waiting time, valve 3 is opened and
      the fluid flows out of tank 2</li>
 <li> When tank 2 reaches its minimum level, valve 3 is closed</li>
@@ -163,14 +156,14 @@ The above \"normal\" process can be influenced by three
 buttons:
 </p>
 <ul>
-<li> Button <b>start</b> starts the above process.
+<li> Button <strong>start</strong> starts the above process.
      When this button is pressed after a \"stop\" or
      \"shut\" operation, the process operation continues.
      </li>
-<li> Button <b>stop</b> stops the above process by
+<li> Button <strong>stop</strong> stops the above process by
      closing all valves. Then, the controller waits for
      further input (either \"start\" or \"shut\" operation).</li>
-<li> Button <b>shut</b> is used to shutdown the process,
+<li> Button <strong>shut</strong> is used to shutdown the process,
      by emptying at once both tanks by opening valve 2 and
      valve 3. When this is achieved,
      the process goes back to its start configuration
@@ -183,11 +176,11 @@ The demo-run uses the following button presses:
 </p>
 
 <ul>
-<li> Button <b>start</b> pressed at 20 s.</li>
-<li> Button <b>stop</b> pressed at 220 s </li>
-<li> Button <b>start</b> pressed at 280 s </li>
-<li> Button <b>stop</b> pressed at 650 s </li>
-<li> Button <b>shut</b> pressed at 700 s </li>
+<li> Button <strong>start</strong> pressed at 20 s.</li>
+<li> Button <strong>stop</strong> pressed at 220 s</li>
+<li> Button <strong>start</strong> pressed at 280 s</li>
+<li> Button <strong>stop</strong> pressed at 650 s</li>
+<li> Button <strong>shut</strong> pressed at 700 s</li>
 <li> Simulate for 900 s</li>
 </ul>
 
@@ -197,7 +190,7 @@ This example is based on
 
 <dl>
 <dt>Dressler I. (2004):</dt>
-<dd> <b>Code Generation From JGrafchart to Modelica</b>.
+<dd> <strong>Code Generation From JGrafchart to Modelica</strong>.
      Master thesis, supervisor: Karl-Erik &Aring;rz&eacute;n,
      Department of Automatic Control, Lund Institute of Technology,
      Lund, Sweden, March 30, 2004<br>&nbsp;</dd>
@@ -293,9 +286,9 @@ This example is based on
       connect(s1.outPort[1], T1.inPort)
                                      annotation (Line(points={{-51.5,40},{-44,
               40}}));
-      connect(T1.outPort, normal.inPort)      annotation (Line(points={{-38.5,
+      connect(T1.outPort, normal.inPort) annotation (Line(points={{-38.5,
               40},{-21.3333,40}}));
-      connect(normal.outPort, T2.inPort)      annotation (Line(points={{20.6667,
+      connect(normal.outPort, T2.inPort) annotation (Line(points={{20.6667,
               40},{33,40}}));
       connect(T5.outPort, emptyTanks.inPort[1])
                                              annotation (Line(points={{5.5,-50},
@@ -311,14 +304,13 @@ This example is based on
               255,0,255}));
       connect(setValve3.y, valve3) annotation (Line(points={{86,-93},{95,-93},{
               95,-60},{105,-60}}, color={255,0,255}));
-      connect(normal.suspend[1], T3.inPort)   annotation (Line(points={{-10,
+      connect(normal.suspend[1], T3.inPort) annotation (Line(points={{-10,
               19.3333},{-10,12},{-23,12},{-23,3}}));
       connect(T3.outPort, s2.inPort[1])
                                      annotation (Line(points={{-23,-2.5},{-23,
               -20},{-60,-20},{-60,-50},{-51,-50}}));
-      connect(level1, normal.level1)      annotation (Line(points={{-60,-110},{
-              -60,-80},{-80,-80},{-80,20},{-30,20},{-30,24},{-22.6667,24}},
-            color={0,0,255}));
+      connect(level1, normal.level1) annotation (Line(points={{-60,-110},{
+              -60,-80},{-80,-80},{-80,20},{-30,20},{-30,24},{-22.6667,24}}, color={0,0,255}));
       connect(s2.outPort[1], T5.inPort) annotation (Line(points={{-29.5,-49.75},
               {-30,-49.75},{-30,-50},{0,-50}}));
       connect(s2.outPort[2], T4.inPort) annotation (Line(points={{-29.5,-50.25},
@@ -327,47 +319,38 @@ This example is based on
               40},{70,70},{-80,70},{-80,40},{-73,40},{-73,40.5}}));
       connect(T6.outPort, s1.inPort[2]) annotation (Line(points={{56.5,-50},{70,
               -50},{70,70},{-80,70},{-80,40},{-74,40},{-73,39.5}}));
-      connect(T4.outPort, normal.resume[1])      annotation (Line(points={{10,1.5},
+      connect(T4.outPort, normal.resume[1]) annotation (Line(points={{10,1.5},
               {10,10},{10.5,10},{10.5,18.6667},{10,18.6667}}));
       annotation (
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}},
-                lineColor={0,0,0})}),
+            extent={{-100,-100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}})}),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-100,68},{-12,54}},
-              lineColor={0,0,0},
               textString="start"),
             Text(
               extent={{-99,6},{-14,-9}},
-              lineColor={0,0,0},
               textString="stop"),
             Text(
               extent={{-99,-54},{-14,-69}},
-              lineColor={0,0,0},
               textString="shut"),
             Text(
               extent={{-94,-82},{-9,-96}},
-              lineColor={0,0,0},
               textString="level1"),
             Text(
               extent={{11,-83},{96,-98}},
-              lineColor={0,0,0},
               textString="level2"),
             Text(
               extent={{10,68},{99,54}},
-              lineColor={0,0,0},
               textString="valve1"),
             Text(
               extent={{7,10},{101,-5}},
-              lineColor={0,0,0},
               textString="valve2"),
             Text(
               extent={{2,-51},{102,-67}},
-              lineColor={0,0,0},
               textString="valve3")}));
     end TankController;
 
@@ -441,10 +424,10 @@ This example is based on
         "Reset button to false, if an element of reset becomes true"
         annotation (Dialog(group="Time varying expressions"));
 
-      Modelica.Blocks.Interfaces.BooleanOutput on
+      Modelica.Blocks.Interfaces.BooleanOutput on(start=false, fixed=true)
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
     protected
-      Modelica.Blocks.Sources.BooleanTable table(table=buttonTimeTable);
+      Modelica.Blocks.Sources.BooleanTable table(table=buttonTimeTable, y(start=false, fixed=true));
     initial equation
       pre(reset) = fill(false, size(reset, 1));
     algorithm
@@ -467,7 +450,6 @@ This example is based on
               lineColor={128,128,128},
               lineThickness=0.5), Text(
               extent={{-80,-40},{80,40}},
-              lineColor={0,0,0},
               textString="%name")},
                               interaction={OnMouseDownSetBoolean(
                               on, true)}));

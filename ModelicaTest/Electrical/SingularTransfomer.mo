@@ -42,7 +42,7 @@ equation
   connect(basicTransformer.n2, ground2.p)
     annotation (Line(points={{10,37},{10,20},{78,20}}, color={0,0,255}));
   connect(basicTransformer.p1, resistor11.n) annotation (Line(points={{-10,47},
-          {-10,48},{-30,48},{-46,48},{-46,60},{-62,60}},color={0,0,255}));
+          {-10,48},{-30,48},{-46,48},{-46,60},{-62,60}}, color={0,0,255}));
   connect(basicTransformer.p2, resistor12.p) annotation (Line(points={{10,47},
           {10,46},{20,46},{40,46},{40,60},{58,60}}, color={0,0,255}));
   annotation (

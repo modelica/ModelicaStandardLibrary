@@ -13,10 +13,13 @@ model RollingWheel
     y(start=0.2),
     der_angles(start={0,5,1}))
     annotation (Placement(transformation(extent={{-20,0},{0,20}})));
-  inner Modelica.Mechanics.MultiBody.World world(label2="z", n={0,0,-1})
+  inner Modelica.Mechanics.MultiBody.World world(
+    label2="z",
+    n={0,0,-1},
+    animateGround=true,
+    groundLength_u=4,
+    groundColor={130,200,130})
     annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
-  Modelica.Mechanics.MultiBody.Visualizers.Ground ground(length=4)
-    annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
   annotation (
     experiment(StopTime=4),
     Documentation(info="<html>

@@ -1,22 +1,22 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 <title>Modelica.UsersGuide.ReleaseNotes.Version_2_2</title>
 </head>
 <body>
-<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>.<span class="omc-h1">Version_2_2</span></h1>
+<h1>ReleaseNotes.<span class="omc-h1">Version_2_2</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <p>Version 2.2 is backward compatible to version 2.1.</p>
-<p>The following <b>new libraries</b> have been added:</p>
+<p>The following <strong>new libraries</strong> have been
+added:</p>
 <table border="1" cellspacing="0" cellpadding="2">
 <tr>
-<td valign="top"><a href="Modelica.Media.html">Modelica.Media</a></td>
-<td valign="top">Property models of liquids and gases, especially
+<td>Modelica.Media</td>
+<td>Property models of liquids and gases, especially
 <ul>
 <li>1241 detailed gas models,</li>
 <li>moist air,</li>
@@ -43,32 +43,33 @@ dynamic simulation.</li>
 </td>
 </tr>
 <tr>
-<td valign="top"><a href="Modelica.Thermal.FluidHeatFlow.html">Modelica.Thermal.FluidHeatFlow</a></td>
-<td valign="top">Simple components for 1-dim., incompressible
-thermo-fluid flow to model coolant flows, e.g., of electrical
-machines. Components can be connected arbitrarily together (= ideal
-mixing at connection points) and fluid may reverse direction of
-flow.</td>
+<td>Modelica.Thermal.FluidHeatFlow</td>
+<td>Simple components for 1-dim., incompressible thermo-fluid flow
+to model coolant flows, e.g., of electrical machines. Components
+can be connected arbitrarily together (= ideal mixing at connection
+points) and fluid may reverse direction of flow.</td>
 </tr>
 </table>
-<p>The following <b>changes</b> have been performed in the
-<b>Modelica.Mechanics.MultiBody</b> library:</p>
+<p>The following <strong>changes</strong> have been performed in
+the <strong>Modelica.Mechanics.MultiBody</strong> library:</p>
 <ul>
 <li>Component MultiBody.World has a new parameter
-<b>driveTrainMechanics3D</b>. If set to <b>true</b>, 3D mechanical
-effects of MultiBody.Parts.Mounting1D/Rotor1D/BevelGear1D are taken
-into account. If set to <b>false</b> (= default), 3D mechanical
-effects in these elements are not taken into account and the frame
-connectors to connect to 3D parts are disabled (all connections to
-such a disabled connector are also disabled, due to the new feature
-of conditional declarations in Modelica language 2.2)</li>
+<strong>driveTrainMechanics3D</strong>. If set to
+<strong>true</strong>, 3D mechanical effects of
+MultiBody.Parts.Mounting1D/Rotor1D/BevelGear1D are taken into
+account. If set to <strong>false</strong> (= default), 3D
+mechanical effects in these elements are not taken into account and
+the frame connectors to connect to 3D parts are disabled (all
+connections to such a disabled connector are also disabled, due to
+the new feature of conditional declarations in Modelica language
+2.2)</li>
 <li>All references to "MultiBody.xxx" have been changed to
 "Modelica.Mechanics.MultiBodys.xxx" in order that after copying of
 a component outside of the Modelica library, the references still
 remain valid.</li>
 </ul>
 <hr />
-Generated at 2016-07-13T15:55:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.11.0~dev-38-g67b62bf
+Generated at 2018-08-07T07:53:32Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1195-g6d891ea
 </body>
 </html>

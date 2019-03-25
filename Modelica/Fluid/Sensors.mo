@@ -25,7 +25,6 @@ package Sensors
             lineColor={0,0,255}),
           Text(
             extent={{151,-20},{57,-50}},
-            lineColor={0,0,0},
             textString="p")}),
       Documentation(info="<html>
 <p>
@@ -56,7 +55,6 @@ ideal, i.e., it does not influence the fluid.
             lineColor={0,0,255}),
           Text(
             extent={{154,-31},{56,-61}},
-            lineColor={0,0,0},
             textString="d"),
           Line(points={{70,0},{100,0}}, color={0,0,127})}),
     Documentation(info="<html>
@@ -100,7 +98,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
               100}}), graphics={
           Text(
             extent={{102,124},{6,95}},
-            lineColor={0,0,0},
             textString="d"),
           Line(points={{0,100},{0,70}}, color={0,0,127}),
           Line(points={{-100,0},{-70,0}}, color={0,128,255}),
@@ -134,7 +131,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Line(points={{0,-70},{0,-100}}, color={0,0,127}),
           Ellipse(
             extent={{-20,-98},{20,-60}},
-            lineColor={0,0,0},
             lineThickness=0.5,
             fillColor={191,0,0},
             fillPattern=FillPattern.Solid),
@@ -146,7 +142,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Polygon(
             points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},{
                 12,80},{12,40},{-12,40}},
-            lineColor={0,0,0},
             lineThickness=0.5),
           Line(
             points={{-12,40},{-12,-64}},
@@ -162,7 +157,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
               100}}), graphics={
           Ellipse(
             extent={{-20,-88},{20,-50}},
-            lineColor={0,0,0},
             lineThickness=0.5,
             fillColor={191,0,0},
             fillPattern=FillPattern.Solid),
@@ -174,7 +168,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Polygon(
             points={{-12,50},{-12,90},{-10,96},{-6,98},{0,100},{6,98},{10,96},{
                 12,90},{12,50},{-12,50}},
-            lineColor={0,0,0},
             lineThickness=0.5),
           Line(
             points={{-12,50},{-12,-54}},
@@ -187,7 +180,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Line(points={{-40,70},{-12,70}}),
           Text(
             extent={{126,-30},{6,-60}},
-            lineColor={0,0,0},
             textString="T"),
           Text(
             extent={{-150,110},{150,150}},
@@ -230,7 +222,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Line(points={{-92,0},{100,0}}, color={0,128,255}),
           Ellipse(
             extent={{-20,-68},{20,-30}},
-            lineColor={0,0,0},
             lineThickness=0.5,
             fillColor={191,0,0},
             fillPattern=FillPattern.Solid),
@@ -242,7 +233,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Polygon(
             points={{-12,50},{-12,70},{-10,76},{-6,78},{0,80},{6,78},{10,76},{
                 12,70},{12,50},{-12,50}},
-            lineColor={0,0,0},
             lineThickness=0.5),
           Line(
             points={{-12,50},{-12,-35}},
@@ -255,7 +245,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Line(points={{-40,50},{-12,50}}),
           Text(
             extent={{94,122},{0,92}},
-            lineColor={0,0,0},
             textString="T")}),
     Documentation(info="<html>
 <p>
@@ -285,7 +274,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
             lineColor={0,0,255}),
           Text(
             extent={{168,-30},{52,-60}},
-            lineColor={0,0,0},
             textString="h"),
           Line(points={{70,0},{100,0}}, color={0,0,127})}),
     Documentation(info="<html>
@@ -319,7 +307,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
               100}}), graphics={
           Text(
             extent={{102,120},{0,90}},
-            lineColor={0,0,0},
             textString="h"),
           Line(points={{0,100},{0,70}}, color={0,0,127}),
           Line(points={{-100,0},{-70,0}}, color={0,128,255}),
@@ -352,7 +339,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
             lineColor={0,0,255}),
           Text(
             extent={{156,-24},{54,-54}},
-            lineColor={0,0,0},
             textString="s"),
           Line(points={{70,0},{100,0}}, color={0,0,127})}),
     Documentation(info="<html>
@@ -394,7 +380,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
               100}}), graphics={
           Text(
             extent={{120,120},{0,90}},
-            lineColor={0,0,0},
             textString="s"),
           Line(points={{0,100},{0,70}}, color={0,0,127}),
           Line(points={{-100,0},{-70,0}}, color={0,128,255}),
@@ -443,7 +428,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
             lineColor={0,0,255}),
           Text(
             extent={{160,-30},{60,-60}},
-            lineColor={0,0,0},
             textString="Xi"),
           Line(points={{70,0},{100,0}}, color={0,0,127})}),
     Documentation(info="<html>
@@ -475,7 +459,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
       "Index of species in vector of independent mass fractions";
   initial algorithm
     ind:= -1;
-    for i in 1:Medium.nC loop
+    for i in 1:Medium.nXi loop
       if ( Modelica.Utilities.Strings.isEqual(Medium.substanceNames[i], substanceName)) then
         ind := i;
       end if;
@@ -494,7 +478,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
               100}}), graphics={
           Text(
             extent={{82,122},{0,92}},
-            lineColor={0,0,0},
             textString="Xi"),
           Line(points={{0,100},{0,70}}, color={0,0,127}),
           Line(points={{-100,0},{-70,0}}, color={0,128,255}),
@@ -506,6 +489,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 </p> </html>", revisions="<html>
 <ul>
 <li>2011-12-14: Stefan Wischhusen: Initial Release.</li>
+<li>2018-01-04: Stefan Wischhusen: Corrected failure in accessing the named substance.</li>
 </ul>
 </html>"));
   end MassFractionsTwoPort;
@@ -547,7 +531,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
             lineColor={0,0,255}),
           Text(
             extent={{160,-30},{60,-60}},
-            lineColor={0,0,0},
             textString="C"),
           Line(points={{70,0},{100,0}}, color={0,0,127})}),
     Documentation(info="<html>
@@ -593,7 +576,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
               100}}), graphics={
           Text(
             extent={{82,122},{0,92}},
-            lineColor={0,0,0},
             textString="C"),
           Line(points={{0,100},{0,70}}, color={0,0,127}),
           Line(points={{-100,0},{-70,0}}, color={0,128,255}),
@@ -625,7 +607,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Line(points={{70,0},{100,0}}, color={0,128,255}),
           Text(
             extent={{162,120},{2,90}},
-            lineColor={0,0,0},
             textString="m_flow"),
           Line(points={{0,100},{0,70}}, color={0,0,127}),
           Line(points={{-100,0},{-70,0}}, color={0,128,255})}),
@@ -669,7 +650,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
               100}}), graphics={
           Text(
             extent={{160,120},{0,90}},
-            lineColor={0,0,0},
             textString="V_flow"),
           Line(points={{0,100},{0,70}}, color={0,0,127}),
           Line(points={{-100,0},{-70,0}}, color={0,128,255}),
@@ -701,7 +681,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Line(points={{0,-30},{0,-80}}, color={0,0,127}),
           Text(
             extent={{130,-70},{4,-100}},
-            lineColor={0,0,0},
             textString="p_rel")}),
       Documentation(info="<html>
 <p>
@@ -718,7 +697,7 @@ through the sensor is allowed.
 
     Modelica.Blocks.Interfaces.RealOutput T_rel(final quantity="ThermodynamicTemperature",
                                                 final unit = "K", displayUnit = "degC", min=0)
-      "Relative temperature signal"                                                                               annotation (Placement(
+      "Relative temperature signal" annotation (Placement(
           transformation(
           origin={0,-90},
           extent={{10,-10},{-10,10}},
@@ -732,7 +711,6 @@ through the sensor is allowed.
           Line(points={{0,-30},{0,-80}}, color={0,0,127}),
           Text(
             extent={{128,-70},{10,-100}},
-            lineColor={0,0,0},
             textString="T_rel")}),
       Documentation(info="<html>
 <p>
@@ -768,7 +746,7 @@ through the sensor is allowed.
       port.C_outflow = zeros(Medium.nC);
       annotation (Documentation(info="<html>
 <p>
-Partial component to model an <b>absolute sensor</b>. Can be used for pressure sensor models.
+Partial component to model an <strong>absolute sensor</strong>. Can be used for pressure sensor models.
 Use for other properties such as temperature or density is discouraged, because the enthalpy at the connector can have different meanings, depending on the connection topology. Use <code>PartialFlowSensor</code> instead.
 as signal.
 </p>
@@ -779,7 +757,7 @@ as signal.
       "Partial component to model a sensor that measures the difference between two potential variables"
       extends Modelica.Icons.TranslationalSensor;
       replaceable package Medium =
-        Modelica.Media.Interfaces.PartialMedium "Medium in the sensor"  annotation (
+        Modelica.Media.Interfaces.PartialMedium "Medium in the sensor" annotation (
           choicesAllMatching = true);
 
       Modelica.Fluid.Interfaces.FluidPort_a port_a(m_flow(min=0),
@@ -857,7 +835,7 @@ through the sensor is allowed.
       port_b.C_outflow = inStream(port_a.C_outflow);
       annotation (Documentation(info="<html>
 <p>
-Partial component to model a <b>sensor</b> that measures any intensive properties
+Partial component to model a <strong>sensor</strong> that measures any intensive properties
 of a flow, e.g., to get temperature or density in the flow
 between fluid connectors.<br>
 The model includes zero-volume balance equations. Sensor models inheriting from
@@ -868,8 +846,8 @@ this partial class should add a medium instance to calculate the measured proper
 
   end BaseClasses;
   annotation (preferredView="info", Documentation(info="<html>
-<p align = justify>
-Package <b>Sensors</b> consists of idealized sensor components that
+<p>
+Package <strong>Sensors</strong> consists of idealized sensor components that
 provide variables of a medium model and/or fluid ports as
 output signals. These signals can be, e.g., further processed
 with components of the Modelica.Blocks library.
@@ -878,15 +856,15 @@ processing (e.g., by attaching block Modelica.Blocks.FirstOrder to
 model the time constant of the sensor).
 </p>
 
-<p align = justify>For the thermodynamic state variables temperature, specific enthalpy, specific entropy and density
-the fluid library provides two different types of sensors: <b>regular one port</b> and <b>two port</b> sensors.</p>
+<p>For the thermodynamic state variables temperature, specific enthalpy, specific entropy and density
+the fluid library provides two different types of sensors: <strong>regular one port</strong> and <strong>two port</strong> sensors.</p>
 
 <ul>
-<li>The <b>regular one port</b> sensors have the advantage of easy introduction and removal from a model, as no connections have to be broken.
+<li>The <strong>regular one port</strong> sensors have the advantage of easy introduction and removal from a model, as no connections have to be broken.
 A potential drawback is that the obtained value jumps as flow reverts.
 </li>
 
-<li>The <b>two port</b> sensors offer the advantages of an adjustable regularized step function around zero flow.
+<li>The <strong>two port</strong> sensors offer the advantages of an adjustable regularized step function around zero flow.
 Moreover the obtained result is restricted to the value flowing into port_a if allowFlowReversal is false.</li>
 </ul>
 
@@ -897,16 +875,16 @@ simple example.
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>22 Dec 2008</i>
+<li><em>22 Dec 2008</em>
     by R;uumldiger Franke<br>
     <ul>
     <li>flow sensors based on Interfaces.PartialTwoPort</li>
     <li>adapted docu to stream connectors, i.e., less need for two port sensors</li>
     </ul>
-<li><i>4 Dec 2008</i>
+<li><em>4 Dec 2008</em>
     by Michael Wetter<br>
        included sensors for trace substance</li>
-<li><i>31 Oct 2007</i>
+<li><em>31 Oct 2007</em>
     by Carsten Heinrich<br>
        updated sensor models, included one and two port sensors for thermodynamic state variables</li>
 </ul>

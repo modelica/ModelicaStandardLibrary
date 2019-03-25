@@ -96,7 +96,7 @@ required from medium model \""
     x_water = Xi[Water]/max(X_air, 100*Constants.eps);
     phi = p/p_steam_sat*Xi[Water]/(Xi[Water] + k_mair*X_air);
     annotation (Documentation(info="<html>
-<p>This model computes thermodynamic properties of moist air from three independent (thermodynamic or/and numerical) state variables. Preferred numerical states are temperature T, pressure p and the reduced composition vector Xi, which contains the water mass fraction only. As an EOS the <b>ideal gas law</b> is used and associated restrictions apply. The model can also be used in the <b>fog region</b>, when moisture is present in its liquid state. However, it is assumed that the liquid water volume is negligible compared to that of the gas phase. Computation of thermal properties is based on property data of <a href=\"modelica://Modelica.Media.Air.DryAirNasa\"> dry air</a> and water (source: VDI-W&auml;rmeatlas), respectively. Besides the standard thermodynamic variables <b>absolute and relative humidity</b>, x_water and phi, respectively, are given by the model. Upper case X denotes absolute humidity with respect to mass of moist air while absolute humidity with respect to mass of dry air only is denoted by a lower case x throughout the model. See <a href=\"modelica://Modelica.Media.Air.MoistAir\">package description</a> for further information.</p>
+<p>This model computes thermodynamic properties of moist air from three independent (thermodynamic or/and numerical) state variables. Preferred numerical states are temperature T, pressure p and the reduced composition vector Xi, which contains the water mass fraction only. As an EOS the <strong>ideal gas law</strong> is used and associated restrictions apply. The model can also be used in the <strong>fog region</strong>, when moisture is present in its liquid state. However, it is assumed that the liquid water volume is negligible compared to that of the gas phase. Computation of thermal properties is based on property data of <a href=\"modelica://Modelica.Media.Air.DryAirNasa\"> dry air</a> and water (source: VDI-W&auml;rmeatlas), respectively. Besides the standard thermodynamic variables <strong>absolute and relative humidity</strong>, x_water and phi, respectively, are given by the model. Upper case X denotes absolute humidity with respect to mass of moist air while absolute humidity with respect to mass of dry air only is denoted by a lower case x throughout the model. See <a href=\"modelica://Modelica.Media.Air.MoistAir\">package description</a> for further information.</p>
 </html>"));
   end BaseProperties;
 
@@ -346,8 +346,8 @@ The ideal gas constant for moist air is computed from the gas phase composition.
       Inline=false,
       smoothOrder=5,
       Documentation(info="<html>
-<p>Saturation pressure of water above the triple point temperature is computed from temperature. </p>
-<p>Source: A Saul, W Wagner: &quot;International equations for the saturation properties of ordinary water substance&quot;, equation 2.1 </p>
+<p>Saturation pressure of water above the triple point temperature is computed from temperature.</p>
+<p>Source: A Saul, W Wagner: &quot;International equations for the saturation properties of ordinary water substance&quot;, equation 2.1</p>
 </html>"));
   end saturationPressureLiquid;
 
@@ -380,8 +380,8 @@ The ideal gas constant for moist air is computed from the gas phase composition.
       Inline=false,
       smoothOrder=5,
       Documentation(info="<html>
-<p>Saturation pressure of water above the triple point temperature is computed from temperature. </p>
-<p>Source: A Saul, W Wagner: &quot;International equations for the saturation properties of ordinary water substance&quot;, equation 2.1 </p>
+<p>Saturation pressure of water above the triple point temperature is computed from temperature.</p>
+<p>Source: A Saul, W Wagner: &quot;International equations for the saturation properties of ordinary water substance&quot;, equation 2.1</p>
 </html>"));
   end saturationPressureLiquid_der;
 
@@ -663,9 +663,9 @@ Specific enthalpy of dry air is computed from temperature.
     annotation (derivative=enthalpyOfWater_der, Documentation(info="<html>
 Specific enthalpy of water (liquid and solid) is computed from temperature using constant properties as follows:<br>
 <ul>
-<li>  heat capacity of liquid water:4200 J/kg
-<li>  heat capacity of solid water: 2050 J/kg
-<li>  enthalpy of fusion (liquid=>solid): 333000 J/kg
+<li>  heat capacity of liquid water:4200 J/kg</li>
+<li>  heat capacity of solid water: 2050 J/kg</li>
+<li>  enthalpy of fusion (liquid=>solid): 333000 J/kg</li>
 </ul>
 Pressure is assumed to be around 1 bar. This function is usually used to determine the specific enthalpy of the liquid or solid fraction of moist air.
 </html>"));
@@ -1141,7 +1141,7 @@ The Specific Helmholtz Energy is computed from the thermodynamic state record fo
       Inline=false,
       smoothOrder=2,
       Documentation(info="<html>
-The specific heat capacity at constant pressure <b>cp</b> is computed from temperature and composition for a mixture of steam (X[1]) and dry air. All water is assumed to be in the vapor state.
+The specific heat capacity at constant pressure <strong>cp</strong> is computed from temperature and composition for a mixture of steam (X[1]) and dry air. All water is assumed to be in the vapor state.
 </html>"));
   end specificHeatCapacityCp;
 
@@ -1157,7 +1157,7 @@ The specific heat capacity at constant pressure <b>cp</b> is computed from tempe
       Inline=false,
       smoothOrder=2,
       Documentation(info="<html>
-The specific heat capacity at constant density <b>cv</b> is computed from temperature and composition for a mixture of steam (X[1]) and dry air. All water is assumed to be in the vapor state.
+The specific heat capacity at constant density <strong>cv</strong> is computed from temperature and composition for a mixture of steam (X[1]) and dry air. All water is assumed to be in the vapor state.
 </html>"));
   end specificHeatCapacityCv;
 
@@ -1173,8 +1173,8 @@ algorithm
       Cv.to_degC(1273.15),
       Cv.to_degC(state.T));
   annotation (smoothOrder=2, Documentation(info="<html>
-<p>Dynamic viscosity is computed from temperature using a simple polynomial for dry air. Range of validity is from 123.15 K to 1273.15 K. The influence of pressure and moisture is neglected. </p>
-<p>Source: VDI Waermeatlas, 8th edition. </p>
+<p>Dynamic viscosity is computed from temperature using a simple polynomial for dry air. Range of validity is from 123.15 K to 1273.15 K. The influence of pressure and moisture is neglected.</p>
+<p>Source: VDI Waermeatlas, 8th edition.</p>
 </html>"));
 end dynamicViscosity;
 
@@ -1191,8 +1191,8 @@ algorithm
       Cv.to_degC(state.T));
 
   annotation (smoothOrder=2, Documentation(info="<html>
-<p>Thermal conductivity is computed from temperature using a simple polynomial for dry air. Range of validity is from 123.15 K to 1273.15 K. The influence of pressure and moisture is neglected. </p>
-<p>Source: VDI Waermeatlas, 8th edition. </p>
+<p>Thermal conductivity is computed from temperature using a simple polynomial for dry air. Range of validity is from 123.15 K to 1273.15 K. The influence of pressure and moisture is neglected.</p>
+<p>Source: VDI Waermeatlas, 8th edition.</p>
 </html>"));
 end thermalConductivity;
 
@@ -1276,7 +1276,7 @@ end thermalConductivity;
 
   redeclare function extends molarMass
   algorithm
-    MM := Modelica.Media.Air.MoistAir.gasConstant(state)/Modelica.Constants.R;
+    MM := Modelica.Constants.R/Modelica.Media.Air.MoistAir.gasConstant(state);
     annotation (Documentation(revisions="<html>
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"));
@@ -1399,7 +1399,7 @@ Specific entropy of moist air is computed from pressure, temperature and composi
     input SI.MassFraction X[:] "Mass fractions of moist air";
     input Real dp(unit="Pa/s") "Derivative of pressure";
     input Real dT(unit="K/s") "Derivative of temperature";
-    input Real dX[nX](unit="1/s") "Derivative of mass fractions";
+    input Real dX[nX](each unit="1/s") "Derivative of mass fractions";
     output Real ds(unit="J/(kg.K.s)") "Specific entropy at p, T, X";
   protected
     MoleFraction[2] Y=massToMoleFractions(X, {steam.MM,dryair.MM})
@@ -1585,12 +1585,12 @@ The governing assumptions in this model are:</p>
 <ul>
 <li>the perfect gas law applies</li>
 <li>water volume other than that of steam is neglected</li></ul>
-<p>All extensive properties are expressed in terms of the total mass in order to comply with other media in this library. However, for moist air it is rather common to express the absolute humidity in terms of mass of dry air only, which has advantages when working with charts. In addition, care must be taken, when working with mass fractions with respect to total mass, that all properties refer to the same water content when being used in mathematical operations (which is always the case if based on dry air only). Therefore two absolute humidities are computed in the <b>BaseProperties</b> model: <b>X</b> denotes the absolute humidity in terms of the total mass while <b>x</b> denotes the absolute humidity per unit mass of dry air. In addition, the relative humidity <b>phi</b> is also computed.</p>
+<p>All extensive properties are expressed in terms of the total mass in order to comply with other media in this library. However, for moist air it is rather common to express the absolute humidity in terms of mass of dry air only, which has advantages when working with charts. In addition, care must be taken, when working with mass fractions with respect to total mass, that all properties refer to the same water content when being used in mathematical operations (which is always the case if based on dry air only). Therefore two absolute humidities are computed in the <strong>BaseProperties</strong> model: <strong>X</strong> denotes the absolute humidity in terms of the total mass while <strong>x</strong> denotes the absolute humidity per unit mass of dry air. In addition, the relative humidity <strong>phi</strong> is also computed.</p>
 <p>At the triple point temperature of water of 0.01 &deg;C or 273.16 K and a relative humidity greater than 1 fog may be present as liquid and as ice resulting in a specific enthalpy somewhere between those of the two isotherms for solid and liquid fog, respectively. For numerical reasons a coexisting mixture of 50% solid and 50% liquid fog is assumed in the fog region at the triple point in this model.</p>
 
 <h4>Range of validity</h4>
-<p>From the assumptions mentioned above it follows that the <b>pressure</b> should be in the region around <b>atmospheric</b> conditions or below (a few bars may still be fine though). Additionally a very high water content at low temperatures would yield incorrect densities, because the volume of the liquid or solid phase would not be negligible anymore. The model does not provide information on limits for water drop size in the fog region or transport information for the actual condensation or evaporation process in combination with surfaces. All excess water which is not in its vapour state is assumed to be still present in the air regarding its energy but not in terms of its spatial extent.<br><br>
-The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 ... 647 K</b>. This holds for all functions unless otherwise stated in their description. However, although the model works at temperatures above the saturation temperature it is questionable to use the term \"relative humidity\" in this region. Please note, that although several functions compute pure water properties, they are designed to be used within the moist air medium model where properties are dominated by air and steam in their vapor states, and not for pure liquid water applications.</p>
+<p>From the assumptions mentioned above it follows that the <strong>pressure</strong> should be in the region around <strong>atmospheric</strong> conditions or below (a few bars may still be fine though). Additionally a very high water content at low temperatures would yield incorrect densities, because the volume of the liquid or solid phase would not be negligible anymore. The model does not provide information on limits for water drop size in the fog region or transport information for the actual condensation or evaporation process in combination with surfaces. All excess water which is not in its vapour state is assumed to be still present in the air regarding its energy but not in terms of its spatial extent.<br><br>
+The thermodynamic model may be used for <strong>temperatures</strong> ranging from <strong>190 ... 647 K</strong>. This holds for all functions unless otherwise stated in their description. However, although the model works at temperatures above the saturation temperature it is questionable to use the term \"relative humidity\" in this region. Please note, that although several functions compute pure water properties, they are designed to be used within the moist air medium model where properties are dominated by air and steam in their vapor states, and not for pure liquid water applications.</p>
 
 <h4>Transport Properties</h4>
 <p>Several additional functions that are not needed to describe the thermodynamic system, but are required to model transport processes, like heat and mass transfer, may be called. They usually neglect the moisture influence unless otherwise stated.</p>
@@ -1604,7 +1604,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
 </p>
 
 <p>
-<b>Legend:</b> blue - constant specific enthalpy, red - constant temperature, black - constant relative humidity</p>
+<strong>Legend:</strong> blue - constant specific enthalpy, red - constant temperature, black - constant relative humidity</p>
 
 </html>"));
 end MoistAir;

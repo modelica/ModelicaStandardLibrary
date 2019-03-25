@@ -60,7 +60,6 @@ Connector with one signal of type .
                   fillPattern=FillPattern.Solid),
                 Text(
                   extent={{-144,96},{144,46}},
-                  lineColor={0,0,0},
                   textString=""),
                 Text(
                   extent={{-88,22},{88,-24}},
@@ -68,7 +67,6 @@ Connector with one signal of type .
                   textString="adaptor"),
                 Text(
                   extent={{-216,-58},{36,-80}},
-                  lineColor={0,0,0},
                   textString="port.signal")}),
                                       Documentation(info="<html>
 <p>
@@ -111,7 +109,6 @@ This block is only provided for backward compatibility.
                   fillPattern=FillPattern.Solid),
                 Text(
                   extent={{-144,96},{144,46}},
-                  lineColor={0,0,0},
                   textString=""),
                 Text(
                   extent={{-88,22},{88,-24}},
@@ -119,7 +116,6 @@ This block is only provided for backward compatibility.
                   textString="adaptor"),
                 Text(
                   extent={{-216,-58},{36,-80}},
-                  lineColor={0,0,0},
                   textString="port.signal")}),
                                       Documentation(info="<html>
 <p>
@@ -162,7 +158,6 @@ This block is only provided for backward compatibility.
                   fillPattern=FillPattern.Solid),
                 Text(
                   extent={{-144,96},{144,46}},
-                  lineColor={0,0,0},
                   textString=""),
                 Text(
                   extent={{-88,22},{88,-24}},
@@ -170,7 +165,6 @@ This block is only provided for backward compatibility.
                   textString="adaptor"),
                 Text(
                   extent={{-216,-58},{36,-80}},
-                  lineColor={0,0,0},
                   textString="port.signal")}),
                                       Documentation(info="<html>
 <p>
@@ -215,7 +209,7 @@ Internal replaceable block that is used to construct the
                   fillPattern=FillPattern.Solid)}),
             Documentation(info="<html>
 <p>This block implements the Modelica.SIunits.Conversions functions as a fixed causality block to
-simplify their use. The block contains a replaceable block class <b>ConversionBlock</b> that can be
+simplify their use. The block contains a replaceable block class <strong>ConversionBlock</strong> that can be
 changed to be any of the blocks defined in Modelica.Blocks.Math.UnitConversions, and more generally, any
 blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.
 </p>
@@ -252,7 +246,7 @@ The desired conversion can be selected in the parameter menu
             u1 = u2;
             annotation(defaultConnectionStructurallyInconsistent=true,
               obsolete="Model is not balanced, i.e., not according to Modelica Language 3.0. Use instead Modelica.Blocks.Math.InverseBlockConstraints",
-              Documentation(info="<HTML>
+              Documentation(info="<html>
 <p>
 This block is used to enable assignment of values to variables preliminary
 defined as outputs (e.g., useful for inverse model generation).
@@ -395,19 +389,19 @@ This block is used to enable calculation of values preliminary defined as inputs
                   lineColor={0,0,255},
                   fillColor={0,0,255},
                   fillPattern=FillPattern.Solid)}),
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <p>This is a model for an electrical resistor where the generated heat
-is dissipated to the environment via connector <b>heatPort</b> and where
+is dissipated to the environment via connector <strong>heatPort</strong> and where
 the resistance R is temperature dependent according to the following
 equation:</p>
 <pre>    R = R_ref*(1 + alpha*(heatPort.T - T_ref))
 </pre>
-<p><b>alpha</b> is the <b>temperature coefficient of resistance</b>, which
-is often abbreviated as <b>TCR</b>. In resistor catalogues, it is usually
-defined as <b>X [ppm/K]</b> (parts per million, similarly to percentage)
-meaning <b>X*1.e-6 [1/K]</b>. Resistors are available for 1 .. 7000 ppm/K,
+<p><strong>alpha</strong> is the <strong>temperature coefficient of resistance</strong>, which
+is often abbreviated as <strong>TCR</strong>. In resistor catalogues, it is usually
+defined as <strong>X [ppm/K]</strong> (parts per million, similarly to percentage)
+meaning <strong>X*1.e-6 [1/K]</strong>. Resistors are available for 1 .. 7000 ppm/K,
 i.e., alpha = 1e-6 .. 7e-3 1/K;</p>
-<p>When connector <b>heatPort</b> is <b>not</b> connected, the temperature
+<p>When connector <strong>heatPort</strong> is <strong>not</strong> connected, the temperature
 dependent behaviour is switched off by setting heatPort.T = T_ref.
 Additionally, the equation <code>heatPort.Q_flow = 0</code> is implicitly present
 due to a special rule in Modelica that flow variables of not connected
@@ -415,7 +409,7 @@ connectors are set to zero.</p>
 </html>",         revisions=
                  "<html>
 <ul>
-<li><i> 2002   </i>
+<li><em> 2002   </em>
        by Anton Haumer<br> initially implemented<br>
        </li>
 </ul>
@@ -480,7 +474,7 @@ corresponding library in a future release.
               textString="e")}),
                           Documentation(info="<html>
 <p>
-This icon is designed for an <b>enumeration</b>
+This icon is designed for an <strong>enumeration</strong>
 (that is emulated by a package).
 </p>
 </html>"));
@@ -559,8 +553,6 @@ This icon is designed for an <b>enumeration</b>
                 Polygon(
                   points={{-100,10},{50,10},{50,31},{97,0},{50,-31},{50,-10},{-100,
                       -10},{-100,10}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),
                 Line(
                   points={{-100,11},{-94,24},{-86,39},{-74,59},{-65,71},{-52,83},
@@ -569,8 +561,6 @@ This icon is designed for an <b>enumeration</b>
                   thickness=0.5),
                 Polygon(
                   points={{97,18},{72,77},{38,42},{97,18}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid)}),
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
@@ -581,8 +571,6 @@ This icon is designed for an <b>enumeration</b>
                 Polygon(
                   points={{-100,10},{50,10},{50,31},{94,0},{50,-31},{50,-10},{-100,
                       -10},{-100,10}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),
                 Text(extent={{-137,-47},{148,-108}}, textString="%name"),
                 Line(
@@ -592,15 +580,13 @@ This icon is designed for an <b>enumeration</b>
                   thickness=0.5),
                 Polygon(
                   points={{99,21},{74,80},{40,45},{99,21}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid)}),
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <p>
-The <b>6</b> signals of the <b>load</b> connector are interpreted
-as the x-, y- and z-coordinates of a <b>force</b> and as
-the x-, y-, and z-coordinates of a <b>torque</b> resolved in the
-<b>world frame</b> and acting at the frame connector to which this
+The <strong>6</strong> signals of the <strong>load</strong> connector are interpreted
+as the x-, y- and z-coordinates of a <strong>force</strong> and as
+the x-, y-, and z-coordinates of a <strong>torque</strong> resolved in the
+<strong>world frame</strong> and acting at the frame connector to which this
 component is attached. The input signals are mapped to the force
 and torque in the following way:
 </p>
@@ -613,12 +599,12 @@ The force and torque are by default visualized as an arrow (force)
 and as a double arrow (torque) acting at the connector to which
 they are connected. The diameters
 and colors of the arrows are fixed and can be defined via
-parameters <b>forceDiameter</b>, <b>torqueDiameter</b>,
-<b>forceColor</b> and <b>torqueColor</b>. The arrows
+parameters <strong>forceDiameter</strong>, <strong>torqueDiameter</strong>,
+<strong>forceColor</strong> and <strong>torqueColor</strong>. The arrows
 point in the directions defined by the
 inPort.signal signals. The lengths of the arrows are proportional
 to the length of the force and torque vectors, respectively, using parameters
-<b>N_to_m</b> and <b>Nm_to_m</b> as scaling factors. For example, if N_to_m = 100 N/m,
+<strong>N_to_m</strong> and <strong>Nm_to_m</strong> as scaling factors. For example, if N_to_m = 100 N/m,
 then a force of 350 N is displayed as an arrow of length 3.5 m.
 </p>
 <p>
@@ -626,13 +612,13 @@ An example how to use this model is given in the
 following figure:
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque1.png\">
 
 <p>
 This leads to the following animation
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque2.png\">
 </html>"));
         end WorldForceAndTorque;
 
@@ -720,16 +706,12 @@ This leads to the following animation
                 Polygon(
                   points={{-100,10},{50,10},{50,31},{97,0},{50,-31},{50,-10},{-100,
                       -10},{-100,10}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),
                 Line(points={{-100,11},{-94,24},{-86,39},{-74,59},{-65,71},{-52,
                       83},{-35,92},{-22,95},{-8,95},{7,91},{19,84},{32,76},{44,
                       66},{52,58},{58,51}}),
                 Polygon(
                   points={{97,18},{72,77},{38,42},{97,18}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),
                 Line(
                   points={{0,97},{0,10}},
@@ -744,8 +726,6 @@ This leads to the following animation
                 Polygon(
                   points={{-100,10},{50,10},{50,31},{94,0},{50,-31},{50,-10},{-100,
                       -10},{-100,10}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),
                 Text(extent={{-137,-47},{148,-108}}, textString="%name"),
                 Line(points={{-100,10},{-92,26},{-84,42},{-76,52},{-60,68},{-46,
@@ -753,23 +733,21 @@ This leads to the following animation
                       69},{54,61},{60,54}}),
                 Polygon(
                   points={{99,21},{74,80},{40,45},{99,21}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),
                 Line(
                   points={{0,95},{0,10}},
                   color={95,95,95},
                   pattern=LinePattern.Dot)}),
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <p>
-The <b>6</b> signals of the <b>load</b> connector are interpreted
-as the x-, y- and z-coordinates of a <b>force</b> and as
-the x-, y-, and z-coordinates of a <b>torque</b> acting at the frame
+The <strong>6</strong> signals of the <strong>load</strong> connector are interpreted
+as the x-, y- and z-coordinates of a <strong>force</strong> and as
+the x-, y-, and z-coordinates of a <strong>torque</strong> acting at the frame
 connector to which this component is attached. If connector
-<b>frame_resolve</b> is <b>not</b> connected, the force and torque coordinates
-are with respect to <b>frame_b</b>. If connector
-<b>frame_resolve</b> is connected, the force and torque coordinates
-are with respect to <b>frame_resolve</b>. In this case the
+<strong>frame_resolve</strong> is <strong>not</strong> connected, the force and torque coordinates
+are with respect to <strong>frame_b</strong>. If connector
+<strong>frame_resolve</strong> is connected, the force and torque coordinates
+are with respect to <strong>frame_resolve</strong>. In this case the
 force and torque in connector frame_resolve are set to zero,
 i.e., this connector is solely used to provide the information
 of the coordinate system, in which the force coordinates
@@ -785,12 +763,12 @@ The force and torque are by default visualized as an arrow (force)
 and as a double arrow (torque) acting at the connector to which
 they are connected. The diameters
 and colors of the arrows are fixed and can be defined via
-parameters <b>forceDiameter</b>, <b>torqueDiameter</b>,
-<b>forceColor</b> and <b>torqueColor</b>. The arrows
+parameters <strong>forceDiameter</strong>, <strong>torqueDiameter</strong>,
+<strong>forceColor</strong> and <strong>torqueColor</strong>. The arrows
 point in the directions defined by the
 inPort.signal signals. The lengths of the arrows are proportional
 to the length of the force and torque vectors, respectively, using parameters
-<b>N_to_m</b> and <b>Nm_to_m</b> as scaling factors. For example,
+<strong>N_to_m</strong> and <strong>Nm_to_m</strong> as scaling factors. For example,
 if N_to_m = 100 N/m,
 then a force of 350 N is displayed as an arrow of length 3.5 m.
 </p>
@@ -799,13 +777,13 @@ An example how to use this model is given in the
 following figure:
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/FrameForceAndTorque1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/obsoleteFrameForceAndTorque1.png\">
 
 <p>
 This leads to the following animation
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/FrameForceAndTorque2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/obsoleteFrameForceAndTorque2.png\">
 </html>"));
         end FrameForceAndTorque;
 
@@ -934,8 +912,6 @@ This leads to the following animation
                 Text(extent={{-136,-52},{149,-113}}, textString="%name"),
                 Polygon(
                   points={{100,21},{84,55},{69,39},{100,21}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),
                 Line(
                   points={{40,100},{40,0}},
@@ -943,13 +919,9 @@ This leads to the following animation
                   pattern=LinePattern.Dot),
                 Polygon(
                   points={{-95,1},{-64,11},{-64,-10},{-95,1}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),
                 Polygon(
                   points={{-100,20},{-86,53},{-70,42},{-100,20}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),
                 Line(
                   points={{-60,100},{40,100}},
@@ -957,8 +929,6 @@ This leads to the following animation
                   pattern=LinePattern.Dot),
                 Polygon(
                   points={{94,0},{65,12},{65,-11},{94,0}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),
                 Line(points={{-64,0},{-20,0}}),
                 Line(points={{20,0},{65,0}}),
@@ -966,16 +936,16 @@ This leads to the following animation
                       85}}),
                 Line(points={{76,47},{66,60},{55,69},{49,74},{41,80},{31,84},{
                       20,85}})}),
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <p>
-The <b>6</b> signals of the <b>load</b> connector are interpreted
-as the x-, y- and z-coordinates of a <b>force</b> and as
-the x-, y-, and z-coordinates of a <b>torque</b> acting at the frame
+The <strong>6</strong> signals of the <strong>load</strong> connector are interpreted
+as the x-, y- and z-coordinates of a <strong>force</strong> and as
+the x-, y-, and z-coordinates of a <strong>torque</strong> acting at the frame
 connector to which frame_b of this component is attached. If connector
-<b>frame_resolve</b> is <b>not</b> connected, the force and torque coordinates
-are with respect to <b>frame_b</b>. If connector
-<b>frame_resolve</b> is connected, the force and torque coordinates
-are with respect to <b>frame_resolve</b>. In this case the
+<strong>frame_resolve</strong> is <strong>not</strong> connected, the force and torque coordinates
+are with respect to <strong>frame_b</strong>. If connector
+<strong>frame_resolve</strong> is connected, the force and torque coordinates
+are with respect to <strong>frame_resolve</strong>. In this case the
 force and torque in connector frame_resolve are set to zero,
 i.e., this connector is solely used to provide the information
 of the coordinate system, in which the force/torque coordinates
@@ -995,7 +965,7 @@ An example how to use this model is given in the
 following figure:
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque1.png\">
 
 <p>
 This leads to the following animation (the yellow cylinder
@@ -1006,7 +976,7 @@ also on the opposite side of this cylinder, but for
 clarity this is not shown in the animation):
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque2.png\">
 </html>"));
         end ForceAndTorque;
       end Forces;
@@ -1014,7 +984,7 @@ clarity this is not shown in the animation):
       package Interfaces
         "Connectors and partial models for 3-dim. mechanical components"
         partial model PartialCutForceSensor
-          "Obsolete model. Use instead instead a model from Modelica.Mechanics.MultiBody.Sensors"
+          "Obsolete model. Use instead a model from Modelica.Mechanics.MultiBody.Sensors"
 
           extends Modelica.Icons.RotationalSensor;
           extends ObsoleteModelica3.Icons.ObsoleteModel;
@@ -1344,7 +1314,7 @@ with the blocks of package Modelica.Blocks.
             k1 = A*A + B*B;
             k1a = k1 - C*C;
 
-            assert(k1a > 1.e-10, "
+            assert(k1a > 1e-10, "
 Singular position of loop (either no or two analytic solutions;
 the mechanism has lost one-degree-of freedom in this position).
 Try first to use another Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXXX component.
@@ -1375,25 +1345,21 @@ position a degree of freedom is lost.
                   graphics={
                   Rectangle(
                     extent={{-30,10},{10,-10}},
-                    lineColor={0,0,0},
                     fillColor={192,192,192},
                     fillPattern=FillPattern.Solid),
                   Rectangle(
                     extent={{-100,-60},{-30,60}},
-                    lineColor={0,0,0},
                     fillPattern=FillPattern.HorizontalCylinder,
                     fillColor={192,192,192}),
                   Rectangle(
                     extent={{30,-60},{100,60}},
-                    lineColor={0,0,0},
                     fillPattern=FillPattern.HorizontalCylinder,
                     fillColor={192,192,192}),
                   Text(extent={{-139,-168},{137,-111}}, textString="%name"),
-                  Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}),
-                  Rectangle(extent={{30,60},{100,-60}}, lineColor={0,0,0}),
+                  Rectangle(extent={{-100,60},{-30,-60}}),
+                  Rectangle(extent={{30,60},{100,-60}}),
                   Text(
                     extent={{-142,-108},{147,-69}},
-                    lineColor={0,0,0},
                     textString="n=%n"),
                   Line(points={{-60,60},{-60,90}}),
                   Line(points={{-20,70},{-60,70}}),
@@ -1402,17 +1368,14 @@ position a degree of freedom is lost.
                   Line(points={{20,70},{41,70}}),
                   Polygon(
                     points={{-9,30},{10,30},{30,50},{-29,50},{-9,30}},
-                    lineColor={0,0,0},
                     fillColor={192,192,192},
                     fillPattern=FillPattern.Solid),
                   Polygon(
                     points={{10,30},{30,50},{30,-51},{10,-31},{10,30}},
-                    lineColor={0,0,0},
                     fillColor={192,192,192},
                     fillPattern=FillPattern.Solid),
                   Rectangle(
                     extent={{-10,90},{10,50}},
-                    lineColor={0,0,0},
                     fillPattern=FillPattern.VerticalCylinder,
                     fillColor={192,192,192})}),
               Diagram(coordinateSystem(
@@ -1421,17 +1384,14 @@ position a degree of freedom is lost.
                   graphics={
                   Rectangle(
                     extent={{-100,-60},{-30,60}},
-                    lineColor={0,0,0},
                     fillPattern=FillPattern.HorizontalCylinder,
                     fillColor={192,192,192}),
                   Rectangle(
                     extent={{-30,10},{10,-10}},
-                    lineColor={0,0,0},
                     fillColor={192,192,192},
                     fillPattern=FillPattern.Solid),
                   Rectangle(
                     extent={{30,-60},{100,60}},
-                    lineColor={0,0,0},
                     fillPattern=FillPattern.HorizontalCylinder,
                     fillColor={192,192,192}),
                   Line(points={{-60,60},{-60,96}}),
@@ -1441,20 +1401,17 @@ position a degree of freedom is lost.
                   Line(points={{20,70},{41,70}}),
                   Polygon(
                     points={{-9,30},{10,30},{30,50},{-29,50},{-9,30}},
-                    lineColor={0,0,0},
                     fillColor={192,192,192},
                     fillPattern=FillPattern.Solid),
                   Polygon(
                     points={{10,30},{30,50},{30,-51},{10,-31},{10,30}},
-                    lineColor={0,0,0},
                     fillColor={192,192,192},
                     fillPattern=FillPattern.Solid),
                   Rectangle(
                     extent={{-10,50},{10,100}},
-                    lineColor={0,0,0},
                     fillPattern=FillPattern.VerticalCylinder,
                     fillColor={192,192,192})}),
-              Documentation(info="<HTML>
+              Documentation(info="<html>
 <p>
 Joint where frame_b rotates around axis n which is fixed in frame_a.
 The two frames coincide when \"phi + phi_offset = 0\", where
@@ -1468,9 +1425,9 @@ angle of the revolute joint, phi, is computed such that the
 length constraint is fulfilled.
 </p>
 <p>
-<b>Usually, this joint should not be used by a user of the MultiBody
+<strong>Usually, this joint should not be used by a user of the MultiBody
 library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXYZ
-joints.</b>
+joints.</strong>
 </p>
 </html>"));
           end RevoluteWithLengthConstraint;
@@ -1654,7 +1611,7 @@ joints.</b>
             C = rbra*rbra - length*length;
             k1 = B/2;
             k1a = k1*k1 - C;
-            assert(noEvent(k1a > 1.e-10), "
+            assert(noEvent(k1a > 1e-10), "
 Singular position of loop (either no or two analytic solutions;
 the mechanism has lost one-degree-of freedom in this position).
 Try first to use another Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXXX component.
@@ -1684,7 +1641,7 @@ degree of freedom is lost.
                     pattern=LinePattern.None,
                     fillColor={192,192,192},
                     fillPattern=FillPattern.Solid),
-                  Rectangle(extent={{-30,40},{100,-40}}, lineColor={0,0,0}),
+                  Rectangle(extent={{-30,40},{100,-40}}),
                   Rectangle(
                     extent={{-100,-60},{-30,50}},
                     lineColor={0,0,255},
@@ -1695,25 +1652,21 @@ degree of freedom is lost.
                     extent={{-100,50},{-30,60}},
                     lineColor={0,0,255},
                     pattern=LinePattern.None,
-                    fillColor={0,0,0},
                     fillPattern=FillPattern.Solid),
                   Rectangle(
                     extent={{-30,30},{100,40}},
                     lineColor={0,0,255},
                     pattern=LinePattern.None,
-                    fillColor={0,0,0},
                     fillPattern=FillPattern.Solid),
                   Text(extent={{-136,-170},{140,-113}}, textString="%name"),
-                  Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}),
+                  Rectangle(extent={{-100,60},{-30,-60}}),
                   Line(points={{100,-40},{100,-60}}),
                   Rectangle(
                     extent={{100,40},{90,80}},
-                    lineColor={0,0,0},
                     fillColor={192,192,192},
                     fillPattern=FillPattern.Solid),
                   Text(
                     extent={{-136,-116},{153,-77}},
-                    lineColor={0,0,0},
                     textString="n=%n")}),
               Diagram(coordinateSystem(
                   preserveAspectRatio=false,
@@ -1747,7 +1700,6 @@ degree of freedom is lost.
                     extent={{-100,50},{-30,60}},
                     lineColor={0,0,255},
                     pattern=LinePattern.None,
-                    fillColor={0,0,0},
                     fillPattern=FillPattern.Solid),
                   Rectangle(
                     extent={{-100,-60},{-30,50}},
@@ -1755,7 +1707,7 @@ degree of freedom is lost.
                     pattern=LinePattern.None,
                     fillColor={192,192,192},
                     fillPattern=FillPattern.Solid),
-                  Rectangle(extent={{-30,40},{100,-40}}, lineColor={0,0,0}),
+                  Rectangle(extent={{-30,40},{100,-40}}),
                   Rectangle(
                     extent={{-30,-40},{100,30}},
                     lineColor={0,0,255},
@@ -1766,9 +1718,8 @@ degree of freedom is lost.
                     extent={{-30,30},{100,40}},
                     lineColor={0,0,255},
                     pattern=LinePattern.None,
-                    fillColor={0,0,0},
                     fillPattern=FillPattern.Solid),
-                  Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}),
+                  Rectangle(extent={{-100,60},{-30,-60}}),
                   Line(points={{100,-40},{100,-60}}),
                   Text(extent={{42,91},{57,76}}, textString="f"),
                   Line(points={{40,75},{70,75}}, color={0,0,255}),
@@ -1796,10 +1747,9 @@ degree of freedom is lost.
                     textString="s"),
                   Rectangle(
                     extent={{100,40},{90,80}},
-                    lineColor={0,0,0},
                     fillColor={192,192,192},
                     fillPattern=FillPattern.Solid)}),
-              Documentation(info="<HTML>
+              Documentation(info="<html>
 <p>
 Joint where frame_b is translated along axis n which is fixed in frame_a.
 The two frames coincide when \"s + s_offset = 0\", where
@@ -1813,9 +1763,9 @@ relative distance \"s\" of the joint is computed such that the
 length constraint is fulfilled.
 </p>
 <p>
-<b>Usually, this joint should not be used by a user of the MultiBody
+<strong>Usually, this joint should not be used by a user of the MultiBody
 library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXYZ
-joints.</b>
+joints.</strong>
 </p>
 </html>"));
           end PrismaticWithLengthConstraint;
@@ -2059,10 +2009,10 @@ joints.</b>
                   points={{-84,0},{-84,82},{0,82},{0,98}},
                   color={95,95,95},
                   pattern=LinePattern.Dot)}),
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <p>
 Absolute kinematic quantities of frame_a are
-computed and provided at the output signal connector <b>y</b>
+computed and provided at the output signal connector <strong>y</strong>
 in packed format in the order
 </p>
 <ol>
@@ -2074,8 +2024,8 @@ in packed format in the order
 <li> absolute angular acceleration vector (= z_abs)</li>
 </ol>
 <p>
-For example, if parameters <b>get_v</b> and <b>get_w</b>
-are <b>true</b> and all other get_XXX parameters are <b>false</b>, then
+For example, if parameters <strong>get_v</strong> and <strong>get_w</strong>
+are <strong>true</strong> and all other get_XXX parameters are <strong>false</strong>, then
 y contains 6 elements:
 </p>
 <pre>
@@ -2088,23 +2038,23 @@ component is shown. The light blue coordinate system is
 frame_a and the yellow arrow is the animated sensor.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/AbsoluteSensor.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/AbsoluteSensor.png\">
 
 <p>
-If <b>frame_resolve</b> is connected to another frame, then the
+If <strong>frame_resolve</strong> is connected to another frame, then the
 provided absolute kinematic vectors are resolved in this frame.
-If <b>frame_resolve</b> is <b>not</b> connected then the
+If <strong>frame_resolve</strong> is <strong>not</strong> connected then the
 coordinate system in which the relative quantities are
-resolved is defined by parameter <b>resolveInFrame_a</b>.
-If this parameter is <b>true</b>, then the
+resolved is defined by parameter <strong>resolveInFrame_a</strong>.
+If this parameter is <strong>true</strong>, then the
 provided kinematic vectors are resolved in frame_a of this
 component. Otherwise, the kinematic vectors are resolved in
 the world frame. For example, if frame_resolve is not
-connected and if resolveInFrame_a = <b>false</b>, and
-get_v = <b>true</b>, then
+connected and if resolveInFrame_a = <strong>false</strong>, and
+get_v = <strong>true</strong>, then
 </p>
 <pre>
-  y = <b>der</b>(frame_a.r) // resolved in world frame
+  y = <strong>der</strong>(frame_a.r) // resolved in world frame
 </pre>
 <p>
 is returned, i.e., the derivative of the distance frame_a.r_0
@@ -2116,8 +2066,8 @@ Note, the cut-force and the cut-torque in frame_resolve are
 always zero, whether frame_resolve is connected or not.
 </p>
 <p>
-If <b>get_angles</b> = <b>true</b>, the 3 angles to rotate the world
-frame into frame_a along the axes defined by parameter <b>sequence</b>
+If <strong>get_angles</strong> = <strong>true</strong>, the 3 angles to rotate the world
+frame into frame_a along the axes defined by parameter <strong>sequence</strong>
 are returned. For example, if sequence = {3,1,2} then the world frame is
 rotated around angles[1] along the z-axis, afterwards it is rotated
 around angles[2] along the x-axis, and finally it is rotated around
@@ -2128,8 +2078,8 @@ The 3 angles are returned in the range
     -<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
 </pre>
 <p>
-There are <b>two solutions</b> for \"angles[1]\" in this range.
-Via parameter <b>guessAngle1</b> (default = 0) the
+There are <strong>two solutions</strong> for \"angles[1]\" in this range.
+Via parameter <strong>guessAngle1</strong> (default = 0) the
 returned solution is selected such that |angles[1] - guessAngle1| is
 minimal. The transformation matrix between the world frame and
 frame_a may be in a singular configuration with respect to \"sequence\", i.e.,
@@ -2139,51 +2089,51 @@ selected by setting angles[1] = guessAngle1. Then angles[2]
 and angles[3] can be uniquely determined in the above range.
 </p>
 <p>
-Note, that parameter <b>sequence</b> has the restriction that
+Note, that parameter <strong>sequence</strong> has the restriction that
 only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
 and sequence[2] &ne; sequence[3]. Often used values are:
 </p>
 <pre>
-  sequence = <b>{1,2,3}</b>  // Cardan angle sequence
-           = <b>{3,1,3}</b>  // Euler angle sequence
-           = <b>{3,2,1}</b>  // Tait-Bryan angle sequence
+  sequence = <strong>{1,2,3}</strong>  // Cardan angle sequence
+           = <strong>{3,1,3}</strong>  // Euler angle sequence
+           = <strong>{3,2,1}</strong>  // Tait-Bryan angle sequence
 </pre>
 <p>
 Exact definition of the returned quantities:
 </p>
 <ol>
 <li>r_abs is vector frame_a.r_0, resolved according to table below.</li>
-<li>v_abs is vector <b>der</b>(frame_a.r_0), resolved according to table below.</li>
-<li>a_abs is vector <b>der</b>(<b>der</b>(frame_a.r_0)), resolved according to
+<li>v_abs is vector <strong>der</strong>(frame_a.r_0), resolved according to table below.</li>
+<li>a_abs is vector <strong>der</strong>(<strong>der</strong>(frame_a.r_0)), resolved according to
             table below.</li>
 <li>angles is a vector of 3 angles such that
     frame_a.R = Frames.axesRotations(sequence, angles).</li>
-<li>w_abs is vector Modelica.Mechanics.MultiBody.Frames.angularVelocity1(frame_a.R, <b>der</b>(frame_a.R)),
+<li>w_abs is vector Modelica.Mechanics.MultiBody.Frames.angularVelocity1(frame_a.R, <strong>der</strong>(frame_a.R)),
             resolved according to table below.</li>
-<li>z_abs is vector <b>der</b>(w_abs) (= derivative of absolute angular
+<li>z_abs is vector <strong>der</strong>(w_abs) (= derivative of absolute angular
             velocity of frame_a with respect to the world frame,
             resolved according to table below).</li>
 </ol>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><th><b><i>frame_resolve is</i></b></th>
-      <th><b><i>resolveInFrame_a =</i></b></th>
-      <th><b><i>vector is resolved in</i></b></th>
+  <tr><th><strong><em>frame_resolve is</em></strong></th>
+      <th><strong><em>resolveInFrame_a =</em></strong></th>
+      <th><strong><em>vector is resolved in</em></strong></th>
   </tr>
-  <tr><td valign=\"top\">connected</td>
-      <td valign=\"top\">true</td>
-      <td valign=\"top\"><b>frame_resolve</b></td>
+  <tr><td>connected</td>
+      <td>true</td>
+      <td><strong>frame_resolve</strong></td>
   </tr>
-  <tr><td valign=\"top\">connected</td>
-      <td valign=\"top\">false</td>
-      <td valign=\"top\"><b>frame_resolve</b></td>
+  <tr><td>connected</td>
+      <td>false</td>
+      <td><strong>frame_resolve</strong></td>
   </tr>
-  <tr><td valign=\"top\">not connected</td>
-      <td valign=\"top\">true</td>
-      <td valign=\"top\"><b>frame_a</b></td>
+  <tr><td>not connected</td>
+      <td>true</td>
+      <td><strong>frame_a</strong></td>
   </tr>
-  <tr><td valign=\"top\">not connected</td>
-      <td valign=\"top\">false</td>
-      <td valign=\"top\"><b>world frame</b></td>
+  <tr><td>not connected</td>
+      <td>false</td>
+      <td><strong>world frame</strong></td>
   </tr>
 </table><br>
 </html>"));
@@ -2442,10 +2392,10 @@ Exact definition of the returned quantities:
                   points={{-60,-98},{-60,-76},{0,-76},{0,-76}},
                   color={95,95,95},
                   pattern=LinePattern.Dot)}),
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <p>
 Relative kinematic quantities between frame_a and frame_b are
-determined and provided at the output signal connector <b>y</b>
+determined and provided at the output signal connector <strong>y</strong>
 in packed format in the order
 </p>
 <ol>
@@ -2457,8 +2407,8 @@ in packed format in the order
 <li> relative angular acceleration vector (= z_rel)</li>
 </ol>
 <p>
-For example, if parameters <b>get_v_rel</b> and <b>get_w_rel</b>
-are <b>true</b> and all other get_XXX parameters are <b>false</b>, then
+For example, if parameters <strong>get_v_rel</strong> and <strong>get_w_rel</strong>
+are <strong>true</strong> and all other get_XXX parameters are <strong>false</strong>, then
 y contains 6 elements:
 </p>
 <pre>
@@ -2472,31 +2422,31 @@ frame_a, the dark blue coordinate system is frame_b, and
 the yellow arrow is the animated sensor.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/RelativeSensor.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/RelativeSensor.png\">
 
 <p>
-If parameter <b>resolveInFrame_a</b> = <b>true</b>, then the
+If parameter <strong>resolveInFrame_a</strong> = <strong>true</strong>, then the
 provided relative kinematic vectors of frame_b with respect to
 frame_a are resolved before differentiation in frame_a. If this
-parameter is <b>false</b>, the relative kinematic vectors are
+parameter is <strong>false</strong>, the relative kinematic vectors are
 resolved before differentiation in frame_b.
-If <b>frame_resolve</b> is connected to another frame, then the
+If <strong>frame_resolve</strong> is connected to another frame, then the
 kinematic vector as defined above and/or its required derivatives
 are resolved in frame_resolve. Note, derivatives
 of relative kinematic quantities are always performed with
-respect to frame_a (<b>resolveInFrame_a</b> = <b>true</b>)
-or with respect to frame_b (<b>resolveInFrame_a</b> = <b>false</b>).
+respect to frame_a (<strong>resolveInFrame_a</strong> = <strong>true</strong>)
+or with respect to frame_b (<strong>resolveInFrame_a</strong> = <strong>false</strong>).
 The resulting vector is then resolved in frame_resolve, if this
 connector is connected.
 </p>
 <p>
 For example, if frame_resolve is not
-connected and if resolveInFrame_a = <b>false</b>, and
-get_v = <b>true</b>, then
+connected and if resolveInFrame_a = <strong>false</strong>, and
+get_v = <strong>true</strong>, then
 </p>
 <pre>
   y = v_rel
-    = <b>der</b>(r_rel)
+    = <strong>der</strong>(r_rel)
 </pre>
 <p>
 is returned (r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0)), i.e.,
@@ -2505,7 +2455,7 @@ resolved in frame_b. If frame_resolve is connected, then
 </p>
 <pre>
   y = v_rel
-    = resolve2(frame_resolve.R, <b>der</b>(r_rel))
+    = resolve2(frame_resolve.R, <strong>der</strong>(r_rel))
 </pre>
 <p>
 is returned, i.e., the previous relative velocity vector is
@@ -2516,8 +2466,8 @@ Note, the cut-force and the cut-torque in frame_resolve are
 always zero, whether frame_resolve is connected or not.
 </p>
 <p>
-If <b>get_angles</b> = <b>true</b>, the 3 angles to rotate frame_a
-into frame_b along the axes defined by parameter <b>sequence</b>
+If <strong>get_angles</strong> = <strong>true</strong>, the 3 angles to rotate frame_a
+into frame_b along the axes defined by parameter <strong>sequence</strong>
 are returned. For example, if sequence = {3,1,2} then frame_a is
 rotated around angles[1] along the z-axis, afterwards it is rotated
 around angles[2] along the x-axis, and finally it is rotated around
@@ -2528,8 +2478,8 @@ The 3 angles are returned in the range
     -<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
 </pre>
 <p>
-There are <b>two solutions</b> for \"angles[1]\" in this range.
-Via parameter <b>guessAngle1</b> (default = 0) the
+There are <strong>two solutions</strong> for \"angles[1]\" in this range.
+Via parameter <strong>guessAngle1</strong> (default = 0) the
 returned solution is selected such that |angles[1] - guessAngle1| is
 minimal. The relative transformation matrix between frame_a and
 frame_b may be in a singular configuration with respect to \"sequence\", i.e.,
@@ -2539,14 +2489,14 @@ selected by setting angles[1] = guessAngle1. Then angles[2]
 and angles[3] can be uniquely determined in the above range.
 </p>
 <p>
-Note, that parameter <b>sequence</b> has the restriction that
+Note, that parameter <strong>sequence</strong> has the restriction that
 only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
 and sequence[2] &ne; sequence[3]. Often used values are:
 </p>
 <pre>
-  sequence = <b>{1,2,3}</b>  // Cardan angle sequence
-           = <b>{3,1,3}</b>  // Euler angle sequence
-           = <b>{3,2,1}</b>  // Tait-Bryan angle sequence
+  sequence = <strong>{1,2,3}</strong>  // Cardan angle sequence
+           = <strong>{3,1,3}</strong>  // Euler angle sequence
+           = <strong>{3,2,1}</strong>  // Tait-Bryan angle sequence
 </pre>
 <p>
 Exact definition of the returned quantities
@@ -2554,13 +2504,13 @@ Exact definition of the returned quantities
 </p>
 <ol>
 <li>r_rel is vector r_rel_ab, resolved according to table below.</li>
-<li>v_rel is vector <b>der</b>(r_rel_ab), resolved according to table below.</li>
-<li>a_rel is vector <b>der</b>(<b>der</b>(r_rel_ab)), resolved according to
+<li>v_rel is vector <strong>der</strong>(r_rel_ab), resolved according to table below.</li>
+<li>a_rel is vector <strong>der</strong>(<strong>der</strong>(r_rel_ab)), resolved according to
             table below.</li>
 <li>angles is a vector of 3 angles such that
     R_rel_ab = Frames.axesRotations(sequence, angles).</li>
 <li>w_rel is vector w_rel_ab, resolved according to table below.</li>
-<li>z_rel is vector <b>der</b>(w_rel_ab), resolved according to table below.</li>
+<li>z_rel is vector <strong>der</strong>(w_rel_ab), resolved according to table below.</li>
 </ol>
 <p>
 using the auxiliary quantities
@@ -2576,28 +2526,28 @@ using the auxiliary quantities
 and resolved in the following frame
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><th><b><i>frame_resolve is</i></b></th>
-      <th><b><i>resolveInFrame_a =</i></b></th>
-      <th><b><i>vector is resolved in</i></b></th>
+  <tr><th><strong><em>frame_resolve is</em></strong></th>
+      <th><strong><em>resolveInFrame_a =</em></strong></th>
+      <th><strong><em>vector is resolved in</em></strong></th>
   </tr>
-  <tr><td valign=\"top\">connected</td>
-      <td valign=\"top\">true</td>
-      <td valign=\"top\"><b>frame_resolve</b></td>
+  <tr><td>connected</td>
+      <td>true</td>
+      <td><strong>frame_resolve</strong></td>
   </tr>
-  <tr><td valign=\"top\">connected</td>
-      <td valign=\"top\">false</td>
-      <td valign=\"top\"><b>frame_resolve</b></td>
+  <tr><td>connected</td>
+      <td>false</td>
+      <td><strong>frame_resolve</strong></td>
   </tr>
-  <tr><td valign=\"top\">not connected</td>
-      <td valign=\"top\">true</td>
-      <td valign=\"top\"><b>frame_a</b></td>
+  <tr><td>not connected</td>
+      <td>true</td>
+      <td><strong>frame_a</strong></td>
   </tr>
-  <tr><td valign=\"top\">not connected</td>
-      <td valign=\"top\">false</td>
-      <td valign=\"top\"><b>frame_b</b></td>
+  <tr><td>not connected</td>
+      <td>false</td>
+      <td><strong>frame_b</strong></td>
   </tr>
 </table>
-</HTML>"));
+</html>"));
         end RelativeSensor;
 
         model CutForceAndTorque
@@ -2690,26 +2640,26 @@ and resolved in the following frame
           annotation (
             obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque",
             preferredView="info",
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <p>
 The cut-force and cut-torque acting at the component to which frame_b is
 connected are determined and provided at the output signal connector
-<b>load</b>:
+<strong>load</strong>:
 </p>
 <pre>
   load[1:3] = frame_a.f;
   load[4:6] = frame_a.t;
 </pre>
 <p>
-If parameter <b>positiveSign</b> =
-<b>false</b>, the negative cut-force and negative
+If parameter <strong>positiveSign</strong> =
+<strong>false</strong>, the negative cut-force and negative
 cut-torque is provided (= frame_b.f and frame_b.t).
-If <b>frame_resolve</b> is connected to another frame, then the
+If <strong>frame_resolve</strong> is connected to another frame, then the
 cut-force and cut-torque are resolved in frame_resolve.
-If <b>frame_resolve</b> is <b>not</b> connected then the
+If <strong>frame_resolve</strong> is <strong>not</strong> connected then the
 coordinate system in which the cut-force and cut-torque is resolved
-is defined by parameter <b>resolveInFrame_a</b>.
-If this parameter is <b>true</b>, then the
+is defined by parameter <strong>resolveInFrame_a</strong>.
+If this parameter is <strong>true</strong>, then the
 cut-force and cut-torque is resolved in frame_a, otherwise it is
 resolved in the world frame.
 </p>
@@ -2721,8 +2671,8 @@ respectively, acting at frame_b and
 with negative sign at frame_a.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutForceAndTorque.png\">
-</HTML>"));
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutForceAndTorque.png\">
+</html>"));
         end CutForceAndTorque;
       end Sensors;
 
@@ -2774,27 +2724,27 @@ with negative sign at frame_a.
                 Documentation(info="<html>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>Types.Init.</b></th><th><b>Meaning</b></th></tr>
-<tr><td valign=\"top\">Free</td>
-    <td valign=\"top\">No initialization</td></tr>
+<tr><th><strong>Types.Init.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>Free</td>
+    <td>No initialization</td></tr>
 
-<tr><td valign=\"top\">PositionVelocity</td>
-    <td valign=\"top\">Initialize generalized position and velocity variables</td></tr>
+<tr><td>PositionVelocity</td>
+    <td>Initialize generalized position and velocity variables</td></tr>
 
-<tr><td valign=\"top\">SteadyState</td>
-    <td valign=\"top\">Initialize in steady state (velocity and acceleration are zero)</td></tr>
+<tr><td>SteadyState</td>
+    <td>Initialize in steady state (velocity and acceleration are zero)</td></tr>
 
-<tr><td valign=\"top\">Position </td>
-    <td valign=\"top\">Initialize only generalized position variable(s)</td></tr>
+<tr><td>Position </td>
+    <td>Initialize only generalized position variable(s)</td></tr>
 
-<tr><td valign=\"top\">Velocity</td>
-    <td valign=\"top\">Initialize only generalized velocity variable(s)</td></tr>
+<tr><td>Velocity</td>
+    <td>Initialize only generalized velocity variable(s)</td></tr>
 
-<tr><td valign=\"top\">VelocityAcceleration</td>
-    <td valign=\"top\">Initialize generalized velocity and acceleration variables</td></tr>
+<tr><td>VelocityAcceleration</td>
+    <td>Initialize generalized velocity and acceleration variables</td></tr>
 
-<tr><td valign=\"top\">PositionVelocityAcceleration</td>
-    <td valign=\"top\">Initialize generalized position, velocity and acceleration variables</td></tr>
+<tr><td>PositionVelocityAcceleration</td>
+    <td>Initialize generalized position, velocity and acceleration variables</td></tr>
 
 </table>
 
@@ -3002,18 +2952,15 @@ of several base components.</p>
                 Text(
                   extent={{-150,140},{150,100}},
                   lineColor={0,0,255},
-                  textString=
-                       "%name"),
+                  textString="%name"),
                 Polygon(
                   points={{94,16},{80,74},{50,52},{94,16}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid)}),
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <p>
 Partial model of torque dependent on speed that accelerates the flange.
 </p>
-</HTML>"));
+</html>"));
         end PartialSpeedDependentTorque;
 
         partial model AbsoluteSensor
@@ -3051,8 +2998,8 @@ with the blocks of package Modelica.Blocks.
             Diagram(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}}),
-                graphics={Line(points={{-70,0},{-90,0}}, color={0,
-                      0,0}), Line(points={{70,0},{100,0}}, color={0,0,255})}));
+                graphics={Line(points={{-70,0},{-90,0}}),
+                       Line(points={{70,0},{100,0}}, color={0,0,255})}));
         end AbsoluteSensor;
 
         partial model RelativeSensor
@@ -3157,7 +3104,7 @@ with the blocks of package Modelica.Blocks.
 
           annotation (Documentation(info="<html>
 <p>
-Type <b>Init</b> defines initialization of absolute rotational
+Type <strong>Init</strong> defines initialization of absolute rotational
 quantities.
 </p>
 
@@ -3197,20 +3144,20 @@ quantities.
 
           annotation (Documentation(info="<html>
 <p>
-Type <b>Init</b> defines initialization of relative rotational
+Type <strong>Init</strong> defines initialization of relative rotational
 quantities.
 </p>
 
 </html>"));
         end InitRel;
-        annotation (preferredView="info", Documentation(info="<HTML>
+        annotation (preferredView="info", Documentation(info="<html>
 <p>
-In this package <b>types</b> and <b>constants</b> are defined that are used
+In this package <strong>types</strong> and <strong>constants</strong> are defined that are used
 in library Modelica.Blocks. The types have additional annotation choices
 definitions that define the menus to be built up in the graphical
 user interface when the type is used as parameter in a declaration.
 </p>
-</HTML>"));
+</html>"));
       end Types;
 
       model GearEfficiency
@@ -3246,7 +3193,6 @@ user interface when the type is used as parameter in a declaration.
                 lineColor={0,0,255}),
               Rectangle(
                 extent={{-100,20},{100,-20}},
-                lineColor={0,0,0},
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={192,192,192}),
               Line(points={{-30,-40},{30,-40}}),
@@ -3254,12 +3200,10 @@ user interface when the type is used as parameter in a declaration.
               Polygon(
                 points={{-30,-20},{60,-20},{60,-80},{70,-80},{50,-100},{30,-80},
                     {40,-80},{40,-30},{-30,-30},{-30,-20},{-30,-20}},
-                lineColor={0,0,0},
                 fillColor={255,0,0},
                 fillPattern=FillPattern.Solid),
               Text(
                 extent={{-150,60},{150,20}},
-                lineColor={0,0,0},
                 textString="eta=%eta"),
               Line(points={{30,-50},{20,-60}}),
               Line(points={{30,-40},{10,-60}}),
@@ -3270,14 +3214,14 @@ user interface when the type is used as parameter in a declaration.
               Line(points={{-20,-40},{-30,-50}})}),
           Documentation(info="<html>
 <p>
-THIS COMPONENT IS <b>OBSOLETE</b> and should <b>no longer be used</b>. It is only
-kept for <b>backward compatibility</b> purposes. Use model
+THIS COMPONENT IS <strong>OBSOLETE</strong> and should <strong>no longer be used</strong>. It is only
+kept for <strong>backward compatibility</strong> purposes. Use model
 Modelica.Mechanics.Rotational.LossyGear instead which implements
 gear efficiency in a much more reliable way.
 </p>
 <p>
 This component consists of two rigidly connected flanges flange_a and flange_b without
-inertia where an <b>efficiency</b> coefficient <b>eta</b> reduces the driven
+inertia where an <strong>efficiency</strong> coefficient <strong>eta</strong> reduces the driven
 torque as function of the driving torque depending on the direction
 of the energy flow, i.e., energy is always lost. This can be seen as a
 simple model of the Coulomb friction acting between the teeth of a
@@ -3289,7 +3233,7 @@ efficiency of a gearbox as function of the angular velocity
 (efficiency becomes zero, if the angular velocity is zero).
 However, such a table is practically useless for simulation purposes,
 because in gearboxes always two types of friction is present:
-(1) Friction in the <b>bearings</b> and (2) friction between
+(1) Friction in the <strong>bearings</strong> and (2) friction between
 the teeth of the gear. (1) leads to a velocity dependent, additive
 loss-torque, whereas (2) leads to a torque-dependent reduction of the
 driving torque. The gearbox manufacturers measure both effects
@@ -3316,7 +3260,7 @@ Comparing (1) and (2) gives a formula for the efficiency eta:
 <p>
 When the motorTorque becomes smaller as the bearingTorque,
 (2) is useless, because the efficiency is zero. To summarize,
-be careful to determine the gear <b>efficiency</b> of this element
+be careful to determine the gear <strong>efficiency</strong> of this element
 from tables of the gear manufacturers.
 </p>
 
@@ -3326,7 +3270,6 @@ from tables of the gear manufacturers.
               graphics={
               Rectangle(
                 extent={{-96,20},{96,-21}},
-                lineColor={0,0,0},
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={192,192,192}),
               Line(points={{-30,-40},{30,-40}}),
@@ -3336,7 +3279,6 @@ from tables of the gear manufacturers.
               Polygon(
                 points={{-30,-20},{60,-20},{60,-80},{70,-80},{50,-100},{30,-80},
                     {40,-80},{40,-30},{-30,-30},{-30,-20},{-30,-20}},
-                lineColor={0,0,0},
                 fillColor={255,0,0},
                 fillPattern=FillPattern.Solid),
               Text(
@@ -3407,7 +3349,7 @@ from tables of the gear manufacturers.
         connect(elastoBacklash.flange_b, flange_b)
           annotation (Line(points={{70,0},{100,0}}));
         connect(gearEfficiency.bearing, adapter.flange_b) annotation (Line(points={{-20,-10},
-                {-20,-40},{0,-40},{0,-50}},           color={
+                {-20,-40},{0,-40},{0,-50}}, color={
                 0,0,0}));
         connect(bearingFriction.support, adapter.flange_b) annotation (Line(
             points={{20,-10},{20,-40},{0,-40},{0,-50}}));
@@ -3420,8 +3362,8 @@ from tables of the gear manufacturers.
           Documentation(info="<html>
 <p>
 This component models the essential effects of a gearbox, in particular
-gear <b>efficiency</b> due to friction between the teeth, <b>bearing friction</b>,
-gear <b>elasticity</b> and <b>damping</b>, <b>backlash</b>.
+gear <strong>efficiency</strong> due to friction between the teeth, <strong>bearing friction</strong>,
+gear <strong>elasticity</strong> and <strong>damping</strong>, <strong>backlash</strong>.
 The inertia of the gear wheels is not modeled. If necessary, inertia
 has to be taken into account by connecting components of model Inertia
 to the left and/or the right flange.
@@ -3431,29 +3373,23 @@ to the left and/or the right flange.
                   100,100}}), graphics={
               Rectangle(
                 extent={{-40,60},{40,-60}},
-                lineColor={0,0,0},
                 lineThickness=0.25,
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={192,192,192}),
               Polygon(
                 points={{-60,-80},{-46,-80},{-20,-20},{20,-20},{46,-80},{60,-80},
                     {60,-90},{-60,-90},{-60,-80}},
-                lineColor={0,0,0},
-                fillColor={0,0,0},
                 fillPattern=FillPattern.Solid),
               Rectangle(
                 extent={{-100,10},{-60,-10}},
-                lineColor={0,0,0},
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={192,192,192}),
               Rectangle(
                 extent={{60,10},{100,-10}},
-                lineColor={0,0,0},
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={192,192,192}),
               Polygon(
                 points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
-                lineColor={0,0,0},
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={128,128,128}),
               Polygon(
@@ -3467,7 +3403,6 @@ to the left and/or the right flange.
                 lineColor={0,0,255}),
               Text(
                 extent={{-150,-160},{150,-120}},
-                lineColor={0,0,0},
                 textString="c=%c")}),
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
@@ -3484,14 +3419,19 @@ to the left and/or the right flange.
       end Gear;
     end Rotational;
   end Mechanics;
-  annotation (uses(Modelica(version="3.2.2")),
+  annotation (uses(Modelica(version="4.0.0-dev")),
+              version="4.0.0-dev",
+              versionBuild=1,
+              versionDate="2019-01-23",
+              dateModified = "2019-01-23 12:00:00Z",
+              revisionId="$Format:%h %ci$",
 Documentation(info="<html>
 <p>
 This package contains models and blocks from the Modelica Standard Library
 version 2.2.2 that are no longer available in version 3.0.
 The conversion script for version 3.0 changes references in existing
 user models automatically to the models and blocks of package
-ObsoleteModelica3. The user should <b>manually</b> replace all
+ObsoleteModelica3. The user should <strong>manually</strong> replace all
 references to ObsoleteModelica3 in his/her models to the models
 that are recommended in the documentation of the respective model.
 </p>
@@ -3522,10 +3462,11 @@ marked in the icon layer with a red box.
 </p>
 
 <p>
-Copyright &copy; 2007-2016, Modelica Association.
+Copyright &copy; 2007-2019, Modelica Association and contributors
 </p>
+
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>"));
 end ObsoleteModelica3;

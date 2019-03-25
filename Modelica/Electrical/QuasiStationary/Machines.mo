@@ -5,7 +5,7 @@ package Machines "Quasistationary machine models"
   package Examples "Test examples"
     extends Modelica.Icons.ExamplesPackage;
 
-    model TransformerTestbench "Transformer Testbench"
+    model TransformerTestbench "Transformer test bench"
       extends Modelica.Icons.Example;
       parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Resistance RL[m]=fill(1/3, m)
@@ -31,7 +31,7 @@ package Machines "Quasistationary machine models"
       QuasiStationary.SinglePhase.Basic.Ground groundS annotation (Placement(
             transformation(extent={{-100,-70},{-80,-50}})));
       QuasiStationary.MultiPhase.Sensors.PowerSensor electricalPowerSensorS(m=m)
-        annotation (Placement(transformation(extent={{-90,10},{-70,30}})));
+        annotation (Placement(transformation(extent={{-80,10},{-60,30}})));
       QuasiStationary.MultiPhase.Sensors.CurrentSensor currentSensorS(m=m)
         annotation (Placement(transformation(extent={{-60,30},{-40,10}})));
       ComplexBlocks.ComplexMath.ComplexToPolar polarIS annotation (Placement(
@@ -82,7 +82,7 @@ package Machines "Quasistationary machine models"
             rotation=90,
             origin={50,80})));
       QuasiStationary.MultiPhase.Sensors.PowerSensor electricalPowerSensorL(m=m)
-        annotation (Placement(transformation(extent={{70,10},{90,30}})));
+        annotation (Placement(transformation(extent={{60,10},{80,30}})));
       QuasiStationary.MultiPhase.Basic.Resistor load(R_ref=RL, m=m) annotation (
          Placement(transformation(
             origin={90,0},
@@ -145,72 +145,50 @@ package Machines "Quasistationary machine models"
             origin={50,-50})));
     equation
       connect(starS.pin_n, groundS.pin) annotation (Line(
-          points={{-90,-40},{-90,-50}},
-          color={85,170,255}));
+          points={{-90,-40},{-90,-50}}, color={85,170,255}));
       connect(source.plug_n, starS.plug_p) annotation (Line(
-          points={{-90,-10},{-90,-20}},
-          color={85,170,255}));
+          points={{-90,-10},{-90,-20}}, color={85,170,255}));
       connect(starL.pin_n, groundL.pin) annotation (Line(
-          points={{90,-40},{90,-50}},
-          color={85,170,255}));
+          points={{90,-40},{90,-50}}, color={85,170,255}));
       connect(load.plug_n, starL.plug_p) annotation (Line(
-          points={{90,-10},{90,-20}},
-          color={85,170,255}));
-      connect(source.plug_p, electricalPowerSensorS.currentP) annotation (Line(
-          points={{-90,10},{-90,20}},
-          color={85,170,255}));
+          points={{90,-10},{90,-20}}, color={85,170,255}));
       connect(electricalPowerSensorS.currentP, electricalPowerSensorS.voltageP)
         annotation (Line(
-          points={{-90,20},{-90,30},{-80,30}},
-          color={85,170,255}));
+          points={{-80,20},{-80,30},{-70,30}}, color={85,170,255}));
       connect(electricalPowerSensorS.currentN, currentSensorS.plug_p)
         annotation (Line(
-          points={{-70,20},{-60,20}},
-          color={85,170,255}));
+          points={{-60,20},{-60,20}}, color={85,170,255}));
       connect(currentSensorS.plug_n, transformer.plug1) annotation (Line(
-          points={{-40,20},{-20,20}},
-          color={85,170,255}));
+          points={{-40,20},{-20,20}}, color={85,170,255}));
       connect(transformer.plug2, currentSensorL.plug_p) annotation (Line(
-          points={{20,20},{40,20}},
-          color={85,170,255}));
+          points={{20,20},{40,20}}, color={85,170,255}));
       connect(currentSensorL.plug_n, electricalPowerSensorL.currentP)
         annotation (Line(
-          points={{60,20},{70,20}},
-          color={85,170,255}));
+          points={{60,20},{60,20}}, color={85,170,255}));
       connect(electricalPowerSensorL.currentP, electricalPowerSensorL.voltageP)
         annotation (Line(
-          points={{70,20},{70,30},{80,30}},
-          color={85,170,255}));
+          points={{60,20},{60,30},{70,30}}, color={85,170,255}));
       connect(electricalPowerSensorL.currentN, load.plug_p) annotation (Line(
-          points={{90,20},{90,10}},
-          color={85,170,255}));
+          points={{80,20},{80,20},{90,20},{90,10}},
+                                    color={85,170,255}));
       connect(electricalPowerSensorL.voltageN, starL.plug_p) annotation (Line(
-          points={{80,10},{80,-20},{90,-20}},
-          color={85,170,255}));
+          points={{70,10},{70,-20},{90,-20}}, color={85,170,255}));
       connect(electricalPowerSensorS.voltageN, starS.plug_p) annotation (Line(
-          points={{-80,10},{-80,-20},{-90,-20}},
-          color={85,170,255}));
+          points={{-70,10},{-70,-20},{-90,-20}}, color={85,170,255}));
       connect(earth.pin_n, groundT.pin) annotation (Line(
-          points={{0,-40},{0,-50}},
-          color={85,170,255}));
+          points={{0,-40},{0,-50}}, color={85,170,255}));
       connect(deltaS.plug_p, voltageSensorS.plug_n) annotation (Line(
-          points={{-60,0},{-60,-20}},
-          color={85,170,255}));
+          points={{-60,0},{-60,-20}}, color={85,170,255}));
       connect(deltaS.plug_n, voltageSensorS.plug_p) annotation (Line(
-          points={{-40,0},{-40,-20}},
-          color={85,170,255}));
+          points={{-40,0},{-40,-20}}, color={85,170,255}));
       connect(currentSensorS.plug_n, deltaS.plug_n) annotation (Line(
-          points={{-40,20},{-40,0}},
-          color={85,170,255}));
+          points={{-40,20},{-40,0}}, color={85,170,255}));
       connect(deltaL.plug_p, voltageSensorL.plug_n) annotation (Line(
-          points={{60,0},{60,-20}},
-          color={85,170,255}));
+          points={{60,0},{60,-20}}, color={85,170,255}));
       connect(deltaL.plug_n, voltageSensorL.plug_p) annotation (Line(
-          points={{40,0},{40,-20}},
-          color={85,170,255}));
+          points={{40,0},{40,-20}}, color={85,170,255}));
       connect(currentSensorL.plug_p, deltaL.plug_n) annotation (Line(
-          points={{40,20},{40,0}},
-          color={85,170,255}));
+          points={{40,20},{40,0}}, color={85,170,255}));
       connect(symmetricalComponentsIS.u, currentSensorS.y)
         annotation (Line(points={{-50,38},{-50,31}}, color={85,170,255}));
       connect(symmetricalComponentsIL.u, currentSensorL.y)
@@ -227,10 +205,12 @@ package Machines "Quasistationary machine models"
               {50,-31},{50,-34.5},{50,-38}}, color={85,170,255}));
       connect(symmetricalComponentsVL.y[1], polarVL.u) annotation (Line(points={{50,
               -61},{50,-64.5},{50,-68}}, color={85,170,255}));
+      connect(electricalPowerSensorS.currentP, source.plug_p) annotation (Line(
+            points={{-80,20},{-90,20},{-90,10}}, color={85,170,255}));
       annotation (Documentation(info="<html>
-Transformer testbench:<br>
+Transformer test bench:<br>
 You may choose different connections as well as vary the load (even not symmetrical).<br>
-<b>Please pay attention</b> to proper grounding of the primary and secondary part of the whole circuit.<br>
+<strong>Please pay attention</strong> to proper grounding of the primary and secondary part of the whole circuit.<br>
 The primary and secondary starpoint are available as connectors, if the connection is not delta (D or d).<br>
 In some cases it may be necessary to ground the transformer's starpoint
 even though the source's or load's starpoint are grounded; you may use a reasonable high earthing resistance.
@@ -273,10 +253,10 @@ Examples to demonstrate the usage of quasistationary electric components.
                   -10,-100},{-50,-100}}, color={85,170,255}));
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
                   10,-100},{50,-100}}, color={85,170,255}));
-          connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},
-                  {-50,20},{-10,20},{-10,5}}, color={85,170,255}));
-          connect(core.plug_n1, star1.plug_p) annotation (Line(points={{-10,-5},
-                  {-10,-37.5},{-10,-70},{-10,-70}}, color={85,170,255}));
+          connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,10}},
+                                              color={85,170,255}));
+          connect(core.plug_n1, star1.plug_p) annotation (Line(points={{-10,-10},{-10,-10},{-10,-70},{-10,-70}},
+                                                    color={85,170,255}));
           connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={85,170,255}));
           connect(core.plug_p2, l2sigma.plug_p) annotation (Line(points={{10,10},
@@ -401,10 +381,10 @@ Transformer Yy4
                   -10,-100},{-50,-100}}, color={85,170,255}));
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
                   10,-100},{50,-100}}, color={85,170,255}));
-          connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},
-                  {-50,20},{-10,20},{-10,5}}, color={85,170,255}));
-          connect(core.plug_n1, star1.plug_p) annotation (Line(points={{-10,-5},
-                  {-10,-37.5},{-10,-70},{-10,-70}}, color={85,170,255}));
+          connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,10}},
+                                              color={85,170,255}));
+          connect(core.plug_n1, star1.plug_p) annotation (Line(points={{-10,-10},{-10,-10},{-10,-70},{-10,-70}},
+                                                    color={85,170,255}));
           connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={85,170,255}));
           connect(l2sigma.plug_p, core.plug_n3) annotation (Line(points={{50,0},
@@ -509,19 +489,13 @@ Transformer Yy10
 This package contains transformers primary Y connected / secondary y connected in all possible vector groups.
 </html>", revisions="<html>
 <dl>
-  <dt><b>Main Authors:</b></dt>
+  <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -551,8 +525,8 @@ This package contains transformers primary Y connected / secondary y connected i
           connect(Delta2.plug_p, r2.plug_n) annotation (Line(points={{50,-20},{
                   90,-20},{90,0}}, color={85,170,255}));
           connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},
-                  {-50,20},{-10,20},{-10,5}}, color={85,170,255}));
-          connect(core.plug_n1, star1.plug_p) annotation (Line(points={{-10,-5},
+                  {-50,20},{-10,20},{-10,10}},color={85,170,255}));
+          connect(core.plug_n1, star1.plug_p) annotation (Line(points={{-10,-10},
                   {-10,-70},{-10,-70}}, color={85,170,255}));
           connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={85,170,255}));
@@ -753,19 +727,13 @@ Transformer Yd11
 This package contains transformers primary Y connected / secondary d connected in all possible vector groups.
 </html>", revisions="<html>
 <dl>
-  <dt><b>Main Authors:</b></dt>
+  <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -1089,19 +1057,13 @@ Transformer Yz11
 This package contains transformers primary Y connected / secondary zig-zag connected in all possible vector groups.
 </html>", revisions="<html>
 <dl>
-  <dt><b>Main Authors:</b></dt>
+  <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -1341,19 +1303,13 @@ Transformer Dy11
 This package contains transformers primary D connected / secondary y connected in all possible vector groups.
 </html>", revisions="<html>
 <dl>
-  <dt><b>Main Authors:</b></dt>
+  <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -1555,19 +1511,13 @@ Transformer Dd10
 This package contains transformers primary D connected / secondary d connected in all possible vector groups.
 </html>", revisions="<html>
 <dl>
-  <dt><b>Main Authors:</b></dt>
+  <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -1606,10 +1556,8 @@ This package contains transformers primary D connected / secondary d connected i
                   10,-100},{50,-100}}, color={85,170,255}));
           connect(r1.plug_p, Delta1.plug_p) annotation (Line(points={{-90,0},{-90,
                   -20},{-50,-20}}, color={85,170,255}));
-          connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},
-                  {-50,20},{-10,20},{-10,5},{-10,5}}, color={85,170,255}));
-          connect(Delta1.plug_n, core.plug_n1) annotation (Line(points={{-30,-20},
-                  {-10,-20},{-10,-5}}, color={85,170,255}));
+          connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,10},{-10,10}}, color={85,170,255}));
+          connect(Delta1.plug_n, core.plug_n1) annotation (Line(points={{-30,-20},{-10,-20},{-10,-10}}, color={85,170,255}));
           connect(core.plug_p2, Rot21.plug_n)
             annotation (Line(points={{10,10},{30,10}}, color={85,170,255}));
           connect(core.plug_p3, Rot21.plug_p) annotation (Line(points={{10,-4},
@@ -1699,10 +1647,8 @@ Transformer Dz2
                   10,-100},{50,-100}}, color={85,170,255}));
           connect(r1.plug_p, Delta1.plug_p) annotation (Line(points={{-90,0},{-90,
                   -20},{-50,-20}}, color={85,170,255}));
-          connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},
-                  {-50,20},{-10,20},{-10,5}}, color={85,170,255}));
-          connect(Delta1.plug_n, core.plug_n1) annotation (Line(points={{-30,-20},
-                  {-10,-20},{-10,-5}}, color={85,170,255}));
+          connect(l1sigma.plug_n, core.plug_p1) annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,10}}, color={85,170,255}));
+          connect(Delta1.plug_n, core.plug_n1) annotation (Line(points={{-30,-20},{-10,-20},{-10,-10}}, color={85,170,255}));
           connect(core.plug_p2, Rot21.plug_n)
             annotation (Line(points={{10,10},{30,10}}, color={85,170,255}));
           connect(core.plug_p3, Rot21.plug_p) annotation (Line(points={{10,-4},
@@ -1861,19 +1807,13 @@ Transformer Dz10
 This package contains transformers primary D connected / secondary d connected in all possible vector groups.
 </html>", revisions="<html>
 <dl>
-  <dt><b>Main Authors:</b></dt>
+  <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
 </dl>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
@@ -1885,20 +1825,20 @@ This package contains transformers primary D connected / secondary d connected i
 This package contains components to model technical three-phase transformers:
 <ul>
 <li>Transformer: transformer model to choose connection / vector group</li>
-<li>Yy: Transformers with primary primary Y / secondary y</li>
-<li>Yd: Transformers with primary primary Y / secondary d</li>
-<li>Yz: Transformers with primary primary Y / secondary zig-zag</li>
-<li>Dy: Transformers with primary primary D / secondary y</li>
+<li>Yy: Transformers with primary Y / secondary y</li>
+<li>Yd: Transformers with primary Y / secondary d</li>
+<li>Yz: Transformers with primary Y / secondary zig-zag</li>
+<li>Dy: Transformers with primary D / secondary y</li>
 <li>Dd: Transformers with primary D / secondary d</li>
 <li>Dz: Transformers with primary D / secondary zig-zag</li>
 </ul>
 <p>
 Transformers are modeled by an ideal transformer, adding primary and secondary winding resistances and stray inductances.<br>
-All transformers extend from the base model <i>PartialTransformer</i>, adding the primary and secondary connection.<br>
-<b>VectorGroup</b> defines the phase shift between primary and secondary voltages, expressed by a number phase shift/30 degree
+All transformers extend from the base model <em>PartialTransformer</em>, adding the primary and secondary connection.<br>
+<strong>VectorGroup</strong> defines the phase shift between primary and secondary voltages, expressed by a number phase shift/30 degree
 (i.e., the hour on a clock face). Therefore each transformer is identified by two characters and a two-digit number,
 e.g., Yd11 ... primary connection Y (star), secondary connection d (delta), vector group 11 (phase shift 330 degree)<br>
-With the \"supermodel\" <i>Transformer</i> the user may choose primary and secondary connection as well as the vector group.<br>
+With the \"supermodel\" <em>Transformer</em> the user may choose primary and secondary connection as well as the vector group.<br>
 It calculates winding ratio as well as primary and secondary winding resistances and stray inductances,
 distributing them equally to primary and secondary winding, from the following parameters:
 </p>
@@ -1910,15 +1850,15 @@ distributing them equally to primary and secondary winding, from the following p
 <li>impedance voltage drop</li>
 <li>short-circuit copper losses</li>
 </ul>
-The <b>impedance voltage drop</b> indicates the (absolute value of the) voltage drop at nominal load (current) as well as
+The <strong>impedance voltage drop</strong> indicates the (absolute value of the) voltage drop at nominal load (current) as well as
 the voltage we have to apply to the primary winding to achieve nominal current in the short-circuited secondary winding.
 <p>
-<b>Please pay attention</b> to proper grounding of the primary and secondary part of the whole circuit.<br>
+<strong>Please pay attention</strong> to proper grounding of the primary and secondary part of the whole circuit.<br>
 The primary and secondary starpoint are available as connectors, if the connection is not delta (D or d).<br>
-<b>In some cases (Yy or Yz) it may be necessary to ground one of the transformer's starpoints
-even though the source's and/or load's starpoint are grounded; you may use a reasonable high earthing resistance.</b>
+<strong>In some cases (Yy or Yz) it may be necessary to ground one of the transformer's starpoints
+even though the source's and/or load's starpoint are grounded; you may use a reasonable high earthing resistance.</strong>
 </p>
-<b>Limitations and assumptions:</b><br>
+<strong>Limitations and assumptions:</strong><br>
 <ul>
 <li>number of phases is limited to 3, therefore definition as a constant m=3</li>
 <li>symmetry of the 3 phases resp. limbs</li>
@@ -1927,26 +1867,20 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
 <li>magnetizing losses are neglected</li>
 <li>additional (stray) losses are neglected</li>
 </ul>
-<b>Further development:</b>
+<strong>Further development:</strong>
 <ul>
 <li>modeling magnetizing current, including saturation</li>
 <li>temperature dependency of winding resistances</li>
 </ul>
 <dl>
-  <dt><b>Main Authors:</b></dt>
+  <dt><strong>Main Authors:</strong></dt>
   <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  D-93049 Regensburg<br>Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
 </dl>
-<p>
-Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.
-</p>
-<p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
-</p>
 </html>", revisions="<html>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer<br>
@@ -2038,9 +1972,9 @@ Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.
         Modelica.SIunits.ComplexCurrent i3[m];
         Modelica.SIunits.ComplexCurrent im[m] "Magnetizing current";
         QuasiStationary.MultiPhase.Interfaces.PositivePlug plug_p1(final m=m)
-          annotation (Placement(transformation(extent={{-110,40},{-90,60}})));
+          annotation (Placement(transformation(extent={{-110,90},{-90,110}}), iconTransformation(extent={{-110,90},{-90,110}})));
         QuasiStationary.MultiPhase.Interfaces.NegativePlug plug_n1(final m=m)
-          annotation (Placement(transformation(extent={{-110,-60},{-90,-40}})));
+          annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}), iconTransformation(extent={{-110,-110},{-90,-90}})));
         QuasiStationary.MultiPhase.Interfaces.PositivePlug plug_p2(final m=m)
           annotation (Placement(transformation(extent={{90,90},{110,110}})));
         QuasiStationary.MultiPhase.Interfaces.NegativePlug plug_n2(final m=m)
@@ -2069,50 +2003,130 @@ Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.
         plug_p1.reference.gamma = plug_p2.reference.gamma;
         Connections.branch(plug_p1.reference, plug_p3.reference);
         plug_p1.reference.gamma = plug_p3.reference.gamma;
-        //Define p1, p2 and p3 as potential roots
         //Note: transformer could be fed from primary or secondary side
-        Connections.potentialRoot(plug_p1.reference);
-        Connections.potentialRoot(plug_p2.reference);
-        Connections.potentialRoot(plug_p3.reference);
+        //Define p1, p2 and p3 as potential roots
+        //Not necessary since there exist non-breakable branches between primary and secondary side
+        //Connections.potentialRoot(plug_p1.reference);
+        //Connections.potentialRoot(plug_p2.reference);
+        //Connections.potentialRoot(plug_p3.reference);
         //Current balances
         plug_p1.pin.i + plug_n1.pin.i = fill(Complex(0), m);
         plug_p2.pin.i + plug_n2.pin.i = fill(Complex(0), m);
         plug_p3.pin.i + plug_n3.pin.i = fill(Complex(0), m);
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={
+                  -100},{100,100}}), graphics={Text(
+                      extent={{-150,150},{150,110}},
+                      textString="%name",
+                      lineColor={0,0,255}), Line(points={{-90,100},{-30,100}},
+                      color={85,170,255}),
+                                       Line(points={{-90,-100},{-30,-100}},
+                                                                          color={85,170,255}),
+                                                     Line(points={{30,100},{90,100}},
+                      color={85,170,255}),
+                                       Line(points={{30,40},{92,40}}, color={85,170,255}),
+                                                     Line(points={{30,-40},{90,-40}},
+                       color={85,170,255}),
+                                        Line(points={{30,-100},{90,-100}},
+                                                                         color={85,170,255}),
+              Line(
+                points={{-10,-5},{-9,0},{-4,5},{4,5},{9,0},{10,-5}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={25,90},
+                rotation=90),
+              Line(
+                points={{-10,-5},{-9,0},{-4,5},{4,5},{9,0},{10,-5}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={25,70},
+                rotation=90),
+              Line(
+                points={{-10,-5},{-9,0},{-4,5},{4,5},{9,0},{10,-5}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={25,50},
+                rotation=90),
+              Line(
+                points={{-10,-5},{-9,0},{-4,5},{4,5},{9,0},{10,-5}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={25,-50},
+                rotation=90),
+              Line(
+                points={{-10,-5},{-9,0},{-4,5},{4,5},{9,0},{10,-5}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={25,-70},
+                rotation=90),
+              Line(
+                points={{-10,-5},{-9,0},{-4,5},{4,5},{9,0},{10,-5}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={25,-90},
+                rotation=90),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={-25,90},
+                rotation=360),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={-25,70},
+                rotation=360),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={-25,50},
+                rotation=360),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={-25,30},
+                rotation=360),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={-25,10},
+                rotation=360),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={-25,-10},
+                rotation=360),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={-25,-30},
+                rotation=360),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={-25,-50},
+                rotation=360),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={-25,-70},
+                rotation=360),
+              Line(
+                points={{-5,-10},{0,-9},{5,-4},{5,4},{0,9},{-5,10}},
+                color={85,170,255},
+                smooth=Smooth.Bezier,
+                origin={-25,-90},
+                rotation=360),
               Text(
-                extent={{-100,130},{100,110}},
-                textString="%name",
-                lineColor={0,0,255}),
-              Ellipse(extent={{-45,-50},{-20,-25}}, lineColor={0,0,255}),
-              Ellipse(extent={{-45,-25},{-20,0}}, lineColor={0,0,255}),
-              Ellipse(extent={{-45,0},{-20,25}}, lineColor={0,0,255}),
-              Ellipse(extent={{-45,25},{-20,50}}, lineColor={0,0,255}),
-              Rectangle(
-                extent={{-46,-50},{-34,50}},
-                lineColor={255,255,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{-90,50},{-32,50}}, color={0,0,255}),
-              Line(points={{-90,-50},{-32,-50}}, color={0,0,255}),
-              Ellipse(extent={{20,40},{45,65}}, lineColor={0,0,255}),
-              Ellipse(extent={{20,65},{45,90}}, lineColor={0,0,255}),
-              Rectangle(
-                extent={{36,40},{46,90}},
-                lineColor={255,255,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{32,90},{90,90}}, color={0,0,255}),
-              Line(points={{34,40},{92,40}}, color={0,0,255}),
-              Ellipse(extent={{20,-90},{45,-65}}, lineColor={0,0,255}),
-              Ellipse(extent={{20,-65},{45,-40}}, lineColor={0,0,255}),
-              Rectangle(
-                extent={{36,-90},{46,-40}},
-                lineColor={255,255,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{32,-40},{90,-40}}, color={0,0,255}),
-              Line(points={{34,-90},{92,-90}}, color={0,0,255})}),
+                extent={{-150,-110},{150,-150}},
+                textString="m=%m")}),
             Documentation(info="<html>
 Partial model of transformer core with 3 windings; saturation function flux versus magnetizing current has to be defined.
 </html>"));
@@ -2161,7 +2175,7 @@ This package contains components for modeling electrical machines, specially thr
             fillPattern=FillPattern.Solid,
             points={{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{
                 60,-100},{-70,-100},{-70,-90}})}), Documentation(info="<html>
-This package contains components for modeling quasi stationary electrical induction machines machines, based on space phasor theory:
+This package contains components for modeling quasi stationary electrical induction machines, based on space phasor theory:
 <ul>
 <li>package AsynchronousInductionMachines: quasi stationary models of three phase asynchronous induction machines</li>
 <li>package SynchronousInductionMachines: quasi stationary models of three phase synchronous induction machines</li>
@@ -2308,100 +2322,95 @@ This package contains components for modeling quasi stationary electrical induct
       connect(r2.plug_n, plug2)
         annotation (Line(points={{90,0},{100,0}}, color={85,170,255}));
       connect(thermalPort, internalThermalPort) annotation (Line(
-          points={{0,100},{0,80}},
-          color={191,0,0}));
+          points={{0,100},{0,80}}, color={191,0,0}));
       connect(thermalAmbient.thermalPort, internalThermalPort) annotation (Line(
-          points={{-20,80},{0,80}},
-          color={191,0,0}));
+          points={{-20,80},{0,80}}, color={191,0,0}));
       connect(r1.heatPort, internalThermalPort.heatPort1) annotation (Line(
-          points={{-80,10},{-80,60},{0,60},{0,80}},
-          color={191,0,0}));
+          points={{-80,10},{-80,60},{-0.4,60},{-0.4,80.8}}, color={191,0,0}));
       connect(r2.heatPort, internalThermalPort.heatPort2) annotation (Line(
-          points={{80,10},{80,60},{0,60},{0,80}},
-          color={191,0,0}));
+          points={{80,10},{80,60},{-0.4,60},{-0.4,79.2}}, color={191,0,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{0,-60},{0,-100}},
-              lineColor={0,0,0},
+              extent={{150,-60},{-150,-100}},
               textString="%VectorGroup"), Text(
-              extent={{0,100},{0,60}},
+              extent={{150,100},{-150,60}},
               lineColor={0,0,255},
               textString="%name")}), Documentation(info="<html>
 Partial model of a three-phase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core.
 Circuit layout (vector group) of primary and secondary windings have to be defined.
-<br><b>Default values for transformer's parameters (a realistic example) are:</b><br>
+<br><strong>Default values for transformer's parameters (a realistic example) are:</strong><br>
 <table>
 <tr>
-<td valign=\"top\">turns ratio n</td>
-<td valign=\"top\">1</td><td valign=\"top\"> </td>
+<td>turns ratio n</td>
+<td>1</td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">nominal frequency fNominal</td>
-<td valign=\"top\">50</td><td valign=\"top\">Hz</td>
+<td>nominal frequency fNominal</td>
+<td>50</td><td>Hz</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal voltage per phase</td>
-<td valign=\"top\">100</td><td valign=\"top\">V RMS</td>
+<td>nominal voltage per phase</td>
+<td>100</td><td>V RMS</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal current per phase</td>
-<td valign=\"top\">100</td><td valign=\"top\">A RMS</td>
+<td>nominal current per phase</td>
+<td>100</td><td>A RMS</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal apparent power</td>
-<td valign=\"top\">30</td><td valign=\"top\">kVA</td>
+<td>nominal apparent power</td>
+<td>30</td><td>kVA</td>
 </tr>
 <tr>
-<td valign=\"top\">primary resistance R1</td>
-<td valign=\"top\">0.005</td><td valign=\"top\">Ohm per phase at reference temperature</td>
+<td>primary resistance R1</td>
+<td>0.005</td><td>Ohm per phase at reference temperature</td>
 </tr>
 <tr>
-<td valign=\"top\">reference temperature T1Ref</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>reference temperature T1Ref</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient alpha20_1 </td>
-<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+<td>temperature coefficient alpha20_1 </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign=\"top\">primary stray inductance L1sigma</td>
-<td valign=\"top\">78E-6</td><td valign=\"top\">H per phase</td>
+<td>primary stray inductance L1sigma</td>
+<td>78E-6</td><td>H per phase</td>
 </tr>
 <tr>
-<td valign=\"top\">secondary resistance R2</td>
-<td valign=\"top\">0.005</td><td valign=\"top\">Ohm per phase at reference temperature</td>
+<td>secondary resistance R2</td>
+<td>0.005</td><td>Ohm per phase at reference temperature</td>
 </tr>
 <tr>
-<td valign=\"top\">reference temperature T2Ref</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>reference temperature T2Ref</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient alpha20_2 </td>
-<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+<td>temperature coefficient alpha20_2 </td>
+<td>0</td><td>1/K</td>
 </tr>
 <tr>
-<td valign=\"top\">secondary stray inductance L2sigma</td>
-<td valign=\"top\">78E-6</td><td valign=\"top\">H per phase</td>
+<td>secondary stray inductance L2sigma</td>
+<td>78E-6</td><td>H per phase</td>
 </tr>
 <tr>
-<td valign=\"top\">operational temperature T1Operational</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>operational temperature T1Operational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">operational temperature T2Operational</td>
-<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+<td>operational temperature T2Operational</td>
+<td>20</td><td>&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">These values give the operational parameters:</td>
-<td valign=\"top\"> </td><td valign=\"top\"> </td>
+<td>These values give the operational parameters:</td>
+<td> </td><td> </td>
 </tr>
 <tr>
-<td valign=\"top\">nominal voltage drop</td>
-<td valign=\"top\">0.05</td><td valign=\"top\">p.u.</td>
+<td>nominal voltage drop</td>
+<td>0.05</td><td>p.u.</td>
 </tr>
 <tr>
-<td valign=\"top\">nominal copper losses</td>
-<td valign=\"top\">300</td><td valign=\"top\">W</td>
+<td>nominal copper losses</td>
+<td>300</td><td>W</td>
 </tr>
 </table>
 </html>"));
@@ -2438,8 +2447,7 @@ This package contains the quasi stationary space phasor connector and partial mo
         annotation (
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
-              Line(points={{0,0},{80,80},{60,72},{72,60},{80,80}}, color={85,
-                    170,255}),
+              Line(points={{0,0},{80,80},{60,72},{72,60},{80,80}}, color={85,170,255}),
               Line(points={{0,0},{80,-80},{72,-60},{60,-72},{80,-80}}, color={
                     85,170,255}),
               Line(
@@ -2462,7 +2470,6 @@ This package contains the quasi stationary space phasor connector and partial mo
                 smooth=Smooth.Bezier),
               Text(
                 extent={{-12,-74},{64,-86}},
-                lineColor={0,0,0},
                 textString="zero")}),
           Documentation(info="<html>
 Transformation of quasi stationary multi phase values (voltages or currents) to space phasor and zero sequence value.
@@ -2509,7 +2516,6 @@ Transformation of quasi stationary multi phase values (voltages or currents) to 
                 smooth=Smooth.Bezier),
               Text(
                 extent={{-62,-74},{14,-86}},
-                lineColor={0,0,0},
                 textString="zero")}), Documentation(info="<html>
 Transformation of space phasor and zero sequence value to quasi stationary multi phase values (voltages or currents).
 </html>"));
@@ -2543,7 +2549,10 @@ Transformation of space phasor and zero sequence value to quasi stationary multi
           fillPattern=FillPattern.Solid,
           points={{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{60,
               -100},{-70,-100},{-70,-90}})}), preferredView="info", Documentation(info="<html>
-<p><b>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></b>.</p>
+<p><strong>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></strong>.</p>
+<p>
+Copyright &copy; 1998-2019, Modelica Association and contributors
+</p>
 <p>This package hosts models for quasi stationary induction machines and transformers.
 </p>
 <h4>Please note</h4>
@@ -2554,6 +2563,5 @@ are operated with sinusoidal voltages and currents represented by time phasors. 
 Quasi stationary DC machine models therefore are part of the
 <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines\">machines library</a>.
 </p>
-
 </html>"));
 end Machines;

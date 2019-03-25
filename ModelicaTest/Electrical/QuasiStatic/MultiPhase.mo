@@ -61,27 +61,27 @@ package MultiPhase "Multi phase quasi static package"
           origin={-50,-60})));
   equation
 
-    connect(const.y, variableResistor.R_ref) annotation (Line(points={{-29,60},{-20,60},{-20,41}}, color={0,0,127}));
-    connect(const1.y, variableConductor.G_ref) annotation (Line(points={{1,80},{6,80},{10,80},{10,41}}, color={0,0,127}));
-    connect(const2.y, variableCapacitor.C) annotation (Line(points={{49,80},{40,80},{40,41}}, color={0,0,127}));
-    connect(const3.y, variableInductor.L) annotation (Line(points={{79,60},{70,60},{70,41}},   color={0,0,127}));
-    connect(currentSource.plug_n, conductor.plug_p) annotation (Line(points={{-50,-10},{-50,-10},{-50,0},{-90,0}},
-                                                                                                    color={85,170,255}));
+    connect(const.y, variableResistor.R_ref) annotation (Line(points={{-29,60},{-20,60},{-20,42}}, color={0,0,127}));
+    connect(const1.y, variableConductor.G_ref) annotation (Line(points={{1,80},{6,80},{10,80},{10,42}}, color={0,0,127}));
+    connect(const2.y, variableCapacitor.C) annotation (Line(points={{49,80},{40,80},{40,42}}, color={0,0,127}));
+    connect(const3.y, variableInductor.L) annotation (Line(points={{79,60},{70,60},{70,42}}, color={0,0,127}));
+    connect(currentSource.plug_n, conductor.plug_p) annotation (Line(points={{-50,-10},{-50,-10},{-50,0},{-90,0}}, color={85,170,255}));
     connect(conductor.plug_n, impedance.plug_p) annotation (Line(points={{-90,20},{-90,30}}, color={85,170,255}));
-    connect(impedance.plug_n, admittance.plug_p) annotation (Line(points={{-70,30},{-60,30}},          color={85,170,255}));
+    connect(impedance.plug_n, admittance.plug_p) annotation (Line(points={{-70,30},{-60,30}}, color={85,170,255}));
     connect(admittance.plug_n, variableResistor.plug_p) annotation (Line(points={{-40,30},{-40,30},{-30,30}}, color={85,170,255}));
     connect(variableResistor.plug_n, variableConductor.plug_p) annotation (Line(points={{-10,30},{-5,30},{0,30}}, color={85,170,255}));
     connect(variableConductor.plug_n, variableCapacitor.plug_p) annotation (Line(points={{20,30},{25,30},{30,30}}, color={85,170,255}));
     connect(variableCapacitor.plug_n, variableInductor.plug_p) annotation (Line(points={{50,30},{55,30},{60,30}}, color={85,170,255}));
     connect(variableInductor.plug_n, variableImpedance.plug_p) annotation (Line(points={{80,30},{90,30},{90,-40},{80,-40}}, color={85,170,255}));
     connect(variableImpedance.plug_n, variableAdmittance.plug_p) annotation (Line(points={{60,-40},{55,-40},{50,-40}}, color={85,170,255}));
-    connect(const4.y, variableAdmittance.Y_ref) annotation (Line(points={{21,-60},{30,-60},{40,-60},{40,-51}}, color={85,170,255}));
-    connect(const5.y, variableImpedance.Z_ref) annotation (Line(points={{-9,-80},{28,-80},{70,-80},{70,-51}}, color={85,170,255}));
+    connect(const4.y, variableAdmittance.Y_ref) annotation (Line(points={{21,-60},{30,-60},{40,-60},{40,-52}}, color={85,170,255}));
+    connect(const5.y, variableImpedance.Z_ref) annotation (Line(points={{-9,-80},{28,-80},{70,-80},{70,-52}}, color={85,170,255}));
     connect(voltageSensor.plug_p, conductor.plug_p) annotation (Line(points={{-20,-10},{-20,0},{-90,0}}, color={85,170,255}));
-    connect(const6.y, currentSource.I) annotation (Line(points={{-79,-50},{-70,-50},{-70,-24},{-60,-24}}, color={85,170,255}));
-    connect(ramp.y, currentSource.f) annotation (Line(points={{-79,-20},{-74,-20},{-70,-20},{-70,-16},{-60,-16}}, color={0,0,127}));
+    connect(const6.y, currentSource.I) annotation (Line(points={{-79,-50},{-70,-50},{-70,-26.2},{-62,-26.2}},
+                                                                                                          color={85,170,255}));
+    connect(ramp.y, currentSource.f) annotation (Line(points={{-79,-20},{-74,-20},{-70,-20},{-70,-14},{-62,-14}}, color={0,0,127}));
     connect(currentSource.plug_p, variableAdmittance.plug_n) annotation (Line(points={{-50,-30},{-50,-40},{30,-40}}, color={85,170,255}));
-    connect(variableAdmittance.plug_n, voltageSensor.plug_n) annotation (Line(points={{30,-40},{8,-40},{-20,-40},{-20,-36},{-20,-30}},                   color={85,170,255}));
+    connect(variableAdmittance.plug_n, voltageSensor.plug_n) annotation (Line(points={{30,-40},{8,-40},{-20,-40},{-20,-36},{-20,-30}}, color={85,170,255}));
     connect(star.plug_p, currentSource.plug_p) annotation (Line(points={{-50,-50},{-50,-50},{-50,-30}}, color={85,170,255}));
     connect(star.pin_n, ground.pin) annotation (Line(points={{-50,-70},{-50,-70},{-50,-80}}, color={85,170,255}));
     annotation (      experiment(StopTime=1),
@@ -170,9 +170,9 @@ package MultiPhase "Multi phase quasi static package"
           origin={-90,-40})));
   equation
 
-    connect(voltageSource.plug_p, short.plug_p) annotation (Line(points={{-90,20},{-90,20},{-90,30},{-80,30}},     color={85,170,255}));
-    connect(short.plug_n, idle.plug_p) annotation (Line(points={{-60,30},{-50,30},{-50,20}},    color={85,170,255}));
-    connect(short.plug_n, idealOpeningSwitch.plug_p) annotation (Line(points={{-60,30},{-60,30},{-40,30}},    color={85,170,255}));
+    connect(voltageSource.plug_p, short.plug_p) annotation (Line(points={{-90,20},{-90,20},{-90,30},{-80,30}}, color={85,170,255}));
+    connect(short.plug_n, idle.plug_p) annotation (Line(points={{-60,30},{-50,30},{-50,20}}, color={85,170,255}));
+    connect(short.plug_n, idealOpeningSwitch.plug_p) annotation (Line(points={{-60,30},{-60,30},{-40,30}}, color={85,170,255}));
     connect(booleanStep2.y, idealCommutingSwitch.control) annotation (Line(points={{49,80},{49,80},{40,80},{40,38}}, color={255,0,255}));
     connect(booleanStep3.y, idealIntermediateSwitch.control) annotation (Line(points={{79,60},{70,60},{70,38}}, color={255,0,255}));
     connect(prescribedTemperature.port, admittance.heatPort) annotation (Line(points={{20,-90},{50,-90},{50,-30},{70,-30}}, color={191,0,0}));
@@ -202,4 +202,41 @@ package MultiPhase "Multi phase quasi static package"
 <p>Serial connection of different multi phase ideal components and temperature dependent basic components</p>
 </html>"));
   end Ideal;
+
+  model FrequencySweep "Tests voltage and current frequency sweep sources"
+    extends Modelica.Icons.Example;
+    output Modelica.SIunits.Current iL[3] = inductor.abs_i "Inductor current";
+    output Modelica.SIunits.Voltage vC[3] = capacitor.abs_v "Inductor voltage";
+
+    Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepVoltageSource voltageSource(
+      gamma(start=0, fixed=true),
+      startTime=0,
+      duration=1,
+      V=fill(1, 3),
+      fStart=0.01,
+      fStop=100) annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
+    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor  inductor(L=fill(1, 3))  annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
+    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star starV annotation (Placement(transformation(extent={{-20,10},{-40,30}})));
+    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundV annotation (Placement(transformation(extent={{-70,0},{-50,20}})));
+    Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepCurrentSource currentSource(
+      gamma(start=0, fixed=true),
+      startTime=0,
+      duration=1,
+      I=fill(1, 3),
+      fStart=0.01,
+      fStop=100) annotation (Placement(transformation(extent={{-20,-60},{-40,-40}})));
+    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor capacitor(C=fill(1, 3)) annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
+    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star starI
+                                                                   annotation (Placement(transformation(extent={{-20,-90},{-40,-70}})));
+    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundI annotation (Placement(transformation(extent={{-70,-100},{-50,-80}})));
+  equation
+    connect(voltageSource.plug_p, inductor.plug_p) annotation (Line(points={{-40,50},{-50,50},{-50,80},{-40,80}}, color={85,170,255}));
+    connect(inductor.plug_n, voltageSource.plug_n) annotation (Line(points={{-20,80},{-10,80},{-10,50},{-20,50}}, color={85,170,255}));
+    connect(starV.plug_p, voltageSource.plug_n) annotation (Line(points={{-20,20},{-20,50}}, color={85,170,255}));
+    connect(groundV.pin, starV.pin_n) annotation (Line(points={{-60,20},{-40,20}}, color={85,170,255}));
+    connect(groundI.pin,starI. pin_n) annotation (Line(points={{-60,-80},{-40,-80}}, color={85,170,255}));
+    connect(starI.plug_p,currentSource. plug_p) annotation (Line(points={{-20,-80},{-20,-50}}, color={85,170,255}));
+    connect(currentSource.plug_p, capacitor.plug_n) annotation (Line(points={{-20,-50},{-10,-50},{-10,-20},{-20,-20}}, color={85,170,255}));
+    connect(capacitor.plug_p,currentSource. plug_n) annotation (Line(points={{-40,-20},{-50,-20},{-50,-50},{-40,-50}}, color={85,170,255}));
+  end FrequencySweep;
 end MultiPhase;

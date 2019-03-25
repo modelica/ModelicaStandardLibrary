@@ -26,18 +26,14 @@ model TestSpecificEnthalpy
 equation
   connect(boundary_prescriberho_1.ports[1], specificEnthalpy.port)
                                                              annotation (Line(
-      points={{-20,20},{0,20}},
-      color={0,127,255}));
+      points={{-20,20},{0,20}}, color={0,127,255}));
   connect(sine1.y, boundary_prescriberho_1.h_in) annotation (Line(
-      points={{-59,0},{-52,0},{-52,24},{-42,24}},
-      color={0,0,127}));
+      points={{-59,0},{-52,0},{-52,24},{-42,24}}, color={0,0,127}));
   connect(sine1.y, boundary_prescriberho_2.h_in) annotation (Line(
-      points={{-59,0},{-52,0},{-52,-16},{-42,-16}},
-      color={0,0,127}));
+      points={{-59,0},{-52,0},{-52,-16},{-42,-16}}, color={0,0,127}));
   connect(boundary_prescriberho_2.ports[1], specificEnthalpy1.port_a)
                                                                 annotation (Line(
-      points={{-20,-20},{-10,-20}},
-      color={0,127,255}));
+      points={{-20,-20},{-10,-20}}, color={0,127,255}));
   annotation (
     experiment(StopTime=1.01, Tolerance=1e-006));
 end TestSpecificEnthalpy;

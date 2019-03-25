@@ -33,7 +33,7 @@ is negative. It must be positive.
 ");
     end for;
 
-    if nX > 0 and abs(sum(X_boundary) - 1.0) > 1.e-10 then
+    if nX > 0 and abs(sum(X_boundary) - 1.0) > 1e-10 then
        X_str :="";
        for i in 1:nX loop
           X_str :=X_str + "   X_boundary[" + String(i) + "] = " + String(X_boundary[
@@ -72,9 +72,9 @@ With the default value of delta=0.01, the difference between sqrt(x) and regRoot
 </html>",
         revisions="<html>
 <ul>
-<li><i>15 Mar 2005</i>
+<li><em>15 Mar 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
-       Created. </li>
+       Created.</li>
 </ul>
 </html>"));
   end regRoot;
@@ -92,9 +92,9 @@ With the default value of delta=0.01, the difference between sqrt(x) and regRoot
 </html>",
         revisions="<html>
 <ul>
-<li><i>15 Mar 2005</i>
+<li><em>15 Mar 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
-       Created. </li>
+       Created.</li>
 </ul>
 </html>"));
   end regRoot_der;
@@ -123,9 +123,9 @@ With the default value of delta=0.01, the difference between x^2 and regSquare(x
 </html>",
         revisions="<html>
 <ul>
-<li><i>15 Mar 2005</i>
+<li><em>15 Mar 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
-       Created. </li>
+       Created.</li>
 </ul>
 </html>"));
   end regSquare;
@@ -152,9 +152,9 @@ This function approximates abs(x)^a*sign(x), such that the derivative is positiv
 </html>",
         revisions="<html>
 <ul>
-<li><i>15 Mar 2005</i>
+<li><em>15 Mar 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
-       Created. </li>
+       Created.</li>
 </ul>
 </html>"));
   end regPow;
@@ -288,7 +288,7 @@ This function approximates abs(x)^a*sign(x), such that the derivative is positiv
 Approximates the function
 </p>
 <pre>
-   y = <b>if</b> x &ge; 0 <b>then</b> <b>sqrt</b>(k1*x) <b>else</b> -<b>sqrt</b>(k2*<b>abs</b>(x)), with k1, k2 &ge; 0
+   y = <strong>if</strong> x &ge; 0 <strong>then</strong> <strong>sqrt</strong>(k1*x) <strong>else</strong> -<strong>sqrt</strong>(k2*<strong>abs</strong>(x)), with k1, k2 &ge; 0
 </pre>
 <p>
 in such a way that within the region -x_small &le; x &le; x_small,
@@ -297,16 +297,16 @@ the function is described by two polynomials of third order
 such that
 </p>
 <ul>
-<li> The derivative at x=0 is finite. </li>
+<li> The derivative at x=0 is finite.</li>
 <li> The overall function is continuous with a
      continuous first derivative everywhere.</li>
-<li> If parameter use_yd0 = <b>false</b>, the two polynomials
+<li> If parameter use_yd0 = <strong>false</strong>, the two polynomials
      are constructed such that the second derivatives at x=0
-     are identical. If use_yd0 = <b>true</b>, the derivative
+     are identical. If use_yd0 = <strong>true</strong>, the derivative
      at x=0 is explicitly provided via the additional argument
      yd0. If necessary, the derivative yd0 is automatically
      reduced in order that the polynomials are strict monotonically
-     increasing <i>[Fritsch and Carlson, 1980]</i>.</li>
+     increasing <em>[Fritsch and Carlson, 1980]</em>.</li>
 </ul>
 <p>
 Typical screenshots for two different configurations
@@ -326,27 +326,27 @@ and the second one with k1=1 and k2=3:
 
 <p>
 The (smooth) derivative of the function with
-k1=1, k2=3 is shown in the next figure:
+k1=1, k2=3 is shown in the next figure:</p>
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Components/regRoot2_c.png\"
      alt=\"regRoot2_c.png\">
 </p>
 
 <p>
-<b>Literature</b>
+<strong>Literature</strong>
 </p>
 
 <dl>
 <dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
-<dd> <b>Monotone piecewise cubic interpolation</b>.
+<dd> <strong>Monotone piecewise cubic interpolation</strong>.
      SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
 </dl>
 </html>", revisions="<html>
 <ul>
-<li><i>Sept., 2019</i>
+<li><em>Sept., 2019</em>
     by <a href=\"mailto:Martin.Otter@DLR.de\">Martin Otter</a>:<br>
     Improved so that k1=0 and/or k2=0 is also possible.</li>
-<li><i>Nov., 2005</i>
+<li><em>Nov., 2005</em>
     by <a href=\"mailto:Martin.Otter@DLR.de\">Martin Otter</a>:<br>
     Designed and implemented.</li>
 </ul>
@@ -435,7 +435,7 @@ k1=1, k2=3 is shown in the next figure:
 Approximates the function
 </p>
 <pre>
-   y = <b>if</b> x &ge; 0 <b>then</b> k1*x*x <b>else</b> -k2*x*x, with k1, k2 > 0
+   y = <strong>if</strong> x &ge; 0 <strong>then</strong> k1*x*x <strong>else</strong> -k2*x*x, with k1, k2 > 0
 </pre>
 <p>
 in such a way that within the region -x_small &le; x &le; x_small,
@@ -446,16 +446,16 @@ such that
 
 <ul>
 <li> The derivative at x=0 is non-zero (in order that the
-     inverse of the function does not have an infinite derivative). </li>
+     inverse of the function does not have an infinite derivative).</li>
 <li> The overall function is continuous with a
      continuous first derivative everywhere.</li>
-<li> If parameter use_yd0 = <b>false</b>, the two polynomials
+<li> If parameter use_yd0 = <strong>false</strong>, the two polynomials
      are constructed such that the second derivatives at x=0
-     are identical. If use_yd0 = <b>true</b>, the derivative
+     are identical. If use_yd0 = <strong>true</strong>, the derivative
      at x=0 is explicitly provided via the additional argument
      yd0. If necessary, the derivative yd0 is automatically
      reduced in order that the polynomials are strict monotonically
-     increasing <i>[Fritsch and Carlson, 1980]</i>.</li>
+     increasing <em>[Fritsch and Carlson, 1980]</em>.</li>
 </ul>
 
 <p>
@@ -477,17 +477,17 @@ k1=1, k2=3 is shown in the next figure:
 </p>
 
 <p>
-<b>Literature</b>
+<strong>Literature</strong>
 </p>
 
 <dl>
 <dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
-<dd> <b>Monotone piecewise cubic interpolation</b>.
+<dd> <strong>Monotone piecewise cubic interpolation</strong>.
      SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
 </dl>
 </html>", revisions="<html>
 <ul>
-<li><i>Nov., 2005</i>
+<li><em>Nov., 2005</em>
     by <a href=\"mailto:Martin.Otter@DLR.de\">Martin Otter</a>:<br>
     Designed and implemented.</li>
 </ul>
@@ -509,10 +509,10 @@ k1=1, k2=3 is shown in the next figure:
                    if x_small > 0 then (x/x_small)*((x/x_small)^2 - 3)*(y2-y1)/4 + (y1+y2)/2 else (y1+y2)/2);
     annotation(Documentation(revisions="<html>
 <ul>
-<li><i>April 29, 2008</i>
+<li><em>April 29, 2008</em>
     by <a href=\"mailto:Martin.Otter@DLR.de\">Martin Otter</a>:<br>
     Designed and implemented.</li>
-<li><i>August 12, 2008</i>
+<li><em>August 12, 2008</em>
     by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br>
     Minor modification to cover the limit case <code>x_small -> 0</code> without division by zero.</li>
 </ul>
@@ -521,7 +521,7 @@ k1=1, k2=3 is shown in the next figure:
 This function is used to approximate the equation
 </p>
 <pre>
-    y = <b>if</b> x &gt; 0 <b>then</b> y1 <b>else</b> y2;
+    y = <strong>if</strong> x &gt; 0 <strong>then</strong> y1 <strong>else</strong> y2;
 </pre>
 
 <p>
@@ -529,8 +529,8 @@ by a smooth characteristic, so that the expression is continuous and differentia
 </p>
 
 <pre>
-   y = <b>smooth</b>(1, <b>if</b> x &gt;  x_small <b>then</b> y1 <b>else</b>
-                 <b>if</b> x &lt; -x_small <b>then</b> y2 <b>else</b> f(y1, y2));
+   y = <strong>smooth</strong>(1, <strong>if</strong> x &gt;  x_small <strong>then</strong> y1 <strong>else</strong>
+                 <strong>if</strong> x &lt; -x_small <strong>then</strong> y2 <strong>else</strong> f(y1, y2));
 </pre>
 
 <p>
@@ -723,9 +723,9 @@ for a smooth transition from y1 to y2.
 
     annotation (smoothOrder=1, Documentation(revisions="<html>
 <ul>
-<li><i>May 2008</i> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br/>Designed and implemented.</li>
-<li><i>February 2011</i> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br/>If the inflection point of the cubic S0 was at +/- infinity, the test criteria of <i>[Gasparo and Morandi, 1991]</i> result in division by zero. This case is handled properly now.</li>
-<li><i>March 2013</i> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br/>If the arguments prescribed a degenerate case with points <code>(x0,y0)</code> and <code>(x1,y1)</code> on horizontal line, then return value <code>c</code> was undefined. This was corrected. Furthermore, an additional term was included for the computation of <code>y</code> in this case to assist automatic differentiation.</li>
+<li><em>May 2008</em> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br/>Designed and implemented.</li>
+<li><em>February 2011</em> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br/>If the inflection point of the cubic S0 was at +/- infinity, the test criteria of <em>[Gasparo and Morandi, 1991]</em> result in division by zero. This case is handled properly now.</li>
+<li><em>March 2013</em> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br/>If the arguments prescribed a degenerate case with points <code>(x0,y0)</code> and <code>(x1,y1)</code> on horizontal line, then return value <code>c</code> was undefined. This was corrected. Furthermore, an additional term was included for the computation of <code>y</code> in this case to assist automatic differentiation.</li>
 </ul>
 </html>",   info="<html>
 <p>
@@ -742,8 +742,8 @@ such that
 In this region, a continuation is constructed from the given points
 <code>(x0, y0)</code>, <code>(x1, y1)</code> and the respective
 derivatives. For this purpose, a single polynomial of third order or two
-cubic polynomials with a linear section in between are used <i>[Gasparo
-and Morandi, 1991]</i>. This algorithm was extended with two additional
+cubic polynomials with a linear section in between are used <em>[Gasparo
+and Morandi, 1991]</em>. This algorithm was extended with two additional
 conditions to avoid saddle points with zero/infinite derivative that lead to
 integrator step size reduction to zero.
 </p>
@@ -771,12 +771,12 @@ The second graph shows the continuous derivative of this regularization function
 </p>
 
 <p>
-<b>Literature</b>
+<strong>Literature</strong>
 </p>
 
 <dl>
 <dt> Gasparo M. G. and Morandi R. (1991):</dt>
-<dd> <b>Piecewise cubic monotone interpolation with assigned slopes</b>.
+<dd> <strong>Piecewise cubic monotone interpolation with assigned slopes</strong>.
      Computing, Vol. 46, Issue 4, December 1991, pp. 355 - 365.</dd>
 </dl>
 </html>"));
@@ -822,7 +822,7 @@ The second graph shows the continuous derivative of this regularization function
     end if;
     annotation(smoothOrder=3, Documentation(revisions="<html>
 <ul>
-<li><i>May 2008</i>
+<li><em>May 2008</em>
     by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br>
     Designed and implemented.</li>
 </ul>
@@ -885,7 +885,7 @@ The second graph shows the continuous derivative of this regularization function
     end if;
     annotation(smoothOrder=3, Documentation(revisions="<html>
 <ul>
-<li><i>May 2008</i>
+<li><em>May 2008</em>
     by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br>
     Designed and implemented.</li>
 </ul>

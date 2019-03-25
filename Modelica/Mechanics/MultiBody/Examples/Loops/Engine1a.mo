@@ -3,8 +3,8 @@ model Engine1a "Model of one cylinder engine"
   extends Modelica.Icons.Example;
   Modelica.Mechanics.MultiBody.Parts.BodyCylinder Piston(diameter=0.1, r={0,-0.1,
         0}) annotation (Placement(transformation(
-        origin={90.5,66.5},
-        extent={{-10.5,30.5},{10.5,-30.5}},
+        origin={30,40},
+        extent={{-10,10},{10,-10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Parts.BodyBox Rod(
     widthDirection={1,0,0},
@@ -12,120 +12,116 @@ model Engine1a "Model of one cylinder engine"
     height=0.06,
     r={0,-0.2,0},
     color={0,0,200}) annotation (Placement(transformation(
-        origin={90,5},
+        origin={50,-10},
         extent={{10,-10},{-10,10}},
         rotation=90)));
   Modelica.Mechanics.MultiBody.Joints.Revolute B2(
     n={1,0,0},
     cylinderLength=0.02,
-    cylinderDiameter=0.05) annotation (Placement(transformation(extent={{80,22},
-            {100,42}})));
+    cylinderDiameter=0.05) annotation (Placement(transformation(extent={{20,0},{40,20}})));
   Modelica.Mechanics.MultiBody.Joints.Revolute Bearing(
     useAxisFlange=true,
     n={1,0,0},
     cylinderLength=0.02,
-    cylinderDiameter=0.05) annotation (Placement(transformation(extent={{-10,-80},
-            {10,-100}})));
+    cylinderDiameter=0.05) annotation (Placement(transformation(extent={{-60,-100},{-40,-80}})));
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
-        transformation(extent={{-50,-100},{-30,-80}})));
+        transformation(extent={{-100,-100},{-80,-80}})));
   Modelica.Mechanics.Rotational.Components.Inertia Inertia(
     stateSelect=StateSelect.always,
     phi(fixed=true, start=0),
     w(fixed=true, start=10),
-    J=1) annotation (Placement(transformation(extent={{-28,-120},{-8,-100}})));
+    J=1) annotation (Placement(transformation(extent={{-60,-70},{-40,-50}})));
   Modelica.Mechanics.MultiBody.Parts.BodyBox Crank4(
     height=0.05,
     widthDirection={1,0,0},
     width=0.02,
     r={0,-0.1,0}) annotation (Placement(transformation(
-        origin={115.5,-75},
+        origin={70,-80},
         extent={{10,-10},{-10,10}},
         rotation=90)));
-  Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank3(r={0.1,0,0}, diameter=
-        0.03) annotation (Placement(transformation(extent={{81.5,-71},{101.5,-51}})));
   Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank1(diameter=0.05, r={0.1,
-        0,0}) annotation (Placement(transformation(extent={{24,-100},{44,-80}})));
+        0,0}) annotation (Placement(transformation(extent={{-30,-100},{-10,-80}})));
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank3(r={0.1,0,0}, diameter=
+        0.03) annotation (Placement(transformation(extent={{30,-80},{50,-60}})));
   Modelica.Mechanics.MultiBody.Parts.BodyBox Crank2(
     r={0,0.1,0},
     height=0.05,
     widthDirection={1,0,0},
     width=0.02) annotation (Placement(transformation(
-        origin={70,-76},
+        origin={0,-80},
         extent={{-10,-10},{10,10}},
         rotation=90)));
   Joints.RevolutePlanarLoopConstraint B1(
     n={1,0,0},
     cylinderLength=0.02,
-    cylinderDiameter=0.05) annotation (Placement(transformation(extent={{80,-30},
-            {100,-10}})));
+    cylinderDiameter=0.05) annotation (Placement(transformation(extent={{20,-20},{40,-40}})));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mid(r={0.05,0,0})
-    annotation (Placement(transformation(extent={{70,-53},{90,-33}})));
+    annotation (Placement(transformation(extent={{10,-44},{30,-64}})));
   Modelica.Mechanics.MultiBody.Joints.Prismatic Cylinder(
     boxWidth=0.02,
     n={0,-1,0},
     s(start=0.15)) annotation (Placement(transformation(
-        origin={90,96},
+        origin={30,70},
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation cylPosition(animation=
-        false, r={0.15,0.45,0}) annotation (Placement(transformation(extent={{-0.5,
-            100},{19.5,120}})));
+        false, r={0.15,0.45,0}) annotation (Placement(transformation(extent={{-60,70},{-40,90}})));
 equation
   connect(world.frame_b, Bearing.frame_a) annotation (Line(
-      points={{-30,-90},{-10,-90}},
+      points={{-80,-90},{-60,-90}},
       color={95,95,95},
       thickness=0.5));
   connect(Crank2.frame_a, Crank1.frame_b) annotation (Line(
-      points={{70,-86},{70,-90},{44,-90}},
+      points={{-4.44089e-016,-90},{-10,-90}},
       color={95,95,95},
       thickness=0.5));
   connect(Crank2.frame_b, Crank3.frame_a) annotation (Line(
-      points={{70,-66},{70,-61},{81.5,-61}},
+      points={{0,-70},{30,-70}},
       color={95,95,95},
       thickness=0.5));
   connect(Bearing.frame_b, Crank1.frame_a) annotation (Line(
-      points={{10,-90},{24,-90}},
+      points={{-40,-90},{-30,-90}},
       color={95,95,95},
       thickness=0.5));
   connect(cylPosition.frame_b, Cylinder.frame_a) annotation (Line(
-      points={{19.5,110},{90,110},{90,106}},
+      points={{-40,80},{30,80}},
       color={95,95,95},
       thickness=0.5));
   connect(world.frame_b, cylPosition.frame_a) annotation (Line(
-      points={{-30,-90},{-20,-90},{-20,110},{-0.5,110}},
+      points={{-80,-90},{-70,-90},{-70,80},{-60,80}},
       color={95,95,95},
       thickness=0.5));
   connect(Crank3.frame_b, Crank4.frame_a) annotation (Line(
-      points={{101.5,-61},{115,-61},{115,-65},{115.5,-65}},
+      points={{50,-70},{70,-70}},
       color={95,95,95},
       thickness=0.5));
   connect(B1.frame_a, Mid.frame_b) annotation (Line(
-      points={{80,-20},{70,-20},{70,-32},{98,-32},{98,-43},{90,-43}},
+      points={{20,-30},{10,-30},{10,-44},{30,-44},{30,-54}},
       color={95,95,95},
       thickness=0.5));
   connect(B1.frame_b, Rod.frame_b) annotation (Line(
-      points={{100,-20},{112,-20},{112,-9},{90,-9},{90,-5}},
+      points={{40,-30},{50,-30},{50,-20}},
       color={95,95,95},
       thickness=0.5));
   connect(Rod.frame_a, B2.frame_b) annotation (Line(
-      points={{90,15},{90,21},{110,21},{110,32},{100,32}},
+      points={{50,0},{50,10},{40,10}},
       color={95,95,95},
       thickness=0.5));
   connect(B2.frame_a, Piston.frame_b) annotation (Line(
-      points={{80,32},{70,32},{70,46},{90.5,46},{90.5,56}},
+      points={{20,10},{10,10},{10,24},{30,24},{30,30}},
       color={95,95,95},
       thickness=0.5));
   connect(Inertia.flange_b, Bearing.axis)
-    annotation (Line(points={{-8,-110},{0,-110},{0,-100}}));
+    annotation (Line(points={{-40,-60},{-40,-80},{-50,-80}}));
   connect(Mid.frame_a, Crank2.frame_b) annotation (Line(
-      points={{70,-43},{63,-43},{63,-61},{70,-61},{70,-66}},
+      points={{10,-54},{10,-70},{0,-70}},
       color={95,95,95},
       thickness=0.5));
   connect(Cylinder.frame_b, Piston.frame_a) annotation (Line(
-      points={{90,86},{90,77},{90.5,77}},
+      points={{30,60},{30,50}},
       color={95,95,95},
       thickness=0.5));
-  annotation (Diagram(coordinateSystem(extent={{-130.0,-130.0},{130.0,130.0}})),
+  annotation (Diagram(coordinateSystem(extent={{-100,-100},{100,100}})),
     experiment(StopTime=5), Documentation(info="<html>
 <p>
 This is a model of the mechanical part of one cylinder of an engine.
@@ -136,11 +132,11 @@ in order to demonstrate the movement of the engine.
 </p>
 <p>
 The engine is modeled solely by revolute and prismatic joints.
-Since this results in a <b>planar</b> loop there is the well known
+Since this results in a <strong>planar</strong> loop there is the well known
 difficulty that the cut-forces perpendicular to the loop cannot be
 uniquely computed, as well as the cut-torques within the plane.
-This ambiguity is resolved by using the option <b>planarCutJoint</b>
-in the <b>Advanced</b> menu of one revolute joint in every planar loop
+This ambiguity is resolved by using the option <strong>planarCutJoint</strong>
+in the <strong>Advanced</strong> menu of one revolute joint in every planar loop
 (here: joint B1). This option sets the cut-force in direction of the
 axis of rotation, as well as the cut-torques perpendicular to the axis
 of rotation at this joint to zero and makes the problem mathematically
@@ -150,6 +146,6 @@ well-formed.
 An animation of this example is shown in the figure below.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Engine.png\" ALT=\"model Examples.Loops.Engine\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Engine.png\" alt=\"model Examples.Loops.Engine\">
 </html>"));
 end Engine1a;

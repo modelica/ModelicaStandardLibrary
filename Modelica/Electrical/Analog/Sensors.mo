@@ -20,7 +20,6 @@ package Sensors "Potential, voltage, current, and power sensors"
           extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-29,-11},{30,-70}},
-            lineColor={0,0,0},
             textString="V"),
           Line(points={{-70,0},{-90,0}}, color={0,0,255}),
           Line(points={{100,0},{70,0}}, color={0,0,127}),
@@ -28,13 +27,9 @@ package Sensors "Potential, voltage, current, and power sensors"
             extent={{-150,80},{150,120}},
             textString="%name",
             lineColor={0,0,255})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,0},{-96,0}}),
-            Line(points={{100,0},{70,0}}, color={0,0,127})}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -53,7 +48,7 @@ package Sensors "Potential, voltage, current, and power sensors"
     Modelica.Blocks.Interfaces.RealOutput v(unit="V")
       "Voltage between pin p and n (= p.v - n.v) as output signal"
        annotation (Placement(transformation(
-          origin={0,-100},
+          origin={0,-110},
           extent={{10,-10},{-10,10}},
           rotation=90)));
 
@@ -67,24 +62,17 @@ package Sensors "Potential, voltage, current, and power sensors"
           extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-29,-11},{30,-70}},
-            lineColor={0,0,0},
             textString="V"),
           Line(points={{-70,0},{-90,0}}, color={0,0,255}),
           Line(points={{70,0},{90,0}}, color={0,0,255}),
-          Line(points={{0,-90},{0,-70}}, color={0,0,127}),
+          Line(points={{0,-100},{0,-70}}, color={0,0,127}),
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
             lineColor={0,0,255})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-70,0},{-96,0}}),
-          Line(points={{70,0},{96,0}}),
-          Line(points={{0,-90},{0,-70}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -103,7 +91,7 @@ package Sensors "Potential, voltage, current, and power sensors"
     Modelica.Blocks.Interfaces.RealOutput i(unit="A")
       "Current in the branch from p to n as output signal"
        annotation (Placement(transformation(
-          origin={0,-100},
+          origin={0,-110},
           extent={{10,-10},{-10,10}},
           rotation=90)));
 
@@ -117,7 +105,6 @@ package Sensors "Potential, voltage, current, and power sensors"
           extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-29,-11},{30,-70}},
-            lineColor={0,0,0},
             textString="A"),
           Line(points={{-70,0},{-90,0}}, color={0,0,255}),
           Text(
@@ -125,20 +112,17 @@ package Sensors "Potential, voltage, current, and power sensors"
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{70,0},{90,0}}, color={0,0,255}),
-          Line(points={{0,-90},{0,-70}}, color={0,0,127})}),
+          Line(points={{0,-100},{0,-70}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-153,79},{147,119}},
             textString="%name",
-            lineColor={0,0,255}),
-          Line(points={{-70,0},{-96,0}}),
-          Line(points={{70,0},{96,0}}),
-          Line(points={{0,-90},{0,-70}}, color={0,0,255})}),
+            lineColor={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -164,9 +148,12 @@ model PowerSensor "Sensor to measure the power"
   Modelica.Blocks.Interfaces.RealOutput power(unit="W")
       "Instantaneous power as output signal"
     annotation (Placement(transformation(
-          origin={-80,-110},
+          origin={-100,-110},
           extent={{-10,10},{10,-10}},
-          rotation=270)));
+          rotation=270), iconTransformation(
+          extent={{-10,10},{10,-10}},
+          rotation=270,
+          origin={-100,-110})));
   Modelica.Electrical.Analog.Sensors.VoltageSensor voltageSensor
     annotation (Placement(transformation(
           origin={0,-30},
@@ -181,34 +168,30 @@ model PowerSensor "Sensor to measure the power"
           rotation=270)));
 
 equation
-  connect(pv, voltageSensor.p) annotation (Line(points={{0,100},{0,-20}},
-                                color={0,0,255}));
-  connect(voltageSensor.n, nv) annotation (Line(points={{0,-40},{0,-63},{0,-100}},
-                                                  color={0,0,255}));
+  connect(pv, voltageSensor.p) annotation (Line(points={{0,100},{0,-20}}, color={0,0,255}));
+  connect(voltageSensor.n, nv) annotation (Line(points={{0,-40},{0,-63},{0,-100}}, color={0,0,255}));
   connect(pc, currentSensor.p)
     annotation (Line(points={{-100,0},{-50,0}}, color={0,0,255}));
   connect(currentSensor.n, nc)
     annotation (Line(points={{-30,0},{100,0}}, color={0,0,255}));
-  connect(currentSensor.i, product.u2) annotation (Line(points={{-40,-10},{-40,
-            -30},{-36,-30},{-36,-38}}, color={0,0,127}));
-  connect(voltageSensor.v, product.u1) annotation (Line(points={{-10,-30},{-24,
-            -30},{-24,-38}}, color={0,0,127}));
-  connect(product.y, power) annotation (Line(points={{-30,-61},{-30,-80},{-80,
-            -80},{-80,-110}}, color={0,0,127}));
+  connect(currentSensor.i, product.u2) annotation (Line(points={{-40,-11},{-40,-30},{-36,-30},{-36,-38}}, color={0,0,127}));
+  connect(voltageSensor.v, product.u1) annotation (Line(points={{-11,-30},{-24,-30},{-24,-38}}, color={0,0,127}));
+  connect(product.y, power) annotation (Line(points={{-30,-61},{-30,-80},{-100,-80},{-100,-110}}, color={0,0,127}));
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
       Line(points = {{0,100},{0,70}}, color = {0,0,255}),
       Line(points = {{0,-70},{0,-100}}, color = {0,0,255}),
-      Line(points = {{-80,-100},{-80,-80},{-46,-52}}, color = {0,0,127}),
+      Line(points={{-100,-100},{-100,-80},{-58,-38}}, color = {0,0,127}),
       Line(points = {{-100,0},{100,0}}, color = {0,0,255}),
-      Text(lineColor = {0,0,255}, extent = {{-150,120},{150,160}}, textString = "%name"),
+      Text(lineColor = {0,0,255}, extent={{-150,110},{150,150}},   textString = "%name"),
       Line(points = {{0,70},{0,40}}),
-      Text(extent = {{-29,-70},{30,-11}}, textString = "P")}),
+      Text(extent = {{-29,-70},{30,-11}},
+            textString="P")}),
     Documentation(info="<html>
 <p>This power sensor measures instantaneous electrical power of a singlephase system and has a separated voltage and current path. The pins of the voltage path are pv and nv, the pins of the current path are pc and nc. The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>January 12, 2006</i> by Anton Haumer implemented</li>
+<li><em>January 12, 2006</em> by Anton Haumer implemented</li>
 </ul>
 </html>"));
 end PowerSensor;
@@ -257,10 +240,6 @@ equation
       Line(points = {{0,-70},{0,-100}}, color = {0,0,255}),
       Line(points = {{-100,0},{100,0}}, color = {0,0,255}),
       Line(points = {{0,70},{0,40}}),
-        Text(
-          extent={{-100,-60},{100,-20}},
-          textString="%name",
-          lineColor={0,0,255}),
         Line(points={{-100,-60},{-80,-60},{-56,-42}},
                                                    color={28,108,200}),
         Line(points={{-60,-100},{-60,-80},{-42,-56}},
@@ -269,23 +248,21 @@ equation
                                                 color={28,108,200}),
         Text(
           extent={{-100,-40},{-60,-80}},
-          lineColor={28,108,200},
           textString="p"),
         Text(
           extent={{-80,-60},{-40,-100}},
-          lineColor={28,108,200},
           textString="i"),
         Text(
           extent={{40,-60},{80,-100}},
-          lineColor={28,108,200},
-          textString="v")}),
+          textString="v"),
+      Text(lineColor = {0,0,255}, extent = {{-150,120},{150,160}}, textString = "%name")}),
     Documentation(info="<html>
-<p>This multi sensor measures current, voltage and instantaneous electrical power of a singlephase system and has a separated voltage and current path. 
-The pins of the voltage path are pv and nv, the pins of the current path are pc and nc. 
+<p>This multi sensor measures current, voltage and instantaneous electrical power of a singlephase system and has a separated voltage and current path.
+The pins of the voltage path are pv and nv, the pins of the current path are pc and nc.
 The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>20170306</i> first implementation by Anton Haumer</li>
+<li><em>20170306</em> first implementation by Anton Haumer</li>
 </ul>
 </html>"));
 end MultiSensor;
@@ -296,11 +273,11 @@ end MultiSensor;
    revisions="<html>
 <dl>
 <dt>
-<b>Main Authors:</b>
+<strong>Main Authors:</strong>
 </dt>
 <dd>
 Christoph Clau&szlig;
-    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
+    &lt;<a href=\"mailto:christoph@clauss-it.com\">christoph@clauss-it.com</a>&gt;<br>
     Andr&eacute; Schneider
     &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>
@@ -308,16 +285,10 @@ Christoph Clau&szlig;
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden
 </dd>
-<dt>
-<b>Copyright:</b>
-</dt>
-<dd>
-Copyright &copy; 1998-2016, Modelica Association and Fraunhofer-Gesellschaft.<br>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".</i>
-</dd>
 </dl>
+
+<p>
+Copyright &copy; 1998-2019, Modelica Association and contributors
+</p>
 </html>"));
 end Sensors;

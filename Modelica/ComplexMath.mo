@@ -28,53 +28,53 @@ algorithm
   annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Vectors.<b>norm</b>(v);
-Vectors.<b>norm</b>(v,p=2);   // 1 &le; p &le; &#8734;
+Vectors.<strong>norm</strong>(v);
+Vectors.<strong>norm</strong>(v,p=2);   // 1 &le; p &le; &#8734;
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-The function call \"<code>Vectors.<b>norm</b>(v)</code>\" returns the
-<b>Euclidean norm</b> \"<code>sqrt(v*v)</code>\" of vector v.
+The function call \"<code>Vectors.<strong>norm</strong>(v)</code>\" returns the
+<strong>Euclidean norm</strong> \"<code>sqrt(v*v)</code>\" of vector v.
 With the optional
 second argument \"p\", any other p-norm can be computed:
 </p>
 <center>
-<IMG src=\"modelica://Modelica/Resources/Images/Math/Vectors/vectorNorm.png\" ALT=\"function Vectors.norm\">
+<img src=\"modelica://Modelica/Resources/Images/Math/Vectors/vectorNorm.png\" alt=\"function Vectors.norm\">
 </center>
 <p>
 Besides the Euclidean norm (p=2), also the 1-norm and the
 infinity-norm are sometimes used:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><b>1-norm</b></td>
+  <tr><td><strong>1-norm</strong></td>
       <td>= sum(abs(v))</td>
-      <td><b>norm</b>(v,1)</td>
+      <td><strong>norm</strong>(v,1)</td>
   </tr>
-  <tr><td><b>2-norm</b></td>
+  <tr><td><strong>2-norm</strong></td>
       <td>= sqrt(v*v)</td>
-      <td><b>norm</b>(v) or <b>norm</b>(v,2)</td>
+      <td><strong>norm</strong>(v) or <strong>norm</strong>(v,2)</td>
   </tr>
-  <tr><td><b>infinity-norm</b></td>
+  <tr><td><strong>infinity-norm</strong></td>
       <td>= max(abs(v))</td>
-      <td><b>norm</b>(v,Modelica.Constants.<b>inf</b>)</td>
+      <td><strong>norm</strong>(v,Modelica.Constants.<strong>inf</strong>)</td>
   </tr>
 </table>
 <p>
 Note, for any vector norm the following inequality holds:
 </p>
 <blockquote><pre>
-<b>norm</b>(v1+v2,p) &le; <b>norm</b>(v1,p) + <b>norm</b>(v2,p)
+<strong>norm</strong>(v1+v2,p) &le; <strong>norm</strong>(v1,p) + <strong>norm</strong>(v2,p)
 </pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
   v = {2, -4, -2, -1};
-  <b>norm</b>(v,1);    // = 9
-  <b>norm</b>(v,2);    // = 5
-  <b>norm</b>(v);      // = 5
-  <b>norm</b>(v,10.5); // = 4.00052597412635
-  <b>norm</b>(v,Modelica.Constants.inf);  // = 4
+  <strong>norm</strong>(v,1);    // = 9
+  <strong>norm</strong>(v,2);    // = 5
+  <strong>norm</strong>(v);      // = 5
+  <strong>norm</strong>(v,10.5); // = 4.00052597412635
+  <strong>norm</strong>(v,Modelica.Constants.inf);  // = 4
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -94,14 +94,14 @@ algorithm
   annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Vectors.<b>length</b>(v);
+Vectors.<strong>length</strong>(v);
 </pre></blockquote>
 
 <h4>Description</h4>
 
 <p>
-The function call \"<code>Vectors.<b>length</b>(v)</code>\" returns the
-<b>Euclidean length</b> \"<code>sqrt(v*v)</code>\" of vector v.
+The function call \"<code>Vectors.<strong>length</strong>(v)</code>\" returns the
+<strong>Euclidean length</strong> \"<code>sqrt(v*v)</code>\" of vector v.
 The function call is equivalent to Vectors.norm(v). The advantage of
 length(v) over norm(v)\"is that function length(..) is implemented
 in one statement and therefore the function is usually automatically
@@ -112,7 +112,7 @@ not the case with function norm(..).
 <h4>Example</h4>
 <blockquote><pre>
   v = {2, -4, -2, -1};
-  <b>length</b>(v);  // = 5
+  <strong>length</strong>(v);  // = 5
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -143,21 +143,21 @@ algorithm
   annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Vectors.<b>normalize</b>(v);
-Vectors.<b>normalize</b>(v,eps=100*Modelica.Constants.eps);
+Vectors.<strong>normalize</strong>(v);
+Vectors.<strong>normalize</strong>(v,eps=100*Modelica.Constants.eps);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-The function call \"<code>Vectors.<b>normalize</b>(v)</code>\" returns the
-<b>unit vector</b> \"<code>v/length(v)</code>\" of vector v.
+The function call \"<code>Vectors.<strong>normalize</strong>(v)</code>\" returns the
+<strong>unit vector</strong> \"<code>v/length(v)</code>\" of vector v.
 If length(v) is close to zero (more precisely, if length(v) &lt; eps),
 v is returned in order to avoid
 a division by zero. For many applications this is useful, because
-often the unit vector <b>e</b> = <b>v</b>/length(<b>v</b>) is used to compute
-a vector x*<b>e</b>, where the scalar x is in the order of length(<b>v</b>),
-i.e., x*<b>e</b> is small, when length(<b>v</b>) is small and then
-it is fine to replace <b>e</b> by <b>v</b> to avoid a division by zero.
+often the unit vector <strong>e</strong> = <strong>v</strong>/length(<strong>v</strong>) is used to compute
+a vector x*<strong>e</strong>, where the scalar x is in the order of length(<strong>v</strong>),
+i.e., x*<strong>e</strong> is small, when length(<strong>v</strong>) is small and then
+it is fine to replace <strong>e</strong> by <strong>v</strong> to avoid a division by zero.
 </p>
 <p>
 Since the function is implemented in one statement,
@@ -167,8 +167,8 @@ possible.
 
 <h4>Example</h4>
 <blockquote><pre>
-  <b>normalize</b>({1,2,3});  // = {0.267, 0.534, 0.802}
-  <b>normalize</b>({0,0,0});  // = {0,0,0}
+  <strong>normalize</strong>({1,2,3});  // = {0.267, 0.534, 0.802}
+  <strong>normalize</strong>({0,0,0});  // = {0,0,0}
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -188,11 +188,11 @@ algorithm
   result := {v[end-i+1] for i in 1:size(v,1)};
 annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
-<blockquote><pre>Vectors.<b>reverse</b>(v);</pre></blockquote>
+<blockquote><pre>Vectors.<strong>reverse</strong>(v);</pre></blockquote>
 <h4>Description</h4>
-The function call &quot;<code>Vectors.<b>reverse</b>(v)</code>&quot; returns the complex vector elements in reverse order.
+The function call &quot;<code>Vectors.<strong>reverse</strong>(v)</code>&quot; returns the complex vector elements in reverse order.
 <h4>Example</h4>
-<blockquote><pre>  <b>reverse</b>({1,2,3,4});  // = {4,3,2,1}</pre></blockquote>
+<blockquote><pre>  <strong>reverse</strong>({1,2,3,4});  // = {4,3,2,1}</pre></blockquote>
 </html>"));
 end reverse;
 
@@ -292,15 +292,15 @@ algorithm
   annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-           sorted_v = Vectors.<b>sort</b>(v);
-(sorted_v, indices) = Vectors.<b>sort</b>(v, ascending=true);
+           sorted_v = Vectors.<strong>sort</strong>(v);
+(sorted_v, indices) = Vectors.<strong>sort</strong>(v, ascending=true);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-Function <b>sort</b>(..) sorts a Real vector v
+Function <strong>sort</strong>(..) sorts a Real vector v
 in ascending order and returns the result in sorted_v.
-If the optional argument \"ascending\" is <b>false</b>, the vector
+If the optional argument \"ascending\" is <strong>false</strong>, the vector
 is sorted in descending order. In the optional second
 output argument the indices of the sorted vector with respect
 to the original vector are given, such that sorted_v = v[indices].
@@ -646,7 +646,7 @@ end Vectors;
 
   annotation (Documentation(info="<html>
 <p>
-This package contains <b>basic mathematical functions</b>
+This package contains <strong>basic mathematical functions</strong>
 operating on complex numbers (such as sin(..)),
 as well as functions operating on vectors of complex numbers.
 </p>

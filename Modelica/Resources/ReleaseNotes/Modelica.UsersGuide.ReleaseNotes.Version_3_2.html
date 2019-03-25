@@ -1,26 +1,25 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 <title>Modelica.UsersGuide.ReleaseNotes.Version_3_2</title>
 </head>
 <body>
-<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>.<span class="omc-h1">Version_3_2</span></h1>
+<h1>ReleaseNotes.<span class="omc-h1">Version_3_2</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <p>Version 3.2 is backward compatible to version 3.1, i.e., models
 developed with versions 3.0, 3.0.1, or 3.1 will work without any
 changes also with version 3.2. This version is a major
 improvement:</p>
 <ul>
-<li><b>357</b> models and blocks and <b>295</b> functions are newly
-included.</li>
-<li><b>7</b> new libraries are included.</li>
+<li><strong>357</strong> models and blocks and <strong>295</strong>
+functions are newly included.</li>
+<li><strong>7</strong> new libraries are included.</li>
 <li>The icons of the library are newly designed to provide a
-modern, unified view, see <a href="Modelica.Icons.html">Modelica.Icons</a>.</li>
+modern, unified view, see Modelica.Icons.</li>
 <li>All non-Modelica files, such as images, pdf-files, C-source
 files, scripts are moved to the new directory "Modelica\Resources".
 Furthermore, all file references are changed to URIs as introduced
@@ -32,11 +31,11 @@ elements, electrical machines, bearings, dampers, etc.), have now
 an optional heat port to which the dissipated energy is flowing, if
 activated. This will significantly improve design studies about the
 thermal efficiency of technical systems.</li>
-<li>All electrical machines in the <a href="Modelica.Electrical.Machines.html">Machines</a> library have
+<li>All electrical machines in the Machines library have
 now a "Losses" tab in the parameter menu to optionally model
 machines losses such as frictional losses, stator core losses or
 stray load losses, respectively.</li>
-<li>All electrical machines in the <a href="Modelica.Electrical.Machines.html">Machines</a> library have
+<li>All electrical machines in the Machines library have
 now a "powerBalance" result record, summarizing converted power and
 losses.</li>
 </ul>
@@ -53,15 +52,15 @@ expandable connectors are ignored if not referenced).</li>
 financial support by <a href="http://www.bmbf.de/en/index.php">BMBF</a> (BMBF Förderkennzeichen:
 01IS07022F) within the <a href="http://www.itea2.org">ITEA2</a>
 project EUROSYSLIB. We highly appreciate this funding.</p>
-<p>The following <b style="color:blue">new libraries</b> have been
-added:</p>
+<p>The following <font color="blue"><strong>new
+libraries</strong></font> have been added:</p>
 <table border="1" cellspacing="0" cellpadding="2">
 <tr>
-<td valign="top"><a href="Complex.html">Complex</a></td>
-<td valign="top">This is a top-level record outside of the Modelica
-Standard Library. It is used for complex numbers and contains
-overloaded operators. From a users point of view, Complex is used
-in a similar way as the built-in type Real. Example:<br />
+<td><a href="Complex.html">Complex</a></td>
+<td>This is a top-level record outside of the Modelica Standard
+Library. It is used for complex numbers and contains overloaded
+operators. From a users point of view, Complex is used in a similar
+way as the built-in type Real. Example:<br />
 <code>&nbsp; Real a = 2;</code><br />
 <code>&nbsp; Complex j = Modelica.ComplexMath.j;</code><br />
 <code>&nbsp; Complex b = 2 + 3*j;</code><br />
@@ -71,19 +70,19 @@ in a similar way as the built-in type Real. Example:<br />
 (This library was developed by Marcus Baur, DLR).</td>
 </tr>
 <tr>
-<td valign="top"><a href="Modelica.ComplexBlocks.html">Modelica.ComplexBlocks</a></td>
-<td valign="top">Library of basic input/output control blocks with
-Complex signals.<br />
+<td>Modelica.ComplexBlocks</td>
+<td>Library of basic input/output control blocks with Complex
+signals.<br />
 This library is especially useful in combination with the new
-<a href="Modelica.Electrical.QuasiStationary.html">Modelica.Electrical.QuasiStationary</a>
+Modelica.Electrical.QuasiStationary
 library in order to build up very fast simulations of electrical
 circuits with periodic currents and voltages.<br />
 (This library was developed by Anton Haumer).</td>
 </tr>
 <tr>
-<td valign="top"><a href="Modelica.Electrical.QuasiStationary.html">Modelica.Electrical.QuasiStationary</a></td>
-<td valign="top">Library for quasi-stationary electrical
-singlephase and multiphase AC simulation.<br />
+<td>Modelica.Electrical.QuasiStationary</td>
+<td>Library for quasi-stationary electrical singlephase and
+multiphase AC simulation.<br />
 This library allows very fast simulations of electrical circuits
 with sinusoidal currents and voltages by only taking into account
 the quasi-stationary, periodic part and neglecting non-periodic
@@ -92,8 +91,8 @@ transients.<br />
 Kral).</td>
 </tr>
 <tr>
-<td valign="top"><a href="Modelica.Electrical.Spice3.html">Modelica.Electrical.Spice3</a></td>
-<td valign="top">Library with components of the Berkeley <a href="http://bwrc.eecs.berkeley.edu/Classes/IcBook/SPICE/">SPICE3</a>
+<td>Modelica.Electrical.Spice3</td>
+<td>Library with components of the Berkeley <a href="http://bwrc.eecs.berkeley.edu/Classes/IcBook/SPICE/">SPICE3</a>
 simulator:<br />
 R, C, L, controlled and independent sources, semiconductor device
 models (MOSFET Level 1, Bipolar junction transistor, Diode,
@@ -112,10 +111,10 @@ a Modelica model.<br />
 Dresden).</td>
 </tr>
 <tr>
-<td valign="top"><a href="Modelica.Magnetic.FundamentalWave.html">Modelica.Magnetic.FundamentalWave</a></td>
-<td valign="top">Library for magnetic fundamental wave effects in
-electric machines for the application in three phase electric
-machines. The library is an alternative approach to the
+<td>Modelica.Magnetic.FundamentalWave</td>
+<td>Library for magnetic fundamental wave effects in electric
+machines for the application in three phase electric machines. The
+library is an alternative approach to the
 Modelica.Electrical.Machines library. A great advantage of this
 library is the strict object orientation of the electrical and
 magnetic components that the electric machines models are composed
@@ -128,70 +127,70 @@ using ideas and source code of a library from Michael Beuschel from
 2000).</td>
 </tr>
 <tr>
-<td valign="top"><a href="Modelica.Fluid.Dissipation.html">Modelica.Fluid.Dissipation</a></td>
-<td valign="top">Library with functions to compute convective heat
-transfer and pressure loss characteristics.<br />
+<td>Modelica.Fluid.Dissipation</td>
+<td>Library with functions to compute convective heat transfer and
+pressure loss characteristics.<br />
 (This library was developed by Thorben Vahlenkamp and Stefan
 Wischhusen from XRG Simulation GmbH).</td>
 </tr>
 <tr>
-<td valign="top"><a href="Modelica.ComplexMath.html">Modelica.ComplexMath</a></td>
-<td valign="top">Library of complex mathematical functions (e.g.,
-sin, cos) and of functions operating on complex vectors.<br />
+<td>Modelica.ComplexMath</td>
+<td>Library of complex mathematical functions (e.g., sin, cos) and
+of functions operating on complex vectors.<br />
 (This library was developed by Marcus Baur from DLR-RM, Anton
 Haumer, and HansJürg Wiesmann).</td>
 </tr>
 </table>
 <p><br />
-The following <b style="color:blue">new components</b> have been
-added to <b style="color:blue">existing</b> libraries:</p>
+The following <font color="blue"><strong>new
+components</strong></font> have been added to <font color="blue"><strong>existing</strong></font> libraries:</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
-<td colspan="2"><b>Modelica.UsersGuide</b></td>
+<td colspan="2"><strong>Modelica.UsersGuide</strong></td>
 </tr>
 <tr>
-<td valign="top">Conventions</td>
-<td valign="top">Considerably improved 'Conventions' for the
-Modelica Standard Library.</td>
+<td>Conventions</td>
+<td>Considerably improved 'Conventions' for the Modelica Standard
+Library.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Examples</b></td>
+<td colspan="2"><strong>Modelica.Blocks.Examples</strong></td>
 </tr>
 <tr>
-<td valign="top">Filter<br />
+<td>Filter<br />
 FilterWithDifferentation<br />
 FilterWithRiseTime<br />
 RealNetwork1<br />
 IntegerNetwork1<br />
 BooleanNetwork1<br />
 Interaction1</td>
-<td valign="top">Examples for the newly introduced block
-components.</td>
+<td>Examples for the newly introduced block components.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Continuous</b></td>
+<td colspan="2"><strong>Modelica.Blocks.Continuous</strong></td>
 </tr>
 <tr>
-<td valign="top">Filter</td>
-<td valign="top">Continuous low pass, high pass, band pass and band
-stop IIR-filter of type CriticalDamping, Bessel, Butterworth and
+<td>Filter</td>
+<td>Continuous low pass, high pass, band pass and band stop
+IIR-filter of type CriticalDamping, Bessel, Butterworth and
 Chebyshev I.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Interaction.Show</b></td>
+<td colspan="2">
+<strong>Modelica.Blocks.Interaction.Show</strong></td>
 </tr>
 <tr>
-<td valign="top">RealValue<br />
+<td>RealValue<br />
 IntegerValue<br />
 BooleanValue</td>
-<td valign="top">Blocks to show the values of variables in a
-diagram animation.</td>
+<td>Blocks to show the values of variables in a diagram
+animation.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Interfaces</b></td>
+<td colspan="2"><strong>Modelica.Blocks.Interfaces</strong></td>
 </tr>
 <tr>
-<td valign="top">RealVectorInput<br />
+<td>RealVectorInput<br />
 IntegerVectorInput<br />
 BooleanVectorInput<br />
 PartialRealMISO<br />
@@ -199,35 +198,35 @@ PartialIntegerSISO<br />
 PartialIntegerMISO<br />
 PartialBooleanSISO_small<br />
 PartialBooleanMISO</td>
-<td valign="top">Interfaces and partial blocks for the new block
+<td>Interfaces and partial blocks for the new block
 components.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Math</b></td>
+<td colspan="2"><strong>Modelica.Blocks.Math</strong></td>
 </tr>
 <tr>
-<td valign="top">MultiSum<br />
+<td>MultiSum<br />
 MultiProduct<br />
 MultiSwitch</td>
-<td valign="top">Sum, product and switch blocks with 1,2,...,N
-inputs (based on connectorSizing annotation to handle vectors of
-connectors in a convenient way).</td>
+<td>Sum, product and switch blocks with 1,2,...,N inputs (based on
+connectorSizing annotation to handle vectors of connectors in a
+convenient way).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Blocks.MathInteger</b></td>
+<td colspan="2"><strong>Modelica.Blocks.MathInteger</strong></td>
 </tr>
 <tr>
-<td valign="top">MultiSwitch<br />
+<td>MultiSwitch<br />
 Sum<br />
 Product<br />
 TriggeredAdd</td>
-<td valign="top">Mathematical blocks for Integer signals.</td>
+<td>Mathematical blocks for Integer signals.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Boolean</b></td>
+<td colspan="2"><strong>Modelica.Blocks.Boolean</strong></td>
 </tr>
 <tr>
-<td valign="top">MultiSwitch<br />
+<td>MultiSwitch<br />
 And<br />
 Or<br />
 Xor<br />
@@ -238,62 +237,62 @@ RisingEdge<br />
 FallingEdge<br />
 ChangingEdge<br />
 OnDelay</td>
-<td valign="top">Mathematical blocks for Boolean signals. Some of
-these blocks are available also in library <a href="Modelica.Blocks.Logical.html">Logical</a>. The new design is
+<td>Mathematical blocks for Boolean signals. Some of these blocks
+are available also in library Logical. The new design is
 based on the connectorSizing annotation that allows the convenient
 handling of an arbitrary number of input signals (e.g., the "And"
 block has 1,2,...,N inputs, instead of only 2 inputs in the
-<a href="Modelica.Blocks.Logical.html">Logical</a> library).
+Logical library).
 Additionally, the icons are smaller so that the diagram area is
 better utilized</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Sources</b></td>
+<td colspan="2"><strong>Modelica.Blocks.Sources</strong></td>
 </tr>
 <tr>
-<td valign="top">RadioButtonSource</td>
-<td valign="top">Boolean signal source that mimics a radio
-button.</td>
+<td>RadioButtonSource</td>
+<td>Boolean signal source that mimics a radio button.</td>
 </tr>
 <tr>
-<td valign="top">IntegerTable</td>
-<td valign="top">Generate an Integer output signal based on a table
-matrix with [time, yi] values.</td>
+<td>IntegerTable</td>
+<td>Generate an Integer output signal based on a table matrix with
+[time, yi] values.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Electrical.Analog.Examples</b></td>
+<td colspan="2">
+<strong>Modelica.Electrical.Analog.Examples</strong></td>
 </tr>
 <tr>
-<td valign="top">SimpleTriacCircuit,<br />
+<td>SimpleTriacCircuit,<br />
 IdealTriacCircuit,<br />
 AD_DA_conversion</td>
-<td valign="top">Examples for the newly introduced Analog
-components.</td>
+<td>Examples for the newly introduced Analog components.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Electrical.Analog.Ideal</b></td>
+<td colspan="2">
+<strong>Modelica.Electrical.Analog.Ideal</strong></td>
 </tr>
 <tr>
-<td valign="top">IdealTriac,<br />
+<td>IdealTriac,<br />
 AD_Converter,<br />
 DA_Converter</td>
-<td valign="top">AD and DA converter, ideal triac (based on ideal
+<td>AD and DA converter, ideal triac (based on ideal
 thyristor).</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Electrical.Analog.Semiconductors</b></td>
+<strong>Modelica.Electrical.Analog.Semiconductors</strong></td>
 </tr>
 <tr>
-<td valign="top">SimpleTriac</td>
-<td valign="top">Simple triac based on semiconductor thyristor
-model.</td>
+<td>SimpleTriac</td>
+<td>Simple triac based on semiconductor thyristor model.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Electrical.Digital.Examples</b></td>
+<td colspan="2">
+<strong>Modelica.Electrical.Digital.Examples</strong></td>
 </tr>
 <tr>
-<td valign="top">Delay_example,<br />
+<td>Delay_example,<br />
 DFFREG_example,<br />
 DFFREGL_example,<br />
 DFFREGSRH_example,<br />
@@ -307,24 +306,24 @@ NRXFER_example,<br />
 BUF3S_example,<br />
 INV3S_example,<br />
 WiredX_example</td>
-<td valign="top">Examples for the newly introduced Digital
-components.</td>
+<td>Examples for the newly introduced Digital components.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Electrical.Digital.Interfaces</b></td>
+<td colspan="2">
+<strong>Modelica.Electrical.Digital.Interfaces</strong></td>
 </tr>
 <tr>
-<td valign="top">UX01,<br />
+<td>UX01,<br />
 Strength,<br />
 MIMO</td>
-<td valign="top">Interfaces for the newly introduced Digital
-components.</td>
+<td>Interfaces for the newly introduced Digital components.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Electrical.Digital.Tables</b></td>
+<td colspan="2">
+<strong>Modelica.Electrical.Digital.Tables</strong></td>
 </tr>
 <tr>
-<td valign="top">ResolutionTable,<br />
+<td>ResolutionTable,<br />
 StrengthMap,<br />
 NXferTable,<br />
 NRXferTable,<br />
@@ -332,20 +331,22 @@ PXferTable,<br />
 PRXferTable,<br />
 Buf3sTable,<br />
 Buf3slTable</td>
-<td valign="top">New Digital table components.</td>
+<td>New Digital table components.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Electrical.Digital.Delay</b></td>
+<td colspan="2">
+<strong>Modelica.Electrical.Digital.Delay</strong></td>
 </tr>
 <tr>
-<td valign="top">InertialDelaySensitiveVector</td>
-<td valign="top">New Digital delay component.</td>
+<td>InertialDelaySensitiveVector</td>
+<td>New Digital delay component.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Electrical.Digital.Registers</b></td>
+<td colspan="2">
+<strong>Modelica.Electrical.Digital.Registers</strong></td>
 </tr>
 <tr>
-<td valign="top">DFFR,<br />
+<td>DFFR,<br />
 DFFREG,<br />
 DFFREGL,<br />
 DFFSR,<br />
@@ -357,14 +358,15 @@ DLATREGL,<br />
 DLATSR,<br />
 DLATREGSRH,<br />
 DLATREGSRL</td>
-<td valign="top">Various register components (collection of
-flipflops and latches) according to the VHDL standard.</td>
+<td>Various register components (collection of flipflops and
+latches) according to the VHDL standard.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Electrical.Digital.Tristates</b></td>
+<td colspan="2">
+<strong>Modelica.Electrical.Digital.Tristates</strong></td>
 </tr>
 <tr>
-<td valign="top">NXFERGATE,<br />
+<td>NXFERGATE,<br />
 NRXFERGATE,<br />
 PXFERGATE,<br />
 PRXFERGATE,<br />
@@ -373,36 +375,36 @@ BUF3SL,<br />
 INV3S,<br />
 INV3SL,<br />
 WiredX</td>
-<td valign="top">Transfer gates, buffers, inverters and wired
-node.</td>
+<td>Transfer gates, buffers, inverters and wired node.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Electrical.MultiPhase.Basic</b></td>
+<td colspan="2">
+<strong>Modelica.Electrical.MultiPhase.Basic</strong></td>
 </tr>
 <tr>
-<td valign="top">MutualInductor</td>
-<td valign="top">Multi phase inductor providing a mutual inductance
-matrix model.</td>
+<td>MutualInductor</td>
+<td>Multi phase inductor providing a mutual inductance matrix
+model.</td>
 </tr>
 <tr>
-<td valign="top">ZeroInductor</td>
-<td valign="top">Multi phase zero sequence inductor.</td>
+<td>ZeroInductor</td>
+<td>Multi phase zero sequence inductor.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Electrical.Machines</b></td>
+<td colspan="2"><strong>Modelica.Electrical.Machines</strong></td>
 </tr>
 <tr>
-<td valign="top">Examples</td>
-<td valign="top">Structured according to machine types:<br />
+<td>Examples</td>
+<td>Structured according to machine types:<br />
 AsynchronousInductionMachines<br />
 SynchronousInductionMachines<br />
 DCMachines<br />
 Transformers</td>
 </tr>
 <tr>
-<td valign="top">Losses.*</td>
-<td valign="top">Parameter records and models for losses in
-electrical machines and transformers (where applicable):<br />
+<td>Losses.*</td>
+<td>Parameter records and models for losses in electrical machines
+and transformers (where applicable):<br />
 Friction losses<br />
 Brush losses<br />
 Stray Load losses<br />
@@ -410,154 +412,153 @@ Core losses (only eddy current losses but no hysteresis losses; not
 for transformers)</td>
 </tr>
 <tr>
-<td valign="top">Thermal.*</td>
-<td valign="top">Simple thermal ambients, to be connected to the
-thermal ports of machines,<br />
+<td>Thermal.*</td>
+<td>Simple thermal ambients, to be connected to the thermal ports
+of machines,<br />
 as well as material constants and utility functions.</td>
 </tr>
 <tr>
-<td valign="top">Icons.*</td>
-<td valign="top">Icons for transient and quasistationary electrical
-machines and transformers.</td>
+<td>Icons.*</td>
+<td>Icons for transient and quasistationary electrical machines and
+transformers.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.</b></td>
+<strong>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.</strong></td>
 </tr>
 <tr>
-<td valign="top">AIMC_withLosses</td>
-<td valign="top">Asynchronous induction machine with squirrel cage
-with losses</td>
+<td>AIMC_withLosses</td>
+<td>Asynchronous induction machine with squirrel cage with
+losses</td>
 </tr>
 <tr>
-<td valign="top">AIMC_Transformer</td>
-<td valign="top">Asynchronous induction machine with squirrel cage
-- transformer starting</td>
+<td>AIMC_Transformer</td>
+<td>Asynchronous induction machine with squirrel cage - transformer
+starting</td>
 </tr>
 <tr>
-<td valign="top">AIMC_withLosses</td>
-<td valign="top">Test example of an asynchronous induction machine
-with squirrel cage with losses</td>
-</tr>
-<tr>
-<td colspan="2">
-<b>Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.</b></td>
-</tr>
-<tr>
-<td valign="top">SMPM_CurrentSource</td>
-<td valign="top">Permanent magnet synchronous induction machine fed
-by a current source</td>
-</tr>
-<tr>
-<td valign="top">SMEE_LoadDump</td>
-<td valign="top">Electrical excited synchronous induction machine
-with voltage controller</td>
+<td>AIMC_withLosses</td>
+<td>Test example of an asynchronous induction machine with squirrel
+cage with losses</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Electrical.Machines.Examples.DCMachines.</b></td>
+<strong>Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.</strong></td>
 </tr>
 <tr>
-<td valign="top">DCSE_SinglePhase</td>
-<td valign="top">Series excited DC machine, fed by sinusoidal
-voltage</td>
+<td>SMPM_CurrentSource</td>
+<td>Permanent magnet synchronous induction machine fed by a current
+source</td>
 </tr>
 <tr>
-<td valign="top">DCPM_Temperature</td>
-<td valign="top">Permanent magnet DC machine, demonstration of
-varying temperature</td>
-</tr>
-<tr>
-<td valign="top">DCPM_Cooling</td>
-<td valign="top">Permanent magnet DC machine, coupled with a simple
-thermal model</td>
-</tr>
-<tr>
-<td valign="top">DCPM_QuasiStationary</td>
-<td valign="top">Permanent magnet DC machine, comparison between
-transient and quasistationary model</td>
-</tr>
-<tr>
-<td valign="top">DCPM_Losses</td>
-<td valign="top">Permanent magnet DC machine, comparison between
-model with and without losses</td>
+<td>SMEE_LoadDump</td>
+<td>Electrical excited synchronous induction machine with voltage
+controller</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.</b></td>
+<strong>Modelica.Electrical.Machines.Examples.DCMachines.</strong></td>
 </tr>
 <tr>
-<td valign="top">DC_PermanentMagnet<br />
+<td>DCSE_SinglePhase</td>
+<td>Series excited DC machine, fed by sinusoidal voltage</td>
+</tr>
+<tr>
+<td>DCPM_Temperature</td>
+<td>Permanent magnet DC machine, demonstration of varying
+temperature</td>
+</tr>
+<tr>
+<td>DCPM_Cooling</td>
+<td>Permanent magnet DC machine, coupled with a simple thermal
+model</td>
+</tr>
+<tr>
+<td>DCPM_QuasiStationary</td>
+<td>Permanent magnet DC machine, comparison between transient and
+quasistationary model</td>
+</tr>
+<tr>
+<td>DCPM_Losses</td>
+<td>Permanent magnet DC machine, comparison between model with and
+without losses</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.</strong></td>
+</tr>
+<tr>
+<td>DC_PermanentMagnet<br />
 DC_ElectricalExcited<br />
 DC_SeriesExcited</td>
-<td valign="top">QuasiStationary DC machines, i.e., neglecting
-electrical transients</td>
+<td>QuasiStationary DC machines, i.e., neglecting electrical
+transients</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Electrical.Machines.BasicMachines.Components.</b></td>
+<strong>Modelica.Electrical.Machines.BasicMachines.Components.</strong></td>
 </tr>
 <tr>
-<td valign="top">InductorDC</td>
-<td valign="top">Inductor model which neglects der(i) if Boolean
-parameter quasiStationary = true</td>
+<td>InductorDC</td>
+<td>Inductor model which neglects der(i) if Boolean parameter
+quasiStationary = true</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Electrical.Machines.Interfaces.</b></td>
+<strong>Modelica.Electrical.Machines.Interfaces.</strong></td>
 </tr>
 <tr>
-<td valign="top">ThermalPortTransformer<br />
+<td>ThermalPortTransformer<br />
 PowerBalanceTransformer</td>
-<td valign="top">Thermal ports and power balances for electrical
-machines and transformers.</td>
-</tr>
-<tr>
-<td colspan="2"><b>Modelica.Electrical.Machines.Utilities</b></td>
-</tr>
-<tr>
-<td valign="top">SwitchedRheostat</td>
-<td valign="top">Switched rheostat, used for starting asynchronous
-induction motors with slipring rotor.</td>
-</tr>
-<tr>
-<td valign="top">RampedRheostat</td>
-<td valign="top">Ramped rheostat, used for starting asynchronous
-induction motors with slipring rotor.</td>
-</tr>
-<tr>
-<td valign="top">SynchronousMachineData</td>
-<td valign="top">The parameters of the synchronous machine model
-with electrical excitation (and damper) are calculated from
-parameters normally given in a technical description, according to
-the standard EN 60034-4:2008 Appendix C.</td>
+<td>Thermal ports and power balances for electrical machines and
+transformers.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Mechanics.MultiBody.Examples.Elementary.</b></td>
+<strong>Modelica.Electrical.Machines.Utilities</strong></td>
 </tr>
 <tr>
-<td valign="top">HeatLosses</td>
-<td valign="top">Demonstrate the modeling of heat losses.</td>
+<td>SwitchedRheostat</td>
+<td>Switched rheostat, used for starting asynchronous induction
+motors with slipring rotor.</td>
 </tr>
 <tr>
-<td valign="top">UserDefinedGravityField</td>
-<td valign="top">Demonstrate the modeling of a user-defined gravity
-field.</td>
+<td>RampedRheostat</td>
+<td>Ramped rheostat, used for starting asynchronous induction
+motors with slipring rotor.</td>
 </tr>
 <tr>
-<td valign="top">Surfaces</td>
-<td valign="top">Demonstrate the visualization of a sine
-surface,<br />
+<td>SynchronousMachineData</td>
+<td>The parameters of the synchronous machine model with electrical
+excitation (and damper) are calculated from parameters normally
+given in a technical description, according to the standard EN
+60034-4:2008 Appendix C.</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Modelica.Mechanics.MultiBody.Examples.Elementary.</strong></td>
+</tr>
+<tr>
+<td>HeatLosses</td>
+<td>Demonstrate the modeling of heat losses.</td>
+</tr>
+<tr>
+<td>UserDefinedGravityField</td>
+<td>Demonstrate the modeling of a user-defined gravity field.</td>
+</tr>
+<tr>
+<td>Surfaces</td>
+<td>Demonstrate the visualization of a sine surface,<br />
 as well as a torus and a wheel constructed from a surface.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Mechanics.MultiBody.Joints.</b></td>
+<td colspan="2">
+<strong>Modelica.Mechanics.MultiBody.Joints.</strong></td>
 </tr>
 <tr>
-<td valign="top">FreeMotionScalarInit</td>
-<td valign="top">Free motion joint that allows initialization and
-state selection<br />
+<td>FreeMotionScalarInit</td>
+<td>Free motion joint that allows initialization and state
+selection<br />
 of single elements of the relevant vectors<br />
 (e.g., initialize r_rel_a[2] but not the other elements of
 r_rel_a;<br />
@@ -565,232 +566,226 @@ this new component fixes ticket <a href="https://trac.modelica.org/Modelica/tick
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Mechanics.MultiBody.Visualizers.</b></td>
+<strong>Modelica.Mechanics.MultiBody.Visualizers.</strong></td>
 </tr>
 <tr>
-<td valign="top">Torus</td>
-<td valign="top">Visualizing a torus.</td>
+<td>Torus</td>
+<td>Visualizing a torus.</td>
 </tr>
 <tr>
-<td valign="top">VoluminousWheel</td>
-<td valign="top">Visualizing a voluminous wheel.</td>
+<td>VoluminousWheel</td>
+<td>Visualizing a voluminous wheel.</td>
 </tr>
 <tr>
-<td valign="top">PipeWithScalarField</td>
-<td valign="top">Visualizing a pipe with scalar field quantities
-along the pipe axis.</td>
+<td>PipeWithScalarField</td>
+<td>Visualizing a pipe with scalar field quantities along the pipe
+axis.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Mechanics.MultiBody.Visualizers.ColorMaps.</b></td>
+<strong>Modelica.Mechanics.MultiBody.Visualizers.ColorMaps.</strong></td>
 </tr>
 <tr>
-<td valign="top">jet<br />
+<td>jet<br />
 hot<br />
 gray<br />
 spring<br />
 summer<br />
 autumn<br />
 winter</td>
-<td valign="top">Functions returning different color maps.</td>
+<td>Functions returning different color maps.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Mechanics.MultiBody.Visualizers.Colors.</b></td>
+<strong>Modelica.Mechanics.MultiBody.Visualizers.Colors.</strong></td>
 </tr>
 <tr>
-<td valign="top">colorMapToSvg</td>
-<td valign="top">Save a color map on file in svg (scalable vector
-graphics) format.</td>
+<td>colorMapToSvg</td>
+<td>Save a color map on file in svg (scalable vector graphics)
+format.</td>
 </tr>
 <tr>
-<td valign="top">scalarToColor</td>
-<td valign="top">Map a scalar to a color using a color map.</td>
+<td>scalarToColor</td>
+<td>Map a scalar to a color using a color map.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Mechanics.MultiBody.Visualizers.Advanced.</b></td>
+<strong>Modelica.Mechanics.MultiBody.Visualizers.Advanced.</strong></td>
 </tr>
 <tr>
-<td valign="top">Surface</td>
-<td valign="top">Visualizing a moveable, parameterized
-surface;<br />
+<td>Surface</td>
+<td>Visualizing a moveable, parameterized surface;<br />
 the surface characteristic is provided by a function<br />
 (this new component fixes ticket <a href="https://trac.modelica.org/Modelica/ticket/181">#181</a>)</td>
 </tr>
 <tr>
-<td valign="top">PipeWithScalarField</td>
-<td valign="top">Visualizing a pipe with a scalar field.</td>
+<td>PipeWithScalarField</td>
+<td>Visualizing a pipe with a scalar field.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.</b></td>
+<strong>Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.</strong></td>
 </tr>
 <tr>
-<td valign="top">torus</td>
-<td valign="top">Function defining the surface characteristic of a
-torus.</td>
+<td>torus</td>
+<td>Function defining the surface characteristic of a torus.</td>
 </tr>
 <tr>
-<td valign="top">pipeWithScalarField</td>
-<td valign="top">Function defining the surface characteristic of a
-pipe<br />
+<td>pipeWithScalarField</td>
+<td>Function defining the surface characteristic of a pipe<br />
 where a scalar field value is displayed with color along the pipe
 axis.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Mechanics.Rotational.Examples.</b></td>
+<td colspan="2">
+<strong>Modelica.Mechanics.Rotational.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top">HeatLosses</td>
-<td valign="top">Demonstrate the modeling of heat losses.</td>
+<td>HeatLosses</td>
+<td>Demonstrate the modeling of heat losses.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Mechanics.Translational.Examples.</b></td>
+<strong>Modelica.Mechanics.Translational.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top">HeatLosses</td>
-<td valign="top">Demonstrate the modeling of heat losses.</td>
+<td>HeatLosses</td>
+<td>Demonstrate the modeling of heat losses.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Fluid.Fittings.Bends</b></td>
+<td colspan="2"><strong>Modelica.Fluid.Fittings.Bends</strong></td>
 </tr>
 <tr>
-<td valign="top">CurvedBend<br />
+<td>CurvedBend<br />
 EdgedBend</td>
-<td valign="top">New fitting (pressure loss) components.</td>
-</tr>
-<tr>
-<td colspan="2"><b>Modelica.Fluid.Fittings.Orifices.</b></td>
-</tr>
-<tr>
-<td valign="top">ThickEdgedOrifice</td>
-<td valign="top">New fitting (pressure loss) component.</td>
+<td>New fitting (pressure loss) components.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Fluid.Fittings.GenericResistances.</b></td>
+<strong>Modelica.Fluid.Fittings.Orifices.</strong></td>
 </tr>
 <tr>
-<td valign="top">VolumeFlowRate</td>
-<td valign="top">New fitting (pressure loss) component.</td>
+<td>ThickEdgedOrifice</td>
+<td>New fitting (pressure loss) component.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Math</b></td>
+<td colspan="2">
+<strong>Modelica.Fluid.Fittings.GenericResistances.</strong></td>
 </tr>
 <tr>
-<td valign="top">isEqual</td>
-<td valign="top">Determine if two Real scalars are numerically
-identical.</td>
+<td>VolumeFlowRate</td>
+<td>New fitting (pressure loss) component.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Math.Vectors</b></td>
+<td colspan="2"><strong>Modelica.Math</strong></td>
 </tr>
 <tr>
-<td valign="top">find</td>
-<td valign="top">Find element in vector.</td>
+<td>isEqual</td>
+<td>Determine if two Real scalars are numerically identical.</td>
 </tr>
 <tr>
-<td valign="top">toString</td>
-<td valign="top">Convert a real vector to a string.</td>
+<td colspan="2"><strong>Modelica.Math.Vectors</strong></td>
 </tr>
 <tr>
-<td valign="top">interpolate</td>
-<td valign="top">Interpolate in a vector.</td>
+<td>find</td>
+<td>Find element in vector.</td>
 </tr>
 <tr>
-<td valign="top">relNodePositions</td>
-<td valign="top">Return vector of relative node positions
-(0..1).</td>
+<td>toString</td>
+<td>Convert a real vector to a string.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Math.Vectors.Utilities</b></td>
+<td>interpolate</td>
+<td>Interpolate in a vector.</td>
 </tr>
 <tr>
-<td valign="top">householderVector<br />
+<td>relNodePositions</td>
+<td>Return vector of relative node positions (0..1).</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Modelica.Math.Vectors.Utilities</strong></td>
+</tr>
+<tr>
+<td>householderVector<br />
 householderReflection<br />
 roots</td>
-<td valign="top">Utility functions for vectors that are used by the
-newly introduced functions, but are only of interested for a
+<td>Utility functions for vectors that are used by the newly
+introduced functions, but are only of interest for a
 specialist.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Math.Matrices</b></td>
+<td colspan="2"><strong>Modelica.Math.Matrices</strong></td>
 </tr>
 <tr>
-<td valign="top">continuousRiccati<br />
+<td>continuousRiccati<br />
 discreteRiccati</td>
-<td valign="top">Return solution of continuous-time and
-discrete-time algebraic Riccati equation respectively.</td>
+<td>Return solution of continuous-time and discrete-time algebraic
+Riccati equation respectively.</td>
 </tr>
 <tr>
-<td valign="top">continuousSylvester<br />
+<td>continuousSylvester<br />
 discreteSylvester</td>
-<td valign="top">Return solution of continuous-time and
-discrete-time Sylvester equation respectively.</td>
+<td>Return solution of continuous-time and discrete-time Sylvester
+equation respectively.</td>
 </tr>
 <tr>
-<td valign="top">continuousLyapunov<br />
+<td>continuousLyapunov<br />
 discreteLyapunov</td>
-<td valign="top">Return solution of continuous-time and
-discrete-time Lyapunov equation respectively.</td>
+<td>Return solution of continuous-time and discrete-time Lyapunov
+equation respectively.</td>
 </tr>
 <tr>
-<td valign="top">trace</td>
-<td valign="top">Return the trace of a matrix.</td>
+<td>trace</td>
+<td>Return the trace of a matrix.</td>
 </tr>
 <tr>
-<td valign="top">conditionNumber</td>
-<td valign="top">Compute the condition number of a matrix.</td>
+<td>conditionNumber</td>
+<td>Compute the condition number of a matrix.</td>
 </tr>
 <tr>
-<td valign="top">rcond</td>
-<td valign="top">Estimate the reciprocal condition number of a
-matrix.</td>
+<td>rcond</td>
+<td>Estimate the reciprocal condition number of a matrix.</td>
 </tr>
 <tr>
-<td valign="top">nullSpace</td>
-<td valign="top">Return a orthonormal basis for the null space of a
-matrix.</td>
+<td>nullSpace</td>
+<td>Return a orthonormal basis for the null space of a matrix.</td>
 </tr>
 <tr>
-<td valign="top">toString</td>
-<td valign="top">Convert a matrix into its string
-representation.</td>
+<td>toString</td>
+<td>Convert a matrix into its string representation.</td>
 </tr>
 <tr>
-<td valign="top">flipLeftRight</td>
-<td valign="top">Flip the columns of a matrix in left/right
-direction.</td>
+<td>flipLeftRight</td>
+<td>Flip the columns of a matrix in left/right direction.</td>
 </tr>
 <tr>
-<td valign="top">flipUpDown</td>
-<td valign="top">Flip the rows of a matrix in up/down
-direction.</td>
+<td>flipUpDown</td>
+<td>Flip the rows of a matrix in up/down direction.</td>
 </tr>
 <tr>
-<td valign="top">cholesky</td>
-<td valign="top">Perform Cholesky factorization of a real symmetric
-positive definite matrix.</td>
+<td>cholesky</td>
+<td>Perform Cholesky factorization of a real symmetric positive
+definite matrix.</td>
 </tr>
 <tr>
-<td valign="top">hessenberg</td>
-<td valign="top">Transform a matrix to upper Hessenberg form.</td>
+<td>hessenberg</td>
+<td>Transform a matrix to upper Hessenberg form.</td>
 </tr>
 <tr>
-<td valign="top">realSchur</td>
-<td valign="top">Computes the real Schur form of a matrix.</td>
+<td>realSchur</td>
+<td>Computes the real Schur form of a matrix.</td>
 </tr>
 <tr>
-<td valign="top">frobeniusNorm</td>
-<td valign="top">Return the Frobenius norm of a matrix.</td>
+<td>frobeniusNorm</td>
+<td>Return the Frobenius norm of a matrix.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Math.Matrices.LAPACK.</b></td>
+<td colspan="2">
+<strong>Modelica.Math.Matrices.LAPACK.</strong></td>
 </tr>
 <tr>
-<td valign="top">dtrevc<br />
+<td>dtrevc<br />
 dpotrf<br />
 dtrsm<br />
 dgees<br />
@@ -809,15 +804,15 @@ dhgeqz<br />
 dormhr<br />
 dormqr<br />
 dorghr</td>
-<td valign="top">New interface functions for LAPACK (should usually
-not directly be used but only indirectly via
-Modelica.Math.Matrices).</td>
+<td>New interface functions for LAPACK (should usually not directly
+be used but only indirectly via Modelica.Math.Matrices).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Math.Matrices.Utilities.</b></td>
+<td colspan="2">
+<strong>Modelica.Math.Matrices.Utilities.</strong></td>
 </tr>
 <tr>
-<td valign="top">reorderRSF<br />
+<td>reorderRSF<br />
 continuousRiccatiIterative<br />
 discreteRiccatiIterative<br />
 eigenvaluesHessenberg<br />
@@ -825,64 +820,64 @@ toUpperHessenberg<br />
 householderReflection<br />
 householderSimilarityTransformation<br />
 findLokal_tk</td>
-<td valign="top">Utility functions for matrices that are used by
-the newly introduced functions, but are only of interested for a
+<td>Utility functions for matrices that are used by the newly
+introduced functions, but are only of interest for a
 specialist.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Math.Nonlinear</b></td>
+<td colspan="2"><strong>Modelica.Math.Nonlinear</strong></td>
 </tr>
 <tr>
-<td valign="top">quadratureLobatto</td>
-<td valign="top">Return the integral of an integrand function using
-an adaptive Lobatto rule.</td>
+<td>quadratureLobatto</td>
+<td>Return the integral of an integrand function using an adaptive
+Lobatto rule.</td>
 </tr>
 <tr>
-<td valign="top">solveOneNonlinearEquation</td>
-<td valign="top">Solve f(u) = 0 in a very reliable and efficient
-way (f(u_min) and f(u_max) must have different signs).</td>
+<td>solveOneNonlinearEquation</td>
+<td>Solve f(u) = 0 in a very reliable and efficient way (f(u_min)
+and f(u_max) must have different signs).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Math.Nonlinear.Examples.</b></td>
+<td colspan="2">
+<strong>Modelica.Math.Nonlinear.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top">quadratureLobatto1<br />
+<td>quadratureLobatto1<br />
 quadratureLobatto2<br />
 solveNonlinearEquations1<br />
 solveNonlinearEquations2</td>
-<td valign="top">Examples that demonstrate the usage of the
+<td>Examples that demonstrate the usage of the
 Modelica.Math.Nonlinear functions to integrate over functions and
 to solve scalar nonlinear equations.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Math.BooleanVectors.</b></td>
+<td colspan="2"><strong>Modelica.Math.BooleanVectors.</strong></td>
 </tr>
 <tr>
-<td valign="top">allTrue</td>
-<td valign="top">Returns true, if all elements of the Boolean input
-vector are true.</td>
+<td>allTrue</td>
+<td>Returns true, if all elements of the Boolean input vector are
+true.</td>
 </tr>
 <tr>
-<td valign="top">anyTrue</td>
-<td valign="top">Returns true, if at least on element of the
-Boolean input vector is true.</td>
+<td>anyTrue</td>
+<td>Returns true, if at least on element of the Boolean input
+vector is true.</td>
 </tr>
 <tr>
-<td valign="top">oneTrue</td>
-<td valign="top">Returns true, if exactly one element of the
-Boolean input vector is true.</td>
+<td>oneTrue</td>
+<td>Returns true, if exactly one element of the Boolean input
+vector is true.</td>
 </tr>
 <tr>
-<td valign="top">firstTrueIndex</td>
-<td valign="top">Returns the index of the first element of the
-Boolean vector that is true and returns 0, if no element is
-true</td>
+<td>firstTrueIndex</td>
+<td>Returns the index of the first element of the Boolean vector
+that is true and returns 0, if no element is true</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Icons.</b></td>
+<td colspan="2"><strong>Modelica.Icons.</strong></td>
 </tr>
 <tr>
-<td valign="top">Information<br />
+<td>Information<br />
 Contact<br />
 ReleaseNotes<br />
 References<br />
@@ -896,14 +891,14 @@ SourcesPackage<br />
 SensorsPackage<br />
 MaterialPropertiesPackage<br />
 MaterialProperty</td>
-<td valign="top">New icons to get a unified view on different
-categories of packages.</td>
+<td>New icons to get a unified view on different categories of
+packages.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.SIunits.</b></td>
+<td colspan="2"><strong>Modelica.SIunits.</strong></td>
 </tr>
 <tr>
-<td valign="top">ComplexCurrent<br />
+<td>ComplexCurrent<br />
 ComplexCurrentSlope<br />
 ComplexCurrentDensity<br />
 ComplexElectricPotential<br />
@@ -923,45 +918,45 @@ ComplexReluctance<br />
 ComplexImpedance<br />
 ComplexAdmittance<br />
 ComplexPower</td>
-<td valign="top">SIunits to be used in physical models using
-complex variables, e.g.,<br />
-<a href="Modelica.Electrical.QuasiStationary.html">Modelica.Electrical.QuasiStationary</a>,
-<a href="Modelica.Magnetic.FundamentalWave.html">Modelica.Magnetic.FundamentalWave</a></td>
+<td>SIunits to be used in physical models using complex variables,
+e.g.,<br />
+Modelica.Electrical.QuasiStationary,
+Modelica.Magnetic.FundamentalWave</td>
 </tr>
 <tr>
-<td valign="top">ImpulseFlowRate<br />
+<td>ImpulseFlowRate<br />
 AngularImpulseFlowRate</td>
-<td valign="top">New SIunits for mechanics.</td>
+<td>New SIunits for mechanics.</td>
 </tr>
 </table>
 <p><br />
-The following <b style="color:blue">existing components</b> have
-been <b style="color:blue">improved</b> in a <b style="color:blue">backward compatible</b> way:</p>
+The following <font color="blue"><strong>existing
+components</strong></font> have been <font color="blue"><strong>improved</strong></font> in a <font color="blue"><strong>backward compatible</strong></font> way:</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Sources.</b></td>
+<td colspan="2"><strong>Modelica.Blocks.Sources.</strong></td>
 </tr>
 <tr>
-<td valign="top">Pulse<br />
+<td>Pulse<br />
 SawTooth</td>
-<td valign="top">New parameter "nperiod" introduced to define the
-number of periods for the signal type. Default is "infinite number
-of periods (nperiods=-1).</td>
+<td>New parameter "nperiod" introduced to define the number of
+periods for the signal type. Default is "infinite number of periods
+(nperiods=-1).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Electrical.</b></td>
+<td colspan="2"><strong>Modelica.Electrical.</strong></td>
 </tr>
 <tr>
-<td valign="top">MultiPhase.*</td>
-<td valign="top">All dissipative components have now an optional
-heatPort connector to which the dissipated losses are transported
-in form of heat.</td>
+<td>MultiPhase.*</td>
+<td>All dissipative components have now an optional heatPort
+connector to which the dissipated losses are transported in form of
+heat.</td>
 </tr>
 <tr>
-<td valign="top">Machines.*</td>
-<td valign="top">To all electric machines (asynchronous and
-synchronous induction machines, DC machines) and transformers loss
-models have been added (where applicable):<br />
+<td>Machines.*</td>
+<td>To all electric machines (asynchronous and synchronous
+induction machines, DC machines) and transformers loss models have
+been added (where applicable):<br />
 Temperature dependent resistances (ohmic losses)<br />
 Friction losses<br />
 Brush losses<br />
@@ -974,7 +969,7 @@ zero.<br />
 To all electric machines (asynchronous and synchronous induction
 machines, DC machines) and transformers conditional thermal ports
 have been added, to which the dissipated losses are flowing, if
-activated. The thermal port contains a <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort.html">HeatPort</a>
+activated. The thermal port contains a HeatPort
 for each loss source of the specific machine type.<br />
 <br />
 To all electric machines (asynchronous and synchronous induction
@@ -982,113 +977,116 @@ machines, DC machines) a "powerBalance" result record has been
 added, summarizing converted power and losses.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Mechanics.</b></td>
+<td colspan="2"><strong>Modelica.Mechanics.</strong></td>
 </tr>
 <tr>
-<td valign="top">MultiBody.*<br />
+<td>MultiBody.*<br />
 Rotational.*<br />
 Translational.*</td>
-<td valign="top">All dissipative components in Modelica.Mechanics
-have now an optional heatPort connector to which the dissipated
-energy is transported in form of heat.<br />
+<td>All dissipative components in Modelica.Mechanics have now an
+optional heatPort connector to which the dissipated energy is
+transported in form of heat.<br />
 All icons in Modelica.Mechanics are unified according to the
 Modelica.Blocks library:<br />
 "%name": width: -150 .. 150, height: 40, color: blue<br />
 other text: height: 30, color: black</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Mechanics.MultiBody.</b></td>
+<td colspan="2"><strong>Modelica.Mechanics.MultiBody.</strong></td>
 </tr>
 <tr>
-<td valign="top">World</td>
-<td valign="top">Function gravityAcceleration is made replaceable,
-so that redeclaration yields user-defined gravity fields.</td>
+<td>World</td>
+<td>Function gravityAcceleration is made replaceable, so that
+redeclaration yields user-defined gravity fields.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Fluid.Valves.</b></td>
+<td colspan="2"><strong>Modelica.Fluid.Valves.</strong></td>
 </tr>
 <tr>
-<td valign="top">ValveIncompressible<br />
+<td>ValveIncompressible<br />
 ValveVaporizing<br />
 ValveCompressible</td>
-<td valign="top">(a) Optional filtering of opening signal
-introduced to model the delay time of the opening/closing drive. In
-this case, an optional leakageOpening can be defined to model
-leakage flow and/or to improve the numerics in certain situations.
-(b) Improved regularization of the valve characteristics in some
-cases so that it is twice differentiable (smooth=2), instead of
-continuous (smooth=0).</td>
+<td>(a) Optional filtering of opening signal introduced to model
+the delay time of the opening/closing drive. In this case, an
+optional leakageOpening can be defined to model leakage flow and/or
+to improve the numerics in certain situations. (b) Improved
+regularization of the valve characteristics in some cases so that
+it is twice differentiable (smooth=2), instead of continuous
+(smooth=0).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Fluid.Sources.</b></td>
+<td colspan="2"><strong>Modelica.Fluid.Sources.</strong></td>
 </tr>
 <tr>
-<td valign="top">FixedBoundary<br />
+<td>FixedBoundary<br />
 Boundary_pT<br />
 Boundary_ph</td>
-<td valign="top">Changed the implementation so that no non-linear
-algebraic equation system occurs, if the given variables (e.g.
-p,T,X) do not correspond to the medium states (e.g. p,h,X). This is
-achieved by using appropriate "setState_xxx" calls to compute the
-medium state from the given variables. If a nonlinear equation
-system occurs, it is solved by a specialized handler inside the
-setState_xxx(..) function, but in the model this equation system is
-not visible.</td>
+<td>Changed the implementation so that no non-linear algebraic
+equation system occurs, if the given variables (e.g. p,T,X) do not
+correspond to the medium states (e.g. p,h,X). This is achieved by
+using appropriate "setState_xxx" calls to compute the medium state
+from the given variables. If a nonlinear equation system occurs, it
+is solved by a specialized handler inside the setState_xxx(..)
+function, but in the model this equation system is not
+visible.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Media.Interfaces.</b></td>
+<td colspan="2"><strong>Modelica.Media.Interfaces.</strong></td>
 </tr>
 <tr>
-<td valign="top">PartialMedium</td>
-<td valign="top">The min/max values of types SpecificEnthalpy,
-SpecificEntropy, SpecificHeatCapacity increased, due to reported
-user problems.<br />
+<td>PartialMedium</td>
+<td>The min/max values of types SpecificEnthalpy, SpecificEntropy,
+SpecificHeatCapacity increased, due to reported user
+problems.<br />
 New constant C_nominal introduced to provide nominal values for
 trace substances (utilized in Modelica.Fluid to avoid numerical
 problems; this fixes ticket <a href="https://trac.modelica.org/Modelica/ticket/393">#393</a>).</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Thermal.</b></td>
+<td colspan="2"><strong>Modelica.Thermal.</strong></td>
 </tr>
 <tr>
-<td valign="top">HeatTransfer.*</td>
-<td valign="top">All icons are unified according to the
-Modelica.Blocks library:<br />
+<td>HeatTransfer.*</td>
+<td>All icons are unified according to the Modelica.Blocks
+library:<br />
 "%name": width: -150 .. 150, height: 40, color: blue<br />
 other text: height: 30, color: black</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Math.Matrices</b></td>
+<td colspan="2"><strong>Modelica.Math.Matrices</strong></td>
 </tr>
 <tr>
-<td valign="top">QR</td>
-<td valign="top">A Boolean input "pivoting" has been added (now
-QR(A, pivoting)) to provide QR-decomposition without pivoting
-(QR(A, false)). Default is pivoting=true.</td>
+<td>QR</td>
+<td>A Boolean input "pivoting" has been added (now QR(A, pivoting))
+to provide QR-decomposition without pivoting (QR(A, false)).
+Default is pivoting=true.</td>
 </tr>
 </table>
 <p><br />
-The following <b style="color:red">critical errors</b> have been
-fixed (i.e., errors that can lead to wrong simulation results):</p>
+The following <font color="red"><strong>critical
+errors</strong></font> have been fixed (i.e., errors that can lead
+to wrong simulation results):</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
-<td colspan="2"><b>Modelica.Electrical.Digital.Delay.</b></td>
+<td colspan="2">
+<strong>Modelica.Electrical.Digital.Delay.</strong></td>
 </tr>
 <tr>
-<td valign="top">InertialDelaySensitive</td>
-<td valign="top">In order to decide whether the rising delay (tLH)
-or the falling delay (tHL) is used, the "previous" value of the
-output y has to be used and not the "previous" value of the input x
+<td>InertialDelaySensitive</td>
+<td>In order to decide whether the rising delay (tLH) or the
+falling delay (tHL) is used, the "previous" value of the output y
+has to be used and not the "previous" value of the input x
 (delayType = delayTable[y_old, x] and not delayType =
 delayTable[x_old, x]). This has been corrected.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Mechanics.MultiBody.Parts.</b></td>
+<td colspan="2">
+<strong>Modelica.Mechanics.MultiBody.Parts.</strong></td>
 </tr>
 <tr>
-<td valign="top">BodyBox<br />
+<td>BodyBox<br />
 BodyCylinder</td>
-<td valign="top">Fixes ticket <a href="https://trac.modelica.org/Modelica/ticket/373">#373</a>: The
+<td>Fixes ticket <a href="https://trac.modelica.org/Modelica/ticket/373">#373</a>: The
 "Center of Mass" was calculated as normalize(r)*length/2. This is
 only correct if the box/cylinder is attached between frame_a and
 frame_b. If this is not the case, the calculation is wrong. The has
@@ -1096,80 +1094,80 @@ been fixed by using the correct formula:<br />
 r_shape + normalize(lengthDirection)*length/2</td>
 </tr>
 <tr>
-<td valign="top">BodyShape<br />
+<td>BodyShape<br />
 BodyBox<br />
 BodyCylinder</td>
-<td valign="top">Fixes ticket <a href="https://trac.modelica.org/Modelica/ticket/300">#300</a>: If
+<td>Fixes ticket <a href="https://trac.modelica.org/Modelica/ticket/300">#300</a>: If
 parameter enforceStates=true, an error occurred. This has been
 fixed.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Mechanics.Rotational.Components.</b></td>
+<strong>Modelica.Mechanics.Rotational.Components.</strong></td>
 </tr>
 <tr>
-<td valign="top">LossyGear</td>
-<td valign="top">In cases where the driving flange is not obvious,
-the component could lead to a non-convergent event iteration. This
-has been fixed (a detailed description is provided in ticket
-<a href="https://trac.modelica.org/Modelica/ticket/108">#108</a>
-and in the <a href="../../../Modelica%203.2.2/Resources/Documentation/Mechanics/Lossy-Gear-Bug_Solution.pdf">
+<td>LossyGear</td>
+<td>In cases where the driving flange is not obvious, the component
+could lead to a non-convergent event iteration. This has been fixed
+(a detailed description is provided in ticket <a href="https://trac.modelica.org/Modelica/ticket/108">#108</a> and in the
+<a href="../Documentation/Mechanics/Lossy-Gear-Bug_Solution.pdf">
 attachment</a> of this ticket).</td>
 </tr>
 <tr>
-<td valign="top">Gearbox</td>
-<td valign="top">If useSupport=false, the support flange of the
-internal LossyGear model was connected to the (disabled) support
-connector. As a result, the LossyGear was "free floating". This has
-been corrected.</td>
+<td>Gearbox</td>
+<td>If useSupport=false, the support flange of the internal
+LossyGear model was connected to the (disabled) support connector.
+As a result, the LossyGear was "free floating". This has been
+corrected.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Fluid.Pipes.</b></td>
+<td colspan="2"><strong>Modelica.Fluid.Pipes.</strong></td>
 </tr>
 <tr>
-<td valign="top">DynamicPipe</td>
-<td valign="top">Bug fix for dynamic mass, energy and momentum
-balances for pipes with nParallel&gt;1.</td>
-</tr>
-<tr>
-<td colspan="2">
-<b>Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.</b></td>
-</tr>
-<tr>
-<td valign="top">PartialPipeFlowHeatTransfer</td>
-<td valign="top">Calculation of Reynolds numbers for the heat
-transfer through walls corrected, if nParallel&gt;1. This partial
-model is used by LocalPipeFlowHeatTransfer for laminar and
-turbulent forced convection in pipes.</td>
+<td>DynamicPipe</td>
+<td>Bug fix for dynamic mass, energy and momentum balances for
+pipes with nParallel&gt;1.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Media.Interfaces.PartialLinearFluid</b></td>
+<strong>Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.</strong></td>
 </tr>
 <tr>
-<td valign="top">setState_psX</td>
-<td valign="top">Sign error fixed.</td>
+<td>PartialPipeFlowHeatTransfer</td>
+<td>Calculation of Reynolds numbers for the heat transfer through
+walls corrected, if nParallel&gt;1. This partial model is used by
+LocalPipeFlowHeatTransfer for laminar and turbulent forced
+convection in pipes.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Media.CompressibleLiquids.</b></td>
+<td colspan="2">
+<strong>Modelica.Media.Interfaces.PartialLinearFluid</strong></td>
 </tr>
 <tr>
-<td valign="top">LinearColdWater</td>
-<td valign="top">Fixed wrong values for thermal conductivity and
-viscosity.</td>
+<td>setState_psX</td>
+<td>Sign error fixed.</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Modelica.Media.CompressibleLiquids.</strong></td>
+</tr>
+<tr>
+<td>LinearColdWater</td>
+<td>Fixed wrong values for thermal conductivity and viscosity.</td>
 </tr>
 </table>
 <p><br />
-The following <b style="color:red">uncritical errors</b> have been
-fixed (i.e., errors that do <b style="color:red">not</b> lead to
-wrong simulation results, but, e.g., units are wrong or errors in
+The following <font color="red"><strong>uncritical
+errors</strong></font> have been fixed (i.e., errors that do
+<font color="red"><strong>not</strong></font> lead to wrong
+simulation results, but, e.g., units are wrong or errors in
 documentation):</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
-<td colspan="2"><b>Modelica.Math.Matrices.LAPACK</b></td>
+<td colspan="2"><strong>Modelica.Math.Matrices.LAPACK</strong></td>
 </tr>
 <tr>
-<td valign="top">dgesv_vec<br />
+<td>dgesv_vec<br />
 dgesv<br />
 dgetrs<br />
 dgetrf<br />
@@ -1179,9 +1177,9 @@ dgeqpf<br />
 dorgqr<br />
 dgesvx<br />
 dtrsyl</td>
-<td valign="top">Integer inputs to specify leading dimensions of
-matrices have got a lower bound 1 (e.g., lda=max(1,n)) to avoid
-incorrect values (e.g., lda=0) in the case of empty matrices.<br />
+<td>Integer inputs to specify leading dimensions of matrices have
+got a lower bound 1 (e.g., lda=max(1,n)) to avoid incorrect values
+(e.g., lda=0) in the case of empty matrices.<br />
 The Integer variable "info" to indicate the successful call of a
 LAPACK routine has been converted to an output where it had been a
 protected variable.</td>
@@ -1192,399 +1190,382 @@ The following <a href="http://trac.modelica.org/Modelica">trac
 tickets</a> have been fixed:</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
-<td colspan="2"><b>Modelica</b></td>
+<td colspan="2"><strong>Modelica</strong></td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/155">#155</a></td>
-<td valign="top">Wrong usage of "fillColor" and "fillPattern"
-annotations for lines</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/155">#155</a></td>
+<td>Wrong usage of "fillColor" and "fillPattern" annotations for
+lines</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/211">#211</a></td>
-<td valign="top">Undefined function realString used in MSL</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/211">#211</a></td>
+<td>Undefined function realString used in MSL</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/216">#216</a></td>
-<td valign="top">Make MSL version 3.2 more Modelica 3.1
-conform</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/216">#216</a></td>
+<td>Make MSL version 3.2 more Modelica 3.1 conform</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/218">#218</a></td>
-<td valign="top">Replace `Modelica://`-URIs by
-`modelica://`-URIs</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/218">#218</a></td>
+<td>Replace `Modelica://`-URIs by `modelica://`-URIs</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/271">#271</a></td>
-<td valign="top">Documentation URI errors in MSL 3.1</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/271">#271</a></td>
+<td>Documentation URI errors in MSL 3.1</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/292">#292</a></td>
-<td valign="top">Remove empty "" annotations"</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/292">#292</a></td>
+<td>Remove empty "" annotations"</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/294">#294</a></td>
-<td valign="top">Typo 'w.r.t' --&gt; 'w.r.t.'</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/294">#294</a></td>
+<td>Typo 'w.r.t' --&gt; 'w.r.t.'</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/296">#296</a></td>
-<td valign="top">Unify disclaimer message and improve bad style
-"here" links</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/296">#296</a></td>
+<td>Unify disclaimer message and improve bad style "here"
+links</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/333">#333</a></td>
-<td valign="top">Fix real number formats of the form `.[0-9]+`</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/333">#333</a></td>
+<td>Fix real number formats of the form `.[0-9]+`</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/347">#347</a></td>
-<td valign="top">invalid URI in MSL 3.2</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/347">#347</a></td>
+<td>invalid URI in MSL 3.2</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/355">#355</a></td>
-<td valign="top">Non-standard annotations</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/355">#355</a></td>
+<td>Non-standard annotations</td>
 </tr>
 <tr>
 <td colspan="2"><br />
-<b>Modelica.Blocks</b></td>
+<strong>Modelica.Blocks</strong></td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/227">#227</a></td>
-<td valign="top">Enhance unit deduction functionality by adding
-'unit="1"' to some blocks"</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/227">#227</a></td>
+<td>Enhance unit deduction functionality by adding 'unit="1"' to
+some blocks"</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/349">#349</a></td>
-<td valign="top">Incorrect annotation in Blocks/Continuous.mo</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/349">#349</a></td>
+<td>Incorrect annotation in Blocks/Continuous.mo</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/374">#374</a></td>
-<td valign="top">Parameter with no value at all in
+<td><a href="https://trac.modelica.org/Modelica/ticket/374">#374</a></td>
+<td>Parameter with no value at all in
 Modelica.Blocks.Continuous.TransferFunction</td>
 </tr>
 <tr>
 <td colspan="2"><br />
-<b>Modelica.Constants</b></td>
+<strong>Modelica.Constants</strong></td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/356">#356</a></td>
-<td valign="top">Add Euler-Mascheroni constant to
-Modelica.Constants</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/356">#356</a></td>
+<td>Add Euler-Mascheroni constant to Modelica.Constants</td>
 </tr>
 <tr>
 <td colspan="2"><br />
-<b>Modelica.Electrical.Analog</b></td>
+<strong>Modelica.Electrical.Analog</strong></td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/346">#346</a></td>
-<td valign="top">Multiple text in
+<td><a href="https://trac.modelica.org/Modelica/ticket/346">#346</a></td>
+<td>Multiple text in
 Modelica.Electrical.Analog.Basic.Conductor</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/363">#363</a></td>
-<td valign="top">Mixture of Real and Integer in index expressions
-in Modelica.Electrical.Analog.Lines</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/363">#363</a></td>
+<td>Mixture of Real and Integer in index expressions in
+Modelica.Electrical.Analog.Lines</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/384">#384</a></td>
-<td valign="top">Incomplete annotations in some examples</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/384">#384</a></td>
+<td>Incomplete annotations in some examples</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/396">#396</a></td>
-<td valign="top">Bug in
+<td><a href="https://trac.modelica.org/Modelica/ticket/396">#396</a></td>
+<td>Bug in
 Modelica.Electrical.Analog.Ideal.ControlledIdealIntermediateSwitch</td>
 </tr>
 <tr>
 <td colspan="2"><br />
-<b>Modelica.Machines</b></td>
+<strong>Modelica.Machines</strong></td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/276">#276</a></td>
-<td valign="top">Improve/fix documentation of
-Modelica.Electrical.Machines</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/276">#276</a></td>
+<td>Improve/fix documentation of Modelica.Electrical.Machines</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/288">#288</a></td>
-<td valign="top">Describe thermal concept of machines</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/288">#288</a></td>
+<td>Describe thermal concept of machines</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/301">#301</a></td>
-<td valign="top">Documentation of Electrical.Machines.Examples
-needs update</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/301">#301</a></td>
+<td>Documentation of Electrical.Machines.Examples needs update</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/306">#306</a></td>
-<td valign="top">Merge content of
-`Modelica.Electrical.Machines.Icons` into `Modelica.Icons`</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/306">#306</a></td>
+<td>Merge content of `Modelica.Electrical.Machines.Icons` into
+`Modelica.Icons`</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/362">#362</a></td>
-<td valign="top">Incomplete example model for DC machines</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/362">#362</a></td>
+<td>Incomplete example model for DC machines</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/375">#375</a></td>
-<td valign="top">Strangeness with final parameters with no value
-but a start value</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/375">#375</a></td>
+<td>Strangeness with final parameters with no value but a start
+value</td>
 </tr>
 <tr>
 <td colspan="2"><br />
-<b>Modelica.Electrical.MultiPhase</b></td>
+<strong>Modelica.Electrical.MultiPhase</strong></td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/173">#173</a></td>
-<td valign="top">m-phase mutual inductor</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/173">#173</a></td>
+<td>m-phase mutual inductor</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/200">#200</a></td>
-<td valign="top">adjust Multiphase to Analog</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/200">#200</a></td>
+<td>adjust Multiphase to Analog</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/277">#277</a></td>
-<td valign="top">Improve/fix documentation of
+<td><a href="https://trac.modelica.org/Modelica/ticket/277">#277</a></td>
+<td>Improve/fix documentation of
 Modelica.Electrical.Multiphase</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/352">#352</a></td>
-<td valign="top">Odd annotation in
+<td><a href="https://trac.modelica.org/Modelica/ticket/352">#352</a></td>
+<td>Odd annotation in
 Modelica.Electrical.MultiPhase.Sources.SignalVoltage</td>
 </tr>
 <tr>
 <td colspan="2"><br />
-<b>Modelica.Fluid</b></td>
+<strong>Modelica.Fluid</strong></td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/215">#215</a></td>
-<td valign="top">Bug in Modelica.Fluid.Pipes.DynamicPipe</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/215">#215</a></td>
+<td>Bug in Modelica.Fluid.Pipes.DynamicPipe</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/219">#219</a></td>
-<td valign="top">Fluid.Examples.HeatExchanger: Heat transfer is
-switched off and cannot be enabled</td>
-</tr>
-<tr>
-<td colspan="2"><br />
-<b>Modelica.Math</b></td>
-</tr>
-<tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/348">#348</a></td>
-<td valign="top">Small error in documentation</td>
-</tr>
-<tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/371">#371</a></td>
-<td valign="top">Modelica.Math functions declared as "C" not
-"builtin""</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/219">#219</a></td>
+<td>Fluid.Examples.HeatExchanger: Heat transfer is switched off and
+cannot be enabled</td>
 </tr>
 <tr>
 <td colspan="2"><br />
-<b>Modelica.Mechanics.MultiBody</b></td>
+<strong>Modelica.Math</strong></td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/50">#50</a></td>
-<td valign="top">Error in LineForce handling of potential root</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/348">#348</a></td>
+<td>Small error in documentation</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/71">#71</a></td>
-<td valign="top">Make MultiBody.World replaceable</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/371">#371</a></td>
+<td>Modelica.Math functions declared as "C" not "builtin""</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/181">#181</a></td>
-<td valign="top">3d surface visualisation</td>
+<td colspan="2"><br />
+<strong>Modelica.Mechanics.MultiBody</strong></td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/210">#210</a></td>
-<td valign="top">Description of internal gear wheel missing</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/50">#50</a></td>
+<td>Error in LineForce handling of potential root</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/242">#242</a></td>
-<td valign="top">Missing each qualifier for modifiers in
-MultiBody.</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/71">#71</a></td>
+<td>Make MultiBody.World replaceable</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/251">#251</a></td>
-<td valign="top">Using enforceStates=true for BodyShape causes
-errors</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/181">#181</a></td>
+<td>3d surface visualisation</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/255">#255</a></td>
-<td valign="top">Error in Revolute's handling of non-normalized
-axis of rotations</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/210">#210</a></td>
+<td>Description of internal gear wheel missing</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/268">#268</a></td>
-<td valign="top">Non-standard annotation in
+<td><a href="https://trac.modelica.org/Modelica/ticket/242">#242</a></td>
+<td>Missing each qualifier for modifiers in MultiBody.</td>
+</tr>
+<tr>
+<td><a href="https://trac.modelica.org/Modelica/ticket/251">#251</a></td>
+<td>Using enforceStates=true for BodyShape causes errors</td>
+</tr>
+<tr>
+<td><a href="https://trac.modelica.org/Modelica/ticket/255">#255</a></td>
+<td>Error in Revolute's handling of non-normalized axis of
+rotations</td>
+</tr>
+<tr>
+<td><a href="https://trac.modelica.org/Modelica/ticket/268">#268</a></td>
+<td>Non-standard annotation in
 MultiBody,Examples.Systems.RobotR3</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/269">#269</a></td>
-<td valign="top">What is the purpose of
+<td><a href="https://trac.modelica.org/Modelica/ticket/269">#269</a></td>
+<td>What is the purpose of
 MultiBody.Examples.Systems.RobotR3.Components.InternalConnectors?</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/272">#272</a></td>
-<td valign="top">Function World.gravityAcceleration should not be
-protected</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/272">#272</a></td>
+<td>Function World.gravityAcceleration should not be protected</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/274">#274</a></td>
-<td valign="top">Convenient and mighty initialization of frame
-kinematics</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/274">#274</a></td>
+<td>Convenient and mighty initialization of frame kinematics</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/286">#286</a></td>
-<td valign="top">Typo in Multibody/Frames.mo</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/286">#286</a></td>
+<td>Typo in Multibody/Frames.mo</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/300">#300</a></td>
-<td valign="top">enforceStates parameter managed incorrectly in
-BodyShape, BodyBox, BodyCylinder</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/300">#300</a></td>
+<td>enforceStates parameter managed incorrectly in BodyShape,
+BodyBox, BodyCylinder</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/320">#320</a></td>
-<td valign="top">Replace non-standard annotation by
-`showStartAttribute`</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/320">#320</a></td>
+<td>Replace non-standard annotation by `showStartAttribute`</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/373">#373</a></td>
-<td valign="top">Error in Modelica Mechanics</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/373">#373</a></td>
+<td>Error in Modelica Mechanics</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/389">#389</a></td>
-<td valign="top">Shape.rxvisobj wrongly referenced in
-Arrow/DoubleArrow</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/389">#389</a></td>
+<td>Shape.rxvisobj wrongly referenced in Arrow/DoubleArrow</td>
 </tr>
 <tr>
 <td colspan="2"><br />
-<b>Modelica.Mechanics.Rotational</b></td>
+<strong>Modelica.Mechanics.Rotational</strong></td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/108">#108</a></td>
-<td valign="top">Problem with model "Lossy Gear" and approach to a
-solution</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/108">#108</a></td>
+<td>Problem with model "Lossy Gear" and approach to a solution</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/278">#278</a></td>
-<td valign="top">Improve/fix documentation of
-Modelica.Mechanics.Rotational</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/278">#278</a></td>
+<td>Improve/fix documentation of Modelica.Mechanics.Rotational</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/381">#381</a></td>
-<td valign="top">Bug in Modelica.Mechanics.Rotational.Gearbox</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/381">#381</a></td>
+<td>Bug in Modelica.Mechanics.Rotational.Gearbox</td>
 </tr>
 <tr>
 <td colspan="2"><br />
-<b>Modelica.Mechanics.Translational</b></td>
+<strong>Modelica.Mechanics.Translational</strong></td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/279">#279</a></td>
-<td valign="top">Improve/fix documentation of
+<td><a href="https://trac.modelica.org/Modelica/ticket/279">#279</a></td>
+<td>Improve/fix documentation of
 Modelica.Mechanics.Translational</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/310">#310</a></td>
-<td valign="top">Erroneous image links in
+<td><a href="https://trac.modelica.org/Modelica/ticket/310">#310</a></td>
+<td>Erroneous image links in
 `Modelica.Mechanics.Translational`</td>
 </tr>
 <tr>
 <td colspan="2"><br />
-<b>Modelica.Media</b></td>
+<strong>Modelica.Media</strong></td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/72">#72</a></td>
-<td valign="top">PartialMedium functions not provided for all media
-in Modelica.Media</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/72">#72</a></td>
+<td>PartialMedium functions not provided for all media in
+Modelica.Media</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/217">#217</a></td>
-<td valign="top">Missing image file Air.png</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/217">#217</a></td>
+<td>Missing image file Air.png</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/224">#224</a></td>
-<td valign="top">dpT calculation in waterBaseProp_dT</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/224">#224</a></td>
+<td>dpT calculation in waterBaseProp_dT</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/393">#393</a></td>
-<td valign="top">Provide C_nominal in Modelica.Media to allow
-propagating value and avoid wrong numerical results</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/393">#393</a></td>
+<td>Provide C_nominal in Modelica.Media to allow propagating value
+and avoid wrong numerical results</td>
 </tr>
 <tr>
 <td colspan="2"><br />
-<b>Modelica.StateGraph</b></td>
+<strong>Modelica.StateGraph</strong></td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/206">#206</a></td>
-<td valign="top">Syntax error in StateGraph.mo</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/206">#206</a></td>
+<td>Syntax error in StateGraph.mo</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/261">#261</a></td>
-<td valign="top">Modelica.StateGraph should mention the
-availability of Modelica_StateGraph2</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/261">#261</a></td>
+<td>Modelica.StateGraph should mention the availability of
+Modelica_StateGraph2</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/354">#354</a></td>
-<td valign="top">Bad annotation in
+<td><a href="https://trac.modelica.org/Modelica/ticket/354">#354</a></td>
+<td>Bad annotation in
 Modelica.StateGraph.Temporary.NumericValue</td>
 </tr>
 <tr>
 <td colspan="2"><br />
-<b>Modelica.Thermal.FluidHeatFlow</b></td>
+<strong>Modelica.Thermal.FluidHeatFlow</strong></td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/280">#280</a></td>
-<td valign="top">Improve/fix documentation of
+<td><a href="https://trac.modelica.org/Modelica/ticket/280">#280</a></td>
+<td>Improve/fix documentation of
 Modelica.Thermal.FluidHeatFlow</td>
 </tr>
 <tr>
 <td colspan="2"><br />
-<b>Modelica.Thermal.HeatTransfer</b></td>
+<strong>Modelica.Thermal.HeatTransfer</strong></td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/281">#281</a></td>
-<td valign="top">Improve/fix documentation of
-Modelica.Thermal.HeatTransfer</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/281">#281</a></td>
+<td>Improve/fix documentation of Modelica.Thermal.HeatTransfer</td>
 </tr>
 <tr>
 <td colspan="2"><br />
-<b>Modelica.UsersGuide</b></td>
+<strong>Modelica.UsersGuide</strong></td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/198">#198</a></td>
-<td valign="top">Name of components in MSL not according to naming
+<td><a href="https://trac.modelica.org/Modelica/ticket/198">#198</a></td>
+<td>Name of components in MSL not according to naming
 conventions</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/204">#204</a></td>
-<td valign="top">Minor correction to User's Guide's section on
+<td><a href="https://trac.modelica.org/Modelica/ticket/204">#204</a></td>
+<td>Minor correction to User's Guide's section on version
+management</td>
+</tr>
+<tr>
+<td><a href="https://trac.modelica.org/Modelica/ticket/244">#244</a></td>
+<td>Update the contacts section of the User's Guide</td>
+</tr>
+<tr>
+<td><a href="https://trac.modelica.org/Modelica/ticket/267">#267</a></td>
+<td>MSL-Documentation: Shouldn't equations be numbered on the right
+hand side?</td>
+</tr>
+<tr>
+<td><a href="https://trac.modelica.org/Modelica/ticket/299">#299</a></td>
+<td>SVN keyword expansion messed up the User's guide section on
 version management</td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/244">#244</a></td>
-<td valign="top">Update the contacts section of the User's
-Guide</td>
+<td colspan="2"><br />
+<strong>Modelica.Utilities</strong></td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/267">#267</a></td>
-<td valign="top">MSL-Documentation: Shouldn't equations be numbered
-on the right hand side?</td>
-</tr>
-<tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/299">#299</a></td>
-<td valign="top">SVN keyword expansion messed up the User's guide
-section on version management</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/249">#249</a></td>
+<td>Documentation error in ModelicaUtilities.h</td>
 </tr>
 <tr>
 <td colspan="2"><br />
-<b>Modelica.Utilities</b></td>
+<strong>ModelicaServices</strong></td>
 </tr>
 <tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/249">#249</a></td>
-<td valign="top">Documentation error in ModelicaUtilities.h</td>
-</tr>
-<tr>
-<td colspan="2"><br />
-<b>ModelicaServices</b></td>
-</tr>
-<tr>
-<td valign="top"><a href="https://trac.modelica.org/Modelica/ticket/248">#248</a></td>
-<td valign="top">No uses statement on ModelicaServices in MSL
-3.1</td>
+<td><a href="https://trac.modelica.org/Modelica/ticket/248">#248</a></td>
+<td>No uses statement on ModelicaServices in MSL 3.1</td>
 </tr>
 </table>
 <p>Note:</p>
@@ -1600,7 +1581,7 @@ the sublibrary Blocks is included in this version in an improved
 form.</li>
 </ul>
 <hr />
-Generated at 2016-07-13T15:55:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.11.0~dev-38-g67b62bf
+Generated at 2018-08-07T07:53:32Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1195-g6d891ea
 </body>
 </html>

@@ -16,20 +16,20 @@ package Types "Common types for fluid models"
 This Real type defines the absolute roughness of the inner surface of a
 pipe or fitting, i.e., the absolute average height of surface asperities.
 It has usually to
-be estimated. In <i>[Idelchik 1994, pp. 105-109,
-Table 2-5; Miller 1990, p. 190, Table 8-1]</i> many examples are given.
+be estimated. In <em>[Idelchik 1994, pp. 105-109,
+Table 2-5; Miller 1990, p. 190, Table 8-1]</em> many examples are given.
 As a short summary:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td colspan=\"2\" align=\"center\"><b>Type of pipe</b></td>
+  <tr><td colspan=\"2\" align=\"center\"><strong>Type of pipe</strong></td>
       <td align=\"center\">Roughness</td></tr>
 
-  <tr><td><b>Smooth pipes</b></td>
+  <tr><td><strong>Smooth pipes</strong></td>
       <td>Drawn brass, copper, aluminium, glass, etc.</td>
       <td> 0.0025 mm</td>
   </tr>
-  <tr><td rowspan=\"3\"><b>Steel pipes</b></td>
+  <tr><td rowspan=\"3\"><strong>Steel pipes</strong></td>
       <td>New smooth pipes</td>
       <td>0.025 mm</td>
   </tr>
@@ -39,7 +39,7 @@ As a short summary:
   <tr><td>Heavy rust</td>
       <td>1 mm</td>
   </tr>
-  <tr><td rowspan=\"3\"><b>Concrete pipes</b></td>
+  <tr><td rowspan=\"3\"><strong>Concrete pipes</strong></td>
       <td>Steel forms, first class workmanship</td>
       <td>0.025 mm</td>
   </tr>
@@ -55,11 +55,11 @@ As a short summary:
 
 <dl>
     <dt>Idelchik I.E. (1994):</dt>
-    <dd><a href=\"http://www.bookfinder.com/dir/i/Handbook_of_Hydraulic_Resistance/0849399084/\"><b>Handbook
-        of Hydraulic Resistance</b></a>. 3rd edition, Begell House, ISBN
+    <dd><a href=\"http://www.bookfinder.com/dir/i/Handbook_of_Hydraulic_Resistance/0849399084/\"><strong>Handbook
+        of Hydraulic Resistance</strong></a>. 3rd edition, Begell House, ISBN
         0-8493-9908-4</dd>
     <dt>Miller D. S. (1990):</dt>
-    <dd><b>Internal flow systems</b>.
+    <dd><strong>Internal flow systems</strong>.
     2nd edition. Cranfield:BHRA(Information Services).</dd>
 </dl>
 </html>"));
@@ -79,7 +79,7 @@ Enumeration to define the formulation of balance equations
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>Dynamics.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><strong>Dynamics.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>DynamicFreeInitial</td><td>Dynamic balance, Initial guess value</td></tr>
 
 <tr><td>FixedInitial</td><td>Dynamic balance, Initial value fixed</td></tr>
@@ -96,10 +96,10 @@ tables:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><td colspan=\"3\"><b>Mass balance</b> </td>
-<tr><td><b>Dynamics.</b></td>
-    <td><b>Balance equation</b></td>
-    <td><b>Initial condition</b></td></tr>
+<tr><td colspan=\"3\"><strong>Mass balance</strong> </td></tr>
+<tr><td><strong>Dynamics.</strong></td>
+    <td><strong>Balance equation</strong></td>
+    <td><strong>Initial condition</strong></td></tr>
 
 <tr><td> DynamicFreeInitial</td>
     <td> no restrictions </td>
@@ -107,28 +107,28 @@ tables:
 
 <tr><td> FixedInitial</td>
     <td> no restrictions </td>
-    <td> <b>if</b> Medium.singleState <b>then</b> <br>
+    <td> <strong>if</strong> Medium.singleState <strong>then</strong><br>
          &nbsp;&nbsp;no initial condition<br>
-         <b>else</b> p=p_start </td></tr>
+         <strong>else</strong> p=p_start </td></tr>
 
 <tr><td> SteadyStateInitial</td>
     <td> no restrictions </td>
-    <td> <b>if</b> Medium.singleState <b>then</b> <br>
+    <td> <strong>if</strong> Medium.singleState <strong>then</strong><br>
          &nbsp;&nbsp;no initial condition<br>
-         <b>else</b> <b>der</b>(p)=0 </td></tr>
+         <strong>else</strong> <strong>der</strong>(p)=0 </td></tr>
 
 <tr><td> SteadyState</td>
-    <td> <b>der</b>(m)=0  </td>
+    <td> <strong>der</strong>(m)=0  </td>
     <td> no initial conditions </td></tr>
 </table>
 
 &nbsp;<br>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><td colspan=\"3\"><b>Energy balance</b> </td>
-<tr><td><b>Dynamics.</b></td>
-    <td><b>Balance equation</b></td>
-    <td><b>Initial condition</b></td></tr>
+<tr><td colspan=\"3\"><strong>Energy balance</strong> </td></tr>
+<tr><td><strong>Dynamics.</strong></td>
+    <td><strong>Balance equation</strong></td>
+    <td><strong>Initial condition</strong></td></tr>
 
 <tr><td> DynamicFreeInitial</td>
     <td> no restrictions </td>
@@ -140,20 +140,20 @@ tables:
 
 <tr><td> SteadyStateInitial</td>
     <td> no restrictions </td>
-    <td> <b>der</b>(T)=0 or <b>der</b>(h)=0 </td></tr>
+    <td> <strong>der</strong>(T)=0 or <strong>der</strong>(h)=0 </td></tr>
 
 <tr><td> SteadyState</td>
-    <td> <b>der</b>(U)=0  </td>
+    <td> <strong>der</strong>(U)=0  </td>
     <td> no initial conditions </td></tr>
 </table>
 
 &nbsp;<br>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><td colspan=\"3\"><b>Momentum balance</b> </td>
-<tr><td><b>Dynamics.</b></td>
-    <td><b>Balance equation</b></td>
-    <td><b>Initial condition</b></td></tr>
+<tr><td colspan=\"3\"><strong>Momentum balance</strong> </td></tr>
+<tr><td><strong>Dynamics.</strong></td>
+    <td><strong>Balance equation</strong></td>
+    <td><strong>Initial condition</strong></td></tr>
 
 <tr><td> DynamicFreeInitial</td>
     <td> no restrictions </td>
@@ -165,10 +165,10 @@ tables:
 
 <tr><td> SteadyStateInitial</td>
     <td> no restrictions </td>
-    <td> <b>der</b>(m_flow)=0 </td></tr>
+    <td> <strong>der</strong>(m_flow)=0 </td></tr>
 
 <tr><td> SteadyState</td>
-    <td> <b>der</b>(m_flow)=0 </td>
+    <td> <strong>der</strong>(m_flow)=0 </td>
     <td> no initial conditions </td></tr>
 </table>
 
@@ -181,7 +181,7 @@ fluids and for trace substances, equivalent equations hold.
 Medium.singleState is a medium property and defines whether the medium is only
 described by one state (+ the mass fractions in case of a multi-substance fluid). In such
 a case one initial condition less must be provided. For example, incompressible
-media have Medium.singleState = <b>true</b>.
+media have Medium.singleState = <strong>true</strong>.
 </p>
 
 </html>"));
@@ -200,8 +200,8 @@ Enumeration to define the choice of valve flow coefficient
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>CvTypes.</b></th>
-    <th><b>Meaning</b></th></tr>
+<tr><th><strong>CvTypes.</strong></th>
+    <th><strong>Meaning</strong></th></tr>
 
 <tr><td>Av</td>
     <td>Av (metric) flow coefficient</td></tr>
@@ -238,8 +238,8 @@ direction of fluid flow at a port (to be selected via choices menu):
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>PortFlowDirection.</b></th>
-    <th><b>Meaning</b></th></tr>
+<tr><th><strong>PortFlowDirection.</strong></th>
+    <th><strong>Meaning</strong></th></tr>
 
 <tr><td>Entering</td>
     <td>Fluid flow is only entering the port from the outside</td></tr>
@@ -273,8 +273,8 @@ distributed pipe models according to the staggered grid scheme:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>ModelStructure.</b></th>
-    <th><b>Meaning</b></th></tr>
+<tr><th><strong>ModelStructure.</strong></th>
+    <th><strong>Meaning</strong></th></tr>
 
 <tr><td>av_vb</td>
     <td>port_a - volume - flow model - volume - port_b</td></tr>

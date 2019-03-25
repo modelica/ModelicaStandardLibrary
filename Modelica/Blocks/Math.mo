@@ -20,10 +20,8 @@ package Math "Library of Real mathematical functions as input/output blocks"
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="K"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="degC")}), Documentation(info="<html>
 <p>
 This block converts the input signal from Kelvin to degCelsius and returns
@@ -40,10 +38,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="degC"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="K")}), Documentation(info="<html>
 <p>
 This block converts the input signal from degCelsius to Kelvin and returns
@@ -60,10 +56,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="K"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="degF")}), Documentation(info="<html>
 <p>
 This block converts the input signal from Kelvin to degFahrenheit and returns
@@ -80,10 +74,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="degF"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="K")}), Documentation(info="<html>
 <p>
 This block converts the input signal from degFahrenheit to Kelvin and returns
@@ -100,10 +92,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="K"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="degRk")}), Documentation(info="<html>
 <p>
 This block converts the input signal from Kelvin to degRankine and returns
@@ -120,10 +110,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="degRk"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="K")}), Documentation(info="<html>
 <p>
 This block converts the input signal from degRankine to Kelvin and returns
@@ -140,10 +128,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="rad"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="deg")}), Documentation(info="<html>
 <p>
 This block converts the input signal from radian to degree and returns
@@ -160,10 +146,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="deg"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="rad")}), Documentation(info="<html>
 <p>
 This block converts the input signal from degree to radian and returns
@@ -180,10 +164,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{26,82},{-98,50}},
-                  lineColor={0,0,0},
                   textString="rad/s"),Text(
                   extent={{100,-42},{-62,-74}},
-                  lineColor={0,0,0},
                   textString="rev/min")}), Documentation(info="<html>
 <p>
 This block converts the input signal from radian per second to revolutions per minute and returns
@@ -200,10 +182,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{50,84},{-94,56}},
-                  lineColor={0,0,0},
                   textString="rev/min"),Text(
                   extent={{94,-42},{-26,-74}},
-                  lineColor={0,0,0},
                   textString="rad/s")}), Documentation(info="<html>
 <p>
 This block converts the input signal from revolutions per minute to radian per second and returns
@@ -220,10 +200,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{0,82},{-96,42}},
-                  lineColor={0,0,0},
                   textString="m/s"),Text(
                   extent={{92,-40},{-14,-84}},
-                  lineColor={0,0,0},
                   textString="km/h")}), Documentation(info="<html>
 <p>
 This block converts the input signal from metre per second to kilometre per hour and returns
@@ -240,10 +218,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{26,80},{-96,48}},
-                  lineColor={0,0,0},
                   textString="km/h"),Text(
                   extent={{92,-46},{-20,-82}},
-                  lineColor={0,0,0},
                   textString="m/s")}), Documentation(info="<html>
 <p>
 This block converts the input signal from kilometre per hour to metre per second and returns
@@ -260,10 +236,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="s"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="day")}), Documentation(info="<html>
 <p>
 This block converts the input signal from second to day and returns
@@ -280,10 +254,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="day"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="s")}), Documentation(info="<html>
 <p>
 This block converts the input signal from day to second and returns
@@ -300,10 +272,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="s"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="hour")}), Documentation(info="<html>
 <p>
 This block converts the input signal from second to hour and returns
@@ -320,10 +290,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="hour"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="s")}), Documentation(info="<html>
 <p>
 This block converts the input signal from hour to second and returns
@@ -340,10 +308,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="s"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="minute")}), Documentation(info="<html>
 <p>
 This block converts the input signal from second to minute and returns
@@ -360,10 +326,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="minute"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="s")}), Documentation(info="<html>
 <p>
 This block converts the input signal from minute to second and returns
@@ -380,10 +344,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="m3"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="litre")}), Documentation(info="<html>
 <p>
 This block converts the input signal from metre to litre and returns
@@ -400,10 +362,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="litre"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="m3")}), Documentation(info="<html>
 <p>
 This block converts the input signal from litre to cubic metre and returns
@@ -420,10 +380,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="J"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="kW.h")}), Documentation(info="<html>
 <p>
 This block converts the input signal from Joule to kilo Watt hour and returns
@@ -440,10 +398,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="kW.h"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="J")}), Documentation(info="<html>
 <p>
 This block converts the input signal from kilo Watt hour to Joule and returns
@@ -460,10 +416,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="Pa"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="bar")}), Documentation(info="<html>
 <p>
 This block converts the input signal from Pascal to bar and returns
@@ -480,10 +434,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="bar"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="Pa")}), Documentation(info="<html>
 <p>
 This block converts the input signal from bar to Pascal and returns
@@ -500,10 +452,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="kg/s"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="g/s")}), Documentation(info="<html>
 <p>
 This block converts the input signal from kilogram per second to gram per seconds and returns
@@ -520,10 +470,8 @@ the result as output signal.
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
-                  lineColor={0,0,0},
                   textString="g/s"),Text(
                   extent={{100,-20},{20,-100}},
-                  lineColor={0,0,0},
                   textString="kg/s")}), Documentation(info="<html>
 <p>
 This block converts the input signal from gram per second to kilogram per second and returns
@@ -605,9 +553,9 @@ instances:
     annotation (
       Documentation(info="<html>
 <p>
-This block computes output <i>y</i> as
-<i>product</i> of gain <i>k</i> with the
-input <i>u</i>:
+This block computes output <em>y</em> as
+<em>product</em> of gain <em>k</em> with the
+input <em>u</em>:
 </p>
 <pre>
     y = k * u;
@@ -623,7 +571,6 @@ input <i>u</i>:
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-150,-140},{150,-100}},
-            lineColor={0,0,0},
             textString="k=%k"),
           Text(
             extent={{-150,140},{150,100}},
@@ -651,17 +598,17 @@ input <i>u</i>:
     annotation (
       Documentation(info="<html>
 <p>
-This blocks computes output vector <b>y</b> as <i>product</i> of the
-gain matrix <b>K</b> with the input signal vector <b>u</b>:
+This blocks computes output vector <strong>y</strong> as <em>product</em> of the
+gain matrix <strong>K</strong> with the input signal vector <strong>u</strong>:
 </p>
 <pre>
-    <b>y</b> = <b>K</b> * <b>u</b>;
+    <strong>y</strong> = <strong>K</strong> * <strong>u</strong>;
 </pre>
 <p>
 Example:
 </p>
 <pre>
-   parameter: <b>K</b> = [0.12 2; 3 1.5]
+   parameter: <strong>K</strong> = [0.12 2; 3 1.5]
 
    results in the following equations:
 
@@ -675,10 +622,7 @@ Example:
               100}}), graphics={Text(
             extent={{-90,-60},{90,60}},
             lineColor={160,160,164},
-            textString="*K"), Text(
-            extent={{-150,150},{150,110}},
-            textString="%name",
-            lineColor={0,0,255})}),
+            textString="*K")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
               extent={{-100,-100},{100,100}},
@@ -702,10 +646,8 @@ Example:
 
     annotation (Icon(graphics={Text(
             extent={{-200,-110},{200,-140}},
-            lineColor={0,0,0},
             textString="%k"), Text(
             extent={{-72,68},{92,-68}},
-            lineColor={0,0,0},
             textString="+")}), Documentation(info="<html>
 <p>
 This blocks computes the scalar Real output \"y\" as sum of the elements of the
@@ -747,7 +689,6 @@ the output is set to zero: y=0.
 
     annotation (Icon(graphics={Text(
             extent={{-74,50},{94,-94}},
-            lineColor={0,0,0},
             textString="*")}), Documentation(info="<html>
 <p>
 This blocks computes the scalar Real output \"y\" as product of the elements of the
@@ -812,24 +753,20 @@ the output is set to zero: y=0.
           Rectangle(
             extent={{-100,-51},{300,50}},
             lineThickness=5.0,
-            lineColor={0,0,0},
             fillColor={170,213,255},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised),
           Text(
             extent={{-86,16},{295,-17}},
-            lineColor={0,0,0},
             textString="%expr"),
           Text(
             extent={{310,-25},{410,-45}},
-            lineColor={0,0,0},
             textString=DynamicSelect(" ", String(
                   y,
                   minimumLength=1,
                   significantDigits=precision))),
           Text(
             extent={{-100,-60},{300,-90}},
-            lineColor={0,0,0},
             textString="else: %y_default"),
           Text(
             extent={{-100,100},{300,60}},
@@ -846,7 +783,7 @@ false, y is set to parameter \"y_default\".
 <blockquote><pre>
   // Conceptual equation (not valid Modelica)
   i = 'first element of u[:] that is true';
-  y = <b>if</b> i==0 <b>then</b> y_default <b>else</b> expr[i];
+  y = <strong>if</strong> i==0 <strong>then</strong> y_default <strong>else</strong> expr[i];
 </pre></blockquote>
 
 <p>
@@ -874,12 +811,12 @@ The usage is demonstrated, e.g., in example
       defaultComponentName="sum1",
       Documentation(info="<html>
 <p>
-This blocks computes output <b>y</b> as
-<i>sum</i> of the elements of the input signal vector
-<b>u</b>:
+This blocks computes output <strong>y</strong> as
+<em>sum</em> of the elements of the input signal vector
+<strong>u</strong>:
 </p>
 <pre>
-    <b>y</b> = <b>u</b>[1] + <b>u</b>[2] + ...;
+    <strong>y</strong> = <strong>u</strong>[1] + <strong>u</strong>[2] + ...;
 </pre>
 <p>
 Example:
@@ -895,10 +832,7 @@ Example:
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(
-            points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}}), Text(
-            extent={{-150,150},{150,110}},
-            textString="%name",
-            lineColor={0,0,255})}),
+            points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
               extent={{-100,-100},{100,100}},
@@ -924,12 +858,12 @@ Example:
     annotation (
       Documentation(info="<html>
 <p>
-This blocks computes output <b>y</b> as <i>difference</i> of the
-commanded input <b>u1</b> and the feedback
-input <b>u2</b>:
+This blocks computes output <strong>y</strong> as <em>difference</em> of the
+commanded input <strong>u1</strong> and the feedback
+input <strong>u2</strong>:
 </p>
 <pre>
-    <b>y</b> = <b>u1</b> - <b>u2</b>;
+    <strong>y</strong> = <strong>u1</strong> - <strong>u2</strong>;
 </pre>
 <p>
 Example:
@@ -964,30 +898,29 @@ Example:
               extent={{-20,20},{20,-20}},
               fillColor={235,235,235},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),Line(points={{-60,0},{-20,0}}, color={0,0,
-            255}),Line(points={{20,0},{80,0}}, color={0,0,255}),Line(points={{0,
+              lineColor={0,0,255}),Line(points={{-60,0},{-20,0}}, color={0,0,255}),
+            Line(points={{20,0},{80,0}}, color={0,0,255}),Line(points={{0,
             -20},{0,-60}}, color={0,0,255}),Text(
               extent={{-12,10},{84,-84}},
-              lineColor={0,0,0},
               textString="-")}));
   end Feedback;
 
   block Add "Output the sum of the two inputs"
     extends Interfaces.SI2SO;
 
-    parameter Real k1=+1 "Gain of upper input";
-    parameter Real k2=+1 "Gain of lower input";
+    parameter Real k1=+1 "Gain of input signal 1";
+    parameter Real k2=+1 "Gain of input signal 2";
 
   equation
     y = k1*u1 + k2*u2;
     annotation (
       Documentation(info="<html>
 <p>
-This blocks computes output <b>y</b> as <i>sum</i> of the
-two input signals <b>u1</b> and <b>u2</b>:
+This blocks computes output <strong>y</strong> as <em>sum</em> of the
+two input signals <strong>u1</strong> and <strong>u2</strong>:
 </p>
 <pre>
-    <b>y</b> = k1*<b>u1</b> + k2*<b>u2</b>;
+    <strong>y</strong> = k1*<strong>u1</strong> + k2*<strong>u2</strong>;
 </pre>
 <p>
 Example:
@@ -1004,15 +937,11 @@ Example:
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Text(
-            lineColor={0,0,255},
-            extent={{-150,110},{150,150}},
-            textString="%name"),
           Line(points={{-100,60},{-74,24},{-44,24}}, color={0,0,127}),
-          Line(points={{-100,-60},{-74,-28},{-42,-28}}, color={0,0,127}),
+          Line(points={{-100,-60},{-74,-24},{-44,-24}}, color={0,0,127}),
           Ellipse(lineColor={0,0,127}, extent={{-50,-50},{50,50}}),
           Line(points={{50,0},{100,0}}, color={0,0,127}),
-          Text(extent={{-38,-34},{38,34}}, textString="+"),
+          Text(extent={{-40,40},{40,-40}}, textString="+"),
           Text(extent={{-100,52},{5,92}}, textString="%k1"),
           Text(extent={{-100,-92},{5,-52}}, textString="%k2")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -1022,33 +951,30 @@ Example:
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Line(points={{50,0},{100,0}},
             color={0,0,255}),Line(points={{-100,60},{-74,24},{-44,24}}, color={
-            0,0,127}),Line(points={{-100,-60},{-74,-28},{-42,-28}}, color={0,0,
-            127}),Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}),Line(
+            0,0,127}),Line(points={{-100,-60},{-74,-24},{-44,-24}}, color={0,0,127}),
+            Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}),Line(
             points={{50,0},{100,0}}, color={0,0,127}),Text(
-              extent={{-36,38},{40,-30}},
-              lineColor={0,0,0},
+              extent={{-40,40},{40,-40}},
               textString="+"),Text(
               extent={{-100,52},{5,92}},
-              lineColor={0,0,0},
               textString="k1"),Text(
               extent={{-100,-52},{5,-92}},
-              lineColor={0,0,0},
               textString="k2")}));
   end Add;
 
   block Add3 "Output the sum of the three inputs"
     extends Modelica.Blocks.Icons.Block;
 
-    parameter Real k1=+1 "Gain of upper input";
-    parameter Real k2=+1 "Gain of middle input";
-    parameter Real k3=+1 "Gain of lower input";
-    Interfaces.RealInput u1 "Connector 1 of Real input signals" annotation (
+    parameter Real k1=+1 "Gain of input signal 1";
+    parameter Real k2=+1 "Gain of input signal 2";
+    parameter Real k3=+1 "Gain of input signal 3";
+    Interfaces.RealInput u1 "Connector of Real input signal 1" annotation (
         Placement(transformation(extent={{-140,60},{-100,100}})));
-    Interfaces.RealInput u2 "Connector 2 of Real input signals" annotation (
+    Interfaces.RealInput u2 "Connector of Real input signal 2" annotation (
         Placement(transformation(extent={{-140,-20},{-100,20}})));
-    Interfaces.RealInput u3 "Connector 3 of Real input signals" annotation (
+    Interfaces.RealInput u3 "Connector of Real input signal 3" annotation (
         Placement(transformation(extent={{-140,-100},{-100,-60}})));
-    Interfaces.RealOutput y "Connector of Real output signals" annotation (
+    Interfaces.RealOutput y "Connector of Real output signal" annotation (
         Placement(transformation(extent={{100,-10},{120,10}})));
 
   equation
@@ -1056,11 +982,11 @@ Example:
     annotation (
       Documentation(info="<html>
 <p>
-This blocks computes output <b>y</b> as <i>sum</i> of the
-three input signals <b>u1</b>, <b>u2</b> and <b>u3</b>:
+This blocks computes output <strong>y</strong> as <em>sum</em> of the
+three input signals <strong>u1</strong>, <strong>u2</strong> and <strong>u3</strong>:
 </p>
 <pre>
-    <b>y</b> = k1*<b>u1</b> + k2*<b>u2</b> + k3*<b>u3</b>;
+    <strong>y</strong> = k1*<strong>u1</strong> + k2*<strong>u2</strong> + k3*<strong>u3</strong>;
 </pre>
 <p>
 Example:
@@ -1078,19 +1004,15 @@ Example:
               100}}), graphics={
           Text(
             extent={{-100,50},{5,90}},
-            lineColor={0,0,0},
             textString="%k1"),
           Text(
             extent={{-100,-20},{5,20}},
-            lineColor={0,0,0},
             textString="%k2"),
           Text(
             extent={{-100,-50},{5,-90}},
-            lineColor={0,0,0},
             textString="%k3"),
           Text(
-            extent={{2,36},{100,-44}},
-            lineColor={0,0,0},
+            extent={{10,40},{90,-40}},
             textString="+")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
@@ -1099,16 +1021,12 @@ Example:
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Text(
               extent={{-100,50},{5,90}},
-              lineColor={0,0,0},
               textString="k1"),Text(
               extent={{-100,-20},{5,20}},
-              lineColor={0,0,0},
               textString="k2"),Text(
               extent={{-100,-50},{5,-90}},
-              lineColor={0,0,0},
               textString="k3"),Text(
-              extent={{2,46},{100,-34}},
-              lineColor={0,0,0},
+              extent={{10,40},{90,-40}},
               textString="+")}));
   end Add3;
 
@@ -1120,9 +1038,8 @@ Example:
     annotation (
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> (element-wise)
-as <i>product</i> of the corresponding elements of
-the two inputs <b>u1</b> and <b>u2</b>:
+This blocks computes the output <strong>y</strong>
+as <em>product</em> of the two inputs <strong>u1</strong> and <strong>u2</strong>:
 </p>
 <pre>
     y = u1 * u2;
@@ -1161,9 +1078,8 @@ the two inputs <b>u1</b> and <b>u2</b>:
     annotation (
       Documentation(info="<html>
 <p>
-This block computes the output <b>y</b> (element-wise)
-by <i>dividing</i> the corresponding elements of
-the two inputs <b>u1</b> and <b>u2</b>:
+This block computes the output <strong>y</strong>
+by <em>dividing</em> the two inputs <strong>u1</strong> and <strong>u2</strong>:
 </p>
 <pre>
     y = u1 / u2;
@@ -1173,17 +1089,19 @@ the two inputs <b>u1</b> and <b>u2</b>:
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
+          Line(points={{-100,60},{-60,60},{0,0}}, color={0,0,127}),
+          Line(points={{-100,-60},{-60,-60},{0,0}}, color={0,0,127}),
+          Ellipse(lineColor={0,0,127}, extent={{-50,-50},{50,50}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Line(points={{50,0},{100,0}}, color={0,0,127}),
           Line(points={{-30,0},{30,0}}),
           Ellipse(fillPattern=FillPattern.Solid, extent={{-5,20},{5,30}}),
           Ellipse(fillPattern=FillPattern.Solid, extent={{-5,-30},{5,-20}}),
-          Ellipse(lineColor={0,0,127}, extent={{-50,-50},{50,50}}),
           Text(
-            lineColor={0,0,255},
-            extent={{-150,110},{150,150}},
-            textString="%name"),
-          Line(points={{-100,60},{-66,60},{-40,30}}, color={0,0,127}),
-          Line(points={{-100,-60},{0,-60},{0,-50}}, color={0,0,127})}),
+            extent={{-60,90},{90,50}},
+            lineColor={128,128,128},
+            textString="u1 / u2")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
               extent={{-100,-100},{100,100}},
@@ -1193,15 +1111,11 @@ the two inputs <b>u1</b> and <b>u2</b>:
             color={0,0,255}),Line(points={{-30,0},{30,0}}),
             Ellipse(
               extent={{-5,20},{5,30}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),Ellipse(
               extent={{-5,-20},{5,-30}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),Ellipse(extent={{-50,50},{50,-50}},
-            lineColor={0,0,255}),Line(points={{-100,60},{-66,60},{-40,30}},
-            color={0,0,255}),Line(points={{-100,-60},{0,-60},{0,-50}}, color={0,
+            lineColor={0,0,255}),Line(points={{-100,60},{-40,60},{-30,40}},
+            color={0,0,255}),Line(points={{-100,-60},{-40,-60},{-30,-40}},color={0,
             0,255})}));
   end Division;
 
@@ -1235,8 +1149,8 @@ the two inputs <b>u1</b> and <b>u2</b>:
             textString="abs"),
           Line(points={{-88,0},{76,0}}, color={192,192,192})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-100,0},{76,0}}, color={192,
-            192,192}),Polygon(
+              100,100}}), graphics={Line(points={{-100,0},{76,0}}, color={192,192,192}),
+            Polygon(
               points={{92,0},{76,6},{76,-6},{92,0}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1268,11 +1182,11 @@ the two inputs <b>u1</b> and <b>u2</b>:
               lineColor={0,0,255})}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b>
-as <i>absolute value</i> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong>
+as <em>absolute value</em> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>abs</b>( u );
+    y = <strong>abs</strong>( u );
 </pre>
 <p>
 The Boolean parameter generateEvent decides whether Events are generated at zero crossing (Modelica specification before 3) or not.
@@ -1312,20 +1226,16 @@ The Boolean parameter generateEvent decides whether Events are generated at zero
           Line(points={{0,80},{80,80}}),
           Rectangle(
             extent={{-2,2},{2,-4}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-90,0},{68,0}}, color={192,
-            192,192}),Polygon(
+              100,100}}), graphics={Line(points={{-90,0},{68,0}}, color={192,192,192}),
+            Polygon(
               points={{90,0},{68,8},{68,-8},{90,0}},
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-80,-80},{0,-80}}),Line(points={{-0.01,0},{0.01,0}}),
             Line(points={{0,80},{80,80}}),Rectangle(
               extent={{-2,2},{2,-4}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),Polygon(
               points={{0,100},{-6,84},{6,84},{0,100}},
               lineColor={192,192,192},
@@ -1346,13 +1256,13 @@ The Boolean parameter generateEvent decides whether Events are generated at zero
               lineColor={0,0,255})}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b>
-as <b>sign</b> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong>
+as <strong>sign</strong> of the input <strong>u</strong>:
 </p>
 <pre>
-         1  <b>if</b> u &gt; 0
-    y =  0  <b>if</b> u == 0
-        -1  <b>if</b> u &lt; 0
+         1  <strong>if</strong> u &gt; 0
+    y =  0  <strong>if</strong> u == 0
+        -1  <strong>if</strong> u &lt; 0
 </pre>
 <p>
 The Boolean parameter generateEvent decides whether Events are generated at zero crossing (Modelica specification before 3) or not.
@@ -1413,14 +1323,14 @@ The Boolean parameter generateEvent decides whether Events are generated at zero
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b>
-as <i>square root</i> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong>
+as <em>square root</em> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>sqrt</b>( u );
+    y = <strong>sqrt</strong>( u );
 </pre>
 <p>
-All elements of the input vector shall be zero or positive.
+The input shall be zero or positive.
 Otherwise an error occurs.
 </p>
 
@@ -1428,7 +1338,7 @@ Otherwise an error occurs.
   end Sqrt;
 
   block Sin "Output the sine of the input"
-    extends Interfaces.SISO;
+    extends Interfaces.SISO(u(unit="rad"));
   equation
     y = Modelica.Math.sin(u);
     annotation (
@@ -1458,8 +1368,8 @@ Otherwise an error occurs.
             lineColor={192,192,192},
             textString="sin")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={192,
-            192,192}),Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
+              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={192,192,192}),
+            Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
             Line(points={{-80,-90},{-80,84}}, color={192,192,192}),Text(
               extent={{-75,98},{-46,78}},
               lineColor={160,160,164},
@@ -1491,11 +1401,11 @@ Otherwise an error occurs.
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b>
-as <b>sine</b> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong>
+as <strong>sine</strong> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>sin</b>( u );
+    y = <strong>sin</strong>( u );
 </pre>
 
 <p>
@@ -1507,7 +1417,7 @@ as <b>sine</b> of the input <b>u</b>:
   end Sin;
 
   block Cos "Output the cosine of the input"
-    extends Interfaces.SISO;
+    extends Interfaces.SISO(u(unit="rad"));
 
   equation
     y = Modelica.Math.cos(u);
@@ -1538,8 +1448,8 @@ as <b>sine</b> of the input <b>u</b>:
             lineColor={192,192,192},
             textString="cos")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={192,
-            192,192}),Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
+              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={192,192,192}),
+            Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
             Line(points={{-80,-90},{-80,84}}, color={192,192,192}),Text(
               extent={{-75,102},{-48,82}},
               lineColor={160,160,164},
@@ -1556,8 +1466,8 @@ as <b>sine</b> of the input <b>u</b>:
               lineColor={0,0,255}),Text(
               extent={{70,25},{90,5}},
               textString="2*pi",
-              lineColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={192,
-            192,192}),Polygon(
+              lineColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={192,192,192}),
+            Polygon(
               points={{100,0},{84,6},{84,-6},{100,0}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1565,18 +1475,18 @@ as <b>sine</b> of the input <b>u</b>:
             {-68.7,72.3},{-63.1,63},{-56.7,48.7},{-48.6,26.6},{-29.3,-32.5},{-22.1,
             -51.7},{-15.7,-65.3},{-10.1,-73.8},{-4.42,-78.8},{1.21,-79.9},{6.83,
             -77.1},{12.5,-70.6},{18.1,-60.6},{24.5,-45.7},{32.6,-23},{50.3,31.3},
-            {57.5,50.7},{63.9,64.6},{69.5,73.4},{75.2,78.6},{80,80}}, color={0,
-            0,0}),Text(
+            {57.5,50.7},{63.9,64.6},{69.5,73.4},{75.2,78.6},{80,80}}),
+            Text(
               extent={{74,-4},{98,-24}},
               lineColor={160,160,164},
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b>
-as <b>cos</b> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong>
+as <strong>cos</strong> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>cos</b>( u );
+    y = <strong>cos</strong>( u );
 </pre>
 
 <p>
@@ -1588,7 +1498,7 @@ as <b>cos</b> of the input <b>u</b>:
   end Cos;
 
   block Tan "Output the tangent of the input"
-    extends Interfaces.SISO;
+    extends Interfaces.SISO(u(unit="rad"));
 
   equation
     y = Modelica.Math.tan(u);
@@ -1618,8 +1528,8 @@ as <b>cos</b> of the input <b>u</b>:
             lineColor={192,192,192},
             textString="tan")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,
-            192,192}),Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
+              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
+            Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
             points={{0,-88},{0,86}}, color={192,192,192}),Text(
               extent={{11,100},{38,80}},
               lineColor={160,160,164},
@@ -1636,8 +1546,8 @@ as <b>cos</b> of the input <b>u</b>:
               lineColor={0,0,255}),Text(
               extent={{70,25},{90,5}},
               textString="1.4",
-              lineColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={192,
-            192,192}),Polygon(
+              lineColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={192,192,192}),
+            Polygon(
               points={{100,0},{84,6},{84,-6},{100,0}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1651,11 +1561,11 @@ as <b>cos</b> of the input <b>u</b>:
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b>
-as <b>tan</b> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong>
+as <strong>tan</strong> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>tan</b>( u );
+    y = <strong>tan</strong>( u );
 </pre>
 
 <p>
@@ -1667,7 +1577,7 @@ as <b>tan</b> of the input <b>u</b>:
   end Tan;
 
   block Asin "Output the arc sine of the input"
-    extends Interfaces.SISO;
+    extends Interfaces.SISO(y(unit="rad"));
 
   equation
     y = Modelica.Math.asin(u);
@@ -1696,8 +1606,8 @@ as <b>tan</b> of the input <b>u</b>:
             lineColor={192,192,192},
             textString="asin")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,
-            192,192}),Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
+              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
+            Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
             points={{0,-90},{0,84}}, color={192,192,192}),Text(
               extent={{9,102},{36,82}},
               lineColor={160,160,164},
@@ -1717,8 +1627,8 @@ as <b>tan</b> of the input <b>u</b>:
               lineColor={0,0,255}),Text(
               extent={{-90,21},{-70,1}},
               textString="-1",
-              lineColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={192,
-            192,192}),Polygon(
+              lineColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={192,192,192}),
+            Polygon(
               points={{100,0},{84,6},{84,-6},{100,0}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1730,15 +1640,15 @@ as <b>tan</b> of the input <b>u</b>:
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> as the
-<i>sine-inverse</i> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong> as the
+<em>sine-inverse</em> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>asin</b>( u );
+    y = <strong>asin</strong>( u );
 </pre>
 <p>
-The absolute values of the elements of the input <b>u</b> need to
-be less or equal to one (<b>abs</b>( u ) <= 1).
+The absolute value of the input <strong>u</strong> need to
+be less or equal to one (<strong>abs</strong>( u ) <= 1).
 Otherwise an error occurs.
 </p>
 
@@ -1751,7 +1661,7 @@ Otherwise an error occurs.
   end Asin;
 
   block Acos "Output the arc cosine of the input"
-    extends Interfaces.SISO;
+    extends Interfaces.SISO(y(unit="rad"));
   equation
     y = Modelica.Math.acos(u);
     annotation (
@@ -1779,8 +1689,8 @@ Otherwise an error occurs.
             lineColor={192,192,192},
             textString="acos")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,
-            192,192}),Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
+              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
+            Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
             points={{0,-90},{0,84}}, color={192,192,192}),Text(
               extent={{13,100},{42,82}},
               lineColor={160,160,164},
@@ -1811,15 +1721,15 @@ Otherwise an error occurs.
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> as the
-<i>cosine-inverse</i> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong> as the
+<em>cosine-inverse</em> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>acos</b>( u );
+    y = <strong>acos</strong>( u );
 </pre>
 <p>
-The absolute values of the elements of the input <b>u</b> need to
-be less or equal to one (<b>abs</b>( u ) <= 1).
+The absolute value of the input <strong>u</strong> need to
+be less or equal to one (<strong>abs</strong>( u ) <= 1).
 Otherwise an error occurs.
 </p>
 
@@ -1832,7 +1742,7 @@ Otherwise an error occurs.
   end Acos;
 
   block Atan "Output the arc tangent of the input"
-    extends Interfaces.SISO;
+    extends Interfaces.SISO(y(unit="rad"));
   equation
     y = Modelica.Math.atan(u);
     annotation (
@@ -1861,8 +1771,8 @@ Otherwise an error occurs.
             lineColor={192,192,192},
             textString="atan")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,
-            192,192}),Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
+              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
+            Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
             points={{0,-90},{0,84}}, color={192,192,192}),Text(
               extent={{13,102},{42,82}},
               lineColor={160,160,164},
@@ -1896,11 +1806,11 @@ Otherwise an error occurs.
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> as the
-<i>tangent-inverse</i> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong> as the
+<em>tangent-inverse</em> of the input <strong>u</strong>:
 </p>
 <pre>
-    y= <b>atan</b>( u );
+    y= <strong>atan</strong>( u );
 </pre>
 
 <p>
@@ -1912,16 +1822,12 @@ This blocks computes the output <b>y</b> as the
   end Atan;
 
   block Atan2 "Output atan(u1/u2) of the inputs u1 and u2"
-    extends Interfaces.SI2SO;
+    extends Interfaces.SI2SO(y(unit="rad"));
   equation
     y = Modelica.Math.atan2(u1, u2);
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Text(
-            extent={{-150,150},{150,110}},
-            textString="%name",
-            lineColor={0,0,255}),
           Polygon(
             points={{0,90},{-8,68},{8,68},{0,90}},
             lineColor={192,192,192},
@@ -1952,8 +1858,8 @@ This blocks computes the output <b>y</b> as the
             lineColor={192,192,192},
             textString="atan2")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,
-            192,192}),Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
+              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
+            Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
             points={{0,-90},{0,84}}, color={192,192,192}),Text(
               extent={{11,98},{42,78}},
               lineColor={160,160,164},
@@ -1980,8 +1886,8 @@ This blocks computes the output <b>y</b> as the
               lineColor={0,0,255}),Text(
               extent={{-30,49},{-10,30}},
               textString="pi/2",
-              lineColor={0,0,255}),Line(points={{0,40},{-8,40}}, color={192,192,
-            192}),Line(points={{0,-40},{-8,-40}}, color={192,192,192}),Text(
+              lineColor={0,0,255}),Line(points={{0,40},{-8,40}}, color={192,192,192}),
+            Line(points={{0,-40},{-8,-40}}, color={192,192,192}),Text(
               extent={{-30,-31},{-10,-50}},
               textString="-pi/2",
               lineColor={0,0,255}),Text(
@@ -1990,18 +1896,18 @@ This blocks computes the output <b>y</b> as the
               textString="u1 / u2")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> as the
-<i>tangent-inverse</i> of the input <b>u1</b> divided by
-input <b>u2</b>:
+This blocks computes the output <strong>y</strong> as the
+<em>tangent-inverse</em> of the input <strong>u1</strong> divided by
+input <strong>u2</strong>:
 </p>
 <pre>
-    y = <b>atan2</b>( u1, u2 );
+    y = <strong>atan2</strong>( u1, u2 );
 </pre>
 <p>
 u1 and u2 shall not be zero at the same time instant.
-<b>Atan2</b> uses the sign of u1 and u2 in order to construct
+<strong>Atan2</strong> uses the sign of u1 and u2 in order to construct
 the solution in the range -180 deg &le; y &le; 180 deg, whereas
-block <b>Atan</b> gives a solution in the range
+block <strong>Atan</strong> gives a solution in the range
 -90 deg &le; y &le; 90 deg.
 </p>
 
@@ -2044,8 +1950,8 @@ block <b>Atan</b> gives a solution in the range
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,
-            192,192}),Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
+              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
+            Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
             points={{0,-90},{0,84}}, color={192,192,192}),Text(
               extent={{9,98},{34,78}},
               lineColor={160,160,164},
@@ -2079,11 +1985,11 @@ block <b>Atan</b> gives a solution in the range
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> as the
-<i>hyperbolic sine</i> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong> as the
+<em>hyperbolic sine</em> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>sinh</b>( u );
+    y = <strong>sinh</strong>( u );
 </pre>
 
 <p>
@@ -2126,8 +2032,8 @@ This blocks computes the output <b>y</b> as the
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,
-            192,192}),Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
+              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
+            Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
             points={{0,-90},{0,84}}, color={192,192,192}),Text(
               extent={{11,98},{38,78}},
               lineColor={160,160,164},
@@ -2160,11 +2066,11 @@ This blocks computes the output <b>y</b> as the
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> as the
-<i>hyperbolic cosine</i> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong> as the
+<em>hyperbolic cosine</em> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>cosh</b>( u );
+    y = <strong>cosh</strong>( u );
 </pre>
 
 <p>
@@ -2205,8 +2111,8 @@ This blocks computes the output <b>y</b> as the
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,
-            192,192}),Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
+              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
+            Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
             points={{0,-90},{0,84}}, color={192,192,192}),Text(
               extent={{9,98},{42,80}},
               lineColor={160,160,164},
@@ -2241,11 +2147,11 @@ This blocks computes the output <b>y</b> as the
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> as the
-<i>hyperbolic tangent</i> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong> as the
+<em>hyperbolic tangent</em> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>tanh</b>( u );
+    y = <strong>tanh</strong>( u );
 </pre>
 
 <p>
@@ -2287,8 +2193,8 @@ This blocks computes the output <b>y</b> as the
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,
-            192,192}),Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
+              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
+            Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
             points={{0,-90},{0,84}}, color={192,192,192}),Text(
               extent={{9,100},{40,80}},
               lineColor={160,160,164},
@@ -2321,11 +2227,11 @@ This blocks computes the output <b>y</b> as the
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> as the
-<i>exponential</i> (of base e) of the input <b>u</b>:
+This blocks computes the output <strong>y</strong> as the
+<em>exponential</em> (of base e) of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>exp</b>( u );
+    y = <strong>exp</strong>( u );
 </pre>
 
 <p>
@@ -2336,12 +2242,87 @@ This blocks computes the output <b>y</b> as the
 </html>"));
   end Exp;
 
+  block Power "Output the power to a base of the input"
+    extends Interfaces.SISO;
+    parameter Real base = Modelica.Constants.e "Base of power" annotation(Evaluate=true);
+    parameter Boolean useExp = true "Use exp function in implementation" annotation(Evaluate=true);
+  equation
+    y = if useExp then Modelica.Math.exp(u*Modelica.Math.log(base)) else base ^ u;
+    annotation (
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+              100}}), graphics={
+          Line(points={{0,-80},{0,68}}, color={192,192,192}),
+          Polygon(
+            points={{0,90},{-8,68},{8,68},{0,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-86,50},{-14,2}},
+            lineColor={192,192,192},
+            textString="^"),
+          Line(points={{-80,-80},{-31,-77.9},{-6.03,-74},{10.9,-68.4},{23.7,-61},
+                {34.2,-51.6},{43,-40.3},{50.3,-27.8},{56.7,-13.5},{62.3,2.23},{
+                67.1,18.6},{72,38.2},{76,57.6},{80,80}}),
+          Line(
+            points={{-90,-80.3976},{68,-80.3976}},
+            color={192,192,192},
+            smooth=Smooth.Bezier),
+          Polygon(
+            points={{90,-80.3976},{68,-72.3976},{68,-88.3976},{90,-80.3976}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid)}),
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+              100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
+            Line(points={{0,-80},{-8,-80}}, color={192,192,192}),Line(
+            points={{0,-90},{0,84}}, color={192,192,192}),Text(
+              extent={{9,100},{40,80}},
+              lineColor={160,160,164},
+              textString="y"),Polygon(
+              points={{0,100},{-6,84},{6,84},{0,100}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),Line(points={{-100,-80.3976},{84,-80.3976}},
+            color={192,192,192}),Polygon(
+              points={{100,-80.3976},{84,-74.3976},{84,-86.3976},{100,-80.3976}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-31,-77.9},
+            {-6.03,-74},{10.9,-68.4},{23.7,-61},{34.2,-51.6},{43,-40.3},{50.3,-27.8},
+            {56.7,-13.5},{62.3,2.23},{67.1,18.6},{72,38.2},{76,57.6},{80,80}}),
+                                   Text(
+              extent={{66,-52},{96,-72}},
+              lineColor={160,160,164},
+              textString="u")}),
+      Documentation(info="<html>
+<p>
+This blocks computes the output <strong>y</strong> as the
+power to the parameter <em>base</em> of the input <strong>u</strong>.
+If the boolean parameter <strong>useExp</strong> is true, the output is determined by:
+</p>
+<pre>
+    y = <strong>exp</strong> ( u * <strong>log</strong> (base) )
+</pre>
+<p>
+otherwise:
+</p>
+<pre>
+    y = base <strong>^</strong> u;
+</pre>
+
+
+</html>"));
+  end Power;
+
   block Log
-    "Output the natural (base e) logarithm of the input (input > 0 required)"
+    "Output the logarithm (default base e) of the input (input > 0 required)"
 
     extends Interfaces.SISO;
+    parameter Real base = Modelica.Constants.e "Base of logarithm" annotation(Evaluate=true);
+
   equation
-    y = Modelica.Math.log(u);
+    y = Modelica.Math.log(u)/Modelica.Math.log(base);
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
@@ -2367,8 +2348,8 @@ This blocks computes the output <b>y</b> as the
             lineColor={192,192,192},
             textString="log")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={192,
-            192,192}),Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
+              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={192,192,192}),
+            Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
             Line(points={{-80,-90},{-80,84}}, color={192,192,192}),Text(
               extent={{-67,98},{-40,80}},
               lineColor={160,160,164},
@@ -2384,32 +2365,21 @@ This blocks computes the output <b>y</b> as the
               fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-79.2,-50.6},
             {-78.4,-37},{-77.6,-28},{-76.8,-21.3},{-75.2,-11.4},{-72.8,-1.31},{
             -69.5,8.08},{-64.7,17.9},{-57.5,28},{-47,38.1},{-31.8,48.1},{-10.1,
-            58},{22.1,68},{68.7,78.1},{80,80}}),Text(
-              extent={{-105,72},{-85,88}},
-              textString="3",
-              lineColor={0,0,255}),Text(
-              extent={{-109,-88},{-89,-72}},
-              textString="-3",
-              lineColor={0,0,255}),Text(
-              extent={{70,-3},{90,-23}},
-              textString="20",
-              lineColor={0,0,255}),Text(
-              extent={{-78,-1},{-58,-21}},
-              textString="1",
-              lineColor={0,0,255}),Text(
+            58},{22.1,68},{68.7,78.1},{80,80}}),
+                                   Text(
               extent={{68,28},{94,8}},
               lineColor={160,160,164},
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> as the
-<i>natural (base e) logarithm</i> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong> as the
+<em>logarithm</em> to the parameter <em>base</em> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>log</b>( u );
+    y = <strong>log</strong>( u ) / <strong>log</strong>( base );
 </pre>
 <p>
-An error occurs if the elements of the input <b>u</b> are
+An error occurs if the input <strong>u</strong> is
 zero or negative.
 </p>
 
@@ -2451,8 +2421,8 @@ zero or negative.
             lineColor={192,192,192},
             textString="log10")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={192,
-            192,192}),Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
+              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={192,192,192}),
+            Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
             Line(points={{-80,-90},{-80,84}}, color={192,192,192}),Text(
               extent={{-65,96},{-38,78}},
               lineColor={160,160,164},
@@ -2486,14 +2456,14 @@ zero or negative.
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> as the
-<i>base 10 logarithm</i> of the input <b>u</b>:
+This blocks computes the output <strong>y</strong> as the
+<em>base 10 logarithm</em> of the input <strong>u</strong>:
 </p>
 <pre>
-    y = <b>log10</b>( u );
+    y = <strong>log10</strong>( u );
 </pre>
 <p>
-An error occurs if the elements of the input <b>u</b> are
+An error occurs if the input <strong>u</strong> is
 zero or negative.
 </p>
 
@@ -2505,23 +2475,24 @@ zero or negative.
 </html>"));
   end Log10;
 
-  block WrapAngle "Wrap angle to interval ]-pi,pi]"
+  block WrapAngle "Wrap angle to interval ]-pi,pi] or [0,2*pi["
 
-    extends Interfaces.SISO;
+    extends Interfaces.SISO(u(unit="rad"), y(unit="rad"));
+    parameter Boolean positiveRange=false "Use only positive output range, if true";
+
   equation
-    y = Modelica.Math.wrapAngle(u);
+    y = Modelica.Math.wrapAngle(u,positiveRange);
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{-80,54},{-80,54},{-60,80},{-60,-80},{60,80},{60,-80},{
-                80,-52}},
-              color={0,0,0}),
+                80,-52}}),
           Polygon(
             points={{90,0},{68,8},{68,-8},{90,0}},
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-90,0},{68,0}},     color={192,192,192}),
+          Line(points={{-90,0},{68,0}}, color={192,192,192}),
           Line(points={{0,-80},{0,68}}, color={192,192,192}),
           Polygon(
             points={{0,90},{-8,68},{8,68},{0,90}},
@@ -2529,42 +2500,11 @@ zero or negative.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={192,
-            192,192}),Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
-            Line(points={{-80,-90},{-80,84}}, color={192,192,192}),Text(
-              extent={{-65,96},{-38,78}},
-              lineColor={160,160,164},
-              textString="y"),Polygon(
-              points={{-80,100},{-86,84},{-74,84},{-80,100}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),Line(points={{-100,0},{84,0}},
-            color={192,192,192}),Polygon(
-              points={{100,0},{84,6},{84,-6},{100,0}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),Line(points={{-79.8,-80},{-79.2,-50.6},
-            {-78.4,-37},{-77.6,-28},{-76.8,-21.3},{-75.2,-11.4},{-72.8,-1.31},{
-            -69.5,8.08},{-64.7,17.9},{-57.5,28},{-47,38.1},{-31.8,48.1},{-10.1,
-            58},{22.1,68},{68.7,78.1},{80,80}}),Text(
-              extent={{70,-3},{90,-23}},
-              textString="20",
-              lineColor={0,0,255}),Text(
-              extent={{-78,-1},{-58,-21}},
-              textString="1",
-              lineColor={0,0,255}),Text(
-              extent={{-109,72},{-89,88}},
-              textString=" 1.3",
-              lineColor={0,0,255}),Text(
-              extent={{-109,-88},{-89,-72}},
-              textString="-1.3",
-              lineColor={0,0,255}),Text(
-              extent={{62,30},{90,10}},
-              lineColor={160,160,164},
-              textString="u")}),
+              100,100}})),
       Documentation(info="<html>
 <p>
-This blocks wraps the input angle into the interval ]-pi,pi].
+This blocks wraps the input angle into the interval ]-pi,pi], if <code>positiveRange == false</code>.
+Otherwise the input angle <code>u</code> is wrapped to the interval [0,2*pi[.
 </p>
 
 </html>"));
@@ -2597,11 +2537,11 @@ This blocks wraps the input angle into the interval ]-pi,pi].
             points={{50.0,0.0},{30.0,20.0},{30.0,10.0},{0.0,10.0},{0.0,-10.0},{
                 30.0,-10.0},{30.0,-20.0},{50.0,0.0}})}), Documentation(info="<html>
 <p>
-This block computes the output <b>y</b>
-as <i>nearest integer value</i> of the input <b>u</b>:
+This block computes the output <strong>y</strong>
+as <em>nearest integer value</em> of the input <strong>u</strong>:
 </p>
-<pre>    y = <b>integer</b>( <b>floor</b>( u + 0.5 ) )  for  u &gt; 0;
-    y = <b>integer</b>( <b>ceil </b>( u - 0.5 ) )  for  u &lt; 0;
+<pre>    y = <strong>integer</strong>( <strong>floor</strong>( u + 0.5 ) )  for  u &gt; 0;
+    y = <strong>integer</strong>( <strong>ceil </strong>( u - 0.5 ) )  for  u &lt; 0;
 </pre>
 </html>"));
   end RealToInteger;
@@ -2632,12 +2572,12 @@ as <i>nearest integer value</i> of the input <b>u</b>:
             points={{10.0,0.0},{-10.0,20.0},{-10.0,10.0},{-40.0,10.0},{-40.0,-10.0},
                 {-10.0,-10.0},{-10.0,-20.0},{10.0,0.0}})}), Documentation(info="<html>
 <p>
-This block computes the output <b>y</b>
-as <i>Real equivalent</i> of the Integer input <b>u</b>:
+This block computes the output <strong>y</strong>
+as <em>Real equivalent</em> of the Integer input <strong>u</strong>:
 </p>
 <pre>    y = u;
 </pre>
-<p>where <b>u</b> is of Integer and <b>y</b> of Real type.</p>
+<p>where <strong>u</strong> is of Integer and <strong>y</strong> of Real type.</p>
 </html>"));
   end IntegerToReal;
 
@@ -2653,13 +2593,13 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
     y = if u then realTrue else realFalse;
     annotation (Documentation(info="<html>
 <p>
-This block computes the output <b>y</b>
-as <i>Real equivalent</i> of the Boolean input <b>u</b>:
+This block computes the output <strong>y</strong>
+as <em>Real equivalent</em> of the Boolean input <strong>u</strong>:
 </p>
-<pre>    y = <b>if</b> u <b>then</b> realTrue <b>else</b> realFalse;
+<pre>    y = <strong>if</strong> u <strong>then</strong> realTrue <strong>else</strong> realFalse;
 </pre>
-<p>where <b>u</b> is of Boolean and <b>y</b> of Real type,
-and <b>realTrue</b> and <b>realFalse</b> are parameters.
+<p>where <strong>u</strong> is of Boolean and <strong>y</strong> of Real type,
+and <strong>realTrue</strong> and <strong>realFalse</strong> are parameters.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
@@ -2691,13 +2631,13 @@ and <b>realTrue</b> and <b>realFalse</b> are parameters.
     y = if u then integerTrue else integerFalse;
     annotation (Documentation(info="<html>
 <p>
-This block computes the output <b>y</b>
-as <i>Integer equivalent</i> of the Boolean input <b>u</b>:
+This block computes the output <strong>y</strong>
+as <em>Integer equivalent</em> of the Boolean input <strong>u</strong>:
 </p>
-<pre>    y = <b>if</b> u <b>then</b> integerTrue <b>else</b> integerFalse;
+<pre>    y = <strong>if</strong> u <strong>then</strong> integerTrue <strong>else</strong> integerFalse;
 </pre>
-<p>where <b>u</b> is of Boolean and <b>y</b> of Integer type,
-and <b>integerTrue</b> and <b>integerFalse</b> are parameters.
+<p>where <strong>u</strong> is of Boolean and <strong>y</strong> of Integer type,
+and <strong>integerTrue</strong> and <strong>integerFalse</strong> are parameters.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
@@ -2729,15 +2669,15 @@ and <b>integerTrue</b> and <b>integerFalse</b> are parameters.
     y = u >= threshold;
     annotation (Documentation(info="<html>
 <p>
-This block computes the Boolean output <b>y</b>
-from the Real input <b>u</b> by the equation:
+This block computes the Boolean output <strong>y</strong>
+from the Real input <strong>u</strong> by the equation:
 </p>
 
 <pre>    y = u &ge; threshold;
 </pre>
 
 <p>
-where <b>threshold</b> is a parameter.
+where <strong>threshold</strong> is a parameter.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
@@ -2769,15 +2709,15 @@ where <b>threshold</b> is a parameter.
     y = u >= threshold;
     annotation (Documentation(info="<html>
 <p>
-This block computes the Boolean output <b>y</b>
-from the Integer input <b>u</b> by the equation:
+This block computes the Boolean output <strong>y</strong>
+from the Integer input <strong>u</strong> by the equation:
 </p>
 
 <pre>    y = u &ge; threshold;
 </pre>
 
 <p>
-where <b>threshold</b> is a parameter.
+where <strong>threshold</strong> is a parameter.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
@@ -2809,7 +2749,7 @@ where <b>threshold</b> is a parameter.
     Modelica.Blocks.Interfaces.RealOutput y_abs
       "Length of polar representation" annotation (Placement(transformation(
             extent={{100,50},{120,70}})));
-    Modelica.Blocks.Interfaces.RealOutput y_arg "Angle of polar representation"
+    Modelica.Blocks.Interfaces.RealOutput y_arg(unit="rad") "Angle of polar representation"
       annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
 
   equation
@@ -2818,19 +2758,15 @@ where <b>threshold</b> is a parameter.
     annotation (Icon(graphics={
           Text(
             extent={{-90,80},{-20,40}},
-            lineColor={0,0,0},
             textString="re"),
           Text(
             extent={{-90,-40},{-20,-80}},
-            lineColor={0,0,0},
             textString="im"),
           Text(
             extent={{20,80},{90,40}},
-            lineColor={0,0,0},
             textString="abs"),
           Text(
             extent={{20,-40},{90,-80}},
-            lineColor={0,0,0},
             textString="arg")}), Documentation(info="<html>
 <p>
 The input values of this block are the rectangular components
@@ -2851,7 +2787,7 @@ the angle <code>y_arg</code> of the polar representation of this phasor.
     extends Modelica.Blocks.Icons.Block;
     Modelica.Blocks.Interfaces.RealInput u_abs "Length of polar representation"
       annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
-    Modelica.Blocks.Interfaces.RealInput u_arg "Angle of polar representation"
+    Modelica.Blocks.Interfaces.RealInput u_arg(unit="rad") "Angle of polar representation"
       annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
     Modelica.Blocks.Interfaces.RealOutput y_re
       "Real part of rectangular representation" annotation (Placement(
@@ -2866,19 +2802,15 @@ the angle <code>y_arg</code> of the polar representation of this phasor.
     annotation (Icon(graphics={
           Text(
             extent={{-90,80},{-20,40}},
-            lineColor={0,0,0},
             textString="abs"),
           Text(
             extent={{-90,-40},{-20,-80}},
-            lineColor={0,0,0},
             textString="arg"),
           Text(
             extent={{20,80},{90,40}},
-            lineColor={0,0,0},
             textString="re"),
           Text(
             extent={{20,-40},{90,-80}},
-            lineColor={0,0,0},
             textString="im")}), Documentation(info="<html>
 <p>
 The input values of this block are the polar components <code>uabs</code> and <code>uarg</code> of a phasor.
@@ -2925,7 +2857,7 @@ Note: The output is updated after each period defined by 1/f.
 </p>
 
 <p>
-If parameter <b>yGreaterOrEqualZero</b> in the Advanced tab is <b>true</b> (default = <b>false</b>),
+If parameter <strong>yGreaterOrEqualZero</strong> in the Advanced tab is <strong>true</strong> (default = <strong>false</strong>),
 then the modeller provides the information that the mean of the input signal is guaranteed
 to be &ge; 0 for the exact solution. However, due to inaccuracies in the numerical integration scheme,
 the output might be slightly negative. If this parameter is set to true, then the output is
@@ -2933,10 +2865,8 @@ explicitly set to 0.0, if the mean value results in a negative value.
 </p>
 </html>"), Icon(graphics={Text(
             extent={{-80,60},{80,20}},
-            lineColor={0,0,0},
             textString="mean"), Text(
             extent={{-80,-20},{80,-60}},
-            lineColor={0,0,0},
             textString="f=%f")}));
   end Mean;
 
@@ -2950,14 +2880,11 @@ explicitly set to 0.0, if the mean value results in a negative value.
       annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
   equation
     connect(u, abs1.u) annotation (Line(
-        points={{-120,0},{-62,0}},
-        color={0,0,127}));
+        points={{-120,0},{-62,0}}, color={0,0,127}));
     connect(abs1.y, mean.u) annotation (Line(
-        points={{-39,0},{-2,0}},
-        color={0,0,127}));
+        points={{-39,0},{-2,0}}, color={0,0,127}));
     connect(mean.y, y) annotation (Line(
-        points={{21,0},{110,0}},
-        color={0,0,127}));
+        points={{21,0},{110,0}}, color={0,0,127}));
     annotation (Documentation(info="<html>
 <p>
 This block calculates the rectified mean of the input signal u over the given period 1/f, using the
@@ -2968,17 +2895,15 @@ Note: The output is updated after each period defined by 1/f.
 </p>
 </html>"), Icon(graphics={Text(
             extent={{-80,60},{80,20}},
-            lineColor={0,0,0},
             textString="RM"), Text(
             extent={{-80,-20},{80,-60}},
-            lineColor={0,0,0},
             textString="f=%f")}));
   end RectifiedMean;
 
   block ContinuousMean
     "Calculates the empirical expectation (mean) value of its input signal"
     extends Modelica.Blocks.Icons.Block;
-    parameter Modelica.SIunits.Time t_eps(min=0.0)=1e-7
+    parameter Modelica.SIunits.Time t_eps(min= 100*Modelica.Constants.eps)=1e-7
       "Mean value calculation starts at startTime + t_eps"
       annotation(Dialog(group="Advanced"));
 
@@ -3001,11 +2926,11 @@ Note: The output is updated after each period defined by 1/f.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -3022,17 +2947,17 @@ Note: The output is updated after each period defined by 1/f.
 y = ----------------------
       time - startTime</pre>
 </blockquote>
-<p>This can be used to determine the empirical expectation value of a random signal, such as generated by the <a href=\"Blocks.Noise\">Noise</a> blocks.</p>
+<p>This can be used to determine the empirical expectation value of a random signal, such as generated by the <a href=\"modelica://Modelica.Blocks.Noise\">Noise</a> blocks.</p>
 <p>The parameter t_eps is used to guard against division by zero (the mean value computation
-starts at startTime + t_eps and before that time instant y = u).</p>
-<p>See also the <a href=\"Modelica.Blocks.Math.Mean\">Mean</a> block for a sampled implementation.</p>
+starts at &lt;<em>simulation start time</em>&gt; + t_eps and before that time instant y = u).</p>
+<p>See also the <a href=\"modelica://Modelica.Blocks.Math.Mean\">Mean</a> block for a sampled implementation.</p>
 
 <p>
 This block is demonstrated in the examples
 <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.UniformNoiseProperties\">UniformNoiseProperties</a> and
 <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.NormalNoiseProperties\">NormalNoiseProperties</a>.
 </p>
-</html>"),                                   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
             preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
           graphics={
           Polygon(
@@ -3074,20 +2999,15 @@ This block is demonstrated in the examples
   equation
 
     connect(product.y, mean.u) annotation (Line(
-        points={{-18.3,0},{-2,0}},
-        color={0,0,127}));
+        points={{-18.3,0},{-2,0}}, color={0,0,127}));
     connect(mean.y, sqrt1.u) annotation (Line(
-        points={{21,0},{38,0}},
-        color={0,0,127}));
+        points={{21,0},{38,0}}, color={0,0,127}));
     connect(sqrt1.y, y) annotation (Line(
-        points={{61,0},{110,0}},
-        color={0,0,127}));
+        points={{61,0},{110,0}}, color={0,0,127}));
     connect(u, product.u[1]) annotation (Line(
-        points={{-120,0},{-60,0},{-60,3.5},{-40,3.5}},
-        color={0,0,127}));
+        points={{-120,0},{-60,0},{-60,3.5},{-40,3.5}}, color={0,0,127}));
     connect(u, product.u[2]) annotation (Line(
-        points={{-120,0},{-60,0},{-60,-3.5},{-40,-3.5}},
-        color={0,0,127}));
+        points={{-120,0},{-60,0},{-60,-3.5},{-40,-3.5}}, color={0,0,127}));
     annotation (Documentation(info="<html>
 <p>
 This block calculates the root mean square of the input signal u over the given period 1/f, using the
@@ -3098,16 +3018,14 @@ Note: The output is updated after each period defined by 1/f.
 </p>
 </html>"), Icon(graphics={Text(
             extent={{-80,60},{80,20}},
-            lineColor={0,0,0},
             textString="RMS"), Text(
             extent={{-80,-20},{80,-60}},
-            lineColor={0,0,0},
             textString="f=%f")}));
   end RootMeanSquare;
 
   block Variance "Calculates the empirical variance of its input signal"
     extends Modelica.Blocks.Icons.Block;
-    parameter Modelica.SIunits.Time t_eps(min=0.0)=1e-7
+    parameter Modelica.SIunits.Time t_eps(min=100*Modelica.Constants.eps)=1e-7
       "Variance calculation starts at startTime + t_eps"
       annotation(Dialog(group="Advanced"));
 
@@ -3131,11 +3049,11 @@ Note: The output is updated after each period defined by 1/f.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -3155,7 +3073,7 @@ This block calculates the empirical variance of its input signal. It is based on
 </blockquote>
 
 <p>The parameter t_eps is used to guard against division by zero (the variance computation
-starts at startTime + t_eps and before that time instant y = 0).</p>
+starts at &lt;<em>simulation start time</em>&gt; + t_eps and before that time instant y = 0).</p>
 <p>The variance of a signal is also equal to its mean power.</p>
 
 <p>
@@ -3192,15 +3110,13 @@ This block is demonstrated in the examples
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{-16,66},{-24,44},{-8,44},{-16,66}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}));
   end Variance;
 
   block StandardDeviation
     "Calculates the empirical standard deviation of its input signal"
     extends Modelica.Blocks.Icons.Block;
-    parameter Modelica.SIunits.Time t_eps(min=0.0)=1e-7
+    parameter Modelica.SIunits.Time t_eps(min=100*Modelica.Constants.eps)=1e-7
       "Standard deviation calculation starts at startTime + t_eps"
       annotation(Dialog(group="Advanced"));
 
@@ -3215,23 +3131,20 @@ This block is demonstrated in the examples
       annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
   equation
     connect(variance.u, u) annotation (Line(
-        points={{-62,0},{-120,0}},
-        color={0,0,127}));
+        points={{-62,0},{-120,0}}, color={0,0,127}));
     connect(sqrt1.u, variance.y) annotation (Line(
-        points={{-22,0},{-39,0}},
-        color={0,0,127}));
+        points={{-22,0},{-39,0}}, color={0,0,127}));
     connect(sqrt1.y, y) annotation (Line(
-        points={{1,0},{110,0}},
-        color={0,0,127}));
+        points={{1,0},{110,0}}, color={0,0,127}));
     annotation (Documentation(revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -3242,7 +3155,7 @@ This block is demonstrated in the examples
 
 </table>
 </html>",                                   info="<html>
-<p>This block calculates the standard deviation of its input signal. The standard deviation is the square root of the signal&apos;s variance:</p>
+<p>This block calculates the standard deviation of its input signal. The standard deviation is the square root of the signal&#39;s variance:</p>
 <blockquote>
 <pre>y = sqrt( variance(u) )</pre>
 </blockquote>
@@ -3251,7 +3164,7 @@ The <a href=\"modelica://Modelica.Blocks.Math.Variance\">Variance</a> block is u
 calculate variance(u).
 </p>
 <p>The parameter t_eps is used to guard against division by zero (the computation of the standard deviation
-starts at startTime + t_eps and before that time instant y = 0).
+starts at &lt;<em>simulation start time</em>&gt; + t_eps and before that time instant y = 0).
 </p>
 
 <p>
@@ -3287,8 +3200,6 @@ This block is demonstrated in the examples
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{-16,46},{-24,24},{-8,24},{-16,46}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}));
   end StandardDeviation;
 
@@ -3304,7 +3215,7 @@ This block is demonstrated in the examples
     Sources.Cosine      sin1(
       final amplitude=sqrt(2),
       final freqHz=k*f,
-      final phase=0)    annotation (Placement(transformation(
+      final phase=0) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={-80,70})));
@@ -3328,79 +3239,171 @@ This block is demonstrated in the examples
     Blocks.Interfaces.RealOutput y_rms
       "Root mean square of polar representation" annotation (Placement(
           transformation(extent={{100,50},{120,70}})));
-    Blocks.Interfaces.RealOutput y_arg "Angle of polar representation"
+    Blocks.Interfaces.RealOutput y_arg(unit="rad") "Angle of polar representation"
       annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
     Blocks.Math.RectangularToPolar rectangularToPolar
       annotation (Placement(transformation(extent={{40,-12},{60,8}})));
-    Gain                      gain(final k=if useConjugateComplex then -1
-           else 1) annotation (Placement(transformation(
+    Gain gain(final k=if useConjugateComplex then -1 else 1) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={80,-30})));
   equation
 
     connect(product2.y, mean2.u) annotation (Line(
-        points={{-38.3,-40},{-22,-40}},
-        color={0,0,127}));
+        points={{-38.3,-40},{-22,-40}}, color={0,0,127}));
     connect(product1.y, mean1.u) annotation (Line(
-        points={{-38.3,40},{-22,40}},
-        color={0,0,127}));
+        points={{-38.3,40},{-22,40}}, color={0,0,127}));
     connect(mean1.y, rectangularToPolar.u_re) annotation (Line(
-        points={{1,40},{20,40},{20,4},{38,4}},
-        color={0,0,127}));
+        points={{1,40},{20,40},{20,4},{38,4}}, color={0,0,127}));
     connect(mean2.y, rectangularToPolar.u_im) annotation (Line(
-        points={{1,-40},{20,-40},{20,-8},{38,-8}},
-        color={0,0,127}));
+        points={{1,-40},{20,-40},{20,-8},{38,-8}}, color={0,0,127}));
     connect(rectangularToPolar.y_abs, y_rms) annotation (Line(
-        points={{61,4},{80,4},{80,60},{110,60}},
-        color={0,0,127}));
+        points={{61,4},{80,4},{80,60},{110,60}}, color={0,0,127}));
     connect(sin1.y, product1.u[1]) annotation (Line(
-        points={{-80,59},{-80,59},{-80,43.5},{-60,43.5}},
-        color={0,0,127}));
+        points={{-80,59},{-80,59},{-80,43.5},{-60,43.5}}, color={0,0,127}));
     connect(u, product1.u[2]) annotation (Line(
-        points={{-120,0},{-80,0},{-80,36.5},{-60,36.5}},
-        color={0,0,127}));
+        points={{-120,0},{-80,0},{-80,36.5},{-60,36.5}}, color={0,0,127}));
     connect(u, product2.u[1]) annotation (Line(
-        points={{-120,0},{-80,0},{-80,-36.5},{-60,-36.5}},
-        color={0,0,127}));
+        points={{-120,0},{-80,0},{-80,-36.5},{-60,-36.5}}, color={0,0,127}));
     connect(sin2.y, product2.u[2]) annotation (Line(
-        points={{-80,-59},{-80,-43.5},{-60,-43.5}},
-        color={0,0,127}));
+        points={{-80,-59},{-80,-43.5},{-60,-43.5}}, color={0,0,127}));
     connect(rectangularToPolar.y_arg, gain.u)
       annotation (Line(points={{61,-8},{80,-8},{80,-18}}, color={0,0,127}));
     connect(gain.y, y_arg)
       annotation (Line(points={{80,-41},{80,-60},{110,-60}}, color={0,0,127}));
     annotation (Documentation(info="<html>
 <p>
-This block calculates the root mean square and the phase angle of a single harmonic <i>k</i> of the input signal u over the given period 1/f, using the
+This block calculates the root mean square and the phase angle of a single harmonic <em>k</em> of the input signal u over the given period 1/f, using the
 <a href=\"modelica://Modelica.Blocks.Math.Mean\">mean block</a>.
 </p>
 <p>
 Note: The output is updated after each period defined by 1/f.
 </p>
 <p>
-Note: <br>
+Note:<br>
 The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t - arg)</code> if useConjugateComplex=false (default)<br>
 The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if useConjugateComplex=true
 </p>
 </html>"), Icon(graphics={
           Text(
             extent={{-80,60},{80,20}},
-            lineColor={0,0,0},
             textString="H%k"),
           Text(
             extent={{-80,-20},{80,-60}},
-            lineColor={0,0,0},
             textString="f=%f"),
           Text(
             extent={{20,100},{100,60}},
-            lineColor={0,0,0},
             textString="rms"),
           Text(
             extent={{20,-60},{100,-100}},
-            lineColor={0,0,0},
             textString="arg")}));
   end Harmonic;
+
+  block TotalHarmonicDistortion "Output the total harmonic distortion (THD)"
+    extends Interfaces.SISO;
+    parameter Modelica.SIunits.Frequency f(start=1) "Base frequency";
+    parameter Boolean useFirstHarmonic = true "THD with respect to first harmonic, if true; otherwise with respect to total RMS";
+
+    Harmonic harmonic(
+      final f=f,
+      final k=1,
+      final x0Cos=0,
+      final x0Sin=0) annotation (Placement(transformation(extent={{-70,-62},{-50,-42}})));
+    RootMeanSquare rootMeanSquare(final f=f, final x0=0) annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
+    Logical.GreaterThreshold greaterThreshold annotation (Placement(transformation(extent={{10,-70},{30,-50}})));
+    Interfaces.BooleanOutput valid "True, if output y is valid" annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
+    Division division annotation (Placement(transformation(extent={{60,-10},{80,10}})));
+    Nonlinear.Limiter limiter(uMin=Modelica.Constants.eps, uMax=Modelica.Constants.inf) annotation (Placement(transformation(extent={{10,-30},{30,-10}})));
+    Pythagoras pythagoras(u1IsHypotenuse=true) annotation (Placement(transformation(extent={{10,0},{30,20}})));
+    Logical.And andValid annotation (Placement(transformation(extent={{60,-50},{80,-30}})));
+    Sources.BooleanExpression booleanExpression(final y=not useFirstHarmonic) annotation (Placement(transformation(extent={{-70,-30},{-50,-10}})));
+    Logical.Switch switch1 annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
+  equation
+    connect(u, rootMeanSquare.u) annotation (Line(points={{-120,0},{-90,0},{-90,30},{-72,30}}, color={0,0,127}));
+    connect(u, harmonic.u) annotation (Line(points={{-120,0},{-90,0},{-90,-52},{-72,-52}}, color={0,0,127}));
+    connect(harmonic.y_rms, greaterThreshold.u) annotation (Line(points={{-49,-46},{-40,-46},{-40,-60},{8,-60}},  color={0,0,127}));
+    connect(division.y, y) annotation (Line(points={{81,0},{110,0}}, color={0,0,127}));
+    connect(pythagoras.u1, rootMeanSquare.y) annotation (Line(points={{8,16},{-30,16},{-30,30},{-49,30}},  color={0,0,127}));
+    connect(pythagoras.y, division.u1) annotation (Line(points={{31,10},{50,10},{50,6},{58,6}}, color={0,0,127}));
+    connect(pythagoras.valid, andValid.u1) annotation (Line(points={{31,4},{40,4},{40,-40},{58,-40}}, color={255,0,255}));
+    connect(greaterThreshold.y, andValid.u2) annotation (Line(points={{31,-60},{40,-60},{40,-48},{58,-48}}, color={255,0,255}));
+    connect(andValid.y, valid) annotation (Line(points={{81,-40},{90,-40},{90,-60},{110,-60}}, color={255,0,255}));
+    connect(limiter.y, division.u2) annotation (Line(points={{31,-20},{50,-20},{50,-6},{58,-6}}, color={0,0,127}));
+    connect(harmonic.y_rms, pythagoras.u2) annotation (Line(points={{-49,-46},{-40,-46},{-40,4},{8,4}},  color={0,0,127}));
+    connect(switch1.u1, rootMeanSquare.y) annotation (Line(points={{-22,-12},{-30,-12},{-30,30},{-49,30}}, color={0,0,127}));
+    connect(harmonic.y_rms, switch1.u3) annotation (Line(points={{-49,-46},{-40,-46},{-40,-28},{-22,-28}}, color={0,0,127}));
+    connect(booleanExpression.y, switch1.u2) annotation (Line(points={{-49,-20},{-22,-20}}, color={255,0,255}));
+    connect(switch1.y, limiter.u) annotation (Line(points={{1,-20},{8,-20}}, color={0,0,127}));
+    annotation (defaultComponentName="thd",
+      Icon(coordinateSystem(grid={2,2}), graphics={
+          Line(points={{-80,-80},{-80,68}}, color={192,192,192}),
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,0},{68,0}}, color={192,192,192}),
+          Polygon(
+            points={{90,0},{68,8},{68,-8},{90,0}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Polygon(
+            points={{-80,0},{-69,34},{-62,53},{-55,68},{-50,75},{-44,79},{-38,80},{-32,76},{-27,70},{-21,59},{-15,44},{-7,21},{10,-31},{17,-50},{24,-64},{29,-73},{35,-78},{41,-81},{46,-78},{52,-71},{57,-62},{64,-47},{72,-25},{80,0},{72,-53},{59,-37},{46,-95},{34,-53},{22,-81},{10,-10},{-3,-27},{-13,63},{-26,46},{-26,48},{-38,94},{-51,49},{-59,80},{-65,18},{-75,38},{-80,0}},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{2,80},{82,20}},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid,
+            textString="1",
+            visible=useFirstHarmonic),
+          Text(
+            extent={{2,80},{82,20}},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid,
+            textString="rms",
+            visible=not useFirstHarmonic),
+          Text(
+            extent={{-150,-110},{150,-150}},
+            textString="f=%f")}), Diagram(coordinateSystem(grid={2,2})),
+      Documentation(info="<html>
+<p>This block determines the total harmonic distortion (THD) over the given period <code>1/f</code>.
+Consider that the input <code>u</code> consists of harmonic RMS components
+<code>U<sub>1</sub></code>, <code>U<sub>2</sub></code>, <code>U<sub>3</sub></code>, etc.
+The total RMS component is then determined by:</p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Math/Urms.png\">
+</p>
+
+<p>
+The calculation of the total harmonic distortion is based on the parameter <code>useFirstHarmonic</code>.
+The default value <code>useFirstHarmonic = true</code> represents the <strong>standard</strong> THD calculation used in
+<a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=551-20-13\">electrical engineering</a>.
+The non-default value <code>useFirstHarmonic = false</code>
+calculates the THD typically used for the assessment of audio signals.
+</p>
+
+<p>
+If <code>useFirstHarmonic = true</code>, the total higher harmonic content (harmonic order numbers &gt; 1)
+refers to the RMS value of the fundamental wave:<br>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Math/THD1.png\">
+</p>
+
+<p>
+If <code>useFirstHarmonic = false</code>, the total higher harmonic content (harmonic order numbers &gt; 1)
+refers to the total RMS:<br>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Math/THDrms.png\">
+</p>
+
+<p>
+In case of a zero input signal or within the first period of calculation, the boolean output signal
+<code>valid</code> becomes <code>false</code> to indicate that the calculation result is not valid. Valid
+calculations are indicated by <code>valid = true</code>.
+</p>
+</html>"));
+  end TotalHarmonicDistortion;
 
   block RealFFT "Sampling and FFT of input u"
     extends Modelica.Blocks.Interfaces.DiscreteBlock(final samplePeriod=1/(2*f_res*div(ns, 2)));
@@ -3414,9 +3417,9 @@ The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if 
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}}),iconTransformation(extent={{-140,
               -20},{-100,20}})));
   protected
-    Real buf[ns](start=zeros(ns), fixed=true) "Input buffer";
-    Real abs[nf](start=zeros(nf), fixed=true) "FFT amplitudes";
-    Real arg[nf](start=zeros(nf), fixed=true) "FFT phases";
+    Real buf[ns](start=zeros(ns), each fixed=true) "Input buffer";
+    Real abs[nf](start=zeros(nf), each fixed=true) "FFT amplitudes";
+    Real arg[nf](start=zeros(nf), each fixed=true) "FFT phases";
     Integer iTick(start=0, fixed=true) "Sample ticks";
   algorithm
     when {sampleTrigger} then
@@ -3434,7 +3437,7 @@ The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if 
         Modelica.Math.FastFourierTransform.realFFTwriteToFile(startTime + (ns - 1)*samplePeriod, resultFileName, f_max, abs, arg);
       end if;
     end when;
-    annotation (                                 Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>
 This block samples the input signal, calculates the Fast Fourier Transform by function <a href=\"modelica://Modelica.Math.FastFourierTransform.realFFT\">Math.realFFT</a>,
 and (when simulation terminates) writes the output to result file resultFileName by function <a href=\"modelica://Modelica.Math.FastFourierTransform.realFFTwriteToFile\">Math.realFFTwriteToFile</a>.
@@ -3450,8 +3453,96 @@ The user has to take care that enough points can be sampled before the simulatio
 The result file is written as mat, first column = frequency, second column = amplitudes, third column = phases. The frequency points are separated by rows with amplitude and phase = 0,
 so one can plot the result directly as frequency lines.
 </p>
-</html>"));
+</html>"), Icon(graphics={    Polygon(
+              points={{-80,96},{-86,80},{-74,80},{-80,96}},
+              lineColor={135,135,135},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),                    Line(
+            points={{-80,-92},{-80,80}},
+                                     color={135,135,135}),
+                                             Line(points={{-92,-80},{80,
+                -80.3976}},
+            color={135,135,135}),Polygon(
+              points={{96,-80.3976},{80,-74.3976},{80,-86.3976},{96,-80.3976}},
+              lineColor={135,135,135},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+          Line(
+            points={{-70,60},{-70,-80}},
+            thickness=0.5),
+          Line(
+            points={{-30,-52},{-30,-80}},
+            thickness=0.5),
+          Line(
+            points={{-10,-60},{-10,-80}},
+            thickness=0.5),
+          Line(
+            points={{30,-68},{30,-80}},
+            thickness=0.5),
+          Line(
+            points={{50,-70},{50,-80}},
+            thickness=0.5)}));
   end RealFFT;
+
+  block Pythagoras "Determines the hypotenuse or leg of a right triangle"
+    extends Interfaces.SI2SO;
+    parameter Boolean u1IsHypotenuse = false "If true, u1 is the hypotenuse and y is one leg";
+    Interfaces.BooleanOutput valid  "Is true, if y is a valid result" annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
+  protected
+    Real y2 "Square of y";
+  equation
+    if not u1IsHypotenuse then
+      y2 = u1^2+u2^2;
+      y = sqrt(y2);
+      valid = true;
+    else
+      y2 = u1^2-u2^2;
+      if y2>=0 then
+        y=sqrt(y2);
+        valid = true;
+      else
+        y=0;
+        valid = false;
+      end if;
+    end if;
+
+    annotation (Icon(graphics={
+          Polygon(
+            points={{34,-80},{34,80},{-36,-40},{34,-80}},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(
+            points={{-100,60},{22,60}},
+            pattern=LinePattern.Dash),
+          Line(
+            points={{34,0},{100,0}},
+            pattern=LinePattern.Dash),
+          Line(
+            points={{-100,-60},{0,-60}},
+            pattern=LinePattern.Dash),
+          Line(
+            visible=u1IsHypotenuse,
+            points={{22,60},{34,60}},
+            pattern=LinePattern.Dash),
+          Line(
+            visible=u1IsHypotenuse,
+            points={{-12,0},{34,0}},
+            pattern=LinePattern.Dash)}), Documentation(info="<html>
+<p>This block determines the hypotenuse <code>y = sqrt(u1^2 + u2^2)</code>
+if the boolean parameter <code>u1IsHyotenuse = false</code>.
+In this case the two inputs <code>u1</code> and
+<code>u2</code> are interpreted as the legs of a right triangle
+and the boolean output <code>valid</code> is always equal to
+<code>true</code>. </p>
+
+<p>If <code>u1IsHyotenuse = true</code>, input <code>u1</code> is interpreted as hypotenuse and <code>u2</code>
+is one of the two legs of a right triangle.
+Then, the other of the two legs of the right triangle is the output, determined by
+ <code>y = sqrt(u1^2 - u2^2)</code>, if <code>u1^2 - u2^2 &ge; 0</code>; in this case the
+boolean output <code>valid</code> is equal to <code>true</code>. In case of <code>u1^2 - u2^2 &lt; 0</code>, the
+output <code>y = 0</code> and <code>valid</code> is set to <code>false</code>.</p>
+</html>"));
+  end Pythagoras;
 
   block Max "Pass through the largest signal"
     extends Interfaces.SI2SO;
@@ -3463,10 +3554,10 @@ so one can plot the result directly as frequency lines.
             lineColor={160,160,164},
             textString="max()")}), Documentation(info="<html>
 <p>
-This block computes the output <b>y</b> as <i>maximum</i>
-of the two Real inputs <b>u1</b> and <b>u2</b>:
+This block computes the output <strong>y</strong> as <em>maximum</em>
+of the two Real inputs <strong>u1</strong> and <strong>u2</strong>:
 </p>
-<pre>    y = <b>max</b> ( u1 , u2 );
+<pre>    y = <strong>max</strong> ( u1 , u2 );
 </pre>
 </html>"));
   end Max;
@@ -3481,10 +3572,10 @@ of the two Real inputs <b>u1</b> and <b>u2</b>:
             lineColor={160,160,164},
             textString="min()")}), Documentation(info="<html>
 <p>
-This block computes the output <b>y</b> as <i>minimum</i> of
-the two Real inputs <b>u1</b> and <b>u2</b>:
+This block computes the output <strong>y</strong> as <em>minimum</em> of
+the two Real inputs <strong>u1</strong> and <strong>u2</strong>:
 </p>
-<pre>    y = <b>min</b> ( u1 , u2 );
+<pre>    y = <strong>min</strong> ( u1 , u2 );
 </pre>
 </html>"));
   end Min;
@@ -3506,10 +3597,8 @@ the two Real inputs <b>u1</b> and <b>u2</b>:
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={Text(
             extent={{-12,80},{100,40}},
-            lineColor={0,0,0},
             textString="yMax"), Text(
             extent={{-10,-40},{100,-80}},
-            lineColor={0,0,0},
             textString="yMin")}), Documentation(info="<html>
 <p>
 Determines the minimum and maximum element of the input vector and
@@ -3532,19 +3621,16 @@ provide both values as output.
             color={0,0,127}),
           Text(
             extent={{-14,88},{94,32}},
-            lineColor={0,0,0},
             textString="%k1"),
           Text(
             extent={{-40,-48},{96,-96}},
-            lineColor={0,0,0},
             textString="%k2"),
           Text(
             extent={{-94,26},{8,-30}},
-            lineColor={0,0,0},
             textString="%y0")}), Documentation(info="<html>
-<p>Determine the linear combination of the two inputs: <code>y = y0*(1 + k1*u1 + k2*u2)</code> </p>
-<p><b>Note</b>, for y0=0 the output is always zero. </p>
-<p>To improve the implementation, the formula will be changed (non-backwards compatible) in the future: <code>y = y0 + k1*u1 + k2*u2</code> </p>
+<p>Determine the linear combination of the two inputs: <code>y = y0*(1 + k1*u1 + k2*u2)</code></p>
+<p><strong>Note</strong>, for y0=0 the output is always zero.</p>
+<p>To improve the implementation, the formula will be changed (non-backwards compatible) in the future: <code>y = y0 + k1*u1 + k2*u2</code></p>
 </html>"));
   end LinearDependency;
 
@@ -3558,10 +3644,10 @@ provide both values as output.
             lineColor={160,160,164},
             textString="edge()")}), Documentation(info="<html>
 <p>
-This block sets the Boolean output <b>y</b> to true,
-when the Boolean input <b>u</b> shows a <i>rising edge</i>:
+This block sets the Boolean output <strong>y</strong> to true,
+when the Boolean input <strong>u</strong> shows a <em>rising edge</em>:
 </p>
-<pre>    y = <b>edge</b>( u );
+<pre>    y = <strong>edge</strong>( u );
 </pre>
 </html>"));
   end Edge;
@@ -3576,11 +3662,11 @@ when the Boolean input <b>u</b> shows a <i>rising edge</i>:
             lineColor={160,160,164},
             textString="change()")}), Documentation(info="<html>
 <p>
-This block sets the Boolean output <b>y</b> to true, when the
-Boolean input <b>u</b> shows a <i>rising or falling edge</i>,
+This block sets the Boolean output <strong>y</strong> to true, when the
+Boolean input <strong>u</strong> shows a <em>rising or falling edge</em>,
 i.e., when the signal changes:
 </p>
-<pre>    y = <b>change</b>( u );
+<pre>    y = <strong>change</strong>( u );
 </pre>
 </html>"));
   end BooleanChange;
@@ -3595,31 +3681,31 @@ i.e., when the signal changes:
             lineColor={160,160,164},
             textString="change()")}), Documentation(info="<html>
 <p>
-This block sets the Boolean output <b>y</b> to true, when the
-Integer input <b>u</b> changes:
+This block sets the Boolean output <strong>y</strong> to true, when the
+Integer input <strong>u</strong> changes:
 </p>
-<pre>    y = <b>change</b>( u );
+<pre>    y = <strong>change</strong>( u );
 </pre>
 </html>"));
   end IntegerChange;
 
   annotation (Documentation(info="<html>
 <p>
-This package contains basic <b>mathematical operations</b>,
-such as summation and multiplication, and basic <b>mathematical
-functions</b>, such as <b>sqrt</b> and <b>sin</b>, as
+This package contains basic <strong>mathematical operations</strong>,
+such as summation and multiplication, and basic <strong>mathematical
+functions</strong>, such as <strong>sqrt</strong> and <strong>sin</strong>, as
 input/output blocks. All blocks of this library can be either
 connected with continuous blocks or with sampled-data blocks.
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>August 24, 2016</i>
+<li><em>August 24, 2016</em>
        by Christian Kral: added WrapAngle</li>
-<li><i>October 21, 2002</i>
+<li><em>October 21, 2002</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
        and Christian Schweiger:<br>
        New blocks added: RealToInteger, IntegerToReal, Max, Min, Edge, BooleanChange, IntegerChange.</li>
-<li><i>August 7, 1999</i>
+<li><em>August 7, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Realized (partly based on an existing Dymola library
        of Dieter Moormann and Hilding Elmqvist).

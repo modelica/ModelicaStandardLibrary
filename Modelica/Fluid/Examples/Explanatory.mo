@@ -21,7 +21,7 @@ package Explanatory
       crossArea=2,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.05)},
       level_start=0.975,
-      T_start=293.15)                                                                annotation (Placement(transformation(extent={{20,6},{
+      T_start=293.15) annotation (Placement(transformation(extent={{20,6},{
               40,26}})));
     Modelica.Fluid.Vessels.OpenTank openTankCold1(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
@@ -30,7 +30,7 @@ package Explanatory
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.05)},
       nPorts=1,
       level_start=0.975,
-      T_start=293.15)                                                                annotation (Placement(transformation(extent={{20,60},
+      T_start=293.15) annotation (Placement(transformation(extent={{20,60},
               {40,80}})));
     Modelica.Fluid.Vessels.OpenTank openTankHot1(nPorts=1,
       level_start=1,
@@ -38,7 +38,7 @@ package Explanatory
       height=2,
       crossArea=2,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.05)},
-      T_start=353.15)                                                                annotation (Placement(transformation(extent={{60,40},
+      T_start=353.15) annotation (Placement(transformation(extent={{60,40},
               {80,60}})));
     Modelica.Fluid.Vessels.OpenTank openTankHot2(nPorts=1,
       level_start=1,
@@ -46,20 +46,20 @@ package Explanatory
       height=2,
       crossArea=2,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.05)},
-      T_start=353.15)                                                                annotation (Placement(transformation(extent={{60,-10},
+      T_start=353.15) annotation (Placement(transformation(extent={{60,-10},
               {80,10}})));
     Modelica.Fluid.Sources.MassFlowSource_T mFlow1(
       nPorts=1,
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       use_m_flow_in=true,
       use_T_in=false,
-      T=323.15)                       annotation (Placement(transformation(extent=
+      T=323.15) annotation (Placement(transformation(extent=
              {{-60,30},{-40,50}})));
     Modelica.Fluid.Sources.MassFlowSource_T mFlow2(
       nPorts=1,
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       use_m_flow_in=true,
-      T=323.15)                       annotation (Placement(transformation(extent=
+      T=323.15) annotation (Placement(transformation(extent=
              {{-60,-20},{-40,0}})));
     Modelica.Blocks.Sources.Sine sine(freqHz=1)
                                       annotation (Placement(transformation(extent=
@@ -73,7 +73,7 @@ package Explanatory
       crossArea=2,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.05)},
       level_start=0.975,
-      T_start=293.15)                                                                annotation (Placement(transformation(extent={{20,-60},
+      T_start=293.15) annotation (Placement(transformation(extent={{20,-60},
               {40,-40}})));
     Modelica.Fluid.Vessels.OpenTank openTankHot3(nPorts=1,
       level_start=1,
@@ -81,13 +81,13 @@ package Explanatory
       height=2,
       crossArea=2,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.05)},
-      T_start=353.15)                                                                annotation (Placement(transformation(extent={{60,-80},
+      T_start=353.15) annotation (Placement(transformation(extent={{60,-80},
               {80,-60}})));
     Modelica.Fluid.Sources.MassFlowSource_T mFlow3(
       nPorts=1,
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       use_m_flow_in=true,
-      T=323.15)                       annotation (Placement(transformation(extent=
+      T=323.15) annotation (Placement(transformation(extent=
              {{-60,-90},{-40,-70}})));
     Modelica.Fluid.Fittings.TeeJunctionIdeal junctionIdeal(
                                                          redeclare package
@@ -95,53 +95,42 @@ package Explanatory
           Modelica.Media.Water.StandardWater)
       annotation (Placement(transformation(extent={{20,-90},{40,-70}})));
   equation
-    connect(mFlow2.ports[1], T_twoPort.port_a)             annotation (Line(
-        points={{-40,-10},{-20,-10}},
-        color={0,127,255}));
-    connect(mFlow1.ports[1], T_onePort.port)             annotation (Line(
-        points={{-40,40},{-10,40}},
-        color={0,127,255}));
-    connect(sine.y, mFlow1.m_flow_in)        annotation (Line(
-        points={{-79,20},{-70,20},{-70,48},{-60,48}},
-        color={0,0,127}));
-    connect(sine.y, mFlow2.m_flow_in)        annotation (Line(
-        points={{-79,20},{-70,20},{-70,-2},{-60,-2}},
-        color={0,0,127}));
-    connect(mFlow3.ports[1], T_junction.port)                    annotation (Line(
-        points={{-40,-80},{-10,-80}},
-        color={0,127,255}));
-    connect(sine.y, mFlow3.m_flow_in)        annotation (Line(
-        points={{-79,20},{-70,20},{-70,-72},{-60,-72}},
-        color={0,0,127}));
-    connect(T_junction.port, junctionIdeal.port_1)          annotation (Line(
-        points={{-10,-80},{20,-80}},
-        color={0,127,255}));
-    connect(T_twoPort.port_b, openTankCold2.ports[1])          annotation (Line(
-          points={{0,-10},{0,-10},{30,-10},{30,6}},  color={0,127,255}));
-    connect(T_onePort.port, openTankHot1.ports[1])   annotation (Line(
-          points={{-10,40},{-10,40},{70,40}},            color={0,127,255}));
-    connect(T_twoPort.port_b, openTankHot2.ports[1])          annotation (Line(
-          points={{0,-10},{30,-10},{70,-10}},              color={0,127,255}));
+    connect(mFlow2.ports[1], T_twoPort.port_a) annotation (Line(
+        points={{-40,-10},{-20,-10}}, color={0,127,255}));
+    connect(mFlow1.ports[1], T_onePort.port) annotation (Line(
+        points={{-40,40},{-10,40}}, color={0,127,255}));
+    connect(sine.y, mFlow1.m_flow_in) annotation (Line(
+        points={{-79,20},{-70,20},{-70,48},{-60,48}}, color={0,0,127}));
+    connect(sine.y, mFlow2.m_flow_in) annotation (Line(
+        points={{-79,20},{-70,20},{-70,-2},{-60,-2}}, color={0,0,127}));
+    connect(mFlow3.ports[1], T_junction.port) annotation (Line(
+        points={{-40,-80},{-10,-80}}, color={0,127,255}));
+    connect(sine.y, mFlow3.m_flow_in) annotation (Line(
+        points={{-79,20},{-70,20},{-70,-72},{-60,-72}}, color={0,0,127}));
+    connect(T_junction.port, junctionIdeal.port_1) annotation (Line(
+        points={{-10,-80},{20,-80}}, color={0,127,255}));
+    connect(T_twoPort.port_b, openTankCold2.ports[1]) annotation (Line(
+          points={{0,-10},{0,-10},{30,-10},{30,6}}, color={0,127,255}));
+    connect(T_onePort.port, openTankHot1.ports[1]) annotation (Line(
+          points={{-10,40},{-10,40},{70,40}}, color={0,127,255}));
+    connect(T_twoPort.port_b, openTankHot2.ports[1]) annotation (Line(
+          points={{0,-10},{30,-10},{70,-10}}, color={0,127,255}));
     connect(junctionIdeal.port_3, openTankCold3.ports[1]) annotation (Line(points={{30,-70},
-            {30,-65},{30,-60}},   color={0,127,255}));
+            {30,-65},{30,-60}}, color={0,127,255}));
     connect(junctionIdeal.port_2, openTankHot3.ports[1]) annotation (Line(points={{40,-80},
-            {55.5,-80},{70,-80}},                          color={0,127,255}));
-    connect(T_onePort.port, openTankCold1.ports[1])   annotation (Line(
-        points={{-10,40},{30,40},{30,60}},
-        color={0,127,255}));
+            {55.5,-80},{70,-80}}, color={0,127,255}));
+    connect(T_onePort.port, openTankCold1.ports[1]) annotation (Line(
+        points={{-10,40},{30,40},{30,60}}, color={0,127,255}));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
               -100},{100,100}}), graphics={
           Text(
             extent={{42,52},{62,46}},
-            lineColor={0,0,0},
             textString="T=80"),
           Text(
             extent={{-4,76},{18,70}},
-            lineColor={0,0,0},
             textString="T=20"),
           Text(
             extent={{-62,20},{-36,12}},
-            lineColor={0,0,0},
             textString="T=50")}),
                          Documentation(info="<html>
 <p>
@@ -243,23 +232,17 @@ present as for T_twoPort.T.
       annotation (Placement(transformation(extent={{-92,56},{-72,76}})));
   equation
     connect(leftBoundary1.ports[1], suddenExpansion1.port_a) annotation (Line(
-        points={{-60,30},{-12,30}},
-        color={0,127,255}));
+        points={{-60,30},{-12,30}}, color={0,127,255}));
     connect(suddenExpansion1.port_b, rightBoundary1.ports[1]) annotation (Line(
-        points={{8,30},{60,30}},
-        color={0,127,255}));
+        points={{8,30},{60,30}}, color={0,127,255}));
     connect(leftAdaptor.port_b, leftBoundary2.ports[1]) annotation (Line(
-        points={{-60,-30},{-70,-30}},
-        color={0,127,255}));
+        points={{-60,-30},{-70,-30}}, color={0,127,255}));
     connect(leftAdaptor.port_a, suddenExpansion2.port_a) annotation (Line(
-        points={{-40,-30},{-10,-30}},
-        color={0,127,255}));
+        points={{-40,-30},{-10,-30}}, color={0,127,255}));
     connect(suddenExpansion2.port_b,rightAdaptor. port_a) annotation (Line(
-        points={{10,-30},{40,-30}},
-        color={0,127,255}));
+        points={{10,-30},{40,-30}}, color={0,127,255}));
     connect(rightAdaptor.port_b, rightBoundary2.ports[1]) annotation (Line(
-        points={{60,-30},{70,-30}},
-        color={0,127,255}));
+        points={{60,-30},{70,-30}}, color={0,127,255}));
     annotation (
       Documentation(info="<html>
 <p>
@@ -269,10 +252,10 @@ This example shows the use of a sudden expansion / contraction model, which is c
 The reason for this is that the boundary conditions model infinite reservoirs with an infinite diameter and thus zero flow velocity. The sudden expansion model does however have two ends with finite diameters, and, as explained in the <a href=\"modelica://Modelica.Fluid.UsersGuide.Overview\">Overview</a> of the Users' Guide, the momentum balance is not fulfilled exactly for this type of connections. Using a simple <code>connect()</code>-statement, the difference of the kinetic terms is neglected, which is not reasonable in the present model: At the left boundary condition it is zero, and on the left side of the sudden expansion it has a non-zero value. It is not reasonable to neglect it in the shown model, because there is little friction and therefore these kinetic effects dominate. Consequently, only modelling these effects explicitly leads to the correct results.
 </p>
 <p>
-To do so, two additional sudden expansions / contractions are included in the model. The diameter is set to <code>inf</code> close to the boundaries and the proper values close to the original model. These additional components now introduce <i>exact</i> momentum balances and the results are as expected.
+To do so, two additional sudden expansions / contractions are included in the model. The diameter is set to <code>inf</code> close to the boundaries and the proper values close to the original model. These additional components now introduce <em>exact</em> momentum balances and the results are as expected.
 </p>
 <p>
-The total pressures offer an additional perspective on the model. After setting the parameter <code>show_totalPressures</code> on the Advanced tab of the <code>AbruptAdaptor</code>s to <code>true</code>, the total pressures are included in said models and may be plotted. This allows to confirm that the <b>total</b> pressure <i>always</i> reduces along the flow direction, even in the upper model.
+The total pressures offer an additional perspective on the model. After setting the parameter <code>show_totalPressures</code> on the Advanced tab of the <code>AbruptAdaptor</code>s to <code>true</code>, the total pressures are included in said models and may be plotted. This allows to confirm that the <strong>total</strong> pressure <em>always</em> reduces along the flow direction, even in the upper model.
 </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/MomentumBalanceFittings.png\" border=\"1\"

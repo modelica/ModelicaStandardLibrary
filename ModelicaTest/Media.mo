@@ -90,22 +90,22 @@ package Media "Test models for Modelica.Media"
 
       // When iterating at the initial time the asserts below could be violated.
       // To avoid an error, the check is only performed shortly after initialization.
-      if time > t_min then
+      if time >= t_min then
         assert(err_T <= eps, "Error: abs(medium.T - T) > eps " + "(err_T = "
            + String(err_T) + ", eps = " + String(eps) + ")");
       end if;
 
-      if time > t_min then
+      if time >= t_min then
         assert(err_d <= eps, "Error: abs(medium.d - d) > eps " + "(err_d = " +
           String(err_d) + ", eps = " + String(eps) + ")");
       end if;
 
-      if time > t_min then
+      if time >= t_min then
         assert(err_u <= eps, "Error: abs(medium.u - u) > eps " + "(err_u = " +
           String(err_u) + ", eps = " + String(eps) + ")");
       end if;
 
-      if time > t_min then
+      if time >= t_min then
         assert(err_h_is <= eps_h_is,
           "Error: entropy not constant for isentropicEnthalpy " + "(err_h_is = "
            + String(err_h_is) + ", eps = " + String(eps_h_is) + ")");
@@ -232,22 +232,22 @@ package Media "Test models for Modelica.Media"
 
       // When iterating at the initial time the asserts below could be violated.
       // To avoid an error, the check is only performed shortly after initialization.
-      if time > t_min then
+      if time >= t_min then
         assert(err_T <= eps, "Error: abs(medium.T - T) > eps " + "(err_T = "
            + String(err_T) + ", eps = " + String(eps) + ")");
       end if;
 
-      if time > t_min then
+      if time >= t_min then
         assert(err_d <= eps, "Error: abs(medium.d - d) > eps " + "(err_d = " +
           String(err_d) + ", eps = " + String(eps) + ")");
       end if;
 
-      if time > t_min then
+      if time >= t_min then
         assert(err_u <= eps, "Error: abs(medium.u - u) > eps " + "(err_u = " +
           String(err_u) + ", eps = " + String(eps) + ")");
       end if;
 
-      if time > t_min then
+      if time >= t_min then
       assert(err_h_is <= eps_h_is,
         "Error: entropy not constant for isentropicEnthalpy " + "(err_h_is = "
          + String(err_h_is) + ", eps = " + String(eps_h_is) + ")");
@@ -669,7 +669,7 @@ package Media "Test models for Modelica.Media"
     end IncompleteMedia;
   end TestAllProperties;
 
-  package TestOnly "examples for testing purposes "
+  package TestOnly "Examples for testing purposes "
     extends Modelica.Icons.ExamplesPackage;
     model MixIdealGasAir "Ideal gas air medium model"
       extends Modelica.Icons.Example;
@@ -681,7 +681,7 @@ package Media "Test models for Modelica.Media"
         p(start=1.0e5,fixed=true));
       Medium.BaseProperties medium2(
         T(start=300.0,fixed=true),
-        X(start={0.2,0.8},fixed=true),
+        X(start={0.2,0.8},each fixed=true),
         p(start=2.0e5,fixed=true));
       Medium.SpecificHeatCapacity cp=Medium.specificHeatCapacityCp(medium.state);
       Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(medium.state);
@@ -722,7 +722,7 @@ is given to compare the approximation.
         p(start=1.0e5,fixed=true));
       Medium.BaseProperties medium2(
         T(start=300.0,fixed=true),
-        X(start={0.2,0.1,0.3,0.4},fixed=true),
+        X(start={0.2,0.1,0.3,0.4},each fixed=true),
         p(start=2.0e5,fixed=true));
       Medium.SpecificHeatCapacity cp=Medium.specificHeatCapacityCp(state);
       Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(state);
@@ -929,445 +929,7 @@ is given to compare the approximation.
     package Components
       "Functions, connectors and models needed for the media model tests"
 
-      extends Modelica.Icons.Library;
-
-      connector FluidPort
-        "Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)"
-        extends Modelica.Icons.ObsoleteModel;
-        replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
-          "Medium model" annotation (choicesAllMatching=true);
-
-        Medium.AbsolutePressure p "Pressure in the connection point";
-        flow Medium.MassFlowRate m_flow
-          "Mass flow rate from the connection point into the component";
-
-        Medium.SpecificEnthalpy h
-          "Specific mixture enthalpy in the connection point";
-        flow Medium.EnthalpyFlowRate H_flow
-          "Enthalpy flow rate into the component (if m_flow > 0, H_flow = m_flow*h)";
-
-        Medium.MassFraction Xi[Medium.nXi]
-          "Independent mixture mass fractions m_i/m in the connection point";
-        flow Medium.MassFlowRate mXi_flow[Medium.nXi]
-          "Mass flow rates of the independent substances from the connection point into the component (if m_flow > 0, mX_flow = m_flow*X)";
-
-        Medium.ExtraProperty C[Medium.nC]
-          "properties c_i/m in the connection point";
-        flow Medium.ExtraPropertyFlowRate mC_flow[Medium.nC]
-          "Flow rates of auxiliary properties from the connection point into the component (if m_flow > 0, mC_flow = m_flow*C)";
-
-        annotation (Documentation(info="<html>
-
-</html>"));
-      end FluidPort;
-
-      connector FluidPort_a "Fluid connector with filled icon"
-        extends FluidPort;
-        annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={Ellipse(
-                      extent={{-100,100},{100,-100}},
-                      lineColor={0,127,255},
-                      fillColor={0,127,255},
-                      fillPattern=FillPattern.Solid),Ellipse(
-                      extent={{-100,100},{100,-100}},
-                      lineColor={0,0,0},
-                      fillColor={0,127,255},
-                      fillPattern=FillPattern.Solid),Text(
-                      extent={{-88,206},{112,112}},
-                      textString="%name",
-                      lineColor={0,0,255})}),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                  100,100}}), graphics={Ellipse(
-                      extent={{-100,100},{100,-100}},
-                      lineColor={0,127,255},
-                      fillColor={0,127,255},
-                      fillPattern=FillPattern.Solid),Ellipse(
-                      extent={{-100,100},{100,-100}},
-                      lineColor={0,0,0},
-                      fillColor={0,127,255},
-                      fillPattern=FillPattern.Solid)}),
-          Documentation(info="<html>Modelica.Media.Examples.Tests.Components.FluidPort_a
-</html>"));
-      end FluidPort_a;
-
-      connector FluidPort_b "Fluid connector with outlined icon"
-        extends FluidPort;
-        annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={Ellipse(
-                      extent={{-100,100},{100,-100}},
-                      lineColor={0,127,255},
-                      fillColor={0,127,255},
-                      fillPattern=FillPattern.Solid),Ellipse(
-                      extent={{-100,100},{100,-100}},
-                      lineColor={0,0,0},
-                      fillColor={0,127,255},
-                      fillPattern=FillPattern.Solid),Ellipse(
-                      extent={{-80,80},{80,-80}},
-                      lineColor={0,127,255},
-                      fillColor={255,255,255},
-                      fillPattern=FillPattern.Solid),Text(
-                      extent={{-88,192},{112,98}},
-                      textString="%name",
-                      lineColor={0,0,255})}),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                  100,100}}), graphics={Ellipse(
-                      extent={{-100,100},{100,-100}},
-                      lineColor={0,127,255},
-                      fillColor={0,127,255},
-                      fillPattern=FillPattern.Solid),Ellipse(
-                      extent={{-100,100},{100,-100}},
-                      lineColor={0,0,0},
-                      fillColor={0,127,255},
-                      fillPattern=FillPattern.Solid),Ellipse(
-                      extent={{-80,80},{80,-80}},
-                      lineColor={0,127,255},
-                      fillColor={255,255,255},
-                      fillPattern=FillPattern.Solid)}),
-          Documentation(info="<html>
-
-</html>"));
-      end FluidPort_b;
-
-      model PortVolume
-        "Fixed volume associated with a port by the finite volume method"
-        extends Modelica.Icons.ObsoleteModel;
-        replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
-          "Medium model" annotation (choicesAllMatching=true);
-
-        parameter Modelica.SIunits.Volume V=1e-6
-          "Fixed size of junction volume";
-
-        parameter Boolean use_p_start=true "select p_start or d_start"
-          annotation (Evaluate=true, Dialog(group=
-                "Initial pressure or initial density"));
-        parameter Medium.AbsolutePressure p_start=101325 "Initial pressure"
-          annotation (Dialog(group="Initial pressure or initial density",
-              enable=use_p_start));
-        parameter Medium.Density d_start=1 "Initial density" annotation (Dialog(
-              group="Initial pressure or initial density", enable=not
-                use_p_start));
-        parameter Boolean use_T_start=true "select T_start or h_start"
-          annotation (Evaluate=true, Dialog(group=
-                "Initial temperature or initial specific enthalpy"));
-        parameter Medium.Temperature T_start=
-            Modelica.SIunits.Conversions.from_degC(20) "Initial temperature"
-          annotation (Dialog(group=
-                "Initial temperature or initial specific enthalpy", enable=
-                use_T_start));
-        parameter Medium.SpecificEnthalpy h_start=1.e4
-          "Initial specific enthalpy" annotation (Dialog(group=
-                "Initial temperature or initial specific enthalpy", enable=not
-                use_T_start));
-        parameter Medium.MassFraction X_start[Medium.nX]
-          "Initial mass fractions m_i/m" annotation (Dialog(group=
-                "Only for multi-substance flow", enable=Medium.nX > 0));
-
-        FluidPort_a port(redeclare package Medium = Medium) annotation (
-            Placement(transformation(extent={{-10,-10},{10,10}})));
-        Medium.BaseProperties medium(preferredMediumStates=true);
-        Modelica.SIunits.Energy U "Internal energy of port volume";
-        Modelica.SIunits.Mass m "Mass of junction volume";
-        Modelica.SIunits.Mass mXi[Medium.nXi]
-          "Independent substance masses of junction volume";
-
-      initial equation
-        if not Medium.singleState then
-          if use_p_start then
-            medium.p = p_start;
-          else
-            medium.d = d_start;
-          end if;
-        end if;
-
-        if use_T_start then
-          medium.T = T_start;
-        else
-          medium.h = h_start;
-        end if;
-
-        medium.Xi = X_start[1:Medium.nXi];
-      equation
-        // Connect port to medium variables
-        medium.p = port.p;
-        medium.h = port.h;
-        medium.Xi = port.Xi;
-
-        // Total quantities
-        m = V*medium.d;
-        mXi = m*medium.Xi;
-        U = m*medium.u;
-
-        // Mass and energy balance
-        der(m) = port.m_flow;
-        der(mXi) = port.mXi_flow;
-        der(U) = port.H_flow;
-        annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={Ellipse(
-                      extent={{-100,100},{100,-100}},
-                      lineColor={0,0,0},
-                      fillPattern=FillPattern.Sphere,
-                      fillColor={170,213,255}),Text(
-                      extent={{-144,178},{146,116}},
-                      textString="%name",
-                      lineColor={0,0,255}),Text(
-                      extent={{-130,-108},{144,-150}},
-                      lineColor={0,0,0},
-                      textString="V=%V")}), Documentation(info="<html>
-<p>
-This component models the <b>volume</b> of <b>fixed size</b> that is
-associated with the <b>fluid port</b> to which it is connected.
-This means that all medium properties inside the volume, are identical
-to the port medium properties. In particular, the specific enthalpy
-inside the volume (= medium.h) is always identical to the specific enthalpy
-in the port (port.h = medium.h). Usually, this model is used when
-discretizing a component according to the finite volume method into
-volumes in internal ports that only store energy and mass and into
-transport elements that just transport energy, mass and momentum
-between the internal ports without storing these quantities during the
-transport.
-</p>
-</html>"));
-      end PortVolume;
-
-      model FixedMassFlowRate
-        "Ideal pump that produces a constant mass flow rate from a large reservoir at fixed temperature and mass fraction"
-        extends Modelica.Icons.ObsoleteModel;
-        parameter Medium.MassFlowRate m_flow
-          "Fixed mass flow rate from an infinite reservoir to the fluid port";
-
-        parameter Boolean use_T_ambient=true "select T_ambient or h_ambient"
-          annotation (Evaluate=true, Dialog(group=
-                "Ambient temperature or ambient specific enthalpy"));
-        parameter Medium.Temperature T_ambient=
-            Modelica.SIunits.Conversions.from_degC(20) "Ambient temperature"
-          annotation (Dialog(group=
-                "Ambient temperature or ambient specific enthalpy", enable=
-                use_T_ambient));
-        parameter Medium.SpecificEnthalpy h_ambient=1.e4
-          "Ambient specific enthalpy" annotation (Dialog(group=
-                "Ambient temperature or ambient specific enthalpy", enable=not
-                use_T_ambient));
-        parameter Medium.MassFraction X_ambient[Medium.nX]
-          "Ambient mass fractions m_i/m of reservoir";
-
-        replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
-          "Medium model" annotation (choicesAllMatching=true);
-
-        Medium.BaseProperties medium "Medium in the source";
-        FluidPort_b port(redeclare package Medium = Medium) annotation (
-            Placement(transformation(extent={{100,-10},{120,10}})));
-      equation
-        if use_T_ambient then
-          medium.T = T_ambient;
-        else
-          medium.h = h_ambient;
-        end if;
-
-        medium.Xi = X_ambient[1:Medium.nXi];
-        medium.p = port.p;
-        port.m_flow = -m_flow;
-        port.mXi_flow = semiLinear(
-                port.m_flow,
-                port.Xi,
-                medium.Xi);
-        port.H_flow = semiLinear(
-                port.m_flow,
-                port.h,
-                medium.h);
-        annotation (Icon(coordinateSystem(
-              preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}}),
-                graphics={Rectangle(
-                      extent={{20,60},{100,-60}},
-                      lineColor={0,0,0},
-                      fillPattern=FillPattern.HorizontalCylinder,
-                      fillColor={192,192,192}),Rectangle(
-                      extent={{38,40},{100,-40}},
-                      lineColor={0,0,0},
-                      fillPattern=FillPattern.HorizontalCylinder,
-                      fillColor={0,127,255}),Ellipse(
-                      extent={{-100,80},{60,-80}},
-                      fillColor={255,255,255},
-                      fillPattern=FillPattern.Solid,
-                      lineColor={0,0,255}),Polygon(
-                      points={{-60,70},{60,0},{-60,-68},{-60,70}},
-                      lineColor={0,0,255},
-                      fillColor={0,0,255},
-                      fillPattern=FillPattern.Solid),Text(
-                      extent={{-54,32},{16,-30}},
-                      lineColor={255,0,0},
-                      textString="m"),Text(
-                      extent={{-142,142},{156,88}},
-                      textString="%name",
-                      lineColor={0,0,255}),Text(
-                      extent={{-154,-88},{150,-132}},
-                      lineColor={0,0,0},
-                      textString="%m_flow"),Ellipse(
-                      extent={{-26,30},{-18,22}},
-                      lineColor={255,0,0},
-                      fillColor={255,0,0},
-                      fillPattern=FillPattern.Solid)}), Documentation(info="<html>
-
-</html>"));
-      end FixedMassFlowRate;
-
-      model FixedAmbient
-        "Ambient pressure, temperature and mass fraction source"
-        extends Modelica.Icons.ObsoleteModel;
-        replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
-          "Medium model" annotation (choicesAllMatching=true);
-
-        parameter Boolean use_p_ambient=true "select p_ambient or d_ambient"
-          annotation (Evaluate=true, Dialog(group=
-                "Ambient pressure or ambient density"));
-        parameter Medium.AbsolutePressure p_ambient=101325 "Ambient pressure"
-          annotation (Dialog(group="Ambient pressure or ambient density",
-              enable=use_p_ambient));
-        parameter Medium.Density d_ambient=1 "Ambient density" annotation (
-            Dialog(group="Ambient pressure or ambient density", enable=not
-                use_p_ambient));
-        parameter Boolean use_T_ambient=true "select T_ambient or h_ambient"
-          annotation (Evaluate=true, Dialog(group=
-                "Ambient temperature or ambient specific enthalpy"));
-        parameter Medium.Temperature T_ambient=
-            Modelica.SIunits.Conversions.from_degC(20) "Ambient temperature"
-          annotation (Dialog(group=
-                "Ambient temperature or ambient specific enthalpy", enable=
-                use_T_ambient));
-        parameter Medium.SpecificEnthalpy h_ambient=1.e4
-          "Ambient specific enthalpy" annotation (Dialog(group=
-                "Ambient temperature or ambient specific enthalpy", enable=not
-                use_T_ambient));
-        parameter Medium.MassFraction X_ambient[Medium.nX]
-          "Ambient mass fractions m_i/m" annotation (Dialog(group=
-                "Only for multi-substance flow", enable=Medium.nX > 0));
-
-        Medium.BaseProperties medium "Medium in the source";
-        FluidPort_b port(redeclare package Medium = Medium) annotation (
-            Placement(transformation(extent={{100,-10},{120,10}})));
-
-      equation
-        if use_p_ambient or Medium.singleState then
-          medium.p = p_ambient;
-        else
-          medium.d = d_ambient;
-        end if;
-
-        if use_T_ambient then
-          medium.T = T_ambient;
-        else
-          medium.h = h_ambient;
-        end if;
-
-        medium.Xi = X_ambient[1:Medium.nXi];
-
-        port.p = medium.p;
-        port.H_flow = semiLinear(
-                port.m_flow,
-                port.h,
-                medium.h);
-        port.mXi_flow = semiLinear(
-                port.m_flow,
-                port.Xi,
-                medium.Xi);
-        annotation (Icon(coordinateSystem(
-              preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}}),
-                graphics={Ellipse(
-                      extent={{-100,80},{100,-80}},
-                      lineColor={0,0,0},
-                      fillPattern=FillPattern.Sphere,
-                      fillColor={0,127,255}),Text(
-                      extent={{-136,144},{132,82}},
-                      textString="%name",
-                      lineColor={0,0,255})}), Documentation(info="<html>
-<p>
-Model <b>FixedAmbient_pt</b> defines constant values for ambient conditions:
-</p>
-<ul>
-<li> Ambient pressure.</li>
-<li> Ambient temperature.</li>
-<li> Ambient mass fractions (only for multi-substance flow).</li>
-</ul>
-<p>
-Note, that ambient temperature
-and mass fractions have only an effect if the mass flow
-is from the ambient into the port. If mass is flowing from
-the port into the ambient, the ambient definitions,
-with exception of ambient pressure, do not have an effect.
-</p>
-</html>"));
-      end FixedAmbient;
-
-      model ShortPipe "Simple pressure loss in pipe"
-        extends Modelica.Icons.ObsoleteModel;
-        replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
-          "Medium model" annotation (choicesAllMatching=true);
-
-        parameter Medium.AbsolutePressure dp_nominal(min=1.e-10)
-          "Nominal pressure drop";
-        parameter Medium.MassFlowRate m_flow_nominal(min=1.e-10)
-          "Nominal mass flow rate at nominal pressure drop";
-
-        FluidPort_a port_a(redeclare package Medium = Medium) annotation (
-            Placement(transformation(extent={{-120,-10},{-100,10}})));
-        FluidPort_b port_b(redeclare package Medium = Medium) annotation (
-            Placement(transformation(extent={{120,-10},{100,10}})));
-        // Medium.BaseProperties medium_a(p=port_a.p, h=port_a.h, Xi=port_a.Xi)
-        //   "Medium properties in port_a";
-        // Medium.BaseProperties medium_b(p=port_b.p, h=port_b.h, Xi=port_b.Xi)
-        //   "Medium properties in port_b";
-        Medium.MassFlowRate m_flow
-          "Mass flow rate from port_a to port_b (m_flow > 0 is design flow direction)";
-        Modelica.SIunits.Pressure dp "Pressure drop from port_a to port_b";
-      equation
-        /* Handle reverse and zero flow */
-        port_a.H_flow = semiLinear(
-                port_a.m_flow,
-                port_a.h,
-                port_b.h);
-        port_a.mXi_flow = semiLinear(
-                port_a.m_flow,
-                port_a.Xi,
-                port_b.Xi);
-
-        /* Energy, mass and substance mass balance */
-        port_a.H_flow + port_b.H_flow = 0;
-        port_a.m_flow + port_b.m_flow = 0;
-        port_a.mXi_flow + port_b.mXi_flow = zeros(Medium.nXi);
-
-        // Design direction of mass flow rate
-        m_flow = port_a.m_flow;
-
-        // Pressure drop
-        dp = port_a.p - port_b.p;
-        m_flow = (m_flow_nominal/dp_nominal)*dp;
-        annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={Rectangle(
-                      extent={{-100,60},{100,-60}},
-                      lineColor={0,0,0},
-                      fillPattern=FillPattern.HorizontalCylinder,
-                      fillColor={192,192,192}),Rectangle(
-                      extent={{-100,34},{100,-36}},
-                      lineColor={0,0,0},
-                      fillPattern=FillPattern.HorizontalCylinder,
-                      fillColor={0,127,255}),Text(
-                      extent={{-150,140},{150,80}},
-                      lineColor={0,0,0},
-                      textString="%name"),Text(
-                      extent={{-136,-62},{122,-108}},
-                      lineColor={0,0,0},
-                      textString="k=%m_flow_nominal/%dp_nominal")}),
-            Documentation(info="<html>
-<p>
-Model <b>ShortPipe</b> defines a simple pipe model
-with pressure loss due to friction. It is assumed that
-no mass or energy is stored in the pipe.
-</p>
-</html>"));
-      end ShortPipe;
+      extends Modelica.Icons.Package;
 
       partial model PartialTestModel "Basic test model to test a medium"
 
@@ -1422,21 +984,18 @@ no mass or energy is stored in the pipe.
           annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
       equation
         connect(fixedMassFlowRate.ports[1], volume.ports[1]) annotation (Line(
-            points={{-60,8},{-46,8},{-46,0},{-32,0}},
-            color={0,127,255}));
+            points={{-60,8},{-46,8},{-46,0},{-32,0}}, color={0,127,255}));
         connect(volume.ports[2], shortPipe.port_a) annotation (Line(
-            points={{-28,0},{-16,0},{-16,10},{0,10}},
-            color={0,127,255}));
+            points={{-28,0},{-16,0},{-16,10},{0,10}}, color={0,127,255}));
         connect(shortPipe.port_b, ambient.ports[1]) annotation (Line(
-            points={{20,10},{40,10}},
-            color={0,127,255}));
+            points={{20,10},{40,10}}, color={0,127,255}));
         annotation (Documentation(info="<html>
 
 </html>"));
       end PartialTestModel;
 
       partial model PartialTestModel2
-        "slightly larger test model to test a medium"
+        "Slightly larger test model to test a medium"
 
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model" annotation (choicesAllMatching=true);
@@ -1499,20 +1058,15 @@ no mass or energy is stored in the pipe.
                   20},{2,40}})));
       equation
         connect(fixedMassFlowRate.ports[1], volume.ports[1]) annotation (Line(
-            points={{-80,10},{-50,10},{-50,20},{-52,20}},
-            color={0,127,255}));
+            points={{-80,10},{-50,10},{-50,20},{-52,20}}, color={0,127,255}));
         connect(volume.ports[2], shortPipe.port_a) annotation (Line(
-            points={{-48,20},{-50,20},{-50,10},{-42,10}},
-            color={0,127,255}));
+            points={{-48,20},{-50,20},{-50,10},{-42,10}}, color={0,127,255}));
         connect(shortPipe1.port_a, volume1.ports[1]) annotation (Line(
-            points={{0,10},{-8,10},{-8,20},{-10,20}},
-            color={0,127,255}));
+            points={{0,10},{-8,10},{-8,20},{-10,20}}, color={0,127,255}));
         connect(shortPipe.port_b, volume1.ports[2]) annotation (Line(
-            points={{-22,10},{-8,10},{-8,20},{-6,20}},
-            color={0,127,255}));
+            points={{-22,10},{-8,10},{-8,20},{-6,20}}, color={0,127,255}));
         connect(shortPipe1.port_b, ambient.ports[1]) annotation (Line(
-            points={{20,10},{40,10}},
-            color={0,127,255}));
+            points={{20,10},{40,10}}, color={0,127,255}));
         annotation (Documentation(info="<html>
 
 </html>"));
@@ -1691,7 +1245,7 @@ no mass or energy is stored in the pipe.
         end WaterIF97_ph;
         /*
         model WaterIF97_dT "Test Modelica.Media.Water.WaterIF97_dT"
-          extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
+          extends Modelica.Media.Examples.Utilities.PartialTestModel(
              redeclare package Medium = Modelica.Media.Water.WaterIF97_dT,
               ambient(use_p_ambient=false, d_ambient=996.557));
         end WaterIF97_dT;

@@ -100,16 +100,14 @@ equation
           {-52,58},{-40,58}}, color={0,0,127}));
   connect(ambient_a.ports[1], pipe1.port_a)
                                       annotation (Line(points={{-18,53.2},{-2,
-          53.2},{-2,50},{0,50}},
-        color={0,127,255}));
+          53.2},{-2,50},{0,50}}, color={0,127,255}));
   connect(pipe1.port_b, ambient_p1.ports[1])
     annotation (Line(points={{20,50},{40,50}}, color={0,127,255}));
   connect(pipe2.port_b, ambient_p2.ports[1])
     annotation (Line(points={{20,20},{40,20}}, color={0,127,255}));
   connect(ambient_a.ports[2], pipe2.port_a)
                                       annotation (Line(points={{-18,51.6},{-6,
-          51.6},{-6,20},{0,20}},
-                            color={0,127,255}));
+          51.6},{-6,20},{0,20}}, color={0,127,255}));
   connect(pipe3.port_b,ambient_p3.ports[1])
     annotation (Line(points={{20,-10},{40,-10}}, color={0,127,255}));
   connect(pipe4.port_b,ambient_p4.ports[1])
@@ -119,14 +117,11 @@ equation
           {-10,-10},{0,-10}}, color={0,127,255}));
   connect(ambient_a.ports[4], pipe4.port_a)
                                       annotation (Line(points={{-18,48.4},{-14,
-          48.4},{-14,-40},{0,-40}},
-                              color={0,127,255}));
+          48.4},{-14,-40},{0,-40}}, color={0,127,255}));
   connect(pressureLossPipe.port_b, ambient_p5.ports[1]) annotation (Line(
-      points={{20,-70},{40,-70}},
-      color={0,127,255}));
+      points={{20,-70},{40,-70}}, color={0,127,255}));
   connect(ambient_a.ports[5], pressureLossPipe.port_a) annotation (Line(
-      points={{-18,46.8},{-18,-70},{0,-70}},
-      color={0,127,255}));
+      points={{-18,46.8},{-18,-70},{0,-70}}, color={0,127,255}));
   annotation (    experiment(StopTime=10, Interval=1e-3),
     Documentation(info="<html>
 <p>

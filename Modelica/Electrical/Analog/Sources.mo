@@ -13,7 +13,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
     Modelica.Blocks.Interfaces.RealInput v(unit="V")
       "Voltage between pin p and n (= p.v - n.v) as input signal" annotation (
         Placement(transformation(
-          origin={0,70},
+          origin={0,120},
           extent={{-20,-20},{20,20}},
           rotation=270)));
     SI.Current i "Current flowing from pin p to pin n";
@@ -33,25 +33,15 @@ package Sources "Time-dependent and controlled voltage and current sources"
           Line(points={{50,0},{90,0}}, color={0,0,255}),
           Line(points={{-50,0},{50,0}}, color={0,0,255}),
           Text(
-            extent={{-150,-104},{150,-64}},
+            extent={{-150,50},{150,90}},
             textString="%name",
             lineColor={0,0,255}),
-          Text(
-            extent={{-120,50},{-20,0}},
-            lineColor={0,0,255},
-            textString="+"),
-          Text(
-            extent={{20,50},{120,0}},
-            lineColor={0,0,255},
-            textString="-")}),
+          Line(points={{-70,30},{-70,10}}, color={0,0,255}),
+          Line(points={{-80,20},{-60,20}}, color={0,0,255}),
+          Line(points={{60,20},{80,20}}, color={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Ellipse(
-              extent={{-50,50},{50,-50}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Line(points={{-96,0},{-50,0}},
-            color={0,0,255}),Line(points={{50,0},{96,0}}, color={0,0,255}),Line(
-            points={{-50,0},{50,0}}, color={0,0,255}),Line(points={{-109,20},{-84,
+              100,100}}), graphics={Line(points={{-96,0},{-50,0}},
+            color={0,0,255}), Line(points={{-109,20},{-84,
             20}}, color={160,160,164}),Polygon(
               points={{-94,23},{-84,20},{-94,17},{-94,23}},
               lineColor={160,160,164},
@@ -67,12 +57,12 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillPattern=FillPattern.Solid),Text(
               extent={{91,45},{111,25}},
               lineColor={160,160,164},
-              textString="i"),Line(points={{-119,-5},{-119,5}}, color={160,160,
-            164}),Line(points={{-124,0},{-114,0}}, color={160,160,164}),Line(
+              textString="i"),Line(points={{-119,-5},{-119,5}}, color={160,160,164}),
+            Line(points={{-124,0},{-114,0}}, color={160,160,164}),Line(
             points={{116,0},{126,0}}, color={160,160,164})}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Martin Otter<br> initially implemented<br>
        </li>
 </ul>
@@ -90,30 +80,27 @@ package Sources "Time-dependent and controlled voltage and current sources"
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{-90,0},{-10,0}}, color={0,0,255}),
-          Line(points={{-10,60},{-10,-60}}, color={0,0,255}),
-          Line(points={{0,30},{0,-30}}, color={0,0,255}),
-          Line(points={{0,0},{90,0}}, color={0,0,255}),
           Text(
-            extent={{-150,-112},{150,-72}},
-            textString="%name=%V",
-            lineColor={0,0,255}),
-          Text(
-            extent={{-120,50},{-20,0}},
+            extent={{-150,70},{150,110}},
             lineColor={0,0,255},
-            textString="+"),
+            textString="%name"),
+          Line(points={{-70,30},{-70,10}}, color={0,0,255}),
+          Line(points={{-80,20},{-60,20}}, color={0,0,255}),
+          Line(points={{60,20},{80,20}}, color={0,0,255}),
           Text(
-            extent={{20,50},{120,0}},
+            extent={{-150,-110},{150,-70}},
+            textString="V=%V"),
+          Ellipse(
+            extent={{-50,50},{50,-50}},
             lineColor={0,0,255},
-            textString="-")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-96,0},{-10,0}}, color={0,0,
-            255}),Line(points={{-10,60},{-10,-60}}, color={0,0,255}),Line(
-            points={{0,30},{0,-30}}, color={0,0,255}),Line(points={{0,0},{96,0}},
-            color={0,0,255})}),
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-50,0},{50,0}}, color={0,0,255}),
+          Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+          Line(points={{50,0},{90,0}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -125,7 +112,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
   model StepVoltage "Step voltage source"
     parameter SI.Voltage V(start=1) "Height of step";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Step
-        signalSource(height=V));
+        signalSource(final height=V));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-70,-70},{0,-70},{0,70},{69,70}},
@@ -138,8 +125,8 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
             color={192,192,192}),Line(
               points={{-80,-18},{0,-18},{0,50},{80,50}},
-              thickness=0.5),Line(points={{-90,-70},{82,-70}}, color={192,192,
-            192}),Polygon(
+              thickness=0.5),Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -187,7 +174,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               textString="v = p.v - n.v")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -211,8 +198,8 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
             color={192,192,192}),Line(
               points={{-80,-20},{-20,-20},{50,50}},
-              thickness=0.5),Line(points={{-90,-70},{82,-70}}, color={192,192,
-            192}),Polygon(
+              thickness=0.5),Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -275,7 +262,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               color={192,192,192})}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -290,9 +277,9 @@ package Sources "Time-dependent and controlled voltage and current sources"
     parameter SI.Frequency freqHz(start=1) "Frequency of sine wave";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Sine
         signalSource(
-        amplitude=V,
-        freqHz=freqHz,
-        phase=phase));
+        final amplitude=V,
+        final freqHz=freqHz,
+        final phase=phase));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-66,0},{-56.2,29.9},{-49.8,46.5},
@@ -357,7 +344,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               textString="v = p.v - n.v")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -373,9 +360,9 @@ package Sources "Time-dependent and controlled voltage and current sources"
     parameter SI.Frequency freqHz(start=1) "Frequency of cosine wave";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Cosine
         signalSource(
-        amplitude=V,
-        freqHz=freqHz,
-        phase=phase));
+        final amplitude=V,
+        final freqHz=freqHz,
+        final phase=phase));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={Line(
@@ -460,10 +447,10 @@ package Sources "Time-dependent and controlled voltage and current sources"
     parameter SI.Damping damping(start=1) "Damping coefficient of sine wave";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.ExpSine
         signalSource(
-        amplitude=V,
-        freqHz=freqHz,
-        phase=phase,
-        damping=damping));
+        final amplitude=V,
+        final freqHz=freqHz,
+        final phase=phase,
+        final damping=damping));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-64,-14},{-59.2,18.3},{-56,36.3},
@@ -551,7 +538,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               textString="v = p.v - n.v")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -569,10 +556,10 @@ package Sources "Time-dependent and controlled voltage and current sources"
           riseTimeConst) "Fall time constant";
     extends Interfaces.VoltageSource(redeclare
         Modelica.Blocks.Sources.Exponentials signalSource(
-        outMax=vMax,
-        riseTime=riseTime,
-        riseTimeConst=riseTimeConst,
-        fallTimeConst=fallTimeConst));
+        final outMax=vMax,
+        final riseTime=riseTime,
+        final riseTimeConst=riseTimeConst,
+        final fallTimeConst=fallTimeConst));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-76,-59},{-73.2,-44.3},{-70.3,-31.1},
@@ -652,7 +639,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               pattern=LinePattern.Dash)}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -671,9 +658,9 @@ package Sources "Time-dependent and controlled voltage and current sources"
       "Time for one period";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Pulse
         signalSource(
-        amplitude=V,
-        width=width,
-        period=period));
+        final amplitude=V,
+        final width=width,
+        final period=period));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-70,-70},{-40,-70},{-40,70},{0,70},
@@ -684,8 +671,8 @@ package Sources "Time-dependent and controlled voltage and current sources"
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
-            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,
-            192,192}),Polygon(
+            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -771,7 +758,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               textString="v = p.v - n.v")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -784,7 +771,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
     parameter SI.Voltage V(start=1) "Amplitude of saw tooth";
     parameter SI.Time period(start=1) "Time for one period";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.SawTooth
-        signalSource(amplitude=V, period=period));
+        signalSource(final amplitude=V, final period=period));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-85,-70},{-65,-70},{-5,71},{-5,-70},
@@ -795,8 +782,8 @@ package Sources "Time-dependent and controlled voltage and current sources"
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
-            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,
-            192,192}),Polygon(
+            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -864,7 +851,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               textString="v = p.v - n.v")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -887,12 +874,12 @@ package Sources "Time-dependent and controlled voltage and current sources"
       "Number of periods (< 0 means infinite number of periods)";
     extends Interfaces.VoltageSource(redeclare
         Modelica.Blocks.Sources.Trapezoid signalSource(
-        amplitude=V,
-        rising=rising,
-        width=width,
-        falling=falling,
-        period=period,
-        nperiod=nperiod));
+        final amplitude=V,
+        final rising=rising,
+        final width=width,
+        final falling=falling,
+        final period=period,
+        final nperiod=nperiod));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-81,-70},{-60,-70},{-30,70},{1,70},
@@ -903,8 +890,8 @@ package Sources "Time-dependent and controlled voltage and current sources"
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
-            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,
-            192,192}),Polygon(
+            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -998,8 +985,8 @@ package Sources "Time-dependent and controlled voltage and current sources"
               textString="falling"),Text(
               extent={{-77,103},{-23,91}},
               lineColor={160,160,164},
-              textString="v = p.v - n.v"),Line(points={{-30,76},{60,76}}, color
-            ={192,192,192}),Polygon(
+              textString="v = p.v - n.v"),Line(points={{-30,76},{60,76}}, color=
+             {192,192,192}),Polygon(
               points={{-30,76},{-21,78},{-21,74},{-30,76}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1013,7 +1000,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               textString="period")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1026,7 +1013,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
     parameter Real table[:, :]=[0, 0; 1, 1; 2, 4]
       "Table matrix (time = first column, voltage = second column)";
     extends Interfaces.VoltageSource(redeclare
-        Modelica.Blocks.Sources.TimeTable signalSource(table=table));
+        Modelica.Blocks.Sources.TimeTable signalSource(final table=table));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-58,-36},{-58,84},{42,84},{42,-36},
@@ -1038,8 +1025,8 @@ package Sources "Time-dependent and controlled voltage and current sources"
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
-            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,
-            192,192}),Polygon(
+            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1076,24 +1063,22 @@ package Sources "Time-dependent and controlled voltage and current sources"
               lineColor={160,160,164},
               textString="time"),Text(
               extent={{-15,83},{24,68}},
-              lineColor={0,0,0},
               textString="time"),Text(
               extent={{33,83},{76,67}},
-              lineColor={0,0,0},
               textString="v"),Text(
               extent={{-81,98},{-31,85}},
               lineColor={160,160,164},
               textString="v = p.v - n.v")}),
       Documentation(info="<html>
 <p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package.  Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
-<p><br>This block generates a voltage source by <b>linear interpolation</b> in a table. The time points and voltage values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the voltage to be interpolated. The table interpolation has the following properties:</p>
+<p><br>This block generates a voltage source by <strong>linear interpolation</strong> in a table. The time points and voltage values are stored in a matrix <strong>table[i,j]</strong>, where the first column table[:,1] contains the time points and the second column contains the voltage to be interpolated. The table interpolation has the following properties:</p>
 <ul>
-<li>The time points need to be <b>monotonically increasing</b>. </li>
-<li><b>Discontinuities</b> are allowed, by providing the same time point twice in the table. </li>
-<li>Values <b>outside</b> of the table range, are computed by <b>extrapolation</b> through the last or first two points of the table.</li>
-<li>If the table has only <b>one row</b>, no interpolation is performed and the voltage value is just returned independently of the actual time instant, i.e., this is a constant voltage source.</li>
-<li>Via parameters <b>startTime</b> and <b>offset</b> the curve defined by the table can be shifted both in time and in the voltage. </li>
-<li>The table is implemented in a numerically sound way by generating <b>time events</b> at interval boundaries.
+<li>The time points need to be <strong>monotonically increasing</strong>.</li>
+<li><strong>Discontinuities</strong> are allowed, by providing the same time point twice in the table.</li>
+<li>Values <strong>outside</strong> of the table range, are computed by <strong>extrapolation</strong> through the last or first two points of the table.</li>
+<li>If the table has only <strong>one row</strong>, no interpolation is performed and the voltage value is just returned independently of the actual time instant, i.e., this is a constant voltage source.</li>
+<li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined by the table can be shifted both in time and in the voltage.</li>
+<li>The table is implemented in a numerically sound way by generating <strong>time events</strong> at interval boundaries.
     This generates continuously differentiable values for the integrator.</li>
 </ul>
 <p>Example:</p>
@@ -1110,7 +1095,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 <p><br>  Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1128,7 +1113,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     Modelica.Blocks.Interfaces.RealInput i(unit="A")
       "Current flowing from pin p to pin n as input signal" annotation (
         Placement(transformation(
-          origin={0,70},
+          origin={0,120},
           extent={{-20,-20},{20,20}},
           rotation=270)));
   equation
@@ -1147,7 +1132,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           Line(points={{50,0},{90,0}}, color={0,0,255}),
           Line(points={{0,-50},{0,50}}, color={0,0,255}),
           Text(
-            extent={{-150,-120},{150,-80}},
+            extent={{-150,50},{150,90}},
             textString="%name",
             lineColor={0,0,255}),
           Polygon(
@@ -1155,17 +1140,9 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             lineColor={0,0,255},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Ellipse(
-              extent={{-50,50},{50,-50}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Line(points={{-96,0},{-50,0}},
-            color={0,0,255}),Line(points={{50,0},{96,0}}, color={0,0,255}),Line(
-            points={{0,-50},{0,50}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Martin Otter<br> initially implemented<br>
        </li>
 </ul>
@@ -1190,26 +1167,21 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           Line(points={{-90,0},{-50,0}}, color={0,0,255}),
           Line(points={{50,0},{90,0}}, color={0,0,255}),
           Line(points={{0,-50},{0,50}}, color={0,0,255}),
-          Text(
-            extent={{-150,80},{150,120}},
-            textString="%name=%I",
-            lineColor={0,0,255}),
           Polygon(
             points={{90,0},{60,10},{60,-10},{90,0}},
             lineColor={0,0,255},
             fillColor={0,0,255},
-            fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Ellipse(
-              extent={{-50,50},{50,-50}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Line(points={{-96,0},{-50,0}},
-            color={0,0,255}),Line(points={{50,0},{96,0}}, color={0,0,255}),Line(
-            points={{0,-50},{0,50}}, color={0,0,255})}),
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-150,60},{150,100}},
+            lineColor={0,0,255},
+            textString="%name"),
+          Text(
+            extent={{-150,-100},{150,-60}},
+            textString="I=%I")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1221,7 +1193,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
   model StepCurrent "Step current source"
     parameter SI.Current I(start=1) "Height of step";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Step
-        signalSource(height=I));
+        signalSource(final height=I));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-86,-70},{-14,-70},{-14,70},{57,
@@ -1234,8 +1206,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
             color={192,192,192}),Line(
               points={{-80,-18},{0,-18},{0,50},{80,50}},
-              thickness=0.5),Line(points={{-90,-70},{82,-70}}, color={192,192,
-            192}),Polygon(
+              thickness=0.5),Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1283,7 +1255,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="i")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1307,8 +1279,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
             color={192,192,192}),Line(
               points={{-80,-20},{-20,-20},{50,50}},
-              thickness=0.5),Line(points={{-90,-70},{82,-70}}, color={192,192,
-            192}),Polygon(
+              thickness=0.5),Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1371,7 +1343,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               color={192,192,192})}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1386,9 +1358,9 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     parameter SI.Frequency freqHz(start=1) "Frequency of sine wave";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Sine
         signalSource(
-        amplitude=I,
-        freqHz=freqHz,
-        phase=phase));
+        final amplitude=I,
+        final freqHz=freqHz,
+        final phase=phase));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-70,0},{-60.2,29.9},{-53.8,46.5},
@@ -1453,7 +1425,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="i")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1469,9 +1441,9 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     parameter SI.Frequency freqHz(start=1) "Frequency of cosine wave";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Cosine
         signalSource(
-        amplitude=I,
-        freqHz=freqHz,
-        phase=phase));
+        final amplitude=I,
+        final freqHz=freqHz,
+        final phase=phase));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(
@@ -1558,10 +1530,10 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     parameter SI.Damping damping(start=1) "Damping coefficient of sine wave";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.ExpSine
         signalSource(
-        amplitude=I,
-        freqHz=freqHz,
-        phase=phase,
-        damping=damping));
+        final amplitude=I,
+        final freqHz=freqHz,
+        final phase=phase,
+        final damping=damping));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-80,-14},{-75.2,18.3},{-72,36.3},
@@ -1649,7 +1621,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="i")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1667,10 +1639,10 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           riseTimeConst) "Fall time constant";
     extends Interfaces.CurrentSource(redeclare
         Modelica.Blocks.Sources.Exponentials signalSource(
-        outMax=iMax,
-        riseTime=riseTime,
-        riseTimeConst=riseTimeConst,
-        fallTimeConst=fallTimeConst));
+        final outMax=iMax,
+        final riseTime=riseTime,
+        final riseTimeConst=riseTimeConst,
+        final fallTimeConst=fallTimeConst));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-76,-59},{-73.2,-44.3},{-70.3,-31.1},
@@ -1737,7 +1709,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="i")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1756,22 +1728,21 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
       "Time for one period";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Pulse
         signalSource(
-        amplitude=I,
-        width=width,
-        period=period));
+        final amplitude=I,
+        final width=width,
+        final period=period));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-80,-67},{-50,-67},{-50,73},{-10,
                 73},{-10,-67},{30,-67},{30,73},{70,73}}, color={192,192,192})}),
-
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Polygon(
               points={{-80,90},{-88,68},{-72,68},{-80,90}},
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
-            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,
-            192,192}),Polygon(
+            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1857,20 +1828,21 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="i")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
 </html>", info="<html>
 <p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>"));
+
   end PulseCurrent;
 
   model SawToothCurrent "Saw tooth current source"
     parameter SI.Current I(start=1) "Amplitude of saw tooth";
     parameter SI.Time period(start=1) "Time for one period";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.SawTooth
-        signalSource(amplitude=I, period=period));
+        signalSource(final amplitude=I, final period=period));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-70,-71},{-50,-71},{10,70},{10,-71},
@@ -1881,8 +1853,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
-            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,
-            192,192}),Polygon(
+            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1950,7 +1922,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="i")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1973,12 +1945,12 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
       "Number of periods (< 0 means infinite number of periods)";
     extends Interfaces.CurrentSource(redeclare
         Modelica.Blocks.Sources.Trapezoid signalSource(
-        amplitude=I,
-        rising=rising,
-        width=width,
-        falling=falling,
-        period=period,
-        nperiod=nperiod));
+        final amplitude=I,
+        final rising=rising,
+        final width=width,
+        final falling=falling,
+        final period=period,
+        final nperiod=nperiod));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-81,-66},{-60,-66},{-30,74},{1,74},
@@ -1989,8 +1961,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-80,90},{-80,-80}},
-            color={192,192,192}),Line(points={{-90,-70},{90,-70}}, color={192,
-            192,192}),Polygon(
+            color={192,192,192}),Line(points={{-90,-70},{90,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -2099,7 +2071,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="i")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -2112,7 +2084,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     parameter Real table[:, :]=[0, 0; 1, 1; 2, 4]
       "Table matrix (time = first column, current = second column)";
     extends Interfaces.CurrentSource(redeclare
-        Modelica.Blocks.Sources.TimeTable signalSource(table=table));
+        Modelica.Blocks.Sources.TimeTable signalSource(final table=table));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-66,-36},{-66,84},{34,84},{34,-36},
@@ -2124,8 +2096,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
-            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,
-            192,192}),Polygon(
+            color={192,192,192}),Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -2162,24 +2134,22 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               lineColor={160,160,164},
               textString="time"),Text(
               extent={{-15,83},{24,68}},
-              lineColor={0,0,0},
               textString="time"),Text(
               extent={{33,83},{76,67}},
-              lineColor={0,0,0},
               textString="i"),Text(
               extent={{-73,75},{-53,95}},
               lineColor={192,192,192},
               textString="i")}),
       Documentation(info="<html>
 <p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
-<p><br>This block generates a current source by <b>linear interpolation</b> in a table. The time points and current values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the current to be interpolated. The table interpolation has the following properties:</p>
+<p><br>This block generates a current source by <strong>linear interpolation</strong> in a table. The time points and current values are stored in a matrix <strong>table[i,j]</strong>, where the first column table[:,1] contains the time points and the second column contains the current to be interpolated. The table interpolation has the following properties:</p>
 <ul>
-<li>The time points need to be <b>monotonically increasing</b>. </li>
-<li><b>Discontinuities</b> are allowed, by providing the same time point twice in the table. </li>
-<li>Values <b>outside</b> of the table range, are computed by <b>extrapolation</b> through the last or first two points of the table.</li>
-<li>If the table has only <b>one row</b>, no interpolation is performed and the current value is just returned independently of the actual time instant, i.e., this is a constant current source.</li>
-<li>Via parameters <b>startTime</b> and <b>offset</b> the curve defined by the table can be shifted both in time and in the current. </li>
-<li>The table is implemented in a numerically sound way by generating <b>time events</b> at interval boundaries.
+<li>The time points need to be <strong>monotonically increasing</strong>.</li>
+<li><strong>Discontinuities</strong> are allowed, by providing the same time point twice in the table.</li>
+<li>Values <strong>outside</strong> of the table range, are computed by <strong>extrapolation</strong> through the last or first two points of the table.</li>
+<li>If the table has only <strong>one row</strong>, no interpolation is performed and the current value is just returned independently of the actual time instant, i.e., this is a constant current source.</li>
+<li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined by the table can be shifted both in time and in the current.</li>
+<li>The table is implemented in a numerically sound way by generating <strong>time events</strong> at interval boundaries.
     This generates continuously differentiable values for the integrator.</li>
 </ul>
 <p>Example:</p>
@@ -2196,7 +2166,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
 <p><br> Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -2219,17 +2189,13 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
           Vns) annotation (Placement(transformation(extent={{40,-10},{60,10}})));
   equation
     connect(pin_p, positiveSupply.p) annotation (Line(
-        points={{-100,0},{-60,0}},
-        color={0,0,255}));
+        points={{-100,0},{-60,0}}, color={0,0,255}));
     connect(negativeSupply.n, pin_n) annotation (Line(
-        points={{60,0},{100,0}},
-        color={0,0,255}));
+        points={{60,0},{100,0}}, color={0,0,255}));
     connect(positiveSupply.n, ground) annotation (Line(
-        points={{-40,0},{0,0}},
-        color={0,0,255}));
+        points={{-40,0},{0,0}}, color={0,0,255}));
     connect(ground, negativeSupply.p) annotation (Line(
-        points={{0,0},{40,0}},
-        color={0,0,255}));
+        points={{0,0},{40,0}}, color={0,0,255}));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
@@ -2252,7 +2218,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
             points={{60,0},{90,0}},
             color={0,0,255}),
           Text(
-            extent={{-100,100},{100,80}},
+            extent={{-150,110},{150,70}},
             lineColor={0,0,255},
             textString="%name"),
           Line(
@@ -2278,15 +2244,15 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
                        </html>"));
   end SupplyVoltage;
   annotation (Documentation(info="<html>
-<p>This package contains time-dependent and controlled voltage and current sources. Most of the sources use the behavior modeled in the Modelica.Blocks.Sources package. All sources are ideal in the sense that <b>no</b> internal resistances are included.</p>
+<p>This package contains time-dependent and controlled voltage and current sources. Most of the sources use the behavior modeled in the Modelica.Blocks.Sources package. All sources are ideal in the sense that <strong>no</strong> internal resistances are included.</p>
 </html>", revisions="<html>
 <dl>
 <dt>
-<b>Main Authors:</b>
+<strong>Main Authors:</strong>
 </dt>
 <dd>
 Christoph Clau&szlig;
-    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
+    &lt;<a href=\"mailto:christoph@clauss-it.com\">christoph@clauss-it.com</a>&gt;<br>
     Andr&eacute; Schneider
     &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>
@@ -2294,16 +2260,10 @@ Christoph Clau&szlig;
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden
 </dd>
-<dt>
-<b>Copyright:</b>
-</dt>
-<dd>
-Copyright &copy; 1998-2016, Modelica Association and Fraunhofer-Gesellschaft.<br>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".</i>
-</dd>
 </dl>
+
+<p>
+Copyright &copy; 1998-2019, Modelica Association and contributors
+</p>
 </html>"));
 end Sources;

@@ -33,7 +33,7 @@ package Fittings
 
       annotation (Documentation(info="<html>
 <p>
-This component models a <b>curved bend</b> in the overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness. It is expected that also compressible fluid flow can be handled up to about Ma = 0.3. It is assumed that neither mass nor energy is stored in this component.
+This component models a <strong>curved bend</strong> in the overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness. It is expected that also compressible fluid flow can be handled up to about Ma = 0.3. It is assumed that neither mass nor energy is stored in this component.
 In the model basically a function is called to compute the mass flow rate as a function
 of pressure loss for a curved bend. Also the inverse of this function is defined, and a tool
 might use this inverse function instead, in order to avoid the solution of a nonlinear equation.
@@ -82,7 +82,7 @@ The details of the model are described in the
 
       annotation (Documentation(info="<html>
 <p>
-This component models an <b>edged bend</b> in the overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness. It is expected that also compressible fluid flow can be handled up to about Ma = 0.3. It is assumed that neither mass nor energy is stored in this component.
+This component models an <strong>edged bend</strong> in the overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness. It is expected that also compressible fluid flow can be handled up to about Ma = 0.3. It is assumed that neither mass nor energy is stored in this component.
 In the model basically a function is called to compute the mass flow rate as a function
 of pressure loss for an edged bend. Also the inverse of this function is defined, and a tool
 might use this inverse function instead, in order to avoid the solution of a nonlinear equation.
@@ -147,7 +147,7 @@ The details of the model are described in the
 
       annotation (Documentation(info="<html>
 <p>
-This component models a <b>thick edged orifice</b> with sharp corners in the overall flow regime for incompressible and single-phase fluid flow through an arbitrary shaped cross sectional area (square, circular, etc.) considering  influence of surface roughness. It is expected that also compressible fluid flow can be handled up to about Ma = 0.3. It is assumed that neither mass nor energy is stored in this component.
+This component models a <strong>thick edged orifice</strong> with sharp corners in the overall flow regime for incompressible and single-phase fluid flow through an arbitrary shaped cross sectional area (square, circular, etc.) considering  influence of surface roughness. It is expected that also compressible fluid flow can be handled up to about Ma = 0.3. It is assumed that neither mass nor energy is stored in this component.
 In the model basically a function is called to compute the mass flow rate as a function
 of pressure loss for a thick edged orifice. Also the inverse of this function is defined, and a tool
 might use this inverse function instead, in order to avoid the solution of a nonlinear equation.
@@ -239,12 +239,12 @@ with
 </p>
 
 <table>
-<tr><td><b> a              </b></td><td> as quadratic coefficient [Pa*s^2/m^6],</td></tr>
-<tr><td><b> b              </b></td><td> as linear coefficient [Pa*s/m3],</td></tr>
-<tr><td><b> dp             </b></td><td> as pressure loss [Pa],</td></tr>
-<tr><td><b> m_flow         </b></td><td> as mass flow rate [kg/s],</td></tr>
-<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
-<tr><td><b> V_flow         </b></td><td> as volume flow rate [m3/s].</td></tr>
+<tr><td><strong> a              </strong></td><td> as quadratic coefficient [Pa*s^2/m^6],</td></tr>
+<tr><td><strong> b              </strong></td><td> as linear coefficient [Pa*s/m3],</td></tr>
+<tr><td><strong> dp             </strong></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><strong> m_flow         </strong></td><td> as mass flow rate [kg/s],</td></tr>
+<tr><td><strong> rho            </strong></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><strong> V_flow         </strong></td><td> as volume flow rate [m3/s].</td></tr>
 </table>
 
 <p>
@@ -381,7 +381,6 @@ equation
           Line(points={{60,0},{100,0}}, color={0,127,255}),
           Text(
             extent={{-173,104},{175,62}},
-            lineColor={0,0,0},
             textString="zeta=%zeta")}),
     Documentation(info="<html>
 <p>
@@ -444,34 +443,28 @@ model SharpEdgedOrifice
               100}}), graphics={
           Rectangle(
             extent={{-100,44},{100,-44}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={0,127,255}),
           Polygon(
             points={{-25,44},{-25,7},{35,37},{35,44},{-25,44}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Backward,
             fillColor={175,175,175}),
           Polygon(
             points={{-25,-7},{-25,-44},{35,-44},{35,-36},{-25,-7}},
-            lineColor={0,0,0},
             fillColor={175,175,175},
             fillPattern=FillPattern.Backward)}),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}), graphics={
           Rectangle(
             extent={{-100,60},{100,-60}},
-            lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{-30,60},{-30,12},{30,50},{30,60},{-30,60}},
-            lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Backward),
           Polygon(
             points={{-30,-10},{-30,-60},{30,-60},{30,-50},{-30,-10}},
-            lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Backward),
           Line(
@@ -555,13 +548,11 @@ model AbruptAdaptor
             extent=DynamicSelect({{-100,22},{0,-22}}, {{-100,max(0.1, min(1,
                 diameter_a/max(diameter_a, diameter_b)))*60},{0,-max(0.1, min(1,
                 diameter_a/max(diameter_a, diameter_b)))*60}}),
-            lineColor={0,0,0},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={0,127,255}), Rectangle(
             extent=DynamicSelect({{0,60},{100,-60}}, {{0,max(0.1, min(1,
                 diameter_b/max(diameter_a, diameter_b)))*60},{100,-max(0.1, min(
                 1, diameter_b/max(diameter_a, diameter_b)))*60}}),
-            lineColor={0,0,0},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={0,127,255})}),
       Documentation(info="<html>
@@ -673,11 +664,9 @@ then ideal mixing would take place in the connection set, outside the volume. Th
 
   equation
     connect(port_1, port_2) annotation (Line(
-        points={{-100,0},{100,0}},
-        color={0,127,255}));
+        points={{-100,0},{100,0}}, color={0,127,255}));
     connect(port_1, port_3) annotation (Line(
-        points={{-100,0},{0,0},{0,100}},
-        color={0,127,255}));
+        points={{-100,0},{0,0},{0,100}}, color={0,127,255}));
     annotation(Documentation(info="<html>
   This model is the simplest implementation for a splitting/joining component for
   three flows. Its use is not required. It just formulates the balance
@@ -763,8 +752,6 @@ of the modeller.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={Ellipse(
             extent={{-9,10},{11,-10}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}));
   end TeeJunctionVolume;
 
@@ -800,7 +787,7 @@ of the modeller.
       Real zeta1 "Loss factor for flow port_a -> port_b" annotation(Dialog);
       Real zeta2 "Loss factor for flow port_b -> port_a" annotation(Dialog);
       SI.ReynoldsNumber Re_turbulent
-          "Loss factors suited for Re >= Re_turbulent"                            annotation(Dialog);
+          "Loss factors suited for Re >= Re_turbulent" annotation(Dialog);
       SI.Diameter D_Re "Diameter used to compute Re" annotation(Dialog);
       Boolean zeta1_at_a = true
           "dp = zeta1*(if zeta1_at_a then rho_a*v_a^2/2 else rho_b*v_b^2/2)"
@@ -809,7 +796,7 @@ of the modeller.
           "dp = -zeta2*(if zeta2_at_a then rho_a*v_a^2/2 else rho_b*v_b^2/2)"
                                                                          annotation(Dialog);
       Boolean zetaLaminarKnown = false
-          "= true, if zeta = c0/Re in laminar region"                              annotation(Dialog);
+          "= true, if zeta = c0/Re in laminar region" annotation(Dialog);
       Real c0 = 1
           "zeta = c0/Re; dp = zeta*rho_Re*v_Re^2/2, Re=v_Re*D_Re*rho_Re/mu_Re)"
                                                                                         annotation(Dialog(enable=zetaLaminarKnown));
@@ -846,7 +833,6 @@ of the modeller.
                 preserveAspectRatio=false,
                 extent={{-100,-100},{100,100}}), graphics={Rectangle(
                   extent={{-100,50},{100,-50}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid)}),
                                    Diagram(coordinateSystem(
@@ -854,12 +840,10 @@ of the modeller.
                 extent={{-100,-100},{100,100}}), graphics={
                 Rectangle(
                   extent={{-100,64},{100,-64}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Backward),
                 Rectangle(
                   extent={{-100,50},{100,-49}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),
                 Line(
@@ -895,7 +879,7 @@ port_a to port_b as:
      Reynolds number. For Re &ge; 4000, the flow is turbulent,
      but depends both on &Delta; and slightly on Re.
 &nbsp;
-  laminar flow (Idelchick 1994, diagram 2-1, p. 110):
+  laminar flow (Idelchik 1994, diagram 2-1, p. 110):
      zeta = 64*(L/D)/Re
 </pre>
 <p>
@@ -907,7 +891,7 @@ where
 <li> &Delta; = &delta;/D is the relative roughness where &delta; is
      the absolute \"roughness\", i.e., the averaged height of asperities in the pipe.
      (&delta; may change over time due to growth of surface asperities during
-      service, see [Idelchick 1994, p. 85, Tables 2-1, 2-2]).</li>
+      service, see [Idelchik 1994, p. 85, Tables 2-1, 2-2]).</li>
 </ul>
 
 <p>
@@ -920,16 +904,16 @@ the approximation for Re &lt; 560/&Delta; is too bad.
 
 <p>
 The absolute roughness <font face=\"Symbol\">d</font> has usually to
-be estimated. In <i>[Idelchik 1994, pp. 105-109,
-Table 2-5; Miller 1990, p. 190, Table 8-1]</i> many examples are given.
+be estimated. In <em>[Idelchik 1994, pp. 105-109,
+Table 2-5; Miller 1990, p. 190, Table 8-1]</em> many examples are given.
 As a short summary:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td><b>Smooth pipes</b></td>
+  <tr><td><strong>Smooth pipes</strong></td>
       <td>Drawn brass, copper, aluminium, glass, etc.</td>
       <td><font face=\"Symbol\">d</font> = 0.0025 mm</td>
   </tr>
-  <tr><td rowspan=\"3\"><b>Steel pipes</b></td>
+  <tr><td rowspan=\"3\"><strong>Steel pipes</strong></td>
       <td>New smooth pipes</td>
       <td><font face=\"Symbol\">d</font> = 0.025 mm</td>
   </tr>
@@ -939,7 +923,7 @@ As a short summary:
   <tr><td>Heavy rust</td>
       <td><font face=\"Symbol\">d</font> = 1 mm</td>
   </tr>
-  <tr><td rowspan=\"3\"><b>Concrete pipes</b></td>
+  <tr><td rowspan=\"3\"><strong>Concrete pipes</strong></td>
       <td>Steel forms, first class workmanship</td>
       <td><font face=\"Symbol\">d</font> = 0.025 mm</td>
   </tr>
@@ -1090,34 +1074,28 @@ port_a to port_b as:
                     {100,100}}), graphics={
                 Rectangle(
                   extent={{-100,60},{100,-60}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),
                 Polygon(
                   points={{-30,60},{-30,12},{30,50},{30,60},{-30,60}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Backward),
                 Polygon(
                   points={{-30,-10},{-30,-60},{30,-60},{30,-50},{-30,-10}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Backward)}),
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={
                 Rectangle(
                   extent={{-100,60},{100,-60}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),
                 Polygon(
                   points={{-30,60},{-30,12},{30,50},{30,60},{-30,60}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Backward),
                 Polygon(
                   points={{-30,-10},{-30,-60},{30,-60},{30,-50},{-30,-10}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Backward),
                 Line(
@@ -1182,11 +1160,11 @@ Loss factor for mass flow rate from port_b to port_a
 <p>
 This record defines the pressure loss factors of a pipe
 segment (orifice, bending etc.) with a minimum amount of data.
-If available, data should be provided for <b>both flow directions</b>,
+If available, data should be provided for <strong>both flow directions</strong>,
 i.e., flow from port_a to port_b and from port_b to port_a,
-as well as for the <b>laminar</b> and the <b>turbulent</b> region.
-It is also an option to provide the loss factor <b>only</b> for the
-<b>turbulent</b> region for a flow from port_a to port_b.
+as well as for the <strong>laminar</strong> and the <strong>turbulent</strong> region.
+It is also an option to provide the loss factor <strong>only</strong> for the
+<strong>turbulent</strong> region for a flow from port_a to port_b.
 </p>
 <p>
 The following equations are used:
@@ -1197,17 +1175,17 @@ The following equations are used:
         Re = |v|*D*&rho;/&mu;
 </pre>
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><td><b>flow type</b></td>
-    <td><b>&zeta;</b> = </td>
-    <td><b>flow region</b></td></tr>
+<tr><td><strong>flow type</strong></td>
+    <td><strong>&zeta;</strong> = </td>
+    <td><strong>flow region</strong></td></tr>
 <tr><td>turbulent</td>
-    <td><b>zeta1</b> = const.</td>
+    <td><strong>zeta1</strong> = const.</td>
     <td>Re &ge;  Re_turbulent, v &ge; 0</td></tr>
 <tr><td></td>
-    <td><b>zeta2</b> = const.</td>
+    <td><strong>zeta2</strong> = const.</td>
     <td>Re &ge; Re_turbulent, v &lt; 0</td></tr>
 <tr><td>laminar</td>
-    <td><b>c0</b>/Re</td>
+    <td><strong>c0</strong>/Re</td>
     <td>both flow directions, Re small; c0 = const.</td></tr>
 </table>
 <p>
@@ -1269,8 +1247,8 @@ If no data for c0 is available, the derivative at Re = 0 is computed in such
 a way, that the second derivatives of the two polynomials
 are identical at Re = 0. The polynomials are constructed, such that
 they smoothly touch the characteristic curves in the turbulent
-regions. The whole characteristic is therefore <b>continuous</b>
-and has a <b>finite</b>, <b>continuous first derivative everywhere</b>.
+regions. The whole characteristic is therefore <strong>continuous</strong>
+and has a <strong>finite</strong>, <strong>continuous first derivative everywhere</strong>.
 In some cases, the constructed polynomials would \"vibrate\". This is
 avoided by reducing the derivative at Re=0 in such a way that
 the polynomials are guaranteed to be monotonically increasing.
@@ -1279,7 +1257,7 @@ The used sufficient criteria for monotonicity follows from:
 
 <dl>
 <dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
-<dd> <b>Monotone piecewise cubic interpolation</b>.
+<dd> <strong>Monotone piecewise cubic interpolation</strong>.
      SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
 </dl>
 </html>"));
@@ -1296,9 +1274,9 @@ The used sufficient criteria for monotonicity follows from:
         input LossFactorData data
           "Constant loss factors for both flow directions" annotation (
             choices(
-            choice=Modelica.Fluid.Fittings.Utilities.QuadraticTurbulent.LossFactorData.wallFriction(),
-            choice=Modelica.Fluid.Fittings.Utilities.QuadraticTurbulent.LossFactorData.suddenExpansion(),
-            choice=Modelica.Fluid.Fittings.Utilities.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.wallFriction(),
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.suddenExpansion(),
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
         input SI.AbsolutePressure dp_small = 1
           "Turbulent flow if |dp| >= dp_small";
         output SI.MassFlowRate m_flow "Mass flow rate from port_a to port_b";
@@ -1338,9 +1316,9 @@ a polynomial in order to have a finite derivative at zero mass flow rate.
         input LossFactorData data
           "Constant loss factors for both flow directions" annotation (
             choices(
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.wallFriction(),
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.suddenExpansion(),
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.wallFriction(),
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.suddenExpansion(),
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
         output SI.MassFlowRate m_flow "Mass flow rate from port_a to port_b";
 
       protected
@@ -1410,8 +1388,8 @@ If no data for c0 is available, the derivative at Re = 0 is computed in such
 a way, that the second derivatives of the two polynomials
 are identical at Re = 0. The polynomials are constructed, such that
 they smoothly touch the characteristic curves in the turbulent
-regions. The whole characteristic is therefore <b>continuous</b>
-and has a <b>finite</b>, <b>continuous first derivative everywhere</b>.
+regions. The whole characteristic is therefore <strong>continuous</strong>
+and has a <strong>finite</strong>, <strong>continuous first derivative everywhere</strong>.
 In some cases, the constructed polynomials would \"vibrate\". This is
 avoided by reducing the derivative at Re=0 in such a way that
 the polynomials are guaranteed to be monotonically increasing.
@@ -1420,7 +1398,7 @@ The used sufficient criteria for monotonicity follows from:
 
 <dl>
 <dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
-<dd> <b>Monotone piecewise cubic interpolation</b>.
+<dd> <strong>Monotone piecewise cubic interpolation</strong>.
      SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
 </dl>
 </html>"));
@@ -1436,9 +1414,9 @@ The used sufficient criteria for monotonicity follows from:
         input LossFactorData data
           "Constant loss factors for both flow directions" annotation (
             choices(
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.wallFriction(),
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.suddenExpansion(),
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.wallFriction(),
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.suddenExpansion(),
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
         input SI.MassFlowRate m_flow_small = 0.01
           "Turbulent flow if |m_flow| >= m_flow_small";
         output SI.Pressure dp "Pressure drop (dp = port_a.p - port_b.p)";
@@ -1478,9 +1456,9 @@ a polynomial in order to have a finite derivative at zero mass flow rate.
         input LossFactorData data
           "Constant loss factors for both flow directions" annotation (
             choices(
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.wallFriction(),
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.suddenExpansion(),
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.wallFriction(),
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.suddenExpansion(),
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
         output SI.Pressure dp "Pressure drop (dp = port_a.p - port_b.p)";
 
       protected
@@ -1548,8 +1526,8 @@ If no data for c0 is available, the derivative at Re = 0 is computed in such
 a way, that the second derivatives of the two polynomials
 are identical at Re = 0. The polynomials are constructed, such that
 they smoothly touch the characteristic curves in the turbulent
-regions. The whole characteristic is therefore <b>continuous</b>
-and has a <b>finite</b>, <b>continuous first derivative everywhere</b>.
+regions. The whole characteristic is therefore <strong>continuous</strong>
+and has a <strong>finite</strong>, <strong>continuous first derivative everywhere</strong>.
 In some cases, the constructed polynomials would \"vibrate\". This is
 avoided by reducing the derivative at Re=0 in such a way that
 the polynomials are guaranteed to be monotonically increasing.
@@ -1558,7 +1536,7 @@ The used sufficient criteria for monotonicity follows from:
 
 <dl>
 <dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
-<dd> <b>Monotone piecewise cubic interpolation</b>.
+<dd> <strong>Monotone piecewise cubic interpolation</strong>.
      SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
 </dl>
 </html>"));
@@ -1653,12 +1631,12 @@ The used sufficient criteria for monotonicity follows from:
 <p>
 This model computes the pressure loss of a pipe
 segment (orifice, bending etc.) with a minimum amount of data
-provided via parameter <b>data</b>.
-If available, data should be provided for <b>both flow directions</b>,
+provided via parameter <strong>data</strong>.
+If available, data should be provided for <strong>both flow directions</strong>,
 i.e., flow from port_a to port_b and from port_b to port_a,
-as well as for the <b>laminar</b> and the <b>turbulent</b> region.
-It is also an option to provide the loss factor <b>only</b> for the
-<b>turbulent</b> region for a flow from port_a to port_b.
+as well as for the <strong>laminar</strong> and the <strong>turbulent</strong> region.
+It is also an option to provide the loss factor <strong>only</strong> for the
+<strong>turbulent</strong> region for a flow from port_a to port_b.
 </p>
 <p>
 The following equations are used:
@@ -1668,17 +1646,17 @@ The following equations are used:
         Re = |v|*D*&rho;/&mu;
 </pre>
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><td><b>flow type</b></td>
-    <td><b>&zeta;</b> = </td>
-    <td><b>flow region</b></td></tr>
+<tr><td><strong>flow type</strong></td>
+    <td><strong>&zeta;</strong> = </td>
+    <td><strong>flow region</strong></td></tr>
 <tr><td>turbulent</td>
-    <td><b>zeta1</b> = const.</td>
+    <td><strong>zeta1</strong> = const.</td>
     <td>Re &ge;  Re_turbulent, v &ge; 0</td></tr>
 <tr><td></td>
-    <td><b>zeta2</b> = const.</td>
+    <td><strong>zeta2</strong> = const.</td>
     <td>Re &ge; Re_turbulent, v &lt; 0</td></tr>
 <tr><td>laminar</td>
-    <td><b>c0</b>/Re</td>
+    <td><strong>c0</strong>/Re</td>
     <td>both flow directions, Re small; c0 = const.</td></tr>
 </table>
 <p>
@@ -1740,8 +1718,8 @@ If no data for c0 is available, the derivative at Re = 0 is computed in such
 a way, that the second derivatives of the two polynomials
 are identical at Re = 0. The polynomials are constructed, such that
 they smoothly touch the characteristic curves in the turbulent
-regions. The whole characteristic is therefore <b>continuous</b>
-and has a <b>finite</b>, <b>continuous first derivative everywhere</b>.
+regions. The whole characteristic is therefore <strong>continuous</strong>
+and has a <strong>finite</strong>, <strong>continuous first derivative everywhere</strong>.
 In some cases, the constructed polynomials would \"vibrate\". This is
 avoided by reducing the derivative at Re=0 in such a way that
 the polynomials are guaranteed to be monotonically increasing.
@@ -1750,7 +1728,7 @@ The used sufficient criteria for monotonicity follows from:
 
 <dl>
 <dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
-<dd> <b>Monotone piecewise cubic interpolation</b>.
+<dd> <strong>Monotone piecewise cubic interpolation</strong>.
      SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
 </dl>
 </html>"));
@@ -1772,21 +1750,17 @@ The used sufficient criteria for monotonicity follows from:
                   100,100}}), graphics={
               Text(
                 extent={{-150,80},{150,120}},
-                lineColor={0,0,0},
                 textString="%name"),
               Rectangle(
                 extent={{-100,60},{100,-60}},
-                lineColor={0,0,0},
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={192,192,192}),
               Rectangle(
                 extent={{-100,34},{100,-36}},
-                lineColor={0,0,0},
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={0,127,255}),
               Text(
                 extent={{-134,-66},{130,-92}},
-                lineColor={0,0,0},
                 textString="quad. turbulent")}),
           Documentation(info="<html>
 
@@ -1824,7 +1798,7 @@ The used sufficient criteria for monotonicity follows from:
                              Medium.reference_p,
                              Medium.reference_T,
                              Medium.reference_X)
-          "Medium state to compute nominal pressure drop"                                        annotation(HideResult=true);
+          "Medium state to compute nominal pressure drop" annotation(HideResult=true);
         parameter Modelica.SIunits.Pressure dp_nominal=
           pressureLoss_m_flow(m_flow_nominal, Medium.density(state_nominal), Medium.density(state_nominal), data, m_flow_small)
           "Nominal pressure loss";
@@ -1911,12 +1885,12 @@ The used sufficient criteria for monotonicity follows from:
 <p>
 This model computes the pressure loss of a pipe
 segment (orifice, bending etc.) with a minimum amount of data
-provided via parameter <b>data</b>.
-If available, data should be provided for <b>both flow directions</b>,
+provided via parameter <strong>data</strong>.
+If available, data should be provided for <strong>both flow directions</strong>,
 i.e., flow from port_a to port_b and from port_b to port_a,
-as well as for the <b>laminar</b> and the <b>turbulent</b> region.
-It is also an option to provide the loss factor <b>only</b> for the
-<b>turbulent</b> region for a flow from port_a to port_b.
+as well as for the <strong>laminar</strong> and the <strong>turbulent</strong> region.
+It is also an option to provide the loss factor <strong>only</strong> for the
+<strong>turbulent</strong> region for a flow from port_a to port_b.
 </p>
 <p>
 The following equations are used:
@@ -1926,17 +1900,17 @@ The following equations are used:
         Re = |v|*D*&rho;/&mu;
 </pre>
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><td><b>flow type</b></td>
-    <td><b>&zeta;</b> = </td>
-    <td><b>flow region</b></td></tr>
+<tr><td><strong>flow type</strong></td>
+    <td><strong>&zeta;</strong> = </td>
+    <td><strong>flow region</strong></td></tr>
 <tr><td>turbulent</td>
-    <td><b>zeta1</b> = const.</td>
+    <td><strong>zeta1</strong> = const.</td>
     <td>Re &ge;  Re_turbulent, v &ge; 0</td></tr>
 <tr><td></td>
-    <td><b>zeta2</b> = const.</td>
+    <td><strong>zeta2</strong> = const.</td>
     <td>Re &ge; Re_turbulent, v &lt; 0</td></tr>
 <tr><td>laminar</td>
-    <td><b>c0</b>/Re</td>
+    <td><strong>c0</strong>/Re</td>
     <td>both flow directions, Re small; c0 = const.</td></tr>
 </table>
 <p>
@@ -1999,8 +1973,8 @@ If no data for c0 is available, the derivative at Re = 0 is computed in such
 a way, that the second derivatives of the two polynomials
 are identical at Re = 0. The polynomials are constructed, such that
 they smoothly touch the characteristic curves in the turbulent
-regions. The whole characteristic is therefore <b>continuous</b>
-and has a <b>finite</b>, <b>continuous first derivative everywhere</b>.
+regions. The whole characteristic is therefore <strong>continuous</strong>
+and has a <strong>finite</strong>, <strong>continuous first derivative everywhere</strong>.
 In some cases, the constructed polynomials would \"vibrate\". This is
 avoided by reducing the derivative at Re=0 in such a way that
 the polynomials are guaranteed to be monotonically increasing.
@@ -2009,7 +1983,7 @@ The used sufficient criteria for monotonicity follows from:
 
 <dl>
 <dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
-<dd> <b>Monotone piecewise cubic interpolation</b>.
+<dd> <strong>Monotone piecewise cubic interpolation</strong>.
      SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
 </dl>
 </html>"));
@@ -2031,9 +2005,9 @@ The used sufficient criteria for monotonicity follows from:
         input LossFactorData data
           "Constant loss factors for both flow directions" annotation (
             choices(
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.wallFriction(),
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.suddenExpansion(),
-            choice=BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.wallFriction(),
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.suddenExpansion(),
+            choice=Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
         input SI.MassFlowRate m_flow_small = 0.01
           "Turbulent flow if |m_flow| >= m_flow_small";
         output SI.Pressure dp "Pressure drop (dp = port_a.p - port_b.p)";
@@ -2059,11 +2033,11 @@ a polynomial in order to have a finite derivative at zero mass flow rate.
 <p>
 This library provides pressure loss factors of a pipe
 segment (orifice, bending etc.) with a minimum amount of data.
-If available, data can be provided for <b>both flow directions</b>,
+If available, data can be provided for <strong>both flow directions</strong>,
 i.e., flow from port_a to port_b and from port_b to port_a,
-as well as for the <b>laminar</b> and the <b>turbulent</b> region.
-It is also an option to provide the loss factor <b>only</b> for the
-<b>turbulent</b> region for a flow from port_a to port_b.
+as well as for the <strong>laminar</strong> and the <strong>turbulent</strong> region.
+It is also an option to provide the loss factor <strong>only</strong> for the
+<strong>turbulent</strong> region for a flow from port_a to port_b.
 Basically, the pressure drop is defined by the following
 equation:
 </p>
@@ -2131,7 +2105,6 @@ where
             extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,44},{100,-44}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={0,127,255}),
             Text(
@@ -2140,15 +2113,13 @@ where
               textString="%name"),
             Rectangle(
               extent={{-44,100},{44,44}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.VerticalCylinder,
               fillColor={0,127,255}),
             Rectangle(
               extent={{-22,82},{21,-4}},
               fillPattern=FillPattern.Solid,
               fillColor={0,128,255},
-              pattern=LinePattern.None,
-              lineColor={0,0,0})}));
+              pattern=LinePattern.None)}));
     end PartialTeeJunction;
 
     package Bends "Pressure loss functions for bends"
@@ -2563,10 +2534,9 @@ The details of the record are described
            geometry.venaCrossArea := venaDiameter^2*pi/4;
            geometry.venaPerimeter := pi*venaDiameter;
            geometry.venaLength := venaLength;
-          annotation (                               Icon(coordinateSystem(preserveAspectRatio=false,
+          annotation (Icon(coordinateSystem(preserveAspectRatio=false,
                            extent={{-100,-100},{100,100}}), graphics={Ellipse(
                   extent={{-80,80},{80,-80}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid)}),
             Documentation(revisions="",
@@ -2600,10 +2570,9 @@ cross section of the orifice.
            geometry.venaCrossArea := venaWidth*venaHeight;
            geometry.venaPerimeter := 2*venaWidth + 2*venaHeight;
            geometry.venaLength := venaLength;
-          annotation (                               Icon(coordinateSystem(preserveAspectRatio=true,
+          annotation (Icon(coordinateSystem(preserveAspectRatio=true,
                            extent={{-100,-100},{100,100}}), graphics={Rectangle(
                   extent={{-80,60},{80,-60}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid)}),
             Documentation(revisions="",
@@ -2639,11 +2608,10 @@ cross section of the orifice.
            geometry.venaCrossArea := venaCrossArea;
            geometry.venaPerimeter := venaPerimeter;
            geometry.venaLength := venaLength;
-          annotation (                               Icon(coordinateSystem(preserveAspectRatio=false,
+          annotation (Icon(coordinateSystem(preserveAspectRatio=false,
                            extent={{-100,-100},{100,100}}), graphics={
                                                  Polygon(
                   points={{-80,8},{0,80},{80,40},{20,-20},{40,-80},{-60,-80},{-80,8}},
-                  lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid)}),
             Documentation(revisions="",
@@ -2811,13 +2779,13 @@ polynomials. The monotonicity is guaranteed using results from:
 
 <dl>
 <dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
-<dd> <b>Monotone piecewise cubic interpolation</b>.
+<dd> <strong>Monotone piecewise cubic interpolation</strong>.
      SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
 </dl>
 
 </html>", revisions="<html>
 <ul>
-<li><i>Jan. 3, 2006</i>
+<li><em>Jan. 3, 2006</em>
     by <a href=\"mailto:Martin.Otter@DLR.de\">Martin Otter</a>:<br>
     New design and implementation based on previous iterations.</li>
 </ul>

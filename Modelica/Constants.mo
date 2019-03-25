@@ -36,7 +36,7 @@ package Constants
     "Standard acceleration of gravity on earth";
   final constant Real G(final unit="m3/(kg.s2)") = 6.67408e-11
     "Newtonian constant of gravitation";
-  final constant SI.ElectricCharge q = 1.602176634e-19 "elementary charge";
+  final constant SI.ElectricCharge q = 1.602176634e-19 "Elementary charge";
   final constant SI.FaradayConstant F = q*N_A
     "Faraday constant, C/mol";
   final constant Real h(final unit="J.s") = 6.62607015e-34
@@ -77,7 +77,7 @@ dependent constants and constants from nature. The latter constants
 <p>CODATA is the Committee on Data for Science and Technology.</p>
 
 <dl>
-<dt><b>Main Author:</b></dt>
+<dt><strong>Main Author:</strong></dt>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e. V. (DLR)<br>
     Oberpfaffenhofen<br>
@@ -87,31 +87,28 @@ dependent constants and constants from nature. The latter constants
 </dl>
 
 <p>
-Copyright &copy; 1998-2016, Modelica Association and DLR.
-</p>
-<p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+Copyright &copy; 1998-2019, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>Mar 25, 2019</i>
+<li><em>Mar 25, 2019</em>
        by Hans Olsson:<br>
        Constants updated according to 2017 CODATA values and new SI-standard.</li>
-<li><i>Nov 4, 2015</i>
+<li><em>Nov 4, 2015</em>
        by Thomas Beutlich:<br>
        Constants updated according to 2014 CODATA values.</li>
-<li><i>Nov 8, 2004</i>
+<li><em>Nov 8, 2004</em>
        by Christian Schweiger:<br>
        Constants updated according to 2002 CODATA values.</li>
-<li><i>Dec 9, 1999</i>
+<li><em>Dec 9, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Constants updated according to 1998 CODATA values. Using names, values
        and description text from this source. Included magnetic and
        electric constant.</li>
-<li><i>Sep 18, 1999</i>
+<li><em>Sep 18, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Constants eps, inf, small introduced.</li>
-<li><i>Nov 15, 1997</i>
+<li><em>Nov 15, 1997</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Realized.</li>
 </ul>

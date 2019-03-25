@@ -15,8 +15,7 @@ model RealSwitch "Ideal switch with resistance"
             44,46}})));
 equation
   connect(p, R.p) annotation (Line(points={{-100,-24},{-66,-24.6667}}));
-  connect(R.n, S.p) annotation (Line(points={{-19.3333,-24.6667},{11.3333,
-          -22.6667}}));
+  connect(R.n, S.p) annotation (Line(points={{-19.3333,-24.6667},{11.3333,-22.6667}}));
   connect(n1, S.n1) annotation (Line(points={{100,-4},{58,-11}}));
   connect(n2, S.n2) annotation (Line(points={{100,-50},{58,-22.6667}}));
   connect(control, S.control) annotation (Line(points={{34,36},{34.6666,0.6667}}));

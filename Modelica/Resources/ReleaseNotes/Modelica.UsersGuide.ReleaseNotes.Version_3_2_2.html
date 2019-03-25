@@ -1,15 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 <title>Modelica.UsersGuide.ReleaseNotes.Version_3_2_2</title>
 </head>
 <body>
-<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>.<span class="omc-h1">Version_3_2_2</span></h1>
+<h1>ReleaseNotes.<span class="omc-h1">Version_3_2_2</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <p>Version 3.2.2 is backward compatible to version 3.2.1, that is
 models developed with versions 3.0, 3.0.1, 3.1, 3.2, or 3.2.1 will
@@ -22,29 +21,30 @@ based on
 Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction,
 see details below).</p>
 <ul>
-<li>This version of the Modelica package is <b>fully compatible</b>
-to Modelica Specification <b>3.2 revision 2</b>.<br />
+<li>This version of the Modelica package is <strong>fully
+compatible</strong> to Modelica Specification <strong>3.2 revision
+2</strong>.<br />
 &nbsp;</li>
-<li>About <b>240</b> tickets have been fixed in this release and
-the previous maintenance releases:
+<li>About <strong>240</strong> tickets have been fixed in this
+release and the previous maintenance releases:
 <ul>
-<li><b>Version 3.2.1 Build.3</b> (July 30, 2015) with respect to
-3.2.1 Build.2 (August 14, 2013):<br />
-About <a href="../../../Modelica%203.2.2/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html">
+<li><strong>Version 3.2.1 Build.3</strong> (July 30, 2015) with
+respect to 3.2.1 Build.2 (August 14, 2013):<br />
+About <a href="../Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html">
 103 tickets</a> have been fixed for this maintenance release.<br />
 &nbsp;</li>
-<li><b>Version 3.2.1 Build.4</b> (September 30, 2015) with respect
-to 3.2.1 Build.3 (July 30, 2015):
+<li><strong>Version 3.2.1 Build.4</strong> (September 30, 2015)
+with respect to 3.2.1 Build.3 (July 30, 2015):
 <ul>
-<li>About <a href="../../../Modelica%203.2.2/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-4.html">
+<li>About <a href="../Documentation/Version-3.2.1/ResolvedTracTickets-build-4.html">
 10 tickets</a> have been fixed for this maintenance release.
 Critical tickets:</li>
 <li>Ticket <a href="https://trac.modelica.org/Modelica/ticket/1768">1768</a> fixes an
-issue with block <a href="Modelica.Blocks.Sources.CombiTimeTable.html">CombiTimeTable</a>
+issue with block CombiTimeTable
 (wrong output when using fixed time step integrator with time step
 greater than table resolution).</li>
 <li>Ticket <a href="https://trac.modelica.org/Modelica/ticket/1758">1758</a> states
-that simulation of <a href="Modelica.Fluid.Examples.HeatingSystem.html">Modelica.Fluid.Examples.HeatingSystem</a>
+that simulation of Modelica.Fluid.Examples.HeatingSystem
 fails in Dymola 2016 if option "pedantic mode for checking Modelica
 semantics" is set. This issue was not fixed in the library due to
 the following reasons:<br />
@@ -67,11 +67,12 @@ example that the pedantic flag in Dymola 2016 needs to be switched
 off, when using the Modelica.Fluid library in version 3.2.1 build 4
 and any previous version).</li>
 <li>In ticket <a href="https://trac.modelica.org/Modelica/ticket/1757">1757</a> it is
-(correctly) stated that the example model <a href="Modelica.Media.Air.MoistAir.PsychrometricData.html">PsychrometricData</a>
-was moved to another location and that this is a non-backwards
-compatible change. This non-backwards compatible change is
-accepted, because it fixes a circular depedency (a model references
-a package in which it resides), for details see ticket <a href="https://trac.modelica.org/Modelica/ticket/1679">1679</a>. Fixing
+(correctly) stated that the example model PsychrometricData
+was moved from Modelica.Media.Air.MoistAir.PsychrometricData and
+that this is a non-backwards compatible change. This non-backwards
+compatible change is accepted, because it fixes a circular
+depedency (a model references a package in which it resides), for
+details see ticket <a href="https://trac.modelica.org/Modelica/ticket/1679">1679</a>. Fixing
 this ticket is seen as of much higher priority, as the small
 drawback that an example model is moved (and the probability is
 very high that this moved model is not used in any user
@@ -79,23 +80,24 @@ model).<br />
 &nbsp;</li>
 </ul>
 </li>
-<li><b>Version 3.2.2 Build.2</b> (March 16, 2016) with respect to
-3.2.1 Build.4 (September 30, 2015):<br />
-About <a href="../../../Modelica%203.2.2/Resources/Documentation/Version-3.2.2/ResolvedTracTickets.html">
+<li><strong>Version 3.2.2 Build.2</strong> (March 16, 2016) with
+respect to 3.2.1 Build.4 (September 30, 2015):<br />
+About <a href="../Documentation/Version-3.2.2/ResolvedTracTickets.html">
 130 tickets</a> have been fixed for this release.<br />
 The ModelicaStandardTables object library (.lib, .dll, .a, .so,
 depending on tool) has been split into the libraries
-<b>ModelicaStandardTables</b>, <b>ModelicaMatIO</b>, <b>zlib</b>
-and the new object library <b>ModelicaIO</b> has been added.<br />
-For a <b>tool vendor</b> this can be a non-backwards compatible
-change if the same object libraries have been used in the past for
-different releases of package Modelica. In <a href="../../../Modelica%203.2.2/Resources/C-sources/_readme.txt">Resources/C-sources/_readme.txt</a>
+<strong>ModelicaStandardTables</strong>,
+<strong>ModelicaMatIO</strong>, <strong>zlib</strong> and the new
+object library <strong>ModelicaIO</strong> has been added.<br />
+For a <strong>tool vendor</strong> this can be a non-backwards
+compatible change if the same object libraries have been used in
+the past for different releases of package Modelica. In <a href="../C-Sources/readme.txt">Resources/C-Sources/readme.txt</a>
 the issue is explained in detail and how to resolve it. For a
-<b>user</b> this might be a non-backwards compatible change if
-he/she implemented an own external C interface function to one of
-the functions in the ModelicaStandardTables, ModelicaMatIO or zlib
-libraries. In this case, the library annotations to these functions
-need to be adapted.<br />
+<strong>user</strong> this might be a non-backwards compatible
+change if he/she implemented an own external C interface function
+to one of the functions in the ModelicaStandardTables,
+ModelicaMatIO or zlib libraries. In this case, the library
+annotations to these functions need to be adapted.<br />
 &nbsp;</li>
 </ul>
 </li>
@@ -123,9 +125,9 @@ using named function arguments.</li>
 version 3.2.1 is summarized in the following two comparison
 tables:</p>
 <ul>
-<li><a href="../../../Modelica%203.2.2/Resources/Documentation/Version-3.2.2/Differences322To321Build4.html">
+<li><a href="../Documentation/Version-3.2.2/Differences322To321Build4.html">
 Difference 3.2.2 to 3.2.1 Build 4</a>,</li>
-<li><a href="../../../Modelica%203.2.2/Resources/Documentation/Version-3.2.2/Differences321Build4toBuild2.html">
+<li><a href="../Documentation/Version-3.2.2/Differences321Build4toBuild2.html">
 Difference 3.2.1 Build 4 to 3.2.1 Build 2</a>.</li>
 </ul>
 <p>This release of package Modelica, and the accompanying
@@ -134,27 +136,21 @@ are listed alphabetically. At the time of the test, some of the
 tools might not yet supported the complete Modelica package. For
 more details of the tests see <a href="https://trac.modelica.org/Modelica/ticket/1867">#1867</a>):</p>
 <ul>
-<li><b>Dymola 2017 Beta.1</b> (Windows 64 bit, "Check" with
-pedantic flag, that is checking strict Modelica compliance, and
-"Check with Simulation").<br />
+<li><strong>Dymola 2017 Beta.1</strong> (Windows 64 bit, "Check"
+with pedantic flag, that is checking strict Modelica compliance,
+and "Check with Simulation").<br />
 <a href="https://trac.modelica.org/Modelica/ticket/1924">#1924</a>:
 Regression testing of 3.2.2+build.0-beta.2 using Dymola 2017 Dev 4
 with respect to 3.2.1+build.4 reference files<br />
 <a href="https://trac.modelica.org/Modelica/ticket/1949">#1949</a>:
 Regression testing of 3.2.2+build.0-beta.3 using Dymola 2017 Beta 1
 with respect to 3.2.1+build.4 reference files</li>
-<li><b>LMS Imagine.Lab Amesim 14.2</b> and <b>LMS Imagine.Lab
-Amesim 15 (development build)</b>. No previously unreported
-regressions have been detected.</li>
-<li><b>Maplesim Parser</b></li>
-<li><b>OpenModelica 1.9.4 Beta.2</b> (Windows, Linux, Mac)<br />
-<a href="https://test.openmodelica.org/hudson/job/MSL_trunk_Compilation/">Compilation</a>
-of models of 3.2.2.<br />
-<a href="https://test.openmodelica.org/hudson/job/MSL_trunk_cpp_Simulation/">
-Simulation</a> of models of 3.2.2.<br />
-<a href="https://test.openmodelica.org/libraries/MSL_trunk/BuildModelRecursive.html">
-Regression testing</a> of 3.2.2 using OpenModelica 1.9.4 with
-respect to 3.2.1+build.4 reference files.</li>
+<li><strong>LMS Imagine.Lab Amesim 14.2</strong> and <strong>LMS
+Imagine.Lab Amesim 15 (development build)</strong>. No previously
+unreported regressions have been detected.</li>
+<li><strong>Maplesim Parser</strong></li>
+<li><strong>OpenModelica 1.9.4 Beta.2</strong> (Windows, Linux,
+Mac)</li>
 </ul>
 <p>The following Modelica packages have been tested that they work
 together with this release of package Modelica (alphabetical
@@ -186,88 +182,88 @@ list):</p>
 <li>Vehicle Dynamics Library 2.3 (Modelon)</li>
 </ul>
 <p><br />
-The following <b style="color:blue">new libraries</b> have been
-added:</p>
+The following <font color="blue"><strong>new
+libraries</strong></font> have been added:</p>
 <table border="1" cellspacing="0" cellpadding="2">
 <tr>
-<td valign="top"><a href="Modelica.Electrical.PowerConverters.html">Modelica.Electrical.PowerConverters</a></td>
-<td valign="top">This library offers models for rectifiers,
-inverters and DC/DC-converters.<br />
+<td>Modelica.Electrical.PowerConverters</td>
+<td>This library offers models for rectifiers, inverters and
+DC/DC-converters.<br />
 (This library was developed by Christian Kral and Anton
 Haumer).</td>
 </tr>
 <tr>
-<td valign="top"><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.html">Modelica.Magnetic.QuasiStatic.FundamentalWave</a></td>
-<td valign="top">This library provides quasi-static models of
-multiphase machines (induction machines, synchronous machines) in
-parallel (with the same parameters but different electric
-connectors) to the transient models in <a href="Modelica.Magnetic.FundamentalWave.html">Modelica.Magnetic.FundamentalWave</a>.<br />
+<td>Modelica.Magnetic.QuasiStatic.FundamentalWave</td>
+<td>This library provides quasi-static models of multiphase
+machines (induction machines, synchronous machines) in parallel
+(with the same parameters but different electric connectors) to the
+transient models in Modelica.Magnetic.FundamentalWave.<br />
 
 Quasistatic means that electric transients are neglected, voltages
 and currents are supposed to be sinusoidal. Mechanical and thermal
 transients are taken into account.<br />
-This library is especially useful in combination with the <a href="Modelica.Electrical.QuasiStationary.html">Modelica.Electrical.QuasiStationary</a>
+This library is especially useful in combination with the Modelica.Electrical.QuasiStationary
 library in order to build up very fast simulations of electrical
 circuits with sinusoidal currents and voltages.<br />
 (This library was developed by Christian Kral and Anton
 Haumer).</td>
 </tr>
 <tr>
-<td valign="top">Sublibraries of <a href="Modelica.Magnetic.FluxTubes.html">Modelica.Magnetic.FluxTubes</a></td>
-<td valign="top">New elements for modeling ferromagnetic (static)
-and eddy current (dynamic) hysteresis effects and permanent magnets
-have been added. The FluxTubes.Material package is also extended to
+<td>Sublibraries of Modelica.Magnetic.FluxTubes</td>
+<td>New elements for modeling ferromagnetic (static) and eddy
+current (dynamic) hysteresis effects and permanent magnets have
+been added. The FluxTubes.Material package is also extended to
 provide hysteresis data for several magnetic materials. These data
 is partly based on own measurements. For modeling of ferromagnetic
-hysteresis, two different hystereses models have been implemented:
+hysteresis, two different hysteresis models have been implemented:
 The simple Tellinen model and the considerably more detailed
 Preisach hysteresis model. The following packages have been added:
 <ul>
-<li><a href="Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis">FluxTubes.UsersGuide.Hysteresis</a></li>
-<li><a href="Modelica.Magnetic.FluxTubes.Examples.Hysteresis">Fluxtubes.Examples.Hysteresis</a></li>
-<li><a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets">FluxTubes.Shapes.HysteresisAndMagnets</a></li>
-<li><a href="Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter">FluxTubes.Material.HysteresisEverettParameter</a></li>
-<li><a href="Modelica.Magnetic.FluxTubes.Material.HysteresisTableData">FluxTubes.Material.HysteresisTableData</a></li>
+<li>FluxTubes.UsersGuide.Hysteresis</li>
+<li>FluxTubes.Examples.Hysteresis</li>
+<li>FluxTubes.Shapes.HysteresisAndMagnets</li>
+<li>FluxTubes.Material.HysteresisEverettParameter</li>
+<li>FluxTubes.Material.HysteresisTableData</li>
 </ul>
 (These extensions have been developed by Johannes Ziske and Thomas
 Bödrich as part of the <a href="http://www.cleansky.eu/">Clean
-Sky</a> JTI project; project number: 296369; Theme: <a href="http://cordis.europa.eu/project/rcn/101194_en.html">JTI-CS-2011-1-SGO-02-026</a>;
+Sky</a> JTI project; project number: 296369; Theme: <a href="https://cordis.europa.eu/project/rcn/101194_en.html">JTI-CS-2011-1-SGO-02-026</a>;
 MOMOLIB - Modelica Model Library Development for Media, Magnetic
 Systems and Wavelets. The partial financial support by the European
 Union for this development is highly appreciated.).</td>
 </tr>
 <tr>
-<td valign="top">Sublibraries for <b>noise</b> modeling</td>
-<td valign="top">Several new sublibraries have been added allowing
-the modeling of reproducible noise. The most important new
-sublibraries are (for more details see below):
+<td>Sublibraries for <strong>noise</strong> modeling</td>
+<td>Several new sublibraries have been added allowing the modeling
+of reproducible noise. The most important new sublibraries are (for
+more details see below):
 <ul>
-<li><a href="Modelica.Blocks.Noise.html">Modelica.Blocks.Noise</a></li>
-<li><a href="Modelica.Math.Random.html">Modelica.Math.Random</a></li>
-<li><a href="Modelica.Math.Distributions.html">Modelica.Math.Distributions</a></li>
-<li><a href="Modelica.Math.Special.html">Modelica.Math.Special</a></li>
+<li>Modelica.Blocks.Noise</li>
+<li>Modelica.Math.Random</li>
+<li>Modelica.Math.Distributions</li>
+<li>Modelica.Math.Special</li>
 </ul>
 (These extensions have been developed by Andreas Klöckner, Frans
 van der Linden, Dirk Zimmer, and Martin Otter from DLR Institute of
 System Dynamics and Control).</td>
 </tr>
 <tr>
-<td valign="top"><a href="Modelica.Utilities.html">Modelica.Utilities</a> functions
-for <b>matrix read/write</b></td>
-<td valign="top">New functions are provided in the <a href="Modelica.Utilities.Streams.html">Modelica.Utilities.Streams</a>
+<td>Modelica.Utilities
+functions for <strong>matrix read/write</strong></td>
+<td>New functions are provided in the Modelica.Utilities.Streams
 sublibrary to write matrices in MATLAB MAT format on file and read
 matrices in this format from file. The MATLAB MAT formats v4, v6,
-v7 and v7.3 (in case the tool supports HDF) are supported by these
-functions. Additionally, example models are provided under <a href="Modelica.Utilities.Examples.html">Modelica.Utilities.Examples</a>
+v7 and v7.3 (in case the tool supports HDF5) are supported by these
+functions. Additionally, example models are provided under Modelica.Utilities.Examples
 to demonstrate the usage of these functions in models. For more
 details see below.<br />
 (These extensions have been developed by Thomas Beutlich from ITI
 GmbH).</td>
 </tr>
 <tr>
-<td valign="top"><a href="Modelica.Math.html">Modelica.Math</a> sublibrary for
-<b>FFT</b></td>
-<td valign="top">The new sublibrary <a href="Modelica.Math.FastFourierTransform.html">FastFourierTransform</a>
+<td>Modelica.Math sublibrary
+for <strong>FFT</strong></td>
+<td>The new sublibrary FastFourierTransform
 provides utility and convenience functions to compute the Fast
 Fourier Transform (FFT). Additionally two examples are present to
 demonstrate how to compute an FFT during continuous-time simulation
@@ -277,307 +273,312 @@ Otter from DLR Institute of System Dynamics and Control).</td>
 </tr>
 </table>
 <p><br />
-The following <b style="color:blue">new components</b> have been
-added to <b style="color:blue">existing</b> libraries:<br /></p>
+The following <font color="blue"><strong>new
+components</strong></font> have been added to <font color="blue"><strong>existing</strong></font> libraries:</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Examples</b></td>
+<td colspan="2"><strong>Modelica.Blocks.Examples</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">NoiseExamples</td>
-<td valign="top">Several examples to demonstrate the usage of the
-blocks in the new sublibrary Blocks.Noise.</td>
+<td width="150">NoiseExamples</td>
+<td>Several examples to demonstrate the usage of the blocks in the
+new sublibrary Blocks.Noise.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Interfaces</b></td>
+<td colspan="2"><strong>Modelica.Blocks.Interfaces</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">PartialNoise</td>
-<td valign="top">Partial noise generator (base class of the noise
-generators in Blocks.Noise)</td>
+<td width="150">PartialNoise</td>
+<td>Partial noise generator (base class of the noise generators in
+Blocks.Noise)</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Math</b></td>
+<td colspan="2"><strong>Modelica.Blocks.Math</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">ContinuousMean</td>
-<td valign="top">Calculates the empirical expectation (mean) value
-of its input signal</td>
-</tr>
-<tr>
-<td valign="top" width="150">Variance</td>
-<td valign="top">Calculates the empirical variance of its input
+<td width="150">ContinuousMean</td>
+<td>Calculates the empirical expectation (mean) value of its input
 signal</td>
 </tr>
 <tr>
-<td valign="top" width="150">StandardDeviation</td>
-<td valign="top">Calculates the empirical standard deviation of its
-input signal</td>
+<td width="150">Variance</td>
+<td>Calculates the empirical variance of its input signal</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Blocks.Noise</b></td>
+<td width="150">StandardDeviation</td>
+<td>Calculates the empirical standard deviation of its input
+signal</td>
 </tr>
 <tr>
-<td valign="top" width="150">GlobalSeed</td>
-<td valign="top">Defines global settings for the blocks of
-sublibrary Noise, especially a global seed value is defined</td>
+<td colspan="2"><strong>Modelica.Blocks.Noise</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">UniformNoise</td>
-<td valign="top">Noise generator with uniform distribution</td>
+<td width="150">GlobalSeed</td>
+<td>Defines global settings for the blocks of sublibrary Noise,
+especially a global seed value is defined</td>
 </tr>
 <tr>
-<td valign="top" width="150">NormalNoise</td>
-<td valign="top">Noise generator with normal distribution</td>
+<td width="150">UniformNoise</td>
+<td>Noise generator with uniform distribution</td>
 </tr>
 <tr>
-<td valign="top" width="150">TruncatedNormalNoise</td>
-<td valign="top">Noise generator with truncated normal
+<td width="150">NormalNoise</td>
+<td>Noise generator with normal distribution</td>
+</tr>
+<tr>
+<td width="150">TruncatedNormalNoise</td>
+<td>Noise generator with truncated normal distribution</td>
+</tr>
+<tr>
+<td width="150">BandLimitedWhiteNoise</td>
+<td>Noise generator to produce band-limited white noise with normal
 distribution</td>
 </tr>
 <tr>
-<td valign="top" width="150">BandLimitedWhiteNoise</td>
-<td valign="top">Noise generator to produce band-limited white
-noise with normal distribution</td>
+<td colspan="2">
+<strong>Modelica.ComplexBlocks.Examples</strong></td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.ComplexBlocks.Examples</b></td>
-</tr>
-<tr>
-<td valign="top" width="150">ShowTransferFunction</td>
-<td valign="top">Example to demonstrate the usage of the block
+<td width="150">ShowTransferFunction</td>
+<td>Example to demonstrate the usage of the block
 TransferFunction.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.ComplexBlocks.ComplexMath</b></td>
+<td colspan="2">
+<strong>Modelica.ComplexBlocks.ComplexMath</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">TransferFunction</td>
-<td valign="top">This block allows to define a complex transfer
-function (depending on frequency input w) to obtain the complex
-output y.</td>
-</tr>
-<tr>
-<td colspan="2"><b>Modelica.ComplexBlocks.Sources</b></td>
-</tr>
-<tr>
-<td valign="top" width="150">LogFrequencySweep</td>
-<td valign="top">The logarithm of w performs a linear ramp from
-log10(wMin) to log10(wMax), the output is the decimal power of this
-logarithmic ramp.</td>
+<td width="150">TransferFunction</td>
+<td>This block allows to define a complex transfer function
+(depending on frequency input w) to obtain the complex output
+y.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Mechanics.Rotational.Examples.Utilities.</b></td>
+<strong>Modelica.ComplexBlocks.Sources</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">SpringDamperNoRelativeStates</td>
-<td valign="top">Introduced to fix ticket <a href="https://trac.modelica.org/Modelica/ticket/1375">1375</a></td>
+<td width="150">LogFrequencySweep</td>
+<td>The logarithm of w performs a linear ramp from log10(wMin) to
+log10(wMax), the output is the decimal power of this logarithmic
+ramp.</td>
 </tr>
 <tr>
 <td colspan="2">
-<b>Modelica.Mechanics.Rotational.Components.</b></td>
+<strong>Modelica.Electrical.Machines.Examples</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">ElastoBacklash2</td>
-<td valign="top">Alternative model of backlash. The difference to
-the existing ElastoBacklash component is that an event is generated
-when contact occurs and that the contact torque changes
-discontinuously in this case. For some user models, this variant of
-a backlash model leads to significantly faster simulations.</td>
+<td width="150">ControlledDCDrives</td>
+<td>Current, speed and position controlled DC PM drive</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Fluid.Examples.</b></td>
+<td colspan="2">
+<strong>Modelica.Mechanics.Rotational.Examples.Utilities.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">NonCircularPipes</td>
-<td valign="top">Introduced to check the fix of ticket <a href="https://trac.modelica.org/Modelica/ticket/1601">1681</a></td>
+<td width="150">SpringDamperNoRelativeStates</td>
+<td>Introduced to fix ticket <a href="https://trac.modelica.org/Modelica/ticket/1375">1375</a></td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Media.Examples.</b></td>
+<td colspan="2">
+<strong>Modelica.Mechanics.Rotational.Components.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">PsychrometricData</td>
-<td valign="top">Introduced to fix ticket <a href="https://trac.modelica.org/Modelica/ticket/1679">1679</a></td>
+<td width="150">ElastoBacklash2</td>
+<td>Alternative model of backlash. The difference to the existing
+ElastoBacklash component is that an event is generated when contact
+occurs and that the contact torque changes discontinuously in this
+case. For some user models, this variant of a backlash model leads
+to significantly faster simulations.</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Math.Matrices.</b></td>
+<td colspan="2"><strong>Modelica.Fluid.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">balanceABC</td>
-<td valign="top">Return a balanced form of a system [A,B;C,0] to
-improve its condition by a state transformation</td>
+<td width="150">NonCircularPipes</td>
+<td>Introduced to check the fix of ticket <a href="https://trac.modelica.org/Modelica/ticket/1601">1681</a></td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Math.Random.Generators.</b></td>
+<td colspan="2"><strong>Modelica.Media.Examples.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">Xorshift64star</td>
-<td valign="top">Random number generator xorshift64*</td>
+<td width="150">PsychrometricData</td>
+<td>Introduced to fix ticket <a href="https://trac.modelica.org/Modelica/ticket/1679">1679</a></td>
 </tr>
 <tr>
-<td valign="top" width="150">Xorshift128plus</td>
-<td valign="top">Random number generator xorshift128+</td>
+<td colspan="2"><strong>Modelica.Math.Matrices.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">Xorshift1024star</td>
-<td valign="top">Random number generator xorshift1024*</td>
+<td width="150">balanceABC</td>
+<td>Return a balanced form of a system [A,B;C,0] to improve its
+condition by a state transformation</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Math.Random.Utilities.</b></td>
+<td colspan="2">
+<strong>Modelica.Math.Random.Generators.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">initialStateWithXorshift64star</td>
-<td valign="top">Return an initial state vector for a random number
-generator (based on xorshift64star algorithm)</td>
+<td width="150">Xorshift64star</td>
+<td>Random number generator xorshift64*</td>
 </tr>
 <tr>
-<td valign="top" width="150">automaticGlobalSeed</td>
-<td valign="top">Creates an automatic integer seed from the current
-time and process id (= impure function)</td>
+<td width="150">Xorshift128plus</td>
+<td>Random number generator xorshift128+</td>
 </tr>
 <tr>
-<td valign="top" width="150">initializeImpureRandom</td>
-<td valign="top">Initializes the internal state of the impure
-random number generator</td>
+<td width="150">Xorshift1024star</td>
+<td>Random number generator xorshift1024*</td>
 </tr>
 <tr>
-<td valign="top" width="150">impureRandom</td>
-<td valign="top">Impure random number generator (with hidden state
-vector)</td>
+<td colspan="2">
+<strong>Modelica.Math.Random.Utilities.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">impureRandomInteger</td>
-<td valign="top">Impure random number generator for integer values
-(with hidden state vector)</td>
+<td width="150">initialStateWithXorshift64star</td>
+<td>Return an initial state vector for a random number generator
+(based on xorshift64star algorithm)</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Math.Distributions.</b></td>
+<td width="150">automaticGlobalSeed</td>
+<td>Creates an automatic integer seed from the current time and
+process id (= impure function)</td>
 </tr>
 <tr>
-<td valign="top" width="150">Uniform</td>
-<td valign="top">Library of uniform distribution functions
-(functions: density, cumulative, quantile)</td>
+<td width="150">initializeImpureRandom</td>
+<td>Initializes the internal state of the impure random number
+generator</td>
 </tr>
 <tr>
-<td valign="top" width="150">Normal</td>
-<td valign="top">Library of normal distribution functions
-(functions: density, cumulative, quantile)</td>
+<td width="150">impureRandom</td>
+<td>Impure random number generator (with hidden state vector)</td>
 </tr>
 <tr>
-<td valign="top" width="150">TruncatedNormal</td>
-<td valign="top">Library of truncated normal distribution functions
-(functions: density, cumulative, quantile)</td>
+<td width="150">impureRandomInteger</td>
+<td>Impure random number generator for integer values (with hidden
+state vector)</td>
 </tr>
 <tr>
-<td valign="top" width="150">Weibull</td>
-<td valign="top">Library of Weibull distribution functions
-(functions: density, cumulative, quantile)</td>
+<td colspan="2"><strong>Modelica.Math.Distributions.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">TruncatedWeibull</td>
-<td valign="top">Library of truncated Weibull distribution
-functions (functions: density, cumulative, quantile)</td>
+<td width="150">Uniform</td>
+<td>Library of uniform distribution functions (functions: density,
+cumulative, quantile)</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Math.Special.</b></td>
+<td width="150">Normal</td>
+<td>Library of normal distribution functions (functions: density,
+cumulative, quantile)</td>
 </tr>
 <tr>
-<td valign="top" width="150">erf</td>
-<td valign="top">Error function erf(u) = 2/sqrt(pi)*Integral_0_u
+<td width="150">TruncatedNormal</td>
+<td>Library of truncated normal distribution functions (functions:
+density, cumulative, quantile)</td>
+</tr>
+<tr>
+<td width="150">Weibull</td>
+<td>Library of Weibull distribution functions (functions: density,
+cumulative, quantile)</td>
+</tr>
+<tr>
+<td width="150">TruncatedWeibull</td>
+<td>Library of truncated Weibull distribution functions (functions:
+density, cumulative, quantile)</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Modelica.Math.Special.</strong></td>
+</tr>
+<tr>
+<td width="150">erf</td>
+<td>Error function erf(u) = 2/sqrt(pi)*Integral_0_u
 exp(-t^2)*d</td>
 </tr>
 <tr>
-<td valign="top" width="150">erfc</td>
-<td valign="top">Complementary error function erfc(u) = 1 -
-erf(u)</td>
+<td width="150">erfc</td>
+<td>Complementary error function erfc(u) = 1 - erf(u)</td>
 </tr>
 <tr>
-<td valign="top" width="150">erfInv</td>
-<td valign="top">Inverse error function: u = erf(erfInv(u))</td>
+<td width="150">erfInv</td>
+<td>Inverse error function: u = erf(erfInv(u))</td>
 </tr>
 <tr>
-<td valign="top" width="150">erfcInv</td>
-<td valign="top">Inverse complementary error function: u =
-erfc(erfcInv(u))</td>
+<td width="150">erfcInv</td>
+<td>Inverse complementary error function: u = erfc(erfcInv(u))</td>
 </tr>
 <tr>
-<td valign="top" width="150">sinc</td>
-<td valign="top">Unnormalized sinc function: sinc(u) =
-sin(u)/u</td>
+<td width="150">sinc</td>
+<td>Unnormalized sinc function: sinc(u) = sin(u)/u</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Math.FastFourierTransform.</b></td>
+<td colspan="2">
+<strong>Modelica.Math.FastFourierTransform.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">realFFTinfo</td>
-<td valign="top">Print information about real FFT for given f_max
-and f_resolution</td>
+<td width="150">realFFTinfo</td>
+<td>Print information about real FFT for given f_max and
+f_resolution</td>
 </tr>
 <tr>
-<td valign="top" width="150">realFFTsamplePoints</td>
-<td valign="top">Return number of sample points for a real FFT</td>
+<td width="150">realFFTsamplePoints</td>
+<td>Return number of sample points for a real FFT</td>
 </tr>
 <tr>
-<td valign="top" width="150">realFFT</td>
-<td valign="top">Return amplitude and phase vectors for a real
-FFT</td>
+<td width="150">realFFT</td>
+<td>Return amplitude and phase vectors for a real FFT</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Utilities.Streams.</b></td>
+<td colspan="2"><strong>Modelica.Utilities.Streams.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">readMatrixSize</td>
-<td valign="top">Read dimensions of a Real matrix from a MATLAB MAT
-file</td>
+<td width="150">readMatrixSize</td>
+<td>Read dimensions of a Real matrix from a MATLAB MAT file</td>
 </tr>
 <tr>
-<td valign="top" width="150">readRealMatrix</td>
-<td valign="top">Read Real matrix from MATLAB MAT file</td>
+<td width="150">readRealMatrix</td>
+<td>Read Real matrix from MATLAB MAT file</td>
 </tr>
 <tr>
-<td valign="top" width="150">writeRealMatrix</td>
-<td valign="top">Write Real matrix to a MATLAB MAT file</td>
+<td width="150">writeRealMatrix</td>
+<td>Write Real matrix to a MATLAB MAT file</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Utilities.Strings.</b></td>
+<td colspan="2"><strong>Modelica.Utilities.Strings.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">hashString</td>
-<td valign="top">Creates a hash value of a String</td>
+<td width="150">hashString</td>
+<td>Creates a hash value of a String</td>
 </tr>
 <tr>
-<td colspan="2"><b>Modelica.Utilities.System.</b></td>
+<td colspan="2"><strong>Modelica.Utilities.System.</strong></td>
 </tr>
 <tr>
-<td valign="top" width="150">getTime</td>
-<td valign="top">Retrieves the local time (in the local time
-zone)</td>
+<td width="150">getTime</td>
+<td>Retrieves the local time (in the local time zone)</td>
 </tr>
 <tr>
-<td valign="top" width="150">getPid</td>
-<td valign="top">Retrieves the current process id</td>
+<td width="150">getPid</td>
+<td>Retrieves the current process id</td>
 </tr>
 </table>
 <p><br />
-The following <b style="color:blue">existing components</b> have
-been <b style="color:blue">changed</b> in a <b style="color:blue">non-backward compatible</b> way:</p>
+The following <font color="blue"><strong>existing
+components</strong></font> have been <font color="blue"><strong>changed</strong></font> in a <font color="blue"><strong>non-backward compatible</strong></font> way:</p>
 <table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
 <tr>
-<td colspan="2"><b>Electrical.Analog.Semiconductors.</b></td>
+<td colspan="2">
+<strong>Electrical.Analog.Semiconductors.</strong></td>
 </tr>
 <tr>
-<td valign="top">HeatingDiode</td>
-<td valign="top">Removed protected variable k "Boltzmann's
-constant".<br />
+<td>HeatingDiode</td>
+<td>Removed protected variable k "Boltzmann's constant".<br />
 Calculate protected constant q "Electron charge" from already known
 constants instead of defining a protected variable q.</td>
 </tr>
 <tr>
-<td valign="top">HeatingNPN<br />
+<td>HeatingNPN<br />
 HeatingPNP</td>
-<td valign="top">Removed parameter K "Boltzmann's constant" and q
-"Elementary electronic charge".<br />
+<td>Removed parameter K "Boltzmann's constant" and q "Elementary
+electronic charge".<br />
 Calculate instead protected constant q "Electron charge" from
 already known constants.<br />
 Users that have used these parameters might have broken their
@@ -586,7 +587,7 @@ offers the users a safer use.</td>
 </tr>
 </table>
 <hr />
-Generated at 2016-07-13T15:55:45Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.11.0~dev-38-g67b62bf
+Generated at 2018-08-07T07:53:32Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.13.0~dev-1195-g6d891ea
 </body>
 </html>

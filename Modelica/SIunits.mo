@@ -13,19 +13,19 @@ package UsersGuide "User's Guide of SIunits Library"
 When implementing a Modelica model, every variable needs to
 be declared. Physical variables should be declared with a unit.
 The basic approach in Modelica is that the unit attribute of
-a variable is the <b>unit</b> in which the <b>equations</b> are <b>written</b>,
+a variable is the <strong>unit</strong> in which the <strong>equations</strong> are <strong>written</strong>,
 for example:
 </p>
 
-<pre>   <b>model</b> MassOnGround
-     <b>parameter</b> Real m(quantity=\"Mass\", unit=\"kg\") \"Mass\";
-     <b>parameter</b> Real f(quantity=\"Force\", unit=\"N\") \"Driving force\";
+<pre>   <strong>model</strong> MassOnGround
+     <strong>parameter</strong> Real m(quantity=\"Mass\", unit=\"kg\") \"Mass\";
+     <strong>parameter</strong> Real f(quantity=\"Force\", unit=\"N\") \"Driving force\";
      Real s(unit=\"m\") \"Position of mass\";
      Real v(unit=\"m/s\") \"Velocity of mass\";
-   <b>equation</b>
-     <b>der</b>(s) = v;
-     m*<b>der</b>(v) = f;
-   <b>end</b> MassOnGround;
+   <strong>equation</strong>
+     <strong>der</strong>(s) = v;
+     m*<strong>der</strong>(v) = f;
+   <strong>end</strong> MassOnGround;
 </pre>
 
 <p>
@@ -44,10 +44,10 @@ for a variable of type Real:
 </p>
 
 <ul>
-<li><b>quantity</b> to define the physical quantity (e.g., \"Length\", or \"Energy\").</li>
-<li><b>unit</b> to define the unit that has to be used
+<li><strong>quantity</strong> to define the physical quantity (e.g., \"Length\", or \"Energy\").</li>
+<li><strong>unit</strong> to define the unit that has to be used
     in order that the equations are correct (e.g., \"N.m\").</li>
-<li><b>displayUnit</b> to define the unit used in the graphical
+<li><strong>displayUnit</strong> to define the unit used in the graphical
     user interface as default display unit for input and/or output.</li>
 </ul>
 
@@ -79,20 +79,20 @@ a tool might ignore the \"displayUnit\" attribute.
 <p>
 In order to help the Modelica model developer, the Modelica.SIunits
 library provides about 450 predefined type names,
-together with values for the attributes <b>quantity</b>, <b>unit</b> and sometimes
-<b>displayUnit</b> and <b>min</b>. The unit is always selected as SI-unit according to the
+together with values for the attributes <strong>quantity</strong>, <strong>unit</strong> and sometimes
+<strong>displayUnit</strong> and <strong>min</strong>. The unit is always selected as SI-unit according to the
 ISO standard. The type and the quantity names are the
 quantity names used in the ISO standard. \"quantity\" and \"unit\" are defined
-as \"<b>final</b>\" in order that they cannot be modified. Attributes \"displayUnit\"
+as \"<strong>final</strong>\" in order that they cannot be modified. Attributes \"displayUnit\"
 and \"min\" can, however, be changed in a model via a modification. The example above,
 might therefore be alternatively also defined as:
 </p>
 
-<pre>   <b>model</b> MassOnGround
-     <b>parameter</b> Modelica.SIunits.Mass  m \"Mass\";
-     <b>parameter</b> Modelica.SIunits.Force f \"Driving force\";
+<pre>   <strong>model</strong> MassOnGround
+     <strong>parameter</strong> Modelica.SIunits.Mass  m \"Mass\";
+     <strong>parameter</strong> Modelica.SIunits.Force f \"Driving force\";
      ...
-   <b>end</b> MassOnGround;
+   <strong>end</strong> MassOnGround;
 </pre>
 
 <p>
@@ -100,12 +100,12 @@ or in a short hand notation as
 </p>
 
 <pre>
-   <b>model</b> MassOnGround
-     <b>import</b> SI = Modelica.SIunits;
-     <b>parameter</b> SI.Mass  m \"Mass\";
-     <b>parameter</b> SI.Force f \"Driving force\";
+   <strong>model</strong> MassOnGround
+     <strong>import</strong> SI = Modelica.SIunits;
+     <strong>parameter</strong> SI.Mass  m \"Mass\";
+     <strong>parameter</strong> SI.Force f \"Driving force\";
      ...
-   <b>end</b> MassOnGround;
+   <strong>end</strong> MassOnGround;
 </pre>
 
 <p>
@@ -117,14 +117,14 @@ in the declaration as in the example at the beginning.
 </p>
 
 <p>
-<b>Complex units</b> are also included in Modelica.SIunits. A complex unit is declared as:
+<strong>Complex units</strong> are also included in Modelica.SIunits. A complex unit is declared as:
 </p>
 <pre>
-  <b>model</b> QuasiStationaryMachine
-    <b>parameter</b> Modelica.SIunits.ComplexPower SNominal = Complex(10000,4400)
+  <strong>model</strong> QuasiStationaryMachine
+    <strong>parameter</strong> Modelica.SIunits.ComplexPower SNominal = Complex(10000,4400)
        \"Nominal complex power\";
    ...
-   <b>end</b> QuasiStationaryMachine;
+   <strong>end</strong> QuasiStationaryMachine;
 </pre>
 </html>"));
 
@@ -153,23 +153,23 @@ in the declaration as in the example at the beginning.
     Radius\" are defined as the same quantity (here: \"Length\").</li>
 <li>The ordering of the type declarations in this package follows ISO 31:
 <pre>
-  Chapter  1: <b>Space and Time</b>
-  Chapter  2: <b>Periodic and Related Phenomena</b>
-  Chapter  3: <b>Mechanics</b>
-  Chapter  4: <b>Heat</b>
-  Chapter  5: <b>Electricity and Magnetism</b>
-  Chapter  6: <b>Light and Related Electro-Magnetic Radiations</b>
-  Chapter  7: <b>Acoustics</b>
-  Chapter  8: <b>Physical Chemistry</b>
-  Chapter  9: <b>Atomic and Nuclear Physics</b>
-  Chapter 10: <b>Nuclear Reactions and Ionizing Radiations</b>
+  Chapter  1: <strong>Space and Time</strong>
+  Chapter  2: <strong>Periodic and Related Phenomena</strong>
+  Chapter  3: <strong>Mechanics</strong>
+  Chapter  4: <strong>Heat</strong>
+  Chapter  5: <strong>Electricity and Magnetism</strong>
+  Chapter  6: <strong>Light and Related Electro-Magnetic Radiations</strong>
+  Chapter  7: <strong>Acoustics</strong>
+  Chapter  8: <strong>Physical Chemistry</strong>
+  Chapter  9: <strong>Atomic and Nuclear Physics</strong>
+  Chapter 10: <strong>Nuclear Reactions and Ionizing Radiations</strong>
   Chapter 11: (not defined in ISO 31-1992)
-  Chapter 12: <b>Characteristic Numbers</b>
-  Chapter 13: <b>Solid State Physics</b>
+  Chapter 12: <strong>Characteristic Numbers</strong>
+  Chapter 13: <strong>Solid State Physics</strong>
 </pre>
 </li>
 <li>Conversion functions between SI and non-SI units are available in subpackage
-    <b>Conversions</b>.</li>
+    <strong>Conversions</strong>.</li>
 </ul>
 </html>"));
 
@@ -184,16 +184,16 @@ in the declaration as in the example at the beginning.
 
 <dl>
 <dt>ISO 31-1992:</dt>
-<dd> <b>General principles concerning
-    quantities, units and symbols</b>.<br>&nbsp;</dd>
+<dd> <strong>General principles concerning
+    quantities, units and symbols</strong>.<br>&nbsp;</dd>
 
 <dt>ISO 1000-1992:</dt>
-<dd> <b>SI units and recommendations for the use
-    of their multiples and of certain other units</b>.<br>&nbsp;</dd>
+<dd> <strong>SI units and recommendations for the use
+    of their multiples and of certain other units</strong>.<br>&nbsp;</dd>
 
 <dt>Cardarelli F.:</dt>
-<dd> <b>Scientific Unit Conversion - A Practical
-     Guide to Metrication</b>. Springer 1997.</dd>
+<dd> <strong>Scientific Unit Conversion - A Practical
+     Guide to Metrication</strong>. Springer 1997.</dd>
 </dl>
 
 </html>"));
@@ -203,31 +203,32 @@ in the declaration as in the example at the beginning.
     extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
-<dl>
-<dt><b>Main Author:</b>
-<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
-    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik<br>
-    Abteilung f&uuml;r Entwurfsorientierte Regelungstechnik<br>
-    Postfach 1116<br>
-    D-82230 Wessling<br>
-    Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
-</dl>
+<h4>Main author</h4>
 
-<p><b>Acknowledgements:</b></p>
-<ul>
-<li> Astrid Jaschinski, Hubertus Tummescheit and Christian Schweiger
-     contributed to the implementation of this package.</li>
-</ul>
+<p>
+<a href=\"http://www.robotic.dlr.de/Martin.Otter/\"><strong>Martin Otter</strong></a><br>
+Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e.V. (DLR)<br>
+Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)<br>
+Forschungszentrum Oberpfaffenhofen<br>
+D-82234 Wessling<br>
+Germany<br>
+email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a>
+</p>
+
+<h4>Acknowledgements</h4>
+
+<p>
+Astrid Jaschinski, Hubertus Tummescheit and Christian Schweiger
+contributed to the implementation of this package.
+</p>
 </html>"));
   end Contact;
 
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
-Library <b>SIunits</b> is a <b>free</b> Modelica package providing
-predefined types, such as <i>Mass</i>,
-<i>Length</i>, <i>Time</i>, based on the international standard
+Library <strong>SIunits</strong> is a <strong>free</strong> Modelica package providing
+predefined types, such as <em>Mass</em>,
+<em>Length</em>, <em>Time</em>, based on the international standard
 on units.</p>
 
 </html>"));
@@ -269,23 +270,20 @@ end UsersGuide;
 
       type Temperature_degC = Real (final quantity="ThermodynamicTemperature",
             final unit="degC")
-        "Absolute temperature in degree Celsius (for relative temperature use SIunits.TemperatureDifference)"
-                                                                                                            annotation(absoluteValue=true);
+        "Absolute temperature in degree Celsius (for relative temperature use SIunits.TemperatureDifference)" annotation(absoluteValue=true);
       type Temperature_degF = Real (final quantity="ThermodynamicTemperature",
             final unit="degF")
-        "Absolute temperature in degree Fahrenheit (for relative temperature use SIunits.TemperatureDifference)"
-                                                                                                            annotation(absoluteValue=true);
+        "Absolute temperature in degree Fahrenheit (for relative temperature use SIunits.TemperatureDifference)" annotation(absoluteValue=true);
       type Temperature_degRk = Real (final quantity="ThermodynamicTemperature",
             final unit="degRk")
-        "Absolute temperature in degree Rankine (for relative temperature use SIunits.TemperatureDifference)"
-                                                                                                            annotation(absoluteValue=true);
+        "Absolute temperature in degree Rankine (for relative temperature use SIunits.TemperatureDifference)" annotation(absoluteValue=true);
       type Angle_deg = Real (final quantity="Angle", final unit="deg")
         "Angle in degree";
       type AngularVelocity_rpm = Real (final quantity="AngularVelocity", final unit=
                  "rev/min")
         "Angular velocity in revolutions per minute. Alias unit names that are outside of the SI system: rpm, r/min, rev/min";
       type Velocity_kmh = Real (final quantity="Velocity", final unit="km/h")
-        "Velocity in kilometers per hour";
+        "Velocity in kilometres per hour";
       type Time_day = Real (final quantity="Time", final unit="d")
         "Time in days";
       type Time_hour = Real (final quantity="Time", final unit="h")
@@ -309,10 +307,12 @@ end UsersGuide;
 
       type FirstOrderTemperaturCoefficient =
                               Real (final quantity="FirstOrderTemperatureCoefficient",
-            final unit="Ohm/degC") "First Order Temperature Coefficient"                                         annotation(absoluteValue=true);
+            final unit="Ohm/degC") "Obsolete type, use LinearTemperatureCoefficientResistance instead!" annotation(absoluteValue=true,
+        obsolete = "Obsolete type - use Modelica.SIunits.LinearTemperatureCoefficientResistance instead");
       type SecondOrderTemperaturCoefficient =
                               Real (final quantity="SecondOrderTemperatureCoefficient",
-            final unit="Ohm/degC2") "Second Order Temperature Coefficient"                                        annotation(absoluteValue=true);
+            final unit="Ohm/degC2") "Obsolete type, use QuadraticTemperatureCoefficientResistance instead!" annotation(absoluteValue=true,
+        obsolete = "Obsolete type - use Modelica.SIunits.QuadraticTemperatureCoefficientResistance instead");
       type Area_cm =   Real (final quantity="Area", final unit="cm2")
         "Area in cm";
       type PerArea_cm =Real (final quantity="PerArea", final unit="1/cm2")
@@ -323,18 +323,18 @@ end UsersGuide;
 
       annotation (Documentation(info="<html>
 <p>
-This package provides predefined types, such as <b>Angle_deg</b> (angle in
-degree), <b>AngularVelocity_rpm</b> (angular velocity in revolutions per
-minute) or <b>Temperature_degF</b> (temperature in degree Fahrenheit),
+This package provides predefined types, such as <strong>Angle_deg</strong> (angle in
+degree), <strong>AngularVelocity_rpm</strong> (angular velocity in revolutions per
+minute) or <strong>Temperature_degF</strong> (temperature in degree Fahrenheit),
 which are in common use but are not part of the international standard on
 units according to ISO 31-1992 \"General principles concerning quantities,
 units and symbols\" and ISO 1000-1992 \"SI units and recommendations for
 the use of their multiples and of certain other units\".</p>
 <p>If possible, the types in this package should not be used. Use instead
 types of package Modelica.SIunits. For more information on units, see also
-the book of Francois Cardarelli <b>Scientific Unit Conversion - A
-Practical Guide to Metrication</b> (Springer 1997).</p>
-<p>Some units, such as <b>Temperature_degC/Temp_C</b> are both defined in
+the book of Francois Cardarelli <strong>Scientific Unit Conversion - A
+Practical Guide to Metrication</strong> (Springer 1997).</p>
+<p>Some units, such as <strong>Temperature_degC/Temp_C</strong> are both defined in
 Modelica.SIunits and in Modelica.Conversions.NonSIunits. The reason is that these
 definitions have been placed erroneously in Modelica.SIunits although they
 are not SIunits. For backward compatibility, these type definitions are
@@ -343,7 +343,6 @@ still kept in Modelica.SIunits.</p>
       Text(
         origin={15.0,51.8518},
         extent={{-105.0,-86.8518},{75.0,-16.8518}},
-        lineColor={0,0,0},
         textString="[km/h]")}));
     end NonSIunits;
 
@@ -356,12 +355,12 @@ still kept in Modelica.SIunits.</p>
     annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-SIunits.Conversions.<b>to_unit1</b>(r);
+SIunits.Conversions.<strong>to_unit1</strong>(r);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with unit=\"1\".
-
+The function call \"<code>Conversions.<strong>to_unit1</strong>(r)</code>\" returns r with unit=\"1\".
+</p>
 <h4>Example</h4>
 <blockquote><pre>
   Modelica.SIunits.Velocity v = {3,2,1};
@@ -371,11 +370,9 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
             100}}), graphics={Text(
           extent={{-90,86},{32,50}},
-          lineColor={0,0,0},
           textString="any",
           horizontalAlignment=TextAlignment.Left), Text(
           extent={{-36,-52},{86,-88}},
-          lineColor={0,0,0},
           horizontalAlignment=TextAlignment.Right,
           textString="1")}));
   end to_unit1;
@@ -389,10 +386,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
-              lineColor={0,0,0},
               textString="K"), Text(
               extent={{100,-20},{20,-100}},
-              lineColor={0,0,0},
               textString="degC")}));
     end to_degC;
 
@@ -405,10 +400,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
-              lineColor={0,0,0},
-              textString="degC"),  Text(
+              textString="degC"), Text(
               extent={{100,-20},{20,-100}},
-              lineColor={0,0,0},
               textString="K")}));
     end from_degC;
 
@@ -421,10 +414,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
-              lineColor={0,0,0},
               textString="K"), Text(
               extent={{100,-20},{20,-100}},
-              lineColor={0,0,0},
               textString="degF")}));
     end to_degF;
 
@@ -437,13 +428,10 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
-              lineColor={0,0,0},
               textString="degF"), Text(
               extent={{100,-20},{20,-100}},
-              lineColor={0,0,0},
               textString="K"), Text(
               extent={{-20,100},{-100,20}},
-              lineColor={0,0,0},
               textString="degF")}));
     end from_degF;
 
@@ -456,10 +444,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
-              lineColor={0,0,0},
               textString="K"), Text(
               extent={{100,-32},{-18,-100}},
-              lineColor={0,0,0},
               textString="degRk")}));
     end to_degRk;
 
@@ -472,10 +458,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-8,100},{-100,42}},
-              lineColor={0,0,0},
-              textString="degRk"),  Text(
+              textString="degRk"), Text(
               extent={{100,-20},{20,-100}},
-              lineColor={0,0,0},
               textString="K")}));
     end from_degRk;
 
@@ -488,10 +472,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{10,100},{-100,46}},
-              lineColor={0,0,0},
               textString="rad"), Text(
               extent={{100,-44},{-10,-100}},
-              lineColor={0,0,0},
               textString="deg")}));
     end to_deg;
 
@@ -504,10 +486,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{4,100},{-102,46}},
-              lineColor={0,0,0},
               textString="deg"), Text(
               extent={{100,-32},{-18,-100}},
-              lineColor={0,0,0},
               textString="rad")}));
     end from_deg;
 
@@ -520,10 +500,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{30,100},{-100,50}},
-              lineColor={0,0,0},
               textString="rad/s"), Text(
               extent={{100,-52},{-40,-98}},
-              lineColor={0,0,0},
               textString="rev/min")}));
     end to_rpm;
 
@@ -537,10 +515,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{14,100},{-102,56}},
-              lineColor={0,0,0},
               textString="rev/min"), Text(
               extent={{100,-56},{-32,-102}},
-              lineColor={0,0,0},
               textString="rad/s")}));
     end from_rpm;
 
@@ -553,10 +529,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{8,100},{-100,58}},
-              lineColor={0,0,0},
               textString="m/s"), Text(
               extent={{100,-56},{-16,-100}},
-              lineColor={0,0,0},
               textString="km/h")}));
     end to_kmh;
 
@@ -569,10 +543,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{10,100},{-100,56}},
-              lineColor={0,0,0},
               textString="km/h"), Text(
               extent={{100,-50},{-20,-100}},
-              lineColor={0,0,0},
               textString="m/s")}));
     end from_kmh;
 
@@ -585,10 +557,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-6,100},{-100,48}},
-              lineColor={0,0,0},
               textString="s"), Text(
               extent={{100,-48},{-10,-98}},
-              lineColor={0,0,0},
               textString="day")}));
     end to_day;
 
@@ -601,10 +571,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{10,100},{-100,52}},
-              lineColor={0,0,0},
               textString="day"), Text(
               extent={{100,-54},{20,-100}},
-              lineColor={0,0,0},
               textString="s")}));
     end from_day;
 
@@ -617,10 +585,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{12,100},{-100,50}},
-              lineColor={0,0,0},
               textString="s"), Text(
               extent={{100,-56},{-20,-100}},
-              lineColor={0,0,0},
               textString="hour")}));
     end to_hour;
 
@@ -633,10 +599,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{12,100},{-100,58}},
-              lineColor={0,0,0},
               textString="hour"), Text(
               extent={{100,-50},{16,-100}},
-              lineColor={0,0,0},
               textString="s")}));
     end from_hour;
 
@@ -649,10 +613,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-26,100},{-100,52}},
-              lineColor={0,0,0},
               textString="s"), Text(
               extent={{100,-54},{-20,-100}},
-              lineColor={0,0,0},
               textString="min")}));
     end to_minute;
 
@@ -665,10 +627,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{26,100},{-100,48}},
-              lineColor={0,0,0},
-              textString="min"),    Text(
+              textString="min"), Text(
               extent={{100,-46},{0,-100}},
-              lineColor={0,0,0},
               textString="s")}));
     end from_minute;
 
@@ -681,10 +641,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{100,-56},{0,-100}},
-              lineColor={0,0,0},
-              textString="litre"),           Text(
+              textString="litre"), Text(
               extent={{6,100},{-100,56}},
-              lineColor={0,0,0},
               textString="m3")}));
     end to_litre;
 
@@ -697,10 +655,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-4,100},{-100,62}},
-              lineColor={0,0,0},
-              textString="litre"),           Text(
+              textString="litre"), Text(
               extent={{100,-56},{-6,-100}},
-              lineColor={0,0,0},
               textString="m3")}));
     end from_litre;
 
@@ -712,12 +668,10 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
     algorithm
       Coulomb := AmpereHour * 3600;
 
-      annotation (Icon(graphics={         Text(
+      annotation (Icon(graphics={Text(
               extent={{-2,100},{-100,48}},
-              lineColor={0,0,0},
-              textString="Ah"),     Text(
+              textString="Ah"), Text(
               extent={{100,-46},{0,-100}},
-              lineColor={0,0,0},
               textString="C")}));
     end from_Ah;
 
@@ -729,12 +683,10 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
     algorithm
       AmpereHour := Coulomb/3600;
 
-      annotation (Icon(graphics={         Text(
+      annotation (Icon(graphics={Text(
               extent={{-18,100},{-100,48}},
-              lineColor={0,0,0},
-              textString="C"),            Text(
+              textString="C"), Text(
               extent={{100,-48},{2,-100}},
-              lineColor={0,0,0},
               textString="Ah")}));
     end to_Ah;
 
@@ -745,12 +697,10 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
     algorithm
       Joule := WattHour * 3600;
 
-      annotation (Icon(graphics={            Text(
+      annotation (Icon(graphics={Text(
               extent={{-20,100},{-100,54}},
-              lineColor={0,0,0},
-              textString="Wh"),  Text(
+              textString="Wh"), Text(
               extent={{100,-38},{4,-100}},
-              lineColor={0,0,0},
               textString="J")}));
     end from_Wh;
 
@@ -761,12 +711,10 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
     algorithm
       WattHour := Joule/3600;
 
-      annotation (Icon(graphics={            Text(
+      annotation (Icon(graphics={Text(
               extent={{-30,100},{-100,48}},
-              lineColor={0,0,0},
-              textString="J"),      Text(
+              textString="J"), Text(
               extent={{100,-46},{-14,-100}},
-              lineColor={0,0,0},
               textString="Wh")}));
     end to_Wh;
 
@@ -779,10 +727,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,54}},
-              lineColor={0,0,0},
               textString="J"), Text(
               extent={{100,-50},{-10,-100}},
-              lineColor={0,0,0},
               textString="kWh")}));
     end to_kWh;
 
@@ -795,10 +741,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{12,100},{-100,52}},
-              lineColor={0,0,0},
               textString="kWh"), Text(
               extent={{100,-44},{12,-100}},
-              lineColor={0,0,0},
               textString="J")}));
     end from_kWh;
 
@@ -811,10 +755,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-12,100},{-100,56}},
-              lineColor={0,0,0},
-              textString="Pa"),     Text(
+              textString="Pa"), Text(
               extent={{98,-52},{-4,-100}},
-              lineColor={0,0,0},
               textString="bar")}));
     end to_bar;
 
@@ -827,10 +769,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{100,-56},{12,-100}},
-              lineColor={0,0,0},
-              textString="Pa"),     Text(
+              textString="Pa"), Text(
               extent={{2,100},{-100,52}},
-              lineColor={0,0,0},
               textString="bar")}));
     end from_bar;
 
@@ -843,10 +783,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-12,100},{-100,60}},
-              lineColor={0,0,0},
               textString="kg/s"), Text(
               extent={{100,-46},{-6,-100}},
-              lineColor={0,0,0},
               textString="g/s")}));
     end to_gps;
 
@@ -859,10 +797,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-8,100},{-100,54}},
-              lineColor={0,0,0},
               textString="g/s"), Text(
               extent={{100,-44},{-10,-100}},
-              lineColor={0,0,0},
               textString="kg/s")}));
     end from_gps;
 
@@ -876,10 +812,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(graphics={
                                     Text(
               extent={{2,100},{-100,52}},
-              lineColor={0,0,0},
-              textString="Hz"),              Text(
+              textString="Hz"), Text(
               extent={{100,-56},{12,-100}},
-              lineColor={0,0,0},
               textString="1/s")}));
     end from_Hz;
 
@@ -892,10 +826,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(graphics={
                                     Text(
               extent={{100,-52},{-2,-100}},
-              lineColor={0,0,0},
-              textString="Hz"),              Text(
+              textString="Hz"), Text(
               extent={{-12,100},{-100,56}},
-              lineColor={0,0,0},
               textString="1/s")}));
     end to_Hz;
 
@@ -908,10 +840,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,58}},
-              lineColor={0,0,0},
               textString="m/s"), Text(
               extent={{100,-50},{-18,-100}},
-              lineColor={0,0,0},
               textString="cm2")}));
     end to_cm2;
 
@@ -924,10 +854,8 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{2,100},{-100,58}},
-              lineColor={0,0,0},
-              textString="cm2"),  Text(
+              textString="cm2"), Text(
               extent={{100,-50},{-16,-98}},
-              lineColor={0,0,0},
               textString="m/s")}));
     end from_cm2;
 
@@ -953,11 +881,12 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
               textString="%name",
               lineColor={0,0,255})}), Documentation(info="<html>
 <p>
-This icon of a <b>conversion symbol</b> will be removed in future versions of the library. Instead the icon <a href=\"modelica://Modelica.SIunits.Icons.Conversion\">Modelica.SIunits.Icons.Conversion</a> shall be used.
+This icon of a <strong>conversion symbol</strong> will be removed in future versions of the library. Instead the icon <a href=\"modelica://Modelica.SIunits.Icons.Conversion\">Modelica.SIunits.Icons.Conversion</a> shall be used.
 </p>
-</html>"));
+</html>"),
+      obsolete = "Obsolete function - use Modelica.SIunits.Icons.Conversion instead");
     end ConversionIcon;
-    annotation (                              Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>This package provides conversion functions from the non SI Units
 defined in package Modelica.SIunits.Conversions.NonSIunits to the
 corresponding SI Units defined in package Modelica.SIunits and vice
@@ -965,12 +894,12 @@ versa. It is recommended to use these functions in the following
 way (note, that all functions have one Real input and one Real output
 argument):</p>
 <pre>
-  <b>import</b> SI = Modelica.SIunits;
-  <b>import</b> Modelica.SIunits.Conversions.*;
+  <strong>import</strong> SI = Modelica.SIunits;
+  <strong>import</strong> Modelica.SIunits.Conversions.*;
      ...
-  <b>parameter</b> SI.Temperature     T   = from_degC(25);   // convert 25 degree Celsius to Kelvin
-  <b>parameter</b> SI.Angle           phi = from_deg(180);   // convert 180 degree to radian
-  <b>parameter</b> SI.AngularVelocity w   = from_rpm(3600);  // convert 3600 revolutions per minutes
+  <strong>parameter</strong> SI.Temperature     T   = from_degC(25);   // convert 25 degree Celsius to Kelvin
+  <strong>parameter</strong> SI.Angle           phi = from_deg(180);   // convert 180 degree to radian
+  <strong>parameter</strong> SI.AngularVelocity w   = from_rpm(3600);  // convert 3600 revolutions per minutes
                                                       // to radian per seconds
 </pre>
 
@@ -1140,8 +1069,7 @@ argument):</p>
       start = 288.15,
       nominal = 300,
       displayUnit="degC")
-    "Absolute temperature (use type TemperatureDifference for relative temperatures)"
-                                                                                                        annotation(absoluteValue=true);
+    "Absolute temperature (use type TemperatureDifference for relative temperatures)" annotation(absoluteValue=true);
   type Temp_K = ThermodynamicTemperature;
   type Temperature = ThermodynamicTemperature;
   type TemperatureDifference = Real (
@@ -1340,6 +1268,12 @@ argument):</p>
   type ApparentPower = Real (final quantity="Power", final unit="VA");
   type ReactivePower = Real (final quantity="Power", final unit="var");
   type PowerFactor = Real (final quantity="PowerFactor", final unit="1");
+  type LinearTemperatureCoefficientResistance = Real (
+    final quantity="LinearTemperatureCoefficientResistance",
+    final unit="Ohm/K") "First Order Temperature Coefficient";
+  type QuadraticTemperatureCoefficientResistance = Real (
+    final quantity="QuadraticTemperatureCoefficientResistance",
+    final unit="Ohm/K2") "Second Order Temperature Coefficient";
 
   // added to ISO-chapter 5
   type Transconductance = Real (final quantity="Transconductance", final unit=
@@ -1449,9 +1383,11 @@ argument):</p>
           "phon");
   type Loudness = Real (final quantity="Loudness", final unit="sone");
   type LoundnessLevel = Real (final quantity="LoundnessLevel", final unit=
-          "phon") "Obsolete type, use LoudnessLevel instead!";
+          "phon") "Obsolete type, use LoudnessLevel instead!" annotation(
+    obsolete = "Obsolete type - use Modelica.SIunits.LoudnessLevel instead");
   type Loundness = Real (final quantity="Loundness", final unit="sone")
-    "Obsolete type, use Loudness instead!";
+    "Obsolete type, use Loudness instead!" annotation(
+    obsolete = "Obsolete type - use Modelica.SIunits.Loudness instead");
 
   // Physical chemistry and molecular physics (chapter 8 of ISO 31-1992)
   type RelativeAtomicMass = Real (final quantity="RelativeAtomicMass", final unit=
@@ -1663,7 +1599,7 @@ argument):</p>
   type NeutronFluenceRate = Real (final quantity="NeutronFluenceRate", final unit=
              "s-1.m-2");
   type TotalNeutronSourceDensity = Real (final quantity=
-          "TotalNeutronSourceDesity", final unit="s-1.m-3");
+          "TotalNeutronSourceDensity", final unit="s-1.m-3");
   type SlowingDownDensity = Real (final quantity="SlowingDownDensity", final unit=
              "s-1.m-3");
   type ResonanceEscapeProbability = Real (final quantity=
@@ -1826,72 +1762,73 @@ argument):</p>
 
  // Complex types for electrical systems (not defined in ISO 31-1992)
   operator record ComplexCurrent =
-    Complex(redeclare Modelica.SIunits.Current re,
-             redeclare Modelica.SIunits.Current im)
+    Complex(redeclare Modelica.SIunits.Current re "Real part of complex current",
+            redeclare Modelica.SIunits.Current im "Imaginary part of complex current")
     "Complex electrical current";
   operator record ComplexCurrentSlope =
-    Complex(redeclare Modelica.SIunits.CurrentSlope re,
-             redeclare Modelica.SIunits.CurrentSlope im)
+    Complex(redeclare Modelica.SIunits.CurrentSlope re "Real part of complex current slope",
+            redeclare Modelica.SIunits.CurrentSlope im "Imaginary part of complex current slope")
     "Complex current slope";
   operator record ComplexCurrentDensity =
-    Complex(redeclare Modelica.SIunits.CurrentDensity re,
-             redeclare Modelica.SIunits.CurrentDensity im)
+    Complex(redeclare Modelica.SIunits.CurrentDensity re "Real part of complex current density",
+            redeclare Modelica.SIunits.CurrentDensity im "Imaginary part of complex current density")
     "Complex electrical current density";
   operator record ComplexElectricPotential =
-    Complex(redeclare Modelica.SIunits.ElectricPotential re,
-             redeclare Modelica.SIunits.ElectricPotential im)
+    Complex(redeclare Modelica.SIunits.ElectricPotential re "Imaginary part of complex electric potential",
+            redeclare Modelica.SIunits.ElectricPotential im "Real part of complex electrical potential")
     "Complex electric potential";
   operator record ComplexPotentialDifference =
-    Complex(redeclare Modelica.SIunits.PotentialDifference re,
-             redeclare Modelica.SIunits.PotentialDifference im)
+    Complex(redeclare Modelica.SIunits.PotentialDifference re "Real part of complex potential difference",
+            redeclare Modelica.SIunits.PotentialDifference im "Imaginary part of complex potential difference")
     "Complex electric potential difference";
   operator record ComplexVoltage =
-    Complex(redeclare Modelica.SIunits.Voltage re,
-             redeclare Modelica.SIunits.Voltage im)
+    Complex(redeclare Modelica.SIunits.Voltage re "Imaginary part of complex voltage",
+            redeclare Modelica.SIunits.Voltage im "Real part of complex voltage")
     "Complex electrical voltage";
   operator record ComplexVoltageSlope =
-    Complex(redeclare Modelica.SIunits.VoltageSlope re,
-             redeclare Modelica.SIunits.VoltageSlope im)
+    Complex(redeclare Modelica.SIunits.VoltageSlope re "Real part of complex voltage slope",
+            redeclare Modelica.SIunits.VoltageSlope im "Imaginary part of complex voltage slope")
     "Complex voltage slope";
   operator record ComplexElectricFieldStrength =
-    Complex(redeclare Modelica.SIunits.ElectricFieldStrength re,
-             redeclare Modelica.SIunits.ElectricFieldStrength im)
+    Complex(redeclare Modelica.SIunits.ElectricFieldStrength re "Real part of complex electric field strength",
+            redeclare Modelica.SIunits.ElectricFieldStrength im "Imaginary part of complex electric field strength")
     "Complex electric field strength";
   operator record ComplexElectricFluxDensity =
-    Complex(redeclare Modelica.SIunits.ElectricFluxDensity re,
-             redeclare Modelica.SIunits.ElectricFluxDensity im)
+    Complex(redeclare Modelica.SIunits.ElectricFluxDensity re "Real part of complex electric flux density",
+            redeclare Modelica.SIunits.ElectricFluxDensity im "Imaginary part of complex electric flux density")
     "Complex electric flux density";
   operator record ComplexElectricFlux =
-    Complex(redeclare Modelica.SIunits.ElectricFlux re,
-             redeclare Modelica.SIunits.ElectricFlux im)
+    Complex(redeclare Modelica.SIunits.ElectricFlux re "Real part of complex electric flux",
+            redeclare Modelica.SIunits.ElectricFlux im "Imaginary part of complex electric flux")
     "Complex electric flux";
   operator record ComplexMagneticFieldStrength =
-    Complex(redeclare Modelica.SIunits.MagneticFieldStrength re,
-             redeclare Modelica.SIunits.MagneticFieldStrength im)
+    Complex(redeclare Modelica.SIunits.MagneticFieldStrength re "Real part of complex magnetic field strength",
+            redeclare Modelica.SIunits.MagneticFieldStrength im "Imaginary part of complex magnetic field strength")
     "Complex magnetic field strength";
   operator record ComplexMagneticPotential =
-    Complex(redeclare Modelica.SIunits.MagneticPotential re,
-             redeclare Modelica.SIunits.MagneticPotential im)
+    Complex(redeclare Modelica.SIunits.MagneticPotential re "Real part of complex magnetic potential",
+            redeclare Modelica.SIunits.MagneticPotential im "Imaginary part of complex magnetic potential")
     "Complex magnetic potential";
   operator record ComplexMagneticPotentialDifference =
-    Complex(redeclare Modelica.SIunits.MagneticPotentialDifference re,
-             redeclare Modelica.SIunits.MagneticPotentialDifference im)
+    Complex(redeclare Modelica.SIunits.MagneticPotentialDifference re "Real part of complex magnetic potential difference",
+            redeclare Modelica.SIunits.MagneticPotentialDifference im "Imaginary part of complex magnetic potential difference")
     "Complex magnetic potential difference";
   operator record ComplexMagnetomotiveForce =
-    Complex(redeclare Modelica.SIunits.MagnetomotiveForce re,
-             redeclare Modelica.SIunits.MagnetomotiveForce im)
-    "Complex magneto motive force";
+    Complex(redeclare Modelica.SIunits.MagnetomotiveForce re "Real part of complex magnetomotive force",
+            redeclare Modelica.SIunits.MagnetomotiveForce im "Imaginary part of complex magnetomotive force")
+    "Complex magnetomotive force";
   operator record ComplexMagneticFluxDensity =
-    Complex(redeclare Modelica.SIunits.MagneticFluxDensity re,
-             redeclare Modelica.SIunits.MagneticFluxDensity im)
+    Complex(redeclare Modelica.SIunits.MagneticFluxDensity re "Real part of complex magnetic flux density",
+            redeclare Modelica.SIunits.MagneticFluxDensity im "Imaginary part of complex magnetic flux density")
     "Complex magnetic flux density";
   operator record ComplexMagneticFlux =
-    Complex(redeclare Modelica.SIunits.MagneticFlux re,
-             redeclare Modelica.SIunits.MagneticFlux im)
+    Complex(redeclare Modelica.SIunits.MagneticFlux re "Real part of complex magnetic flux",
+            redeclare Modelica.SIunits.MagneticFlux im "Imaginary part of complex magnetic flux")
     "Complex magnetic flux";
   operator record ComplexReluctance =
-    Complex(redeclare Modelica.SIunits.Reluctance re,
-             redeclare Modelica.SIunits.Reluctance im) "Complex reluctance"
+    Complex(redeclare Modelica.SIunits.Reluctance re "Real part of complex reluctance",
+            redeclare Modelica.SIunits.Reluctance im "Imaginary part of complex reluctance")
+    "Complex reluctance"
     annotation (Documentation(info="<html>
 <p>
 Since magnetic material properties like reluctance and permeance often are anisotropic resp. salient,
@@ -1901,21 +1838,25 @@ special record <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.Sali
 which is only valid in the rotor-fixed coordinate system.
 </p>
 <p>
-<b>Note:</b> To avoid confusion, no magnetic material properties should be defined as Complex units.
+<strong>Note:</strong> To avoid confusion, no magnetic material properties should be defined as Complex units.
 </p>
 </html>"));
   operator record ComplexImpedance =
-    Complex(redeclare Resistance re,
-             redeclare Reactance im) "Complex electrical impedance";
+    Complex(redeclare Resistance re "Real part of complex impedance (resistance)",
+            redeclare Reactance im "Imaginary part of complex impedance (reactance)")
+    "Complex electrical impedance";
   operator record ComplexAdmittance =
-    Complex(redeclare Conductance re,
-             redeclare Susceptance im) "Complex electrical admittance";
+    Complex(redeclare Conductance re "Real part of complex admittance (conductance)",
+            redeclare Susceptance im "Imaginary part of complex admittance (susceptance)")
+    "Complex electrical admittance";
   operator record ComplexPower =
-    Complex(redeclare ActivePower re,
-             redeclare ReactivePower im) "Complex electrical power";
+    Complex(redeclare ActivePower re "Real part of complex power (active power)",
+            redeclare ReactivePower im "Imaginary part of complex power (reactive power)")
+    "Complex electrical power";
   operator record ComplexPerUnit =
-    Complex(redeclare PerUnit re,
-             redeclare PerUnit im) "Complex per unit";
+    Complex(redeclare PerUnit re "Real part of complex per unit quantity",
+            redeclare PerUnit im "Imaginary part of complex per unit quantity")
+    "Complex per unit";
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={
       Polygon(
@@ -1930,13 +1871,13 @@ which is only valid in the rotor-fixed coordinate system.
         fillPattern = FillPattern.Solid,
         points = {{87.5,30},{62.5,30},{62.5,30},{55,33.75},{36.25,35},{16.25,25},{7.5,6.25},{11.25,-7.5},{22.5,-12.5},{22.5,-12.5},{6.25,-22.5},{6.25,-35},{16.25,-38.75},{16.25,-38.75},{21.25,-41.25},{21.25,-41.25},{45,-48.75},{47.5,-61.25},{32.5,-70},{12.5,-65},{7.5,-51.25},{21.25,-41.25},{21.25,-41.25},{16.25,-38.75},{16.25,-38.75},{6.25,-41.25},{-6.25,-50},{-3.75,-68.75},{30,-76.25},{65,-62.5},{63.75,-35},{27.5,-26.25},{22.5,-20},{27.5,-15},{27.5,-15},{30,-7.5},{30,-7.5},{27.5,-2.5},{28.75,11.25},{36.25,27.5},{47.5,30},{53.75,22.5},{51.25,8.75},{45,-6.25},{35,-11.25},{30,-7.5},{30,-7.5},{27.5,-15},{27.5,-15},{43.75,-16.25},{65,-6.25},{72.5,10},{70,20},{70,20},{80,20}},
         smooth = Smooth.Bezier)}), Documentation(info="<html>
-<p>This package provides predefined types, such as <i>Mass</i>,
-<i>Angle</i>, <i>Time</i>, based on the international standard
+<p>This package provides predefined types, such as <em>Mass</em>,
+<em>Angle</em>, <em>Time</em>, based on the international standard
 on units, e.g.,
 </p>
 
-<pre>   <b>type</b> Angle = Real(<b>final</b> quantity = \"Angle\",
-                     <b>final</b> unit     = \"rad\",
+<pre>   <strong>type</strong> Angle = Real(<strong>final</strong> quantity = \"Angle\",
+                     <strong>final</strong> unit     = \"rad\",
                      displayUnit    = \"deg\");
 </pre>
 
@@ -1959,24 +1900,21 @@ with package SIunits, have a look at:
 </p>
 
 <p>
-Copyright &copy; 1998-2016, Modelica Association and DLR.
-</p>
-<p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+Copyright &copy; 1998-2019, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>May 25, 2011</i> by Stefan Wischhusen:<br/>Added molar units for energy and enthalpy.</li>
-<li><i>Jan. 27, 2010</i> by Christian Kral:<br/>Added complex units.</li>
-<li><i>Dec. 14, 2005</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Add User&#39;s Guide and removed &quot;min&quot; values for Resistance and Conductance.</li>
-<li><i>October 21, 2002</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and Christian Schweiger:<br/>Added new package <b>Conversions</b>. Corrected typo <i>Wavelenght</i>.</li>
-<li><i>June 6, 2000</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Introduced the following new types<br/>type Temperature = ThermodynamicTemperature;<br/>types DerDensityByEnthalpy, DerDensityByPressure, DerDensityByTemperature, DerEnthalpyByPressure, DerEnergyByDensity, DerEnergyByPressure<br/>Attribute &quot;final&quot; removed from min and max values in order that these values can still be changed to narrow the allowed range of values.<br/>Quantity=&quot;Stress&quot; removed from type &quot;Stress&quot;, in order that a type &quot;Stress&quot; can be connected to a type &quot;Pressure&quot;.</li>
-<li><i>Oct. 27, 1999</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>New types due to electrical library: Transconductance, InversePotential, Damping.</li>
-<li><i>Sept. 18, 1999</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Renamed from SIunit to SIunits. Subpackages expanded, i.e., the SIunits package, does no longer contain subpackages.</li>
-<li><i>Aug 12, 1999</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Type &quot;Pressure&quot; renamed to &quot;AbsolutePressure&quot; and introduced a new type &quot;Pressure&quot; which does not contain a minimum of zero in order to allow convenient handling of relative pressure. Redefined BulkModulus as an alias to AbsolutePressure instead of Stress, since needed in hydraulics.</li>
-<li><i>June 29, 1999</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Bug-fix: Double definition of &quot;Compressibility&quot; removed and appropriate &quot;extends Heat&quot; clause introduced in package SolidStatePhysics to incorporate ThermodynamicTemperature.</li>
-<li><i>April 8, 1998</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and Astrid Jaschinski:<br/>Complete ISO 31 chapters realized.</li>
-<li><i>Nov. 15, 1997</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and Hubertus Tummescheit:<br/>Some chapters realized.</li>
+<li><em>May 25, 2011</em> by Stefan Wischhusen:<br/>Added molar units for energy and enthalpy.</li>
+<li><em>Jan. 27, 2010</em> by Christian Kral:<br/>Added complex units.</li>
+<li><em>Dec. 14, 2005</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Add User&#39;s Guide and removed &quot;min&quot; values for Resistance and Conductance.</li>
+<li><em>October 21, 2002</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and Christian Schweiger:<br/>Added new package <strong>Conversions</strong>. Corrected typo <em>Wavelenght</em>.</li>
+<li><em>June 6, 2000</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Introduced the following new types<br/>type Temperature = ThermodynamicTemperature;<br/>types DerDensityByEnthalpy, DerDensityByPressure, DerDensityByTemperature, DerEnthalpyByPressure, DerEnergyByDensity, DerEnergyByPressure<br/>Attribute &quot;final&quot; removed from min and max values in order that these values can still be changed to narrow the allowed range of values.<br/>Quantity=&quot;Stress&quot; removed from type &quot;Stress&quot;, in order that a type &quot;Stress&quot; can be connected to a type &quot;Pressure&quot;.</li>
+<li><em>Oct. 27, 1999</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>New types due to electrical library: Transconductance, InversePotential, Damping.</li>
+<li><em>Sept. 18, 1999</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Renamed from SIunit to SIunits. Subpackages expanded, i.e., the SIunits package, does no longer contain subpackages.</li>
+<li><em>Aug 12, 1999</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Type &quot;Pressure&quot; renamed to &quot;AbsolutePressure&quot; and introduced a new type &quot;Pressure&quot; which does not contain a minimum of zero in order to allow convenient handling of relative pressure. Redefined BulkModulus as an alias to AbsolutePressure instead of Stress, since needed in hydraulics.</li>
+<li><em>June 29, 1999</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Bug-fix: Double definition of &quot;Compressibility&quot; removed and appropriate &quot;extends Heat&quot; clause introduced in package SolidStatePhysics to incorporate ThermodynamicTemperature.</li>
+<li><em>April 8, 1998</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and Astrid Jaschinski:<br/>Complete ISO 31 chapters realized.</li>
+<li><em>Nov. 15, 1997</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and Hubertus Tummescheit:<br/>Some chapters realized.</li>
 </ul>
 </html>"));
 end SIunits;

@@ -53,7 +53,6 @@ Boolean block (no declarations, no equations).
             extent={{-100,-100},{100,100}},
             lineColor={0,0,127},
             fillColor={223,211,169},
-            lineThickness=5.0,
             borderPattern=BorderPattern.Raised,
             fillPattern=FillPattern.Solid), Text(
             extent={{-150,150},{150,110}},
@@ -93,12 +92,11 @@ end IntegerBlock;
               -100},{100,100}}), graphics={Rectangle(
             extent={{-100,100},{100,-100}},
             fillColor={210,210,210},
-            lineThickness=5.0,
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised), Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255})}),                        Documentation(info="<html>
+            lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 Block that has only the basic icon for an input/output,
 Boolean block (no declarations, no equations) used especially

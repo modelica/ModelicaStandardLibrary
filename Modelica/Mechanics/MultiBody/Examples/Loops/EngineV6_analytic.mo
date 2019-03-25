@@ -25,7 +25,7 @@ model EngineV6_analytic
       start=10,
       fixed=true),
     stateSelect=StateSelect.always,
-    J=1)                               annotation (Placement(transformation(
+    J=1) annotation (Placement(transformation(
           extent={{40,10},{60,30}})));
   Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque load2(
                                                  tau_nominal=-100, w_nominal=
@@ -33,7 +33,7 @@ model EngineV6_analytic
     useSupport=false)
              annotation (Placement(transformation(extent={{90,10},{70,30}})));
   Rotational.Sensors.TorqueSensor torqueSensor
-    annotation (Placement(transformation(extent={{12,10},{32,30}})));
+    annotation (Placement(transformation(extent={{10,10},{30,30}})));
   Blocks.Continuous.CriticalDamping filter(
     n=2,
     initType=Modelica.Blocks.Types.Init.SteadyState,
@@ -48,27 +48,27 @@ equation
   connect(load2.flange, load.flange_b)
     annotation (Line(points={{70,20},{60,20}}));
   connect(torqueSensor.flange_a, engine.flange_b)
-    annotation (Line(points={{12,20},{2,20}}));
+    annotation (Line(points={{10,20},{2,20}}));
   connect(torqueSensor.flange_b, load.flange_a)
-    annotation (Line(points={{32,20},{40,20}}));
-  connect(torqueSensor.tau, filter.u) annotation (Line(points={{14,9},{14,-10},
-          {28,-10}}, color={0,0,127}));
+    annotation (Line(points={{30,20},{40,20}}));
+  connect(torqueSensor.tau, filter.u) annotation (Line(points={{12,9},{12,-10},{28,-10}},
+                     color={0,0,127}));
   annotation (
     Documentation(info="<html>
 <p>
 This is a similar model as the example \"EngineV6\". However, the cylinders
 have been built up with component Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR that
 solves the non-linear system of equations in an aggregation of 3 revolution
-joints <b>analytically</b> and only one body is used that holds the total
+joints <strong>analytically</strong> and only one body is used that holds the total
 mass of the crank shaft:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6_CAD_small.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6_CAD_small.png\">
 </p>
 
 <p>
-This model is about 20 times faster as the EngineV6 example and <b>no</b> linear or
+This model is about 20 times faster as the EngineV6 example and <strong>no</strong> linear or
 non-linear system of equations occur. In contrast, the \"EngineV6\" example
 leads to 6 systems of nonlinear equations (every system has dimension = 5, with
 Evaluate=false and dimension=1 with Evaluate=true) and a linear system of equations
@@ -77,8 +77,8 @@ of about 40. This shows the power of the analytic loop handling.
 
 
 <p>
-Simulate for 3 s with about 50000 output intervals, and plot the variables <b>engineSpeed_rpm</b>,
-<b>engineTorque</b>, and <b>filteredEngineTorque</b>. Note, the result file has
+Simulate for 3 s with about 50000 output intervals, and plot the variables <strong>engineSpeed_rpm</strong>,
+<strong>engineTorque</strong>, and <strong>filteredEngineTorque</strong>. Note, the result file has
 a size of about 240 Mbyte in this case. The default setting of StopTime = 1.01 s (with the default setting of the tool for the number of output points), in order that (automatic) regression testing does not have to cope with a large result file.
 </p>
 

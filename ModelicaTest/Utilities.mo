@@ -132,88 +132,85 @@ extends Modelica.Icons.ExamplesPackage;
     // Strings.scanToken
     (token,i) := Strings.scanToken("  -123.47e-2", 1);
     assert(i == 13 and token.tokenType == Types.TokenType.RealToken and token.real
-       == -123.47e-2, "String.scanToken 1 failed");
+       == -123.47e-2, "Strings.scanToken 1 failed");
 
     (token,i) := Strings.scanToken("  -123", 1);
     assert(i == 7 and token.tokenType == Types.TokenType.IntegerToken and token.integer
-       == -123, "String.scanToken 2 failed");
+       == -123, "Strings.scanToken 2 failed");
 
     (token,i) := Strings.scanToken(
         "  123",
         1,
         unsigned=true);
     assert(i == 6 and token.tokenType == Types.TokenType.IntegerToken and token.integer
-       == 123, "String.scanToken 3 failed");
+       == 123, "Strings.scanToken 3 failed");
 
     (token,i) := Strings.scanToken("  true x", 1);
     assert(i == 7 and token.tokenType == Types.TokenType.BooleanToken and token.boolean,
-      "String.scanToken 4 failed");
+      "Strings.scanToken 4 failed");
 
     (token,i) := Strings.scanToken("  false x", 1);
     assert(i == 8 and token.tokenType == Types.TokenType.BooleanToken and not
-      token.boolean, "String.scanToken 5 failed");
+      token.boolean, "Strings.scanToken 5 failed");
 
     (token,i) := Strings.scanToken(" \"string text\" x=3", 1);
     assert(i == 15 and token.tokenType == Types.TokenType.StringToken and token.string
-       == "string text", "String.scanToken 6 failed");
+       == "string text", "Strings.scanToken 6 failed");
 
     (token,i) := Strings.scanToken(" x_12=2;", 1);
     assert(i == 6 and token.tokenType == Types.TokenType.IdentifierToken and
-      token.string == "x_12", "String.scanToken 7 failed");
+      token.string == "x_12", "Strings.scanToken 7 failed");
 
     (token,i) := Strings.scanToken("  abc = 3;   ", 11);
     assert(i == 14 and token.tokenType == Types.TokenType.NoToken,
-      "String.scanToken 8 failed");
+      "Strings.scanToken 8 failed");
 
     // Strings.scanXXX
     (r,i) := Strings.scanReal(
         "  123 ",
         1,
         unsigned=true);
-    assert(i == 6 and r == 123, "String.scanRequiredReal 2 failed");
+    assert(i == 6 and r == 123, "Strings.scanRequiredReal 2 failed");
 
     (j,i) := Strings.scanInteger("  -123", 1);
-    assert(i == 7 and j == -123, "String.scanRequiredInteger 1 failed");
+    assert(i == 7 and j == -123, "Strings.scanRequiredInteger 1 failed");
 
     (j,i) := Strings.scanInteger(
         "  123",
         1,
         unsigned=true);
-    assert(i == 6 and j == 123, "String.scanRequiredInteger 2 failed");
+    assert(i == 6 and j == 123, "Strings.scanRequiredInteger 2 failed");
 
     (b,i) := Strings.scanBoolean("  true x", 1);
-    assert(i == 7 and b, "String.scanRequiredBoolean 1 failed");
+    assert(i == 7 and b, "Strings.scanRequiredBoolean 1 failed");
 
     (b,i) := Strings.scanBoolean("  false x", 1);
-    assert(i == 8 and not b, "String.scanRequiredBoolean 2 failed");
+    assert(i == 8 and not b, "Strings.scanRequiredBoolean 2 failed");
 
     (s,i) := Strings.scanString(" \"string text\" x=3", 1);
-    assert(i == 15 and s == "string text", "String.scanRequiredString failed");
+    assert(i == 15 and s == "string text", "Strings.scanRequiredString failed");
 
     (s,i) := Strings.scanIdentifier(" x_12=2;", 1);
-    assert(i == 6 and s == "x_12", "String.scanRequiredIdentifier failed");
+    assert(i == 6 and s == "x_12", "Strings.scanRequiredIdentifier failed");
 
     (s,i) := Strings.scanDelimiter(
         "  &,",
         1,
         {"&",","});
-    assert(i == 4 and s == "&", "String.scanRequiredDelimiter 1 failed");
+    assert(i == 4 and s == "&", "Strings.scanRequiredDelimiter 1 failed");
 
     (s,i) := Strings.scanDelimiter(
         "  /*,",
         1,
         {"&","/*"});
-    assert(i == 5 and s == "/*", "String.scanRequiredDelimiter 2 failed");
+    assert(i == 5 and s == "/*", "Strings.scanRequiredDelimiter 2 failed");
 
     Strings.scanNoToken("  abc = 3;   ", 11);
 
-    /*
-  Streams.print("\n... Demonstrate how to compute a hash value from a string:");
-  hash1 :=Modelica.Utilities.Strings.hashString("this is a test");
-  hash2 :=Modelica.Utilities.Strings.hashString("Controller.noise1");
-  Streams.print("    hash1 = " + String(hash1));
-  Streams.print("    hash2 = " + String(hash2));
-  */
+    hash1 := Strings.hashString("this is a test");
+    assert(hash1 == 1827717433, "Strings.hashString 1 failed");
+    hash2 := Strings.hashString("Controller.noise1");
+    assert(hash2 == -1025762750, "Strings.hashString 2 failed");
 
     ok := true;
   end Strings;
@@ -459,6 +456,9 @@ extends Modelica.Icons.ExamplesPackage;
 
     input String logFile="ModelicaTestLog.txt"
       "Filename where the log is stored";
+    input String dirPath = Modelica.Utilities.Files.loadResource("modelica://ModelicaTest/Resources/Data");
+    input String filePath = Modelica.Utilities.Files.loadResource("modelica://ModelicaTest/Resources/Data/ReadStreamTestFile.txt");
+
     output Boolean ok;
   protected
     String directory;
@@ -467,6 +467,10 @@ extends Modelica.Icons.ExamplesPackage;
   algorithm
     Streams.print("... Test of Modelica.Utilities.Files");
     Streams.print("... Test of Modelica.Utilities.Files", logFile);
+
+    Modelica.Utilities.Files.list(dirPath);
+    Modelica.Utilities.Files.list(filePath);
+    // list() does not have output, therefore assert not feasible
 
     (directory,name,extension) := Files.splitPathName("E:/test1/test2.save.txt");
     assert(directory == "E:/test1/" and name == "test2.save" and extension ==
@@ -556,13 +560,25 @@ extends Modelica.Icons.ExamplesPackage;
   model TestFiles
     extends Modelica.Icons.Example;
 
+    parameter String dirPath = Modelica.Utilities.Files.loadResource("modelica://ModelicaTest/Resources/Data");
+    parameter String filePath = Modelica.Utilities.Files.loadResource("modelica://ModelicaTest/Resources/Data/ReadStreamTestFile.txt");
+
     Boolean result;
   algorithm
     when initial() then
-      result := ModelicaTest.Utilities.Files();
+      result := ModelicaTest.Utilities.Files(dirPath = dirPath, filePath = filePath);
     end when;
 
     annotation (experiment(StopTime=0));
   end TestFiles;
+
+  model TestExamplesCalculator
+    extends Modelica.Icons.Example;
+    parameter Real eps=1e-13 "Threshold for comparison of floating-point numbers";
+  equation
+    assert(Modelica.Math.isEqual(11., Modelica.Utilities.Examples.calculator("2+3*(4-1)"), eps), "Test of Modelica.Utilities.Examples.calculator failed!");
+    assert(Modelica.Math.isEqual(0.5, Modelica.Utilities.Examples.calculator("sin(pi/6)"), eps), "Test of Modelica.Utilities.Examples.calculator failed!");
+    annotation (experiment(StopTime=0));
+  end TestExamplesCalculator;
 
 end Utilities;

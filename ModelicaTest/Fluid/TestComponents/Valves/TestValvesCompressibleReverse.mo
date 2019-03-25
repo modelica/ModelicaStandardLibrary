@@ -99,8 +99,7 @@ equation
           -68,68},{-50,68}}, color={0,127,255}));
   connect(SourceP1.ports[2], V2.port_a)
                                    annotation (Line(points={{-80,34},{-59,34},{
-          -59,36},{-38,36}},
-        color={0,127,255}));
+          -59,36},{-38,36}}, color={0,127,255}));
   connect(V2.port_b, V5.port_a)
                              annotation (Line(points={{-18,36},{5,36},{5,6},{30,
           6}}, color={0,127,255}));

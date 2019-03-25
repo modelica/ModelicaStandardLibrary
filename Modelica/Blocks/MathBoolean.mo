@@ -7,7 +7,7 @@ block MultiSwitch
     "Set Boolean expression that is associated with the first active input signal"
 
   input Boolean expr[nu]=fill(false, nu)
-      "y = if u[i] then expr[i] else y_default (time varying)"            annotation(Dialog);
+      "y = if u[i] then expr[i] else y_default (time varying)" annotation(Dialog);
   parameter Boolean use_pre_as_default=true
       "set true to hold last value as default (y_default = pre(y))"
         annotation(HideResult=true, choices(checkBox=true));
@@ -42,12 +42,10 @@ equation
             Text(
               visible=not use_pre_as_default,
               extent={{-100,-60},{300,-90}},
-              lineColor={0,0,0},
               textString="else: %y_default"),
             Text(
               visible=use_pre_as_default,
               extent={{-100,-60},{300,-90}},
-              lineColor={0,0,0},
               textString="else: pre(y)"),
             Text(
               extent={{-99,99},{300,59}},
@@ -62,7 +60,6 @@ equation
               borderPattern=BorderPattern.Raised),
             Text(
               extent={{-84,16},{273,-15}},
-              lineColor={0,0,0},
               textString="%expr"),
             Ellipse(
               extent={{275,8},{289,-6}},
@@ -77,15 +74,15 @@ The block has a vector of Boolean input signals u[nu] and a vector of
 (time varying) Boolean expressions expr[:]. The output signal y is
 set to expr[i], if i is the first element in the input vector u that is true.
 If all input signals are false, y is set to parameter \"y_default\" or the
-previous value of y is kept if parameter use_pre_as_default = <b>true</b>:
+previous value of y is kept if parameter use_pre_as_default = <strong>true</strong>:
 </p>
 
 <blockquote><pre>
   // Conceptual equation (not valid Modelica)
   i = 'first element of u[:] that is true';
-  y = <b>if</b> i==0 <b>then</b> (<b>if</b> use_pre_as_default <b>then</b> pre(y)
-                                          <b>else</b> y_default)
-      <b>else</b> expr[i];
+  y = <strong>if</strong> i==0 <strong>then</strong> (<strong>if</strong> use_pre_as_default <strong>then</strong> pre(y)
+                                          <strong>else</strong> y_default)
+      <strong>else</strong> expr[i];
 </pre></blockquote>
 
 <p>
@@ -104,12 +101,11 @@ end MultiSwitch;
                               u);
     annotation (defaultComponentName="and1", Icon(graphics={Text(
               extent={{-76,40},{60,-40}},
-              lineColor={0,0,0},
               textString="and")}),
       Documentation(info="<html>
 <p>
-The output is <b>true</b> if all inputs are <b>true</b>, otherwise
-the output is <b>false</b>.
+The output is <strong>true</strong> if all inputs are <strong>true</strong>, otherwise
+the output is <strong>false</strong>.
 </p>
 
 <p>
@@ -127,7 +123,7 @@ The usage is demonstrated, e.g., in example
 
 <p>
 If no connection to the input connector \"u\" is present,
-the output is set to <b>false</b>: y=false.
+the output is set to <strong>false</strong>: y=false.
 </p>
 </html>"));
   end And;
@@ -140,12 +136,11 @@ the output is set to <b>false</b>: y=false.
                               u);
     annotation (defaultComponentName="or1", Icon(graphics={Text(
               extent={{-80,40},{60,-40}},
-              lineColor={0,0,0},
               textString="or")}),
       Documentation(info="<html>
 <p>
-The output is <b>true</b> if at least one input is <b>true</b>, otherwise
-the output is <b>false</b>.
+The output is <strong>true</strong> if at least one input is <strong>true</strong>, otherwise
+the output is <strong>false</strong>.
 </p>
 
 <p>
@@ -163,7 +158,7 @@ The usage is demonstrated, e.g., in example
 
 <p>
 If no connection to the input connector \"u\" is present,
-the output is set to <b>false</b>: y=false.
+the output is set to <strong>false</strong>: y=false.
 </p>
 
 </html>"));
@@ -178,12 +173,11 @@ the output is set to <b>false</b>: y=false.
                               u);
     annotation (defaultComponentName="xor1", Icon(graphics={Text(
               extent={{-80,40},{60,-40}},
-              lineColor={0,0,0},
               textString="xor")}),
       Documentation(info="<html>
 <p>
-The output is <b>true</b> if exactly one input is <b>true</b>, otherwise
-the output is <b>false</b>.
+The output is <strong>true</strong> if exactly one input is <strong>true</strong>, otherwise
+the output is <strong>false</strong>.
 </p>
 
 <p>
@@ -201,7 +195,7 @@ The usage is demonstrated, e.g., in example
 
 <p>
 If no connection to the input connector \"u\" is present,
-the output is set to <b>false</b>: y=false.
+the output is set to <strong>false</strong>: y=false.
 </p>
 
 </html>"));
@@ -215,12 +209,11 @@ the output is set to <b>false</b>: y=false.
                                   u);
     annotation (defaultComponentName="nand1", Icon(graphics={Text(
               extent={{-78,36},{64,-30}},
-              lineColor={0,0,0},
               textString="nand")}),
       Documentation(info="<html>
 <p>
-The output is <b>true</b> if at least one input is <b>false</b>, otherwise
-the output is <b>false</b>.
+The output is <strong>true</strong> if at least one input is <strong>false</strong>, otherwise
+the output is <strong>false</strong>.
 </p>
 
 <p>
@@ -238,7 +231,7 @@ The usage is demonstrated, e.g., in example
 
 <p>
 If no connection to the input connector \"u\" is present,
-the output is set to <b>false</b>: y=false.
+the output is set to <strong>false</strong>: y=false.
 </p>
 
 </html>"));
@@ -252,12 +245,11 @@ the output is set to <b>false</b>: y=false.
                                   u);
     annotation (defaultComponentName="nor1", Icon(graphics={Text(
               extent={{-80,40},{60,-40}},
-              lineColor={0,0,0},
               textString="nor")}),
       Documentation(info="<html>
 <p>
-The output is <b>false</b> if at least one input is <b>true</b>, otherwise
-the output is <b>true</b>.
+The output is <strong>false</strong> if at least one input is <strong>true</strong>, otherwise
+the output is <strong>true</strong>.
 </p>
 
 <p>
@@ -275,7 +267,7 @@ The usage is demonstrated, e.g., in example
 
 <p>
 If no connection to the input connector \"u\" is present,
-the output is set to <b>false</b>: y=false.
+the output is set to <strong>false</strong>: y=false.
 </p>
 </html>"));
   end Nor;
@@ -287,12 +279,11 @@ the output is set to <b>false</b>: y=false.
     y = not u;
     annotation (defaultComponentName="not1", Icon(graphics={Text(
               extent={{-98,40},{42,-40}},
-              lineColor={0,0,0},
-            textString="not")}),
+              textString="not")}),
       Documentation(info="<html>
 <p>
-The output is <b>false</b> if at least one input is <b>true</b>, otherwise
-the output is <b>true</b>.
+The output is <strong>false</strong> if at least one input is <strong>true</strong>, otherwise
+the output is <strong>true</strong>.
 </p>
 
 <p>
@@ -323,8 +314,8 @@ The usage is demonstrated, e.g., in example
                   {-36,32},{66,32}}, color={255,0,255})}),
                                    Documentation(info="<html>
 <p>
-A rising edge of the Boolean input u results in y = <b>true</b> at this
-time instant. At all other time instants, y = <b>false</b>.
+A rising edge of the Boolean input u results in y = <strong>true</strong> at this
+time instant. At all other time instants, y = <strong>false</strong>.
 </p>
 
 <p>
@@ -350,8 +341,8 @@ The usage is demonstrated, e.g., in example
                   24,32},{66,32}}, color={255,0,255})}),
                                    Documentation(info="<html>
 <p>
-A falling edge of the Boolean input u results in y = <b>true</b> at this
-time instant. At all other time instants, y = <b>false</b>.
+A falling edge of the Boolean input u results in y = <strong>true</strong> at this
+time instant. At all other time instants, y = <strong>false</strong>.
 </p>
 
 <p>
@@ -379,8 +370,8 @@ The usage is demonstrated, e.g., in example
               color={255,0,255})}),Documentation(info="<html>
 <p>
 A changing edge, i.e., either rising or falling,
-of the Boolean input u results in y = <b>true</b> at this
-time instant. At all other time instants, y = <b>false</b>.
+of the Boolean input u results in y = <strong>true</strong> at this
+time instant. At all other time instants, y = <strong>false</strong>.
 </p>
 
 <p>
@@ -422,7 +413,6 @@ The usage is demonstrated, e.g., in example
         annotation (Icon(graphics={
             Text(
               extent={{-250,-120},{250,-150}},
-              lineColor={0,0,0},
               textString="%delayTime s"),
             Line(points={{-80,-66},{-60,-66},{-60,-22},{38,-22},{38,-66},{66,-66}}),
             Line(points={{-80,32},{-4,32},{-4,76},{38,76},{38,32},{66,32}},
@@ -456,20 +446,18 @@ The usage is demonstrated, e.g., in example
 
   annotation (Documentation(info="<html>
 <p>
-This package contains basic <b>mathematical operations</b>
-on <b>Boolean</b> signals.
+This package contains basic <strong>mathematical operations</strong>
+on <strong>Boolean</strong> signals.
 </p>
 
 <p>
-Package MathBoolean is a new design that shall replace in the future the
-<a href=\"modelica://Modelica.Blocks.Logical\">Logical</a> package.
 The new features are:
 </p>
 
 <ul>
 <li> If useful, blocks may have an arbitrary number of inputs (e.g., \"And\" block with 2,3,4,...
      Boolean inputs). This is based on the \"connectorSizing\" annotation which
-     allows a tool to conveniently handle vectors of connectors. </li>
+     allows a tool to conveniently handle vectors of connectors.</li>
 
 <li> The blocks are smaller in size, so that the diagram area is better
      utilized for trivial blocks such as \"And\" or \"Or\".</li>

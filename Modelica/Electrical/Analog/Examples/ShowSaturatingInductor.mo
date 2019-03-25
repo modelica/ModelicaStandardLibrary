@@ -34,7 +34,7 @@ model ShowSaturatingInductor
         origin={-20,0},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Basic.Inductor Inductance1(L=Lnom, i(fixed=true))          annotation (Placement(transformation(
+  Basic.Inductor Inductance1(L=Lnom, i(fixed=true)) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={20,0})));
@@ -44,15 +44,13 @@ equation
   connect(SineVoltage1.n, Ground1.p) annotation (Line(points={{-60,-16},{-60,
           -16}}, color={0,0,255}));
   connect(SineVoltage1.n, SaturatingInductance1.n) annotation (Line(points={{-60,-16},
-          {-20,-16},{-20,-10}},       color={0,0,255}));
+          {-20,-16},{-20,-10}}, color={0,0,255}));
   connect(SaturatingInductance1.p, SineVoltage1.p) annotation (Line(points={{-20,10},
-          {-20,20},{-60,20},{-60,4}},     color={0,0,255}));
+          {-20,20},{-60,20},{-60,4}}, color={0,0,255}));
   connect(Inductance1.p, SineVoltage1.p) annotation (Line(
-      points={{20,10},{20,20},{-60,20},{-60,4}},
-      color={0,0,255}));
+      points={{20,10},{20,20},{-60,20},{-60,4}}, color={0,0,255}));
   connect(Inductance1.n, SineVoltage1.n) annotation (Line(
-      points={{20,-10},{20,-16},{-60,-16}},
-      color={0,0,255}));
+      points={{20,-10},{20,-16},{-60,-16}}, color={0,0,255}));
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={Text(

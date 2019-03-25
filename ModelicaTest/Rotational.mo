@@ -26,8 +26,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
           Placement(transformation(extent={{50,0},{70,20}})));
     equation
       connect(sine.y, torque.tau) annotation (Line(
-          points={{-59,10},{-42,10}},
-          color={0,0,127}));
+          points={{-59,10},{-42,10}}, color={0,0,127}));
       connect(torque.support, fixed.flange) annotation (Line(
           points={{-30,0},{-30,-10}}));
       connect(torque.flange, J1.flange_a) annotation (Line(
@@ -102,8 +101,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
                 50,20}})));
     equation
       connect(sine2.y, torque2.tau) annotation (Line(
-          points={{-79,10},{-62,10}},
-          color={0,0,127}));
+          points={{-79,10},{-62,10}}, color={0,0,127}));
       connect(torque2.support, fixed1.flange) annotation (Line(
           points={{-50,0},{-50,-10}}));
       connect(torque2.flange, inertia3.flange_a) annotation (Line(
@@ -174,8 +172,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
           Placement(transformation(extent={{-10,-90},{10,-70}})));
     equation
       connect(sine.y, torque.tau) annotation (Line(
-          points={{-59,60},{-46,60}},
-          color={0,0,127}));
+          points={{-59,60},{-46,60}}, color={0,0,127}));
       connect(torque.flange, J1.flange_a) annotation (Line(
           points={{-24,60},{-10,60}}));
       connect(gear.flange_b, J2.flange_a) annotation (Line(
@@ -183,8 +180,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
       connect(J1.flange_b, gear.flange_a) annotation (Line(
           points={{10,60},{20,60}}));
       connect(sine1.y, torque1.tau) annotation (Line(
-          points={{-59,0},{-46,0}},
-          color={0,0,127}));
+          points={{-59,0},{-46,0}}, color={0,0,127}));
       connect(torque1.flange, J3.flange_a) annotation (Line(
           points={{-24,0},{-10,0}}));
       connect(J3.flange_b, gear1.flange_b) annotation (Line(
@@ -192,8 +188,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
       connect(gear1.flange_a, J4.flange_a) annotation (Line(
           points={{40,0},{52,0}}));
       connect(sine2.y, torque2.tau) annotation (Line(
-          points={{-59,-60},{-46,-60}},
-          color={0,0,127}));
+          points={{-59,-60},{-46,-60}}, color={0,0,127}));
       connect(torque2.flange, J5.flange_a) annotation (Line(
           points={{-24,-60},{-10,-60}}));
       connect(J5.flange_b, gear2.flange_b) annotation (Line(
@@ -215,11 +210,8 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
                 -100,-100},{100,100}}), graphics={Polygon(
                   points={{-23,87},{-13,84},{-23,81},{-23,87}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Line(points={{-23,84},{-53,84}}),Text(
                   extent={{-18,88},{72,80}},
-                  lineColor={0,0,0},
                   textString="(positive) axis of rotation")}), experiment(
             StopTime=2));
     end Directions;
@@ -297,15 +289,13 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
               0},{-30,0}}));
       connect(sine1.y, torque1.tau) annotation (Line(
           points={{-69,0},{-67.25,0},{-67.25,0},{-65.5,0},
-              {-65.5,0},{-62,0}},
-          color={0,0,127}));
+              {-65.5,0},{-62,0}}, color={0,0,127}));
       connect(torque2.flange, inertia2.flange_b) annotation (Line(
           points={{40,0},{37.5,0},{37.5,0},{35,0},{35,0},
               {30,0}}));
       connect(sine2.y, torque2.tau) annotation (Line(
           points={{69,0},{67.25,0},{67.25,0},{65.5,0},{
-              65.5,0},{62,0}},
-          color={0,0,127}));
+              65.5,0},{62,0}}, color={0,0,127}));
       connect(idealPlanetary1.sun, inertia3.flange_b) annotation (Line(
           points={{-50,-90},{-60,-90}}));
       connect(idealPlanetary1.carrier, inertia4.flange_b) annotation (Line(
@@ -323,74 +313,46 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
             extent={{-100,-100},{100,100}}),
               graphics={Text(
                   extent={{-28,94},{62,86}},
-                  lineColor={0,0,0},
                   textString="(positive) axis of rotation"),Line(points={{-61,
               65},{-80,65}}),Polygon(
                   points={{-68,67},{-61,65},{-68,63},{-68,67}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-57,69},{-91,73}},
-                  lineColor={0,0,0},
                   textString="J2.flange_a.tau"),Line(points={{-42,45},{-61,45}}),Polygon(
                   points={{-49,47},{-42,45},{-49,43},{-49,47}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-33,38},{-67,42}},
-                  lineColor={0,0,0},
-                  textString="J2.w"),Line(points={{-9,65},{-28,65}}, color={0,0,
-              0}),Polygon(
+                  textString="J2.w"),Line(points={{-9,65},{-28,65}}),
+              Polygon(
                   points={{-16,67},{-9,65},{-16,63},{-16,67}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-5,69},{-39,73}},
-                  lineColor={0,0,0},
                   textString="J4.flange_a.tau"),Line(points={{10,45},{-9,45}}),Polygon(
                   points={{3,47},{10,45},{3,43},{3,47}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{19,38},{-15,42}},
-                  lineColor={0,0,0},
-                  textString="J4.w"),Line(points={{44,65},{25,65}}, color={0,0,
-              0}),Polygon(
+                  textString="J4.w"),Line(points={{44,65},{25,65}}),
+              Polygon(
                   points={{37,67},{44,65},{37,63},{37,67}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{48,69},{14,73}},
-                  lineColor={0,0,0},
                   textString="J6.flange_b.tau"),Line(points={{63,45},{44,45}}),Polygon(
                   points={{56,47},{63,45},{56,43},{56,47}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{72,38},{38,42}},
-                  lineColor={0,0,0},
-                  textString="J6.w"),Line(points={{-32,90},{-62,90}}, color={0,
-              0,0}),Polygon(
+                  textString="J6.w"),Line(points={{-32,90},{-62,90}}),
+              Polygon(
                   points={{-32,93},{-22,90},{-32,87},{-32,93}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-19,24},{71,16}},
-                  lineColor={0,0,0},
                   textString="(positive) axis of rotation"),Line(points={{-23,
               20},{-53,20}}),Polygon(
                   points={{-23,23},{-13,20},{-23,17},{-23,23}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Polygon(
                   points={{-47,-47},{-54,-49},{-47,-51},{-47,-47}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid),Line(points={{-52,-49},{-33,-49}}),Line(points={{31.5,-79.5},{31.5,-60.5}}, color={0,
-              0,0}),Polygon(
+                  fillPattern=FillPattern.Solid),Line(points={{-52,-49},{-33,-49}}),Line(points={{31.5,-79.5},{31.5,-60.5}}),
+              Polygon(
                   points={{29.5,-75.5},{31.5,-82.5},{33.5,-75.5},{29.5,-75.5}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid)}), experiment(StopTime=2));
     end Directions2;
 
@@ -419,24 +381,15 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
                 -100,-100},{100,100}}), graphics={Line(points={{-60,66},{-80,66}}),Polygon(
                   points={{-67,68},{-60,66},{-67,64},{-67,68}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Polygon(
                   points={{-34,68},{-41,66},{-34,64},{-34,68}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Line(points={{-20,66},{-39,66}}),Text(
                   extent={{-10,60},{14,40}},
-                  lineColor={0,0,0},
                   textString="="),Line(points={{40,66},{20,66}}),
               Polygon(
                   points={{33,68},{40,66},{33,64},{33,68}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Line(points={{80,66},{60,66}}),Polygon(
                   points={{73,68},{80,66},{73,64},{73,68}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
                   fillPattern=FillPattern.Solid)}), experiment(StopTime=2));
     end Directions3;
   end ForUsersGuide;
@@ -746,7 +699,7 @@ they were not deleted yet.")}));
           transformation(extent={{0,0},{20,20}})));
     Modelica.Mechanics.Rotational.Sources.Move move(useSupport=false)
       annotation (Placement(transformation(extent={{20,40},{40,60}})));
-    Modelica.Blocks.Routing.Multiplex3 Multiplex3_1 annotation (Placement(
+    Modelica.Blocks.Routing.Multiplex Multiplex3_1(n=3) annotation (Placement(
           transformation(extent={{-56,40},{-36,60}})));
     Modelica.Blocks.Sources.Constant Constant1(k=1) annotation (Placement(
           transformation(extent={{-100,16},{-80,36}})));
@@ -767,11 +720,11 @@ they were not deleted yet.")}));
       annotation (Line(points={{40,50},{42,50},{42,20}}));
     connect(Multiplex3_1.y, move.u)
       annotation (Line(points={{-35,50},{18,50}}, color={0,0,127}));
-    connect(Constant1.y, Multiplex3_1.u3[1]) annotation (Line(points={{-79,26},
+    connect(Constant1.y, Multiplex3_1.u[3]) annotation (Line(points={{-79,26},
             {-74,26},{-74,43},{-58,43}}, color={0,0,127}));
-    connect(Constant2.y, Multiplex3_1.u1[1]) annotation (Line(points={{-79,80},
+    connect(Constant2.y, Multiplex3_1.u[1]) annotation (Line(points={{-79,80},
             {-74,80},{-74,57},{-58,57}}, color={0,0,127}));
-    connect(Constant2.y, Multiplex3_1.u2[1]) annotation (Line(points={{-79,80},
+    connect(Constant2.y, Multiplex3_1.u[2]) annotation (Line(points={{-79,80},
             {-74,80},{-74,50},{-58,50}}, color={0,0,127}));
     connect(Multiplex3_1.y, move1.u) annotation (Line(points={{-35,50},{-28,50},
             {-28,-30},{-22,-30}}, color={0,0,127}));
@@ -1034,13 +987,11 @@ they were not deleted yet.")}));
     connect(inertia5.flange_b, clutch.flange_a) annotation (Line(
         points={{-116,90},{-106,90}}));
     connect(sine.y, clutch.f_normalized) annotation (Line(
-        points={{-103,60},{-96,60},{-96,79}},
-        color={0,0,127}));
+        points={{-103,60},{-96,60},{-96,79}}, color={0,0,127}));
     connect(inertia2.flange_b, brake.flange_a) annotation (Line(
         points={{60,90},{80,90}}));
     connect(sine1.y, brake.f_normalized) annotation (Line(
-        points={{90,119},{90,101}},
-        color={0,0,127}));
+        points={{90,119},{90,101}}, color={0,0,127}));
     connect(fixed.flange, brake.support) annotation (Line(
         points={{-40,60},{90,60},{90,80}}));
     connect(lossyGear.flange_b, inertia3.flange_a) annotation (Line(
@@ -1061,25 +1012,21 @@ they were not deleted yet.")}));
     connect(position.flange, inertia9.flange_a) annotation (Line(
         points={{50,40},{60,40}}));
     connect(sine2.y, position.phi_ref) annotation (Line(
-        points={{21,40},{28,40}},
-        color={0,0,127}));
+        points={{21,40},{28,40}}, color={0,0,127}));
     connect(sine3.y, speed.w_ref) annotation (Line(
-        points={{21,-10},{28,-10}},
-        color={0,0,127}));
+        points={{21,-10},{28,-10}}, color={0,0,127}));
     connect(speed.flange, inertia10.flange_a) annotation (Line(
         points={{50,-10},{60,-10}}));
     connect(speed.support, fixed3.flange) annotation (Line(
         points={{40,-20},{40,-30}}));
     connect(sine4.y, accelerate.a_ref) annotation (Line(
-        points={{21,-70},{28,-70}},
-        color={0,0,127}));
+        points={{21,-70},{28,-70}}, color={0,0,127}));
     connect(accelerate.flange, inertia11.flange_a) annotation (Line(
         points={{50,-70},{60,-70}}));
     connect(accelerate.support, fixed4.flange) annotation (Line(
         points={{40,-80},{40,-90}}));
     connect(sine5.y, move.u) annotation (Line(
-        points={{21,-130},{28,-130}},
-        color={0,0,127}));
+        points={{21,-130},{28,-130}}, color={0,0,127}));
     connect(move.flange, inertia12.flange_a) annotation (Line(
         points={{50,-130},{60,-130}}));
     connect(move.support, fixed5.flange) annotation (Line(
@@ -1089,15 +1036,13 @@ they were not deleted yet.")}));
     connect(fixed.flange, torque.support) annotation (Line(
         points={{-40,60},{120,60},{120,80}}));
     connect(sine6.y, torque.tau) annotation (Line(
-        points={{139,90},{132,90}},
-        color={0,0,127}));
+        points={{139,90},{132,90}}, color={0,0,127}));
     connect(torque2_1.flange_a, inertia10.flange_b) annotation (Line(
         points={{92,-10},{80,-10}}));
     connect(torque2_1.flange_b, inertia13.flange_a) annotation (Line(
         points={{112,-10},{120,-10}}));
     connect(sine7.y, torque2_1.tau) annotation (Line(
-        points={{95,16},{102,16},{102,-6}},
-        color={0,0,127}));
+        points={{95,16},{102,16},{102,-6}}, color={0,0,127}));
     connect(linearSpeedDependentTorque.flange, inertia7.flange_a) annotation (
         Line(
         points={{-142,10},{-130,10}}));
@@ -1412,15 +1357,13 @@ they were not deleted yet.")}));
     connect(fixed.flange, bearingFriction.support) annotation (Line(
         points={{-108,154},{-80,154},{-80,160}}));
     connect(sine.y, brake.f_normalized) annotation (Line(
-        points={{-159,80},{-140,80},{-140,61}},
-        color={0,0,127}));
+        points={{-159,80},{-140,80},{-140,61}}, color={0,0,127}));
     connect(inertia2.flange_b, brake.flange_a) annotation (Line(
         points={{-160,50},{-150,50}}));
     connect(inertia3.flange_b, brake1.flange_a) annotation (Line(
         points={{-80,50},{-70,50}}));
     connect(sine.y, brake1.f_normalized) annotation (Line(
-        points={{-159,80},{-60,80},{-60,61}},
-        color={0,0,127}));
+        points={{-159,80},{-60,80},{-60,61}}, color={0,0,127}));
     connect(brake.support, fixed1.flange) annotation (Line(
         points={{-140,40},{-140,30}}));
     connect(inertia4.flange_b, lossyGear.flange_a) annotation (Line(
@@ -1438,15 +1381,13 @@ they were not deleted yet.")}));
     connect(gear2_1.flange_b, inertia9.flange_a) annotation (Line(
         points={{50,50},{60,50}}));
     connect(sine1.y, position.phi_ref) annotation (Line(
-        points={{-159,-10},{-142,-10}},
-        color={0,0,127}));
+        points={{-159,-10},{-142,-10}}, color={0,0,127}));
     connect(position.flange, inertia12.flange_a) annotation (Line(
         points={{-120,-10},{-110,-10}}));
     connect(position1.flange, inertia13.flange_a) annotation (Line(
         points={{-120,-40},{-110,-40}}));
     connect(sine1.y, position1.phi_ref) annotation (Line(
-        points={{-159,-10},{-150,-10},{-150,-40},{-142,-40}},
-        color={0,0,127}));
+        points={{-159,-10},{-150,-10},{-150,-40},{-142,-40}}, color={0,0,127}));
     connect(position1.support, fixed4.flange) annotation (Line(
         points={{-130,-50},{-130,-56}}));
     connect(inertia10.flange_b, gear2_2.flange_a) annotation (Line(
@@ -1462,11 +1403,9 @@ they were not deleted yet.")}));
     connect(position3.support, fixed5.flange) annotation (Line(
         points={{-10,-50},{-10,-56}}));
     connect(sine2.y, position2.w_ref) annotation (Line(
-        points={{-39,-10},{-22,-10}},
-        color={0,0,127}));
+        points={{-39,-10},{-22,-10}}, color={0,0,127}));
     connect(sine2.y, position3.w_ref) annotation (Line(
-        points={{-39,-10},{-30,-10},{-30,-40},{-22,-40}},
-        color={0,0,127}));
+        points={{-39,-10},{-30,-10},{-30,-40},{-22,-40}}, color={0,0,127}));
     connect(position4.flange, inertia16.flange_a) annotation (Line(
         points={{120,-10},{130,-10}}));
     connect(position5.flange, inertia17.flange_a) annotation (Line(
@@ -1474,11 +1413,9 @@ they were not deleted yet.")}));
     connect(position5.support, fixed6.flange) annotation (Line(
         points={{110,-50},{110,-56}}));
     connect(sine3.y, position4.a_ref) annotation (Line(
-        points={{81,-10},{98,-10}},
-        color={0,0,127}));
+        points={{81,-10},{98,-10}}, color={0,0,127}));
     connect(sine3.y, position5.a_ref) annotation (Line(
-        points={{81,-10},{90,-10},{90,-40},{98,-40}},
-        color={0,0,127}));
+        points={{81,-10},{90,-10},{90,-40},{98,-40}}, color={0,0,127}));
     connect(position6.flange, inertia18.flange_a) annotation (Line(
         points={{-120,-100},{-110,-100}}));
     connect(position7.flange, inertia19.flange_a) annotation (Line(
@@ -1486,14 +1423,11 @@ they were not deleted yet.")}));
     connect(position7.support, fixed8.flange) annotation (Line(
         points={{-130,-140},{-130,-148}}));
     connect(sine4.y, position6.u) annotation (Line(
-        points={{-159,-100},{-142,-100}},
-        color={0,0,127}));
+        points={{-159,-100},{-142,-100}}, color={0,0,127}));
     connect(sine4.y, position7.u) annotation (Line(
-        points={{-159,-100},{-152,-100},{-152,-130},{-142,-130}},
-        color={0,0,127}));
+        points={{-159,-100},{-152,-100},{-152,-130},{-142,-130}}, color={0,0,127}));
     connect(sine5.y, torque.tau) annotation (Line(
-        points={{-37,-100},{-22,-100}},
-        color={0,0,127}));
+        points={{-37,-100},{-22,-100}}, color={0,0,127}));
     connect(torque.flange, inertia20.flange_a) annotation (Line(
         points={{0,-100},{20,-100}}));
     connect(linearSpeedDependentTorque.flange, inertia20.flange_a) annotation (
@@ -1507,8 +1441,7 @@ they were not deleted yet.")}));
     connect(torqueStep.flange, inertia20.flange_a) annotation (Line(
         points={{20,-170},{10,-170},{10,-100},{20,-100}}));
     connect(sine6.y, torque1.tau) annotation (Line(
-        points={{81,-100},{98,-100}},
-        color={0,0,127}));
+        points={{81,-100},{98,-100}}, color={0,0,127}));
     connect(torque1.flange, inertia21.flange_a) annotation (Line(
         points={{120,-100},{140,-100}}));
     connect(linearSpeedDependentTorque1.flange, inertia21.flange_a) annotation (
@@ -1537,18 +1470,15 @@ they were not deleted yet.")}));
     connect(inertia22.flange_b, idealGearR2T.flangeR) annotation (Line(
         points={{120,170},{130,170}}));
     connect(idealGearR2T.flangeT, slidingMass.flange_a) annotation (Line(
-        points={{150,170},{160,170}},
-        color={0,127,0}));
+        points={{150,170},{160,170}}, color={0,127,0}));
     connect(inertia23.flange_b, idealGearR2T1.flangeR) annotation (Line(
         points={{120,120},{130,120}}));
     connect(idealGearR2T1.flangeT, slidingMass1.flange_a) annotation (Line(
-        points={{150,120},{160,120}},
-        color={0,127,0}));
+        points={{150,120},{160,120}}, color={0,127,0}));
     connect(idealGearR2T1.supportR, fixed9.flange) annotation (Line(
         points={{130,110},{130,102}}));
     connect(fixed10.flange, idealGearR2T1.supportT) annotation (Line(
-        points={{152,102},{152,110},{150,110}},
-        color={0,127,0}));
+        points={{152,102},{152,110},{150,110}}, color={0,127,0}));
     annotation (experiment(StopTime=0.5), Diagram(coordinateSystem(
             preserveAspectRatio=true, extent={{-200,-200},{200,200}})));
   end TestBearingConversion;
@@ -1625,38 +1555,31 @@ they were not deleted yet.")}));
     connect(torque.flange, inertia.flange_a) annotation (Line(
         points={{-20,90},{-10,90}}));
     connect(sine.y, torque.tau) annotation (Line(
-        points={{-59,90},{-42,90}},
-        color={0,0,127}));
+        points={{-59,90},{-42,90}}, color={0,0,127}));
     connect(torque1.flange, inertia1.flange_a) annotation (Line(
         points={{-20,30},{-10,30}}));
     connect(sine1.y, torque1.tau) annotation (Line(
-        points={{-59,30},{-42,30}},
-        color={0,0,127}));
+        points={{-59,30},{-42,30}}, color={0,0,127}));
     connect(inertia1.flange_b, brake.flange_a) annotation (Line(
         points={{10,30},{20,30}}));
     connect(step.y, brake.f_normalized) annotation (Line(
-        points={{11,60},{30,60},{30,41}},
-        color={0,0,127}));
+        points={{11,60},{30,60},{30,41}}, color={0,0,127}));
     connect(torque2.flange, inertia2.flange_a) annotation (Line(
         points={{-20,-30},{-10,-30}}));
     connect(sine2.y, torque2.tau) annotation (Line(
-        points={{-59,-30},{-42,-30}},
-        color={0,0,127}));
+        points={{-59,-30},{-42,-30}}, color={0,0,127}));
     connect(inertia2.flange_b, clutch.flange_a) annotation (Line(
         points={{10,-30},{20,-30}}));
     connect(clutch.flange_b, inertia3.flange_a) annotation (Line(
         points={{40,-30},{50,-30}}));
     connect(step1.y, clutch.f_normalized) annotation (Line(
-        points={{9,0},{30,0},{30,-19}},
-        color={0,0,127}));
+        points={{9,0},{30,0},{30,-19}}, color={0,0,127}));
     connect(torque3.flange, inertia4.flange_a) annotation (Line(
         points={{-18,-90},{-8,-90}}));
     connect(sine3.y, torque3.tau) annotation (Line(
-        points={{-57,-90},{-40,-90}},
-        color={0,0,127}));
+        points={{-57,-90},{-40,-90}}, color={0,0,127}));
     connect(step2.y, oneWayClutch.f_normalized) annotation (Line(
-        points={{11,-60},{30,-60},{30,-79}},
-        color={0,0,127}));
+        points={{11,-60},{30,-60},{30,-79}}, color={0,0,127}));
     connect(oneWayClutch.flange_b, inertia4.flange_b) annotation (Line(
         points={{20,-90},{12,-90}}));
     connect(oneWayClutch.flange_a, inertia5.flange_a) annotation (Line(
@@ -1697,16 +1620,507 @@ they were not deleted yet.")}));
       annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
     Modelica.Mechanics.Rotational.Sources.SignTorque signTorque(tau_constant=-100,
         w0=1) annotation (Placement(transformation(extent={{40,-40},{20,-20}})));
+    Modelica.Mechanics.Rotational.Sources.EddyCurrentTorque eddyCurrentTorque(
+      tau_nominal=100,
+      w_nominal=10,
+      useSupport=false,
+      alpha20(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
+      TRef=293.15,
+      useHeatPort=true)
+      annotation (Placement(transformation(extent={{40,-70},{20,-50}})));
+    Modelica.Mechanics.Rotational.Components.Inertia inertia5(
+      phi(fixed=true, start=0),
+      J=1,
+      w(fixed=true, start=20))
+      annotation (Placement(transformation(extent={{-40,-70},{-20,-50}})));
+    Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(C=1, T(
+          fixed=true)) annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=180,
+          origin={40,-90})));
   equation
     connect(inertia1.flange_b, linearSpeedDependentTorque.flange)
-      annotation (Line(points={{-20,60},{0,60},{20,60}}));
+      annotation (Line(points={{-20,60},{20,60}}));
     connect(inertia2.flange_b, quadraticSpeedDependentTorque.flange)
-      annotation (Line(points={{-20,30},{0,30},{20,30}}));
+      annotation (Line(points={{-20,30},{20,30}}));
     connect(inertia3.flange_b, constantTorque.flange)
-      annotation (Line(points={{-20,0},{0,0},{20,0}}));
+      annotation (Line(points={{-20,0},{20,0}}));
     connect(signTorque.flange, inertia4.flange_b)
-      annotation (Line(points={{20,-30},{0,-30},{-20,-30}}));
+      annotation (Line(points={{20,-30},{-20,-30}}));
+    connect(eddyCurrentTorque.heatPort, heatCapacitor.port) annotation (Line(
+          points={{40,-70},{40,-80}}, color={191,0,0}));
+    connect(inertia5.flange_b, eddyCurrentTorque.flange) annotation (Line(points={{-20,-60},{20,-60}}, color={0,0,0}));
     annotation (
       experiment(StopTime=2));
   end TestBraking;
+
+  model GenerationOfFMUs
+    "Example to demonstrate variants to generate FMUs (Functional Mock-up Units)"
+    extends Modelica.Icons.Example;
+
+    Modelica.Blocks.Sources.Sine sine1(freqHz=2, amplitude=10)
+      annotation (Placement(transformation(extent={{-100,40},{-80,60}})));
+    Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia
+      directInertia(J=1.1)
+      annotation (Placement(transformation(extent={{0,40},{20,60}})));
+    Modelica.Mechanics.Rotational.Examples.Utilities.InverseInertia
+      inverseInertia(J=2.2)
+      annotation (Placement(transformation(extent={{40,40},{60,60}})));
+    Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamper
+      springDamper(c=1e4, d=100)
+      annotation (Placement(transformation(extent={{20,-20},{40,0}})));
+    Modelica.Mechanics.Rotational.Components.Inertia inertia2a(
+      J=1.1,
+      phi(fixed=true, start=0),
+      w(fixed=true, start=0))
+      annotation (Placement(transformation(extent={{-30,-20},{-10,0}})));
+    Modelica.Mechanics.Rotational.Sources.Torque torque2
+      annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
+    Modelica.Mechanics.Rotational.Components.GeneralTorqueToAngleAdaptor torqueToAngle2a(use_pder2=
+         false)
+      annotation (Placement(transformation(extent={{-10,-20},{10,0}})));
+    Modelica.Mechanics.Rotational.Components.Inertia inertia2b(
+      J=2.2,
+      phi(fixed=true, start=0),
+      w(fixed=true, start=0))
+      annotation (Placement(transformation(extent={{70,-20},{90,0}})));
+    Modelica.Mechanics.Rotational.Components.GeneralTorqueToAngleAdaptor torqueToAngle2b(use_pder2=
+         false) annotation (Placement(transformation(extent={{70,-20},{50,0}})));
+    Modelica.Mechanics.Rotational.Examples.Utilities.Spring spring(c=1e4)
+      annotation (Placement(transformation(extent={{20,-80},{40,-60}})));
+    Modelica.Mechanics.Rotational.Components.Inertia inertia3a(
+      J=1.1,
+      phi(fixed=true, start=0),
+      w(fixed=true, start=0)) annotation (Placement(transformation(extent=
+             {{-30,-80},{-10,-60}})));
+    Modelica.Mechanics.Rotational.Sources.Torque   force3
+      annotation (Placement(transformation(extent={{-60,-80},{-40,-60}})));
+    Modelica.Mechanics.Rotational.Components.GeneralTorqueToAngleAdaptor torqueToAngle3a(use_pder=
+          false, use_pder2=false)
+      annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
+    Modelica.Mechanics.Rotational.Components.Inertia inertia3b(
+      J=2.2,
+      phi(fixed=true, start=0),
+      w(fixed=true, start=0))
+      annotation (Placement(transformation(extent={{70,-80},{90,-60}})));
+    Modelica.Mechanics.Rotational.Components.GeneralTorqueToAngleAdaptor torqueToAngle3b(use_pder=
+          false, use_pder2=false)
+      annotation (Placement(transformation(extent={{70,-80},{50,-60}})));
+  equation
+    connect(sine1.y, directInertia.tauDrive)
+      annotation (Line(points={{-79,50},{-2,50}}, color={0,0,127}));
+    connect(directInertia.phi, inverseInertia.phi)
+      annotation (Line(points={{21,58},{38,58}}, color={0,0,127}));
+    connect(directInertia.w, inverseInertia.w)
+      annotation (Line(points={{21,53},{38,53}}, color={0,0,127}));
+    connect(directInertia.a, inverseInertia.a)
+      annotation (Line(points={{21,47},{38,47}}, color={0,0,127}));
+    connect(inverseInertia.tau, directInertia.tau)
+      annotation (Line(points={{39,42},{22,42}}, color={0,0,127}));
+    connect(sine1.y, torque2.tau) annotation (Line(points={{-79,50},{-70,
+            50},{-70,-10},{-62,-10}}, color={0,0,127}));
+    connect(sine1.y, force3.tau) annotation (Line(points={{-79,50},{-70,
+            50},{-70,-70},{-62,-70}}, color={0,0,127}));
+    connect(torqueToAngle2b.flange, inertia2b.flange_a)
+      annotation (Line(points={{62,-10},{70,-10}}));
+    connect(inertia2a.flange_b, torqueToAngle2a.flange)
+      annotation (Line(points={{-10,-10},{-2,-10}}));
+    connect(torque2.flange, inertia2a.flange_a)
+      annotation (Line(points={{-40,-10},{-30,-10}}));
+    connect(inertia3a.flange_b, torqueToAngle3a.flange)
+      annotation (Line(points={{-10,-70},{-2,-70}}));
+    connect(force3.flange, inertia3a.flange_a)
+      annotation (Line(points={{-40,-70},{-30,-70}}));
+    connect(torqueToAngle3b.flange, inertia3b.flange_a)
+      annotation (Line(points={{62,-70},{70,-70}}));
+    connect(torqueToAngle2a.p, springDamper.phi1)
+      annotation (Line(points={{3,-2},{18,-2}}, color={0,0,127}));
+    connect(torqueToAngle2a.pder, springDamper.w1) annotation (Line(points={{3,
+            -5},{9.5,-5},{9.5,-7},{18,-7}}, color={0,0,127}));
+    connect(torqueToAngle2a.f, springDamper.tau1)
+      annotation (Line(points={{3,-18},{19,-18}}, color={0,0,127}));
+    connect(springDamper.phi2, torqueToAngle2b.p)
+      annotation (Line(points={{42,-2},{57,-2}}, color={0,0,127}));
+    connect(springDamper.w2, torqueToAngle2b.pder) annotation (Line(points={{42,
+            -7},{49,-7},{49,-5},{57,-5}}, color={0,0,127}));
+    connect(springDamper.tau2, torqueToAngle2b.f)
+      annotation (Line(points={{41,-18},{57,-18}}, color={0,0,127}));
+    connect(torqueToAngle3a.p, spring.phi1)
+      annotation (Line(points={{3,-62},{18,-62}}, color={0,0,127}));
+    connect(torqueToAngle3a.f, spring.tau1)
+      annotation (Line(points={{3,-78},{19,-78}}, color={0,0,127}));
+    connect(spring.phi2, torqueToAngle3b.p)
+      annotation (Line(points={{42,-62},{57,-62}}, color={0,0,127}));
+    connect(spring.tau2, torqueToAngle3b.f)
+      annotation (Line(points={{41,-78},{57,-78}}, color={0,0,127}));
+    annotation (experiment(StopTime=1, Interval=0.001), Documentation(info="<html>
+<p>
+This example demonstrates how to generate an input/output block (e.g. in form of an
+FMU - <a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>) from various Rotational components.
+The goal is to export such an input/output block from Modelica and import
+it in another modeling environment. The essential issue is that before
+exporting it must be known in which way the component is utilized in the
+target environment. Depending on the target usage, different flange variables
+need to be in the interface with either input or output causality.
+Note, this example model can be used to test the FMU export/import of a Modelica tool.
+Just export the components marked in the icons as \"toFMU\" as FMUs and import
+them back. The models should then still work and give the same results as a
+pure Modelica model.
+</p>
+
+<p>
+<strong>Connecting two inertias</strong><br>
+The upper part (DirectInertia, InverseInertia)
+demonstrates how to export two inertias and connect them
+together in a target system. This requires that one of the inertias
+(here: DirectInertia)
+is defined to have states and the angle, angular velocity and
+angular acceleration are provided in the interface.
+The other mass (here: InverseInertia) is moved according
+to the provided input angle, angular velocity and angular acceleration.
+</p>
+
+<p>
+<strong>Connecting a force element that needs angles and angular velocities</strong><br>
+The middle part (SpringDamper) demonstrates how to export a force element
+that needs both angles and angular velocities for its force law and connect this
+force law in a target system between two inertias.
+</p>
+
+<p>
+<strong>Connecting a force element that needs only angles</strong><br>
+The lower part (Spring) demonstrates how to export a force element
+that needs only angles for its force law and connect this
+force law in a target system between two inertias.
+</p>
+</html>"));
+  end GenerationOfFMUs;
+
+  package Utilities "Utility classes used by rotational example models"
+    extends Modelica.Icons.UtilitiesPackage;
+
+    model DirectInertia "Input/output block of a direct inertia model"
+      extends Modelica.Blocks.Icons.Block;
+      parameter Modelica.SIunits.Inertia J(min=0)=1 "Inertia";
+      Modelica.Mechanics.Rotational.Components.Inertia inertia(
+        J=J,
+        phi(start=0, fixed=true),
+        w(start=0, fixed=true))
+        annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+      Modelica.Mechanics.Rotational.Sources.Torque torqueSource
+        annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
+      Modelica.Blocks.Interfaces.RealInput tauDrive(unit="N.m")
+        "Accelerating torque acting at flange (= -flange.tau)"
+        annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+      Modelica.Mechanics.Rotational.Components.GeneralTorqueToAngleAdaptor
+        torqueToAngle
+        annotation (Placement(transformation(extent={{10,-10},{30,10}})));
+      Modelica.Blocks.Interfaces.RealOutput phi(unit="rad")
+        "Inertia moves with angle phi due to torque tau"
+        annotation (Placement(transformation(extent={{100,70},{120,90}})));
+      Modelica.Blocks.Interfaces.RealOutput w(unit="rad/s")
+        "Inertia moves with speed w due to torque tau"
+        annotation (Placement(transformation(extent={{100,20},{120,40}})));
+      Modelica.Blocks.Interfaces.RealOutput a(unit="rad/s2")
+        "Inertia moves with acceleration a due to torque tau"
+        annotation (Placement(transformation(extent={{100,-40},{120,-20}})));
+      Modelica.Blocks.Interfaces.RealInput tau(unit="N.m")
+        "Torque to drive the inertia" annotation (Placement(
+            transformation(extent={{140,-100},{100,-60}})));
+    equation
+      connect(tauDrive, torqueSource.tau)
+        annotation (Line(points={{-120,0},{-52,0}}, color={0,0,127}));
+      connect(torqueSource.flange, inertia.flange_a)
+        annotation (Line(points={{-30,0},{-20,0}}));
+      connect(inertia.flange_b, torqueToAngle.flange)
+        annotation (Line(points={{0,0},{18,0}}));
+      connect(torqueToAngle.p, phi) annotation (Line(points={{23,8},{40,8},
+              {40,80},{110,80}}, color={0,0,127}));
+      connect(torqueToAngle.pder, w) annotation (Line(points={{23,5},{60,
+              5},{60,30},{110,30}}, color={0,0,127}));
+      connect(torqueToAngle.pder2, a) annotation (Line(points={{23,2},{60,
+              2},{60,-30},{110,-30}}, color={0,0,127}));
+      connect(tau, torqueToAngle.f) annotation (Line(points={{120,-80},{
+              40,-80},{40,-8},{23,-8}}, color={0,0,127}));
+      annotation (Icon(coordinateSystem(
+              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            graphics={Text(
+                    extent={{-84,-58},{24,-90}},
+                    lineColor={135,135,135},
+                    textString="to FMU"),Text(
+                    extent={{8,96},{92,66}},
+                    horizontalAlignment=TextAlignment.Right,
+              textString="phi"),                            Text(
+                    extent={{10,46},{94,16}},
+                    horizontalAlignment=TextAlignment.Right,
+              textString="w"),   Text(
+                    extent={{10,-10},{94,-40}},
+                    horizontalAlignment=TextAlignment.Right,
+                    textString="a"),Text(
+                    extent={{-150,-110},{150,-140}},
+                    textString="J=%J"),Bitmap(extent={{-96,-42},{64,54}},
+                fileName="modelica://Modelica/Resources/Images/Mechanics/Rotational/DirectInertia.png"),
+              Text( extent={{10,-60},{94,-90}},
+                    horizontalAlignment=TextAlignment.Right,
+              textString="tau")}), Documentation(info="<html>
+<p>
+A rotational component with pure signal interface which can be applied for
+a FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>)
+exchange.
+The input torque <code>tauDrive</code> is applied on one side of a rotational
+component with inertia whereby the input torque <code>tau</code> is applied
+on the other side of it.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.Rotational.Examples.Utilities.InverseInertia\">InverseInertia</a>.
+</p>
+</html>"));
+    end DirectInertia;
+
+    model InverseInertia "Input/output block of an inverse inertia model"
+      extends Modelica.Blocks.Icons.Block;
+      parameter Modelica.SIunits.Inertia J=1 "Inertia";
+      Modelica.Mechanics.Rotational.Components.Inertia inertia(
+        J=J,
+        phi(start=0),
+        w(start=0))             annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}})));
+      Modelica.Mechanics.Rotational.Components.GeneralAngleToTorqueAdaptor
+        angleToTorque
+        annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+      Modelica.Blocks.Interfaces.RealInput phi(unit="rad")
+        "Angle to drive the inertia"
+        annotation (Placement(transformation(extent={{-140,60},{-100,100}})));
+      Modelica.Blocks.Interfaces.RealInput w(unit="rad/s")
+        "Speed to drive the inertia"
+        annotation (Placement(transformation(extent={{-140,10},{-100,50}})));
+      Modelica.Blocks.Interfaces.RealInput a(unit="rad/s2")
+        "Acceleration to drive the inertia"         annotation (Placement(
+            transformation(extent={{-140,-50},{-100,-10}})));
+      Modelica.Blocks.Interfaces.RealOutput tau(unit="N.m")
+        "Torque needed to drive the flange according to phi, w, a"
+        annotation (Placement(transformation(extent={{-100,-90},{-120,-70}})));
+    equation
+
+      connect(angleToTorque.flange, inertia.flange_a)
+        annotation (Line(points={{-18,0},{-10,0}}));
+      connect(phi, angleToTorque.p) annotation (Line(points={{-120,80},{
+              -40,80},{-40,8},{-23,8}}, color={0,0,127}));
+      connect(w, angleToTorque.pder) annotation (Line(points={{-120,30},{
+              -60,30},{-60,5},{-23,5}}, color={0,0,127}));
+      connect(a, angleToTorque.pder2) annotation (Line(points={{-120,-30},
+              {-60,-30},{-60,2},{-23,2}}, color={0,0,127}));
+      connect(tau, angleToTorque.f) annotation (Line(points={{-110,-80},{
+              -40,-80},{-40,-8},{-23,-8}}, color={0,0,127}));
+      annotation (Icon(coordinateSystem(
+              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            graphics={Text(
+                    extent={{0,-62},{96,-94}},
+                    lineColor={135,135,135},
+                    textString="to FMU"),Text(
+                    extent={{-94,96},{-10,66}},
+                    horizontalAlignment=TextAlignment.Left,
+              textString="phi"),      Text(
+                    extent={{-94,46},{-10,16}},
+                    horizontalAlignment=TextAlignment.Left,
+              textString="w"),      Text(
+                    extent={{-92,-14},{-8,-44}},
+                    horizontalAlignment=TextAlignment.Left,
+                    textString="a"),Text(
+                    extent={{-150,-110},{150,-140}},
+                    textString="J=%J"),Bitmap(extent={{-58,-42},{98,48}},
+                fileName="modelica://Modelica/Resources/Images/Mechanics/Rotational/InverseInertia.png"),
+              Text( extent={{-90,-64},{-6,-94}},
+                    horizontalAlignment=TextAlignment.Left,
+              textString="tau")}), Documentation(info="<html>
+<p>
+A rotational component with pure signal interface which can be applied for
+a FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>)
+exchange.
+Based on the kinematic inputs applied on a component with inertia
+the output torque <code>tau</code> is returned.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia\">DirectInertia</a>.
+</p>
+</html>"));
+    end InverseInertia;
+
+    model SpringDamper "Input/output block of a spring/damper model"
+      extends Modelica.Blocks.Icons.Block;
+      parameter Modelica.SIunits.RotationalSpringConstant c=1e4
+        "Spring constant";
+      parameter Modelica.SIunits.RotationalDampingConstant d=1
+        "Damping constant";
+      parameter Modelica.SIunits.Angle phi_rel0=0
+        "Unstretched spring angle";
+
+      Modelica.Mechanics.Rotational.Components.GeneralAngleToTorqueAdaptor
+        angleToTorque1(use_pder2=false)
+        annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+      Modelica.Blocks.Interfaces.RealInput phi1(unit="rad")
+        "Angle of left flange of force element"
+        annotation (Placement(transformation(extent={{-140,60},{-100,100}})));
+      Modelica.Blocks.Interfaces.RealInput w1(unit="rad/s")
+        "Speed to left flange of force element"
+        annotation (Placement(transformation(extent={{-140,10},{-100,50}})));
+      Modelica.Blocks.Interfaces.RealOutput tau1(unit="N.m")
+        "Torque generated by the force element"
+        annotation (Placement(transformation(extent={{-100,-90},{-120,-70}})));
+      Modelica.Blocks.Interfaces.RealInput phi2(unit="rad")
+        "Angle of right flange of force element"
+        annotation (Placement(transformation(extent={{140,60},{100,100}})));
+      Modelica.Blocks.Interfaces.RealInput w2(unit="rad/s")
+        "Speed to right flange of force element"
+        annotation (Placement(transformation(extent={{140,10},{100,50}})));
+      Modelica.Blocks.Interfaces.RealOutput tau2(unit="N.m")
+        "Torque generated by the force element"
+        annotation (Placement(transformation(extent={{100,-90},{120,-70}})));
+      Modelica.Mechanics.Rotational.Components.GeneralAngleToTorqueAdaptor
+        angleToTorque2(use_pder2=false)
+        annotation (Placement(transformation(extent={{30,-10},{10,10}})));
+      Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamperNoRelativeStates
+                                   springDamper(
+        c=c,
+        d=d,
+        phi_rel0=phi_rel0)
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+    equation
+
+      connect(springDamper.flange_b, angleToTorque2.flange)
+        annotation (Line(points={{10,0},{18,0}}));
+      connect(angleToTorque1.flange, springDamper.flange_a)
+        annotation (Line(points={{-18,0},{-10,0}}));
+      connect(angleToTorque2.p, phi2) annotation (Line(points={{23,8},{40,
+              8},{40,80},{120,80}}, color={0,0,127}));
+      connect(angleToTorque2.pder, w2) annotation (Line(points={{23,5},{
+              60,5},{60,30},{120,30}}, color={0,0,127}));
+      connect(angleToTorque2.f, tau2) annotation (Line(points={{23,-8},{60,-8},{60,-80},{110,-80}},
+                                          color={0,0,127}));
+      connect(angleToTorque1.p, phi1) annotation (Line(points={{-23,8},{
+              -40,8},{-40,80},{-120,80}}, color={0,0,127}));
+      connect(angleToTorque1.pder, w1) annotation (Line(points={{-23,5},{
+              -60,5},{-60,30},{-120,30}}, color={0,0,127}));
+      connect(angleToTorque1.f, tau1) annotation (Line(points={{-23,-8},{
+              -60,-8},{-60,-80},{-110,-80}}, color={0,0,127}));
+      annotation (Icon(coordinateSystem(
+              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            graphics={Text(
+              extent={{-48,-36},{48,-68}},
+              lineColor={128,128,128},
+              textString="to FMU"),      Text(
+                    extent={{-94,96},{-10,66}},
+                    horizontalAlignment=TextAlignment.Left,
+              textString="phi1"),      Text(
+                    extent={{-150,-118},{150,-148}},
+                    textString="c=%c
+d=%d"),       Bitmap(extent={{-72,-44},{84,46}},
+                 fileName="modelica://Modelica/Resources/Images/Mechanics/Rotational/SpringDamper.png"),
+              Text( extent={{12,96},{96,66}},
+                    horizontalAlignment=TextAlignment.Right,
+              textString="phi2"),      Text(
+                    extent={{12,48},{96,18}},
+                    horizontalAlignment=TextAlignment.Right,
+              textString="w2"),      Text(
+                    extent={{10,-60},{94,-90}},
+                    horizontalAlignment=TextAlignment.Right,
+              textString="tau2"),      Text(
+                    extent={{-94,46},{-10,16}},
+                    horizontalAlignment=TextAlignment.Left,
+              textString="w1"),      Text(
+                    extent={{-90,-64},{-6,-94}},
+                    horizontalAlignment=TextAlignment.Left,
+              textString="tau1")}), Documentation(info="<html>
+<p>
+A linear 1D rotational spring and damper in parallel with pure signal
+interface which can be applied for
+a FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>)
+exchange.
+</p>
+</html>"));
+    end SpringDamper;
+
+    model Spring "Input/output block of a spring model"
+      extends Modelica.Blocks.Icons.Block;
+      parameter Modelica.SIunits.RotationalSpringConstant c=1e4
+        "Spring constant";
+      parameter Modelica.SIunits.Angle phi_rel0=0
+        "Unstretched spring angle";
+
+      Modelica.Mechanics.Rotational.Components.GeneralAngleToTorqueAdaptor
+        angleToTorque1(use_pder=false, use_pder2=false)
+        annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+      Modelica.Blocks.Interfaces.RealInput phi1(unit="rad")
+        "Angle of left flange of force element"
+        annotation (Placement(transformation(extent={{-140,60},{-100,100}})));
+      Modelica.Blocks.Interfaces.RealOutput tau1(unit="N.m")
+        "Torque generated by the force element"
+        annotation (Placement(transformation(extent={{-100,-90},{-120,-70}})));
+      Modelica.Mechanics.Rotational.Components.Spring spring(c=c,
+          phi_rel0=phi_rel0) annotation (Placement(transformation(extent={{-10,-10},
+                {10,10}})));
+      Modelica.Blocks.Interfaces.RealInput phi2(unit="rad")
+        "Angle of right flange of force element"
+        annotation (Placement(transformation(extent={{140,60},{100,100}})));
+      Modelica.Blocks.Interfaces.RealOutput tau2(unit="N.m")
+        "Torque generated by the force element"
+        annotation (Placement(transformation(extent={{100,-90},{120,-70}})));
+      Modelica.Mechanics.Rotational.Components.GeneralAngleToTorqueAdaptor
+        angleToTorque2(use_pder=false, use_pder2=false)
+        annotation (Placement(transformation(extent={{30,-10},{10,10}})));
+    equation
+
+      connect(angleToTorque1.flange, spring.flange_a)
+        annotation (Line(points={{-18,0},{-10,0}}));
+      connect(spring.flange_b, angleToTorque2.flange)
+        annotation (Line(points={{10,0},{18,0}}));
+      connect(angleToTorque1.p, phi1) annotation (Line(points={{-23,8},{
+              -40,8},{-40,80},{-120,80}}, color={0,0,127}));
+      connect(angleToTorque1.f, tau1) annotation (Line(points={{-23,-8},{
+              -40,-8},{-40,-80},{-110,-80}}, color={0,0,127}));
+      connect(angleToTorque2.f, tau2) annotation (Line(points={{23,-8},{
+              40,-8},{40,-80},{110,-80}}, color={0,0,127}));
+      connect(angleToTorque2.p, phi2) annotation (Line(points={{23,8},{40,
+              8},{40,80},{120,80}}, color={0,0,127}));
+      annotation (Icon(coordinateSystem(
+              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            graphics={Text(
+              extent={{-48,-36},{48,-68}},
+              lineColor={128,128,128},
+              textString="to FMU"),      Text(
+                    extent={{-94,96},{-10,66}},
+                    horizontalAlignment=TextAlignment.Left,
+              textString="phi1"),      Text(
+                    extent={{-150,-114},{150,-144}},
+                    textString="c=%c"),Bitmap(extent={{-88,-36},{92,56}},
+                fileName="modelica://Modelica/Resources/Images/Mechanics/Rotational/Spring.png"),
+              Text( extent={{12,96},{96,66}},
+                    horizontalAlignment=TextAlignment.Right,
+              textString="phi2"),      Text(
+                    extent={{10,-60},{94,-90}},
+                    horizontalAlignment=TextAlignment.Right,
+              textString="tau2"),      Text(
+                    extent={{-90,-64},{-6,-94}},
+                    horizontalAlignment=TextAlignment.Left,
+              textString="tau1")}), Documentation(info="<html>
+<p>
+A linear 1D rotational spring with pure signal
+interface which can be applied for
+a FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>)
+exchange.
+</p>
+</html>"));
+    end Spring;
+
+    annotation (Documentation(info="<html>
+<p>
+This package contains utility models and functions used by some
+of the example models from the rotational mechanics package.
+</p>
+</html>"));
+  end Utilities;
 end Rotational;

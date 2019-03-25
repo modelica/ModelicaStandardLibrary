@@ -92,18 +92,16 @@ equation
         extent={{-100,-100},{100,100}}), graphics={
         Rectangle(
           extent={{-50,70},{50,-70}},
-          lineColor={0,0,0},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
         Text(
           extent={{-16,50},{14,20}},
-          lineColor={0,0,0},
           textString="&"),
         Line(points={{60,0},{100,0}}, color={0,0,255}),
         Line(points={{0,70},{0,100}}, color={0,0,255}),
         Line(points={{-50,50},{-100,50}}, color={0,0,255}),
         Line(points={{-50,-50},{-100,-50}}, color={0,0,255}),
-        Ellipse(extent={{50,5},{60,-5}}, lineColor={0,0,0}),
+        Ellipse(extent={{50,5},{60,-5}}),
         Text(
           extent={{-100,34},{-90,24}},
           textString="x1",
@@ -122,17 +120,17 @@ equation
           textString="%name")}),
     Documentation(info="<html>
 <p>The nand gate is a basic CMOS building block. It consists of four CMOS transistors.</p>
-<p><b>Reference:</b></p>
+<p><strong>Reference:</strong></p>
 <p>Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin Heidelberg NewYork 1980, p. 157</p>
 </html>",
    revisions="<html>
 <dl>
 <dt>
-<b>Main Authors:</b>
+<strong>Main Authors:</strong>
 </dt>
 <dd>
 Christoph Clau&szlig;
-    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
+    &lt;<a href=\"mailto:christoph@clauss-it.com\">christoph@clauss-it.com</a>&gt;<br>
     Andr&eacute; Schneider
     &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>

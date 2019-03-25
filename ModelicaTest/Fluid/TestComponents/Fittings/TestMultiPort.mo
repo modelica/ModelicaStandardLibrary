@@ -53,24 +53,19 @@ model TestMultiPort
         rotation=90)));
 equation
   connect(ramp.y, source1.p_in) annotation (Line(points={{-80,-1},{-80,-1},{-80,
-          -12},{-62,-12}},
-        color={0,0,127}));
+          -12},{-62,-12}}, color={0,0,127}));
   connect(pipe1.port_b, source2.ports[1])
-                                      annotation (Line(points={{60,-20},{70,-20}},
-        color={0,127,255}));
+                                      annotation (Line(points={{60,-20},{70,-20}}, color={0,127,255}));
   connect(pipe2.port_b, source3.ports[1])
                                       annotation (Line(points={{10,34},{10,47},
-          {10,60}},         color={0,127,255}));
+          {10,60}}, color={0,127,255}));
   connect(multiPort.ports_b[1], pipe2.port_a)
                                              annotation (Line(
-      points={{-20,-18},{10,-18},{10,14}},
-      color={0,127,255}));
+      points={{-20,-18},{10,-18},{10,14}}, color={0,127,255}));
   connect(multiPort.ports_b[2], pipe1.port_a)
                                              annotation (Line(
-      points={{-20,-22},{35,-22},{35,-20},{40,-20}},
-      color={0,127,255}));
+      points={{-20,-22},{35,-22},{35,-20},{40,-20}}, color={0,127,255}));
   connect(source1.ports[1], multiPort.port_a) annotation (Line(
-      points={{-40,-20},{-28,-20}},
-      color={0,127,255}));
+      points={{-40,-20},{-28,-20}}, color={0,127,255}));
   annotation ( experiment(StopTime=1.01));
 end TestMultiPort;

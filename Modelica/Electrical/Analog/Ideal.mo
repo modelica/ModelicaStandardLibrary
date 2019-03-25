@@ -8,7 +8,7 @@ package Ideal
     extends Modelica.Electrical.Analog.Interfaces.IdealSemiconductor;
   equation
     off = s < 0;
-    annotation (
+    annotation (defaultComponentName="diode",
       Documentation(info="<html>
 <p>
 This is an ideal diode, for details see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSemiconductor\">IdealSemiconductor</a><br>
@@ -17,16 +17,16 @@ The diode is locking if current &lt; Vknee/Goff.
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>February 7, 2016   </i>
+<li><em>February 7, 2016   </em>
        by Anton Haumer<br> extending from partial IdealSemiconductor<br>
        </li>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i>Mai 7, 2004   </i>
+<li><em>Mai 7, 2004   </em>
        by Christoph Clauss and Anton Haumer<br> Vknee added<br>
        </li>
-<li><i>some years ago   </i>
+<li><em>some years ago   </em>
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>
@@ -37,42 +37,46 @@ The diode is locking if current &lt; Vknee/Goff.
     extends Modelica.Electrical.Analog.Interfaces.IdealSemiconductor;
     Modelica.Blocks.Interfaces.BooleanInput fire annotation (Placement(
           transformation(
-          origin={70,110},
+          origin={100,120},
           extent={{-20,-20},{20,20}},
-          rotation=270)));
+          rotation=270), iconTransformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={100,120})));
   equation
     off = s < 0 or pre(off) and not fire;
-    annotation (
+    annotation (defaultComponentName="thyristor",
       Documentation(info="<html>
 <p>
 This is an ideal thyristor, for details see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSemiconductor\">IdealSemiconductor</a><br>
 The thyristor is conducting if voltage &gt; Vknee AND fire = true.<br>
-If fire gets false, the current has to fall below Vknee*Goff, then the tyhristor gets locking.
+If fire gets false, the current has to fall below Vknee*Goff, then the thyristor gets locking.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>February 7, 2016   </i>
+<li><em>February 7, 2016   </em>
        by Anton Haumer<br> extending from partial IdealSemiconductor<br>
        </li>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i>Mai 7, 2004   </i>
+<li><em>Mai 7, 2004   </em>
        by Christoph Clauss and Anton Haumer<br> Vknee added<br>
        </li>
-<li><i>some years ago   </i>
+<li><em>some years ago   </em>
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{30,20},{70,60},{70,90}}, color={0,0,255}),
           Line(points={{40,50},{60,30}}, color={0,0,255}),
           Line(
             visible=useHeatPort,
             points={{0,-100},{0,-20}},
             color={127,0,0},
-            pattern=LinePattern.Dot)}),
+            pattern=LinePattern.Dot),
+          Line(points={{30,20},{58,48}}, color={0,0,255}),
+          Line(points={{100,90},{100,100}}, color={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
                                    Line(
@@ -84,12 +88,15 @@ If fire gets false, the current has to fall below Vknee*Goff, then the tyhristor
     extends Modelica.Electrical.Analog.Interfaces.IdealSemiconductor;
     Modelica.Blocks.Interfaces.BooleanInput fire annotation (Placement(
           transformation(
-          origin={70,110},
+          origin={100,120},
           extent={{-20,-20},{20,20}},
-          rotation=270)));
+          rotation=270), iconTransformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={100,120})));
   equation
     off = s < 0 or not fire;
-    annotation (
+    annotation (defaultComponentName="gto",
       Documentation(info="<html>
 <p>
 This is an ideal GTO thyristor or switching transistor, for details see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSemiconductor\">IdealSemiconductor</a><br>
@@ -98,32 +105,28 @@ Otherwise, the GTO thyristor is locking.
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>February 7, 2016   </i>
+<li><em>February 7, 2016   </em>
        by Anton Haumer<br> extending from partial IdealSemiconductor<br>
        </li>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i>Mai 7, 2004   </i>
+<li><em>Mai 7, 2004   </em>
        by Christoph Clauss and Anton Haumer<br> Vknee added<br>
        </li>
-<li><i>some years ago   </i>
+<li><em>some years ago   </em>
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{30,10},{70,50},{70,90}}, color={0,0,255}),
-          Line(points={{50,50},{70,30}}, color={0,0,255}),
+          Line(points={{48,52},{68,32}}, color={0,0,255}),
           Line(
             visible=useHeatPort,
             points={{0,-100},{0,-20}},
             color={127,0,0},
             pattern=LinePattern.Dot),
-          Line(
-            points={{30,22},{70,62}},
-            color={0,0,255}),
           Polygon(
             points={{44,43},{44,36},{51,36},{44,43}},
             lineColor={0,0,255},
@@ -133,7 +136,10 @@ Otherwise, the GTO thyristor is locking.
             points={{46,33},{53,33},{53,26},{46,33}},
             lineColor={0,0,255},
             fillPattern=FillPattern.Solid,
-            fillColor={0,0,255})}),
+            fillColor={0,0,255}),
+          Line(points={{30,10},{68,48}}, color={0,0,255}),
+          Line(points={{100,90},{100,100}}, color={0,0,255}),
+          Line(points={{30,22},{56,48}}, color={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
                                    Line(
@@ -142,8 +148,8 @@ Otherwise, the GTO thyristor is locking.
   end IdealGTOThyristor;
 
   model IdealCommutingSwitch "Ideal commuting switch"
-    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5
+    parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
+    parameter SI.Conductance Goff(final min=0) = 1e-5
       "Opened switch conductance";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
@@ -151,14 +157,16 @@ Otherwise, the GTO thyristor is locking.
               -10},{-90,10}})));
     Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,
               -10},{110,10}})));
-    Interfaces.NegativePin n1 annotation (Placement(transformation(extent={{90,
-              40},{110,60}})));
+    Interfaces.NegativePin n1 annotation (Placement(transformation(extent={{90,30},{110,50}}), iconTransformation(extent={{90,30},{110,50}})));
     Modelica.Blocks.Interfaces.BooleanInput control
       "true => p--n2 connected, false => p--n1 connected" annotation (Placement(
           transformation(
-          origin={0,80},
+          origin={0,120},
           extent={{-20,-20},{20,20}},
-          rotation=270)));
+          rotation=270), iconTransformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={0,120})));
   protected
     Real s1(final unit="1");
     Real s2(final unit="1") "Auxiliary variables";
@@ -172,15 +180,15 @@ Otherwise, the GTO thyristor is locking.
     p.v - n2.v = (s2*unitCurrent)*(if (control) then Ron else 1);
     n2.i = -(s2*unitVoltage)*(if (control) then 1 else Goff);
     LossPower = p.i*p.v + n1.i*n1.v + n2.i*n2.v;
-    annotation (
+    annotation (defaultComponentName="switch",
       Documentation(info="<html>
-<P>
+<p>
 The commuting switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
 by the input signal control. If control is true, the pin p is connected
 with the negative pin n2. Otherwise, the pin p is connected to the negative pin n1.
-</P>
-<P>
+</p>
+<p>
 In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron.
@@ -188,17 +196,17 @@ The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
-<br> <br>
-<b>Please note:</b>
+<br><br>
+<strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled. The parameters are not temperature dependent.
-</P>
+behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
+</p>
 </html>", revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -206,22 +214,9 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
-          Text(
-            extent={{-80,0},{-60,22}},
-            textString="p",
-            lineColor={0,0,255}),
-          Text(
-            extent={{60,50},{80,72}},
-            textString="n1",
-            lineColor={0,0,255}),
-          Text(
-            extent={{60,0},{80,22}},
-            textString="n2",
-            lineColor={0,0,255}),
           Line(points={{-90,0},{-44,0}}, color={0,0,255}),
-          Line(points={{-37,2},{40,50}}, color={0,0,255}),
-          Line(points={{40,50},{90,50}}, color={0,0,255}),
-          Line(points={{0,90},{0,25}}, color={0,0,255}),
+          Line(points={{-37,2},{40,40}}, color={0,0,255}),
+          Line(points={{40,40},{90,40}}, color={0,0,255}),
           Line(points={{40,0},{90,0}}, color={0,0,255}),
           Line(
             visible=useHeatPort,
@@ -229,37 +224,30 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
             color={127,0,0},
             pattern=LinePattern.Dot),
           Text(
-            extent={{-148,-22},{152,-62}},
+            extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Ellipse(extent={{-44,4},{-36,-4}},
-            lineColor={0,0,255}),Line(points={{-96,0},{-44,0}}, color={0,0,255}),
-            Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(points={{40,50},
-            {96,50}}, color={0,0,255}),Line(points={{0,60},{0,25}}, color={0,0,
-            255}),Line(points={{40,0},{96,0}}, color={0,0,255})}));
+            lineColor={0,0,255})}));
   end IdealCommutingSwitch;
 
   model IdealIntermediateSwitch "Ideal intermediate switch"
-    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5
+    parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
+    parameter SI.Conductance Goff(final min=0) = 1e-5
       "Opened switch conductance";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
-    Interfaces.PositivePin p1 annotation (Placement(transformation(extent={{-110,
-              40},{-90,60}})));
-    Interfaces.PositivePin p2 annotation (Placement(transformation(extent={{-110,
-              -10},{-90,10}})));
-    Interfaces.NegativePin n1 annotation (Placement(transformation(extent={{90,
-              40},{110,60}})));
-    Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,
-              -10},{110,10}})));
+    Interfaces.PositivePin p1 annotation (Placement(transformation(extent={{-110,30},{-90,50}}), iconTransformation(extent={{-110,30},{-90,50}})));
+    Interfaces.PositivePin p2 annotation (Placement(transformation(extent={{-110,-10},{-90,10}}), iconTransformation(extent={{-110,-10},{-90,10}})));
+    Interfaces.NegativePin n1 annotation (Placement(transformation(extent={{90,30},{110,50}}), iconTransformation(extent={{90,30},{110,50}})));
+    Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,-10},{110,10}}), iconTransformation(extent={{90,-10},{110,10}})));
     Modelica.Blocks.Interfaces.BooleanInput control
       "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected"
       annotation (Placement(transformation(
-          origin={0,80},
+          origin={0,120},
           extent={{-20,-20},{20,20}},
-          rotation=270)));
+          rotation=270), iconTransformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={0,120})));
   protected
     Real s1(final unit="1");
     Real s2(final unit="1");
@@ -283,7 +271,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
       unitCurrent - s3*unitVoltage*Goff;
 
     LossPower = p1.i*p1.v + p2.i*p2.v + n1.i*n1.v + n2.i*n2.v;
-    annotation (
+    annotation (defaultComponentName="switch",
       Documentation(info="<html>
 <p>The intermediate switch has four switching contact pins p1, p2, n1, and n2. The switching behaviour is controlled by the input signal control. If control is true, the pin p1 is connected to the pin n2, and the pin p2 is connected to the pin n1. Otherwise,if control is false, the pin p1 is connected to n1, and the pin p2 is connected to n2.</p>
 
@@ -299,62 +287,38 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
      alt=\"IdealIntermediateSwitch2.png\">
 </p>
 
-<p>The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible. </p>
-<p><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled. The parameters are not temperature dependent. </p>
+<p>The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible.</p>
+<p><strong>Please note:</strong> In case of useHeatPort=true the temperature dependence of the electrical behavior is <strong>not </strong>modelled. The parameters are not temperature dependent.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Ellipse(extent={{-4,30},{4,22}}, lineColor={0,0,255}),
           Text(
-            extent={{-80,50},{-60,72}},
-            textString="p1",
-            lineColor={0,0,255}),
-          Text(
-            extent={{-80,0},{-60,22}},
-            textString="p2",
-            lineColor={0,0,255}),
-          Text(
-            extent={{60,50},{80,72}},
-            textString="n1",
-            lineColor={0,0,255}),
-          Text(
-            extent={{60,0},{80,22}},
-            textString="n2",
-            lineColor={0,0,255}),
-          Line(points={{-90,0},{-44,0}}, color={0,0,255}),
-          Line(points={{-90,50},{-44,50}}, color={0,0,255}),
-          Line(points={{-44,0},{40,50}}, color={0,0,255}),
-          Line(points={{-44,50},{40,0}}, color={0,0,255}),
-          Line(points={{40,50},{90,50}}, color={0,0,255}),
-          Line(points={{0,90},{0,25}}, color={0,0,255}),
-          Line(points={{40,0},{90,0}}, color={0,0,255}),
-          Text(
-            extent={{-151,-24},{149,-64}},
+            extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Ellipse(extent={{-4,29},{4,21}}, lineColor=
+            lineColor={0,0,255}),   Ellipse(extent={{-4,24},{4,16}}, lineColor=
             {0,0,255}),Line(points={{-96,0},{-40,0}}, color={0,0,255}),Line(
-            points={{-96,50},{-40,50}}, color={0,0,255}),Line(points={{-40,0},{
-            40,50}}, color={0,0,255}),Line(points={{-40,50},{40,0}}, color={0,0,
-            255}),Line(points={{40,50},{96,50}}, color={0,0,255}),Line(points={
-            {0,60},{0,25}}, color={0,0,255}),Line(points={{40,0},{96,0}}, color=
-             {0,0,255})}));
+            points={{-96,40},{-40,40}}, color={0,0,255}),Line(points={{-40,0},{40,40}},
+                     color={0,0,255}),Line(points={{-40,40},{40,0}}, color={0,0,255}),
+            Line(points={{40,40},{96,40}}, color={0,0,255}),
+                                             Line(points={{40,0},{96,0}}, color=
+             {0,0,255})}),
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+              100,100}})));
   end IdealIntermediateSwitch;
 
   model ControlledIdealCommutingSwitch "Controlled ideal commuting switch"
     parameter SI.Voltage level=0.5 "Switch level";
-    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5
+    parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
+    parameter SI.Conductance Goff(final min=0) = 1e-5
       "Opened switch conductance";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
@@ -362,8 +326,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
               -10},{-90,10}})));
     Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,
               -10},{110,10}})));
-    Interfaces.NegativePin n1 annotation (Placement(transformation(extent={{90,
-              40},{110,60}})));
+    Interfaces.NegativePin n1 annotation (Placement(transformation(extent={{90,30},{110,50}}), iconTransformation(extent={{90,30},{110,50}})));
     Interfaces.Pin control
       "Control pin: if control.v > level p--n2 connected, otherwise p--n1 connected"
       annotation (Placement(transformation(
@@ -384,16 +347,16 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
     p.v - n2.v = (s2*unitCurrent)*(if (control.v > level) then Ron else 1);
     n2.i = -(s2*unitVoltage)*(if (control.v > level) then 1 else Goff);
     LossPower = p.i*p.v + n1.i*n1.v + n2.i*n2.v;
-    annotation (
+    annotation (defaultComponentName="switch",
       Documentation(info="<html>
-<P>
+<p>
 The commuting switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
 by the control pin. If its voltage exceeds the value of the parameter level,
 the pin p is connected with the negative pin n2. Otherwise, the pin p is
 connected the negative pin n1.
-</P>
-<P>
+</p>
+<p>
 In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron.
@@ -401,17 +364,17 @@ The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
-<br> <br>
-<b>Please note:</b>
+<br><br>
+<strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled. The parameters are not temperature dependent.
-</P>
+behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
+</p>
 </html>", revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -419,22 +382,9 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
-          Text(
-            extent={{-80,0},{-60,22}},
-            textString="p",
-            lineColor={0,0,255}),
-          Text(
-            extent={{60,50},{80,72}},
-            textString="n1",
-            lineColor={0,0,255}),
-          Text(
-            extent={{60,0},{80,22}},
-            textString="n2",
-            lineColor={0,0,255}),
           Line(points={{-90,0},{-44,0}}, color={0,0,255}),
-          Line(points={{-37,2},{40,50}}, color={0,0,255}),
-          Line(points={{40,50},{90,50}}, color={0,0,255}),
-          Line(points={{0,90},{0,25}}, color={0,0,255}),
+          Line(points={{-37,2},{40,40}}, color={0,0,255}),
+          Line(points={{40,40},{90,40}}, color={0,0,255}),
           Line(points={{40,0},{90,0}}, color={0,0,255}),
           Line(
             visible=useHeatPort,
@@ -442,31 +392,23 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
             color={127,0,0},
             pattern=LinePattern.Dot),
           Text(
-            extent={{-145,-21},{155,-61}},
+            extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Ellipse(extent={{-44,4},{-36,-4}},
-            lineColor={0,0,255}),Line(points={{-96,0},{-44,0}}, color={0,0,255}),
-            Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(points={{40,50},
-            {96,50}}, color={0,0,255}),Line(points={{0,96},{0,25}}, color={0,0,
-            255}),Line(points={{40,0},{96,0}}, color={0,0,255})}));
+            lineColor={0,0,255})}));
   end ControlledIdealCommutingSwitch;
 
   model ControlledIdealIntermediateSwitch
     "Controlled ideal intermediate switch"
     parameter SI.Voltage level=0.5 "Switch level";
-    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5
+    parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
+    parameter SI.Conductance Goff(final min=0) = 1e-5
       "Opened switch conductance";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
-    Interfaces.PositivePin p1 annotation (Placement(transformation(extent={{-110,
-              40},{-90,60}})));
+    Interfaces.PositivePin p1 annotation (Placement(transformation(extent={{-110,30},{-90,50}}), iconTransformation(extent={{-110,30},{-90,50}})));
     Interfaces.PositivePin p2 annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}})));
-    Interfaces.NegativePin n1 annotation (Placement(transformation(extent={{90,
-              40},{110,60}})));
+    Interfaces.NegativePin n1 annotation (Placement(transformation(extent={{90,30},{110,50}}), iconTransformation(extent={{90,30},{110,50}})));
     Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,
               -10},{110,10}})));
     Interfaces.Pin control "Control pin: if control.v > level p1--n2, p2--n1 connected,
@@ -500,7 +442,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
        else -s2*unitCurrent - s3*unitVoltage*Goff;
 
     LossPower = p1.i*p1.v + p2.i*p2.v + n1.i*n1.v + n2.i*n2.v;
-    annotation (
+    annotation (defaultComponentName="switch",
       Documentation(info="<html>
 <p>The intermediate switch has four switching contact pins p1, p2, n1, and n2. The switching behaviour is controlled by the control pin. If its voltage exceeds the value of the parameter level, the pin p1 is connected to pin n2, and the pin p2 is connected to the pin n1. Otherwise, the pin p1 is connected to the pin n1, and the pin p2 is connected to the pin n2.
 </p>
@@ -520,43 +462,26 @@ In order to prevent singularities during switching, the opened switch has a (ver
 </p>
 
 <p>
-The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible. </p>
-<p><br><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled. The parameters are not temperature dependent. </p>
+The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible.</p>
+<p><br><strong>Please note:</strong> In case of useHeatPort=true the temperature dependence of the electrical behavior is <strong>not </strong>modelled. The parameters are not temperature dependent.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Ellipse(extent={{-4,30},{4,22}}, lineColor={0,0,255}),
-          Text(
-            extent={{-80,50},{-60,72}},
-            textString="p1",
-            lineColor={0,0,255}),
-          Text(
-            extent={{-80,0},{-60,22}},
-            textString="p2",
-            lineColor={0,0,255}),
-          Text(
-            extent={{60,50},{80,72}},
-            textString="n1",
-            lineColor={0,0,255}),
-          Text(
-            extent={{60,0},{80,22}},
-            textString="n2",
-            lineColor={0,0,255}),
+          Ellipse(extent={{-4,24},{4,16}}, lineColor={0,0,255}),
           Line(points={{-90,0},{-40,0}}, color={0,0,255}),
-          Line(points={{-90,50},{-39,50}}, color={0,0,255}),
-          Line(points={{-40,0},{40,50}}, color={0,0,255}),
-          Line(points={{-40,50},{40,0}}, color={0,0,255}),
-          Line(points={{40,50},{90,50}}, color={0,0,255}),
-          Line(points={{0,90},{0,25}}, color={0,0,255}),
+          Line(points={{-90,40},{-40,40}}, color={0,0,255}),
+          Line(points={{-40,0},{40,40}}, color={0,0,255}),
+          Line(points={{-40,40},{40,0}}, color={0,0,255}),
+          Line(points={{40,40},{90,40}}, color={0,0,255}),
           Line(points={{40,0},{90,0}}, color={0,0,255}),
           Line(
             visible=useHeatPort,
@@ -564,17 +489,9 @@ The limiting case is also allowed, i.e., the resistance Ron of the closed switch
             color={127,0,0},
             pattern=LinePattern.Dot),
           Text(
-            extent={{-150,-23},{150,-63}},
+            extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Ellipse(extent={{-4,29},{4,21}}, lineColor=
-            {0,0,255}),Line(points={{-96,0},{-40,0}}, color={0,0,255}),Line(
-            points={{-96,50},{-40,50}}, color={0,0,255}),Line(points={{-40,0},{
-            40,50}}, color={0,0,255}),Line(points={{-40,50},{40,0}}, color={0,0,
-            255}),Line(points={{40,50},{96,50}}, color={0,0,255}),Line(points={
-            {0,96},{0,25}}, color={0,0,255}),Line(points={{40,0},{96,0}}, color=
-             {0,0,255})}));
+            lineColor={0,0,255})}));
   end ControlledIdealIntermediateSwitch;
 
   model IdealOpAmp "Ideal operational amplifier (norator-nullator pair)"
@@ -583,9 +500,9 @@ The limiting case is also allowed, i.e., the resistance Ron of the closed switch
     SI.Current i1 "Current flowing from pos. to neg. pin of the left port";
     SI.Current i2 "Current flowing from pos. to neg. pin of the right port";
     Interfaces.PositivePin p1 "Positive pin of the left port" annotation (
-        Placement(transformation(extent={{-110,-60},{-90,-40}})));
+        Placement(transformation(extent={{-110,-70},{-90,-50}}), iconTransformation(extent={{-110,-70},{-90,-50}})));
     Interfaces.NegativePin n1 "Negative pin of the left port" annotation (
-        Placement(transformation(extent={{-110,40},{-90,60}})));
+        Placement(transformation(extent={{-110,50},{-90,70}}), iconTransformation(extent={{-110,50},{-90,70}})));
     Interfaces.PositivePin p2 "Positive pin of the right port" annotation (
         Placement(transformation(extent={{90,-10},{110,10}})));
     Interfaces.NegativePin n2 "Negative pin of the right port" annotation (
@@ -602,158 +519,103 @@ The limiting case is also allowed, i.e., the resistance Ron of the closed switch
     i2 = p2.i;
     v1 = 0;
     i1 = 0;
-    annotation (
+    annotation (defaultComponentName="opAmp",
       Documentation(info="<html>
-<P>
-The ideal OpAmp is a two-port. The left port is fixed to <i>v1=0</i> and <i>i1=0</i>
-(nullator). At the right port both any voltage <i>v2</i> and any current <i>i2</i>
+<p>
+The ideal OpAmp is a two-port. The left port is fixed to <em>v1=0</em> and <em>i1=0</em>
+(nullator). At the right port both any voltage <em>v2</em> and any current <em>i2</em>
 are possible (norator).
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
+          Line(points={{60,0},{90,0}}, color={0,0,255}),
+          Text(
+            extent={{-150,130},{150,90}},
+            textString="%name",
+            lineColor={0,0,255}),
           Polygon(
-            points={{60,0},{-60,70},{-60,-70},{60,0}},
+            points={{70,0},{-70,80},{-70,-80},{70,0}},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-90,50},{-60,50}}, color={0,0,255}),
-          Line(points={{-90,-50},{-60,-50}}, color={0,0,255}),
-          Line(points={{60,0},{90,0}}, color={0,0,255}),
-          Line(points={{0,-35},{0,-91}}, color={0,0,255}),
-          Line(points={{-48,32},{-28,32}}, color={0,0,255}),
-          Line(points={{-39,-20},{-39,-41}}, color={0,0,255}),
-          Line(points={{-50,-31},{-28,-31}}, color={0,0,255}),
-          Text(
-            extent={{-150,126},{150,86}},
-            textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Polygon(
-              points={{60,0},{-60,70},{-60,-70},{60,0}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),Line(points={{-96,50},{-60,50}}, color={0,0,
-            255}),Line(points={{-96,-50},{-60,-50}}, color={0,0,255}),Line(
-            points={{60,0},{96,0}}, color={0,0,255}),Line(points={{0,-35},{0,-96}},
-            color={0,0,255}),Line(points={{-55,50},{-45,50}}, color={0,0,255}),
-            Line(points={{-50,-45},{-50,-55}}, color={0,0,255}),Line(points={{-55,
-            -50},{-45,-50}}, color={0,0,255}),Text(
-              extent={{-111,-39},{-90,-19}},
-              lineColor={160,160,164},
-              textString="p1.i=0"),Polygon(
-              points={{120,3},{110,0},{120,-3},{120,3}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={160,160,164}),Line(points={{111,0},{136,0}}, color={0,
-            0,0}),Text(
-              extent={{118,2},{135,17}},
-              lineColor={0,0,0},
-              textString="i2"),Text(
-              extent={{-111,60},{-90,80}},
-              lineColor={160,160,164},
-              textString="n1.i=0"),Line(points={{18,-111},{18,-86}}, color={160,
-            160,164}),Polygon(
-              points={{21,-101},{18,-111},{15,-101},{21,-101}},
-              lineColor={160,160,164},
-              fillColor={160,160,164},
-              fillPattern=FillPattern.Solid),Text(
-              extent={{22,-100},{39,-85}},
-              lineColor={0,0,0},
-              textString="i2")}));
+          Line(points={{0,-40},{0,-100}}, color={0,0,255}),
+          Line(points={{-100,60},{-70,60}}, color={0,0,255}),
+          Line(points={{-100,-60},{-70,-60}}, color={0,0,255}),
+          Line(points={{70,0},{100,0}}, color={0,0,255}),
+          Line(points={{-60,50},{-40,50}}, color={0,0,255}),
+          Line(points={{-60,-50},{-40,-50}}, color={0,0,255}),
+          Line(points={{-50,-40},{-50,-60}}, color={0,0,255})}));
   end IdealOpAmp;
 
   model IdealOpAmp3Pin
     "Ideal operational amplifier (norator-nullator pair), but 3 pins"
     Interfaces.PositivePin in_p "Positive pin of the input port" annotation (
-        Placement(transformation(extent={{-110,-60},{-90,-40}})));
+        Placement(transformation(extent={{-110,-70},{-90,-50}}), iconTransformation(extent={{-110,-70},{-90,-50}})));
     Interfaces.NegativePin in_n "Negative pin of the input port" annotation (
-        Placement(transformation(extent={{-110,40},{-90,60}})));
+        Placement(transformation(extent={{-110,50},{-90,70}}), iconTransformation(extent={{-110,50},{-90,70}})));
     Interfaces.PositivePin out "Output pin" annotation (Placement(
-          transformation(extent={{90,-10},{110,10}})));
+          transformation(extent={{90,-10},{110,10}}), iconTransformation(extent={{90,-10},{110,10}})));
   equation
     in_p.v = in_n.v;
     in_p.i = 0;
     in_n.i = 0;
-    annotation (
+    annotation (defaultComponentName="opAmp",
       Documentation(info="<html>
-<P>
+<p>
 The ideal OpAmp with three pins is of exactly the same behaviour as the ideal
 OpAmp with four pins. Only the negative output pin is left out.
 Both the input voltage and current are fixed to zero (nullator).
-At the output pin both any voltage <i>v2</i> and any current <i>i2</i>
+At the output pin both any voltage <em>v2</em> and any current <em>i2</em>
 are possible.
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
-<li><i> 2002   </i>
+<li><em> 2002   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
+          Line(points={{60,0},{90,0}}, color={0,0,255}),
+          Text(
+            extent={{-150,130},{150,90}},
+            textString="%name",
+            lineColor={0,0,255}),
           Polygon(
-            points={{60,0},{-60,70},{-60,-70},{60,0}},
+            points={{70,0},{-70,80},{-70,-80},{70,0}},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-90,50},{-60,50}}, color={0,0,255}),
-          Line(points={{-90,-50},{-60,-50}}, color={0,0,255}),
-          Line(points={{60,0},{90,0}}, color={0,0,255}),
-          Line(points={{-48,32},{-28,32}}, color={0,0,255}),
-          Line(points={{-39,-20},{-39,-41}}, color={0,0,255}),
-          Line(points={{-50,-31},{-28,-31}}, color={0,0,255}),
-          Text(
-            extent={{-149,117},{151,77}},
-            textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Polygon(
-              points={{60,0},{-60,70},{-60,-70},{60,0}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),Line(points={{-96,50},{-60,50}}, color={0,0,
-            255}),Line(points={{-96,-50},{-60,-50}}, color={0,0,255}),Line(
-            points={{60,0},{97,0}}, color={0,0,255}),Line(points={{-55,50},{-45,
-            50}}, color={0,0,255}),Line(points={{-50,-45},{-50,-55}}, color={0,
-            0,255}),Line(points={{-55,-50},{-45,-50}}, color={0,0,255}),Text(
-              extent={{-111,-39},{-90,-19}},
-              lineColor={160,160,164},
-              textString="p1.i=0"),Polygon(
-              points={{120,3},{110,0},{120,-3},{120,3}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={160,160,164}),Line(points={{111,0},{136,0}}, color={0,
-            0,0}),Text(
-              extent={{118,2},{135,17}},
-              lineColor={0,0,0},
-              textString="i2"),Text(
-              extent={{-111,60},{-90,80}},
-              lineColor={160,160,164},
-              textString="n1.i=0")}));
+          Line(points={{-100,60},{-70,60}}, color={0,0,255}),
+          Line(points={{-100,-60},{-70,-60}}, color={0,0,255}),
+          Line(points={{70,0},{100,0}}, color={0,0,255}),
+          Line(points={{-60,50},{-40,50}}, color={0,0,255}),
+          Line(points={{-60,-50},{-40,-50}}, color={0,0,255}),
+          Line(points={{-50,-40},{-50,-60}}, color={0,0,255})}));
   end IdealOpAmp3Pin;
 
   model IdealOpAmpLimited "Ideal operational amplifier with limitation"
     Interfaces.PositivePin in_p "Positive pin of the input port" annotation (
-        Placement(transformation(extent={{-110,-60},{-90,-40}})));
+        Placement(transformation(extent={{-110,-70},{-90,-50}}), iconTransformation(extent={{-110,-70},{-90,-50}})));
     Interfaces.NegativePin in_n "Negative pin of the input port" annotation (
-        Placement(transformation(extent={{-110,40},{-90,60}})));
+        Placement(transformation(extent={{-110,50},{-90,70}}), iconTransformation(extent={{-110,50},{-90,70}})));
     Interfaces.PositivePin out "Output pin" annotation (Placement(
           transformation(extent={{90,-10},{110,10}})));
     Interfaces.PositivePin VMax "Positive output voltage limitation"
-      annotation (Placement(transformation(extent={{-10,60},{10,80}})));
+      annotation (Placement(transformation(extent={{-10,90},{10,110}}), iconTransformation(extent={{-10,90},{10,110}})));
     Interfaces.NegativePin VMin "Negative output voltage limitation"
-      annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
+      annotation (Placement(transformation(extent={{-10,-110},{10,-90}}), iconTransformation(extent={{-10,-110},{10,-90}})));
     SI.Voltage vin "input voltage";
   protected
-    Real s(final unit="1") "Auxiliary variable";
+    Real s(start=0, final unit="1") "Auxiliary variable";
     constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
 
   equation
@@ -766,86 +628,57 @@ are possible.
        then s - 1 else 0));
     out.v = smooth(0, if s < -1 then VMin.v else if s > 1 then VMax.v else (
       VMax.v - VMin.v)*s/2 + (VMax.v + VMin.v)/2);
-    annotation (
+    annotation (defaultComponentName="opAmp",
       Documentation(info="<html>
-<P>
+<p>
 The ideal OpAmp with limitation behaves like an ideal OpAmp without limitation,
 if the output voltage is within the limits VMin and VMax. In this case
 the input voltage vin = in_p.v - in_n.v is zero.
 If the input voltage vin less than 0, the output voltage is out.v = VMin.
 If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Polygon(
-            points={{60,0},{-60,70},{-60,-70},{60,0}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}),
-          Line(points={{0,35},{0,80}}, color={0,0,255}),
-          Line(points={{0,-35},{0,-80}}, color={0,0,255}),
-          Line(points={{-90,50},{-60,50}}, color={0,0,255}),
-          Line(points={{-90,-50},{-60,-50}}, color={0,0,255}),
           Line(points={{60,0},{90,0}}, color={0,0,255}),
-          Line(points={{-48,32},{-28,32}}, color={0,0,255}),
-          Line(points={{-39,-20},{-39,-41}}, color={0,0,255}),
-          Line(points={{-50,-31},{-28,-31}}, color={0,0,255}),
-          Text(
-            extent={{-152,135},{148,95}},
-            textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={
           Polygon(
-            points={{60,0},{-60,70},{-60,-70},{60,0}},
+            points={{70,0},{-70,80},{-70,-80},{70,0}},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
+          Line(points={{-100,60},{-70,60}}, color={0,0,255}),
+          Line(points={{-100,-60},{-70,-60}}, color={0,0,255}),
+          Line(points={{-60,50},{-40,50}}, color={0,0,255}),
+          Line(points={{-50,-40},{-50,-60}}, color={0,0,255}),
+          Line(points={{-60,-50},{-40,-50}}, color={0,0,255}),
+          Line(points={{70,0},{100,0}}, color={0,0,255}),
           Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}),
-          Line(points={{0,35},{0,80}}, color={0,0,255}),
-          Line(points={{0,-35},{0,-80}}, color={0,0,255}),
-          Line(points={{-96,50},{-60,50}}, color={0,0,255}),
-          Line(points={{-96,-50},{-60,-50}}, color={0,0,255}),
-          Line(points={{60,0},{96,0}}, color={0,0,255}),
-          Line(points={{-55,50},{-45,50}}, color={0,0,255}),
-          Line(points={{-50,-45},{-50,-55}}, color={0,0,255}),
-          Line(points={{-55,-50},{-45,-50}}, color={0,0,255}),
           Text(
-            extent={{-111,-39},{-90,-19}},
-            lineColor={160,160,164},
-            textString="p1.i=0"),
-          Polygon(
-            points={{120,3},{110,0},{120,-3},{120,3}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={160,160,164}),
-          Line(points={{111,0},{136,0}}),
-          Text(
-            extent={{118,2},{135,17}},
-            lineColor={0,0,0},
-            textString="i2"),
-          Text(
-            extent={{-111,60},{-90,80}},
-            lineColor={160,160,164},
-            textString="n1.i=0")}));
+            extent={{-150,150},{150,110}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(points={{0,40},{0,100}}, color={0,0,255}),
+          Line(points={{0,-100},{0,-40}}, color={0,0,255})}));
   end IdealOpAmpLimited;
 
   model IdealizedOpAmpLimted "Idealized operational amplifier with limitation"
     parameter Real V0=15000.0 "No-load amplification";
     parameter Boolean useSupply=false
-      "Use supply pins (otherwise constant supply" annotation (Evaluate=true);
+      "Use supply pins (otherwise constant supply)" annotation (Evaluate=true);
     parameter SI.Voltage Vps=+15 "Positive supply voltage"
       annotation (Dialog(enable=not useSupply));
     parameter SI.Voltage Vns=-15 "Negative supply voltage"
       annotation (Dialog(enable=not useSupply));
+    parameter Boolean strict=true "= true, if strict limits with noEvent(..)"
+      annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
+    parameter Modelica.Blocks.Types.LimiterHomotopy homotopyType = Modelica.Blocks.Types.LimiterHomotopy.Linear "Simplified model for homotopy-based initialization"
+      annotation (Evaluate=true, Dialog(group="Initialization"));
     SI.Voltage vps "Positive supply voltage";
     SI.Voltage vns "Negative supply voltage";
     SI.Voltage v_in=in_p.v - in_n.v "Input voltage difference";
@@ -871,6 +704,8 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
     Modelica.Electrical.Analog.Interfaces.NegativePin s_n(final i=-i_s, final v=
          vns) if useSupply "Optional negative supply pin" annotation (Placement(
           transformation(extent={{-10,-110},{10,-90}})));
+  protected
+    SI.Voltage simplifiedExpr "Simplified expression for homotopy-based initialization";
   equation
     if not useSupply then
       vps = Vps;
@@ -878,33 +713,54 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
     end if;
     in_p.i = 0;
     in_n.i = 0;
-    v_out = smooth(0, min(Vps, max(Vns, V0*v_in)));
-    annotation (
+    simplifiedExpr = (if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.Linear then V0*v_in
+                      else if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.UpperLimit then vps
+                      else if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.LowerLimit then vns
+                      else 0);
+    if strict then
+      if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy then
+        v_out = smooth(0, noEvent(if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in));
+      else
+        v_out = homotopy(actual = smooth(0, noEvent(if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in)),
+                         simplified=simplifiedExpr);
+      end if;
+    else
+      if homotopyType == Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy then
+        v_out = smooth(0, if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in);
+      else
+        v_out = homotopy(actual = smooth(0, if V0*v_in>vps then vps else if V0*v_in<vns then vns else V0*v_in),
+                         simplified=simplifiedExpr);
+      end if;
+    end if;
+    annotation (defaultComponentName="opAmp",
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
+          Line(points={{60,0},{90,0}}, color={0,0,255}),
+          Text(
+            extent={{-150,150},{150,110}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(points={{60,0},{90,0}}, color={0,0,255}),
           Polygon(
-            points={{60,0},{-60,70},{-60,-70},{60,0}},
+            points={{70,0},{-70,80},{-70,-80},{70,0}},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-90,60},{-60,60}}, color={0,0,255}),
-          Line(points={{-90,-60},{-60,-60}}, color={0,0,255}),
-          Line(points={{60,0},{90,0}}, color={0,0,255}),
-          Line(points={{-48,32},{-28,32}}, color={0,0,255}),
-          Line(points={{-39,-20},{-39,-41}}, color={0,0,255}),
-          Line(points={{-50,-31},{-28,-31}}, color={0,0,255}),
-          Text(
-            extent={{-100,100},{100,80}},
-            textString="%name",
-            lineColor={0,0,255})}),
+          Line(points={{-100,60},{-70,60}}, color={0,0,255}),
+          Line(points={{-100,-60},{-70,-60}}, color={0,0,255}),
+          Line(points={{-60,50},{-40,50}}, color={0,0,255}),
+          Line(points={{-50,-40},{-50,-60}}, color={0,0,255}),
+          Line(points={{-60,-50},{-40,-50}}, color={0,0,255}),
+          Line(points={{0,40},{0,100}}, color={0,0,255}, visible=useSupply),
+          Line(points={{0,-100},{0,-40}}, color={0,0,255}, visible=useSupply)}),
       Documentation(info="<html>
-<p>Idealized operational amplifier with saturation: </p>
+<p>Idealized operational amplifier with saturation:</p>
 <ul>
-<li>Input currents are zero. </li>
-<li>No-load amplification is high (but not infinite). </li>
-<li>Output voltage is limited between positive and negative supply. </li>
+<li>Input currents are zero.</li>
+<li>No-load amplification is high (but not infinite).</li>
+<li>Output voltage is limited between positive and negative supply.</li>
 </ul>
-<p>Supply voltage is either defined by parameter Vps and Vpn or by (optional) pins s_p and s_n. </p>
+<p>Supply voltage is either defined by parameter Vps and Vns or by (optional) pins s_p and s_n.</p>
 <p>In the first case the necessary power is drawn from an implicit internal supply, in the second case from the external supply.</p>
 </html>"));
   end IdealizedOpAmpLimted;
@@ -930,7 +786,7 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
       im1 = 0;
     end if;
     v1 = n*v2;
-    annotation (
+    annotation (defaultComponentName="transformer",
       Documentation(info="<html>
 <p>
 The ideal transformer is a two-port circuit element;
@@ -971,60 +827,81 @@ For the backward conversion, one has to decide about the partitioning of the lea
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>June 3, 2009   </i>
+<li><em>June 3, 2009   </em>
        magnetisation current added by Anton Haumer<br>
        </li>
-<li><i>1998   </i>
+<li><em>1998   </em>
        initially implemented by Christoph Clauss<br>
        </li>
 </ul>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
-   Line(points={{-32,-50},{-27,-50},{-20,-43},{-20,-38},{-20,-33},{-27,-25},{-32,-25}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{-32,-25},{-27,-25},{-20,-18},{-20,-13},{-20,-8},{-27,0},{-32,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{-32,0},{-27,0},{-20,8},{-20,13},{-20,18},{-27,25},{-32,25}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{-32,25},{-27,25},{-20,33},{-20,38},{-20,43},{-27,50},{-32,50}}, color={0,0,255}, smooth=Smooth.Bezier),
-          Line(points={{-90,50},{-32,50}}, color={0,0,255}),
-          Line(points={{-90,-50},{-32,-50}}, color={0,0,255}),
-   Line(points={{32,-50},{27,-50},{20,-43},{20,-38},{20,-33},{27,-25},{32,-25}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{32,-25},{27,-25},{20,-18},{20,-13},{20,-8},{27,0},{32,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{32,0},{27,0},{20,8},{20,13},{20,18},{27,25},{32,25}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{32,25},{27,25},{20,33},{20,38},{20,43},{27,50},{32,50}}, color={0,0,255}, smooth=Smooth.Bezier),
-          Line(points={{32,50},{90,50}}, color={0,0,255}),
-          Line(points={{32,-50},{90,-50}}, color={0,0,255}),
-          Text(extent={{-100,-80},{100,-100}}, textString="n=%n"),
+          Text(extent={{-150,-110},{150,-150}},textString="n=%n"),
           Text(
-            extent={{-100,10},{-80,-10}},
+            extent={{-100,20},{-60,-20}},
             lineColor={0,0,255},
             textString="1"),
           Text(
-            extent={{80,10},{100,-10}},
+            extent={{60,20},{100,-20}},
             lineColor={0,0,255},
             textString="2"),
           Text(
-            extent={{-146,115},{154,75}},
+            extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(graphics={
-   Line(points={{-32,-50},{-27,-50},{-20,-43},{-20,-38},{-20,-33},{-27,-25},{-32,-25}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{-32,-25},{-27,-25},{-20,-18},{-20,-13},{-20,-8},{-27,0},{-32,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{-32,0},{-27,0},{-20,8},{-20,13},{-20,18},{-27,25},{-32,25}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{-32,25},{-27,25},{-20,33},{-20,38},{-20,43},{-27,50},{-32,50}}, color={0,0,255}, smooth=Smooth.Bezier),
-          Line(points={{-90,50},{-32,50}}, color={0,0,255}),
-          Line(points={{-90,-50},{-32,-50}}, color={0,0,255}),
-   Line(points={{32,-50},{27,-50},{20,-43},{20,-38},{20,-33},{27,-25},{32,-25}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{32,-25},{27,-25},{20,-18},{20,-13},{20,-8},{27,0},{32,0}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{32,0},{27,0},{20,8},{20,13},{20,18},{27,25},{32,25}}, color={0,0,255}, smooth=Smooth.Bezier),
-   Line(points={{32,25},{27,25},{20,33},{20,38},{20,43},{27,50},{32,50}}, color={0,0,255}, smooth=Smooth.Bezier),
-          Line(points={{32,50},{90,50}}, color={0,0,255}),
-          Line(points={{32,-50},{90,-50}}, color={0,0,255}),Text(
-              extent={{-100,10},{0,-10}},
-              lineColor={0,0,255},
-              textString="1=primary"),Text(
-              extent={{0,10},{100,-10}},
-              lineColor={0,0,255},
-              textString="2=secondary")}));
+            lineColor={0,0,255}),
+          Line(points={{-40,60},{-40,100},{-90,100}}, color={0,0,255}),
+          Line(points={{40,60},{40,100},{90,100}}, color={0,0,255}),
+          Line(points={{-40,-60},{-40,-100},{-90,-100}}, color={0,0,255}),
+          Line(points={{40,-60},{40,-100},{90,-100}}, color={0,0,255}),
+          Line(
+            points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+            color={0,0,255},
+            smooth=Smooth.Bezier,
+            origin={-33,45},
+            rotation=270),
+          Line(
+            points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+            color={0,0,255},
+            smooth=Smooth.Bezier,
+            origin={-33,15},
+            rotation=270),
+          Line(
+            points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+            color={0,0,255},
+            smooth=Smooth.Bezier,
+            origin={-33,-15},
+            rotation=270),
+          Line(
+            points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+            color={0,0,255},
+            smooth=Smooth.Bezier,
+            origin={-33,-45},
+            rotation=270),
+          Line(
+            points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+            color={0,0,255},
+            smooth=Smooth.Bezier,
+            origin={33,45},
+            rotation=90),
+          Line(
+            points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+            color={0,0,255},
+            smooth=Smooth.Bezier,
+            origin={33,15},
+            rotation=90),
+          Line(
+            points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+            color={0,0,255},
+            smooth=Smooth.Bezier,
+            origin={33,-15},
+            rotation=90),
+          Line(
+            points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
+            color={0,0,255},
+            smooth=Smooth.Bezier,
+            origin={33,-45},
+            rotation=90)}));
   end IdealTransformer;
 
   model IdealGyrator "Ideal gyrator"
@@ -1034,7 +911,7 @@ For the backward conversion, one has to decide about the partitioning of the lea
   equation
     i1 = G*v2;
     i2 = -G*v1;
-    annotation (
+    annotation (defaultComponentName="gyrator",
       Documentation(info="<html>
 <p>
 A gyrator is an ideal two-port element defined by the following equations:
@@ -1044,42 +921,43 @@ A gyrator is an ideal two-port element defined by the following equations:
     i2 = -G * v1<br>
 </code>
 <br>
-where the constant <i>G</i> is called the gyration conductance.
-</P>
+where the constant <em>G</em> is called the gyration conductance.
+</p>
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
-   Line(points={{-40,-30},{-28,-30},{-10,-12},{-10,0},{-10,12},{-28,30},{-40,30}}, color={0,0,255}, smooth=Smooth.Bezier),
-          Line(points={{-90,50},{-40,50},{-40,-50},{-90,-50}}, color={0,0,255}),
+              100}},
+          grid={2,2}),graphics={
+          Line(points={{-90,100},{-40,100},{-40,-100},{-90,-100}},
+                                                               color={0,0,255}),
           Line(points={{-30,60},{20,60}}, color={0,0,255}),
           Polygon(
             points={{20,63},{30,60},{20,57},{20,63}},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-   Line(points={{40,-30},{28,-30},{10,-12},{10,0},{10,12},{28,30},{40,30}}, color={0,0,255}, smooth=Smooth.Bezier),
-          Line(points={{90,50},{40,50},{40,-50},{90,-50}}, color={0,0,255}),
+          Line(points={{90,100},{40,100},{40,-100},{90,-100}},
+                                                           color={0,0,255}),
           Text(
-            extent={{-152,116},{148,76}},
+            extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={
-     Line(points={{-40,-30},{-28,-30},{-10,-12},{-10,0},{-10,12},{-28,30},{-40,30}}, color={0,0,255}, smooth=Smooth.Bezier),
-     Line(points={{-96,50},{-40,50},{-40,-50},{-96,-50}}, color={0,0,255}),
-     Line(points={{-30,60},{20,60}}, color={0,0,255}),
-     Polygon( points={{20,63},{30,60},{20,57},{20,63}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-     Line(points={{40,-30},{28,-30},{10,-12},{10,0},{10,12},{28,30},{40,30}}, color={0,0,255}, smooth=Smooth.Bezier),
-     Line(points={{96,50},{40,50},{40,-50},{96,-50}}, color={0,0,255})}));
+            lineColor={0,0,255}),
+          Line(
+            points={{-40,30},{-25,28},{-10,12},{-10,-12},{-26,-28},{-40,-30}},
+            color={0,0,255},
+            smooth=Smooth.Bezier),
+          Line(
+            points={{-14,30},{1,28},{16,12},{16,-12},{0,-28},{-14,-30}},
+            color={0,0,255},
+            smooth=Smooth.Bezier,
+            origin={26,0},
+            rotation=180),
+          Rectangle(extent={{-80,80},{80,-80}}, lineColor={0,0,255})}));
   end IdealGyrator;
 
   model Idle "Idle branch"
@@ -1091,7 +969,7 @@ where the constant <i>G</i> is called the gyration conductance.
 <p>The model Idle is a simple idle running branch. That means between both pins no current is running. This ideal device is of no influence on the circuit. Therefore, it can be neglected in each case. For purposes of completeness this component is part of the MSL, as an opposite of the short cut.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1099,20 +977,16 @@ where the constant <i>G</i> is called the gyration conductance.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
-            extent={{-60,60},{60,-60}},
+            extent={{-80,80},{80,-80}},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
           Line(points={{-90,0},{-41,0}}, color={0,0,255}),
           Line(points={{91,0},{40,0}}, color={0,0,255}),
           Text(
-            extent={{-153,112},{147,72}},
+            extent={{-150,130},{150,90}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Rectangle(extent={{-60,60},{60,-60}},
-            lineColor={0,0,255}),Line(points={{-96,0},{-41,0}}, color={0,0,255}),
-            Line(points={{96,0},{40,0}}, color={0,0,255})}));
+            lineColor={0,0,255})}));
   end Idle;
 
   model Short "Short cut branch"
@@ -1124,7 +998,7 @@ where the constant <i>G</i> is called the gyration conductance.
 <p>The model Short is a simple short cut branch. That means the voltage drop between both pins is zero. This device could be neglected if both pins are combined to one node. Besides connecting the nodes of both pins this device has no further function.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -1132,18 +1006,17 @@ where the constant <i>G</i> is called the gyration conductance.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
-            extent={{-60,60},{60,-60}},
+            extent={{-80,80},{80,-80}},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
           Line(points={{91,0},{-90,0}}, color={0,0,255}),
           Text(
-            extent={{-151,113},{149,73}},
+            extent={{-150,130},{150,90}},
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Rectangle(extent={{-60,60},{60,-60}},
-            lineColor={0,0,255}),Line(points={{96,0},{-96,0}}, color={0,0,255}),
+              100,100}}), graphics={
             Text(
               extent={{-100,100},{100,70}},
               textString="Short",
@@ -1155,33 +1028,35 @@ where the constant <i>G</i> is called the gyration conductance.
     Modelica.Blocks.Interfaces.BooleanInput control
       "true => switch open, false => p--n connected" annotation (Placement(
           transformation(
-          origin={0,70},
+          origin={0,120},
           extent={{-20,-20},{20,20}},
-          rotation=270)));
+          rotation=270), iconTransformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={0,120})));
   equation
     off = control;
-    annotation (
+    annotation (defaultComponentName="switch",
       Documentation(info="<html>
-<P>
+<p>
 The switching behaviour of the ideal opening switch is controlled by the input signal control: off = control.<br>
 For further details, see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSwitch\">IdealSwitch</a>.
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
-<li><i>February 7, 2016   </i>
+<li><em>February 7, 2016   </em>
        by Anton Haumer<br> extending from partial IdealSwitch<br>
        </li>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{0,51},{0,26}}, color={0,0,255}),
           Line(points={{40,20},{40,0}}, color={0,0,255}),
           Line(
             visible=useHeatPort,
@@ -1195,33 +1070,32 @@ For further details, see partial model <a href=\"modelica://Modelica.Electrical.
     Modelica.Blocks.Interfaces.BooleanInput control
       "true => p--n connected, false => switch open" annotation (Placement(
           transformation(
-          origin={0,70},
+          origin={0,120},
           extent={{-20,-20},{20,20}},
           rotation=270)));
   equation
     off = not control;
-    annotation (
+    annotation (defaultComponentName="switch",
       Documentation(info="<html>
-<P>
+<p>
 The switching behaviour of the ideal closing switch is controlled by the input signal control: off = not control.<br>
 For further details, see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSwitch\">IdealSwitch</a>.
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
-<li><i>February 7, 2016   </i>
+<li><em>February 7, 2016   </em>
        by Anton Haumer<br> extending from partial IdealSwitch<br>
        </li>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{0,51},{0,26}}, color={0,0,255}),
           Line(
             visible=useHeatPort,
             points={{0,-100},{0,25}},
@@ -1241,28 +1115,27 @@ For further details, see partial model <a href=\"modelica://Modelica.Electrical.
   equation
     off = control.v > level;
     control.i = 0;
-    annotation (
+    annotation (defaultComponentName="switch",
       Documentation(info="<html>
-<P>
+<p>
 The switching behaviour of the controlled  ideal opening switch is controlled by the control pin: off = control.v &gt; level<br>
 For further details, see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSwitch\">IdealSwitch</a>.
-</P>
+</p>
 </html>", revisions="<html>
 <ul>
-<li><i>February 7, 2016   </i>
+<li><em>February 7, 2016   </em>
        by Anton Haumer<br> extending from partial IdealSwitch<br>
        </li>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{0,90},{0,25}}, color={0,0,255}),
           Line(points={{40,20},{40,0}}, color={0,0,255}),
           Line(
             visible=useHeatPort,
@@ -1283,29 +1156,28 @@ For further details, see partial model <a href=\"modelica://Modelica.Electrical.
   equation
     off = control.v < level;
     control.i = 0;
-    annotation (
+    annotation (defaultComponentName="switch",
       Documentation(info="<html>
-<P>
+<p>
 The switching behaviour of the controlled ideal closing switch is controlled by the control pin: off = control.v &lt; level<br>
 For further details, see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSwitch\">IdealSwitch</a>.
-</P>
+</p>
 
 </html>", revisions="<html>
 <ul>
-<li><i>February 7, 2016   </i>
+<li><em>February 7, 2016   </em>
        by Anton Haumer<br> extending from partial IdealSwitch<br>
        </li>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{0,90},{0,25}}, color={0,0,255}),
           Line(
             visible=useHeatPort,
             points={{0,-100},{0,25}},
@@ -1318,17 +1190,16 @@ For further details, see partial model <a href=\"modelica://Modelica.Electrical.
     Modelica.Blocks.Interfaces.BooleanInput control
       "false => p--n connected, true => switch open" annotation (Placement(
           transformation(
-          origin={0,100},
+          origin={0,110},
           extent={{-10,-10},{10,10}},
           rotation=270)));
   equation
     off = control;
-    annotation (
+    annotation (defaultComponentName="switch",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{40,50},{32,32},{48,28},{40,18}}, color={255,0,0}),
-          Line(points={{0,90},{0,26}}, color={255,85,255}),
-          Line(points={{40,18},{40,0}})}),
+          Line(points={{40,20},{40,0}}, color={0,0,255}),
+          Line(points={{40,40},{32,30},{48,26},{40,20}}, color={255,0,0})}),
       Documentation(info="<html>
 <p>
 This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch\">IdealOpeningSwitch</a>.
@@ -1338,13 +1209,13 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>February 7, 2016   </i>
+<li><em>February 7, 2016   </em>
        by Anton Haumer<br> extending from partial IdealSwitchWithArc<br>
        </li>
-<li><i>June, 2009   </i>
+<li><em>June, 2009   </em>
        by Christoph Clauss<br> adapted to OpenerWithArc<br>
        </li>
-<li><i>May, 2009   </i>
+<li><em>May, 2009   </em>
        by Anton Haumer<br> CloserWithArc initially implemented<br>
        </li>
 </ul>
@@ -1356,16 +1227,15 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
     Modelica.Blocks.Interfaces.BooleanInput control
       "true => p--n connected, false => switch open" annotation (Placement(
           transformation(
-          origin={0,100},
+          origin={0,110},
           extent={{-10,-10},{10,10}},
           rotation=270)));
   equation
     off = not control;
-    annotation (
+    annotation (defaultComponentName="switch",
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{40,50},{32,24},{48,28},{40,0}}, color={255,0,0}),
-          Line(points={{0,90},{0,26}}, color={255,85,255})}),
+          Line(points={{40,40},{32,14},{48,22},{40,0}}, color={255,0,0})}),
       Documentation(info="<html>
 <p>
 This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a>.
@@ -1375,10 +1245,10 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>February 7, 2016   </i>
+<li><em>February 7, 2016   </em>
        by Anton Haumer<br> extending from partial IdealSwitchWithArc<br>
        </li>
-<li><i>May, 2009   </i>
+<li><em>May, 2009   </em>
        by Anton Haumer<br> initially implemented<br>
        </li>
 </ul>
@@ -1398,7 +1268,7 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
   equation
     off = control.v > level;
     control.i = 0;
-    annotation (
+    annotation (defaultComponentName="switch",
       Documentation(info="<html>
 <p>
 This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.ControlledIdealOpeningSwitch\">ControlledIdealOpeningSwitch</a>.
@@ -1408,19 +1278,18 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>February 7, 2016   </i>
+<li><em>February 7, 2016   </em>
        by Anton Haumer<br> extending from partial IdealSwitchWithArc<br>
        </li>
-<li><i>May, 2009   </i>
+<li><em>May, 2009   </em>
        by Anton Haumer<br> initially implemented<br>
        </li>
 </ul>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{0,90},{0,25}}, color={0,0,255}),
           Line(points={{40,20},{40,0}}, color={0,0,255}),
-          Line(points={{40,50},{32,34},{48,30},{40,20}}, color={255,0,0})}));
+          Line(points={{40,40},{32,30},{48,28},{40,20}}, color={255,0,0})}));
   end ControlledOpenerWithArc;
 
   model ControlledCloserWithArc
@@ -1436,7 +1305,7 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
   equation
     off = control.v < level;
     control.i = 0;
-    annotation (
+    annotation (defaultComponentName="switch",
       Documentation(info="<html>
 <p>
 This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.ControlledIdealClosingSwitch\">ControlledIdealClosingSwitch</a>.
@@ -1446,24 +1315,23 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>February 7, 2016   </i>
+<li><em>February 7, 2016   </em>
        by Anton Haumer<br> extending from partial IdealSwitchWithArc<br>
        </li>
-<li><i>May, 2009   </i>
+<li><em>May, 2009   </em>
        by Anton Haumer<br> initially implemented<br>
        </li>
 </ul>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{0,90},{0,25}}, color={0,0,255}),
-          Line(points={{40,50},{32,24},{48,28},{40,0}}, color={255,0,0})}));
+          Line(points={{40,40},{34,16},{48,24},{40,0}}, color={255,0,0})}));
   end ControlledCloserWithArc;
 
   model IdealTriac "Ideal triac, based on ideal thyristors"
 
-    parameter SI.Resistance Ron(final min=0) = 1.e-5 "Closed triac resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.e-5
+    parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed triac resistance";
+    parameter SI.Conductance Goff(final min=0) = 1e-5
       "Opened triac conductance";
     parameter SI.Voltage Vknee(
       final min=0,
@@ -1490,7 +1358,12 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
     Modelica.Electrical.Analog.Basic.Capacitor capacitor(C=Cdis)
       annotation (Placement(transformation(extent={{20,-10},{40,10}})));
     Modelica.Blocks.Interfaces.BooleanInput fire1 "Gate"
-      annotation (Placement(transformation(extent={{-74,-106},{-46,-78}})));
+      annotation (Placement(transformation(extent={{-14,-14},{14,14}},
+          rotation=90,
+          origin={-100,-114}), iconTransformation(
+          extent={{-14,-14},{14,14}},
+          rotation=90,
+          origin={-100,-114})));
     Modelica.Electrical.Analog.Interfaces.NegativePin n "Cathode"
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
     Modelica.Electrical.Analog.Interfaces.PositivePin p "Anode"
@@ -1498,54 +1371,48 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
   equation
 
     connect(idealThyristor.n, capacitor.n) annotation (Line(
-        points={{0,32},{40,32},{40,0}},
-        color={0,0,255}));
+        points={{0,32},{40,32},{40,0}}, color={0,0,255}));
     connect(capacitor.n, idealThyristor1.p) annotation (Line(
-        points={{40,0},{40,-32},{0,-32}},
-        color={0,0,255}));
+        points={{40,0},{40,-32},{0,-32}}, color={0,0,255}));
     connect(idealThyristor1.n, resistor.p) annotation (Line(
-        points={{-20,-32},{-60,-32},{-60,0}},
-        color={0,0,255}));
+        points={{-20,-32},{-60,-32},{-60,0}}, color={0,0,255}));
     connect(resistor.p, idealThyristor.p) annotation (Line(
-        points={{-60,0},{-60,32},{-20,32}},
-        color={0,0,255}));
+        points={{-60,0},{-60,32},{-20,32}}, color={0,0,255}));
     connect(resistor.n, capacitor.p) annotation (Line(
-        points={{-40,0},{20,0}},
-        color={0,0,255}));
+        points={{-40,0},{20,0}}, color={0,0,255}));
     connect(idealThyristor1.fire, fire1) annotation (Line(
-        points={{-17,-43},{-17,-92},{-60,-92}},
-        color={255,0,255}));
+        points={{-20,-44},{-20,-100},{-100,-100},{-100,-114},{-100,-114}}, color={255,0,255}));
     connect(idealThyristor.fire, fire1) annotation (Line(
-        points={{-3,43},{-3,60},{-80,60},{-80,-92},{-60,-92}},
-        color={255,0,255}));
+        points={{0,44},{0,60},{-80,60},{-80,-100},{-100,-100},{-100,-114},{-100,-114}}, color={255,0,255}));
     connect(n, idealThyristor.p) annotation (Line(
-        points={{-100,0},{-90,0},{-90,40},{-20,40},{-20,32}},
-        color={0,0,255}));
+        points={{-100,0},{-90,0},{-90,40},{-20,40},{-20,32}}, color={0,0,255}));
     connect(idealThyristor1.p, p) annotation (Line(
-        points={{0,-32},{0,-40},{80,-40},{80,0},{104,0}},
-        color={0,0,255}));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+        points={{0,-32},{0,-40},{80,-40},{80,0},{104,0}}, color={0,0,255}));
+    annotation (defaultComponentName="triac",
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Polygon(
             points={{-30,0},{-30,-100},{70,-50},{-30,0}},
-            lineColor={0,0,0}),
+            lineColor={0,0,255}),
           Polygon(
             points={{70,100},{70,0},{-30,50},{70,100}},
-            lineColor={0,0,0}),
+            lineColor={0,0,255}),
           Line(
-            points={{70,0},{70,-100}}),
+            points={{70,0},{70,-100}}, color={0,0,255}),
           Line(
-            points={{-30,0},{-30,100}}),
+            points={{-30,0},{-30,100}}, color={0,0,255}),
           Line(
-            points={{-30,0},{-90,0}}),
+            points={{-30,0},{-90,0}}, color={0,0,255}),
           Line(
-            points={{70,0},{110,0}}),
+            points={{70,0},{110,0}}, color={0,0,255}),
           Line(
-            points={{-62,-86},{-62,-56},{-30,-44}}),
+            points={{-100,-80},{-80,-80},{-30,-50}}, color={0,0,255}),
           Text(
-            extent={{-102,130},{98,100}},
+            extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255})}), Documentation(info="<html>
+            lineColor={0,0,255}),
+          Line(points={{-100,-100},{-100,-80}}, color={0,0,255})}),
+                                    Documentation(info="<html>
 <p>This is an ideal triac model based on an ideal thyristor model.</p>
 
 <p>Two ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor) are contrarily connected in parallel and additionally eliminated interference with a resistor (Rdis=100) and a capacitor (Cdis=0.005), which are connected in series.</p>
@@ -1558,23 +1425,23 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
 
 <p>Characteristics:</p>
 <ul>
-<li>high switching times between on-state and off state up to activation of the reverse current phase </li>
-<li>gate electrode are activated with (positive) impulse (called thyristor/triac firing), after firing thyristor path holds itself in state of low resistance or conductive state up to holding voltage is fallen below, it follows change to off state and next thyristor path can fire </li>
-<li>in particular by switching of inductive components triacs generate harmonic waves, whose frequency ranges into broadcast sector and could there cause transmission disturbances; therefore triacs have to eliminate interference by inductors and capacitors </li>
+<li>high switching times between on-state and off state up to activation of the reverse current phase</li>
+<li>gate electrode are activated with (positive) impulse (called thyristor/triac firing), after firing thyristor path holds itself in state of low resistance or conductive state up to holding voltage is fallen below, it follows change to off state and next thyristor path can fire</li>
+<li>in particular by switching of inductive components triacs generate harmonic waves, whose frequency ranges into broadcast sector and could there cause transmission disturbances; therefore triacs have to eliminate interference by inductors and capacitors</li>
 </ul>
 <p>Applications:</p>
 <ul>
-<li>any stepless exposure (dimmer) </li>
-<li>engine speed adjustment of electric motors </li>
-<li>further applications of phase-angle control (power electronics) </li>
-<li>power packs </li>
+<li>any stepless exposure (dimmer)</li>
+<li>engine speed adjustment of electric motors</li>
+<li>further applications of phase-angle control (power electronics)</li>
+<li>power packs</li>
 </ul>
 <p>As an additional information: this model is based on the Modelica.Electrical.Analog.Ideal.IdealThyristor.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>November 25, 2009   </i> <br>
+<li><em>November 25, 2009   </em><br>
 
-       by Susann Wolf <br><br>
+       by Susann Wolf<br><br>
        </li>
 </ul>
 </html>"));
@@ -1584,20 +1451,22 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
     import L = Modelica.Electrical.Digital.Interfaces.Logic;
     Modelica.Electrical.Analog.Interfaces.PositivePin p
       "Positive electrical pin (input)" annotation (Placement(transformation(
-            extent={{-80,60},{-60,80}}), iconTransformation(extent=
-              {{-80,60},{-60,80}})));
+            extent={{-110,90},{-90,110}}),
+                                         iconTransformation(extent={{-110,90},{-90,110}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin n
       "Negative electrical pin (input)" annotation (Placement(transformation(
-            extent={{-80,-80},{-60,-60}}), iconTransformation(
-            extent={{-80,-80},{-60,-60}})));
+            extent={{-110,-110},{-90,-90}}),
+                                           iconTransformation(
+            extent={{-110,-110},{-90,-90}})));
     Modelica.Electrical.Digital.Interfaces.DigitalOutput y[N] "Digital output"
-      annotation (Placement(transformation(extent={{60,-10},{80,10}}), iconTransformation(extent={{60,-10},{80,10}})));
+      annotation (Placement(transformation(extent={{100,-10},{120,10}}),
+                                                                       iconTransformation(extent={{100,-10},{120,10}})));
     Modelica.Electrical.Digital.Interfaces.DigitalInput trig "Trigger input"
-      annotation (Placement(transformation(extent={{-10,60},{10,80}}),
+      annotation (Placement(transformation(extent={{-8,90},{12,110}}),
           iconTransformation(
           extent={{-10,-10},{10,10}},
           rotation=-90,
-          origin={0,90})));
+          origin={0,100})));
     parameter Integer N(final min=1, start=8)
       "Resolution in bits - output signal width";
     parameter SI.Voltage VRefHigh(start=10) "High reference voltage";
@@ -1607,9 +1476,9 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
     Integer z(start=0, fixed=true);
     Real u;
 
-  initial equation
+  initial algorithm
     for i in 1:N loop
-      y[i] = L.'X';
+      y[i] := L.'X';
     end for;
 
   algorithm
@@ -1625,49 +1494,50 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
     p.v - n.v = u;
     p.i*Rin = u;
     p.i + n.i = 0;
-    annotation (Documentation(info="<html>
-<P>
+    annotation (defaultComponentName="converter", Documentation(info="<html>
+<p>
 Simple analog to digital converter with a variable resolution of n bits.
 It converts the input voltage <code>ppin.v-npin.v</code> to an n-vector of type Logic
 (9-valued logic according to IEEE 1164 STD_ULOGIC). The input resistance between positive and negative pin is determined by <code>Rin</code>.
-Further effects (like input capacities) have to be modeled outside the converter, since this should be a general model. </P>
+Further effects (like input capacities) have to be modeled outside the converter, since this should be a general model.</p>
 
-<P>
+<p>
 The input signal range (VRefLo,VRefHi) is divided into 2^n-1 equally spaced stages of length Vlsb:=(VRefHi-VRefLo)/(2^n-1).
 The output signal is the binary code of <code> k </code> as long as the input voltage takes values in the k-th stage, namely in the range from
-<code> Vlsb*(k-0.5) </code> to <code> m*(k+0.5) </code>. This is called mid-tread operation. Additionally the output can only change
-its value if the trigger signal <CODE> trig </CODE> of type Logic changes to '1' (forced or weak).
-</P>
+<code>Vlsb*(k-0.5)</code> to <code>m*(k+0.5)</code>. This is called mid-tread operation. Additionally the output can only change
+its value if the trigger signal <code>trig</code> of type Logic changes to '1' (forced or weak).
+</p>
 
-<P>
+<p>
 The output vector is a 'little-endian'. i.e., that the first bit y[1] is the least significant one (LSB).
-</P>
+</p>
 
-<P>
+<p>
 This is an abstract model of an ADC. Therefore, it can not cover the dynamic behaviour of the converter.
 Hence the output will change instantaneously when the trigger signal rises.
-</P>
+</p>
 
 </html>", revisions="<html>
 <ul>
-<li><i> October 13, 2009   </i>
+<li><em> October 13, 2009   </em>
        by Matthias Franke
        </li>
 </ul>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
-          Rectangle(extent={{-60,80},{60,-80}}, lineColor={0,0,255}),
+          Rectangle(extent={{-100,100},{100,-100}},
+                                                lineColor={0,0,255}),
           Polygon(
-            points={{-60,-80},{60,80},{60,-80},{-60,-80}},
+            points={{-98,-100},{100,98},{100,-100},{-98,-100}},
             lineColor={0,0,255},
             fillColor={127,0,127},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-60,40},{60,0}},
+            extent={{-60,50},{60,10}},
             lineColor={0,0,255},
             textString="%n-bit"),
           Text(
-            extent={{-60,0},{60,-40}},
+            extent={{-60,-10},{60,-50}},
             lineColor={0,0,255},
             textString="ADC")}));
   end AD_Converter;
@@ -1675,21 +1545,21 @@ Hence the output will change instantaneously when the trigger signal rises.
   model DA_Converter "Simple digital to analog converter"
     import L = Modelica.Electrical.Digital.Interfaces.Logic;
     Modelica.Electrical.Digital.Interfaces.DigitalInput trig "Trigger input"
-      annotation (Placement(transformation(extent={{-10,60},{10,80}}),
+      annotation (Placement(transformation(extent={{-10,92},{10,112}}),
           iconTransformation(
           extent={{-10,-10},{10,10}},
           rotation=-90,
-          origin={0,90})));
+          origin={0,100})));
     Modelica.Electrical.Digital.Interfaces.DigitalInput x[N] "Digital input"
-      annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+      annotation (Placement(transformation(extent={{-110,-10},{-90,10}}), iconTransformation(extent={{-110,-10},{-90,10}})));
     Modelica.Electrical.Analog.Interfaces.PositivePin p
       "Positive electrical pin (output)" annotation (Placement(transformation(
-            extent={{60,60},{80,80}}), iconTransformation(extent={{
-              60,60},{80,80}})));
+            extent={{90,90},{110,110}}),
+                                       iconTransformation(extent={{90,90},{110,110}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin n
       "Negative electrical pin (output)" annotation (Placement(transformation(
-            extent={{60,-80},{80,-60}}), iconTransformation(extent=
-              {{60,-80},{80,-60}})));
+            extent={{90,-110},{110,-90}}),
+                                         iconTransformation(extent={{90,-110},{110,-90}})));
 
     SI.Voltage vout(start=0, fixed=true);
     Real y(start=0, fixed=true);
@@ -1709,7 +1579,7 @@ Hence the output will change instantaneously when the trigger signal rises.
     p.v - n.v = vout;
     p.i + n.i = 0;
 
-    annotation (Documentation(info="<html>
+    annotation (defaultComponentName="converter", Documentation(info="<html>
 <p>Simple digital to analog converter with a variable input signal width of N bits. The input signal is an N-vector of type Logic (9-valued logic according to IEEE 1164 STD_ULOGIC). The output voltage of value <code>y</code> is generated by an ideal voltage source. The output can only change if the trigger signal <code>trig</code> of type Logic changes to &#39;1&#39; (forced or weak). In this case, the output voltage is calculated in the following way:
 </p>
 <pre>       N
@@ -1720,24 +1590,25 @@ Hence the output will change instantaneously when the trigger signal rises.
 <p>This is an abstract model of a DAC. Hence, it can not cover the dynamic behaviour of the converter. Therefore the output will change instantaneously when the trigger signal rises.</p>
 </html>", revisions="<html>
 <ul>
-<li><i> October 13, 2009   </i>
+<li><em> October 13, 2009   </em>
        by Matthias Franke
        </li>
 </ul>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
-          Rectangle(extent={{-60,80},{60,-80}}, lineColor={0,0,255}),
+          Rectangle(extent={{-100,100},{100,-100}},
+                                                lineColor={0,0,255}),
           Polygon(
-            points={{-60,-80},{60,80},{-60,80},{-60,-80}},
+            points={{-100,-100},{100,100},{-100,100},{-100,-100}},
             lineColor={0,0,255},
             fillColor={127,0,127},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-60,40},{60,0}},
+            extent={{-60,50},{60,10}},
             lineColor={0,0,255},
             textString="%n-bit"),
           Text(
-            extent={{-60,0},{60,-40}},
+            extent={{-60,-10},{60,-50}},
             lineColor={0,0,255},
             textString="DAC")}));
   end DA_Converter;
@@ -1746,11 +1617,11 @@ Hence the output will change instantaneously when the trigger signal rises.
 </html>", revisions="<html>
 <dl>
 <dt>
-<b>Main Authors:</b>
+<strong>Main Authors:</strong>
 </dt>
 <dd>
 Christoph Clau&szlig;
-    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
+    &lt;<a href=\"mailto:christoph@clauss-it.com\">christoph@clauss-it.com</a>&gt;<br>
     Andr&eacute; Schneider
     &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>
@@ -1758,17 +1629,11 @@ Christoph Clau&szlig;
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden
 </dd>
-<dt>
-<b>Copyright:</b>
-</dt>
-<dd>
-Copyright &copy; 1998-2016, Modelica Association and Fraunhofer-Gesellschaft.<br>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".</i>
-</dd>
 </dl>
+
+<p>
+Copyright &copy; 1998-2019, Modelica Association and contributors
+</p>
 </html>"), Icon(graphics={
         Line(points={{-90,0},{-40,0}}),
         Line(points={{-40,0},{32,60}}),

@@ -6,15 +6,15 @@ model ForceAndTorque "Demonstrate usage of ForceAndTorque element"
   Parts.BodyCylinder body(r={1,0,0}) annotation (Placement(transformation(
           extent={{0,30},{20,50}})));
   Parts.Fixed fixed1(r={0,-0.5,0}, width=0.03)
-    annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
+    annotation (Placement(transformation(extent={{-100,-10},{-80,10}})));
   Parts.FixedRotation fixedRotation(n={0,0,1}, angle=30)
-    annotation (Placement(transformation(extent={{-8,-30},{12,-10}})));
+    annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
   Forces.ForceAndTorque forceAndTorque(Nm_to_m=120, N_to_m=1200,
     resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
     annotation (Placement(transformation(extent={{60,50},{40,30}})));
   Joints.Revolute revolute2(n={0,1,0},
     phi(fixed=true),
-    w(fixed=true))        annotation (Placement(transformation(
+    w(fixed=true)) annotation (Placement(transformation(
         origin={-20,20},
         extent={{-10,-10},{10,10}},
         rotation=90)));
@@ -44,7 +44,7 @@ equation
       thickness=0.5));
   connect(fixed1.frame_b, revolute1.frame_a)
     annotation (Line(
-      points={{-70,0},{-60,0}},
+      points={{-80,0},{-60,0}},
       color={95,95,95},
       thickness=0.5));
   connect(revolute1.frame_b, revolute2.frame_a)
@@ -58,19 +58,18 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(fixedRotation.frame_a, fixed1.frame_b) annotation (Line(
-      points={{-8,-20},{-65,-20},{-65,0},{-70,0}},
+      points={{-20,-30},{-71,-30},{-71,0},{-80,0}},
       color={95,95,95},
       thickness=0.5));
   connect(forceAndTorque.frame_resolve, fixedRotation.frame_b) annotation (Line(
-      points={{42,30},{42,30},{20,30},{20,-20},{12,-20}},
+      points={{42,30},{20,30},{20,-30},{0,-30}},
       color={95,95,95},
-      pattern=LinePattern.Dot));
+      pattern=LinePattern.Dot,
+      thickness=0.5));
   connect(force.y, forceAndTorque.force) annotation (Line(
-      points={{80,1},{80,10},{58,10},{58,28}},
-      color={0,0,127}));
+      points={{80,1},{80,10},{58,10},{58,28}}, color={0,0,127}));
   connect(torque.y, forceAndTorque.torque) annotation (Line(
-      points={{40,1},{40,10},{50,10},{50,28}},
-      color={0,0,127}));
+      points={{40,1},{40,10},{50,10},{50,28}}, color={0,0,127}));
   annotation (
     Documentation(info="<html>
 <p>
@@ -92,6 +91,6 @@ are proportional to the lengths of the force and torque vectors
 (constant scaling factors are defined as parameters in the
 forceAndTorque component):
 </p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceAndTorque.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceAndTorque.png\">
 </html>"), experiment(StopTime=1.01));
 end ForceAndTorque;

@@ -24,7 +24,7 @@ equation
           fillPattern=FillPattern.Solid,
           lineColor={0,0,255}),
         Text(
-          extent={{-150,97},{150,67}},
+          extent={{-170,110},{150,70}},
           lineColor={0,0,255},
           textString="%name")}),
     Diagram(coordinateSystem(

@@ -33,14 +33,11 @@ model StaticPipe
     annotation (Placement(transformation(extent={{-56,4},{-44,16}})));
 equation
   connect(pipe1.port_b, sink.ports[1]) annotation (Line(
-      points={{10,10},{44,10}},
-      color={0,127,255}));
+      points={{10,10},{44,10}}, color={0,127,255}));
   connect(source.ports[1], pipe1.port_a) annotation (Line(
-      points={{-44,10},{-10,10}},
-      color={0,127,255}));
+      points={{-44,10},{-10,10}}, color={0,127,255}));
   connect(p_table.y, source.p_in) annotation (Line(
-      points={{-69,30},{-62,30},{-62,14.8},{-57.2,14.8}},
-      color={0,0,127}));
+      points={{-69,30},{-62,30},{-62,14.8},{-57.2,14.8}}, color={0,0,127}));
   annotation (
     experiment(StopTime=10, Interval=1e-3),
     Documentation(info="<html>

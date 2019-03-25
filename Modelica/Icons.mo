@@ -32,22 +32,18 @@ package Icons "Library of icons"
               -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,70},{100,-72}},
-            lineColor={0,0,0},
             fillColor={235,235,235},
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{-100,-72},{100,-72},{0,20},{-100,-72}},
-            lineColor={0,0,0},
             fillColor={215,215,215},
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{22,0},{100,70},{100,-72},{22,0}},
-            lineColor={0,0,0},
             fillColor={235,235,235},
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{-100,70},{100,70},{0,-20},{-100,70}},
-            lineColor={0,0,0},
             fillColor={241,241,241},
             fillPattern=FillPattern.Solid)}),
                               Documentation(info="<html>
@@ -62,24 +58,20 @@ package Icons "Library of icons"
           Polygon(
             points={{-80,-100},{-80,100},{0,100},{0,20},{80,20},{80,-100},{-80,
                 -100}},
-            lineColor={0,0,0},
             fillColor={245,245,245},
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{0,100},{80,20},{0,20},{0,100}},
-            lineColor={0,0,0},
             fillColor={215,215,215},
             fillPattern=FillPattern.Solid),
           Line(points={{2,-12},{50,-12}}),
           Ellipse(
             extent={{-56,2},{-28,-26}},
-            lineColor={0,0,0},
             fillColor={215,215,215},
             fillPattern=FillPattern.Solid),
           Line(points={{2,-60},{50,-60}}),
           Ellipse(
             extent={{-56,-46},{-28,-74}},
-            lineColor={0,0,0},
             fillColor={215,215,215},
             fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>This icon indicates release notes and the revision history of a library.</p>
@@ -98,8 +90,7 @@ package Icons "Library of icons"
             pattern=LinePattern.None,
             fillColor={245,245,245},
             fillPattern=FillPattern.Solid),
-          Polygon(points={{-20,-100},{-10,-80},{90,-80},{100,-100},{-20,-100}},
-              lineColor={0,0,0}),
+          Polygon(points={{-20,-100},{-10,-80},{90,-80},{100,-100},{-20,-100}}),
           Line(points={{90,-80},{90,60},{100,40},{100,-100}}),
           Line(points={{90,60},{-10,60},{-10,-80}}),
           Line(points={{-10,60},{-40,100},{-40,-40},{-10,-80},{-10,60}}),
@@ -158,7 +149,7 @@ package Icons "Library of icons"
           Rectangle(
             lineColor={128,128,128},
             extent={{-100.0,-100.0},{100.0,100.0}},
-            radius=25.0)}),   Documentation(info="<html>
+            radius=25.0)}), Documentation(info="<html>
 <p>Standard package icon.</p>
 </html>"));
   end Package;
@@ -180,7 +171,7 @@ package Icons "Library of icons"
   partial package VariantsPackage "Icon for package containing variants"
     extends Modelica.Icons.Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-              {100,100}}),       graphics={
+              {100,100}}), graphics={
           Ellipse(
             origin={10.0,10.0},
             fillColor={76,76,76},
@@ -311,8 +302,7 @@ package Icons "Library of icons"
             points={{12.167,65},{14.167,93},{36.167,89},{24.167,20},{4.167,-30},
                 {14.167,-30},{24.167,-30},{24.167,-40},{-5.833,-50},{-15.833,
                 -30},{4.167,20},{12.167,65}},
-            smooth=Smooth.Bezier,
-            lineColor={0,0,0}), Polygon(
+            smooth=Smooth.Bezier), Polygon(
             origin={2.7403,1.6673},
             fillColor={128,128,128},
             pattern=LinePattern.None,
@@ -344,14 +334,12 @@ package Icons "Library of icons"
             points={{-15.833,20.0},{-15.833,30.0},{14.167,40.0},{24.167,20.0},{
                 4.167,-30.0},{14.167,-30.0},{24.167,-30.0},{24.167,-40.0},{-5.833,
                 -50.0},{-15.833,-30.0},{4.167,20.0},{-5.833,20.0}},
-            smooth=Smooth.Bezier,
-            lineColor={0,0,0}), Ellipse(
+            smooth=Smooth.Bezier), Ellipse(
             origin={-0.5,56.5},
             fillColor={128,128,128},
             pattern=LinePattern.None,
             fillPattern=FillPattern.Solid,
-            extent={{-12.5,-12.5},{12.5,12.5}},
-            lineColor={0,0,0})}));
+            extent={{-12.5,-12.5},{12.5,12.5}})}));
   end IconsPackage;
 
   partial package InternalPackage
@@ -411,6 +399,33 @@ directly utilized by a user.
 </html>"));
   end MaterialPropertiesPackage;
 
+  partial package RecordsPackage "Icon for package containing records"
+    extends Modelica.Icons.Package;
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
+          Rectangle(
+            origin={0,-20},
+            lineColor={64,64,64},
+            fillColor={255,215,136},
+            fillPattern=FillPattern.Solid,
+            extent={{-80,-60},{80,60}},
+            radius=25.0),
+          Line(
+            points={{-80,0},{80,0}},
+            color={64,64,64}),
+          Line(
+            origin={0,-40},
+            points={{-80,0},{80,0}},
+            color={64,64,64}),
+          Line(
+            origin={0,-5},
+            points={{0,45},{0,-75}},
+            color={64,64,64})}),
+                              Documentation(info="<html>
+<p>This icon indicates a package that contains records</p>
+</html>"));
+  end RecordsPackage;
+
   partial class MaterialProperty "Icon for property classes"
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}), graphics={
@@ -454,7 +469,7 @@ directly utilized by a user.
             extent={{-7.0,-7.0},{7.0,7.0}})}),
       Documentation(info="<html>
 <p>
-This icon is designed for a <b>rotational sensor</b> model.
+This icon is designed for a <strong>rotational sensor</strong> model.
 </p>
 </html>"));
   end RotationalSensor;
@@ -482,7 +497,7 @@ This icon is designed for a <b>rotational sensor</b> model.
           Line(points={{50.0,-40.0},{50.0,-60.0}})}),
       Documentation(info="<html>
 <p>
-This icon is designed for a <b>translational sensor</b> model.
+This icon is designed for a <strong>translational sensor</strong> model.
 </p></html>"));
   end TranslationalSensor;
 
@@ -531,7 +546,7 @@ This icon is designed for a <b>translational sensor</b> model.
           Line(
             origin={0.0,-25.0},
             points={{0.0,75.0},{0.0,-75.0}},
-            color={64,64,64})}),                        Documentation(info="<html>
+            color={64,64,64})}), Documentation(info="<html>
 <p>
 This icon is indicates a record.
 </p>
@@ -559,7 +574,8 @@ built-in base classes Real, Integer etc. Instead for Complex, an icon is already
 definition (which is not possible for the built-in classes). Therefore, TypeComplex is just an alias
 to Complex and is therefore superfluous.
 </p>
-</html>"));
+</html>"),
+    obsolete = "Obsolete operator record - use Complex instead");
 
   type TypeReal "Icon for Real types"
       extends Real;
@@ -575,7 +591,7 @@ to Complex and is therefore superfluous.
               extent={{-90.0,-50.0},{90.0,50.0}},
               textString="R")}),Documentation(info="<html>
 <p>
-This icon is designed for a <b>Real</b> type.
+This icon is designed for a <strong>Real</strong> type.
 </p>
 </html>"));
   end TypeReal;
@@ -594,7 +610,7 @@ This icon is designed for a <b>Real</b> type.
               extent={{-90.0,-50.0},{90.0,50.0}},
               textString="I")}),Documentation(info="<html>
 <p>
-This icon is designed for an <b>Integer</b> type.
+This icon is designed for an <strong>Integer</strong> type.
 </p>
 </html>"));
   end TypeInteger;
@@ -614,7 +630,7 @@ This icon is designed for an <b>Integer</b> type.
               textString="B")}),
    Documentation(info="<html>
 <p>
-This icon is designed for a <b>Boolean</b> type.
+This icon is designed for a <strong>Boolean</strong> type.
 </p></html>"));
   end TypeBoolean;
 
@@ -632,7 +648,7 @@ This icon is designed for a <b>Boolean</b> type.
               extent={{-90.0,-50.0},{90.0,50.0}},
               textString="S")}),Documentation(info="<html>
 <p>
-This icon is designed for a <b>String</b> type.
+This icon is designed for a <strong>String</strong> type.
 </p>
 </html>"));
   end TypeString;
@@ -671,41 +687,29 @@ This icon is designed for a <b>String</b> type.
           initialScale=0.2), graphics={
           Polygon(
             points={{-40,25},{40,25},{50,15},{40,-20},{30,-25},{-30,-25},{-40,-20},{-50,15}},
-            lineColor={0,0,0},
             fillColor={255,204,51},
             fillPattern=FillPattern.Solid,
             smooth=Smooth.Bezier),
           Ellipse(
             extent={{-32.5,7.5},{-27.5,12.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-2.5,12.5},{2.5,7.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{27.5,12.5},{32.5,7.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-17.5,-7.5},{-12.5,-12.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{12.5,-7.5},{17.5,-12.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-150,70},{150,40}},
-            lineColor={0,0,0},
             textString="%name")}),
       Documentation(info="<html>
-This icon is designed for a <b>signal bus</b> connector.
+This icon is designed for a <strong>signal bus</strong> connector.
 </html>"));
   end SignalBus;
 
@@ -744,33 +748,25 @@ This icon is designed for a <b>signal bus</b> connector.
           extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-40,25},{40,25},{50,15},{40,-20},{30,-25},{-30,-25},{-40,-20},{-50,15}},
-            lineColor={0,0,0},
             fillColor={255,204,51},
             fillPattern=FillPattern.Solid,
             smooth=Smooth.Bezier),
           Ellipse(
             extent={{-22.5,7.5},{-17.5,12.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{17.5,12.5},{22.5,7.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-2.5,-7.5},{2.5,-12.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-150,70},{150,40}},
-            lineColor={0,0,0},
             textString=
                  "%name")}),
       Documentation(info="<html>
 <p>
-This icon is designed for a <b>sub-bus</b> in a signal connector.
+This icon is designed for a <strong>sub-bus</strong> in a signal connector.
 </p>
 </html>"));
 
@@ -806,7 +802,7 @@ corresponding library in a future release.
 
   partial package Library
     "This icon will be removed in future Modelica versions, use Package instead"
-    // extends Modelica.Icons.ObsoleteModel;
+    extends Modelica.Icons.ObsoleteModel;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             lineColor={200,200,200},
@@ -817,16 +813,17 @@ corresponding library in a future release.
           Rectangle(
             lineColor={128,128,128},
             extent={{-100.0,-100.0},{100.0,100.0}},
-            radius=25.0)}),   Documentation(info="<html>
+            radius=25.0)}), Documentation(info="<html>
 <p>This icon of a package will be removed in future versions of the library.</p>
 <h5>Note</h5>
 <p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Package\">Package</a> shall be used.</p>
-</html>"));
+</html>"),
+    obsolete = "Obsolete package - use Modelica.Icons.Package instead");
   end Library;
 
   partial package Library2
     "This icon will be removed in future Modelica versions, use Package instead"
-    // extends Modelica.Icons.ObsoleteModel;
+    extends Modelica.Icons.ObsoleteModel;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
@@ -838,17 +835,18 @@ corresponding library in a future release.
           Rectangle(
             lineColor={128,128,128},
             extent={{-100.0,-100.0},{100.0,100.0}},
-            radius=25.0)}),   Documentation(info="<html>
+            radius=25.0)}), Documentation(info="<html>
 <p>This icon of a package will be removed in future versions of the library.</p>
 <h5>Note</h5>
-<p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Package\">Package</a> shall be used.</p></html>"));
+<p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Package\">Package</a> shall be used.</p></html>"),
+    obsolete = "Obsolete package - use Modelica.Icons.Package instead");
   end Library2;
 
   partial class GearIcon
     "This icon will be removed in future Modelica versions"
-    // extends Modelica.Icons.ObsoleteModel;
+    extends Modelica.Icons.ObsoleteModel;
 
-    annotation (             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             lineColor={64,64,64},
             fillColor={255,255,255},
@@ -879,16 +877,17 @@ corresponding library in a future release.
             points={{-60.0,-90.0},{-50.0,-90.0},{-20.0,-30.0},{20.0,-30.0},{48.0,-90.0},{60.0,-90.0},{60.0,-100.0},{-60.0,-100.0},{-60.0,-90.0}})}),
       Documentation(info="<html>
 <p>
-This icon of a <b>gearbox</b> will be removed in future versions of the library. Please use one of the icons of <a href=\"modelica://Modelica.Mechanics.Rotational.Icons\">Mechanics.Rotational.Icons</a> instead.
+This icon of a <strong>gearbox</strong> will be removed in future versions of the library. Please use one of the icons of <a href=\"modelica://Modelica.Mechanics.Rotational.Icons\">Mechanics.Rotational.Icons</a> instead.
 </p>
-</html>"));
+</html>"),
+    obsolete = "Obsolete class - use Modelica.Mechanics.Rotational.Icons instead");
   end GearIcon;
 
   partial class MotorIcon
     "This icon will be removed in future Modelica versions."
-    // extends Modelica.Icons.ObsoleteModel;
+    extends Modelica.Icons.ObsoleteModel;
 
-    annotation (             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             lineColor={82,0,2},
             fillColor={252,37,57},
@@ -906,13 +905,14 @@ This icon of a <b>gearbox</b> will be removed in future versions of the library.
             extent={{30.0,-10.0},{90.0,10.0}})}),
       Documentation(info="<html>
 <p>
-This icon of an <b>electrical motor</b> model will be removed in future versions of the library. Please use a locally defined icon in your user defined libraries and applications.
+This icon of an <strong>electrical motor</strong> model will be removed in future versions of the library. Please use a locally defined icon in your user defined libraries and applications.
 </p>
-</html>"));
+</html>"),
+    obsolete = "Obsolete class");
   end MotorIcon;
 
   partial class Info "This icon will be removed in future Modelica versions."
-    // extends Modelica.Icons.ObsoleteModel;
+    extends Modelica.Icons.ObsoleteModel;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             lineColor={75,138,73},
@@ -936,7 +936,8 @@ This icon of an <b>electrical motor</b> model will be removed in future versions
                               Documentation(info="<html>
 <p>This icon indicate classes containing only documentation, intended for general description of e.g., concepts and features of a package.</p>
 <h5>Note</h5>
-<p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Information\">Information</a> shall be used.</p></html>"));
+<p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Information\">Information</a> shall be used.</p></html>"),
+    obsolete = "Obsolete class - use Modelica.Icons.Information instead");
   end Info;
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={Polygon(
@@ -947,15 +948,13 @@ This icon of an <b>electrical motor</b> model will be removed in future versions
             points={{-15.833,20.0},{-15.833,30.0},{14.167,40.0},{24.167,20.0},{
                 4.167,-30.0},{14.167,-30.0},{24.167,-30.0},{24.167,-40.0},{-5.833,
                 -50.0},{-15.833,-30.0},{4.167,20.0},{-5.833,20.0}},
-            smooth=Smooth.Bezier,
-            lineColor={0,0,0}), Ellipse(
+            smooth=Smooth.Bezier), Ellipse(
             origin={-0.5,56.5},
             fillColor={128,128,128},
             pattern=LinePattern.None,
             fillPattern=FillPattern.Solid,
-            extent={{-12.5,-12.5},{12.5,12.5}},
-            lineColor={0,0,0})}), Documentation(info="<html>
-<p>This package contains definitions for the graphical layout of components which may be used in different libraries. The icons can be utilized by inheriting them in the desired class using &quot;extends&quot; or by directly copying the &quot;icon&quot; layer. </p>
+            extent={{-12.5,-12.5},{12.5,12.5}})}), Documentation(info="<html>
+<p>This package contains definitions for the graphical layout of components which may be used in different libraries. The icons can be utilized by inheriting them in the desired class using &quot;extends&quot; or by directly copying the &quot;icon&quot; layer.</p>
 
 <h4>Main Authors:</h4>
 
@@ -968,7 +967,7 @@ This icon of an <b>electrical motor</b> model will be removed in future versions
     <dd>email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a></dd>
 <dt>Christian Kral</dt>
 
-    <dd>  <a href=\"http://christiankral.net/\">Electric Machines, Drives and Systems</a><br>
+    <dd>  <a href=\"https://christiankral.net/\">Electric Machines, Drives and Systems</a><br>
 </dd>
     <dd>1060 Vienna, Austria</dd>
     <dd>email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a></dd>
@@ -979,7 +978,8 @@ This icon of an <b>electrical motor</b> model will be removed in future versions
     <dd>email: <a href=\"mailto:johan.andreasson@modelon.se\">johan.andreasson@modelon.se</a></dd>
 </dl>
 
-<p>Copyright &copy; 1998-2016, Modelica Association, DLR, AIT, and Modelon AB. </p>
-<p><i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified under the terms of the <b>Modelica license</b>, see the license conditions and the accompanying <b>disclaimer</b> in <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a>.</i> </p>
+<p>
+Copyright &copy; 1998-2019, Modelica Association and contributors
+</p>
 </html>"));
 end Icons;

@@ -1,5 +1,5 @@
 within ModelicaTest.Tables;
-package CombiTable1Ds
+package CombiTable1Ds "Test models for Modelica.Blocks.Tables.CombiTable1Ds"
   import Modelica.Utilities.Files.loadResource;
   extends Modelica.Icons.ExamplesPackage;
 
@@ -16,8 +16,7 @@ package CombiTable1Ds
         color={0,0,127},
         thickness=0.0625));
     connect(clock.y, t_new.u) annotation (Line(
-        points={{-59,10},{-43,10}},
-        color={0,0,127}));
+        points={{-59,10},{-43,10}}, color={0,0,127}));
   end Test0;
 
   model Test1 "Single row, t_min = 0"
@@ -311,4 +310,13 @@ double mydummyfunc(double* dummy_in) {
       smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative2));
     annotation (experiment(StartTime=7.99, StopTime=20));
   end Test32;
+
+  model Test33 "Text file with UTF-8 BOM and comments (Ticket #2404)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+        tableOnFile=true,
+        tableName="a",
+        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_utf8.txt")));
+    annotation (experiment(StartTime=0, StopTime=100));
+  end Test33;
 end CombiTable1Ds;

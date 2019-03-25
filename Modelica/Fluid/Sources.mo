@@ -21,20 +21,19 @@ package Sources "Define fixed or prescribed boundary conditions"
     parameter Boolean use_T=true "select T or h"
       annotation (Evaluate = true,
                   Dialog(group = "Boundary temperature or Boundary specific enthalpy"));
-    parameter Medium.Temperature T=Medium.T_default "Boundary temperature"
+    parameter Medium.Temperature T = Medium.T_default "Boundary temperature"
       annotation (Dialog(group = "Boundary temperature or Boundary specific enthalpy",
                          enable = use_T));
-    parameter Medium.SpecificEnthalpy h=Medium.h_default
+    parameter Medium.SpecificEnthalpy h = Medium.h_default
       "Boundary specific enthalpy"
       annotation (Dialog(group="Boundary temperature or Boundary specific enthalpy",
                   enable = not use_T));
     parameter Medium.MassFraction X[Medium.nX](
-         quantity=Medium.substanceNames)=Medium.X_default
+         quantity=Medium.substanceNames) = Medium.X_default
       "Boundary mass fractions m_i/m"
       annotation (Dialog(group = "Only for multi-substance flow", enable=Medium.nXi > 0));
-
     parameter Medium.ExtraProperty C[Medium.nC](
-         quantity=Medium.extraPropertiesNames)=fill(0, Medium.nC)
+         quantity=Medium.extraPropertiesNames) = Medium.C_default
       "Boundary trace substances"
       annotation (Dialog(group = "Only for trace-substance flow", enable=Medium.nC > 0));
   protected
@@ -101,7 +100,6 @@ package Sources "Define fixed or prescribed boundary conditions"
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={Ellipse(
             extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={0,127,255}), Text(
             extent={{-150,110},{150,150}},
@@ -109,7 +107,7 @@ package Sources "Define fixed or prescribed boundary conditions"
             lineColor={0,0,255})}),
       Documentation(info="<html>
 <p>
-Model <b>FixedBoundary</b> defines constant values for boundary conditions:
+Model <strong>FixedBoundary</strong> defines constant values for boundary conditions:
 </p>
 <ul>
 <li> Boundary pressure or boundary density.</li>
@@ -145,21 +143,17 @@ with exception of boundary pressure, do not have an effect.
       annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Medium.AbsolutePressure p = Medium.p_default
       "Fixed value of pressure"
-      annotation (Evaluate = true,
-                  Dialog(enable = not use_p_in));
+      annotation (Dialog(enable = not use_p_in));
     parameter Medium.Temperature T = Medium.T_default
       "Fixed value of temperature"
-      annotation (Evaluate = true,
-                  Dialog(enable = not use_T_in));
+      annotation (Dialog(enable = not use_T_in));
     parameter Medium.MassFraction X[Medium.nX] = Medium.X_default
       "Fixed value of composition"
-      annotation (Evaluate = true,
-                  Dialog(enable = (not use_X_in) and Medium.nXi > 0));
+      annotation (Dialog(enable = (not use_X_in) and Medium.nXi > 0));
     parameter Medium.ExtraProperty C[Medium.nC](
-         quantity=Medium.extraPropertiesNames)=fill(0, Medium.nC)
+         quantity=Medium.extraPropertiesNames) = Medium.C_default
       "Fixed values of trace substances"
-      annotation (Evaluate=true,
-                  Dialog(enable = (not use_C_in) and Medium.nC > 0));
+      annotation (Dialog(enable = (not use_C_in) and Medium.nC > 0));
     Modelica.Blocks.Interfaces.RealInput p_in if use_p_in
       "Prescribed boundary pressure"
       annotation (Placement(transformation(extent={{-140,60},{-100,100}})));
@@ -215,7 +209,6 @@ with exception of boundary pressure, do not have an effect.
           extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={0,127,255}),
           Text(
@@ -241,22 +234,18 @@ with exception of boundary pressure, do not have an effect.
           Text(
             visible=use_p_in,
             extent={{-152,134},{-68,94}},
-            lineColor={0,0,0},
             textString="p"),
           Text(
             visible=use_X_in,
             extent={{-164,4},{-62,-36}},
-            lineColor={0,0,0},
             textString="X"),
           Text(
             visible=use_C_in,
             extent={{-164,-90},{-62,-130}},
-            lineColor={0,0,0},
             textString="C"),
           Text(
             visible=use_T_in,
             extent={{-162,34},{-60,-6}},
-            lineColor={0,0,0},
             textString="T")}),
       Documentation(info="<html>
 <p>
@@ -298,21 +287,17 @@ with exception of boundary pressure, do not have an effect.
       annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Medium.AbsolutePressure p = Medium.p_default
       "Fixed value of pressure"
-      annotation (Evaluate = true,
-                  Dialog(enable = not use_p_in));
+      annotation (Dialog(enable = not use_p_in));
     parameter Medium.SpecificEnthalpy h = Medium.h_default
       "Fixed value of specific enthalpy"
-      annotation (Evaluate = true,
-                  Dialog(enable = not use_h_in));
+      annotation (Dialog(enable = not use_h_in));
     parameter Medium.MassFraction X[Medium.nX] = Medium.X_default
       "Fixed value of composition"
-      annotation (Evaluate = true,
-                  Dialog(enable = (not use_X_in) and Medium.nXi > 0));
+      annotation (Dialog(enable = (not use_X_in) and Medium.nXi > 0));
     parameter Medium.ExtraProperty C[Medium.nC](
-         quantity=Medium.extraPropertiesNames)=fill(0, Medium.nC)
+         quantity=Medium.extraPropertiesNames) = Medium.C_default
       "Fixed values of trace substances"
-      annotation (Evaluate=true,
-                  Dialog(enable = (not use_C_in) and Medium.nC > 0));
+      annotation (Dialog(enable = (not use_C_in) and Medium.nC > 0));
     Modelica.Blocks.Interfaces.RealInput p_in if use_p_in
       "Prescribed boundary pressure"
       annotation (Placement(transformation(extent={{-140,60},{-100,100}})));
@@ -368,7 +353,6 @@ with exception of boundary pressure, do not have an effect.
           extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={0,127,255}),
           Text(
@@ -394,22 +378,18 @@ with exception of boundary pressure, do not have an effect.
           Text(
             visible=use_p_in,
             extent={{-150,134},{-72,94}},
-            lineColor={0,0,0},
             textString="p"),
           Text(
             visible=use_h_in,
             extent={{-166,34},{-64,-6}},
-            lineColor={0,0,0},
             textString="h"),
           Text(
             visible=use_X_in,
             extent={{-164,4},{-62,-36}},
-            lineColor={0,0,0},
             textString="X"),
           Text(
             visible=use_C_in,
             extent={{-164,-90},{-62,-130}},
-            lineColor={0,0,0},
             textString="C")}),
       Documentation(info="<html>
 <p>
@@ -451,21 +431,17 @@ with exception of boundary pressure, do not have an effect.
       annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Medium.MassFlowRate m_flow = 0
       "Fixed mass flow rate going out of the fluid port"
-      annotation (Evaluate = true,
-                  Dialog(enable = not use_m_flow_in));
+      annotation (Dialog(enable = not use_m_flow_in));
     parameter Medium.Temperature T = Medium.T_default
       "Fixed value of temperature"
-      annotation (Evaluate = true,
-                  Dialog(enable = not use_T_in));
+      annotation (Dialog(enable = not use_T_in));
     parameter Medium.MassFraction X[Medium.nX] = Medium.X_default
       "Fixed value of composition"
-      annotation (Evaluate = true,
-                  Dialog(enable = (not use_X_in) and Medium.nXi > 0));
+      annotation (Dialog(enable = (not use_X_in) and Medium.nXi > 0));
     parameter Medium.ExtraProperty C[Medium.nC](
-         quantity=Medium.extraPropertiesNames)=fill(0, Medium.nC)
+         quantity=Medium.extraPropertiesNames) = Medium.C_default
       "Fixed values of trace substances"
-      annotation (Evaluate=true,
-                  Dialog(enable = (not use_C_in) and Medium.nC > 0));
+      annotation (Dialog(enable = (not use_C_in) and Medium.nC > 0));
     Modelica.Blocks.Interfaces.RealInput m_flow_in if     use_m_flow_in
       "Prescribed mass flow rate"
       annotation (Placement(transformation(extent={{-120,60},{-80,100}}), iconTransformation(extent={{-120,60},{-80,100}})));
@@ -523,7 +499,6 @@ with exception of boundary pressure, do not have an effect.
           extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{35,45},{100,-45}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={0,127,255}),
           Ellipse(
@@ -552,22 +527,18 @@ with exception of boundary pressure, do not have an effect.
           Text(
             visible=use_m_flow_in,
             extent={{-185,132},{-45,100}},
-            lineColor={0,0,0},
             textString="m_flow"),
           Text(
             visible=use_T_in,
             extent={{-111,71},{-71,37}},
-            lineColor={0,0,0},
             textString="T"),
           Text(
             visible=use_X_in,
             extent={{-153,-44},{-33,-72}},
-            lineColor={0,0,0},
             textString="X"),
           Text(
             visible=use_C_in,
             extent={{-155,-98},{-35,-126}},
-            lineColor={0,0,0},
             textString="C")}),
       Documentation(info="<html>
 <p>
@@ -609,21 +580,17 @@ with exception of boundary flow rate, do not have an effect.
       annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Medium.MassFlowRate m_flow = 0
       "Fixed mass flow rate going out of the fluid port"
-      annotation (Evaluate = true,
-                  Dialog(enable = not use_m_flow_in));
+      annotation (Dialog(enable = not use_m_flow_in));
     parameter Medium.SpecificEnthalpy h = Medium.h_default
       "Fixed value of specific enthalpy"
-      annotation (Evaluate = true,
-                  Dialog(enable = not use_h_in));
+      annotation (Dialog(enable = not use_h_in));
     parameter Medium.MassFraction X[Medium.nX] = Medium.X_default
       "Fixed value of composition"
-      annotation (Evaluate = true,
-                  Dialog(enable = (not use_X_in) and Medium.nXi > 0));
+      annotation (Dialog(enable = (not use_X_in) and Medium.nXi > 0));
     parameter Medium.ExtraProperty C[Medium.nC](
-         quantity=Medium.extraPropertiesNames)=fill(0, Medium.nC)
+         quantity=Medium.extraPropertiesNames) = Medium.C_default
       "Fixed values of trace substances"
-      annotation (Evaluate=true,
-                  Dialog(enable = (not use_C_in) and Medium.nC > 0));
+      annotation (Dialog(enable = (not use_C_in) and Medium.nC > 0));
     Modelica.Blocks.Interfaces.RealInput m_flow_in if     use_m_flow_in
       "Prescribed mass flow rate"
       annotation (Placement(transformation(extent={{-120,60},{-80,100}})));
@@ -681,7 +648,6 @@ with exception of boundary flow rate, do not have an effect.
           extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{36,45},{100,-45}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={0,127,255}),
           Ellipse(
@@ -706,22 +672,18 @@ with exception of boundary flow rate, do not have an effect.
           Text(
             visible=use_m_flow_in,
             extent={{-185,132},{-45,100}},
-            lineColor={0,0,0},
             textString="m_flow"),
           Text(
             visible=use_h_in,
             extent={{-113,72},{-73,38}},
-            lineColor={0,0,0},
             textString="h"),
           Text(
             visible=use_X_in,
             extent={{-153,-44},{-33,-72}},
-            lineColor={0,0,0},
             textString="X"),
           Text(
             visible=use_X_in,
             extent={{-155,-98},{-35,-126}},
-            lineColor={0,0,0},
             textString="C"),
           Text(
             extent={{-150,110},{150,150}},
@@ -775,7 +737,7 @@ with exception of boundary flow rate, do not have an effect.
     protected
     parameter Types.PortFlowDirection flowDirection=
                      Types.PortFlowDirection.Bidirectional
-        "Allowed flow direction"             annotation(Evaluate=true, Dialog(tab="Advanced"));
+        "Allowed flow direction" annotation(Evaluate=true, Dialog(tab="Advanced"));
   equation
     // Only one connection allowed to a port to avoid unwanted ideal mixing
     for i in 1:nPorts loop
@@ -793,7 +755,7 @@ of the modeller. Increase nPorts to add an additional port.
 
     annotation (defaultComponentName="boundary", Documentation(info="<html>
 <p>
-Partial component to model the <b>volume interface</b> of a <b>source</b>
+Partial component to model the <strong>volume interface</strong> of a <strong>source</strong>
 component, such as a mass flow source. The essential
 features are:
 </p>
@@ -829,9 +791,10 @@ features are:
     protected
     parameter Types.PortFlowDirection flowDirection=
                      Types.PortFlowDirection.Bidirectional
-        "Allowed flow direction"             annotation(Evaluate=true, Dialog(tab="Advanced"));
+        "Allowed flow direction" annotation(Evaluate=true, Dialog(tab="Advanced"));
   equation
     assert(abs(sum(abs(ports.m_flow)) - max(abs(ports.m_flow))) <= Modelica.Constants.small, "FlowSource only supports one connection with flow");
+    assert(nPorts > 0, "At least one port needs to be present (nPorts > 0), otherwise the model is singular");
     // Only one connection allowed to a port to avoid unwanted ideal mixing
     for i in 1:nPorts loop
       assert(cardinality(ports[i]) <= 1,"
@@ -847,7 +810,7 @@ of the modeller. Increase nPorts to add an additional port.
 
     annotation (defaultComponentName="boundary", Documentation(info="<html>
 <p>
-Partial component to model the <b>volume interface</b> of a <b>source</b>
+Partial component to model the <strong>volume interface</strong> of a <strong>source</strong>
 component, such as a mass flow source. The essential
 features are:
 </p>
@@ -862,7 +825,7 @@ features are:
   end BaseClasses;
   annotation (Documentation(info="<html>
 <p>
-Package <b>Sources</b> contains generic sources for fluid connectors
+Package <strong>Sources</strong> contains generic sources for fluid connectors
 to define fixed or prescribed ambient conditions.
 </p>
 </html>"));

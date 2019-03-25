@@ -231,10 +231,10 @@ transform the formula to SI units:
 </p>
 
 <ul>
-<li> <b>Const1_SI:</b> The factor 10^(-9.5) =10^(-2.5)*1e-7 where the
+<li> <strong>Const1_SI:</strong> The factor 10^(-9.5) =10^(-2.5)*1e-7 where the
      factor 10^(-2.5) originates from the conversion of g/mol->kg/mol + cm^3/mol->m^3/mol
       and the factor 1e-7 is due to conversion from microPoise->Pa.s.</li>
-<li>  <b>Const2_SI:</b> The factor 1/3.335641e-27 = 1e-3/3.335641e-30
+<li>  <strong>Const2_SI:</strong> The factor 1/3.335641e-27 = 1e-3/3.335641e-30
       where the factor 3.335641e-30 comes from debye->C.m and
       1e-3 is due to conversion from cm^3/mol->m^3/mol</li>
 </ul>
@@ -251,7 +251,7 @@ transform the formula to SI units:
   end dynamicViscosityLowPressure;
 
   function thermalConductivityEstimate
-    "Thermal conductivity of polyatomic gases(Eucken and Modified Eucken correlation)"
+    "Thermal conductivity of polyatomic gases (Eucken and Modified Eucken correlation)"
     extends Modelica.Icons.Function;
     input Modelica.Media.Interfaces.Types.SpecificHeatCapacity Cp
       "Constant pressure heat capacity";
@@ -263,8 +263,8 @@ transform the formula to SI units:
     output Modelica.Media.Interfaces.Types.ThermalConductivity lambda
       "Thermal conductivity [W/(m.k)]";
   algorithm
-    lambda := if method == 1 then eta*(Cp - data.R + (9/4)*data.R) else eta*(Cp
-       - data.R)*(1.32 + 1.77/((Cp/Modelica.Constants.R) - 1.0));
+    lambda := if method == 1 then eta*(Cp - data.R + (9/4)*data.R)
+                             else eta*(Cp - data.R)*(1.32 + 1.77/((Cp/data.R) - 1.0));
     annotation (smoothOrder=2,
                 Documentation(info="<html>
 <p>

@@ -15,7 +15,7 @@ package Noise "Library of noise blocks"
         annotation(Dialog(enable=not useAutomaticSeed));
     final parameter Integer seed(fixed=false) "Actually used global seed";
     final parameter Integer id_impure(fixed=false)
-      "ID for impure random number generators Modelica.Math.Random.Utilities.impureXXX"        annotation(HideResult=true);
+      "ID for impure random number generators Modelica.Math.Random.Utilities.impureXXX" annotation(HideResult=true);
   initial equation
     seed = if useAutomaticSeed then Modelica.Math.Random.Utilities.automaticGlobalSeed() else fixedSeed;
     id_impure = Modelica.Math.Random.Utilities.initializeImpureRandom(seed);
@@ -29,7 +29,7 @@ an inner \"globalSeed\" component is not defined and therefore
 a default inner \"globalSeed\" component is introduced by the tool.
 To change the default setting, drag Noise.GlobalSeed
 into your model and specify the seed.
-",  Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
                            graphics={Ellipse(
             extent={{-100,100},{100,-100}},
             lineColor={0,0,127},
@@ -60,11 +60,11 @@ into your model and specify the seed.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -82,7 +82,7 @@ must be dragged resulting in a declaration
 </p>
 
 <pre>
-   <b>inner</b> Modelica.Blocks.Noise.GlobalSeed globalSeed;
+   <strong>inner</strong> Modelica.Blocks.Noise.GlobalSeed globalSeed;
 </pre>
 
 <p>
@@ -91,13 +91,12 @@ hierarchical level. The following options can be selected:
 </p>
 
 <blockquote>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Icon</th>
     <th>Description</th></tr>
 
 <tr><td> <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/GlobalSeed_FixedSeed.png\"> </td>
-    <td> <b>useAutomaticSeed=false</b> (= default):<br>
+    <td> <strong>useAutomaticSeed=false</strong> (= default):<br>
          A fixed global seed is defined with Integer parameter fixedSeed. The value of fixedSeed
          is displayed in the icon. By default all Noise blocks use fixedSeed for initialization of their
          pseudo random number generators, in combination with a local seed defined for every instance
@@ -110,7 +109,7 @@ hierarchical level. The following options can be selected:
          produce different noise at every simulation run.</td></tr>
 
 <tr><td> <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/GlobalSeed_AutomaticSeed.png\"> </td>
-    <td> <b>useAutomaticSeed=true</b>:<br>
+    <td> <strong>useAutomaticSeed=true</strong>:<br>
          An automatic global seed is computed by using the ID of the process in which the
          simulation takes place and the current local time. As a result, the global seed
          is changed automatically for every new simulation, including parallelized
@@ -120,12 +119,12 @@ hierarchical level. The following options can be selected:
 
 
 <tr><td> <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/GlobalSeed_NoNoise.png\"> </td>
-    <td> <b>enableNoise=false</b>:<br>
+    <td> <strong>enableNoise=false</strong>:<br>
          The noise in all Noise instances is switched off and the blocks output a constant
          signal all the time (usually zero). This option is useful, if a model shall be
          tested without noise and the noise shall be quickly turned off or on.</td></tr>
 </table>
-</p></blockquote>
+</blockquote>
 
 <p>
 Additionally, the globalSeed instance calls function
@@ -133,7 +132,7 @@ Additionally, the globalSeed instance calls function
 to initialize the impure random number generators
 (<a href=\"modelica://Modelica.Math.Random.Utilities.impureRandom\">impureRandom</a> and
 <a href=\"modelica://Modelica.Math.Random.Utilities.impureRandomInteger\">impureRandomInteger</a>).
-The return value of this function is stored in parameter <b>id_impure</b>. Whenever one of the impure
+The return value of this function is stored in parameter <strong>id_impure</strong>. Whenever one of the impure
 random number generators need to be called, \"globalSeed.id_impure\" has to be given as input argument.
 </p>
 
@@ -200,11 +199,11 @@ is dragged to provide global settings for all instances.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -224,7 +223,7 @@ is dragged to provide global settings for all instances.
     // Main dialog menu
     parameter Real mu=0 "Expectation (mean) value of the normal distribution" annotation(Dialog(enable=enableNoise));
     parameter Real sigma(start=1)
-      "Standard deviation of the normal distribution"                             annotation(Dialog(enable=enableNoise));
+      "Standard deviation of the normal distribution" annotation(Dialog(enable=enableNoise));
 
   initial equation
      r = distribution(r_raw, mu, sigma);
@@ -261,11 +260,11 @@ is dragged to provide global settings for all instances.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -288,7 +287,7 @@ is dragged to provide global settings for all instances.
     parameter Real y_min(start=0) "Lower limit of y" annotation(Dialog(enable=enableNoise));
     parameter Real y_max(start=1) "Upper limit of y" annotation(Dialog(enable=enableNoise));
     parameter Real mu =    (y_max + y_min)/2
-      "Expectation (mean) value of the normal distribution"  annotation(Dialog(enable=enableNoise,tab="Advanced",group="Noise generation"));
+      "Expectation (mean) value of the normal distribution" annotation(Dialog(enable=enableNoise,tab="Advanced",group="Noise generation"));
     parameter Real sigma = (y_max - y_min)/6
       "Standard deviation of the normal distribution" annotation(Dialog(enable=enableNoise,tab="Advanced",group="Noise generation"));
 
@@ -349,11 +348,11 @@ is dragged to provide global settings for all instances.
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -412,9 +411,9 @@ parameters:
 </p>
 
 <ul>
-<li> The <b>samplePeriod</b> of the block should be much faster (say by a factor of 100)
-     than the fastest dynamics of the system fed by the block&apos;s outputs. </li>
-<li> The <b>noisePower</b> of the signal should be set to the expected power per frequency
+<li> The <strong>samplePeriod</strong> of the block should be much faster (say by a factor of 100)
+     than the fastest dynamics of the system fed by the block&#39;s outputs.</li>
+<li> The <strong>noisePower</strong> of the signal should be set to the expected power per frequency
      of the white noise. Since many system models assume a noise power of 1,
      this preset may be a reasonable first choice (= default).</li>
 </ul>
@@ -440,7 +439,7 @@ think of the power of a signal may be helpful:
 
 <ul>
 <li> The energy of a signal is the integral of its squared absolute value over time.
-     The signal&apos;s power is this integral divided by the time span of the integral.</li>
+     The signal&#39;s power is this integral divided by the time span of the integral.</li>
 <li> The total power of a signal can also be obtained by integrating its (two-sided)
      power spectral density over all frequencies.</li>
 <li> The total power of a signal is finally also equal to its variance.</li>
@@ -456,7 +455,7 @@ frequency bandwidth 1/samplePeriod: <code>signal power = signal variance = noise
 </p>
 
 <p>
-Example <a href=\"Modelica.Blocks.Examples.NoiseExamples.DrydenContinuousTurbulence\">NoiseExamples.DrydenContinuousTurbulence</a>
+Example <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.DrydenContinuousTurbulence\">NoiseExamples.DrydenContinuousTurbulence</a>
 demonstrates how to utilize this block to model wind gust.
 </p>
 </html>"));
@@ -465,7 +464,7 @@ demonstrates how to utilize this block to model wind gust.
       points={{-84,0},{-54,0},{-54,40},{-24,40},{-24,-70},{6,-70},{6,80},
           {36,80},{36,-20},{66,-20},{66,60}})}), Documentation(info="<html>
 <p>
-This sublibrary contains blocks that generate <b>reproducible noise</b> with pseudo random
+This sublibrary contains blocks that generate <strong>reproducible noise</strong> with pseudo random
 numbers. Reproducibility is important when designing control systems,
 either manually or with optimization methods (for example when changing a parameter or a component
 of a control system and re-simulating, it is important that the noise does not change, because
@@ -480,12 +479,12 @@ Many examples how to use the Noise blocks are provided in sublibrary
 
 <p>
 When using one of the blocks of this sublibrary, on the same or a higher level,
-block <a href=\"Modelica.Blocks.Noise.GlobalSeed\">Noise.GlobalSeed</a>
+block <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Noise.GlobalSeed</a>
 must be dragged resulting in a declaration
 </p>
 
 <pre>
-   <b>inner</b> Modelica.Blocks.Noise.GlobalSeed globalSeed;
+   <strong>inner</strong> Modelica.Blocks.Noise.GlobalSeed globalSeed;
 </pre>
 
 <p>
@@ -507,7 +506,6 @@ When using a noise block of this package, at a minimum the following parameters 
 </p>
 
 <blockquote>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Parameter</th>
     <th>Description</th></tr>
@@ -523,7 +521,7 @@ When using a noise block of this package, at a minimum the following parameters 
          from the range 0.0 ... 1.0, to the desired range and distribution.
          </td></tr>
 </table>
-</p></blockquote>
+</blockquote>
 
 <p>
 As a simple demonstration, see example <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.UniformNoise\">Blocks.Examples.NoiseExamples.UniformNoise</a>.
@@ -536,12 +534,11 @@ y_min=-1, y_max=3:
 
 <h4>Advanced tab: General settings</h4>
 <p>
-In the <b>Advanced</b> tab of the parameter menu, further options can be set in the noise blocks
+In the <strong>Advanced</strong> tab of the parameter menu, further options can be set in the noise blocks
 as shown in the next table:
 </p>
 
 <blockquote>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Parameter</th>
     <th>Description</th></tr>
@@ -556,9 +553,7 @@ as shown in the next table:
          Furthermore, if enableNoise = true and time&lt;startTime, the output of the block is also
          y_off (see description of parameter startTime below).</td></tr>
 </table>
-</p></blockquote>
-
-
+</blockquote>
 
 <h4>Advanced tab: Initialization</h4>
 
@@ -569,7 +564,6 @@ the desired situation. For this purpose the following parameters can be defined:
 </p>
 
 <blockquote>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Parameter</th>
     <th>Description</th></tr>
@@ -594,7 +588,7 @@ the desired situation. For this purpose the following parameters can be defined:
          generator for a specific block instance. Instances using the same local seed
          produce exactly the same random number values (so the same noise, if the other settings
          of the instances are the same).<br>
-         If <b>useAutomaticLocalSeed = true</b>, the
+         If <strong>useAutomaticLocalSeed = true</strong>, the
          local seed is determined automatically from an impure random number generator that
          produces Integer random values (<a href=\"modelica://Modelica.Math.Random.Utilities.impureRandomInteger\">impureRandomInteger</a>). This is the default.
          Note, this means that the noise might change if function randomInteger() is called
@@ -603,7 +597,7 @@ the desired situation. For this purpose the following parameters can be defined:
          in a future version of package Modelica, once Modelica Language 3.3 language elements
          can be used (by using a hash value of the instance name of the model that is
          inquired with the Modelica Language 3.3 function getInstanceName()).<br>
-         If <b>useAutomaticLocalSeed = false</b>, the local seed is defined
+         If <strong>useAutomaticLocalSeed = false</strong>, the local seed is defined
          explicitly by parameter fixedLocalSeed. It is then guaranteed that the generated noise
          remains always the same (provided the other parameter values are the same).</td></tr>
 
@@ -622,8 +616,7 @@ the desired situation. For this purpose the following parameters can be defined:
          a certain duration until an approximate steady-state is reached. In such a case
          startTime should be set to a time instant after this duration.</td></tr>
 </table>
-</p></blockquote>
-
+</blockquote>
 
 <h4>Random Number Generators</h4>
 
@@ -633,7 +626,7 @@ numbers in the range 0.0 .. 1.0 (and these random numbers are transformed
 afterwards, see below). This sublibrary uses the xorshift random number generation
 suite developed in 2014 by Sebastiano Vigna (for details see
 <a href=\"http://xorshift.di.unimi.it\">http://xorshift.di.unimi.it</a> and
-<a href=\"Modelica.Math.Random.Generators\">Math.Random.Generators</a>).
+<a href=\"modelica://Modelica.Math.Random.Generators\">Math.Random.Generators</a>).
 These random number generators have excellent
 statistical properties, produce quickly statistically relevant random numbers, even if
 starting from a bad initial seed, and have a reasonable length of the internal state
@@ -645,15 +638,15 @@ The random number generator with a length of 33 Integer is used from the impure 
 generator. It is suited even for massively parallel simulations where every simulation
 computes a large number of random values. More details of the random number
 generators are described in the documentation of package
-<a href=\"Modelica.Math.Random.Generators\">Math.Random.Generators</a>.
+<a href=\"modelica://Modelica.Math.Random.Generators\">Math.Random.Generators</a>.
 </p>
 
 <h4>Distributions</h4>
 
 <p>
 The uniform random numbers in the range 0.0 .. 1.0 are transformed to a desired
-random number distribution by selecting an appropriate <b>distribution</b> or
-<b>truncated distribution</b>. For an example of a truncated distribution, see the following
+random number distribution by selecting an appropriate <strong>distribution</strong> or
+<strong>truncated distribution</strong>. For an example of a truncated distribution, see the following
 diagram of the probability density function of a normal distribution
 compared with its truncated version:
 </p>
@@ -680,17 +673,17 @@ when modeling noise that is known to be in a particular range, say &plusmn; 0.1 
 then with the TruncatedNormal distribution it is guaranteed that random values are only
 generated in this band). More details of truncated
 distributions are given in the documentation of package
-<a href=\"Modelica.Math.Distributions\">Math.Distributions</a>.
+<a href=\"modelica://Modelica.Math.Distributions\">Math.Distributions</a>.
 </p>
 </html>", revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by

@@ -68,7 +68,7 @@ end setEnvironmentVariable;
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-(ms, sec, min, hour, day, mon, year) = System.<b>getTime</b>();
+(ms, sec, min, hour, day, mon, year) = System.<strong>getTime</strong>();
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -116,11 +116,11 @@ All returned values are of type Integer and have the following meaning:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -141,7 +141,7 @@ All returned values are of type Integer and have the following meaning:
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-pid = System.<b>getPid</b>();
+pid = System.<strong>getPid</strong>();
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -160,11 +160,11 @@ getPid()   // = 3044
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
+<tr><td> June 22, 2015 </td>
+    <td>
 
 <table border=0>
-<tr><td valign=\"top\">
+<tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
@@ -189,10 +189,7 @@ Documentation(info="<html>
 end command;
 
 function exit "Terminate execution of Modelica environment"
-  extends Modelica.Icons.Function;
-  input Integer status=0
-      "Result to be returned by environment (0 means success)";
-  external "C" exit(status) annotation(Include="#include <stdlib.h>", Library="ModelicaExternalC");
+  extends ModelicaServices.System.exit;
     annotation (__ModelicaAssociation_Impure=true,
 Documentation(info="<html>
 

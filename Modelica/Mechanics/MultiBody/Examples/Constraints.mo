@@ -7,11 +7,13 @@ extends Modelica.Icons.ExamplesPackage;
     extends Modelica.Icons.Example;
     parameter Boolean animation=true "True, if animation shall be enabled";
 
-    Joints.Prismatic jointPrismatic_x(stateSelect=StateSelect.never, n={1,0,0},
+    Joints.Prismatic jointPrismatic_x(stateSelect=StateSelect.always,
+      n={1,0,0},
       s(fixed=true),
       v(fixed=true))
       annotation (Placement(transformation(extent={{80,-30},{60,-10}})));
-    Joints.Prismatic jointPrismatic_y(stateSelect=StateSelect.never, n={0,1,0},
+    Joints.Prismatic jointPrismatic_y(stateSelect=StateSelect.always,
+      n={0,1,0},
       s(fixed=true),
       v(fixed=true))
       annotation (Placement(transformation(extent={{40,-30},{20,-10}})));
@@ -99,7 +101,7 @@ extends Modelica.Icons.ExamplesPackage;
       r_rel_a_2(fixed=true, start=0),
       r_rel_a_3(fixed=true, start=0),
       angle_1(fixed=false))
-      annotation (Placement(transformation(extent={{40,60},{20,80}})));
+      annotation (Placement(transformation(extent={{60,70},{40,90}})));
   equation
     connect(fixedTranslation.frame_a, world.frame_b)
       annotation (Line(
@@ -163,19 +165,19 @@ extends Modelica.Icons.ExamplesPackage;
         thickness=0.5));
     connect(freeMotionScalarInit.frame_a, fixedRotation.frame_b) annotation (
         Line(
-        points={{40,70},{90,70},{90,-40}},
+        points={{60,80},{90,80},{90,-40}},
         color={95,95,95},
         thickness=0.5));
     connect(freeMotionScalarInit.frame_b, bodyOfConstraint.frame_a) annotation (
        Line(
-        points={{20,70},{10,70},{10,20},{0,20}},
+        points={{40,80},{10,80},{10,20},{0,20}},
         color={95,95,95},
         thickness=0.5));
     annotation (
       experiment(StopTime=10),
       Documentation(info="<html>
-<p>This example demonstrates the functionality of <b>constraint</b> representing <b>prismatic joint</b>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by two serial coupled prismatic joints or by appropriate constraint. Therefore, the body can only perform translation in two directions specified in the two joints depending on working forces.</p>
-<p><b>Simulation results</b> </p>
+<p>This example demonstrates the functionality of <strong>constraint</strong> representing <strong>prismatic joint</strong>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by two serial coupled prismatic joints or by appropriate constraint. Therefore, the body can only perform translation in two directions specified in the two joints depending on working forces.</p>
+<p><strong>Simulation results</strong></p>
 <p>After simulating the model, see the animation of the multibody system and compare movement of body connected by joint (blue colored) with movement of that one connected by constraint (of green color). Additionally, the outputs from <code>sensorConstraintRelative</code> depict both position and angle deviations in the constraining element.</p>
 </html>"));
   end PrismaticConstraint;
@@ -184,8 +186,8 @@ extends Modelica.Icons.ExamplesPackage;
     "Body attached by one spring and revolute joint or constrained to environment"
     extends Modelica.Icons.Example;
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    Modelica.Mechanics.MultiBody.Joints.Revolute joint(stateSelect=
-          StateSelect.never, n={0,1,0},
+    Modelica.Mechanics.MultiBody.Joints.Revolute joint(stateSelect=StateSelect.always,
+      n={0,1,0},
       phi(fixed=true),
       w(fixed=true))
       annotation (Placement(transformation(extent={{60,-30},{40,-10}})));
@@ -254,7 +256,7 @@ extends Modelica.Icons.ExamplesPackage;
       angles={10,55,68})
       annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
-          origin={80,-50})));
+          origin={90,-50})));
 
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(animation=
          false, r={0.8,0,0.3})
@@ -266,7 +268,7 @@ extends Modelica.Icons.ExamplesPackage;
       use_angle_d=true,
       angle_2(start=0, fixed=true),
       angle_d_2(start=0, fixed=true))
-      annotation (Placement(transformation(extent={{40,60},{20,80}})));
+      annotation (Placement(transformation(extent={{60,70},{40,90}})));
   equation
     connect(fixedTranslation.frame_a, world.frame_b)
       annotation (Line(
@@ -279,16 +281,16 @@ extends Modelica.Icons.ExamplesPackage;
         color={95,95,95},
         thickness=0.5));
     connect(world.frame_b, fixedRotation.frame_a) annotation (Line(
-        points={{-80,-90},{80,-90},{80,-60}},
+        points={{-80,-90},{90,-90},{90,-60}},
         color={95,95,95},
         thickness=0.5));
     connect(fixedRotation.frame_b, constraint.frame_a) annotation (Line(
-        points={{80,-40},{80,20},{60,20}},
+        points={{90,-40},{90,20},{60,20}},
         color={95,95,95},
         thickness=0.5));
     connect(constraint.frame_a,sensorConstraintRelative. frame_a)
                                                         annotation (Line(
-        points={{60,20},{80,20},{80,50},{60,50}},
+        points={{60,20},{70,20},{70,50},{60,50}},
         color={95,95,95},
         thickness=0.5));
     connect(bodyOfJoint.frame_b, springOfJoint.frame_b)
@@ -296,7 +298,7 @@ extends Modelica.Icons.ExamplesPackage;
         points={{-20,-20},{-40,-20}},
         color={95,95,95},
         thickness=0.5));
-    connect(joint.frame_b, bodyOfJoint.frame_a)                annotation (
+    connect(joint.frame_b, bodyOfJoint.frame_a) annotation (
         Line(
         points={{40,-20},{0,-20}},
         color={95,95,95},
@@ -320,25 +322,25 @@ extends Modelica.Icons.ExamplesPackage;
         points={{0,20},{40,20}},
         color={95,95,95},
         thickness=0.5));
-    connect(joint.frame_a, fixedRotation.frame_b)  annotation (Line(
-        points={{60,-20},{80,-20},{80,-40}},
+    connect(joint.frame_a, fixedRotation.frame_b) annotation (Line(
+        points={{60,-20},{90,-20},{90,-40}},
         color={95,95,95},
         thickness=0.5));
     connect(freeMotionScalarInit.frame_a, fixedRotation.frame_b) annotation (
         Line(
-        points={{40,70},{80,70},{80,-40}},
+        points={{60,80},{90,80},{90,-40}},
         color={95,95,95},
         thickness=0.5));
     connect(bodyOfConstraint.frame_a, freeMotionScalarInit.frame_b) annotation (
        Line(
-        points={{0,20},{8,20},{8,70},{20,70}},
+        points={{0,20},{10,20},{10,80},{40,80}},
         color={95,95,95},
         thickness=0.5));
     annotation (
       experiment(StopTime=10),
       Documentation(info="<html>
-<p>This example demonstrates the functionality of <b>constraint</b> representing <b>revolute joint</b>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by revolute joint or by appropriate constraint. Therefore, the body can only perform rotation about the revolute axis depending on working forces.</p>
-<p><b>Simulation results</b> </p>
+<p>This example demonstrates the functionality of <strong>constraint</strong> representing <strong>revolute joint</strong>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by revolute joint or by appropriate constraint. Therefore, the body can only perform rotation about the revolute axis depending on working forces.</p>
+<p><strong>Simulation results</strong></p>
 <p>After simulating the model, see the animation of the multibody system and compare movement of body connected by joint (blue colored) with movement of that one connected by constraint (of green color). Additionally, the outputs from <code>sensorConstraintRelative</code> depict both position and angle deviations in the constraining element.</p>
 </html>"));
   end RevoluteConstraint;
@@ -417,7 +419,7 @@ extends Modelica.Icons.ExamplesPackage;
       angles={10,55,68})
       annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
-          origin={80,-50})));
+          origin={90,-50})));
 
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(animation=
          false, r={0.8,0,0.3})
@@ -433,7 +435,7 @@ extends Modelica.Icons.ExamplesPackage;
       angle_d_1(fixed=true),
       angle_d_2(fixed=true),
       angle_d_3(fixed=true))
-      annotation (Placement(transformation(extent={{38,60},{18,80}})));
+      annotation (Placement(transformation(extent={{60,70},{40,90}})));
   equation
     connect(fixedTranslation.frame_a, world.frame_b)
       annotation (Line(
@@ -446,16 +448,16 @@ extends Modelica.Icons.ExamplesPackage;
         color={95,95,95},
         thickness=0.5));
     connect(world.frame_b, fixedRotation.frame_a) annotation (Line(
-        points={{-80,-90},{80,-90},{80,-60}},
+        points={{-80,-90},{90,-90},{90,-60}},
         color={95,95,95},
         thickness=0.5));
     connect(fixedRotation.frame_b, constraint.frame_a) annotation (Line(
-        points={{80,-40},{80,20},{60,20}},
+        points={{90,-40},{90,20},{60,20}},
         color={95,95,95},
         thickness=0.5));
     connect(constraint.frame_a,sensorConstraintRelative. frame_a)
                                                         annotation (Line(
-        points={{60,20},{80,20},{80,50},{60,50}},
+        points={{60,20},{70,20},{70,50},{60,50}},
         color={95,95,95},
         thickness=0.5));
     connect(bodyOfJoint.frame_b, springOfJoint.frame_b)
@@ -463,7 +465,7 @@ extends Modelica.Icons.ExamplesPackage;
         points={{-20,-20},{-40,-20}},
         color={95,95,95},
         thickness=0.5));
-    connect(joint.frame_b, bodyOfJoint.frame_a)                annotation (
+    connect(joint.frame_b, bodyOfJoint.frame_a) annotation (
         Line(
         points={{40,-20},{0,-20}},
         color={95,95,95},
@@ -487,25 +489,25 @@ extends Modelica.Icons.ExamplesPackage;
         points={{0,20},{40,20}},
         color={95,95,95},
         thickness=0.5));
-    connect(joint.frame_a, fixedRotation.frame_b)  annotation (Line(
-        points={{60,-20},{80,-20},{80,-40}},
+    connect(joint.frame_a, fixedRotation.frame_b) annotation (Line(
+        points={{60,-20},{90,-20},{90,-40}},
         color={95,95,95},
         thickness=0.5));
     connect(bodyOfConstraint.frame_a, freeMotionScalarInit.frame_b) annotation (
        Line(
-        points={{0,20},{8,20},{8,70},{18,70}},
+        points={{0,20},{10,20},{10,80},{40,80}},
         color={95,95,95},
         thickness=0.5));
     connect(freeMotionScalarInit.frame_a, fixedRotation.frame_b) annotation (
         Line(
-        points={{38,70},{80,70},{80,-40}},
+        points={{60,80},{90,80},{90,-40}},
         color={95,95,95},
         thickness=0.5));
     annotation (
       experiment(StopTime=10),
       Documentation(info="<html>
-<p>This example demonstrates the functionality of <b>constraint</b> representing <b>spherical joint</b>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by spherical joint or by appropriate constraint. Therefore, the body can only perform spherical movement depending on working forces.</p>
-<p><b>Simulation results</b> </p>
+<p>This example demonstrates the functionality of <strong>constraint</strong> representing <strong>spherical joint</strong>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by spherical joint or by appropriate constraint. Therefore, the body can only perform spherical movement depending on working forces.</p>
+<p><strong>Simulation results</strong></p>
 <p>After simulating the model, see the animation of the multibody system and compare movement of body connected by joint (blue colored) with movement of that one connected by constraint (of green color). Additionally, the outputs from <code>sensorConstraintRelative</code> depict position deviations in the constraining element.</p>
 </html>"));
   end SphericalConstraint;
@@ -589,7 +591,7 @@ extends Modelica.Icons.ExamplesPackage;
       angles={10,55,68})
       annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
-          origin={80,-50})));
+          origin={90,-50})));
 
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(animation=
          false, r={0.8,0,0.3})
@@ -616,26 +618,21 @@ extends Modelica.Icons.ExamplesPackage;
         color={95,95,95},
         thickness=0.5));
     connect(world.frame_b, fixedRotation.frame_a) annotation (Line(
-        points={{-80,-90},{80,-90},{80,-60}},
+        points={{-80,-90},{90,-90},{90,-60}},
         color={95,95,95},
         thickness=0.5));
     connect(fixedRotation.frame_b, constraint.frame_a) annotation (Line(
-        points={{80,-40},{80,20},{60,20}},
+        points={{90,-40},{90,20},{60,20}},
         color={95,95,95},
         thickness=0.5));
     connect(constraint.frame_a,sensorConstraintRelative. frame_a)
                                                         annotation (Line(
-        points={{60,20},{80,20},{80,50},{60,50}},
+        points={{60,20},{70,20},{70,50},{60,50}},
         color={95,95,95},
         thickness=0.5));
-    connect(joint.frame_b, bodyOfJoint.frame_a)                annotation (
+    connect(joint.frame_b, bodyOfJoint.frame_a) annotation (
         Line(
         points={{40,-20},{20,-20}},
-        color={95,95,95},
-        thickness=0.5));
-    connect(sensorConstraintRelative.frame_b, constraint.frame_b) annotation (
-        Line(
-        points={{40,50},{30,50},{30,20},{40,20}},
         color={95,95,95},
         thickness=0.5));
     connect(fixedTranslation.frame_b, springOfJoint.frame_a)
@@ -652,8 +649,8 @@ extends Modelica.Icons.ExamplesPackage;
         points={{20,20},{40,20}},
         color={95,95,95},
         thickness=0.5));
-    connect(joint.frame_a, fixedRotation.frame_b)  annotation (Line(
-        points={{60,-20},{80,-20},{80,-40}},
+    connect(joint.frame_a, fixedRotation.frame_b) annotation (Line(
+        points={{60,-20},{90,-20},{90,-40}},
         color={95,95,95},
         thickness=0.5));
     connect(bodyOfJoint.frame_b, fixedTranslationOfJoint.frame_a) annotation (
@@ -678,7 +675,7 @@ extends Modelica.Icons.ExamplesPackage;
         thickness=0.5));
     connect(fixedRotation.frame_b, freeMotionScalarInit.frame_a) annotation (
         Line(
-        points={{80,-40},{80,80},{60,80}},
+        points={{90,-40},{90,80},{60,80}},
         color={95,95,95},
         thickness=0.5));
     connect(bodyOfConstraint.frame_a, freeMotionScalarInit.frame_b) annotation (
@@ -686,17 +683,22 @@ extends Modelica.Icons.ExamplesPackage;
         points={{20,20},{30,20},{30,80},{40,80}},
         color={95,95,95},
         thickness=0.5));
+    connect(bodyOfConstraint.frame_a, sensorConstraintRelative.frame_b) annotation (Line(
+        points={{20,20},{30,20},{30,50},{40,50}},
+        color={95,95,95},
+        thickness=0.5));
     annotation (
       experiment(StopTime=10),
       Documentation(info="<html>
-<p>This example demonstrates the functionality of <b>constraint</b> representing <b>universal joint</b>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by universal joint or by appropriate constraint. Therefore, the body can only perform rotation about two revolute axes depending on working forces.</p>
-<p><b>Simulation results</b> </p>
+<p>This example demonstrates the functionality of <strong>constraint</strong> representing <strong>universal joint</strong>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by universal joint or by appropriate constraint. Therefore, the body can only perform rotation about two revolute axes depending on working forces.</p>
+<p><strong>Simulation results</strong></p>
 <p>After simulating the model, see the animation of the multibody system and compare movement of body connected by joint (blue colored) with movement of that one connected by constraint (of green color). Additionally, the outputs from <code>sensorConstraintRelative</code> depict position deviations in the constraining element.</p>
 </html>"));
   end UniversalConstraint;
   annotation (Documentation(info="<html>
-<p>This package is a collection of simulatable models involving constraints in a multibody system.
-  The examples mainly show comparison of constraints to the standard joints.</p>
-
+<p>
+This package is a collection of simulatable models involving constraints in a multibody system.
+The examples mainly show comparison of constraints to the standard joints.
+</p>
 </html>"));
 end Constraints;

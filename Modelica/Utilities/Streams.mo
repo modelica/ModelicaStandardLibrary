@@ -15,18 +15,18 @@ package Streams "Read from files and write to files"
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Streams.<b>print</b>(string);
-Streams.<b>print</b>(string,fileName);
+Streams.<strong>print</strong>(string);
+Streams.<strong>print</strong>(string,fileName);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Function <b>print</b>(..) opens automatically the given file, if
+Function <strong>print</strong>(..) opens automatically the given file, if
 it is not yet open. If the file does not exist, it is created.
 If the file does exist, the given string is appended to the file.
 If this is not desired, call \"Files.remove(fileName)\" before calling print
 (\"remove(..)\" is silent, if the file does not exist).
 The Modelica environment may close the file whenever appropriate.
-This can be enforced by calling <b>Streams.close</b>(fileName).
+This can be enforced by calling <strong>Streams.close</strong>(fileName).
 After every call of \"print(..)\" a \"new line\" is printed automatically.
 </p>
 <h4>Example</h4>
@@ -52,14 +52,14 @@ After every call of \"print(..)\" a \"new line\" is printed automatically.
                         caption="Open text file for reading")));
     output String stringVector[countLines(fileName)] "Content of file";
     external "C" ModelicaInternal_readFile(fileName,stringVector,size(stringVector,1)) annotation(Library="ModelicaExternalC");
-    annotation ( Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-stringVector = Streams.<b>readFile</b>(fileName)
+stringVector = Streams.<strong>readFile</strong>(fileName)
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Function <b>readFile</b>(..) opens the given file, reads the complete
+Function <strong>readFile</strong>(..) opens the given file, reads the complete
 content, closes the file and returns the content as a vector of strings. Lines are separated by LF or CR-LF; the returned strings do not contain the line separators.
 Note, a fileName can be defined as URI by using the helper function
 <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.
@@ -81,11 +81,11 @@ Note, a fileName can be defined as URI by using the helper function
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-(string, endOfFile) = Streams.<b>readLine</b>(fileName, lineNumber)
+(string, endOfFile) = Streams.<strong>readLine</strong>(fileName, lineNumber)
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Function <b>readLine</b>(..) opens the given file, reads enough of the
+Function <strong>readLine</strong>(..) opens the given file, reads enough of the
 content to get the requested line, and returns the line as a string.
 Lines are separated by LF or CR-LF; the returned string does not
 contain the line separator. The file might remain open after
@@ -110,31 +110,32 @@ and endOfFile=true. Otherwise endOfFile=false.
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-numberOfLines = Streams.<b>countLines</b>(fileName)
+numberOfLines = Streams.<strong>countLines</strong>(fileName)
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Function <b>countLines</b>(..) opens the given file, reads the complete
+Function <strong>countLines</strong>(..) opens the given file, reads the complete
 content, closes the file and returns the number of lines. Lines are
 separated by LF or CR-LF.
 </p>
 </html>"));
   end countLines;
 
-  function error "Print error message and cancel all actions"
+  function error "Print error message and cancel all actions - in case of an unrecoverable error"
     extends Modelica.Icons.Function;
     input String string "String to be printed to error message window";
     external "C" ModelicaError(string) annotation(Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Streams.<b>error</b>(string);
+Streams.<strong>error</strong>(string);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Print the string \"string\" as error message and
-cancel all actions. Line breaks are characterized
-by \"\\n\" in the string.
+In case of an unrecoverable error (i.e., if the solver is unable to recover from the error),
+print the string \"string\" as error message and cancel all actions.
+This function is semantically equivalent with the built-in function <strong>assert</strong> if called with the (default) <strong>AssertionLevel.error</strong>.
+Line breaks are characterized by \"\\n\" in the string.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
@@ -144,6 +145,7 @@ by \"\\n\" in the string.
 <p>
 <a href=\"modelica://Modelica.Utilities.Streams\">Streams</a>,
 <a href=\"modelica://Modelica.Utilities.Streams.print\">Streams.print</a>,
+<a href=\"modelica://ModelicaReference.Operators.'assert()'\">ModelicaReference.Operators.'assert()'</a>
 <a href=\"modelica://ModelicaReference.Operators.'String()'\">ModelicaReference.Operators.'String()'</a>
 </p>
 </html>"));
@@ -159,7 +161,7 @@ by \"\\n\" in the string.
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-Streams.<b>close</b>(fileName)
+Streams.<strong>close</strong>(fileName)
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -179,12 +181,12 @@ file is already closed or does not exist.
     annotation(Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-dim = Streams.<b>readMatrixSize</b>(fileName, matrixName)
+dim = Streams.<strong>readMatrixSize</strong>(fileName, matrixName)
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-Function <b>readMatrixSize</b>(..) opens the given MATLAB MAT file
+Function <strong>readMatrixSize</strong>(..) opens the given MATLAB MAT file
 (in format v4, v6, v7, and if HDF is supported in the Modelica tool, also v7.3),
 and reads the dimensions of the given Real matrix.
 These dimensions are returned in the Integer vector dim.
@@ -218,12 +220,12 @@ See <a href=\"modelica://Modelica.Utilities.Examples.ReadRealMatrixFromFile\">Ex
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-matrix = Streams.<b>readRealMatrix</b>(fileName, matrixName, nrow, ncol, verboseRead)
+matrix = Streams.<strong>readRealMatrix</strong>(fileName, matrixName, nrow, ncol, verboseRead)
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-Function <b>readRealMatrix</b>(..) opens the given MATLAB MAT file
+Function <strong>readRealMatrix</strong>(..) opens the given MATLAB MAT file
 (in format v4, v6, v7, and if HDF is supported in the Modelica tool, also v7.3),
 and reads the given matrix from this file. The dimensions of this matrix must first
 be inquired with function
@@ -263,12 +265,12 @@ Documentation(info="<html>
 
 <h4>Syntax</h4>
 <blockquote><pre>
-success = Streams.<b>writeRealMatrix</b>(fileName, matrixName, matrix, append, format)
+success = Streams.<strong>writeRealMatrix</strong>(fileName, matrixName, matrix, append, format)
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
-Function <b>writeRealMatrix</b>(..) writes the given matrix to a new or an existing MATLAB MAT file
+Function <strong>writeRealMatrix</strong>(..) writes the given matrix to a new or an existing MATLAB MAT file
 (in format v4, v6, v7, and if HDF is supported in the Modelica tool, also v7.3).
 If <code>append = false</code> (= default), the file is newly created
 (or an existing file is deleted and re-created).
@@ -278,7 +280,7 @@ file does not yet exists this flag is ignored. If the file exists and
 </p>
 
 <p>
-Parameter <b>format</b> defines the format in which the values are stored on file.
+Parameter <strong>format</strong> defines the format in which the values are stored on file.
 The following formats are supported:<br>&nbsp;
 </p>
 
@@ -313,7 +315,7 @@ See <a href=\"modelica://Modelica.Utilities.Examples.WriteRealMatrixToFile\">Exa
     Documentation(info="<html>
 <h4>Library content</h4>
 <p>
-Package <b>Streams</b> contains functions to input and output strings
+Package <strong>Streams</strong> contains functions to input and output strings
 to a message window or on files, as well as reading matrices from file
 and writing matrices to file. Note that a string is interpreted
 and displayed as html text (e.g., with print(..) or error(..))
@@ -331,41 +333,41 @@ does not allow to display formatted text.
 In the table below an example call to every function is given:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><th><b><i>Function/type</i></b></th><th><b><i>Description</i></b></th></tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities.Streams.print\">print</a>(string)<br>
+  <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>
+  <tr><td><a href=\"modelica://Modelica.Utilities.Streams.print\">print</a>(string)<br>
           <a href=\"modelica://Modelica.Utilities.Streams.print\">print</a>(string,fileName)</td>
-      <td valign=\"top\"> Print string \"string\" or vector of strings to message window or on
+      <td> Print string \"string\" or vector of strings to message window or on
            file \"fileName\".</td>
   </tr>
-  <tr><td valign=\"top\">stringVector =
+  <tr><td>stringVector =
          <a href=\"modelica://Modelica.Utilities.Streams.readFile\">readFile</a>(fileName)</td>
-      <td valign=\"top\"> Read complete text file and return it as a vector of strings.</td>
+      <td> Read complete text file and return it as a vector of strings.</td>
   </tr>
-  <tr><td valign=\"top\">(string, endOfFile) =
+  <tr><td>(string, endOfFile) =
          <a href=\"modelica://Modelica.Utilities.Streams.readLine\">readLine</a>(fileName, lineNumber)</td>
-      <td valign=\"top\">Returns from the file the content of line lineNumber.</td>
+      <td>Returns from the file the content of line lineNumber.</td>
   </tr>
-  <tr><td valign=\"top\">lines =
+  <tr><td>lines =
          <a href=\"modelica://Modelica.Utilities.Streams.countLines\">countLines</a>(fileName)</td>
-      <td valign=\"top\">Returns the number of lines in a file.</td>
+      <td>Returns the number of lines in a file.</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities.Streams.error\">error</a>(string)</td>
-      <td valign=\"top\"> Print error message \"string\" to message window
+  <tr><td><a href=\"modelica://Modelica.Utilities.Streams.error\">error</a>(string)</td>
+      <td> Print error message \"string\" to message window
            and cancel all actions</td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities.Streams.close\">close</a>(fileName)</td>
-      <td valign=\"top\"> Close file if it is still open. Ignore call if
+  <tr><td><a href=\"modelica://Modelica.Utilities.Streams.close\">close</a>(fileName)</td>
+      <td> Close file if it is still open. Ignore call if
            file is already closed or does not exist. </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities.Streams.readMatrixSize\">readMatrixSize</a>(fileName, matrixName)</td>
-      <td valign=\"top\"> Read dimensions of a Real matrix from a MATLAB MAT file. </td></tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities.Streams.readRealMatrix\">readRealMatrix</a>(fileName, matrixName, nrow, ncol)</td>
-      <td valign=\"top\"> Read a Real matrix from a MATLAB MAT file. </td></tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\">writeRealMatrix</a>(fileName, matrixName, matrix, append, format)</td>
-      <td valign=\"top\"> Write Real matrix to a MATLAB MAT file. </td></tr>
+  <tr><td><a href=\"modelica://Modelica.Utilities.Streams.readMatrixSize\">readMatrixSize</a>(fileName, matrixName)</td>
+      <td> Read dimensions of a Real matrix from a MATLAB MAT file. </td></tr>
+  <tr><td><a href=\"modelica://Modelica.Utilities.Streams.readRealMatrix\">readRealMatrix</a>(fileName, matrixName, nrow, ncol)</td>
+      <td> Read a Real matrix from a MATLAB MAT file. </td></tr>
+  <tr><td><a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\">writeRealMatrix</a>(fileName, matrixName, matrix, append, format)</td>
+      <td> Write Real matrix to a MATLAB MAT file. </td></tr>
 </table>
 <p>
-Use functions <b>scanXXX</b> from package
+Use functions <strong>scanXXX</strong> from package
 <a href=\"modelica://Modelica.Utilities.Strings\">Strings</a>
 to parse a string.
 </p>
@@ -377,9 +379,9 @@ to strings with the builtin operator
 Example:
 </p>
 <pre>
-  <b>if</b> x &lt; 0 <b>or</b> x &gt; 1 <b>then</b>
+  <strong>if</strong> x &lt; 0 <strong>or</strong> x &gt; 1 <strong>then</strong>
      Streams.error(\"x (= \" + String(x) + \") has to be in the range 0 .. 1\");
-  <b>end if</b>;
+  <strong>end if</strong>;
 </pre>
 </html>"));
 end Streams;

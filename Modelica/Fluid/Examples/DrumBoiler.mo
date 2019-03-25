@@ -1,6 +1,6 @@
 within Modelica.Fluid.Examples;
 package DrumBoiler
-  "Drum boiler example, see Franke, Rode, Krueger: On-line Optimization of Drum Boiler Startup, 3rd International Modelica Conference, Linkoping, 2003"
+  "Drum boiler example, see Franke, Rode, Krüger: On-line Optimization of Drum Boiler Startup, 3rd International Modelica Conference, Linköping, 2003"
 
   extends Modelica.Icons.ExamplesPackage;
   model DrumBoiler
@@ -19,7 +19,7 @@ package DrumBoiler
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
       massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
-      p_start=100000)     annotation (Placement(transformation(extent={{-46,-30},
+      p_start=100000) annotation (Placement(transformation(extent={{-46,-30},
               {-26,-10}})));
     Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow furnace
       annotation (Placement(transformation(
@@ -61,13 +61,13 @@ package DrumBoiler
       annotation (Placement(transformation(extent={{-22,20},{-42,40}})));
     Modelica.Blocks.Sources.Constant levelSetPoint(k=67)
       annotation (Placement(transformation(extent={{-38,48},{-24,62}})));
-    Modelica.Blocks.Interfaces.RealOutput T_S "steam temperature"
+    Modelica.Blocks.Interfaces.RealOutput T_S(final unit="degC") "steam temperature"
       annotation (Placement(transformation(extent={{100,48},{112,60}})));
-    Modelica.Blocks.Interfaces.RealOutput p_S "steam pressure"
+    Modelica.Blocks.Interfaces.RealOutput p_S(final unit="bar") "steam pressure"
       annotation (Placement(transformation(extent={{100,22},{112,34}})));
-    Modelica.Blocks.Interfaces.RealOutput qm_S "steam flow rate"
+    Modelica.Blocks.Interfaces.RealOutput qm_S(unit="kg/s") "steam flow rate"
       annotation (Placement(transformation(extent={{100,-2},{112,10}})));
-    Modelica.Blocks.Interfaces.RealOutput V_l "liquid volume inside drum"
+    Modelica.Blocks.Interfaces.RealOutput V_l(unit="m3") "liquid volume inside drum"
       annotation (Placement(transformation(extent={{100,74},{112,86}})));
   public
     Modelica.Blocks.Math.Gain MW2W(k=1e6)
@@ -107,54 +107,44 @@ package DrumBoiler
     connect(massFlowRate.m_flow, qm_S)
       annotation (Line(points={{30,-9},{30,4},{106,4}}, color={0,0,127}));
     connect(evaporator.V, V_l)
-      annotation (Line(points={{-32,-9},{-32,16},{-4,16},{-4,80},{106,80}},
-          color={0,0,127}));
-    connect(MW2W.y,furnace.Q_flow)       annotation (Line(points={{-43.5,-70},{-36,
-            -70},{-36,-63}},     color={0,0,127}));
+      annotation (Line(points={{-32,-9},{-32,16},{-4,16},{-4,80},{106,80}}, color={0,0,127}));
+    connect(MW2W.y,furnace.Q_flow) annotation (Line(points={{-43.5,-70},{-36,
+            -70},{-36,-63}}, color={0,0,127}));
     connect(pressure.p, Pa2bar.u)
       annotation (Line(points={{31,28},{36,28}}, color={0,0,127}));
     connect(Pa2bar.y, p_S)
       annotation (Line(points={{47.5,28},{106,28}}, color={0,0,127}));
-    connect(K2degC.Celsius, T_S) annotation (Line(points={{48.5,54},{106,54}},
-          color={0,0,127}));
+    connect(K2degC.Celsius, T_S) annotation (Line(points={{48.5,54},{106,54}}, color={0,0,127}));
     connect(controller.y, limiter.u) annotation (Line(points={{-63.7,30},{-69.6,
             30}}, color={0,0,127}));
     connect(limiter.y, pump.m_flow_in) annotation (Line(points={{-85.7,30},{-90,
-            30},{-90,-12},{-80,-12}},   color={0,0,127}));
+            30},{-90,-12},{-80,-12}}, color={0,0,127}));
     connect(temperature.T, K2degC.Kelvin) annotation (Line(points={{4,-1},{4,-1},
-            {8,-1},{8,54},{37,54}},
-                              color={0,0,127}));
+            {8,-1},{8,54},{37,54}}, color={0,0,127}));
     connect(pressure.port, massFlowRate.port_a) annotation (Line(points={{20,18},{
-            20,-20}},  color={0,127,255}));
+            20,-20}}, color={0,127,255}));
     connect(pump.ports[1], evaporator.port_a) annotation (Line(points={{-60,-20},
             {-46,-20}}, color={0,127,255}));
     connect(massFlowRate.port_b, SteamValve.port_a) annotation (Line(points={{
             40,-20},{50,-20}}, color={0,127,255}));
     connect(SteamValve.port_b, sink.ports[1]) annotation (Line(points={{70,-20},{75,
-            -20},{80,-20}},          color={0,127,255}));
+            -20},{80,-20}}, color={0,127,255}));
     connect(evaporator.port_b, massFlowRate.port_a) annotation (Line(points={{
             -26,-20},{20,-20}}, color={0,127,255}));
     connect(temperature.port, massFlowRate.port_a) annotation (Line(
-        points={{-3,-11},{-3,-20},{20,-20}},
-        color={0,127,255}));
+        points={{-3,-11},{-3,-20},{20,-20}}, color={0,127,255}));
     connect(q_F_Tab.y, MW2W.u) annotation (Line(
-        points={{-69,-70},{-55,-70}},
-        color={0,0,127}));
+        points={{-69,-70},{-55,-70}}, color={0,0,127}));
     connect(Y_Valve_Tab.y, SteamValve.opening) annotation (Line(
-        points={{51,-70},{60,-70},{60,-28}},
-        color={0,0,127}));
+        points={{51,-70},{60,-70},{60,-28}}, color={0,0,127}));
     connect(q_F, MW2W.u) annotation (Line(
-        points={{-106,-50},{-62,-50},{-62,-70},{-55,-70}},
-        color={0,0,127}));
+        points={{-106,-50},{-62,-50},{-62,-70},{-55,-70}}, color={0,0,127}));
     connect(Y_Valve, SteamValve.opening) annotation (Line(
-        points={{-106,-90},{60,-90},{60,-28}},
-        color={0,0,127}));
+        points={{-106,-90},{60,-90},{60,-28}}, color={0,0,127}));
     connect(evaporator.V, feedback.u2) annotation (Line(
-        points={{-32,-9},{-32,22}},
-        color={0,0,127}));
+        points={{-32,-9},{-32,22}}, color={0,0,127}));
     connect(levelSetPoint.y, feedback.u1) annotation (Line(
-        points={{-23.3,55},{-16,55},{-16,30},{-24,30}},
-        color={0,0,127}));
+        points={{-23.3,55},{-16,55},{-16,30},{-24,30}}, color={0,0,127}));
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=false,
@@ -165,11 +155,9 @@ package DrumBoiler
             textString="%name"),
           Text(
             extent={{-79,67},{67,21}},
-            lineColor={0,0,0},
             textString="drum"),
           Text(
             extent={{-90,-14},{88,-64}},
-            lineColor={0,0,0},
             textString="boiler")}),
       experiment(StopTime=5400),
       Documentation(info="<html>
@@ -183,7 +171,7 @@ package DrumBoiler
     extends Modelica.Icons.BasesPackage;
 
     model EquilibriumDrumBoiler
-      "Simple Evaporator with two states, see Astroem, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378"
+      "Simple Evaporator with two states, see Åström, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378"
       extends Modelica.Fluid.Interfaces.PartialTwoPort(
         final port_a_exposesState=true,
         final port_b_exposesState=true,
@@ -217,7 +205,7 @@ package DrumBoiler
 
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-      Modelica.Blocks.Interfaces.RealOutput V "liquid volume"
+      Modelica.Blocks.Interfaces.RealOutput V(unit="m3") "liquid volume"
       annotation (Placement(transformation(
             origin={40,110},
             extent={{-10,-10},{10,10}},
@@ -311,18 +299,15 @@ package DrumBoiler
             extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,64},{100,-64}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.Backward,
               fillColor={135,135,135}),
             Rectangle(
               extent={{-100,-44},{100,44}},
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={255,255,255}),
             Rectangle(
               extent=DynamicSelect({{-100,-44},{100,44}},
                                    {{-100,-44},{(-100 + 200*V_l/V_t),44}}),
-              lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={0,127,255}),
             Ellipse(
@@ -380,7 +365,7 @@ package DrumBoiler
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Line(points={{0,-64},{0,-100}}, color={191,0,0}),
-            Line(points={{40,100},{40,64}},   color={0,0,127}),
+            Line(points={{40,100},{40,64}}, color={0,0,127}),
             Ellipse(
               extent={{58,-11},{88,-40}},
               lineColor={0,0,255},
@@ -395,22 +380,22 @@ package DrumBoiler
               fillPattern=FillPattern.Solid)}),
         Documentation(revisions="<html>
 <ul>
-<li><i>Dec 2008</i>
+<li><em>Dec 2008</em>
     by R&uuml;diger Franke:<br>
      Adapt initialization to new Types.Dynamics</li>
-<li><i>2 Nov 2005</i>
+<li><em>2 Nov 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
      Initialization options fixed</li>
-<li><i>6 Sep 2005</i><br>
-    Model by Ruediger Franke<br>
-    See Franke, Rode, Krueger: On-line Optimization of Drum Boiler Startup, 3rd International Modelica Conference, Linkoping, 2003.<br>
+<li><em>6 Sep 2005</em><br>
+    Model by R&uuml;diger Franke<br>
+    See Franke, Rode, Kr&uuml;ger: On-line Optimization of Drum Boiler Startup, 3rd International Modelica Conference, Link&ouml;ping, 2003.<br>
     Modified after the 45th Design Meeting</li>
 </ul>
 </html>",     info="<html>
 <p>
 Model of a simple evaporator with two states. The model assumes two-phase equilibrium inside the component; saturated steam goes out of the steam outlet.</p>
 <p>
-References: Astroem, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378</p>
+References: &Aring;str&ouml;m, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378</p>
 </html>"));
     end EquilibriumDrumBoiler;
   end BaseClasses;

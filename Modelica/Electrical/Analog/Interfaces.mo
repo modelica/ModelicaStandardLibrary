@@ -4,7 +4,7 @@ package Interfaces
   extends Modelica.Icons.InterfacesPackage;
 
   connector Pin "Pin of an electrical component"
-    SI.Voltage v "Potential at the pin" annotation (
+    SI.ElectricPotential v "Potential at the pin" annotation (
         unassignedMessage="An electrical potential cannot be uniquely calculated.
 The reason could be that
 - a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
@@ -34,17 +34,17 @@ The reason could be that
             textString="%name")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
 </html>", info="<html>
-<p>Pin is the basic electric connector. It includes the voltage which consists between the pin and the ground node. The ground node is the node of (any) ground device (Modelica.Electrical.Basic.Ground). Furthermore, the pin includes the current, which is considered to be <b>positive</b> if it is flowing at the pin <b>into the device</b>.</p>
+<p>Pin is the basic electric connector. It includes the voltage which consists between the pin and the ground node. The ground node is the node of (any) ground device (Modelica.Electrical.Basic.Ground). Furthermore, the pin includes the current, which is considered to be <strong>positive</strong> if it is flowing at the pin <strong>into the device</strong>.</p>
 </html>"));
   end Pin;
 
-  connector PositivePin "Positive pin of an electric component"
-    SI.Voltage v "Potential at the pin" annotation (
+  connector PositivePin "Positive pin of an electrical component"
+    SI.ElectricPotential v "Potential at the pin" annotation (
         unassignedMessage="An electrical potential cannot be uniquely calculated.
 The reason could be that
 - a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
@@ -61,7 +61,7 @@ The reason could be that
 <p>Connectors PositivePin and NegativePin are nearly identical. The only difference is that the icons are different in order to identify more easily the pins of a component. Usually, connector PositivePin is used for the positive and connector NegativePin for the negative pin of an electrical component.</p>
 </html>",               revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -83,8 +83,8 @@ The reason could be that
             textString="%name")}));
   end PositivePin;
 
-  connector NegativePin "Negative pin of an electric component"
-    SI.Voltage v "Potential at the pin" annotation (
+  connector NegativePin "Negative pin of an electrical component"
+    SI.ElectricPotential v "Potential at the pin" annotation (
         unassignedMessage="An electrical potential cannot be uniquely calculated.
 The reason could be that
 - a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
@@ -101,7 +101,7 @@ The reason could be that
 <p>Connectors PositivePin and NegativePin are nearly identical. The only difference is that the icons are different in order to identify more easily the pins of a component. Usually, connector PositivePin is used for the positive and connector NegativePin for the negative pin of an electrical component.</p>
 </html>", revisions="<html>
 <dl>
-<dt><i>1998</i></dt>
+<dt><em>1998</em></dt>
 <dd>by Christoph Clauss initially implemented
 </dd>
 </dl>
@@ -124,11 +124,10 @@ The reason could be that
   end NegativePin;
 
   partial model TwoPin "Component with two electrical pins"
-    SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
-    PositivePin p
-      "Positive pin Positive pin (potential p.v > n.v for positive voltage drop v)" annotation (Placement(
+    SI.Voltage v "Voltage drop of the two pins (= p.v - n.v)";
+    PositivePin p "Positive electrical pin" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}})));
-    NegativePin n "Negative pin" annotation (Placement(transformation(extent={{
+    NegativePin n "Negative electrical pin" annotation (Placement(transformation(extent={{
               90,-10},{110,10}})));
   equation
     v = p.v - n.v;
@@ -158,7 +157,7 @@ The reason could be that
             textString="n.i")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -170,12 +169,11 @@ The reason could be that
   partial model OnePort
     "Component with two electrical pins p and n and current i from p to n"
 
-    SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
+    SI.Voltage v "Voltage drop of the two pins (= p.v - n.v)";
     SI.Current i "Current flowing from pin p to pin n";
-    PositivePin p
-      "Positive pin (potential p.v > n.v for positive voltage drop v)" annotation (Placement(
+    PositivePin p "Positive electrical pin" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}})));
-    NegativePin n "Negative pin" annotation (Placement(transformation(extent={{
+    NegativePin n "Negative electrical pin" annotation (Placement(transformation(extent={{
               110,-10},{90,10}})));
   equation
     v = p.v - n.v;
@@ -183,11 +181,11 @@ The reason could be that
     i = p.i;
     annotation (
       Documentation(info="<html>
-<p>Superclass of elements which have <b>two</b> electrical pins: the positive pin connector <i>p</i>, and the negative pin connector <i>n</i>. It is assumed that the current flowing into pin p is identical to the current flowing out of pin n. This current is provided explicitly as current i.</p>
+<p>Superclass of elements which have <strong>two</strong> electrical pins: the positive pin connector <em>p</em>, and the negative pin connector <em>n</em>. It is assumed that the current flowing into pin p is identical to the current flowing out of pin n. This current is provided explicitly as current i.</p>
 </html>",
    revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -222,20 +220,18 @@ The reason could be that
 
   partial model TwoPort
     "Component with two electrical ports, including current"
-    SI.Voltage v1 "Voltage drop over the left port";
-    SI.Voltage v2 "Voltage drop over the right port";
-    SI.Current i1 "Current flowing from pos. to neg. pin of the left port";
-    SI.Current i2 "Current flowing from pos. to neg. pin of the right port";
-    PositivePin p1
-      "Positive pin of the left port (potential p1.v > n1.v for positive voltage drop v1)" annotation (Placement(
-          transformation(extent={{-110,40},{-90,60}})));
-    NegativePin n1 "Negative pin of the left port" annotation (Placement(
-          transformation(extent={{-90,-60},{-110,-40}})));
-    PositivePin p2
-      "Positive pin of the right port (potential p2.v > n2.v for positive voltage drop v2)" annotation (Placement(
-          transformation(extent={{110,40},{90,60}})));
-    NegativePin n2 "Negative pin of the right port" annotation (Placement(
-          transformation(extent={{90,-60},{110,-40}})));
+    SI.Voltage v1 "Voltage drop of port 1 (= p1.v - n1.v)";
+    SI.Voltage v2 "Voltage drop of port 2 (= p2.v - n2.v)";
+    SI.Current i1 "Current flowing from pos. to neg. pin of port 1";
+    SI.Current i2 "Current flowing from pos. to neg. pin of port 2";
+    PositivePin p1 "Positive electrical pin of port 1" annotation (Placement(
+          transformation(extent={{-110,90},{-90,110}}), iconTransformation(extent={{-110,90},{-90,110}})));
+    NegativePin n1 "Negative electrical pin of port 1" annotation (Placement(
+          transformation(extent={{-90,-110},{-110,-90}}), iconTransformation(extent={{-90,-110},{-110,-90}})));
+    PositivePin p2 "Positive electrical pin of port 2" annotation (Placement(
+          transformation(extent={{110,90},{90,110}}), iconTransformation(extent={{110,90},{90,110}})));
+    NegativePin n2 "Negative electrical pin of port 2" annotation (Placement(
+          transformation(extent={{90,-110},{110,-90}}), iconTransformation(extent={{90,-110},{110,-90}})));
   equation
     v1 = p1.v - n1.v;
     v2 = p2.v - n2.v;
@@ -246,50 +242,54 @@ The reason could be that
     annotation (
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
+          extent={{-100,-100},{100,100}},
+          grid={2,2}),               graphics={
           Polygon(
-            points={{-120,53},{-110,50},{-120,47},{-120,53}},
+            points={{-124,103},{-114,100},{-124,97},{-124,103}},
             lineColor={160,160,164},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid),
-          Line(points={{-136,50},{-111,50}}, color={160,160,164}),
+          Line(points={{-140,100},{-115,100}},
+                                             color={160,160,164}),
           Polygon(
-            points={{127,-47},{137,-50},{127,-53},{127,-47}},
+            points={{130,-97},{140,-100},{130,-103},{130,-97}},
             lineColor={160,160,164},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid),
-          Line(points={{111,-50},{136,-50}}, color={160,160,164}),
+          Line(points={{114,-100},{139,-100}},
+                                             color={160,160,164}),
           Text(
-            extent={{112,-44},{128,-29}},
+            extent={{113,-96},{129,-81}},
             lineColor={160,160,164},
             textString="i2"),
           Text(
-            extent={{118,52},{135,67}},
-            lineColor={0,0,0},
+            extent={{122,102},{139,117}},
+            lineColor={160,160,164},
             textString="i2"),
           Polygon(
-            points={{120,53},{110,50},{120,47},{120,53}},
-            lineColor={0,0,0},
+            points={{124,103},{114,100},{124,97},{124,103}},
+            lineColor={160,160,164},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={160,160,164}),
-          Line(points={{111,50},{136,50}}),
-          Line(points={{-136,-49},{-111,-49}}, color={160,160,164}),
+          Line(points={{115,100},{140,100}}, color={160,160,164}),
+          Line(points={{-140,-100},{-115,-100}},
+                                               color={160,160,164}),
           Polygon(
-            points={{-126,-46},{-136,-49},{-126,-52},{-126,-46}},
+            points={{-130,-97},{-140,-100},{-130,-103},{-130,-97}},
             lineColor={160,160,164},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-127,-46},{-110,-31}},
+            extent={{-131,-97},{-114,-82}},
             lineColor={160,160,164},
             textString="i1"),
           Text(
-            extent={{-136,53},{-119,68}},
+            extent={{-140,103},{-123,118}},
             lineColor={160,160,164},
             textString="i1")}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -305,7 +305,7 @@ The reason could be that
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter SI.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
-    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=T)=T_heatPort, Q_flow=-LossPower) if useHeatPort
+    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(final T=T_heatPort, final Q_flow=-LossPower) if useHeatPort
       "Conditional heat port"
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-10,-110},{10,-90}})));
@@ -316,27 +316,27 @@ The reason could be that
        T_heatPort = T;
     end if;
 
-    annotation (      Documentation(revisions="<html>
+    annotation (Documentation(revisions="<html>
 <ul>
-<li><i> February 17, 2009   </i>
+<li><em>February 17, 2009</em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
-</html>",   info="<html>
+</html>", info="<html>
 <p>
 This partial model provides a conditional heating port for the connection to a thermal network.
 </p>
 <ul>
-<li> If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal
-     loss power flows internally to the ground. In this case, the parameter <b>T</b> specifies
+<li> If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal
+     loss power flows internally to the ground. In this case, the parameter <strong>T</strong> specifies
      the fixed device temperature (the default for T = 20<sup>o</sup>C).</li>
-<li> If <b>useHeatPort</b> is set to <b>true</b>, a heat port is available.</li>
+<li> If <strong>useHeatPort</strong> is set to <strong>true</strong>, a heat port is available.</li>
 </ul>
 
 <p>
 If this model is used, the loss power has to be provided by an equation in the model which inherits from
-ConditionalHeatingPort model (<b>lossPower = ...</b>). As device temperature
-<b>T_heatPort</b> can be used to describe the influence of the device temperature
+ConditionalHeatingPort model (<strong>lossPower = ...</strong>). As device temperature
+<strong>T_heatPort</strong> can be used to describe the influence of the device temperature
 on the model behaviour.
 </p>
 </html>"));
@@ -346,7 +346,7 @@ on the model behaviour.
     "Base class to measure the absolute value of a pin variable"
     extends Modelica.Icons.RotationalSensor;
 
-    Interfaces.PositivePin p "Pin to be measured" annotation (Placement(
+    Interfaces.PositivePin p "Positive electrical pin" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}})));
     Modelica.Blocks.Interfaces.RealOutput y
       "Measured quantity as Real output signal" annotation (Placement(
@@ -367,7 +367,7 @@ on the model behaviour.
             Line(points={{70,0},{100,0}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -381,9 +381,9 @@ on the model behaviour.
     "Base class to measure a relative variable between two pins"
     extends Modelica.Icons.RotationalSensor;
 
-    Interfaces.PositivePin p "Positive pin" annotation (Placement(
+    Interfaces.PositivePin p "Positive electrical pin" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}})));
-    Interfaces.NegativePin n "Negative pin" annotation (Placement(
+    Interfaces.NegativePin n "Negative electrical pin" annotation (Placement(
           transformation(extent={{90,-10},{110,10}})));
     Modelica.Blocks.Interfaces.RealOutput y
       "Measured quantity as Real output signal" annotation (Placement(
@@ -410,7 +410,7 @@ on the model behaviour.
           Line(points={{70,0},{96,0}})}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -439,21 +439,16 @@ on the model behaviour.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-150,80},{150,120}},
+            extent={{-150,60},{150,100}},
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{-90,0},{90,0}}, color={0,0,255}),
-          Text(
-            extent={{-120,50},{-20,0}},
-            lineColor={0,0,255},
-            textString="+"),
-          Text(
-            extent={{20,50},{120,0}},
-            lineColor={0,0,255},
-            textString="-")}),
+          Line(points={{-80,20},{-60,20}}, color={0,0,255}),
+          Line(points={{-70,30},{-70,10}}, color={0,0,255}),
+          Line(points={{60,20},{80,20}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -484,7 +479,7 @@ on the model behaviour.
           Line(points={{50,0},{90,0}}, color={0,0,255}),
           Line(points={{0,-50},{0,50}}, color={0,0,255}),
           Text(
-            extent={{-150,120},{150,80}},
+            extent={{-150,100},{150,60}},
             textString="%name",
             lineColor={0,0,255}),
           Polygon(
@@ -494,7 +489,7 @@ on the model behaviour.
             fillPattern=FillPattern.Solid)}),
       Documentation(revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -505,9 +500,9 @@ on the model behaviour.
 
   partial model IdealSemiconductor "Ideal semiconductor"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
+    parameter Modelica.SIunits.Resistance Ron(final min=0) = 1e-5
       "Forward state-on differential resistance (closed resistance)";
-    parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
+    parameter Modelica.SIunits.Conductance Goff(final min=0) = 1e-5
       "Backward state-off conductance (opened conductance)";
     parameter Modelica.SIunits.Voltage Vknee(final min=0) = 0
       "Forward threshold voltage";
@@ -517,8 +512,8 @@ on the model behaviour.
     Real s(start=0, final unit="1")
       "Auxiliary variable for actual position on the ideal diode characteristic";
     /* s = 0: knee point
-     s < 0: below knee point, conducting
-     s > 0: above knee point, locking */
+     s < 0: below knee point, blocking
+     s > 0: above knee point, conducting */
     constant Modelica.SIunits.Voltage unitVoltage=1 annotation (HideResult=true);
     constant Modelica.SIunits.Current unitCurrent=1 annotation (HideResult=true);
   equation
@@ -527,35 +522,35 @@ on the model behaviour.
     LossPower = v*i;
     annotation (
       Documentation(info="<html>
-<P>
+<p>
 This is an ideal semiconductor which is<br><br>
-<b>open </b>(off), if it is reversed biased (voltage drop less than 0)<br>
-<b>closed</b> (on), if it is conducting (current > 0).<br>
+<strong>open </strong>(off), if it is reversed biased (voltage drop less than 0)<br>
+<strong>closed</strong> (on), if it is conducting (current > 0).<br>
 <br/>
 This is the behaviour if all parameters are exactly zero.<br><br>
 Note, there are circuits, where this ideal description
 with zero resistance and zero conductance is not possible.
 In order to prevent singularities during switching, the opened
-semiconductor has a small conductance <i>Gon</i>
-and the closed semiconductor has a low resistance <i>Roff</i> which is default.
-</P>
-<P>
-The parameter <i>Vknee</i> which is the forward threshold voltage, allows to displace
-the knee point <br> along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
-<br> <br>
-<b>Please note:</b>
+semiconductor has a small conductance <em>Gon</em>
+and the closed semiconductor has a low resistance <em>Roff</em> which is default.
+</p>
+<p>
+The parameter <em>Vknee</em> which is the forward threshold voltage, allows to displace
+the knee point<br> along  the <em>Gon</em>-characteristic until <em>v = Vknee</em>.
+<br><br>
+<strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled.
+behavior is <strong>not</strong> modelled.
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i>Mai 7, 2004   </i>
+<li><em>Mai 7, 2004   </em>
        by Christoph Clauss and Anton Haumer<br> Vknee added<br>
        </li>
-<li><i>some years ago   </i>
+<li><em>some years ago   </em>
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>
@@ -564,7 +559,7 @@ behavior is <b>not</b> modelled.
               100}}), graphics={
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
-            lineColor={0,0,0},
+            lineColor={0,0,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{-90,0},{40,0}}, color={0,0,255}),
@@ -576,12 +571,12 @@ behavior is <b>not</b> modelled.
             color={127,0,0},
             pattern=LinePattern.Dot),
           Text(
-            extent={{-150,-40},{150,-80}},
+            extent={{-150,90},{150,50}},
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-80,0},{80,0}}, color={128,
-            128,128}),Polygon(
+              100,100}}), graphics={Line(points={{-80,0},{80,0}}, color={128,128,128}),
+            Polygon(
               points={{70,4},{80,0},{70,-4},{70,4}},
               lineColor={128,128,128},
               fillColor={128,128,128},
@@ -618,9 +613,9 @@ behavior is <b>not</b> modelled.
 
   partial model IdealSwitch "Ideal electrical switch"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
+    parameter Modelica.SIunits.Resistance Ron(final min=0) = 1e-5
       "Closed switch resistance";
-    parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
+    parameter Modelica.SIunits.Conductance Goff(final min=0) = 1e-5
       "Opened switch conductance";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
   protected
@@ -634,7 +629,7 @@ behavior is <b>not</b> modelled.
     LossPower = v*i;
     annotation (
       Documentation(info="<html>
-<P>
+<p>
 The ideal switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by the boolean signal off.
 If off is true, pin p is not connected with negative pin n.
@@ -646,17 +641,17 @@ The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
-<br> <br>
-<b>Please note:</b>
+<br><br>
+<strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled. The parameters are not temperature dependent.
-</P>
+behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
+</p>
 </html>", revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
+<li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -665,7 +660,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
               100}}), graphics={
           Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
           Line(points={{-90,0},{-44,0}}, color={0,0,255}),
-          Line(points={{-37,2},{40,50}}, color={0,0,255}),
+          Line(points={{-37,2},{40,40}}, color={0,0,255}),
           Line(points={{40,0},{90,0}}, color={0,0,255}),
           Line(
             visible=useHeatPort,
@@ -673,7 +668,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
             color={127,0,0},
             pattern=LinePattern.Dot),
           Text(
-            extent={{-150,-30},{150,-70}},
+            extent={{-150,90},{150,50}},
             textString="%name",
             lineColor={0,0,255})}));
   end IdealSwitch;
@@ -712,38 +707,29 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Ellipse(extent={{-44,4},{-36,-4}}),
-          Line(points={{-90,0},{-44,0}}),
-          Line(points={{-37,2},{40,50}}),
-          Line(points={{40,0},{90,0}}),
+          Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
+          Line(points={{-90,0},{-44,0}}, color={0,0,255}),
+          Line(points={{-37,2},{40,40}}, color={0,0,255}),
+          Line(points={{40,0},{90,0}}, color={0,0,255}),
           Text(
-            extent={{-150,-30},{150,-70}},
+            extent={{-150,90},{150,50}},
             textString="%name",
             lineColor={0,0,255})}),
-      Diagram(graphics={Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,
-            255}),Line(points={{-60,-60},{-40,-60},{-40,-40},{-20,40},{40,40}}),Text(
+      Diagram(graphics={Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,255}),
+            Line(points={{-60,-60},{-40,-60},{-40,-40},{-20,40},{40,40}}),Text(
               extent={{30,-60},{50,-70}},
-              lineColor={0,0,0},
               textString="time"),Text(
               extent={{-60,60},{-20,50}},
-              lineColor={0,0,0},
               textString="voltage"),Text(
               extent={{-60,-30},{-40,-40}},
-              lineColor={0,0,0},
               textString="V0"),Text(
               extent={{-50,40},{-30,30}},
-              lineColor={0,0,0},
               textString="Vmax"),Text(
               extent={{-40,10},{-20,0}},
-              lineColor={0,0,0},
               textString="dVdt"),Polygon(
               points={{-60,60},{-62,52},{-58,52},{-60,60}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid),Polygon(
               points={{60,-60},{54,-58},{54,-62},{60,-60}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
@@ -780,17 +766,17 @@ i.e., the equation for the on-state is activated <code>v=Ron*i</code>.
 <p>
 Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
 In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
-<br> <br>
-<b>Please note:</b>
+<br><br>
+<strong>Please note:</strong>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled. The parameters are not temperature dependent.
+behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>June, 2009   </i>
+<li><em>June, 2009   </em>
        by Christoph Clauss<br> adapted to OpenerWithArc<br>
        </li>
-<li><i>May, 2009   </i>
+<li><em>May, 2009   </em>
        by Anton Haumer<br> CloserWithArc initially implemented<br>
        </li>
 </ul>
@@ -802,11 +788,11 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
    revisions="<html>
 <dl>
 <dt>
-<b>Main Authors:</b>
+<strong>Main Authors:</strong>
 </dt>
 <dd>
 Christoph Clau&szlig;
-    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
+    &lt;<a href=\"mailto:christoph@clauss-it.com\">christoph@clauss-it.com</a>&gt;<br>
     Andr&eacute; Schneider
     &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>
@@ -814,22 +800,16 @@ Christoph Clau&szlig;
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden
 </dd>
-<dt>
-<b>Copyright:</b>
-</dt>
-<dd>
-Copyright &copy; 1998-2016, Modelica Association and Fraunhofer-Gesellschaft.<br>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".</i>
-</dd>
 </dl>
 
 <ul>
-<li><i> 1998</i>
+<li><em> 1998</em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+
+<p>
+Copyright &copy; 1998-2019, Modelica Association and contributors
+</p>
 </html>"));
 end Interfaces;

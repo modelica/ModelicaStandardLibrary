@@ -33,7 +33,7 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
     "Moist air without condensation";
 
   package FlueGasLambdaOnePlus
-    "Simple flue gas for over0stochiometric O2-fuel ratios"
+    "Simple flue gas for overstochiometric O2-fuel ratios"
     extends Common.MixtureGasNasa(
        mediumName="FlueGasLambda1plus",
        data={Common.SingleGasesData.N2,

@@ -53,16 +53,14 @@ model TestJunctionIdeal
         rotation=90)));
 equation
   connect(ramp.y, source1.p_in) annotation (Line(points={{-69,-14},{-55.5,-14},
-          {-55.5,-12},{-42,-12}},
-        color={0,0,127}));
+          {-55.5,-12},{-42,-12}}, color={0,0,127}));
   connect(source1.ports[1], pipe1.port_a)
                                      annotation (Line(points={{-20,-20},{-12,
           -20}}, color={0,127,255}));
   connect(pipe1.port_b, junction.port_1)
     annotation (Line(points={{8,-20},{20,-20}}, color={0,127,255}));
   connect(pipe2.port_b, source2.ports[1])
-                                      annotation (Line(points={{70,-20},{80,-20}},
-        color={0,127,255}));
+                                      annotation (Line(points={{70,-20},{80,-20}}, color={0,127,255}));
   connect(junction.port_2,pipe2.port_a)  annotation (Line(points={{40,-20},{50,
           -20}}, color={0,127,255}));
   connect(pipe3.port_b, source3.ports[1])

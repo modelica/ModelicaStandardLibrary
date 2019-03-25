@@ -5,19 +5,36 @@ package Continuous "Library of continuous control blocks with internal states"
   import Modelica.SIunits;
   extends Modelica.Icons.Package;
 
-  block Integrator "Output the integral of the input signal"
+  block Integrator "Output the integral of the input signal with optional reset"
     import Modelica.Blocks.Types.Init;
     parameter Real k(unit="1")=1 "Integrator gain";
+    parameter Boolean use_reset = false "=true, if reset port enabled"
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+    parameter Boolean use_set = false "=true, if set port enabled and used as reinitialization value when reset"
+      annotation(Dialog(enable=use_reset), Evaluate=true, HideResult=true, choices(checkBox=true));
 
     /* InitialState is the default, because it was the default in Modelica 2.2
      and therefore this setting is backward compatible
   */
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.InitialState
-      "Type of initialization (1: no init, 2: steady state, 3,4: initial output)"     annotation(Evaluate=true,
+      "Type of initialization (1: no init, 2: steady state, 3,4: initial output)" annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real y_start=0 "Initial or guess value of output (= state)"
       annotation (Dialog(group="Initialization"));
     extends Interfaces.SISO(y(start=y_start));
+    Modelica.Blocks.Interfaces.BooleanInput reset if use_reset "Optional connector of reset signal" annotation(Placement(
+      transformation(
+        extent={{-20,-20},{20,20}},
+        rotation=90,
+        origin={60,-120})));
+    Modelica.Blocks.Interfaces.RealInput set if use_reset and use_set "Optional connector of set signal" annotation(Placement(
+      transformation(
+        extent={{-20,-20},{20,20}},
+        rotation=270,
+        origin={60,120})));
+  protected
+    Modelica.Blocks.Interfaces.BooleanOutput local_reset annotation(HideResult=true);
+    Modelica.Blocks.Interfaces.RealOutput local_set annotation(HideResult=true);
 
   initial equation
     if initType == Init.SteadyState then
@@ -27,13 +44,27 @@ package Continuous "Library of continuous control blocks with internal states"
       y = y_start;
     end if;
   equation
+    if use_reset then
+      connect(reset, local_reset);
+      if use_set then
+        connect(set, local_set);
+      else
+        local_set = y_start;
+      end if;
+      when local_reset then
+        reinit(y, local_set);
+      end when;
+    else
+      local_reset = false;
+      local_set = 0;
+    end if;
     der(y) = k*u;
     annotation (
       Documentation(info="<html>
 <p>
-This blocks computes output <b>y</b> (element-wise) as
-<i>integral</i> of the input <b>u</b> multiplied with
-the gain <i>k</i>:
+This blocks computes output <strong>y</strong> as
+<em>integral</em> of the input <strong>u</strong> multiplied with
+the gain <em>k</em>:
 </p>
 <pre>
          k
@@ -47,7 +78,12 @@ This is discussed in the description of package
 <a href=\"modelica://Modelica.Blocks.Continuous#info\">Continuous</a>.
 </p>
 
-</html>"),   Icon(coordinateSystem(
+<p>
+If the <em>reset</em> port is enabled, then the output <strong>y</strong> is reset to <em>set</em>
+or to <em>y_start</em> (if the <em>set</em> port is not enabled), whenever the <em>reset</em>
+port has a rising edge.
+</p>
+</html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
@@ -75,8 +111,17 @@ This is discussed in the description of package
               extent={{-150.0,-150.0},{150.0,-110.0}},
               textString="k=%k"),
             Line(
-              points={{-80.0,-80.0},{80.0,80.0}},
-              color={0,0,127})}),
+              points=DynamicSelect({{-80.0,-80.0},{80.0,80.0}}, if use_reset then {{-80.0,-80.0},{60.0,60.0},{60.0,-80.0},{80.0,-60.0}} else {{-80.0,-80.0},{80.0,80.0}}),
+              color={0,0,127}),
+            Line(
+              visible=use_reset,
+              points={{60,-100},{60,-80}},
+              color={255,0,255},
+              pattern=LinePattern.Dot),
+            Text(
+              visible=use_reset,
+              extent={{-28,-62},{94,-86}},
+              textString="reset")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -85,20 +130,22 @@ This is discussed in the description of package
           Line(points={{60,0},{100,0}}, color={0,0,255}),
           Text(
             extent={{-36,60},{32,2}},
-            lineColor={0,0,0},
             textString="k"),
           Text(
             extent={{-32,0},{36,-58}},
-            lineColor={0,0,0},
             textString="s"),
           Line(points={{-46,0},{46,0}})}));
   end Integrator;
 
-  block LimIntegrator "Integrator with limited value of the output"
+  block LimIntegrator "Integrator with limited value of the output and optional reset"
     import Modelica.Blocks.Types.Init;
     parameter Real k(unit="1")=1 "Integrator gain";
     parameter Real outMax(start=1) "Upper limit of output";
     parameter Real outMin=-outMax "Lower limit of output";
+    parameter Boolean use_reset = false "=true, if reset port enabled"
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+    parameter Boolean use_set = false "=true, if set port enabled and used as reinitialization value when reset"
+      annotation(Dialog(enable=use_reset), Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.InitialState
       "Type of initialization (1: no init, 2: steady state, 3/4: initial output)"
       annotation(Evaluate=true, Dialog(group="Initialization"));
@@ -111,6 +158,19 @@ This is discussed in the description of package
     parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
       annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
     extends Interfaces.SISO(y(start=y_start));
+    Modelica.Blocks.Interfaces.BooleanInput reset if use_reset "Optional connector of reset signal" annotation(Placement(
+      transformation(
+        extent={{-20,-20},{20,20}},
+        rotation=90,
+        origin={60,-120})));
+    Modelica.Blocks.Interfaces.RealInput set if use_reset and use_set "Optional connector of set signal" annotation(Placement(
+      transformation(
+        extent={{-20,-20},{20,20}},
+        rotation=270,
+        origin={60,120})));
+  protected
+    Modelica.Blocks.Interfaces.BooleanOutput local_reset annotation(HideResult=true);
+    Modelica.Blocks.Interfaces.RealOutput local_set annotation(HideResult=true);
 
   initial equation
     if initType == Init.SteadyState then
@@ -120,6 +180,20 @@ This is discussed in the description of package
       y = y_start;
     end if;
   equation
+    if use_reset then
+      connect(reset, local_reset);
+      if use_set then
+        connect(set, local_set);
+      else
+        local_set = y_start;
+      end if;
+      when local_reset then
+        reinit(y, if local_set < outMin then outMin elseif local_set > outMax then outMax else local_set);
+      end when;
+    else
+      local_reset = false;
+      local_set = 0;
+    end if;
     if initial() and not limitsAtInit then
        der(y) = k*u;
        assert(y >= outMin - 0.001*abs(outMax-outMin) and y <= outMax + 0.001*abs(outMax-outMin),
@@ -134,9 +208,9 @@ This is discussed in the description of package
     annotation (
       Documentation(info="<html>
 <p>
-This blocks computes <b>y</b> (element-wise) as <i>integral</i>
-of the input <b>u</b> multiplied with the gain <i>k</i>. If the
-integral reaches a given upper or lower <i>limit</i> and the
+This blocks computes <strong>y</strong> as <em>integral</em>
+of the input <strong>u</strong> multiplied with the gain <em>k</em>. If the
+integral reaches a given upper or lower <em>limit</em> and the
 input will drive the integral outside of this bound, the
 integration is halted and only restarted if the input drives
 the integral away from the bounds.
@@ -149,15 +223,20 @@ This is discussed in the description of package
 </p>
 
 <p>
-If parameter <b>limitAtInit</b> = <b>false</b>, the limits of the
+If parameter <strong>limitAtInit</strong> = <strong>false</strong>, the limits of the
 integrator are removed from the initialization problem which
 leads to a much simpler equation system. After initialization has been
 performed, it is checked via an assert whether the output is in the
 defined limits. For backward compatibility reasons
-<b>limitAtInit</b> = <b>true</b>. In most cases it is best
-to use <b>limitAtInit</b> = <b>false</b>.
+<strong>limitAtInit</strong> = <strong>true</strong>. In most cases it is best
+to use <strong>limitAtInit</strong> = <strong>false</strong>.
 </p>
-</html>"),   Icon(coordinateSystem(
+<p>
+If the <em>reset</em> port is enabled, then the output <strong>y</strong> is reset to <em>set</em>
+or to <em>y_start</em> (if the <em>set</em> port is not enabled), whenever the <em>reset</em>
+port has a rising edge.
+</p>
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
@@ -172,36 +251,43 @@ to use <b>limitAtInit</b> = <b>false</b>.
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,-80},{20,20},{80,20}}, color={0,0,127}),
+          Line(
+            points=DynamicSelect({{-80,-80},{20,20},{80,20}}, if use_reset then {{-80,-80},{20,20},{60,20},{60,-80},{80,-60}} else {{-80,-80},{20,20},{80,20}}),
+            color={0,0,127}),
           Text(
             extent={{0,-10},{60,-70}},
             lineColor={192,192,192},
             textString="I"),
           Text(
             extent={{-150,-150},{150,-110}},
-            lineColor={0,0,0},
             textString="k=%k"),
           Line(
             visible=strict,
-            points={{20,20},{80,20}},
-            color={255,0,0})}),
+            points=DynamicSelect({{20,20},{80,20}}, if use_reset then {{20,20},{60,20}} else {{20,20},{80,20}}),
+            color={255,0,0}),
+          Line(
+            visible=use_reset,
+            points={{60,-100},{60,-80}},
+            color={255,0,255},
+            pattern=LinePattern.Dot),
+          Text(
+            visible=use_reset,
+            extent={{-28,-62},{94,-86}},
+            textString="reset")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Text(
             extent={{-54,46},{-4,-48}},
-            lineColor={0,0,0},
             textString="lim"),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255}),
           Text(
             extent={{-8,60},{60,2}},
-            lineColor={0,0,0},
             textString="k"),
           Text(
             extent={{-8,-2},{60,-60}},
-            lineColor={0,0,0},
             textString="s"),
           Line(points={{4,0},{46,0}})}));
   end LimIntegrator;
@@ -246,7 +332,7 @@ to use <b>limitAtInit</b> = <b>false</b>.
 <p>
 This blocks defines the transfer function between the
 input u and the output y
-(element-wise) as <i>approximated derivative</i>:
+as <em>approximated derivative</em>:
 </p>
 <pre>
              k * s
@@ -256,7 +342,7 @@ input u and the output y
 <p>
 If you would like to be able to change easily between different
 transfer functions (FirstOrder, SecondOrder, ... ) by changing
-parameters, use the general block <b>TransferFunction</b> instead
+parameters, use the general block <strong>TransferFunction</strong> instead
 and model a derivative block with parameters<br>
 b = {k,0}, a = {T, 1}.
 </p>
@@ -264,7 +350,7 @@ b = {k,0}, a = {T, 1}.
 <p>
 If k=0, the block reduces to y=0.
 </p>
-</html>"),   Icon(
+</html>"), Icon(
       coordinateSystem(preserveAspectRatio=true,
           extent={{-100.0,-100.0},{100.0,100.0}}),
         graphics={
@@ -294,11 +380,9 @@ If k=0, the block reduces to y=0.
           extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-54,52},{50,10}},
-            lineColor={0,0,0},
             textString="k s"),
           Text(
             extent={{-54,-6},{52,-52}},
-            lineColor={0,0,0},
             textString="T s + 1"),
           Line(points={{-50,0},{50,0}}),
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
@@ -311,7 +395,7 @@ If k=0, the block reduces to y=0.
     parameter Real k(unit="1")=1 "Gain";
     parameter SIunits.Time T(start=1) "Time Constant";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
-      "Type of initialization (1: no init, 2: steady state, 3/4: initial output)"     annotation(Evaluate=true,
+      "Type of initialization (1: no init, 2: steady state, 3/4: initial output)" annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real y_start=0 "Initial or guess value of output (= state)"
       annotation (Dialog(group="Initialization"));
@@ -330,7 +414,7 @@ If k=0, the block reduces to y=0.
       Documentation(info="<html>
 <p>
 This blocks defines the transfer function between the input u
-and the output y (element-wise) as <i>first order</i> system:
+and the output y as <em>first order</em> system:
 </p>
 <pre>
                k
@@ -340,7 +424,7 @@ and the output y (element-wise) as <i>first order</i> system:
 <p>
 If you would like to be able to change easily between different
 transfer functions (FirstOrder, SecondOrder, ... ) by changing
-parameters, use the general block <b>TransferFunction</b> instead
+parameters, use the general block <strong>TransferFunction</strong> instead
 and model a first order SISO system with parameters<br>
 b = {k}, a = {T, 1}.
 </p>
@@ -353,7 +437,7 @@ Example:
           0.4 s + 1.0
 </pre>
 
-</html>"),   Icon(
+</html>"), Icon(
     coordinateSystem(preserveAspectRatio=true,
         extent={{-100.0,-100.0},{100.0,100.0}}),
       graphics={
@@ -383,11 +467,9 @@ Example:
           extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-48,52},{50,8}},
-            lineColor={0,0,0},
             textString="k"),
           Text(
             extent={{-54,-6},{56,-56}},
-            lineColor={0,0,0},
             textString="T s + 1"),
           Line(points={{-50,0},{50,0}}),
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
@@ -401,7 +483,7 @@ Example:
     parameter Real w(start=1) "Angular frequency";
     parameter Real D(start=1) "Damping";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
-      "Type of initialization (1: no init, 2: steady state, 3/4: initial output)"     annotation(Evaluate=true,
+      "Type of initialization (1: no init, 2: steady state, 3/4: initial output)" annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real y_start=0 "Initial or guess value of output (= state)"
       annotation (Dialog(group="Initialization"));
@@ -427,7 +509,7 @@ Example:
       Documentation(info="<html>
 <p>
 This blocks defines the transfer function between the input u and
-the output y (element-wise) as <i>second order</i> system:
+the output y as <em>second order</em> system:
 </p>
 <pre>
                              k
@@ -437,7 +519,7 @@ the output y (element-wise) as <i>second order</i> system:
 <p>
 If you would like to be able to change easily between different
 transfer functions (FirstOrder, SecondOrder, ... ) by changing
-parameters, use the general model class <b>TransferFunction</b>
+parameters, use the general model class <strong>TransferFunction</strong>
 instead and model a second order SISO system with parameters<br>
 b = {k}, a = {1/w^2, 2*D/w, 1}.
 </p>
@@ -451,7 +533,7 @@ Example:
           4.0 s^2 + 1.6 s + 1
 </pre>
 
-</html>"),   Icon(
+</html>"), Icon(
         coordinateSystem(preserveAspectRatio=true,
               extent={{-100.0,-100.0},{100.0,100.0}}),
             graphics={
@@ -482,11 +564,9 @@ Example:
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Text(
             extent={{-60,60},{60,14}},
-            lineColor={0,0,0},
             textString="k"),
           Text(
             extent={{-60,8},{-32,-20}},
-            lineColor={0,0,0},
             textString="s"),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255}),
@@ -494,32 +574,26 @@ Example:
           Line(points={{-54,-20},{-38,-20}}),
           Text(
             extent={{-52,-26},{-36,-48}},
-            lineColor={0,0,0},
             textString="w"),
           Line(points={{-50,2},{-56,-8},{-56,-28},{-52,-46}}),
           Line(points={{-40,2},{-34,-10},{-34,-30},{-38,-46}}),
           Text(
             extent={{-34,8},{-22,-10}},
-            lineColor={0,0,0},
             textString="2"),
           Text(
             extent={{-34,-6},{6,-36}},
-            lineColor={0,0,0},
             textString="+2D"),
           Text(
             extent={{2,8},{30,-20}},
-            lineColor={0,0,0},
             textString="s"),
           Line(points={{8,-20},{24,-20}}),
           Text(
             extent={{10,-26},{26,-48}},
-            lineColor={0,0,0},
             textString="w"),
           Line(points={{12,2},{6,-8},{6,-28},{10,-46}}),
           Line(points={{22,2},{28,-10},{28,-30},{24,-46}}),
           Text(
             extent={{30,2},{58,-42}},
-            lineColor={0,0,0},
             textString="+1")}));
   end SecondOrder;
 
@@ -556,7 +630,7 @@ Example:
       Documentation(info="<html>
 <p>
 This blocks defines the transfer function between the input u and
-the output y (element-wise) as <i>PI</i> system:
+the output y as <em>PI</em> system:
 </p>
 <pre>
                  1
@@ -569,7 +643,7 @@ the output y (element-wise) as <i>PI</i> system:
 <p>
 If you would like to be able to change easily between different
 transfer functions (FirstOrder, SecondOrder, ... ) by changing
-parameters, use the general model class <b>TransferFunction</b>
+parameters, use the general model class <strong>TransferFunction</strong>
 instead and model a PI SISO system with parameters<br>
 b = {k*T, k}, a = {T, 0}.
 </p>
@@ -591,7 +665,7 @@ This is discussed in the description of package
 <a href=\"modelica://Modelica.Blocks.Continuous#info\">Continuous</a>.
 </p>
 
-</html>"),   Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
@@ -613,7 +687,6 @@ This is discussed in the description of package
             textString="PI"),
           Text(
             extent={{-150,-150},{150,-110}},
-            lineColor={0,0,0},
             textString="T=%T")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -621,15 +694,12 @@ This is discussed in the description of package
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Text(
             extent={{-68,24},{-24,-18}},
-            lineColor={0,0,0},
             textString="k"),
           Text(
             extent={{-32,48},{60,0}},
-            lineColor={0,0,0},
             textString="T s + 1"),
           Text(
             extent={{-30,-8},{52,-40}},
-            lineColor={0,0,0},
             textString="T s"),
           Line(points={{-24,0},{54,0}}),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
@@ -653,7 +723,7 @@ This is discussed in the description of package
                                        annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real xi_start=0
-      "Initial or guess value value for integrator output (= integrator state)"
+      "Initial or guess value for integrator output (= integrator state)"
       annotation (Dialog(group="Initialization"));
     parameter Real xd_start=0
       "Initial or guess value for state of derivative block"
@@ -661,7 +731,7 @@ This is discussed in the description of package
     parameter Real y_start=0 "Initial value of output"
       annotation(Dialog(enable=initType == InitPID.InitialOutput, group=
             "Initialization"));
-    constant SI.Time unitTime=1  annotation(HideResult=true);
+    constant SI.Time unitTime=1 annotation(HideResult=true);
 
     Blocks.Math.Gain P(k=1) "Proportional part of PID controller"
       annotation (Placement(transformation(extent={{-60,60},{-20,100}})));
@@ -690,14 +760,12 @@ This is discussed in the description of package
     end if;
 
   equation
-    connect(u, P.u) annotation (Line(points={{-120,0},{-80,0},{-80,80},{-64,80}},
-          color={0,0,127}));
+    connect(u, P.u) annotation (Line(points={{-120,0},{-80,0},{-80,80},{-64,80}}, color={0,0,127}));
     connect(u, I.u)
       annotation (Line(points={{-120,0},{-64,0}}, color={0,0,127}));
     connect(u, D.u) annotation (Line(points={{-120,0},{-80,0},{-80,-80},{-64,
             -80}}, color={0,0,127}));
-    connect(P.y, Add.u1) annotation (Line(points={{-18,80},{0,80},{0,8},{18,8}},
-          color={0,0,127}));
+    connect(P.y, Add.u1) annotation (Line(points={{-18,80},{0,80},{0,8},{18,8}}, color={0,0,127}));
     connect(I.y, Add.u2)
       annotation (Line(points={{-18,0},{18,0}}, color={0,0,127}));
     connect(D.y, Add.u3) annotation (Line(points={{-18,-80},{0,-80},{0,-8},{18,
@@ -738,13 +806,13 @@ block LimPID.
 
 <p>
 The PID block can be initialized in different
-ways controlled by parameter <b>initType</b>. The possible
+ways controlled by parameter <strong>initType</strong>. The possible
 values of initType are defined in
 <a href=\"modelica://Modelica.Blocks.Types.InitPID\">Modelica.Blocks.Types.InitPID</a>.
 This type is identical to
 <a href=\"modelica://Modelica.Blocks.Types.Init\">Types.Init</a>,
 with the only exception that the additional option
-<b>DoNotUse_InitialIntegratorState</b> is added for
+<strong>DoNotUse_InitialIntegratorState</strong> is added for
 backward compatibility reasons (= integrator is initialized with
 InitialState whereas differential part is initialized with
 NoInit which was the initialization in version 2.2 of the Modelica
@@ -757,48 +825,48 @@ blocks inside the PID controller are initialized according to the following tabl
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>initType</b></td>
-      <td valign=\"top\"><b>I.initType</b></td>
-      <td valign=\"top\"><b>D.initType</b></td></tr>
+  <tr><td><strong>initType</strong></td>
+      <td><strong>I.initType</strong></td>
+      <td><strong>D.initType</strong></td></tr>
 
-  <tr><td valign=\"top\"><b>NoInit</b></td>
-      <td valign=\"top\">NoInit</td>
-      <td valign=\"top\">NoInit</td></tr>
+  <tr><td><strong>NoInit</strong></td>
+      <td>NoInit</td>
+      <td>NoInit</td></tr>
 
-  <tr><td valign=\"top\"><b>SteadyState</b></td>
-      <td valign=\"top\">SteadyState</td>
-      <td valign=\"top\">SteadyState</td></tr>
+  <tr><td><strong>SteadyState</strong></td>
+      <td>SteadyState</td>
+      <td>SteadyState</td></tr>
 
-  <tr><td valign=\"top\"><b>InitialState</b></td>
-      <td valign=\"top\">InitialState</td>
-      <td valign=\"top\">InitialState</td></tr>
+  <tr><td><strong>InitialState</strong></td>
+      <td>InitialState</td>
+      <td>InitialState</td></tr>
 
-  <tr><td valign=\"top\"><b>InitialOutput</b><br>
+  <tr><td><strong>InitialOutput</strong><br>
           and initial equation: y = y_start</td>
-      <td valign=\"top\">NoInit</td>
-      <td valign=\"top\">SteadyState</td></tr>
+      <td>NoInit</td>
+      <td>SteadyState</td></tr>
 
-  <tr><td valign=\"top\"><b>DoNotUse_InitialIntegratorState</b></td>
-      <td valign=\"top\">InitialState</td>
-      <td valign=\"top\">NoInit</td></tr>
+  <tr><td><strong>DoNotUse_InitialIntegratorState</strong></td>
+      <td>InitialState</td>
+      <td>NoInit</td></tr>
 </table>
 
 <p>
 In many cases, the most useful initial condition is
-<b>SteadyState</b> because initial transients are then no longer
+<strong>SteadyState</strong> because initial transients are then no longer
 present. If initType = InitPID.SteadyState, then in some
 cases difficulties might occur. The reason is the
 equation of the integrator:
 </p>
 
 <pre>
-   <b>der</b>(y) = k*u;
+   <strong>der</strong>(y) = k*u;
 </pre>
 
 <p>
 The steady state equation \"der(x)=0\" leads to the condition that the input u to the
 integrator is zero. If the input u is already (directly or indirectly) defined
-by another initial condition, then the initialization problem is <b>singular</b>
+by another initial condition, then the initialization problem is <strong>singular</strong>
 (has none or infinitely many solutions). This situation occurs often
 for mechanical systems, where, e.g., u = desiredSpeed - measuredSpeed and
 since speed is both a state and a derivative, it is natural to
@@ -811,30 +879,30 @@ to compute u by an algebraic equation.
   end PID;
 
   block LimPID
-    "P, PI, PD, and PID controller with limited output, anti-windup compensation and setpoint weighting"
+    "P, PI, PD, and PID controller with limited output, anti-windup compensation, setpoint weighting and optional feed-forward"
     import Modelica.Blocks.Types.InitPID;
     import Modelica.Blocks.Types.Init;
     import Modelica.Blocks.Types.SimpleController;
-    extends Interfaces.SVcontrol;
+    extends Modelica.Blocks.Interfaces.SVcontrol;
     output Real controlError = u_s - u_m
       "Control error (set point - measurement)";
-
     parameter .Modelica.Blocks.Types.SimpleController controllerType=
            .Modelica.Blocks.Types.SimpleController.PID "Type of controller";
     parameter Real k(min=0, unit="1") = 1 "Gain of controller";
-    parameter SIunits.Time Ti(min=Modelica.Constants.small)=0.5
-      "Time constant of Integrator block"
-       annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PI or
-                                controllerType==.Modelica.Blocks.Types.SimpleController.PID));
-    parameter SIunits.Time Td(min=0)= 0.1 "Time constant of Derivative block"
-         annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PD or
-                                  controllerType==.Modelica.Blocks.Types.SimpleController.PID));
+    parameter Modelica.SIunits.Time Ti(min=Modelica.Constants.small)=0.5
+      "Time constant of Integrator block" annotation (Dialog(enable=
+            controllerType == .Modelica.Blocks.Types.SimpleController.PI or
+            controllerType == .Modelica.Blocks.Types.SimpleController.PID));
+    parameter Modelica.SIunits.Time Td(min=0)=0.1
+      "Time constant of Derivative block" annotation (Dialog(enable=
+            controllerType == .Modelica.Blocks.Types.SimpleController.PD or
+            controllerType == .Modelica.Blocks.Types.SimpleController.PID));
     parameter Real yMax(start=1) "Upper limit of output";
     parameter Real yMin=-yMax "Lower limit of output";
     parameter Real wp(min=0) = 1
       "Set-point weight for Proportional block (0..1)";
     parameter Real wd(min=0) = 0 "Set-point weight for Derivative block (0..1)"
-         annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PD or
+       annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PD or
                                   controllerType==.Modelica.Blocks.Types.SimpleController.PID));
     parameter Real Ni(min=100*Modelica.Constants.eps) = 0.9
       "Ni*Ti is time constant of anti-windup compensation"
@@ -842,17 +910,17 @@ to compute u by an algebraic equation.
                                 controllerType==.Modelica.Blocks.Types.SimpleController.PID));
     parameter Real Nd(min=100*Modelica.Constants.eps) = 10
       "The higher Nd, the more ideal the derivative block"
-         annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PD or
+       annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PD or
                                   controllerType==.Modelica.Blocks.Types.SimpleController.PID));
+    parameter Boolean withFeedForward=false "Use feed-forward input?"
+      annotation(Evaluate=true, choices(checkBox=true));
+    parameter Real kFF=1 "Gain of feed-forward input"
+      annotation(Dialog(enable=withFeedForward));
     parameter .Modelica.Blocks.Types.InitPID initType= .Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState
       "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
-                                       annotation(Evaluate=true,
-        Dialog(group="Initialization"));
-    parameter Boolean limitsAtInit = true
-      "= false, if limits are ignored during initialization"
       annotation(Evaluate=true, Dialog(group="Initialization"));
     parameter Real xi_start=0
-      "Initial or guess value value for integrator output (= integrator state)"
+      "Initial or guess value for integrator output (= integrator state)"
       annotation (Dialog(group="Initialization",
                   enable=controllerType==.Modelica.Blocks.Types.SimpleController.PI or
                          controllerType==.Modelica.Blocks.Types.SimpleController.PID));
@@ -864,44 +932,62 @@ to compute u by an algebraic equation.
     parameter Real y_start=0 "Initial value of output"
       annotation(Dialog(enable=initType == .Modelica.Blocks.Types.InitPID.InitialOutput, group=
             "Initialization"));
+    parameter Modelica.Blocks.Types.LimiterHomotopy homotopyType = Modelica.Blocks.Types.LimiterHomotopy.Linear
+      "Simplified model for homotopy-based initialization"
+      annotation (Evaluate=true, Dialog(group="Initialization"));
     parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
       annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
-    constant SI.Time unitTime=1  annotation(HideResult=true);
-    Blocks.Math.Add addP(k1=wp, k2=-1)
+    parameter Boolean limitsAtInit=true
+      "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
+      annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true));
+    constant Modelica.SIunits.Time unitTime=1 annotation (HideResult=true);
+    Modelica.Blocks.Interfaces.RealInput u_ff if withFeedForward
+      "Optional connector of feed-forward input signal"
+     annotation (Placement(
+          transformation(
+          origin={60,-120},
+          extent={{20,-20},{-20,20}},
+          rotation=270)));
+    Modelica.Blocks.Math.Add addP(k1=wp, k2=-1)
       annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
-    Blocks.Math.Add addD(k1=wd, k2=-1) if with_D
+    Modelica.Blocks.Math.Add addD(k1=wd, k2=-1) if with_D
       annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
-    Blocks.Math.Gain P(k=1)
-                       annotation (Placement(transformation(extent={{-40,40},{
-              -20,60}})));
-    Blocks.Continuous.Integrator I(k=unitTime/Ti, y_start=xi_start,
-      initType=if initType==InitPID.SteadyState then
-                  Init.SteadyState else
-               if initType==InitPID.InitialState or
-                  initType==InitPID.DoNotUse_InitialIntegratorState then
-                  Init.InitialState else Init.NoInit) if with_I
-      annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
-    Blocks.Continuous.Derivative D(k=Td/unitTime, T=max([Td/Nd, 1.e-14]), x_start=xd_start,
-      initType=if initType==InitPID.SteadyState or
-                  initType==InitPID.InitialOutput then Init.SteadyState else
-               if initType==InitPID.InitialState then Init.InitialState else
-                  Init.NoInit) if with_D
-      annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-    Blocks.Math.Gain gainPID(k=k) annotation (Placement(transformation(extent={
-              {30,-10},{50,10}})));
-    Blocks.Math.Add3 addPID annotation (Placement(transformation(
-            extent={{0,-10},{20,10}})));
-    Blocks.Math.Add3 addI(k2=-1) if with_I annotation (Placement(
-          transformation(extent={{-80,-60},{-60,-40}})));
-    Blocks.Math.Add addSat(k1=+1, k2=-1) if
-                                     with_I
-      annotation (Placement(transformation(
+    Modelica.Blocks.Math.Gain P(k=1)
+      annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
+    Modelica.Blocks.Continuous.Integrator I(
+      k=unitTime/Ti,
+      y_start=xi_start,
+      initType=if initType == InitPID.SteadyState then Init.SteadyState else if
+          initType == InitPID.InitialState or initType == InitPID.DoNotUse_InitialIntegratorState
+           then Init.InitialState else Init.NoInit) if with_I
+      annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
+    Modelica.Blocks.Continuous.Derivative D(
+      k=Td/unitTime,
+      T=max([Td/Nd,1.e-14]),
+      x_start=xd_start,
+      initType=if initType == InitPID.SteadyState or initType == InitPID.InitialOutput
+           then Init.SteadyState else if initType == InitPID.InitialState then
+          Init.InitialState else Init.NoInit) if with_D
+      annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
+    Modelica.Blocks.Math.Gain gainPID(k=k)
+      annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+    Modelica.Blocks.Math.Add3 addPID
+      annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+    Modelica.Blocks.Math.Add3 addI(k2=-1) if with_I
+      annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
+    Modelica.Blocks.Math.Add addSat(k1=+1, k2=-1) if with_I annotation (Placement(
+          transformation(
           origin={80,-50},
           extent={{-10,-10},{10,10}},
           rotation=270)));
-    Blocks.Math.Gain gainTrack(k=1/(k*Ni)) if with_I
-      annotation (Placement(transformation(extent={{40,-80},{20,-60}})));
-    Blocks.Nonlinear.Limiter limiter(uMax=yMax, uMin=yMin, strict=strict, limitsAtInit=limitsAtInit)
+    Modelica.Blocks.Math.Gain gainTrack(k=1/(k*Ni)) if with_I
+      annotation (Placement(transformation(extent={{0,-80},{-20,-60}})));
+    Modelica.Blocks.Nonlinear.Limiter limiter(
+      uMax=yMax,
+      uMin=yMin,
+      strict=strict,
+      limitsAtInit=limitsAtInit,
+      homotopyType=homotopyType)
       annotation (Placement(transformation(extent={{70,-10},{90,10}})));
   protected
     parameter Boolean with_I = controllerType==SimpleController.PI or
@@ -909,13 +995,17 @@ to compute u by an algebraic equation.
     parameter Boolean with_D = controllerType==SimpleController.PD or
                                controllerType==SimpleController.PID annotation(Evaluate=true, HideResult=true);
   public
-    Sources.Constant Dzero(k=0) if not with_D
-      annotation (Placement(transformation(extent={{-30,20},{-20,30}})));
-    Sources.Constant Izero(k=0) if not with_I
-      annotation (Placement(transformation(extent={{10,-55},{0,-45}})));
+    Modelica.Blocks.Sources.Constant Dzero(k=0) if not with_D
+      annotation (Placement(transformation(extent={{-40,20},{-30,30}})));
+    Modelica.Blocks.Sources.Constant Izero(k=0) if not with_I
+      annotation (Placement(transformation(extent={{0,-55},{-10,-45}})));
+    Modelica.Blocks.Sources.Constant FFzero(k=0) if not withFeedForward
+      annotation (Placement(transformation(extent={{30,-35},{40,-25}})));
+    Modelica.Blocks.Math.Add addFF(k1=1, k2=kFF)
+      annotation (Placement(transformation(extent={{48,-6},{60,6}})));
   initial equation
     if initType==InitPID.InitialOutput then
-       gainPID.y = y_start;
+      gainPID.y = y_start;
     end if;
   equation
     if initType == InitPID.InitialOutput and (y_start < yMin or y_start > yMax) then
@@ -929,32 +1019,26 @@ to compute u by an algebraic equation.
             -82,6}}, color={0,0,127}));
     connect(u_s, addI.u1) annotation (Line(points={{-120,0},{-96,0},{-96,-42},{
             -82,-42}}, color={0,0,127}));
-    connect(addP.y, P.u) annotation (Line(points={{-59,50},{-42,50}}, color={0,
+    connect(addP.y, P.u) annotation (Line(points={{-59,50},{-52,50}}, color={0,
             0,127}));
     connect(addD.y, D.u)
-      annotation (Line(points={{-59,0},{-42,0}}, color={0,0,127}));
-    connect(addI.y, I.u) annotation (Line(points={{-59,-50},{-42,-50}}, color={
+      annotation (Line(points={{-59,0},{-52,0}}, color={0,0,127}));
+    connect(addI.y, I.u) annotation (Line(points={{-59,-50},{-52,-50}}, color={
             0,0,127}));
-    connect(P.y, addPID.u1) annotation (Line(points={{-19,50},{-10,50},{-10,8},
-            {-2,8}}, color={0,0,127}));
+    connect(P.y, addPID.u1) annotation (Line(points={{-29,50},{-20,50},{-20,8},{-12,
+            8}},     color={0,0,127}));
     connect(D.y, addPID.u2)
-      annotation (Line(points={{-19,0},{-2,0}}, color={0,0,127}));
-    connect(I.y, addPID.u3) annotation (Line(points={{-19,-50},{-10,-50},{-10,
-            -8},{-2,-8}}, color={0,0,127}));
-    connect(addPID.y, gainPID.u)
-      annotation (Line(points={{21,0},{28,0}}, color={0,0,127}));
-    connect(gainPID.y, addSat.u2) annotation (Line(points={{51,0},{60,0},{60,
-            -20},{74,-20},{74,-38}}, color={0,0,127}));
-    connect(gainPID.y, limiter.u)
-      annotation (Line(points={{51,0},{68,0}}, color={0,0,127}));
+      annotation (Line(points={{-29,0},{-12,0}},color={0,0,127}));
+    connect(I.y, addPID.u3) annotation (Line(points={{-29,-50},{-20,-50},{-20,-8},
+            {-12,-8}},    color={0,0,127}));
     connect(limiter.y, addSat.u1) annotation (Line(points={{91,0},{94,0},{94,
             -20},{86,-20},{86,-38}}, color={0,0,127}));
     connect(limiter.y, y)
       annotation (Line(points={{91,0},{110,0}}, color={0,0,127}));
-    connect(addSat.y, gainTrack.u) annotation (Line(points={{80,-61},{80,-70},{
-            42,-70}}, color={0,0,127}));
-    connect(gainTrack.y, addI.u3) annotation (Line(points={{19,-70},{-88,-70},{
-            -88,-58},{-82,-58}}, color={0,0,127}));
+    connect(addSat.y, gainTrack.u) annotation (Line(points={{80,-61},{80,-70},{2,-70}},
+                      color={0,0,127}));
+    connect(gainTrack.y, addI.u3) annotation (Line(points={{-21,-70},{-88,-70},{-88,
+            -58},{-82,-58}},     color={0,0,127}));
     connect(u_m, addP.u2) annotation (Line(
         points={{0,-120},{0,-92},{-92,-92},{-92,44},{-82,44}},
         color={0,0,127},
@@ -967,10 +1051,24 @@ to compute u by an algebraic equation.
         points={{0,-120},{0,-92},{-92,-92},{-92,-50},{-82,-50}},
         color={0,0,127},
         thickness=0.5));
-    connect(Dzero.y, addPID.u2) annotation (Line(points={{-19.5,25},{-14,25},{
-            -14,0},{-2,0}}, color={0,0,127}));
-    connect(Izero.y, addPID.u3) annotation (Line(points={{-0.5,-50},{-10,-50},{
-            -10,-8},{-2,-8}}, color={0,0,127}));
+    connect(Dzero.y, addPID.u2) annotation (Line(points={{-29.5,25},{-24,25},{-24,
+            0},{-12,0}},    color={0,0,127}));
+    connect(Izero.y, addPID.u3) annotation (Line(points={{-10.5,-50},{-20,-50},{-20,
+            -8},{-12,-8}},    color={0,0,127}));
+    connect(addPID.y, gainPID.u)
+      annotation (Line(points={{11,0},{18,0}}, color={0,0,127}));
+    connect(addFF.y, limiter.u)
+      annotation (Line(points={{60.6,0},{68,0}}, color={0,0,127}));
+    connect(gainPID.y, addFF.u1) annotation (Line(points={{41,0},{44,0},{44,3.6},
+            {46.8,3.6}},color={0,0,127}));
+    connect(FFzero.y, addFF.u2) annotation (Line(points={{40.5,-30},{44,-30},{44,
+            -3.6},{46.8,-3.6}},
+                          color={0,0,127}));
+    connect(addFF.u2, u_ff) annotation (Line(points={{46.8,-3.6},{44,-3.6},{44,
+            -92},{60,-92},{60,-120}},
+                                 color={0,0,127}));
+    connect(addFF.y, addSat.u2) annotation (Line(points={{60.6,0},{64,0},{64,-20},
+            {74,-20},{74,-38}}, color={0,0,127}));
     annotation (defaultComponentName="PID",
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -996,10 +1094,14 @@ to compute u by an algebraic equation.
             visible=strict,
             points={{30,60},{81,60}},
             color={255,0,0})}),
+      Diagram(graphics={Text(
+              extent={{79,-112},{129,-102}},
+              lineColor={0,0,255},
+            textString=" (feed-forward)")}),
       Documentation(info="<html>
 <p>
-Via parameter <b>controllerType</b> either <b>P</b>, <b>PI</b>, <b>PD</b>,
-or <b>PID</b> can be selected. If, e.g., PI is selected, all components belonging to the
+Via parameter <strong>controllerType</strong> either <strong>P</strong>, <strong>PI</strong>, <strong>PD</strong>,
+or <strong>PID</strong> can be selected. If, e.g., PI is selected, all components belonging to the
 D-part are removed from the block (via conditional declarations).
 The example model
 <a href=\"modelica://Modelica.Blocks.Examples.PID_Controller\">Modelica.Blocks.Examples.PID_Controller</a>
@@ -1010,19 +1112,19 @@ according to chapter 3 of the book:
 
 <dl>
 <dt>&Aring;str&ouml;m K.J., and H&auml;gglund T.:</dt>
-<dd> <b>PID Controllers: Theory, Design, and Tuning</b>.
+<dd> <strong>PID Controllers: Theory, Design, and Tuning</strong>.
      Instrument Society of America, 2nd edition, 1995.
 </dd>
 </dl>
 
 <p>
-Besides the additive <b>proportional, integral</b> and <b>derivative</b>
+Besides the additive <strong>proportional, integral</strong> and <strong>derivative</strong>
 part of this controller, the following features are present:
 </p>
 <ul>
 <li> The output of this controller is limited. If the controller is
      in its limits, anti-windup compensation is activated to drive
-     the integrator state to zero. </li>
+     the integrator state to zero.</li>
 <li> The high-frequency gain of the derivative part is limited
      to avoid excessive amplification of measurement noise.</li>
 <li> Setpoint weighting is present, which allows to weight
@@ -1033,6 +1135,8 @@ part of this controller, the following features are present:
      setting. For example, it is useful to set the setpoint weight wd
      for the derivative part to zero, if steps may occur in the
      setpoint signal.</li>
+<li> Optional feed-forward. It is possible to add a feed-forward signal.
+     The feed-forward signal is added before limitation.</li>
 </ul>
 
 <p>
@@ -1043,22 +1147,22 @@ together) and using the following strategy:
 
 <ol>
 <li> Set very large limits, e.g., yMax = Modelica.Constants.inf</li>
-<li> Select a <b>P</b>-controller and manually enlarge parameter <b>k</b>
+<li> Select a <strong>P</strong>-controller and manually enlarge parameter <strong>k</strong>
      (the total gain of the controller) until the closed-loop response
      cannot be improved any more.</li>
-<li> Select a <b>PI</b>-controller and manually adjust parameters
-     <b>k</b> and <b>Ti</b> (the time constant of the integrator).
+<li> Select a <strong>PI</strong>-controller and manually adjust parameters
+     <strong>k</strong> and <strong>Ti</strong> (the time constant of the integrator).
      The first value of Ti can be selected, such that it is in the
      order of the time constant of the oscillations occurring with
      the P-controller. If, e.g., vibrations in the order of T=10 ms
      occur in the previous step, start with Ti=0.01 s.</li>
 <li> If you want to make the reaction of the control loop faster
      (but probably less robust against disturbances and measurement noise)
-     select a <b>PID</b>-Controller and manually adjust parameters
-     <b>k</b>, <b>Ti</b>, <b>Td</b> (time constant of derivative block).</li>
+     select a <strong>PID</strong>-Controller and manually adjust parameters
+     <strong>k</strong>, <strong>Ti</strong>, <strong>Td</strong> (time constant of derivative block).</li>
 <li> Set the limits yMax and yMin according to your specification.</li>
 <li> Perform simulations such that the output of the PID controller
-     goes in its limits. Tune <b>Ni</b> (Ni*Ti is the time constant of
+     goes in its limits. Tune <strong>Ni</strong> (Ni*Ti is the time constant of
      the anti-windup compensation) such that the input to the limiter
      block (= limiter.u) goes quickly enough back to its limits.
      If Ni is decreased, this happens faster. If Ni=infinity, the
@@ -1066,18 +1170,18 @@ together) and using the following strategy:
 </ol>
 
 <p>
-<b>Initialization</b>
+<strong>Initialization</strong>
 </p>
 
 <p>
 This block can be initialized in different
-ways controlled by parameter <b>initType</b>. The possible
+ways controlled by parameter <strong>initType</strong>. The possible
 values of initType are defined in
 <a href=\"modelica://Modelica.Blocks.Types.InitPID\">Modelica.Blocks.Types.InitPID</a>.
 This type is identical to
 <a href=\"modelica://Modelica.Blocks.Types.Init\">Types.Init</a>,
 with the only exception that the additional option
-<b>DoNotUse_InitialIntegratorState</b> is added for
+<strong>DoNotUse_InitialIntegratorState</strong> is added for
 backward compatibility reasons (= integrator is initialized with
 InitialState whereas differential part is initialized with
 NoInit which was the initialization in version 2.2 of the Modelica
@@ -1090,48 +1194,48 @@ blocks inside the PID controller are initialized according to the following tabl
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>initType</b></td>
-      <td valign=\"top\"><b>I.initType</b></td>
-      <td valign=\"top\"><b>D.initType</b></td></tr>
+  <tr><td><strong>initType</strong></td>
+      <td><strong>I.initType</strong></td>
+      <td><strong>D.initType</strong></td></tr>
 
-  <tr><td valign=\"top\"><b>NoInit</b></td>
-      <td valign=\"top\">NoInit</td>
-      <td valign=\"top\">NoInit</td></tr>
+  <tr><td><strong>NoInit</strong></td>
+      <td>NoInit</td>
+      <td>NoInit</td></tr>
 
-  <tr><td valign=\"top\"><b>SteadyState</b></td>
-      <td valign=\"top\">SteadyState</td>
-      <td valign=\"top\">SteadyState</td></tr>
+  <tr><td><strong>SteadyState</strong></td>
+      <td>SteadyState</td>
+      <td>SteadyState</td></tr>
 
-  <tr><td valign=\"top\"><b>InitialState</b></td>
-      <td valign=\"top\">InitialState</td>
-      <td valign=\"top\">InitialState</td></tr>
+  <tr><td><strong>InitialState</strong></td>
+      <td>InitialState</td>
+      <td>InitialState</td></tr>
 
-  <tr><td valign=\"top\"><b>InitialOutput</b><br>
+  <tr><td><strong>InitialOutput</strong><br>
           and initial equation: y = y_start</td>
-      <td valign=\"top\">NoInit</td>
-      <td valign=\"top\">SteadyState</td></tr>
+      <td>NoInit</td>
+      <td>SteadyState</td></tr>
 
-  <tr><td valign=\"top\"><b>DoNotUse_InitialIntegratorState</b></td>
-      <td valign=\"top\">InitialState</td>
-      <td valign=\"top\">NoInit</td></tr>
+  <tr><td><strong>DoNotUse_InitialIntegratorState</strong></td>
+      <td>InitialState</td>
+      <td>NoInit</td></tr>
 </table>
 
 <p>
 In many cases, the most useful initial condition is
-<b>SteadyState</b> because initial transients are then no longer
+<strong>SteadyState</strong> because initial transients are then no longer
 present. If initType = InitPID.SteadyState, then in some
 cases difficulties might occur. The reason is the
 equation of the integrator:
 </p>
 
 <pre>
-   <b>der</b>(y) = k*u;
+   <strong>der</strong>(y) = k*u;
 </pre>
 
 <p>
 The steady state equation \"der(x)=0\" leads to the condition that the input u to the
 integrator is zero. If the input u is already (directly or indirectly) defined
-by another initial condition, then the initialization problem is <b>singular</b>
+by another initial condition, then the initialization problem is <strong>singular</strong>
 (has none or infinitely many solutions). This situation occurs often
 for mechanical systems, where, e.g., u = desiredSpeed - measuredSpeed and
 since speed is both a state and a derivative, it is natural to
@@ -1141,13 +1245,25 @@ to compute u_m by an algebraic equation.
 </p>
 
 <p>
-If parameter <b>limitAtInit</b> = <b>false</b>, the limits at the
-output of this controller block are removed from the initialization problem which
-leads to a much simpler equation system. After initialization has been
-performed, it is checked via an assert whether the output is in the
-defined limits. For backward compatibility reasons
-<b>limitAtInit</b> = <b>true</b>. In most cases it is best
-to use <b>limitAtInit</b> = <b>false</b>.
+When initializing in steady-state, homotopy-based initialization can help the convergence of the solver,
+by using a simplified model a the beginning of the solution process. Different options are available.
+</p>
+
+<ul>
+<li><strong>homotopyType=Linear</strong> (default): the limitations are removed from the simplified model,
+making it linear. Use this if you know that the controller will not be saturated at steady state.</li>
+<li><strong>homotopyType=UpperLimit</strong>: if it is known a priori the controller will be stuck at the upper
+limit yMax, this option assumes y = yMax as a simplified model.</li>
+<li><strong>homotopyType=LowerLimit</strong>: if it is known a priori the controller will be stuck at the lower
+limit yMin, this option assumes y = yMin as a simplified model.</li>
+<li><strong>homotopyType=NoHomotopy</strong>: this option does not apply any simplification and keeps the
+limiter active throughout the homotopy transformation. Use this if it is unknown whether the controller
+is saturated or not at initialization and if the limitations on the output must be enforced throughout
+the entire homotopy transformation.</li>
+</ul>
+
+<p>
+The parameter <strong>limitAtInit</strong> is obsolete since MSL 3.2.2 and only kept for backwards compatibility.
 </p>
 </html>"));
   end LimPID;
@@ -1214,12 +1330,12 @@ as (nb = dimension of b, na = dimension of a):
            a[1]*s^[na-1] + a[2]*s^[na-2] + ... + a[na]
 </pre>
 <p>
-State variables <b>x</b> are defined according to <b>controller canonical</b>
-form. Internally, vector <b>x</b> is scaled to improve the numerics (the states in versions before version 3.0 of the Modelica Standard Library have been not scaled). This scaling is
-not visible from the outside of this block because the non-scaled vector <b>x</b>
+State variables <strong>x</strong> are defined according to <strong>controller canonical</strong>
+form. Internally, vector <strong>x</strong> is scaled to improve the numerics (the states in versions before version 3.0 of the Modelica Standard Library have been not scaled). This scaling is
+not visible from the outside of this block because the non-scaled vector <strong>x</strong>
 is provided as output signal and the start value is with respect to the non-scaled
-vector <b>x</b>.
-Initial values of the states <b>x</b> can be set via parameter <b>x_start</b>.
+vector <strong>x</strong>.
+Initial values of the states <strong>x</strong> can be set via parameter <strong>x_start</strong>.
 </p>
 
 <p>
@@ -1255,11 +1371,9 @@ results in the following transfer function:
           Line(points={{40,0},{-40,0}}),
           Text(
             extent={{-55,55},{55,5}},
-            lineColor={0,0,0},
             textString="b(s)"),
           Text(
             extent={{-55,-5},{55,-55}},
-            lineColor={0,0,0},
             textString="a(s)"),
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
@@ -1342,7 +1456,7 @@ results in the following equations:
        y[1]   = [0.1  2.0] * [    ] + [0  0] * [    ]
                              [x[2]]            [u[2]]
 </pre>
-</html>"),   Icon(
+</html>"), Icon(
       coordinateSystem(preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}),
         graphics={
@@ -1368,11 +1482,9 @@ results in the following equations:
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Text(
             extent={{-60,40},{60,0}},
-            lineColor={0,0,0},
             textString="sx=Ax+Bu"),
           Text(
             extent={{-60,0},{60,-40}},
-            lineColor={0,0,0},
             textString=" y=Cx+Du"),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}));
@@ -1391,7 +1503,7 @@ results in the following equations:
             lineColor={0,0,127})}),
           Documentation(info="<html>
 <p>
-Defines that the output y is the <i>derivative</i>
+Defines that the output y is the <em>derivative</em>
 of the input u. Note, that Modelica.Blocks.Continuous.Derivative
 computes the derivative in an approximate sense, where as this block computes
 the derivative exactly. This requires that the input u is differentiated
@@ -1538,11 +1650,9 @@ the model.
           Line(points={{40,0},{-40,0}}),
           Text(
             extent={{-55,55},{55,5}},
-            lineColor={0,0,0},
             textString="1"),
           Text(
             extent={{-55,-5},{55,-55}},
-            lineColor={0,0,0},
             textString="a(s)"),
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
@@ -1550,7 +1660,7 @@ the model.
       Documentation(info="<html>
 <p>
 This block defines the transfer function between the input u
-and the output y as an n-th order low pass filter with <i>Butterworth</i>
+and the output y as an n-th order low pass filter with <em>Butterworth</em>
 characteristics and cut-off frequency f. It is implemented as
 a series of second order filters and a first order filter.
 Butterworth filters have the feature that the amplitude at the
@@ -1648,23 +1758,20 @@ initType=Modelica.Blocks.Types.Init.SteadyState).
           Line(points={{40,0},{-40,0}}),
           Text(
             extent={{-55,55},{55,5}},
-            lineColor={0,0,0},
             textString="1"),
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255}),
           Text(
             extent={{-54,-6},{44,-56}},
-            lineColor={0,0,0},
             textString="(s/w + 1)"),
           Text(
             extent={{38,-10},{58,-30}},
-            lineColor={0,0,0},
             textString="n")}),
       Documentation(info="<html>
 <p>This block defines the transfer function between the
 input u and the output y
-as an n-th order filter with <i>critical damping</i>
+as an n-th order filter with <em>critical damping</em>
 characteristics and cut-off frequency f. It is
 implemented as a series of first order filters.
 This filter type is especially useful to filter the input of an
@@ -1672,7 +1779,7 @@ inverse model, since the filter does not introduce any transients.
 </p>
 
 <p>
-If parameter <b>normalized</b> = <b>true</b> (default), the filter
+If parameter <strong>normalized</strong> = <strong>true</strong> (default), the filter
 is normalized such that the amplitude of the filter transfer function
 at the cut-off frequency f is 1/sqrt(2) (= 3 dB). Otherwise, the filter
 is not normalized, i.e., it is unmodified. A normalized filter is usually
@@ -1694,7 +1801,7 @@ The critical damping filter is defined as
 </p>
 
 <pre>
-    &alpha; = <b>if</b> normalized <b>then</b> <b>sqrt</b>(2^(1/n) - 1) <b>else</b> 1 // frequency correction factor
+    &alpha; = <strong>if</strong> normalized <strong>then</strong> <strong>sqrt</strong>(2^(1/n) - 1) <strong>else</strong> 1 // frequency correction factor
     &omega; = 2*&pi;*f/&alpha;
               1
     y = ------------- * u
@@ -1924,7 +2031,7 @@ This blocks models various types of filters:
 </p>
 
 <blockquote>
-<b>low pass, high pass, band pass, and band stop filters</b>
+<strong>low pass, high pass, band pass, and band stop filters</strong>
 </blockquote>
 
 <p>
@@ -1932,11 +2039,11 @@ using various filter characteristics:
 </p>
 
 <blockquote>
-<b>CriticalDamping, Bessel, Butterworth, Chebyshev Type I filters</b>
+<strong>CriticalDamping, Bessel, Butterworth, Chebyshev Type I filters</strong>
 </blockquote>
 
 <p>
-By default, a filter block is initialized in <b>steady-state</b>, in order to
+By default, a filter block is initialized in <strong>steady-state</strong>, in order to
 avoid unwanted oscillations at the beginning. In special cases, it might be
 useful to select one of the other initialization options under tab
 \"Advanced\".
@@ -1993,13 +2100,13 @@ shown in the next figure:
 </blockquote>
 
 <p>
-All filters are available in <b>normalized</b> (default) and non-normalized form.
+All filters are available in <strong>normalized</strong> (default) and non-normalized form.
 In the normalized form, the amplitude of the filter transfer function
 at the cut-off frequency f_cut is -3 dB (= 10^(-3/20) = 0.70794..).
 Note, when comparing the filters of this function with other software systems,
 the setting of \"normalized\" has to be selected appropriately. For example, the signal processing
 toolbox of MATLAB provides the filters in non-normalized form and
-therefore a comparison makes only sense, if normalized = <b>false</b>
+therefore a comparison makes only sense, if normalized = <strong>false</strong>
 is set. A normalized filter is usually better suited for applications,
 since filters of different orders are \"comparable\",
 whereas non-normalized filters usually require to adapt the
@@ -2036,8 +2143,8 @@ The filters are implemented in the following, reliable way:
      <pre>
 
   // second order block with eigen values: a +/- jb
-  <b>der</b>(x1) = a*x1 - b*x2 + (a^2 + b^2)/b*u;
-  <b>der</b>(x2) = b*x1 + a*x2;
+  <strong>der</strong>(x1) = a*x1 - b*x2 + (a^2 + b^2)/b*u;
+  <strong>der</strong>(x2) = b*x1 + a*x2;
        y  = x2;
      </pre>
      The dc-gain from the input to the output of this block is one and the selected
@@ -2051,13 +2158,13 @@ The filters are implemented in the following, reliable way:
 
 <dl>
 <dt>Tietze U., and Schenk C. (2002):</dt>
-<dd> <b>Halbleiter-Schaltungstechnik</b>.
+<dd> <strong>Halbleiter-Schaltungstechnik</strong>.
      Springer Verlag, 12. Auflage, pp. 815-852.</dd>
 </dl>
 
 </html>", revisions="<html>
 <dl>
-  <dt><b>Main Author:</b></dt>
+  <dt><strong>Main Author:</strong></dt>
   <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>,
       DLR Oberpfaffenhofen.</dd>
 </dl>
@@ -3943,7 +4050,7 @@ This representation has the following transfer function:
               ") of Bessel filter is not in the range 1..41");
           end if;
 
-          annotation (Documentation(info="<html><p>The transfer function H(p) of a <i>n</i> 'th order Bessel filter is given by</p>
+          annotation (Documentation(info="<html><p>The transfer function H(p) of a <em>n</em> 'th order Bessel filter is given by</p>
 <blockquote><pre>
         Bn(0)
 H(p) = -------
@@ -4052,7 +4159,6 @@ b2_k = 1/(beta_k^2 + gamma_k^2) b1_k = -2*beta_k/(beta_k^2 + gamma_k^2)
           "Compute correction factor of low pass filter such that amplitude at cut-off frequency is -3db (=10^(-3/20) = 0.70794...)"
           extends Modelica.Icons.Function;
 
-          import Modelica;
           import Modelica.Utilities.Streams;
 
           input Real c1[:]
@@ -4250,8 +4356,8 @@ b2_k = 1/(beta_k^2 + gamma_k^2) b1_k = -2*beta_k/(beta_k^2 + gamma_k^2)
           annotation (Documentation(info="<html>
 
 <p>
-This function determines the solution of <b>one non-linear algebraic equation</b> \"y=f(u)\"
-in <b>one unknown</b> \"u\" in a reliable way. It is one of the best numerical
+This function determines the solution of <strong>one non-linear algebraic equation</strong> \"y=f(u)\"
+in <strong>one unknown</strong> \"u\" in a reliable way. It is one of the best numerical
 algorithms for this purpose. As input, the nonlinear function f(u)
 has to be given, as well as an interval u_min, u_max that
 contains the solution, i.e., \"f(u_min)\" and \"f(u_max)\" must
@@ -4268,7 +4374,7 @@ function. The solver function is a direct mapping of the Algol 60 procedure
 
 <dl>
 <dt> Brent R.P.:</dt>
-<dd> <b>Algorithms for Minimization without derivatives</b>.
+<dd> <strong>Algorithms for Minimization without derivatives</strong>.
      Prentice Hall, 1973, pp. 58-59.</dd>
 </dl>
 
@@ -4441,8 +4547,8 @@ function. The solver function is a direct mapping of the Algol 60 procedure
           annotation (Documentation(info="<html>
 
 <p>
-This function determines the solution of <b>one non-linear algebraic equation</b> \"y=f(u)\"
-in <b>one unknown</b> \"u\" in a reliable way. It is one of the best numerical
+This function determines the solution of <strong>one non-linear algebraic equation</strong> \"y=f(u)\"
+in <strong>one unknown</strong> \"u\" in a reliable way. It is one of the best numerical
 algorithms for this purpose. As input, the nonlinear function f(u)
 has to be given, as well as an interval u_min, u_max that
 contains the solution, i.e., \"f(u_min)\" and \"f(u_max)\" must
@@ -4459,7 +4565,7 @@ function. The solver function is a direct mapping of the Algol 60 procedure
 
 <dl>
 <dt> Brent R.P.:</dt>
-<dd> <b>Algorithms for Minimization without derivatives</b>.
+<dd> <strong>Algorithms for Minimization without derivatives</strong>.
      Prentice Hall, 1973, pp. 58-59.</dd>
 </dl>
 
@@ -4550,44 +4656,44 @@ This function computes the solution of this equation and returns \"alpha = sqrt(
   annotation (
     Documentation(info="<html>
 <p>
-This package contains basic <b>continuous</b> input/output blocks
+This package contains basic <strong>continuous</strong> input/output blocks
 described by differential equations.
 </p>
 
 <p>
 All blocks of this package can be initialized in different
-ways controlled by parameter <b>initType</b>. The possible
+ways controlled by parameter <strong>initType</strong>. The possible
 values of initType are defined in
 <a href=\"modelica://Modelica.Blocks.Types.Init\">Modelica.Blocks.Types.Init</a>:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>Name</b></td>
-      <td valign=\"top\"><b>Description</b></td></tr>
+  <tr><td><strong>Name</strong></td>
+      <td><strong>Description</strong></td></tr>
 
-  <tr><td valign=\"top\"><b>Init.NoInit</b></td>
-      <td valign=\"top\">no initialization (start values are used as guess values with fixed=false)</td></tr>
+  <tr><td><strong>Init.NoInit</strong></td>
+      <td>no initialization (start values are used as guess values with fixed=false)</td></tr>
 
-  <tr><td valign=\"top\"><b>Init.SteadyState</b></td>
-      <td valign=\"top\">steady state initialization (derivatives of states are zero)</td></tr>
+  <tr><td><strong>Init.SteadyState</strong></td>
+      <td>steady state initialization (derivatives of states are zero)</td></tr>
 
-  <tr><td valign=\"top\"><b>Init.InitialState</b></td>
-      <td valign=\"top\">Initialization with initial states</td></tr>
+  <tr><td><strong>Init.InitialState</strong></td>
+      <td>Initialization with initial states</td></tr>
 
-  <tr><td valign=\"top\"><b>Init.InitialOutput</b></td>
-      <td valign=\"top\">Initialization with initial outputs (and steady state of the states if possible)</td></tr>
+  <tr><td><strong>Init.InitialOutput</strong></td>
+      <td>Initialization with initial outputs (and steady state of the states if possible)</td></tr>
 </table>
 
 <p>
 For backward compatibility reasons the default of all blocks is
-<b>Init.NoInit</b>, with the exception of Integrator and LimIntegrator
-where the default is <b>Init.InitialState</b> (this was the initialization
+<strong>Init.NoInit</strong>, with the exception of Integrator and LimIntegrator
+where the default is <strong>Init.InitialState</strong> (this was the initialization
 defined in version 2.2 of the Modelica standard library).
 </p>
 
 <p>
 In many cases, the most useful initial condition is
-<b>Init.SteadyState</b> because initial transients are then no longer
+<strong>Init.SteadyState</strong> because initial transients are then no longer
 present. The drawback is that in combination with a non-linear
 plant, non-linear algebraic equations occur that might be
 difficult to solve if appropriate guess values for the
@@ -4596,8 +4702,8 @@ However, it is often already useful to just initialize
 the linear blocks from the Continuous blocks library in SteadyState.
 This is uncritical, because only linear algebraic equations occur.
 If Init.NoInit is set, then the start values for the states are
-interpreted as <b>guess</b> values and are propagated to the
-states with fixed=<b>false</b>.
+interpreted as <strong>guess</strong> values and are propagated to the
+states with fixed=<strong>false</strong>.
 </p>
 
 <p>
@@ -4608,16 +4714,16 @@ This is due to the basic equation of an integrator:
 </p>
 
 <pre>
-  <b>initial equation</b>
-     <b>der</b>(y) = 0;   // Init.SteadyState
-  <b>equation</b>
-     <b>der</b>(y) = k*u;
+  <strong>initial equation</strong>
+     <strong>der</strong>(y) = 0;   // Init.SteadyState
+  <strong>equation</strong>
+     <strong>der</strong>(y) = k*u;
 </pre>
 
 <p>
 The steady state equation leads to the condition that the input to the
 integrator is zero. If the input u is already (directly or indirectly) defined
-by another initial condition, then the initialization problem is <b>singular</b>
+by another initial condition, then the initialization problem is <strong>singular</strong>
 (has none or infinitely many solutions). This situation occurs often
 for mechanical systems, where, e.g., u = desiredSpeed - measuredSpeed and
 since speed is both a state and a derivative, it is always defined by
@@ -4625,11 +4731,11 @@ Init.InitialState or Init.SteadyState initialization.
 </p>
 
 <p>
-In such a case, <b>Init.NoInit</b> has to be selected for the integrator
+In such a case, <strong>Init.NoInit</strong> has to be selected for the integrator
 and an additional initial equation has to be added to the system
 to which the integrator is connected. E.g., useful initial conditions
 for a 1-dim. rotational inertia controlled by a PI controller are that
-<b>angle</b>, <b>speed</b>, and <b>acceleration</b> of the inertia are zero.
+<strong>angle</strong>, <strong>speed</strong>, and <strong>acceleration</strong> of the inertia are zero.
 </p>
 
 </html>"), Icon(graphics={Line(

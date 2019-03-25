@@ -37,7 +37,7 @@ package Lines
     parameter SI.LinearTemperatureCoefficient alpha_R=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
     parameter SI.LinearTemperatureCoefficient alpha_G=0
-      "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))";
+      "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
     parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
       annotation (
       Evaluate=true,
@@ -46,10 +46,10 @@ package Lines
     parameter SI.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false"
       annotation (Dialog(enable=not useHeatPort));
-    parameter SI.Temperature T_ref=300.15;
+    parameter SI.Temperature T_ref=300.15 "Reference temperature";
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
-          iconTransformation(extent={{-80,-80},{-60,-60}})));
+          iconTransformation(extent={{-110,-110},{-90,-90}})));
   protected
     parameter Modelica.SIunits.Resistance rm[N + 1]=
     {if i==1 or i==N + 1 then r*length/(N*2) else r*length/N for i in 1:N+1};
@@ -61,7 +61,7 @@ package Lines
       T=fill(T, N + 1));
     parameter Modelica.SIunits.Inductance lm[N + 1]=
     {if i==1 or i==N + 1 then l*length/(N*2) else l*length/N for i in 1:N+1};
-	Modelica.Electrical.Analog.Basic.Inductor L[N + 1](L=lm);
+    Modelica.Electrical.Analog.Basic.Inductor L[N + 1](L=lm);
     Modelica.Electrical.Analog.Basic.Capacitor C[N](C=fill(c*length/(N), N));
     Modelica.Electrical.Analog.Basic.Conductor G[N](
       G=fill(g*length/(N), N),
@@ -93,7 +93,7 @@ package Lines
         connect(heatPort, G[i].heatPort);
       end for;
     end if;
-    annotation (
+    annotation (defaultComponentName="line",
       Documentation(info="<html>
 <p>Like in the picture below, the lossy transmission line OLine is a single-conductor lossy transmission line which consists of segments of lumped resistors and inductors in series and conductor and capacitors that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.</p>
 <p>To get a symmetric line model, the first resistor and inductor are cut into two parts (R1 and R_Nplus1, L1 and L_Nplus1). These two new resistors and inductors have the half of the resistance respectively inductance the original resistor respectively inductor.</p>
@@ -107,18 +107,18 @@ package Lines
 <br> The conductances are calculated with: G=g*length/N.
 <br> The resistances are calculated with : R=r*length/(N+1).
 <br> The inductances are calculated with : L=l*length/(N+1).
-<br> For all capacitors, conductors, resistors and inductors the values of each segment are the same except of the first and last resistor and inductor, that only have the half of the above calculated value of the rest.
-<br><p>The user has the possibility to enable a conditional heatport. If so, the OLine can be connected to a thermal network. When the parameter alpha is set to an value greater than zero, the OLine becomes temperature sensitive</p><p>due to their resistors which resistances are calculated by <code>R = R_ref*(1 + alpha*(heatPort.T - T_ref))</code> and conductors calculated by <code> (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref)).</code> </p>
+<br> For all capacitors, conductors, resistors and inductors the values of each segment are the same except of the first and last resistor and inductor, that only have the half of the above calculated value of the rest.</p>
+<p>The user has the possibility to enable a conditional heatport. If so, the OLine can be connected to a thermal network. When the parameter alpha is set to an value greater than zero, the OLine becomes temperature sensitive</p><p>due to their resistors which resistances are calculated by <code>R_actual = R*(1 + alpha*(heatPort.T - T_ref))</code> and conductors calculated by <code> (G_actual = G/(1 + alpha*(T_heatPort - T_ref)).</code></p>
 <p>Note, this is different to the lumped line model of SPICE.</p>
 
-<dl><dt><b>References:</b> </dt>
+<dl><dt><strong>References:</strong> </dt>
 <dd>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.: SPICE3 Version 3e User&#39;s Manual (April 1, 1991). Department of Electrical Engineering and Computer Sciences, University of California, Berkley p. 12, p. 106 - 107 </dd>
 </dl></html>", revisions="<html>
 <ul>
-<li><i> 2016   </i>
+<li><em> 2016   </em>
        by Christoph Clauss<br> resistance and inductance calculation revised<br>
        </li>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
@@ -127,28 +127,20 @@ package Lines
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
-            extent={{-60,60},{60,-60}},
+            extent={{-80,80},{80,-80}},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{0,-60},{0,-90}}, color={0,0,255}),
-          Line(points={{60,0},{90,0}}, color={0,0,255}),
-          Line(points={{-60,0},{-90,0}}, color={0,0,255}),
-          Line(points={{30,30},{-30,30}}, color={0,0,255}),
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
-          Line(points={{30,40},{30,20}}, color={0,0,255}),
+          Line(points={{0,-80},{0,-90}}, color={0,0,255}),
+          Line(points={{80,0},{90,0}}, color={0,0,255}),
+          Line(points={{-80,0},{-90,0}}, color={0,0,255}),
           Text(
-            extent={{-155,112},{145,72}},
+            extent={{-150,130},{150,90}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={Rectangle(extent={{-60,60},{60,-60}},
-            lineColor={0,0,255}),Line(points={{0,-60},{0,-96}}, color={0,0,255}),
-            Line(points={{60,0},{96,0}}, color={0,0,255}),Line(points={{-60,0},
-            {-96,0}}, color={0,0,255}),Line(points={{30,30},{-30,30}}, color={0,
-            0,255}),Line(points={{-30,40},{-30,20}}, color={0,0,255}),Line(
-            points={{30,40},{30,20}}, color={0,0,255})}));
+            lineColor={0,0,255}),
+          Line(points={{40,30},{-40,30}}),
+          Line(points={{-40,40},{-40,20}}),
+          Line(points={{40,40},{40,20}})}));
   end OLine;
 
   model M_OLine "Multiple OLine"
@@ -181,7 +173,7 @@ package Lines
     parameter SI.LinearTemperatureCoefficient alpha_R=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
     parameter SI.LinearTemperatureCoefficient alpha_G=0
-      "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))";
+      "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
     parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
       annotation (
       Evaluate=true,
@@ -190,19 +182,19 @@ package Lines
     parameter SI.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false"
       annotation (Dialog(enable=not useHeatPort));
-    parameter SI.Temperature T_ref=300.15;
+    parameter SI.Temperature T_ref=300.15 "Reference temperature";
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
-      annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
-          iconTransformation(extent={{-80,-80},{-60,-60}})));
+      annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
+          iconTransformation(extent={{-110,-110},{-90,-90}})));
     model segment "Multiple line segment model"
 
       parameter Integer lines(final min=1) = 3 "Number of lines";
       parameter Integer dim_vector_lgc=div(lines*(lines + 1), 2)
         "Length of the vectors for l, g, c";
       Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
-        annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}}), iconTransformation(extent={{-110,-10},{-90,10}})));
       Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
-        annotation (Placement(transformation(extent={{40,-10},{60,10}})));
+        annotation (Placement(transformation(extent={{90,-10},{110,10}}), iconTransformation(extent={{90,-10},{110,10}})));
 
       parameter Real Cl[dim_vector_lgc]=fill(1, dim_vector_lgc)
         "Capacitance matrix";
@@ -214,7 +206,7 @@ package Lines
       parameter SI.LinearTemperatureCoefficient alpha_R
         "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
       parameter SI.LinearTemperatureCoefficient alpha_G
-        "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))";
+        "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
       parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
         annotation (
         Evaluate=true,
@@ -227,7 +219,7 @@ package Lines
 
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if
         useHeatPort annotation (Placement(transformation(extent={{-10,-110},{10,
-                -90}}), iconTransformation(extent={{-80,-80},{-60,-60}})));
+                -90}}), iconTransformation(extent={{-110,-110},{-90,-90}})));
 
       Modelica.Electrical.Analog.Basic.Capacitor C[dim_vector_lgc](C=Cl);
       Modelica.Electrical.Analog.Basic.Resistor R[lines](
@@ -292,8 +284,12 @@ package Lines
         connect(heatPort, G[dim_vector_lgc].heatPort);
       end if;
 
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="segment", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(extent={{40,-40},{-40,40}},
+              lineColor={0,0,255}),
+            Text(
+              extent={{-150,90},{150,50}},
+              textString="%name",
               lineColor={0,0,255})}), Documentation(info="<html>
 <p>The segment model is part of the multiple line model. It describes one line segment as outlined in the M_OLine description. Using the loop possibilities of Modelica it is formulated by connecting components the number of which depends on the number of lines.</p>
 </html>"));
@@ -302,9 +298,9 @@ package Lines
     model segment_last "Multiple line last segment model"
 
       Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
-        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}}), iconTransformation(extent={{-110,-10},{-90,10}})));
       Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
-        annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+        annotation (Placement(transformation(extent={{90,-10},{110,10}}), iconTransformation(extent={{90,-10},{110,10}})));
       parameter Integer lines(final min=1) = 3 "Number of lines";
       parameter Integer dim_vector_lgc=div(lines*(lines + 1), 2)
         "Length of the vectors for l, g, c";
@@ -324,7 +320,7 @@ package Lines
       parameter SI.Temperature T_ref;
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if
         useHeatPort annotation (Placement(transformation(extent={{-10,-110},{10,
-                -90}}), iconTransformation(extent={{-80,-80},{-60,-60}})));
+                -90}}), iconTransformation(extent={{-110,-110},{-90,-90}})));
       Modelica.Electrical.Analog.Basic.Resistor R[lines](
         R=Rl,
         T_ref=fill(T_ref, lines),
@@ -351,8 +347,12 @@ package Lines
         end for;
         connect(heatPort, R[lines].heatPort);
       end if;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (defaultComponentName="segment", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(extent={{20,-40},{-20,40}},
+              lineColor={0,0,255}),
+            Text(
+              extent={{-150,90},{150,50}},
+              textString="%name",
               lineColor={0,0,255})}), Documentation(info="<html>
 <p>The segment_last model is part of the multiple line model. It describes the special  line segment which is used to get the line symmetrical as outlined in the M_OLine description. Using the loop possibilities of Modelica it is formulated by connecting components the number of which depends on the number of lines.</p>
 </html>"));
@@ -391,9 +391,9 @@ package Lines
       useHeatPort=useHeatPort,
       T=T);
     Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
-      annotation (Placement(transformation(extent={{-100,-80},{-80,80}})));
+      annotation (Placement(transformation(extent={{-110,-60},{-90,60}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
-      annotation (Placement(transformation(extent={{80,-80},{100,80}})));
+      annotation (Placement(transformation(extent={{90,-60},{110,60}})));
 
   equation
     connect(p, s_first.p);
@@ -411,10 +411,10 @@ package Lines
       connect(heatPort, s_last.heatPort);
     end if;
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (defaultComponentName="line", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
           Rectangle(
-            extent={{60,80},{-60,-80}},
+            extent={{80,80},{-80,-80}},
             lineColor={0,0,255},
             fillPattern=FillPattern.Solid,
             fillColor={255,255,255}),
@@ -432,10 +432,10 @@ package Lines
             color={0,0,255},
             pattern=LinePattern.Dot),
           Text(
-            extent={{-146,135},{154,95}},
+            extent={{-150,130},{150,90}},
             textString="%name",
             lineColor={0,0,255})}), Documentation(info="<html>
-<p>The M_OLine is a multi line model which consists of several segments and several single lines. Each segment consists of resistors and inductors that are connected in series in each single line, and of capacitors and conductors both between the lines and to the ground. The inductors are coupled to each other like in the M_Inductor model. The following picture shows the schematic of a segment with four single lines (lines=4):</p>
+<p>The M_OLine is a multi line model which consists of several segments and several single lines. Each segment consists of resistors and inductors that are connected in series in each single line, and of capacitors and conductors both between the lines and to the ground. The inductors are coupled to each other like in the M_Transformer model. The following picture shows the schematic of a segment with four single lines (lines=4):</p>
 
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/segment.png\"
@@ -443,7 +443,7 @@ package Lines
 </blockquote>
 
 <p>The complete multi line consists of N segments and an auxiliary segment_last:</p>
-<p align=\"center\"><code>-- segment_1 -- segment_2 -- ... -- segment_N -- segment_last --</code> </p>
+<p align=\"center\"><code>-- segment_1 -- segment_2 -- ... -- segment_N -- segment_last --</code></p>
 <p>In the picture of the segment can be seen, that a single segment is asymmetric. Connecting such asymmetric segments in a series forces also an asymmetric multi line. To get a symmetric model which is useful for coupling and which guaranties the same pin properties, in the segment_1 only half valued resistors and inductors are used. The remaining resistors and inductors are at the other end of the line within the auxiliary segment_last. For the example with 4 lines the schematic of segment_last is like this:</p>
 
 <blockquote>
@@ -451,15 +451,15 @@ package Lines
      alt=\"segment_last.png\">
 </blockquote>
 
-<p>The number of the capacitors and conductors depends on the number of single lines that are used, because each line is connected to every other line by both a capacitor and a conductor. One line consists of <b>at least two segments</b>. Inside the model M_OLine the model <i>segment</i> is used. This model represents one segment which is build as described above. For modelling the inductances and their mutual couplings the model M_Transformer is used. To fill the resistance vector, resistance values as many as lines are needed, e.g., if there are four lines, four resistances are needed. For example for a microelectronic line of 0.1m length, a sensible resistance-vector would be R=[4.76e5, 1.72e5, 1.72e5, 1.72e5].</p>
-<p>Filling the matrices of the inductances, capacitances and conductances is a bit more complicated, because those components occur also between two lines and not only (like the resistor) in one line. The entries of the matrices are given by the user in form of a vector. The vector length dim_vector_lgc is calculated by <b>dim_vector_lgc = lines*(lines+1)/2</b>. Inside the model a symmetric inductance matrix, a symmetric capacitance matrix and a symmetric conductance matrix are built out of the entries of the vectors given by the user. The way of building is the same for each matrix, so the approach for filling one of the matrices will be shown at an example:</p>
+<p>The number of the capacitors and conductors depends on the number of single lines that are used, because each line is connected to every other line by both a capacitor and a conductor. One line consists of <strong>at least two segments</strong>. Inside the model M_OLine the model <em>segment</em> is used. This model represents one segment which is build as described above. For modelling the inductances and their mutual couplings the model M_Transformer is used. To fill the resistance vector, resistance values as many as lines are needed, e.g., if there are four lines, four resistances are needed. For example for a microelectronic line of 0.1m length, a sensible resistance-vector would be R=[4.76e5, 1.72e5, 1.72e5, 1.72e5].</p>
+<p>Filling the matrices of the inductances, capacitances and conductances is a bit more complicated, because those components occur also between two lines and not only (like the resistor) in one line. The entries of the matrices are given by the user in form of a vector. The vector length dim_vector_lgc is calculated by <strong>dim_vector_lgc = lines*(lines+1)/2</strong>. Inside the model a symmetric inductance matrix, a symmetric capacitance matrix and a symmetric conductance matrix are built out of the entries of the vectors given by the user. The way of building is the same for each matrix, so the approach for filling one of the matrices will be shown at an example:</p>
 <p>The number of lines is assumed to be four. To build the matrix, the model needs the values from the main diagonal and from the positions that are below the main diagonal. To get the following matrix</p>
 
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqMatrix.png\" alt=\"Matrix\"/>
 </blockquote>
 
-<p>the vector with dim_vector_lgc=4*5/2=10 has to appear in the following way: vector = [<b>1</b>, 0.1, 0.2, 0.4, <b>2</b>, 0.3 0.5, <b>3</b>, 0.6, <b>4</b>] </p>
+<p>the vector with dim_vector_lgc=4*5/2=10 has to appear in the following way: vector = [<strong>1</strong>, 0.1, 0.2, 0.4, <strong>2</strong>, 0.3 0.5, <strong>3</strong>, 0.6, <strong>4</strong>]</p>
 
 <p>For the example of a microelectronic line of 0.1m length, which is used as default example for the M_OLine model, a sensible inductance-matrix would be </p>
 
@@ -479,7 +479,7 @@ package Lines
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqG.png\" alt=\"G\"/>
 </blockquote>
 
-<p>The user has the possibility to enable a conditional heatport. If so, the M_OLine can be connected to a thermal network. When the parameter alpha is set to an value greater than zero, the M_OLine becomes temperature sensitive due to their resistors which resistances are calculated by R = R_ref*(1 + alpha*(heatPort.T - T_ref)) and conductors calculated by (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref)).</p>
+<p>The user has the possibility to enable a conditional heatport. If so, the M_OLine can be connected to a thermal network. When the parameter alpha is set to an value greater than zero, the M_OLine becomes temperature sensitive due to their resistors which resistances are calculated by R_actual = R*(1 + alpha*(heatPort.T - T_ref)) and conductors calculated by (G_actual = G/(1 + alpha*(T_heatPort - T_ref)).</p>
 </html>", revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
@@ -490,25 +490,25 @@ package Lines
       <th>Comment</th>
     </tr>
    <tr>
-      <td valign=\"top\"></td>
-      <td valign=\"top\">4163</td>
-      <td valign=\"top\">2010-09-11</td>
-      <td valign=\"top\">Dietmar Winkler</td>
-      <td valign=\"top\">Documentation corrected according to documentation guidelines.</td>
+      <td></td>
+      <td>4163</td>
+      <td>2010-09-11</td>
+      <td>Dietmar Winkler</td>
+      <td>Documentation corrected according to documentation guidelines.</td>
     </tr>
     <tr>
-      <td valign=\"top\"></td>
-      <td valign=\"top\"></td>
-      <td valign=\"top\">2008-11-24</td>
-      <td valign=\"top\">Kristin Majetta</td>
-      <td valign=\"top\">Documentation added.</td>
+      <td></td>
+      <td></td>
+      <td>2008-11-24</td>
+      <td>Kristin Majetta</td>
+      <td>Documentation added.</td>
     </tr>
     <tr>
-      <td valign=\"top\"></td>
-      <td valign=\"top\"></td>
-      <td valign=\"top\">2007-02-26</td>
-      <td valign=\"top\">Kristin Majetta</td>
-      <td valign=\"top\">Initially implemented</td>
+      <td></td>
+      <td></td>
+      <td>2007-02-26</td>
+      <td>Kristin Majetta</td>
+      <td>Initially implemented</td>
     </tr>
 </table>
 </html>"));
@@ -548,10 +548,10 @@ package Lines
     parameter SI.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false"
       annotation (Dialog(enable=not useHeatPort));
-    parameter SI.Temperature T_ref=300.15;
+    parameter SI.Temperature T_ref=300.15 "Reference temperature";
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
-          iconTransformation(extent={{-80,-80},{-60,-60}})));
+          iconTransformation(extent={{-108,-110},{-88,-90}})));
   protected
      parameter Modelica.SIunits.Resistance rm[N + 1]=
     {if i==1 or i==N + 1 then r*length/(N*2) else r*length/N for i in 1:N+1};
@@ -583,7 +583,7 @@ package Lines
         connect(heatPort, R[i].heatPort);
       end for;
     end if;
-    annotation (
+    annotation (defaultComponentName="line",
       Documentation(info="<html>
 <p>As can be seen in the picture below, the lossy RC line ULine is a single conductor lossy transmission line which consists of segments of lumped series resistors and capacitors that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.
 <br>To get a symmetric line model, the first resistor is cut into two parts (R1 and R_Nplus1). These two new resistors have the half of the resistance of the original resistor.
@@ -596,45 +596,40 @@ package Lines
 The capacitances are calculated with: C=c*length/N.
 <br>The resistances are calculated with: R=r*length/(N+1).
 <br>For all capacitors and resistors the values of each segment are the same except for the first and last resistor, that only has the half of the above calculated value.<p>The user has the possibility to enable a conditional heatport. If so, the ULine can be connected to a thermal network. When the parameter alpha is set to an value greater than zero, the ULine becomes temperature sensitive</p>
-<p>due to their resistors which resistances are calculated by <code>R = R_ref*(1 + alpha*(heatPort.T - T_ref)).</code> </p>
+<p>due to their resistors which resistances are calculated by <code>R_actual= R*(1 + alpha*(heatPort.T - T_ref)).</code></p>
 <p>Note, this is different compared with the lumped line model of SPICE.</p>
-<p><b>References</b></p>
+<p><strong>References</strong></p>
 <dl><dt>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.</dt>
 <dd>SPICE3 Version 3e User&#39;s Manual (April 1, 1991). Department of Electrical Engineering and Computer Sciences, University of California, Berkley p. 22, p. 124 </dd>
 </dl></html>", revisions="<html>
 <dl>
-<dt><i>2016</i></dt>
+<dt><em>2016</em></dt>
 <dd>by Christoph Clauss resistance calculation revised</dd>
-<dt><i>1998</i></dt>
+<dt><em>1998</em></dt>
 <dd>by Christoph Clauss initially implemented</dd>
 </dl>
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(
-            extent={{-60,60},{60,-60}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{0,-60},{0,-90}}, color={0,0,255}),
-          Line(points={{60,0},{90,0}}, color={0,0,255}),
-          Line(points={{-60,0},{-90,0}}, color={0,0,255}),
-          Line(points={{30,30},{-30,30}}, color={0,0,255}),
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
-          Line(points={{30,40},{30,20}}, color={0,0,255}),
           Text(
-            extent={{-154,117},{146,77}},
+            extent={{-150,130},{150,90}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={Rectangle(extent={{-60,60},{60,-60}},
-            lineColor={0,0,255}),Line(points={{0,-60},{0,-96}}, color={0,0,255}),
-            Line(points={{60,0},{96,0}}, color={0,0,255}),Line(points={{-60,0},
-            {-96,0}}, color={0,0,255}),Line(points={{30,30},{-30,30}}, color={0,
-            0,255}),Line(points={{-30,40},{-30,20}}, color={0,0,255}),Line(
-            points={{30,40},{30,20}}, color={0,0,255})}));
+            lineColor={0,0,255}),
+          Rectangle(
+            extent={{-80,80},{80,-80}},
+            lineColor={0,0,255},
+            fillPattern=FillPattern.Solid,
+            fillColor={255,255,255}),
+          Line(points={{80,0},{100,0}}, color={0,0,255}),
+          Line(points={{-80,0},{-100,0}}, color={0,0,255}),
+          Line(points={{-40,40},{-40,20}}),
+          Line(points={{40,30},{-40,30}}),
+          Line(points={{40,40},{40,20}}),
+          Line(points={{0,-80},{0,-100}}, color={0,0,255}),
+          Text(
+            extent={{-70,-10},{70,-50}},
+            textString="ULine")}));
   end ULine;
 
   model TLine1
@@ -654,17 +649,17 @@ The capacitances are calculated with: C=c*length/N.
     i2 = (v2 - er)/Z0;
     es = 2*delay(v2, TD) - delay(er, TD);
     er = 2*delay(v1, TD) - delay(es, TD);
-    annotation (
+    annotation (defaultComponentName="line",
       Documentation(info="<html>
 <p>Lossless transmission line with characteristic impedance Z0 and transmission delay TD The lossless transmission line TLine1 is a two Port. Both port branches consist of a resistor with characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay TD. For further details see Branin&#39;s article below. The model parameters can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;) and TD = sqrt(L&#39;*C&#39;)*length_of_line. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero.</p>
-<p><b>References:</b></p>
+<p><strong>References:</strong></p>
 <dl><dt>Branin Jr., F. H.</dt>
 <dd>Transient Analysis of Lossless Transmission Lines. Proceedings of the IEEE 55(1967), 2012 - 2013</dd>
 <dt>Hoefer, E. E. E.; Nielinger, H.</dt>
 <dd>SPICE : Analyseprogramm fuer elektronische Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985. </dd>
 </dl></html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Joachim Haase<br> initially implemented<br>
        </li>
 </ul>
@@ -672,39 +667,34 @@ The capacitances are calculated with: C=c*length/N.
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
+          Text(
+            extent={{-150,150},{150,110}},
+            textString="%name",
+            lineColor={0,0,255}),
           Rectangle(
-            extent={{-60,60},{60,-60}},
+            extent={{-80,80},{80,-80}},
             lineColor={0,0,255},
             fillPattern=FillPattern.Solid,
             fillColor={255,255,255}),
-          Line(points={{60,-50},{90,-50}}, color={0,0,255}),
-          Line(points={{60,50},{90,50}}, color={0,0,255}),
-          Line(points={{-60,50},{-90,50}}, color={0,0,255}),
-          Line(points={{-60,-50},{-90,-50}}, color={0,0,255}),
-          Line(points={{30,30},{-30,30}}, color={0,0,255}),
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
-          Line(points={{30,40},{30,20}}, color={0,0,255}),
+          Line(points={{60,-100},{90,-100}}, color={0,0,255}),
+          Line(points={{60,100},{90,100}}, color={0,0,255}),
+          Line(points={{-60,100},{-90,100}}, color={0,0,255}),
+          Line(points={{-60,-100},{-90,-100}}, color={0,0,255}),
           Text(
-            extent={{-50,0},{50,-20}},
-            textString="TLine1",
-            lineColor={0,0,0}),
-          Text(
-            extent={{-152,122},{148,82}},
-            textString="%name",
-            lineColor={0,0,255})}),
+            extent={{-70,-10},{70,-50}},
+            textString="TLine1"),
+          Line(points={{-40,40},{-40,20}}),
+          Line(points={{40,30},{-40,30}}),
+          Line(points={{40,40},{40,20}}),
+          Line(points={{-60,100},{-60,80}}, color={0,0,255}),
+          Line(points={{60,100},{60,80}}, color={0,0,255}),
+          Line(points={{60,-80},{60,-100}}, color={0,0,255}),
+          Line(points={{-60,-80},{-60,-100}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}),graphics={Rectangle(extent={{-60,60},{60,-60}}, lineColor=
-             {0,0,255}),Line(points={{60,-50},{96,-50}}, color={0,0,255}),Line(
-            points={{60,50},{96,50}}, color={0,0,255}),Line(points={{-60,50},{-96,
-            50}}, color={0,0,255}),Line(points={{-60,-50},{-96,-50}}, color={0,
-            0,255}),Line(points={{30,30},{-30,30}}, color={0,0,255}),Line(
-            points={{-30,40},{-30,20}}, color={0,0,255}),Line(points={{30,40},{
-            30,20}}, color={0,0,255}),Text(
+          extent={{-100,-100},{100,100}}),graphics={
+                                      Text(
               extent={{-100,100},{100,70}},
-              textString="TLine1",
-              lineColor={0,0,255}),Text(
-              extent={{-30,0},{31,-31}},
               textString="TLine1",
               lineColor={0,0,255})}));
   end TLine1;
@@ -729,52 +719,50 @@ The capacitances are calculated with: C=c*length/N.
     i2 = (v2 - er)/Z0;
     es = 2*delay(v2, TD) - delay(er, TD);
     er = 2*delay(v1, TD) - delay(es, TD);
-    annotation (
+    annotation (defaultComponentName="line",
       Documentation(info="<html>
 <p>Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL The lossless transmission line TLine2 is a two Port. Both port branches consist of a resistor with the value of the characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay. For further details see Branin&#39;s article below. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;). The normalized length NL is equal to the length of the line divided by the wavelength corresponding to the frequency F, i. e. the transmission delay TD is the quotient of NL and F.</p>
-<p><b>References:</b></p>
+<p><strong>References:</strong></p>
 <dl><dt>Branin Jr., F. H.</dt>
 <dd>Transient Analysis of Lossless Transmission Lines. Proceedings of the IEEE 55(1967), 2012 - 2013</dd>
 <dt>Hoefer, E. E. E.; Nielinger, H.</dt>
 <dd>SPICE : Analyseprogramm fuer elektronische Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985. </dd>
 </dl></html>", revisions="<html>
 <dl>
-<dt><i>1998</i></dt>
+<dt><em>1998</em></dt>
 <dd>by Joachim Haase initially implemented</dd>
 </dl>
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
+          Text(
+            extent={{-150,150},{150,110}},
+            textString="%name",
+            lineColor={0,0,255}),
           Rectangle(
-            extent={{-60,60},{60,-60}},
+            extent={{-80,80},{80,-80}},
             lineColor={0,0,255},
             fillPattern=FillPattern.Solid,
             fillColor={255,255,255}),
-          Line(points={{60,-50},{90,-50}}, color={0,0,255}),
-          Line(points={{60,50},{90,50}}, color={0,0,255}),
-          Line(points={{-60,50},{-90,50}}, color={0,0,255}),
-          Line(points={{-60,-50},{-90,-50}}, color={0,0,255}),
-          Line(points={{30,30},{-30,30}}, color={0,0,255}),
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
-          Line(points={{30,40},{30,20}}, color={0,0,255}),
+          Line(points={{60,-100},{90,-100}}, color={0,0,255}),
+          Line(points={{60,100},{90,100}}, color={0,0,255}),
+          Line(points={{-60,100},{-90,100}}, color={0,0,255}),
+          Line(points={{-60,-100},{-90,-100}}, color={0,0,255}),
           Text(
-            extent={{-51,-10},{50,-31}},
-            textString="TLine2",
-            lineColor={0,0,0}),
-          Text(
-            extent={{-148,119},{152,79}},
-            textString="%name",
-            lineColor={0,0,255})}),
+            extent={{-70,-10},{70,-50}},
+            textString="TLine2"),
+          Line(points={{-40,40},{-40,20}}),
+          Line(points={{40,30},{-40,30}}),
+          Line(points={{40,40},{40,20}}),
+          Line(points={{-60,100},{-60,80}}, color={0,0,255}),
+          Line(points={{60,100},{60,80}}, color={0,0,255}),
+          Line(points={{60,-80},{60,-100}}, color={0,0,255}),
+          Line(points={{-60,-80},{-60,-100}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={Rectangle(extent={{-60,60},{60,-60}},
-            lineColor={0,0,255}),Line(points={{60,-50},{96,-50}}, color={0,0,
-            255}),Line(points={{60,50},{96,50}}, color={0,0,255}),Line(points={
-            {-60,50},{-96,50}}, color={0,0,255}),Line(points={{-60,-50},{-96,-50}},
-            color={0,0,255}),Line(points={{30,30},{-30,30}}, color={0,0,255}),
-            Line(points={{-30,40},{-30,20}}, color={0,0,255}),Line(points={{30,
-            40},{30,20}}, color={0,0,255}),Text(
+          extent={{-100,-100},{100,100}}), graphics={
+                                           Text(
               extent={{-100,100},{100,70}},
               textString="TLine2",
               lineColor={0,0,255})}));
@@ -796,17 +784,17 @@ The capacitances are calculated with: C=c*length/N.
     i2 = (v2 - er)/Z0;
     es = 2*delay(v2, TD) - delay(er, TD);
     er = 2*delay(v1, TD) - delay(es, TD);
-    annotation (
+    annotation (defaultComponentName="line",
       Documentation(info="<html>
 <p>Lossless transmission line with characteristic impedance Z0 and frequency F The lossless transmission line TLine3 is a two Port. Both port branches consist of a resistor with value of the characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay. For further details see Branin&#39;s article below. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;). The length of the line is equal to a quarter of the wavelength corresponding to the frequency F, i. e. the transmission delay is the quotient of 4 and F. In this case, the characteristic impedance is called natural impedance.</p>
-<p><b>References:</b></p>
+<p><strong>References:</strong></p>
 <dl><dt>Branin Jr., F. H.</dt>
 <dd>Transient Analysis of Lossless Transmission Lines. Proceedings of the IEEE 55(1967), 2012 - 2013</dd>
 <dt>Hoefer, E. E. E.; Nielinger, H.</dt>
 <dd>SPICE : Analyseprogramm fuer elektronische Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985. </dd>
 </dl></html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
+<li><em> 1998   </em>
        by Joachim Haase<br> initially implemented<br>
        </li>
 </ul>
@@ -815,34 +803,32 @@ The capacitances are calculated with: C=c*length/N.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
-            extent={{-60,60},{60,-60}},
+            extent={{-80,80},{80,-80}},
             lineColor={0,0,255},
             fillPattern=FillPattern.Solid,
             fillColor={255,255,255}),
-          Line(points={{60,-50},{90,-50}}, color={0,0,255}),
-          Line(points={{60,50},{90,50}}, color={0,0,255}),
-          Line(points={{-60,50},{-90,50}}, color={0,0,255}),
-          Line(points={{-60,-50},{-90,-50}}, color={0,0,255}),
-          Line(points={{30,30},{-30,30}}, color={0,0,255}),
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
-          Line(points={{30,40},{30,20}}, color={0,0,255}),
+          Line(points={{60,-100},{90,-100}}, color={0,0,255}),
+          Line(points={{60,100},{90,100}}, color={0,0,255}),
+          Line(points={{-60,100},{-90,100}}, color={0,0,255}),
+          Line(points={{-60,-100},{-90,-100}}, color={0,0,255}),
           Text(
-            extent={{-50,-10},{51,-30}},
-            textString="TLine3",
-            lineColor={0,0,0}),
+            extent={{-70,-10},{70,-50}},
+            textString="TLine3"),
           Text(
-            extent={{-155,124},{145,84}},
+            extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255})}),
+            lineColor={0,0,255}),
+          Line(points={{-40,40},{-40,20}}),
+          Line(points={{40,30},{-40,30}}),
+          Line(points={{40,40},{40,20}}),
+          Line(points={{-60,100},{-60,80}}, color={0,0,255}),
+          Line(points={{60,100},{60,80}}, color={0,0,255}),
+          Line(points={{60,-80},{60,-100}}, color={0,0,255}),
+          Line(points={{-60,-80},{-60,-100}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={Rectangle(extent={{-60,60},{60,-60}},
-            lineColor={0,0,255}),Line(points={{60,-50},{96,-50}}, color={0,0,
-            255}),Line(points={{60,50},{96,50}}, color={0,0,255}),Line(points={
-            {-60,50},{-96,50}}, color={0,0,255}),Line(points={{-60,-50},{-96,-50}},
-            color={0,0,255}),Line(points={{30,30},{-30,30}}, color={0,0,255}),
-            Line(points={{-30,40},{-30,20}}, color={0,0,255}),Line(points={{30,
-            40},{30,20}}, color={0,0,255}),Text(
+          extent={{-100,-100},{100,100}}), graphics={
+                                           Text(
               extent={{-100,100},{100,70}},
               textString="TLine3",
               lineColor={0,0,255})}));
@@ -853,11 +839,11 @@ The capacitances are calculated with: C=c*length/N.
 </html>", revisions="<html>
 <dl>
 <dt>
-<b>Main Authors:</b>
+<strong>Main Authors:</strong>
 </dt>
 <dd>
 Christoph Clau&szlig;
-    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
+    &lt;<a href=\"mailto:christoph@clauss-it.com\">christoph@clauss-it.com</a>&gt;<br>
     Joachim Haase;
     &lt;<a href=\"mailto:haase@eas.iis.fhg.de\">haase@eas.iis.fhg.de</a>&gt;<br>
     Andr&eacute; Schneider
@@ -867,22 +853,15 @@ Christoph Clau&szlig;
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden
 </dd>
-<dt>
-<b>Copyright:</b>
-</dt>
-<dd>
-Copyright &copy; 1998-2016, Modelica Association and Fraunhofer-Gesellschaft.<br>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".</i>
-</dd>
 </dl>
+
+<p>
+Copyright &copy; 1998-2019, Modelica Association and contributors
+</p>
 </html>"), Icon(graphics={
         Line(points={{-60,50},{-90,50}}),
         Rectangle(
-          extent={{-60,60},{60,-60}},
-          lineColor={0,0,0}),
+          extent={{-60,60},{60,-60}}),
         Line(points={{-60,-50},{-90,-50}}),
         Line(points={{36,20},{-36,20}}),
         Line(points={{-36,40},{-36,0}}),

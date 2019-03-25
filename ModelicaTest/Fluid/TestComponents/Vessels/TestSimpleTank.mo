@@ -48,18 +48,14 @@ model TestSimpleTank
     annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
 equation
   connect(pipe.port_a, tank.ports[1]) annotation (Line(
-      points={{20,-20},{20,0},{16,0}},
-      color={0,127,255}));
+      points={{20,-20},{20,0},{16,0}}, color={0,127,255}));
   connect(flowSource.ports[1], tank.ports[2]) annotation (Line(
-      points={{-20,40},{0,40},{0,0},{24,0}},
-      color={0,127,255}));
+      points={{-20,40},{0,40},{0,0},{24,0}}, color={0,127,255}));
   connect(ambient_fixed.ports[1], pipe.port_b) annotation (Line(
-      points={{-20,-60},{20,-60},{20,-40}},
-      color={0,127,255}));
+      points={{-20,-60},{20,-60},{20,-40}}, color={0,127,255}));
 
   connect(flowSource.m_flow_in, timeTable.y) annotation (Line(
-      points={{-40,48},{-50,48},{-50,50},{-59,50}},
-      color={0,0,127}));
+      points={{-40,48},{-50,48},{-50,50},{-59,50}}, color={0,0,127}));
 
   annotation (    experiment(StopTime=100));
 end TestSimpleTank;

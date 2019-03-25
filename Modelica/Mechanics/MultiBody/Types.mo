@@ -3,7 +3,7 @@ package Types "Constants and types with choices, especially to build menus"
   extends Modelica.Icons.TypesPackage;
 
   type Axis = Modelica.Icons.TypeReal[3](each final unit="1")
-    "Axis vector with choices for menus"                                      annotation (
+    "Axis vector with choices" annotation (
     preferredView="text",
     Evaluate=true,
     choices(
@@ -23,14 +23,14 @@ For an example see parameter \"n\" in model
 </html>"));
 
   type AxisLabel = Modelica.Icons.TypeString
-    "Label of axis with choices for menus"                                          annotation (
+    "Label of axis with choices" annotation (
       preferredView="text", choices(
       choice="x" "\"x\"",
       choice="y" "\"y\"",
       choice="z" "\"z\""));
 
   type RotationSequence = Modelica.Icons.TypeInteger[3] (min={1,1,1}, max={3,3,3})
-    "Sequence of planar frame rotations with choices for menus" annotation (
+    "Sequence of planar frame rotations with choices" annotation (
     preferredView="text",
     Evaluate=true,
     choices(
@@ -60,7 +60,7 @@ For an example see parameter \"n\" in model
         choice={255,255,255} "{255,255,255} \"white\""),
     Documentation(info="<html>
 <p>
-Type <b>Color</b> is an Integer vector with 3 elements,
+Type <strong>Color</strong> is an Integer vector with 3 elements,
 {r, g, b}, and specifies the color of a shape.
 {r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
 Note, r g, b are given in the range 0 .. 255.
@@ -89,7 +89,7 @@ Note, r g, b are given in the range 0 .. 255.
         choice={255,255,255} "{255,255,255} \"white\""),
     Documentation(info="<html>
 <p>
-Type <b>RealColor</b> is a Real vector with 3 elements,
+Type <strong>RealColor</strong> is a Real vector with 3 elements,
 {r, g, b}, and specifies the color of a shape.
 {r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
 Note, r g, b are given in the range 0 .. 255.
@@ -103,7 +103,7 @@ Note, r g, b are given in the range 0 .. 255.
          choice=1 "1.0 \"glossy\""),
     Documentation(info="<html>
 <p>
-Type <b>SpecularCoefficient</b> defines the reflection of
+Type <strong>SpecularCoefficient</strong> defines the reflection of
 ambient light on shape surfaces. If value = 0, the light
 is completely absorbed. Often, 0.7 is a reasonable value.
 It might be that from some viewing directions, a body is no
@@ -113,7 +113,7 @@ are shown for a cylinder:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/SpecularCoefficient.png\" />
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/SpecularCoefficient.png\"/>
 </p>
 </html>"));
   type ShapeType = Modelica.Icons.TypeString
@@ -131,20 +131,20 @@ are shown for a cylinder:
       choice="modelica://PackageName/PathName.dxf"),
     Documentation(info="<html>
 <p>
-Type <b>ShapeType</b> is used to define the shape of the
+Type <strong>ShapeType</strong> is used to define the shape of the
 visual object as parameter String. Usually, \"shapeType\" is used
 as instance name. The following
 values for shapeType are possible, e.g., shapeType=\"box\":
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Shape.png\" ALT=\"model Visualizers.FixedShape\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Shape.png\" alt=\"model Visualizers.FixedShape\">
 </p>
 
 <p>
 The dark blue arrows in the figure above are directed along
-variable <b>lengthDirection</b>. The light blue arrows are directed
-along variable <b>widthDirection</b>. The <b>coordinate systems</b>
+variable <strong>lengthDirection</strong>. The light blue arrows are directed
+along variable <strong>widthDirection</strong>. The <strong>coordinate systems</strong>
 in the figure represent frame_a of the Shape component.
 </p>
 
@@ -153,19 +153,19 @@ Additionally, external shapes can be specified as (not all options might be supp
 </p>
 
 <ul>
-<li> <b>\"1\", \"2\", ...</b><br>
+<li> <strong>\"1\", \"2\", ...</strong><br>
      define external shapes specified in DXF format in files \"1.dxf\", \"2.dxf\", ...
      The DXF-files must be found either in the current directory or in the directory where
      the Shape instance is stored that references the DXF file.
      This (very limited) option should not be used for new models. Example:<br>
     shapeType=\"1\".<br></li>
 
-<li> \"<b>modelica:</b>//&lt;Modelica-name&gt;/&lt;relative-path-file-name&gt;\"<br>
+<li> \"<strong>modelica:</strong>//&lt;Modelica-name&gt;/&lt;relative-path-file-name&gt;\"<br>
      characterizes the file that is stored under the location of the
      &lt;Modelica-name&gt; library path with the given relative file name.
      Example:<br> shapeType = \"modelica://Modelica/Resources/Data/Shapes/Engine/piston.dxf\".<br></li>
 
-<li> \"<b>file:</b>//&lt;absolute-file-name&gt;\"<br>
+<li> \"<strong>file:</strong>//&lt;absolute-file-name&gt;\"<br>
      characterizes an absolute file name in the file system. Example:<br>
      shapeType=\"file://C:/users/myname/shapes/piston.dxf\".</li>
 </ul>
@@ -185,50 +185,48 @@ information in the model is usually ignored.
 <p>
 This type is used in shapes of visual objects to define
 extra data depending on the shape type. Usually, input
-variable <b>extra</b> is used as instance name:
+variable <strong>extra</strong> is used as instance name:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>shapeType</b></th><th>Meaning of parameter <b>extra</b></th></tr>
+<tr><th><strong>shapeType</strong></th><th>Meaning of parameter <strong>extra</strong></th></tr>
 <tr>
-  <td valign=\"top\">\"cylinder\"</td>
-  <td valign=\"top\">if extra &gt; 0, a black line is included in the
+  <td>\"cylinder\"</td>
+  <td>if extra&nbsp;&gt;&nbsp;0, a black line is included in the
       cylinder to show the rotation of it.</td>
 </tr>
 <tr>
-  <td valign=\"top\">\"cone\"</td>
-  <td valign=\"top\">extra = diameter-left-side / diameter-right-side, i.e.,<br>
+  <td>\"cone\"</td>
+  <td>extra = diameter-left-side / diameter-right-side, i.e.,<br>
       extra = 1: cylinder<br>
       extra = 0: \"real\" cone.</td>
 </tr>
 <tr>
-  <td valign=\"top\">\"pipe\"</td>
-  <td valign=\"top\">extra = outer-diameter / inner-diameter, i.e, <br>
+  <td>\"pipe\"</td>
+  <td>extra = outer-diameter / inner-diameter, i.e,<br>
       extra = 1: cylinder that is completely hollow<br>
       extra = 0: cylinder without a hole.</td>
 </tr>
 <tr>
-  <td valign=\"top\">\"gearwheel\"</td>
-  <td valign=\"top\">extra is the number of teeth of the (external) gear.
-If extra &lt; 0, an internal gear is visualized with |extra| teeth.
+  <td>\"gearwheel\"</td>
+  <td>extra is the number of teeth of the (external) gear.
+If extra&nbsp;&lt;&nbsp;0, an internal gear is visualized with |extra| teeth.
 The axis of the gearwheel is along \"lengthDirection\", and usually:
 width = height = 2*radiusOfGearWheel.</td>
 </tr>
 <tr>
-  <td valign=\"top\">\"spring\"</td>
-  <td valign=\"top\">extra is the number of windings of the spring.
-      Additionally, \"height\" is <b>not</b> the \"height\" but
+  <td>\"spring\"</td>
+  <td>extra is the number of windings of the spring.
+      Additionally, \"height\" is <strong>not</strong> the \"height\" but
       2*coil-width.</td>
 </tr>
 <tr>
-  <td valign=\"top\">external shape</td>
-  <td valign=\"top\">extra = 0: Visualization from file is not scaled.<br>
-                     extra = 1: Visualization from file is scaled with \"length\", \"width\" and height\"
+  <td>external shape</td>
+  <td>extra = 0: Visualization from file is not scaled.<br>
+                     extra = 1: Visualization from file is scaled with \"length\", \"width\" and \"height\"
                                 of the shape</td>
 </tr>
-
 </table>
-
 </html>"));
 
   type ResolveInFrameA = enumeration(
@@ -239,15 +237,15 @@ width = height = 2*radiusOfGearWheel.</td>
     "Enumeration to define the frame in which an absolute vector is resolved (world, frame_a, frame_resolve)"
                                                annotation (Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>Types.ResolveInFrameA.</b></th><th><b>Meaning</b></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vector in world frame</td></tr>
+<tr><th><strong>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vector in frame_resolve (frame_resolve must be connected)</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve (frame_resolve must be connected)</td></tr>
 </table>
 </html>"));
   type ResolveInFrameB = enumeration(
@@ -258,15 +256,15 @@ width = height = 2*radiusOfGearWheel.</td>
     "Enumeration to define the frame in which an absolute vector is resolved (world, frame_b, frame_resolve)"
                                                annotation (Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>Types.ResolveInFrameB.</b></th><th><b>Meaning</b></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vector in world frame</td></tr>
+<tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve vector in frame_b</td></tr>
+<tr><td>frame_b</td>
+    <td>Resolve vector in frame_b</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vector in frame_resolve (frame_resolve must be connected)</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve (frame_resolve must be connected)</td></tr>
 </table>
 </html>"));
   type ResolveInFrameAB = enumeration(
@@ -278,18 +276,18 @@ width = height = 2*radiusOfGearWheel.</td>
     "Enumeration to define the frame in which a relative vector is resolved (world, frame_a, frame_b, frame_resolve)"
                                                annotation (Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vector in world frame</td></tr>
+<tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
 
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
 
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve vector in frame_b</td></tr>
+<tr><td>frame_b</td>
+    <td>Resolve vector in frame_b</td></tr>
 
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vector in frame_resolve (frame_resolve must be connected)</td></tr>
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve (frame_resolve must be connected)</td></tr>
 </table>
 </html>"));
 
@@ -301,16 +299,16 @@ width = height = 2*radiusOfGearWheel.</td>
       annotation (
         Documentation(Evaluate=true, info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>Types.RotationTypes.</b></th><th><b>Meaning</b></th></tr>
-<tr><td valign=\"top\">RotationAxis</td>
-    <td valign=\"top\">frame_b is defined by rotating the coordinate system along
+<tr><th><strong>Types.RotationTypes.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>RotationAxis</td>
+    <td>frame_b is defined by rotating the coordinate system along
         an axis fixed in frame_a and with a fixed angle.</td></tr>
 
-<tr><td valign=\"top\">TwoAxesVectors</td>
-    <td valign=\"top\">frame_b is defined by resolving two vectors of frame_b in frame_a.</td></tr>
+<tr><td>TwoAxesVectors</td>
+    <td>frame_b is defined by resolving two vectors of frame_b in frame_a.</td></tr>
 
-<tr><td valign=\"top\">PlanarRotationSequence</td>
-    <td valign=\"top\">frame_b is defined by rotating the coordinate system along
+<tr><td>PlanarRotationSequence</td>
+    <td>frame_b is defined by rotating the coordinate system along
         3 consecutive axes vectors with fixed rotation angles
         (e.g., Cardan or Euler angle sequence rotation).</td></tr>
 </table>
@@ -323,15 +321,15 @@ width = height = 2*radiusOfGearWheel.</td>
     "Enumeration defining the type of the gravity field"
       annotation (Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>Types.GravityTypes.</b></th><th><b>Meaning</b></th></tr>
-<tr><td valign=\"top\">NoGravity</td>
-    <td valign=\"top\">No gravity field</td></tr>
+<tr><th><strong>Types.GravityTypes.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>NoGravity</td>
+    <td>No gravity field</td></tr>
 
-<tr><td valign=\"top\">UniformGravity</td>
-    <td valign=\"top\">Gravity field is described by a vector of constant gravity acceleration</td></tr>
+<tr><td>UniformGravity</td>
+    <td>Gravity field is described by a vector of constant gravity acceleration</td></tr>
 
-<tr><td valign=\"top\">PointGravity</td>
-    <td valign=\"top\">Central gravity field. The gravity acceleration vector is directed to
+<tr><td>PointGravity</td>
+    <td>Central gravity field. The gravity acceleration vector is directed to
         the field center and the gravity is proportional to 1/r^2, where
         r is the distance to the field center.</td></tr>
 </table>
@@ -382,7 +380,7 @@ type Init = enumeration(
       "Arrow head width / arrow diameter";
 
     // Other defaults
-    constant SI.Diameter BodyCylinderDiameterFraction=3
+    constant Real BodyCylinderDiameterFraction=3
       "Default for body cylinder diameter as a fraction of body sphere diameter";
     constant Real JointRodDiameterFraction=2
       "Default for rod diameter as a fraction of joint sphere diameter attached to rod";
@@ -393,7 +391,7 @@ type Init = enumeration(
   constant Real Nm_to_m(unit="N.m/m") = 1000
     "Default torque arrow scaling (length = torque/Nm_to_m_default)";
 */
-    annotation ( Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>
 This package contains constants used as default setting
 in the MultiBody library.
@@ -401,9 +399,9 @@ in the MultiBody library.
 </html>"));
   end Defaults;
 
-  annotation ( Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
-In this package <b>types</b> and <b>constants</b> are defined that are used in the
+In this package <strong>types</strong> and <strong>constants</strong> are defined that are used in the
 MultiBody library. The types have additional annotation choices
 definitions that define the menus to be built up in the graphical
 user interface when the type is used as parameter in a declaration.

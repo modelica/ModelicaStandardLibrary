@@ -48,7 +48,6 @@ package BaseClasses "Specific models used for testing"
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
               {100,100}}), graphics={Rectangle(
             extent={{-100,60},{100,-60}},
-            lineColor={0,0,0},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={0,127,255})}),        Documentation(info="<html>
 <p>
@@ -61,13 +60,13 @@ The regularization can be changed for the PressureLoss model.
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>8 Dec 2008</i>
-    by Ruediger Franke:<br>
+<li><em>8 Dec 2008</em>
+    by R&uuml;diger Franke:<br>
        Introduce small nominal pressure loss for regularization</li>
-<li><i>31 Oct 2007</i>
+<li><em>31 Oct 2007</em>
     by <a href=\"mailto:jonas@modelon.se\">Jonas Eborn</a>:<br>
        Changed to flow-direction dependent density</li>
-<li><i>2 Nov 2005</i>
+<li><em>2 Nov 2005</em>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Added to Modelica.Fluid</li>
 </ul>
@@ -180,27 +179,20 @@ The regularization can be changed for the PressureLoss model.
 
   equation
     connect(staticPipe1.port_a, port_a)
-      annotation (Line(points={{-60,0},{-80,0},{-100,0}},
-                                                  color={0,127,255}));
+      annotation (Line(points={{-60,0},{-80,0},{-100,0}}, color={0,127,255}));
     connect(staticPipe2.port_b, port_b)
-      annotation (Line(points={{60,0},{80,0},{100,0}},
-                                                color={0,127,255}));
+      annotation (Line(points={{60,0},{80,0},{100,0}}, color={0,127,255}));
     connect(staticPipe1.port_b, volume.ports[1])   annotation (Line(
-        points={{-40,0},{-2,0},{-2,10}},
-        color={0,127,255}));
+        points={{-40,0},{-2,0},{-2,10}}, color={0,127,255}));
     connect(staticPipe2.port_a, volume.ports[2])   annotation (Line(
-        points={{40,0},{2,0},{2,10}},
-        color={0,127,255}));
+        points={{40,0},{2,0},{2,10}}, color={0,127,255}));
     connect(heatPort, volume.heatPort) annotation (Line(
-        points={{0,54},{0,40},{-20,40},{-20,20},{-10,20}},
-        color={191,0,0}));
+        points={{0,54},{0,40},{-20,40},{-20,20},{-10,20}}, color={191,0,0}));
     annotation (defaultComponentName="pipe",Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}),
           graphics={Ellipse(
             extent={{-10,10},{10,-10}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}),Documentation(info="<html>
 <p>
 Simple pipe model consisting of one volume,

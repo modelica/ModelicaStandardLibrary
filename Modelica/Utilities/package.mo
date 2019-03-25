@@ -1,6 +1,6 @@
 within Modelica;
 package Utilities "Library of utility functions dedicated to scripting (operating on files, streams, strings, system)"
-  extends Modelica.Icons.Package;
+  extends Modelica.Icons.UtilitiesPackage;
 
 
 package UsersGuide "User's Guide of Utilities Library"
@@ -14,7 +14,7 @@ package UsersGuide "User's Guide of Utilities Library"
 Below the major design decisions of this library are summarized.
 </p>
 <ul>
-<li> <b>C-Function Interface</b><br>
+<li> <strong>C-Function Interface</strong><br>
      This library contains several interfaces to C-functions in order
      to operate with the environment. As will become clear, it is usually
      required that a Modelica tool vendor provides an implementation
@@ -23,7 +23,7 @@ Below the major design decisions of this library are summarized.
      is given for Microsoft Windows Systems and for POSIX environments.
      The files \"ModelicaInternal.c\" and \"ModelicaStrings.c\" can be
      used as a basis for the integration in the vendors environment.<br>&nbsp;</li>
-<li> <b>Character Encoding</b><br>
+<li> <strong>Character Encoding</strong><br>
      The representation of characters is different in operating systems.
      The more modern ones (e.g., Windows-NT) use an early variant of
      Unicode (16 bit per character)
@@ -39,7 +39,7 @@ Below the major design decisions of this library are summarized.
      reference implementation in \"Modelica.Utilities\\C-Source\" needs to
      be adapted to the character representation supported in the
      Modelica vendor environment.<br>&nbsp;</li>
-<li> <b>Internal String Representation</b><br>
+<li> <strong>Internal String Representation</strong><br>
      The design of this package was made in order that string handling
      is convenient. This is in contrast to, e.g., the C-language, where
      string handling is inconvenient, cumbersome and error prone, but on the
@@ -59,7 +59,7 @@ Below the major design decisions of this library are summarized.
      say 16 or 32 bit (if all Unicode characters shall be represented).
      A vendor should adapt the reference implementation in this
      respect.<br>&nbsp;</li>
-<li> <b>String copy = pointer copy</b><br>
+<li> <strong>String copy = pointer copy</strong><br>
      The Modelica language has no mechanism to change a character
      of a string. When a string has to be modified, the only way
      to achieve this is to generate it newly. The advantage is that
@@ -99,18 +99,38 @@ First version implemented.
     extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
-<dl>
-<dt><b>Responsible for Library:</b></dt>
-<dd>Dag Br&uuml;ck, Dassault Syst&egrave;mes AB, Sweden.<br>
-    email: <A HREF=\"mailto:Dag.BRUCK@3ds.com\">Dag.BRUCK@3ds.com</A><br></dd>
-</dl>
-<p><b>Acknowledgements:</b></p>
+<h4>Library officers</h4>
+
+<p>
+<a href=\"http://www.robotic.dlr.de/Martin.Otter/\"><strong>Martin Otter</strong></a><br>
+Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e.V. (DLR)<br>
+Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)<br>
+Forschungszentrum Oberpfaffenhofen<br>
+D-82234 Wessling<br>
+Germany
+</p>
+
+<p>
+<strong>Hans Olsson</strong><br>
+Dassault Syst&egrave;mes AB, Lund, Sweden
+</p>
+
+<h4>Main authors</h4>
+
+<p>
+<strong>Dag Br&uuml;ck</strong><br>
+Dassault Syst&egrave;mes AB, Lund, Sweden.<br>
+email: <a href=\"mailto:Dag.Bruck@3ds.com\">Dag.Bruck@3ds.com</a>
+</p>
+
+<h4>Acknowledgements</h4>
+
 <ul>
 <li> This library has been designed by:<br>
      <blockquote>
-     Dag Br&uuml;ck, Dassault Syst&egrave;mes AB, Sweden <br>
-     Hilding Elmqvist, Dassault Syst&egrave;mes AB, Sweden <br>
-     Hans Olsson, Dassault Syst&egrave;mes AB, Sweden <br>
+     Dag Br&uuml;ck, Dassault Syst&egrave;mes AB, Sweden<br>
+     Hilding Elmqvist, previously at Dassault Syst&egrave;mes AB, Sweden<br>
+     Hans Olsson, Dassault Syst&egrave;mes AB, Sweden<br>
      Martin Otter, DLR Oberpfaffenhofen, Germany.
      </blockquote></li>
 <li> The library including the C reference implementation has
@@ -119,15 +139,15 @@ First version implemented.
      with this library is from Hilding Elmqvist.</li>
 <li> Helpful comments from Kaj Nystr&ouml;m, PELAB, Link&ouml;ping, Sweden,
      are appreciated, as well as discussions at the 34th, 36th, and 40th
-     Modelica Design Meetings in Vienna, Link&ouml;ping, and Dresden. </li>
+     Modelica Design Meetings in Vienna, Link&ouml;ping, and Dresden.</li>
 </ul>
 </html>"));
   end Contact;
 
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
-Library <b>Modelica.Utilities</b> contains Modelica <b>functions</b> that are
-especially suited for <b>scripting</b>. Currently, only a rudimentary
+Library <strong>Modelica.Utilities</strong> contains Modelica <strong>functions</strong> that are
+especially suited for <strong>scripting</strong>. Currently, only a rudimentary
 User's Guide is present. This will be improved in the next releases.
 The User's Guide has currently the following chapters:
 </p>
@@ -148,7 +168,7 @@ The User's Guide has currently the following chapters:
 </li>
 </ol>
 <p>
-<b>Error handling</b><br>
+<strong>Error handling</strong><br>
 In case of error, all functions in this library use a Modelica \"assert(..)\"
 to provide an error message and to cancel all actions. This means that
 functions do not return, if an error is triggered inside the function.
@@ -160,24 +180,10 @@ end UsersGuide;
 
 
     annotation (
-Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
-    Polygon(
-      origin={1.3835,-4.1418},
-      rotation=45.0,
-      fillColor={64,64,64},
-      pattern=LinePattern.None,
-      fillPattern=FillPattern.Solid,
-      points={{-15.0,93.333},{-15.0,68.333},{0.0,58.333},{15.0,68.333},{15.0,93.333},{20.0,93.333},{25.0,83.333},{25.0,58.333},{10.0,43.333},{10.0,-41.667},{25.0,-56.667},{25.0,-76.667},{10.0,-91.667},{0.0,-91.667},{0.0,-81.667},{5.0,-81.667},{15.0,-71.667},{15.0,-61.667},{5.0,-51.667},{-5.0,-51.667},{-15.0,-61.667},{-15.0,-71.667},{-5.0,-81.667},{0.0,-81.667},{0.0,-91.667},{-10.0,-91.667},{-25.0,-76.667},{-25.0,-56.667},{-10.0,-41.667},{-10.0,43.333},{-25.0,58.333},{-25.0,83.333},{-20.0,93.333}}),
-    Polygon(
-      origin={10.1018,5.218},
-      rotation=-45.0,
-      fillColor={255,255,255},
-      fillPattern=FillPattern.Solid,
-      points={{-15.0,87.273},{15.0,87.273},{20.0,82.273},{20.0,27.273},{10.0,17.273},{10.0,7.273},{20.0,2.273},{20.0,-2.727},{5.0,-2.727},{5.0,-77.727},{10.0,-87.727},{5.0,-112.727},{-5.0,-112.727},{-10.0,-87.727},{-5.0,-77.727},{-5.0,-2.727},{-20.0,-2.727},{-20.0,2.273},{-10.0,7.273},{-10.0,17.273},{-20.0,27.273},{-20.0,82.273}})}),
 Documentation(info="<html>
 <p>
-This package contains Modelica <b>functions</b> that are
-especially suited for <b>scripting</b>. The functions might
+This package contains Modelica <strong>functions</strong> that are
+especially suited for <strong>scripting</strong>. The functions might
 be used to work with strings, read data from file, write data
 to file or copy, move and remove files.
 </p>
@@ -209,12 +215,7 @@ The following main sublibraries are available:
 </ul>
 
 <p>
-Copyright &copy; 1998-2016, Modelica Association, DLR, and Dassault Syst&egrave;mes AB.
+Copyright &copy; 1998-2019, Modelica Association and contributors
 </p>
-
-<p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
-</p>
-
 </html>"));
 end Utilities;

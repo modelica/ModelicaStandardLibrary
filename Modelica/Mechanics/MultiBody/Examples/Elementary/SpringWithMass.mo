@@ -18,7 +18,7 @@ model SpringWithMass "Point mass hanging on a spring"
     angles_fixed=true,
     w_0_fixed=true,
     r_CM={0,0,0},
-    m=1)                    annotation (Placement(transformation(
+    m=1) annotation (Placement(transformation(
         origin={10,-10},
         extent={{-10,-10},{10,10}},
         rotation=270)));
@@ -42,7 +42,7 @@ In the animation, this point mass is represented by a small,
 light blue, sphere.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/SpringWithMass.png\"
-ALT=\"model Examples.Elementary.SpringWithMass\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/SpringWithMass.png\"
+alt=\"model Examples.Elementary.SpringWithMass\">
 </html>"));
 end SpringWithMass;

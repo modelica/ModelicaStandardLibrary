@@ -71,28 +71,21 @@ model TestWaterPumpRecirculation
 equation
   connect(pump.port_a,Source.ports[1])
                                      annotation (Line(points={{-54,-30},{-54,
-          -30},{-80,-30}},    color={0,127,255}));
+          -30},{-80,-30}}, color={0,127,255}));
   connect(N_pump.y, pump.N_in) annotation (Line(
-      points={{-79,2},{-40,2},{-40,-16}},
-      color={0,0,127}));
+      points={{-79,2},{-40,2},{-40,-16}}, color={0,0,127}));
   connect(pump.port_b, V1.port_a) annotation (Line(
-      points={{-26,-30},{-10,-30},{-10,16},{-18,16}},
-      color={0,127,255}));
+      points={{-26,-30},{-10,-30},{-10,16},{-18,16}}, color={0,127,255}));
   connect(V1.port_b, pump.port_a) annotation (Line(
-      points={{-40,16},{-60,16},{-60,-30},{-54,-30}},
-      color={0,127,255}));
+      points={{-40,16},{-60,16},{-60,-30},{-54,-30}}, color={0,127,255}));
   connect(pump.port_b, V2.port_a) annotation (Line(
-      points={{-26,-30},{-10,-30},{-10,-20},{0,-20}},
-      color={0,127,255}));
+      points={{-26,-30},{-10,-30},{-10,-20},{0,-20}}, color={0,127,255}));
   connect(V2.port_b, Sink.ports[1]) annotation (Line(
-      points={{22,-20},{42,-20}},
-      color={0,127,255}));
+      points={{22,-20},{42,-20}}, color={0,127,255}));
   connect(V1_Opening.y, V1.opening) annotation (Line(
-      points={{-79,50},{-29,50},{-29,24}},
-      color={0,0,127}));
+      points={{-79,50},{-29,50},{-29,24}}, color={0,0,127}));
   connect(V2_Opening.y, V2.opening) annotation (Line(
-      points={{-79,80},{11,80},{11,-12}},
-      color={0,0,127}));
+      points={{-79,80},{11,80},{11,-12}}, color={0,0,127}));
 annotation (
   experiment(StopTime=10, Tolerance=1e-006),
   Documentation(info=""));

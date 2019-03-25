@@ -2,15 +2,15 @@ within Modelica.Electrical.Analog.Examples;
 model CauerLowPassAnalog "Cauer low pass filter with analog components"
   extends Modelica.Icons.Example;
 
-  parameter SI.Inductance l1=1.304 "filter coefficient I1";
-  parameter SI.Inductance l2=0.8586 "filter coefficient I2";
-  parameter SI.Capacitance c1=1.072 "filter coefficient c1";
+  parameter SI.Inductance l1=1.304 "Filter coefficient I1";
+  parameter SI.Inductance l2=0.8586 "Filter coefficient I2";
+  parameter SI.Capacitance c1=1.072 "Filter coefficient c1";
   parameter SI.Capacitance c2=1/(1.704992^2*l1)
-    "filter coefficient c2";
-  parameter SI.Capacitance c3=1.682 "filter coefficient c3";
+    "Filter coefficient c2";
+  parameter SI.Capacitance c3=1.682 "Filter coefficient c3";
   parameter SI.Capacitance c4=1/(1.179945^2*l2)
-    "filter coefficient c4";
-  parameter SI.Capacitance c5=0.7262 "filter coefficient c5";
+    "Filter coefficient c4";
+  parameter SI.Capacitance c5=0.7262 "Filter coefficient c5";
   Modelica.Electrical.Analog.Basic.Ground G
     annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
   Modelica.Electrical.Analog.Basic.Capacitor C1(C=c1, v(start=0, fixed=true))
@@ -51,28 +51,21 @@ Modelica.Electrical.Analog.Basic.Capacitor C2(C=c2)
         extent={{-10,-10},{10,10}},
         rotation=270)));
 equation
-  connect(R1.n,C1.p) annotation (Line(points={{-80,30},{-60,30},{-60,-10}},
-        color={0,0,255}));
+  connect(R1.n,C1.p) annotation (Line(points={{-80,30},{-60,30},{-60,-10}}, color={0,0,255}));
   connect(C1.n,G.p) annotation (Line(points={{-60,-30},{-60,-50},{0,-50},{0,
         -70}}, color={0,0,255}));
-  connect(L1.p,C2.p) annotation (Line(points={{-40,70},{-40,30}}, color=
-        {0,0,255}));
+  connect(L1.p,C2.p) annotation (Line(points={{-40,70},{-40,30}}, color={0,0,255}));
   connect(L1.p,C1.p) annotation (Line(points={{-40,70},{-40,30},{-60,30},{-60,
         -10}}, color={0,0,255}));
   connect(L1.n,C2.n) annotation (Line(points={{-20,70},{-20,30}}, color={0,0,
         255}));
-  connect(C2.n,C3.p) annotation (Line(points={{-20,30},{0,30},{0,-10}},
-        color={0,0,255}));
-  connect(C2.n,C4.p) annotation (Line(points={{-20,30},{20,30}}, color=
-        {0,0,255}));
-  connect(C2.n,L2.p) annotation (Line(points={{-20,30},{20,30},{20,70}}, color=
-        {0,0,255}));
+  connect(C2.n,C3.p) annotation (Line(points={{-20,30},{0,30},{0,-10}}, color={0,0,255}));
+  connect(C2.n,C4.p) annotation (Line(points={{-20,30},{20,30}}, color={0,0,255}));
+  connect(C2.n,L2.p) annotation (Line(points={{-20,30},{20,30},{20,70}}, color={0,0,255}));
   connect(L2.n,C4.n) annotation (Line(points={{40,70},{40,30}}, color={0,0,
         255}));
-  connect(C4.n,C5.p) annotation (Line(points={{40,30},{60,30},{60,-10}}, color=
-        {0,0,255}));
-  connect(C4.n,R2.p) annotation (Line(points={{40,30},{100,30},{100,-10}},
-        color={0,0,255}));
+  connect(C4.n,C5.p) annotation (Line(points={{40,30},{60,30},{60,-10}}, color={0,0,255}));
+  connect(C4.n,R2.p) annotation (Line(points={{40,30},{100,30},{100,-10}}, color={0,0,255}));
   connect(C1.n,C3.n) annotation (Line(points={{-60,-30},{-60,-50},{0,-50},{0,
         -30}}, color={0,0,255}));
   connect(C1.n,C5.n) annotation (Line(points={{-60,-30},{-60,-50},{60,-50},{60,
@@ -122,10 +115,10 @@ equation
     experiment(StopTime=60),
     Documentation(revisions="<html>
 <ul>
-<li><i>January 13, 2006</i>
+<li><em>January 13, 2006</em>
        by Christoph Clauss<br>
        included into Modelica Standard Library</li>
-<li><i>September 15, 2005</i>
+<li><em>September 15, 2005</em>
        by Peter Trappe designed and by Teresa Schlegel<br>
        initially modelled.</li>
 </ul>

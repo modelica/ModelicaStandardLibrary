@@ -41,13 +41,13 @@ This example demonstrates the thermal response of two masses connected by
 a conducting element. The two masses have the same heat capacity but different
 initial temperatures (T1=100 [degC], T2= 0 [degC]). The mass with the higher
 temperature will cool off while the mass with the lower temperature heats up.
-They will each asymptotically approach the calculated temperature <b>T_final_K</b>
-(<b>T_final_degC</b>) that results from dividing the total initial energy in the system by the sum
+They will each asymptotically approach the calculated temperature <strong>T_final_K</strong>
+(<strong>T_final_degC</strong>) that results from dividing the total initial energy in the system by the sum
 of the heat capacities of each element.
 </p>
 <p>
 Simulate for 5 s and plot the variables<br>
-mass1.T, mass2.T, T_final_K or <br>
+mass1.T, mass2.T, T_final_K or<br>
 Tsensor1.T, Tsensor2.T, T_final_degC
 </p>
 </html>"),
@@ -84,13 +84,13 @@ Tsensor1.T, Tsensor2.T, T_final_degC
       HeatTransfer.Sources.FixedTemperature fixedTemperature(
                                                      T=TAmb)
         annotation (Placement(transformation(extent={{100,-60},{80,-40}})));
-      HeatTransfer.Celsius.TemperatureSensor temperatureSensor  annotation (Placement(
+      HeatTransfer.Celsius.TemperatureSensor temperatureSensor annotation (Placement(
             transformation(
             origin={10,-30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       HeatTransfer.Components.ThermalConductor thermalConductor(
-                                                     G=0.1)  annotation (Placement(
+                                                     G=0.1) annotation (Placement(
             transformation(extent={{40,-60},{60,-40}})));
       Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch idealSwitch
             annotation (Placement(transformation(extent={{-70,-50},{-50,-30}})));
@@ -105,25 +105,25 @@ Tsensor1.T, Tsensor2.T, T_final_degC
                                        annotation (Placement(transformation(
               extent={{-30,-20},{-50,0}})));
     equation
-      connect(constantVoltage.n, heatingResistor.n)   annotation (Line(points={{-90,-60},
-              {-30,-60}},           color={0,0,255}));
-      connect(constantVoltage.n, ground.p)   annotation (Line(points={{-90,-60},
+      connect(constantVoltage.n, heatingResistor.n) annotation (Line(points={{-90,-60},
+              {-30,-60}}, color={0,0,255}));
+      connect(constantVoltage.n, ground.p) annotation (Line(points={{-90,-60},
               {-90,-80}}, color={0,0,255}));
-      connect(heatingResistor.heatPort, thermalConductor.port_a)   annotation (Line(
+      connect(heatingResistor.heatPort, thermalConductor.port_a) annotation (Line(
             points={{-20,-50},{40,-50}}, color={191,0,0}));
-      connect(thermalConductor.port_b, fixedTemperature.port)   annotation (Line(
+      connect(thermalConductor.port_b, fixedTemperature.port) annotation (Line(
             points={{60,-50},{80,-50}}, color={191,0,0}));
-      connect(heatingResistor.heatPort, temperatureSensor.port)   annotation (Line(
+      connect(heatingResistor.heatPort, temperatureSensor.port) annotation (Line(
             points={{-20,-50},{10,-50},{10,-40}}, color={191,0,0}));
-      connect(heatingResistor.heatPort, heatCapacitor.port)   annotation (Line(
+      connect(heatingResistor.heatPort, heatCapacitor.port) annotation (Line(
             points={{-20,-50},{10,-50},{10,-60}}, color={191,0,0}));
-      connect(constantVoltage.p, idealSwitch.p)   annotation (Line(points={{-90,
+      connect(constantVoltage.p, idealSwitch.p) annotation (Line(points={{-90,
               -40},{-70,-40}}, color={0,0,255}));
-      connect(idealSwitch.n, heatingResistor.p)   annotation (Line(points={{-50,-40},
-              {-30,-40}},      color={0,0,255}));
-      connect(ramp.y, onOffController.reference)   annotation (Line(points={{19,
+      connect(idealSwitch.n, heatingResistor.p) annotation (Line(points={{-50,-40},
+              {-30,-40}}, color={0,0,255}));
+      connect(ramp.y, onOffController.reference) annotation (Line(points={{19,
               10},{10,10},{10,-4},{2,-4}}, color={0,0,127}));
-      connect(temperatureSensor.T, onOffController.u)   annotation (Line(points=
+      connect(temperatureSensor.T, onOffController.u) annotation (Line(points=
              {{10,-20},{10,-16},{2,-16}}, color={0,0,127}));
       connect(onOffController.y, logicalNot.u)
                                           annotation (Line(points={{-21,-10},{
@@ -132,7 +132,7 @@ Tsensor1.T, Tsensor2.T, T_final_degC
                                             annotation (Line(points={{-51,-10},
               {-60,-10},{-60,-33}}, color={255,0,255}));
       annotation (Documentation(info="<html>
-<P>
+<p>
 A constant voltage of 10 V is applied to a
 temperature dependent resistor of 10*(1+(T-20C)/(235+20C)) Ohms,
 whose losses v**2/r are dissipated via a
@@ -145,7 +145,7 @@ by switching on and off the voltage source.
 The reference temperature starts at 25 degree C
 and rises between t = 2 and 8 seconds linear to 50 degree C.
 An appropriate simulating time would be 10 seconds.
-</P>
+</p>
 </html>"),        experiment(StopTime=10, Interval=0.001));
     end ControlledTemperature;
 
@@ -157,12 +157,12 @@ An appropriate simulating time would be 10 seconds.
       Modelica.Blocks.Sources.CombiTimeTable lossTable(extrapolation=Modelica.
             Blocks.Types.Extrapolation.Periodic, smoothness=Modelica.Blocks.
             Types.Smoothness.ConstantSegments, table=[0,100,500; 360,1000,500;
-            600,100,500])       annotation (Placement(transformation(
+            600,100,500]) annotation (Placement(transformation(
             origin={-40,70},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       HeatTransfer.Sources.PrescribedHeatFlow windingLosses(T_ref=368.15,
-        alpha=3.03E-3)           annotation (Placement(
+        alpha=3.03E-3) annotation (Placement(
             transformation(
             origin={-80,10},
             extent={{-10,-10},{10,10}},
@@ -185,9 +185,9 @@ An appropriate simulating time would be 10 seconds.
             origin={0,10},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      HeatTransfer.Components.HeatCapacitor core(C=25000, T(start=TAmb, fixed=true))            annotation (Placement(
+      HeatTransfer.Components.HeatCapacitor core(C=25000, T(start=TAmb, fixed=true)) annotation (Placement(
             transformation(extent={{-10,-20},{10,-40}})));
-      HeatTransfer.Celsius.TemperatureSensor Tcore   annotation (Placement(
+      HeatTransfer.Celsius.TemperatureSensor Tcore annotation (Placement(
             transformation(
             origin={-20,-50},
             extent={{-10,-10},{10,10}},
@@ -200,16 +200,16 @@ An appropriate simulating time would be 10 seconds.
       HeatTransfer.Components.Convection convection
                                          annotation (Placement(transformation(
               extent={{30,-20},{50,0}})));
-      HeatTransfer.Sources.FixedTemperature environment(T=TAmb)       annotation (Placement(
+      HeatTransfer.Sources.FixedTemperature environment(T=TAmb) annotation (Placement(
             transformation(
             origin={80,-10},
             extent={{-10,-10},{10,10}},
             rotation=180)));
     equation
-      connect(windingLosses.port, winding.port)  annotation (Line(points={{-80,0},
-              {-80,-20}},    color={191,0,0}));
-      connect(coreLosses.port, core.port)  annotation (Line(points={{0,0},{0,
-              -10},{0,-20}},                                       color={191,0,
+      connect(windingLosses.port, winding.port) annotation (Line(points={{-80,0},
+              {-80,-20}}, color={191,0,0}));
+      connect(coreLosses.port, core.port) annotation (Line(points={{0,0},{0,
+              -10},{0,-20}}, color={191,0,
               0}));
       connect(winding.port, winding2core.port_a)
                                        annotation (Line(points={{-80,-20},{-80,
@@ -217,21 +217,21 @@ An appropriate simulating time would be 10 seconds.
       connect(winding2core.port_b, core.port)
                                     annotation (Line(points={{-30,-10},{0,-10},
               {0,-20}}, color={191,0,0}));
-      connect(winding.port, Twinding.port)  annotation (Line(points={{-80,-20},
+      connect(winding.port, Twinding.port) annotation (Line(points={{-80,-20},
               {-80,-10},{-60,-10},{-60,-40}}, color={191,0,0}));
-      connect(core.port, Tcore.port)  annotation (Line(points={{0,-20},{0,-10},
+      connect(core.port, Tcore.port) annotation (Line(points={{0,-20},{0,-10},
               {-20,-10},{-20,-40}}, color={191,0,0}));
       connect(winding2core.port_b, convection.solid)
                                           annotation (Line(points={{-30,-10},{
               30,-10}}, color={191,0,0}));
       connect(convection.fluid, environment.port) annotation (Line(points={{50,-10},
-              {60,-10},{70,-10}},               color={191,0,0}));
+              {60,-10},{70,-10}}, color={191,0,0}));
       connect(convectionConstant.y, convection.Gc)
         annotation (Line(points={{40,19},{40,0}}, color={0,0,127}));
       connect(lossTable.y[1], windingLosses.Q_flow) annotation (Line(points={{-40,59},
-              {-40,40},{-80,40},{-80,20}},         color={0,0,127}));
+              {-40,40},{-80,40},{-80,20}}, color={0,0,127}));
       connect(lossTable.y[2], coreLosses.Q_flow) annotation (Line(points={{-40,59},
-              {-40,40},{0,40},{0,20}},                             color={0,0,
+              {-40,40},{0,40},{0,20}}, color={0,0,
               127}));
       annotation (Documentation(info="<html>
 <p>
@@ -239,11 +239,11 @@ This example contains a simple second order thermal model of a motor.
 The periodic power losses are described by table \"lossTable\":
 </p>
 <table>
-<tr><td valign=\"top\">time</td><td valign=\"top\">winding losses</td><td valign=\"top\">core losses</td></tr>
-<tr><td valign=\"top\">   0</td><td valign=\"top\">           100</td><td valign=\"top\">        500</td></tr>
-<tr><td valign=\"top\"> 360</td><td valign=\"top\">           100</td><td valign=\"top\">        500</td></tr>
-<tr><td valign=\"top\"> 360</td><td valign=\"top\">          1000</td><td valign=\"top\">        500</td></tr>
-<tr><td valign=\"top\"> 600</td><td valign=\"top\">          1000</td><td valign=\"top\">        500</td></tr>
+<tr><td>time</td><td>winding losses</td><td>core losses</td></tr>
+<tr><td>   0</td><td>           100</td><td>        500</td></tr>
+<tr><td> 360</td><td>           100</td><td>        500</td></tr>
+<tr><td> 360</td><td>          1000</td><td>        500</td></tr>
+<tr><td> 600</td><td>          1000</td><td>        500</td></tr>
 </table>
 <p>
 Since constant speed is assumed, the core losses keep constant
@@ -267,7 +267,267 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
 </html>"),
         experiment(StopTime=7200, Interval=0.01));
     end Motor;
-    annotation (                              Documentation(info="<html>
+
+    model GenerationOfFMUs
+      "Example to demonstrate variants to generate FMUs (Functional Mock-up Units)"
+      extends Modelica.Icons.Example;
+
+      Modelica.Blocks.Sources.Sine sine1(freqHz=2, amplitude=1000)
+        annotation (Placement(transformation(extent={{-100,40},{-80,60}})));
+      Modelica.Thermal.HeatTransfer.Examples.Utilities.DirectCapacity
+        directCapacity(C=1.1)
+        annotation (Placement(transformation(extent={{0,40},{20,60}})));
+      Modelica.Thermal.HeatTransfer.Examples.Utilities.InverseCapacity
+        inverseCapacity(C=2.2)
+        annotation (Placement(transformation(extent={{40,40},{60,60}})));
+      Modelica.Thermal.HeatTransfer.Examples.Utilities.Conduction conductor(G=
+            10)
+        annotation (Placement(transformation(extent={{20,-80},{40,-60}})));
+      Modelica.Thermal.HeatTransfer.Components.HeatCapacitor capacitor3a(C=1.1, T(fixed=true, start=293.15))
+        annotation (Placement(transformation(extent={{-30,-70},{-10,-50}})));
+      Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow heatFlow3
+        annotation (Placement(transformation(extent={{-60,-80},{-40,-60}})));
+      Modelica.Thermal.HeatTransfer.Components.GeneralHeatFlowToTemperatureAdaptor
+        heatFlowToTemperature3a(use_pder=false)
+        annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
+      Modelica.Thermal.HeatTransfer.Components.HeatCapacitor capacitor3b(C=2.2, T(fixed=true, start=293.15))
+        annotation (Placement(transformation(extent={{70,-70},{90,-50}})));
+      Modelica.Thermal.HeatTransfer.Components.GeneralHeatFlowToTemperatureAdaptor
+        heatFlowToTemperature3b(use_pder=false)
+        annotation (Placement(transformation(extent={{70,-80},{50,-60}})));
+    equation
+      connect(sine1.y, directCapacity.Q_flowDrive)
+        annotation (Line(points={{-79,50},{-2,50}}, color={0,0,127}));
+      connect(directCapacity.T, inverseCapacity.T)
+        annotation (Line(points={{21,58},{38,58}}, color={0,0,127}));
+      connect(inverseCapacity.Q_flow, directCapacity.Q_flow)
+        annotation (Line(points={{39,42},{22,42}}, color={0,0,127}));
+      connect(heatFlowToTemperature3a.f, conductor.Q_flow1)
+        annotation (Line(points={{3,-78},{19,-78}}, color={0,0,127}));
+      connect(conductor.Q_flow2,heatFlowToTemperature3b. f)
+        annotation (Line(points={{41,-78},{57,-78}}, color={0,0,127}));
+      connect(heatFlowToTemperature3a.p, conductor.T1)
+        annotation (Line(points={{3,-62},{18,-62}}, color={0,0,127}));
+      connect(conductor.T2,heatFlowToTemperature3b. p)
+        annotation (Line(points={{42,-62},{57,-62}}, color={0,0,127}));
+      connect(sine1.y, heatFlow3.Q_flow) annotation (Line(points={{-79,50},{-70,50},
+              {-70,-70},{-60,-70}}, color={0,0,127}));
+      connect(heatFlow3.port, capacitor3a.port)
+        annotation (Line(points={{-40,-70},{-20,-70}}, color={191,0,0}));
+      connect(capacitor3a.port,heatFlowToTemperature3a. heatPort)
+        annotation (Line(points={{-20,-70},{-2,-70}}, color={191,0,0}));
+      connect(heatFlowToTemperature3b.heatPort, capacitor3b.port)
+        annotation (Line(points={{62,-70},{80,-70}}, color={191,0,0}));
+      connect(directCapacity.derT, inverseCapacity.derT) annotation (Line(points={{21,
+              53},{28.5,53},{28.5,53},{38,53}}, color={0,0,127}));
+      annotation (experiment(StopTime=1, Interval=0.001), Documentation(info="<html>
+<p>
+This example demonstrates how to generate an input/output block (e.g. in form of an
+FMU - <a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>) from various HeatTransfer components.
+The goal is to export such an input/output block from Modelica and import
+it in another modeling environment. The essential issue is that before
+exporting it must be known in which way the component is utilized in the
+target environment. Depending on the target usage, different flange variables
+need to be in the interface with either input or output causality.
+Note, this example model can be used to test the FMU export/import of a Modelica tool.
+Just export the components marked in the icons as \"toFMU\" as FMUs and import
+them back. The models should then still work and give the same results as a
+pure Modelica model.
+</p>
+
+<p>
+<strong>Connecting two masses</strong><br>
+The upper part (DirectCapacity, InverseCapacity)
+demonstrates how to export two heat capacitors and connect them
+together in a target system. This requires that one of the capacitors
+(here: DirectCapacity)
+is defined to have states and the temperature and
+derivative of temperature are provided in the interface.
+The other capacitor (here: InverseCapacity) requires heat flow according
+to the provided input temperature and derivative of temperature.
+</p>
+
+<p>
+<strong>Connecting a conduction element that needs only temperature</strong><br>
+The lower part (Conductor) demonstrates how to export a conduction element
+that needs only temperatures for its conduction law and connect this
+conduction law in a target system between two capacitors.
+</p>
+</html>"));
+    end GenerationOfFMUs;
+
+    package Utilities "Utility classes used by the Example models"
+      extends Modelica.Icons.UtilitiesPackage;
+
+      model DirectCapacity
+        "Input/output block of a direct heatCapacity model"
+        extends Modelica.Blocks.Icons.Block;
+        parameter Modelica.SIunits.HeatCapacity C(min=0)=1 "HeatCapacity";
+        Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(C=C, T(
+              fixed=true, start=293.15))
+          annotation (Placement(transformation(extent={{-20,0},{0,20}})));
+        Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow forceSource
+          annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
+        Modelica.Blocks.Interfaces.RealInput Q_flowDrive(unit="W")
+          annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+        Modelica.Thermal.HeatTransfer.Components.GeneralHeatFlowToTemperatureAdaptor
+          heatFlowToTemperature(use_pder=true)
+          annotation (Placement(transformation(extent={{12,-10},{28,10}})));
+        Modelica.Blocks.Interfaces.RealOutput T(unit="K", displayUnit="degC")
+          "Heat capacity changes temperature T due to heat flow Q_flow"
+          annotation (Placement(transformation(extent={{100,70},{120,90}})));
+        Modelica.Blocks.Interfaces.RealOutput derT(unit="K/s")
+          "Heat capacity changes temperature T due to heat flow Q_flow"
+          annotation (Placement(transformation(extent={{100,20},{120,40}})));
+        Modelica.Blocks.Interfaces.RealInput Q_flow(unit="W")
+          "Heat flow to the heat capacity"
+          annotation (Placement(transformation(extent={{140,-100},{100,-60}})));
+      equation
+        connect(heatFlowToTemperature.f, Q_flow) annotation (Line(points={{22.4,-8},{60,
+                -8},{60,-80},{120,-80}}, color={0,0,127}));
+        connect(heatFlowToTemperature.p, T) annotation (Line(points={{22.4,8},{60,8},{
+                60,80},{110,80}}, color={0,0,127}));
+        connect(heatFlowToTemperature.pder, derT) annotation (Line(points={{22.4,5},{80,
+                5},{80,30},{110,30}}, color={0,0,127}));
+        connect(heatCapacitor.port,heatFlowToTemperature. heatPort)
+          annotation (Line(points={{-10,0},{18.4,0}}, color={191,0,0}));
+        connect(Q_flowDrive, forceSource.Q_flow)
+          annotation (Line(points={{-120,0},{-50,0}}, color={0,0,127}));
+        connect(heatCapacitor.port, forceSource.port)
+          annotation (Line(points={{-10,0},{-30,0}}, color={191,0,0}));
+        annotation (Icon(coordinateSystem(
+                preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+              graphics={Text(
+                      extent={{-84,-58},{24,-90}},
+                      lineColor={135,135,135},
+                      textString="to FMU"),Text(
+                      extent={{8,96},{92,66}},
+                      horizontalAlignment=TextAlignment.Right,
+                textString="T"),                               Text(
+                      extent={{10,46},{94,16}},
+                      horizontalAlignment=TextAlignment.Right,
+                textString="dT"),     Text(
+                      extent={{-150,-110},{150,-140}},
+                textString="C=%C"),      Bitmap(extent={{-96,-42},{64,54}},
+                  fileName="modelica://Modelica/Resources/Images/Thermal/HeatTransfer/DirectCapacity.png"),
+                Text( extent={{10,-60},{94,-90}},
+                      horizontalAlignment=TextAlignment.Right,
+                textString="Q_flow")}));
+      end DirectCapacity;
+
+      model InverseCapacity
+        "Input/output block of an inverse heatCapacity model"
+        extends Modelica.Blocks.Icons.Block;
+        parameter Modelica.SIunits.HeatCapacity C(min=0)=1 "HeatCapacity";
+        Modelica.Thermal.HeatTransfer.Components.HeatCapacitor mass(C=C, T(fixed=true, start=293.15))
+                         annotation (Placement(transformation(extent={{-10,0},{10,20}})));
+        Modelica.Thermal.HeatTransfer.Components.GeneralTemperatureToHeatFlowAdaptor
+          temperatureToHeatFlow
+          annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+        Modelica.Blocks.Interfaces.RealInput T(unit="K", displayUnit="degC")
+          "Temperature to drive the heatCapacity"
+          annotation (Placement(transformation(extent={{-140,60},{-100,100}})));
+        Modelica.Blocks.Interfaces.RealInput derT(unit="K/s")
+          "Temperature to drive the heatCapacity"
+          annotation (Placement(transformation(extent={{-140,10},{-100,50}})));
+        Modelica.Blocks.Interfaces.RealOutput Q_flow(unit="W")
+          "Heat flow needed to drive the heatPort according to T, derT"
+          annotation (Placement(transformation(extent={{-100,-90},{-120,-70}})));
+      equation
+
+        connect(temperatureToHeatFlow.f, Q_flow) annotation (Line(points={{-23,-8},{-60,
+                -8},{-60,-80},{-110,-80}}, color={0,0,127}));
+        connect(temperatureToHeatFlow.p, T) annotation (Line(points={{-23,8},{-60,8},{
+                -60,80},{-120,80}}, color={0,0,127}));
+        connect(temperatureToHeatFlow.pder, derT) annotation (Line(points={{-23,5},{-80,
+                5},{-80,30},{-120,30}}, color={0,0,127}));
+        connect(temperatureToHeatFlow.heatPort, mass.port)
+          annotation (Line(points={{-18,0},{0,0}}, color={191,0,0}));
+        annotation (Icon(coordinateSystem(
+                preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+              graphics={Text(
+                      extent={{0,-62},{96,-94}},
+                      lineColor={135,135,135},
+                      textString="to FMU"),Text(
+                      extent={{-94,96},{-10,66}},
+                      horizontalAlignment=TextAlignment.Left,
+                textString="T"),        Text(
+                      extent={{-94,46},{-10,16}},
+                      horizontalAlignment=TextAlignment.Left,
+                textString="dT"),     Text(
+                      extent={{-150,-110},{150,-140}},
+                textString="C=%C"),      Bitmap(extent={{-58,-42},{98,48}},
+                  fileName="modelica://Modelica/Resources/Images/Thermal/HeatTransfer/InverseCapacity.png"),
+                Text( extent={{-90,-64},{-6,-94}},
+                      horizontalAlignment=TextAlignment.Left,
+                textString="Q_flow")}));
+      end InverseCapacity;
+
+      model Conduction "Input/output block of a conduction model"
+        extends Modelica.Blocks.Icons.Block;
+        parameter Modelica.SIunits.ThermalConductance G=1 "Thermal conductance";
+        Modelica.Thermal.HeatTransfer.Components.GeneralTemperatureToHeatFlowAdaptor
+          temperatureToHeatFlow1(use_pder=false)
+          annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+        Modelica.Blocks.Interfaces.RealInput T1(unit="K", displayUnit="degC")
+          "Temperature of left heatPort of conduction element"
+          annotation (Placement(transformation(extent={{-140,60},{-100,100}})));
+        Modelica.Blocks.Interfaces.RealOutput Q_flow1(unit="W")
+          "Heat flow generated by the conduction element"
+          annotation (Placement(transformation(extent={{-100,-90},{-120,-70}})));
+        Modelica.Thermal.HeatTransfer.Components.ThermalConductor thermalConductor(G=G)
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+        Modelica.Blocks.Interfaces.RealInput T2(unit="K", displayUnit="degC")
+          "Temperature of right heatPort of conduction element"
+          annotation (Placement(transformation(extent={{140,60},{100,100}})));
+        Modelica.Blocks.Interfaces.RealOutput Q_flow2(unit="W")
+          "Heat flow generated by the conduction element"
+          annotation (Placement(transformation(extent={{100,-90},{120,-70}})));
+        Modelica.Thermal.HeatTransfer.Components.GeneralTemperatureToHeatFlowAdaptor
+          temperatureToHeatFlow2(use_pder=false)
+          annotation (Placement(transformation(extent={{30,-10},{10,10}})));
+      equation
+
+        connect(Q_flow1,temperatureToHeatFlow1. f) annotation (Line(points={{-110,-80},
+                {-60,-80},{-60,-8},{-23,-8}}, color={0,0,127}));
+        connect(temperatureToHeatFlow2.f, Q_flow2) annotation (Line(points={{23,-8},{60,
+                -8},{60,-80},{110,-80}}, color={0,0,127}));
+        connect(temperatureToHeatFlow1.p, T1) annotation (Line(points={{-23,8},{-60,8},
+                {-60,80},{-120,80}}, color={0,0,127}));
+        connect(temperatureToHeatFlow2.p, T2) annotation (Line(points={{23,8},{60,8},{
+                60,80},{120,80}}, color={0,0,127}));
+        connect(temperatureToHeatFlow1.heatPort, thermalConductor.port_a)
+          annotation (Line(points={{-18,0},{-10,0}}, color={191,0,0}));
+        connect(thermalConductor.port_b,temperatureToHeatFlow2. heatPort)
+          annotation (Line(points={{10,0},{18,0}}, color={191,0,0}));
+        annotation (Icon(coordinateSystem(
+                preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+              graphics={Text(
+                      extent={{-48,-36},{48,-68}},
+                      lineColor={135,135,135},
+                      textString="to FMU"),Text(
+                      extent={{-94,96},{-10,66}},
+                      horizontalAlignment=TextAlignment.Left,
+                textString="T1"),        Text(
+                      extent={{-150,-114},{150,-144}},
+                textString="G=%G"),      Bitmap(extent={{-88,-36},{92,56}},
+                  fileName="modelica://Modelica/Resources/Images/Thermal/HeatTransfer/Conductor.png"),
+                Text( extent={{12,96},{96,66}},
+                      horizontalAlignment=TextAlignment.Right,
+                textString="T2"),        Text(
+                      extent={{16,-62},{100,-92}},
+                      horizontalAlignment=TextAlignment.Right,
+                textString="Q_flow2"),   Text(
+                      extent={{-100,-64},{-16,-94}},
+                      horizontalAlignment=TextAlignment.Left,
+                textString="Q_flow1")}));
+      end Conduction;
+
+      annotation (Documentation(info="<html>
+<p>Utility models and functions used in the Examples</p>
+</html>"));
+    end Utilities;
+    annotation (Documentation(info="<html>
 
 </html>"));
   end Examples;
@@ -315,12 +575,10 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
                   -73},{-22,-73},{-30,-71},{-40,-65},{-50,-55},{-56,-43},{-58,-35},
                   {-58,-25},{-60,-13},{-60,-5},{-60,7},{-58,17},{-56,19},{-52,
                   27},{-48,35},{-44,45},{-40,57},{-58,35}},
-              lineColor={0,0,0},
               fillColor={160,160,164},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-69,7},{71,-24}},
-              lineColor={0,0,0},
               textString="%C")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
@@ -342,7 +600,6 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
                   -73},{-22,-73},{-30,-71},{-40,-65},{-50,-55},{-56,-43},{-58,-35},
                   {-58,-25},{-60,-13},{-60,-5},{-60,7},{-58,17},{-56,19},{-52,
                   27},{-48,35},{-44,45},{-40,57},{-58,35}},
-              lineColor={0,0,0},
               fillColor={160,160,164},
               fillPattern=FillPattern.Solid),
             Ellipse(
@@ -352,7 +609,6 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{11,13},{50,-25}},
-              lineColor={0,0,0},
               textString="T"),
             Line(points={{0,-12},{0,-96}}, color={255,0,0})}),
         Documentation(info="<html>
@@ -364,22 +620,22 @@ Furthermore, it is assumed that the heat capacity
 is constant (independent of temperature).
 </p>
 <p>
-The temperature T [Kelvin] of this component is a <b>state</b>.
+The temperature T [Kelvin] of this component is a <strong>state</strong>.
 A default of T = 25 degree Celsius (= SIunits.Conversions.from_degC(25))
 is used as start value for initialization.
 This usually means that at start of integration the temperature of this
 component is 25 degrees Celsius. You may, of course, define a different
 temperature as start value for initialization. Alternatively, it is possible
-to set parameter <b>steadyStateStart</b> to <b>true</b>. In this case
-the additional equation '<b>der</b>(T) = 0' is used during
+to set parameter <strong>steadyStateStart</strong> to <strong>true</strong>. In this case
+the additional equation '<strong>der</strong>(T) = 0' is used during
 initialization, i.e., the temperature T is computed in such a way that
-the component starts in <b>steady state</b>. This is useful in cases,
+the component starts in <strong>steady state</strong>. This is useful in cases,
 where one would like to start simulation in a suitable operating
 point without being forced to integrate for a long time to arrive
 at this point.
 </p>
 <p>
-Note, that parameter <b>steadyStateStart</b> is not available in
+Note, that parameter <strong>steadyStateStart</strong> is not available in
 the parameter menu of the simulation window, because its value
 is utilized during translation to generate quite different
 equations depending on its setting. Therefore, the value of this
@@ -388,9 +644,9 @@ parameter can only be changed before translating the model.
 <p>
 This component may be used for complicated geometries where
 the heat capacity C is determined my measurements. If the component
-consists mainly of one type of material, the <b>mass m</b> of the
+consists mainly of one type of material, the <strong>mass m</strong> of the
 component may be measured or calculated and multiplied with the
-<b>specific heat capacity cp</b> of the component material to
+<strong>specific heat capacity cp</strong> of the component material to
 compute C:
 </p>
 <pre>
@@ -420,7 +676,6 @@ compute C:
                 100,100}}), graphics={
             Rectangle(
               extent={{-90,70},{90,-70}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={192,192,192},
               fillPattern=FillPattern.Backward),
@@ -436,7 +691,6 @@ compute C:
               lineColor={0,0,255}),
             Text(
               extent={{-150,-75},{150,-105}},
-              lineColor={0,0,0},
               textString="G=%G")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
@@ -451,7 +705,6 @@ compute C:
               textString="Q_flow"),
             Text(
               extent={{-100,40},{100,20}},
-              lineColor={0,0,0},
               textString="dT = port_a.T - port_b.T")}),
         Documentation(info="<html>
 <p>
@@ -466,7 +719,7 @@ e.g., with one of the following equations:
 </p>
 <ul>
 <li><p>
-    Conductance for a <b>box</b> geometry under the assumption
+    Conductance for a <strong>box</strong> geometry under the assumption
     that heat flows along the box length:</p>
     <pre>
     G = k*A/L
@@ -476,7 +729,7 @@ e.g., with one of the following equations:
     </pre>
     </li>
 <li><p>
-    Conductance for a <b>cylindrical</b> geometry under the assumption
+    Conductance for a <strong>cylindrical</strong> geometry under the assumption
     that heat flows from the inside to the outside radius
     of the cylinder:</p>
     <pre>
@@ -516,7 +769,6 @@ e.g., with one of the following equations:
                 100,100}}), graphics={
             Rectangle(
               extent={{-90,70},{90,-70}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={192,192,192},
               fillPattern=FillPattern.Forward),
@@ -532,7 +784,6 @@ e.g., with one of the following equations:
               lineColor={0,0,255}),
             Text(
               extent={{-150,-75},{150,-105}},
-              lineColor={0,0,0},
               textString="R=%R")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
@@ -547,7 +798,6 @@ e.g., with one of the following equations:
               textString="Q_flow"),
             Text(
               extent={{-100,40},{100,20}},
-              lineColor={0,0,0},
               textString="dT = port_a.T - port_b.T")}),
         Documentation(info="<html>
 <p>
@@ -589,7 +839,6 @@ especially if it shall be allowed that a ThermalResistance is defined to be zero
               fillPattern=FillPattern.Solid),
             Rectangle(
               extent={{-90,80},{-60,-80}},
-              lineColor={0,0,0},
               fillColor={192,192,192},
               fillPattern=FillPattern.Backward),
             Text(
@@ -617,7 +866,6 @@ especially if it shall be allowed that a ThermalResistance is defined to be zero
             Line(points={{56,30},{76,20}}, color={191,0,0}),
             Text(
               extent={{22,124},{92,98}},
-              lineColor={0,0,0},
               textString="Gc")}),
         Documentation(info="<html>
 <p>
@@ -635,7 +883,7 @@ convective thermal conductance Gc by measurements. The basic constitutive equati
 Gc = G.signal[1] is an input signal to the component, since Gc is
 nearly never constant in practice. For example, Gc may be a function
 of the speed of a cooling fan. For simple situations,
-Gc may be <i>calculated</i> according to
+Gc may be <em>calculated</em> according to
 </p>
 <pre>
    Gc = A*h
@@ -647,7 +895,7 @@ where the heat transfer coefficient h is calculated
 from properties of the fluid flowing over the solid. Examples:
 </p>
 <p>
-<b>Machines cooled by air</b> (empirical, very rough approximation according
+<strong>Machines cooled by air</strong> (empirical, very rough approximation according
 to R. Fischer: Elektrische Maschinen, 10th edition, Hanser-Verlag 1999,
 p. 378):
 </p>
@@ -657,8 +905,8 @@ p. 378):
     where
       v: Air velocity in [m/s]
 </pre>
-<p><b>Laminar</b> flow with constant velocity of a fluid along a
-<b>flat plate</b> where the heat flow rate from the plate
+<p><strong>Laminar</strong> flow with constant velocity of a fluid along a
+<strong>flat plate</strong> where the heat flow rate from the plate
 to the fluid (= solid.Q_flow) is kept constant
 (according to J.P.Holman: Heat Transfer, 8th edition,
 McGraw-Hill, 1997, p.270):
@@ -680,11 +928,10 @@ McGraw-Hill, 1997, p.270):
    and the equation for h holds, provided
       Re &lt; 5e5 and 0.6 &lt; Pr &lt; 50
 </pre>
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Rectangle(
               extent={{-90,80},{-60,-80}},
-              lineColor={0,0,0},
               fillColor={192,192,192},
               fillPattern=FillPattern.Backward),
             Line(points={{100,0},{100,0}}, color={0,127,255}),
@@ -743,7 +990,6 @@ McGraw-Hill, 1997, p.270):
               fillPattern=FillPattern.Solid),
             Rectangle(
               extent={{-90,80},{-60,-80}},
-              lineColor={0,0,0},
               fillColor={192,192,192},
               fillPattern=FillPattern.Forward),
             Text(
@@ -771,7 +1017,6 @@ McGraw-Hill, 1997, p.270):
             Line(points={{56,30},{76,20}}, color={191,0,0}),
             Text(
               extent={{22,124},{92,98}},
-              lineColor={0,0,0},
               textString="Rc")}),
         Documentation(info="<html>
 <p>
@@ -781,11 +1026,10 @@ but using the convective resistance instead of the convective conductance as an 
 This is advantageous for series connections of ConvectiveResistors,
 especially if it shall be allowed that a convective resistance is defined to be zero (i.e. no temperature difference).
 </p>
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                100}}),      graphics={
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+                100}}), graphics={
             Rectangle(
               extent={{-90,80},{-60,-80}},
-              lineColor={0,0,0},
               fillColor={192,192,192},
               fillPattern=FillPattern.Forward),
             Line(points={{100,0},{100,0}}, color={0,127,255}),
@@ -826,12 +1070,10 @@ especially if it shall be allowed that a convective resistance is defined to be 
                 100,100}}), graphics={
             Rectangle(
               extent={{50,80},{90,-80}},
-              lineColor={0,0,0},
               fillColor={192,192,192},
               fillPattern=FillPattern.Backward),
             Rectangle(
               extent={{-90,80},{-50,-80}},
-              lineColor={0,0,0},
               fillColor={192,192,192},
               fillPattern=FillPattern.Backward),
             Line(points={{-36,10},{36,10}}, color={191,0,0}),
@@ -852,7 +1094,6 @@ especially if it shall be allowed that a convective resistance is defined to be 
               lineColor={0,0,255}),
             Text(
               extent={{-150,-90},{150,-120}},
-              lineColor={0,0,0},
               textString="Gr=%Gr"),
             Rectangle(
               extent={{-50,80},{-44,-80}},
@@ -894,9 +1135,9 @@ Epsilon=0, if the body reflects all radiation and does not absorb any.
    silver, polished       0.02
    wood                   0.85..0.9
 </pre>
-<p><b>Analytical Equations for Gr</b></p>
+<p><strong>Analytical Equations for Gr</strong></p>
 <p>
-<b>Small convex object in large enclosure</b>
+<strong>Small convex object in large enclosure</strong>
 (e.g., a hot machine in a room):
 </p>
 <pre>
@@ -906,7 +1147,7 @@ Epsilon=0, if the body reflects all radiation and does not absorb any.
        A: Surface area of object where radiation
           heat transfer takes place
 </pre>
-<p><b>Two parallel plates</b>:</p>
+<p><strong>Two parallel plates</strong>:</p>
 <pre>
     Gr = A/(1/e1 + 1/e2 - 1)
     where
@@ -914,7 +1155,7 @@ Epsilon=0, if the body reflects all radiation and does not absorb any.
        e2: Emission value of plate2 (0..1)
        A : Area of plate1 (= area of plate2)
 </pre>
-<p><b>Two long cylinders in each other</b>, where radiation takes
+<p><strong>Two long cylinders in each other</strong>, where radiation takes
 place from the inner to the outer cylinder):
 </p>
 <pre>
@@ -927,11 +1168,10 @@ place from the inner to the outer cylinder):
        e1: Emission value of inner cylinder (0..1)
        e2: Emission value of outer cylinder (0..1)
 </pre>
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-90,80},{-56,-80}},
-              lineColor={0,0,0},
               fillColor={192,192,192},
               fillPattern=FillPattern.Backward),
             Line(
@@ -942,7 +1182,6 @@ place from the inner to the outer cylinder):
               thickness=1),
             Rectangle(
               extent={{50,80},{90,-80}},
-              lineColor={0,0,0},
               fillColor={192,192,192},
               fillPattern=FillPattern.Backward),
             Line(points={{-40,10},{40,10}}, color={191,0,0}),
@@ -969,7 +1208,7 @@ place from the inner to the outer cylinder):
     equation
       port_b.Q_flow + sum(port_a.Q_flow) = 0;
       port_a.T = fill(port_b.T, m);
-      annotation (        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{-150,-30},{150,-70}},
@@ -977,7 +1216,6 @@ place from the inner to the outer cylinder):
               lineColor={0,0,255}),
             Text(
               extent={{-150,80},{150,50}},
-              lineColor={0,0,0},
               textString="m=%m"),
             Line(
               points={{0,90},{0,40}},
@@ -1001,10 +1239,101 @@ place from the inner to the outer cylinder):
               color={181,0,0})}),
         Documentation(info="<html>
 <p>
-This is a model to collect the heat flows from <i>m</i> heatports to one single heatport.
+This is a model to collect the heat flows from <em>m</em> heatports to one single heatport.
 </p>
 </html>"));
     end ThermalCollector;
+
+    model GeneralHeatFlowToTemperatureAdaptor
+      "Signal adaptor for a HeatTransfer port with temperature and derivative of temperature as outputs and heat flow as input (especially useful for FMUs)"
+      extends Modelica.Blocks.Interfaces.Adaptors.FlowToPotentialAdaptor(
+        final Name_p="T",
+        final Name_pder="dT",
+        final Name_pder2="d2T",
+        final Name_f="Q",
+        final Name_fder="der(Q)",
+        final Name_fder2="der2(Q)",
+        final use_pder2=false,
+        final use_fder=false,
+        final use_fder2=false,
+        p(unit="K", displayUnit="degC"),
+        final pder(unit="K/s"),
+        final pder2(unit="K/s2"),
+        final f(unit="W"),
+        final fder(unit="W/s"),
+        final fder2(unit="W/s2"));
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
+        annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+    equation
+      y = heatPort.T "output = potential = temperature";
+      u = heatPort.Q_flow "input = flow = heat flow";
+      annotation (defaultComponentName="heatFlowToTemperatureAdaptor",
+        Documentation(info="<html>
+<p>
+Adaptor between a heatport connector and a signal representation of the flange.
+This component is used to provide a pure signal interface around a HeatTransfer model
+and export this model in form of an input/output block,
+especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
+Examples of the usage of this adaptor are provided in
+<a href=\"modelica://Modelica.Thermal.HeatTransfer.Examples.GenerationOfFMUs\">HeatTransfer.Examples.GenerationOfFMUs</a>.
+This adaptor has heatflow as input and temperature and derivative of temperature as output signals.
+</p>
+</html>"),
+        Icon(graphics={
+                Rectangle(
+              extent={{-20,100},{20,-100}},
+              lineColor={191,0,0},
+              radius=10,
+              lineThickness=0.5)}));
+    end GeneralHeatFlowToTemperatureAdaptor;
+
+    model GeneralTemperatureToHeatFlowAdaptor
+      "Signal adaptor for a HeatTransfer port with heat flow as output and temperature and derivative of temperature as input (especially useful for FMUs)"
+      extends Modelica.Blocks.Interfaces.Adaptors.PotentialToFlowAdaptor(
+        final Name_p="T",
+        final Name_pder="dT",
+        final Name_pder2="d2T",
+        final Name_f="Q",
+        final Name_fder="der(Q)",
+        final Name_fder2="der2(Q)",
+        final use_pder2=false,
+        final use_fder=false,
+        final use_fder2=false,
+        p(unit="K", displayUnit="degC"),
+        final pder(unit="K/s"),
+        final pder2(unit="K/s2"),
+        final f(unit="W"),
+        final fder(unit="W/s"),
+        final fder2(unit="W/s2"));
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b heatPort annotation (
+          Placement(transformation(extent={{10,-10},{30,10}}), iconTransformation(
+              extent={{10,-10},{30,10}})));
+    equation
+      y = heatPort.Q_flow "output = flow = heat flow";
+      u = heatPort.T "input = potential = temperature";
+      annotation (defaultComponentName="temperatureToHeatFlowAdaptor",
+        Documentation(info="<html>
+<p>
+Adaptor between a heatport connector and a signal representation of the flange.
+This component is used to provide a pure signal interface around a HeatTransfer model
+and export this model in form of an input/output block,
+especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
+Examples of the usage of this adaptor are provided in
+<a href=\"modelica://Modelica.Thermal.HeatTransfer.Examples.GenerationOfFMUs\">HeatTransfer.Examples.GenerationOfFMUs</a>.
+This adaptor has temperature and derivative of temperature as input signals and heatflow as output signal.
+</p>
+<p>
+Note, the input signals must be consistent to each other
+(derT=der(T)).
+</p>
+</html>"),
+        Icon(graphics={
+                Rectangle(
+              extent={{-20,100},{20,-100}},
+              lineColor={191,0,0},
+              radius=10,
+              lineThickness=0.5)}));
+    end GeneralTemperatureToHeatFlowAdaptor;
     annotation (Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Rectangle(
         origin = {12,40},
@@ -1106,7 +1435,6 @@ This is a model to collect the heat flows from <i>m</i> heatports to one single 
                 100,100}}), graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
@@ -1120,7 +1448,6 @@ This is a model to collect the heat flows from <i>m</i> heatports to one single 
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},{
                   12,80},{12,40},{-12,40}},
-              lineColor={0,0,0},
               lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
@@ -1133,13 +1460,11 @@ This is a model to collect the heat flows from <i>m</i> heatports to one single 
             Line(points={{-40,60},{-12,60}}),
             Text(
               extent={{102,-28},{60,-78}},
-              lineColor={0,0,0},
               textString="K")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
@@ -1153,7 +1478,6 @@ This is a model to collect the heat flows from <i>m</i> heatports to one single 
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
                   {12,80},{12,40},{-12,40}},
-              lineColor={0,0,0},
               lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
@@ -1166,7 +1490,6 @@ This is a model to collect the heat flows from <i>m</i> heatports to one single 
             Line(points={{-40,60},{-12,60}}),
             Text(
               extent={{126,-20},{26,-120}},
-              lineColor={0,0,0},
               textString="K"),
             Text(
               extent={{-150,130},{150,90}},
@@ -1213,7 +1536,6 @@ sensor model.
               lineColor={0,0,255}),
             Text(
               extent={{92,-62},{34,-122}},
-              lineColor={0,0,0},
               textString="K")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -1223,7 +1545,6 @@ sensor model.
             Line(points={{0,-30},{0,-80}}, color={0,0,255}),
             Text(
               extent={{64,-74},{32,-102}},
-              lineColor={0,0,0},
               textString="K")}),
         Documentation(info="<html>
 <p>
@@ -1259,7 +1580,6 @@ the two ports of this component and is provided as output signal in Kelvin.
                 100,100}}), graphics={
             Text(
               extent={{5,-86},{116,-110}},
-              lineColor={0,0,0},
               textString="Q_flow"),
             Line(points={{-70,0},{-90,0}}, color={191,0,0}),
             Line(points={{69,0},{90,0}}, color={191,0,0}),
@@ -1305,18 +1625,14 @@ The output signal is positive, if the heat flows from port_a to port_b.
             origin={0,-100})));
     equation
       connect(heatFlowSensor.port_b, port_b) annotation (Line(
-          points={{10,0},{100,0}},
-          color={191,0,0}));
+          points={{10,0},{100,0}}, color={191,0,0}));
       connect(port_a, heatFlowSensor.port_a) annotation (Line(
-          points={{-100,0},{-10,0}},
-          color={191,0,0}));
+          points={{-100,0},{-10,0}}, color={191,0,0}));
       connect(fixedTemperature.port, heatFlowSensor.port_a) annotation (Line(
-          points={{-50,-20},{-50,0},{-10,0}},
-          color={191,0,0}));
+          points={{-50,-20},{-50,0},{-10,0}}, color={191,0,0}));
       connect(heatFlowSensor.Q_flow, Q_flow) annotation (Line(
-          points={{0,-10},{0,-70}},
-          color={0,0,127}));
-      annotation (
+          points={{0,-10},{0,-100}},color={0,0,127}));
+      annotation (defaultComponentName="heatFlowSensor",
         Icon(graphics={
           Rectangle(
             lineColor = {255,0,0},
@@ -1347,7 +1663,7 @@ To avoid a singular equation system, the temperature of the sensor is set to 293
 </p>
 </html>"));
     end ConditionalFixedHeatFlowSensor;
-    annotation (   Documentation(info="<html>
+    annotation (Documentation(info="<html>
 
 </html>"));
   end Sensors;
@@ -1371,17 +1687,14 @@ To avoid a singular equation system, the temperature of the sensor is set to 293
               lineColor={0,0,255}),
             Text(
               extent={{-150,-110},{150,-140}},
-              lineColor={0,0,0},
               textString="T=%T"),
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="K"),
             Line(
               points={{-52,0},{56,0}},
@@ -1397,11 +1710,10 @@ To avoid a singular equation system, the temperature of the sensor is set to 293
 This model defines a fixed temperature T at its port in Kelvin,
 i.e., it defines a fixed temperature as a boundary condition.
 </p>
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-101}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
@@ -1411,7 +1723,6 @@ i.e., it defines a fixed temperature as a boundary condition.
               thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="K"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
@@ -1434,7 +1745,6 @@ i.e., it defines a fixed temperature as a boundary condition.
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
@@ -1444,7 +1754,6 @@ i.e., it defines a fixed temperature as a boundary condition.
               thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="K"),
             Text(
               extent={{-150,150},{150,110}},
@@ -1458,22 +1767,20 @@ i.e., it defines a fixed temperature as a boundary condition.
         Documentation(info="<html>
 <p>
 This model represents a variable temperature boundary condition.
-The temperature in [K] is given as input signal <b>T</b>
+The temperature in [K] is given as input signal <strong>T</strong>
 to the model. The effect is that an instance of this model acts as
 an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
 </p>
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="K"),
             Line(
               points={{-102,0},{64,0}},
@@ -1506,7 +1813,6 @@ as required to keep the temperature at the specified value.
               lineColor={0,0,255}),
             Text(
               extent={{-150,-55},{150,-85}},
-              lineColor={0,0,0},
               textString="Q_flow=%Q_flow"),
             Line(
               points={{-100,-20},{48,-20}},
@@ -1535,7 +1841,6 @@ as required to keep the temperature at the specified value.
                 {100,100}}), graphics={
             Text(
               extent={{-100,40},{0,-36}},
-              lineColor={0,0,0},
               textString="Q_flow=const."),
             Line(
               points={{-48,-20},{60,-20}},
@@ -1634,7 +1939,7 @@ if the input signal is positive.
 If parameter alpha is &lt;&gt; 0, the heat flow is multiplied by (1 + alpha*(port.T - T_ref))
 in order to simulate temperature dependent losses (which are given with respect to reference temperature T_ref).
 </p>
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Line(
               points={{-60,-20},{68,-20}},
@@ -1663,7 +1968,7 @@ in order to simulate temperature dependent losses (which are given with respect 
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid)}));
     end PrescribedHeatFlow;
-    annotation (   Documentation(info="<html>
+    annotation (Documentation(info="<html>
 
 </html>"));
   end Sources;
@@ -1685,17 +1990,14 @@ in order to simulate temperature dependent losses (which are given with respect 
                 {100,100}}), graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-40,-50},{-99,-99}},
-              lineColor={0,0,0},
               textString="degC"),
             Text(
               extent={{100,-47},{44,-100}},
-              lineColor={0,0,0},
               textString="K"),
             Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{41,0},{100,0}}, color={0,0,255})}),
@@ -1703,17 +2005,14 @@ in order to simulate temperature dependent losses (which are given with respect 
                 100,100}}), graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{124,-38},{52,-94}},
-              lineColor={0,0,0},
               textString="K"),
             Text(
               extent={{-62,-38},{-141,-97}},
-              lineColor={0,0,0},
               textString="degC"),
             Line(points={{-41,0},{-100,0}}, color={0,0,255}),
             Line(points={{100,0},{40,0}}, color={0,0,255}),
@@ -1746,17 +2045,14 @@ and provide is as output signal.
               lineColor={0,0,255}),
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-72,-46},{-152,-108}},
-              lineColor={0,0,0},
               textString="K"),
             Text(
               extent={{122,-48},{38,-109}},
-              lineColor={0,0,0},
               textString="degC"),
             Line(points={{-40,0},{-100,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
@@ -1764,17 +2060,14 @@ and provide is as output signal.
                 {100,100}}), graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-42,-41},{-101,-98}},
-              lineColor={0,0,0},
               textString="K"),
             Text(
               extent={{100,-40},{30,-100}},
-              lineColor={0,0,0},
               textString="degC"),
             Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
@@ -1803,13 +2096,11 @@ and provides is as output signal.
               lineColor={0,0,255}),
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="degC"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
@@ -1818,7 +2109,6 @@ and provides is as output signal.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-150,-110},{150,-140}},
-              lineColor={0,0,0},
               textString="T=%T"),
             Line(
               points={{-42,0},{66,0}},
@@ -1829,11 +2119,10 @@ and provides is as output signal.
 This model defines a fixed temperature T at its port in [degC],
 i.e., it defines a fixed temperature as a boundary condition.
 </p>
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
@@ -1843,7 +2132,6 @@ i.e., it defines a fixed temperature as a boundary condition.
               thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="degC"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
@@ -1866,7 +2154,6 @@ i.e., it defines a fixed temperature as a boundary condition.
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
@@ -1876,7 +2163,6 @@ i.e., it defines a fixed temperature as a boundary condition.
               thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="degC"),
             Text(
               extent={{-150,150},{150,110}},
@@ -1899,11 +2185,10 @@ to the model. The effect is that an instance of this model acts as
 an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
 </p>
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
@@ -1913,7 +2198,6 @@ as required to keep the temperature at the specified value.
               thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="degC"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
@@ -1933,12 +2217,11 @@ as required to keep the temperature at the specified value.
     equation
       T = Modelica.SIunits.Conversions.to_degC(port.T);
       port.Q_flow = 0;
-      annotation (
+      annotation (defaultComponentName="temperatureSensor",
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
@@ -1952,7 +2235,6 @@ as required to keep the temperature at the specified value.
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
                   {12,80},{12,40},{-12,40}},
-              lineColor={0,0,0},
               lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
@@ -1965,13 +2247,11 @@ as required to keep the temperature at the specified value.
             Line(points={{-40,60},{-12,60}}),
             Text(
               extent={{102,-22},{60,-74}},
-              lineColor={0,0,0},
               textString="degC")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
@@ -1985,7 +2265,6 @@ as required to keep the temperature at the specified value.
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
                   {12,80},{12,40},{-12,40}},
-              lineColor={0,0,0},
               lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
@@ -1998,7 +2277,6 @@ as required to keep the temperature at the specified value.
             Line(points={{-40,60},{-12,60}}),
             Text(
               extent={{150,-22},{30,-92}},
-              lineColor={0,0,0},
               textString="degC"),
             Text(
               extent={{-150,135},{150,95}},
@@ -2029,7 +2307,7 @@ of units at all places where Kelvin is required as parameter.
 Example:
 </p>
 <pre>
-    <b>import</b> SIunits.Conversions.*;
+    <strong>import</strong> SIunits.Conversions.*;
     Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degC(20));
 </pre>
 </html>"));
@@ -2051,17 +2329,14 @@ Example:
         Diagram(graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-40,-50},{-99,-99}},
-              lineColor={0,0,0},
               textString="degF"),
             Text(
               extent={{100,-47},{44,-100}},
-              lineColor={0,0,0},
               textString="K"),
             Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{41,0},{100,0}}, color={0,0,255})}),
@@ -2069,13 +2344,11 @@ Example:
                 100,100}}), graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{130,-42},{38,-94}},
-              lineColor={0,0,0},
               textString="K"),
             Line(points={{-41,0},{-100,0}}, color={0,0,255}),
             Line(points={{100,0},{40,0}}, color={0,0,255}),
@@ -2085,7 +2358,6 @@ Example:
               lineColor={0,0,255}),
             Text(
               extent={{-42,-44},{-153,-91}},
-              lineColor={0,0,0},
               textString="degF")}),
         Documentation(info="<html>
 <p>
@@ -2112,34 +2384,28 @@ and provides is as output signal.
               lineColor={0,0,255}),
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-60,-52},{-144,-96}},
-              lineColor={0,0,0},
               textString="K"),
             Line(points={{-40,0},{-100,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255}),
             Text(
               extent={{138,-52},{27,-99}},
-              lineColor={0,0,0},
               textString="degF")}),
         Diagram(graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-42,-41},{-101,-98}},
-              lineColor={0,0,0},
               textString="K"),
             Text(
               extent={{100,-40},{30,-100}},
-              lineColor={0,0,0},
               textString="degF"),
             Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
@@ -2168,13 +2434,11 @@ and provides them as output signals.
               lineColor={0,0,255}),
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="degF"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
@@ -2183,7 +2447,6 @@ and provides them as output signals.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-150,-110},{150,-140}},
-              lineColor={0,0,0},
               textString="T=%T"),
             Line(
               points={{-42,0},{66,0}},
@@ -2194,11 +2457,10 @@ and provides them as output signals.
 This model defines a fixed temperature T at its port in [degF],
 i.e., it defines a fixed temperature as a boundary condition.
 </p>
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
@@ -2208,7 +2470,6 @@ i.e., it defines a fixed temperature as a boundary condition.
               thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="degF"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
@@ -2231,7 +2492,6 @@ i.e., it defines a fixed temperature as a boundary condition.
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
@@ -2241,7 +2501,6 @@ i.e., it defines a fixed temperature as a boundary condition.
               thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="degF"),
             Text(
               extent={{-150,150},{150,110}},
@@ -2264,10 +2523,9 @@ to the model. The effect is that an instance of this model acts as
 an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
 </p>
-</html>"),     Diagram(graphics={
+</html>"), Diagram(graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
@@ -2277,7 +2535,6 @@ as required to keep the temperature at the specified value.
               thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="degF"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
@@ -2299,7 +2556,6 @@ as required to keep the temperature at the specified value.
         Diagram(graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
@@ -2313,7 +2569,6 @@ as required to keep the temperature at the specified value.
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
                   {12,80},{12,40},{-12,40}},
-              lineColor={0,0,0},
               lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
@@ -2326,13 +2581,11 @@ as required to keep the temperature at the specified value.
             Line(points={{-40,60},{-12,60}}),
             Text(
               extent={{102,-22},{60,-74}},
-              lineColor={0,0,0},
               textString="degF")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
@@ -2346,7 +2599,6 @@ as required to keep the temperature at the specified value.
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
                   {12,80},{12,40},{-12,40}},
-              lineColor={0,0,0},
               lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
@@ -2359,7 +2611,6 @@ as required to keep the temperature at the specified value.
             Line(points={{-40,60},{-12,60}}),
             Text(
               extent={{150,-22},{30,-92}},
-              lineColor={0,0,0},
               textString="degF"),
             Text(
               extent={{-150,135},{150,95}},
@@ -2390,7 +2641,7 @@ of units at all places where Kelvin is required as parameter.
 Example:
 </p>
 <pre>
-    <b>import</b> SIunits.Conversions.*;
+    <strong>import</strong> SIunits.Conversions.*;
     Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degF(70));
 </pre>
 </html>"));
@@ -2412,17 +2663,14 @@ Example:
         Diagram(graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-40,-50},{-99,-99}},
-              lineColor={0,0,0},
               textString="degRk"),
             Text(
               extent={{100,-47},{44,-100}},
-              lineColor={0,0,0},
               textString="K"),
             Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{41,0},{100,0}}, color={0,0,255})}),
@@ -2430,17 +2678,14 @@ Example:
                 100,100}}), graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{140,-38},{56,-94}},
-              lineColor={0,0,0},
               textString="K"),
             Text(
               extent={{-44,-42},{-155,-89}},
-              lineColor={0,0,0},
               textString="degRk"),
             Line(points={{-41,0},{-100,0}}, color={0,0,255}),
             Line(points={{100,0},{40,0}}, color={0,0,255}),
@@ -2473,34 +2718,28 @@ and provides them as output signals.
               lineColor={0,0,255}),
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-54,-38},{-162,-90}},
-              lineColor={0,0,0},
               textString="K"),
             Text(
               extent={{142,-48},{26,-91}},
-              lineColor={0,0,0},
               textString="degRk"),
             Line(points={{-40,0},{-100,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
         Diagram(graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-42,-41},{-101,-98}},
-              lineColor={0,0,0},
               textString="K"),
             Text(
               extent={{100,-40},{30,-100}},
-              lineColor={0,0,0},
               textString="degRk"),
             Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
@@ -2529,13 +2768,11 @@ and provides them as output signals.
               lineColor={0,0,255}),
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
             Text(
               extent={{48,-22},{-100,-86}},
-              lineColor={0,0,0},
               textString="degRk"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
@@ -2544,7 +2781,6 @@ and provides them as output signals.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-150,-110},{150,-150}},
-              lineColor={0,0,0},
               textString="T=%T"),
             Line(
               points={{-42,0},{66,0}},
@@ -2555,11 +2791,10 @@ and provides them as output signals.
 This model defines a fixed temperature T at its port in degree Rankine,
 [degRk], i.e., it defines a fixed temperature as a boundary condition.
 </p>
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
@@ -2569,7 +2804,6 @@ This model defines a fixed temperature T at its port in degree Rankine,
               thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="degRk"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
@@ -2592,7 +2826,6 @@ This model defines a fixed temperature T at its port in degree Rankine,
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
@@ -2602,7 +2835,6 @@ This model defines a fixed temperature T at its port in degree Rankine,
               thickness=0.5),
             Text(
               extent={{56,-34},{-100,-100}},
-              lineColor={0,0,0},
               textString="degRk"),
             Text(
               extent={{-150,150},{150,110}},
@@ -2625,10 +2857,9 @@ to the model. The effect is that an instance of this model acts as
 an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
 </p>
-</html>"),     Diagram(graphics={
+</html>"), Diagram(graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
@@ -2638,7 +2869,6 @@ as required to keep the temperature at the specified value.
               thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
               textString="degRk"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
@@ -2660,7 +2890,6 @@ as required to keep the temperature at the specified value.
         Diagram(graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
@@ -2674,7 +2903,6 @@ as required to keep the temperature at the specified value.
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
                   {12,80},{12,40},{-12,40}},
-              lineColor={0,0,0},
               lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
@@ -2687,13 +2915,11 @@ as required to keep the temperature at the specified value.
             Line(points={{-40,60},{-12,60}}),
             Text(
               extent={{102,-22},{60,-74}},
-              lineColor={0,0,0},
               textString="degRk")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
-              lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
@@ -2707,7 +2933,6 @@ as required to keep the temperature at the specified value.
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
                   {12,80},{12,40},{-12,40}},
-              lineColor={0,0,0},
               lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
@@ -2720,7 +2945,6 @@ as required to keep the temperature at the specified value.
             Line(points={{-40,60},{-12,60}}),
             Text(
               extent={{144,-34},{32,-82}},
-              lineColor={0,0,0},
               textString="degRk"),
             Text(
               extent={{-150,135},{150,95}},
@@ -2751,7 +2975,7 @@ of units at all places where Kelvin is required as parameter.
 Example:
 </p>
 <pre>
-    <b>import</b> SIunits.Conversions.*;
+    <strong>import</strong> SIunits.Conversions.*;
     Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degRk(500));
 </pre>
 </html>"));
@@ -2783,13 +3007,13 @@ The variables in the connector are:</p>
    T       Temperature in [Kelvin].
    Q_flow  Heat flow rate in [Watt].
 </pre>
-<p>According to the Modelica sign convention, a <b>positive</b> heat flow
-rate <b>Q_flow</b> is considered to flow <b>into</b> a component. This
+<p>According to the Modelica sign convention, a <strong>positive</strong> heat flow
+rate <strong>Q_flow</strong> is considered to flow <strong>into</strong> a component. This
 convention has to be used whenever this connector is used in a model
 class.</p>
-<p>Note, that the two connector classes <b>HeatPort_a</b> and
-<b>HeatPort_b</b> are identical with the only exception of the different
-<b>icon layout</b>.</p></html>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+<p>Note, that the two connector classes <strong>HeatPort_a</strong> and
+<strong>HeatPort_b</strong> are identical with the only exception of the different
+<strong>icon layout</strong>.</p></html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={191,0,0},
@@ -2819,13 +3043,13 @@ The variables in the connector are:</p>
    T       Temperature in [Kelvin].
    Q_flow  Heat flow rate in [Watt].
 </pre>
-<p>According to the Modelica sign convention, a <b>positive</b> heat flow
-rate <b>Q_flow</b> is considered to flow <b>into</b> a component. This
+<p>According to the Modelica sign convention, a <strong>positive</strong> heat flow
+rate <strong>Q_flow</strong> is considered to flow <strong>into</strong> a component. This
 convention has to be used whenever this connector is used in a model
 class.</p>
-<p>Note, that the two connector classes <b>HeatPort_a</b> and
-<b>HeatPort_b</b> are identical with the only exception of the different
-<b>icon layout</b>.</p></html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+<p>Note, that the two connector classes <strong>HeatPort_a</strong> and
+<strong>HeatPort_b</strong> are identical with the only exception of the different
+<strong>icon layout</strong>.</p></html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Rectangle(
               extent={{-50,50},{50,-50}},
               lineColor={191,0,0},
@@ -2860,10 +3084,10 @@ class.</p>
       annotation (Documentation(info="<html>
 <p>
 This partial model contains the basic connectors and variables to
-allow heat transfer models to be created that <b>do not store energy</b>,
+allow heat transfer models to be created that <strong>do not store energy</strong>,
 This model defines and includes equations for the temperature
-drop across the element, <b>dT</b>, and the heat flow rate
-through the element from port_a to port_b, <b>Q_flow</b>.
+drop across the element, <strong>dT</strong>, and the heat flow rate
+through the element from port_a to port_b, <strong>Q_flow</strong>.
 </p>
 <p>
 By extending this model, it is possible to write simple
@@ -2897,13 +3121,13 @@ constitutive equations for many types of heat transfer components.
 This partial model provides a conditional heat port for dissipating losses.
 </p>
 <ul>
-<li>If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal loss power is dissipated internally.
-In this case, the parameter <b>T</b> specifies the fixed device temperature (the default for T = 20&deg;C) </li>
-<li>If <b>useHeatPort</b> is set to <b>true</b>, the heat port is available. </li>
+<li>If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal loss power is dissipated internally.
+In this case, the parameter <strong>T</strong> specifies the fixed device temperature (the default for T = 20&deg;C)</li>
+<li>If <strong>useHeatPort</strong> is set to <strong>true</strong>, the heat port is available.</li>
 </ul>
 <p>
 If this model is used, the loss power has to be provided by an equation in the model which inherits from PartialElementaryConditionalHeatPort model
-(<b>lossPower = ...</b>). The device temperature <b>TheatPort</b> can be used to describe the influence of the device temperature on the model behaviour.
+(<strong>lossPower = ...</strong>). The device temperature <strong>TheatPort</strong> can be used to describe the influence of the device temperature on the model behaviour.
 </p>
 </html>"));
     end PartialElementaryConditionalHeatPort;
@@ -2924,12 +3148,12 @@ If this model is used, the loss power has to be provided by an equation in the m
 This partial model provides a conditional heat port for dissipating losses.
 </p>
 <ul>
-<li>If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal loss power is dissipated internally.
-<li>If <b>useHeatPort</b> is set to <b>true</b>, the heat port is available and must be connected from the outside.</li>
+<li>If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal loss power is dissipated internally.</li>
+<li>If <strong>useHeatPort</strong> is set to <strong>true</strong>, the heat port is available and must be connected from the outside.</li>
 </ul>
 <p>
 If this model is used, the loss power has to be provided by an equation in the model which inherits from the PartialElementaryConditionalHeatPortWithoutT model
-(<b>lossPower = ...</b>).
+(<strong>lossPower = ...</strong>).
 </p>
 
 <p>
@@ -2957,27 +3181,25 @@ Note, this partial model is used in cases, where heatPort.T (that is the device 
         annotation (Placement(transformation(extent={{-104,-84},{-96,-76}})));
     equation
       connect(heatPort, internalHeatPort) annotation (Line(
-          points={{-100,-100},{-100,-80}},
-          color={191,0,0}));
+          points={{-100,-100},{-100,-80}}, color={191,0,0}));
       connect(fixedTemperature.port, internalHeatPort) annotation (Line(
-          points={{-80,-80},{-100,-80}},
-          color={191,0,0}));
+          points={{-80,-80},{-100,-80}}, color={191,0,0}));
       annotation (Documentation(info="<html>
 <p>
 This partial model provides a conditional heat port for dissipating losses.
 </p>
 <ul>
-<li>If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal loss power is dissipated internally.
-In this case, the parameter <b>T</b> specifies the fixed device temperature (the default for T = 20&deg;C) </li>
-<li>If <b>useHeatPort</b> is set to <b>true</b>, the heat port is available. </li>
+<li>If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal loss power is dissipated internally.
+In this case, the parameter <strong>T</strong> specifies the fixed device temperature (the default for T = 20&deg;C)</li>
+<li>If <strong>useHeatPort</strong> is set to <strong>true</strong>, the heat port is available.</li>
 </ul>
 <p>
-If this model is used, the <b>internalHeatPort</b> has to be connected in the model which inherits from PartialElementaryConditionalHeatPort model.
-The device temperature <b>internalHeatPort.T</b> can be used to describe the influence of the device temperature on the model behaviour.
+If this model is used, the <strong>internalHeatPort</strong> has to be connected in the model which inherits from PartialElementaryConditionalHeatPort model.
+The device temperature <strong>internalHeatPort.T</strong> can be used to describe the influence of the device temperature on the model behaviour.
 </p>
 </html>"));
     end PartialConditionalHeatPort;
-    annotation (                               Documentation(info="<html>
+    annotation (Documentation(info="<html>
 
 </html>"));
   end Interfaces;
@@ -3029,7 +3251,7 @@ The device temperature <b>internalHeatPort.T</b> can be used to describe the inf
         points = {{-17,-46},{-17,-34},{-40,-40},{-17,-46}})}),
                             Documentation(info="<html>
 <p>
-This package contains components to model <b>1-dimensional heat transfer</b>
+This package contains components to model <strong>1-dimensional heat transfer</strong>
 with lumped elements. This allows especially to model heat transfer in
 machines provided the parameters of the lumped elements, such as
 the heat capacity of a part, can be determined by measurements
@@ -3038,27 +3260,27 @@ calculating the lumped element parameters from some basic analytic
 formulas is usually not possible).
 </p>
 <p>
-Example models how to use this library are given in subpackage <b>Examples</b>.<br>
-For a first simple example, see <b>Examples.TwoMasses</b> where two masses
+Example models how to use this library are given in subpackage <strong>Examples</strong>.<br>
+For a first simple example, see <strong>Examples.TwoMasses</strong> where two masses
 with different initial temperatures are getting in contact to each
 other and arriving after some time at a common temperature.<br>
-<b>Examples.ControlledTemperature</b> shows how to hold a temperature
+<strong>Examples.ControlledTemperature</strong> shows how to hold a temperature
 within desired limits by switching on and off an electric resistor.<br>
-A more realistic example is provided in <b>Examples.Motor</b> where the
+A more realistic example is provided in <strong>Examples.Motor</strong> where the
 heating of an electrical motor is modelled, see the following screen shot
 of this example:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Thermal/HeatTransfer/driveWithHeatTransfer.png\" ALT=\"driveWithHeatTransfer\">
+<img src=\"modelica://Modelica/Resources/Images/Thermal/HeatTransfer/driveWithHeatTransfer.png\" alt=\"driveWithHeatTransfer\">
 </p>
 
 <p>
-The <b>filled</b> and <b>non-filled red squares</b> at the left and
-right side of a component represent <b>thermal ports</b> (connector HeatPort).
+The <strong>filled</strong> and <strong>non-filled red squares</strong> at the left and
+right side of a component represent <strong>thermal ports</strong> (connector HeatPort).
 Drawing a line between such squares means that they are thermally connected.
-The variables of a HeatPort connector are the temperature <b>T</b> at the port
-and the heat flow rate <b>Q_flow</b> flowing into the component (if Q_flow is positive,
+The variables of a HeatPort connector are the temperature <strong>T</strong> at the port
+and the heat flow rate <strong>Q_flow</strong> flowing into the component (if Q_flow is positive,
 the heat flows into the element, otherwise it flows out of the element):
 </p>
 <pre>   Modelica.SIunits.Temperature  T  \"absolute temperature at port in Kelvin\";
@@ -3066,17 +3288,17 @@ the heat flows into the element, otherwise it flows out of the element):
 </pre>
 <p>
 Note, that all temperatures of this package, including initial conditions,
-are given in Kelvin. For convenience, in subpackages <b>HeatTransfer.Celsius</b>,
- <b>HeatTransfer.Fahrenheit</b> and <b>HeatTransfer.Rankine</b> components are provided such that source and
+are given in Kelvin. For convenience, in subpackages <strong>HeatTransfer.Celsius</strong>,
+ <strong>HeatTransfer.Fahrenheit</strong> and <strong>HeatTransfer.Rankine</strong> components are provided such that source and
 sensor information is available in degree Celsius, degree Fahrenheit, or degree Rankine,
-respectively. Additionally, in package <b>SIunits.Conversions</b> conversion
+respectively. Additionally, in package <strong>SIunits.Conversions</strong> conversion
 functions between the units Kelvin and Celsius, Fahrenheit, Rankine are
 provided. These functions may be used in the following way:
 </p>
-<pre>  <b>import</b> SI=Modelica.SIunits;
-  <b>import</b> Modelica.SIunits.Conversions.*;
+<pre>  <strong>import</strong> SI=Modelica.SIunits;
+  <strong>import</strong> Modelica.SIunits.Conversions.*;
      ...
-  <b>parameter</b> SI.Temperature T = from_degC(25);  // convert 25 degree Celsius to Kelvin
+  <strong>parameter</strong> SI.Temperature T = from_degC(25);  // convert 25 degree Celsius to Kelvin
 </pre>
 
 <p>
@@ -3087,44 +3309,42 @@ the Modelica design group is discussing a general scheme to describe material pr
 </p>
 <p>
 For technical details in the design of this library, see the following reference:<br>
-<b>Michael Tiller (2001)</b>: <a href=\"http://www.amazon.de\">
+<strong>Michael Tiller (2001)</strong>: <a href=\"http://www.amazon.de\">
 Introduction to Physical Modeling with Modelica</a>.
 Kluwer Academic Publishers Boston.
 </p>
 <p>
-<b>Acknowledgements:</b><br>
+<strong>Acknowledgements:</strong><br>
 Several helpful remarks from the following persons are acknowledged:
 John Batteh, Ford Motors, Dearborn, U.S.A;
-<a href=\"http://www.haumer.at/\">Anton Haumer</a>, Technical Consulting &amp; Electrical Engineering, Austria;
+<a href=\"https://www.haumer.at/\">Anton Haumer</a>, Technical Consulting &amp; Electrical Engineering, Germany;
 Ludwig Marvan, VA TECH ELIN EBG Elektronik GmbH, Wien, Austria;
 Hans Olsson, Dassault Syst&egrave;mes AB, Sweden;
 Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
 </p>
 <dl>
-  <dt><b>Main Authors:</b></dt>
+  <dt><strong>Main Authors:</strong></dt>
   <dd>
   <p>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern, Austria<br>
+  D-93049 Regensburg, Germany<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
   </dd>
 </dl>
-<p><b>Copyright &copy; 2001-2016, Modelica Association, Michael Tiller and DLR.</b></p>
-
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+Copyright &copy; 2001-2019, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>July 15, 2002</i>
+<li><em>July 15, 2002</em>
        by Michael Tiller, <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
        and Nikolaus Sch&uuml;rmann:<br>
        Implemented.
 </li>
-<li><i>June 13, 2005</i>
-       by <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+<li><em>June 13, 2005</em>
+       by <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
        Refined placing of connectors (cosmetic).<br>
        Refined all Examples; removed Examples.FrequencyInverter, introducing Examples.Motor<br>
        Introduced temperature dependent correction (1 + alpha*(T - T_ref)) in Fixed/PrescribedHeatFlow<br>

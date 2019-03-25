@@ -16,28 +16,25 @@ package Sources
           extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,40},{100,-40}},
-            lineColor={0,0,0},
-            lineThickness=5.0,
             fillColor={235,235,235},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised),
           Text(
             extent={{-96,15},{96,-15}},
-            lineColor={0,0,0},
             textString="%y"),
           Text(
-            extent={{-150,90},{140,50}},
+            extent={{-150,90},{150,50}},
             textString="%name",
             lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 The (time varying) Real output signal of this block can be defined in its
-parameter menu via variable <b>y</b>. The purpose is to support the
+parameter menu via variable <strong>y</strong>. The purpose is to support the
 easy definition of Real expressions in a block diagram. For example,
 in the y-menu the definition \"if time &lt; 1 then 0 else 1\" can be given in order
 to define that the output signal is one, if time &ge; 1 and otherwise
 it is zero. Note, that \"time\" is a built-in variable that is always
 accessible and represents the \"model time\" and that
-variable <b>y</b> is both a variable and a connector.
+variable <strong>y</strong> is both a variable and a connector.
 </p>
 </html>"));
 
@@ -55,28 +52,25 @@ variable <b>y</b> is both a variable and a connector.
           extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,40},{100,-40}},
-            lineColor={0,0,0},
-            lineThickness=5.0,
             fillColor={235,235,235},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised),
           Text(
             extent={{-96,15},{96,-15}},
-            lineColor={0,0,0},
             textString="%y"),
           Text(
-            extent={{-150,90},{140,50}},
+            extent={{-150,90},{150,50}},
             textString="%name",
             lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 The (time varying) Integer output signal of this block can be defined in its
-parameter menu via variable <b>y</b>. The purpose is to support the
+parameter menu via variable <strong>y</strong>. The purpose is to support the
 easy definition of Integer expressions in a block diagram. For example,
 in the y-menu the definition \"if time &lt; 1 then 0 else 1\" can be given in order
 to define that the output signal is one, if time &ge; 1 and otherwise
 it is zero. Note, that \"time\" is a built-in variable that is always
 accessible and represents the \"model time\" and that
-variable <b>y</b> is both a variable and a connector.
+variable <strong>y</strong> is both a variable and a connector.
 </p>
 </html>"));
 
@@ -94,17 +88,14 @@ variable <b>y</b> is both a variable and a connector.
           extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,40},{100,-40}},
-            lineColor={0,0,0},
-            lineThickness=5.0,
             fillColor={235,235,235},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised),
           Text(
             extent={{-96,15},{96,-15}},
-            lineColor={0,0,0},
             textString="%y"),
           Text(
-            extent={{-150,90},{140,50}},
+            extent={{-150,90},{150,50}},
             textString="%name",
             lineColor={0,0,255}),
           Polygon(
@@ -116,14 +107,14 @@ variable <b>y</b> is both a variable and a connector.
             fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
 The (time varying) Boolean output signal of this block can be defined in its
-parameter menu via variable <b>y</b>. The purpose is to support the
+parameter menu via variable <strong>y</strong>. The purpose is to support the
 easy definition of Boolean expressions in a block diagram. For example,
 in the y-menu the definition \"time &gt;= 1 and time &lt;= 2\" can be given in order
-to define that the output signal is <b>true</b> in the time interval
-1 &le; time &le; 2 and otherwise it is <b>false</b>.
+to define that the output signal is <strong>true</strong> in the time interval
+1 &le; time &le; 2 and otherwise it is <strong>false</strong>.
 Note, that \"time\" is a built-in variable that is always
 accessible and represents the \"model time\" and that
-variable <b>y</b> is both a variable and a connector.
+variable <strong>y</strong> is both a variable and a connector.
 </p>
 </html>"));
 
@@ -159,7 +150,6 @@ variable <b>y</b> is both a variable and a connector.
             thickness=0.5),
           Text(
             extent={{-150,-150},{150,-110}},
-            lineColor={0,0,0},
             textString="startTime=%startTime")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -185,7 +175,7 @@ variable <b>y</b> is both a variable and a connector.
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
-          Line(points={{-34,0},{-34,-70}},   color={95,95,95}),
+          Line(points={{-34,0},{-34,-70}}, color={95,95,95}),
           Polygon(
             points={{-34,-70},{-37,-57},{-31,-57},{-34,-70},{-34,-70}},
             lineColor={95,95,95},
@@ -193,30 +183,24 @@ variable <b>y</b> is both a variable and a connector.
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-77,-28},{-35,-40}},
-            lineColor={0,0,0},
             textString="offset"),
           Text(
             extent={{-30,-73},{18,-86}},
-            lineColor={0,0,0},
             textString="startTime"),
           Text(
             extent={{-81,91},{-40,71}},
-            lineColor={0,0,0},
             textString="y"),
           Text(
             extent={{63,-79},{94,-89}},
-            lineColor={0,0,0},
             textString="time"),
           Line(points={{-10,0},{-10,-70}}, color={95,95,95}),
           Line(points={{-10,0},{50,0}}, color={95,95,95}),
           Line(points={{50,0},{50,60}}, color={95,95,95}),
           Text(
             extent={{35,33},{50,23}},
-            lineColor={0,0,0},
             textString="1"),
           Text(
             extent={{14,13},{32,1}},
-            lineColor={0,0,0},
             textString="1")}),
       Documentation(info="<html>
 <p>
@@ -231,7 +215,8 @@ The Real output y is a clock signal:
   end Clock;
 
   block Constant "Generate constant signal of type Real"
-    parameter Real k(start=1) "Constant output value";
+    parameter Real k(start=1) "Constant output value"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Constant.png"));
     extends Interfaces.SO;
 
   equation
@@ -256,7 +241,6 @@ The Real output y is a clock signal:
           Line(points={{-80,0},{80,0}}),
           Text(
             extent={{-150,-150},{150,-110}},
-            lineColor={0,0,0},
             textString="k=%k")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -279,15 +263,12 @@ The Real output y is a clock signal:
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-83,92},{-30,74}},
-            lineColor={0,0,0},
             textString="y"),
           Text(
             extent={{70,-80},{94,-100}},
-            lineColor={0,0,0},
             textString="time"),
           Text(
             extent={{-101,8},{-81,-12}},
-            lineColor={0,0,0},
             textString="k")}),
       Documentation(info="<html>
 <p>
@@ -302,7 +283,8 @@ The Real output y is a constant signal:
   end Constant;
 
   block Step "Generate step signal of type Real"
-    parameter Real height=1 "Height of step";
+    parameter Real height=1 "Height of step"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Step.png"));
     extends Interfaces.SignalSource;
 
   equation
@@ -326,7 +308,6 @@ The Real output y is a constant signal:
           Line(points={{-80,-70},{0,-70},{0,50},{80,50}}),
           Text(
             extent={{-150,-150},{150,-110}},
-            lineColor={0,0,0},
             textString="startTime=%startTime")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -349,16 +330,13 @@ The Real output y is a constant signal:
             fillPattern=FillPattern.Solid),
           Text(
             extent={{70,-80},{94,-100}},
-            lineColor={0,0,0},
             textString="time"),
           Text(
             extent={{-21,-72},{25,-90}},
-            lineColor={0,0,0},
             textString="startTime"),
           Line(points={{0,-18},{0,-70}}, color={95,95,95}),
           Text(
             extent={{-68,-36},{-22,-54}},
-            lineColor={0,0,0},
             textString="offset"),
           Line(points={{-13,50},{-13,-17}}, color={95,95,95}),
           Polygon(
@@ -378,7 +356,6 @@ The Real output y is a constant signal:
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-68,26},{-22,8}},
-            lineColor={0,0,0},
             textString="height"),
           Polygon(
             points={{-13,-70},{-16,-57},{-10,-57},{-13,-70},{-13,-70}},
@@ -393,7 +370,6 @@ The Real output y is a constant signal:
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-72,100},{-31,80}},
-            lineColor={0,0,0},
             textString="y")}),
       Documentation(info="<html>
 <p>
@@ -409,7 +385,8 @@ The Real output y is a step signal:
   end Step;
 
   block Ramp "Generate ramp signal"
-    parameter Real height=1 "Height of ramps";
+    parameter Real height=1 "Height of ramps"
+      annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Ramp.png"));
     parameter Modelica.SIunits.Time duration(min=0.0, start=2)
       "Duration of ramp (= 0.0 gives a Step)";
     extends Interfaces.SignalSource;
@@ -436,7 +413,6 @@ The Real output y is a step signal:
           Line(points={{-80,-70},{-40,-70},{31,38}}),
           Text(
             extent={{-150,-150},{150,-110}},
-            lineColor={0,0,0},
             textString="duration=%duration"),
           Line(points={{31,38},{86,38}})}),
       Diagram(coordinateSystem(
@@ -473,19 +449,15 @@ The Real output y is a step signal:
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-72,-39},{-34,-50}},
-            lineColor={0,0,0},
             textString="offset"),
           Text(
             extent={{-38,-72},{6,-83}},
-            lineColor={0,0,0},
             textString="startTime"),
           Text(
             extent={{-78,92},{-37,72}},
-            lineColor={0,0,0},
             textString="y"),
           Text(
             extent={{70,-80},{94,-91}},
-            lineColor={0,0,0},
             textString="time"),
           Line(points={{-20,-20},{-20,-70}}, color={95,95,95}),
           Line(
@@ -520,11 +492,9 @@ The Real output y is a step signal:
             fillPattern=FillPattern.Solid),
           Text(
             extent={{53,23},{82,10}},
-            lineColor={0,0,0},
             textString="height"),
           Text(
             extent={{-2,-21},{37,-33}},
-            lineColor={0,0,0},
             textString="duration")}),
       Documentation(info="<html>
 <p>
@@ -544,7 +514,8 @@ If parameter duration is set to 0.0, the limiting case of a Step signal is achie
 
   block Sine "Generate sine signal"
     import Modelica.Constants.pi;
-    parameter Real amplitude=1 "Amplitude of sine wave";
+    parameter Real amplitude=1 "Amplitude of sine wave"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Sine.png"));
     parameter SIunits.Frequency freqHz(start=1) "Frequency of sine wave";
     parameter SIunits.Angle phase=0 "Phase of sine wave";
     extends Interfaces.SignalSource;
@@ -574,7 +545,6 @@ If parameter duration is set to 0.0, the limiting case of a Step signal is achie
                 {57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, smooth = Smooth.Bezier),
           Text(
             extent={{-147,-152},{153,-112}},
-            lineColor={0,0,0},
             textString="freqHz=%freqHz")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -606,20 +576,16 @@ If parameter duration is set to 0.0, the limiting case of a Step signal is achie
             thickness=0.5),
           Text(
             extent={{-87,12},{-40,0}},
-            lineColor={0,0,0},
             textString="offset"),
           Line(points={{-41,-2},{-41,-40}}, color={95,95,95}),
           Text(
             extent={{-60,-43},{-14,-54}},
-            lineColor={0,0,0},
             textString="startTime"),
           Text(
             extent={{75,-47},{100,-60}},
-            lineColor={0,0,0},
             textString="time"),
           Text(
             extent={{-80,99},{-40,82}},
-            lineColor={0,0,0},
             textString="y"),
           Line(points={{-9,80},{43,80}}, color={95,95,95}),
           Line(points={{-41,-2},{50,-2}}, color={95,95,95}),
@@ -630,7 +596,6 @@ If parameter duration is set to 0.0, the limiting case of a Step signal is achie
             fillPattern=FillPattern.Solid),
           Text(
             extent={{37,57},{83,39}},
-            lineColor={0,0,0},
             textString="amplitude"),
           Polygon(
             points={{33,-2},{30,11},{36,11},{33,-2},{33,-2}},
@@ -652,7 +617,8 @@ The Real output y is a sine signal:
 
   block Cosine "Generate cosine signal"
     import Modelica.Constants.pi;
-    parameter Real amplitude=1 "Amplitude of cosine wave";
+    parameter Real amplitude=1 "Amplitude of cosine wave"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Cosine.png"));
     parameter SIunits.Frequency freqHz(start=1) "Frequency of cosine wave";
     parameter SIunits.Angle phase=0 "Phase of cosine wave";
     extends Interfaces.SignalSource;
@@ -681,14 +647,13 @@ The Real output y is a sine signal:
                 {19.5,-61.9},{25.9,-47.2},{34,-24.8},{42,0}}, smooth=Smooth.Bezier),
           Text(
             extent={{-147,-152},{153,-112}},
-            lineColor={0,0,0},
             textString="freqHz=%freqHz"),
           Line(points={{42,1},{53.3,35.2},{60.5,54.1},{66.9,67.4},{72.6,75.6},{
                 78.2,80.1},{83.8,80.8}})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={Line(points={{-80,-90},{-80,84}}, color={95,95,
-            95}),Polygon(
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-80,-90},{-80,84}}, color={95,95,95}),
+            Polygon(
               points={{-80,97},{-84,81},{-76,81},{-80,97}},
               lineColor={95,95,95},
               fillColor={95,95,95},
@@ -702,17 +667,13 @@ The Real output y is a sine signal:
               color={0,0,255},
               thickness=0.5),Text(
               extent={{-87,12},{-40,0}},
-              lineColor={0,0,0},
-              textString="offset"),Line(points={{-41,-2},{-41,-40}}, color={95,
-            95,95}),Text(
+              textString="offset"),Line(points={{-41,-2},{-41,-40}}, color={95,95,95}),
+            Text(
               extent={{-60,-43},{-14,-54}},
-              lineColor={0,0,0},
               textString="startTime"),Text(
               extent={{75,-47},{100,-60}},
-              lineColor={0,0,0},
               textString="time"),Text(
               extent={{-80,99},{-40,82}},
-              lineColor={0,0,0},
               textString="y"),Line(points={{-41,80},{43,80}}, color={95,95,95}),
             Line(points={{-41,-2},{40,-2}}, color={95,95,95}),Polygon(
               points={{33,80},{30,67},{36,67},{33,80}},
@@ -720,7 +681,6 @@ The Real output y is a sine signal:
               fillColor={95,95,95},
               fillPattern=FillPattern.Solid),Text(
               extent={{37,57},{83,39}},
-              lineColor={0,0,0},
               textString="amplitude"),Polygon(
               points={{33,-2},{30,11},{36,11},{33,-2},{33,-2}},
               lineColor={95,95,95},
@@ -752,7 +712,8 @@ The Real output y is a cosine signal:
 
   block ExpSine "Generate exponentially damped sine signal"
     import Modelica.Constants.pi;
-    parameter Real amplitude=1 "Amplitude of sine wave";
+    parameter Real amplitude=1 "Amplitude of sine wave"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/ExpSine.png"));
     parameter SIunits.Frequency freqHz(start=2) "Frequency of sine wave";
     parameter SIunits.Angle phase=0 "Phase of sine wave";
     parameter SIunits.Damping damping(start=1)
@@ -787,7 +748,6 @@ The Real output y is a cosine signal:
                 {75.2,-20.5},{80,-13.8}}, smooth = Smooth.Bezier),
           Text(
             extent={{-147,-152},{153,-112}},
-            lineColor={0,0,0},
             textString="freqHz=%freqHz")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -817,19 +777,15 @@ The Real output y is a cosine signal:
             smooth=Smooth.Bezier),
           Text(
             extent={{-80,17},{-57,-3}},
-            lineColor={0,0,0},
             textString="offset"),
           Text(
             extent={{-72,-43},{-25,-53}},
-            lineColor={0,0,0},
             textString="startTime"),
           Text(
             extent={{77,-53},{101,-64}},
-            lineColor={0,0,0},
             textString="time"),
           Text(
             extent={{-89,99},{-49,82}},
-            lineColor={0,0,0},
             textString="y"),
           Line(points={{-50,0},{18,0}}, color={95,95,95}),
           Line(
@@ -841,7 +797,6 @@ The Real output y is a cosine signal:
           Line(points={{18,73},{-50,73}}, color={95,95,95}),
           Text(
             extent={{-42,83},{9,74}},
-            lineColor={0,0,0},
             textString="1/freqHz"),
           Polygon(
             points={{-50,73},{-41,75},{-41,71},{-50,73}},
@@ -861,11 +816,9 @@ The Real output y is a cosine signal:
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-51,-63},{-27,-75}},
-            lineColor={0,0,0},
             textString="t"),
           Text(
             extent={{-83,-69},{100,-96}},
-            lineColor={0,0,0},
             textString="amplitude*exp(-damping*t)*sin(2*pi*freqHz*t+phase)"),
           Line(points={{-50,0},{-50,-40}}, color={95,95,95}),
           Line(points={{-50,-54},{-50,-72}}, color={95,95,95}),
@@ -884,7 +837,8 @@ The Real output y is a sine signal with exponentially changing amplitude:
 
   block Exponentials "Generate a rising and falling exponential signal"
 
-    parameter Real outMax=1 "Height of output for infinite riseTime";
+    parameter Real outMax=1 "Height of output for infinite riseTime"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Exponentials.png"));
     parameter SIunits.Time riseTime(min=0,start=0.5) "Rise time";
     parameter SIunits.Time riseTimeConst(min=Modelica.Constants.small) = 0.1
       "Rise time constant; rising is defined as outMax*(1-exp(-riseTime/riseTimeConst))";
@@ -916,8 +870,7 @@ The Real output y is a sine signal with exponentially changing amplitude:
                 34.5},{-38.3,42.1},{-31.2,48.6},{-22.7,54.3},{-12.1,59.2},{-10,
                 60},{-7.88,47.5},{-5.05,32.7},{-2.22,19.8},{0.606,8.45},{4.14,-3.7},
                 {7.68,-14},{11.9,-24.2},{16.2,-32.6},{21.1,-40.5},{26.8,-47.4},
-                {33.1,-53.3},{40.9,-58.5},{50.8,-62.8},{60,-65.4}}, color={0,0,
-                0}),
+                {33.1,-53.3},{40.9,-58.5},{50.8,-62.8},{60,-65.4}}),
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}},
             lineColor={192,192,192},
@@ -926,7 +879,6 @@ The Real output y is a sine signal with exponentially changing amplitude:
           Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
           Text(
             extent={{-150,-150},{150,-110}},
-            lineColor={0,0,0},
             textString="riseTime=%riseTime")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -958,7 +910,6 @@ The Real output y is a sine signal with exponentially changing amplitude:
             textString="y"),
           Text(
             extent={{-71,-46},{-38,-55}},
-            lineColor={0,0,0},
             textString="offset"),
           Polygon(
             points={{-40,-74},{-42,-64},{-38,-64},{-40,-74},{-40,-74}},
@@ -977,7 +928,6 @@ The Real output y is a sine signal with exponentially changing amplitude:
             thickness=0.5),
           Text(
             extent={{-62,-76},{-17,-85}},
-            lineColor={0,0,0},
             textString="startTime"),
           Polygon(
             points={{-40,-34},{-31,-32},{-31,-36},{-40,-34}},
@@ -992,11 +942,9 @@ The Real output y is a sine signal with exponentially changing amplitude:
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-26,-22},{19,-32}},
-            lineColor={0,0,0},
             textString="riseTime"),
           Text(
             extent={{75,-79},{98,-90}},
-            lineColor={0,0,0},
             textString="time"),
           Line(points={{30,96},{30,-38}}, color={95,95,95})}),
       Documentation(info="<html>
@@ -1013,7 +961,8 @@ by a falling exponential signal:
   end Exponentials;
 
   block Pulse "Generate pulse signal of type Real"
-    parameter Real amplitude=1 "Amplitude of pulse";
+    parameter Real amplitude=1 "Amplitude of pulse"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Pulse.png"));
     parameter Real width(
       final min=Modelica.Constants.small,
       final max=100) = 50 "Width of pulse in % of period";
@@ -1057,7 +1006,6 @@ by a falling exponential signal:
                 44},{79,44}}),
           Text(
             extent={{-147,-152},{153,-112}},
-            lineColor={0,0,0},
             textString="period=%period")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1079,7 +1027,7 @@ by a falling exponential signal:
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
-          Line(points={{-34,0},{-34,-70}},  color={95,95,95}),
+          Line(points={{-34,0},{-34,-70}}, color={95,95,95}),
           Polygon(
             points={{-34,-70},{-37,-57},{-31,-57},{-34,-70},{-34,-70}},
             lineColor={95,95,95},
@@ -1087,19 +1035,15 @@ by a falling exponential signal:
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-78,-24},{-35,-36}},
-            lineColor={0,0,0},
             textString="offset"),
           Text(
             extent={{-30,-72},{16,-81}},
-            lineColor={0,0,0},
             textString="startTime"),
           Text(
             extent={{-82,96},{-49,79}},
-            lineColor={0,0,0},
             textString="y"),
           Text(
             extent={{66,-80},{87,-90}},
-            lineColor={0,0,0},
             textString="time"),
           Line(points={{-10,0},{-10,-70}}, color={95,95,95}),
           Line(
@@ -1114,17 +1058,14 @@ by a falling exponential signal:
           Line(points={{-10,69},{30,69}}, color={95,95,95}),
           Text(
             extent={{-3,93},{39,84}},
-            lineColor={0,0,0},
             textString="period"),
           Text(
             extent={{-7,78},{30,69}},
-            lineColor={0,0,0},
             textString="width"),
           Line(points={{-43,50},{-10,50}}, color={95,95,95}),
           Line(points={{-34,50},{-34,0}}, color={95,95,95}),
           Text(
             extent={{-77,30},{-37,21}},
-            lineColor={0,0,0},
             textString="amplitude"),
           Polygon(
             points={{-34,50},{-37,37},{-31,37},{-34,50}},
@@ -1173,7 +1114,8 @@ The Real output y is a pulse signal:
   end Pulse;
 
   block SawTooth "Generate saw tooth signal"
-    parameter Real amplitude=1 "Amplitude of saw tooth";
+    parameter Real amplitude=1 "Amplitude of saw tooth"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/SawTooth.png"));
     parameter SIunits.Time period(final min=Modelica.Constants.small,start=1)
       "Time for one period";
     parameter Integer nperiod=-1
@@ -1211,7 +1153,6 @@ The Real output y is a pulse signal:
           Line(points={{-80,-70},{-60,-70},{0,40},{0,-70},{60,41},{60,-70}}),
           Text(
             extent={{-147,-152},{153,-112}},
-            lineColor={0,0,0},
             textString="period=%period")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1241,19 +1182,15 @@ The Real output y is a pulse signal:
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-65,-39},{-29,-47}},
-            lineColor={0,0,0},
             textString="offset"),
           Text(
             extent={{-29,-72},{13,-80}},
-            lineColor={0,0,0},
             textString="startTime"),
           Text(
             extent={{-82,92},{-43,76}},
-            lineColor={0,0,0},
             textString="y"),
           Text(
             extent={{67,-78},{88,-87}},
-            lineColor={0,0,0},
             textString="time"),
           Line(points={{-10,-20},{-10,-70}}, color={95,95,95}),
           Line(points={{-10,88},{-10,-20}}, color={95,95,95}),
@@ -1261,13 +1198,11 @@ The Real output y is a pulse signal:
           Line(points={{-10,83},{30,83}}, color={95,95,95}),
           Text(
             extent={{-12,94},{34,85}},
-            lineColor={0,0,0},
             textString="period"),
           Line(points={{-44,60},{30,60}}, color={95,95,95}),
-          Line(points={{-34,47},{-34,-20}},color={95,95,95}),
+          Line(points={{-34,47},{-34,-20}}, color={95,95,95}),
           Text(
             extent={{-73,25},{-36,16}},
-            lineColor={0,0,0},
             textString="amplitude"),
           Polygon(
             points={{-34,60},{-37,47},{-31,47},{-34,60}},
@@ -1306,7 +1241,8 @@ The Real output y is a saw tooth signal:
   end SawTooth;
 
   block Trapezoid "Generate trapezoidal signal of type Real"
-    parameter Real amplitude=1 "Amplitude of trapezoid";
+    parameter Real amplitude=1 "Amplitude of trapezoid"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Trapezoid.png"));
     parameter SIunits.Time rising(final min=0) = 0
       "Rising duration of trapezoid";
     parameter SIunits.Time width(final min=0) = 0.5
@@ -1358,7 +1294,6 @@ The Real output y is a saw tooth signal:
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-147,-152},{153,-112}},
-            lineColor={0,0,0},
             textString="period=%period"),
           Line(points={{-81,-70},{-60,-70},{-30,40},{9,40},{39,-70},{61,-70},{
                 90,40}})}),
@@ -1392,19 +1327,15 @@ The Real output y is a saw tooth signal:
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-80,-46},{-42,-55}},
-            lineColor={0,0,0},
             textString="offset"),
           Text(
             extent={{-49,-71},{-6,-81}},
-            lineColor={0,0,0},
             textString="startTime"),
           Text(
             extent={{-80,95},{-47,80}},
-            lineColor={0,0,0},
             textString="y"),
           Text(
             extent={{66,-78},{89,-89}},
-            lineColor={0,0,0},
             textString="time"),
           Line(
             points={{-31,82},{-31,-70}},
@@ -1426,11 +1357,9 @@ The Real output y is a saw tooth signal:
           Line(points={{-31,56},{39,56}}, color={95,95,95}),
           Text(
             extent={{-3,86},{24,77}},
-            lineColor={0,0,0},
             textString="period"),
           Text(
             extent={{-11,68},{18,59}},
-            lineColor={0,0,0},
             textString="width"),
           Line(
             points={{-43,40},{-11,40}},
@@ -1441,7 +1370,6 @@ The Real output y is a saw tooth signal:
             color={95,95,95}),
           Text(
             extent={{-77,11},{-44,1}},
-            lineColor={0,0,0},
             textString="amplitude"),
           Polygon(
             points={{-31,56},{-24,58},{-24,54},{-31,56}},
@@ -1504,11 +1432,9 @@ The Real output y is a saw tooth signal:
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-35,68},{-6,60}},
-            lineColor={0,0,0},
             textString="rising"),
           Text(
             extent={{16,68},{44,60}},
-            lineColor={0,0,0},
             textString="falling")}),
       Documentation(info="<html>
 <p>
@@ -1525,15 +1451,15 @@ The Real output y is a trapezoid signal:
   block KinematicPTP
     "Move as fast as possible along a distance within given kinematic constraints"
 
-    parameter Real deltaq[:]={1} "Distance to move";
+    parameter Real deltaq[:]={1} "Distance to move"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/KinematicPTP.png"));
     parameter Real qd_max[:](each final min=Modelica.Constants.small) = {1}
       "Maximum velocities der(q)";
     parameter Real qdd_max[:](each final min=Modelica.Constants.small) = {1}
       "Maximum accelerations der(qd)";
     parameter SIunits.Time startTime=0 "Time instant at which movement starts";
 
-    extends Interfaces.MO(final nout=max([size(deltaq, 1); size(qd_max, 1);
-          size(qdd_max, 1)]));
+    extends Interfaces.MO(final nout=max([size(deltaq, 1); size(qd_max, 1); size(qdd_max, 1)]));
 
   protected
     parameter Real p_deltaq[nout]=(if size(deltaq, 1) == 1 then ones(nout)*
@@ -1600,7 +1526,6 @@ The Real output y is a trapezoid signal:
             textString="acc"),
           Text(
             extent={{-150,-150},{150,-110}},
-            lineColor={0,0,0},
             textString="deltaq=%deltaq")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1624,19 +1549,17 @@ The Real output y is a trapezoid signal:
             thickness=0.5),
           Text(
             extent={{-73,95},{-16,80}},
-            lineColor={0,0,0},
             textString="acceleration"),
           Text(
             extent={{66,20},{88,8}},
-            lineColor={0,0,0},
             textString="time")}),
           Documentation(info="<html>
 <p>
-The goal is to move as <b>fast</b> as possible along a distance
-<b>deltaq</b>
-under given <b>kinematical constraints</b>. The distance can be a positional or
-angular range. In robotics such a movement is called <b>PTP</b> (Point-To-Point).
-This source block generates the <b>acceleration</b> qdd of this signal
+The goal is to move as <strong>fast</strong> as possible along a distance
+<strong>deltaq</strong>
+under given <strong>kinematical constraints</strong>. The distance can be a positional or
+angular range. In robotics such a movement is called <strong>PTP</strong> (Point-To-Point).
+This source block generates the <strong>acceleration</strong> qdd of this signal
 as output:
 </p>
 
@@ -1648,8 +1571,8 @@ as output:
 <p>
 After integrating the output two times, the position q is
 obtained. The signal is constructed in such a way that it is not possible
-to move faster, given the <b>maximally</b> allowed <b>velocity</b> qd_max and
-the <b>maximally</b> allowed <b>acceleration</b> qdd_max.
+to move faster, given the <strong>maximally</strong> allowed <strong>velocity</strong> qd_max and
+the <strong>maximally</strong> allowed <strong>acceleration</strong> qdd_max.
 </p>
 <p>
 If several distances are given (vector deltaq has more than 1 element),
@@ -1663,20 +1586,20 @@ that the end point is reached at the same time instant.
 <p>
 This element is useful to generate a reference signal for a controller
 which controls a drive train or in combination with model
-Modelica.Mechanics.Rotational.<b>Accelerate</b> to drive
+Modelica.Mechanics.Rotational.<strong>Accelerate</strong> to drive
 a flange according to a given acceleration.
 </p>
 
 </html>", revisions="<html>
-<p><b>Release Notes:</b></p>
+<p><strong>Release Notes:</strong></p>
 <ul>
-<li><i>June 27, 2001</i>
+<li><em>June 27, 2001</em>
        by Bernhard Bachmann.<br>
        Bug fixed that element is also correct if startTime is not zero.</li>
-<li><i>Nov. 3, 1999</i>
+<li><em>Nov. 3, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Vectorized and moved from Rotational to Blocks.Sources.</li>
-<li><i>June 29, 1999</i>
+<li><em>June 29, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        realized.</li>
 </ul>
@@ -1686,7 +1609,8 @@ a flange according to a given acceleration.
   block KinematicPTP2
     "Move as fast as possible from start to end position within given kinematic constraints with output signals q, qd=der(q), qdd=der(qd)"
 
-    parameter Real q_begin[:]={0} "Start position";
+    parameter Real q_begin[:]={0} "Start position"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/KinematicPTP2.png"));
     parameter Real q_end[:]={1} "End position";
     parameter Real qd_max[:](each final min=Modelica.Constants.small) = {1}
       "Maximum velocities der(q)";
@@ -1696,8 +1620,7 @@ a flange according to a given acceleration.
       "Time instant at which movement starts";
 
     extends Modelica.Blocks.Icons.Block;
-    final parameter Integer nout=max([size(q_begin, 1); size(q_end, 1); size(
-        qd_max, 1); size(qdd_max, 1)])
+    final parameter Integer nout=max([size(q_begin, 1); size(q_end, 1); size(qd_max, 1); size(qdd_max, 1)])
       "Number of output signals (= dimension of q, qd, qdd, moving)";
     output Modelica.SIunits.Time endTime "Time instant at which movement stops";
 
@@ -1825,7 +1748,7 @@ a flange according to a given acceleration.
     endTime = Tes;
 
     // report when axis is moving
-    motion_ref = time <= endTime;
+    motion_ref = time < endTime;
     for i in 1:nout loop
       moving[i] = if abs(q_begin[i] - q_end[i]) > eps then motion_ref else
         false;
@@ -1848,19 +1771,15 @@ a flange according to a given acceleration.
                 {5,-70},{5,0},{18,0}}),
           Text(
             extent={{34,96},{94,66}},
-            lineColor={0,0,0},
             textString="q"),
           Text(
             extent={{40,44},{96,14}},
-            lineColor={0,0,0},
             textString="qd"),
           Text(
             extent={{32,-18},{99,-44}},
-            lineColor={0,0,0},
             textString="qdd"),
           Text(
             extent={{-32,-74},{97,-96}},
-            lineColor={0,0,0},
             textString="moving")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1884,23 +1803,21 @@ a flange according to a given acceleration.
             thickness=0.5),
           Text(
             extent={{-72,96},{-15,81}},
-            lineColor={0,0,0},
             textString="acceleration"),
           Text(
             extent={{69,18},{91,6}},
-            lineColor={0,0,0},
             textString="time")}),
       Documentation(info="<html>
 <p>
-The goal is to move as <b>fast</b> as possible from start position <b>q_begin</b>
-to end position <b>q_end</b>
-under given <b>kinematical constraints</b>. The positions can be translational or
-rotational definitions (i.e., q_begin/q_end is given). In robotics such a movement is called <b>PTP</b> (Point-To-Point).
-This source block generates the <b>position</b> q(t), the
-<b>speed</b> qd(t) = der(q), and the <b>acceleration</b> qdd = der(qd)
+The goal is to move as <strong>fast</strong> as possible from start position <strong>q_begin</strong>
+to end position <strong>q_end</strong>
+under given <strong>kinematical constraints</strong>. The positions can be translational or
+rotational definitions (i.e., q_begin/q_end is given). In robotics such a movement is called <strong>PTP</strong> (Point-To-Point).
+This source block generates the <strong>position</strong> q(t), the
+<strong>speed</strong> qd(t) = der(q), and the <strong>acceleration</strong> qdd = der(qd)
 as output. The signals are constructed in such a way that it is not possible
-to move faster, given the <b>maximally</b> allowed <b>velocity</b> qd_max and
-the <b>maximally</b> allowed <b>acceleration</b> qdd_max:
+to move faster, given the <strong>maximally</strong> allowed <strong>velocity</strong> qd_max and
+the <strong>maximally</strong> allowed <strong>acceleration</strong> qdd_max:
 </p>
 
 <p>
@@ -1925,18 +1842,18 @@ a flange according to a given acceleration.
 
 </html>", revisions="<html>
 <ul>
-<li><i>March 24, 2007</i>
+<li><em>March 24, 2007</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Non-standard Modelica function \"constrain(..)\" replaced by standard
        Modelica implementation (via internal function position()).<br>
        New output signal \"moving\" added.</li>
-<li><i>June 27, 2001</i>
+<li><em>June 27, 2001</em>
        by Bernhard Bachmann.<br>
        Bug fixed that element is also correct if startTime is not zero.</li>
-<li><i>Nov. 3, 1999</i>
+<li><em>Nov. 3, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Vectorized and moved from Rotational to Blocks.Sources.</li>
-<li><i>June 29, 1999</i>
+<li><em>June 29, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        realized.</li>
 </ul>
@@ -1947,14 +1864,17 @@ a flange according to a given acceleration.
     "Generate a (possibly discontinuous) signal by linear interpolation in a table"
 
     parameter Real table[:, 2] = fill(0.0, 0, 2)
-      "Table matrix (time = first column; e.g., table=[0, 0; 1, 1; 2, 4])";
+      "Table matrix (time = first column; e.g., table=[0, 0; 1, 1; 2, 4])"
+      annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/TimeTable.png"));
     parameter Modelica.SIunits.Time timeScale(
       min=Modelica.Constants.eps)=1 "Time scale of first table column"
       annotation (Evaluate=true);
     extends Interfaces.SignalSource;
+    parameter Modelica.SIunits.Time shiftTime=startTime
+      "Shift time of first table column";
   protected
-    Real a "Interpolation coefficients a of actual interval (y=a*x+b)";
-    Real b "Interpolation coefficients b of actual interval (y=a*x+b)";
+    Real a "Interpolation coefficient a of actual interval (y=a*x+b)";
+    Real b "Interpolation coefficient b of actual interval (y=a*x+b)";
     Integer last(start=1) "Last used lower grid index";
     discrete SIunits.Time nextEvent(start=0, fixed=true) "Next event instant";
     discrete Real nextEventScaled(start=0, fixed=true)
@@ -1969,10 +1889,10 @@ a flange according to a given acceleration.
       input Real startTimeScaled "Scaled time-offset";
       input Real timeScaled "Actual scaled time instant";
       input Integer last "Last used lower grid index";
-      input Real TimeEps
-        "Relative epsilon to check for identical time instants";
-      output Real a "Interpolation coefficients a (y=a*x + b)";
-      output Real b "Interpolation coefficients b (y=a*x + b)";
+      input Real TimeEps "Relative epsilon to check for identical time instants";
+      input Real shiftTimeScaled "Time shift";
+      output Real a "Interpolation coefficient a (y=a*x + b)";
+      output Real b "Interpolation coefficient b (y=a*x + b)";
       output Real nextEventScaled "Next scaled event instant";
       output Integer next "New lower grid index";
     protected
@@ -1986,9 +1906,9 @@ a flange according to a given acceleration.
       next := last;
       nextEventScaled := timeScaled - TimeEps*abs(timeScaled);
       // in case there are no more time events
-      tp := timeScaled + TimeEps*abs(timeScaled) - startTimeScaled;
+      tp := timeScaled + TimeEps*abs(timeScaled);
 
-      if tp < 0.0 then
+      if tp < startTimeScaled then
         // First event not yet reached
         nextEventScaled := startTimeScaled;
         a := 0;
@@ -1998,7 +1918,7 @@ a flange according to a given acceleration.
         a := 0;
         b := offset + table[1, columns];
       else
-
+        tp := tp - shiftTimeScaled;
         // Find next time event instant. Note, that two consecutive time instants
         // in the table may be identical due to a discontinuous point.
         while next < nrow and tp >= table[next, 1] loop
@@ -2007,10 +1927,13 @@ a flange according to a given acceleration.
 
         // Define next time event, if last table entry not reached
         if next < nrow then
-          nextEventScaled := startTimeScaled + table[next, 1];
+          nextEventScaled := shiftTimeScaled + table[next, 1];
         end if;
 
         // Determine interpolation coefficients
+        if next == 1 then
+          next := 2;
+        end if;
         next0 := next - 1;
         dt := table[next, 1] - table[next0, 1];
         if dt <= TimeEps*abs(table[next, 1]) then
@@ -2022,11 +1945,13 @@ a flange according to a given acceleration.
           b := offset + table[next0, columns] - a*table[next0, 1];
         end if;
       end if;
-      // Take into account startTimeScaled "a*(time - startTime) + b"
-      b := b - a*startTimeScaled;
+      // Take into account shiftTimeScaled "a*(time - shiftTime) + b"
+      b := b - a*shiftTimeScaled;
     end getInterpolationCoefficients;
   algorithm
-    timeScaled := time/timeScale;
+    if noEvent(size(table, 1) > 1) then
+      assert(not (table[1, 1] > 0.0 or table[1, 1] < 0.0), "The first point in time has to be set to 0, but is table[1,1] = " + String(table[1, 1]));
+    end if;
     when {time >= pre(nextEvent),initial()} then
       (a,b,nextEventScaled,last) := getInterpolationCoefficients(
           table,
@@ -2034,10 +1959,13 @@ a flange according to a given acceleration.
           startTime/timeScale,
           timeScaled,
           last,
-          100*Modelica.Constants.eps);
+          100*Modelica.Constants.eps,
+          shiftTime/timeScale);
       nextEvent := nextEventScaled*timeScale;
     end when;
   equation
+    assert(size(table, 1) > 0, "No table values defined.");
+    timeScaled = time/timeScale;
     y = a*timeScaled + b;
     annotation (
       Icon(coordinateSystem(
@@ -2064,7 +1992,6 @@ a flange according to a given acceleration.
                 {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}}),
           Text(
             extent={{-150,-150},{150,-110}},
-            lineColor={0,0,0},
             textString="offset=%offset")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -2090,7 +2017,6 @@ a flange according to a given acceleration.
                 80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{30,90},{30,-31}}),
           Text(
             extent={{-70,-42},{-32,-54}},
-            lineColor={0,0,0},
             textString="offset"),
           Polygon(
             points={{-31,-30},{-33,-40},{-28,-40},{-31,-30}},
@@ -2106,24 +2032,19 @@ a flange according to a given acceleration.
           Line(points={{-20,-30},{-20,-70}}, color={95,95,95}),
           Text(
             extent={{-38,-73},{8,-83}},
-            lineColor={0,0,0},
             textString="startTime"),
           Line(points={{-20,-30},{-80,-30}}, color={95,95,95}),
           Text(
             extent={{-76,93},{-44,75}},
-            lineColor={0,0,0},
             textString="y"),
           Text(
             extent={{66,-78},{90,-88}},
-            lineColor={0,0,0},
             textString="time"),
           Text(
             extent={{-15,83},{24,68}},
-            lineColor={0,0,0},
             textString="time"),
           Text(
             extent={{33,83},{76,67}},
-            lineColor={0,0,0},
             textString="y")}),
           Documentation(info="<html>
 <p>
@@ -2134,6 +2055,8 @@ time points and the second column contains the data to be interpolated.
 The table interpolation has the following properties:
 </p>
 <ul>
+<li>The interpolation interval is found by a linear search where the interval used in the
+    last call is used as start interval.</li>
 <li>The time points need to be <strong>monotonically increasing</strong>.</li>
 <li><strong>Discontinuities</strong> are allowed, by providing the same
     time point twice in the table.</li>
@@ -2142,11 +2065,15 @@ The table interpolation has the following properties:
     table.</li>
 <li>If the table has only <strong>one row</strong>, no interpolation is performed and
     the function value is just returned independently of the actual time instant.</li>
-<li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined
-    by the table can be shifted both in time and in the ordinate value.</li>
-<li>The first point in time <strong>always</strong> has to be set to <strong>0</strong>, e.g.,
+<li>Via parameters <strong>shiftTime</strong> and <strong>offset</strong> the curve defined
+    by the table can be shifted both in time and in the ordinate value.
+    The time instants stored in the table are therefore <strong>relative</strong>
+    to <strong>shiftTime</strong>.</li>
+<li>If time &lt; startTime, no interpolation is performed and the offset
+    is used as ordinate value for the output.</li>
+<li>If the table has more than one row, the first point in time <strong>always</strong> has to be set to <strong>0</strong>, e.g.,
     <strong>table=[1,1;2,2]</strong> is <strong>illegal</strong>. If you want to
-    shift the time table in time use the <strong>startTime</strong> parameter instead.</li>
+    shift the time table in time use the <strong>shiftTime</strong> parameter instead.</li>
 <li>The table is implemented in a numerically sound way by
     generating <strong>time events</strong> at interval boundaries.
     This generates continuously differentiable values for the integrator.</li>
@@ -2198,8 +2125,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
 
   block CombiTimeTable
     "Table look-up with respect to time and linear/periodic extrapolation methods (data from matrix/file)"
-    extends Modelica.Blocks.Interfaces.MO(final nout=max([size(columns, 1);
-          size(offset, 1)]));
+    import Modelica.Blocks.Tables.Internal;
+    extends Modelica.Blocks.Interfaces.MO(final nout=max([size(columns, 1); size(offset, 1)]));
     parameter Boolean tableOnFile=false
       "= true, if table is defined on file or in function usertab"
       annotation (Dialog(group="Table data definition"));
@@ -2220,7 +2147,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       annotation (Dialog(group="Table data definition",enable=tableOnFile));
     parameter Integer columns[:]=2:size(table, 2)
       "Columns of table to be interpolated"
-      annotation (Dialog(group="Table data interpretation"));
+      annotation (Dialog(group="Table data interpretation",
+      groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/CombiTimeTable.png"));
     parameter Modelica.Blocks.Types.Smoothness smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments
       "Smoothness of table interpolation"
       annotation (Dialog(group="Table data interpretation"));
@@ -2235,18 +2163,27 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     parameter Modelica.SIunits.Time startTime=0
       "Output = offset for time < startTime"
       annotation (Dialog(group="Table data interpretation"));
-    final parameter Modelica.SIunits.Time t_min(fixed=false)
+    parameter Modelica.SIunits.Time shiftTime=startTime
+      "Shift time of first table column"
+      annotation (Dialog(group="Table data interpretation"));
+    parameter Modelica.Blocks.Types.TimeEvents timeEvents=Modelica.Blocks.Types.TimeEvents.Always
+      "Time event handling of table interpolation"
+      annotation (Dialog(group="Table data interpretation", enable=smoothness == Modelica.Blocks.Types.Smoothness.LinearSegments));
+    parameter Boolean verboseExtrapolation=false
+      "= true, if warning messages are to be printed if time is outside the table definition range"
+      annotation (Dialog(group="Table data interpretation", enable=extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
+    final parameter Modelica.SIunits.Time t_min=t_minScaled*timeScale
       "Minimum abscissa value defined in table";
-    final parameter Modelica.SIunits.Time t_max(fixed=false)
+    final parameter Modelica.SIunits.Time t_max=t_maxScaled*timeScale
       "Maximum abscissa value defined in table";
-    final parameter Real t_minScaled(fixed=false)
+    final parameter Real t_minScaled=Internal.getTimeTableTmin(tableID)
       "Minimum (scaled) abscissa value defined in table";
-    final parameter Real t_maxScaled(fixed=false)
+    final parameter Real t_maxScaled=Internal.getTimeTableTmax(tableID)
       "Maximum (scaled) abscissa value defined in table";
   protected
     final parameter Real p_offset[nout]=(if size(offset, 1) == 1 then ones(nout)*offset[1] else offset)
       "Offsets of output signals";
-    Modelica.Blocks.Types.ExternalCombiTimeTable tableID=
+    parameter Modelica.Blocks.Types.ExternalCombiTimeTable tableID=
         Modelica.Blocks.Types.ExternalCombiTimeTable(
           if tableOnFile then tableName else "NoName",
           if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
@@ -2254,123 +2191,17 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
           startTime/timeScale,
           columns,
           smoothness,
-          extrapolation) "External table object";
+          extrapolation,
+          shiftTime/timeScale,
+          if smoothness == Modelica.Blocks.Types.Smoothness.LinearSegments then timeEvents elseif smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then Modelica.Blocks.Types.TimeEvents.Always else Modelica.Blocks.Types.TimeEvents.NoTimeEvents,
+          if tableOnFile then verboseRead else false) "External table object";
     discrete Modelica.SIunits.Time nextTimeEvent(start=0, fixed=true)
       "Next time event instant";
     discrete Real nextTimeEventScaled(start=0, fixed=true)
       "Next scaled time event instant";
-    parameter Real tableOnFileRead(fixed=false)
-      "= 1, if table was successfully read from file";
-    constant Real DBL_MAX = 1.7976931348623158e+308;
     Real timeScaled "Scaled time";
-
-    function readTableData "Read table data from ASCII text or MATLAB MAT-file"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
-      input Boolean forceRead = false
-        "= true: Force reading of table data; = false: Only read, if not yet read.";
-      output Real readSuccess "Table read success";
-      input Boolean verboseRead
-        "= true: Print info message; = false: No info message";
-      external"C" readSuccess = ModelicaStandardTables_CombiTimeTable_read(tableID, forceRead, verboseRead)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-      annotation(__ModelicaAssociation_Impure=true);
-    end readTableData;
-
-    function getTableValue
-      "Interpolate 1-dim. table where first column is time"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
-      input Integer icol;
-      input Real timeIn;
-      discrete input Real nextTimeEvent;
-      discrete input Real pre_nextTimeEvent;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real y;
-      external"C" y = ModelicaStandardTables_CombiTimeTable_getValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-      annotation (derivative(
-          noDerivative=nextTimeEvent,
-          noDerivative=pre_nextTimeEvent,
-          noDerivative=tableAvailable) = getDerTableValue);
-    end getTableValue;
-
-    function getTableValueNoDer
-      "Interpolate 1-dim. table where first column is time (but do not provide a derivative function)"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
-      input Integer icol;
-      input Real timeIn;
-      discrete input Real nextTimeEvent;
-      discrete input Real pre_nextTimeEvent;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real y;
-      external"C" y = ModelicaStandardTables_CombiTimeTable_getValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getTableValueNoDer;
-
-    function getDerTableValue
-      "Derivative of interpolated 1-dim. table where first column is time"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
-      input Integer icol;
-      input Real timeIn;
-      discrete input Real nextTimeEvent;
-      discrete input Real pre_nextTimeEvent;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      input Real der_timeIn;
-      output Real der_y;
-      external"C" der_y = ModelicaStandardTables_CombiTimeTable_getDerValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent, der_timeIn)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getDerTableValue;
-
-    function getTableTimeTmin
-      "Return minimum abscissa value of 1-dim. table where first column is time"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real timeMin "Minimum abscissa value in table";
-      external"C" timeMin = ModelicaStandardTables_CombiTimeTable_minimumTime(tableID)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getTableTimeTmin;
-
-    function getTableTimeTmax
-      "Return maximum abscissa value of 1-dim. table where first column is time"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real timeMax "Maximum abscissa value in table";
-      external"C" timeMax = ModelicaStandardTables_CombiTimeTable_maximumTime(tableID)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getTableTimeTmax;
-
-    function getNextTimeEvent
-      "Return next time event value of 1-dim. table where first column is time"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
-      input Real timeIn;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real nextTimeEvent "Next time event in table";
-      external"C" nextTimeEvent = ModelicaStandardTables_CombiTimeTable_nextTimeEvent(tableID, timeIn)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getNextTimeEvent;
-
-  initial algorithm
-    if tableOnFile then
-      tableOnFileRead := readTableData(tableID, false, verboseRead);
-    else
-      tableOnFileRead := 1.;
-    end if;
-    t_minScaled := getTableTimeTmin(tableID, tableOnFileRead);
-    t_maxScaled := getTableTimeTmax(tableID, tableOnFileRead);
-    t_min := t_minScaled*timeScale;
-    t_max := t_maxScaled*timeScale;
+    function readTableData = // No longer used, but kept for backward compatibility
+      Modelica.Blocks.Tables.Internal.readTimeTableData "Read table data from text or MATLAB MAT-file";
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -2379,22 +2210,32 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       assert(size(table, 1) > 0 and size(table, 2) > 0,
         "tableOnFile = false and parameter table is an empty matrix");
     end if;
+
+    if verboseExtrapolation and (
+      extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or
+      extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint) then
+      assert(noEvent(time >= t_min), "
+Extrapolation warning: Time (=" + String(time) + ") must be greater or equal
+than the minimum abscissa value t_min (=" + String(t_min) + ") defined in the table.
+", level=AssertionLevel.warning);
+      assert(noEvent(time <= t_max), "
+Extrapolation warning: Time (=" + String(time) + ") must be less or equal
+than the maximum abscissa value t_max (=" + String(t_max) + ") defined in the table.
+", level=AssertionLevel.warning);
+    end if;
+
     timeScaled = time/timeScale;
-    when {time >= pre(nextTimeEvent),initial()} then
-      nextTimeEventScaled = getNextTimeEvent(tableID, timeScaled, tableOnFileRead);
-      if (nextTimeEventScaled < DBL_MAX) then
-        nextTimeEvent = nextTimeEventScaled*timeScale;
-      else
-        nextTimeEvent = DBL_MAX;
-      end if;
+    when {time >= pre(nextTimeEvent), initial()} then
+      nextTimeEventScaled = Internal.getNextTimeEvent(tableID, timeScaled);
+      nextTimeEvent = if nextTimeEventScaled < Modelica.Constants.inf then nextTimeEventScaled*timeScale else Modelica.Constants.inf;
     end when;
     if smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then
       for i in 1:nout loop
-        y[i] = p_offset[i] + getTableValueNoDer(tableID, i, timeScaled, nextTimeEventScaled, pre(nextTimeEventScaled), tableOnFileRead);
+        y[i] = p_offset[i] + Internal.getTimeTableValueNoDer(tableID, i, timeScaled, nextTimeEventScaled, pre(nextTimeEventScaled));
       end for;
     else
       for i in 1:nout loop
-        y[i] = p_offset[i] + getTableValue(tableID, i, timeScaled, nextTimeEventScaled, pre(nextTimeEventScaled), tableOnFileRead);
+        y[i] = p_offset[i] + Internal.getTimeTableValue(tableID, i, timeScaled, nextTimeEventScaled, pre(nextTimeEventScaled));
       end for;
     end if;
     annotation (
@@ -2421,6 +2262,8 @@ by interpolation of column 4 of the table matrix.
 The table interpolation has the following properties:
 </p>
 <ul>
+<li>The interpolation interval is found by a binary search where the interval used in the
+    last call is used as start interval.</li>
 <li>The time points need to be <strong>strictly increasing</strong> for cubic Hermite
     spline interpolation, otherwise <strong>monotonically increasing</strong>.</li>
 <li><strong>Discontinuities</strong> are allowed for (constant or) linear interpolation,
@@ -2453,24 +2296,24 @@ The table interpolation has the following properties:
 </pre></li>
 <li>If the table has only <strong>one row</strong>, no interpolation is performed and
     the table values of this row are just returned.</li>
-<li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined
+<li>Via parameters <strong>shiftTime</strong> and <strong>offset</strong> the curve defined
     by the table can be shifted both in time and in the ordinate value.
     The time instants stored in the table are therefore <strong>relative</strong>
-    to <strong>startTime</strong>.
-    If time &lt; startTime, no interpolation is performed and the offset
+    to <strong>shiftTime</strong>.</li>
+<li>If time &lt; startTime, no interpolation is performed and the offset
     is used as ordinate value for all outputs.</li>
-<li>The table is implemented in a numerically sound way by <strong>always</strong>
+<li>The table is implemented in a numerically sound way by
     generating <strong>time events</strong> at interval boundaries, in case of
-    interpolation by constant or linear segments.
+    interpolation by linear segments.
     This generates continuously differentiable values for the integrator.
-    (In package Modelica&nbsp;v3.2 and earlier, time events had always been generated
-    at interval boundaries if smoothness was LinearSegments, which means the blocks
-    <a href=\"modelica://Modelica.Blocks.Sources.TimeTable\">TimeTable</a> and
-    CombiTimetable behaved identically. In contrast, in packages Modelica&nbsp;v3.2.1
-    and&nbsp;v3.2.2 time events were only generated for replicated time points,
-    which could lead to unexpected simulation results. This behaviour was later
-    reverted again to match the previous behaviour of Modelica&nbsp;v3.2 and earlier.)
-    </li>
+    Via parameter <strong>timeEvents</strong> it is defined how the time events are generated:
+<pre>
+  timeEvents = 1: Always generate time events at interval boundaries
+             = 2: Generate time events at discontinuities (defined by duplicated sample points)
+             = 3: No time events at interval boundaries
+</pre>
+    For interpolation by constant segments time events are always generated at interval boundaries.
+    For smooth interpolation by cubic Hermite splines no time events are generated at interval boundaries.</li>
 <li>Via parameter <strong>timeScale</strong> the first column of the table array can
     be scaled, e.g., if the table array is given in hours (instead of seconds)
     <strong>timeScale</strong> shall be set to 3600.</li>
@@ -2494,7 +2337,7 @@ Example:
             2, 4;
             3, 9;
             4, 16];
-   extrapolation = 2 (default)
+   extrapolation = 2 (default), timeEvents = 2
 If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the output y =  2.5,
     e.g., time = 2.0, the output y =  4.0,
@@ -2511,8 +2354,8 @@ The table matrix can be defined in the following ways:
    fileName  is \"NoName\" or has only blanks.
 </pre></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
-    \"tableName\". Both ASCII and MAT-file format is possible.
-    (The ASCII format is described below).
+    \"tableName\". Both text and MATLAB MAT-file format is possible.
+    (The text format is described below).
     The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
@@ -2537,7 +2380,7 @@ When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of t
 source code are removed by the C-preprocessor, such that no access to files takes place.
 </p>
 <p>
-If tables are read from an ASCII-file, the file needs to have the
+If tables are read from a text file, the file needs to have the
 following structure (\"-----\" is not part of the file content):
 </p>
 <pre>
@@ -2572,6 +2415,7 @@ Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
 Number separators are spaces, tab (\\t), comma (,), or semicolon (;).
 Several matrices may be defined one after another. Line comments start
 with the hash symbol (#) and can appear everywhere.
+Text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the text file is ignored.
 Other characters, like trailing non comments, are not allowed in the file.
 </p>
 <p>
@@ -2634,7 +2478,6 @@ MATLAB is a registered trademark of The MathWorks, Inc.
                 80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{20,90},{20,-30}}),
           Text(
             extent={{-71,-42},{-32,-54}},
-            lineColor={0,0,0},
             textString="offset"),
           Polygon(
             points={{-31,-30},{-33,-40},{-28,-40},{-31,-30}},
@@ -2650,24 +2493,19 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           Line(points={{-20,-30},{-20,-70}}, color={95,95,95}),
           Text(
             extent={{-42,-74},{6,-84}},
-            lineColor={0,0,0},
             textString="startTime"),
           Line(points={{-20,-30},{-80,-30}}, color={95,95,95}),
           Text(
             extent={{-73,93},{-44,74}},
-            lineColor={0,0,0},
             textString="y"),
           Text(
             extent={{66,-81},{92,-92}},
-            lineColor={0,0,0},
             textString="time"),
           Text(
             extent={{-19,83},{20,68}},
-            lineColor={0,0,0},
             textString="time"),
           Text(
             extent={{21,82},{50,68}},
-            lineColor={0,0,0},
             textString="y[1]"),
           Line(points={{50,90},{50,-30}}),
           Line(points={{80,0},{100,0}}, color={0,0,255}),
@@ -2677,12 +2515,12 @@ MATLAB is a registered trademark of The MathWorks, Inc.
             lineColor={0,0,255}),
           Text(
             extent={{51,82},{80,68}},
-            lineColor={0,0,0},
             textString="y[2]")}));
   end CombiTimeTable;
 
   block BooleanConstant "Generate constant signal of type Boolean"
-    parameter Boolean k=true "Constant output value";
+    parameter Boolean k=true "Constant output value"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/BooleanConstant.png"));
     extends Interfaces.partialBooleanSource;
 
   equation
@@ -2693,7 +2531,6 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           extent={{-100,-100},{100,100}}), graphics={Line(points={{-80,0},{80,0}}),
             Text(
             extent={{-150,-140},{150,-110}},
-            lineColor={0,0,0},
             textString="%k")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -2704,15 +2541,12 @@ MATLAB is a registered trademark of The MathWorks, Inc.
             thickness=0.5),
           Text(
             extent={{-69,20},{-49,0}},
-            lineColor={0,0,0},
             textString="k"),
           Text(
             extent={{-96,6},{-76,-4}},
-            lineColor={0,0,0},
             textString="true"),
           Text(
             extent={{-98,-58},{-72,-68}},
-            lineColor={0,0,0},
             textString="false")}),
         Documentation(info="<html>
 <p>
@@ -2727,7 +2561,8 @@ The Boolean output y is a constant signal:
   end BooleanConstant;
 
   block BooleanStep "Generate step signal of type Boolean"
-    parameter Modelica.SIunits.Time startTime=0 "Time instant of step start";
+    parameter Modelica.SIunits.Time startTime=0 "Time instant of step start"
+     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/BooleanStep.png"));
     parameter Boolean startValue=false "Output before startTime";
 
     extends Interfaces.partialBooleanSource;
@@ -2744,7 +2579,6 @@ The Boolean output y is a constant signal:
             points={{-80,50},{0,50},{0,-70},{68,-70}}),
           Text(
             extent={{-150,-140},{150,-110}},
-            lineColor={0,0,0},
             textString="%startTime")}),
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}), graphics={Line(
@@ -2752,17 +2586,14 @@ The Boolean output y is a constant signal:
               color={0,0,255},
               thickness=0.5),Text(
               extent={{-15,-74},{20,-82}},
-              lineColor={0,0,0},
               textString="startTime"),Polygon(
               points={{2,50},{-80,50},{2,50}},
               lineColor={95,95,95},
               fillColor={95,95,95},
               fillPattern=FillPattern.Solid),Text(
               extent={{-66,62},{-22,48}},
-              lineColor={0,0,0},
               textString="not startValue"),Text(
               extent={{-68,-58},{-36,-72}},
-              lineColor={0,0,0},
               textString="startValue")}),
       Documentation(info="<html>
 <p>
@@ -2780,7 +2611,8 @@ The Boolean output y is a step signal:
 
     parameter Real width(
       final min=Modelica.Constants.small,
-      final max=100) = 50 "Width of pulse in % of period";
+      final max=100) = 50 "Width of pulse in % of period"
+      annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/BooleanPulse.png"));
     parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small,
         start=1) "Time for one period";
     parameter Modelica.SIunits.Time startTime=0 "Time instant of first pulse";
@@ -2803,7 +2635,6 @@ The Boolean output y is a step signal:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={Text(
             extent={{-150,-140},{150,-110}},
-            lineColor={0,0,0},
             textString="%period"), Line(points={{-80,-70},{-40,-70},{-40,44},{0,
                 44},{0,-70},{40,-70},{40,44},{79,44}})}),
       Diagram(coordinateSystem(
@@ -2811,7 +2642,6 @@ The Boolean output y is a step signal:
           extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-60,-74},{-19,-82}},
-            lineColor={0,0,0},
             textString="startTime"),
           Line(
             points={{-78,-70},{-40,-70},{-40,20},{20,20},{20,-70},{50,-70},{50,
@@ -2825,11 +2655,9 @@ The Boolean output y is a step signal:
           Line(points={{-40,35},{20,35}}, color={95,95,95}),
           Text(
             extent={{-30,65},{16,55}},
-            lineColor={0,0,0},
             textString="period"),
           Text(
             extent={{-33,47},{14,37}},
-            lineColor={0,0,0},
             textString="width"),
           Line(points={{-70,20},{-41,20}}, color={95,95,95}),
           Polygon(
@@ -2854,11 +2682,9 @@ The Boolean output y is a step signal:
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-95,26},{-66,17}},
-            lineColor={0,0,0},
             textString="true"),
           Text(
             extent={{-96,-60},{-75,-69}},
-            lineColor={0,0,0},
             textString="false")}),
         Documentation(info="<html>
 <p>
@@ -2874,7 +2700,8 @@ The Boolean output y is a pulse signal:
 
   block SampleTrigger "Generate sample trigger signal"
     parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small,
-        start=0.01) "Sample period";
+        start=0.01) "Sample period"
+      annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/SampleTrigger.png"));
     parameter Modelica.SIunits.Time startTime=0
       "Time instant of first sample trigger";
     extends Interfaces.partialBooleanSource;
@@ -2891,21 +2718,18 @@ The Boolean output y is a pulse signal:
           Line(points={{60,-70},{60,70}}),
           Text(
             extent={{-150,-140},{150,-110}},
-            lineColor={0,0,0},
             textString="%period")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-51,-72},{-11,-81}},
-            lineColor={0,0,0},
             textString="startTime"),
           Line(points={{-30,47},{-30,19}}, color={95,95,95}),
           Line(points={{0,47},{0,18}}, color={95,95,95}),
           Line(points={{-30,41},{0,41}}, color={95,95,95}),
           Text(
             extent={{-37,61},{9,49}},
-            lineColor={0,0,0},
             textString="period"),
           Line(points={{-73,19},{-30,19}}, color={95,95,95}),
           Polygon(
@@ -2920,11 +2744,9 @@ The Boolean output y is a pulse signal:
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-91,23},{-71,13}},
-            lineColor={0,0,0},
             textString="true"),
           Text(
             extent={{-90,-59},{-70,-68}},
-            lineColor={0,0,0},
             textString="false"),
           Line(
             points={{0,-70},{0,19}},
@@ -2944,9 +2766,9 @@ The Boolean output y is a pulse signal:
             thickness=0.5)}),
         Documentation(info="<html>
 <p>
-The Boolean output y is a trigger signal where the output y is only <b>true</b>
-at sample times (defined by parameter <b>period</b>) and is otherwise
-<b>false</b>.
+The Boolean output y is a trigger signal where the output y is only <strong>true</strong>
+at sample times (defined by parameter <strong>period</strong>) and is otherwise
+<strong>false</strong>.
 </p>
 
 <p>
@@ -2959,107 +2781,103 @@ at sample times (defined by parameter <b>period</b>) and is otherwise
   block BooleanTable
     "Generate a Boolean output signal based on a vector of time instants"
 
-    parameter Boolean startValue=false
-      "Start value of y. At time = table[1], y changes to 'not startValue'";
     parameter Modelica.SIunits.Time table[:]={0,1}
-      "Vector of time points. At every time point, the output y gets its opposite value (e.g., table={0,1})";
-    extends Interfaces.partialBooleanSource;
+      "Vector of time points. At every time point, the output y gets its opposite value (e.g., table={0,1})" annotation(Dialog(group="Table data definition"));
+    parameter Boolean startValue=false
+      "Start value of y. At time = table[1], y changes to 'not startValue'" annotation(Dialog(group="Table data interpretation",
+      groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/BooleanTable.png"));
+    parameter Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint
+      "Extrapolation of data outside the definition range" annotation(Dialog(group="Table data interpretation"));
+    parameter Modelica.SIunits.Time startTime=-Modelica.Constants.inf
+      "Output = false for time < startTime" annotation(Dialog(group="Table data interpretation"));
+    parameter Modelica.SIunits.Time shiftTime=0
+      "Shift time of table" annotation(Dialog(group="Table data interpretation"));
 
-  protected
-    function getFirstIndex "Get first index of table and check table"
-      extends Modelica.Icons.Function;
-      input Real table[:] "Vector of time instants";
-      input Modelica.SIunits.Time simulationStartTime "Simulation start time";
-      input Boolean startValue "Value of y for time < table[1]";
-      output Integer index "First index to be used";
-      output Modelica.SIunits.Time nextTime "Time instant of first event";
-      output Boolean y "Value of y at simulationStartTime";
+    extends Interfaces.partialBooleanSO;
+
+    CombiTimeTable combiTimeTable(
+      final table=if n > 0 then if startValue then [table[1], 1.0; table, {mod(i + 1, 2.0) for i in 1:n}] else [table[1], 0.0; table, {mod(i, 2.0) for i in 1:n}] else if startValue then [0.0, 1.0] else [0.0, 0.0],
+      final smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
+      final columns={2},
+      final extrapolation=extrapolation,
+      final startTime=startTime,
+      final shiftTime=shiftTime) annotation(Placement(transformation(extent={{-30,-10},{-10,10}})));
+    Modelica.Blocks.Math.RealToBoolean realToBoolean annotation(Placement(transformation(extent={{10,-10},{30,10}})));
+
     protected
-      Integer j;
-      Integer n=size(table, 1) "Number of table points";
-    algorithm
-      if size(table, 1) == 0 then
-        index := 0;
-        nextTime := Modelica.Constants.inf;
-        y := startValue;
-      elseif size(table, 1) == 1 then
-        index := 1;
-        if table[1] > simulationStartTime then
-          nextTime := table[1];
-          y := startValue;
-        else
-          nextTime := Modelica.Constants.inf;
-          y := not startValue;
+      function isValidTable "Check if table is valid"
+        extends Modelica.Icons.Function;
+        input Real table[:] "Vector of time instants";
+      protected
+        Integer n=size(table, 1) "Number of table points";
+      algorithm
+        if n > 0 then
+          // Check whether time values are strict monotonically increasing
+          for i in 2:n loop
+            assert(table[i] > table[i-1],
+              "Time values of table not strict monotonically increasing: table["
+               + String(i - 1) + "] = " + String(table[i - 1]) + ", table[" +
+              String(i) + "] = " + String(table[i]));
+          end for;
         end if;
-      else
-        // Check whether time values are strict monotonically increasing
-        for i in 2:n loop
-          assert(table[i] > table[i-1],
-            "Time values of table not strict monotonically increasing: table["
-             + String(i - 1) + "] = " + String(table[i - 1]) + ", table[" +
-            String(i) + "] = " + String(table[i]));
-        end for;
+      end isValidTable;
 
-        // Determine first index in table
-        j := 1;
-        y := startValue;
-        while j <= n and table[j] <= simulationStartTime loop
-          y := not y;
-          j := j + 1;
-        end while;
-
-        if j > n then
-          nextTime := Modelica.Constants.inf;
-        else
-          nextTime := table[j];
-        end if;
-
-        index := j;
-      end if;
-    end getFirstIndex;
-
-    parameter Integer n=size(table, 1) "Number of table points";
-    Modelica.SIunits.Time nextTime;
-    Integer index "Index of actual table entry";
-  initial algorithm
-    (index,nextTime,y) := getFirstIndex(table,time,startValue);
-  algorithm
-    when time >= pre(nextTime) and n > 0 then
-      if index < n then
-        index := index + 1;
-        nextTime := table[index];
-        y := not y;
-      elseif index == n then
-        index := index + 1;
-        y := not y;
-      end if;
-    end when;
+      parameter Integer n=size(table, 1) "Number of table points";
+    initial algorithm
+      isValidTable(table);
+    equation
+      assert(extrapolation <> Modelica.Blocks.Types.Extrapolation.LastTwoPoints, "Unsuitable extrapolation setting.");
+      connect(combiTimeTable.y[1], realToBoolean.u) annotation(Line(points={{-9,0},{8,0}}, color={0,0,127}));
+      connect(realToBoolean.y, y) annotation(Line(points={{31,0},{110,0},{110,0}}, color={255,127,0}));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={Rectangle(
+              100}}), graphics={Polygon(
+            points={{-80,88},{-88,66},{-72,66},{-80,88}},
+            lineColor={255,0,255},
+            fillColor={255,0,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-80,66},{-80,-82}}, color={255,0,255}),
+          Line(points={{-90,-70},{72,-70}}, color={255,0,255}),
+          Polygon(
+            points={{90,-70},{68,-62},{68,-78},{90,-70}},
+            lineColor={255,0,255},
+            fillColor={255,0,255},
+            fillPattern=FillPattern.Solid),
+          Rectangle(
             extent={{-18,70},{32,-50}},
             lineColor={255,255,255},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid), Line(points={{-18,-50},{-18,70},{32,
                 70},{32,-50},{-18,-50},{-18,-20},{32,-20},{32,10},{-18,10},{-18,
                 40},{32,40},{32,70},{32,70},{32,-51}})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}),graphics={Rectangle(
-              extent={{-34,66},{16,-54}},
-              lineColor={255,255,255},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),Line(points={{-34,-54},{-34,66},{
-            16,66},{16,-54},{-34,-54},{-34,-24},{16,-24},{16,6},{-34,6},{-34,36},
-            {16,36},{16,66},{16,66},{16,-55}}),Text(
-              extent={{-29,59},{10,44}},
-              lineColor={0,0,0},
-              textString="time")}),
       Documentation(info="<html>
 <p>
-The Boolean output y is a signal defined by parameter vector <b>table</b>.
-In the vector time points are stored. At every time point, the output y
-changes its value to the negated value of the previous one.
+The Boolean output y is a signal defined by parameter vector <strong>table</strong>.
+In the vector time points are stored.
+The table interpolation has the following properties:
 </p>
+
+<ul>
+<li>At every time point, the output y
+    changes its value to the negated value of the previous one.</li>
+<li>Values <strong>outside</strong> of the table range, are computed by
+    extrapolation according to the setting of parameter <strong>extrapolation</strong>:
+<pre>
+  extrapolation = 1: Hold the <strong>startValue</strong> or last value of the table,
+                     if outside of the table scope.
+                = 2: Extrapolate by using the derivative at the first/last table
+                     points if outside of the table scope.
+                     (This setting is not suitable and triggers an assert.)
+                = 3: Periodically repeat the table data (periodical function).
+                = 4: No extrapolation, i.e. extrapolation triggers an error
+</pre></li>
+<li>Via parameter <strong>shiftTime</strong> the curve defined by the table can be shifted
+    in time.
+    The time instants stored in the table are therefore <strong>relative</strong>
+    to <strong>shiftTime</strong>.</li>
+<li>If time &lt; startTime, no interpolation is performed and <strong>false</strong>
+    is used as ordinate value for the output.</li>
+</ul>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/BooleanTable.png\"
@@ -3071,21 +2889,16 @@ The precise semantics is:
 </p>
 
 <pre>
-  <b>if</b> size(table,1) == 0 <b>then</b>
+  <strong>if</strong> size(table,1) == 0 <strong>then</strong>
      y = startValue;
-  <b>else</b>
+  <strong>else</strong>
      //            time &lt; table[1]: y = startValue
      // table[1] &le; time &lt; table[2]: y = not startValue
      // table[2] &le; time &lt; table[3]: y = startValue
      // table[3] &le; time &lt; table[4]: y = not startValue
      // ...
-  <b>end if</b>;
+  <strong>end if</strong>;
 </pre>
-<p>
-Note, the result of this block depends only on time, but not on the simulation start time
-(changing the simulation start time, will result exactly in the same output y at the same
-time instant ti);
-</p>
 </html>"));
   end BooleanTable;
 
@@ -3126,8 +2939,7 @@ time instant ti);
                  else {192,192,192}),
             fillPattern=DynamicSelect(FillPattern.Solid, if on > 0.5 then
                 FillPattern.Solid else FillPattern.Solid),
-            lineColor={128,128,128},
-            lineThickness=5.0), Text(
+            lineColor={128,128,128}), Text(
             extent={{-300,110},{300,175}},
             lineColor={0,0,255},
             textString="%name")}), Documentation(info="<html>
@@ -3187,7 +2999,6 @@ This example is also available in
           Line(points={{-80,0},{80,0}}),
           Text(
             extent={{-150,-150},{150,-110}},
-            lineColor={0,0,0},
             textString="k=%k")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Polygon(
@@ -3205,13 +3016,10 @@ This example is also available in
               fillColor={95,95,95},
               fillPattern=FillPattern.Solid),Text(
               extent={{-81,92},{-38,74}},
-              lineColor={0,0,0},
               textString="y"),Text(
               extent={{66,-82},{94,-94}},
-              lineColor={0,0,0},
               textString="time"),Text(
               extent={{-101,8},{-81,-12}},
-              lineColor={0,0,0},
               textString="k")}),
       Documentation(info="<html>
 <p>
@@ -3248,7 +3056,6 @@ The Integer output y is a constant signal:
           Line(points={{-80,-70},{0,-70},{0,50},{80,50}}),
           Text(
             extent={{-150,-150},{150,-110}},
-            lineColor={0,0,0},
             textString="startTime=%startTime")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Polygon(
@@ -3266,16 +3073,13 @@ The Integer output y is a constant signal:
               fillColor={95,95,95},
               fillPattern=FillPattern.Solid),Text(
               extent={{66,-78},{92,-88}},
-              lineColor={0,0,0},
               textString="time"),Text(
               extent={{-21,-76},{26,-88}},
-              lineColor={0,0,0},
-              textString="startTime"),Line(points={{0,-17},{0,-71}}, color={95,
-            95,95}),Text(
+              textString="startTime"),Line(points={{0,-17},{0,-71}}, color={95,95,95}),
+            Text(
               extent={{-60,-36},{-12,-48}},
-              lineColor={0,0,0},
-              textString="offset"),Line(points={{-13,50},{-13,-17}}, color={95,
-            95,95}),Polygon(
+              textString="offset"),Line(points={{-13,50},{-13,-17}}, color={95,95,95}),
+            Polygon(
               points={{2,50},{-19,50},{2,50}},
               lineColor={95,95,95},
               fillColor={95,95,95},
@@ -3289,7 +3093,6 @@ The Integer output y is a constant signal:
               fillColor={95,95,95},
               fillPattern=FillPattern.Solid),Text(
               extent={{-58,22},{-12,10}},
-              lineColor={0,0,0},
               textString="height"),Polygon(
               points={{-13,-69},{-16,-56},{-10,-56},{-13,-69},{-13,-69}},
               lineColor={95,95,95},
@@ -3301,7 +3104,6 @@ The Integer output y is a constant signal:
               fillColor={95,95,95},
               fillPattern=FillPattern.Solid),Text(
               extent={{-78,96},{-44,80}},
-              lineColor={0,0,0},
               textString="y")}),
       Documentation(info="<html>
 <p>
@@ -3318,84 +3120,63 @@ The Integer output y is a step signal:
   block IntegerTable
     "Generate an Integer output signal based on a table matrix with [time, yi] values"
 
-    parameter Real table[:, 2]=fill(
-          0,
-          0,
-          2) "Table matrix (first column: time; second column: y)";
+    parameter Real table[:, 2]=fill(0,0,2) "Table matrix (first column: time; second column: y)" annotation(Dialog(group="Table data definition"));
+    parameter Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint
+      "Extrapolation of data outside the definition range" annotation(Dialog(group="Table data interpretation"));
+    parameter Modelica.SIunits.Time startTime=-Modelica.Constants.inf
+      "Output = 0 for time < startTime" annotation(Dialog(group="Table data interpretation"));
+    parameter Modelica.SIunits.Time shiftTime=0
+      "Shift time of first table column" annotation(Dialog(group="Table data interpretation"));
 
     extends Interfaces.IntegerSO;
 
-  protected
-    function getFirstIndex "Get first index of table and check table"
-      extends Modelica.Icons.Function;
-      input Real table[:, 2] "Table matrix";
-      input Modelica.SIunits.Time simulationStartTime "Simulation start time";
-      output Integer index "First index to be used";
-      output Modelica.SIunits.Time nextTime "Time instant of first event";
-      output Integer y "Value of y at simulationStartTime";
+    CombiTimeTable combiTimeTable(
+      final table=table,
+      final smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
+      final columns={2},
+      final extrapolation=extrapolation,
+      final startTime=startTime,
+      final shiftTime=shiftTime) annotation(Placement(transformation(extent={{-30,-10},{-10,10}})));
+    Modelica.Blocks.Math.RealToInteger realToInteger annotation(Placement(transformation(extent={{10,-10},{30,10}})));
+
     protected
-      Modelica.SIunits.Time t_last;
-      Integer j;
-      Integer n=size(table, 1) "Number of table points";
-    algorithm
-      if size(table, 1) == 0 then
-        index := 0;
-        nextTime := simulationStartTime - 1;
-        y := 0;
-      else
-        // Check whether time values are strict monotonically increasing
-        t_last := table[1, 1];
-        for i in 2:n loop
-          assert(table[i, 1] > t_last,
-            "Time values of table not strict monotonically increasing: table["
-             + String(i - 1) + ",1] = " + String(table[i - 1, 1]) + "table[" +
-            String(i) + ",1] = " + String(table[i, 1]));
-        end for;
+      function isValidTable "Check if table is valid"
+        extends Modelica.Icons.Function;
+        input Real table[:, 2] "Table matrix";
+      protected
+        Modelica.SIunits.Time t_last;
+        Integer n=size(table, 1) "Number of table points";
+      algorithm
+        if n > 0 then
+          // Check whether time values are strict monotonically increasing
+          t_last := table[1, 1];
+          for i in 2:n loop
+            assert(table[i, 1] > t_last,
+              "Time values of table not strict monotonically increasing: table["
+               + String(i - 1) + ",1] = " + String(table[i - 1, 1]) + "table[" +
+              String(i) + ",1] = " + String(table[i, 1]));
+          end for;
 
-        // Check that all values in the second column are Integer values
-        for i in 1:n loop
-          assert(rem(table[i, 2], 1) == 0.0,
-            "Table value is not an Integer: table[" + String(i) + ",2] = " +
-            String(table[i, 2]));
-        end for;
-
-        // Determine index in table for "nextTime"
-        j := 1;
-        y := integer(table[1, 2]);
-        while j < n and table[j, 1] <= simulationStartTime loop
-          j := j + 1;
-        end while;
-
-        if j == 1 then
-          nextTime := table[1, 1];
-          y := integer(table[1, 2]);
-        elseif j == n and table[n, 1] <= simulationStartTime then
-          nextTime := simulationStartTime - 1;
-          y := integer(table[n, 2]);
-        else
-          nextTime := table[j, 1];
-          y := integer(table[j - 1, 2]);
+          // Check that all values in the second column are Integer values
+          for i in 1:n loop
+            assert(rem(table[i, 2], 1) == 0.0,
+              "Table value is not an Integer: table[" + String(i) + ",2] = " +
+              String(table[i, 2]));
+          end for;
         end if;
+      end isValidTable;
 
-        index := j;
-      end if;
-    end getFirstIndex;
-
-    parameter Integer n=size(table, 1) "Number of table points";
-    Modelica.SIunits.Time nextTime;
-    Integer index "Index of actual table entry";
-  initial algorithm
-    (index,nextTime,y) := getFirstIndex(table, time);
-  equation
-    assert(size(table, 1) > 0, "No table values defined.");
-    when time >= pre(nextTime) then
-      y = integer(table[pre(index), 2]);
-      index = pre(index) + 1;
-      nextTime = if index <= n then table[index, 1] else pre(nextTime) - 1;
-    end when;
+      parameter Integer n=size(table, 1) "Number of table points";
+    initial algorithm
+      isValidTable(table);
+    equation
+      assert(n > 0, "No table values defined.");
+      assert(extrapolation <> Modelica.Blocks.Types.Extrapolation.LastTwoPoints, "Unsuitable extrapolation setting.");
+      connect(combiTimeTable.y[1], realToInteger.u) annotation(Line(points={{-9,0},{8,0}}, color={0,0,127}));
+      connect(realToInteger.y, y) annotation(Line(points={{31,0},{110,0},{110,0}}, color={255,127,0}));
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+        graphics={
           Line(points={{-80,64},{-80,-84}}, color={192,192,192}),
           Polygon(
             points={{-80,86},{-88,64},{-72,64},{-80,86}},
@@ -3415,58 +3196,41 @@ The Integer output y is a step signal:
             fillPattern=FillPattern.Solid),
           Line(points={{-46,-52},{-46,68},{54,68},{54,-52},{-46,-52},{-46,-22},
                 {54,-22},{54,8},{-46,8},{-46,38},{54,38},{54,68},{4,68},{4,-53}})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}),graphics={Rectangle(
-              extent={{-40,60},{10,-60}},
-              lineColor={255,255,255},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),Line(points={{-40,-60},{-40,60},{
-            60,60},{60,-60},{-40,-60},{-40,-30},{60,-30},{60,0},{-40,0},{-40,30},
-            {60,30},{60,60},{10,60},{10,-61}}),Text(
-              extent={{-35,53},{4,38}},
-              lineColor={0,0,0},
-              textString="time"),Text(
-              extent={{13,53},{56,37}},
-              lineColor={0,0,0},
-              textString="y"),Text(
-              extent={{66,-88},{90,-98}},
-              lineColor={0,0,0},
-              textString="time"),Polygon(
-              points={{88,-80},{68,-75},{68,-84},{88,-80}},
-              lineColor={95,95,95},
-              fillColor={95,95,95},
-              fillPattern=FillPattern.Solid),Line(points={{-90,-80},{82,-80}},
-            color={95,95,95}),Line(points={{-80,58},{-80,-90}}, color={95,95,95}),
-            Polygon(
-              points={{-80,80},{-85,58},{-74,58},{-80,80}},
-              lineColor={95,95,95},
-              fillColor={95,95,95},
-              fillPattern=FillPattern.Solid),Text(
-              extent={{-76,83},{-44,65}},
-              lineColor={0,0,0},
-              textString="y")}),
       Documentation(info="<html>
 
 <p>
 This block generates an Integer output signal by using a table.
 The time points and y-values are stored in a matrix
-<b>table[i,j]</b>, where the first column table[:,1] contains the
+<strong>table[i,j]</strong>, where the first column table[:,1] contains the
 Real time points and the second column contains the Integer value of the
 output y at this time point.
+The table interpolation has the following properties:
 </p>
 
-<p>
-An assert is triggered, if no table values are provided, if the
-time points are not strict monotonically increasing, or if
-the second column of the table matrix does not contain Integer values.
-</p>
-
-<p>
-If the simulation time is less than the first table time instant,
-then the output y = table[1,2].<br>
-If the simulation time is greater than the last table time instant,
-then the output y = table[end,2].
-</p>
+<ul>
+<li>An assert is triggered, if no table values are provided, if the
+    time points are not strict monotonically increasing, or if
+    the second column of the table matrix does not contain Integer values.</li>
+<li>Values <strong>outside</strong> of the table range, are computed by
+    extrapolation according to the setting of parameter <strong>extrapolation</strong>:
+<pre>
+  extrapolation = 1: Hold the first or last value of the table,
+                     if outside of the table scope.
+                = 2: Extrapolate by using the derivative at the first/last table
+                     points if outside of the table scope.
+                     (This setting is not suitable and triggers an assert.)
+                = 3: Periodically repeat the table data (periodical function).
+                = 4: No extrapolation, i.e. extrapolation triggers an error
+</pre></li>
+<li>If the table has only <strong>one row</strong>, no interpolation is performed and
+    the table values of this row are just returned.</li>
+<li>Via parameter <strong>shiftTime</strong> the curve defined by the table can be shifted
+    in time.
+    The time instants stored in the table are therefore <strong>relative</strong>
+    to <strong>shiftTime</strong>.</li>
+<li>If time &lt; startTime, no interpolation is performed and zero
+    is used as ordinate value for the output.</li>
+</ul>
 
 <p>
 Example:
@@ -3490,7 +3254,7 @@ results in the following output:
   end IntegerTable;
   annotation (Documentation(info="<html>
 <p>
-This package contains <b>source</b> components, i.e., blocks which
+This package contains <strong>source</strong> components, i.e., blocks which
 have only output signals. These blocks are used as signal generators
 for Real, Integer and Boolean signals.
 </p>
@@ -3501,42 +3265,42 @@ have at least the following two parameters:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>offset</b></td>
-      <td valign=\"top\">Value which is added to the signal</td>
+  <tr><td><strong>offset</strong></td>
+      <td>Value which is added to the signal</td>
   </tr>
-  <tr><td valign=\"top\"><b>startTime</b></td>
-      <td valign=\"top\">Start time of signal. For time &lt; startTime,
+  <tr><td><strong>startTime</strong></td>
+      <td>Start time of signal. For time &lt; startTime,
                 the output y is set to offset.</td>
   </tr>
 </table>
 
 <p>
-The <b>offset</b> parameter is especially useful in order to shift
+The <strong>offset</strong> parameter is especially useful in order to shift
 the corresponding source, such that at initial time the system
 is stationary. To determine the corresponding value of offset,
 usually requires a trimming calculation.
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>October 21, 2002</i>
+<li><em>October 21, 2002</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
        and Christian Schweiger:<br>
        Integer sources added. Step, TimeTable and BooleanStep slightly changed.</li>
-<li><i>Nov. 8, 1999</i>
-       by <a href=\"mailto:clauss@eas.iis.fhg.de\">Christoph Clau&szlig;</a>,
+<li><em>Nov. 8, 1999</em>
+       by <a href=\"mailto:christoph@clauss-it.com\">Christoph Clau&szlig;</a>,
        <a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>,
        <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        New sources: Exponentials, TimeTable. Trapezoid slightly enhanced
        (nperiod=-1 is an infinite number of periods).</li>
-<li><i>Oct. 31, 1999</i>
+<li><em>Oct. 31, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       <a href=\"mailto:clauss@eas.iis.fhg.de\">Christoph Clau&szlig;</a>,
+       <a href=\"mailto:christoph@clauss-it.com\">Christoph Clau&szlig;</a>,
        <a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>,
        All sources vectorized. New sources: ExpSine, Trapezoid,
        BooleanConstant, BooleanStep, BooleanPulse, SampleTrigger.
        Improved documentation, especially detailed description of
        signals in diagram layer.</li>
-<li><i>June 29, 1999</i>
+<li><em>June 29, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Realized a first version, based on an existing Dymola library
        of Dieter Moormann and Hilding Elmqvist.</li>

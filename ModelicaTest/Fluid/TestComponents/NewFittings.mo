@@ -48,34 +48,27 @@ extends Modelica.Icons.ExamplesPackage;
       annotation (Placement(transformation(extent={{12,-20},{32,-40}})));
   equation
     connect(ramp.y, source_left.p_in) annotation (Line(
-        points={{-73,50},{-68,50},{-68,48},{-64,48}},
-        color={0,0,127}));
+        points={{-73,50},{-68,50},{-68,48},{-64,48}}, color={0,0,127}));
     connect(sensor.port_a, source_left.ports[1]) annotation (Line(
-        points={{-32,40},{-42,40}},
-        color={0,127,255}));
+        points={{-32,40},{-42,40}}, color={0,127,255}));
     connect(sensor.m_flow, boundary.m_flow_in) annotation (Line(
-        points={{-22,29},{-22,-4},{-60,-4},{-60,-22},{-44,-22}},
-        color={0,0,127}));
+        points={{-22,29},{-22,-4},{-60,-4},{-60,-22},{-44,-22}}, color={0,0,127}));
     connect(sensor.port_b, fitting1.port_a) annotation (Line(
-        points={{-12,40},{12,40}},
-        color={0,127,255}));
+        points={{-12,40},{12,40}}, color={0,127,255}));
     connect(fitting1.port_b, source_right.ports[1]) annotation (Line(
-        points={{32,40},{45,40},{45,40},{58,40}},
-        color={0,127,255}));
+        points={{32,40},{45,40},{45,40},{58,40}}, color={0,127,255}));
     connect(fitting2.port_a, boundary.ports[1]) annotation (Line(
-        points={{12,-30},{-24,-30}},
-        color={0,127,255}));
+        points={{12,-30},{-24,-30}}, color={0,127,255}));
     connect(fitting2.port_b, source_right.ports[2]) annotation (Line(
-        points={{32,-30},{48,-30},{48,36},{58,36}},
-        color={0,127,255}));
+        points={{32,-30},{48,-30},{48,36},{58,36}}, color={0,127,255}));
     annotation (
       Documentation(info="<html>
 <p>
-Switch to the diagram or equation layer to see the model of a <b> Modelica.Fluid bend </b> using <b> Fluid.Dissipation pressure loss calculations </b>.
+Switch to the diagram or equation layer to see the model of a <strong> Modelica.Fluid bend </strong> using <strong> Fluid.Dissipation pressure loss calculations </strong>.
 </p>
 
 <p>
-This model executes pressure loss calculations out of the <b> Fluid.Dissipation </b> library for a bend of an incompressible and single-phase fluid flow considering surface roughness. Both the <b> compressible </b> case, where the mass flow rate (M_FLOW) is calculated in dependence of a known pressure loss (dp) and the <b> incompressible </b> case, where the pressure loss (DP) is calculated in dependence of a known mass flow rate (m_flow) are modelled.
+This model executes pressure loss calculations out of the <strong> Fluid.Dissipation </strong> library for a bend of an incompressible and single-phase fluid flow considering surface roughness. Both the <strong> compressible </strong> case, where the mass flow rate (M_FLOW) is calculated in dependence of a known pressure loss (dp) and the <strong> incompressible </strong> case, where the pressure loss (DP) is calculated in dependence of a known mass flow rate (m_flow) are modelled.
 </p>
 </html>"));
   end PartialFittingTest;
