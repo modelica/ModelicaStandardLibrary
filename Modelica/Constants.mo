@@ -59,7 +59,7 @@ package Constants
 <p>
 This package provides often needed constants from mathematics, machine
 dependent constants and constants from nature. The latter constants
-(name, value, description) are from the following source:
+(name, value, description) are from the following source (based on the second source):
 </p>
 <dl>
 <dt>Michael Stock, Richard Davis, Estefan&iacute;a de Mirand&eacute;s and Martin J T Milton:</dt>
