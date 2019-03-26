@@ -775,14 +775,20 @@ motion on the controlBus of the r3 robot.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={
             Text(
-              extent={{-100,98},{-24,68}},
-              textString="q"),
+              extent={{-92,98},{-16,68}},
+              textString="q",
+              lineColor={0,0,0},
+              horizontalAlignment=TextAlignment.Left),
             Text(
-              extent={{-94,46},{-18,16}},
-              textString="qd"),
+              extent={{-92,46},{-16,16}},
+              textString="qd",
+              lineColor={0,0,0},
+              horizontalAlignment=TextAlignment.Left),
             Text(
-              extent={{-96,-16},{-20,-46}},
-              textString="qdd"),
+              extent={{-92,-16},{-16,-46}},
+              textString="qdd",
+              lineColor={0,0,0},
+              horizontalAlignment=TextAlignment.Left),
             Text(
               extent={{-2,20},{80,-18}},
               textString="%axisUsed"),
@@ -790,8 +796,10 @@ motion on the controlBus of the r3 robot.
               extent={{2,52},{76,28}},
               textString="axis"),
             Text(
-              extent={{-94,-70},{32,-96}},
-              textString="moving")}),
+              extent={{-92,-70},{36,-96}},
+              textString="moving",
+              lineColor={0,0,0},
+              horizontalAlignment=TextAlignment.Left)}),
         Documentation(info="<html>
 <p>
 This model stores the 4 reference variables q, qd, qdd, moving from the path planning on the axis control bus.
