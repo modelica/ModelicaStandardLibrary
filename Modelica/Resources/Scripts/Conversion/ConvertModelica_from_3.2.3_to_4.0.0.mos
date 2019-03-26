@@ -5,3 +5,5 @@ convertClass("Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterp
               "Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_Re")
 convertClass("Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_MFLOW",
               "Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_lambda");
+convertClass("Modelica.Mechanics.MultiBody.Sensors.Internal.ZeroForceAndTorque",
+              "Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque");
