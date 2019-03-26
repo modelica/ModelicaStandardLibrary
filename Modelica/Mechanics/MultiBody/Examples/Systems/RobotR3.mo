@@ -868,8 +868,10 @@ the definition of initial values considerably.
               textString="%name",
               lineColor={0,0,255}),
             Text(
-              extent={{-36,40},{36,-30}},
-              textString="1")}),
+              extent={{-30,-30},{30,-80}},
+              lineColor={255,255,255},
+              textString="1"),
+            Line(points={{-24,0},{-16,0},{-12,14},{-4,-14},{4,14},{12,-14},{16,0},{24,0}}, color={95,95,95})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={Text(
@@ -920,8 +922,9 @@ Default values for all parameters are given for joint 4.
               textString="%name",
               lineColor={0,0,255}),
             Text(
-              extent={{-36,40},{36,-30}},
-              textString="2")}));
+              extent={{-30,-30},{30,-80}},
+              textString="2",
+              lineColor={255,255,255})}));
     end GearType2;
 
     model Motor "Motor model including current controller of r3 motors"
@@ -1220,17 +1223,48 @@ reference signals. All signals are communicated via the
     end Controller;
 
     model AxisType1 "Axis model of the r3 joints 1,2,3"
-      extends AxisType2(redeclare GearType1 gear(c=c, d=cd));
+      extends AxisType2(redeclare GearType1 gear(c=c, d=cd))
+        annotation(IconMap(primitivesVisible=false));
       parameter Real c(unit="N.m/rad") = 43 "Spring constant"
         annotation (Dialog(group="Gear"));
       parameter Real cd(unit="N.m.s/rad") = 0.005 "Damper constant"
         annotation (Dialog(group="Gear"));
-      annotation (Documentation(info="<html>
+      annotation (
+        Documentation(info="<html>
 <p>
 Model of axis 1, 2, 3 of the robot r3. An axis consists of a gearbox with modelled gear elasticity and bearing friction,
 a model of the electrical motor and a continuous-time cascade controller.
 </p>
-</html>"));
+</html>"),
+        Icon(graphics={Line(points={{44,0},{52,0},{58,20},{68,-20},{74,0},{82,0}},color={95,95,95}),
+            Rectangle(
+              extent={{80,10},{100,-10}},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={160,160,164}),
+            Rectangle(
+              extent={{28,10},{46,-10}},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={160,160,164}),
+            Rectangle(
+              extent={{-100,50},{22,-50}},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={175,175,175},
+              lineColor={0,0,0}),
+            Text(
+              extent={{-150,100},{150,60}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Rectangle(
+              extent={{-100,34},{22,-34}},
+              fillPattern=FillPattern.Solid,
+              fillColor={95,95,95},
+              lineColor={0,0,0}),
+            Rectangle(
+              extent={{10,54},{30,-54}},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={160,160,164}),
+            Rectangle(
+              extent={{10,54},{30,-54}}, lineColor={0,0,0})}));
     end AxisType1;
 
     model AxisType2 "Axis model of the r3 joints 4,5,6"
@@ -1359,15 +1393,34 @@ leads to significant oscillations.
 <p>
 Default values of the parameters are given for the axis of joint 1.
 </p>
-</html>"), Icon(coordinateSystem(
+</html>"),
+        Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics={Rectangle(
-              extent={{-100,50},{100,-50}},
+            extent={{-100,-100},{100,100}}), graphics={
+            Rectangle(
+              extent={{68,10},{100,-10}},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={160,160,164}), Text(
+              fillColor={160,160,164}),
+            Text(
               extent={{-150,100},{150,60}},
               textString="%name",
-              lineColor={0,0,255})}));
+              lineColor={0,0,255}),
+            Rectangle(
+              extent={{-100,50},{66,-50}},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={175,175,175},
+              lineColor={0,0,0}),
+            Rectangle(
+              extent={{-100,34},{62,-34}},
+              fillPattern=FillPattern.Solid,
+              fillColor={95,95,95},
+              lineColor={0,0,0}),
+            Rectangle(
+              extent={{60,54},{80,-54}},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={160,160,164}),
+            Rectangle(
+              extent={{60,54},{80,-54}}, lineColor={0,0,0})}));
     end AxisType2;
 
     model MechanicalStructure
