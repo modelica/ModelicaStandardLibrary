@@ -895,18 +895,18 @@ the definition of initial values considerably.
 
       parameter Real i=-99 "Gear ratio";
       parameter SI.Torque Rv0=21.8 "Viscous friction torque at zero velocity";
-      parameter Real Rv1=9.8
-        "Viscous friction coefficient in [Nms/rad] (R=Rv0+Rv1*abs(qd))";
+      parameter Real Rv1(unit="N.m.s/rad")=9.8
+        "Viscous friction coefficient (R=Rv0+Rv1*abs(qd))";
       parameter Real peak=(26.7/21.8)
         "Maximum static friction torque is peak*Rv0 (peak >= 1)";
 
       constant SI.AngularVelocity unitAngularVelocity = 1;
       constant SI.Torque unitTorque = 1;
       Modelica.Mechanics.Rotational.Components.IdealGear gear(
-                                                   ratio=i, useSupport=false)
+        ratio=i, useSupport=false)
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
       Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction(
-                                                                    tau_pos=[0,
+        tau_pos=[0,
              Rv0/unitTorque; 1, (Rv0 + Rv1*unitAngularVelocity)/unitTorque], peak=peak,
         useSupport=false)
         annotation (Placement(transformation(extent={{20,-10},{40,10}})));
@@ -1296,7 +1296,7 @@ a model of the electrical motor and a continuous-time cascade controller.
         "Viscous friction torque at zero velocity"
         annotation (Dialog(group="Gear"));
       parameter Real Rv1(unit="N.m.s/rad") = (0.13/160)
-        "Viscous friction coefficient in [Nms/rad]"
+        "Viscous friction coefficient"
         annotation (Dialog(group="Gear"));
       parameter Real peak=1
         "Maximum static friction torque is peak*Rv0 (peak >= 1)"
@@ -1438,7 +1438,7 @@ Default values of the parameters are given for the axis of joint 1.
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter SI.Mass mLoad(min=0)=15 "Mass of load";
       parameter SI.Position rLoad[3]={0,0.25,0}
-        "Distance from last flange to load mass>";
+        "Distance from last flange to load mass";
       parameter SI.Acceleration g=9.81 "Gravity acceleration";
       SI.Angle q[6] "Joint angles";
       SI.AngularVelocity qd[6] "Joint speeds";
