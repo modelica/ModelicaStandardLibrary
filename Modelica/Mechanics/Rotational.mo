@@ -6602,7 +6602,7 @@ blocks of Modelica.Blocks.Sources.
     model LinearSpeedDependentTorque "Linear dependency of torque versus speed"
       extends Modelica.Mechanics.Rotational.Interfaces.PartialTorque;
       parameter Modelica.SIunits.Torque tau_nominal
-        "Nominal torque (if negative, torque is acting as load)";
+        "Nominal torque (if negative, torque is acting as load in positive direction of rotation)";
       parameter Boolean TorqueDirection=true
         "Same direction of torque in both directions of rotation";
       parameter Modelica.SIunits.AngularVelocity w_nominal(min=Modelica.Constants.eps)
@@ -6637,7 +6637,7 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
       "Quadratic dependency of torque versus speed"
       extends Modelica.Mechanics.Rotational.Interfaces.PartialTorque;
       parameter Modelica.SIunits.Torque tau_nominal
-        "Nominal torque (if negative, torque is acting as load)";
+        "Nominal torque (if negative, torque is acting as load in positive direction of rotation)";
       parameter Boolean TorqueDirection=true
         "Same direction of torque in both directions of rotation";
       parameter Modelica.SIunits.AngularVelocity w_nominal(min=Modelica.Constants.eps)
@@ -6709,7 +6709,7 @@ Negative torque brakes in positive direction of rotation, but accelerates in rev
       extends Rotational.Interfaces.PartialTorque;
       import Modelica.Constants.pi;
       parameter Modelica.SIunits.Torque tau_constant
-        "Constant torque (if negative, torque is acting as load in positive direction of rotation)";
+        "Constant torque (if negative, torque is acting as load)";
       parameter Modelica.Blocks.Types.Regularization reg=Modelica.Blocks.Types.Regularization.Exp
         "Type of regularization" annotation(Evaluate=true);
       parameter Modelica.SIunits.AngularVelocity w0(final min=Modelica.Constants.eps, start=0.1)
