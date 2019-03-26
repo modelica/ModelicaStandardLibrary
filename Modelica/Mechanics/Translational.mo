@@ -3053,10 +3053,10 @@ following references, especially (Armstrong and Canudas de Wit 1996):
 
       extends Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
       extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
-      parameter Real mue_pos[:, 2]=[0, 0.5]
+      parameter Real mu_pos[:, 2]=[0, 0.5]
         "[v, f] Positive sliding friction characteristic (v>=0)";
       parameter Real peak(final min=1) = 1
-        "Peak for maximum value of mue at w==0 (mue0_max = peak*mue_pos[1,2])";
+        "Peak for maximum value of mu at w==0 (mu0_max = peak*mu_pos[1,2])";
       parameter Real cgeo(final min=0) = 1
         "Geometry constant containing friction distribution assumption";
       parameter SI.Force fn_max(final min=0, start=1) "Maximum normal force";
@@ -3067,7 +3067,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
       SI.Velocity v "Absolute velocity of flange_a and flange_b";
       SI.Acceleration a "Absolute acceleration of flange_a and flange_b";
 
-      Real mue0 "Friction coefficient for v=0 and forward sliding";
+      Real mu0 "Friction coefficient for v=0 and forward sliding";
       SI.Force fn "Normal force (=fn_max*f_normalized)";
 
       // Constant auxiliary variable
@@ -3078,9 +3078,9 @@ following references, especially (Armstrong and Canudas de Wit 1996):
             extent={{20,-20},{-20,20}},
             rotation=90)));
     equation
-      mue0 = Modelica.Math.Vectors.interpolate(
-            mue_pos[:, 1],
-            mue_pos[:, 2],
+      mu0 = Modelica.Math.Vectors.interpolate(
+            mu_pos[:, 1],
+            mu_pos[:, 2],
             0,
             1);
 
@@ -3096,28 +3096,28 @@ following references, especially (Armstrong and Canudas de Wit 1996):
       // Friction force, normal force and friction force for v_rel=0
       flange_a.f + flange_b.f - f = 0;
       fn = fn_max*f_normalized;
-      f0 = mue0*cgeo*fn;
+      f0 = mu0*cgeo*fn;
       f0_max = peak*f0;
       free = fn <= 0;
 
       // Friction force
       f = if locked then sa*unitForce else if free then 0 else cgeo*fn*(if
         startForward then Modelica.Math.Vectors.interpolate(
-            mue_pos[:, 1],
-            mue_pos[:, 2],
+            mu_pos[:, 1],
+            mu_pos[:, 2],
             v,
             1) else if startBackward then -Modelica.Math.Vectors.interpolate(
-            mue_pos[:, 1],
-            mue_pos[:, 2],
+            mu_pos[:, 1],
+            mu_pos[:, 2],
             -v,
             1) else if pre(mode) == Forward then
         Modelica.Math.Vectors.interpolate(
-            mue_pos[:, 1],
-            mue_pos[:, 2],
+            mu_pos[:, 1],
+            mu_pos[:, 2],
             v,
             1) else -Modelica.Math.Vectors.interpolate(
-            mue_pos[:, 1],
-            mue_pos[:, 2],
+            mu_pos[:, 1],
+            mu_pos[:, 2],
             -v,
             1));
 
@@ -3134,25 +3134,25 @@ Friction in the brake is modelled in the following way:
 </p>
 <p>
 When the absolute velocity \"v\" is not zero, the friction force
-is a function of the velocity dependent friction coefficient  mue(v) , of
+is a function of the velocity dependent friction coefficient mu(v), of
 the normal force \"fn\", and of a geometry constant \"cgeo\" which takes into
 account the geometry of the device and the assumptions on the friction
 distributions:
 </p>
 <pre>
-        frictional_force = <strong>cgeo</strong> * <strong>mue</strong>(v) * <strong>fn</strong>
+        frictional_force = <strong>cgeo</strong> * <strong>mu</strong>(v) * <strong>fn</strong>
 </pre>
 <p>
    Typical values of coefficients of friction:
 </p>
 <pre>
-      dry operation   :  <strong>mue</strong> = 0.2 .. 0.4
-      operating in oil:  <strong>mue</strong> = 0.05 .. 0.1
+      dry operation   :  <strong>mu</strong> = 0.2 .. 0.4
+      operating in oil:  <strong>mu</strong> = 0.05 .. 0.1
 </pre>
 <p>
-    The positive part of the friction characteristic <strong>mue</strong>(v),
-    v >= 0, is defined via table mue_pos (first column = v,
-    second column = mue). Currently, only linear interpolation in
+    The positive part of the friction characteristic <strong>mu</strong>(v),
+    v >= 0, is defined via table mu_pos (first column = v,
+    second column = mu). Currently, only linear interpolation in
     the table is supported.
 </p>
 <p>
@@ -3165,7 +3165,7 @@ distributions:
    called the  maximum static friction force, computed via:
 </p>
 <pre>
-       frictional_force = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mue</strong>(w=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
+       frictional_force = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(w=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
 </pre>
 <p>
 This procedure is implemented in a \"clean\" way by state events and
@@ -3507,10 +3507,10 @@ provided via a signal bus.
         /* Friction torque has to be defined in a subclass. Example for a clutch:
    f = if locked then sa else
        if free then   0 else
-       cgeo*fn*(if startForward then          Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], v_relfric, 1) else
-                if startBackward then        -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -v_relfric, 1) else
-                if pre(mode) == Forward then  Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], v_relfric, 1) else
-                                             -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -v_relfric, 1));
+       cgeo*fn*(if startForward then          Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], v_relfric, 1) else
+                if startBackward then        -Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], -v_relfric, 1) else
+                if pre(mode) == Forward then  Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], v_relfric, 1) else
+                                             -Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], -v_relfric, 1));
 */
         // finite state machine to determine configuration
         mode = if free then Free else (if (pre(mode) == Forward or pre(mode)
@@ -5884,10 +5884,10 @@ with the Modelica.Blocks blocks.
       /* Friction torque has to be defined in a subclass. Example for a clutch:
    f = if locked then sa else
        if free then   0 else
-       cgeo*fn*(if startForward then          Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], v_relfric, 1) else
-                if startBackward then        -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -v_relfric, 1) else
-                if pre(mode) == Forward then  Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], v_relfric, 1) else
-                                             -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -v_relfric, 1));
+       cgeo*fn*(if startForward then          Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], v_relfric, 1) else
+                if startBackward then        -Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], -v_relfric, 1) else
+                if pre(mode) == Forward then  Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], v_relfric, 1) else
+                                             -Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], -v_relfric, 1));
 */
       // finite state machine to determine configuration
       mode = if free then Free else (if (pre(mode) == Forward or pre(mode) ==

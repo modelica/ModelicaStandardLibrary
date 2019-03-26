@@ -51,7 +51,7 @@ Point mass used at all places in this example (has a mass  of 1 kg and a blue co
   inner World world(
     gravitySphereDiameter=0.1,
     gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity,
-    mue=5)
+    mu=5)
     annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
   Joints.FreeMotion freeMotion annotation (Placement(transformation(extent={{
             -40,60},{-20,80}})));

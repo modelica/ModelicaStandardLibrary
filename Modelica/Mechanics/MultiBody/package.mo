@@ -1071,7 +1071,7 @@ model World
   parameter Types.Axis n={0,-1,0}
     "Direction of gravity resolved in world frame (gravity = g*n/length(n))"
     annotation (Evaluate=true, Dialog(enable=gravityType == Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity));
-  parameter Real mue(
+  parameter Real mu(
     unit="m3/s2",
     min=0) = 3.986004418e14
     "Gravity field constant (default = field constant of earth)"
@@ -1184,7 +1184,7 @@ model World
 
   replaceable function gravityAcceleration =
        Modelica.Mechanics.MultiBody.Forces.Internal.standardGravityAcceleration (
-           gravityType=gravityType, g=g*Modelica.Math.Vectors.normalizeWithAssert(n), mue=mue)
+           gravityType=gravityType, g=g*Modelica.Math.Vectors.normalizeWithAssert(n), mu=mu)
        constrainedby Modelica.Mechanics.MultiBody.Interfaces.partialGravityAcceleration
     "Function to compute the gravity acceleration, resolved in world frame"
        annotation(choicesAllMatching=true,Dialog(enable=gravityType==
@@ -1356,7 +1356,7 @@ protected
       gravityType=gravityType,
       g=g*Modelica.Math.Vectors.normalize(
                                      n),
-      mue=mue);
+      mu=mu);
 */
 
   // Ground plane visualization

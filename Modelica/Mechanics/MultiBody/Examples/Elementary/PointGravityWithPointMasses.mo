@@ -3,11 +3,10 @@ model PointGravityWithPointMasses
   "Two point masses in a point gravity field (rotation of bodies is neglected)"
   extends Modelica.Icons.Example;
   inner Modelica.Mechanics.MultiBody.World world(
-    mue=1,
+    mu=1,
     gravitySphereDiameter=0.1,
     gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity)
-                               annotation (Placement(transformation(extent={{-80,-20},
-            {-60,0}})));
+    annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   Modelica.Mechanics.MultiBody.Parts.PointMass body1(
     m=1,
     sphereDiameter=0.1,
