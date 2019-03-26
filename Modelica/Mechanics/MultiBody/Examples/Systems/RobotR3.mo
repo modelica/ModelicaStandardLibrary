@@ -46,8 +46,7 @@ package RobotR3
     connect(axis.flange, load.flange_a)
       annotation (Line(
         points={{40,10},{60,10}},
-        color={128,128,128},
-        thickness=0.5));
+        color={0,0,0}));
     connect(pathPlanning.controlBus, controlBus) annotation (Line(
         points={{-40,10},{-15,10},{-15,28},{-12,28},{-12,30}},
         color={255,204,51},
