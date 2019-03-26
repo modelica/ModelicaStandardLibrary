@@ -1,5 +1,19 @@
 package ModelicaTestConversion4
   extends Modelica.Icons.ExamplesPackage;
+  package Constants
+    extends Modelica.Icons.ExamplesPackage;
+    model Issue194 "Conversion test for #194"
+      extends Modelica.Icons.Example;
+      Modelica.Blocks.Sources.Constant constantBlock(
+        k=Modelica.Constants.mue_0);
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/194\">#194</a>.
+</p>
+</html>"));
+    end Issue194;
+  end Constants;
+
   package Fluid
     extends Modelica.Icons.ExamplesPackage;
     package Dissipation

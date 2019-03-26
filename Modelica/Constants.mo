@@ -44,8 +44,8 @@ package Constants
     "Stefan-Boltzmann constant (previous value: 5.670400e-8)";
   final constant Real N_A(final unit="1/mol") = 6.022140857e23
     "Avogadro constant (previous value: 6.0221415e23)";
-  final constant Real mue_0(final unit="N/A2") = 4*pi*1.e-7 "Magnetic constant";
-  final constant Real epsilon_0(final unit="F/m") = 1/(mue_0*c*c)
+  final constant Real mu_0(final unit="N/A2") = 4*pi*1.e-7 "Magnetic constant";
+  final constant Real epsilon_0(final unit="F/m") = 1/(mu_0*c*c)
     "Electric constant";
   final constant Modelica.SIunits.ElectricCharge q = Modelica.Constants.F/Modelica.Constants.N_A
       "Elementary charge (electron charge without sign) = 1.602177e-19 C";
