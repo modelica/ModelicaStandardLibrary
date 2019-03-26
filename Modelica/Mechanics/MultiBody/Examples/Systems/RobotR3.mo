@@ -470,9 +470,7 @@ determined from the connections to this bus.
               lineColor={192,192,192},
               textString="w"),
             Line(points={{-80,0},{-41,69},{26,69},{58,0}}),
-            Text(
-              extent={{-73,-44},{82,-69}},
-              textString="1 axis")}),
+            Text(extent={{-70,-44},{84,-68}}, textString="1 axis")}),
         Documentation(info="<html>
 <p>
 Given
@@ -672,9 +670,7 @@ motion on the controlBus of the r3 robot.
               lineColor={192,192,192},
               textString="w"),
             Line(points={{-80,0},{-41,69},{26,69},{58,0}}),
-            Text(
-              extent={{-70,-43},{85,-68}},
-              textString="6 axes")}),
+            Text(extent={{-70,-44},{84,-68}}, textString="6 axes")}),
         Documentation(info="<html>
 <p>
 Given
@@ -1197,27 +1193,27 @@ produced by the motor).
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={
-            Rectangle(extent={{-80,40},{80,-40}}, lineColor={0,0,255}),
+            Rectangle(extent={{-80,40},{80,-40}}, lineColor={0,0,127}),
             Polygon(
               points={{-30,40},{-60,50},{-60,30},{-30,40}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
+              lineColor={0,0,127},
+              fillColor={0,0,127},
               fillPattern=FillPattern.Solid),
             Polygon(
               points={{60,-30},{30,-40},{60,-50},{60,-30}},
-              fillColor={0,0,255},
+              fillColor={0,0,127},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
+              lineColor={0,0,127}),
             Rectangle(
               extent={{-30,56},{30,24}},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
+              lineColor={0,0,127}),
             Rectangle(
               extent={{-30,-24},{30,-56}},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,255})}),
+              lineColor={0,0,127})}),
         Documentation(info="<html>
 <p>
 This controller has an inner PI-controller to control the motor speed,
@@ -1248,11 +1244,13 @@ a model of the electrical motor and a continuous-time cascade controller.
             Rectangle(
               extent={{80,10},{100,-10}},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={160,160,164}),
+              fillColor={192,192,192},
+              lineColor={64,64,64}),
             Rectangle(
               extent={{28,10},{46,-10}},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={160,160,164}),
+              fillColor={192,192,192},
+              lineColor={64,64,64}),
             Rectangle(
               extent={{-100,50},{22,-50}},
               fillPattern=FillPattern.HorizontalCylinder,
@@ -1408,7 +1406,8 @@ Default values of the parameters are given for the axis of joint 1.
             Rectangle(
               extent={{68,10},{100,-10}},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={160,160,164}),
+              fillColor={192,192,192},
+              lineColor={64,64,64}),
             Text(
               extent={{-150,100},{150,60}},
               textString="%name",
