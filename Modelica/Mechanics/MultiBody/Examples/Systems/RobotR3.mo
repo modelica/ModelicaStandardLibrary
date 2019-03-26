@@ -404,8 +404,8 @@ determined from the connections to this bus.
       "Generate reference angles for fastest kinematic movement"
       extends Blocks.Icons.Block;
 
-      parameter Real angleBegDeg(unit="deg") = 0 "Start angle";
-      parameter Real angleEndDeg(unit="deg") = 1 "End angle";
+      parameter SI.Conversions.NonSIunits.Angle_deg angleBegDeg = 0 "Start angle";
+      parameter SI.Conversions.NonSIunits.Angle_deg angleEndDeg = 1 "End angle";
       parameter SI.AngularVelocity speedMax = 3 "Maximum axis speed";
       parameter SI.AngularAcceleration accMax = 2.5 "Maximum axis acceleration";
       parameter SI.Time startTime=0 "Start time of movement";
@@ -513,9 +513,9 @@ motion on the controlBus of the r3 robot.
       extends Blocks.Icons.Block;
 
       parameter Integer naxis=6 "Number of driven axis";
-      parameter Real angleBegDeg[naxis](each unit="deg") = zeros(naxis)
+      parameter SI.Conversions.NonSIunits.Angle_deg angleBegDeg[naxis] = zeros(naxis)
         "Start angles";
-      parameter Real angleEndDeg[naxis](each unit="deg") = ones(naxis)
+      parameter SI.Conversions.NonSIunits.Angle_deg angleEndDeg[naxis] = ones(naxis)
         "End angles";
       parameter SI.AngularVelocity speedMax[naxis]=fill(3, naxis)
         "Maximum axis speed";
@@ -812,8 +812,8 @@ This model stores the 4 reference variables q, qd, qdd, moving from the path pla
       extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
 
       parameter Real i=-105 "Gear ratio";
-      parameter Real c(unit="N.m/rad") = 43 "Spring constant";
-      parameter Real d(unit="N.m.s/rad") = 0.005 "Damper constant";
+      parameter SI.RotationalSpringConstant c = 43 "Spring constant";
+      parameter SI.RotationalDampingConstant d = 0.005 "Damper constant";
       parameter SI.Torque Rv0=0.4 "Viscous friction torque at zero velocity";
       parameter Real Rv1(unit="N.m.s/rad") = (0.13/160)
         "Viscous friction coefficient (R=Rv0+Rv1*abs(qd))";
@@ -825,13 +825,13 @@ This model stores the 4 reference variables q, qd, qdd, moving from the path pla
       constant SI.Torque unitTorque = 1;
 
       Modelica.Mechanics.Rotational.Components.IdealGear gear(
-                                                   ratio=i, useSupport=false)
+        ratio=i, useSupport=false)
         annotation (Placement(transformation(extent={{40,-10},{60,10}})));
       Modelica.Mechanics.Rotational.Components.SpringDamper spring(
-                                                        c=c, d=d)
+        c=c, d=d)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction(
-                                                                    tau_pos=[0,
+        tau_pos=[0,
              Rv0/unitTorque; 1, (Rv0 + Rv1*unitAngularVelocity)/unitTorque],
           useSupport=false) annotation (Placement(
             transformation(extent={{-60,-10},{-40,10}})));
@@ -1233,9 +1233,9 @@ reference signals. All signals are communicated via the
     model AxisType1 "Axis model of the r3 joints 1,2,3"
       extends AxisType2(redeclare GearType1 gear(c=c, d=cd))
         annotation(IconMap(primitivesVisible=false));
-      parameter Real c(unit="N.m/rad") = 43 "Spring constant"
+      parameter SI.RotationalSpringConstant c = 43 "Spring constant"
         annotation (Dialog(group="Gear"));
-      parameter Real cd(unit="N.m.s/rad") = 0.005 "Damper constant"
+      parameter SI.RotationalDampingConstant cd = 0.005 "Damper constant"
         annotation (Dialog(group="Gear"));
       annotation (
         Documentation(info="<html>
@@ -1293,7 +1293,7 @@ a model of the electrical motor and a continuous-time cascade controller.
         annotation (Dialog(group="Motor"));
       parameter Real ratio=-105 "Gear ratio" annotation (Dialog(group="Gear"));
       parameter SI.Torque Rv0=0.4
-        "Viscous friction torque at zero velocity in [Nm]"
+        "Viscous friction torque at zero velocity"
         annotation (Dialog(group="Gear"));
       parameter Real Rv1(unit="N.m.s/rad") = (0.13/160)
         "Viscous friction coefficient in [Nms/rad]"
