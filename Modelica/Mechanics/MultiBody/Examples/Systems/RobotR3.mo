@@ -84,30 +84,30 @@ load inertia.
       "Additional time after reference motion is in rest before simulation is stopped";
 
     parameter Real startAngle1(unit="deg") = -60 "Start angle of axis 1"
-      annotation (Dialog(tab="Reference", group="startAngles"));
+      annotation (Dialog(tab="Reference", group="Start angles"));
     parameter Real startAngle2(unit="deg") = 20 "Start angle of axis 2"
-      annotation (Dialog(tab="Reference", group="startAngles"));
+      annotation (Dialog(tab="Reference", group="Start angles"));
     parameter Real startAngle3(unit="deg") = 90 "Start angle of axis 3"
-      annotation (Dialog(tab="Reference", group="startAngles"));
+      annotation (Dialog(tab="Reference", group="Start angles"));
     parameter Real startAngle4(unit="deg") = 0 "Start angle of axis 4"
-      annotation (Dialog(tab="Reference", group="startAngles"));
+      annotation (Dialog(tab="Reference", group="Start angles"));
     parameter Real startAngle5(unit="deg") = -110 "Start angle of axis 5"
-      annotation (Dialog(tab="Reference", group="startAngles"));
+      annotation (Dialog(tab="Reference", group="Start angles"));
     parameter Real startAngle6(unit="deg") = 0 "Start angle of axis 6"
-      annotation (Dialog(tab="Reference", group="startAngles"));
+      annotation (Dialog(tab="Reference", group="Start angles"));
 
     parameter Real endAngle1(unit="deg") = 60 "End angle of axis 1"
-      annotation (Dialog(tab="Reference", group="endAngles"));
+      annotation (Dialog(tab="Reference", group="End angles"));
     parameter Real endAngle2(unit="deg") = -70 "End angle of axis 2"
-      annotation (Dialog(tab="Reference", group="endAngles"));
+      annotation (Dialog(tab="Reference", group="End angles"));
     parameter Real endAngle3(unit="deg") = -35 "End angle of axis 3"
-      annotation (Dialog(tab="Reference", group="endAngles"));
+      annotation (Dialog(tab="Reference", group="End angles"));
     parameter Real endAngle4(unit="deg") = 45 "End angle of axis 4"
-      annotation (Dialog(tab="Reference", group="endAngles"));
+      annotation (Dialog(tab="Reference", group="End angles"));
     parameter Real endAngle5(unit="deg") = 110 "End angle of axis 5"
-      annotation (Dialog(tab="Reference", group="endAngles"));
+      annotation (Dialog(tab="Reference", group="End angles"));
     parameter Real endAngle6(unit="deg") = 45 "End angle of axis 6"
-      annotation (Dialog(tab="Reference", group="endAngles"));
+      annotation (Dialog(tab="Reference", group="End angles"));
 
     parameter SI.AngularVelocity refSpeedMax[6]={3,1.5,5,3.1,3.1,4.1}
       "Maximum reference speeds of all joints"
