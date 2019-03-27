@@ -10,6 +10,7 @@ convertClass("Modelica.Mechanics.MultiBody.Sensors.Internal.ZeroForceAndTorque",
 
 // Change renamed elements of classes
 // mue -> mu
+convertClass("Modelica.Constants.mue_0", "Modelica.Constants.mu_0");
 convertElement({"Modelica.Mechanics.MultiBody.World",
                 "Modelica.Mechanics.MultiBody.World.gravityAcceleration",
                 "Modelica.Mechanics.MultiBody.Forces.Internal.standardGravityAcceleration"},
