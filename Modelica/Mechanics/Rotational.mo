@@ -3679,7 +3679,7 @@ distributions:
         frictional_torque = <strong>cgeo</strong> * <strong>mu</strong>(w) * <strong>fn</strong>
 </pre>
 <p>
-   Typical values of coefficients of friction <strong>mue</strong>:
+   Typical values of coefficients of friction <strong>mu</strong>:
 </p>
 <ul>
   <li>0.2&nbsp;&hellip;&nbsp;0.4 for dry operation,</li>
@@ -3836,7 +3836,7 @@ distributions:
         frictional_torque = <strong>cgeo</strong> * <strong>mu</strong>(w_rel) * <strong>fn</strong>
 </pre>
 <p>
-   Typical values of coefficients of friction <strong>mue</strong>:
+   Typical values of coefficients of friction <strong>mu</strong>:
 </p>
 <ul>
   <li>0.2&nbsp;&hellip;&nbsp;0.4 for dry operation,</li>
@@ -4040,7 +4040,7 @@ frictional_torque = <strong>cgeo</strong> * <strong>mu</strong>(w_rel) * <strong
 </pre></blockquote>
 
 <p>
-Typical values of coefficients of friction <strong>mue</strong>:
+Typical values of coefficients of friction <strong>mu</strong>:
 </p>
 <ul>
   <li>0.2&nbsp;&hellip;&nbsp;0.4 for dry operation,</li>

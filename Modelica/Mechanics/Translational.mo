@@ -3144,7 +3144,7 @@ distributions:
         frictional_force = <strong>cgeo</strong> * <strong>mu</strong>(v) * <strong>fn</strong>
 </pre>
 <p>
-   Typical values of coefficients of friction <strong>mue</strong>:
+   Typical values of coefficients of friction <strong>mu</strong>:
 </p>
 <ul>
   <li>0.2&nbsp;&hellip;&nbsp;0.4 for dry operation,</li>
