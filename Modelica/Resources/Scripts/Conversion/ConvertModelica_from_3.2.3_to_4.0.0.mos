@@ -14,14 +14,14 @@ convertClass("Modelica.Constants.mue_0", "Modelica.Constants.mu_0");
 convertElement({"Modelica.Mechanics.MultiBody.World",
                 "Modelica.Mechanics.MultiBody.World.gravityAcceleration",
                 "Modelica.Mechanics.MultiBody.Forces.Internal.standardGravityAcceleration"},
-                "mue", "mu"});
+                "mue", "mu");
 convertElement({"Modelica.Mechanics.Rotational.Components.Brake",
                 "Modelica.Mechanics.Rotational.Components.Clutch",
                 "Modelica.Mechanics.Rotational.Components.OneWayClutch",
                 "Modelica.Mechanics.Translational.Components.Brake"},
-                "mue_pos", "mu_pos"});
+                "mue_pos", "mu_pos");
 convertElement({"Modelica.Mechanics.Rotational.Components.Brake",
                 "Modelica.Mechanics.Rotational.Components.Clutch",
                 "Modelica.Mechanics.Rotational.Components.OneWayClutch",
                 "Modelica.Mechanics.Translational.Components.Brake"},
-                "mue0", "mu0"});
+                "mue0", "mu0");
