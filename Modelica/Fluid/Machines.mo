@@ -160,7 +160,7 @@ package Machines
     // exemplary characteristics
     final parameter SI.VolumeFlowRate V_flow_op = m_flow_nominal/rho_nominal
       "operational volume flow rate according to nominal values";
-    final parameter SI.Length head_op = (p_b_nominal-p_a_nominal)/(rho_nominal*g)
+    final parameter SI.Position head_op = (p_b_nominal-p_a_nominal)/(rho_nominal*g)
       "operational pump head according to nominal values";
 
     Modelica.Blocks.Interfaces.RealInput m_flow_set if use_m_flow_set
@@ -313,8 +313,8 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
       annotation(Dialog(tab = "Initialization"));
     final parameter SI.VolumeFlowRate V_flow_single_init = m_flow_start/rho_nominal/nParallel
         "Used for simplified initialization model";
-    final parameter SI.Length delta_head_init = flowCharacteristic(V_flow_single_init)-flowCharacteristic(0)
-        "Used for simplified initialization model";
+    final parameter SI.Position delta_head_init = flowCharacteristic(V_flow_single_init*1.1)-flowCharacteristic(V_flow_single_init)
+        "Delta head for a 10% increase of flow at the initialization point";
 
     // Characteristic curves
     parameter Integer nParallel(min=1) = 1 "Number of pumps in parallel"
@@ -386,7 +386,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
     final parameter SI.Acceleration g=system.g;
     Medium.Density rho = medium.d;
     SI.Pressure dp_pump = port_b.p - port_a.p "Pressure change";
-    SI.Length head = dp_pump/(rho*g) "Pump head";
+    SI.Position head = dp_pump/(rho*g) "Pump head";
     SI.MassFlowRate m_flow = port_a.m_flow "Mass flow rate (total)";
     SI.MassFlowRate m_flow_single = m_flow/nParallel
         "Mass flow rate (single pump)";
@@ -417,7 +417,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
             final state = medium.state) "Monitoring model"
        annotation (Placement(transformation(extent={{-64,-42},{-20,0}})));
     protected
-    constant SI.Length unitHead = 1;
+    constant SI.Position unitHead = 1;
     constant SI.MassFlowRate unitMassFlowRate = 1;
 
   equation
@@ -427,14 +427,16 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
      V_flow_single = V_flow/nParallel;
     if not checkValve then
       // Regular flow characteristics without check valve
+      // The simplified model uses an approximation of the tangent to the head curve in the initialization point
       head = homotopy((N/N_nominal)^2*flowCharacteristic(V_flow_single*N_nominal/N),
-                       N/N_nominal*(flowCharacteristic(0)+V_flow_single*noEvent(if abs(V_flow_single_init)>0 then delta_head_init/V_flow_single_init else 0)));
+                       N/N_nominal*(flowCharacteristic(V_flow_single_init)+(V_flow_single-V_flow_single_init)*noEvent(if abs(V_flow_single_init)>0 then delta_head_init/(0.1*V_flow_single_init) else 0)));
       s = 0;
     else
       // Flow characteristics when check valve is open
+      // The simplified model uses an approximation of the tangent to the head curve in the initialization point
       head = homotopy(if s > 0 then (N/N_nominal)^2*flowCharacteristic(V_flow_single*N_nominal/N)
                                else (N/N_nominal)^2*flowCharacteristic(0) - s*unitHead,
-                      N/N_nominal*(flowCharacteristic(0)+V_flow_single*noEvent(if abs(V_flow_single_init)>0 then delta_head_init/V_flow_single_init else 0)));
+                      N/N_nominal*(flowCharacteristic(V_flow_single_init)+(V_flow_single-V_flow_single_init)*noEvent(if abs(V_flow_single_init)>0 then delta_head_init/(0.1*V_flow_single_init) else 0)));
       V_flow_single = homotopy(if s > 0 then s*unitMassFlowRate/rho else 0,
                                s*unitMassFlowRate/rho_nominal);
     end if;
@@ -566,7 +568,7 @@ provided a two-phase medium model is used (see Advanced tab).
     partial function baseFlow "Base class for pump flow characteristics"
       extends Modelica.Icons.Function;
       input SI.VolumeFlowRate V_flow "Volumetric flow rate";
-      output SI.Length head "Pump head";
+      output SI.Position head "Pump head";
     end baseFlow;
 
     partial function basePower
@@ -586,7 +588,7 @@ provided a two-phase medium model is used (see Advanced tab).
       extends baseFlow;
       input SI.VolumeFlowRate V_flow_nominal[2]
           "Volume flow rate for two operating points (single pump)" annotation(Dialog);
-      input SI.Length head_nominal[2] "Pump head for two operating points" annotation(Dialog);
+      input SI.Position head_nominal[2] "Pump head for two operating points" annotation(Dialog);
       /* Linear system to determine the coefficients:
   head_nominal[1] = c[1] + V_flow_nominal[1]*c[2];
   head_nominal[2] = c[1] + V_flow_nominal[2]*c[2];
@@ -607,7 +609,7 @@ provided a two-phase medium model is used (see Advanced tab).
       extends baseFlow;
       input SI.VolumeFlowRate V_flow_nominal[3]
           "Volume flow rate for three operating points (single pump)" annotation(Dialog);
-      input SI.Length head_nominal[3] "Pump head for three operating points" annotation(Dialog);
+      input SI.Position head_nominal[3] "Pump head for three operating points" annotation(Dialog);
       protected
       Real V_flow_nominal2[3] = {V_flow_nominal[1]^2,V_flow_nominal[2]^2, V_flow_nominal[3]^2}
           "Squared nominal flow rates";
@@ -647,7 +649,7 @@ provided a two-phase medium model is used (see Advanced tab).
       extends baseFlow;
       input SI.VolumeFlowRate V_flow_nominal[:]
           "Volume flow rate for N operating points (single pump)" annotation(Dialog);
-      input SI.Length head_nominal[:] "Pump head for N operating points" annotation(Dialog);
+      input SI.Position head_nominal[:] "Pump head for N operating points" annotation(Dialog);
       protected
       Integer N = size(V_flow_nominal,1) "Number of nominal operating points";
       Real V_flow_nominal_pow[N,N] = {{if j > 1 then V_flow_nominal[i]^(j-1) else 1 for j in 1:N} for i in 1:N}
@@ -771,7 +773,7 @@ provided a two-phase medium model is used (see Advanced tab).
           Modelica.Media.Interfaces.PartialTwoPhaseMedium);
         Medium.Density rho_in = Medium.density(state_in)
           "Liquid density at the inlet port_a";
-        SI.Length NPSHa=NPSPa/(rho_in*system.g)
+        SI.Position NPSHa=NPSPa/(rho_in*system.g)
           "Net Positive Suction Head available";
         SI.Pressure NPSPa=assertPositiveDifference(Medium.pressure(state_in), Medium.saturationPressure(Medium.temperature(state_in)),
                                                    "Cavitation occurs at the pump inlet")
