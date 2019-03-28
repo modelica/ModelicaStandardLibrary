@@ -18,7 +18,8 @@ mechanical</strong> systems, including different types of gearboxes,
 shafts with inertia, external torques, spring/damper elements,
 frictional elements, backlash, elements to measure angle, angular velocity,
 angular acceleration and the cut-torque of a flange. In sublibrary
-<strong>Examples</strong> several examples are present to demonstrate the usage of
+<strong><a href=\"modelica://Modelica.Mechanics.Rotational.Examples\">Examples</a></strong>
+several examples are present to demonstrate the usage of
 the elements. Just open the corresponding example model and simulate
 the model according to the provided description.
 </p>
@@ -37,15 +38,15 @@ systems are available in the simulation tool, the simulation of
 <strong>efficient</strong> and <strong>reliable</strong>.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive1.png\" alt=\"drive1\">
-</p>
+</div>
 
 <p>
 A simple example of the usage of this library is given in the
-figure above. This drive consists of a shaft with inertia J1=0.2 which
-is connected via an ideal gearbox with gear ratio=5 to a second shaft
-with inertia J2=5. The left shaft is driven via an external,
+figure above. This drive consists of a shaft with inertia J1&nbsp;=&nbsp;0.2&nbsp;kg.m<sup>2</sup> which
+is connected via an ideal gearbox with gear ratio&nbsp;=&nbsp;5 to a second shaft
+with inertia J2&nbsp;=&nbsp;5&nbsp;kg.m<sup>2</sup>. The left shaft is driven via an external,
 sinusoidal torque.
 The <strong>filled</strong> and <strong>non-filled grey squares</strong> at the left and
 right side of a component represent <strong>mechanical flanges</strong>.
@@ -53,9 +54,9 @@ Drawing a line between such squares means that the corresponding
 flanges are <strong>rigidly attached</strong> to each other.
 By convention in this library, the connector characterized as a
 <strong>filled</strong> grey square is called <strong>flange_a</strong> and placed at the
-left side of the component in the \"design view\" and the connector
+left side of the component in the &quot;design view&quot; and the connector
 characterized as a <strong>non-filled</strong> grey square is called <strong>flange_b</strong>
-and placed at the right side of the component in the \"design view\".
+and placed at the right side of the component in the &quot;design view&quot;.
 The two connectors are completely <strong>identical</strong>, with the only
 exception that the graphical layout is a little bit different in order
 to distinguish them for easier access of the connector variables.
@@ -69,11 +70,10 @@ possible to connect two springs or two shafts with inertia directly
 together, see figure below.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveConnections1.png\" alt=\"driveConnections1\"><br>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveConnections2.png\" alt=\"driveConnections2\">
-</p>
-
+</div>
 </html>"));
 
     end Overview;
