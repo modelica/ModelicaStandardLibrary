@@ -193,63 +193,61 @@ In this section some hints are given to define your own
 elements of this package.
 It is convenient to define a new
 component by inheritance from one of the following base classes,
-which are defined in sublibrary Interfaces:
+which are defined in sublibrary 
+<a href=\"modelica://Modelica.Mechanics.Translational.Interfaces\">Interfaces</a>:
 </p>
+
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th>Name</th><th>Description</th></tr>
-<tr>
-  <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialCompliant\">PartialCompliant</a>
-  </td>
-  <td>Compliant connection of two translational 1-dim. flanges
-                   (used for force laws such as a spring or a damper).</td>
-</tr>
-
-<tr>
-  <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates\">PartialCompliantWithRelativeStates</a>
-  </td>
-  <td> Same as \"PartialCompliant\", but relative position and relative speed are
-                    defined as preferred states. Use this partial model if the force law
-                    needs anyway the relative speed. The advantage is that it is usually better
-                    to use relative positions between drive train components
-                    as states, especially, if the position is not limited.
-</td>
-</tr>
-
-<tr>
-  <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2\">PartialElementaryTwoFlangesAndSupport2</a>
-</td>
-  <td> Partial model for a 1-dim. translational component consisting of the flange of
-                    an input shaft, the flange of an output shaft and the support.
-  </td>
-</tr>
-
-<tr>
-  <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialForce\">PartialForce</a>
-</td>
-  <td> Partial model of a force acting at the flange (accelerates the flange).
-  </td>
-</tr>
-
-<tr>
-  <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges\">PartialTwoFlanges</a>
-</td>
-  <td>General connection of two translational 1-dim. flanges.
-  </td>
-</tr>
-
-<tr>
-  <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor\">PartialAbsoluteSensor</a>
-</td>
-  <td>Measure absolute flange variables.
-  </td>
-</tr>
-
-<tr>
-  <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor\">PartialRelativeSensor</a>
-</td>
-  <td>Measure relative flange variables.
-  </td>
-</tr>
+  <caption align=\"bottom\">List of common base classes for 1-dimensional translational components</caption>
+  <tr><th>Name</th><th>Description</th></tr>
+  <tr>
+    <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialCompliant\">PartialCompliant</a>
+    </td>
+    <td> Compliant connection of two translational 1-dim. flanges
+         (used for force laws such as a spring or a damper).
+    </td>
+  </tr>
+  <tr>
+    <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates\">PartialCompliantWithRelativeStates</a>
+    </td>
+    <td> Same as &quot;PartialCompliant&quot;, but relative position and relative speed are
+         defined as preferred states. Use this partial model if the force law
+         needs anyway the relative speed. The advantage is that it is usually better
+         to use relative positions between drive train components
+         as states, especially, if the position is not limited.
+    </td>
+  </tr>
+  <tr>
+    <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2\">PartialElementaryTwoFlangesAndSupport2</a>
+    </td>
+    <td> Partial model for a 1-dim. translational component consisting of the flange of
+         an input shaft, the flange of an output shaft and the support.
+    </td>
+  </tr>
+  <tr>
+    <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialForce\">PartialForce</a>
+    </td>
+    <td> Partial model of an external force acting at the flange (accelerates the flange).
+    </td>
+  </tr>
+  <tr>
+    <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges\">PartialTwoFlanges</a>
+    </td>
+    <td> General connection of two translational 1-dim. flanges.
+    </td>
+  </tr>
+  <tr>
+    <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor\">PartialAbsoluteSensor</a>
+    </td>
+    <td> Measure absolute flange variables.
+    </td>
+  </tr>
+  <tr>
+    <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor\">PartialRelativeSensor</a>
+    </td>
+    <td> Measure relative flange variables.
+    </td>
+  </tr>
 </table>
 
 <p>
@@ -264,16 +262,16 @@ there is a support flange.
 <p>
 The equations of a mechanical component are vector equations, i.e.,
 they need to be expressed in a common coordinate system.
-Therefore, for a component a <strong>local axis of movement</strong> has to be
-defined. All vector quantities, such as cut-forces or
+Therefore, a <strong>local axis of movement</strong> has to be
+defined for a component. All vector quantities, such as cut-forces or
 velocities have to be expressed according to this definition.
 Examples for such a definition are given in the following figure
 for a mass component:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/driveAxis.png\" alt=\"driveAxis\">
-</p>
+</div>
 
 <p>
 As can be seen, all vectors are directed into the direction
@@ -286,12 +284,12 @@ coordinate system has an influence on the usage of the
 component. But this is not the case, as shown in the next figure:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/masses.png\" alt=\"masses\">
-</p>
+</div>
 
 <p>
-In the figure the <strong>local</strong> axes of rotation of the components
+In the figure, the <strong>local</strong> axes of translation of the components
 are shown. The connection of two masses in the left and in the
 right part of the figure are completely equivalent, i.e., the right
 part is just a different drawing of the left part. This is due to the
@@ -300,21 +298,24 @@ made identical and the (automatically) generated connection equations
 (= positions are identical, cut-forces sum-up to zero) are also
 expressed in this common coordinate system. Therefore, even if in
 the left figure it seems to be that the velocity vector of
-<code>m2</code> goes from right to left, in reality it goes from
+<code>mass2</code> goes from right to left, in reality it goes from
 left to right as shown in the right part of the figure, where the
 local coordinate systems are drawn such that they are aligned.
-Note, that the simple rule stated in section 4 (Sign conventions)
+Note, that the simple rule stated in section 
+<a href=\"modelica://Modelica.Mechanics.Translational.UsersGuide.SignConventions\">Sign conventions</a>
 also determines that
-the velocity of <code>m2</code> in the left part of the
+the velocity of <code>mass2</code> in the left part of the
 figure is directed from left to right.
 </p>
 <p>
 To summarize, the local coordinate system selected for a component
-is just necessary, in order that the equations of this component
+is just necessary in order that the equations of this component
 are expressed correctly. The selection of the coordinate system
 is arbitrary and has no influence on the usage of the component.
 Especially, the actual direction of, e.g., a cut-force is most
-easily determined by the rule of section 4. A more strict determination
+easily determined by the rule of section
+<a href=\"modelica://Modelica.Mechanics.Translational.UsersGuide.SignConventions\">Sign conventions</a>.
+A more strict determination
 by aligning coordinate systems and then using the vector direction
 of the local coordinate systems, often requires a re-drawing of the
 diagram and is therefore less convenient to use.
