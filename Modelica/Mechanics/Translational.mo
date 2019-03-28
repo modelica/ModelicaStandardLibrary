@@ -120,9 +120,9 @@ support flange is enabled or disabled. If it is enabled, it must be connected.
 If it is disabled, it need not be connected.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/bearing.png\" alt=\"bearing\">
-</p>
+</div>
 
 <p>
 Depending on the setting of <strong>useSupport</strong>, the icon of the corresponding
@@ -131,10 +131,9 @@ For example, the two implementations in the following figure give
 identical results.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/bearing2.png\" alt=\"bearing2\">
-</p>
-
+</div>
 </html>"));
 
     end SupportForces;
