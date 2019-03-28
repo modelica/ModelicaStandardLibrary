@@ -82,24 +82,27 @@ together, see figure below.
       annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 A flange is described by the connector class
-Interfaces.<strong>Flange_a</strong>
-or Interfaces.<strong>Flange_b</strong>. As already noted, the two connector
+<strong><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.Flange_a\">Flange_a</a></strong>
+or <strong><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.Flange_b\">Flange_b</a></strong>.
+As already noted in section <a href=\"modelica://Modelica.Mechanics.Translational.UsersGuide.Overview\">Overview</a>,
+the two connector
 classes are completely identical. There is only a difference in the icons,
 in order to easier identify a flange variable in a diagram.
 Both connector classes contain the following variables:
 </p>
-<pre>
-   Modelica.SIunits.Position   s \"Absolute position of flange\";
-   <strong>flow</strong> Modelica.SIunits.Force f \"Cut-force in the flange\";
-</pre>
+<blockquote><pre>
+Modelica.SIunits.Position   s &quot;Absolute position of flange&quot;;
+<strong>flow</strong> Modelica.SIunits.Force f &quot;Cut force directed into flange&quot;;
+</pre></blockquote>
+
 <p>
 If needed, the velocity <code>v</code> and the
 acceleration <code>a</code> of a flange connector can be
 determined by differentiation of the flange position <code>s</code>:
 </p>
-<pre>
-     v = <strong>der</strong>(s);    a = <strong>der</strong>(v);
-</pre>
+<blockquote><pre>
+v = <strong>der</strong>(s);    a = <strong>der</strong>(v);
+</pre></blockquote>
 </html>"));
 
     end FlangeConnectors;
