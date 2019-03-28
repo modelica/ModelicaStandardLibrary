@@ -155,9 +155,9 @@ signs of variables shall be interpreted. The basic idea is explained
 at hand of the following figure:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive2.png\" alt=\"drive2\">
-</p>
+</div>
 
 <p>
 In the figure, three identical drive trains are shown. The only
@@ -169,8 +169,8 @@ Due to the 1-dimensional nature of the model, all components are
 basically connected together along one line (more complicated
 cases are discussed below). First, one has to define
 a <strong>positive</strong> direction of this line, called <strong>axis of rotation</strong>.
-In the top part of the figure this is characterized by an arrow
-defined as <code>axis of rotation</code>. The simple rule is now:
+In the top of the figure this is characterized by an arrow
+and a corresponding text. The simple rule is now:
 If a variable of a component is positive and can be interpreted as
 the element of a vector (e.g., torque or angular velocity vector), the
 corresponding vector is directed into the positive direction
@@ -179,36 +179,36 @@ inertias of the figure above are displayed with the positive
 vector direction displayed according to this rule:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive3.png\" alt=\"drive3\">
-</p>
+</div>
 <p>
-The cut-torques <code>J2.flange_a.tau, J4.flange_a.tau, J6.flange_b.tau</code>
+The cut-torques <code>J2.flange_a.tau</code>, <code>J4.flange_a.tau</code> and <code>J6.flange_b.tau</code>
 of the right inertias are all identical and are directed into the
 direction of rotation if the values are positive. Similarly,
-the angular velocities <code>J2.w, J4.w, J6.w</code> of the right inertias
+the angular velocities <code>J2.w</code>, <code>J4.w</code> and <code>J6.w</code> of the right inertias
 are all identical and are also directed into the
 direction of rotation if the values are positive. Some special
 cases are shown in the next figure:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive4.png\" alt=\"drive4\">
-</p>
+</div>
 
 <p>
 In the upper part of the figure, two variants of the connection of an
 external torque and an inertia are shown. In both cases, a positive
 signal input into the torque component accelerates the inertias
-<code>inertia1, inertia2</code> into the positive axis of rotation,
-i.e., the angular accelerations <code>inertia1.a, inertia2.a</code>
-are positive and are directed along the \"axis of rotation\" arrow.
+<code>inertia1</code> and <code>inertia2</code> into the positive axis of rotation,
+i.e., the angular accelerations <code>inertia1.a</code> and <code>inertia2.a</code>
+are positive and are directed along the &quot;axis of rotation&quot; arrow.
 In the lower part of the figure the connection of inertias with
 a planetary gear is shown. Note, that the three flanges of the
 planetary gearbox are located along the axis of rotation and that
 the axis direction determines the positive rotation along these
-flanges. As a result, the positive rotation for <code>inertia4, inertia6</code>
-is as indicated with the additional grey arrows.
+flanges. As a result, the positive rotation for <code>inertia4</code> and <code>inertia6</code>
+is as indicated with the additional black arrows.
 </p>
 </html>"));
 
