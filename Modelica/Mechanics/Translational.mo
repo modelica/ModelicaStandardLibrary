@@ -413,34 +413,41 @@ drive.
 <h4>Library officers</h4>
 
 <p>
-<strong>Jakub Tobolar</strong> and <a href=\"http://www.robotic.dlr.de/Martin.Otter/\"><strong>Martin Otter</strong></a><br>
-Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e.V. (DLR)<br>
-Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)<br>
-Forschungszentrum Oberpfaffenhofen<br>
-D-82234 Wessling<br>
-Germany<br>
-email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a>
+For current information on library officers please refer to the main
+<a href=\"modelica://Modelica.UsersGuide.Contact\">Contact</a> section.
 </p>
 
-<h4>Contributors to this library</h4>
+<h4>Main contributors</h4>
 
-<ul>
-<li> Main author until 2006:<br>
-     Peter Beater<br>
-     Universit&auml;t Paderborn, Abteilung Soest<br>
-     Fachbereich Maschinenbau/Automatisierungstechnik<br>
-     L&uuml;becker Ring 2<br>
-     D 59494 Soest<br>
-     Germany<br>
-     email: <a href=\"mailto:info@beater.de\">info@beater.de</a>
-     </li>
-<li> <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> (DLR-RM)</li>
-<li> Christian Schweiger (DLR-RM, until 2006).</li>
-<li> <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
-     Technical Consulting &amp; Electrical Engineering<br>
-     D-93049 Regensburg, Germany<br>
-     email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a></li>
-</ul>
+<dl>
+<dt>Main author until 2006:</dt>
+<dd>Peter Beater</dd>
+<dd>Universit&auml;t Paderborn, Abteilung Soest</dd>
+<dd>Fachbereich Maschinenbau/Automatisierungstechnik</dd>
+<dd>L&uuml;becker Ring 2</dd>
+<dd>D 59494 Soest</dd>
+<dd>Germany</dd>
+<dd>email: <a href=\"mailto:info@beater.de\">info@beater.de</a></dd>
+<dd><br /></dd>
+
+<dt>Other authors:</dt>
+<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> (DLR-SR)</dd>
+<dd>Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e.V. (DLR)</dd>
+<dd>Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)</dd>
+<dd>Forschungszentrum Oberpfaffenhofen</dd>
+<dd>D-82234 Wessling</dd>
+<dd>Germany</dd>
+<dd>email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a></dd>
+<dd>&nbsp;</dd>
+
+<dd>Christian Schweiger (DLR-RM, until 2006)</dd>
+<dd>&nbsp;</dd>
+
+<dd><a href=\"https://www.haumer.at/\">Anton Haumer</a></dd>
+<dd>Technical Consulting &amp; Electrical Engineering</dd>
+<dd>D-93049 Regensburg, Germany</dd>
+<dd>email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a></dd>
+</dl>
 </html>"));
     end Contact;
 
@@ -457,7 +464,6 @@ More details are given in the following sub-sections:
 <li> <a href=\"modelica://Modelica.Mechanics.Translational.UsersGuide.UserDefinedComponents\">User Defined Components</a></li>
 <li> <a href=\"modelica://Modelica.Mechanics.Translational.UsersGuide.StateSelection\">State Selection</a></li>
 </ul>
-
 </html>"));
   end UsersGuide;
 
