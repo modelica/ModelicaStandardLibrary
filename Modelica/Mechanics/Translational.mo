@@ -151,15 +151,15 @@ signs of variables shall be interpreted. The basic idea is explained
 at hand of the following figure:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/drive2.png\" alt=\"drive2\">
-</p>
+</div>
 
 <p>
 First, one has to define
 a <strong>positive</strong> direction of this line, called <strong>axis of movement</strong>.
-In the top part of the figure this is characterized by an arrow
-defined as <code>axis of movement</code>. The simple rule is now:
+In the top of the figure this is characterized by an arrow
+and a corresponding text. The simple rule is now:
 If a variable of a component is positive and can be interpreted as
 the element of a vector (e.g., force or velocity vector), the
 corresponding vector is directed into the positive direction
@@ -168,14 +168,14 @@ mass of the figure above is displayed with the positive
 vector direction displayed according to this rule:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/drive3.png\" alt=\"drive3\">
-</p>
+</div>
 <p>
-The cut-force <code>m2.flange_a.f</code>
+The cut-force <code>mass2.flange_a.f</code>
 of the right mass is directed into the
 direction of movement if the values are positive. Similarly,
-the velocity <code>m2.v</code> of the right mass
+the velocity <code>mass2.v</code> of the right mass
 is also directed into the
 direction of movement if the values are positive
 </p>
