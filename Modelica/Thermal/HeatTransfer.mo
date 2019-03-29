@@ -917,12 +917,12 @@ McGraw-Hill, 1997, p.270):
    where
       h  : Heat transfer coefficient
       Nu : = h*x/k       (Nusselt number)
-      Re : = v*x*rho/mue (Reynolds number)
-      Pr : = cp*mue/k    (Prandtl number)
+      Re : = v*x*rho/mu  (Reynolds number)
+      Pr : = cp*mu/k     (Prandtl number)
       v  : Absolute velocity of fluid
       x  : distance from leading edge of flat plate
       rho: density of fluid (material constant
-      mue: dynamic viscosity of fluid (material constant)
+      mu : dynamic viscosity of fluid (material constant)
       cp : specific heat capacity of fluid (material constant)
       k  : thermal conductivity of fluid (material constant)
    and the equation for h holds, provided

@@ -4,7 +4,7 @@ package FluxTubes
 
   import SI = Modelica.SIunits;
   import Modelica.Constants.pi;
-  import mu_0 = Modelica.Constants.mue_0;
+  import mu_0 = Modelica.Constants.mu_0;
 
   extends Modelica.Icons.Package;
 
