@@ -117,7 +117,7 @@ a support flange (framed flange in the lower center), which can be used
 to fix components on the ground or on other moving elements or to combine
 them with force elements. Via Boolean parameter <strong>useSupport</strong>, the
 support flange is enabled or disabled. If it is enabled, it must be connected.
-If it is disabled, it need not be connected.
+If it is disabled, it needs not be connected.
 </p>
 
 <div>
