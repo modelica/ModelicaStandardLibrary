@@ -3552,10 +3552,10 @@ following references, especially (Armstrong and Canudas de Wit 1996):
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
 
-      parameter Real mue_pos[:, 2]=[0, 0.5]
-        "[w,mue] positive sliding friction coefficient (w_rel>=0)";
+      parameter Real mu_pos[:, 2]=[0, 0.5]
+        "[w,mu] positive sliding friction coefficient (w_rel>=0)";
       parameter Real peak(final min=1) = 1
-        "Peak for maximum value of mue at w==0 (mue0_max = peak*mue_pos[1,2])";
+        "Peak for maximum value of mu at w==0 (mu0_max = peak*mu_pos[1,2])";
       parameter Real cgeo(final min=0) = 1
         "Geometry constant containing friction distribution assumption";
       parameter SI.Force fn_max(final min=0, start=1) "Maximum normal force";
@@ -3571,7 +3571,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
       SI.AngularAcceleration a
         "Absolute angular acceleration of flange_a and flange_b";
 
-      Real mue0 "Friction coefficient for w=0 and forward sliding";
+      Real mu0 "Friction coefficient for w=0 and forward sliding";
       SI.Force fn "Normal force (=fn_max*f_normalized)";
 
       // Constant auxiliary variable
@@ -3583,7 +3583,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
             rotation=90)));
 
     equation
-      mue0 = Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], 0, 1);
+      mu0 = Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], 0, 1);
 
       phi = flange_a.phi - phi_support;
       flange_b.phi = flange_a.phi;
@@ -3597,20 +3597,20 @@ following references, especially (Armstrong and Canudas de Wit 1996):
       // Friction torque, normal force and friction torque for w_rel=0
       flange_a.tau + flange_b.tau - tau = 0;
       fn = fn_max*f_normalized;
-      tau0 = mue0*cgeo*fn;
+      tau0 = mu0*cgeo*fn;
       tau0_max = peak*tau0;
       free = fn <= 0;
 
       // Friction torque
       tau = if locked then sa*unitTorque else if free then 0 else cgeo*fn*(
         if startForward then
-          Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], w, 1)
+          Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], w, 1)
         else if startBackward then
-          -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -w, 1)
+          -Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], -w, 1)
         else if pre(mode) == Forward then
-          Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], w, 1)
+          Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], w, 1)
         else
-          -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -w, 1));
+          -Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], -w, 1));
       lossPower = tau*w_relfric;
       annotation (Icon(
             coordinateSystem(preserveAspectRatio=true,
@@ -3670,20 +3670,20 @@ Friction in the brake is modelled in the following way:
 </p>
 <p>
 When the absolute angular velocity \"w\" is not zero, the friction torque
-is a function of the velocity dependent friction coefficient  mue(w) , of
+is a function of the velocity dependent friction coefficient mu(w), of
 the normal force \"fn\", and of a geometry constant \"cgeo\" which takes into
 account the geometry of the device and the assumptions on the friction
 distributions:
 </p>
 <pre>
-        frictional_torque = <strong>cgeo</strong> * <strong>mue</strong>(w) * <strong>fn</strong>
+        frictional_torque = <strong>cgeo</strong> * <strong>mu</strong>(w) * <strong>fn</strong>
 </pre>
 <p>
    Typical values of coefficients of friction:
 </p>
 <pre>
-      dry operation   :  <strong>mue</strong> = 0.2 .. 0.4
-      operating in oil:  <strong>mue</strong> = 0.05 .. 0.1
+      dry operation   :  <strong>mu</strong> = 0.2 .. 0.4
+      operating in oil:  <strong>mu</strong> = 0.05 .. 0.1
 </pre>
 <p>
    When plates are pressed together, where  <strong>ri</strong>  is the inner radius,
@@ -3695,9 +3695,9 @@ distributions:
          <strong>cgeo</strong> = <strong>N</strong>*(<strong>r0</strong> + <strong>ri</strong>)/2
 </pre>
 <p>
-    The positive part of the friction characteristic <strong>mue</strong>(w),
-    w >= 0, is defined via table mue_pos (first column = w,
-    second column = mue). Currently, only linear interpolation in
+    The positive part of the friction characteristic <strong>mu</strong>(w),
+    w >= 0, is defined via table mu_pos (first column = w,
+    second column = mu). Currently, only linear interpolation in
     the table is supported.
 </p>
 <p>
@@ -3710,7 +3710,7 @@ distributions:
    called the  maximum static friction torque, computed via:
 </p>
 <pre>
-       frictional_torque = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mue</strong>(w=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
+       frictional_torque = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(w=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
 </pre>
 <p>
 This procedure is implemented in a \"clean\" way by state events and
@@ -3759,10 +3759,10 @@ in the User's Guide of the Rotational library.
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates;
 
-      parameter Real mue_pos[:, 2]=[0, 0.5]
-        "[w,mue] positive sliding friction coefficient (w_rel>=0)";
+      parameter Real mu_pos[:, 2]=[0, 0.5]
+        "[w,mu] positive sliding friction coefficient (w_rel>=0)";
       parameter Real peak(final min=1) = 1
-        "Peak for maximum value of mue at w==0 (mue0_max = peak*mue_pos[1,2])";
+        "Peak for maximum value of mu at w==0 (mu0_max = peak*mu_pos[1,2])";
       parameter Real cgeo(final min=0) = 1
         "Geometry constant containing friction distribution assumption";
       parameter SI.Force fn_max(final min=0, start=1) "Maximum normal force";
@@ -3771,7 +3771,7 @@ in the User's Guide of the Rotational library.
       extends
         Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
 
-      Real mue0 "Friction coefficient for w=0 and forward sliding";
+      Real mu0 "Friction coefficient for w=0 and forward sliding";
       SI.Force fn "Normal force (fn=fn_max*f_normalized)";
       Modelica.Blocks.Interfaces.RealInput f_normalized
         "Normalized force signal 0..1 (normal force = fn_max*f_normalized; clutch is engaged if > 0)"
@@ -3782,7 +3782,7 @@ in the User's Guide of the Rotational library.
 
     equation
       // Constant auxiliary variable
-      mue0 = Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], 0, 1);
+      mu0 = Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], 0, 1);
 
       // Relative quantities
       w_relfric = w_rel;
@@ -3791,19 +3791,19 @@ in the User's Guide of the Rotational library.
       // Normal force and friction torque for w_rel=0
       fn = fn_max*f_normalized;
       free = fn <= 0;
-      tau0 = mue0*cgeo*fn;
+      tau0 = mu0*cgeo*fn;
       tau0_max = peak*tau0;
 
       // Friction torque
       tau = if locked then sa*unitTorque else if free then 0 else cgeo*fn*(
         if startForward then
-          Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], w_rel, 1)
+          Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], w_rel, 1)
         else if startBackward then
-          -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], w_rel, 1)
+          -Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], w_rel, 1)
         else if pre(mode) == Forward then
-          Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], w_rel, 1)
+          Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], w_rel, 1)
         else
-          -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -w_rel, 1));
+          -Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], -w_rel, 1));
       lossPower = tau*w_relfric;
       annotation (Icon(
           coordinateSystem(preserveAspectRatio=true,
@@ -3827,20 +3827,20 @@ clutch is modelled in the following way:
 </p>
 <p>
 When the relative angular velocity is not zero, the friction torque is a
-function of the velocity dependent friction coefficient  mue(w_rel) , of
+function of the velocity dependent friction coefficient mu(w_rel), of
 the normal force \"fn\", and of a geometry constant \"cgeo\" which takes into
 account the geometry of the device and the assumptions on the friction
 distributions:
 </p>
 <pre>
-        frictional_torque = <strong>cgeo</strong> * <strong>mue</strong>(w_rel) * <strong>fn</strong>
+        frictional_torque = <strong>cgeo</strong> * <strong>mu</strong>(w_rel) * <strong>fn</strong>
 </pre>
 <p>
    Typical values of coefficients of friction:
 </p>
 <pre>
-      dry operation   :  <strong>mue</strong> = 0.2 .. 0.4
-      operating in oil:  <strong>mue</strong> = 0.05 .. 0.1
+      dry operation   :  <strong>mu</strong> = 0.2 .. 0.4
+      operating in oil:  <strong>mu</strong> = 0.05 .. 0.1
 </pre>
 <p>
    When plates are pressed together, where  <strong>ri</strong>  is the inner radius,
@@ -3852,9 +3852,9 @@ distributions:
          <strong>cgeo</strong> = <strong>N</strong>*(<strong>r0</strong> + <strong>ri</strong>)/2
 </pre>
 <p>
-    The positive part of the friction characteristic <strong>mue</strong>(w_rel),
-    w_rel >= 0, is defined via table mue_pos (first column = w_rel,
-    second column = mue). Currently, only linear interpolation in
+    The positive part of the friction characteristic <strong>mu</strong>(w_rel),
+    w_rel >= 0, is defined via table mu_pos (first column = w_rel,
+    second column = mu). Currently, only linear interpolation in
     the table is supported.
 </p>
 <p>
@@ -3867,7 +3867,7 @@ distributions:
    called the  maximum static friction torque, computed via:
 </p>
 <pre>
-       frictional_torque = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mue</strong>(w_rel=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
+       frictional_torque = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(w_rel=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
 </pre>
 <p>
 This procedure is implemented in a \"clean\" way by state events and
@@ -3916,10 +3916,10 @@ in the User's Guide of the Rotational library.
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates;
 
-      parameter Real mue_pos[:, 2]=[0, 0.5]
-        "[w,mue] positive sliding friction coefficient (w_rel>=0)";
+      parameter Real mu_pos[:, 2]=[0, 0.5]
+        "[w,mu] positive sliding friction coefficient (w_rel>=0)";
       parameter Real peak(final min=1) = 1
-        "Peak for maximum value of mue at w==0 (mue0_max = peak*mue_pos[1,2])";
+        "Peak for maximum value of mu at w==0 (mu0_max = peak*mu_pos[1,2])";
       parameter Real cgeo(final min=0) = 1
         "Geometry constant containing friction distribution assumption";
       parameter SI.Force fn_max(final min=0, start=1) "Maximum normal force";
@@ -3939,7 +3939,7 @@ in the User's Guide of the Rotational library.
     protected
       SI.Torque tau0 "Friction torque for w=0 and sliding";
       SI.Torque tau0_max "Maximum friction torque for w=0 and locked";
-      Real mue0 "Friction coefficient for w=0 and sliding";
+      Real mu0 "Friction coefficient for w=0 and sliding";
       Boolean free "true, if frictional element is not active";
       Real sa(final unit="1")
         "Path parameter of tau = f(a_rel) Friction characteristic";
@@ -3958,14 +3958,14 @@ in the User's Guide of the Rotational library.
 
     equation
       // Constant auxiliary variable
-      mue0 = Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], 0, 1);
-      tau0_max_low = eps0*mue0*cgeo*fn_max;
+      mu0 = Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], 0, 1);
+      tau0_max_low = eps0*mu0*cgeo*fn_max;
 
       // Normal force and friction torque for w_rel=0
       u = f_normalized;
       free = u <= 0;
       fn = if free then 0 else fn_max*u;
-      tau0 = mue0*cgeo*fn;
+      tau0 = mu0*cgeo*fn;
       tau0_max = if free then tau0_max_low else peak2*tau0;
 
       /* Friction characteristic
@@ -3982,7 +3982,7 @@ in the User's Guide of the Rotational library.
       a_rel = unitAngularAcceleration*(if locked then 0 else sa - tau0/
         unitTorque);
       tau = if locked then sa*unitTorque else (if free then 0 else cgeo*fn*
-        Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], w_rel, 1));
+        Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], w_rel, 1));
 
       // Determine configuration
       stuck = locked or w_rel <= 0;
@@ -4029,14 +4029,14 @@ fn&nbsp;=&nbsp;fn_max&nbsp;*&nbsp;f_normalized, where fn_max has to be provided 
 <p>
 The friction in the clutch is modeled in the following way.
 When the relative angular velocity is positive, the friction torque is a
-function of the velocity dependent friction coefficient mue(w_rel), of
+function of the velocity dependent friction coefficient mu(w_rel), of
 the normal force&nbsp;fn, and of a geometry constant cgeo which takes into
 account the geometry of the device and the assumptions on the friction
 distributions:
 </p>
 
 <blockquote><pre>
-frictional_torque = <strong>cgeo</strong> * <strong>mue</strong>(w_rel) * <strong>fn</strong>
+frictional_torque = <strong>cgeo</strong> * <strong>mu</strong>(w_rel) * <strong>fn</strong>
 </pre></blockquote>
 
 <p>
@@ -4044,8 +4044,8 @@ Typical values of coefficients of friction:
 </p>
 
 <blockquote><pre>
-dry operation   :  <strong>mue</strong> = 0.2 .. 0.4
-operating in oil:  <strong>mue</strong> = 0.05 .. 0.1
+dry operation   :  <strong>mu</strong> = 0.2 .. 0.4
+operating in oil:  <strong>mu</strong> = 0.05 .. 0.1
 </pre></blockquote>
 
 <p>
@@ -4063,9 +4063,9 @@ where <strong>ri</strong> is the inner radius,
 </p>
 
 <p>
-The positive part of the friction characteristic <strong>mue</strong>(w_rel),
-w_rel&nbsp;>=&nbsp;0, is defined via table mue_pos (first column = w_rel,
-second column = mue). Currently, only linear interpolation in
+The positive part of the friction characteristic <strong>mu</strong>(w_rel),
+w_rel&nbsp;>=&nbsp;0, is defined via table mu_pos (first column = w_rel,
+second column = mu). Currently, only linear interpolation in
 the table is supported.
 </p>
 <p>
@@ -4079,7 +4079,7 @@ called the  maximum static friction torque, computed via:
 </p>
 
 <blockquote><pre>
-frictional_torque = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mue</strong>(w_rel=0) * <strong>fn</strong>,   (<strong>peak</strong> >= 1)
+frictional_torque = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(w_rel=0) * <strong>fn</strong>,   (<strong>peak</strong> >= 1)
 </pre></blockquote>
 
 <p>
@@ -7857,10 +7857,10 @@ with the blocks of package Modelica.Blocks.
       /* Friction torque has to be defined in a subclass. Example for a clutch:
    tau = if locked then sa else
          if free then   0 else
-         cgeo*fn*(if startForward then          Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], w_relfric, 1) else
-                  if startBackward then        -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -w_relfric, 1) else
-                  if pre(mode) == Forward then  Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], w_relfric, 1) else
-                                               -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -w_relfric, 1));
+         cgeo*fn*(if startForward then          Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], w_relfric, 1) else
+                  if startBackward then        -Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], -w_relfric, 1) else
+                  if pre(mode) == Forward then  Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], w_relfric, 1) else
+                                               -Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], -w_relfric, 1));
 */
       // finite state machine to determine configuration
       mode = if free then Free else (if (pre(mode) == Forward or pre(mode) ==

@@ -7,3 +7,21 @@ convertClass("Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterp
               "Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_lambda");
 convertClass("Modelica.Mechanics.MultiBody.Sensors.Internal.ZeroForceAndTorque",
               "Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque");
+
+// Change renamed elements of classes
+// mue -> mu
+convertClass("Modelica.Constants.mue_0", "Modelica.Constants.mu_0");
+convertElement({"Modelica.Mechanics.MultiBody.World",
+                "Modelica.Mechanics.MultiBody.World.gravityAcceleration",
+                "Modelica.Mechanics.MultiBody.Forces.Internal.standardGravityAcceleration"},
+                "mue", "mu");
+convertElement({"Modelica.Mechanics.Rotational.Components.Brake",
+                "Modelica.Mechanics.Rotational.Components.Clutch",
+                "Modelica.Mechanics.Rotational.Components.OneWayClutch",
+                "Modelica.Mechanics.Translational.Components.Brake"},
+                "mue_pos", "mu_pos");
+convertElement({"Modelica.Mechanics.Rotational.Components.Brake",
+                "Modelica.Mechanics.Rotational.Components.Clutch",
+                "Modelica.Mechanics.Rotational.Components.OneWayClutch",
+                "Modelica.Mechanics.Translational.Components.Brake"},
+                "mue0", "mu0");

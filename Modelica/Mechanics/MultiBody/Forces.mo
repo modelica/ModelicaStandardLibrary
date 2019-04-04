@@ -2947,12 +2947,12 @@ values from the outside in order that the model remains balanced
       input Modelica.SIunits.Acceleration g[3]
         "Constant gravity acceleration, resolved in world frame, if gravityType=UniformGravity"
         annotation(Dialog);
-      input Real mue(unit="m3/s2")
+      input Real mu(unit="m3/s2")
         "Field constant of point gravity field, if gravityType=PointGravity" annotation(Dialog);
     algorithm
     gravity := if gravityType == GravityTypes.UniformGravity then g else
                if gravityType == GravityTypes.PointGravity then
-                  -(mue/(r*r))*(r/Modelica.Math.Vectors.length(r)) else zeros(3);
+                  -(mu/(r*r))*(r/Modelica.Math.Vectors.length(r)) else zeros(3);
       annotation(Inline=true, Documentation(info="<html>
 <p>
 This function defines the standard gravity fields for the World object.
@@ -2971,7 +2971,7 @@ This function defines the standard gravity fields for the World object.
     <td> Constant parallel gravity field</td></tr>
 
 <tr><td>Types.GravityType.PointGravity</td>
-    <td>= -(mue/(r*r))*r/|r|</td>
+    <td>= -(mu/(r*r))*r/|r|</td>
     <td> Point gravity field with spherical mass</td></tr>
 </table>
 
