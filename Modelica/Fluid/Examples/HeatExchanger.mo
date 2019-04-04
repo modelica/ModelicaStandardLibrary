@@ -234,9 +234,9 @@ package HeatExchanger "Demo of a heat exchanger model"
         constrainedby
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel
         "Characteristic of wall friction" annotation(choicesAllMatching, Dialog(tab="General", group="Fluid 2"));
-      parameter SI.Length roughness_1=2.5e-5
+      parameter Modelica.Fluid.Types.Roughness roughness_1=2.5e-5
         "Absolute roughness of pipe (default = smooth steel pipe)" annotation(Dialog(tab="General", group="Fluid 1"));
-      parameter SI.Length roughness_2=2.5e-5
+      parameter Modelica.Fluid.Types.Roughness roughness_2=2.5e-5
         "Absolute roughness of pipe (default = smooth steel pipe)" annotation(Dialog(tab="General", group="Fluid 2"));
 
       //Display variables

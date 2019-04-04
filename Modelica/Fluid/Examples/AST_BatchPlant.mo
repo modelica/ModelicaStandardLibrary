@@ -603,17 +603,17 @@ package AST_BatchPlant
         "Medium in the component"
         annotation (choicesAllMatching=true);
     // parameter for Tank
-      parameter Modelica.SIunits.Area crossArea "Tank area";
+      parameter SI.Area crossArea "Tank area";
       parameter SI.Area top_pipeArea[n_TopPorts] "Area of outlet pipe";
       parameter SI.Area side_pipeArea[n_SidePorts] "Area of outlet pipe";
       parameter SI.Area bottom_pipeArea[n_BottomPorts] "Area of outlet pipe";
-      parameter Modelica.SIunits.Height height(min=0) = 10 "Height of Tank";
+      parameter SI.Height height = 10 "Height of Tank";
       parameter SI.Volume V0=0 "Volume of the liquid when the level is zero";
-      constant Modelica.SIunits.Acceleration g=Modelica.Constants.g_n;
+      constant SI.Acceleration g=Modelica.Constants.g_n;
       parameter Real side_heights[n_SidePorts]=zeros(n_SidePorts);
       parameter Real bottom_heights[n_BottomPorts]=zeros(n_BottomPorts);
       parameter Real top_heights[n_TopPorts]=fill(height, n_TopPorts);
-      parameter SI.Height level_start(min=0) "Initial tank level"
+      parameter SI.Height level_start "Initial tank level"
         annotation(Dialog(tab="Initialization"));
       parameter Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.Init
         initType =                                 Init.GuessValues
