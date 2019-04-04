@@ -2126,8 +2126,7 @@ equation
             lineColor={0,0,255}),
           Rectangle(
             extent={{-100,100},{100,-100}},
-            fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
-                0} else {255,255,255}),
+            fillColor=DynamicSelect({255,255,255}, if active then {0,255,0} else {255,255,255}),
             fillPattern=FillPattern.Solid),
           Rectangle(extent={{-80,80},{80,-80}})}),
     Diagram(coordinateSystem(
@@ -2159,8 +2158,7 @@ equation
             lineColor={0,0,255}),
           Rectangle(
             extent={{-100,100},{100,-100}},
-            fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
-                0} else {255,255,255}),
+            fillColor=DynamicSelect({255,255,255}, if active then {0,255,0} else {255,255,255}),
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-92,-50},{94,-68}},
@@ -2187,8 +2185,7 @@ equation
             textString="%name",
             lineColor={0,0,255}), Rectangle(
             extent={{-100,100},{100,-100}},
-            fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
-                0} else {255,255,255}),
+            fillColor=DynamicSelect({255,255,255}, if active then {0,255,0} else {255,255,255}),
             fillPattern=FillPattern.Solid)}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -2219,8 +2216,7 @@ equation
             lineColor={0,0,255}),
           Rectangle(
             extent={{-100,100},{100,-100}},
-            fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
-                0} else {255,255,255}),
+            fillColor=DynamicSelect({255,255,255}, if active then {0,255,0} else {255,255,255}),
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-92,-74},{94,-92}},
@@ -2242,8 +2238,7 @@ block Transition
           extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-10,100},{10,-100}},
-            fillColor=DynamicSelect({0,0,0}, if enableFire > 0.5 then {0,255,0} else
-                      {0,0,0}),
+            fillColor=DynamicSelect({0,0,0}, if enableFire then {0,255,0} else {0,0,0}),
             fillPattern=FillPattern.Solid),
           Line(points={{-30,0},{-10,0}}),
           Text(
@@ -2252,13 +2247,11 @@ block Transition
             lineColor={0,0,255}),
           Text(
             extent={{20,20},{200,45}},
-            lineColor=DynamicSelect({0,0,0}, if enableTimer < 0.5 then {255,255,
-                255} else {0,0,0}),
+            lineColor=DynamicSelect({0,0,0}, if enableTimer then {255,255,255} else {0,0,0}),
             textString="%waitTime"),
           Text(
             extent={{-200,-120},{200,-145}},
-            lineColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0} else
-                      {0,0,0}),
+            lineColor=DynamicSelect({0,0,0}, if condition then {0,255,0} else {0,0,0}),
             textString="%condition")}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -2286,13 +2279,11 @@ block TransitionWithSignal
           extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{20,20},{200,45}},
-            lineColor=DynamicSelect({0,0,0}, if enableTimer < 0.5 then {255,255,
-                255} else {0,0,0}),
+            lineColor=DynamicSelect({0,0,0}, if enableTimer then {255,255,255} else {0,0,0}),
             textString="%waitTime"),
           Rectangle(
             extent={{-10,100},{10,-100}},
-            fillColor=DynamicSelect({0,0,0}, if enableFire > 0.5 then {0,255,0} else
-                      {0,0,0}),
+            fillColor=DynamicSelect({0,0,0}, if enableFire then {0,255,0} else {0,0,0}),
             fillPattern=FillPattern.Solid),
           Line(points={{-30,0},{-10,0}}),
           Text(
@@ -2301,10 +2292,8 @@ block TransitionWithSignal
             lineColor={0,0,255}),
           Ellipse(
             extent={{7,-81},{-7,-95}},
-            lineColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0} else
-                      {0,0,0}),
-            fillColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0} else
-                      {0,0,0}),
+            lineColor=DynamicSelect({0,0,0}, if condition then {0,255,0} else {0,0,0}),
+            fillColor=DynamicSelect({0,0,0}, if condition then {0,255,0} else {0,0,0}),
             fillPattern=FillPattern.Solid)}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -2721,8 +2710,7 @@ inside the CompositeStep to the outPort connector.");
             lineColor={0,0,255}),
           Rectangle(
             extent={{-150,150},{150,-150}},
-            fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
-                0} else {255,255,255}),
+            fillColor=DynamicSelect({255,255,255}, if active then {0,255,0} else {255,255,255}),
             fillPattern=FillPattern.Solid),
           Text(
             extent={{4,-115},{145,-130}},
@@ -2952,8 +2940,7 @@ value, still requires to go in to the text layer.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Ellipse(
               extent={{-100,-100},{100,100}},
-              fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else
-                        {235,235,235}),
+              fillColor=DynamicSelect({235,235,235}, if u then {0,255,0} else {235,235,235}),
               pattern=LinePattern.None,
               fillPattern=FillPattern.Sphere), Text(
               extent={{-150,150},{150,110}},
