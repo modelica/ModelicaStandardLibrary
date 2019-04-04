@@ -746,9 +746,6 @@ the animation may be switched off via parameter animation = <strong>false</stron
           angles_start,
           zeros(3))
       "Orientation object from world frame to frame_a at initial time";
-    final parameter SI.AngularAcceleration z_a_start[3]=Frames.resolve2(R_start,
-        z_0_start)
-      "Initial values of angular acceleration z_a = der(w_a), i.e., time derivative of angular velocity resolved in frame_a";
 
     SI.AngularVelocity w_a[3](
       start=Frames.resolve2(R_start, w_0_start),
