@@ -54,13 +54,13 @@
 #define MATIO_MINOR_VERSION 5
 
 /* Matio release level number */
-#define MATIO_RELEASE_LEVEL 13
+#define MATIO_RELEASE_LEVEL 15
 
 /* Matio version number */
-#define MATIO_VERSION 1513
+#define MATIO_VERSION 1515
 
 /* Matio version string */
-#define MATIO_VERSION_STR "1.5.13"
+#define MATIO_VERSION_STR "1.5.15"
 
 /* Default file format */
 #define MAT_FT_DEFAULT MAT_FT_MAT5
@@ -361,6 +361,7 @@ MATIO_EXTERN mat_t      *Mat_CreateVer(const char *matname,const char *hdr_str,
 MATIO_EXTERN int         Mat_Close(mat_t *mat);
 MATIO_EXTERN mat_t      *Mat_Open(const char *matname,int mode);
 MATIO_EXTERN const char *Mat_GetFilename(mat_t *mat);
+MATIO_EXTERN const char *Mat_GetHeader(mat_t *mat);
 MATIO_EXTERN enum mat_ft Mat_GetVersion(mat_t *mat);
 MATIO_EXTERN char      **Mat_GetDir(mat_t *mat, size_t *n);
 MATIO_EXTERN int         Mat_Rewind(mat_t *mat);
