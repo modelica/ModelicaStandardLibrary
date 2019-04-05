@@ -63,10 +63,8 @@ equation
               textString="%expr"),
             Ellipse(
               extent={{275,8},{289,-6}},
-              lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
-                        {235,235,235}),
-              fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
-                        {235,235,235}),
+              lineColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
+              fillColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
               fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
 <p>
