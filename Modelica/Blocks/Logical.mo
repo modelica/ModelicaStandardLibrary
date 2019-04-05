@@ -913,31 +913,23 @@ When the input becomes <strong>false</strong>, the timer stops and the output is
           textString="Q!"),
         Ellipse(
           extent={{-73,54},{-87,68}},
-          lineColor=DynamicSelect({235,235,235}, if S > 0.5 then {0,255,0}
-               else {235,235,235}),
-          fillColor=DynamicSelect({235,235,235}, if S > 0.5 then {0,255,0}
-               else {235,235,235}),
+          lineColor=DynamicSelect({235,235,235}, if S then {0,255,0} else {235,235,235}),
+          fillColor=DynamicSelect({235,235,235}, if S then {0,255,0} else {235,235,235}),
           fillPattern=FillPattern.Solid),
         Ellipse(
           extent={{83,-53},{69,-67}},
-          lineColor=DynamicSelect({235,235,235}, if QI > 0.5 then {0,255,0}
-               else {235,235,235}),
-          fillColor=DynamicSelect({235,235,235}, if QI > 0.5 then {0,255,0}
-               else {235,235,235}),
+          lineColor=DynamicSelect({235,235,235}, if QI then {0,255,0} else {235,235,235}),
+          fillColor=DynamicSelect({235,235,235}, if QI then {0,255,0} else {235,235,235}),
           fillPattern=FillPattern.Solid),
         Ellipse(
           extent={{-71,-52},{-85,-66}},
-          lineColor=DynamicSelect({235,235,235}, if R > 0.5 then {0,255,0}
-               else {235,235,235}),
-          fillColor=DynamicSelect({235,235,235}, if R > 0.5 then {0,255,0}
-               else {235,235,235}),
+          lineColor=DynamicSelect({235,235,235}, if R then {0,255,0} else {235,235,235}),
+          fillColor=DynamicSelect({235,235,235}, if R then {0,255,0} else {235,235,235}),
           fillPattern=FillPattern.Solid),
         Ellipse(
           extent={{71,67},{85,53}},
-          lineColor=DynamicSelect({235,235,235}, if Q > 0.5 then {0,255,0}
-               else {235,235,235}),
-          fillColor=DynamicSelect({235,235,235}, if Q > 0.5 then {0,255,0}
-               else {235,235,235}),
+          lineColor=DynamicSelect({235,235,235}, if Q then {0,255,0} else {235,235,235}),
+          fillColor=DynamicSelect({235,235,235}, if Q then {0,255,0} else {235,235,235}),
           fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
