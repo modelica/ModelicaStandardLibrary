@@ -439,20 +439,16 @@ This example is based on
          on := true;
       end when;
       annotation (Icon(
-          coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                100}}),
+          coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
           graphics={Rectangle(
               extent={{-100,-100},{100,100}},
-              fillColor=DynamicSelect({192,192,192}, if on > 0.5 then {0,255,0} else
-                        {192,192,192}),
-              fillPattern=DynamicSelect(FillPattern.Solid, if on > 0.5 then
-                  FillPattern.Solid else FillPattern.Solid),
+              fillColor=DynamicSelect({192,192,192}, if on then {0,255,0} else {192,192,192}),
+              fillPattern=FillPattern.Solid,
               lineColor={128,128,128},
               lineThickness=0.5), Text(
               extent={{-80,-40},{80,40}},
               textString="%name")},
-                              interaction={OnMouseDownSetBoolean(
-                              on, true)}));
+          interaction={OnMouseDownSetBoolean(on, true)}));
     end RadioButton;
   end Utilities;
 end ControlledTankSystem;

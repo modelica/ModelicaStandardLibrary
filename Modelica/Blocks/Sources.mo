@@ -100,10 +100,8 @@ variable <strong>y</strong> is both a variable and a connector.
             lineColor={0,0,255}),
           Polygon(
             points={{100,10},{120,0},{100,-10},{100,10}},
-            lineColor=DynamicSelect({255,0,255}, if y > 0.5 then {0,255,0}
-                 else {255,0,255}),
-            fillColor=DynamicSelect({255,255,255}, if y > 0.5 then {0,255,0}
-                 else {255,255,255}),
+            lineColor=DynamicSelect({255,0,255}, if y then {0,255,0} else {255,0,255}),
+            fillColor=DynamicSelect({255,255,255}, if y then {0,255,0} else {255,255,255}),
             fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
 The (time varying) Boolean output signal of this block can be defined in its
@@ -2935,10 +2933,8 @@ The precise semantics is:
           initialScale=0.06), graphics={Rectangle(
             extent={{-100,-100},{100,100}},
             borderPattern=BorderPattern.Raised,
-            fillColor=DynamicSelect({192,192,192}, if on > 0.5 then {0,255,0}
-                 else {192,192,192}),
-            fillPattern=DynamicSelect(FillPattern.Solid, if on > 0.5 then
-                FillPattern.Solid else FillPattern.Solid),
+            fillColor=DynamicSelect({192,192,192}, if on then {0,255,0} else {192,192,192}),
+            fillPattern=FillPattern.Solid,
             lineColor={128,128,128}), Text(
             extent={{-300,110},{300,175}},
             lineColor={0,0,255},

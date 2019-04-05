@@ -391,8 +391,7 @@ a simple model of a variable pressure loss is needed.</p>
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{-100,50},{100,-50},{100,50},{0,0},{-100,-50},{-100,50}},
-            fillColor=DynamicSelect({255,255,255}, if open > 0.5 then {0,255,0} else
-                      {255,255,255}),
+            fillColor=DynamicSelect({255,255,255}, if open then {0,255,0} else {255,255,255}),
             fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
 <p>
