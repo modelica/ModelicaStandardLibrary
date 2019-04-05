@@ -2938,7 +2938,8 @@ The precise semantics is:
             lineColor={128,128,128}), Text(
             extent={{-300,110},{300,175}},
             lineColor={0,0,255},
-            textString="%name")}), Documentation(info="<html>
+            textString="%name")},
+          interaction={OnMouseDownSetBoolean(on, true)}), Documentation(info="<html>
 <p>
 Boolean signal source that mimics a radio button:
 Via a table, a radio button is pressed (i.e., the output 'on' is set to true) and is reset when an element of the Boolean vector
