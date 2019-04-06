@@ -6,7 +6,7 @@ CharacteristicThyristors
 ChuaCircuit
 DifferenceAmplifier
 HeatingMOSInverter
-HeatingNPN_OrGate
+HeatingNPN_NORGate
 HeatingPNP_NORGate
 HeatingResistor
 HeatingRectifier
