@@ -5496,11 +5496,11 @@ An overview of all available hysteresis and permanent magnet elements of the pac
         constant SI.MagneticFluxDensity unitT=1;
         parameter SI.MagneticFluxDensity eps = unitT*mat.tabris[size(mat.tabris,1),2]/1000;
 
-        Modelica.Blocks.Tables.CombiTable1D tabris(
+        Modelica.Blocks.Tables.CombiTable1Dv tabris(
           table=mat.tabris,
           smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative);
 
-        Modelica.Blocks.Tables.CombiTable1D tabfal(
+        Modelica.Blocks.Tables.CombiTable1Dv tabfal(
           table=mat.tabfal,
           smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative);
 
