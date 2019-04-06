@@ -397,6 +397,19 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
     end Issue978;
   end Math;
 
+  package Media
+    extends Modelica.Icons.ExamplesPackage;
+    model Issue2491 "Conversion test for #2491"
+      extends Modelica.Icons.Example;
+      package Medium = Modelica.Media.IdealGases.MixtureGases.simpleMoistAir "Medium model";
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2491\">#2491</a>.
+</p>
+</html>"));
+    end Issue2491;
+  end Media;
+
   package Thermal
     extends Modelica.Icons.ExamplesPackage;
     package HeatTransfer
