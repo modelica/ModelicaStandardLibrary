@@ -71,6 +71,47 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue197;
+
+      model Issue2361 "Conversion test for #2361"
+        extends Modelica.Icons.Example;
+        Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
+          Vps=15,
+          Vns=-15,
+          out(i(start=0, fixed=false)))
+          annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+        Modelica.Electrical.Analog.Basic.Ground ground
+          annotation(Placement(transformation(extent={{-20,-100},{0,-80}})));
+        Modelica.Electrical.Analog.Sources.TrapezoidVoltage vIn(
+          V=10,
+          rising=0.2/10,
+          width=0.3/10,
+          falling=0.2/10,
+          period=1/10,
+          nperiod=-1,
+          offset=-5,
+          startTime=-(vIn.rising + vIn.width/2))
+          annotation(Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={-80,0})));
+        Modelica.Electrical.Analog.Sensors.VoltageSensor vOut
+          annotation(Placement(transformation(extent={{-10,10},{10,-10}}, rotation=270, origin={50,-20})));
+        Modelica.Electrical.Analog.Basic.Resistor r1(R=1000)
+          annotation(Placement(transformation(extent={{-40,20},{-20,40}})));
+        Modelica.Electrical.Analog.Basic.Resistor r2(R=2000)
+          annotation(Placement(transformation(extent={{20,20},{0,40}})));
+      equation
+        connect(r1.n, r2.n) annotation(Line(points={{-20,30},{0,30}}, color={0,0,255}));
+        connect(r2.n, opAmp.in_n) annotation(Line(points={{0,30},{-10,30},{-10,6},{0,6}}, color={0,0,255}));
+        connect(r2.p, opAmp.out) annotation(Line(points={{20,30},{30,30},{30,0},{20,0}}, color={0,0,255}));
+        connect(ground.p, opAmp.in_p) annotation(Line(points={{-10,-80},{-10,-6},{0,-6}}, color={0,0,255}));
+        connect(vIn.p, r1.p) annotation(Line(points={{-80,10},{-80,30},{-40,30}}, color={0,0,255}));
+        connect(ground.p, vIn.n) annotation(Line(points={{-10,-80},{-80,-80},{-80,-10}}, color={0,0,255}));
+        connect(ground.p, vOut.n) annotation(Line(points={{-10,-80},{50,-80},{50,-30}}, color={0,0,255}));
+        connect(opAmp.out, vOut.p) annotation(Line(points={{20,0},{50,0},{50,-10}}, color={0,0,255}));
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2361\">#2361</a>.
+</p>
+</html>"));
+      end Issue2361;
     end Analog;
 
     package Digital

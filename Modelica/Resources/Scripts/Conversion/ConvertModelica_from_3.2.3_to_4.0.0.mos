@@ -9,6 +9,8 @@ convertClass("Modelica.Mechanics.MultiBody.Sensors.Internal.ZeroForceAndTorque",
               "Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque");
 convertClass("Modelica.Electrical.Analog.Basic.EMF",
               "Modelica.Electrical.Analog.Basic.RotationalEMF");
+convertClass("Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted",
+              "Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited");
 convertClass("Modelica.Electrical.Digital.Converters.LogicToXO1",
               "Modelica.Electrical.Digital.Converters.LogicToX01");
 convertClass("Modelica.Electrical.Digital.Converters.LogicToXO1Z",
