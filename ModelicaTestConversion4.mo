@@ -14,6 +14,28 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
     end Issue194;
   end Constants;
 
+  package Electrical
+    extends Modelica.Icons.ExamplesPackage;
+    package Digital
+      extends Modelica.Icons.ExamplesPackage;
+      model Issue758 "Conversion test for #758"
+        extends Modelica.Icons.Example;
+        Modelica.Electrical.Digital.Sources.Set set(
+          x=Modelica.Electrical.Digital.Interfaces.Logic.'U');
+        Modelica.Electrical.Digital.Converters.LogicToXO1 logicToXO1_1(n=1);
+        Modelica.Electrical.Digital.Converters.LogicToXO1Z logicToXO1Z(n=1);
+      equation 
+        connect(set.y, logicToXO1_1.x[1]);
+        connect(set.y, logicToXO1Z.x[1]);
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/758\">#758</a>.
+</p>
+</html>"));
+      end Issue758;
+    end Digital;
+  end Electrical;
+
   package Fluid
     extends Modelica.Icons.ExamplesPackage;
     package Dissipation
