@@ -7,6 +7,10 @@ convertClass("Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterp
               "Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_lambda");
 convertClass("Modelica.Mechanics.MultiBody.Sensors.Internal.ZeroForceAndTorque",
               "Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque");
+convertClass("Modelica.Electrical.Digital.Converters.LogicToXO1",
+              "Modelica.Electrical.Digital.Converters.LogicToX01");
+convertClass("Modelica.Electrical.Digital.Converters.LogicToXO1Z",
+              "Modelica.Electrical.Digital.Converters.LogicToX01Z");
 
 // Change renamed elements of classes
 // mue -> mu
