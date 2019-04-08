@@ -2368,7 +2368,6 @@ and provides is as output signal.
     end ToKelvin;
 
     model FromKelvin "Conversion from Kelvin to degFahrenheit"
-      parameter Integer n=1 "Only kept for backwards compatibility (parameter is not used in the model and will be removed in a future version)" annotation(Dialog(enable=false));
       Modelica.Blocks.Interfaces.RealInput Kelvin(unit="K")
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
       Modelica.Blocks.Interfaces.RealOutput Fahrenheit(unit="degF")
@@ -2652,7 +2651,6 @@ Example:
     extends Modelica.Icons.VariantsPackage;
 
     model ToKelvin "Conversion block from degRankine to Kelvin"
-      parameter Integer n=1 "Only kept for backwards compatibility (parameter is not used in the model and will be removed in a future version)" annotation(Dialog(enable=false));
       Modelica.Blocks.Interfaces.RealInput Rankine(unit="degRk")
        annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
       Modelica.Blocks.Interfaces.RealOutput Kelvin(unit="K")
@@ -2702,7 +2700,6 @@ and provides them as output signals.
     end ToKelvin;
 
     model FromKelvin "Conversion from Kelvin to degRankine"
-      parameter Integer n=1 "Only kept for backwards compatibility (parameter is not used in the model and will be removed in a future version)" annotation(Dialog(enable=false));
       Modelica.Blocks.Interfaces.RealInput Kelvin(unit="K")
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
       Modelica.Blocks.Interfaces.RealOutput Rankine(unit="degRk")

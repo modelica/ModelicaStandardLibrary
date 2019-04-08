@@ -324,6 +324,29 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
     end Issue978;
   end Math;
 
+  package Thermal
+    extends Modelica.Icons.ExamplesPackage;
+    package HeatTransfer
+      extends Modelica.Icons.ExamplesPackage;
+      model Issue1202 "Conversion test for #1202"
+        extends Modelica.Icons.Example;
+        Modelica.Thermal.HeatTransfer.Rankine.ToKelvin toKelvin(n=1);
+        Modelica.Thermal.HeatTransfer.Rankine.FromKelvin fromKelvin1(n=2);
+        Modelica.Thermal.HeatTransfer.Fahrenheit.FromKelvin fromKelvin2(n=-3);
+        Modelica.Blocks.Sources.Constant const(k=10);
+      equation 
+        connect(const.y, fromKelvin1.Kelvin);
+        connect(const.y, toKelvin.Rankine);
+        connect(const.y, fromKelvin2.Kelvin);
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1202\">#1202</a>.
+</p>
+</html>"));
+      end Issue1202;
+    end HeatTransfer;
+  end Thermal;
+
   package SIunits
     extends Modelica.Icons.ExamplesPackage;
     model Issue385 "Conversion test for #385"
