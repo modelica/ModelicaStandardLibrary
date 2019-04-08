@@ -3613,7 +3613,7 @@ provide both values as output.
     parameter Real k1=0 "u1 dependency";
     parameter Real k2=0 "u2 dependency";
   equation
-    y = y0*(1 + k1*u1 + k2*u2);
+    y = y0 + k1*u1 + k2*u2;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
           Line(
@@ -3628,9 +3628,7 @@ provide both values as output.
           Text(
             extent={{-94,26},{8,-30}},
             textString="%y0")}), Documentation(info="<html>
-<p>Determine the linear combination of the two inputs: <code>y = y0*(1 + k1*u1 + k2*u2)</code></p>
-<p><strong>Note</strong>, for y0=0 the output is always zero.</p>
-<p>To improve the implementation, the formula will be changed (non-backwards compatible) in the future: <code>y = y0 + k1*u1 + k2*u2</code></p>
+<p>Determine the linear combination of the two inputs: <code>y = y0 + k1*u1 + k2*u2</code></p>
 </html>"));
   end LinearDependency;
 
