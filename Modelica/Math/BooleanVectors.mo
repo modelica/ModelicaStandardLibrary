@@ -7,7 +7,7 @@ function allTrue
   input Boolean b[:] "Boolean vector";
   output Boolean result "= true, if all elements of b are true";
 algorithm
-  result := size(b,1) > 0;
+  result := true;
   for i in 1:size(b,1) loop
      result := result and b[i];
   end for;
@@ -21,7 +21,7 @@ algorithm
 <p>
 Returns <strong>true</strong> if all elements of the Boolean input vector b are <strong>true</strong>.
 Otherwise the function returns <strong>false</strong>. If b is an empty vector,
-i.e., size(b,1)=0, the function returns <strong>false</strong>.
+i.e., size(b,1)=0, the function returns <strong>true</strong>.
 </p>
 
 <h4>Example</h4>
