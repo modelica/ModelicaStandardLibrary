@@ -530,20 +530,21 @@ In the following, there are given explanations.
 
 <p>
 Assume first the most simplest friction problem: A block sliding on a surface.
-The friction force &quot;f&quot; acts between the block surface and the environment surface and shall be a
-linear function of the relative velocity &quot;v&quot; between the two surfaces.
+The friction force <var>f</var> acts between the block surface and the environment surface and shall be a
+linear function of the relative velocity <var>v</var> between the two surfaces.
 When the relative velocity becomes zero, the two surfaces are stuck to each other and the friction force is no longer
-a function of &quot;v&quot;. The element starts sliding again if the friction force becomes larger than the maximum
-static friction force &quot;f0&quot;. This element could be defined with a parameterized curve description
+a function of <var>v</var>. The element starts sliding again if the friction force becomes larger than the maximum
+static friction force <var>f<sub>0</sub></var> (indicated by <code>f0</code> in equations below).
+This element could be defined with a parameterized curve description
 leading to the following equations:
 </p>
 
 <blockquote><pre>
 forward  = s &gt;  1;
 backward = s &lt; -1;
-v = if forward  then  s-1  elseif backward then s+1 else 0;
-f = if forward  then  f0+f1*(s-1) elseif
-       backward then -f0+f1*(s+1) else f0*s;
+v = if forward  then s-1 elseif backward then s+1 else 0;
+f = if forward  then  f0 + f1*(s-1) elseif
+       backward then -f0 + f1*(s+1) else f0*s;
 </pre></blockquote>
 
 <p>
@@ -561,8 +562,8 @@ m*der(v) = u - f
 </pre></blockquote>
 
 <p>
-Note, that &quot;m&quot; is the mass of the block and &quot;u(t)&quot; is the given driving force.
-If the element is in its &quot;forward sliding&quot; mode, that is s&nbsp;&ge;&nbsp;1, this model is described by:
+Note, that <var>m</var> is the mass of the block and <var>u(t)</var> is the given driving force.
+If the element is in its &quot;forward sliding&quot; mode, that is <var>s</var>&nbsp;&ge;&nbsp;1, this model is described by:
 </p>
 
 <blockquote><pre>
@@ -572,28 +573,30 @@ m*der(v) = u - f
 </pre></blockquote>
 
 <p>
-which can be easily transformed into state space form with &quot;v&quot; as the state.
-If the block becomes stuck, that is -1&nbsp;&le;&nbsp;s&nbsp;&le;&nbsp;1, the equation &quot;v&nbsp;=&nbsp;0&quot; becomes
-active and therefore &quot;v&quot; can no longer be a state, that is an index
+which can be easily transformed into state space form with&nbsp;<var>v</var> as the state.
+If the block becomes stuck, that is -1&nbsp;&le;&nbsp;<var>s</var>&nbsp;&le;&nbsp;1,
+the equation <var>v</var>&nbsp;=&nbsp;0 becomes
+active and therefore&nbsp;<var>v</var> can no longer be a&nbsp;state, that is an index
 change takes place. Besides the difficulty to handle the variable state change,
 there is a more serious problem:
 </p>
 
 <p>
-Assume that the block is stuck and that &quot;s&quot; becomes greater than one. Before the event occurs, s&nbsp;&le;&nbsp;1
-and v&nbsp;=&nbsp;0; at the event instant s&nbsp;&gt;&nbsp;1 because this relation is the event triggering condition. The element
-switches into the forward sliding mode where &quot;v&quot; is a state which is initialized with its last value &quot;v&nbsp;=&nbsp;0&quot;.
-Since &quot;v&quot; is a state, &quot;s&quot; is computed from &quot;v&quot; via &quot;s := v+1&quot;, resulting in &quot;s=1&quot;, that is the relation
-&quot;s&nbsp;&gt;&nbsp;1&quot; becomes false and the element switches back into the stuck mode. In other words, it is never possible to
+Assume that the block is stuck and that&nbsp;<var>s</var> becomes greater than one. Before the event occurs, <var>s</var>&nbsp;&le;&nbsp;1
+and <var>v</var>&nbsp;=&nbsp;0; at the event instant <var>s</var>&nbsp;&gt;&nbsp;1 because this relation is the event triggering condition. The element
+switches into the forward sliding mode where <var>v</var> is a state which is initialized with its last value <var>v</var>&nbsp;=&nbsp;0.
+Since&nbsp;<var>v</var> is a state, <var>s</var>&nbsp;is computed from&nbsp;<var>v</var> via <var>s</var>&nbsp;:=&nbsp;<var>v</var>&nbsp;+&nbsp;1, resulting in <var>s</var>&nbsp;=&nbsp;1,
+that is the relation
+<var>s</var>&nbsp;&gt;&nbsp;1 becomes false and the element switches back into the stuck mode. In other words, it is never possible to
 switch into the forward sliding mode. Taking numerical errors into account, the situation is even worse.
 </p>
 
 <p>
-The key to the solution is the observation that &quot;v&nbsp;=&nbsp;0&quot; in the stuck mode and when forward sliding starts, but
-&quot;der(v)&nbsp;&gt;&nbsp;0&quot; when sliding starts and &quot;der(v)&nbsp;=&nbsp;0&quot; in the stuck mode.
+The key to the solution is the observation that <var>v</var>&nbsp;=&nbsp;0 in the stuck mode and when forward sliding starts, but
+der(<var>v</var>)&nbsp;&gt;&nbsp;0 when sliding starts and der(<var>v</var>)&nbsp;=&nbsp;0 in the stuck mode.
 Since the friction characteristic
 at zero velocity is no functional relationship, again a parameterized curve description
-with a new curve parameter &quot;s_a&quot; has to be used leading to the following equations (note: at zero velocity):
+with a new curve parameter <var>s<sub>a</sub></var> (denoted also <code>sa</code> below) has to be used leading to the following equations (note: at zero velocity):
 </p>
 
 <blockquote><pre>
@@ -608,16 +611,16 @@ startBack = sa &lt; -1;
 At zero velocity, these equations and the equation of the block form a mixed continuous/discrete set of
 equations which has to be solved at event instants (e.g. by a fix point iteration),
 When switching from sliding to stuck mode, the velocity is small or zero. Since the derivative of the constraint
-equation der(v)&nbsp;=&nbsp;0 is fulfilled in the stuck mode, the velocity remains small even if v&nbsp;=&nbsp;0 is not explicitly
-taken into account. The approach to use the acceleration der(v)&nbsp;=&nbsp;0 as &quot;constraint&quot; instead of &quot;v&nbsp;=&nbsp;0&quot;,
-is often used in multi-body software. The benefit is that the velocity &quot;v&quot; remains a state in all switching
+equation der(<var>v</var>)&nbsp;=&nbsp;0 is fulfilled in the stuck mode, the velocity remains small even if <var>v</var>&nbsp;=&nbsp;0 is not explicitly
+taken into account. The approach to use the acceleration der(<var>v</var>)&nbsp;=&nbsp;0 as &quot;constraint&quot; instead of <var>v</var>&nbsp;=&nbsp;0,
+is often used in multi-body software. The benefit is that the velocity&nbsp;<var>v</var> remains a state in all switching
 configurations (there is a small, linear drift, but the friction element would have to stay stuck several days
-before the drift becomes too large). Consequently, &quot;v&quot; is small but may have any sign when switching
+before the drift becomes too large). Consequently, <var>v</var> is small but may have any sign when switching
 from stuck to sliding mode; if the friction element starts to slide, say in the forward direction, one has
 to wait until the velocity is really positive, before switching to forward mode (note, that even for
-exact calculation without numerical errors a &quot;waiting&quot; phase is necessary, because &quot;v&nbsp;=&nbsp;0&quot; when sliding starts).
-Since &quot;der(v)&nbsp;>&nbsp;0&quot;, this will occur after a small time period. This &quot;waiting&quot; procedure can be
-described by a state machine. Collecting all the pieces together, finally results in the following equations
+exact calculation without numerical errors a&nbsp;&quot;waiting&quot; phase is necessary, because <var>v</var>&nbsp;=&nbsp;0 when sliding starts).
+Since der(<var>v</var>)&nbsp;&gt;&nbsp;0, this will occur after a&nbsp;small time period. This &quot;waiting&quot; procedure can be
+described by a&nbsp;state machine. Collecting all the pieces together, finally results in the following equations
 of a simple friction element:
 </p>
 
