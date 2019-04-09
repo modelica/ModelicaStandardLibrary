@@ -16,6 +16,27 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 
   package Electrical
     extends Modelica.Icons.ExamplesPackage;
+    package Analog
+      extends Modelica.Icons.ExamplesPackage;
+      model Issue197 "Conversion test for #197"
+        extends Modelica.Icons.Example;
+        Modelica.Electrical.Analog.Basic.EMF emf(
+          k=1,
+          phi(start=0, fixed=true));
+        Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=1);
+        Modelica.Electrical.Analog.Basic.Ground ground;
+      equation
+        connect(constantVoltage.n, emf.p);
+        connect(constantVoltage.p, emf.n);
+        connect(ground.p, emf.n);
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/197\">#197</a>.
+</p>
+</html>"));
+      end Issue197;
+    end Analog;
+
     package Digital
       extends Modelica.Icons.ExamplesPackage;
       model Issue758 "Conversion test for #758"

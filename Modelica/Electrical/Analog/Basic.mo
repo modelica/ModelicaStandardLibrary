@@ -721,7 +721,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
             rotation=360)}));
   end Gyrator;
 
-  model EMF "Electromotoric force (electric/mechanic transformer)"
+  model RotationalEMF "Electromotoric force (electric/mechanic transformer)"
     parameter Boolean useSupport=false
       "= true, if support flange enabled, otherwise implicitly grounded"
       annotation (
@@ -840,7 +840,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
        </li>
 </ul>
 </html>"));
-  end EMF;
+  end RotationalEMF;
 
   model TranslationalEMF "Electromotoric force (electric/mechanic transformer)"
     parameter Boolean useSupport=false

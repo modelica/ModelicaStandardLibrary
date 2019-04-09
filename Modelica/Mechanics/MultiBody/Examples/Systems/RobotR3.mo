@@ -944,7 +944,7 @@ Default values for all parameters are given for joint 4.
         annotation (Placement(transformation(extent={{40,50},{60,70}})));
       Modelica.Electrical.Analog.Ideal.IdealOpAmp diff
         annotation (Placement(transformation(extent={{-60,34},{-40,54}})));
-      Electrical.Analog.Basic.EMF emf( k=k, useSupport=false)
+      Electrical.Analog.Basic.RotationalEMF emf(k=k, useSupport=false)
         annotation (Placement(transformation(extent={{30,-10},{50,10}})));
       Modelica.Electrical.Analog.Basic.Inductor La(L=(250/(2*D*w)))
         annotation (Placement(transformation(
