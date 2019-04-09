@@ -937,9 +937,6 @@ to compute u by an algebraic equation.
       annotation (Evaluate=true, Dialog(group="Initialization"));
     parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
       annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
-    parameter Boolean limitsAtInit=true
-      "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
-      annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true));
     constant Modelica.SIunits.Time unitTime=1 annotation (HideResult=true);
     Modelica.Blocks.Interfaces.RealInput u_ff if withFeedForward
       "Optional connector of feed-forward input signal"
@@ -986,7 +983,6 @@ to compute u by an algebraic equation.
       uMax=yMax,
       uMin=yMin,
       strict=strict,
-      limitsAtInit=limitsAtInit,
       homotopyType=homotopyType)
       annotation (Placement(transformation(extent={{70,-10},{90,10}})));
   protected

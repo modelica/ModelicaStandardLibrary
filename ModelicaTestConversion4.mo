@@ -1,5 +1,41 @@
 package ModelicaTestConversion4
   extends Modelica.Icons.ExamplesPackage;
+  package Blocks
+    extends Modelica.Icons.ExamplesPackage;
+    model Issue2891 "Conversion test for #2891"
+      extends Modelica.Icons.Example;
+      Modelica.Blocks.Continuous.LimPID PID(
+        controllerType=Modelica.Blocks.Types.SimpleController.P,
+        yMax=0.5,
+        initType=Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState,
+        limitsAtInit=true);
+      Modelica.Blocks.Sources.Clock clock;
+      Modelica.Blocks.Nonlinear.Limiter limiter(
+        uMax=0.5,
+        limitsAtInit=true);
+      Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter(
+        limitsAtInit=false);
+      Modelica.Blocks.Nonlinear.DeadZone deadZone(
+        uMax=0.5,
+        deadZoneAtInit=false);
+      Modelica.Blocks.Sources.Constant const1(k=0.5);
+      Modelica.Blocks.Sources.Constant const2(k=-0.5);
+    equation
+      connect(clock.y, PID.u_s);
+      connect(clock.y, PID.u_m);
+      connect(clock.y, limiter.u);
+      connect(clock.y, variableLimiter.u);
+      connect(clock.y, deadZone.u);
+      connect(const1.y, variableLimiter.limit1);
+      connect(const2.y, variableLimiter.limit2);
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2891\">#2891</a>.
+</p>
+</html>"));
+    end Issue2891;
+  end Blocks;
+
   package Constants
     extends Modelica.Icons.ExamplesPackage;
     model Issue194 "Conversion test for #194"

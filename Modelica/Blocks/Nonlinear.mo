@@ -11,9 +11,6 @@ package Nonlinear
           annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
         parameter Types.LimiterHomotopy homotopyType = Modelica.Blocks.Types.LimiterHomotopy.Linear "Simplified model for homotopy-based initialization"
           annotation (Evaluate=true, Dialog(group="Initialization"));
-        parameter Boolean limitsAtInit=true
-          "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
-          annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true));
         extends Interfaces.SISO;
   protected
         Real simplifiedExpr "Simplified expression for homotopy-based initialization";
@@ -131,9 +128,6 @@ a lot by removing one strong nonlinearity from the initialization problem.
       annotation (Evaluate=true, Dialog(group="Initialization"));
     parameter Real ySimplified = 0 "Fixed value of output in simplified model"
       annotation (Dialog(tab="Advanced", enable=homotopyType == Modelica.Blocks.Types.VariableLimiterHomotopy.Fixed));
-    parameter Boolean limitsAtInit=true
-      "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
-      annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true));
     Interfaces.RealInput limit1
       "Connector of Real input signal used as maximum of input u"
       annotation (Placement(transformation(extent={{-140,60},{-100,100}})));
@@ -327,10 +321,6 @@ with derivative time constant <code>Td</code>. Smaller time constant <code>Td</c
       block DeadZone "Provide a region of zero output"
         parameter Real uMax(start=1) "Upper limits of dead zones";
         parameter Real uMin=-uMax "Lower limits of dead zones";
-        parameter Boolean deadZoneAtInit = true
-          "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
-          annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true));
-
         extends Interfaces.SISO;
 
       equation
