@@ -1977,7 +1977,7 @@ in order to simulate temperature dependent losses (which are given with respect 
 
     extends Modelica.Icons.VariantsPackage;
 
-    model ToKelvin "Conversion block from degCelsius to Kelvin"
+    model ToKelvin "Conversion from degCelsius to Kelvin"
 
       Modelica.Blocks.Interfaces.RealInput Celsius(unit="degC")
          annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
@@ -2317,7 +2317,7 @@ Example:
 
     extends Modelica.Icons.VariantsPackage;
 
-    model ToKelvin "Conversion block from degFahrenheit to Kelvin"
+    model ToKelvin "Conversion from degFahrenheit to Kelvin"
 
       Modelica.Blocks.Interfaces.RealInput Fahrenheit(unit="degF") annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}})));
@@ -2650,7 +2650,7 @@ Example:
 
     extends Modelica.Icons.VariantsPackage;
 
-    model ToKelvin "Conversion block from degRankine to Kelvin"
+    model ToKelvin "Conversion from degRankine to Kelvin"
       Modelica.Blocks.Interfaces.RealInput Rankine(unit="degRk")
        annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
       Modelica.Blocks.Interfaces.RealOutput Kelvin(unit="K")
