@@ -1751,7 +1751,7 @@ argument):</p>
   type CoherenceLength = Length;
   type LandauGinzburgParameter = Real (final quantity="LandauGinzburgParameter",
           final unit="1");
-  type FluxiodQuantum = Real (final quantity="FluxiodQuantum", final unit="Wb");
+  type FluxoidQuantum = Real (final quantity="FluxoidQuantum", final unit="Wb");
 
   type TimeAging = Real (final quantity="1/Modelica.SIunits.Time",final unit="1/s");
   type ChargeAging = Real (final quantity="1/Modelica.SIunits.ElectricCharge",final unit="1/(A.s)");
