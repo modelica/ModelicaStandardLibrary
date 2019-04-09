@@ -121,7 +121,7 @@ The usage is demonstrated, e.g., in example
 
 <p>
 If no connection to the input connector \"u\" is present,
-the output is set to <strong>false</strong>: y=false.
+the output is set to <strong>true</strong>: y=true.
 </p>
 </html>"));
   end And;
