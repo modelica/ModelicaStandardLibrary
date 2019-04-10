@@ -123,12 +123,6 @@ This is a simple drive train controlled by a PID controller:
 </ul>
 
 <p>
-The PI controller settings included \"limitAtInit=false\", in order that
-the controller output limits of 12 Nm are removed from the initialization
-problem.
-</p>
-
-<p>
 The PI controller is initialized in steady state (initType=SteadyState)
 and the drive shall also be initialized in steady state.
 However, it is not possible to initialize \"inertia1\" in SteadyState, because
