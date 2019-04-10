@@ -2479,8 +2479,7 @@ at an angle phi0 in the <strong>housing</strong>. May be used:
         "Absolute angular velocity of component (= der(phi))"
         annotation (Dialog(group="Initialization", showStartAttribute=true));
       SI.AngularAcceleration a
-        "Absolute angular acceleration of component (= der(w))"
-        annotation (Dialog(group="Initialization", showStartAttribute=true));
+        "Absolute angular acceleration of component (= der(w))";
 
     equation
       phi = flange_a.phi;
