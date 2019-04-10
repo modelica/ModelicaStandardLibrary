@@ -10,7 +10,7 @@ package OpAmps "Examples with operational amplifiers"
     parameter Real k=2 "Desired amplification";
     parameter SI.Resistance R1=1000 "Arbitrary resistance";
     parameter SI.Resistance R2=k*R1 "Calculated resistance to reach desired amplification k";
-    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
+    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(
       Vps=Vps,
       Vns=Vns,
       out(i(start=0, fixed=false)))
@@ -76,7 +76,7 @@ package OpAmps "Examples with operational amplifiers"
     parameter Real k=2 "Desired amplification";
     parameter SI.Resistance R1=1000 "Arbitrary resistance";
     parameter SI.Resistance R2=(k - 1)*R1 "Calculated resistance to reach desired amplification k";
-    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
+    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(
       Vps=Vps,
       Vns=Vns,
       out(i(start=0)))
@@ -148,7 +148,7 @@ package OpAmps "Examples with operational amplifiers"
     parameter SI.Resistance Ri=1
       "Inner resistance of input voltage source";
     parameter SI.Resistance Rl=1 "Load resistance";
-    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
+    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(
       Vps=Vps,
       Vns=Vns,
       v_in(start=0))
@@ -218,7 +218,7 @@ package OpAmps "Examples with operational amplifiers"
     parameter Real k=2 "Desired amplification";
     parameter SI.Resistance R=1000 "Arbitrary resistance";
     parameter SI.Capacitance C=k/(2*pi*f*R) "Calculated capacitance to reach desired amplification k";
-    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(Vps=Vps, Vns=
+    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(Vps=Vps, Vns=
           Vns) annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Electrical.Analog.Basic.Ground ground
       annotation (Placement(transformation(extent={{-20,-100},{0,-80}})));
@@ -282,7 +282,7 @@ package OpAmps "Examples with operational amplifiers"
     parameter Real k=2 "Desired amplification";
     parameter SI.Resistance R=1000 "Arbitrary resistance";
     parameter SI.Capacitance C=1/k/(2*pi*f*R) "Calculated capacitance to reach desired amplification k";
-    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
+    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(
       Vps=Vps,
       Vns=Vns,
       v_in(start=0))
@@ -351,7 +351,7 @@ package OpAmps "Examples with operational amplifiers"
     parameter SI.Resistance R2=k*R1 "Calculated resistance to reach k";
     parameter SI.Frequency fG=f/10 "Limiting frequency, as an example coupled to f";
     parameter SI.Capacitance C=1/(2*pi*fG*R2) "Calculated capacitance to reach fG";
-    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
+    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(
       Vps=Vps,
       Vns=Vns,
       v_in(start=0))
@@ -426,7 +426,7 @@ package OpAmps "Examples with operational amplifiers"
     parameter SI.Resistance R2=k*R1 "Calculated resistance to reach k";
     parameter SI.Frequency fG=f/10 "Limiting frequency, as an example coupled to f";
     parameter SI.Capacitance C=1/(2*pi*fG*R1) "Calculated capacitance to reach fG";
-    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
+    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(
       Vps=Vps,
       Vns=Vns,
       out(i(start=0)))
@@ -496,7 +496,7 @@ package OpAmps "Examples with operational amplifiers"
     parameter SI.Voltage Vref=0 "Reference voltage";
     parameter Real k=(Vref - Vns)/(Vps - Vns) "Calculated potentiometer ratio to reach Vref";
     parameter SI.Resistance R=1000 "Resistance of potentiometer";
-    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(Vps=Vps, Vns=
+    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(Vps=Vps, Vns=
           Vns) annotation (Placement(transformation(extent={{0,10},{20,-10}})));
     Modelica.Electrical.Analog.Basic.Ground ground
       annotation (Placement(transformation(extent={{-20,-100},{0,-80}})));
@@ -563,7 +563,7 @@ package OpAmps "Examples with operational amplifiers"
     parameter Real k=vHys/Vps "Auxiliary calculated parameter to be used in R2 calculation";
     parameter SI.Resistance R1=1000 "Arbitrary resistance";
     parameter SI.Resistance R2=(1 - k)/k*R1 "Calculated resistance to reach hysteresis voltage";
-    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
+    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(
       Vps=Vps,
       Vns=Vns,
       out(i(start=0)),
@@ -637,7 +637,7 @@ package OpAmps "Examples with operational amplifiers"
     parameter Real k=vHys/Vps "Auxiliary calculated parameter to be used in R2 calculation";
     parameter SI.Resistance R1=1000 "Arbitrary resistance";
     parameter SI.Resistance R2=R1/k "Calculated resistance to reach hysteresis voltage";
-    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
+    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(
       Vps=Vps,
       Vns=Vns,
       out(i(start=0)),
@@ -709,7 +709,7 @@ package OpAmps "Examples with operational amplifiers"
     parameter SI.Resistance R2=1000 "Resistance 2 for adjusting the Schmitt trigger voltage level";
     parameter SI.Resistance R=1000 "Arbitrary resistance";
     parameter SI.Capacitance C=1/f/(2*R*log(1 + 2*R1/R2)) "Calculated capacitance to reach the desired frequency f";
-    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
+    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(
       Vps=Vps,
       Vns=Vns) annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Electrical.Analog.Basic.Ground ground
@@ -779,7 +779,7 @@ package OpAmps "Examples with operational amplifiers"
     parameter SI.Frequency f=10 "Desired frequency";
     parameter SI.Resistance R=1000 "Arbitrary resistance of integrator part";
     parameter SI.Capacitance C=Vps/VAmp/(4*f*R) "Calculated capacitance of integrator part to reach f";
-    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp1(
+    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp1(
       Vps=Vps,
       Vns=Vns,
       strict=false,
@@ -796,7 +796,7 @@ package OpAmps "Examples with operational amplifiers"
           origin={-50,50})));
     Modelica.Electrical.Analog.Basic.Ground ground
       annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
-    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp2(
+    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp2(
       Vps=Vps,
       Vns=Vns,
       v_in(start=0),
@@ -875,7 +875,7 @@ package OpAmps "Examples with operational amplifiers"
           transformation(
           origin={20,-50},
           extent={{-10,-10},{10,10}})));
-    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp
+    Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp
       annotation (Placement(transformation(extent={{-50,10},{-30,-10}})));
     Modelica.Electrical.Analog.Basic.Resistor r(R=R)
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
