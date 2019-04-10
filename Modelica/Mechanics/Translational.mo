@@ -2351,8 +2351,7 @@ at an position s0 in the <em>housing</em>. May be used:
       SI.Velocity v(start=0, stateSelect=stateSelect)
         "Absolute velocity of component"
         annotation (Dialog(group="Initialization", showStartAttribute=true));
-      SI.Acceleration a(start=0) "Absolute acceleration of component"
-        annotation (Dialog(group="Initialization", showStartAttribute=true));
+      SI.Acceleration a(start=0) "Absolute acceleration of component";
 
     equation
       flange_a.s = s - L/2;
