@@ -285,11 +285,11 @@ package Blocks "Test models for Modelica.Blocks"
 
   model Limiters
     extends Modelica.Icons.Example;
-    Modelica.Blocks.Nonlinear.Limiter limiter(limitsAtInit=false, uMax=1)
+    Modelica.Blocks.Nonlinear.Limiter limiter(uMax=1)
       annotation (Placement(transformation(extent={{0,0},{20,20}})));
-    Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter(limitsAtInit=
-          false) annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
-    Modelica.Blocks.Nonlinear.DeadZone deadZone(deadZoneAtInit=false, uMax=1)
+    Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter
+      annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
+    Modelica.Blocks.Nonlinear.DeadZone deadZone(uMax=1)
       annotation (Placement(transformation(extent={{0,-80},{20,-60}})));
     Modelica.Blocks.Sources.Sine sine(amplitude=2, freqHz=1) annotation (
         Placement(transformation(extent={{-80,20},{-60,40}})));

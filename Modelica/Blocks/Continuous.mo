@@ -223,13 +223,13 @@ This is discussed in the description of package
 </p>
 
 <p>
-If parameter <strong>limitAtInit</strong> = <strong>false</strong>, the limits of the
+If parameter <strong>limitsAtInit</strong> = <strong>false</strong>, the limits of the
 integrator are removed from the initialization problem which
 leads to a much simpler equation system. After initialization has been
 performed, it is checked via an assert whether the output is in the
 defined limits. For backward compatibility reasons
-<strong>limitAtInit</strong> = <strong>true</strong>. In most cases it is best
-to use <strong>limitAtInit</strong> = <strong>false</strong>.
+<strong>limitsAtInit</strong> = <strong>true</strong>. In most cases it is best
+to use <strong>limitsAtInit</strong> = <strong>false</strong>.
 </p>
 <p>
 If the <em>reset</em> port is enabled, then the output <strong>y</strong> is reset to <em>set</em>
@@ -937,9 +937,6 @@ to compute u by an algebraic equation.
       annotation (Evaluate=true, Dialog(group="Initialization"));
     parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
       annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
-    parameter Boolean limitsAtInit=true
-      "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
-      annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true));
     constant Modelica.SIunits.Time unitTime=1 annotation (HideResult=true);
     Modelica.Blocks.Interfaces.RealInput u_ff if withFeedForward
       "Optional connector of feed-forward input signal"
@@ -986,7 +983,6 @@ to compute u by an algebraic equation.
       uMax=yMax,
       uMin=yMin,
       strict=strict,
-      limitsAtInit=limitsAtInit,
       homotopyType=homotopyType)
       annotation (Placement(transformation(extent={{70,-10},{90,10}})));
   protected
@@ -1261,10 +1257,6 @@ limiter active throughout the homotopy transformation. Use this if it is unknown
 is saturated or not at initialization and if the limitations on the output must be enforced throughout
 the entire homotopy transformation.</li>
 </ul>
-
-<p>
-The parameter <strong>limitAtInit</strong> is obsolete since MSL 3.2.2 and only kept for backwards compatibility.
-</p>
 </html>"));
   end LimPID;
 

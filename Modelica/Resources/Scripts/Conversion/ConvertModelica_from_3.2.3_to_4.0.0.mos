@@ -33,3 +33,10 @@ convertElement({"Modelica.Mechanics.Rotational.Components.Brake",
                 "Modelica.Mechanics.Rotational.Components.OneWayClutch",
                 "Modelica.Mechanics.Translational.Components.Brake"},
                 "mue0", "mu0");
+
+convertModifiers({"Modelica.Blocks.Nonlinear.Limiter",
+                  "Modelica.Blocks.Nonlinear.VariableLimiter",
+                  "Modelica.Blocks.Continuous.LimPID"},
+                  {"limitsAtInit"}, fill("", 0), true);
+convertModifiers({"Modelica.Blocks.Nonlinear.DeadZone"},
+                  {"deadZoneAtInit"}, fill("", 0), true);
