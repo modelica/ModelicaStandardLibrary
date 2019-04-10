@@ -2342,13 +2342,21 @@ at an position s0 in the <em>housing</em>. May be used:
       parameter SI.Mass m(min=0, start=1) "Mass of the sliding mass";
       parameter StateSelect stateSelect=StateSelect.default
         "Priority to use s and v as states" annotation (Dialog(tab="Advanced"));
-      extends Translational.Interfaces.PartialRigid(L=0,s(start=0, stateSelect=
-              stateSelect));
+      parameter SI.Length L(start=0)=0
+        "Length of component, from left flange to right flange (= flange_b.s - flange_a.s)";
+      extends Translational.Interfaces.PartialTwoFlanges;
+      SI.Position s(start=0, stateSelect=stateSelect)
+        "Absolute position of center of component (s = flange_a.s + L/2 = flange_b.s - L/2)"
+        annotation (Dialog(group="Initialization", showStartAttribute=true));
       SI.Velocity v(start=0, stateSelect=stateSelect)
-        "Absolute velocity of component";
-      SI.Acceleration a(start=0) "Absolute acceleration of component";
+        "Absolute velocity of component"
+        annotation (Dialog(group="Initialization", showStartAttribute=true));
+      SI.Acceleration a(start=0) "Absolute acceleration of component"
+        annotation (Dialog(group="Initialization", showStartAttribute=true));
 
     equation
+      flange_a.s = s - L/2;
+      flange_b.s = s + L/2;
       v = der(s);
       a = der(v);
       m*a = flange_a.f + flange_b.f;
