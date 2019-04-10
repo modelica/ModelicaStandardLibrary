@@ -111,10 +111,9 @@ extends Modelica.Icons.ExamplesPackage;
   end BooleanFunctions;
 
   function Polynomials
-    "Test functions of Modelica.Media.Incompressible.TableBased.Polynomials_Temp"
+    "Test functions of Modelica.Math.Polynomials"
     extends Modelica.Icons.Function;
     import Modelica.Utilities.Streams;
-    import Poly = Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
     input String logFile = "ModelicaTestLog.txt"
       "Filename where the log is stored";
     output Boolean ok;
@@ -129,31 +128,31 @@ extends Modelica.Icons.ExamplesPackage;
     Real u[7] = {0,1,2,3,4,5,6};
     Real y[7];
   algorithm
-    Streams.print("... Test of Modelica.Media.Incompressible.TableBased.Polynomials_Temp");
-    Streams.print("... Test of Modelica.Media.Incompressible.TableBased.Polynomials_Temp", logFile);
+    Streams.print("... Test of Modelica.Math.Polynomials");
+    Streams.print("... Test of Modelica.Math.Polynomials", logFile);
 
-    r := Poly.evaluate(p1,-3);
+    r := Modelica.Math.Polynomials.evaluate(p1,-3);
     assert(r == 38, "Polynomials.evaluate failed");
 
-    p2 := Poly.integral(p1);
+    p2 := Modelica.Math.Polynomials.integral(p1);
     assert( p2[1] == -0.5 and p2[2] == -1 and p2[3] == -2 and
             p2[4] == -1 and p2[5] == 0, "Polynomials.integral failed");
 
-    p3 := Poly.derivative(p2);
+    p3 := Modelica.Math.Polynomials.derivative(p2);
     assert( p3[1] == p1[1] and p3[2] == p1[2] and p3[3] == p1[3] and p3[4] == p1[4],
            "Polynomials.derivative failed");
 
-    r1 := Poly.derivativeValue(p2,-3);
-    r2 := Poly.evaluate(p3, -3);
+    r1 := Modelica.Math.Polynomials.derivativeValue(p2,-3);
+    r2 := Modelica.Math.Polynomials.evaluate(p3, -3);
     assert(r1 == r2, "Polynomials.derivativeValue failed");
 
-    r := Poly.integralValue(p1,2,1);
+    r := Modelica.Math.Polynomials.integralValue(p1,2,1);
     assert(r == -21.5, "Polynomials.integralValue failed");
 
     for i in 1:size(u,1) loop
-       y[i] := Poly.evaluate(p1,u[i]) + 0.01*i;
+       y[i] := Modelica.Math.Polynomials.evaluate(p1,u[i]) + 0.01*i;
     end for;
-    p4 := Poly.fitting(u,y,3);
+    p4 := Modelica.Math.Polynomials.fitting(u,y,3);
     assert( abs(p4[1] - p1[1]) <= 1.e-8 and
             abs(p4[2] - p1[2]) <= 1.e-8 and
             abs(p4[3] - p1[3]) <= 0.1 and

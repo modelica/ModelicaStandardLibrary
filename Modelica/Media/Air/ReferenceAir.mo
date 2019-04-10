@@ -891,7 +891,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 
         algorithm
           Omega := exp(
-            Modelica.Media.Incompressible.TableBased.Polynomials_Temp.evaluate(
+            Modelica.Math.Polynomials.evaluate(
             {b[5],b[4],b[3],b[2],b[1]}, log(T/103.3)));
           eta_0 := 0.0266958*sqrt(1000*ReferenceAir.Air_Utilities.Basic.Constants.MM
             *T)/(0.36^2*Omega);
@@ -948,7 +948,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           //calculating f at the given state
           f := Basic.Helmholtz(d, T);
           Omega := exp(
-            Modelica.Media.Incompressible.TableBased.Polynomials_Temp.evaluate(
+            Modelica.Math.Polynomials.evaluate(
             {b[5],b[4],b[3],b[2],b[1]}, log(T/103.3)));
           //Ideal-gas part of dynamic viscosity
           eta_0 := 0.0266958*sqrt(1000*ReferenceAir.Air_Utilities.Basic.Constants.MM

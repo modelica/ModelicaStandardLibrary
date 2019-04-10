@@ -219,6 +219,28 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
     end Translational;
   end Mechanics;
 
+  package Math
+    extends Modelica.Icons.ExamplesPackage;
+    model Issue978 "Conversion test for #978"
+      extends Modelica.Icons.Example;
+      import Polynomials = Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
+      parameter Real p1[:] = {-2, -3, -4, -1};
+      Real p2[size(p1, 1) + 1] = Polynomials.integral(p1);
+      Real p3[size(p1, 1)] = Polynomials.derivative(p2);
+      Real r;
+    algorithm
+      r := Polynomials.evaluate(p1, -3);
+      r := Polynomials.derivativeValue(p2, r);
+      r := Polynomials.evaluate(p3, r);
+      r := Polynomials.integralValue(p1, 2, 1);
+    annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/978\">#978</a>.
+</p>
+</html>"));
+    end Issue978;
+  end Math;
+
   package SIunits
     extends Modelica.Icons.ExamplesPackage;
     model Issue385 "Conversion test for #385"
