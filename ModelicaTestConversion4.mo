@@ -161,5 +161,18 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
       end Issue194;
     end Translational;
   end Mechanics;
+
+  package SIunits
+    extends Modelica.Icons.ExamplesPackage;
+    model Issue385 "Conversion test for #385"
+      extends Modelica.Icons.Example;
+      Modelica.SIunits.FluxiodQuantum x(displayUnit="Wb") = 1;
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/385\">#385</a>.
+</p>
+</html>"));
+    end Issue385;
+  end SIunits;
   annotation(uses(Modelica(version="3.2.3")));
 end ModelicaTestConversion4;
