@@ -44,9 +44,10 @@ systems are available in the simulation tool, the simulation of
 
 <p>
 A simple example of the usage of this library is given in the
-figure above. This drive consists of a shaft with inertia J1&nbsp;=&nbsp;0.2&nbsp;kg.m<sup>2</sup> which
-is connected via an ideal gearbox with gear ratio&nbsp;=&nbsp;5 to a second shaft
-with inertia J2&nbsp;=&nbsp;5&nbsp;kg.m<sup>2</sup>. The left shaft is driven via an external,
+figure above. This drive consists of a shaft <code>J1</code> with inertia
+<var>J</var>&nbsp;=&nbsp;0.2&nbsp;kg.m<sup>2</sup> which
+is connected via an ideal gearbox with gear ratio&nbsp;=&nbsp;5 to a second shaft <code>J2</code>
+with inertia <var>J</var>&nbsp;=&nbsp;5&nbsp;kg.m<sup>2</sup>. The left shaft is driven via an external,
 sinusoidal torque.
 The <strong>filled</strong> and <strong>non-filled grey squares</strong> at the left and
 right side of a component represent <strong>mechanical flanges</strong>.
@@ -425,7 +426,8 @@ as possible.
       annotation (Documentation(info="<html>
 <p>
 Only a few components of the Rotational library use the der(&hellip;) operator
-and are therefore candidates to have states. Most important, component <a href=\"modelica://Modelica.Mechanics.Rotational.Components.Inertia\">Inertia</a>
+and are therefore candidates to have states. Most important, component
+<a href=\"modelica://Modelica.Mechanics.Rotational.Components.Inertia\">Inertia</a>
 defines the absolute rotation angle and the absolute angular velocity of this
 component as candidate for states. In the &quot;Advanced&quot; menu the built-in StateSelect
 enumeration can be set to define the priority to use these variables as states.
@@ -443,25 +445,26 @@ For drive trains where the goal is to control the velocity of a load (e.g. the d
 train of a vehicle or the crank angle of an engine),
 the absolute angles of the components are quickly increasing
 during operation. This is critical, because then the step size control of time
-integrators might then no longer work appropriately.
+integrators might no longer work appropriately.
 </p>
 
 <p>
 Integrators with step size control adjust their time step size automatically
 to meet user defined error bounds (&quot;tolerances&quot;).
-Typically the local error estimate EST_i is compared with a mixed bound for absolute and relative errors.
+Typically the local error estimate <var>EST<sub>i</sub></var> is compared with a mixed
+bound for absolute and relative errors.
 </p>
 
 <blockquote><pre>
 EST_i &le; abstol_i + reltol_i*|x_i|
 </pre></blockquote>
 
-
 <p>
-Here, abstol_i and reltol_i denote the bounds for the absolute and relative error of state variable x_i, respectively.
+Here, <var>abstol<sub>i</sub></var> and <var>reltol<sub>i</sub></var> denote the bounds
+for the absolute and relative error of state variable <var>x<sub>i</sub></var>, respectively.
 This mixed error bound is used since it is more robust than a pure relative error
-based error bound if the nominal value x_i  is (very) close to&nbsp;0.
-In a Modelica simulation model, typically the same relative tolerance reltol is used for all
+based error bound if the nominal value <var>x<sub>i</sub></var>  is (very) close to&nbsp;0.
+In a Modelica simulation model, typically the same relative tolerance <var>reltol</var> is used for all
 states and the absolute tolerances are computed using the relative tolerance and the
 nominal values of the states:
 </p>
@@ -472,10 +475,12 @@ abstol_i = reltol*x_i(nominal)*0.01
 </pre></blockquote>
 
 <p>
-This error control fails if the state variable x_i grows without bounds (such as for a
+This error control fails if the state variable <var>x<sub>i</sub></var> grows without
+bounds (such as for a
 drive train or the crank angle of a vehicle), since then the allowed error
 also grows without bounds. The effect is that the error control on this variable is practically
-switched off. The correct way to handle this would be to set reltol_i&nbsp;=&nbsp;0 on such a state
+switched off. The correct way to handle this would be to set
+<var>reltol<sub>i</sub></var>&nbsp;=&nbsp;0 on such a state
 variable and only use an absolute tolerance for the step size control.
 </p>
 
