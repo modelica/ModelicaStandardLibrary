@@ -83,6 +83,12 @@ convertClass("Modelica.Blocks.Interfaces.Adaptors.ReceiveBoolean",
               "ObsoleteModelica4.Blocks.Interfaces.Adaptors.ReceiveBoolean");
 convertClass("Modelica.Blocks.Interfaces.Adaptors.ReceiveInteger",
               "ObsoleteModelica4.Blocks.Interfaces.Adaptors.ReceiveInteger");
+convertClass("Modelica.Blocks.Types.Init.DoNotUse_InitialIntegratorState",
+              "Modelica.Blocks.Types.Init.NoInit");
+convertClass("Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState",
+              "Modelica.Blocks.Types.Init.NoInit");
+convertClass("Modelica.Blocks.Types.InitPID",
+              "Modelica.Blocks.Types.Init");
 
 // Change renamed elements of classes
 // mue -> mu

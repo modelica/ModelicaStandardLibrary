@@ -21,7 +21,7 @@ package Examples
       Ti=0.1,
       yMax=12,
       Ni=0.1,
-      initType=Modelica.Blocks.Types.InitPID.SteadyState,
+      initType=Modelica.Blocks.Types.Init.SteadyState,
       controllerType=Modelica.Blocks.Types.SimpleController.PI,
       Td=0.1) annotation (Placement(transformation(extent={{-56,-20},{-36,0}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia1(

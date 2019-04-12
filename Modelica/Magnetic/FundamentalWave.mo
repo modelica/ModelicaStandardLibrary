@@ -5030,7 +5030,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
           Ti=Ti,
           yMax=2.5*Ve0,
           yMin=0,
-          initType=Modelica.Blocks.Types.InitPID.InitialState,
+          initType=Modelica.Blocks.Types.Init.InitialState,
           Td=0.001)
           annotation (Placement(transformation(extent={{-70,-20},{-50,-40}})));
         Modelica.Electrical.Analog.Sources.SignalVoltage excitationVoltage
@@ -5241,7 +5241,7 @@ Voltage is controlled, the set point depends on speed. After start-up the genera
           Ti=Ti,
           yMax=2.5*Ve0,
           yMin=0,
-          initType=Modelica.Blocks.Types.InitPID.InitialState,
+          initType=Modelica.Blocks.Types.Init.InitialState,
           Td=0.001)
           annotation (Placement(transformation(extent={{-70,-20},{-50,-40}})));
         Modelica.Electrical.Analog.Sources.SignalVoltage excitationVoltage
