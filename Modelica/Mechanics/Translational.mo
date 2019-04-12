@@ -43,8 +43,8 @@ systems are available in the simulation tool, the simulation of
 
 <p>
 A simple example of the usage of this library is given in the
-figure above. This model consists of a <code>mass1</code> with mass m&nbsp;=&nbsp;1&nbsp;kg which
-is connected via a spring to a <code>mass2</code> with mass m&nbsp;=&nbsp;5&nbsp;kg.
+figure above. This model consists of a <code>mass1</code> with mass <var>m</var>&nbsp;=&nbsp;1&nbsp;kg which
+is connected via a spring to a <code>mass2</code> with mass <var>m</var>&nbsp;=&nbsp;5&nbsp;kg.
 The left mass is driven via an external, sinusoidal force.
 The <strong>filled</strong> and <strong>non-filled green squares</strong> at the left and
 right side of a component represent <strong>mechanical flanges</strong>.
@@ -353,7 +353,8 @@ integrators might no longer work appropriately.
 <p>
 Integrators with step size control adjust their time step size automatically
 to meet user defined error bounds (&quot;tolerances&quot;).
-Typically the local error estimate EST_i is compared with a mixed bound for absolute and relative errors.
+Typically the local error estimate <var>EST<sub>i</sub></var> is compared with a mixed
+bound for absolute and relative errors.
 </p>
 
 <blockquote><pre>
@@ -361,10 +362,11 @@ EST_i &le; abstol_i + reltol_i*|x_i|
 </pre></blockquote>
 
 <p>
-Here, abstol_i and reltol_i denote the bounds for the absolute and relative error of state variable x_i, respectively.
+Here, <var>abstol<sub>i</sub></var> and <var>reltol<sub>i</sub></var> denote the bounds
+for the absolute and relative error of state variable <var>x<sub>i</sub></var>, respectively.
 This mixed error bound is used since it is more robust than a pure relative error
-based error bound if the nominal value x_i  is (very) close to&nbsp;0.
-In a Modelica simulation model, typically the same relative tolerance reltol is used for all
+based error bound if the nominal value <var>x<sub>i</sub></var>  is (very) close to&nbsp;0.
+In a Modelica simulation model, typically the same relative tolerance <var>reltol</var> is used for all
 states and the absolute tolerances are computed using the relative tolerance and the
 nominal values of the states:
 </p>
@@ -375,10 +377,11 @@ abstol_i = reltol*x_i(nominal)*0.01
 </pre></blockquote>
 
 <p>
-This error control fails if the state variable x_i grows without bounds (such as for a
-drive train), since then the allowed error
+This error control fails if the state variable <var>x<sub>i</sub></var> grows without
+bounds (such as for a drive train), since then the allowed error
 also grows without bounds. The effect is that the error control on this variable is practically
-switched off. The correct way to handle this would be to set reltol_i&nbsp;=&nbsp;0 on such a state
+switched off. The correct way to handle this would be to set
+<var>reltol<sub>i</sub></var>&nbsp;=&nbsp;0 on such a state
 variable and only use an absolute tolerance for the step size control.
 </p>
 
