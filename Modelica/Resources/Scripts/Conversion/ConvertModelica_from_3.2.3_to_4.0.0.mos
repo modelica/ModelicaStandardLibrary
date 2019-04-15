@@ -54,6 +54,19 @@ convertElement({"Modelica.Mechanics.Rotational.Components.Brake",
                 "Modelica.Mechanics.Translational.Components.Brake"},
                 "mue0", "mu0");
 
+convertElement("Modelica.Mechanics.MultiBody.Joints.RollingWheel",
+               {"wheelRadius"},
+               {"radius"});
+convertElement("Modelica.Mechanics.MultiBody.Joints.RollingWheelSet",
+               {"wheelRadius", "wheelDistance"},
+               {"radius", "track"});
+convertElement("Modelica.Mechanics.MultiBody.Parts.RollingWheel",
+               {"wheelRadius", "wheelMass", "wheel_I_axis", "wheel_I_long", "wheelColor"},
+               {"radius", "m", "I_axis", "I_long", "color"});
+convertElement("Modelica.Mechanics.MultiBody.Parts.RollingWheelSet",
+               {"wheelRadius", "wheelMass", "wheel_I_axis", "wheel_I_long", "wheelDistance", "wheelWidth", "wheelColor"},
+               {"R_wheel", "m_wheel", "I_wheelAxis", "I_wheelLong", "track", "width_wheel", "color"});
+
 convertElement({"Modelica.Mechanics.Rotational.Sources.SignTorque"},
                 "tau_constant", "tau_nominal");
 convertElement({"Modelica.Electrical.Machines.BasicMachines.Components.InductorDC",

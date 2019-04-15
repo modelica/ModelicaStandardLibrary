@@ -12,11 +12,11 @@ model RollingWheelSetPulling "Rolling wheel set that is pulled by a force"
     groundColor={130,200,130})
     annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
   Modelica.Mechanics.MultiBody.Parts.RollingWheelSet wheelSet(
-    wheelRadius=0.1,
-    wheelMass=0.5,
-    wheel_I_axis=0.01,
-    wheel_I_long=0.02,
-    wheelDistance=0.5,
+    R_wheel=0.1,
+    m_wheel=0.5,
+    I_wheelAxis=0.01,
+    I_wheelLong=0.02,
+    track=0.5,
     x(start=0.1, fixed=true),
     y(start=0.1, fixed=true),
     phi(fixed=true),
@@ -40,14 +40,13 @@ model RollingWheelSetPulling "Rolling wheel set that is pulled by a force"
     final lengthDirection={0,1,0},
     final widthDirection={1,0,0},
     final shapeType="pipe",
-    final r_shape={0,-wheelSet.wheelWidth,0},
-    final length=2*wheelSet.wheelWidth,
-    final width=2*wheelSet.wheelRadius,
-    final height=2*wheelSet.wheelRadius,
+    final r_shape={0,-wheelSet.width_wheel,0},
+    final length=2*wheelSet.width_wheel,
+    final width=2*wheelSet.R_wheel,
+    final height=2*wheelSet.R_wheel,
     final color={0,128,255},
-    final extra=0.8) annotation (Placement(transformation(extent={{-10,-10},
-            {10,10}},
-        origin={70,30})));
+    final extra=0.8)
+    annotation (Placement(transformation(extent={{-10,-10},{10,10}}, origin={70,30})));
 equation
   connect(combiTimeTable.y, force.force) annotation (Line(
       points={{1,40},{18,40}},                      color={0,0,127}));
