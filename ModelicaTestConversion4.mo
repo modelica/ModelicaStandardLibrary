@@ -322,6 +322,82 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue2425;
+
+      model Issue2653wheel "Conversion test for #2653 - Parts.RollingWheel"
+        extends Modelica.Icons.Example;
+
+        Modelica.Mechanics.MultiBody.Parts.RollingWheel wheel1(
+          wheelRadius=0.3,
+          wheelMass=2,
+          wheel_I_axis=0.06,
+          wheel_I_long=0.12,
+          wheelColor={0,0,0});
+        inner Modelica.Mechanics.MultiBody.World world;
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2653\">#2653</a>.
+</p>
+</html>"));
+      end Issue2653wheel;
+
+      model Issue2653wheelSet "Conversion test for #2653 - Parts.RollingWheelSet"
+        extends Modelica.Icons.Example;
+
+        Modelica.Mechanics.MultiBody.Parts.RollingWheelSet wheelSet(
+          wheelRadius=0.1,
+          wheelMass=0.5,
+          wheel_I_axis=0.01,
+          wheel_I_long=0.02,
+          wheelDistance=0.5,
+          wheelWidth=0.01,
+          wheelColor={0,0,0});
+        Modelica.Mechanics.MultiBody.Parts.Body body(
+          m=1,r_CM={0,0,0});
+        inner Modelica.Mechanics.MultiBody.World world;
+      equation
+        connect(wheelSet.frameMiddle, body.frame_a);
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2653\">#2653</a>.
+</p>
+</html>"));
+      end Issue2653wheelSet;
+
+      model Issue2653joint "Conversion test for #2653 - Joints.RollingWheel"
+        extends Modelica.Icons.Example;
+
+        Modelica.Mechanics.MultiBody.Joints.RollingWheel rollingWheel(
+          wheelRadius=0.5);
+        Modelica.Mechanics.MultiBody.Parts.Body body(
+          final r_CM={0,0,0}, final m=1);
+      equation
+        connect(rollingWheel.frame_a, body.frame_a);
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2653\">#2653</a>.
+</p>
+</html>"));
+      end Issue2653joint;
+
+      model Issue2653jointSet "Conversion test for #2653 - Joints.RollingWheelSet"
+        extends Modelica.Icons.Example;
+
+        Modelica.Mechanics.MultiBody.Joints.RollingWheelSet wheelSetJoint(
+          wheelRadius=0.3,
+          wheelDistance=0.7);
+        Modelica.Mechanics.MultiBody.Parts.Body body2(
+          final r_CM={0,0,0}, final m=1);
+        Modelica.Mechanics.MultiBody.Parts.Body body1(
+          final r_CM={0,0,0}, final m=1);
+      equation
+        connect(body1.frame_a, wheelSetJoint.frame1);
+        connect(body2.frame_a, wheelSetJoint.frame2);
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2653\">#2653</a>.
+</p>
+</html>"));
+      end Issue2653jointSet;
     end MultiBody;
 
     package Rotational
