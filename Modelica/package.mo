@@ -1907,11 +1907,11 @@ In the Modelica Standard Library the following color schemes apply:</p>
 <p>If possible, the icon shall be designed such way, that the icon name <code>%name</code>
 and the most significant parameter can be displayed within the vertical Diagram range of the icon.</p>
 
-<p>
-(a) <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name.png\">
+<div>
+(a) <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name.png\"><br>
 (b) <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_dimensions.png\"><br>
 Fig. 1: (a) Typical icon, (b) including dimensions
-</p>
+</div>
 
 <h4>Component Name</h4>
 
@@ -1926,27 +1926,27 @@ shall be 10 units below the upper icon boundary, see Fig. 1.</p>
 <p>If the icon is as big as the entire icon range of 200 units x 200 units, e.g. in blocks,
 the component name shall be placed above the icon with vertical 10 units of space between icon and lower text box, see Fig. 2.</p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Block_name.png\"><br>
 Fig. 2: Block component name
-</p>
+</div>
 
 <p>If there is a connector located at the top icon boundary and it is obvious that this connector influences the model
 behavior compared to a similar model without such connector, then a line from the connector to the actual icon
 shall be avoided to keep the design straight, see Fig. 4. If it is required to use a line indicating the connector dependency, then
 the line shall be interrupted such that this line does not interfere with component name.</p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_connector_above.png\"><br>
 Fig. 3: Component name between actual icon and connector
-</p>
+</div>
 
 <p>In some cases, if there is not alternative, the component name has to be placed below the actual icon, see. Fig. 4.</p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_below.png\"><br>
 Fig. 4: Component name below actual icon
-</p>
+</div>
 
 <h4>Parameter Name</h4>
 
@@ -1968,17 +1968,15 @@ Preferred connector locations are:</p>
 <li>alternative connection points shall be located in a raster of 20 units (or 10 units) if required, see Fig. 4</li>
 </ul>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_connector_corner.png\"><br>
 Fig. 5: Connectors located at the four corners of the icon diagram
-</p>
+</div>
 
 <h4>Diagram icons</h4>
 
 <p>Icons drawn in the Diagram layer shall be avoided. Particularly, icons of Diagram layer shall be avoided which are equal to the
 icons of the Icon layer. Any graphical illustrations shall be moved to the HTML documentation instead.</p>
-
-
 </html>"));
     end Icons;
     annotation (DocumentationClass=true,Documentation(info="<html>
