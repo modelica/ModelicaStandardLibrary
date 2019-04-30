@@ -1243,7 +1243,7 @@ For Boolean parameters, the description string should start with &quot;= true, &
       <th>Variable</th>
       <th>Quantity</th>
     </tr>
-     <tr>
+    <tr>
       <td>a</td>
       <td>acceleration</td>
     </tr>
@@ -1284,12 +1284,12 @@ For Boolean parameters, the description string should start with &quot;= true, &
       <td>conductance</td>
     </tr>
     <tr>
-      <td>H</td>
-      <td>enthalpy</td>
-    </tr>
-    <tr>
       <td>h</td>
       <td>height, specificEnthalpy</td>
+    </tr>
+    <tr>
+      <td>H</td>
+      <td>enthalpy</td>
     </tr>
     <tr>
       <td>HFlow</td>
@@ -1324,12 +1324,12 @@ For Boolean parameters, the description string should start with &quot;= true, &
       <td>massFlow</td>
     </tr>
     <tr>
-      <td>P</td>
-      <td>power</td>
-    </tr>
-    <tr>
       <td>p</td>
       <td>pressure</td>
+    </tr>
+    <tr>
+      <td>P</td>
+      <td>power</td>
     </tr>
     <tr>
       <td>Q</td>
