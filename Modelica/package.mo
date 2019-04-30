@@ -481,6 +481,8 @@ end Connectors;
 <p>In the Modelica documentation sometimes different cases have to be distinguished. If the case distinction refers to Modelica parameters or variables (Boolean expressions) the comparisons should be written in the style of Modelica code within <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>
 </p>
 
+<h4>Examples</h4>
+
 <h5>Example 1</h5>
 
 <code>&lt;p&gt;If &lt;code&gt;useCage == true&lt;/code&gt;, a damper cage is considered in the model...&lt;/p&gt;</code>
@@ -490,7 +492,7 @@ end Connectors;
 <p>If <code>useCage == true</code>, a damper cage is considered in the model...</p>
 
 <p>
-For more complex case scenarios a unordered list should be used. In this case only Modelica specific code segments and Boolean expressions.
+For more complex case scenarios, an unordered list should be used. In this case only Modelica specific code segments and Boolean expressions.
 </p>
 
 <h5>Example 2</h5>
@@ -511,7 +513,7 @@ For more complex case scenarios a unordered list should be used. In this case on
 </ul>
 
 <p>
-In a more equation oriented case additional equations or code segments can be added.
+In a more equation oriented case, additional equations or code segments can be added.
 </p>
 
 <h5>Example 3</h5>
@@ -570,6 +572,8 @@ Modelica code in the HTML documentation.
 <li> Inline code segments may be typeset with <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>.</li>
 <li> In code segments use bold to emphasize Modelica keywords.</li>
 </ol>
+
+<h4>Examples</h4>
 
 <h5>Example 1</h5>
 
@@ -695,6 +699,8 @@ Figures should in particular be included to examples to discuss the problems and
 
 The <code>PNG</code> files should be placed in a folder which exactly represents the package structure.
 
+<h4>Examples</h4>
+
 <h5>Example 1</h5>
 
 <p>This example shows how an illustration should be embedded in the Example
@@ -755,14 +761,20 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <li> For hyperlinks referring to a Modelica component, see Example 1 and 2.</li>
 <li> No links to commercial web sites are allowed.</li>
 </ol>
+
+<h4>Examples</h4>
+
 <h5>Example 1</h5>
+
 <pre>
 &lt;a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\"&gt;
          Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&lt;/a&gt;</pre>
 <p>appears as</p>
 <a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\">
          Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops</a>
+
 <h5>Example 2</h5>
+
 <pre>
 &lt;p&gt;
   The feeder cables are connected to an
@@ -793,6 +805,8 @@ Lists have to be placed <strong>outside</strong> of paragraphs to be HTML compli
     <li> a small letter, if only text fragments are used or the list is fragment of a sentence</li>
 </ul></li>
 </ol>
+
+<h4>Examples</h4>
 
 <h5>Example 1</h5>
 
@@ -832,7 +846,6 @@ Lists have to be placed <strong>outside</strong> of paragraphs to be HTML compli
           extends Modelica.Icons.Information;
 
           annotation (Documentation(info="<html>
-
 <h4>General</h4>
 <ol>
 <li> Refer to references by [1], [Andronov1973], etc. by hyperlink and summarize literature in the references subsection of
@@ -840,7 +853,9 @@ Lists have to be placed <strong>outside</strong> of paragraphs to be HTML compli
 <li> There has to be made at least one citation to each reference.</li>
 </ol>
 
-<h5>Example</h5>
+<h4>Examples</h4>
+
+<h5>Example 1</h5>
 
 <pre>
 &lt;p&gt;
@@ -851,7 +866,6 @@ Lists have to be placed <strong>outside</strong> of paragraphs to be HTML compli
 <p>
   More details about sensorless rotor temperature estimation can be found in <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">[Gao2008]</a>.
 </p>
-
 </html>"));
         end References;
 
@@ -866,6 +880,8 @@ Lists have to be placed <strong>outside</strong> of paragraphs to be HTML compli
 <li> Each table must have a table caption.</li>
 <li> Table headers and entries start with capital letters.</li>
 </ol>
+
+<h4>Examples</h4>
 
 <h5>Example 1</h5>
 
@@ -944,7 +960,6 @@ and enumeration should look like this: <strong>Tab. 1:</strong> Tables have to b
     <td>Entry 4</td>
   </tr>
 </table>
-
 </html>"));
         end Tables;
         annotation (Documentation(info="<html>
