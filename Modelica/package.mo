@@ -1441,46 +1441,52 @@ This class summarizes general information about the implementation which is not 
 
 <pre>
 &lt;table border=\"0\" cellspacing=\"0\" cellpadding=\"2\"&gt;
-    &lt;tr&gt;
-      &lt;td&gt;[Gao2008]&lt;/td&gt;
-      &lt;td&gt;Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
+  &lt;tr&gt;
+    &lt;td&gt;[Gao2008]&lt;/td&gt;
+    &lt;td&gt;Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
         &quot;A sensorless rotor temperature estimator for induction
-                 machines based on a current harmonic spectral
-                 estimation scheme,&quot;
+        machines based on a current harmonic spectral
+        estimation scheme,&quot;
         &lt;em&gt;IEEE Transactions on Industrial Electronics&lt;/em&gt;,
-        vol. 55, no. 1, pp. 407-416, Jan. 2008.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;[Andronov1973]&lt;/td&gt;
-      &lt;td&gt;A. Andronov, E. Leontovich, I. Gordon, and A. Maier,
+        vol. 55, no. 1, pp. 407-416, Jan. 2008.
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;[Andronov1973]&lt;/td&gt;
+    &lt;td&gt;A. Andronov, E. Leontovich, I. Gordon, and A. Maier,
         &lt;em&gt;Theory of  Bifurcations of Dynamic Systems on a plane&lt;em&gt;,
-        1st ed. New York: J. Wiley &amp; Sons, 1973.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;[Woehrnschimmel1998]&lt;/td&gt;
-      &lt;td&gt;R. W&amp;ouml;hrnschimmel,
+        1st ed. New York: J. Wiley &amp; Sons, 1973.
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;[Woehrnschimmel1998]&lt;/td&gt;
+    &lt;td&gt;R. W&amp;ouml;hrnschimmel,
         &quot;Simulation, modeling and fault detection for vector
-              controlled induction machines,&quot;
+        controlled induction machines,&quot;
         Master&#39;s thesis, Vienna University of Technology,
-        Vienna, Austria, 1998.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;[Farnleitner1999]&lt;/td&gt;
-      &lt;td&gt;E. Farnleitner,
-        &quot;Computational Fluid dynamics analysis for rotating
-              electrical machinery,&quot;
-        Ph.D. dissertation, University of Leoben,
-        Department of Applied Mathematics, Leoben, Austria, 1999.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;[Marlino2005]&lt;/td&gt;
-      &lt;td&gt;L. D. Marlino,
-        &quot;Oak ridge national laboratory annual progress report for the
-              power electronics and electric machinery program,&quot;
+        Vienna, Austria, 1998.
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;[Farnleitner1999]&lt;/td&gt;
+    &lt;td&gt;E. Farnleitner,
+      &quot;Computational Fluid dynamics analysis for rotating
+      electrical machinery,&quot;
+      Ph.D. dissertation, University of Leoben,
+      Department of Applied Mathematics, Leoben, Austria, 1999.
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;[Marlino2005]&lt;/td&gt;
+    &lt;td&gt;L. D. Marlino,
+      &quot;Oak ridge national laboratory annual progress report for the
+      power electronics and electric machinery program,&quot;
       Oak Ridge National Laboratory, prepared for the U.S. Department of Energy,
-      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005.&lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;</pre>
+      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005.
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
 
 <p>appears as</p>
 
@@ -1488,11 +1494,12 @@ This class summarizes general information about the implementation which is not 
     <tr>
       <td>[Gao08]</td>
       <td>Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
-        &quot;A sensorless rotor temperature estimator for induction
-                 machines based on a current harmonic spectral
-                 estimation scheme,&quot;
-        <em>IEEE Transactions on Industrial Electronics</em>,
-        vol. 55, no. 1, pp. 407-416, Jan. 2008.</td>
+          &quot;A sensorless rotor temperature estimator for induction
+          machines based on a current harmonic spectral
+          estimation scheme,&quot;
+          <em>IEEE Transactions on Industrial Electronics</em>,
+          vol. 55, no. 1, pp. 407-416, Jan. 2008.
+      </td>
     </tr>
     <tr>
       <td>[Andronov1973]</td>
@@ -1525,7 +1532,6 @@ This class summarizes general information about the implementation which is not 
       Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005.</td>
     </tr>
 </table>
-
 </html>"));
       end References;
 
