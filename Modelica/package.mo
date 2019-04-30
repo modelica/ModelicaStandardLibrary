@@ -1907,11 +1907,21 @@ In the Modelica Standard Library the following color schemes apply:</p>
 <p>If possible, the icon shall be designed such way, that the icon name <code>%name</code>
 and the most significant parameter can be displayed within the vertical Diagram range of the icon.</p>
 
-<div>
-(a) <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name.png\"><br>
-(b) <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_dimensions.png\"><br>
-<strong>Fig. 1</strong>: (a) Typical icon, (b) including dimensions
-</div>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 1</strong>: (a) Typical icon, (b) including dimensions</caption>
+  <tr>
+    <td> (a)
+      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name.png\"
+           alt=\"Typical placement of component name\">
+    </td>
+  </tr>
+  <tr>
+    <td> (b)
+      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_dimensions.png\"
+           alt=\"Typical dimensions of icon and its entities\">
+    </td>
+  </tr>
+</table>
 
 <h4>Component Name</h4>
 
@@ -1926,27 +1936,42 @@ shall be 10 units below the upper icon boundary, see <strong>Fig.&nbsp;1</strong
 <p>If the icon is as big as the entire icon range of 200 units x 200 units, e.g. in blocks,
 the component name shall be placed above the icon with vertical 10 units of space between icon and lower text box, see <strong>Fig.&nbsp;2</strong>.</p>
 
-<div>
-<img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Block_name.png\"><br>
-<strong>Fig. 2</strong>: Block component name
-</div>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 2</strong>: Block component name</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Block_name.png\"
+           alt=\"Placement of block component name\">
+    </td>
+  </tr>
+</table>
 
 <p>If there is a connector located at the top icon boundary and it is obvious that this connector influences the model
 behavior compared to a similar model without such connector, then a line from the connector to the actual icon
 shall be avoided to keep the design straight, see <strong>Fig.&nbsp;4</strong>. If it is required to use a line indicating the connector dependency, then
 the line shall be interrupted such that this line does not interfere with component name.</p>
 
-<div>
-<img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_connector_above.png\"><br>
-<strong>Fig. 3</strong>: Component name between actual icon and connector
-</div>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 3</strong>: Component name between actual icon and connector</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_connector_above.png\"
+           alt=\"Component name placed between actual icon and connector\">
+    </td>
+  </tr>
+</table>
 
 <p>In some cases, if there is not alternative, the component name has to be placed below the actual icon, see. <strong>Fig.&nbsp;4</strong>.</p>
 
-<div>
-<img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_below.png\"><br>
-<strong>Fig. 4</strong>: Component name below actual icon
-</div>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 4</strong>: Component name below actual icon</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_below.png\"
+           alt=\"Icon with name placed below it\">
+    </td>
+  </tr>
+</table>
 
 <h4>Parameter Name</h4>
 
@@ -1968,10 +1993,15 @@ Preferred connector locations are:</p>
 <li>alternative connection points shall be located in a raster of 20 units (or 10 units) if required, see <strong>Fig.&nbsp;4</strong></li>
 </ul>
 
-<div>
-<img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_connector_corner.png\"><br>
-<strong>Fig. 5</strong>: Connectors located at the four corners of the icon diagram
-</div>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 5</strong>: Connectors located at the four corners of the icon diagram</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_connector_corner.png\"
+           alt=\"Icon of connector corner\">
+    </td>
+  </tr>
+</table>
 
 <h4>Diagram icons</h4>
 
