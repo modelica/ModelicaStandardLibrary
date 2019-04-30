@@ -799,16 +799,13 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
           extends Modelica.Icons.Information;
 
           annotation (Documentation(info="<html>
-<p>
-Lists have to be placed <strong>outside</strong> of paragraphs to be HTML compliant.
-</p>
-
 <ol>
+<li> Lists have to be placed <strong>outside</strong> of paragraphs to be HTML compliant.</li>
 <li> Items of a list shall start with
-<ul>
-    <li> a capital letter if each item is a full sentence</li>
-    <li> a small letter, if only text fragments are used or the list is fragment of a sentence</li>
-</ul></li>
+     <ol>
+       <li> a capital letter if each item is a full sentence</li>
+       <li> a small letter, if only text fragments are used or the list is fragment of a sentence</li>
+     </ol></li>
 </ol>
 
 <h4>Examples</h4>
