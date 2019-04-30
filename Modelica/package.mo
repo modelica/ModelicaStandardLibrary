@@ -567,7 +567,7 @@ Modelica code in the HTML documentation.
 <ol>
 <li> For constants, parameters and variables in code segments <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>
      should to be used, e.g.,<br>
-     <code><strong>parameter</strong> Modelica.SIunits.Time tStart \"Start time\"</code></li>
+     <code><strong>parameter</strong> Modelica.SIunits.Time tStart &quot;Start time&quot;</code></li>
 <li> Write multi or single line code segments using <code>&lt;pre&gt;</code> and <code>&lt;/pre&gt;</code>.</li>
 <li> Multi line or single line code shall not be indented.</li>
 <li> Inline code segments may be typeset with <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>.</li>
@@ -582,7 +582,7 @@ Modelica code in the HTML documentation.
 &lt;pre&gt;
 &lt;strong&gt;connector&lt;/strong&gt; Frame
    ...
-   &lt;strong&gt;flow&lt;/strong&gt; SI.Force f[3] &lt;strong&gt;annotation&lt;/strong&gt;(unassignedMessage=\"...\");
+   &lt;strong&gt;flow&lt;/strong&gt; SI.Force f[3] &lt;strong&gt;annotation&lt;/strong&gt;(unassignedMessage=&quot;...&quot;);
 &lt;strong&gt;end&lt;/strong&gt; Frame;
 &lt;/pre&gt;</pre>
 
@@ -591,7 +591,7 @@ Modelica code in the HTML documentation.
 <pre>
 <strong>connector</strong> Frame
    ...
-   <strong>flow</strong> SI.Force f[3] <strong>annotation</strong>(unassignedMessage=\"...\");
+   <strong>flow</strong> SI.Force f[3] <strong>annotation</strong>(unassignedMessage=&quot;...&quot;);
 <strong>end</strong> Frame;
 </pre>
 
@@ -659,7 +659,7 @@ Vector and array indices should be typeset as subscripts using the
 <p>For numbering equations a one row table with two columns should be used. The equation number should be placed in the right column:</p>
 
 <pre>
-&lt;table border=\"0\" cellspacing=\"10\" cellpadding=\"2\"&gt;
+&lt;table border=&quot;0&quot; cellspacing=&quot;10&quot; cellpadding=&quot;2&quot;&gt;
   &lt;tr&gt;
     &lt;td&gt;&lt;img
     src=&quot;modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
@@ -714,8 +714,8 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 </p>
 
 <pre>
-&lt;img src=\"modelica://Modelica/Resources/Images/Blocks/PID_controller.png\"
-     alt=\"PID_controller.png\"&gt;
+&lt;img src=&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
+     alt=&quot;PID_controller.png&quot;&gt;
 </pre>
 
 <h5>Example 2</h5>
@@ -723,12 +723,12 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <p>This is a simple example of a technical figure with caption.</p>
 
 <pre>
-&lt;table border=\"0\" cellspacing=\"0\" cellpadding=\"2\"&gt;
-  &lt;caption align=\"bottom\"&gt;Caption starts with a capital letter&lt;/caption&gt;
+&lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
+  &lt;caption align=&quot;bottom&quot;&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;td&gt;
-      &lt;img src=\"modelica://Modelica/Resources/Images/Blocks/PID_controller.png\"
-           alt=\"PID_controller.png\"&gt;
+      &lt;img src=&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
+           alt=&quot;PID_controller.png&quot;&gt;
     &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
@@ -741,12 +741,12 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <p>Figures have to be enumerated manually.</p>
 
 <pre>
-&lt;table border=\"0\" cellspacing=\"0\" cellpadding=\"2\"&gt;
-  &lt;caption align=\"bottom\"&gt;&lt;strong&gt;Fig. 2: &lt;/strong&gt;Caption starts with a capital letter&lt;/caption&gt;
+&lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
+  &lt;caption align=&quot;bottom&quot;&gt;&lt;strong&gt;Fig. 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;td&gt;
-      &lt;img src=\"modelica://Modelica/Resources/Images/Blocks/PID_controller.png\"
-           alt=\"PID_controller.png\"&gt;
+      &lt;img src=&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
+           alt=&quot;PID_controller.png&quot;&gt;
     &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
@@ -772,7 +772,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <h5>Example 1</h5>
 
 <pre>
-&lt;a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\"&gt;
+&lt;a href=&quot;modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&quot;&gt;
          Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&lt;/a&gt;</pre>
 <p>appears as</p>
 <a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\">
@@ -783,7 +783,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <pre>
 &lt;p&gt;
   The feeder cables are connected to an
-  &lt;a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\"&gt;
+  &lt;a href=&quot;modelica://Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage&quot;&gt;
   induction machine&lt;/a&gt;.
 &lt;/p&gt;</pre>
 <p>appears as</p>
@@ -860,8 +860,8 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 
 <pre>
 &lt;p&gt;
-  More details about sensorless rotor temperature estimation
-  can be found in &lt;a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\"&gt;[Gao2008]&lt;/a.&gt;
+More details about sensorless rotor temperature estimation
+can be found in &lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;[Gao2008]&lt;/a.&gt;
 &lt;/p&gt;</pre>
 <p>appears as</p>
 <p>
@@ -889,8 +889,8 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <p>This is a simple example of a table.</p>
 
 <pre>
-&lt;table border=\"1\" cellspacing=\"0\" cellpadding=\"2\"&gt;
-  &lt;caption align=\"bottom\"&gt;Caption starts with a capital letter&lt;/caption&gt;
+&lt;table border=&quot;1&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
+  &lt;caption align=&quot;bottom&quot;&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;th&gt;Head 1&lt;/th&gt;
     &lt;th&gt;Head 2&lt;/th&gt;
@@ -929,8 +929,8 @@ has to be displayed bold using <code>&lt;strong&gt;</code> and <code>&lt;/strong
 and enumeration should look like this: <strong>Tab. 1:</strong> Tables have to be enumerated manually.</p>
 
 <pre>
-&lt;table border=\"1\" cellspacing=\"0\" cellpadding=\"2\"&gt;
-  &lt;caption align=\"bottom\"&gt;&lt;strong&gt;Tab 2: &lt;/strong&gt;Caption starts with a capital letter&lt;/caption&gt;
+&lt;table border=&quot;1&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
+  &lt;caption align=&quot;bottom&quot;&gt;&lt;strong&gt;Tab 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;th&gt;Head 1&lt;/th&gt;
     &lt;th&gt;Head 2&lt;/th&gt;
@@ -947,7 +947,7 @@ and enumeration should look like this: <strong>Tab. 1:</strong> Tables have to b
 </pre>
 <p>appears as</p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Tab. 2: </strong>Caption starts with a capital letter</caption>
+  <caption align=\"bottom\"><strong>Tab. 2:</strong> Caption starts with a capital letter</caption>
   <tr>
     <th>Head 1</th>
     <th>Head 2</th>
@@ -1191,9 +1191,9 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
 <h4>Comments and Annotations</h4>
 <p>
 Comments and annotations should start with a capital letter, for example:<br>
-     <code><strong>parameter</strong> Real a = 1 \"Arbitrary factor\";</code>.<br>
-     For Boolean parameters, the description string should start with \"= true: ..\", for example:<br>
-     <code><strong>parameter</strong> Boolean useHeatPort = false \"= true, if heatPort is enabled\";</code>.
+     <code><strong>parameter</strong> Real a = 1 &quot;Arbitrary factor&quot;;</code>.<br>
+     For Boolean parameters, the description string should start with &quot;= true: ..&quot;, for example:<br>
+     <code><strong>parameter</strong> Boolean useHeatPort = false &quot;= true, if heatPort is enabled&quot;;</code>.
 </p>
 </html>"));
        end Format;
@@ -1205,10 +1205,10 @@ Comments and annotations should start with a capital letter, for example:<br>
 
 <ol>
 <li> <strong>Class and instance names</strong> are usually written in upper and lower case
-     letters, e.g., \"ElectricCurrent\". An underscore may be used in names.
+     letters, e.g., &quot;ElectricCurrent&quot;. An underscore may be used in names.
      However, it has to be taken into account that the last underscore in a
      name might indicate that the following characters are rendered as a subscript.
-     Example: \"pin_a\" may be rendered as \"pin<sub>a</sub>\".</li>
+     Example: &quot;pin_a&quot; may be rendered as &quot;pin<sub>a</sub>&quot;.</li>
 
 <li> <strong>Class names</strong> start always with an upper case letter,
      with the exception of functions, that start with a lower case letter.</li>
@@ -1220,7 +1220,7 @@ Comments and annotations should start with a capital letter, for example:<br>
      (such as <code>T</code> for a temperature variable).</li>
 
 <li> <strong>Constant names</strong>, i.e., names of variables declared with the
-     \"constant\" prefix, follow the usual naming conventions
+     &quot;constant&quot; prefix, follow the usual naming conventions
      (= upper and lower case letters) and start usually with an
      upper case letter, e.g., UniformGravity, SteadyState.</li>
 
