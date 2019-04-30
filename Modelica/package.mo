@@ -484,8 +484,9 @@ end Connectors;
 <h4>Examples</h4>
 
 <h5>Example 1</h5>
-
+<p>
 <code>&lt;p&gt;If &lt;code&gt;useCage == true&lt;/code&gt;, a damper cage is considered in the model...&lt;/p&gt;</code>
+</p>
 
 <p>appears as</p>
 
@@ -697,7 +698,9 @@ Figures should in particular be included to examples to discuss the problems and
 
 <h4>Location of files</h4>
 
+<p>
 The <code>PNG</code> files should be placed in a folder which exactly represents the package structure.
+</p>
 
 <h4>Examples</h4>
 
@@ -705,7 +708,8 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 
 <p>This example shows how an illustration should be embedded in the Example
 <a href=\"modelica://Modelica.Blocks.Examples.PID_Controller\">PID_Controller</a> of the
-<a href=\"modelica://Modelica.Blocks\">Blocks</a> package.</p>
+<a href=\"modelica://Modelica.Blocks\">Blocks</a> package.
+</p>
 
 <pre>
 &lt;img src=\"modelica://Modelica/Resources/Images/Blocks/PID_controller.png\"
@@ -745,7 +749,6 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
   &lt;/tr&gt;
 &lt;/table&gt;
 </pre>
-
 </html>"));
         end Figures;
 
