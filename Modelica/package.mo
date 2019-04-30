@@ -803,8 +803,8 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <li> Lists have to be placed <strong>outside</strong> of paragraphs to be HTML compliant.</li>
 <li> Items of a list shall start with
      <ol>
-       <li> a capital letter if each item is a full sentence</li>
-       <li> a small letter, if only text fragments are used or the list is fragment of a sentence</li>
+     <li> a capital letter if each item is a full sentence</li>
+     <li> a small letter, if only text fragments are used or the list is fragment of a sentence</li>
      </ol></li>
 </ol>
 
@@ -848,7 +848,6 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
           extends Modelica.Icons.Information;
 
           annotation (Documentation(info="<html>
-<h4>General</h4>
 <ol>
 <li> Refer to references by [1], [Andronov1973], etc. by hyperlink and summarize literature in the references subsection of
      <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">Conventions.UsersGuide.References</a>.</li>
@@ -1006,9 +1005,6 @@ The <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation.Structure
         extends Modelica.Icons.Information;
 
         annotation (Documentation(info="<html>
-
-<h4>General</h4>
-
 <ol>
 <li> In the HTML documentation of any Modelica library, the headings <code>&lt;h1&gt;</code>,
      <code>&lt;h2&gt;</code> and <code>&lt;h3&gt;</code> should not be used, because they are utilized by
