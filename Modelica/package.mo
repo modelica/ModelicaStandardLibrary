@@ -661,10 +661,10 @@ Vector and array indices should be typeset as subscripts using the
 <pre>
 &lt;table border=\"0\" cellspacing=\"10\" cellpadding=\"2\"&gt;
   &lt;tr&gt;
-      &lt;td&gt;&lt;img
-      src=&quot;modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
-      alt=&quot;y=a_1+a_2&quot;&gt; &lt;/td&gt;
-      &lt;td&gt;(1)&lt;/td&gt;
+    &lt;td&gt;&lt;img
+    src=&quot;modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
+    alt=&quot;y=a_1+a_2&quot;&gt; &lt;/td&gt;
+    &lt;td&gt;(1)&lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
 </pre>
