@@ -1192,7 +1192,7 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
 <p>
 Comments and annotations should start with a capital letter, for example:<br>
 <code><strong>parameter</strong> Real a = 1 &quot;Arbitrary factor&quot;;</code>.<br>
-For Boolean parameters, the description string should start with &quot;= true: ..&quot;, for example:<br>
+For Boolean parameters, the description string should start with &quot;= true, &hellip;&quot;, for example:<br>
 <code><strong>parameter</strong> Boolean useHeatPort = false &quot;= true, if heatPort is enabled&quot;;</code>.
 </p>
 </html>"));
