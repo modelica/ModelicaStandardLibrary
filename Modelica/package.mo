@@ -1430,7 +1430,7 @@ This class summarizes general information about the implementation which is not 
 <ul>
 <li> Journal (or conference) [Gao2008]</li>
 <li> Book [Andronov1973]</li>
-<li> Master's thesis [Woehrnschimmel1998]</li>
+<li> Master&apos;s thesis [Woehrnschimmel1998]</li>
 <li> PhD thesis [Farnleitner1999]</li>
 <li> Technical report [Marlino2005]</li>
 </ul>
@@ -1444,9 +1444,9 @@ This class summarizes general information about the implementation which is not 
   &lt;tr&gt;
     &lt;td&gt;[Gao2008]&lt;/td&gt;
     &lt;td&gt;Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
-        &quot;A sensorless rotor temperature estimator for induction
+        &amp;quot;A sensorless rotor temperature estimator for induction
         machines based on a current harmonic spectral
-        estimation scheme,&quot;
+        estimation scheme&amp;quot;,
         &lt;em&gt;IEEE Transactions on Industrial Electronics&lt;/em&gt;,
         vol. 55, no. 1, pp. 407-416, Jan. 2008.
     &lt;/td&gt;
@@ -1454,24 +1454,24 @@ This class summarizes general information about the implementation which is not 
   &lt;tr&gt;
     &lt;td&gt;[Andronov1973]&lt;/td&gt;
     &lt;td&gt;A. Andronov, E. Leontovich, I. Gordon, and A. Maier,
-        &lt;em&gt;Theory of  Bifurcations of Dynamic Systems on a plane&lt;em&gt;,
-        1st ed. New York: J. Wiley &amp; Sons, 1973.
+        &lt;em&gt;Theory of  Bifurcations of Dynamic Systems on a plane&lt;/em&gt;,
+        1st ed. New York: J. Wiley &amp;amp; Sons, 1973.
     &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
     &lt;td&gt;[Woehrnschimmel1998]&lt;/td&gt;
     &lt;td&gt;R. W&amp;ouml;hrnschimmel,
-        &quot;Simulation, modeling and fault detection for vector
-        controlled induction machines,&quot;
-        Master&#39;s thesis, Vienna University of Technology,
+        &amp;quot;Simulation, modeling and fault detection for vector
+        controlled induction machines&amp;quot;,
+        Master&amp;apos;s thesis, Vienna University of Technology,
         Vienna, Austria, 1998.
     &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
     &lt;td&gt;[Farnleitner1999]&lt;/td&gt;
     &lt;td&gt;E. Farnleitner,
-      &quot;Computational Fluid dynamics analysis for rotating
-      electrical machinery,&quot;
+      &amp;quot;Computational Fluid dynamics analysis for rotating
+      electrical machinery&amp;quot;,
       Ph.D. dissertation, University of Leoben,
       Department of Applied Mathematics, Leoben, Austria, 1999.
     &lt;/td&gt;
@@ -1479,8 +1479,8 @@ This class summarizes general information about the implementation which is not 
   &lt;tr&gt;
     &lt;td&gt;[Marlino2005]&lt;/td&gt;
     &lt;td&gt;L. D. Marlino,
-      &quot;Oak ridge national laboratory annual progress report for the
-      power electronics and electric machinery program,&quot;
+      &amp;quot;Oak ridge national laboratory annual progress report for the
+      power electronics and electric machinery program&amp;quot;,
       Oak Ridge National Laboratory, prepared for the U.S. Department of Energy,
       Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005.
     &lt;/td&gt;
@@ -1491,46 +1491,50 @@ This class summarizes general information about the implementation which is not 
 <p>appears as</p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-    <tr>
-      <td>[Gao08]</td>
-      <td>Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
-          &quot;A sensorless rotor temperature estimator for induction
-          machines based on a current harmonic spectral
-          estimation scheme,&quot;
-          <em>IEEE Transactions on Industrial Electronics</em>,
-          vol. 55, no. 1, pp. 407-416, Jan. 2008.
-      </td>
-    </tr>
-    <tr>
-      <td>[Andronov1973]</td>
-      <td>A. Andronov, E. Leontovich, I. Gordon, and A. Maier,
+  <tr>
+    <td>[Gao2008]</td>
+    <td>Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
+        &quot;A sensorless rotor temperature estimator for induction
+        machines based on a current harmonic spectral
+        estimation scheme&quot;,
+        <em>IEEE Transactions on Industrial Electronics</em>,
+        vol. 55, no. 1, pp. 407-416, Jan. 2008.
+    </td>
+  </tr>
+  <tr>
+    <td>[Andronov1973]</td>
+    <td>A. Andronov, E. Leontovich, I. Gordon, and A. Maier,
         <em>Theory of  Bifurcations of Dynamic Systems on a plane</em>,
-        1st ed. New York: J. Wiley &amp; Sons, 1973.</td>
-    </tr>
-    <tr>
-      <td>[Woehrnschimmel1998]</td>
-      <td>R. W&ouml;hrnschimmel,
+        1st ed. New York: J. Wiley &amp; Sons, 1973.
+    </td>
+  </tr>
+  <tr>
+    <td>[Woehrnschimmel1998]</td>
+    <td>R. W&ouml;hrnschimmel,
         &quot;Simulation, modeling and fault detection for vector
-              controlled induction machines,&quot;
-        Master&#39;s thesis, Vienna University of Technology,
-        Vienna, Austria, 1998.</td>
-    </tr>
-    <tr>
-      <td>[Farnleitner1999]</td>
-      <td>E. Farnleitner,
-        &quot;Computational Fluid dynamics analysis for rotating
-              electrical machinery,&quot;
-        Ph.D. dissertation, University of Leoben,
-        Department of Applied Mathematics, Leoben, Austria, 1999.</td>
-    </tr>
-    <tr>
-      <td>[Marlino2005]</td>
-      <td>L. D. Marlino,
-        &quot;Oak ridge national laboratory annual progress report for the
-              power electronics and electric machinery program,&quot;
+        controlled induction machines&quot;,
+        Master&apos;s thesis, Vienna University of Technology,
+        Vienna, Austria, 1998.
+    </td>
+  </tr>
+  <tr>
+    <td>[Farnleitner1999]</td>
+    <td>E. Farnleitner,
+      &quot;Computational Fluid dynamics analysis for rotating
+      electrical machinery&quot;,
+      Ph.D. dissertation, University of Leoben,
+      Department of Applied Mathematics, Leoben, Austria, 1999.
+    </td>
+  </tr>
+  <tr>
+    <td>[Marlino2005]</td>
+    <td>L. D. Marlino,
+      &quot;Oak ridge national laboratory annual progress report for the
+      power electronics and electric machinery program&quot;,
       Oak Ridge National Laboratory, prepared for the U.S. Department of Energy,
-      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005.</td>
-    </tr>
+      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005.
+    </td>
+  </tr>
 </table>
 </html>"));
       end References;
