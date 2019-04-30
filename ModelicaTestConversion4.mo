@@ -2,6 +2,17 @@ package ModelicaTestConversion4
   extends Modelica.Icons.ExamplesPackage;
   package Blocks
     extends Modelica.Icons.ExamplesPackage;
+    model Issue2441 "Conversion test for #2441"
+      extends Modelica.Icons.Example;
+      Modelica.Blocks.Tables.CombiTable1D table1(table=[0,0;0,1]);
+      Modelica.Blocks.Tables.CombiTable2D table2(table=[0,0;0,1]);
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2441\">#2441</a>.
+</p>
+</html>"));
+    end Issue2441;
+
     model Issue2891 "Conversion test for #2891"
       extends Modelica.Icons.Example;
       Modelica.Blocks.Continuous.LimPID PID(

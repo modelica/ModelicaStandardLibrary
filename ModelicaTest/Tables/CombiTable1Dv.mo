@@ -1,10 +1,10 @@
 within ModelicaTest.Tables;
-package CombiTable1D "Test models for Modelica.Blocks.Tables.CombiTable1D"
+package CombiTable1Dv "Test models for Modelica.Blocks.Tables.CombiTable1Dv"
   import Modelica.Utilities.Files.loadResource;
   extends Modelica.Icons.ExamplesPackage;
 
   partial model Test0
-    Modelica.Blocks.Tables.CombiTable1D t_new
+    Modelica.Blocks.Tables.CombiTable1Dv t_new
       annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
     Modelica.Blocks.Continuous.Der d_t_new
       annotation (Placement(transformation(extent={{0,0},{20,20}})));
@@ -326,4 +326,4 @@ double mydummyfunc(double* dummy_in) {
         fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_utf8.txt")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test33;
-end CombiTable1D;
+end CombiTable1Dv;

@@ -7,6 +7,10 @@ convertClass("Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterp
               "Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_lambda");
 convertClass("Modelica.Mechanics.MultiBody.Sensors.Internal.ZeroForceAndTorque",
               "Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque");
+convertClass("Modelica.Blocks.Tables.CombiTable1D",
+              "Modelica.Blocks.Tables.CombiTable1Dv");
+convertClass("Modelica.Blocks.Tables.CombiTable2D",
+              "Modelica.Blocks.Tables.CombiTable2Ds");
 convertClass("Modelica.Electrical.Analog.Basic.EMF",
               "Modelica.Electrical.Analog.Basic.RotationalEMF");
 convertClass("Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted",
