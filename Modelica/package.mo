@@ -1764,6 +1764,7 @@ The authors would like to thank following persons for their support ...
 In the Modelica Standard Library the following color schemes apply:</p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\">Color schemes applied to particular libraries</caption>
   <tr>
     <th>Package</th>
     <th>Color RGB code</th>
