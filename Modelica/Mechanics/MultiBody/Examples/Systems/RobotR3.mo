@@ -7,12 +7,12 @@ package RobotR3
 
     extends Modelica.Icons.Example;
     parameter SI.Mass mLoad(min=0)=15 "Mass of load";
-    parameter Real kp=5 "Gain of position controller of axis 2";
-    parameter Real ks=0.5 "Gain of speed controller of axis 2";
+    parameter Real kp=5 "Gain of position controller of axis";
+    parameter Real ks=0.5 "Gain of speed controller of axis";
     parameter SI.Time Ts=0.05
-      "Time constant of integrator of speed controller of axis 2";
-    parameter Real startAngle(unit="deg") = 0 "Start angle of axis 2";
-    parameter Real endAngle(unit="deg") = 120 "End angle of axis 2";
+      "Time constant of integrator of speed controller of axis";
+    parameter SI.Conversions.NonSIunits.Angle_deg startAngle = 0 "Start angle of axis";
+    parameter SI.Conversions.NonSIunits.Angle_deg endAngle = 120 "End angle of axis";
 
     parameter SI.Time swingTime=0.5
       "Additional time after reference motion is in rest before simulation is stopped";
@@ -46,8 +46,7 @@ package RobotR3
     connect(axis.flange, load.flange_a)
       annotation (Line(
         points={{40,10},{60,10}},
-        color={128,128,128},
-        thickness=0.5));
+        color={0,0,0}));
     connect(pathPlanning.controlBus, controlBus) annotation (Line(
         points={{-40,10},{-15,10},{-15,28},{-12,28},{-12,30}},
         color={255,204,51},
@@ -84,31 +83,31 @@ load inertia.
     parameter SI.Time refSwingTime=0.5
       "Additional time after reference motion is in rest before simulation is stopped";
 
-    parameter Real startAngle1(unit="deg") = -60 "Start angle of axis 1"
-      annotation (Dialog(tab="Reference", group="startAngles"));
-    parameter Real startAngle2(unit="deg") = 20 "Start angle of axis 2"
-      annotation (Dialog(tab="Reference", group="startAngles"));
-    parameter Real startAngle3(unit="deg") = 90 "Start angle of axis 3"
-      annotation (Dialog(tab="Reference", group="startAngles"));
-    parameter Real startAngle4(unit="deg") = 0 "Start angle of axis 4"
-      annotation (Dialog(tab="Reference", group="startAngles"));
-    parameter Real startAngle5(unit="deg") = -110 "Start angle of axis 5"
-      annotation (Dialog(tab="Reference", group="startAngles"));
-    parameter Real startAngle6(unit="deg") = 0 "Start angle of axis 6"
-      annotation (Dialog(tab="Reference", group="startAngles"));
+    parameter SI.Conversions.NonSIunits.Angle_deg startAngle1 = -60 "Start angle of axis 1"
+      annotation (Dialog(tab="Reference", group="Start angles"));
+    parameter SI.Conversions.NonSIunits.Angle_deg startAngle2 = 20 "Start angle of axis 2"
+      annotation (Dialog(tab="Reference", group="Start angles"));
+    parameter SI.Conversions.NonSIunits.Angle_deg startAngle3 = 90 "Start angle of axis 3"
+      annotation (Dialog(tab="Reference", group="Start angles"));
+    parameter SI.Conversions.NonSIunits.Angle_deg startAngle4 = 0 "Start angle of axis 4"
+      annotation (Dialog(tab="Reference", group="Start angles"));
+    parameter SI.Conversions.NonSIunits.Angle_deg startAngle5 = -110 "Start angle of axis 5"
+      annotation (Dialog(tab="Reference", group="Start angles"));
+    parameter SI.Conversions.NonSIunits.Angle_deg startAngle6 = 0 "Start angle of axis 6"
+      annotation (Dialog(tab="Reference", group="Start angles"));
 
-    parameter Real endAngle1(unit="deg") = 60 "End angle of axis 1"
-      annotation (Dialog(tab="Reference", group="endAngles"));
-    parameter Real endAngle2(unit="deg") = -70 "End angle of axis 2"
-      annotation (Dialog(tab="Reference", group="endAngles"));
-    parameter Real endAngle3(unit="deg") = -35 "End angle of axis 3"
-      annotation (Dialog(tab="Reference", group="endAngles"));
-    parameter Real endAngle4(unit="deg") = 45 "End angle of axis 4"
-      annotation (Dialog(tab="Reference", group="endAngles"));
-    parameter Real endAngle5(unit="deg") = 110 "End angle of axis 5"
-      annotation (Dialog(tab="Reference", group="endAngles"));
-    parameter Real endAngle6(unit="deg") = 45 "End angle of axis 6"
-      annotation (Dialog(tab="Reference", group="endAngles"));
+    parameter SI.Conversions.NonSIunits.Angle_deg endAngle1 = 60 "End angle of axis 1"
+      annotation (Dialog(tab="Reference", group="End angles"));
+    parameter SI.Conversions.NonSIunits.Angle_deg endAngle2 = -70 "End angle of axis 2"
+      annotation (Dialog(tab="Reference", group="End angles"));
+    parameter SI.Conversions.NonSIunits.Angle_deg endAngle3 = -35 "End angle of axis 3"
+      annotation (Dialog(tab="Reference", group="End angles"));
+    parameter SI.Conversions.NonSIunits.Angle_deg endAngle4 = 45 "End angle of axis 4"
+      annotation (Dialog(tab="Reference", group="End angles"));
+    parameter SI.Conversions.NonSIunits.Angle_deg endAngle5 = 110 "End angle of axis 5"
+      annotation (Dialog(tab="Reference", group="End angles"));
+    parameter SI.Conversions.NonSIunits.Angle_deg endAngle6 = 45 "End angle of axis 6"
+      annotation (Dialog(tab="Reference", group="End angles"));
 
     parameter SI.AngularVelocity refSpeedMax[6]={3,1.5,5,3.1,3.1,4.1}
       "Maximum reference speeds of all joints"
@@ -404,8 +403,8 @@ determined from the connections to this bus.
       "Generate reference angles for fastest kinematic movement"
       extends Blocks.Icons.Block;
 
-      parameter Real angleBegDeg(unit="deg") = 0 "Start angle";
-      parameter Real angleEndDeg(unit="deg") = 1 "End angle";
+      parameter SI.Conversions.NonSIunits.Angle_deg angleBegDeg = 0 "Start angle";
+      parameter SI.Conversions.NonSIunits.Angle_deg angleEndDeg = 1 "End angle";
       parameter SI.AngularVelocity speedMax = 3 "Maximum axis speed";
       parameter SI.AngularAcceleration accMax = 2.5 "Maximum axis acceleration";
       parameter SI.Time startTime=0 "Start time of movement";
@@ -470,9 +469,7 @@ determined from the connections to this bus.
               lineColor={192,192,192},
               textString="w"),
             Line(points={{-80,0},{-41,69},{26,69},{58,0}}),
-            Text(
-              extent={{-73,-44},{82,-69}},
-              textString="1 axis")}),
+            Text(extent={{-70,-44},{84,-68}}, textString="1 axis")}),
         Documentation(info="<html>
 <p>
 Given
@@ -513,9 +510,9 @@ motion on the controlBus of the r3 robot.
       extends Blocks.Icons.Block;
 
       parameter Integer naxis=6 "Number of driven axis";
-      parameter Real angleBegDeg[naxis](each unit="deg") = zeros(naxis)
+      parameter SI.Conversions.NonSIunits.Angle_deg angleBegDeg[naxis] = zeros(naxis)
         "Start angles";
-      parameter Real angleEndDeg[naxis](each unit="deg") = ones(naxis)
+      parameter SI.Conversions.NonSIunits.Angle_deg angleEndDeg[naxis] = ones(naxis)
         "End angles";
       parameter SI.AngularVelocity speedMax[naxis]=fill(3, naxis)
         "Maximum axis speed";
@@ -672,9 +669,7 @@ motion on the controlBus of the r3 robot.
               lineColor={192,192,192},
               textString="w"),
             Line(points={{-80,0},{-41,69},{26,69},{58,0}}),
-            Text(
-              extent={{-70,-43},{85,-68}},
-              textString="6 axes")}),
+            Text(extent={{-70,-44},{84,-68}}, textString="6 axes")}),
         Documentation(info="<html>
 <p>
 Given
@@ -775,14 +770,20 @@ motion on the controlBus of the r3 robot.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={
             Text(
-              extent={{-100,98},{-24,68}},
-              textString="q"),
+              extent={{-92,98},{-16,68}},
+              textString="q",
+              lineColor={0,0,0},
+              horizontalAlignment=TextAlignment.Left),
             Text(
-              extent={{-94,46},{-18,16}},
-              textString="qd"),
+              extent={{-92,46},{-16,16}},
+              textString="qd",
+              lineColor={0,0,0},
+              horizontalAlignment=TextAlignment.Left),
             Text(
-              extent={{-96,-16},{-20,-46}},
-              textString="qdd"),
+              extent={{-92,-16},{-16,-46}},
+              textString="qdd",
+              lineColor={0,0,0},
+              horizontalAlignment=TextAlignment.Left),
             Text(
               extent={{-2,20},{80,-18}},
               textString="%axisUsed"),
@@ -790,8 +791,10 @@ motion on the controlBus of the r3 robot.
               extent={{2,52},{76,28}},
               textString="axis"),
             Text(
-              extent={{-94,-70},{32,-96}},
-              textString="moving")}),
+              extent={{-92,-70},{36,-96}},
+              textString="moving",
+              lineColor={0,0,0},
+              horizontalAlignment=TextAlignment.Left)}),
         Documentation(info="<html>
 <p>
 This model stores the 4 reference variables q, qd, qdd, moving from the path planning on the axis control bus.
@@ -804,8 +807,8 @@ This model stores the 4 reference variables q, qd, qdd, moving from the path pla
       extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
 
       parameter Real i=-105 "Gear ratio";
-      parameter Real c(unit="N.m/rad") = 43 "Spring constant";
-      parameter Real d(unit="N.m.s/rad") = 0.005 "Damper constant";
+      parameter SI.RotationalSpringConstant c = 43 "Spring constant";
+      parameter SI.RotationalDampingConstant d = 0.005 "Damper constant";
       parameter SI.Torque Rv0=0.4 "Viscous friction torque at zero velocity";
       parameter Real Rv1(unit="N.m.s/rad") = (0.13/160)
         "Viscous friction coefficient (R=Rv0+Rv1*abs(qd))";
@@ -817,13 +820,13 @@ This model stores the 4 reference variables q, qd, qdd, moving from the path pla
       constant SI.Torque unitTorque = 1;
 
       Modelica.Mechanics.Rotational.Components.IdealGear gear(
-                                                   ratio=i, useSupport=false)
+        ratio=i, useSupport=false)
         annotation (Placement(transformation(extent={{40,-10},{60,10}})));
       Modelica.Mechanics.Rotational.Components.SpringDamper spring(
-                                                        c=c, d=d)
+        c=c, d=d)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction(
-                                                                    tau_pos=[0,
+        tau_pos=[0,
              Rv0/unitTorque; 1, (Rv0 + Rv1*unitAngularVelocity)/unitTorque],
           useSupport=false) annotation (Placement(
             transformation(extent={{-60,-10},{-40,10}})));
@@ -868,8 +871,10 @@ the definition of initial values considerably.
               textString="%name",
               lineColor={0,0,255}),
             Text(
-              extent={{-36,40},{36,-30}},
-              textString="1")}),
+              extent={{-30,-30},{30,-80}},
+              lineColor={255,255,255},
+              textString="1"),
+            Line(points={{-24,0},{-16,0},{-12,14},{-4,-14},{4,14},{12,-14},{16,0},{24,0}}, color={95,95,95})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={Text(
@@ -885,18 +890,18 @@ the definition of initial values considerably.
 
       parameter Real i=-99 "Gear ratio";
       parameter SI.Torque Rv0=21.8 "Viscous friction torque at zero velocity";
-      parameter Real Rv1=9.8
-        "Viscous friction coefficient in [Nms/rad] (R=Rv0+Rv1*abs(qd))";
+      parameter Real Rv1(unit="N.m.s/rad")=9.8
+        "Viscous friction coefficient (R=Rv0+Rv1*abs(qd))";
       parameter Real peak=(26.7/21.8)
         "Maximum static friction torque is peak*Rv0 (peak >= 1)";
 
       constant SI.AngularVelocity unitAngularVelocity = 1;
       constant SI.Torque unitTorque = 1;
       Modelica.Mechanics.Rotational.Components.IdealGear gear(
-                                                   ratio=i, useSupport=false)
+        ratio=i, useSupport=false)
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
       Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction(
-                                                                    tau_pos=[0,
+        tau_pos=[0,
              Rv0/unitTorque; 1, (Rv0 + Rv1*unitAngularVelocity)/unitTorque], peak=peak,
         useSupport=false)
         annotation (Placement(transformation(extent={{20,-10},{40,10}})));
@@ -920,8 +925,9 @@ Default values for all parameters are given for joint 4.
               textString="%name",
               lineColor={0,0,255}),
             Text(
-              extent={{-36,40},{36,-30}},
-              textString="2")}));
+              extent={{-30,-30},{30,-80}},
+              textString="2",
+              lineColor={255,255,255})}));
     end GearType2;
 
     model Motor "Motor model including current controller of r3 motors"
@@ -1186,27 +1192,27 @@ produced by the motor).
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={
-            Rectangle(extent={{-80,40},{80,-40}}, lineColor={0,0,255}),
+            Rectangle(extent={{-80,40},{80,-40}}, lineColor={0,0,127}),
             Polygon(
               points={{-30,40},{-60,50},{-60,30},{-30,40}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
+              lineColor={0,0,127},
+              fillColor={0,0,127},
               fillPattern=FillPattern.Solid),
             Polygon(
               points={{60,-30},{30,-40},{60,-50},{60,-30}},
-              fillColor={0,0,255},
+              fillColor={0,0,127},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
+              lineColor={0,0,127}),
             Rectangle(
               extent={{-30,56},{30,24}},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
+              lineColor={0,0,127}),
             Rectangle(
               extent={{-30,-24},{30,-56}},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,255})}),
+              lineColor={0,0,127})}),
         Documentation(info="<html>
 <p>
 This controller has an inner PI-controller to control the motor speed,
@@ -1220,17 +1226,50 @@ reference signals. All signals are communicated via the
     end Controller;
 
     model AxisType1 "Axis model of the r3 joints 1,2,3"
-      extends AxisType2(redeclare GearType1 gear(c=c, d=cd));
-      parameter Real c(unit="N.m/rad") = 43 "Spring constant"
+      extends AxisType2(redeclare GearType1 gear(c=c, d=cd))
+        annotation(IconMap(primitivesVisible=false));
+      parameter SI.RotationalSpringConstant c = 43 "Spring constant"
         annotation (Dialog(group="Gear"));
-      parameter Real cd(unit="N.m.s/rad") = 0.005 "Damper constant"
+      parameter SI.RotationalDampingConstant cd = 0.005 "Damper constant"
         annotation (Dialog(group="Gear"));
-      annotation (Documentation(info="<html>
+      annotation (
+        Documentation(info="<html>
 <p>
 Model of axis 1, 2, 3 of the robot r3. An axis consists of a gearbox with modelled gear elasticity and bearing friction,
 a model of the electrical motor and a continuous-time cascade controller.
 </p>
-</html>"));
+</html>"),
+        Icon(graphics={Line(points={{44,0},{52,0},{58,20},{68,-20},{74,0},{82,0}},color={95,95,95}),
+            Rectangle(
+              extent={{80,10},{100,-10}},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192},
+              lineColor={64,64,64}),
+            Rectangle(
+              extent={{28,10},{46,-10}},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192},
+              lineColor={64,64,64}),
+            Rectangle(
+              extent={{-100,50},{22,-50}},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={175,175,175},
+              lineColor={0,0,0}),
+            Text(
+              extent={{-150,100},{150,60}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Rectangle(
+              extent={{-100,34},{22,-34}},
+              fillPattern=FillPattern.Solid,
+              fillColor={95,95,95},
+              lineColor={0,0,0}),
+            Rectangle(
+              extent={{10,54},{30,-54}},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={160,160,164}),
+            Rectangle(
+              extent={{10,54},{30,-54}}, lineColor={0,0,0})}));
     end AxisType1;
 
     model AxisType2 "Axis model of the r3 joints 4,5,6"
@@ -1251,10 +1290,10 @@ a model of the electrical motor and a continuous-time cascade controller.
         annotation (Dialog(group="Motor"));
       parameter Real ratio=-105 "Gear ratio" annotation (Dialog(group="Gear"));
       parameter SI.Torque Rv0=0.4
-        "Viscous friction torque at zero velocity in [Nm]"
+        "Viscous friction torque at zero velocity"
         annotation (Dialog(group="Gear"));
       parameter Real Rv1(unit="N.m.s/rad") = (0.13/160)
-        "Viscous friction coefficient in [Nms/rad]"
+        "Viscous friction coefficient"
         annotation (Dialog(group="Gear"));
       parameter Real peak=1
         "Maximum static friction torque is peak*Rv0 (peak >= 1)"
@@ -1359,15 +1398,35 @@ leads to significant oscillations.
 <p>
 Default values of the parameters are given for the axis of joint 1.
 </p>
-</html>"), Icon(coordinateSystem(
+</html>"),
+        Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics={Rectangle(
-              extent={{-100,50},{100,-50}},
+            extent={{-100,-100},{100,100}}), graphics={
+            Rectangle(
+              extent={{68,10},{100,-10}},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={160,160,164}), Text(
+              fillColor={192,192,192},
+              lineColor={64,64,64}),
+            Text(
               extent={{-150,100},{150,60}},
               textString="%name",
-              lineColor={0,0,255})}));
+              lineColor={0,0,255}),
+            Rectangle(
+              extent={{-100,50},{66,-50}},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={175,175,175},
+              lineColor={0,0,0}),
+            Rectangle(
+              extent={{-100,34},{62,-34}},
+              fillPattern=FillPattern.Solid,
+              fillColor={95,95,95},
+              lineColor={0,0,0}),
+            Rectangle(
+              extent={{60,54},{80,-54}},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={160,160,164}),
+            Rectangle(
+              extent={{60,54},{80,-54}}, lineColor={0,0,0})}));
     end AxisType2;
 
     model MechanicalStructure
@@ -1377,7 +1436,7 @@ Default values of the parameters are given for the axis of joint 1.
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter SI.Mass mLoad(min=0)=15 "Mass of load";
       parameter SI.Position rLoad[3]={0,0.25,0}
-        "Distance from last flange to load mass>";
+        "Distance from last flange to load mass";
       parameter SI.Acceleration g=9.81 "Gravity acceleration";
       SI.Angle q[6] "Joint angles";
       SI.AngularVelocity qd[6] "Joint speeds";
