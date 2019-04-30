@@ -644,8 +644,10 @@ In an <code>alt</code> tag the original equation should be stored, e.g.,</p>
 If one wants to refer to particular variables and parameters in the documentation text, either a
 graphical representation (PNG file) or italic fonts for regular physical symbols and lower case
 <a href=\"http://www.w3.org/TR/html4/sgml/entities.html\">Greek letters</a>
-should be used. Full word variables and full word indices should be spelled within &lt;code&gt; and &lt;/code&gt;.
-Vector and array indices should be typeset as subscripts using the &lt;sub&gt; and &lt;/sub&gt; tags.
+should be used. Full word variables and full word indices should be spelled within
+<code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>.
+Vector and array indices should be typeset as subscripts using the
+<code>&lt;sub&gt;</code> and <code>&lt;/sub&gt;</code> tags.
 </p>
 
 <p> Examples for such variables and parameters are:
