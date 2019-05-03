@@ -5184,7 +5184,7 @@ the support force can always be accessed as internalSupport.f.
       "Component with two translational 1D flanges"
 
       Flange_a flange_a
-        "(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)"
+        "(left) driving flange (flange axis directed into cut plane, e. g. from left to right)"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
       Flange_b flange_b
         "(right) driven flange (flange axis directed out of cut plane)"
@@ -5267,10 +5267,7 @@ and instead the component is internally fixed to ground.
         Evaluate=true,
         HideResult=true,
         choices(checkBox=true));
-      Flange_a flange_a "Flange of left end" annotation (Placement(
-            transformation(extent={{-110,-10},{-90,10}})));
-      Flange_b flange_b "Flange of right end" annotation (Placement(
-            transformation(extent={{90,-10},{110,10}})));
+      extends Translational.Interfaces.PartialTwoFlanges;
       Support support if useSupport "Support/housing of component"
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     protected
@@ -5328,10 +5325,7 @@ and instead the component is internally fixed to ground.
         "Absolute position of center of component (s = flange_a.s + L/2 = flange_b.s - L/2)";
       parameter SI.Length L(start=0)
         "Length of component, from left flange to right flange (= flange_b.s - flange_a.s)";
-      Flange_a flange_a "Left flange of translational component" annotation (
-          Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Flange_b flange_b "Right flange of translational component" annotation (
-          Placement(transformation(extent={{90,-10},{110,10}})));
+      extends Translational.Interfaces.PartialTwoFlanges;
     equation
       flange_a.s = s - L/2;
       flange_b.s = s + L/2;
@@ -5348,12 +5342,7 @@ It is used e.g., to built up sliding masses.
     partial model PartialCompliant
       "Compliant connection of two translational 1D flanges"
 
-      Flange_a flange_a
-        "Left flange of compliant 1-dim. translational component" annotation (
-          Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Flange_b flange_b
-        "Right flange of compliant 1-dim. translational component" annotation (
-          Placement(transformation(extent={{90,-10},{110,10}})));
+      extends Translational.Interfaces.PartialTwoFlanges;
       SI.Position s_rel(start=0)
         "Relative distance (= flange_b.s - flange_a.s)";
       SI.Force f
@@ -5397,13 +5386,7 @@ flange is the same. It is used to built up springs, dampers etc.
         "Relative velocity (= der(s_rel))";
 
       SI.Force f "Forces between flanges (= flange_b.f)";
-      Translational.Interfaces.Flange_a flange_a
-        "Left flange of compliant 1-dim. translational component" annotation (
-          Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Translational.Interfaces.Flange_b flange_b
-        "Right flange of compliant 1-dim. translational component" annotation (
-          Placement(transformation(extent={{90,-10},{110,10}})));
-
+      extends Translational.Interfaces.PartialTwoFlanges;
     equation
       s_rel = flange_b.s - flange_a.s;
       v_rel = der(s_rel);
@@ -5578,10 +5561,7 @@ and instead the component is internally fixed to ground.
         Evaluate=true,
         HideResult=true,
         choices(checkBox=true));
-      Flange_a flange_a "Flange of left shaft" annotation (Placement(
-            transformation(extent={{-110,-10},{-90,10}})));
-      Flange_b flange_b "Flange of right shaft" annotation (Placement(
-            transformation(extent={{90,-10},{110,10}})));
+      extends Translational.Interfaces.PartialTwoFlanges;
       Modelica.SIunits.Length s_a "Distance between left flange and support";
       Modelica.SIunits.Length s_b "Distance between right flange and support";
     protected
@@ -5646,10 +5626,7 @@ connector is not connected).
         Evaluate=true,
         HideResult=true,
         choices(checkBox=true));
-      Flange_a flange_a "Flange of left shaft" annotation (Placement(
-            transformation(extent={{-110,-10},{-90,10}})));
-      Flange_b flange_b "Flange of right shaft" annotation (Placement(
-            transformation(extent={{90,-10},{110,10}})));
+      extends Translational.Interfaces.PartialTwoFlanges;
       Support support(s=s_support, f=-flange_a.f - flange_b.f) if useSupport
         "Support/housing of component"
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
@@ -5762,7 +5739,7 @@ and instead the component is internally fixed to ground.
       extends Modelica.Icons.TranslationalSensor;
 
       Interfaces.Flange_a flange
-        "Flange to be measured (flange axis directed in to cut plane, e. g. from left to right)"
+        "Flange to be measured (flange axis directed into cut plane, e. g. from left to right)"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
 
     equation
@@ -5792,14 +5769,7 @@ with the Modelica.Blocks blocks.
       "Device to measure a single relative variable between two flanges"
 
       extends Modelica.Icons.TranslationalSensor;
-
-      Interfaces.Flange_a flange_a
-        "(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)"
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Interfaces.Flange_b flange_b
-        "(right) driven flange (flange axis directed out of cut plane)"
-        annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-
+      extends Translational.Interfaces.PartialTwoFlanges;
     equation
       0 = flange_a.f + flange_b.f;
       annotation (Documentation(info="<html>
