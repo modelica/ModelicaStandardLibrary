@@ -133,7 +133,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
           x=Modelica.Electrical.Digital.Interfaces.Logic.'U');
         Modelica.Electrical.Digital.Converters.LogicToXO1 logicToXO1_1(n=1);
         Modelica.Electrical.Digital.Converters.LogicToXO1Z logicToXO1Z(n=1);
-      equation 
+      equation
         connect(set.y, logicToXO1_1.x[1]);
         connect(set.y, logicToXO1Z.x[1]);
       annotation(experiment(StopTime=1), Documentation(info="<html>
@@ -249,6 +249,19 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue194;
+
+      model Issue2863 "Conversion test for #2863"
+        extends Modelica.Icons.Example;
+        Modelica.Mechanics.Rotational.Sources.SignTorque signTorque(tau_constant=123, w0=0.1);
+        Modelica.Mechanics.Rotational.Components.Inertia inertia(J=1, phi(fixed=true, start=0), w(fixed=true, start=1));
+      equation
+        connect(signTorque.flange, inertia.flange_a);
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2863\">#2863</a>.
+</p>
+</html>"));
+      end Issue2863;
     end Rotational;
 
     package Translational
