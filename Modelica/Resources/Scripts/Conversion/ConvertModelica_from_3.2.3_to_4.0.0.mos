@@ -52,7 +52,10 @@ convertElement({"Modelica.Mechanics.Rotational.Components.Brake",
 
 convertElement({"Modelica.Mechanics.Rotational.Sources.SignTorque"},
                 "tau_constant", "tau_nominal");
-
+convertElement({"Modelica.Electrical.Machines.BasicMachines.Components.InductorDC",
+                "Modelica.Electrical.Machines.BasicMachines.Components.PartialAirGapDC",
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine"},
+                "quasiStationary", "quasiStatic");
 convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor",
                 "variableResistor", "variableConductor");
 

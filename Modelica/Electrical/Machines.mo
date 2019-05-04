@@ -8438,7 +8438,7 @@ These models use package SpacePhasors.
         Machines.BasicMachines.Components.AirGapDC airGapDC(
           final turnsRatio=turnsRatio,
           final Le=Lme,
-          final quasiStationary=quasiStationary) annotation (Placement(
+          final quasiStatic=quasiStatic) annotation (Placement(
               transformation(
               extent={{-10,-10},{10,10}},
               rotation=270)));
@@ -8608,7 +8608,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
         Machines.BasicMachines.Components.AirGapDC airGapDC(
           final turnsRatio=turnsRatio,
           final Le=Lme,
-          final quasiStationary=quasiStationary) annotation (Placement(
+          final quasiStatic=quasiStatic) annotation (Placement(
               transformation(
               extent={{-10,-10},{10,10}},
               rotation=270)));
@@ -8628,7 +8628,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
               extent={{10,-10},{-10,10}},
               rotation=90)));
         Machines.BasicMachines.Components.InductorDC lesigma(final L=Lesigma,
-            final quasiStationary=quasiStationary) annotation (Placement(
+            final quasiStatic=quasiStatic) annotation (Placement(
               transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
@@ -8857,7 +8857,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
         Machines.BasicMachines.Components.AirGapDC airGapDC(
           final turnsRatio=turnsRatio,
           final Le=Lme,
-          final quasiStationary=quasiStationary) annotation (Placement(
+          final quasiStatic=quasiStatic) annotation (Placement(
               transformation(
               extent={{-10,-10},{10,10}},
               rotation=270)));
@@ -8877,7 +8877,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
               extent={{-10,10},{10,-10}},
               rotation=270)));
         Machines.BasicMachines.Components.InductorDC lesigma(final L=Lesigma,
-            final quasiStationary=quasiStationary) annotation (Placement(
+            final quasiStatic=quasiStatic) annotation (Placement(
               transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
@@ -9084,7 +9084,7 @@ This package contains models of DC machines:
       extends Modelica.Icons.VariantsPackage;
       model DC_PermanentMagnet "Quasistationary permanent magnet DC machine"
         extends Machines.BasicMachines.DCMachines.DC_PermanentMagnet(final
-            quasiStationary=true);
+            quasiStatic=true);
         extends Machines.Icons.QuasiStaticMachine;
         annotation (defaultComponentName="dcpm", Documentation(info="<html>
 <strong>Quasistationary model of a DC Machine with permanent magnets.</strong><br>
@@ -9097,7 +9097,7 @@ the only difference is that electrical transients are neglected.
       model DC_ElectricalExcited
         "Quasistationary electrical shunt/separate excited linear DC machine"
         extends Machines.BasicMachines.DCMachines.DC_ElectricalExcited(final
-            quasiStationary=true);
+            quasiStatic=true);
         extends Machines.Icons.QuasiStaticMachine;
         annotation (defaultComponentName="dcee", Documentation(info="<html>
 <strong>Quasistationary model of a DC Machine with electrical shunt or separate excitation.</strong><br>
@@ -9109,7 +9109,7 @@ the only difference is that electrical transients are neglected.
 
       model DC_SeriesExcited "Quasistationary series excited linear DC machine"
         extends Machines.BasicMachines.DCMachines.DC_SeriesExcited(final
-            quasiStationary=true);
+            quasiStatic=true);
         extends Machines.Icons.QuasiStaticMachine;
         annotation (defaultComponentName="dcse", Documentation(info="<html>
 <strong>Quasistationary model of a DC Machine with Series excitation.</strong><br>
@@ -11302,14 +11302,14 @@ Model of a permanent magnet excitation with loss, characterized by an equivalent
         "Ideal linear electrical inductor for electrical DC machines"
         extends Modelica.Electrical.Analog.Interfaces.OnePort;
         parameter Modelica.SIunits.Inductance L(start=1) "Inductance";
-        parameter Boolean quasiStationary(start=false)
+        parameter Boolean quasiStatic(start=false)
           "No electrical transients if true" annotation (Evaluate=true);
       equation
-        v = if quasiStationary then 0 else L*der(i);
+        v = if quasiStatic then 0 else L*der(i);
         annotation (defaultComponentName="inductor",
           Documentation(info="<html>
 <p>The linear inductor connects the branch voltage <em>v</em> with the branch current <em>i</em> by <em>v = L * di/dt</em>.
-If <code>quasiStationary == false</code>, the electrical transients are neglected, i.e., the voltage drop is zero.</p>
+If <code>quasiStatic == false</code>, the electrical transients are neglected, i.e., the voltage drop is zero.</p>
 </html>"),Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={Ellipse(extent={{-60,-15},{-30,15}},
                 lineColor={0,0,255}),Ellipse(extent={{-30,-15},{0,15}},
@@ -11326,7 +11326,7 @@ If <code>quasiStationary == false</code>, the electrical transients are neglecte
                       extent={{-150,50},{150,90}},
                       textString="%name",
                       lineColor={0,0,255}),Rectangle(
-                      visible=quasiStationary,
+                      visible=quasiStatic,
                       extent={{-70,30},{70,-30}},
                       lineColor={0,0,255},
                       fillColor={85,170,255},
@@ -11334,7 +11334,7 @@ If <code>quasiStationary == false</code>, the electrical transients are neglecte
       end InductorDC;
 
       partial model PartialAirGapDC "Partial airgap model of a DC machine"
-        parameter Boolean quasiStationary(start=false)
+        parameter Boolean quasiStatic(start=false)
           "No electrical transients if true" annotation (Evaluate=true);
         parameter Real turnsRatio
           "Ratio of armature turns over number of turns of the excitation winding";
@@ -11369,7 +11369,7 @@ If <code>quasiStationary == false</code>, the electrical transients are neglecte
         ie = +pin_ep.i;
         ie = -pin_en.i;
         // induced voltage across field excitation inductance
-        vei = if quasiStationary then 0 else der(psi_e);
+        vei = if quasiStatic then 0 else der(psi_e);
         // mechanical speed
         w = der(flange.phi) - der(support.phi);
         // induced armature voltage
@@ -11398,14 +11398,14 @@ If <code>quasiStationary == false</code>, the electrical transients are neglecte
                       textString="%name"),Text(
                       extent={{-80,40},{0,-40}},
                       textString="A"),Rectangle(
-                      visible=quasiStationary,
+                      visible=quasiStatic,
                       extent={{-10,90},{10,-80}},
                       lineColor={170,213,255},
                       fillPattern=FillPattern.VerticalCylinder,
                       fillColor={170,213,255})}), Documentation(info="<html>
 Linear model of the airgap (without saturation effects) of a DC machine, using only equations.<br>
 Induced excitation voltage is calculated from der(flux), where flux is defined by excitation inductance times excitation current.
-If <code>quasiStationary == false</code>, the electrical transients are neglected, i.e., the induced excitation voltage is zero.<br>
+If <code>quasiStatic == false</code>, the electrical transients are neglected, i.e., the induced excitation voltage is zero.<br>
 Induced armature voltage is calculated from flux times angular velocity.
 </html>"));
       end PartialAirGapDC;
@@ -15320,7 +15320,7 @@ Interfaces and partial models for induction machines
         final useHeatPort=true) annotation (Placement(transformation(extent={{60,50},{40,
                 70}})));
       Machines.BasicMachines.Components.InductorDC la(final L=La, final
-          quasiStationary=quasiStationary) annotation (Placement(transformation(
+          quasiStatic=quasiStatic) annotation (Placement(transformation(
               extent={{30,50},{10,70}})));
       Machines.Losses.DCMachines.Brush brush(final brushParameters=
             brushParameters, final useHeatPort=true) annotation (Placement(
@@ -15346,7 +15346,7 @@ Interfaces and partial models for induction machines
             origin={-30,-80})));
     protected
       constant Real pi = Modelica.Constants.pi;
-      constant Boolean quasiStationary=false "No electrical transients if true"
+      constant Boolean quasiStatic=false "No electrical transients if true"
         annotation (Evaluate=true);
       parameter Modelica.SIunits.Voltage ViNominal "Nominal induced Voltage";
       parameter Modelica.SIunits.MagneticFlux psi_eNominal

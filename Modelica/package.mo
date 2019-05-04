@@ -3639,7 +3639,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.BasicMachines.Components.</strong></td></tr>
 <tr><td> InductorDC </td>
-    <td> Inductor model which neglects der(i) if Boolean parameter quasiStationary = true </td></tr>
+    <td> Inductor model which neglects der(i) if Boolean parameter quasiStatic = true </td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Interfaces.</strong></td></tr>
 <tr><td>  ThermalPortTransformer<br>

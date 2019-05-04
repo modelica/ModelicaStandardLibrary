@@ -150,14 +150,6 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
         extends Modelica.Icons.Example;
         import Modelica.Electrical.QuasiStationary.Types.Reference;
         parameter Reference r = Modelica.Electrical.QuasiStationary.Types.Reference(0);
-        model M1
-          extends Modelica.Electrical.Machines.Icons.QuasiStationaryMachine;
-        end M1;
-        M1 m1;
-        model M2
-          extends Modelica.Electrical.Machines.Icons.QuasiStationaryTransformer;
-        end M2;
-        M2 m2;
         annotation(experiment(StopTime=1), Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1189\">#1189</a>.
@@ -185,6 +177,19 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
       extends Modelica.Icons.ExamplesPackage;
       model Issue1189 "Conversion test for #1189"
         extends Modelica.Icons.Example;
+        model M1
+          extends Modelica.Electrical.Machines.Icons.QuasiStationaryTransformer;
+        end M1;
+        model M2
+          extends Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet(quasiStationary=true);
+          extends Modelica.Electrical.Machines.Icons.QuasiStationaryMachine;
+        end M2;
+        model M3
+          extends Modelica.Electrical.Machines.BasicMachines.Components.InductorDC(final quasiStationary=true);
+        end M3;
+        model M4
+          extends Modelica.Electrical.Machines.BasicMachines.Components.PartialAirGapDC(final quasiStationary=true);
+        end M4;
         Modelica.Electrical.Analog.Sources.ConstantVoltage armatureVoltage(V=100);
         Modelica.Electrical.Analog.Basic.Ground groundArmature;
         Modelica.Blocks.Sources.Pulse pulse(
