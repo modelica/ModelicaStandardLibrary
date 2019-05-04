@@ -25,6 +25,8 @@ convertClass("Modelica.Media.Incompressible.TableBased.Polynomials_Temp",
               "Modelica.Math.Polynomials");
 convertClass("Modelica.Electrical.QuasiStationary",
               "Modelica.Electrical.QuasiStatic");
+convertClass("Modelica.Electrical.Machines.Icons.QuasiStationaryMachine",
+              "Modelica.Electrical.Machines.Icons.QuasiStaticMachine");
 
 // Change renamed elements of classes
 // mue -> mu

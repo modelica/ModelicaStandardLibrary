@@ -9085,7 +9085,7 @@ This package contains models of DC machines:
       model DC_PermanentMagnet "Quasistationary permanent magnet DC machine"
         extends Machines.BasicMachines.DCMachines.DC_PermanentMagnet(final
             quasiStationary=true);
-        extends Machines.Icons.QuasiStationaryMachine;
+        extends Machines.Icons.QuasiStaticMachine;
         annotation (defaultComponentName="dcpm", Documentation(info="<html>
 <strong>Quasistationary model of a DC Machine with permanent magnets.</strong><br>
 This model is fully compatible with the
@@ -9098,7 +9098,7 @@ the only difference is that electrical transients are neglected.
         "Quasistationary electrical shunt/separate excited linear DC machine"
         extends Machines.BasicMachines.DCMachines.DC_ElectricalExcited(final
             quasiStationary=true);
-        extends Machines.Icons.QuasiStationaryMachine;
+        extends Machines.Icons.QuasiStaticMachine;
         annotation (defaultComponentName="dcee", Documentation(info="<html>
 <strong>Quasistationary model of a DC Machine with electrical shunt or separate excitation.</strong><br>
 This model is fully compatible with the
@@ -9110,7 +9110,7 @@ the only difference is that electrical transients are neglected.
       model DC_SeriesExcited "Quasistationary series excited linear DC machine"
         extends Machines.BasicMachines.DCMachines.DC_SeriesExcited(final
             quasiStationary=true);
-        extends Machines.Icons.QuasiStationaryMachine;
+        extends Machines.Icons.QuasiStaticMachine;
         annotation (defaultComponentName="dcse", Documentation(info="<html>
 <strong>Quasistationary model of a DC Machine with Series excitation.</strong><br>
 This model is fully compatible with the
@@ -16096,7 +16096,7 @@ This icon is designed for a <strong>transient machine</strong> model.
 </html>"));
     end TransientMachine;
 
-    partial model QuasiStationaryMachine
+    partial model QuasiStaticMachine
       annotation (Icon(graphics={Rectangle(
                   extent={{-40,60},{80,-60}},
                   fillPattern=FillPattern.HorizontalCylinder,
@@ -16118,7 +16118,7 @@ This icon is designed for a <strong>transient machine</strong> model.
 This icon is designed for a <strong>quasistationary machine</strong> model.
 </p>
 </html>"));
-    end QuasiStationaryMachine;
+    end QuasiStaticMachine;
 
     partial model FundamentalWaveMachine
       annotation (Icon(graphics={
