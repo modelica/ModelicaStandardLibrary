@@ -235,16 +235,16 @@ variables is explained in section \"Connector Equations\" below):
    <td>complex electrical potential</td>
    <td>complex electrical current</td>
    <td></td>
-   <td><a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces\">
-                                       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces</a>
+   <td><a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces\">
+                                       Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces</a>
      <br>Pin, PositivePin, NegativePin</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/QuasiStationarySinglePhasePins.png\"></td></tr>
+   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/QuasiStaticSinglePhasePins.png\"></td></tr>
 
 <tr><td><strong>quasi<br>stationary<br>multi-phase</strong></td>
    <td colspan=\"3\">vector of quasi stationary single phase pins</td>
-   <td><a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces\">Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</a>
+   <td><a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces\">Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces</a>
      <br>Plug, PositivePlug, NegativePlug</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/QuasiStationaryMultiPhasePlugs.png\"></td></tr>
+   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/QuasiStaticMultiPhasePlugs.png\"></td></tr>
 
 <tr><td><strong>electrical<br>digital</strong></td>
    <td>Integer (1..9)</td>
@@ -1780,9 +1780,9 @@ In the Modelica Standard Library the following color schemes apply:</p>
     <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalMultiPhase.png\"></td>
   </tr>
   <tr>
-    <td>Modelica.Electrical.QuasiStationary</td>
+    <td>Modelica.Electrical.QuasiStatic</td>
     <td>{85,170,255}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalQuasiStationary.png\"></td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalQuasiStatic.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Electrical.Spice3</td>
@@ -2303,17 +2303,17 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.PowerConverters.DCDC</strong></td></tr>
 <tr><td width=\"150\">ChopperStepUp</td>
     <td> Step up chopper (boost converter) model.</td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.QuasiStationary.SinglePhase.Sensors</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.QuasiStatic.SinglePhase.Sensors</strong></td></tr>
 <tr><td width=\"150\">MultiSensor</td>
     <td> Measures voltage, current and apparent power simultaneously.</td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.QuasiStationary.MultiPhase.Sensors</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.QuasiStatic.MultiPhase.Sensors</strong></td></tr>
 <tr><td width=\"150\">MultiSensor</td>
     <td> Measures voltage, current and apparent power for m phases as well as total apparent power simultaneously.</td></tr>
 <tr><td width=\"150\">AronSensor</td>
     <td> Measures active power for a threephase system by two singlephase power sensors in an Aron circuit.</td></tr>
 <tr><td width=\"150\">ReactivePowerSensor</td>
     <td> Measures reactive power for a threephase system.</td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.QuasiStationary.{SinglePhase, MultiPhase}.Sources</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.QuasiStatic.{SinglePhase, MultiPhase}.Sources</strong></td></tr>
 <tr><td width=\"150\">FrequencySweepVoltageSource<br>FrquencySweepCurrentSource</td>
     <td> Voltage source and current source with integrated frequency sweep.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
@@ -2691,7 +2691,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
     This library provides quasi-static models of multiphase machines (induction machines, synchronous machines) in parallel (with the same parameters but different electric connectors)
     to the transient models in <a href=\"modelica://Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a>.<br>
     Quasistatic means that electric transients are neglected, voltages and currents are supposed to be sinusoidal. Mechanical and thermal transients are taken into account.<br>
-    This library is especially useful in combination with the <a href=\"modelica://Modelica.Electrical.QuasiStationary\">Modelica.Electrical.QuasiStationary</a>
+    This library is especially useful in combination with the <a href=\"modelica://Modelica.Electrical.QuasiStatic\">Modelica.Electrical.QuasiStatic</a>
     library in order to build up very fast simulations of electrical circuits with sinusoidal currents and voltages.<br>
     (This library was developed by Christian Kral and Anton Haumer).
     </td></tr>
@@ -3344,13 +3344,13 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
     <td>
     Library of basic input/output control blocks with Complex signals.<br>
     This library is especially useful in combination with the new
-    <a href=\"modelica://Modelica.Electrical.QuasiStationary\">Modelica.Electrical.QuasiStationary</a>
+    <a href=\"modelica://Modelica.Electrical.QuasiStatic\">Modelica.Electrical.QuasiStatic</a>
     library in order to build up very fast simulations of electrical circuits with periodic
     currents and voltages.<br>
     (This library was developed by Anton Haumer).
     </td></tr>
 
-<tr><td><a href=\"modelica://Modelica.Electrical.QuasiStationary\">Modelica.Electrical.QuasiStationary</a></td>
+<tr><td><a href=\"modelica://Modelica.Electrical.QuasiStatic\">Modelica.Electrical.QuasiStatic</a></td>
     <td>
     Library for quasi-stationary electrical singlephase and multiphase AC simulation.<br>
     This library allows very fast simulations of electrical circuits with sinusoidal
@@ -3635,7 +3635,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 <tr><td> DC_PermanentMagnet<br>
                       DC_ElectricalExcited<br>
                       DC_SeriesExcited </td>
-    <td> QuasiStationary DC machines, i.e., neglecting electrical transients </td></tr>
+    <td> QuasiStatic DC machines, i.e., neglecting electrical transients </td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.BasicMachines.Components.</strong></td></tr>
 <tr><td> InductorDC </td>
@@ -3891,7 +3891,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
                       ComplexAdmittance<br>
                       ComplexPower</td>
     <td> SIunits to be used in physical models using complex variables, e.g.,<br>
-                      <a href=\"modelica://Modelica.Electrical.QuasiStationary\">Modelica.Electrical.QuasiStationary</a>,
+                      <a href=\"modelica://Modelica.Electrical.QuasiStatic\">Modelica.Electrical.QuasiStatic</a>,
                       <a href=\"modelica://Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a> </td></tr>
 <tr><td> ImpulseFlowRate<br>
                       AngularImpulseFlowRate</td>
@@ -7902,7 +7902,7 @@ class Contact "Contact"
 <td align=\"left\">Christian Kral, Anton Haumer</td>
 </tr>
 <tr>
-<td align=\"left\">Electrical.QuasiStationary</td>
+<td align=\"left\">Electrical.QuasiStatic</td>
 <td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
@@ -8092,7 +8092,7 @@ of the Modelica package (many more people have contributed to the design):
    <td>Modelica.ComplexBlocks<br>
                       Modelica.Electrical.Machines<br>
                       Modelica.Electrical.Multiphase<br>
-                      Modelica.Electrical.QuasiStationary<br>
+                      Modelica.Electrical.QuasiStatic<br>
                       Modelica.Magnetics.FundamentalWave<br>
                       Modelica.Mechanics.Rotational<br>
                       Modelica.Mechanics.Translational<br>
@@ -8116,7 +8116,7 @@ of the Modelica package (many more people have contributed to the design):
    <td>Modelica.ComplexBlocks<br>
                       Modelica.Electrical.Machines<br>
                       Modelica.Electrical.MultiPhase<br>
-                      Modelica.Electrical.QuasiStationary<br>
+                      Modelica.Electrical.QuasiStatic<br>
                       Modelica.Magnetics.FundamentalWave<br>
                       Modelica.Mechanics.Rotational<br>
                       Modelica.Mechanics.Translational<br>
@@ -8339,7 +8339,7 @@ User's Guides that can be accessed by the following links:
 </tr>
 
 <tr>
-  <td><a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide\">QuasiStationary</a></td>
+  <td><a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide\">QuasiStatic</a></td>
   <td>Library for quasi-stationary electrical singlephase and multiphase AC simulation</td>
 </tr>
 

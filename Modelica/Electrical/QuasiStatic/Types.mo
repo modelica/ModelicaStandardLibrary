@@ -1,4 +1,4 @@
-within Modelica.Electrical.QuasiStationary;
+within Modelica.Electrical.QuasiStatic;
 package Types "Definition of types for quasistationary AC models"
   extends Modelica.Icons.TypesPackage;
 

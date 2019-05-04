@@ -23,6 +23,8 @@ convertClass("Modelica.SIunits.FluxiodQuantum",
               "Modelica.SIunits.FluxoidQuantum");
 convertClass("Modelica.Media.Incompressible.TableBased.Polynomials_Temp",
               "Modelica.Math.Polynomials");
+convertClass("Modelica.Electrical.QuasiStationary",
+              "Modelica.Electrical.QuasiStatic");
 
 // Change renamed elements of classes
 // mue -> mu

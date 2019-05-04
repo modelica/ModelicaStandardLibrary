@@ -48,7 +48,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"https
   <tr>
   <td>Transformers</td>
   <td><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.Transformers\">Modelica.Electrical.Machines.BasicMachines.Transformers</a></td>
-  <td><a href=\"modelica://Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Transformers\">Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Transformers</a></td>
+  <td><a href=\"modelica://Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers\">Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers</a></td>
   </tr>
   <tr>
   <td>DC machines</td>
@@ -9130,7 +9130,7 @@ the only difference is that electrical transients are neglected.
 Quasistationary DC machine models are basically different from quasistationary induction machine models:
 Quasistationary DC machine models neglect electrical transients, i.e., setting <code>der(i) = 0</code>,
 whereas quasistationary induction machine models are based on time phasor theory,
-see <a href=\"modelica://Modelica.Electrical.QuasiStationary\">QuasiStationary Library</a>,
+see <a href=\"modelica://Modelica.Electrical.QuasiStatic\">QuasiStatic Library</a>,
 where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</code>.
 </p>
 </html>", revisions="<html>

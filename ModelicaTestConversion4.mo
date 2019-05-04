@@ -144,8 +144,19 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
       end Issue758;
     end Digital;
 
-    package QuasiStationary
+    package QuasiStatic
       extends Modelica.Icons.ExamplesPackage;
+      model Issue1189 "Conversion test for #1189"
+        extends Modelica.Icons.Example;
+        import Modelica.Electrical.QuasiStationary.Types.Reference;
+        parameter Reference r = Modelica.Electrical.QuasiStationary.Types.Reference(0);
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1189\">#1189</a>.
+</p>
+</html>"));
+      end Issue1189;
+
       model Issue2693 "Conversion test for #2693"
         Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor variableConductor(variableResistor "Variable Conductor");
         Modelica.Blocks.Sources.RealExpression realExpression[3](each y=time + 1);
@@ -160,7 +171,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue2693;
-    end QuasiStationary;
+    end QuasiStatic;
   end Electrical;
 
   package Fluid
