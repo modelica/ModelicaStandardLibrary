@@ -2561,7 +2561,7 @@ Quasi stationary DC machines are still operated with Dc voltage and current, whe
 are operated with sinusoidal voltages and currents represented by time phasors. Quasi stationary theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 Quasi stationary DC machine models therefore are part of the
-<a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines\">machines library</a>.
+<a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines\">machines library</a>.
 </p>
 </html>"));
 end Machines;

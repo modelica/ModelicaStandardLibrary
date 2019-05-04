@@ -180,6 +180,54 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end Issue2693;
     end QuasiStatic;
+
+    package Machines
+      extends Modelica.Icons.ExamplesPackage;
+      model Issue1189 "Conversion test for #1189"
+        extends Modelica.Icons.Example;
+        Modelica.Electrical.Analog.Sources.ConstantVoltage armatureVoltage(V=100);
+        Modelica.Electrical.Analog.Basic.Ground groundArmature;
+        Modelica.Blocks.Sources.Pulse pulse(
+          amplitude=-1.5*63.66,
+          offset=0,
+          period=1);
+        Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_PermanentMagnet
+          dcpm2(
+          VaNominal=dcpmData.VaNominal,
+          IaNominal=dcpmData.IaNominal,
+          wNominal=dcpmData.wNominal,
+          TaNominal=dcpmData.TaNominal,
+          Ra=dcpmData.Ra,
+          TaRef=dcpmData.TaRef,
+          La=dcpmData.La,
+          Jr=dcpmData.Jr,
+          useSupport=false,
+          Js=dcpmData.Js,
+          frictionParameters=dcpmData.frictionParameters,
+          coreParameters=dcpmData.coreParameters,
+          strayLoadParameters=dcpmData.strayLoadParameters,
+          brushParameters=dcpmData.brushParameters,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true, start=157),
+          TaOperational=293.15,
+          alpha20a=dcpmData.alpha20a);
+        Modelica.Mechanics.Rotational.Components.Inertia loadInertia2(J=0.15);
+        Modelica.Mechanics.Rotational.Sources.Torque loadTorque2(useSupport=false);
+        parameter Modelica.Electrical.Machines.Utilities.ParameterRecords.DcPermanentMagnetData dcpmData;
+      equation 
+        connect(armatureVoltage.n, groundArmature.p);
+        connect(loadInertia2.flange_b, loadTorque2.flange);
+        connect(dcpm2.flange, loadInertia2.flange_a);
+        connect(pulse.y, loadTorque2.tau);
+        connect(armatureVoltage.p, dcpm2.pin_ap);
+        connect(armatureVoltage.n, dcpm2.pin_an);
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1189\">#1189</a>.
+</p>
+</html>"));
+      end Issue1189;
+    end Machines;
   end Electrical;
 
   package Fluid

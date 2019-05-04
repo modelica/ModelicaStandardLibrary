@@ -53,7 +53,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"https
   <tr>
   <td>DC machines</td>
   <td><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines\">Modelica.Electrical.Machines.BasicMachines.DCMachines</a></td>
-  <td><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines\">Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines</a></td>
+  <td><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines\">Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines</a></td>
   </tr>
   <tr>
   <td>Induction machines, limited to 3 phases</td>
@@ -4911,7 +4911,7 @@ Default machine parameters are used, but:
 </html>"));
       end DCPM_Cooling;
 
-      model DCPM_QuasiStationary
+      model DCPM_QuasiStatic
         "Test example: Compare DCPM motors transient - quasistationary"
         extends Modelica.Icons.Example;
         parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
@@ -4961,7 +4961,7 @@ Default machine parameters are used, but:
           offset=0,
           period=1)
           annotation (Placement(transformation(extent={{100,-10},{80,10}})));
-        Machines.BasicMachines.QuasiStationaryDCMachines.DC_PermanentMagnet
+        Machines.BasicMachines.QuasiStaticDCMachines.DC_PermanentMagnet
           dcpm2(
           VaNominal=dcpmData.VaNominal,
           IaNominal=dcpmData.IaNominal,
@@ -5026,7 +5026,7 @@ Simulate for 2 seconds and plot (versus time):
 <li>dcpm2.tauElectrical: motor's torque of quasistationary model</li>
 </ul>
 </html>"));
-      end DCPM_QuasiStationary;
+      end DCPM_QuasiStatic;
 
       model DCPM_withLosses
         "Test example: Investigate influence of losses on DCPM motor performance"
@@ -9080,7 +9080,7 @@ This package contains models of DC machines:
 </html>"));
     end DCMachines;
 
-    package QuasiStationaryDCMachines "Models of quasistationary DC machines"
+    package QuasiStaticDCMachines "Models of quasistationary DC machines"
       extends Modelica.Icons.VariantsPackage;
       model DC_PermanentMagnet "Quasistationary permanent magnet DC machine"
         extends Machines.BasicMachines.DCMachines.DC_PermanentMagnet(final
@@ -9148,7 +9148,7 @@ where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</
        first implementation</li>
   </ul>
 </html>"));
-    end QuasiStationaryDCMachines;
+    end QuasiStaticDCMachines;
 
     package Transformers "Library for technical 3phase transformers"
       extends Modelica.Icons.Package;

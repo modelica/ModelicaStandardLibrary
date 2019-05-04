@@ -3631,7 +3631,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 <tr><td> DCPM_Losses </td>
     <td> Permanent magnet DC machine, comparison between model with and without losses </td></tr>
 
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines.</strong></td></tr>
 <tr><td> DC_PermanentMagnet<br>
                       DC_ElectricalExcited<br>
                       DC_SeriesExcited </td>
