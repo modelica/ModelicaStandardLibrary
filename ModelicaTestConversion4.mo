@@ -154,6 +154,10 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
           extends Modelica.Electrical.Machines.Icons.QuasiStationaryMachine;
         end M1;
         M1 m1;
+        model M2
+          extends Modelica.Electrical.Machines.Icons.QuasiStationaryTransformer;
+        end M2;
+        M2 m2;
         annotation(experiment(StopTime=1), Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1189\">#1189</a>.

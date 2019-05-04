@@ -16200,7 +16200,7 @@ This icon is designed for a <strong>transient transformer</strong> model.
 
     end TransientTransformer;
 
-    partial model QuasiStationaryTransformer
+    partial model QuasiStaticTransformer
       annotation (Icon(graphics={Polygon(
                   points={{-70,60},{-50,40},{-50,-40},{-70,-60},{-70,60}},
                   fillColor={135,135,135},
@@ -16248,7 +16248,7 @@ This icon is designed for a <strong>transient transformer</strong> model.
 This icon is designed for a <strong>quasistationary transformer</strong> model.
 </p>
 </html>"));
-    end QuasiStationaryTransformer;
+    end QuasiStaticTransformer;
 
     partial model QuasiStaticFundamentalWaveMachine
       "Icon of quasi static fundamental wave machine"

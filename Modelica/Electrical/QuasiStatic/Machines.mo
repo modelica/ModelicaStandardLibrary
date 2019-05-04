@@ -2190,7 +2190,7 @@ This package contains components for modeling quasi stationary electrical induct
 
     partial model PartialBasicTransformer
       "Partial model of three-phase transformer"
-      extends Modelica.Electrical.Machines.Icons.QuasiStationaryTransformer;
+      extends Modelica.Electrical.Machines.Icons.QuasiStaticTransformer;
       constant Integer m(min=1) = 3 "Number of phases";
       constant String VectorGroup="Yy00";
       parameter Real n(start=1)
