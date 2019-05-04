@@ -2625,7 +2625,7 @@ This function determines the continuous quasi <a href=\"Modelica://Modelica.Bloc
       annotation (Inline=true, Documentation(info="<html>
 <p>
 Calculates instantaneous power from multiphase voltages and currents.
-In quasistationary operation, instantaneous power equals active power;
+In quasi-static operation, instantaneous power equals active power;
 </p>
 </html>"));
     end activePower;

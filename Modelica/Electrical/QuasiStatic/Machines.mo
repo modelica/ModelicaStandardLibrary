@@ -1,5 +1,5 @@
 within Modelica.Electrical.QuasiStatic;
-package Machines "Quasistationary machine models"
+package Machines "Quasi-static machine models"
   extends Modelica.Icons.Package;
 
   package Examples "Test examples"
@@ -217,7 +217,7 @@ even though the source's or load's starpoint are grounded; you may use a reasona
 </html>"), experiment(StopTime=0.1, Interval=0.001));
     end TransformerTestbench;
     annotation (Documentation(info="<html>
-Examples to demonstrate the usage of quasistationary electric components.
+Examples to demonstrate the usage of quasi-static electric components.
 </html>"));
   end Examples;
 

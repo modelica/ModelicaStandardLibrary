@@ -3352,9 +3352,9 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 
 <tr><td><a href=\"modelica://Modelica.Electrical.QuasiStatic\">Modelica.Electrical.QuasiStatic</a></td>
     <td>
-    Library for quasi-stationary electrical singlephase and multiphase AC simulation.<br>
+    Library for quasi-static electrical singlephase and multiphase AC simulation.<br>
     This library allows very fast simulations of electrical circuits with sinusoidal
-    currents and voltages by only taking into account the quasi-stationary, periodic part
+    currents and voltages by only taking into account the quasi-static, periodic part
     and neglecting non-periodic transients.<br>
     (This library was developed by Anton Haumer and Christian Kral).
     </td></tr>
@@ -3603,7 +3603,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
     <td> Simple thermal ambients, to be connected to the thermal ports of machines,<br>
                       as well as material constants and utility functions.</td></tr>
 <tr><td> Icons.* </td>
-    <td> Icons for transient and quasistationary electrical machines and transformers.</td></tr>
+    <td> Icons for transient and quasi-static electrical machines and transformers.</td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.</strong></td></tr>
 <tr><td> AIMC_withLosses </td>
@@ -3626,8 +3626,8 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
     <td> Permanent magnet DC machine, demonstration of varying temperature </td></tr>
 <tr><td> DCPM_Cooling </td>
     <td> Permanent magnet DC machine, coupled with a simple thermal model </td></tr>
-<tr><td> DCPM_QuasiStationary </td>
-    <td> Permanent magnet DC machine, comparison between transient and quasistationary model </td></tr>
+<tr><td> DCPM_QuasiStatic </td>
+    <td> Permanent magnet DC machine, comparison between transient and quasi-static model </td></tr>
 <tr><td> DCPM_Losses </td>
     <td> Permanent magnet DC machine, comparison between model with and without losses </td></tr>
 
@@ -8340,7 +8340,7 @@ User's Guides that can be accessed by the following links:
 
 <tr>
   <td><a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide\">QuasiStatic</a></td>
-  <td>Library for quasi-stationary electrical singlephase and multiphase AC simulation</td>
+  <td>Library for quasi-static electrical singlephase and multiphase AC simulation</td>
 </tr>
 
 <tr><td><a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide\">Rotational</a>

@@ -4912,7 +4912,7 @@ Default machine parameters are used, but:
       end DCPM_Cooling;
 
       model DCPM_QuasiStatic
-        "Test example: Compare DCPM motors transient - quasistationary"
+        "Test example: Compare DCPM motors transient - quasi-static"
         extends Modelica.Icons.Example;
         parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
         parameter Modelica.SIunits.Voltage Ve=100 "Actual excitation voltage";
@@ -5014,16 +5014,16 @@ Default machine parameters are used, but:
             points={{-80,40},{-60,40},{-60,-20},{-16,-20}}, color={0,0,255}));
         annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6), Documentation(
               info="<html>
-<strong>Test example: Compare DCPM motors transient and quasistationary</strong><br>
+<strong>Test example: Compare DCPM motors transient and quasi-static</strong><br>
 The motors start at no-load speed, then load pulses are applied.<br>
 Simulate for 2 seconds and plot (versus time):
 <ul>
 <li>dcpm1.ia: armature current of transient model</li>
 <li>dcpm1.wMechanical: motor's speed of transient model</li>
 <li>dcpm1.tauElectrical: motor's torque of transient model</li>
-<li>dcpm2.ia: armature current of quasistationary model</li>
-<li>dcpm2.wMechanical: motor's speed of quasistationary model</li>
-<li>dcpm2.tauElectrical: motor's torque of quasistationary model</li>
+<li>dcpm2.ia: armature current of quasi-static model</li>
+<li>dcpm2.wMechanical: motor's speed of quasi-static model</li>
+<li>dcpm2.tauElectrical: motor's torque of quasi-static model</li>
 </ul>
 </html>"));
       end DCPM_QuasiStatic;
@@ -9080,14 +9080,14 @@ This package contains models of DC machines:
 </html>"));
     end DCMachines;
 
-    package QuasiStaticDCMachines "Models of quasistationary DC machines"
+    package QuasiStaticDCMachines "Models of quasi-static DC machines"
       extends Modelica.Icons.VariantsPackage;
-      model DC_PermanentMagnet "Quasistationary permanent magnet DC machine"
+      model DC_PermanentMagnet "Quasi-static permanent magnet DC machine"
         extends Machines.BasicMachines.DCMachines.DC_PermanentMagnet(final
             quasiStatic=true);
         extends Machines.Icons.QuasiStaticMachine;
         annotation (defaultComponentName="dcpm", Documentation(info="<html>
-<strong>Quasistationary model of a DC Machine with permanent magnets.</strong><br>
+<strong>Quasi-static model of a DC Machine with permanent magnets.</strong><br>
 This model is fully compatible with the
 <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet\">transient machine model of a DC machine with permanent magnets</a>;
 the only difference is that electrical transients are neglected.
@@ -9095,24 +9095,24 @@ the only difference is that electrical transients are neglected.
       end DC_PermanentMagnet;
 
       model DC_ElectricalExcited
-        "Quasistationary electrical shunt/separate excited linear DC machine"
+        "Quasi-static electrical shunt/separate excited linear DC machine"
         extends Machines.BasicMachines.DCMachines.DC_ElectricalExcited(final
             quasiStatic=true);
         extends Machines.Icons.QuasiStaticMachine;
         annotation (defaultComponentName="dcee", Documentation(info="<html>
-<strong>Quasistationary model of a DC Machine with electrical shunt or separate excitation.</strong><br>
+<strong>Quasi-static model of a DC Machine with electrical shunt or separate excitation.</strong><br>
 This model is fully compatible with the
 <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited\">transient machine model of a DC machine with electrical shunt or separate excitation</a>;
 the only difference is that electrical transients are neglected.
 </html>"));
       end DC_ElectricalExcited;
 
-      model DC_SeriesExcited "Quasistationary series excited linear DC machine"
+      model DC_SeriesExcited "Quasi-static series excited linear DC machine"
         extends Machines.BasicMachines.DCMachines.DC_SeriesExcited(final
             quasiStatic=true);
         extends Machines.Icons.QuasiStaticMachine;
         annotation (defaultComponentName="dcse", Documentation(info="<html>
-<strong>Quasistationary model of a DC Machine with Series excitation.</strong><br>
+<strong>Quasi-static model of a DC Machine with Series excitation.</strong><br>
 This model is fully compatible with the
 <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited\">transient machine model of a DC machine with series excitation</a>;
 the only difference is that electrical transients are neglected.
@@ -9120,16 +9120,16 @@ the only difference is that electrical transients are neglected.
       end DC_SeriesExcited;
       annotation (Documentation(info="<html>
 <p>
-This package contains quasistationary models of DC machines;
+This package contains quasi-static models of DC machines;
 these models are fully compatible with the
 <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines\">transient machine models of DC machines</a>;
 the only difference is that electrical transients are neglected.
 </p>
 <h4>Please note:</h4>
 <p>
-Quasistationary DC machine models are basically different from quasistationary induction machine models:
-Quasistationary DC machine models neglect electrical transients, i.e., setting <code>der(i) = 0</code>,
-whereas quasistationary induction machine models are based on time phasor theory,
+Quasi-static DC machine models are basically different from quasi-static induction machine models:
+Quasi-static DC machine models neglect electrical transients, i.e., setting <code>der(i) = 0</code>,
+whereas quasi-static induction machine models are based on time phasor theory,
 see <a href=\"modelica://Modelica.Electrical.QuasiStatic\">QuasiStatic Library</a>,
 where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</code>.
 </p>
@@ -16115,7 +16115,7 @@ This icon is designed for a <strong>transient machine</strong> model.
                 {80,-100},{-50,-100},{-50,-90}},
                   fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
-This icon is designed for a <strong>quasistationary machine</strong> model.
+This icon is designed for a <strong>quasi-static machine</strong> model.
 </p>
 </html>"));
     end QuasiStaticMachine;
@@ -16245,7 +16245,7 @@ This icon is designed for a <strong>transient transformer</strong> model.
                   fillPattern=FillPattern.VerticalCylinder,
                   fillColor={170,213,255})}), Documentation(info="<html>
 <p>
-This icon is designed for a <strong>quasistationary transformer</strong> model.
+This icon is designed for a <strong>quasi-static transformer</strong> model.
 </p>
 </html>"));
     end QuasiStaticTransformer;

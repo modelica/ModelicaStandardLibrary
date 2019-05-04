@@ -457,7 +457,7 @@ circuit impedance"),
 </html>"));
     end Transformer;
     annotation (Documentation(info="<html>
-Examples to demonstrate the usage of quasistationary electric components.
+Examples to demonstrate the usage of quasi-static electric components.
 </html>"));
   end Examples;
 
@@ -1476,7 +1476,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
 </p>
 <p>
 <strong>Use with care:</strong>
-This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
+This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasi-static formulation.
 </p>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -1586,7 +1586,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
 </p>
 <p>
 <strong>Use with care:</strong>
-This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
+This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasi-static formulation.
 </p>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -1652,7 +1652,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
 </p>
 <p>
 <strong>Use with care:</strong>
-This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
+This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasi-static formulation.
 </p>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -1727,7 +1727,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
 </p>
 <p>
 <strong>Use with care:</strong>
-This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
+This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasi-static formulation.
 </p>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{

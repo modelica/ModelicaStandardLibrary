@@ -598,12 +598,12 @@ This example shows an unsymmetrical load, in the upper with neutral connection (
               {70,50},{50,50},{50,62}}, color={0,0,127}));
       annotation (experiment(StopTime=0.1, Interval=0.0001), Documentation(info="<html>
 <p>
-Test quasistationary multiphase sensors: A sinusoidal source feeds a load consisting of resistor and inductor.
+Test quasi-static multiphase sensors: A sinusoidal source feeds a load consisting of resistor and inductor.
 </p>
 </html>"));
     end TestSensors;
     annotation (Documentation(info="<html>
-Examples to demonstrate the usage of quasistationary electric components.
+Examples to demonstrate the usage of quasi-static electric components.
 </html>"));
   end Examples;
 
@@ -2248,7 +2248,7 @@ Contains m singlephase ideal commuting switches (Modelica.Electrical.QuasiStatic
 </p>
 <p>
 <strong>Use with care:</strong>
-This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
+This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasi-static formulation.
 </p>
 </html>"));
     end IdealCommutingSwitch;
@@ -2341,7 +2341,7 @@ Contains m ideal intermediate switches (Modelica.Electrical.QuasiStatic.SinglePh
 </p>
 <p>
 <strong>Use with care:</strong>
-This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
+This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasi-static formulation.
 </p>
 </html>"));
     end IdealIntermediateSwitch;
@@ -2395,7 +2395,7 @@ Contains m ideal opening switches (Modelica.Electrical.QuasiStatic.SinglePhase.I
 </p>
 <p>
 <strong>Use with care:</strong>
-This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
+This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasi-static formulation.
 </p>
 </html>"));
     end IdealOpeningSwitch;
@@ -2448,7 +2448,7 @@ Contains m ideal closing switches (Modelica.Electrical.QuasiStatic.SinglePhase.I
 </p>
 <p>
 <strong>Use with care:</strong>
-This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
+This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasi-static formulation.
 </p>
 </html>"));
     end IdealClosingSwitch;
@@ -2506,7 +2506,7 @@ Quasi stationary theory can be found in the
       annotation (Inline=true, Documentation(info="<html>
 <p>
 Calculates instantaneous power from multiphase voltages and currents.
-In quasistationary operation, instantaneous power equals active power;
+In quasi-static operation, instantaneous power equals active power;
 </p>
 </html>"));
     end activePower;

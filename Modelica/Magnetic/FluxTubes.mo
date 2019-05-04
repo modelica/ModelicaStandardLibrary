@@ -1411,7 +1411,7 @@ Moving coil actuators are often called electrodynamic actuators and a proportion
       extends Modelica.Icons.ExamplesPackage;
 
       model ComparisonQuasiStatic
-        "Slow forced armature motion of both solenoid models so that electromagnetic field and current are quasi-stationary"
+        "Slow forced armature motion of both solenoid models so that electromagnetic field and current are quasi-static"
 
         extends Modelica.Icons.Example;
 
@@ -7825,7 +7825,7 @@ In electromagnetic devices, a change of a coil's magnetic flux linkage &Psi; rea
 </pre>
 <p>This reaction can possibly be neglected for</p>
 <ul>
-<li>modelling of electromagnetic actuators under quasi-stationary conditions (slow current change, slow armature motion),</li>
+<li>modelling of electromagnetic actuators under quasi-static conditions (slow current change, slow armature motion),</li>
 <li>modelling of current-controlled electromagnetic actuators (ideal current source) and</li>
 <li>for system simulation where the system dynamics is not governed by an electromagnetic actuator, but by the surrounding subsystems.</li>
 </ul>

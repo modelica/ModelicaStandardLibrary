@@ -113,7 +113,7 @@ see example
       <td valign=\"top\">[Raabe2012]</td>
       <td valign=\"top\">N. Raabe,
         &quot;<a href=\"http://www.ep.liu.se/ecp/076/016/ecp12076016.pdf\">
-        An approach for modelling quasi-stationary magnetic circuits</a>,&quot;
+        An approach for modelling quasi-static magnetic circuits</a>,&quot;
         <em>Modelica Conference</em>,
         pp. 167-172, 2012.</td>
     </tr>
