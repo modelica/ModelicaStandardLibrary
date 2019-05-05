@@ -51,8 +51,8 @@ function anyTrue
     "Returns true, if at least on element of the Boolean input vector is true ('or')"
 
   extends Modelica.Icons.Function;
-  input Boolean b[:];
-  output Boolean result;
+  input Boolean b[:] "Boolean vector";
+  output Boolean result "= true, if at least on element of b is true";
 algorithm
   result := false;
   for i in 1:size(b,1) loop
@@ -180,8 +180,8 @@ end enumerate;
 function firstTrueIndex
     "Returns the index of the first true element of a Boolean vector"
   extends Modelica.Icons.Function;
-  input Boolean b[:];
-  output Integer index;
+  input Boolean b[:] "Boolean vector";
+  output Integer index "Index of the first true element";
 algorithm
    index :=0;
    for i in 1:size(b,1) loop
@@ -277,8 +277,8 @@ function oneTrue
     "Returns true, if exactly one element of the Boolean input vector is true (\"xor\")"
   extends Modelica.Icons.Function;
 
-  input Boolean b[:];
-  output Boolean result;
+  input Boolean b[:] "Boolean vector";
+  output Boolean result "= true, if exactly one element of b is true";
 
 algorithm
   result := countTrue(b) == 1;
