@@ -1692,7 +1692,7 @@ Block generating the sum of two ramps.
       extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort;
       extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SimpleFriction;
 
-      parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
+      parameter Boolean useHeatPort = false "= true, if HeatPort is enabled"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       parameter Modelica.SIunits.Length h_g(start=0)
         "Geodetic height (height difference from flowPort_a to flowPort_b)";
@@ -1856,7 +1856,7 @@ V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
       parameter Modelica.SIunits.Length hTank(start=1) "Height of tank";
       parameter Modelica.SIunits.Pressure pAmbient(start=0) "Ambient pressure";
       parameter Modelica.SIunits.Acceleration g(final min=0)=Modelica.Constants.g_n "Gravitation";
-      parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
+      parameter Boolean useHeatPort = false "= true, if HeatPort is enabled"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       Modelica.SIunits.Mass m "Mass of medium in tank";
     protected

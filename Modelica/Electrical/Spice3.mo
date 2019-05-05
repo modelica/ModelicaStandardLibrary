@@ -4307,7 +4307,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
       "Partial model to include a conditional substrate node"
 
       parameter Boolean useSubstrateNode = false
-        "=true, if SubstrateNode is enabled"
+        "= true, if SubstrateNode is enabled"
       annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       Modelica.Electrical.Analog.Interfaces.PositivePin S(v = substrateVoltage, i = -substrateCurrent) if useSubstrateNode annotation (Placement(
             transformation(extent={{90,0},{110,20}}),    iconTransformation(extent={{90,-10},

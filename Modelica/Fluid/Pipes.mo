@@ -329,7 +329,7 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
         annotation(Dialog(tab="Advanced"), Evaluate=true);
 
       parameter Boolean useLumpedPressure=false
-        "=true to lump pressure states together"
+        "= true to lump pressure states together"
         annotation(Dialog(tab="Advanced"),Evaluate=true);
       final parameter Integer nFM=if useLumpedPressure then nFMLumped else nFMDistributed
         "number of flow models in flowModel";
@@ -341,7 +341,7 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
 
       // Advanced model options
       parameter Boolean useInnerPortProperties=false
-        "=true to take port properties for flow models from internal control volumes"
+        "= true to take port properties for flow models from internal control volumes"
         annotation(Dialog(tab="Advanced"),Evaluate=true);
       Medium.ThermodynamicState state_a
         "state defined by volume outside port_a";

@@ -3098,7 +3098,7 @@ constitutive equations for many types of heat transfer components.
 
     partial model PartialElementaryConditionalHeatPort
       "Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models"
-      parameter Boolean useHeatPort = false "=true, if heatPort is enabled"
+      parameter Boolean useHeatPort = false "= true, if heatPort is enabled"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       parameter Modelica.SIunits.Temperature T=293.15
         "Fixed device temperature if useHeatPort = false"
@@ -3134,7 +3134,7 @@ If this model is used, the loss power has to be provided by an equation in the m
 
     partial model PartialElementaryConditionalHeatPortWithoutT
       "Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models"
-      parameter Boolean useHeatPort = false "=true, if heatPort is enabled"
+      parameter Boolean useHeatPort = false "= true, if heatPort is enabled"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(
         final Q_flow=-lossPower) if useHeatPort
@@ -3165,7 +3165,7 @@ Note, this partial model is used in cases, where heatPort.T (that is the device 
 
     partial model PartialConditionalHeatPort
       "Partial model to include a conditional HeatPort in order to dissipate losses, used for graphical modeling, i.e., for building models by drag-and-drop"
-      parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
+      parameter Boolean useHeatPort = false "= true, if HeatPort is enabled"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       parameter Modelica.SIunits.Temperature T=293.15
         "Fixed device temperature if useHeatPort = false"

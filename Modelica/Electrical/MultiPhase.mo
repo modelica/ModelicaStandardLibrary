@@ -3980,7 +3980,7 @@ Connector Plug is a composite connector containing m Pins (Modelica.Electrical.A
       "Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network"
       parameter Integer mh(min=1) = 3 "Number of heatPorts=number of phases";
       parameter Boolean useHeatPort=false
-        "=true, if all heat ports are enabled" annotation (
+        "= true, if all heat ports are enabled" annotation (
         Evaluate=true,
         HideResult=true,
         choices(checkBox=true));

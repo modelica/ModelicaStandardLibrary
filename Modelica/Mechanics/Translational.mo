@@ -2673,7 +2673,7 @@ Please note that initialization might fail due to the nonlinear spring character
 if a positive force is acting on the element and no other force balances this force
 (e.g., when setting both initial velocity and acceleration to 0)
 */
-      Boolean contact "=true, if contact, otherwise no contact";
+      Boolean contact "= true, if contact, otherwise no contact";
     protected
       Modelica.SIunits.Force f_c "Spring force";
       Modelica.SIunits.Force f_d2 "Linear damping force";

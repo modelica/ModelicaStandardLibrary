@@ -1881,10 +1881,10 @@ in the other flange connector.
       "Prevent zero-division if distance between frame_a and frame_b is zero"
       annotation (Dialog(tab="Advanced"));
     parameter Boolean fixedRotationAtFrame_a=false
-      "=true, if rotation frame_a.R is fixed (to directly connect line forces)"
+      "= true, if rotation frame_a.R is fixed (to directly connect line forces)"
        annotation (Evaluate=true, choices(checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
     parameter Boolean fixedRotationAtFrame_b=false
-      "=true, if rotation frame_b.R is fixed (to directly connect line forces)"
+      "= true, if rotation frame_b.R is fixed (to directly connect line forces)"
        annotation (Evaluate=true, choices(checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
 
     Modelica.SIunits.Position r_rel_a[3]

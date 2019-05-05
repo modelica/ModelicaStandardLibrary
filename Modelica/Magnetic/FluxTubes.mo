@@ -7562,7 +7562,7 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
     partial model ConditionalHeatPort
       "Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network"
 
-      parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
+      parameter Boolean useHeatPort = false "= true, if HeatPort is enabled"
       annotation(Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(tab="Losses and Heat", group="HeatPort"));
       parameter Modelica.SIunits.Temperature T=293.15
         "Fixed device temperature if useHeatPort = false" annotation(Dialog(tab="Losses and Heat", group="HeatPort", enable=not useHeatPort));
@@ -7608,7 +7608,7 @@ on the model behaviour.
       extends Interfaces.ConditionalHeatPort(final T=293.15);
 
       parameter Boolean includeEddyCurrents = false
-        "=true, if eddy current losses are enabled"
+        "= true, if eddy current losses are enabled"
       annotation(Dialog(tab="Losses and Heat", group="Eddy Currents"), Evaluate=true, HideResult=true, choices(checkBox=true));
 
       parameter SI.Conductivity sigma=10e6 "Conductivity of core material" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=includeEddyCurrents));

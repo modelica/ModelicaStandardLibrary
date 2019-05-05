@@ -2828,7 +2828,7 @@ This block calculates the components <code>y_re</code> and <code>y_im</code> of 
     parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
     parameter Real x0=0 "Start value of integrator state";
     parameter Boolean yGreaterOrEqualZero=false
-      "=true, if output y is guaranteed to be >= 0 for the exact solution"
+      "= true, if output y is guaranteed to be >= 0 for the exact solution"
       annotation (Evaluate=true, Dialog(tab="Advanced"));
   protected
     parameter Modelica.SIunits.Time t0(fixed=false) "Start time of simulation";

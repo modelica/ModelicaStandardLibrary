@@ -8,9 +8,9 @@ package Continuous "Library of continuous control blocks with internal states"
   block Integrator "Output the integral of the input signal with optional reset"
     import Modelica.Blocks.Types.Init;
     parameter Real k(unit="1")=1 "Integrator gain";
-    parameter Boolean use_reset = false "=true, if reset port enabled"
+    parameter Boolean use_reset = false "= true, if reset port enabled"
       annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-    parameter Boolean use_set = false "=true, if set port enabled and used as reinitialization value when reset"
+    parameter Boolean use_set = false "= true, if set port enabled and used as reinitialization value when reset"
       annotation(Dialog(enable=use_reset), Evaluate=true, HideResult=true, choices(checkBox=true));
 
     /* InitialState is the default, because it was the default in Modelica 2.2
@@ -142,9 +142,9 @@ port has a rising edge.
     parameter Real k(unit="1")=1 "Integrator gain";
     parameter Real outMax(start=1) "Upper limit of output";
     parameter Real outMin=-outMax "Lower limit of output";
-    parameter Boolean use_reset = false "=true, if reset port enabled"
+    parameter Boolean use_reset = false "= true, if reset port enabled"
       annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-    parameter Boolean use_set = false "=true, if set port enabled and used as reinitialization value when reset"
+    parameter Boolean use_set = false "= true, if set port enabled and used as reinitialization value when reset"
       annotation(Dialog(enable=use_reset), Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.InitialState
       "Type of initialization (1: no init, 2: steady state, 3/4: initial output)"

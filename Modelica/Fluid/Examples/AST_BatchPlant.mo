@@ -1496,7 +1496,7 @@ Integer type that can have the following values
         "Hysteresis for empty pipe = diameter*hysteresisFactor"
       annotation(Dialog(tab="Advanced", group="Port properties"));
     parameter Boolean stiffCharacteristicForEmptyPort = false
-        "=true, if steep pressure loss characteristic for empty pipe port"
+        "= true, if steep pressure loss characteristic for empty pipe port"
       annotation(Dialog(tab="Advanced", group="Port properties"), Evaluate=true);
     parameter Real zetaLarge(min=0) = 1e5
         "Large pressure loss factor if mass flows out of empty pipe port"
