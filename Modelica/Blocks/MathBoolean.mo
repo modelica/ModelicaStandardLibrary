@@ -95,7 +95,7 @@ end MultiSwitch;
     extends Modelica.Blocks.Interfaces.PartialBooleanMISO;
 
   equation
-    y = Modelica.Math.BooleanVectors.allTrue(
+    y = Modelica.Math.BooleanVectors.andTrue(
                               u);
     annotation (defaultComponentName="and1", Icon(graphics={Text(
               extent={{-76,40},{60,-40}},
@@ -121,7 +121,7 @@ The usage is demonstrated, e.g., in example
 
 <p>
 If no connection to the input connector \"u\" is present,
-the output is set to <strong>false</strong>: y=false.
+the output is set to <strong>true</strong>: y=true.
 </p>
 </html>"));
   end And;
@@ -203,7 +203,7 @@ the output is set to <strong>false</strong>: y=false.
     extends Modelica.Blocks.Interfaces.PartialBooleanMISO;
 
   equation
-    y = not Modelica.Math.BooleanVectors.allTrue(
+    y = not Modelica.Math.BooleanVectors.andTrue(
                                   u);
     annotation (defaultComponentName="nand1", Icon(graphics={Text(
               extent={{-78,36},{64,-30}},
