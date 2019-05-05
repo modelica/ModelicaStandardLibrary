@@ -60,10 +60,17 @@ extends Modelica.Icons.ExamplesPackage;
     Streams.print("... Test of Modelica.Math.<Boolean functions>");
     Streams.print("... Test of Modelica.Math.<Boolean functions>", logFile);
 
+    assert(BooleanVectors.allTrue(fill(true, 0)) == false, "allTrue is wrong for empty vector");
     assert(BooleanVectors.allTrue(b1) == true, "allTrue is wrong at (1)");
     assert(BooleanVectors.allTrue(b2) == false, "allTrue is wrong at (2)");
     assert(BooleanVectors.allTrue(b3) == false, "allTrue is wrong at (3)");
 
+    assert(BooleanVectors.andTrue(fill(false, 0)) == true, "andTrue is wrong for empty vector");
+    assert(BooleanVectors.andTrue(b1) == true, "andTrue is wrong at (1)");
+    assert(BooleanVectors.andTrue(b2) == false, "andTrue is wrong at (2)");
+    assert(BooleanVectors.andTrue(b3) == false, "andTrue is wrong at (3)");
+
+    assert(BooleanVectors.anyTrue(fill(true, 0)) == false, "anyTrue is wrong for empty vector");
     assert(BooleanVectors.anyTrue(b1) == true, "anyTrue is wrong at (1)");
     assert(BooleanVectors.anyTrue(b2) == false, "anyTrue is wrong at (2)");
     assert(BooleanVectors.anyTrue(b3) == true, "anyTrue is wrong at (3)");
