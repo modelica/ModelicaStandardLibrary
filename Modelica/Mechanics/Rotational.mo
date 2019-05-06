@@ -3374,7 +3374,7 @@ in the User's Guide of the Rotational library.
         Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
 
       parameter Real tau_pos[:, 2]=[0, 1]
-        "[w,tau] Positive sliding friction characteristic (w>=0)";
+        "Positive sliding friction characteristic [N.m] as function of w [rad/s] (w>=0)";
       parameter Real peak(final min=1) = 1
         "Peak for maximum friction torque at w==0 (tau0_max = peak*tau_pos[1,2])";
 
@@ -3553,7 +3553,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
         Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
 
       parameter Real mu_pos[:, 2]=[0, 0.5]
-        "[w,mu] positive sliding friction coefficient (w_rel>=0)";
+        "Positive sliding friction coefficient [-] as function of w_rel [rad/s] (w_rel>=0)";
       parameter Real peak(final min=1) = 1
         "Peak for maximum value of mu at w==0 (mu0_max = peak*mu_pos[1,2])";
       parameter Real cgeo(final min=0) = 1
@@ -3760,7 +3760,7 @@ in the User's Guide of the Rotational library.
         Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates;
 
       parameter Real mu_pos[:, 2]=[0, 0.5]
-        "[w,mu] positive sliding friction coefficient (w_rel>=0)";
+        "Positive sliding friction coefficient [-] as function of w_rel [rad/s] (w_rel>=0)";
       parameter Real peak(final min=1) = 1
         "Peak for maximum value of mu at w==0 (mu0_max = peak*mu_pos[1,2])";
       parameter Real cgeo(final min=0) = 1
@@ -3917,7 +3917,7 @@ in the User's Guide of the Rotational library.
         Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates;
 
       parameter Real mu_pos[:, 2]=[0, 0.5]
-        "[w,mu] positive sliding friction coefficient (w_rel>=0)";
+        "Positive sliding friction coefficient [-] as function of w_rel [rad/s] (w_rel>=0)";
       parameter Real peak(final min=1) = 1
         "Peak for maximum value of mu at w==0 (mu0_max = peak*mu_pos[1,2])";
       parameter Real cgeo(final min=0) = 1
@@ -4830,7 +4830,7 @@ in the flanges, are along the axis vector displayed in the icon.
       parameter SI.RotationalSpringConstant c(final min=Modelica.Constants.small,
           start=1.0e5) "Gear elasticity (spring constant)";
       parameter SI.RotationalDampingConstant d(final min=0, start=0)
-        "(relative) gear damping";
+        "Gear damping (relative damping)";
       parameter SI.Angle b(final min=0) = 0 "Total backlash";
       parameter StateSelect stateSelect=StateSelect.prefer
         "Priority to use phi_rel and w_rel as states"

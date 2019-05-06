@@ -1596,9 +1596,8 @@ buttons:
         "Simple source model (this is a copy from Isolde Dressler's master thesis project)"
 
       Modelica.StateGraph.Examples.Utilities.Outflow1 outflow1
-                       annotation (Placement(transformation(extent={{-10,-60},{
-                  10,-40}})));
-      parameter Real maxflow=1 "maximal flow out of source";
+        annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
+      parameter Real maxflow=1 "Maximal flow out of source";
     equation
       if outflow1.open then
         outflow1.Fo = maxflow;
@@ -1737,13 +1736,13 @@ buttons:
       connect(Alternative1.outPort, exitStep.inPort[1])
         annotation (Line(points={{90.89,0},{109,0}}));
       connect(transition1.inPort, Alternative1.split[1]) annotation (Line(
-              points={{-54,30},{-80.155,30}}));
+              points={{-54,30},{-68,30},{-68,0},{-80.155,0}}));
       connect(transition2.inPort, Alternative1.split[2]) annotation (Line(
-              points={{-55,-30},{-80.155,-30}}));
+              points={{-55,-30},{-68,-30},{-68,0},{-80.155,0}}));
       connect(transition3.outPort, Alternative1.join[1]) annotation (Line(
-              points={{40.5,30},{69.155,30}}));
+              points={{40.5,30},{54,30},{54,0},{69.155,0}}));
       connect(transition4.outPort, Alternative1.join[2]) annotation (Line(
-              points={{40.5,-30},{69.155,-30}}));
+              points={{40.5,-30},{54,-30},{54,0},{69.155,0}}));
     end CompositeStep1;
 
     model CompositeStep2

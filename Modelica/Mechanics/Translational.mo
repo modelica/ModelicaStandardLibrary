@@ -2858,9 +2858,9 @@ where the different effects are visualized:
       extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
 
       parameter Real f_pos[:, 2]=[0, 1]
-        "[v, f] Positive sliding friction characteristic (v>=0)";
+        "Positive sliding friction characteristic [N] as function of v [m/s] (v>=0)";
       parameter Real peak(final min=1) = 1
-        "Peak for maximum friction force at w==0 (f0_max = peak*f_pos[1,2])";
+        "Peak for maximum friction force at v==0 (f0_max = peak*f_pos[1,2])";
       extends Translational.Interfaces.PartialFriction;
 
       SI.Position s "= flange_a.s - support.s";
@@ -3054,7 +3054,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
       extends Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
       extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
       parameter Real mu_pos[:, 2]=[0, 0.5]
-        "[v, f] Positive sliding friction characteristic (v>=0)";
+        "Positive sliding friction coefficient [-] as function of v_rel [m/s] (v_rel>=0)";
       parameter Real peak(final min=1) = 1
         "Peak for maximum value of mu at w==0 (mu0_max = peak*mu_pos[1,2])";
       parameter Real cgeo(final min=0) = 1
