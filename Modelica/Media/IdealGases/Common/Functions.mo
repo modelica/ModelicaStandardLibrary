@@ -183,13 +183,10 @@ package Functions
     extends Modelica.Icons.Function;
     input IdealGases.Common.DataRecord data "Ideal gas data";
     input SI.Temperature T "Temperature";
-    input Real T_der "Temperature derivative";
-    output SI.SpecificEntropy s "Specific entropy at temperature T";
+    input Real T_der(unit="K/s") "Temperature derivative";
+    output Real s_der(unit="J/(kg.K.s)") "Derivative of specific entropy at temperature T";
   algorithm
-    s := data.R*(data.blow[2] - 0.5*data.alow[
-      1]/(T*T) - data.alow[2]/T + data.alow[3]*Math.log(T) + T*(
-      data.alow[4] + T*(0.5*data.alow[5] + T*(1/3*data.alow[6] + 0.25*data.alow[
-      7]*T))));
+    s_der := data.R*T_der*(data.alow[1]/(T*T*T) + data.alow[2]/(T*T) + data.alow[3]/T + data.alow[4] + T*(data.alow[5] + T*(data.alow[6] + T*data.alow[7])));
     annotation (Inline=true);
   end s0_Tlow_der;
 
