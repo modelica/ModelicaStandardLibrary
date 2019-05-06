@@ -93,11 +93,11 @@ i.e., size(b,1)=0, the function returns <strong>false</strong>.
 </html>"));
 end anyTrue;
 
-function countTrue "Returns the number of true entries in a Boolean vector"
+function countTrue "Returns the number of true elements in a Boolean vector"
 
   extends Modelica.Icons.Function;
   input Boolean b[:] "Boolean vector";
-  output Integer n "Number of true entries";
+  output Integer n "Number of true elements in b";
 algorithm
   n := sum(if b[i] then 1 else 0 for i in 1:size(b, 1));
 
@@ -109,7 +109,7 @@ algorithm
 
 <h4>Description</h4>
 <p>
-This function returns the number of <strong>true</strong> entries in a Boolean vector b.
+This function returns the number of <strong>true</strong> elements in a Boolean vector b.
 </p>
 
 <h4>Example</h4>
@@ -128,12 +128,12 @@ This function returns the number of <strong>true</strong> entries in a Boolean v
 end countTrue;
 
 function enumerate
-    "Enumerates the true entries in a Boolean vector (0 for false entries)"
+    "Enumerates the true elements in a Boolean vector (0 for false elements)"
   extends Modelica.Icons.Function;
 
   input Boolean b[:] "Boolean vector";
   output Integer enumerated[size(b, 1)]
-      "Indices of the true entries (increasing order; 0 for false entries)";
+      "Indices of the true elements (increasing order; 0 for false elements)";
 
   protected
   Integer count;
@@ -158,7 +158,7 @@ algorithm
 <h4>Description</h4>
 <p>
 This function returns an integer vector that consecutively numbers
-the <strong>true</strong> entries in a Boolean vector b.  The <strong>false</strong> entries are
+the <strong>true</strong> elements in a Boolean vector b. The <strong>false</strong> elements are
 indicated by 0.
 </p>
 
@@ -181,7 +181,7 @@ function firstTrueIndex
     "Returns the index of the first true element of a Boolean vector"
   extends Modelica.Icons.Function;
   input Boolean b[:] "Boolean vector";
-  output Integer index "Index of the first true element";
+  output Integer index "Index of the first true element of b";
 algorithm
    index :=0;
    for i in 1:size(b,1) loop
@@ -227,11 +227,11 @@ function returns 0.
 </html>"));
 end firstTrueIndex;
 
-function index "Returns the indices of the true entries of a Boolean vector"
+function index "Returns the indices of the true elements of a Boolean vector"
   extends Modelica.Icons.Function;
 
   input Boolean b[:] "Boolean vector";
-  output Integer indices[countTrue(b)] "Indices of the true entries";
+  output Integer indices[countTrue(b)] "Indices of the true elements";
 
   protected
   Integer count;
@@ -254,8 +254,8 @@ algorithm
 <h4>Description</h4>
 <p>
 This function returns an integer vector that contains indices to the
-<strong>true</strong> entries in a Boolean vector b.  The number of entries in
-the integer vector is the number of <strong>true</strong> entries in b.
+<strong>true</strong> elements in a Boolean vector b. The number of elements in
+the integer vector is the number of <strong>true</strong> elements in b.
 </p>
 
 <h4>Example</h4>
