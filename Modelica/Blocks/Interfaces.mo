@@ -987,16 +987,12 @@ where the signal sizes of the input and output vector are identical.
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Ellipse(
             extent={{-71,7},{-85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0}
-                 else {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0}
-                 else {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if u then {0,255,0} else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if u then {0,255,0} else {235,235,235}),
             fillPattern=FillPattern.Solid), Ellipse(
             extent={{71,7},{85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
-                 else {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
-                 else {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
             fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
 Block has one continuous Boolean input and one continuous Boolean output signal
@@ -1022,24 +1018,18 @@ with a 3D icon (e.g., used in Blocks.Logical library).
           extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-71,7},{-85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if u1 > 0.5 then {0,255,0}
-                 else {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if u1 > 0.5 then {0,255,0}
-                 else {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if u1 then {0,255,0} else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if u1 then {0,255,0} else {235,235,235}),
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-71,-74},{-85,-88}},
-            lineColor=DynamicSelect({235,235,235}, if u2 > 0.5 then {0,255,0}
-                 else {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if u2 > 0.5 then {0,255,0}
-                 else {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if u2 then {0,255,0} else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if u2 then {0,255,0} else {235,235,235}),
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{71,7},{85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
-                 else {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
-                 else {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
             fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
 Block has two continuous Boolean input and one continuous Boolean output signal
@@ -1067,31 +1057,23 @@ with a 3D icon (e.g., used in Blocks.Logical library).
           extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-71,74},{-85,88}},
-            lineColor=DynamicSelect({235,235,235}, if u1 > 0.5 then {0,255,0}
-                 else {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if u1 > 0.5 then {0,255,0}
-                 else {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if u1 then {0,255,0} else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if u1 then {0,255,0} else {235,235,235}),
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-71,7},{-85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if u2 > 0.5 then {0,255,0}
-                 else {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if u2 > 0.5 then {0,255,0}
-                 else {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if u2 then {0,255,0} else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if u2 then {0,255,0} else {235,235,235}),
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-71,-74},{-85,-88}},
-            lineColor=DynamicSelect({235,235,235}, if u3 > 0.5 then {0,255,0}
-                 else {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if u3 > 0.5 then {0,255,0}
-                 else {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if u3 then {0,255,0} else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if u3 then {0,255,0} else {235,235,235}),
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{71,7},{85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
-                 else {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
-                 else {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
             fillPattern=FillPattern.Solid)}), Documentation(info="<html><p>
 Block has three continuous Boolean input and one continuous Boolean output signal
 with a 3D icon (e.g., used in Blocks.Logical library).
@@ -1109,10 +1091,8 @@ with a 3D icon (e.g., used in Blocks.Logical library).
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Ellipse(
             extent={{-71,7},{-85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0}
-                 else {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0}
-                 else {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if u then {0,255,0} else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if u then {0,255,0} else {235,235,235}),
             fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
 Block has one continuous Boolean input signal
@@ -1131,10 +1111,8 @@ with a 3D icon (e.g., used in Blocks.Logical library).
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Ellipse(
             extent={{71,7},{85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
-                 else {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
-                 else {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
             fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
 Block has one continuous Boolean output signal
@@ -1168,10 +1146,8 @@ with a 3D icon (e.g., used in Blocks.Logical library).
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{71,7},{85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
-                 else {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
-                 else {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Polygon(
@@ -1221,14 +1197,12 @@ and a 3D icon (e.g., used in Blocks.Logical library).
             textString="%threshold"),
           Ellipse(
             extent={{71,7},{85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
-                 else {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
-                 else {235,235,235}),
-            fillPattern=FillPattern.Solid),      Text(
+            lineColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
+            fillPattern=FillPattern.Solid), Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255})}),           Documentation(info="<html>
+            lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 Block has one continuous Real input and one continuous Boolean output signal
 as well as a 3D icon (e.g., used in Blocks.Logical library).
@@ -1256,10 +1230,8 @@ as well as a 3D icon (e.g., used in Blocks.Logical library).
             borderPattern=BorderPattern.Raised),
           Ellipse(
             extent={{73,7},{87,-7}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
-                 else {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
-                 else {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
             fillPattern=FillPattern.Solid),
           Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,127}),
           Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,127}),
@@ -1299,10 +1271,8 @@ has a 3D icon (e.g., used in Blocks.Logical library).
             borderPattern=BorderPattern.Raised),
           Ellipse(
             extent={{60,10},{80,-10}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
-                 else {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
-                 else {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
             fillPattern=FillPattern.Solid)}));
   end PartialBooleanSISO_small;
 
@@ -1331,10 +1301,8 @@ has a 3D icon (e.g., used in Blocks.Logical library).
             borderPattern=BorderPattern.Raised),
           Ellipse(
             extent={{60,10},{80,-10}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
-                 else {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
-                 else {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
             fillPattern=FillPattern.Solid)}));
   end PartialBooleanMISO;
 
@@ -1495,7 +1463,7 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.PartialBooleanBlock\
 
     // Advanced dialog menu: Noise generation
     parameter Boolean enableNoise = globalSeed.enableNoise
-      "=true: y = noise, otherwise y = y_off"
+      "= true: y = noise, otherwise y = y_off"
       annotation(choices(checkBox=true),Dialog(tab="Advanced",group="Noise generation"));
     parameter Real y_off = 0.0
       "y = y_off if enableNoise=false (or time<startTime, see below)"

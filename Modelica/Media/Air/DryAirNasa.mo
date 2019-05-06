@@ -11,9 +11,9 @@ package DryAirNasa "Air: Detailed dry air model as ideal gas (200..6000 K)"
     extends Modelica.Icons.Function;
     input ThermodynamicState state "Thermodynamic state record";
     output DynamicViscosity eta "Dynamic viscosity";
-    import Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
+    import Modelica.Math.Polynomials;
   algorithm
-    eta := 1e-6*Polynomials_Temp.evaluateWithRange(
+    eta := 1e-6*Polynomials.evaluateWithRange(
         {9.7391102886305869E-15,-3.1353724870333906E-11,4.3004876595642225E-08,
         -3.8228016291758240E-05,5.0427874367180762E-02,1.7239260139242528E+01},
         Cv.to_degC(123.15),
@@ -31,10 +31,10 @@ package DryAirNasa "Air: Detailed dry air model as ideal gas (200..6000 K)"
     input ThermodynamicState state "Thermodynamic state record";
     input Integer method=1 "Dummy for compatibility reasons";
     output ThermalConductivity lambda "Thermal conductivity";
-    import Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
+    import Modelica.Math.Polynomials;
     import Cv = Modelica.SIunits.Conversions;
   algorithm
-    lambda := 1e-3*Polynomials_Temp.evaluateWithRange(
+    lambda := 1e-3*Polynomials.evaluateWithRange(
         {6.5691470817717812E-15,-3.4025961923050509E-11,5.3279284846303157E-08,
         -4.5340839289219472E-05,7.6129675309037664E-02,2.4169481088097051E+01},
         Cv.to_degC(123.15),

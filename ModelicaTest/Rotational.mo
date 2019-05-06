@@ -786,7 +786,7 @@ they were not deleted yet.")}));
       useSupport=true) annotation (Placement(transformation(extent={{44,120},{
               64,140}})));
     Modelica.Mechanics.Rotational.Components.Clutch clutch(
-      mue_pos=[0, 1],
+      mu_pos=[0, 1],
       peak=1.1,
       cgeo=1.2,
       fn_max=1.3,

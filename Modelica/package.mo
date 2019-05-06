@@ -1083,26 +1083,47 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
 <p>The terms listed in this package shall be in accordance with <a href=\"http://www.electropedia.org/\">Electropedia</a>.</p>
 
 <table border=\"1\" cellpadding=\"2\" cellspacing=\"0\" >
-   <tr>
-      <th>To be used</th>
-      <th>Not to be used</th>
-    </tr>
-    <tr>
-      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=141-01-03\">polyphase</a></td>
-      <td>multi phase, multi-phase, multiphase</td>
-    </tr>
-     <tr>
-      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=411-31-13\">single-phase</a></td>
-      <td>single phase, singlephase, one phase, one-phase, onephase, 1 phase, 1-phase</td>
-    </tr>
-     <tr>
-      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=113-04-08\">quasi-static</a></td>
-      <td>quasistatic, quasi static</td>
-    </tr>
-     <tr>
-      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=811-12-22\">three-phase</a></td>
-      <td>three phase, threephase, 3 phase, 3-phase</td>
-    </tr>
+  <caption align=\"bottom\">List of electrical term spellings</caption>
+  <tr>
+    <th>To be used</th>
+    <th>Not to be used</th>
+  </tr>
+  <tr>
+    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=151-11-09\">electromagnetic</a></td>
+    <td>electro magnetic, electro-magnetic</td>
+  </tr>
+  <tr>
+    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=151-11-10\">electromechanical</a></td>
+    <td>electro mechanical, electro-mechanical</td>
+  </tr>
+  <tr>
+    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=151-15-21\">no-load</a></td>
+    <td>noload, no load</td>
+  </tr>
+  <tr>
+    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=141-01-03\">polyphase</a></td>
+    <td>multi phase, multi-phase, multiphase</td>
+  </tr>
+  <tr>
+    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=113-04-08\">quasi-static</a></td>
+    <td>quasistatic, quasi static</td>
+  </tr>
+  <tr>
+    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=351-47-17\">set-point</a></td>
+    <td>set point, setpoint</td>
+  </tr>
+  <tr>
+    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=151-12-04\">short-circuit</a></td>
+    <td>shortcircuit, short circuit</td>
+  </tr>
+  <tr>
+    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=411-31-13\">single-phase</a></td>
+    <td>single phase, singlephase, one phase, one-phase, onephase, 1 phase, 1-phase</td>
+  </tr>
+  <tr>
+    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=811-12-22\">three-phase</a></td>
+    <td>three phase, threephase, 3 phase, 3-phase</td>
+  </tr>
 </table>
 
 </html>"));
@@ -1116,22 +1137,23 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
 <p>The terms listed in this package shall be in accordance with <a href=\"http://www.electropedia.org/\">Electropedia</a>.</p>
 
 <table border=\"1\" cellpadding=\"2\" cellspacing=\"0\" >
-   <tr>
-      <th>To be used</th>
-      <th>Not to be used</th>
-    </tr>
-     <tr>
-      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=151-11-09\">electromagnetic</a></td>
-      <td>electro magnetic</td>
-    </tr>
-    <tr>
-      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=121-11-60\">magnetomotive force</a></td>
-      <td>magneto motive force</td>
-    </tr>
-     <tr>
-      <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=113-04-08\">quasi-static</a></td>
-      <td>quasistatic, quasi static</td>
-    </tr>
+  <caption align=\"bottom\">List of magnetic term spellings</caption>
+  <tr>
+    <th>To be used</th>
+    <th>Not to be used</th>
+  </tr>
+  <tr>
+    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=151-11-09\">electromagnetic</a></td>
+    <td>electro magnetic, electro-magnetic</td>
+  </tr>
+  <tr>
+    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=121-11-60\">magnetomotive force</a></td>
+    <td>magneto motive force</td>
+  </tr>
+  <tr>
+    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=113-04-08\">quasi-static</a></td>
+    <td>quasistatic, quasi static</td>
+  </tr>
 </table>
 
 </html>"));
@@ -7832,13 +7854,17 @@ class Contact "Contact"
 <dd>email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a></dd>
 </dl>
 <p>Since end of 2007, the development of the sublibraries of package Modelica is organized by personal and/or organizational <strong>library officers</strong> assigned by the Modelica Association. They are responsible for the maintenance and for the further organization of the development. Other persons may also contribute, but the final decision for library improvements and/or changes is performed by the responsible library officer(s). In order that a new sublibrary or a new version of a sublibrary is ready to be released, the responsible library officers report the changes to the members of the Modelica Association and the library is made available for beta testing to interested parties before a final decision. A new release of a sublibrary is formally decided by voting of the Modelica Association members.</p>
-<p>As of February 7th, 2019, the following library officers are assigned:</p>
+<p>As of April 1st, 2019, the following library officers are assigned:</p>
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><td><strong>Sublibraries</strong> </td>
    <td><strong>Library officers</strong></td>
 </tr>
 
+<tr>
+<td align=\"left\">UsersGuide</td>
+<td align=\"left\">Christian Kral, Jakub Tobolar</td>
+</tr>
 <tr>
 <td align=\"left\">Blocks</td>
 <td align=\"left\">Martin Otter, Anton Haumer</td>

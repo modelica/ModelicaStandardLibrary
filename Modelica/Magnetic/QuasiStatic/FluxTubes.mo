@@ -1,9 +1,9 @@
-within Modelica.Magnetic.QuasiStatic;
+﻿within Modelica.Magnetic.QuasiStatic;
 package FluxTubes "Library for modelling of quasi static electromagnetic devices with lumped magnetic networks"
 
   import SI = Modelica.SIunits;
   import Modelica.Constants.pi;
-  import mu_0 = Modelica.Constants.mue_0;
+  import mu_0 = Modelica.Constants.mu_0;
 
   extends Modelica.Icons.Package;
 
@@ -2619,7 +2619,7 @@ This sensor is used to determined the effective fundamental wave permeability of
            mur = 0;
         else
            mu =Phi /V_m*l/A;
-           mur = mu/Modelica.Constants.mue_0;
+           mur = mu/Modelica.Constants.mu_0;
         end if;
 
         annotation (Diagram(coordinateSystem(

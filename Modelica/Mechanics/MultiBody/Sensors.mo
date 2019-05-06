@@ -166,9 +166,9 @@ package Sensors "Sensors to measure variables"
     AbsoluteAngularVelocity absoluteAngularVelocity(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world) if
          get_z
       annotation (Placement(transformation(extent={{40,-10},{60,10}})));
-    Internal.ZeroForceAndTorque zeroForce1
+    Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque zeroForce1
       annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
-    Internal.ZeroForceAndTorque zeroForce2 if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
+    Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque zeroForce2 if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
       annotation (Placement(transformation(extent={{80,20},{60,40}})));
   equation
     connect(zeroForce1.frame_a, frame_a)
@@ -552,11 +552,11 @@ and sequence[2] &ne; sequence[3]. Often used values are:
           extent={{-10,-10},{0,0}},
           rotation=-90,
           origin={95,-58})));
-    Internal.ZeroForceAndTorque zeroForce1
+    Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque zeroForce1
       annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
-    Internal.ZeroForceAndTorque zeroForce2
+    Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque zeroForce2
       annotation (Placement(transformation(extent={{80,40},{60,60}})));
-    Internal.ZeroForceAndTorque zeroForce3 if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
+    Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque zeroForce3 if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
       annotation (Placement(transformation(extent={{40,70},{20,90}})));
 
   protected
@@ -3202,22 +3202,6 @@ is always enabled and must be connected</strong>.
 </p>
 </html>"));
     end BasicTransformRelativeVector;
-
-    model ZeroForceAndTorque "Set force and torque to zero"
-       extends Modelica.Blocks.Icons.Block;
-      Interfaces.Frame_a frame_a
-        annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
-    equation
-      frame_a.f = zeros(3);
-      frame_a.t = zeros(3);
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-              extent={{-74,24},{80,-20}},
-              textString="f = t = 0")}), Documentation(info="<html>
-<p>Set force and torque vectors on frame connector frame_a to zero.</p>
-<!--a placeholder to fulfill minimum documentation length-->
-</html>"));
-    end ZeroForceAndTorque;
 
     partial model PartialCutForceSensor
       "Base class to measure cut force and/or torque between two frames, defined by components"

@@ -164,7 +164,7 @@ The usage is demonstrated, e.g., in example
             extent={{-188.0,-80.0},{62.0,-60.0}},
             textString="%active"),
           Ellipse(lineColor={64,64,64},
-            fillColor=DynamicSelect({192,192,192}, if showActive > 0.5 then {0,255,0} else {235,235,235}),
+            fillColor=DynamicSelect({192,192,192}, if showActive then {0,255,0} else {235,235,235}),
             pattern=LinePattern.None,
             fillPattern=FillPattern.Sphere,
             extent={{-100.0,-40.0},{-20.0,40.0}})}), Documentation(info="<html>

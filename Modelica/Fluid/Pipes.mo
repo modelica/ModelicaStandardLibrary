@@ -238,10 +238,10 @@ or other flow models without storage, are directly connected.
       parameter SI.Area crossArea=Modelica.Constants.pi*diameter*diameter/4
         "Inner cross section area"
         annotation(Dialog(tab="General", group="Geometry", enable=not isCircular));
-      parameter SI.Length perimeter=Modelica.Constants.pi*diameter
+      parameter SI.Length perimeter(min=0)=Modelica.Constants.pi*diameter
         "Inner perimeter"
         annotation(Dialog(tab="General", group="Geometry", enable=not isCircular));
-      parameter SI.Height roughness=2.5e-5
+      parameter Modelica.Fluid.Types.Roughness roughness=2.5e-5
         "Average height of surface asperities (default: smooth steel pipe)"
           annotation(Dialog(group="Geometry"));
       final parameter SI.Volume V=crossArea*length*nParallel "volume size";
@@ -301,7 +301,7 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
         annotation(Dialog(group="Geometry"));
       parameter SI.Length[n] dimensions "hydraulic diameters of flow segments"
         annotation(Dialog(group="Geometry"));
-      parameter SI.Height[n] roughnesses
+      parameter Modelica.Fluid.Types.Roughness[n] roughnesses
         "Average heights of surface asperities"
         annotation(Dialog(group="Geometry"));
 
@@ -329,7 +329,7 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
         annotation(Dialog(tab="Advanced"), Evaluate=true);
 
       parameter Boolean useLumpedPressure=false
-        "=true to lump pressure states together"
+        "= true to lump pressure states together"
         annotation(Dialog(tab="Advanced"),Evaluate=true);
       final parameter Integer nFM=if useLumpedPressure then nFMLumped else nFMDistributed
         "number of flow models in flowModel";
@@ -341,7 +341,7 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
 
       // Advanced model options
       parameter Boolean useInnerPortProperties=false
-        "=true to take port properties for flow models from internal control volumes"
+        "= true to take port properties for flow models from internal control volumes"
         annotation(Dialog(tab="Advanced"),Evaluate=true);
       Medium.ThermodynamicState state_a
         "state defined by volume outside port_a";
@@ -398,7 +398,7 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
       SI.Area[nFM+1] crossAreasFM "Cross flow areas of flow segments";
       SI.Velocity[nFM+1] vsFM "Mean velocities in flow segments";
       SI.Length[nFM+1] dimensionsFM "Hydraulic diameters of flow segments";
-      SI.Height[nFM+1] roughnessesFM "Average heights of surface asperities";
+      Modelica.Fluid.Types.Roughness[nFM+1] roughnessesFM "Average heights of surface asperities";
 
     equation
       assert(nNodes > 1 or modelStructure <> ModelStructure.av_vb,
@@ -930,7 +930,7 @@ This also allows for taking into account friction losses with respect to the act
           "Cross flow areas at segment boundaries";
             input SI.Length[n] dimensions
           "Characteristic dimensions for fluid flow (diameters for pipe flow)";
-            input SI.Height[n] roughnesses
+            input Modelica.Fluid.Types.Roughness[n] roughnesses
           "Average height of surface asperities";
 
             // Static head
@@ -1550,7 +1550,7 @@ b has the same sign of the change of density.</p>
       input SI.Length[n] lengths "Lengths along flow path";
       input SI.Length[n] dimensions
           "Characteristic dimensions for fluid flow (diameter for pipe flow)";
-      input SI.Height[n] roughnesses "Average heights of surface asperities";
+      input Modelica.Fluid.Types.Roughness[n] roughnesses "Average heights of surface asperities";
 
       annotation (Documentation(info="<html>
 Base class for heat transfer models of flow devices.
@@ -1788,7 +1788,7 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
           input SI.Length length "Length of pipe";
           input SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
           input SI.Area crossArea = pi*diameter^2/4 "Inner cross section area";
-          input SI.Length roughness(min=0) = 2.5e-5
+          input Modelica.Fluid.Types.Roughness roughness = 2.5e-5
             "Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)";
           input SI.AbsolutePressure dp_small = 1
             "Regularization of zero flow if |dp| < dp_small (dummy if use_dp_small = false)";
@@ -1814,10 +1814,10 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
             "Dynamic viscosity at port_b (dummy if use_mu = false)";
           input SI.Length length "Length of pipe";
           input SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
-          input Real g_times_height_ab
+          input Real g_times_height_ab(unit="m2/s2")
             "Gravity times (Height(port_b) - Height(port_a))";
           input SI.Area crossArea = pi*diameter^2/4 "Inner cross section area";
-          input SI.Length roughness(min=0) = 2.5e-5
+          input Modelica.Fluid.Types.Roughness roughness = 2.5e-5
             "Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)";
           input SI.AbsolutePressure dp_small=1
             "Regularization of zero flow if |dp| < dp_small (dummy if use_dp_small = false)";
@@ -1844,7 +1844,7 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
           input SI.Length length "Length of pipe";
           input SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
           input SI.Area crossArea = pi*diameter^2/4 "Inner cross section area";
-          input SI.Length roughness(min=0) = 2.5e-5
+          input Modelica.Fluid.Types.Roughness roughness = 2.5e-5
             "Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)";
           input SI.MassFlowRate m_flow_small = 0.01
             "Regularization of zero flow if |m_flow| < m_flow_small (dummy if use_m_flow_small = false)";
@@ -1871,10 +1871,10 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
             "Dynamic viscosity at port_b (dummy if use_mu = false)";
           input SI.Length length "Length of pipe";
           input SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
-          input Real g_times_height_ab
+          input Real g_times_height_ab(unit="m2/s2")
             "Gravity times (Height(port_b) - Height(port_a))";
           input SI.Area crossArea = pi*diameter^2/4 "Inner cross section area";
-          input SI.Length roughness(min=0) = 2.5e-5
+          input Modelica.Fluid.Types.Roughness roughness = 2.5e-5
             "Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)";
           input SI.MassFlowRate m_flow_small = 0.01
             "Regularization of zero flow if |m_flow| < m_flow_small (dummy if use_m_flow_small = false)";
@@ -2004,9 +2004,9 @@ to zero, i.e., it allows to switch off pipe wall friction.
           Real k0inv = Modelica.Constants.pi*diameter^4/(128*length)
             "Constant factor";
 
-          Real dp_grav_a = g_times_height_ab*rho_a
+          SI.Pressure dp_grav_a = g_times_height_ab*rho_a
             "Static head if mass flows in design direction (a to b)";
-          Real dp_grav_b = g_times_height_ab*rho_b
+          SI.Pressure dp_grav_b = g_times_height_ab*rho_b
             "Static head if mass flows against design direction (b to a)";
 
           Real dm_flow_ddp_fric_a = k0inv*rho_a/mu_a
@@ -2076,9 +2076,9 @@ to zero, i.e., it allows to switch off pipe wall friction.
           Real k0 = 128*length/(Modelica.Constants.pi*diameter^4)
             "Constant factor";
 
-          Real dp_grav_a = g_times_height_ab*rho_a
+          SI.Pressure dp_grav_a = g_times_height_ab*rho_a
             "Static head if mass flows in design direction (a to b)";
-          Real dp_grav_b = g_times_height_ab*rho_b
+          SI.Pressure dp_grav_b = g_times_height_ab*rho_b
             "Static head if mass flows against design direction (b to a)";
 
           Real ddp_dm_flow_a = k0*mu_a/rho_a
@@ -2086,9 +2086,9 @@ to zero, i.e., it allows to switch off pipe wall friction.
           Real ddp_dm_flow_b = k0*mu_b/rho_b
             "Slope of dp over mass flow rate if flow against design direction (b to a)";
 
-          Real m_flow_a=if dp_grav_a >= dp_grav_b then m_flow_small else m_flow_small + (dp_grav_b-dp_grav_a)/ddp_dm_flow_a
+          SI.MassFlowRate m_flow_a=if dp_grav_a >= dp_grav_b then m_flow_small else m_flow_small + (dp_grav_b-dp_grav_a)/ddp_dm_flow_a
             "Upper end of regularization domain of the dp(m_flow) relation";
-          Real m_flow_b=if dp_grav_a >= dp_grav_b then -m_flow_small else -m_flow_small - (dp_grav_b - dp_grav_a)/ddp_dm_flow_b
+          SI.MassFlowRate m_flow_b=if dp_grav_a >= dp_grav_b then -m_flow_small else -m_flow_small - (dp_grav_b - dp_grav_a)/ddp_dm_flow_b
             "Lower end of regularization domain of the dp(m_flow) relation";
 
           SI.Pressure dp_a "Value at upper end of regularization domain";
@@ -2316,9 +2316,9 @@ This component describes only the <strong>Hagen-Poiseuille</strong> equation.
           Real k1 = k/rho_a "If m_flow >= 0 then dp = k1*m_flow^2 + dp_grav_a";
           Real k2 = k/rho_b "If m_flow < 0 then dp = -k2*m_flow^2 + dp_grav_b";
 
-          Real m_flow_a=if dp_grav_a >= dp_grav_b then m_flow_small else m_flow_small + sqrt((dp_grav_b - dp_grav_a)/k1)
+          SI.MassFlowRate m_flow_a=if dp_grav_a >= dp_grav_b then m_flow_small else m_flow_small + sqrt((dp_grav_b - dp_grav_a)/k1)
             "Upper end of regularization domain of the dp(m_flow) relation";
-          Real m_flow_b=if dp_grav_a >= dp_grav_b then -m_flow_small else -m_flow_small - sqrt((dp_grav_b - dp_grav_a)/k2)
+          SI.MassFlowRate m_flow_b=if dp_grav_a >= dp_grav_b then -m_flow_small else -m_flow_small - sqrt((dp_grav_b - dp_grav_a)/k2)
             "Lower end of regularization domain of the dp(m_flow) relation";
 
           SI.Pressure dp_a "Value at upper end of regularization domain";
@@ -2532,7 +2532,7 @@ Laminar region:
           import Modelica.Math;
 
         protected
-          Real Delta = roughness/diameter "Relative roughness";
+          Real Delta(min=0) = roughness/diameter "Relative roughness";
           SI.ReynoldsNumber Re1 = min(745*exp(if Delta <= 0.0065 then 1 else 0.0065/Delta), Re_turbulent)
             "Boundary between laminar regime and transition";
           SI.ReynoldsNumber Re2 = Re_turbulent
@@ -2599,7 +2599,7 @@ Laminar region:
           import Modelica.Math;
 
         protected
-          Real Delta = roughness/diameter "Relative roughness";
+          Real Delta(min=0) = roughness/diameter "Relative roughness";
           SI.ReynoldsNumber Re1 = min(745*exp(if Delta <= 0.0065 then 1 else 0.0065/Delta), Re_turbulent)
             "Boundary between laminar regime and transition";
           SI.ReynoldsNumber Re2 = Re_turbulent
@@ -2688,7 +2688,7 @@ Laminar region:
               "Boundary between laminar regime and transition";
             input SI.ReynoldsNumber Re2
               "Boundary between transition and turbulent regime";
-            input Real Delta "Relative roughness";
+            input Real Delta(min=0) "Relative roughness";
             output SI.MassFlowRate m_flow
               "Mass flow rate from port_a to port_b";
             output Real dm_flow_ddp_fric
@@ -2780,7 +2780,7 @@ Laminar region:
               "Boundary between laminar regime and transition";
             input SI.ReynoldsNumber Re2
               "Boundary between transition and turbulent regime";
-            input Real Delta "Relative roughness";
+            input Real Delta(min=0) "Relative roughness";
             output SI.Pressure dp_fric
               "Pressure loss due to friction (dp_fric = port_a.p - port_b.p - dp_grav)";
             output Real ddp_fric_dm_flow
@@ -2885,7 +2885,7 @@ identical to laminar wall friction.
           "Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction"
           import Modelica.Math;
         protected
-          Real Delta = roughness/diameter "Relative roughness";
+          Real Delta(min=0) = roughness/diameter "Relative roughness";
           SI.ReynoldsNumber Re1 = min((745*Math.exp(if Delta <= 0.0065 then 1 else 0.0065/Delta))^0.97, Re_turbulent)
             "Re leaving laminar curve";
           SI.ReynoldsNumber Re2 = Re_turbulent "Re entering turbulent curve";
@@ -2960,7 +2960,7 @@ identical to laminar wall friction.
           import Modelica.Math;
           import Modelica.Constants.pi;
         protected
-          Real Delta = roughness/diameter "Relative roughness";
+          Real Delta(min=0) = roughness/diameter "Relative roughness";
           SI.ReynoldsNumber Re1 = min(745*Math.exp(if Delta <= 0.0065 then 1 else 0.0065/Delta), Re_turbulent)
             "Re leaving laminar curve";
           SI.ReynoldsNumber Re2 = Re_turbulent "Re entering turbulent curve";
@@ -3024,7 +3024,7 @@ identical to laminar wall friction.
           "Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction and static head"
 
         protected
-          Real Delta = roughness/diameter "Relative roughness";
+          Real Delta(min=0) = roughness/diameter "Relative roughness";
           SI.ReynoldsNumber Re "Reynolds number";
           SI.ReynoldsNumber Re1 = min((745*exp(if Delta <= 0.0065 then 1 else 0.0065/Delta))^0.97, Re_turbulent)
             "Boundary between laminar regime and transition";
@@ -3085,7 +3085,7 @@ identical to laminar wall friction.
           "Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction and static head"
 
         protected
-          Real Delta = roughness/diameter "Relative roughness";
+          Real Delta(min=0) = roughness/diameter "Relative roughness";
           SI.ReynoldsNumber Re1 = min(745*exp(if Delta <= 0.0065 then 1 else 0.0065/Delta), Re_turbulent)
             "Boundary between laminar regime and transition";
           SI.ReynoldsNumber Re2 = Re_turbulent
@@ -3169,7 +3169,7 @@ identical to laminar wall friction.
               "Boundary between laminar regime and transition";
           input SI.ReynoldsNumber Re2
               "Boundary between transition and turbulent regime";
-          input Real Delta "Relative roughness";
+          input Real Delta(min=0) "Relative roughness";
           output SI.MassFlowRate m_flow "Mass flow rate from port_a to port_b";
           output Real dm_flow_ddp_fric
               "Derivative of mass flow rate with dp_fric";
@@ -3184,7 +3184,7 @@ identical to laminar wall friction.
                 "Boundary between laminar regime and transition";
             input SI.ReynoldsNumber Re2
                 "Boundary between transition and turbulent regime";
-            input Real Delta "Relative roughness";
+            input Real Delta(min=0) "Relative roughness";
             input SI.Pressure dp_fric
                 "Pressure loss due to friction (dp = port_a.p - port_b.p)";
             output SI.ReynoldsNumber Re "Unknown return variable";
@@ -3285,7 +3285,7 @@ identical to laminar wall friction.
               "Boundary between laminar regime and transition";
           input SI.ReynoldsNumber Re2
               "Boundary between transition and turbulent regime";
-          input Real Delta "Relative roughness";
+          input Real Delta(min=0) "Relative roughness";
           output SI.Pressure dp_fric
               "Pressure loss due to friction (dp_fric = port_a.p - port_b.p - dp_grav)";
           output Real ddp_fric_dm_flow
@@ -3301,7 +3301,7 @@ identical to laminar wall friction.
                 "Boundary between laminar regime and transition";
             input SI.ReynoldsNumber Re2
                 "Boundary between transition and turbulent regime";
-            input Real Delta "Relative roughness";
+            input Real Delta(min=0) "Relative roughness";
             input SI.MassFlowRate m_flow "Mass flow rate from port_a to port_b";
             output Real lambda2 "Unknown return value";
             output Real dlambda2_dm_flow "Derivative of return value";
@@ -3438,9 +3438,8 @@ b has the same sign of the change of density.</p>
         parameter SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
         parameter SI.Area crossArea=Modelica.Constants.pi*diameter*diameter/4
           "Inner cross section area";
-        parameter SI.Length height_ab = 0.0 "Height(port_b) - Height(port_a)"
-                                                                           annotation(Evaluate=true);
-        parameter SI.Length roughness(min=0) = 2.5e-5
+        parameter SI.Length height_ab = 0.0 "Height(port_b) - Height(port_a)" annotation(Evaluate=true);
+        parameter Modelica.Fluid.Types.Roughness roughness = 2.5e-5
           "Absolute roughness of pipe (default = smooth steel pipe)"
             annotation(Dialog(enable=WallFriction.use_roughness));
 
@@ -3449,16 +3448,13 @@ b has the same sign of the change of density.</p>
           annotation(Dialog(group="Nominal operating point"));
 
         parameter Boolean use_nominal = false
-          "= true, if mu_nominal and rho_nominal are used, otherwise computed from medium"
-                                                                                                        annotation(Evaluate=true);
+          "= true, if mu_nominal and rho_nominal are used, otherwise computed from medium" annotation(Evaluate=true);
         parameter SI.DynamicViscosity mu_nominal = Medium.dynamicViscosity(
                                                        Medium.setState_pTX(
                                                            Medium.p_default, Medium.T_default, Medium.X_default))
-          "Nominal dynamic viscosity (e.g., mu_liquidWater = 1e-3, mu_air = 1.8e-5)"
-                                                                                  annotation(Dialog(enable=use_nominal));
+          "Nominal dynamic viscosity (e.g., mu_liquidWater = 1e-3, mu_air = 1.8e-5)" annotation(Dialog(enable=use_nominal));
         parameter SI.Density rho_nominal = Medium.density_pTX(Medium.p_default, Medium.T_default, Medium.X_default)
-          "Nominal density (e.g., rho_liquidWater = 995, rho_air = 1.2)"
-                                                                   annotation(Dialog(enable=use_nominal));
+          "Nominal density (e.g., rho_liquidWater = 995, rho_air = 1.2)" annotation(Dialog(enable=use_nominal));
 
         parameter Boolean show_Re = false
           "= true, if Reynolds number is included for plotting"

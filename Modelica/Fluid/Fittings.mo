@@ -803,20 +803,19 @@ of the modeller.
 
        encapsulated function wallFriction
           "Return pressure loss data due to friction in a straight pipe with walls of nonuniform roughness (not useful for smooth pipes, since zeta is no function of Re)"
-          import
-            Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
+          import Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
+          import Modelica.Fluid.Types.Roughness;
           import lg = Modelica.Math.log10;
           import SI = Modelica.SIunits;
 
          input SI.Length length "Length of pipe" annotation(Dialog);
          input SI.Diameter diameter "Inner diameter of pipe" annotation(Dialog);
-         input SI.Length roughness(min=1e-10)
-            "Absolute roughness of pipe (> 0 required, details see info layer)"
-                                                                               annotation(Dialog);
+         input Roughness roughness(min=1e-10)
+            "Absolute roughness of pipe (> 0 required, details see info layer)" annotation(Dialog);
          output LossFactorData data
             "Pressure loss factors for both flow directions";
         protected
-         Real Delta = roughness/diameter "relative roughness";
+         Real Delta(min=0) = roughness/diameter "relative roughness";
        algorithm
          data.diameter_a          := diameter;
          data.diameter_b          := diameter;
@@ -1743,7 +1742,7 @@ The used sufficient criteria for monotonicity follows from:
               roughness));
       parameter SI.Length length "Length of pipe";
       parameter SI.Diameter diameter "Inner diameter of pipe";
-      parameter SI.Length roughness(min=1e-10)
+      parameter Modelica.Fluid.Types.Roughness roughness(min=1e-10)
           "Absolute roughness of pipe (> 0 required, details see info layer)";
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{

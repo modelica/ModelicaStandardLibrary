@@ -1061,11 +1061,11 @@ connector frame_a (visualized by the red coordinate system in the figure below).
     parameter Modelica.SIunits.Length length "Length of pipe" annotation(Dialog(enable=animation));
 
     parameter Real xsi[:](each min=0, each max=1)= Modelica.Math.Vectors.relNodePositions(12)
-      "[:] Relative position along the pipe with x[1] = 0, x[end] = 1"
+      "Vector of relative positions along the pipe with x[1] = 0, x[end] = 1"
       annotation(Dialog(enable=animation));
     input Real T[size(xsi,1)]
-      "[:] Scalar values at position xsi*length (will be visualized by color)" annotation(Dialog(enable=animation));
-    parameter Real T_min "Minimum value of T that corresponds to colorMap[1,:]"     annotation(Dialog(enable=animation));
+      "Vector of values at positions xsi*length (will be visualized by color)" annotation(Dialog(enable=animation));
+    parameter Real T_min "Minimum value of T that corresponds to colorMap[1,:]" annotation(Dialog(enable=animation));
     parameter Real T_max
       "Maximum value of T that corresponds to colorMap[end,:]" annotation(Dialog(enable=animation));
     replaceable function colorMap =
@@ -1083,7 +1083,7 @@ connector frame_a (visualized by the red coordinate system in the figure below).
       "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(enable=animation,group="Color coding"));
     parameter Real transparency=0
       "Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)"
-                                 annotation(Dialog(enable=animation,group="Color coding"));
+      annotation(Dialog(enable=animation,group="Color coding"));
 
     parameter Integer n_rOuter=30 "Number of points along outer radius" annotation(Dialog(enable=animation,tab="Discretization"));
     parameter Integer n_length=20 "Number of points along length" annotation(Dialog(enable=animation,tab="Discretization"));
@@ -1207,7 +1207,7 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
       redeclare function surfaceCharacteristic = Advanced.SurfaceCharacteristics.rectangle (
         lu=length_u, lv=length_v)) if world.enableAnimation and animation
       annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-    Sensors.Internal.ZeroForceAndTorque zeroForceAndTorque annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+    Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque zeroForceAndTorque annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
 
   equation
     connect(frame_a, zeroForceAndTorque.frame_a) annotation (Line(
@@ -2294,13 +2294,13 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
         "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(group="Surface properties"));
       parameter Real transparency=0
         "Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)"
-                                   annotation(Dialog(group="Surface properties"));
+        annotation(Dialog(group="Surface properties"));
 
       parameter Real xsi[:](each min=0,each max=1)= Modelica.Math.Vectors.relNodePositions(12)
-        "[:] Relative position along the pipe with x[1] = 0, x[end] = 1"
+        "Vector of relative positions along the pipe with x[1] = 0, x[end] = 1"
         annotation(Dialog(group="Color coding"));
       input Real T[size(xsi,1)]
-        "[:] Scalar values at position xsi*length (will be visualized by color)" annotation(Dialog(group="Color coding"));
+        "Vector of values at positions xsi*length (will be visualized by color)" annotation(Dialog(group="Color coding"));
       parameter Real T_min
         "Minimum value of T that corresponds to colorMap[1,:]" annotation(Dialog(group="Color coding"));
       parameter Real T_max

@@ -38,7 +38,7 @@ package Lines
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
     parameter SI.LinearTemperatureCoefficient alpha_G=0
       "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
-    parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
+    parameter Boolean useHeatPort=false "= true, if HeatPort is enabled"
       annotation (
       Evaluate=true,
       HideResult=true,
@@ -174,7 +174,7 @@ package Lines
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
     parameter SI.LinearTemperatureCoefficient alpha_G=0
       "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
-    parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
+    parameter Boolean useHeatPort=false "= true, if HeatPort is enabled"
       annotation (
       Evaluate=true,
       HideResult=true,
@@ -207,7 +207,7 @@ package Lines
         "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
       parameter SI.LinearTemperatureCoefficient alpha_G
         "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
-      parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
+      parameter Boolean useHeatPort=false "= true, if HeatPort is enabled"
         annotation (
         Evaluate=true,
         HideResult=true,
@@ -309,7 +309,7 @@ package Lines
         "Inductance matrix";
       parameter SI.LinearTemperatureCoefficient alpha_R
         "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
-      parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
+      parameter Boolean useHeatPort=false "= true, if HeatPort is enabled"
         annotation (
         Evaluate=true,
         HideResult=true,
@@ -540,7 +540,7 @@ package Lines
     parameter Integer N(final min=1, start=1) "Number of lumped segments";
     parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
-    parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
+    parameter Boolean useHeatPort=false "= true, if HeatPort is enabled"
       annotation (
       Evaluate=true,
       HideResult=true,

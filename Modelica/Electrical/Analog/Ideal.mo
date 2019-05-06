@@ -667,7 +667,7 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
           Line(points={{0,-100},{0,-40}}, color={0,0,255})}));
   end IdealOpAmpLimited;
 
-  model IdealizedOpAmpLimted "Idealized operational amplifier with limitation"
+  model IdealizedOpAmpLimited "Idealized operational amplifier with limitation"
     parameter Real V0=15000.0 "No-load amplification";
     parameter Boolean useSupply=false
       "Use supply pins (otherwise constant supply)" annotation (Evaluate=true);
@@ -763,7 +763,7 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
 <p>Supply voltage is either defined by parameter Vps and Vns or by (optional) pins s_p and s_n.</p>
 <p>In the first case the necessary power is drawn from an implicit internal supply, in the second case from the external supply.</p>
 </html>"));
-  end IdealizedOpAmpLimted;
+  end IdealizedOpAmpLimited;
 
   model IdealTransformer "Ideal transformer core with or without magnetization"
     extends Modelica.Electrical.Analog.Interfaces.TwoPort;

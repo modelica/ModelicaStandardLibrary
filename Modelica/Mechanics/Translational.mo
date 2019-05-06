@@ -2673,7 +2673,7 @@ Please note that initialization might fail due to the nonlinear spring character
 if a positive force is acting on the element and no other force balances this force
 (e.g., when setting both initial velocity and acceleration to 0)
 */
-      Boolean contact "=true, if contact, otherwise no contact";
+      Boolean contact "= true, if contact, otherwise no contact";
     protected
       Modelica.SIunits.Force f_c "Spring force";
       Modelica.SIunits.Force f_d2 "Linear damping force";
@@ -2858,9 +2858,9 @@ where the different effects are visualized:
       extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
 
       parameter Real f_pos[:, 2]=[0, 1]
-        "[v, f] Positive sliding friction characteristic (v>=0)";
+        "Positive sliding friction characteristic [N] as function of v [m/s] (v>=0)";
       parameter Real peak(final min=1) = 1
-        "Peak for maximum friction force at w==0 (f0_max = peak*f_pos[1,2])";
+        "Peak for maximum friction force at v==0 (f0_max = peak*f_pos[1,2])";
       extends Translational.Interfaces.PartialFriction;
 
       SI.Position s "= flange_a.s - support.s";
@@ -3053,10 +3053,10 @@ following references, especially (Armstrong and Canudas de Wit 1996):
 
       extends Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
       extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
-      parameter Real mue_pos[:, 2]=[0, 0.5]
-        "[v, f] Positive sliding friction characteristic (v>=0)";
+      parameter Real mu_pos[:, 2]=[0, 0.5]
+        "Positive sliding friction coefficient [-] as function of v_rel [m/s] (v_rel>=0)";
       parameter Real peak(final min=1) = 1
-        "Peak for maximum value of mue at w==0 (mue0_max = peak*mue_pos[1,2])";
+        "Peak for maximum value of mu at w==0 (mu0_max = peak*mu_pos[1,2])";
       parameter Real cgeo(final min=0) = 1
         "Geometry constant containing friction distribution assumption";
       parameter SI.Force fn_max(final min=0, start=1) "Maximum normal force";
@@ -3067,7 +3067,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
       SI.Velocity v "Absolute velocity of flange_a and flange_b";
       SI.Acceleration a "Absolute acceleration of flange_a and flange_b";
 
-      Real mue0 "Friction coefficient for v=0 and forward sliding";
+      Real mu0 "Friction coefficient for v=0 and forward sliding";
       SI.Force fn "Normal force (=fn_max*f_normalized)";
 
       // Constant auxiliary variable
@@ -3078,9 +3078,9 @@ following references, especially (Armstrong and Canudas de Wit 1996):
             extent={{20,-20},{-20,20}},
             rotation=90)));
     equation
-      mue0 = Modelica.Math.Vectors.interpolate(
-            mue_pos[:, 1],
-            mue_pos[:, 2],
+      mu0 = Modelica.Math.Vectors.interpolate(
+            mu_pos[:, 1],
+            mu_pos[:, 2],
             0,
             1);
 
@@ -3096,28 +3096,28 @@ following references, especially (Armstrong and Canudas de Wit 1996):
       // Friction force, normal force and friction force for v_rel=0
       flange_a.f + flange_b.f - f = 0;
       fn = fn_max*f_normalized;
-      f0 = mue0*cgeo*fn;
+      f0 = mu0*cgeo*fn;
       f0_max = peak*f0;
       free = fn <= 0;
 
       // Friction force
       f = if locked then sa*unitForce else if free then 0 else cgeo*fn*(if
         startForward then Modelica.Math.Vectors.interpolate(
-            mue_pos[:, 1],
-            mue_pos[:, 2],
+            mu_pos[:, 1],
+            mu_pos[:, 2],
             v,
             1) else if startBackward then -Modelica.Math.Vectors.interpolate(
-            mue_pos[:, 1],
-            mue_pos[:, 2],
+            mu_pos[:, 1],
+            mu_pos[:, 2],
             -v,
             1) else if pre(mode) == Forward then
         Modelica.Math.Vectors.interpolate(
-            mue_pos[:, 1],
-            mue_pos[:, 2],
+            mu_pos[:, 1],
+            mu_pos[:, 2],
             v,
             1) else -Modelica.Math.Vectors.interpolate(
-            mue_pos[:, 1],
-            mue_pos[:, 2],
+            mu_pos[:, 1],
+            mu_pos[:, 2],
             -v,
             1));
 
@@ -3134,25 +3134,25 @@ Friction in the brake is modelled in the following way:
 </p>
 <p>
 When the absolute velocity \"v\" is not zero, the friction force
-is a function of the velocity dependent friction coefficient  mue(v) , of
+is a function of the velocity dependent friction coefficient mu(v), of
 the normal force \"fn\", and of a geometry constant \"cgeo\" which takes into
 account the geometry of the device and the assumptions on the friction
 distributions:
 </p>
 <pre>
-        frictional_force = <strong>cgeo</strong> * <strong>mue</strong>(v) * <strong>fn</strong>
+        frictional_force = <strong>cgeo</strong> * <strong>mu</strong>(v) * <strong>fn</strong>
 </pre>
 <p>
    Typical values of coefficients of friction:
 </p>
 <pre>
-      dry operation   :  <strong>mue</strong> = 0.2 .. 0.4
-      operating in oil:  <strong>mue</strong> = 0.05 .. 0.1
+      dry operation   :  <strong>mu</strong> = 0.2 .. 0.4
+      operating in oil:  <strong>mu</strong> = 0.05 .. 0.1
 </pre>
 <p>
-    The positive part of the friction characteristic <strong>mue</strong>(v),
-    v >= 0, is defined via table mue_pos (first column = v,
-    second column = mue). Currently, only linear interpolation in
+    The positive part of the friction characteristic <strong>mu</strong>(v),
+    v >= 0, is defined via table mu_pos (first column = v,
+    second column = mu). Currently, only linear interpolation in
     the table is supported.
 </p>
 <p>
@@ -3165,7 +3165,7 @@ distributions:
    called the  maximum static friction force, computed via:
 </p>
 <pre>
-       frictional_force = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mue</strong>(w=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
+       frictional_force = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(w=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
 </pre>
 <p>
 This procedure is implemented in a \"clean\" way by state events and
@@ -3507,10 +3507,10 @@ provided via a signal bus.
         /* Friction torque has to be defined in a subclass. Example for a clutch:
    f = if locked then sa else
        if free then   0 else
-       cgeo*fn*(if startForward then          Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], v_relfric, 1) else
-                if startBackward then        -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -v_relfric, 1) else
-                if pre(mode) == Forward then  Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], v_relfric, 1) else
-                                             -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -v_relfric, 1));
+       cgeo*fn*(if startForward then          Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], v_relfric, 1) else
+                if startBackward then        -Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], -v_relfric, 1) else
+                if pre(mode) == Forward then  Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], v_relfric, 1) else
+                                             -Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], -v_relfric, 1));
 */
         // finite state machine to determine configuration
         mode = if free then Free else (if (pre(mode) == Forward or pre(mode)
@@ -4732,9 +4732,9 @@ blocks of Modelica.Blocks.Source.
     model LinearSpeedDependentForce "Linear dependency of force versus speed"
       extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
       parameter Modelica.SIunits.Force f_nominal
-        "Nominal force (if negative, force is acting as load)";
+        "Nominal force (if negative, force is acting as load in positive direction of motion)";
       parameter Boolean ForceDirection=true
-        "Same direction of force in both directions of movement";
+        "Same direction of force in both directions of motion";
       parameter Modelica.SIunits.Velocity v_nominal(min=Modelica.Constants.eps)
         "Nominal speed";
       Modelica.SIunits.Velocity v
@@ -4765,9 +4765,9 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
       "Quadratic dependency of force versus speed"
       extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
       parameter Modelica.SIunits.Force f_nominal
-        "Nominal force (if negative, force is acting as load)";
+        "Nominal force (if negative, force is acting as load in positive direction of motion)";
       parameter Boolean ForceDirection=true
-        "Same direction of force in both directions of movement";
+        "Same direction of force in both directions of motion";
       parameter Modelica.SIunits.Velocity v_nominal(min=Modelica.Constants.eps)
         "Nominal speed";
       Modelica.SIunits.Velocity v
@@ -4798,7 +4798,7 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
     model ConstantForce "Constant force, not dependent on speed"
       extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
       parameter Modelica.SIunits.Force f_constant
-        "Nominal force (if negative, force is acting as load)";
+        "Nominal force (if negative, force is acting as load in positive direction of motion)";
     equation
       f = -f_constant;
       annotation (
@@ -5184,7 +5184,7 @@ the support force can always be accessed as internalSupport.f.
       "Component with two translational 1D flanges"
 
       Flange_a flange_a
-        "(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)"
+        "(left) driving flange (flange axis directed into cut plane, e. g. from left to right)"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
       Flange_b flange_b
         "(right) driven flange (flange axis directed out of cut plane)"
@@ -5267,10 +5267,7 @@ and instead the component is internally fixed to ground.
         Evaluate=true,
         HideResult=true,
         choices(checkBox=true));
-      Flange_a flange_a "Flange of left end" annotation (Placement(
-            transformation(extent={{-110,-10},{-90,10}})));
-      Flange_b flange_b "Flange of right end" annotation (Placement(
-            transformation(extent={{90,-10},{110,10}})));
+      extends Translational.Interfaces.PartialTwoFlanges;
       Support support if useSupport "Support/housing of component"
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     protected
@@ -5328,10 +5325,7 @@ and instead the component is internally fixed to ground.
         "Absolute position of center of component (s = flange_a.s + L/2 = flange_b.s - L/2)";
       parameter SI.Length L(start=0)
         "Length of component, from left flange to right flange (= flange_b.s - flange_a.s)";
-      Flange_a flange_a "Left flange of translational component" annotation (
-          Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Flange_b flange_b "Right flange of translational component" annotation (
-          Placement(transformation(extent={{90,-10},{110,10}})));
+      extends Translational.Interfaces.PartialTwoFlanges;
     equation
       flange_a.s = s - L/2;
       flange_b.s = s + L/2;
@@ -5348,12 +5342,7 @@ It is used e.g., to built up sliding masses.
     partial model PartialCompliant
       "Compliant connection of two translational 1D flanges"
 
-      Flange_a flange_a
-        "Left flange of compliant 1-dim. translational component" annotation (
-          Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Flange_b flange_b
-        "Right flange of compliant 1-dim. translational component" annotation (
-          Placement(transformation(extent={{90,-10},{110,10}})));
+      extends Translational.Interfaces.PartialTwoFlanges;
       SI.Position s_rel(start=0)
         "Relative distance (= flange_b.s - flange_a.s)";
       SI.Force f
@@ -5397,13 +5386,7 @@ flange is the same. It is used to built up springs, dampers etc.
         "Relative velocity (= der(s_rel))";
 
       SI.Force f "Forces between flanges (= flange_b.f)";
-      Translational.Interfaces.Flange_a flange_a
-        "Left flange of compliant 1-dim. translational component" annotation (
-          Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Translational.Interfaces.Flange_b flange_b
-        "Right flange of compliant 1-dim. translational component" annotation (
-          Placement(transformation(extent={{90,-10},{110,10}})));
-
+      extends Translational.Interfaces.PartialTwoFlanges;
     equation
       s_rel = flange_b.s - flange_a.s;
       v_rel = der(s_rel);
@@ -5578,10 +5561,7 @@ and instead the component is internally fixed to ground.
         Evaluate=true,
         HideResult=true,
         choices(checkBox=true));
-      Flange_a flange_a "Flange of left shaft" annotation (Placement(
-            transformation(extent={{-110,-10},{-90,10}})));
-      Flange_b flange_b "Flange of right shaft" annotation (Placement(
-            transformation(extent={{90,-10},{110,10}})));
+      extends Translational.Interfaces.PartialTwoFlanges;
       Modelica.SIunits.Length s_a "Distance between left flange and support";
       Modelica.SIunits.Length s_b "Distance between right flange and support";
     protected
@@ -5646,10 +5626,7 @@ connector is not connected).
         Evaluate=true,
         HideResult=true,
         choices(checkBox=true));
-      Flange_a flange_a "Flange of left shaft" annotation (Placement(
-            transformation(extent={{-110,-10},{-90,10}})));
-      Flange_b flange_b "Flange of right shaft" annotation (Placement(
-            transformation(extent={{90,-10},{110,10}})));
+      extends Translational.Interfaces.PartialTwoFlanges;
       Support support(s=s_support, f=-flange_a.f - flange_b.f) if useSupport
         "Support/housing of component"
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
@@ -5762,7 +5739,7 @@ and instead the component is internally fixed to ground.
       extends Modelica.Icons.TranslationalSensor;
 
       Interfaces.Flange_a flange
-        "Flange to be measured (flange axis directed in to cut plane, e. g. from left to right)"
+        "Flange to be measured (flange axis directed into cut plane, e. g. from left to right)"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
 
     equation
@@ -5792,14 +5769,7 @@ with the Modelica.Blocks blocks.
       "Device to measure a single relative variable between two flanges"
 
       extends Modelica.Icons.TranslationalSensor;
-
-      Interfaces.Flange_a flange_a
-        "(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)"
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Interfaces.Flange_b flange_b
-        "(right) driven flange (flange axis directed out of cut plane)"
-        annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-
+      extends Translational.Interfaces.PartialTwoFlanges;
     equation
       0 = flange_a.f + flange_b.f;
       annotation (Documentation(info="<html>
@@ -5884,10 +5854,10 @@ with the Modelica.Blocks blocks.
       /* Friction torque has to be defined in a subclass. Example for a clutch:
    f = if locked then sa else
        if free then   0 else
-       cgeo*fn*(if startForward then          Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], v_relfric, 1) else
-                if startBackward then        -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -v_relfric, 1) else
-                if pre(mode) == Forward then  Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], v_relfric, 1) else
-                                             -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -v_relfric, 1));
+       cgeo*fn*(if startForward then          Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], v_relfric, 1) else
+                if startBackward then        -Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], -v_relfric, 1) else
+                if pre(mode) == Forward then  Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], v_relfric, 1) else
+                                             -Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], -v_relfric, 1));
 */
       // finite state machine to determine configuration
       mode = if free then Free else (if (pre(mode) == Forward or pre(mode) ==

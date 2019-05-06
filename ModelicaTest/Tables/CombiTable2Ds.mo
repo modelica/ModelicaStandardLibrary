@@ -1,10 +1,10 @@
 within ModelicaTest.Tables;
-package CombiTable2D "Test models for Modelica.Blocks.Tables.CombiTable2D"
+package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
   import Modelica.Utilities.Files.loadResource;
   extends Modelica.Icons.ExamplesPackage;
 
   partial model Test0
-    Modelica.Blocks.Tables.CombiTable2D t_new
+    Modelica.Blocks.Tables.CombiTable2Ds t_new
       annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
     Modelica.Blocks.Continuous.Der d_t_new
       annotation (Placement(transformation(extent={{0,0},{20,20}})));
@@ -16,7 +16,7 @@ package CombiTable2D "Test models for Modelica.Blocks.Tables.CombiTable2D"
   end Test0;
 
   partial model Test0_noDer
-    Modelica.Blocks.Tables.CombiTable2D t_new
+    Modelica.Blocks.Tables.CombiTable2Ds t_new
       annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
   end Test0_noDer;
 
@@ -518,20 +518,20 @@ double mydummyfunc(double dummy_in) {
 
   model Test19 "Constant 2D (Ticket #1307)"
     extends Modelica.Icons.Example;
-    Modelica.Blocks.Tables.CombiTable2D combiTable2D1D(
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2D1D(
       table=[1,1;2,4;3,9;4,16],
       smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments) annotation(Placement(transformation(extent={{-95,60},{-75,80}})));
-    Modelica.Blocks.Tables.CombiTable2D combiTable2D1DT(
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2D1DT(
       table=transpose([1,1;2,4;3,9;4,16]),
       smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments) annotation(Placement(transformation(extent={{-95,30},{-75,50}})));
     Modelica.Blocks.Sources.Clock clock1 annotation(Placement(transformation(extent={{-130,65},{-110,85}})));
     Modelica.Blocks.Tables.CombiTable1Ds combiTable1D(
       table=[2,4;3,9;4,16],
       smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments) annotation(Placement(transformation(extent={{-95,0},{-75,20}})));
-    Modelica.Blocks.Tables.CombiTable2D combiTable2D(
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2D(
       table=[1,0,6;2,4,4;3,9,9;4,16,16],
       smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments) annotation(Placement(transformation(extent={{-95,-30},{-75,-10}})));
-    Modelica.Blocks.Tables.CombiTable2D combiTable2DT(
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2DT(
       table=transpose([1,0,6;2,4,4;3,9,9;4,16,16]),
       smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments) annotation(Placement(transformation(extent={{-95,-60},{-75,-40}})));
     equation
@@ -576,16 +576,16 @@ double mydummyfunc(double dummy_in) {
 
   model Test20 "Bilinear (Ticket #1307)"
     extends Modelica.Icons.Example;
-    Modelica.Blocks.Tables.CombiTable2D combiTable2D1D(
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2D1D(
       table=[1,1;2,4;3,9;4,16]) annotation(Placement(transformation(extent={{-95,60},{-75,80}})));
-    Modelica.Blocks.Tables.CombiTable2D combiTable2D1DT(
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2D1DT(
       table=transpose([1,1;2,4;3,9;4,16])) annotation(Placement(transformation(extent={{-95,30},{-75,50}})));
     Modelica.Blocks.Sources.Clock clock1 annotation(Placement(transformation(extent={{-130,65},{-110,85}})));
     Modelica.Blocks.Tables.CombiTable1Ds combiTable1D(
       table=[2,4;3,9;4,16]) annotation(Placement(transformation(extent={{-95,0},{-75,20}})));
-    Modelica.Blocks.Tables.CombiTable2D combiTable2D(
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2D(
       table=[1,0,6;2,4,4;3,9,9;4,16,16]) annotation(Placement(transformation(extent={{-95,-30},{-75,-10}})));
-    Modelica.Blocks.Tables.CombiTable2D combiTable2DT(
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2DT(
       table=transpose([1,0,6;2,4,4;3,9,9;4,16,16])) annotation(Placement(transformation(extent={{-95,-60},{-75,-40}})));
     Modelica.Blocks.Continuous.Der der1 annotation(Placement(transformation(extent={{-60,60},{-40,80}})));
     Modelica.Blocks.Continuous.Der der2 annotation(Placement(transformation(extent={{-60,30},{-40,50}})));
@@ -654,20 +654,20 @@ double mydummyfunc(double dummy_in) {
 
   model Test21 "Akima2D (Ticket #1307)"
     extends Modelica.Icons.Example;
-    Modelica.Blocks.Tables.CombiTable2D combiTable2D1D(
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2D1D(
       table=[1,1;2,4;3,9;4,16],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-95,60},{-75,80}})));
-    Modelica.Blocks.Tables.CombiTable2D combiTable2D1DT(
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2D1DT(
       table=transpose([1,1;2,4;3,9;4,16]),
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-95,30},{-75,50}})));
     Modelica.Blocks.Sources.Clock clock1 annotation(Placement(transformation(extent={{-130,65},{-110,85}})));
     Modelica.Blocks.Tables.CombiTable1Ds combiTable1D(
       table=[2,4;3,9;4,16],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-95,0},{-75,20}})));
-    Modelica.Blocks.Tables.CombiTable2D combiTable2D(
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2D(
       table=[1,0,6;2,4,4;3,9,9;4,16,16],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-95,-30},{-75,-10}})));
-    Modelica.Blocks.Tables.CombiTable2D combiTable2DT(
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2DT(
       table=transpose([1,0,6;2,4,4;3,9,9;4,16,16]),
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-95,-60},{-75,-40}})));
     Modelica.Blocks.Continuous.Der der1 annotation(Placement(transformation(extent={{-60,60},{-40,80}})));
@@ -740,12 +740,12 @@ double mydummyfunc(double dummy_in) {
     parameter Real tableR[4,4] = [0,75,83,88;18,778,773,769;28,970,-950,938;33,860,1030,1039] "Table matrix for right extrapolation";
     parameter Real tableL[4,4] = [0,75,80,88;18,1039,1030,860;23,938,-950,970;33,769,773,778] "Table matrix for left extrapolation";
     // Right extrapolate u1
-    Modelica.Blocks.Tables.CombiTable2D combiTable2D_1R(
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2D_1R(
       table=tableR,
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-70,55},{-50,75}})));
     Modelica.Blocks.Continuous.Der der_1R annotation(Placement(transformation(extent={{-30,55},{-10,75}})));
     // Right extrapolate u2
-    Modelica.Blocks.Tables.CombiTable2D combiTable2D_2R(
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2D_2R(
       table=transpose(tableR),
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-70,20},{-50,40}})));
     Modelica.Blocks.Continuous.Der der_2R annotation(Placement(transformation(extent={{-30,20},{-10,40}})));
@@ -756,12 +756,12 @@ double mydummyfunc(double dummy_in) {
       offset=33) annotation(Placement(transformation(extent={{-130,60},{-110,80}})));
     Modelica.Blocks.Sources.Constant const_R(k=81) annotation(Placement(transformation(extent={{-130,25},{-110,45}})));
     // Left extrapolate u1
-    Modelica.Blocks.Tables.CombiTable2D combiTable2D_1L(
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2D_1L(
       table=tableL,
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-70,-15},{-50,5}})));
     Modelica.Blocks.Continuous.Der der_1L annotation(Placement(transformation(extent={{-30,-15},{-10,5}})));
     // Left extrapolate u2
-    Modelica.Blocks.Tables.CombiTable2D combiTable2D_2L(
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2D_2L(
       table=transpose(tableL),
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-70,-50},{-50,-30}})));
     Modelica.Blocks.Continuous.Der der_2L annotation(Placement(transformation(extent={{-30,-50},{-10,-30}})));
@@ -851,11 +851,11 @@ double mydummyfunc(double dummy_in) {
     extends Modelica.Icons.Example;
     parameter Real tableR[4,4] = [0,75,83,88;18,778,773,769;28,970,-950,938;33,860,1030,1039] "Table matrix for right extrapolation";
     parameter Real tableL[4,4] = [0,75,80,88;18,1039,1030,860;23,938,-950,970;33,769,773,778] "Table matrix for left extrapolation";
-    Modelica.Blocks.Tables.CombiTable2D combiTable2D_1R(
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2D_1R(
       table=tableR,
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-70,55},{-50,75}})));
     Modelica.Blocks.Continuous.Der der_1R annotation(Placement(transformation(extent={{-30,55},{-10,75}})));
-    Modelica.Blocks.Tables.CombiTable2D combiTable2D_2R(
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2D_2R(
       table=transpose(tableR),
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-70,20},{-50,40}})));
     Modelica.Blocks.Continuous.Der der_2R annotation(Placement(transformation(extent={{-30,20},{-10,40}})));
@@ -869,11 +869,11 @@ double mydummyfunc(double dummy_in) {
       freqHz=1/3,
       offset=81,
       startTime=1) annotation(Placement(transformation(extent={{-130,25},{-110,45}})));
-    Modelica.Blocks.Tables.CombiTable2D combiTable2D_1L(
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2D_1L(
       table=tableL,
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-70,-15},{-50,5}})));
     Modelica.Blocks.Continuous.Der der_1L annotation(Placement(transformation(extent={{-30,-15},{-10,5}})));
-    Modelica.Blocks.Tables.CombiTable2D combiTable2D_2L(
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2D_2L(
       table=transpose(tableL),
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-70,-50},{-50,-30}})));
     Modelica.Blocks.Continuous.Der der_2L annotation(Placement(transformation(extent={{-30,-50},{-10,-30}})));
@@ -1075,4 +1075,4 @@ double mydummyfunc(double dummy_in) {
         points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test31;
-end CombiTable2D;
+end CombiTable2Ds;

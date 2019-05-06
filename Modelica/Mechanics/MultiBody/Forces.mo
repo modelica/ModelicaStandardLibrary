@@ -1881,10 +1881,10 @@ in the other flange connector.
       "Prevent zero-division if distance between frame_a and frame_b is zero"
       annotation (Dialog(tab="Advanced"));
     parameter Boolean fixedRotationAtFrame_a=false
-      "=true, if rotation frame_a.R is fixed (to directly connect line forces)"
+      "= true, if rotation frame_a.R is fixed (to directly connect line forces)"
        annotation (Evaluate=true, choices(checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
     parameter Boolean fixedRotationAtFrame_b=false
-      "=true, if rotation frame_b.R is fixed (to directly connect line forces)"
+      "= true, if rotation frame_b.R is fixed (to directly connect line forces)"
        annotation (Evaluate=true, choices(checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
 
     Modelica.SIunits.Position r_rel_a[3]
@@ -2921,6 +2921,22 @@ values from the outside in order that the model remains balanced
 </html>"));
     end BasicWorldTorque;
 
+    model ZeroForceAndTorque "Set force and torque to zero"
+       extends Modelica.Blocks.Icons.Block;
+      Interfaces.Frame_a frame_a
+        annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
+    equation
+      frame_a.f = zeros(3);
+      frame_a.t = zeros(3);
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={Text(
+              extent={{-74,24},{80,-20}},
+              textString="f = t = 0")}), Documentation(info="<html>
+<p>Set force and torque vectors on frame connector frame_a to zero.</p>
+<!--a placeholder to fulfill minimum documentation length-->
+</html>"));
+    end ZeroForceAndTorque;
+
     function standardGravityAcceleration
       "Standard gravity fields (no/parallel/point field)"
       extends Modelica.Icons.Function;
@@ -2931,12 +2947,12 @@ values from the outside in order that the model remains balanced
       input Modelica.SIunits.Acceleration g[3]
         "Constant gravity acceleration, resolved in world frame, if gravityType=UniformGravity"
         annotation(Dialog);
-      input Real mue(unit="m3/s2")
+      input Real mu(unit="m3/s2")
         "Field constant of point gravity field, if gravityType=PointGravity" annotation(Dialog);
     algorithm
     gravity := if gravityType == GravityTypes.UniformGravity then g else
                if gravityType == GravityTypes.PointGravity then
-                  -(mue/(r*r))*(r/Modelica.Math.Vectors.length(r)) else zeros(3);
+                  -(mu/(r*r))*(r/Modelica.Math.Vectors.length(r)) else zeros(3);
       annotation(Inline=true, Documentation(info="<html>
 <p>
 This function defines the standard gravity fields for the World object.
@@ -2955,7 +2971,7 @@ This function defines the standard gravity fields for the World object.
     <td> Constant parallel gravity field</td></tr>
 
 <tr><td>Types.GravityType.PointGravity</td>
-    <td>= -(mue/(r*r))*r/|r|</td>
+    <td>= -(mu/(r*r))*r/|r|</td>
     <td> Point gravity field with spherical mass</td></tr>
 </table>
 

@@ -5,3 +5,49 @@ convertClass("Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterp
               "Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_Re")
 convertClass("Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_MFLOW",
               "Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_lambda");
+convertClass("Modelica.Mechanics.MultiBody.Sensors.Internal.ZeroForceAndTorque",
+              "Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque");
+convertClass("Modelica.Blocks.Tables.CombiTable1D",
+              "Modelica.Blocks.Tables.CombiTable1Dv");
+convertClass("Modelica.Blocks.Tables.CombiTable2D",
+              "Modelica.Blocks.Tables.CombiTable2Ds");
+convertClass("Modelica.Electrical.Analog.Basic.EMF",
+              "Modelica.Electrical.Analog.Basic.RotationalEMF");
+convertClass("Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted",
+              "Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited");
+convertClass("Modelica.Electrical.Digital.Converters.LogicToXO1",
+              "Modelica.Electrical.Digital.Converters.LogicToX01");
+convertClass("Modelica.Electrical.Digital.Converters.LogicToXO1Z",
+              "Modelica.Electrical.Digital.Converters.LogicToX01Z");
+convertClass("Modelica.SIunits.FluxiodQuantum",
+              "Modelica.SIunits.FluxoidQuantum");
+convertClass("Modelica.Media.Incompressible.TableBased.Polynomials_Temp",
+              "Modelica.Math.Polynomials");
+
+// Change renamed elements of classes
+// mue -> mu
+convertClass("Modelica.Constants.mue_0", "Modelica.Constants.mu_0");
+convertElement({"Modelica.Mechanics.MultiBody.World",
+                "Modelica.Mechanics.MultiBody.World.gravityAcceleration",
+                "Modelica.Mechanics.MultiBody.Forces.Internal.standardGravityAcceleration"},
+                "mue", "mu");
+convertElement({"Modelica.Mechanics.Rotational.Components.Brake",
+                "Modelica.Mechanics.Rotational.Components.Clutch",
+                "Modelica.Mechanics.Rotational.Components.OneWayClutch",
+                "Modelica.Mechanics.Translational.Components.Brake"},
+                "mue_pos", "mu_pos");
+convertElement({"Modelica.Mechanics.Rotational.Components.Brake",
+                "Modelica.Mechanics.Rotational.Components.Clutch",
+                "Modelica.Mechanics.Rotational.Components.OneWayClutch",
+                "Modelica.Mechanics.Translational.Components.Brake"},
+                "mue0", "mu0");
+
+convertElement({"Modelica.Mechanics.Rotational.Sources.SignTorque"},
+                "tau_constant", "tau_nominal");
+
+convertModifiers({"Modelica.Blocks.Nonlinear.Limiter",
+                  "Modelica.Blocks.Nonlinear.VariableLimiter",
+                  "Modelica.Blocks.Continuous.LimPID"},
+                  {"limitsAtInit"}, fill("", 0), true);
+convertModifiers({"Modelica.Blocks.Nonlinear.DeadZone"},
+                  {"deadZoneAtInit"}, fill("", 0), true);

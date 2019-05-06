@@ -22,7 +22,6 @@ package Examples
       yMax=12,
       Ni=0.1,
       initType=Modelica.Blocks.Types.InitPID.SteadyState,
-      limitsAtInit=false,
       controllerType=Modelica.Blocks.Types.SimpleController.PI,
       Td=0.1) annotation (Placement(transformation(extent={{-56,-20},{-36,0}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia1(
@@ -122,12 +121,6 @@ This is a simple drive train controlled by a PID controller:
      inertia \"inertia2\" is attached. A constant external torque of 10 Nm
      is acting on the load inertia.</li>
 </ul>
-
-<p>
-The PI controller settings included \"limitAtInit=false\", in order that
-the controller output limits of 12 Nm are removed from the initialization
-problem.
-</p>
 
 <p>
 The PI controller is initialized in steady state (initType=SteadyState)

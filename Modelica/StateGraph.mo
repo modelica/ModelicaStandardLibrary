@@ -938,21 +938,20 @@ package Examples
     Step step5 annotation (Placement(
             transformation(extent={{80,40},{100,60}})));
     Modelica.Blocks.Sources.RealExpression setReal(y=time)
-                            annotation (Placement(transformation(extent={{21,
-                -160},{41,-140}})));
+      annotation (Placement(transformation(extent={{21,-160},{41,-140}})));
     TransitionWithSignal transition7 annotation (Placement(transformation(
               extent={{9,-134},{-11,-114}})));
     Modelica.Blocks.Sources.BooleanExpression setCondition(y=time >= 7)
       annotation (Placement(transformation(extent={{-77,-160},{-19,-140}})));
     Transition transition4a(enableTimer=true, waitTime=1)
-      annotation (Placement(
-            transformation(extent={{-42,0},{-22,20}})));
+      annotation (Placement(transformation(extent={{-42,0},{-22,20}})));
     Step step4a annotation (Placement(
             transformation(extent={{-8,0},{12,20}})));
     Transition transition6a(enableTimer=true, waitTime=2)
       annotation (Placement(
             transformation(extent={{26,0},{46,20}})));
-    StateGraph.Temporary.NumericValue NumericValue1
+    Modelica.Blocks.Interaction.Show.RealValue NumericValue1(
+      significantDigits=3)
       annotation (Placement(transformation(extent={{61,-160},{81,-140}})));
     Alternative alternative(nBranches=3) annotation (Placement(transformation(
               extent={{-70,-10},{72,110}})));
@@ -979,7 +978,7 @@ package Examples
       annotation (Line(points={{12.5,10},{32,10}}));
     connect(setCondition.y, transition7.condition) annotation (Line(points={{
               -16.1,-150},{-1,-150},{-1,-136}}, color={255,0,255}));
-    connect(setReal.y, NumericValue1.Value) annotation (Line(
+    connect(setReal.y, NumericValue1.numberPort) annotation (Line(
           points={{42,-150},{59,-150}}, color={0,0,255}));
     connect(transition3.inPort, alternative.split[1]) annotation (Line(points={{-36,90},
               {-55.09,90}}));
@@ -1158,13 +1157,13 @@ according to their setting before leaving the \"compositeStep\" via its
     extends Modelica.Icons.Example;
     Utilities.TankController tankController
       annotation (Placement(transformation(extent={{-50,-20},{-10,20}})));
-    StateGraph.Temporary.RadioButton start(reset={stop.on,shut.on},
+    Modelica.Blocks.Sources.RadioButtonSource start(reset={stop.on,shut.on},
         buttonTimeTable={1,13,15,19})
       annotation (Placement(transformation(extent={{-90,20},{-70,40}})));
-    StateGraph.Temporary.RadioButton stop(reset={start.on,shut.on},
+    Modelica.Blocks.Sources.RadioButtonSource stop(reset={start.on,shut.on},
         buttonTimeTable={13,15,19,21})
       annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
-    StateGraph.Temporary.RadioButton shut(reset={start.on,stop.on},
+    Modelica.Blocks.Sources.RadioButtonSource shut(reset={start.on,stop.on},
         buttonTimeTable={21,100})
       annotation (Placement(transformation(extent={{-90,-40},{-70,-20}})));
 
@@ -1270,18 +1269,15 @@ buttons:
 
     model TankController "Controller for tank system"
       extends StateGraph.Interfaces.PartialStateGraphIcon;
-      parameter Temporary.SetRealParameter limit=0.98 "Limit level of tank 1"
-        annotation (Placement(transformation(extent={{-64,76},{-44,96}})));
-      parameter Temporary.SetRealParameter waitTime=3 "Wait time"
-        annotation (Placement(transformation(extent={{-91,76},{-71,96}})));
+      parameter Real limit=0.98 "Limit level of tank 1";
+      parameter Modelica.SIunits.Time waitTime=3 "Wait time";
 
       InitialStep s1(nIn=2)
-                     annotation (Placement(transformation(extent={{-72,30},{-52,
-                  50}})));
+        annotation (Placement(transformation(extent={{-72,30},{-52,50}})));
       MakeProduct makeProduct(limit=limit, waitTime=waitTime)
         annotation (Placement(transformation(extent={{-20,25},{10,55}})));
-      Transition T1(condition=start) annotation (Placement(transformation(
-                extent={{-50,50},{-30,30}})));
+      Transition T1(condition=start)
+        annotation (Placement(transformation(extent={{-50,50},{-30,30}})));
       Transition T2(condition=level2<0.001)
         annotation (Placement(transformation(extent={{27,50},{47,30}})));
       Transition T3(condition=stop)
@@ -1407,24 +1403,18 @@ buttons:
     model MakeProduct
         "State machine defining the time instants when to fill or empty a tank"
       extends StateGraph.PartialCompositeStep;
-      parameter StateGraph.Temporary.SetRealParameter limit=0.98
-          "Limit level of tank 1"
-        annotation (Placement(transformation(extent={{-60,40},{-20,60}})));
-      parameter StateGraph.Temporary.SetRealParameter waitTime=3 "Wait time"
-        annotation (Placement(transformation(extent={{-120,40},{-80,60}})));
+      parameter Real limit=0.98 "Limit level of tank 1";
+      parameter Modelica.SIunits.Time waitTime=3 "Wait time";
 
       Modelica.Blocks.Interfaces.RealInput level1
         annotation (Placement(transformation(extent={{-190,-140},{-150,-100}})));
-      Step fillTank1 annotation (Placement(transformation(extent={{-140,-10},{
-                  -120,10}})));
+      Step fillTank1 annotation (Placement(transformation(extent={{-140,-10},{-120,10}})));
       Transition T1(condition=level1 > limit)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Step fillTank2 annotation (Placement(transformation(extent={{-10,-10},{10,
-                  10}})));
+      Step fillTank2 annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       Transition T3(condition=level1 < 0.001)
         annotation (Placement(transformation(extent={{20,-10},{40,10}})));
-      Step emptyTank2 annotation (Placement(transformation(extent={{120,-10},{
-                  140,10}})));
+      Step emptyTank2 annotation (Placement(transformation(extent={{120,-10},{140,10}})));
       Step wait1 annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
       Transition T2(enableTimer=true, waitTime=waitTime)
         annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
@@ -1606,9 +1596,8 @@ buttons:
         "Simple source model (this is a copy from Isolde Dressler's master thesis project)"
 
       Modelica.StateGraph.Examples.Utilities.Outflow1 outflow1
-                       annotation (Placement(transformation(extent={{-10,-60},{
-                  10,-40}})));
-      parameter Real maxflow=1 "maximal flow out of source";
+        annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
+      parameter Real maxflow=1 "Maximal flow out of source";
     equation
       if outflow1.open then
         outflow1.Fo = maxflow;
@@ -1747,29 +1736,23 @@ buttons:
       connect(Alternative1.outPort, exitStep.inPort[1])
         annotation (Line(points={{90.89,0},{109,0}}));
       connect(transition1.inPort, Alternative1.split[1]) annotation (Line(
-              points={{-54,30},{-80.155,30}}));
+              points={{-54,30},{-68,30},{-68,0},{-80.155,0}}));
       connect(transition2.inPort, Alternative1.split[2]) annotation (Line(
-              points={{-55,-30},{-80.155,-30}}));
+              points={{-55,-30},{-68,-30},{-68,0},{-80.155,0}}));
       connect(transition3.outPort, Alternative1.join[1]) annotation (Line(
-              points={{40.5,30},{69.155,30}}));
+              points={{40.5,30},{54,30},{54,0},{69.155,0}}));
       connect(transition4.outPort, Alternative1.join[2]) annotation (Line(
-              points={{40.5,-30},{69.155,-30}}));
+              points={{40.5,-30},{54,-30},{54,0},{69.155,0}}));
     end CompositeStep1;
 
     model CompositeStep2
         "Composite step used to demonstrate exceptions (in StateGraph.Examples.ShowExceptions)"
       extends PartialCompositeStep;
       Transition transition(enableTimer=true, waitTime=waitTime)
-        annotation (Placement(
-              transformation(extent={{-30,-10},{-10,10}})));
-      Step initStep annotation (Placement(transformation(extent={{-140,-10},{
-                  -120,10}})));
-      Step exitStep annotation (Placement(transformation(extent={{110,-10},{130,
-                  10}})));
-      parameter Temporary.SetRealParameter waitTime=2
-          "waiting time in this composite step"
-                                            annotation (Placement(
-              transformation(extent={{-80,30},{-50,50}})));
+        annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+      Step initStep annotation (Placement(transformation(extent={{-140,-10},{-120,10}})));
+      Step exitStep annotation (Placement(transformation(extent={{110,-10},{130,10}})));
+      parameter Modelica.SIunits.Time waitTime=2 "Waiting time in this composite step";
     equation
       connect(exitStep.outPort[1], outPort)
         annotation (Line(points={{130.5,0},{155,0}}));
@@ -1973,9 +1956,9 @@ package Interfaces "Connectors and partial models"
     localActive = pre(newActive);
     newActive = if outerStatePort.subgraphStatePort.resume then
                      oldActive else
-                     ( StateGraph.Temporary.anyTrue(inPort.set) or
+                     ( Modelica.Math.BooleanVectors.anyTrue(inPort.set) or
                           localActive
-                       and not StateGraph.Temporary.anyTrue(outPort.reset))
+                       and not Modelica.Math.BooleanVectors.anyTrue(outPort.reset))
                      and not outerStatePort.subgraphStatePort.suspend;
 
     // Remember state for suspend action
@@ -2126,8 +2109,7 @@ equation
             lineColor={0,0,255}),
           Rectangle(
             extent={{-100,100},{100,-100}},
-            fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
-                0} else {255,255,255}),
+            fillColor=DynamicSelect({255,255,255}, if active then {0,255,0} else {255,255,255}),
             fillPattern=FillPattern.Solid),
           Rectangle(extent={{-80,80},{80,-80}})}),
     Diagram(coordinateSystem(
@@ -2159,8 +2141,7 @@ equation
             lineColor={0,0,255}),
           Rectangle(
             extent={{-100,100},{100,-100}},
-            fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
-                0} else {255,255,255}),
+            fillColor=DynamicSelect({255,255,255}, if active then {0,255,0} else {255,255,255}),
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-92,-50},{94,-68}},
@@ -2187,8 +2168,7 @@ equation
             textString="%name",
             lineColor={0,0,255}), Rectangle(
             extent={{-100,100},{100,-100}},
-            fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
-                0} else {255,255,255}),
+            fillColor=DynamicSelect({255,255,255}, if active then {0,255,0} else {255,255,255}),
             fillPattern=FillPattern.Solid)}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -2219,8 +2199,7 @@ equation
             lineColor={0,0,255}),
           Rectangle(
             extent={{-100,100},{100,-100}},
-            fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
-                0} else {255,255,255}),
+            fillColor=DynamicSelect({255,255,255}, if active then {0,255,0} else {255,255,255}),
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-92,-74},{94,-92}},
@@ -2242,8 +2221,7 @@ block Transition
           extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-10,100},{10,-100}},
-            fillColor=DynamicSelect({0,0,0}, if enableFire > 0.5 then {0,255,0} else
-                      {0,0,0}),
+            fillColor=DynamicSelect({0,0,0}, if enableFire then {0,255,0} else {0,0,0}),
             fillPattern=FillPattern.Solid),
           Line(points={{-30,0},{-10,0}}),
           Text(
@@ -2252,13 +2230,11 @@ block Transition
             lineColor={0,0,255}),
           Text(
             extent={{20,20},{200,45}},
-            lineColor=DynamicSelect({0,0,0}, if enableTimer < 0.5 then {255,255,
-                255} else {0,0,0}),
+            lineColor=DynamicSelect({0,0,0}, if enableTimer then {255,255,255} else {0,0,0}),
             textString="%waitTime"),
           Text(
             extent={{-200,-120},{200,-145}},
-            lineColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0} else
-                      {0,0,0}),
+            lineColor=DynamicSelect({0,0,0}, if condition then {0,255,0} else {0,0,0}),
             textString="%condition")}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -2286,13 +2262,11 @@ block TransitionWithSignal
           extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{20,20},{200,45}},
-            lineColor=DynamicSelect({0,0,0}, if enableTimer < 0.5 then {255,255,
-                255} else {0,0,0}),
+            lineColor=DynamicSelect({0,0,0}, if enableTimer then {255,255,255} else {0,0,0}),
             textString="%waitTime"),
           Rectangle(
             extent={{-10,100},{10,-100}},
-            fillColor=DynamicSelect({0,0,0}, if enableFire > 0.5 then {0,255,0} else
-                      {0,0,0}),
+            fillColor=DynamicSelect({0,0,0}, if enableFire then {0,255,0} else {0,0,0}),
             fillPattern=FillPattern.Solid),
           Line(points={{-30,0},{-10,0}}),
           Text(
@@ -2301,10 +2275,8 @@ block TransitionWithSignal
             lineColor={0,0,255}),
           Ellipse(
             extent={{7,-81},{-7,-95}},
-            lineColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0} else
-                      {0,0,0}),
-            fillColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0} else
-                      {0,0,0}),
+            lineColor=DynamicSelect({0,0,0}, if condition then {0,255,0} else {0,0,0}),
+            fillColor=DynamicSelect({0,0,0}, if condition then {0,255,0} else {0,0,0}),
             fillPattern=FillPattern.Solid)}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -2399,8 +2371,8 @@ equation
 
   end for;
   join.occupied = fill(outPort.occupied, nBranches);
-  inPort.reset  = StateGraph.Temporary.anyTrue(split.reset);
-  outPort.set   = StateGraph.Temporary.anyTrue(join.set);
+  inPort.reset  = Modelica.Math.BooleanVectors.anyTrue(split.reset);
+  outPort.set   = Modelica.Math.BooleanVectors.anyTrue(join.set);
   annotation (
     Icon(coordinateSystem(
           preserveAspectRatio=false,
@@ -2541,8 +2513,8 @@ equation
   // Propagate flags between the connectors
   split.set  = fill(inPort.set, nBranches);
   join.reset = fill(outPort.reset, nBranches);
-  inPort.occupied   = StateGraph.Temporary.anyTrue(split.occupied);
-  outPort.available = StateGraph.Temporary.allTrue(join.available);
+  inPort.occupied   = Modelica.Math.BooleanVectors.anyTrue(split.occupied);
+  outPort.available = Modelica.Math.BooleanVectors.allTrue(join.available);
   annotation (
     Icon(coordinateSystem(
           preserveAspectRatio=false,
@@ -2572,8 +2544,8 @@ partial model PartialCompositeStep
      within the CompositeStep
   */
   inner outer StateGraph.Interfaces.CompositeStepState stateGraphRoot(
-                  suspend = StateGraph.Temporary.anyTrue(suspend.reset) or outerState.subgraphStatePort.suspend,
-                  resume =  StateGraph.Temporary.anyTrue(resume.set) or outerState.subgraphStatePort.resume)
+                  suspend = Modelica.Math.BooleanVectors.anyTrue(suspend.reset) or outerState.subgraphStatePort.suspend,
+                  resume  = Modelica.Math.BooleanVectors.anyTrue(resume.set) or outerState.subgraphStatePort.resume)
       "Communication port between the CompositeStep and the steps within the CompositeStep";
   output Boolean active
       "= true if step is active, otherwise the step is not active";
@@ -2630,9 +2602,9 @@ equation
        a higher level CompositeStep fires.
   */
   // newActive = activeSteps > 0 and not suspend.reset or resume.set;
-  newActive = activeSteps > 0 and not StateGraph.Temporary.anyTrue(suspend.reset) and not
+  newActive = activeSteps > 0 and not Modelica.Math.BooleanVectors.anyTrue(suspend.reset) and not
               outerState.subgraphStatePort.suspend or
-              StateGraph.Temporary.anyTrue(resume.set) or outerState.subgraphStatePort.resume;
+              Modelica.Math.BooleanVectors.anyTrue(resume.set) or outerState.subgraphStatePort.resume;
 
   // Report state to suspend and resume transitions
 
@@ -2721,8 +2693,7 @@ inside the CompositeStep to the outPort connector.");
             lineColor={0,0,255}),
           Rectangle(
             extent={{-150,150},{150,-150}},
-            fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
-                0} else {255,255,255}),
+            fillColor=DynamicSelect({255,255,255}, if active then {0,255,0} else {255,255,255}),
             fillPattern=FillPattern.Solid),
           Text(
             extent={{4,-115},{145,-130}},
@@ -2952,8 +2923,7 @@ value, still requires to go in to the text layer.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Ellipse(
               extent={{-100,-100},{100,100}},
-              fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else
-                        {235,235,235}),
+              fillColor=DynamicSelect({235,235,235}, if u then {0,255,0} else {235,235,235}),
               pattern=LinePattern.None,
               fillPattern=FillPattern.Sphere), Text(
               extent={{-150,150},{150,110}},

@@ -12,7 +12,7 @@ package Constants
   final constant Real pi=2*Modelica.Math.asin(1.0); // 3.14159265358979;
   final constant Real D2R=pi/180 "Degree to Radian";
   final constant Real R2D=180/pi "Radian to Degree";
-  final constant Real gamma=0.57721566490153286060
+  final constant Real gamma=0.57721566490153286061
     "see http://en.wikipedia.org/wiki/Euler_constant";
 
   // Machine dependent constants
@@ -49,8 +49,8 @@ package Constants
     "Stefan-Boltzmann constant ";
   final constant Real N_A(final unit="1/mol") = 6.02214076e23
     "Avogadro constant";
-  final constant Real mue_0(final unit="N/A2") = 4*pi*1.e-7 "Magnetic constant";
-  final constant Real epsilon_0(final unit="F/m") = 1/(mue_0*c*c)
+  final constant Real mu_0(final unit="N/A2") = 4*pi*1.e-7 "Magnetic constant";
+  final constant Real epsilon_0(final unit="F/m") = 1/(mu_0*c*c)
     "Electric constant";
   final constant NonSI.Temperature_degC T_zero=-273.15
     "Absolute zero temperature";

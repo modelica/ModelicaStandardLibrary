@@ -4,7 +4,7 @@ package FluxTubes
 
   import SI = Modelica.SIunits;
   import Modelica.Constants.pi;
-  import mu_0 = Modelica.Constants.mue_0;
+  import mu_0 = Modelica.Constants.mu_0;
 
   extends Modelica.Icons.Package;
 
@@ -4333,7 +4333,7 @@ The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculat
       parameter SI.RelativePermeability mu_rel(min=Modelica.Constants.eps) = 1
         "Constant relative permeability of leakage inductance (> 0 required)"
         annotation (Dialog(tab="LeakageInductance"));
-      final parameter SI.Permeance G_m=Modelica.Constants.mue_0*mu_rel*A/L
+      final parameter SI.Permeance G_m=Modelica.Constants.mu_0*mu_rel*A/L
         "Magnetic permeance of leakage inductance";
 
       // For information only
@@ -5496,11 +5496,11 @@ An overview of all available hysteresis and permanent magnet elements of the pac
         constant SI.MagneticFluxDensity unitT=1;
         parameter SI.MagneticFluxDensity eps = unitT*mat.tabris[size(mat.tabris,1),2]/1000;
 
-        Modelica.Blocks.Tables.CombiTable1D tabris(
+        Modelica.Blocks.Tables.CombiTable1Dv tabris(
           table=mat.tabris,
           smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative);
 
-        Modelica.Blocks.Tables.CombiTable1D tabfal(
+        Modelica.Blocks.Tables.CombiTable1Dv tabfal(
           table=mat.tabfal,
           smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative);
 
@@ -5544,7 +5544,7 @@ An overview of all available hysteresis and permanent magnet elements of the pac
         extends Interfaces.PartialGenericHysteresis(sigma=mat.sigma);
 
       protected
-        final parameter Real mu0=mat.K*Modelica.Constants.mue_0;
+        final parameter Real mu0=mat.K*Modelica.Constants.mu_0;
 
         SI.MagneticFluxDensity J "Polarisation";
         SI.MagneticFieldStrength hmax(start=0, min=0) "maximum value of h";
@@ -5728,7 +5728,7 @@ An overview over all available hysteresis and permanent magnet elements of the p
         "Permanent magnet based on the Tellinen hysteresis model"
 
         extends FluxTubes.Interfaces.PartialGenericHysteresisTellinen(mu0=K*
-              Modelica.Constants.mue_0, MagRel(start=-1, fixed=true));
+              Modelica.Constants.mu_0, MagRel(start=-1, fixed=true));
 
         parameter SI.MagneticFluxDensity Br=1.2 "Remanence" annotation (Dialog(group="Hysteresis", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenHard/HardMagneticHysteresis.png"));
         parameter SI.MagneticFieldStrength Hc=5e5 "Coercitivity" annotation (Dialog(group="Hysteresis"));
@@ -6437,7 +6437,7 @@ Additional user-specific materials can be defined as needed.
         parameter Real p2(final unit="m/A")=8e-1 "Sharpness of major loop";
         parameter SI.MagneticFieldStrength Hc=7.4 "Major loop coercivity";
         parameter Real K(final unit="1")=1
-          "Slope in saturation region mue_0*K";
+          "Slope in saturation region mu_0*K";
         parameter SI.Conductivity sigma = 1
           "Electrical conductivity of material";
 
@@ -7562,7 +7562,7 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
     partial model ConditionalHeatPort
       "Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network"
 
-      parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
+      parameter Boolean useHeatPort = false "= true, if HeatPort is enabled"
       annotation(Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(tab="Losses and Heat", group="HeatPort"));
       parameter Modelica.SIunits.Temperature T=293.15
         "Fixed device temperature if useHeatPort = false" annotation(Dialog(tab="Losses and Heat", group="HeatPort", enable=not useHeatPort));
@@ -7608,7 +7608,7 @@ on the model behaviour.
       extends Interfaces.ConditionalHeatPort(final T=293.15);
 
       parameter Boolean includeEddyCurrents = false
-        "=true, if eddy current losses are enabled"
+        "= true, if eddy current losses are enabled"
       annotation(Dialog(tab="Losses and Heat", group="Eddy Currents"), Evaluate=true, HideResult=true, choices(checkBox=true));
 
       parameter SI.Conductivity sigma=10e6 "Conductivity of core material" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=includeEddyCurrents));
