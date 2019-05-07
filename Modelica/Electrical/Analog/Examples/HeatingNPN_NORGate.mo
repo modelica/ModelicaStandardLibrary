@@ -1,5 +1,5 @@
 within Modelica.Electrical.Analog.Examples;
-model HeatingNPN_OrGate "Heating NPN Or Gate"
+model HeatingNPN_NORGate "Heating NPN NOR Gate"
   extends Modelica.Icons.Example;
   parameter SI.Capacitance CapVal=0 "Value for capacitances" annotation(Evaluate=true);
   parameter SI.Time tauVal=0 "Value for ideal forward and reverse transit time of semiconductors"  annotation(Evaluate=true);
@@ -182,9 +182,9 @@ equation
 annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-100,100},{-6,72}},
-          textString="Heating \"NPN or\" Gate",
+          textString="Heating \"NPN NOR\" Gate",
           lineColor={0,0,255})}), Documentation(info="<html>
-<p>The heating &quot;NPN or&quot; gate shows a heat flow always if a transistor is leading.</p>
+<p>The heating &quot;NPN NOR&quot; gate shows a heat flow always if a transistor is leading.</p>
 <p>Simulate until T=200 s. Plot in separate windows:
 <br>V1.v and V2.v and C2.v
 <br>HeatCapacitor1.port.T and T1.heatPort.T and T2.heatPort.T
@@ -198,4 +198,4 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
        </li>
 </ul>
 </html>"), experiment(StopTime=200));
-end HeatingNPN_OrGate;
+end HeatingNPN_NORGate;
