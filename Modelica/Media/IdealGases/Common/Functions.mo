@@ -40,12 +40,12 @@ package Functions
   end cp_Tlow;
 
   function cp_Tlow_der
-    "Compute specific heat capacity at constant pressure, low T region"
+    "Compute derivative of specific heat capacity at constant pressure, low T region"
     extends Modelica.Icons.Function;
     input IdealGases.Common.DataRecord data "Ideal gas data";
     input SI.Temperature T "Temperature";
-    input Real dT "Temperature derivative";
-    output Real cp_der "Derivative of specific heat capacity";
+    input Real dT(unit="K/s") "Temperature derivative";
+    output Real cp_der(unit="J/(kg.K.s)") "Derivative of specific heat capacity";
   algorithm
     cp_der := dT*data.R/(T*T*T)*(-2*data.alow[1] + T*(
       -data.alow[2] + T*T*(data.alow[4] + T*(2.*data.alow[5] + T
@@ -94,8 +94,8 @@ package Functions
       "Choice of reference enthalpy";
     input SI.SpecificEnthalpy h_off=h_offset
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
-    input Real dT "Temperature derivative";
-    output Real h_der "Specific enthalpy at temperature T";
+    input Real dT(unit="K/s") "Temperature derivative";
+    output Real h_der(unit="J/(K.s)") "Derivative of specific enthalpy at temperature T";
   algorithm
     h_der := dT*Modelica.Media.IdealGases.Common.Functions.cp_T(
                      data,T);
@@ -129,7 +129,7 @@ package Functions
     annotation(Inline=false,smoothOrder=2);
   end h_Tlow;
 
-  function h_Tlow_der "Compute specific enthalpy, low T region; reference is decided by the
+  function h_Tlow_der "Compute derivative of specific enthalpy, low T region; reference is decided by the
     refChoice input, or by the referenceChoice package constant by default"
     import Modelica.Media.Interfaces.Choices;
     extends Modelica.Icons.Function;
