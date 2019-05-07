@@ -231,7 +231,7 @@ function index "Returns the indices of the true elements of a Boolean vector"
   extends Modelica.Icons.Function;
 
   input Boolean b[:] "Boolean vector";
-  output Integer indices[countTrue(b)] "Indices of the true elements";
+  output Integer indices[countTrue(b)] "Indices of the true elements of b";
 
   protected
   Integer count;
