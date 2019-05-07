@@ -48,11 +48,11 @@ i.e., size(b,1)=0, the function returns <strong>false</strong>.
 end allTrue;
 
 function anyTrue
-    "Returns true, if at least on element of the Boolean input vector is true ('or')"
+    "Returns true, if at least one element of the Boolean input vector is true ('or')"
 
   extends Modelica.Icons.Function;
   input Boolean b[:] "Boolean vector";
-  output Boolean result "= true, if at least on element of b is true";
+  output Boolean result "= true, if at least one element of b is true";
 algorithm
   result := false;
   for i in 1:size(b,1) loop
@@ -66,7 +66,7 @@ algorithm
 
 <h4>Description</h4>
 <p>
-Returns <strong>true</strong> if at least one elements of the input Boolean vector b is <strong>true</strong>.
+Returns <strong>true</strong> if at least one element of the input Boolean vector b is <strong>true</strong>.
 Otherwise the function returns <strong>false</strong>. If b is an empty vector,
 i.e., size(b,1)=0, the function returns <strong>false</strong>.
 </p>
