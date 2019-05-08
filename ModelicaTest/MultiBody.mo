@@ -6369,6 +6369,7 @@ and plot gasForce.press over gasForce.s_rel.
         r={0.5,0,0},
         width=0.1,
         height=0.1,
+        r_0(start = {1, 0, 0}),
         angles_fixed=true,
         w_0_fixed=true,
         w_0_start={0,0,0})
