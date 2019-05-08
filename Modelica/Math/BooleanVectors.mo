@@ -133,7 +133,7 @@ function enumerate
 
   input Boolean b[:] "Boolean vector";
   output Integer enumerated[size(b, 1)]
-      "Indices of the true elements (increasing order; 0 for false elements)";
+      "Indices of the true elements in b (increasing order; 0 for false elements)";
 
   protected
   Integer count;
