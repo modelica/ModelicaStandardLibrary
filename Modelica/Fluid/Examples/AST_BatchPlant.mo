@@ -95,6 +95,7 @@ package AST_BatchPlant
     Modelica.Fluid.Valves.ValveDiscrete V3(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
+      opening_min = 1e-5,
       dp_nominal = 100)
       annotation (Placement(transformation(extent={{-150,210},{-130,230}})));
     Fittings.TeeJunctionIdeal volume2(
@@ -106,6 +107,7 @@ package AST_BatchPlant
     Modelica.Fluid.Valves.ValveDiscrete V6(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
+      opening_min = 1e-5,
       dp_nominal = 100)
       annotation (Placement(transformation(extent={{130,210},{110,230}})));
     Fittings.TeeJunctionIdeal volume8(
@@ -124,24 +126,24 @@ package AST_BatchPlant
           rotation=180)));
     Modelica.Fluid.Valves.ValveDiscrete V1(
       redeclare package Medium = BatchMedium,
-      m_flow_nominal = 1,
-      dp_nominal = 100)
+      m_flow_nominal = 0.1,
+      dp_nominal = 1000)
       annotation (Placement(transformation(
           origin={-180,110},
           extent={{-10,10},{10,-10}},
           rotation=90)));
     Modelica.Fluid.Valves.ValveDiscrete V22(
       redeclare package Medium = BatchMedium,
-      m_flow_nominal = 1,
-      dp_nominal = 100)
+      m_flow_nominal = 0.1,
+      dp_nominal = 1000)
       annotation (Placement(transformation(
           origin={-180,-170},
           extent={{-10,10},{10,-10}},
           rotation=90)));
     Modelica.Fluid.Valves.ValveDiscrete V5(
       redeclare package Medium = BatchMedium,
-      m_flow_nominal = 1,
-      dp_nominal = 100)
+      m_flow_nominal = 0.1,
+      dp_nominal = 1000)
       annotation (Placement(transformation(
           origin={160,110},
           extent={{10,-10},{-10,10}},
@@ -156,8 +158,8 @@ package AST_BatchPlant
           rotation=180)));
     Modelica.Fluid.Valves.ValveDiscrete V25(
       redeclare package Medium = BatchMedium,
-      m_flow_nominal = 1,
-      dp_nominal = 100)
+      m_flow_nominal = 0.1,
+      dp_nominal = 1000)
       annotation (Placement(transformation(
           origin={160,-170},
           extent={{10,-10},{-10,10}},
@@ -251,7 +253,7 @@ package AST_BatchPlant
       stiffCharacteristicForEmptyPort=false)
                          annotation (Placement(transformation(extent={{-110,180},
               {-70,220}})));
-    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, dp_small=1000)
                           annotation (Placement(transformation(extent={{180,250},
               {200,270}})));
     Modelica.Blocks.Logical.TriggeredTrapezoid P1_on(               rising=0,
@@ -554,7 +556,7 @@ package AST_BatchPlant
         points={{-8,0},{-8,-80},{-21,-80},{-21,-160}}, color={0,127,255}));
     connect(B3.ports[2], pipeB1B1.port_a) annotation (Line(
         points={{-8,99},{-8,20},{-8,20}}, color={0,127,255}));
-    annotation (experiment(StopTime=3600),
+    annotation (experiment(StopTime=3600,Interval=1),
       __Dymola_Commands(file=
             "modelica://Modelica/Resources/Scripts/Dymola/Fluid/AST_BatchPlant_StandardWater/plot level.mos"
           "plot level"),
