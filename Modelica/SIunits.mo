@@ -304,15 +304,6 @@ end UsersGuide;
         "Absolute pressure in bar";
       type MassFlowRate_gps = Real (final quantity="MassFlowRate", final unit=
               "g/s") "Mass flow rate in gram per second";
-
-      type FirstOrderTemperaturCoefficient =
-                              Real (final quantity="FirstOrderTemperatureCoefficient",
-            final unit="Ohm/degC") "Obsolete type, use LinearTemperatureCoefficientResistance instead!" annotation(absoluteValue=true,
-        obsolete = "Obsolete type - use Modelica.SIunits.LinearTemperatureCoefficientResistance instead");
-      type SecondOrderTemperaturCoefficient =
-                              Real (final quantity="SecondOrderTemperatureCoefficient",
-            final unit="Ohm/degC2") "Obsolete type, use QuadraticTemperatureCoefficientResistance instead!" annotation(absoluteValue=true,
-        obsolete = "Obsolete type - use Modelica.SIunits.QuadraticTemperatureCoefficientResistance instead");
       type Area_cm =   Real (final quantity="Area", final unit="cm2")
         "Area in cm";
       type PerArea_cm =Real (final quantity="PerArea", final unit="1/cm2")
