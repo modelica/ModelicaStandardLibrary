@@ -1668,20 +1668,20 @@ A linear temperature dependency of the resistances is also taken into account.
             extent={{-20,-20},{20,20}},
             rotation=270,
             origin={0,120})));
-      QuasiStationary.SinglePhase.Basic.VariableConductor variableResistor[m](
+      QuasiStationary.SinglePhase.Basic.VariableConductor variableConductor[m](
         final T_ref=T_ref,
         final alpha_ref=alpha_ref,
         each final useHeatPort=useHeatPort,
         final T=T) annotation (Placement(transformation(extent={{-10,-10},{10,
                 10}})));
     equation
-      connect(variableResistor.pin_p, plugToPins_p.pin_p) annotation (Line(
+      connect(variableConductor.pin_p, plugToPins_p.pin_p) annotation (Line(
             points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color={85,170,255}));
-      connect(variableResistor.pin_n, plugToPins_n.pin_n) annotation (Line(
+      connect(variableConductor.pin_n, plugToPins_n.pin_n) annotation (Line(
             points={{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
-      connect(variableResistor.heatPort, heatPort) annotation (Line(points={{0,
+      connect(variableConductor.heatPort, heatPort) annotation (Line(points={{0,
               -10},{0,-32.5},{0,-32.5},{0,-55},{0,-55},{0,-100}}, color={191,0,0}));
-      connect(G_ref, variableResistor.G_ref) annotation (Line(points={{0,120},{0,120},{0,12},{0,12}}, color={0,0,127}));
+      connect(G_ref, variableConductor.G_ref) annotation (Line(points={{0,120},{0,120},{0,12},{0,12}}, color={0,0,127}));
       annotation (defaultComponentName="conductor",
         Icon(graphics={Line(points={{60,0},{90,0}}, color={85,170,255}),
               Line(points={{-90,0},{-60,0}}, color={85,170,255}),

@@ -143,6 +143,24 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end Issue758;
     end Digital;
+
+    package QuasiStationary
+      extends Modelica.Icons.ExamplesPackage;
+      model Issue2693 "Conversion test for #2693"
+        Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor variableConductor(variableResistor "Variable Conductor");
+        Modelica.Blocks.Sources.RealExpression realExpression[3](each y=time + 1);
+        Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource voltageSource;
+      equation
+        connect(realExpression.y, variableConductor.G_ref);
+        connect(variableConductor.plug_n, voltageSource.plug_p);
+        connect(voltageSource.plug_n, variableConductor.plug_p);
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2693\">#2693</a>.
+</p>
+</html>"));
+      end Issue2693;
+    end QuasiStationary;
   end Electrical;
 
   package Fluid

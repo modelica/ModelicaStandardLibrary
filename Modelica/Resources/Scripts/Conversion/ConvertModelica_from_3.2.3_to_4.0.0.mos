@@ -45,6 +45,9 @@ convertElement({"Modelica.Mechanics.Rotational.Components.Brake",
 convertElement({"Modelica.Mechanics.Rotational.Sources.SignTorque"},
                 "tau_constant", "tau_nominal");
 
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor",
+                "variableResistor", "variableConductor");
+
 convertModifiers({"Modelica.Blocks.Nonlinear.Limiter",
                   "Modelica.Blocks.Nonlinear.VariableLimiter",
                   "Modelica.Blocks.Continuous.LimPID"},
