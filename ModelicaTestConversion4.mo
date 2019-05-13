@@ -158,6 +158,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
       end Issue1189;
 
       model Issue2693 "Conversion test for #2693"
+        extends Modelica.Icons.Example;
         Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor variableConductor(variableResistor "Variable Conductor");
         Modelica.Blocks.Sources.RealExpression realExpression[3](each y=time + 1);
         Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource voltageSource;
